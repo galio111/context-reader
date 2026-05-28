@@ -87,8 +87,13 @@ async function requestArticleSummary(article: string): Promise<string> {
     },
     body: JSON.stringify({ article }),
   });
-  const data = (await response.json().catch(() => null)) as { summary?: string } | null;
-  return data?.summary?.trim() || "这是一篇已保存的英文阅读文章。";
+  const data = (await response.json().catch(() => null)) as { summary?: string; error?: string } | null;
+
+  if (!response.ok || !data?.summary?.trim()) {
+    throw new Error(data?.error || "文章摘要生成失败，请稍后重试。");
+  }
+
+  return data.summary.trim();
 }
 
 export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps) {
@@ -124,7 +129,11 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
     setVocabularyEntries(getVocabularyEntries());
   }, []);
 
-  const articleSaved = useMemo(() => Boolean(findSavedArticle(article)), [article]);
+  const articleSaved = useMemo(() => {
+    const savedArticle = findSavedArticle(article);
+    const summary = savedArticle?.summary?.trim();
+    return Boolean(summary && summary !== "这是一篇已保存的英文阅读文章。");
+  }, [article]);
 
   function getTokenRange(startToken: ReaderToken, endToken: ReaderToken): ReaderToken[] {
     if (startToken.paragraphIndex !== endToken.paragraphIndex) {
@@ -380,21 +389,21 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
 
   async function handleSaveArticle() {
     setSavingArticle(true);
-    setSaveStatus("正在生成摘要...");
+    setSaveStatus("正在生成中文摘要...");
     try {
       const summary = await requestArticleSummary(article);
       saveArticle(article, summary);
       onArticleSaved();
       setSaveStatus("文章已保存");
-    } catch {
-      saveArticle(article, "这是一篇已保存的英文阅读文章。");
-      onArticleSaved();
-      setSaveStatus("文章已保存，摘要稍后可重新生成");
+    } catch (summaryError) {
+      setSaveStatus(summaryError instanceof Error ? summaryError.message : "文章摘要生成失败，请稍后重试。");
     } finally {
       setSavingArticle(false);
-      window.setTimeout(() => setSaveStatus(""), 1800);
+      window.setTimeout(() => setSaveStatus(""), 2600);
     }
   }
+
+  const saveButtonText = articleSaved ? "已保存文章" : savingArticle ? "保存中" : "保存文章";
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -415,7 +424,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
               onClick={handleSaveArticle}
               disabled={articleSaved || savingArticle}
             >
-              {articleSaved ? "已保存文章" : savingArticle ? "保存中" : "保存文章"}
+              {saveButtonText}
             </button>
             <button
               type="button"

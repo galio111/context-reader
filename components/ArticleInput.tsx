@@ -12,6 +12,14 @@ interface ArticleInputProps {
   onDeleteSavedArticle: (id: string) => void;
 }
 
+function articleSummaryText(savedArticle: SavedArticle): string {
+  const summary = savedArticle.summary.trim();
+  if (!summary || summary === "这是一篇已保存的英文阅读文章。") {
+    return "这篇文章还没有生成中文摘要，请进入文章后重新保存。";
+  }
+  return summary;
+}
+
 export function ArticleInput({
   article,
   error,
@@ -54,7 +62,7 @@ export function ArticleInput({
 
       <aside className="mt-6 max-h-[420px] overflow-y-auto rounded-md border border-gray-200 bg-slate-50 p-4 lg:fixed lg:bottom-8 lg:right-6 lg:top-8 lg:mt-0 lg:w-80 lg:max-h-none">
         <h2 className="text-lg font-semibold text-gray-950">已保存文章</h2>
-        <p className="mt-1 text-sm text-gray-500">点击文章可直接进入阅读。</p>
+        <p className="mt-1 text-sm text-gray-500">点击摘要可直接进入阅读。</p>
 
         {savedArticles.length === 0 ? (
           <p className="mt-5 text-sm leading-6 text-gray-500">还没有保存过文章。</p>
@@ -67,14 +75,11 @@ export function ArticleInput({
                   className="block w-full text-left"
                   onClick={() => onOpenSavedArticle(savedArticle)}
                 >
-                  <span className="block text-sm font-semibold leading-6 text-gray-950">
-                    {savedArticle.title}
-                  </span>
-                  <span className="mt-1 block text-xs text-gray-500">
+                  <span className="block text-xs text-gray-500">
                     {new Date(savedArticle.updatedAt).toLocaleString()}
                   </span>
-                  <span className="mt-2 block text-sm leading-6 text-gray-700">
-                    {savedArticle.summary || "这是一篇已保存的英文阅读文章。"}
+                  <span className="mt-2 block text-sm leading-6 text-gray-800">
+                    {articleSummaryText(savedArticle)}
                   </span>
                 </button>
                 <button
