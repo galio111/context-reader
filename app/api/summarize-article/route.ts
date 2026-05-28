@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 const DEFAULT_MODEL = "deepseek-v4-flash";
 const MAX_ARTICLE_CHARS = 6000;
+const MIN_SUMMARY_CHINESE_CHARS = 8;
 
 interface DeepSeekSummaryResponse {
   choices?: Array<{
@@ -17,9 +18,22 @@ interface DeepSeekSummaryResponse {
 function cleanSummary(value: string): string {
   return value
     .replace(/[`*_#>~-]/g, "")
+    .replace(/^[\s"'“”‘’「」【】（）：:，,。.!！？?、；;\-]+/, "")
     .replace(/\s+/g, " ")
     .trim()
     .replace(/[。！？!?]*$/, "。");
+}
+
+function hasEnoughChineseContent(value: string): boolean {
+  const chineseChars = value.match(/[\u4e00-\u9fff]/g)?.length ?? 0;
+  return chineseChars >= MIN_SUMMARY_CHINESE_CHARS;
+}
+
+function userFriendlyDeepSeekError(message = ""): string {
+  if (/service is too busy|temporarily switch|busy/i.test(message)) {
+    return "DeepSeek 当前服务繁忙，文章摘要没有生成成功，请稍后重新保存。";
+  }
+  return message || "DeepSeek 生成文章摘要失败。";
 }
 
 export async function POST(request: Request) {
@@ -59,7 +73,7 @@ export async function POST(request: Request) {
           {
             role: "system",
             content:
-              "你是英文阅读文章摘要助手。请根据用户提供的英文文章，输出一句中文内容摘要，作为文章列表里的标题式简介。只输出中文一句话，不要出现英文原文，不要 Markdown，不要编号，不要解释。",
+              "你是英文阅读文章摘要助手。请根据用户提供的英文文章，输出一句中文内容摘要，作为文章列表里的简介。只输出中文一句话，必须有具体信息，不要只输出标点，不要出现英文原文，不要 Markdown，不要编号，不要解释。",
           },
           {
             role: "user",
@@ -73,14 +87,17 @@ export async function POST(request: Request) {
     const data = (await response.json().catch(() => null)) as DeepSeekSummaryResponse | null;
     if (!response.ok) {
       return NextResponse.json(
-        { error: data?.error?.message || "DeepSeek 生成文章摘要失败。" },
+        { error: userFriendlyDeepSeekError(data?.error?.message) },
         { status: response.status },
       );
     }
 
     const summary = cleanSummary(data?.choices?.[0]?.message?.content ?? "");
-    if (!summary) {
-      return NextResponse.json({ error: "DeepSeek 没有返回文章摘要。" }, { status: 502 });
+    if (!summary || !hasEnoughChineseContent(summary)) {
+      return NextResponse.json(
+        { error: "DeepSeek 返回的文章摘要内容无效，请重新保存。" },
+        { status: 502 },
+      );
     }
 
     return NextResponse.json({ summary });
