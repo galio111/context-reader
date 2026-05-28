@@ -37,6 +37,7 @@ function normalizeArticle(value: unknown): SavedArticle | null {
     title: typeof article.title === "string" && article.title.trim()
       ? article.title.trim()
       : titleFromArticle(article.body),
+    summary: typeof article.summary === "string" ? article.summary : "",
     body: article.body,
     createdAt: typeof article.createdAt === "string" ? article.createdAt : now,
     updatedAt: typeof article.updatedAt === "string" ? article.updatedAt : now,
@@ -79,7 +80,7 @@ export function findSavedArticle(article: string): SavedArticle | null {
   return getSavedArticles().find((item) => articleIdentity(item.body) === key) ?? null;
 }
 
-export function saveArticle(article: string): SavedArticle[] {
+export function saveArticle(article: string, summary = ""): SavedArticle[] {
   const body = article.trim();
   const articles = getSavedArticles();
   const key = articleIdentity(body);
@@ -88,7 +89,7 @@ export function saveArticle(article: string): SavedArticle[] {
 
   if (existing) {
     const nextArticles = articles.map((item) =>
-      item.id === existing.id ? { ...item, updatedAt: now } : item,
+      item.id === existing.id ? { ...item, summary: summary || item.summary, updatedAt: now } : item,
     );
     saveArticles(nextArticles);
     return nextArticles;
@@ -98,6 +99,7 @@ export function saveArticle(article: string): SavedArticle[] {
     {
       id: `article-${Date.now()}`,
       title: titleFromArticle(body),
+      summary,
       body,
       createdAt: now,
       updatedAt: now,

@@ -79,6 +79,18 @@ function buildEntryText(entry: VocabularyEntry): string {
     .join("\n");
 }
 
+async function requestArticleSummary(article: string): Promise<string> {
+  const response = await fetch("/api/summarize-article", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ article }),
+  });
+  const data = (await response.json().catch(() => null)) as { summary?: string } | null;
+  return data?.summary?.trim() || "这是一篇已保存的英文阅读文章。";
+}
+
 export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps) {
   const paragraphs = useMemo(() => tokenizeArticle(article), [article]);
   const wordTokens = useMemo(
@@ -104,6 +116,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
   const [importingId, setImportingId] = useState("");
   const [importError, setImportError] = useState("");
   const [saveStatus, setSaveStatus] = useState("");
+  const [savingArticle, setSavingArticle] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const suppressNextClickRef = useRef(false);
 
@@ -365,11 +378,22 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
     }
   }
 
-  function handleSaveArticle() {
-    saveArticle(article);
-    onArticleSaved();
-    setSaveStatus("文章已保存");
-    window.setTimeout(() => setSaveStatus(""), 1800);
+  async function handleSaveArticle() {
+    setSavingArticle(true);
+    setSaveStatus("正在生成摘要...");
+    try {
+      const summary = await requestArticleSummary(article);
+      saveArticle(article, summary);
+      onArticleSaved();
+      setSaveStatus("文章已保存");
+    } catch {
+      saveArticle(article, "这是一篇已保存的英文阅读文章。");
+      onArticleSaved();
+      setSaveStatus("文章已保存，摘要稍后可重新生成");
+    } finally {
+      setSavingArticle(false);
+      window.setTimeout(() => setSaveStatus(""), 1800);
+    }
   }
 
   return (
@@ -389,9 +413,9 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
               type="button"
               className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:text-gray-400"
               onClick={handleSaveArticle}
-              disabled={articleSaved}
+              disabled={articleSaved || savingArticle}
             >
-              {articleSaved ? "已保存文章" : "保存文章"}
+              {articleSaved ? "已保存文章" : savingArticle ? "保存中" : "保存文章"}
             </button>
             <button
               type="button"
