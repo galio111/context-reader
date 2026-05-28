@@ -5,6 +5,7 @@ import { AnkiSettingsPanel, defaultAnkiSettings } from "@/components/AnkiSetting
 import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { WordToken } from "@/components/WordToken";
+import { findSavedArticle, saveArticle } from "@/lib/articles";
 import { createExplanationCacheKey, getCachedExplanation, setCachedExplanation } from "@/lib/cache";
 import { downloadVocabularyCsv } from "@/lib/csv";
 import { tokenizeArticle, tokenToWordContext } from "@/lib/tokenizer";
@@ -24,6 +25,7 @@ import type { VocabularyEntry } from "@/types/vocabulary";
 interface ReaderViewProps {
   article: string;
   onBack: () => void;
+  onArticleSaved: () => void;
 }
 
 async function requestExplanation(
@@ -77,7 +79,7 @@ function buildEntryText(entry: VocabularyEntry): string {
     .join("\n");
 }
 
-export function ReaderView({ article, onBack }: ReaderViewProps) {
+export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps) {
   const paragraphs = useMemo(() => tokenizeArticle(article), [article]);
   const wordTokens = useMemo(
     () => paragraphs.flatMap((paragraph) => paragraph.tokens.filter((token) => token.type === "word")),
@@ -101,12 +103,15 @@ export function ReaderView({ article, onBack }: ReaderViewProps) {
   const [checkingAnki, setCheckingAnki] = useState(false);
   const [importingId, setImportingId] = useState("");
   const [importError, setImportError] = useState("");
+  const [saveStatus, setSaveStatus] = useState("");
   const abortRef = useRef<AbortController | null>(null);
   const suppressNextClickRef = useRef(false);
 
   useEffect(() => {
     setVocabularyEntries(getVocabularyEntries());
   }, []);
+
+  const articleSaved = useMemo(() => Boolean(findSavedArticle(article)), [article]);
 
   function getTokenRange(startToken: ReaderToken, endToken: ReaderToken): ReaderToken[] {
     if (startToken.paragraphIndex !== endToken.paragraphIndex) {
@@ -219,7 +224,6 @@ export function ReaderView({ article, onBack }: ReaderViewProps) {
 
     setDragStartToken(null);
     setDragCurrentToken(null);
-
     suppressNextClickRef.current = true;
     window.setTimeout(() => {
       suppressNextClickRef.current = false;
@@ -233,8 +237,7 @@ export function ReaderView({ article, onBack }: ReaderViewProps) {
       return;
     }
 
-    const context = tokenToWordContext(token);
-    void explainContext(context, [token.id]);
+    void explainContext(tokenToWordContext(token), [token.id]);
   }
 
   function handleArticlePointerDown(event: React.PointerEvent<HTMLElement>) {
@@ -362,6 +365,13 @@ export function ReaderView({ article, onBack }: ReaderViewProps) {
     }
   }
 
+  function handleSaveArticle() {
+    saveArticle(article);
+    onArticleSaved();
+    setSaveStatus("文章已保存");
+    window.setTimeout(() => setSaveStatus(""), 1800);
+  }
+
   return (
     <main className="min-h-screen bg-slate-50">
       <header className="sticky top-0 z-30 border-b border-gray-200 bg-white/95 backdrop-blur">
@@ -373,13 +383,24 @@ export function ReaderView({ article, onBack }: ReaderViewProps) {
           >
             返回编辑
           </button>
-          <button
-            type="button"
-            className="rounded-md bg-gray-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
-            onClick={() => setVocabularyOpen(true)}
-          >
-            生词本
-          </button>
+          <div className="flex items-center gap-2">
+            {saveStatus && <span className="text-sm text-green-700">{saveStatus}</span>}
+            <button
+              type="button"
+              className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:text-gray-400"
+              onClick={handleSaveArticle}
+              disabled={articleSaved}
+            >
+              {articleSaved ? "已保存文章" : "保存文章"}
+            </button>
+            <button
+              type="button"
+              className="rounded-md bg-gray-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
+              onClick={() => setVocabularyOpen(true)}
+            >
+              生词本
+            </button>
+          </div>
         </div>
       </header>
 
