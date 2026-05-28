@@ -2,10 +2,12 @@ import { normalizeAnkiInfo } from "@/lib/ankiData";
 import type { Difficulty, ExplanationRequest, WordExplanation } from "@/types/reader";
 
 const DEFAULT_MODEL = "deepseek-v4-flash";
+const DEFAULT_FALLBACK_MODEL = "deepseek-chat";
+const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const MAX_CONTEXT_CHARS = 1300;
 const MAX_SINGLE_FIELD_CHARS = 500;
 const REQUEST_TIMEOUT_MS = 12000;
-const MAX_ATTEMPTS = 2;
+const MAX_ATTEMPTS_PER_PROFILE = 2;
 
 const systemPrompt = `你是面向中文母语大学生的英语阅读和 Anki 制卡助手。用户会给你一个英文单词或短语、它所在的英文句子、前一句和后一句。你需要解释该词在当前语境中的含义，并判断当前句子是否适合制作语境挖空卡。
 
@@ -73,6 +75,13 @@ interface DeepSeekChatCompletionResponse {
   };
 }
 
+interface ProviderProfile {
+  apiKey: string;
+  baseURL: string;
+  model: string;
+  label: string;
+}
+
 function trimField(value: string): string {
   return value.trim().slice(0, MAX_SINGLE_FIELD_CHARS);
 }
@@ -99,7 +108,7 @@ function isDeepSeekBusy(message = ""): boolean {
 
 function friendlyDeepSeekError(message = "", status?: number): string {
   if (isDeepSeekBusy(message) || status === 429 || status === 503) {
-    return "DeepSeek 当前服务繁忙，已自动重试但仍失败。请稍后再点一次，或临时更换可用的 DeepSeek 兼容 API 地址。";
+    return "DeepSeek 当前服务繁忙，已自动重试和切换备用模型但仍失败。请稍后再点一次，或配置备用 API 地址。";
   }
   if (status === 401 || status === 403) {
     return "DeepSeek API Key 无效或没有权限，请检查 .env.local。";
@@ -124,6 +133,55 @@ function wait(ms: number): Promise<void> {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
+}
+
+function uniqueValues(values: string[]): string[] {
+  return Array.from(new Set(values.map((value) => value.trim()).filter(Boolean)));
+}
+
+function getProviderProfiles(): ProviderProfile[] {
+  const primaryApiKey = process.env.DEEPSEEK_API_KEY;
+  const primaryBaseURL = process.env.DEEPSEEK_BASE_URL ?? DEFAULT_BASE_URL;
+  const primaryModel = process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL;
+
+  if (!primaryApiKey) {
+    return [];
+  }
+
+  const fallbackModels = uniqueValues([
+    ...(process.env.DEEPSEEK_FALLBACK_MODELS ?? "").split(","),
+    DEFAULT_FALLBACK_MODEL,
+  ]).filter((model) => model !== primaryModel);
+
+  const profiles: ProviderProfile[] = [
+    {
+      apiKey: primaryApiKey,
+      baseURL: primaryBaseURL,
+      model: primaryModel,
+      label: "primary",
+    },
+    ...fallbackModels.map((model) => ({
+      apiKey: primaryApiKey,
+      baseURL: primaryBaseURL,
+      model,
+      label: `fallback-model:${model}`,
+    })),
+  ];
+
+  const fallbackBaseURL = process.env.DEEPSEEK_FALLBACK_BASE_URL;
+  const fallbackApiKey = process.env.DEEPSEEK_FALLBACK_API_KEY || primaryApiKey;
+  const fallbackModel = process.env.DEEPSEEK_FALLBACK_MODEL || primaryModel;
+
+  if (fallbackBaseURL) {
+    profiles.push({
+      apiKey: fallbackApiKey,
+      baseURL: fallbackBaseURL,
+      model: fallbackModel,
+      label: "fallback-provider",
+    });
+  }
+
+  return profiles;
 }
 
 export function sanitizeExplanationRequest(input: ExplanationRequest): ExplanationRequest {
@@ -194,26 +252,24 @@ function normalizeExplanation(value: unknown, request: ExplanationRequest): Word
 }
 
 async function requestDeepSeekCompletion(args: {
-  apiKey: string;
-  baseURL: string;
-  model: string;
+  profile: ProviderProfile;
   safeRequest: ExplanationRequest;
 }): Promise<DeepSeekChatCompletionResponse> {
   let lastError: DeepSeekParseError | null = null;
 
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS_PER_PROFILE; attempt += 1) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
     try {
-      const response = await fetch(`${args.baseURL.replace(/\/$/, "")}/chat/completions`, {
+      const response = await fetch(`${args.profile.baseURL.replace(/\/$/, "")}/chat/completions`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${args.apiKey}`,
+          Authorization: `Bearer ${args.profile.apiKey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: args.model,
+          model: args.profile.model,
           temperature: 0,
           max_tokens: 620,
           response_format: { type: "json_object" },
@@ -243,7 +299,7 @@ async function requestDeepSeekCompletion(args: {
 
       const message = friendlyDeepSeekError(completion?.error?.message, response.status);
       lastError = new DeepSeekParseError(message);
-      if (attempt < MAX_ATTEMPTS && (response.status === 429 || response.status === 503 || isDeepSeekBusy(completion?.error?.message))) {
+      if (attempt < MAX_ATTEMPTS_PER_PROFILE && (response.status === 429 || response.status === 503 || isDeepSeekBusy(completion?.error?.message))) {
         await wait(600);
         continue;
       }
@@ -257,7 +313,7 @@ async function requestDeepSeekCompletion(args: {
         ? "DeepSeek 响应超时，请稍后重试。"
         : "DeepSeek 请求失败，请检查网络或 API 配置。";
       lastError = new DeepSeekParseError(message);
-      if (attempt < MAX_ATTEMPTS) {
+      if (attempt < MAX_ATTEMPTS_PER_PROFILE) {
         await wait(500);
         continue;
       }
@@ -273,25 +329,45 @@ async function requestDeepSeekCompletion(args: {
 export async function explainWordWithDeepSeek(
   request: ExplanationRequest,
 ): Promise<WordExplanation> {
-  const apiKey = process.env.DEEPSEEK_API_KEY;
-  const baseURL = process.env.DEEPSEEK_BASE_URL ?? "https://api.deepseek.com";
-  const model = process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL;
+  const profiles = getProviderProfiles();
 
-  if (!apiKey) {
+  if (profiles.length === 0) {
     throw new MissingDeepSeekEnvError("缺少 DEEPSEEK_API_KEY，请先配置 .env.local。");
   }
 
   const safeRequest = sanitizeExplanationRequest(request);
-  const completion = await requestDeepSeekCompletion({ apiKey, baseURL, model, safeRequest });
-  const content = completion.choices?.[0]?.message?.content?.trim();
+  let lastError: DeepSeekParseError | null = null;
 
-  if (!content) {
-    console.warn("DeepSeek returned empty content", {
-      finishReason: completion.choices?.[0]?.finish_reason,
-      hasReasoning: Boolean(completion.choices?.[0]?.message?.reasoning_content),
-    });
-    throw new DeepSeekParseError("DeepSeek 没有返回解释内容，请重新点击该词。");
+  for (const profile of profiles) {
+    try {
+      const completion = await requestDeepSeekCompletion({ profile, safeRequest });
+      const content = completion.choices?.[0]?.message?.content?.trim();
+
+      if (!content) {
+        console.warn("DeepSeek returned empty content", {
+          profile: profile.label,
+          model: profile.model,
+          finishReason: completion.choices?.[0]?.finish_reason,
+          hasReasoning: Boolean(completion.choices?.[0]?.message?.reasoning_content),
+        });
+        lastError = new DeepSeekParseError("DeepSeek 没有返回解释内容，请重新点击该词。");
+        continue;
+      }
+
+      return normalizeExplanation(parseJsonObject(content), safeRequest);
+    } catch (error) {
+      if (error instanceof DeepSeekParseError) {
+        lastError = error;
+        console.warn("DeepSeek profile failed", {
+          profile: profile.label,
+          model: profile.model,
+          message: error.message,
+        });
+        continue;
+      }
+      throw error;
+    }
   }
 
-  return normalizeExplanation(parseJsonObject(content), safeRequest);
+  throw lastError ?? new DeepSeekParseError("DeepSeek 请求失败，请稍后重试。");
 }
