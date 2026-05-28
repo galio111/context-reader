@@ -30,6 +30,8 @@ export function ArticleInput({
   onOpenSavedArticle,
   onDeleteSavedArticle,
 }: ArticleInputProps) {
+  const hasArticle = article.trim().length > 0;
+
   return (
     <main className="relative min-h-screen bg-white px-4 py-8">
       <section className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-4xl flex-col justify-center">
@@ -51,13 +53,23 @@ export function ArticleInput({
           <p className="min-h-6 text-sm text-red-600" role="alert">
             {error}
           </p>
-          <button
-            className="rounded-md bg-gray-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-gray-800"
-            type="button"
-            onClick={onStartReading}
-          >
-            开始阅读
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              className="rounded-md border border-gray-300 px-6 py-3 text-sm font-medium text-gray-800 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:text-gray-400"
+              type="button"
+              onClick={() => onArticleChange("")}
+              disabled={!hasArticle}
+            >
+              清空
+            </button>
+            <button
+              className="rounded-md bg-gray-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-gray-800"
+              type="button"
+              onClick={onStartReading}
+            >
+              开始阅读
+            </button>
+          </div>
         </div>
       </section>
 
