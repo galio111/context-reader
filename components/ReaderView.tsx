@@ -403,7 +403,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
     }
   }
 
-  const saveButtonText = articleSaved ? "已保存文章" : savingArticle ? "保存中" : "保存文章";
+  const saveButtonText = savingArticle ? "保存中" : articleSaved ? "重新生成摘要" : "保存文章";
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -422,7 +422,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
               type="button"
               className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:text-gray-400"
               onClick={handleSaveArticle}
-              disabled={articleSaved || savingArticle}
+              disabled={savingArticle}
             >
               {saveButtonText}
             </button>
