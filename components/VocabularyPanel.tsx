@@ -76,7 +76,7 @@ export function VocabularyPanel({
         </div>
 
         {importError && (
-          <div className="mx-5 mt-4 rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+          <div className="mx-5 mt-4 hidden rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700 lg:block">
             {importError}
           </div>
         )}
@@ -99,7 +99,7 @@ export function VocabularyPanel({
                         </p>
                       </div>
                       <span
-                        className={`rounded-full px-3 py-1 text-xs font-medium ${
+                        className={`hidden rounded-full px-3 py-1 text-xs font-medium lg:inline-flex ${
                           imported
                             ? "bg-green-50 text-green-700"
                             : "bg-gray-100 text-gray-700"
@@ -127,14 +127,14 @@ export function VocabularyPanel({
                         <dt className="font-semibold text-gray-900">自然翻译</dt>
                         <dd>{entry.sentenceTranslation}</dd>
                       </div>
-                      <div>
+                      <div className="hidden lg:block">
                         <dt className="font-semibold text-gray-900">制卡模式</dt>
                         <dd>{cardModeLabel(entry)}</dd>
                       </div>
                     </dl>
 
                     {entry.anki.cardMode === "basic_cn_to_en" && (
-                      <p className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-sm text-amber-800">
+                      <p className="mt-3 hidden rounded-md bg-amber-50 px-3 py-2 text-sm text-amber-800 lg:block">
                         当前句子不适合语境挖空，导入时将使用“基础释义中译英卡”。
                       </p>
                     )}
@@ -142,14 +142,14 @@ export function VocabularyPanel({
                     <div className="mt-4 flex flex-wrap gap-2">
                       <button
                         type="button"
-                        className="rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
+                        className="hidden rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50 lg:inline-flex"
                         onClick={() => setPreviewEntry(entry)}
                       >
                         预览 Anki 卡片
                       </button>
                       <button
                         type="button"
-                        className="rounded-md bg-gray-950 px-3 py-1.5 text-sm font-medium text-white hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-300"
+                        className="hidden rounded-md bg-gray-950 px-3 py-1.5 text-sm font-medium text-white hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-300 lg:inline-flex"
                         onClick={() => onImportAnki(entry)}
                         disabled={imported || importingId === entry.id}
                       >
@@ -185,7 +185,9 @@ export function VocabularyPanel({
         </div>
       </div>
 
-      <AnkiPreviewModal entry={previewEntry} onClose={() => setPreviewEntry(null)} />
+      <div className="hidden lg:block">
+        <AnkiPreviewModal entry={previewEntry} onClose={() => setPreviewEntry(null)} />
+      </div>
     </div>
   );
 }

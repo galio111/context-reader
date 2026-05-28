@@ -486,7 +486,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
       />
 
       {vocabularyOpen && (
-        <div className="fixed left-4 top-20 z-50 w-[min(360px,calc(100vw-2rem))]">
+        <div className="fixed left-4 top-20 z-50 hidden w-[min(360px,calc(100vw-2rem))] lg:block">
           <AnkiSettingsPanel
             settings={ankiSettings}
             status={ankiStatus}
