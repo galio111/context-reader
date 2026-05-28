@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 const DEFAULT_MODEL = "deepseek-v4-flash";
 const MAX_ARTICLE_CHARS = 6000;
 const MIN_SUMMARY_CHINESE_CHARS = 8;
+const MAX_SUMMARY_CHARS = 32;
 
 interface DeepSeekSummaryResponse {
   choices?: Array<{
@@ -15,13 +16,22 @@ interface DeepSeekSummaryResponse {
   };
 }
 
+function trimSummaryLength(value: string): string {
+  if (value.length <= MAX_SUMMARY_CHARS) {
+    return value;
+  }
+  return `${value.slice(0, MAX_SUMMARY_CHARS).replace(/[，,；;：:、]$/, "")}。`;
+}
+
 function cleanSummary(value: string): string {
-  return value
+  const summary = value
     .replace(/[`*_#>~-]/g, "")
     .replace(/^[\s"'“”‘’「」【】（）：:，,。.!！？?、；;\-]+/, "")
     .replace(/\s+/g, " ")
     .trim()
     .replace(/[。！？!?]*$/, "。");
+
+  return trimSummaryLength(summary);
 }
 
 function hasEnoughChineseContent(value: string): boolean {
@@ -65,7 +75,7 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         model,
         temperature: 0.2,
-        max_tokens: 120,
+        max_tokens: 80,
         thinking: {
           type: "disabled",
         },
@@ -73,7 +83,7 @@ export async function POST(request: Request) {
           {
             role: "system",
             content:
-              "你是英文阅读文章摘要助手。请根据用户提供的英文文章，输出一句中文内容摘要，作为文章列表里的简介。只输出中文一句话，必须有具体信息，不要只输出标点，不要出现英文原文，不要 Markdown，不要编号，不要解释。",
+              "你是英文阅读文章摘要助手。请根据用户提供的英文文章，输出一句中文短摘要，作为文章列表里的简介。摘要必须具体，控制在 15 到 28 个中文字符之间。只输出中文一句话，不要出现英文原文，不要 Markdown，不要编号，不要解释，不要只输出标点。",
           },
           {
             role: "user",
