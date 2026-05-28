@@ -1,6 +1,8 @@
 import type { SavedArticle } from "@/types/article";
 
 const ARTICLES_KEY = "context-reader:articles:v1";
+const GENERIC_SUMMARY = "这是一篇已保存的英文阅读文章。";
+const MIN_SUMMARY_CHINESE_CHARS = 8;
 
 function safeLocalStorage(): Storage | null {
   if (typeof window === "undefined") {
@@ -78,6 +80,16 @@ export function articleIdentity(article: string): string {
 export function findSavedArticle(article: string): SavedArticle | null {
   const key = articleIdentity(article);
   return getSavedArticles().find((item) => articleIdentity(item.body) === key) ?? null;
+}
+
+export function isValidArticleSummary(summary: string): boolean {
+  const normalized = summary.trim();
+  if (!normalized || normalized === GENERIC_SUMMARY) {
+    return false;
+  }
+
+  const chineseChars = normalized.match(/[\u4e00-\u9fff]/g)?.length ?? 0;
+  return chineseChars >= MIN_SUMMARY_CHINESE_CHARS;
 }
 
 export function saveArticle(article: string, summary = ""): SavedArticle[] {

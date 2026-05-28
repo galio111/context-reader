@@ -5,7 +5,7 @@ import { AnkiSettingsPanel, defaultAnkiSettings } from "@/components/AnkiSetting
 import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { WordToken } from "@/components/WordToken";
-import { findSavedArticle, saveArticle } from "@/lib/articles";
+import { findSavedArticle, isValidArticleSummary, saveArticle } from "@/lib/articles";
 import { createExplanationCacheKey, getCachedExplanation, setCachedExplanation } from "@/lib/cache";
 import { downloadVocabularyCsv } from "@/lib/csv";
 import { tokenizeArticle, tokenToWordContext } from "@/lib/tokenizer";
@@ -132,7 +132,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
   const articleSaved = useMemo(() => {
     const savedArticle = findSavedArticle(article);
     const summary = savedArticle?.summary?.trim();
-    return Boolean(summary && summary !== "这是一篇已保存的英文阅读文章。");
+    return Boolean(summary && isValidArticleSummary(summary));
   }, [article]);
 
   function getTokenRange(startToken: ReaderToken, endToken: ReaderToken): ReaderToken[] {

@@ -1,5 +1,6 @@
 "use client";
 
+import { isValidArticleSummary } from "@/lib/articles";
 import type { SavedArticle } from "@/types/article";
 
 interface ArticleInputProps {
@@ -14,8 +15,8 @@ interface ArticleInputProps {
 
 function articleSummaryText(savedArticle: SavedArticle): string {
   const summary = savedArticle.summary.trim();
-  if (!summary || summary === "这是一篇已保存的英文阅读文章。") {
-    return "这篇文章还没有生成中文摘要，请进入文章后重新保存。";
+  if (!isValidArticleSummary(summary)) {
+    return "这篇文章还没有有效中文摘要，请进入文章后重新保存。";
   }
   return summary;
 }
