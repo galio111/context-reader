@@ -28,6 +28,13 @@ interface ReaderViewProps {
   onArticleSaved: () => void;
 }
 
+interface TouchInteraction {
+  token: ReaderToken;
+  x: number;
+  y: number;
+  moved: boolean;
+}
+
 async function requestExplanation(
   context: WordContext,
   signal: AbortSignal,
@@ -122,8 +129,10 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
   const [importError, setImportError] = useState("");
   const [saveStatus, setSaveStatus] = useState("");
   const [savingArticle, setSavingArticle] = useState(false);
+  const [mobileExplanationOpen, setMobileExplanationOpen] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const suppressNextClickRef = useRef(false);
+  const touchInteractionRef = useRef<TouchInteraction | null>(null);
 
   useEffect(() => {
     setVocabularyEntries(getVocabularyEntries());
@@ -184,6 +193,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
     setSelectedTokenIds(tokenIds);
     setSelectedContext(context);
     setError("");
+    setMobileExplanationOpen(true);
 
     const cached = getCachedExplanation(cacheKey);
     if (cached) {
@@ -265,11 +275,33 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
   function handleArticlePointerDown(event: React.PointerEvent<HTMLElement>) {
     const token = tokenFromEventTarget(event.target);
     if (token) {
+      if (event.pointerType === "touch") {
+        touchInteractionRef.current = {
+          token,
+          x: event.clientX,
+          y: event.clientY,
+          moved: false,
+        };
+        return;
+      }
       handleTokenPointerDown(token);
     }
   }
 
   function handleArticlePointerMove(event: React.PointerEvent<HTMLElement>) {
+    if (event.pointerType === "touch") {
+      const interaction = touchInteractionRef.current;
+      if (interaction) {
+        const moved =
+          Math.abs(event.clientX - interaction.x) > 10 ||
+          Math.abs(event.clientY - interaction.y) > 10;
+        if (moved) {
+          interaction.moved = true;
+        }
+      }
+      return;
+    }
+
     if (!dragStartToken) {
       return;
     }
@@ -281,6 +313,19 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
 
   function handleArticlePointerUp(event: React.PointerEvent<HTMLElement>) {
     const token = tokenFromEventTarget(event.target);
+    if (event.pointerType === "touch") {
+      const interaction = touchInteractionRef.current;
+      touchInteractionRef.current = null;
+      if (interaction && token?.id === interaction.token.id && !interaction.moved) {
+        suppressNextClickRef.current = true;
+        window.setTimeout(() => {
+          suppressNextClickRef.current = false;
+        }, 0);
+        void explainContext(tokenToWordContext(token), [token.id]);
+      }
+      return;
+    }
+
     if (token) {
       handleTokenPointerUp(token);
     }
@@ -291,6 +336,12 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
     if (token) {
       handleTokenClick(token);
     }
+  }
+
+  function handleArticlePointerCancel() {
+    touchInteractionRef.current = null;
+    setDragStartToken(null);
+    setDragCurrentToken(null);
   }
 
   function handleAddToVocabulary() {
@@ -327,6 +378,17 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
       await navigator.clipboard.writeText(buildEntryText(entry));
     } catch {
       window.alert("复制失败，请检查浏览器剪贴板权限。");
+    }
+  }
+
+  async function handleCopyArticle() {
+    try {
+      await navigator.clipboard.writeText(article);
+      setSaveStatus("文章内容已复制");
+      window.setTimeout(() => setSaveStatus(""), 1800);
+    } catch {
+      setSaveStatus("复制文章失败，请检查浏览器剪贴板权限。");
+      window.setTimeout(() => setSaveStatus(""), 2600);
     }
   }
 
@@ -404,6 +466,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
   }
 
   const saveButtonText = savingArticle ? "保存中" : articleSaved ? "重新生成摘要" : "保存文章";
+  const hasExplanationPanelContent = Boolean(selectedContext || loading || explanation || error);
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -418,6 +481,13 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
           </button>
           <div className="flex items-center gap-2">
             {saveStatus && <span className="text-sm text-green-700">{saveStatus}</span>}
+            <button
+              type="button"
+              className="hidden rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-50 lg:inline-flex"
+              onClick={handleCopyArticle}
+            >
+              复制文章内容
+            </button>
             <button
               type="button"
               className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:text-gray-400"
@@ -444,6 +514,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
             onPointerDown={handleArticlePointerDown}
             onPointerMove={handleArticlePointerMove}
             onPointerUp={handleArticlePointerUp}
+            onPointerCancel={handleArticlePointerCancel}
             onClick={handleArticleClick}
           >
             {paragraphs.map((paragraph) => (
@@ -460,7 +531,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
           </div>
         </article>
 
-        <div className="fixed inset-x-0 bottom-0 z-20 max-h-[55vh] overflow-y-auto border-t border-gray-200 bg-white p-4 shadow-[0_-8px_30px_rgba(15,23,42,0.08)] lg:static lg:max-h-none lg:overflow-visible lg:border-t-0 lg:bg-transparent lg:p-0 lg:shadow-none">
+        <div className="hidden lg:block">
           <ExplanationPanel
             explanation={explanation}
             selectedContext={selectedContext}
@@ -471,6 +542,24 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
           />
         </div>
       </div>
+
+      {hasExplanationPanelContent && mobileExplanationOpen && (
+        <div
+          className="fixed inset-x-0 bottom-0 z-20 max-h-[72dvh] overflow-hidden border-t border-gray-200 bg-white p-3 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] overscroll-contain lg:hidden"
+          onWheel={(event) => event.stopPropagation()}
+          onTouchMove={(event) => event.stopPropagation()}
+        >
+          <ExplanationPanel
+            explanation={explanation}
+            selectedContext={selectedContext}
+            loading={loading}
+            error={error}
+            isInVocabulary={Boolean(isInVocabulary)}
+            onAddToVocabulary={handleAddToVocabulary}
+            onCollapse={() => setMobileExplanationOpen(false)}
+          />
+        </div>
+      )}
 
       <VocabularyPanel
         entries={vocabularyEntries}

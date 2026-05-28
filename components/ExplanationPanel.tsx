@@ -9,6 +9,7 @@ interface ExplanationPanelProps {
   error: string;
   isInVocabulary: boolean;
   onAddToVocabulary: () => void;
+  onCollapse?: () => void;
 }
 
 function buildExplanationText(explanation: WordExplanation, context: WordContext | null): string {
@@ -36,6 +37,7 @@ export function ExplanationPanel({
   error,
   isInVocabulary,
   onAddToVocabulary,
+  onCollapse,
 }: ExplanationPanelProps) {
   async function handleCopy() {
     if (!explanation) {
@@ -50,7 +52,17 @@ export function ExplanationPanel({
   }
 
   return (
-    <aside className="sticky top-4 max-h-[calc(100vh-2rem)] overflow-y-auto rounded-md border border-gray-200 bg-white p-5 shadow-sm lg:w-[360px]">
+    <aside className="h-full overflow-y-auto rounded-md border border-gray-200 bg-white p-5 shadow-sm overscroll-contain lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:w-[360px]">
+      <div className="mb-3 flex justify-end lg:hidden">
+        <button
+          type="button"
+          className="rounded-md border border-gray-300 px-3 py-1.5 text-sm font-medium text-gray-700"
+          onClick={onCollapse}
+        >
+          收起翻译
+        </button>
+      </div>
+
       {!selectedContext && !loading && !explanation && (
         <p className="text-sm leading-6 text-gray-500">点击文章中的任意英文单词查看语境解释。</p>
       )}
@@ -64,7 +76,7 @@ export function ExplanationPanel({
       )}
 
       {explanation && !loading && (
-        <div className="space-y-5">
+        <div className="space-y-5 pb-6">
           <header>
             <div className="flex items-start justify-between gap-3">
               <div>
