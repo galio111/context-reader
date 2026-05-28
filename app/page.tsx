@@ -53,6 +53,8 @@ export default function Home() {
         article={article}
         onBack={() => {
           setSavedArticles(getSavedArticles());
+          setArticle("");
+          setError("");
           setReading(false);
         }}
         onArticleSaved={() => setSavedArticles(getSavedArticles())}
