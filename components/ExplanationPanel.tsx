@@ -14,6 +14,7 @@ interface ExplanationPanelProps {
 function buildExplanationText(explanation: WordExplanation, context: WordContext | null): string {
   return [
     `${explanation.word} (${explanation.lemma})`,
+    explanation.phonetic ? `音标：${explanation.phonetic}` : "",
     `词性：${explanation.partOfSpeech}`,
     `基础释义：${explanation.basicMeaning}`,
     `语境含义：${explanation.contextMeaning}`,
@@ -68,7 +69,10 @@ export function ExplanationPanel({
             <div className="flex items-start justify-between gap-3">
               <div>
                 <h2 className="text-3xl font-semibold text-gray-950">{explanation.word}</h2>
-                <p className="mt-1 text-sm text-gray-500">lemma: {explanation.lemma}</p>
+                <p className="mt-1 text-sm text-gray-500">
+                  lemma: {explanation.lemma}
+                  {explanation.phonetic ? ` · ${explanation.phonetic}` : ""}
+                </p>
               </div>
               <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
                 {explanation.difficulty}
@@ -80,6 +84,9 @@ export function ExplanationPanel({
           <dl className="space-y-4 text-sm leading-6">
             <div>
               <dt className="font-semibold text-gray-900">基础释义</dt>
+              {explanation.phonetic && (
+                <dd className="mt-1 text-gray-500">音标：{explanation.phonetic}</dd>
+              )}
               <dd className="mt-1 text-gray-700">{explanation.basicMeaning}</dd>
             </div>
             <div>

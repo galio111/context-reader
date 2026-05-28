@@ -5,6 +5,7 @@ export interface VocabularyEntry {
   id: string;
   word: string;
   lemma: string;
+  phonetic: string;
   partOfSpeech: string;
   basicMeaning: string;
   contextMeaning: string;

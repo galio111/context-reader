@@ -62,6 +62,7 @@ async function requestExplanation(
 function buildEntryText(entry: VocabularyEntry): string {
   return [
     `${entry.word} (${entry.lemma})`,
+    entry.phonetic ? `音标：${entry.phonetic}` : "",
     `词性：${entry.partOfSpeech}`,
     `基础释义：${entry.basicMeaning}`,
     `语境含义：${entry.contextMeaning}`,

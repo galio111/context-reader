@@ -9,6 +9,7 @@ export const BASIC_MODEL_NAME = "Context Reader Basic CN-EN";
 export const clozeFields = [
   "Word",
   "Lemma",
+  "Phonetic",
   "PartOfSpeech",
   "ClozeSentence",
   "ContextCue",
@@ -27,6 +28,7 @@ export const clozeFields = [
 export const basicFields = [
   "Word",
   "Lemma",
+  "Phonetic",
   "PartOfSpeech",
   "BasicCue",
   "BasicMeaning",
@@ -97,7 +99,7 @@ export const clozeBackTemplate = `<div class="card">
   <div class="word">{{Word}}</div>
 
   <div class="meta">
-    {{Lemma}} · {{PartOfSpeech}}
+    {{Lemma}} · {{Phonetic}} · {{PartOfSpeech}}
   </div>
 
   <hr>
@@ -160,7 +162,7 @@ export const basicBackTemplate = `<div class="card">
   <div class="word">{{Word}}</div>
 
   <div class="meta">
-    {{Lemma}} · {{PartOfSpeech}}
+    {{Lemma}} · {{Phonetic}} · {{PartOfSpeech}}
   </div>
 
   <hr>
@@ -222,6 +224,7 @@ export function fieldsForEntry(entry: VocabularyEntry): Record<string, string> {
   const common = {
     Word: entry.word,
     Lemma: entry.lemma,
+    Phonetic: entry.phonetic,
     PartOfSpeech: entry.partOfSpeech,
     BasicMeaning: entry.basicMeaning,
     ContextMeaning: entry.contextMeaning,

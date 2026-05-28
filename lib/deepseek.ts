@@ -19,6 +19,7 @@ const systemPrompt = `你是英语阅读词义解释助手。只返回严格 JSO
 {
   "word": "原词",
   "lemma": "原形",
+  "phonetic": "IPA 音标，例如 /əˈdres/，不知道则为空字符串",
   "partOfSpeech": "中文词性",
   "basicMeaning": "中文基础释义",
   "contextMeaning": "中文语境含义",
@@ -158,6 +159,7 @@ function normalizeExplanation(value: unknown, request: ExplanationRequest): Word
   return {
     word: text(data.word, request.word),
     lemma: text(data.lemma, request.word.toLowerCase()),
+    phonetic: text(data.phonetic, ""),
     partOfSpeech: text(data.partOfSpeech, "词性待确认"),
     basicMeaning,
     contextMeaning,

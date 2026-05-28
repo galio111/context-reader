@@ -70,7 +70,7 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
             <div className="mb-4">
               <p className="text-2xl font-bold text-slate-950">{entry.word}</p>
               <p className="mt-1 text-sm text-gray-600">
-                {entry.lemma} · {entry.partOfSpeech}
+                {entry.lemma} · {entry.phonetic} · {entry.partOfSpeech}
               </p>
             </div>
             <dl className="space-y-3 text-sm leading-6">

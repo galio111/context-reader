@@ -30,6 +30,7 @@ export interface WordContext {
 export interface WordExplanation {
   word: string;
   lemma: string;
+  phonetic: string;
   partOfSpeech: string;
   basicMeaning: string;
   contextMeaning: string;

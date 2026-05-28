@@ -95,6 +95,7 @@ export function VocabularyPanel({
                         <h3 className="text-lg font-semibold text-gray-950">{entry.word}</h3>
                         <p className="mt-1 text-sm text-gray-500">
                           {entry.lemma} · {entry.partOfSpeech}
+                          {entry.phonetic ? ` · ${entry.phonetic}` : ""}
                         </p>
                       </div>
                       <span
@@ -115,6 +116,7 @@ export function VocabularyPanel({
                       </div>
                       <div>
                         <dt className="font-semibold text-gray-900">基础释义</dt>
+                        {entry.phonetic && <dd className="text-gray-500">音标：{entry.phonetic}</dd>}
                         <dd>{entry.basicMeaning}</dd>
                       </div>
                       <div>

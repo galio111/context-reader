@@ -3,6 +3,7 @@ import type { VocabularyEntry } from "@/types/vocabulary";
 const CSV_FIELDS = [
   "Word",
   "Lemma",
+  "Phonetic",
   "PartOfSpeech",
   "CardMode",
   "ClozeSentence",
@@ -28,6 +29,7 @@ function rowForEntry(entry: VocabularyEntry): Record<(typeof CSV_FIELDS)[number]
   return {
     Word: entry.word,
     Lemma: entry.lemma,
+    Phonetic: entry.phonetic,
     PartOfSpeech: entry.partOfSpeech,
     CardMode: entry.anki.cardMode,
     ClozeSentence: entry.anki.cardMode === "cloze_context" ? entry.anki.clozeSentence : "",
