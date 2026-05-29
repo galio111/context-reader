@@ -2,7 +2,7 @@ import type { AnkiCardMode } from "@/types/anki";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
 export const DEFAULT_ANKI_ENDPOINT = "http://127.0.0.1:8765";
-export const DEFAULT_ANKI_DECK = "English Reading Vocabulary";
+export const DEFAULT_ANKI_DECK = "long term run";
 export const CLOZE_MODEL_NAME = "Context Reader Cloze Context";
 export const BASIC_MODEL_NAME = "Context Reader Basic CN-EN";
 
