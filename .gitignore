@@ -13,3 +13,5 @@ dev-server*.log
 next-dev*.log
 tsconfig.tsbuildinfo
 .DS_Store
+
+.vercel
