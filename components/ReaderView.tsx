@@ -5,6 +5,7 @@ import { AnkiSettingsPanel, defaultAnkiSettings } from "@/components/AnkiSetting
 import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { WordToken } from "@/components/WordToken";
+import { addVocabularyNote, checkAnki } from "@/lib/ankiConnect";
 import { findSavedArticle, isValidArticleSummary, saveArticle } from "@/lib/articles";
 import { createExplanationCacheKey, getCachedExplanation, setCachedExplanation } from "@/lib/cache";
 import { downloadVocabularyCsv } from "@/lib/csv";
@@ -396,18 +397,8 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
     setCheckingAnki(true);
     setAnkiStatus("");
     try {
-      const response = await fetch("/api/anki/check", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ endpoint: ankiSettings.endpoint }),
-      });
-      const data = (await response.json().catch(() => null)) as
-        | { ok?: boolean; version?: number; error?: string }
-        | null;
-      if (!response.ok || !data?.ok) {
-        throw new Error(data?.error || "AnkiConnect 检测失败。");
-      }
-      setAnkiStatus(`连接成功，AnkiConnect version: ${data.version}`);
+      const version = await checkAnki(ankiSettings.endpoint);
+      setAnkiStatus(`连接成功，AnkiConnect version: ${version}`);
     } catch (checkError) {
       setAnkiStatus(checkError instanceof Error ? checkError.message : "AnkiConnect 检测失败。");
     } finally {
@@ -424,24 +415,8 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
     setImportingId(entry.id);
     setImportError("");
     try {
-      const response = await fetch("/api/anki/add-note", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          endpoint: ankiSettings.endpoint,
-          deckName: ankiSettings.deckName,
-          entry,
-        }),
-      });
-      const data = (await response.json().catch(() => null)) as
-        | { ankiNoteId?: number; error?: string }
-        | null;
-
-      if (!response.ok || typeof data?.ankiNoteId !== "number") {
-        throw new Error(data?.error || "导入 Anki 失败，请稍后重试。");
-      }
-
-      setVocabularyEntries(markVocabularyEntryImported(entry.id, data.ankiNoteId));
+      const ankiNoteId = await addVocabularyNote(entry, ankiSettings.deckName, ankiSettings.endpoint);
+      setVocabularyEntries(markVocabularyEntryImported(entry.id, ankiNoteId));
     } catch (ankiError) {
       setImportError(ankiError instanceof Error ? ankiError.message : "导入 Anki 失败，请稍后重试。");
     } finally {
