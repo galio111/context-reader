@@ -72,11 +72,41 @@ export async function getModelNames(endpoint?: string): Promise<string[]> {
   return invokeAnkiConnect<string[]>("modelNames", {}, endpoint);
 }
 
+export async function getModelFieldNames(modelName: string, endpoint?: string): Promise<string[]> {
+  return invokeAnkiConnect<string[]>("modelFieldNames", { modelName }, endpoint);
+}
+
+async function ensureModelFields(
+  modelName: string,
+  expectedFields: string[],
+  endpoint?: string,
+): Promise<void> {
+  const existingFields = await getModelFieldNames(modelName, endpoint);
+
+  for (const fieldName of expectedFields) {
+    if (existingFields.includes(fieldName)) {
+      continue;
+    }
+
+    await invokeAnkiConnect(
+      "modelFieldAdd",
+      {
+        modelName,
+        fieldName,
+        index: expectedFields.indexOf(fieldName),
+      },
+      endpoint,
+    );
+    existingFields.push(fieldName);
+  }
+}
+
 export async function ensureModel(mode: AnkiCardMode, endpoint?: string): Promise<string> {
   const modelName = modelNameForMode(mode);
   const definition = modelDefinition(mode);
   const names = await getModelNames(endpoint);
   if (names.includes(modelName)) {
+    await ensureModelFields(modelName, definition.inOrderFields, endpoint);
     await invokeAnkiConnect(
       "updateModelTemplates",
       {
