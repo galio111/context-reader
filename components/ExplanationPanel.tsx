@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import type { WordContext, WordExplanation } from "@/types/reader";
 
 interface ExplanationPanelProps {
@@ -39,6 +40,18 @@ export function ExplanationPanel({
   onAddToVocabulary,
   onCollapse,
 }: ExplanationPanelProps) {
+  const [sentenceQuestion, setSentenceQuestion] = useState("");
+  const [sentenceAnswer, setSentenceAnswer] = useState("");
+  const [sentenceQuestionError, setSentenceQuestionError] = useState("");
+  const [askingSentenceQuestion, setAskingSentenceQuestion] = useState(false);
+
+  useEffect(() => {
+    setSentenceQuestion("");
+    setSentenceAnswer("");
+    setSentenceQuestionError("");
+    setAskingSentenceQuestion(false);
+  }, [selectedContext?.word, selectedContext?.sentence]);
+
   async function handleCopy() {
     if (!explanation) {
       return;
@@ -48,6 +61,48 @@ export function ExplanationPanel({
       await navigator.clipboard.writeText(buildExplanationText(explanation, selectedContext));
     } catch {
       window.alert("复制失败，请检查浏览器剪贴板权限。");
+    }
+  }
+
+  async function handleAskSentenceQuestion(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const question = sentenceQuestion.trim();
+    if (!selectedContext || !question) {
+      return;
+    }
+
+    setAskingSentenceQuestion(true);
+    setSentenceQuestionError("");
+    setSentenceAnswer("");
+
+    try {
+      const response = await fetch("/api/ask-sentence", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          word: selectedContext.word,
+          sentence: selectedContext.sentence,
+          previousSentence: selectedContext.previousSentence,
+          nextSentence: selectedContext.nextSentence,
+          question,
+        }),
+      });
+      const data = (await response.json().catch(() => null)) as
+        | { answer?: string; error?: string }
+        | null;
+
+      if (!response.ok || !data?.answer?.trim()) {
+        throw new Error(data?.error || "提问失败，请稍后重试。");
+      }
+
+      setSentenceAnswer(data.answer.trim());
+    } catch (askError) {
+      setSentenceQuestionError(askError instanceof Error ? askError.message : "提问失败，请稍后重试。");
+    } finally {
+      setAskingSentenceQuestion(false);
     }
   }
 
@@ -144,6 +199,41 @@ export function ExplanationPanel({
               复制解释
             </button>
           </div>
+
+          <section className="hidden border-t border-gray-200 pt-5 lg:block">
+            <h3 className="text-sm font-semibold text-gray-900">向 AI 追问这句话</h3>
+            <p className="mt-1 text-xs leading-5 text-gray-500">
+              当前问题会带上所划词和它所在的完整句子。
+            </p>
+            <form className="mt-3 space-y-3" onSubmit={handleAskSentenceQuestion}>
+              <textarea
+                className="min-h-24 w-full resize-y rounded-md border border-gray-300 px-3 py-2 text-sm leading-6 text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-gray-900 focus:ring-2 focus:ring-gray-200"
+                value={sentenceQuestion}
+                onChange={(event) => setSentenceQuestion(event.target.value)}
+                placeholder="例如：这个句子的主干是什么？这里的 which 指代什么？"
+                maxLength={500}
+              />
+              <button
+                type="submit"
+                className="w-full rounded-md bg-gray-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-300"
+                disabled={askingSentenceQuestion || !sentenceQuestion.trim()}
+              >
+                {askingSentenceQuestion ? "正在回答..." : "提问"}
+              </button>
+            </form>
+
+            {sentenceQuestionError && (
+              <div className="mt-3 rounded-md border border-red-200 bg-red-50 p-3 text-sm leading-6 text-red-700">
+                {sentenceQuestionError}
+              </div>
+            )}
+
+            {sentenceAnswer && (
+              <div className="mt-3 whitespace-pre-wrap rounded-md border border-gray-200 bg-gray-50 p-3 text-sm leading-6 text-gray-800">
+                {sentenceAnswer}
+              </div>
+            )}
+          </section>
         </div>
       )}
     </aside>

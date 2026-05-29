@@ -50,3 +50,11 @@ export interface ExplanationRequest {
   previousSentence: string;
   nextSentence: string;
 }
+
+export interface SentenceQuestionRequest extends ExplanationRequest {
+  question: string;
+}
+
+export interface SentenceQuestionAnswer {
+  answer: string;
+}

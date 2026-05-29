@@ -1,11 +1,17 @@
 import { normalizeAnkiInfo } from "@/lib/ankiData";
-import type { Difficulty, ExplanationRequest, WordExplanation } from "@/types/reader";
+import type {
+  Difficulty,
+  ExplanationRequest,
+  SentenceQuestionRequest,
+  WordExplanation,
+} from "@/types/reader";
 
 const DEFAULT_MODEL = "deepseek-v4-flash";
 const DEFAULT_FALLBACK_MODEL = "deepseek-chat";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const MAX_CONTEXT_CHARS = 1300;
 const MAX_SINGLE_FIELD_CHARS = 500;
+const MAX_QUESTION_CHARS = 500;
 const REQUEST_TIMEOUT_MS = 12000;
 const MAX_ATTEMPTS_PER_PROFILE = 2;
 
@@ -208,6 +214,13 @@ export function sanitizeExplanationRequest(input: ExplanationRequest): Explanati
   }
 
   return request;
+}
+
+export function sanitizeSentenceQuestionRequest(input: SentenceQuestionRequest): SentenceQuestionRequest {
+  return {
+    ...sanitizeExplanationRequest(input),
+    question: trimField(input.question).slice(0, MAX_QUESTION_CHARS),
+  };
 }
 
 function normalizeExplanation(value: unknown, request: ExplanationRequest): WordExplanation {
