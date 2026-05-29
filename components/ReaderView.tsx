@@ -138,19 +138,6 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
     setVocabularyEntries(getVocabularyEntries());
   }, []);
 
-  useEffect(() => {
-    if (!mobileExplanationOpen) {
-      return;
-    }
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [mobileExplanationOpen]);
-
   const articleSaved = useMemo(() => {
     const savedArticle = findSavedArticle(article);
     const summary = savedArticle?.summary?.trim();
@@ -520,7 +507,11 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
         </div>
       </header>
 
-      <div className="mx-auto grid max-w-7xl gap-5 px-4 py-6 lg:grid-cols-[minmax(0,1fr)_360px]">
+      <div
+        className={`mx-auto grid max-w-7xl gap-5 px-4 pt-6 lg:grid-cols-[minmax(0,1fr)_360px] ${
+          hasExplanationPanelContent && mobileExplanationOpen ? "pb-[54dvh] lg:pb-6" : "pb-6"
+        }`}
+      >
         <article className="min-h-[70vh] rounded-md border border-gray-200 bg-white px-5 py-6 shadow-sm sm:px-8 lg:px-12">
           <div
             className="mx-auto max-w-3xl font-serif text-xl leading-10 text-gray-900"
@@ -558,7 +549,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
 
       {hasExplanationPanelContent && mobileExplanationOpen && (
         <div
-          className="fixed inset-x-0 bottom-0 z-20 flex h-[72dvh] max-h-[calc(100dvh-4rem)] min-h-0 overflow-hidden border-t border-gray-200 bg-white p-3 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] overscroll-contain lg:hidden"
+          className="fixed inset-x-0 bottom-0 z-20 flex h-[50dvh] min-h-0 touch-pan-y overflow-hidden border-t border-gray-200 bg-white p-3 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] overscroll-contain lg:hidden"
           onWheel={(event) => event.stopPropagation()}
           onTouchMove={(event) => event.stopPropagation()}
         >
