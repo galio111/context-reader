@@ -138,6 +138,19 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
     setVocabularyEntries(getVocabularyEntries());
   }, []);
 
+  useEffect(() => {
+    if (!mobileExplanationOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileExplanationOpen]);
+
   const articleSaved = useMemo(() => {
     const savedArticle = findSavedArticle(article);
     const summary = savedArticle?.summary?.trim();
@@ -545,7 +558,7 @@ export function ReaderView({ article, onBack, onArticleSaved }: ReaderViewProps)
 
       {hasExplanationPanelContent && mobileExplanationOpen && (
         <div
-          className="fixed inset-x-0 bottom-0 z-20 max-h-[72dvh] overflow-hidden border-t border-gray-200 bg-white p-3 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] overscroll-contain lg:hidden"
+          className="fixed inset-x-0 bottom-0 z-20 flex h-[72dvh] max-h-[calc(100dvh-4rem)] min-h-0 overflow-hidden border-t border-gray-200 bg-white p-3 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] overscroll-contain lg:hidden"
           onWheel={(event) => event.stopPropagation()}
           onTouchMove={(event) => event.stopPropagation()}
         >

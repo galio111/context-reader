@@ -52,7 +52,7 @@ export function ExplanationPanel({
   }
 
   return (
-    <aside className="h-full overflow-y-auto rounded-md border border-gray-200 bg-white p-5 shadow-sm overscroll-contain lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:w-[360px]">
+    <aside className="h-full min-h-0 flex-1 overflow-y-auto rounded-md border border-gray-200 bg-white p-5 shadow-sm overscroll-contain [-webkit-overflow-scrolling:touch] lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:w-[360px]">
       <div className="mb-3 flex justify-end lg:hidden">
         <button
           type="button"
