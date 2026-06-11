@@ -15,12 +15,13 @@ Production URL: `https://context-reader-ten.vercel.app`
 - Explain only `word`, `sentence`, `previousSentence`, and `nextSentence`.
 - Cache explanations in `localStorage` by `word + sentence`.
 - Save vocabulary entries in `localStorage`.
+- Play US and UK word pronunciations in the explanation panel and vocabulary notebook using browser speech synthesis.
 - Publish local saved articles to a public recommendation list from `/admin`.
 - Preload cached explanations for public recommended articles.
 - Server-render the homepage recommendation list so recommendations are visible on first paint.
 - Install as a PWA and reopen the cached app shell while offline.
 - Open the vocabulary notebook from either the homepage or the reading view.
-- Export vocabulary as CSV or import vocabulary entries to Anki through browser-side AnkiConnect.
+- Export vocabulary as CSV or import vocabulary entries to Anki through browser-side AnkiConnect, with US/UK Anki TTS playback on card backs.
 
 ## Setup
 
@@ -85,6 +86,8 @@ With the dev server running, send a POST request to `/api/explain-word`:
 
 If the API key is missing, the route returns a clear error instead of exposing secrets to the browser.
 
+DeepSeek explanation, sentence-question, and summary routes default to `deepseek-v4-pro` with thinking disabled. `DEEPSEEK_MODEL` can still override the model when needed.
+
 ## Main Routes
 
 - `/api/explain-word` explains a word or short phrase from sentence context.
@@ -103,6 +106,12 @@ If the API key is missing, the route returns a clear error instead of exposing s
 Open `/admin`, enter `ADMIN_PASSWORD`, and publish articles already saved in the current browser. The admin page can publish one article, publish only selected local articles in a batch, merge cached explanations into an already public article, and delete public recommendations. The publish action uploads the article and any matching cached explanations from `localStorage` to Supabase.
 
 Visitors do not need to log in. They can open public recommended articles from the homepage. The recommendation list is fetched during the server render, so it should appear immediately when the homepage loads. If the service worker has cached the app and public article API responses, those pages can reopen offline. New AI explanations, URL imports, and new summaries still require network access. OCR is currently disabled.
+
+## Pronunciation And Anki
+
+The explanation panel and vocabulary notebook show compact `美` / `英` pronunciation buttons when the browser supports SpeechSynthesis. These are runtime browser voices and do not create audio files.
+
+Anki card backs use Anki built-in TTS fields for pronunciation: `{{tts en_US:Word}}` and `{{tts en_GB:Word}}`. This adds playback controls without storing media files in Anki.
 
 ## Deployment
 

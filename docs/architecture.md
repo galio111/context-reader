@@ -14,6 +14,8 @@ Context Reader is a Next.js app with a client-side reading workspace and server-
 
 Saved articles live in browser `localStorage` through `lib/articles.ts`. `SavedArticle.importedArticle` is optional for backward compatibility. When present, reopening a saved URL import restores the original structured layout, images, supported inline annotations, and any OCR text already attached to image blocks instead of falling back to plain text.
 
+`components/PronunciationButtons.tsx` provides compact US/UK playback controls for explanations and vocabulary entries. It uses browser `SpeechSynthesis` with `en-US` and `en-GB` voices at a steady rate and hides itself when the browser does not support speech synthesis.
+
 ## Homepage
 
 `ArticleInput` renders the homepage as a compact first-screen workspace with rounded white panels. The main paste area fills the left panel while keeping the primary reading action visible without page scrolling on desktop. The homepage can open the shared vocabulary notebook as a centered dialog from near the top of the viewport.
@@ -40,6 +42,19 @@ Touch word selection separates reading scroll from lookup gestures. Vertical mov
 - `/api/summarize-article`: summarizes saved articles for the homepage list.
 - `/api/ask-sentence`: answers follow-up questions about a selected sentence.
 - `/api/anki/*`: checks/creates Anki helpers, while browser-side AnkiConnect is still required for local note import.
+
+DeepSeek-backed routes default to `deepseek-v4-pro` and send `thinking: { type: "disabled" }` in completion requests. `DEEPSEEK_MODEL` remains the override for environments that need a different model.
+
+## Anki Templates
+
+`lib/ankiTemplates.ts` defines the Context Reader cloze and basic note types. The import flow calls `ensureModel`, so existing note templates are updated before new notes are added. Card backs include US and UK pronunciation rows via Anki built-in TTS:
+
+```text
+{{tts en_US:Word}}
+{{tts en_GB:Word}}
+```
+
+The app does not generate or store `[sound:...]` media files for Anki pronunciation.
 
 ## Public Recommendations
 

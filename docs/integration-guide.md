@@ -101,3 +101,12 @@ Anki import depends on local browser access to AnkiConnect:
 - AnkiConnect must be installed.
 - `http://127.0.0.1:8765` should respond with version 6.
 - CORS must include `https://context-reader-ten.vercel.app`.
+
+Context Reader creates or updates its Anki note templates during import. Card backs include US and UK pronunciation controls through Anki built-in TTS syntax:
+
+```text
+{{tts en_US:Word}}
+{{tts en_GB:Word}}
+```
+
+No audio files are downloaded or stored in Anki media for this feature.
