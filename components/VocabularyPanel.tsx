@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnkiPreviewModal } from "@/components/AnkiPreviewModal";
+import { PronunciationButtons } from "@/components/PronunciationButtons";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
 interface VocabularyPanelProps {
@@ -131,10 +132,13 @@ export function VocabularyPanel({
                     <div className="flex items-start justify-between gap-3">
                       <div>
                         <h3 className="text-[21px] font-semibold leading-[1.19] tracking-[0.231px] text-[#1d1d1f]">{entry.word}</h3>
-                        <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-                          {entry.lemma} · {entry.partOfSpeech}
-                          {entry.phonetic ? ` · ${entry.phonetic}` : ""}
-                        </p>
+                        <div className="mt-1 flex flex-wrap items-center gap-2">
+                          <p className="text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
+                            {entry.lemma} · {entry.partOfSpeech}
+                            {entry.phonetic ? ` · ${entry.phonetic}` : ""}
+                          </p>
+                          <PronunciationButtons text={entry.word} />
+                        </div>
                       </div>
                       {showAnkiActions && (
                         <span
