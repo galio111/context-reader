@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import type { ReaderToken } from "@/types/reader";
 
 interface WordTokenProps {
@@ -7,7 +8,7 @@ interface WordTokenProps {
   selected: boolean;
 }
 
-export function WordToken({
+function WordTokenComponent({
   token,
   selected,
 }: WordTokenProps) {
@@ -22,11 +23,13 @@ export function WordToken({
       data-token-id={token.id}
       className={`relative inline cursor-pointer rounded px-0.5 transition ${
         selected
-          ? "bg-amber-100 text-amber-950 ring-1 ring-amber-300"
-          : "hover:bg-gray-100 hover:text-gray-950"
+          ? "bg-[#0066cc]/10 text-[#1d1d1f] ring-1 ring-[#0066cc]/30"
+          : "hover:bg-[#f5f5f7] hover:text-[#1d1d1f]"
       }`}
     >
       {token.value}
     </span>
   );
 }
+
+export const WordToken = memo(WordTokenComponent);

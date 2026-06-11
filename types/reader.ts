@@ -8,6 +8,8 @@ export interface ReaderToken {
   value: string;
   paragraphIndex: number;
   tokenIndex: number;
+  start: number;
+  end: number;
   sentence: string;
   previousSentence: string;
   nextSentence: string;

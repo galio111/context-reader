@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const DEFAULT_MODEL = "deepseek-v4-flash";
+const DEFAULT_MODEL = "deepseek-v4-pro";
 const MAX_ARTICLE_CHARS = 6000;
 const MIN_SUMMARY_CHINESE_CHARS = 8;
 const MAX_SUMMARY_CHARS = 32;

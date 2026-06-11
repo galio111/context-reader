@@ -50,3 +50,13 @@ export function setCachedExplanation(key: string, explanation: WordExplanation):
   cache[key] = explanation;
   writeCache(cache);
 }
+
+export function getExplanationCacheEntries(): Array<{ cacheKey: string; explanation: WordExplanation }> {
+  return Object.entries(readCache()).map(([cacheKey, explanation]) => ({
+    cacheKey,
+    explanation: {
+      ...explanation,
+      anki: normalizeAnkiInfo(explanation, ""),
+    },
+  }));
+}

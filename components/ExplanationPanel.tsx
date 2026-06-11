@@ -31,6 +31,90 @@ function buildExplanationText(explanation: WordExplanation, context: WordContext
     .join("\n");
 }
 
+type PronunciationAccent = "en-US" | "en-GB";
+
+interface PronunciationButtonsProps {
+  text: string;
+}
+
+function pickVoice(voices: SpeechSynthesisVoice[], accent: PronunciationAccent): SpeechSynthesisVoice | undefined {
+  return (
+    voices.find((voice) => voice.lang === accent) ??
+    voices.find((voice) => voice.lang.toLowerCase().startsWith(accent.toLowerCase())) ??
+    voices.find((voice) => voice.lang.toLowerCase().startsWith("en"))
+  );
+}
+
+function PronunciationButtons({ text }: PronunciationButtonsProps) {
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [supportsSpeech, setSupportsSpeech] = useState(false);
+
+  useEffect(() => {
+    if (!("speechSynthesis" in window) || typeof window.SpeechSynthesisUtterance === "undefined") {
+      return;
+    }
+
+    setSupportsSpeech(true);
+
+    const loadVoices = () => {
+      setVoices(window.speechSynthesis.getVoices());
+    };
+
+    loadVoices();
+    window.speechSynthesis.addEventListener("voiceschanged", loadVoices);
+
+    return () => {
+      window.speechSynthesis.removeEventListener("voiceschanged", loadVoices);
+      window.speechSynthesis.cancel();
+    };
+  }, []);
+
+  function playPronunciation(accent: PronunciationAccent) {
+    const spokenText = text.trim();
+    if (!supportsSpeech || !spokenText) {
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(spokenText);
+    utterance.lang = accent;
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+    utterance.voice = pickVoice(voices, accent) ?? null;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  }
+
+  if (!supportsSpeech) {
+    return null;
+  }
+
+  return (
+    <div className="flex items-center gap-1.5" aria-label="单词发音">
+      <button
+        type="button"
+        className="inline-flex h-8 items-center gap-1 rounded-full border border-[#d2d2d7] bg-white px-2.5 text-xs font-medium text-[#1d1d1f] transition hover:border-[#0066cc] hover:text-[#0066cc] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20"
+        onClick={() => playPronunciation("en-US")}
+        aria-label={`播放 ${text} 的美式发音`}
+        title="美式发音"
+      >
+        <span aria-hidden="true">▶</span>
+        <span>美</span>
+      </button>
+      <button
+        type="button"
+        className="inline-flex h-8 items-center gap-1 rounded-full border border-[#d2d2d7] bg-white px-2.5 text-xs font-medium text-[#1d1d1f] transition hover:border-[#0066cc] hover:text-[#0066cc] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20"
+        onClick={() => playPronunciation("en-GB")}
+        aria-label={`播放 ${text} 的英式发音`}
+        title="英式发音"
+      >
+        <span aria-hidden="true">▶</span>
+        <span>英</span>
+      </button>
+    </div>
+  );
+}
+
 export function ExplanationPanel({
   explanation,
   selectedContext,
@@ -107,25 +191,26 @@ export function ExplanationPanel({
   }
 
   return (
-    <aside className="h-full min-h-0 flex-1 overflow-y-auto rounded-md border border-gray-200 bg-white p-5 shadow-sm overscroll-contain [-webkit-overflow-scrolling:touch] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:w-[360px]">
-      <div className="mb-3 flex justify-end lg:hidden">
+    <aside className="relative h-full min-h-0 flex-1 overflow-y-auto rounded-[18px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [-webkit-overflow-scrolling:touch] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:w-[360px]">
+      <div className="sticky top-0 z-10 h-0 lg:hidden">
         <button
           type="button"
-          className="rounded-md border border-gray-300 px-3 py-1.5 text-sm font-medium text-gray-700"
+          className="float-right h-10 rounded-full border border-[#0066cc] bg-white px-4 text-sm tracking-[-0.224px] text-[#0066cc] shadow-[0_2px_12px_rgba(0,0,0,0.08)]"
           onClick={onCollapse}
         >
-          收起翻译
+          收起
         </button>
       </div>
+      <div className="h-8 lg:hidden" />
 
       {!selectedContext && !loading && !explanation && (
-        <p className="text-sm leading-6 text-gray-500">点击文章中的任意英文单词查看语境解释。</p>
+        <p className="text-sm leading-6 tracking-[-0.224px] text-[#7a7a7a]">点击文章中的任意英文单词查看语境解释。</p>
       )}
 
-      {loading && <p className="text-sm leading-6 text-gray-600">正在分析语境...</p>}
+      {loading && <p className="text-sm leading-6 tracking-[-0.224px] text-[#333333]">正在分析语境...</p>}
 
       {error && !loading && (
-        <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+        <div className="rounded-[18px] border border-red-200 bg-red-50 p-3 text-sm text-red-700">
           {error}
         </div>
       )}
@@ -135,57 +220,60 @@ export function ExplanationPanel({
           <header>
             <div className="flex items-start justify-between gap-3">
               <div>
-                <h2 className="text-3xl font-semibold text-gray-950">{explanation.word}</h2>
-                <p className="mt-1 text-sm text-gray-500">
+                <h2 className="text-[34px] font-semibold leading-[1.47] tracking-[-0.374px] text-[#1d1d1f]">{explanation.word}</h2>
+                <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
                   lemma: {explanation.lemma}
                   {explanation.phonetic ? ` · ${explanation.phonetic}` : ""}
                 </p>
               </div>
-              <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
+              <span className="rounded-full bg-[#f5f5f7] px-3 py-1 text-xs font-medium text-[#333333]">
                 {explanation.difficulty}
               </span>
             </div>
-            <p className="mt-2 text-sm font-medium text-gray-700">{explanation.partOfSpeech}</p>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <p className="text-sm font-semibold tracking-[-0.224px] text-[#333333]">{explanation.partOfSpeech}</p>
+              <PronunciationButtons text={explanation.word} />
+            </div>
           </header>
 
-          <dl className="space-y-4 text-sm leading-6">
+          <dl className="space-y-4 text-sm leading-6 tracking-[-0.224px]">
             <div>
-              <dt className="font-semibold text-gray-900">基础释义</dt>
+              <dt className="font-semibold text-[#1d1d1f]">基础释义</dt>
               {explanation.phonetic && (
-                <dd className="mt-1 text-gray-500">音标：{explanation.phonetic}</dd>
+                <dd className="mt-1 text-[#7a7a7a]">音标：{explanation.phonetic}</dd>
               )}
-              <dd className="mt-1 text-gray-700">{explanation.basicMeaning}</dd>
+              <dd className="mt-1 text-[#333333]">{explanation.basicMeaning}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-gray-900">当前语境含义</dt>
-              <dd className="mt-1 text-gray-700">{explanation.contextMeaning}</dd>
+              <dt className="font-semibold text-[#1d1d1f]">当前语境含义</dt>
+              <dd className="mt-1 text-[#333333]">{explanation.contextMeaning}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-gray-900">当前句子翻译</dt>
-              <dd className="mt-1 text-gray-700">{explanation.sentenceTranslation}</dd>
+              <dt className="font-semibold text-[#1d1d1f]">当前句子翻译</dt>
+              <dd className="mt-1 text-[#333333]">{explanation.sentenceTranslation}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-gray-900">用法说明</dt>
-              <dd className="mt-1 text-gray-700">{explanation.usageNote}</dd>
+              <dt className="font-semibold text-[#1d1d1f]">用法说明</dt>
+              <dd className="mt-1 text-[#333333]">{explanation.usageNote}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-gray-900">常见搭配</dt>
-              <dd className="mt-1 text-gray-700">{explanation.collocation || "无"}</dd>
+              <dt className="font-semibold text-[#1d1d1f]">常见搭配</dt>
+              <dd className="mt-1 text-[#333333]">{explanation.collocation || "无"}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-gray-900">英文例句</dt>
-              <dd className="mt-1 text-gray-700">{explanation.exampleEnglish}</dd>
+              <dt className="font-semibold text-[#1d1d1f]">英文例句</dt>
+              <dd className="mt-1 text-[#333333]">{explanation.exampleEnglish}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-gray-900">例句中文翻译</dt>
-              <dd className="mt-1 text-gray-700">{explanation.exampleChinese}</dd>
+              <dt className="font-semibold text-[#1d1d1f]">例句中文翻译</dt>
+              <dd className="mt-1 text-[#333333]">{explanation.exampleChinese}</dd>
             </div>
           </dl>
 
           <div className="flex flex-col gap-2 sm:flex-row">
             <button
               type="button"
-              className="rounded-md bg-gray-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-300"
+              className="h-10 rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
               onClick={onAddToVocabulary}
               disabled={isInVocabulary}
             >
@@ -193,21 +281,21 @@ export function ExplanationPanel({
             </button>
             <button
               type="button"
-              className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-50"
+              className="h-10 rounded-full border border-[#0066cc] px-4 text-sm tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
               onClick={handleCopy}
             >
               复制解释
             </button>
           </div>
 
-          <section className="hidden border-t border-gray-200 pt-5 lg:block">
-            <h3 className="text-sm font-semibold text-gray-900">向 AI 追问这句话</h3>
-            <p className="mt-1 text-xs leading-5 text-gray-500">
+          <section className="hidden border-t border-[#e0e0e0] pt-5 lg:block">
+            <h3 className="text-sm font-semibold tracking-[-0.224px] text-[#1d1d1f]">向 AI 追问这句话</h3>
+            <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">
               当前问题会带上所划词和它所在的完整句子。
             </p>
             <form className="mt-3 space-y-3" onSubmit={handleAskSentenceQuestion}>
               <textarea
-                className="min-h-24 w-full resize-y rounded-md border border-gray-300 px-3 py-2 text-sm leading-6 text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-gray-900 focus:ring-2 focus:ring-gray-200"
+                className="min-h-24 w-full resize-y rounded-[18px] border border-[#e0e0e0] px-3 py-2 text-sm leading-6 tracking-[-0.224px] text-[#1d1d1f] outline-none transition placeholder:text-[#7a7a7a] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
                 value={sentenceQuestion}
                 onChange={(event) => setSentenceQuestion(event.target.value)}
                 placeholder="例如：这个句子的主干是什么？这里的 which 指代什么？"
@@ -215,7 +303,7 @@ export function ExplanationPanel({
               />
               <button
                 type="submit"
-                className="w-full rounded-md bg-gray-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-300"
+                className="h-10 w-full rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
                 disabled={askingSentenceQuestion || !sentenceQuestion.trim()}
               >
                 {askingSentenceQuestion ? "正在回答..." : "提问"}
@@ -223,13 +311,13 @@ export function ExplanationPanel({
             </form>
 
             {sentenceQuestionError && (
-              <div className="mt-3 rounded-md border border-red-200 bg-red-50 p-3 text-sm leading-6 text-red-700">
+              <div className="mt-3 rounded-[18px] border border-red-200 bg-red-50 p-3 text-sm leading-6 text-red-700">
                 {sentenceQuestionError}
               </div>
             )}
 
             {sentenceAnswer && (
-              <div className="mt-3 whitespace-pre-wrap rounded-md border border-gray-200 bg-gray-50 p-3 text-sm leading-6 text-gray-800">
+              <div className="mt-3 whitespace-pre-wrap rounded-[18px] border border-[#e0e0e0] bg-[#f5f5f7] p-3 text-sm leading-6 tracking-[-0.224px] text-[#333333]">
                 {sentenceAnswer}
               </div>
             )}

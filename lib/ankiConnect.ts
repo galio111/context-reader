@@ -160,7 +160,7 @@ export async function addVocabularyNote(
         deckName,
         modelName,
         fields: fieldsForEntry(entry),
-        options: { allowDuplicate: false },
+        options: { allowDuplicate: true },
         tags: ["context-reader", entry.anki.cardMode],
       },
     },

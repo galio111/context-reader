@@ -6,7 +6,7 @@ import type {
   WordExplanation,
 } from "@/types/reader";
 
-const DEFAULT_MODEL = "deepseek-v4-flash";
+const DEFAULT_MODEL = "deepseek-v4-pro";
 const DEFAULT_FALLBACK_MODEL = "deepseek-chat";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const MAX_CONTEXT_CHARS = 1300;

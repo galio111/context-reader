@@ -87,11 +87,14 @@ hr {
   border-top: 2px solid #cbd5e1;
   margin: 20px 0;
 }
+hr.front-gap {
+  margin: 58px 0;
+}
 `;
 
 export const clozeFrontTemplate = `<div class="card">
   <div class="sentence">{{ClozeSentence}}</div>
-  <hr>
+  <hr class="front-gap">
   <div class="context-cue">{{ContextCue}}</div>
 </div>`;
 

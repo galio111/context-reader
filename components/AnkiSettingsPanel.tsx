@@ -26,22 +26,22 @@ export function AnkiSettingsPanel({
   onCheck,
 }: AnkiSettingsPanelProps) {
   return (
-    <section className="rounded-md border border-gray-200 bg-white p-4 shadow-xl">
-      <h2 className="text-sm font-semibold text-gray-950">Anki 设置</h2>
+    <section className="rounded-[18px] border border-[#e0e0e0] bg-white p-4">
+      <h2 className="text-sm font-semibold tracking-[-0.224px] text-[#1d1d1f]">Anki 设置</h2>
       <div className="mt-3 grid gap-3">
         <label className="text-sm">
-          <span className="mb-1 block font-medium text-gray-700">AnkiConnect 地址</span>
+          <span className="mb-1 block font-semibold tracking-[-0.224px] text-[#333333]">AnkiConnect 地址</span>
           <input
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-950 outline-none focus:border-gray-700 focus:ring-2 focus:ring-gray-200"
+            className="h-11 w-full rounded-full border border-black/10 px-4 text-sm tracking-[-0.224px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
             value={settings.endpoint}
             onChange={(event) => onChange({ ...settings, endpoint: event.target.value })}
             placeholder={DEFAULT_ANKI_ENDPOINT}
           />
         </label>
         <label className="text-sm">
-          <span className="mb-1 block font-medium text-gray-700">Deck</span>
+          <span className="mb-1 block font-semibold tracking-[-0.224px] text-[#333333]">Deck</span>
           <input
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-950 outline-none focus:border-gray-700 focus:ring-2 focus:ring-gray-200"
+            className="h-11 w-full rounded-full border border-black/10 px-4 text-sm tracking-[-0.224px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
             value={settings.deckName}
             onChange={(event) => onChange({ ...settings, deckName: event.target.value })}
             placeholder={DEFAULT_ANKI_DECK}
@@ -49,14 +49,14 @@ export function AnkiSettingsPanel({
         </label>
         <button
           type="button"
-          className="rounded-md border border-gray-300 px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 disabled:cursor-not-allowed disabled:text-gray-400"
+          className="h-10 rounded-full border border-[#0066cc] px-4 text-sm tracking-[-0.224px] text-[#0066cc] transition active:scale-95 disabled:border-[#d2d2d7] disabled:text-[#7a7a7a]"
           onClick={onCheck}
           disabled={checking}
         >
           {checking ? "检测中" : "检测连接"}
         </button>
       </div>
-      {status && <p className="mt-3 text-sm leading-6 text-gray-700">{status}</p>}
+      {status && <p className="mt-3 text-sm leading-6 tracking-[-0.224px] text-[#333333]">{status}</p>}
     </section>
   );
 }

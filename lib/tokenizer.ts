@@ -46,6 +46,8 @@ function createTextToken(
   value: string,
   paragraphIndex: number,
   tokenIndex: number,
+  start: number,
+  end: number,
 ): ReaderToken {
   return {
     id: `${paragraphIndex}-${tokenIndex}-text`,
@@ -53,6 +55,8 @@ function createTextToken(
     value,
     paragraphIndex,
     tokenIndex,
+    start,
+    end,
     sentence: "",
     previousSentence: "",
     nextSentence: "",
@@ -71,7 +75,7 @@ export function tokenizeArticle(article: string): ParsedParagraph[] {
       const wordStart = match.index ?? 0;
 
       if (wordStart > lastIndex) {
-        tokens.push(createTextToken(paragraph.slice(lastIndex, wordStart), paragraphIndex, tokenIndex));
+        tokens.push(createTextToken(paragraph.slice(lastIndex, wordStart), paragraphIndex, tokenIndex, lastIndex, wordStart));
         tokenIndex += 1;
       }
 
@@ -83,6 +87,8 @@ export function tokenizeArticle(article: string): ParsedParagraph[] {
         value: word,
         paragraphIndex,
         tokenIndex,
+        start: wordStart,
+        end: wordStart + word.length,
         sentence: sentence?.text ?? paragraph.trim(),
         previousSentence: sentenceSpans[sentenceIndex - 1]?.text ?? "",
         nextSentence: sentenceSpans[sentenceIndex + 1]?.text ?? "",
@@ -92,7 +98,7 @@ export function tokenizeArticle(article: string): ParsedParagraph[] {
     }
 
     if (lastIndex < paragraph.length) {
-      tokens.push(createTextToken(paragraph.slice(lastIndex), paragraphIndex, tokenIndex));
+      tokens.push(createTextToken(paragraph.slice(lastIndex), paragraphIndex, tokenIndex, lastIndex, paragraph.length));
     }
 
     return {

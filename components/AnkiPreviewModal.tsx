@@ -10,8 +10,8 @@ interface AnkiPreviewModalProps {
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="font-semibold text-gray-950">{label}</dt>
-      <dd className="mt-1 whitespace-pre-wrap text-gray-800">{value || "无"}</dd>
+      <dt className="font-semibold text-[#1d1d1f]">{label}</dt>
+      <dd className="mt-1 whitespace-pre-wrap text-[#333333]">{value || "无"}</dd>
     </div>
   );
 }
@@ -24,18 +24,18 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
   const isCloze = entry.anki.cardMode === "cloze_context";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-950/40 px-4">
-      <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-md bg-white shadow-xl">
-        <header className="flex items-center justify-between border-b border-gray-200 px-5 py-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 backdrop-blur-sm">
+      <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[18px] bg-white">
+        <header className="flex items-center justify-between border-b border-[#e0e0e0] px-5 py-4">
           <div>
-            <h2 className="text-lg font-semibold text-gray-950">Anki 卡片预览</h2>
-            <p className="mt-1 text-sm text-gray-600">
+            <h2 className="text-[21px] font-semibold leading-[1.19] tracking-[0.231px] text-[#1d1d1f]">Anki 卡片预览</h2>
+            <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
               {isCloze ? "语境挖空卡" : "基础释义中译英卡"}
             </p>
           </div>
           <button
             type="button"
-            className="rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-800 hover:bg-gray-50"
+            className="h-10 rounded-full border border-[#0066cc] px-4 text-sm tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
             onClick={onClose}
           >
             关闭
@@ -43,33 +43,33 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
         </header>
 
         <div className="grid gap-4 p-5 md:grid-cols-2">
-          <section className="rounded-md border border-gray-200 bg-slate-50 p-4">
-            <h3 className="mb-4 text-sm font-semibold text-gray-700">正面</h3>
+          <section className="rounded-[18px] border border-[#e0e0e0] bg-[#f5f5f7] p-4">
+            <h3 className="mb-4 text-sm font-semibold tracking-[-0.224px] text-[#333333]">正面</h3>
             {isCloze ? (
               <div className="space-y-4">
-                <p className="text-xl font-bold leading-8 text-slate-950">
+                <p className="text-xl font-semibold leading-8 text-[#1d1d1f]">
                   {entry.anki.clozeSentence}
                 </p>
-                <hr className="border-slate-300" />
-                <p className="text-lg font-semibold leading-7 text-blue-700">
+                <hr className="border-[#e0e0e0]" />
+                <p className="text-lg font-semibold leading-7 text-[#0066cc]">
                   {entry.anki.contextCue}
                 </p>
               </div>
             ) : (
               <div className="space-y-4">
-                <p className="text-base font-medium text-gray-700">请写出对应的英文单词：</p>
-                <p className="text-xl font-bold leading-8 text-blue-700">
+                <p className="text-base text-[#333333]">请写出对应的英文单词：</p>
+                <p className="text-xl font-semibold leading-8 text-[#0066cc]">
                   {entry.anki.basicCue || entry.basicMeaning}
                 </p>
               </div>
             )}
           </section>
 
-          <section className="rounded-md border border-gray-200 bg-white p-4">
-            <h3 className="mb-4 text-sm font-semibold text-gray-700">背面</h3>
+          <section className="rounded-[18px] border border-[#e0e0e0] bg-white p-4">
+            <h3 className="mb-4 text-sm font-semibold tracking-[-0.224px] text-[#333333]">背面</h3>
             <div className="mb-4">
-              <p className="text-2xl font-bold text-slate-950">{entry.word}</p>
-              <p className="mt-1 text-sm text-gray-600">
+              <p className="text-2xl font-semibold text-[#1d1d1f]">{entry.word}</p>
+              <p className="mt-1 text-sm text-[#7a7a7a]">
                 {entry.lemma} · {entry.phonetic} · {entry.partOfSpeech}
               </p>
             </div>
