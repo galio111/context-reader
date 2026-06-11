@@ -79,6 +79,17 @@ export const cardCss = `
   font-size: 18px;
   margin-top: 4px;
 }
+.audio-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  color: #475569;
+  font-size: 17px;
+}
+.audio-label {
+  font-weight: 700;
+  color: #334155;
+}
 b {
   color: #111827;
 }
@@ -103,6 +114,11 @@ export const clozeBackTemplate = `<div class="card">
 
   <div class="meta">
     {{Lemma}} · {{Phonetic}} · {{PartOfSpeech}}
+  </div>
+
+  <div class="audio-row">
+    <span><span class="audio-label">美：</span>{{tts en_US:Word}}</span>
+    <span><span class="audio-label">英：</span>{{tts en_GB:Word}}</span>
   </div>
 
   <hr>
@@ -166,6 +182,11 @@ export const basicBackTemplate = `<div class="card">
 
   <div class="meta">
     {{Lemma}} · {{Phonetic}} · {{PartOfSpeech}}
+  </div>
+
+  <div class="audio-row">
+    <span><span class="audio-label">美：</span>{{tts en_US:Word}}</span>
+    <span><span class="audio-label">英：</span>{{tts en_GB:Word}}</span>
   </div>
 
   <hr>

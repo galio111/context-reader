@@ -72,6 +72,7 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
               <p className="mt-1 text-sm text-[#7a7a7a]">
                 {entry.lemma} · {entry.phonetic} · {entry.partOfSpeech}
               </p>
+              <p className="mt-2 text-sm text-[#333333]">Anki 背面会显示美式 / 英式发音按钮。</p>
             </div>
             <dl className="space-y-3 text-sm leading-6">
               {isCloze ? (
