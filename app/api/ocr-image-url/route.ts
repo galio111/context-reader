@@ -1,11 +1,20 @@
 import { NextResponse } from "next/server";
 import { extractImageText } from "@/lib/visionOcr";
+import {
+  readResponseBytes,
+  RemoteBodyTooLargeError,
+  safeRemoteFetch,
+  UnsafeRemoteUrlError,
+} from "@/lib/safeRemoteFetch";
+import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
+import { CostCapacityError, withCostSlot } from "@/lib/costConcurrency";
 
 const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
-const IMAGE_OCR_ENABLED = false;
+const IMAGE_OCR_ENABLED = true;
 
-function imageToDataUrl(contentType: string, buffer: ArrayBuffer): string {
-  const base64 = Buffer.from(buffer).toString("base64");
+function imageToDataUrl(contentType: string, buffer: ArrayBuffer | Uint8Array): string {
+  const bytes = buffer instanceof Uint8Array ? buffer : new Uint8Array(buffer);
+  const base64 = Buffer.from(bytes).toString("base64");
   return `data:${contentType};base64,${base64}`;
 }
 
@@ -14,7 +23,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "图片文字识别暂不可用。" }, { status: 503 });
   }
 
-  const body = (await request.json().catch(() => null)) as { url?: unknown } | null;
+  let body: { url?: unknown } | null;
+  try {
+    body = await readJsonBody(request, 8 * 1024);
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof RequestBodyTooLargeError ? "请求内容过大。" : "请求体必须是合法 JSON。" },
+      { status: error instanceof RequestBodyTooLargeError ? 413 : 400 },
+    );
+  }
   const rawUrl = typeof body?.url === "string" ? body.url.trim() : "";
 
   if (!rawUrl) {
@@ -33,7 +50,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const imageResponse = await fetch(imageUrl, {
+    const imageResponse = await safeRemoteFetch(imageUrl, {
       headers: {
         Accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
         "User-Agent":
@@ -54,23 +71,24 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "这个链接返回的内容不是图片。" }, { status: 400 });
     }
 
-    const contentLength = Number.parseInt(imageResponse.headers.get("content-length") ?? "", 10);
-    if (Number.isFinite(contentLength) && contentLength > MAX_IMAGE_BYTES) {
-      return NextResponse.json({ error: "图片不能超过 8MB。" }, { status: 400 });
-    }
+    const buffer = await readResponseBytes(imageResponse, MAX_IMAGE_BYTES);
 
-    const buffer = await imageResponse.arrayBuffer();
-    if (buffer.byteLength > MAX_IMAGE_BYTES) {
-      return NextResponse.json({ error: "图片不能超过 8MB。" }, { status: 400 });
-    }
-
-    const text = await extractImageText({
+    const text = await withCostSlot("ocr", 2, () => extractImageText({
       dataUrl: imageToDataUrl(contentType, buffer),
       mode: "article-image",
-    });
+    }));
 
     return NextResponse.json({ text });
   } catch (error) {
+    if (error instanceof CostCapacityError) {
+      return NextResponse.json({ error: "OCR 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
+    }
+    if (error instanceof UnsafeRemoteUrlError) {
+      return NextResponse.json({ error: "该图片地址指向受保护的内部网络，无法识别。" }, { status: 400 });
+    }
+    if (error instanceof RemoteBodyTooLargeError) {
+      return NextResponse.json({ error: "图片不能超过 8MB。" }, { status: 413 });
+    }
     const message =
       error instanceof Error && error.name === "TimeoutError"
         ? "图片文字识别超时，请换一张更清晰或更小的图片。"

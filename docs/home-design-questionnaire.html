@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Context Reader 首页设计问卷</title>
+  <style>
+    :root { color-scheme: light; --bg:#f5f5f7; --surface:#fff; --ink:#1d1d1f; --muted:#5f6368; --line:#d8d8dc; --blue:#0066cc; --blue-soft:#eef6ff; --danger:#a52a2a; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; font-size:17px; line-height:1.65; }
+    button,textarea,input { font:inherit; }
+    button { cursor:pointer; }
+    .shell { width:min(1120px,calc(100% - 32px)); margin:0 auto; padding:34px 0 64px; }
+    header { display:flex; justify-content:space-between; gap:28px; align-items:flex-end; padding:12px 0 28px; border-bottom:1px solid var(--line); }
+    .brand { font-size:15px; font-weight:650; color:var(--blue); }
+    h1 { margin:7px 0 0; max-width:780px; font-size:clamp(32px,5vw,56px); line-height:1.08; letter-spacing:-.035em; text-wrap:balance; }
+    .intro { max-width:610px; margin:14px 0 0; color:var(--muted); font-size:18px; }
+    .save-state { flex:none; color:var(--muted); font-size:14px; }
+    .progress-wrap { position:sticky; top:0; z-index:10; padding:18px 0 14px; background:color-mix(in srgb,var(--bg) 94%,transparent); backdrop-filter:blur(12px); }
+    .progress-top { display:flex; justify-content:space-between; gap:16px; margin-bottom:8px; font-size:14px; color:var(--muted); }
+    .progress { height:5px; overflow:hidden; border-radius:99px; background:#dddde1; }
+    .progress > span { display:block; height:100%; width:0; border-radius:inherit; background:var(--blue); transition:width .2s ease-out; }
+    .layout { display:grid; grid-template-columns:220px minmax(0,1fr); gap:44px; padding-top:22px; }
+    nav { position:sticky; top:78px; align-self:start; }
+    nav button { display:block; width:100%; padding:11px 0; border:0; border-bottom:1px solid var(--line); background:transparent; color:var(--muted); text-align:left; font-size:15px; }
+    nav button.active { color:var(--blue); font-weight:650; }
+    .section { display:none; animation:show .18s ease-out; }
+    .section.active { display:block; }
+    @keyframes show { from { opacity:.55; transform:translateY(5px); } }
+    .section-number { margin:0 0 5px; color:var(--blue); font-size:15px; font-weight:650; }
+    h2 { margin:0 0 8px; font-size:clamp(27px,3vw,38px); line-height:1.2; letter-spacing:-.025em; }
+    .section-copy { margin:0 0 30px; max-width:680px; color:var(--muted); }
+    fieldset { margin:0; padding:27px 0; border:0; border-top:1px solid var(--line); }
+    legend { width:100%; padding:0 0 15px; font-size:20px; line-height:1.45; font-weight:650; }
+    .hint { display:block; margin-top:5px; color:var(--muted); font-size:14px; font-weight:400; }
+    .options { display:grid; gap:9px; }
+    .option { display:flex; gap:14px; align-items:flex-start; padding:15px 16px; border:1px solid var(--line); border-radius:12px; background:var(--surface); transition:border-color .15s,background .15s,transform .15s; }
+    .option:hover { border-color:#9a9aa1; transform:translateY(-1px); }
+    .option:has(input:checked) { border-color:var(--blue); background:var(--blue-soft); }
+    .option input { width:19px; height:19px; margin:3px 0 0; accent-color:var(--blue); flex:none; }
+    .option b { display:inline-block; min-width:24px; color:var(--blue); }
+    textarea { width:100%; min-height:112px; margin-top:12px; padding:14px 16px; resize:vertical; border:1px solid var(--line); border-radius:12px; background:var(--surface); color:var(--ink); outline:none; }
+    textarea:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(0,102,204,.12); }
+    .actions { display:flex; justify-content:space-between; gap:12px; margin-top:34px; padding-top:22px; border-top:1px solid var(--line); }
+    .button { min-height:46px; padding:0 19px; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--ink); font-weight:650; }
+    .button.primary { border-color:var(--blue); background:var(--blue); color:#fff; }
+    .button.danger { color:var(--danger); }
+    .summary { white-space:pre-wrap; min-height:360px; padding:22px; border:1px solid var(--line); border-radius:12px; background:var(--surface); font:15px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace; }
+    .toast { position:fixed; right:22px; bottom:22px; padding:11px 16px; border-radius:10px; background:#1d1d1f; color:#fff; font-size:14px; opacity:0; transform:translateY(8px); pointer-events:none; transition:.18s ease-out; }
+    .toast.show { opacity:1; transform:none; }
+    @media (max-width:760px) { .shell{width:min(100% - 24px,680px);padding-top:18px} header{display:block}.save-state{margin-top:12px}.layout{display:block}.layout nav{display:flex;position:static;overflow:auto;gap:6px;margin-bottom:24px}.layout nav button{width:auto;min-width:max-content;padding:8px 12px;border:0;border-radius:999px;background:#e7e7eb}.layout nav button.active{background:#1d1d1f;color:#fff} fieldset{padding:23px 0}.option{padding:14px}.actions{position:sticky;bottom:0;padding:14px 0;background:var(--bg)} }
+    @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; animation:none!important; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div><div class="brand">Context Reader</div><h1>先把审美说清楚，再开始设计</h1><p class="intro">这份问卷用于确定首页的气质、首屏结构、视觉语言和宣传边界。答案只保存在当前浏览器。</p></div>
+      <div class="save-state" id="saveState">等待回答</div>
+    </header>
+    <div class="progress-wrap"><div class="progress-top"><span id="stepText">第 1 组，共 6 组</span><span id="answerText">已回答 0 / 18</span></div><div class="progress"><span id="progressBar"></span></div></div>
+    <div class="layout">
+      <nav id="nav"></nav>
+      <main id="form"></main>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script>
+    const groups = [
+      {title:"第一印象",copy:"首页首先要决定用户感受到什么。",qs:[
+        ["1","用户打开首页时，最希望他产生哪种第一反应？",["这个工具非常清楚，我马上会用","这个产品很有品位，我想进一步了解","这个阅读体验看起来很舒服，我想马上试一篇","三者都有，请在补充说明里排序"]],
+        ["2","整体气质更接近哪一类？",["安静、理性、精确","文艺、有人味、重视阅读","高级、克制、像成熟设计产品","个性鲜明，有一点实验性"]],
+        ["3","首页需要多强的品牌感？",["很弱，主要像一个漂亮好用的工具","中等，有清晰气质，但阅读入口占主导","较强，第一屏先建立印象，再引导使用"]]
+      ]},
+      {title:"第一屏",copy:"确定用户第一眼看到什么，以及什么必须退到后面。",qs:[
+        ["4","第一屏的主角应该是什么？",["文章粘贴框，打开就能开始","一句强主标题加一个明确按钮","产品真实阅读界面的演示","标题、输入入口和演示组合，但内容极少"]],
+        ["5","粘贴文章的输入框需要在打开页面时完整可见吗？",["必须完整可见，首页首先是工具","只露出简洁入口，点击后展开","可以在首屏稍下方，但不能滚很远","希望先看不同方案再决定"]],
+        ["6","首屏最多接受多少文案？",["一句标题，不要副标题","一句标题、一句解释、一个主按钮","标题、解释、两个入口","文案数量不限，但层级必须非常清楚"]]
+      ]},
+      {title:"内容取舍",copy:"首页不是功能说明书，需要确定哪些内容真正值得出现。",qs:[
+        ["7","首页如何处理推荐文章和已保存文章？",["两者都要，但放在首屏之后","只展示已保存文章","只展示推荐文章","首页只负责开始阅读，其余通过导航进入","根据新用户和老用户状态变化"]],
+        ["8","首页最应该宣传什么？",["不离开文章就能理解生词","解释结合当前语境","把长篇英文真正读下去","保存生词并进入 Anki","全文翻译","URL 和图片导入"],true],
+        ["9","详细使用说明应该放在哪里？",["全部放到独立指南，首页只给入口","首页保留极短说明，其余放指南","首页可以有一个简洁的使用流程","根据用户是否首次访问决定"]]
+      ]},
+      {title:"视觉语言",copy:"这一组决定首页如何与文章阅读页成为同一个产品。",qs:[
+        ["10","首页应该多大程度继承文章阅读页？",["完全继承背景、蓝色、字体和控件","使用同一基础色，首页可以更有品牌表现","首页可独立设计，只要进入阅读页不突兀","文章页以后也可以跟随首页调整"]],
+        ["11","当前文章页哪些元素值得保留？",["浅灰背景","白色阅读区域","蓝色主操作色","黑灰文字体系","苹果式简洁控件","字体和排版","文章页也只是暂时能用"],true],
+        ["12","更喜欢哪种页面轮廓？",["平整开放，少卡片、少边框","清晰分区，但卡片数量很少","大块留白配一两个强视觉区域","全屏沉浸式首屏","类似桌面应用的紧凑工作台"]]
+      ]},
+      {title:"素材与表达",copy:"宣传效果可以来自真实产品、图像、动效或文字，不能继续凭模板猜。",qs:[
+        ["13","首页需要什么视觉素材？",["不需要图片，靠真实输入框和产品界面","使用真实阅读界面的截图或动态演示","使用与英文阅读有关的摄影图片","使用精致抽象视觉或动效","需要先看参考再决定"]],
+        ["14","动效应该有多强？",["几乎没有，只保留状态反馈","有一个克制的产品演示","首屏有明显但高级的视觉动效","不限强弱，只要不像 AI 模板"]],
+        ["15","宣传文案更接近哪种口吻？",["非常直接，准确说明能做什么","有一点情绪，但不能矫情","像设计师产品，克制且有观点","标题有感染力，具体说明必须直接"]]
+      ]},
+      {title:"参考与否决",copy:"具体参考和明确否决项，通常比抽象形容词更有效。",qs:[
+        ["16","Context Reader 这个名字如何出现？",["名字本身就是主视觉","中文价值主张更重要，名字保持安静","需要明确的中文副标题或中文名称","还没有确定"]],
+        ["17","你最喜欢哪些网站或页面？",[],false,"请粘贴 3 至 5 个链接，或描述喜欢它们的字体、留白、构图、颜色和动效。"],
+        ["18","当前新首页最想彻底删除什么？",[],false,"例如绿色配色、CR 方块、胶囊标签、自动演示、大量说明、四步流程、圆角卡片。请尽量具体。"]
+      ]}
+    ];
+    const key="context-reader:home-design-questionnaire:v1"; let state=JSON.parse(localStorage.getItem(key)||"{}"); let step=0;
+    const form=document.querySelector("#form"),nav=document.querySelector("#nav");
+    function render(){ nav.innerHTML=groups.map((g,i)=>`<button type="button" data-step="${i}" class="${i===step?'active':''}">${i+1}. ${g.title}</button>`).join(""); form.innerHTML=groups.map((g,i)=>`<section class="section ${i===step?'active':''}" data-section="${i}"><p class="section-number">第 ${i+1} 组</p><h2>${g.title}</h2><p class="section-copy">${g.copy}</p>${g.qs.map(q=>question(q)).join("")}${i===groups.length-1?summaryBlock():''}<div class="actions"><button class="button ${i===0?'danger':''}" type="button" data-action="${i===0?'clear':'prev'}">${i===0?'清空答案':'上一组'}</button><button class="button primary" type="button" data-action="${i===groups.length-1?'copy':'next'}">${i===groups.length-1?'复制设计简报':'下一组'}</button></div></section>`).join(""); bind(); update(); }
+    function question(q){ const [id,title,opts,multi=false,placeholder="还有其他想法，可以写在这里。"] = q; const type=multi?'checkbox':'radio'; return `<fieldset><legend>${id}. ${title}${multi?'<span class="hint">可以多选</span>':''}</legend>${opts.length?`<div class="options">${opts.map((o,j)=>`<label class="option"><input type="${type}" name="q${id}" value="${j}" ${(state[id]?.choices||[]).includes(j)?'checked':''}><span><b>${String.fromCharCode(65+j)}</b>${o}</span></label>`).join("")}</div>`:''}<textarea data-note="${id}" placeholder="${placeholder}">${state[id]?.note||''}</textarea></fieldset>`; }
+    function summaryBlock(){ return `<fieldset><legend>设计偏好简报</legend><div class="summary" id="summary"></div></fieldset>`; }
+    function bind(){ nav.querySelectorAll("button").forEach(b=>b.onclick=()=>{step=+b.dataset.step;render();scrollTo(0,0)}); form.querySelectorAll("input").forEach(el=>el.onchange=save); form.querySelectorAll("textarea").forEach(el=>el.oninput=save); form.querySelectorAll("[data-action]").forEach(b=>b.onclick=()=>action(b.dataset.action)); }
+    function save(){ groups.flatMap(g=>g.qs).forEach(q=>{ const id=q[0],choices=[...document.querySelectorAll(`[name=q${id}]:checked`)].map(x=>+x.value),note=document.querySelector(`[data-note='${id}']`)?.value||state[id]?.note||""; if(choices.length||note.trim()) state[id]={choices,note}; }); localStorage.setItem(key,JSON.stringify(state)); document.querySelector("#saveState").textContent="已自动保存"; update(); }
+    function answered(){ return groups.flatMap(g=>g.qs).filter(q=>(state[q[0]]?.choices?.length||state[q[0]]?.note?.trim())).length; }
+    function update(){ const n=answered(); document.querySelector("#stepText").textContent=`第 ${step+1} 组，共 ${groups.length} 组`; document.querySelector("#answerText").textContent=`已回答 ${n} / 18`; document.querySelector("#progressBar").style.width=`${n/18*100}%`; if(document.querySelector("#summary"))document.querySelector("#summary").textContent=buildSummary(); }
+    function buildSummary(){ const lines=["# Context Reader 首页设计偏好简报",""]; groups.forEach(g=>{lines.push(`## ${g.title}`,"");g.qs.forEach(q=>{const a=state[q[0]]||{},selected=(a.choices||[]).map(i=>q[2][i]).filter(Boolean);lines.push(`${q[0]}. ${q[1]}`);lines.push(`答案：${selected.length?selected.join("；"):"未选择"}`);if(a.note?.trim())lines.push(`补充：${a.note.trim()}`);lines.push("");});});return lines.join("\n"); }
+    function action(a){ if(a==='next'){step++;render();scrollTo(0,0)}else if(a==='prev'){step--;render();scrollTo(0,0)}else if(a==='clear'){if(confirm("确定清空全部答案吗？")){state={};localStorage.removeItem(key);render()}}else if(a==='copy'){navigator.clipboard.writeText(buildSummary()).then(()=>toast("设计简报已复制"),()=>toast("复制失败，请手动选择简报文字"));} }
+    function toast(t){const el=document.querySelector("#toast");el.textContent=t;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),1800)}
+    render();
+  </script>
+</body>
+</html>

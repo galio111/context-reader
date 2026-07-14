@@ -1,4 +1,11 @@
-import type { ImportedArticle, ImportedArticleBlock, ImportedArticleInlineText, SavedArticle } from "@/types/article";
+import type {
+  ArticleReadingStyle,
+  ImportedArticle,
+  ImportedArticleBlock,
+  ImportedArticleInlineText,
+  ImportedImageLayoutWord,
+  SavedArticle,
+} from "@/types/article";
 
 const ARTICLES_KEY = "context-reader:articles:v1";
 const GENERIC_SUMMARY = "这是一篇已保存的英文阅读文章。";
@@ -41,6 +48,33 @@ function normalizeInlineText(value: unknown): ImportedArticleInlineText | null {
   };
 }
 
+function normalizeLayoutWord(value: unknown): ImportedImageLayoutWord | null {
+  const word = value as Partial<ImportedImageLayoutWord>;
+  if (!word || typeof word.text !== "string" || !word.text.trim()) {
+    return null;
+  }
+  if (
+    typeof word.x !== "number" ||
+    typeof word.y !== "number" ||
+    typeof word.width !== "number" ||
+    typeof word.height !== "number" ||
+    !Number.isFinite(word.x) ||
+    !Number.isFinite(word.y) ||
+    !Number.isFinite(word.width) ||
+    !Number.isFinite(word.height)
+  ) {
+    return null;
+  }
+  return {
+    text: word.text.trim(),
+    x: Math.max(0, Math.min(100, word.x)),
+    y: Math.max(0, Math.min(100, word.y)),
+    width: Math.max(0, Math.min(100, word.width)),
+    height: Math.max(0, Math.min(100, word.height)),
+    lineText: typeof word.lineText === "string" && word.lineText.trim() ? word.lineText.trim() : word.text.trim(),
+  };
+}
+
 function normalizeImportedBlock(value: unknown): ImportedArticleBlock | null {
   const block = value as Partial<ImportedArticleBlock>;
   if (!block || typeof block.type !== "string" || typeof block.id !== "string") {
@@ -58,6 +92,14 @@ function normalizeImportedBlock(value: unknown): ImportedArticleBlock | null {
       src,
       alt: typeof block.alt === "string" ? block.alt : "",
       ocrText: typeof block.ocrText === "string" ? block.ocrText : "",
+      ...(Array.isArray(block.layoutWords)
+        ? {
+            layoutWords: block.layoutWords
+              .map(normalizeLayoutWord)
+              .filter((item): item is ImportedImageLayoutWord => Boolean(item)),
+          }
+        : {}),
+      ...(typeof block.layoutError === "string" ? { layoutError: block.layoutError } : {}),
     };
   }
 
@@ -72,9 +114,6 @@ function normalizeImportedBlock(value: unknown): ImportedArticleBlock | null {
   }
 
   const text = typeof block.text === "string" ? block.text : "";
-  if (!text.trim()) {
-    return null;
-  }
   return {
     id: block.id,
     type: block.type,
@@ -87,6 +126,35 @@ function normalizeImportedBlock(value: unknown): ImportedArticleBlock | null {
         }
       : {}),
   };
+}
+
+function normalizeArticleStyle(value: unknown): ArticleReadingStyle | undefined {
+  const style = value as Partial<ArticleReadingStyle>;
+  if (!style || typeof style !== "object") {
+    return undefined;
+  }
+
+  const nextStyle: ArticleReadingStyle = {};
+  if (style.fontFamily === "system" || style.fontFamily === "serif" || style.fontFamily === "mono") {
+    nextStyle.fontFamily = style.fontFamily;
+  }
+  if (style.fontSize === "small" || style.fontSize === "default" || style.fontSize === "large" || style.fontSize === "xlarge") {
+    nextStyle.fontSize = style.fontSize;
+  }
+  if (style.lineHeight === "compact" || style.lineHeight === "default" || style.lineHeight === "relaxed") {
+    nextStyle.lineHeight = style.lineHeight;
+  }
+  if (style.paragraphSpacing === "compact" || style.paragraphSpacing === "default" || style.paragraphSpacing === "relaxed") {
+    nextStyle.paragraphSpacing = style.paragraphSpacing;
+  }
+  if (style.contentWidth === "narrow" || style.contentWidth === "default" || style.contentWidth === "wide") {
+    nextStyle.contentWidth = style.contentWidth;
+  }
+  if (style.imageWidth === "small" || style.imageWidth === "medium" || style.imageWidth === "full") {
+    nextStyle.imageWidth = style.imageWidth;
+  }
+
+  return Object.keys(nextStyle).length > 0 ? nextStyle : undefined;
 }
 
 function normalizeImportedArticle(value: unknown, body: string): ImportedArticle | undefined {
@@ -115,6 +183,7 @@ function normalizeImportedArticle(value: unknown, body: string): ImportedArticle
       ? importedArticle.text
       : body,
     blocks,
+    ...(normalizeArticleStyle(importedArticle.style) ? { style: normalizeArticleStyle(importedArticle.style) } : {}),
   };
 }
 
@@ -219,6 +288,56 @@ export function saveArticle(article: string, summary = "", importedArticle?: Imp
       updatedAt: now,
     },
     ...articles,
+  ];
+  saveArticles(nextArticles);
+  return nextArticles;
+}
+
+export function saveEditedArticle(
+  previousArticle: string,
+  nextArticle: string,
+  importedArticle?: ImportedArticle | null,
+): SavedArticle[] {
+  const previousKey = articleIdentity(previousArticle);
+  const nextBody = nextArticle.trim();
+  const articles = getSavedArticles();
+  const existing = articles.find((item) => articleIdentity(item.body) === previousKey);
+
+  if (!existing) {
+    return articles;
+  }
+
+  const now = new Date().toISOString();
+  const normalizedImportedArticle = normalizeImportedArticle(importedArticle, nextBody);
+  const nextArticles = articles.map((item) =>
+    item.id === existing.id
+      ? {
+          ...item,
+          title: titleFromArticle(nextBody),
+          body: nextBody,
+          ...(normalizedImportedArticle ? { importedArticle: normalizedImportedArticle } : { importedArticle: undefined }),
+          updatedAt: now,
+        }
+      : item,
+  );
+  saveArticles(nextArticles);
+  return nextArticles;
+}
+
+export function touchSavedArticle(id: string): SavedArticle[] {
+  const articles = getSavedArticles();
+  const existing = articles.find((article) => article.id === id);
+  if (!existing) {
+    return articles;
+  }
+
+  const touchedArticle = {
+    ...existing,
+    updatedAt: new Date().toISOString(),
+  };
+  const nextArticles = [
+    touchedArticle,
+    ...articles.filter((article) => article.id !== id),
   ];
   saveArticles(nextArticles);
   return nextArticles;

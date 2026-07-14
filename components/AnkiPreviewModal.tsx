@@ -1,5 +1,6 @@
 "use client";
 
+import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
 interface AnkiPreviewModalProps {
@@ -14,6 +15,14 @@ function Field({ label, value }: { label: string; value: string }) {
       <dd className="mt-1 whitespace-pre-wrap text-[#333333]">{value || "无"}</dd>
     </div>
   );
+}
+
+function selectedTextKind(value: string): "word" | "phrase" {
+  return value.trim().split(/\s+/).filter(Boolean).length > 1 ? "phrase" : "word";
+}
+
+function meaningLabel(value: string): string {
+  return selectedTextKind(value) === "phrase" ? "所选短语在本句中的含义" : "所选词在本句中的含义";
 }
 
 export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
@@ -70,7 +79,8 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
             <div className="mb-4">
               <p className="text-2xl font-semibold text-[#1d1d1f]">{entry.word}</p>
               <p className="mt-1 text-sm text-[#7a7a7a]">
-                {entry.lemma} · {entry.phonetic} · {entry.partOfSpeech}
+                {originalFormLabel(entry.lemma, entry.word)} · {normalizePartOfSpeechLabel(entry.partOfSpeech)}
+                {entry.phonetic ? ` · ${entry.phonetic}` : ""}
               </p>
               <p className="mt-2 text-sm text-[#333333]">Anki 背面会显示美式 / 英式发音按钮。</p>
             </div>
@@ -79,13 +89,13 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
                 <>
                   <Field label="原句" value={entry.sourceSentence} />
                   <Field label="自然翻译" value={entry.sentenceTranslation} />
-                  <Field label="语境含义" value={entry.contextMeaning} />
+                  <Field label={meaningLabel(entry.word)} value={entry.contextMeaning} />
                   <Field label="基础释义" value={entry.basicMeaning} />
                 </>
               ) : (
                 <>
                   <Field label="基础释义" value={entry.basicMeaning} />
-                  <Field label="当前语境含义" value={entry.contextMeaning} />
+                  <Field label={meaningLabel(entry.word)} value={entry.contextMeaning} />
                   <Field label="原句" value={entry.sourceSentence} />
                   <Field label="自然翻译" value={entry.sentenceTranslation} />
                 </>

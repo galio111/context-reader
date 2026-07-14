@@ -1,9 +1,13 @@
 import { normalizeAnkiInfo } from "@/lib/ankiData";
-import type { WordExplanation } from "@/types/reader";
+import type { ArticleTranslationBlock, ArticleTranslationItem, WordExplanation } from "@/types/reader";
 
-const EXPLANATION_CACHE_KEY = "context-reader:explanations:v4";
+const EXPLANATION_CACHE_KEY = "context-reader:explanations:v5";
+const ARTICLE_TRANSLATION_CACHE_KEY = "context-reader:article-translations:v1";
+const ARTICLE_TRANSLATION_BLOCK_CACHE_KEY = "context-reader:article-translation-blocks:v1";
 
 type ExplanationCache = Record<string, WordExplanation>;
+type ArticleTranslationCache = Record<string, ArticleTranslationItem[]>;
+type ArticleTranslationBlockCache = Record<string, ArticleTranslationItem>;
 
 function readCache(): ExplanationCache {
   if (typeof window === "undefined") {
@@ -39,8 +43,18 @@ export function getCachedExplanation(key: string): WordExplanation | null {
   if (!cached) {
     return null;
   }
+  const selectedWord = key.split("::", 1)[0].trim();
+  const isPhrase = selectedWord.split(/\s+/).filter(Boolean).length > 1;
+  const cachedLemmaWords = String(cached.lemma ?? "").match(/[a-z]+(?:['’-][a-z]+)*/gi) ?? [];
   return {
     ...cached,
+    word: selectedWord || cached.word,
+    lemma: isPhrase
+      ? ""
+      : cachedLemmaWords.length === 1
+        ? cachedLemmaWords[0].toLowerCase()
+        : selectedWord.toLowerCase(),
+    collocation: cached.collocation || "无固定搭配",
     anki: normalizeAnkiInfo(cached, ""),
   };
 }
@@ -59,4 +73,119 @@ export function getExplanationCacheEntries(): Array<{ cacheKey: string; explanat
       anki: normalizeAnkiInfo(explanation, ""),
     },
   }));
+}
+
+function readArticleTranslationCache(): ArticleTranslationCache {
+  if (typeof window === "undefined") {
+    return {};
+  }
+
+  try {
+    const raw = window.localStorage.getItem(ARTICLE_TRANSLATION_CACHE_KEY);
+    return raw ? (JSON.parse(raw) as ArticleTranslationCache) : {};
+  } catch {
+    return {};
+  }
+}
+
+function readArticleTranslationBlockCache(): ArticleTranslationBlockCache {
+  if (typeof window === "undefined") {
+    return {};
+  }
+
+  try {
+    const raw = window.localStorage.getItem(ARTICLE_TRANSLATION_BLOCK_CACHE_KEY);
+    return raw ? (JSON.parse(raw) as ArticleTranslationBlockCache) : {};
+  } catch {
+    return {};
+  }
+}
+
+export function getCachedArticleTranslationForBlock(block: ArticleTranslationBlock): ArticleTranslationItem | null {
+  return readArticleTranslationBlockCache()[createArticleTranslationBlockCacheKey(block)] ?? null;
+}
+
+function writeArticleTranslationCache(cache: ArticleTranslationCache): void {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem(ARTICLE_TRANSLATION_CACHE_KEY, JSON.stringify(cache));
+  } catch {
+    // Translation cache failure should not block reading.
+  }
+}
+
+function writeArticleTranslationBlockCache(cache: ArticleTranslationBlockCache): void {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem(ARTICLE_TRANSLATION_BLOCK_CACHE_KEY, JSON.stringify(cache));
+  } catch {
+    // Translation cache failure should not block reading.
+  }
+}
+
+function hashText(value: string): string {
+  let hash = 5381;
+  for (let index = 0; index < value.length; index += 1) {
+    hash = ((hash << 5) + hash) ^ value.charCodeAt(index);
+  }
+  return (hash >>> 0).toString(36);
+}
+
+export function createArticleTranslationCacheKey(blocks: ArticleTranslationBlock[]): string {
+  return hashText(JSON.stringify(blocks.map((block) => [block.id, block.type, block.text])));
+}
+
+export function createArticleTranslationBlockCacheKey(block: ArticleTranslationBlock): string {
+  return hashText(JSON.stringify([block.id, block.type, block.text]));
+}
+
+export function getCachedArticleTranslation(key: string): ArticleTranslationItem[] | null {
+  const cached = readArticleTranslationCache()[key];
+  return Array.isArray(cached) && cached.length > 0 ? cached : null;
+}
+
+export function setCachedArticleTranslation(key: string, translations: ArticleTranslationItem[]): void {
+  const cache = readArticleTranslationCache();
+  cache[key] = translations;
+  writeArticleTranslationCache(cache);
+}
+
+export function getCachedArticleTranslationForBlocks(blocks: ArticleTranslationBlock[]): ArticleTranslationItem[] {
+  const cache = readArticleTranslationBlockCache();
+  return blocks
+    .map((block) => cache[createArticleTranslationBlockCacheKey(block)])
+    .filter((item): item is ArticleTranslationItem => Boolean(item?.id && item.translation));
+}
+
+export function setCachedArticleTranslationForBlocks(
+  blocks: ArticleTranslationBlock[],
+  translations: ArticleTranslationItem[],
+): void {
+  const cache = readArticleTranslationBlockCache();
+  const blockById = new Map(blocks.map((block) => [block.id, block]));
+
+  for (const translation of translations) {
+    const block = blockById.get(translation.id);
+    if (!block || !translation.translation.trim()) {
+      continue;
+    }
+    cache[createArticleTranslationBlockCacheKey(block)] = translation;
+  }
+
+  writeArticleTranslationBlockCache(cache);
+}
+
+export function getArticleTranslationCacheEntries(): Array<{ cacheKey: string; translations: ArticleTranslationItem[] }> {
+  return Object.entries(readArticleTranslationCache())
+    .filter(([, translations]) => Array.isArray(translations) && translations.length > 0)
+    .map(([cacheKey, translations]) => ({
+      cacheKey,
+      translations,
+    }));
 }

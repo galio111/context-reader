@@ -20,6 +20,32 @@ export class AnkiConnectError extends Error {
   }
 }
 
+function validatedAnkiEndpoint(value: string): string {
+  let url: URL;
+  try {
+    url = new URL(value);
+  } catch {
+    throw new AnkiConnectError("AnkiConnect 地址格式不正确。");
+  }
+  const hostname = url.hostname.toLowerCase().replace(/^\[|\]$/g, "");
+  if (
+    url.protocol !== "http:" ||
+    !["127.0.0.1", "localhost", "::1"].includes(hostname) ||
+    (url.port && url.port !== "8765") ||
+    url.username ||
+    url.password ||
+    (url.pathname !== "/" && url.pathname !== "") ||
+    url.search ||
+    url.hash
+  ) {
+    throw new AnkiConnectError("出于安全原因，AnkiConnect 只允许使用本机 127.0.0.1:8765。");
+  }
+  url.hostname = "127.0.0.1";
+  url.port = "8765";
+  url.pathname = "/";
+  return url.toString();
+}
+
 function friendlyNetworkError(endpoint: string): string {
   return `无法连接 AnkiConnect。请确认 Anki 已打开、AnkiConnect 插件已安装，并且地址 ${endpoint} 可以访问。`;
 }
@@ -29,16 +55,18 @@ export async function invokeAnkiConnect<T>(
   params: Record<string, unknown> = {},
   endpoint = DEFAULT_ANKI_ENDPOINT,
 ): Promise<T> {
+  const safeEndpoint = validatedAnkiEndpoint(endpoint);
   let response: Response;
   try {
-    response = await fetch(endpoint, {
+    response = await fetch(safeEndpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action, version: 6, params }),
+      signal: AbortSignal.timeout(8_000),
     });
   } catch {
     throw new AnkiConnectError(
-      `无法连接 AnkiConnect。请确认 Anki 已打开、AnkiConnect 插件已安装，并且地址 ${endpoint} 可以访问。如果你正在使用线上网站，请在 AnkiConnect 配置的 webCorsOriginList 中允许 https://context-reader-ten.vercel.app。`,
+      `无法连接 AnkiConnect。请确认 Anki 已打开、AnkiConnect 插件已安装，并且地址 ${safeEndpoint} 可以访问。如果你正在使用线上网站，请在 AnkiConnect 配置的 webCorsOriginList 中允许 https://context-reader-ten.vercel.app。`,
     );
   }
 
@@ -66,6 +94,30 @@ export async function getDeckNames(endpoint?: string): Promise<string[]> {
 
 export async function createDeck(deckName = DEFAULT_ANKI_DECK, endpoint?: string): Promise<number> {
   return invokeAnkiConnect<number>("createDeck", { deck: deckName }, endpoint);
+}
+
+async function disableDeckAudioAutoplay(deckName: string, endpoint?: string): Promise<void> {
+  try {
+    const config = await invokeAnkiConnect<Record<string, unknown>>(
+      "getDeckConfig",
+      { deck: deckName },
+      endpoint,
+    );
+
+    await invokeAnkiConnect(
+      "saveDeckConfig",
+      {
+        config: {
+          ...config,
+          autoplay: false,
+        },
+      },
+      endpoint,
+    );
+  } catch {
+    // Older AnkiConnect/Anki combinations may not expose deck config writes.
+    // Note import should still work; users can disable audio autoplay in Anki deck options.
+  }
 }
 
 export async function getModelNames(endpoint?: string): Promise<string[]> {
@@ -152,6 +204,7 @@ export async function addVocabularyNote(
   }
 
   await createDeck(deckName, endpoint);
+  await disableDeckAudioAutoplay(deckName, endpoint);
   const modelName = await ensureModel(entry.anki.cardMode, endpoint);
   const result = await invokeAnkiConnect<number>(
     "addNote",

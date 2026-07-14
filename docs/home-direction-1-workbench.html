@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Context Reader 首页方案 1：阅读工作台</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f5f7;
+        --surface: #ffffff;
+        --surface-soft: #f9fafb;
+        --line: #dfe3e8;
+        --line-soft: #edf0f3;
+        --ink: #17191c;
+        --muted: #626a73;
+        --subtle: #8a929c;
+        --accent: #0b66d8;
+        --accent-soft: #eaf2ff;
+        --danger: #b42318;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
+
+      button,
+      textarea,
+      input {
+        font: inherit;
+      }
+
+      .shell {
+        min-height: 100vh;
+        padding: 18px;
+      }
+
+      .frame {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 18px;
+        max-width: 1240px;
+        min-height: calc(100vh - 36px);
+        margin: 0 auto;
+      }
+
+      .workspace,
+      .rail {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+      }
+
+      .workspace {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        padding: 24px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line-soft);
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.15;
+        font-weight: 720;
+        letter-spacing: 0;
+      }
+
+      .brand p {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .button {
+        height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--surface);
+        color: var(--ink);
+        padding: 0 14px;
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .button.primary {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #ffffff;
+      }
+
+      .button.accent {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .reader-start {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 220px;
+        gap: 18px;
+        padding: 24px 0 18px;
+      }
+
+      .input-wrap {
+        min-width: 0;
+      }
+
+      .mode-row {
+        display: inline-flex;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--surface-soft);
+        padding: 3px;
+      }
+
+      .mode-row span {
+        border-radius: 999px;
+        padding: 7px 13px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .mode-row span.active {
+        background: var(--ink);
+        color: #ffffff;
+      }
+
+      textarea {
+        display: block;
+        width: 100%;
+        min-height: 360px;
+        margin-top: 14px;
+        resize: none;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface-soft);
+        padding: 18px;
+        color: var(--ink);
+        font-size: 17px;
+        line-height: 1.6;
+        outline: none;
+      }
+
+      textarea::placeholder {
+        color: #6f7782;
+      }
+
+      .start-panel {
+        align-self: stretch;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface-soft);
+        padding: 16px;
+      }
+
+      .start-panel h2,
+      .section-title,
+      .rail h2 {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.4;
+        font-weight: 680;
+        letter-spacing: 0;
+      }
+
+      .start-panel p {
+        margin: 8px 0 16px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .url-field {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #ffffff;
+        padding: 0 12px;
+        color: var(--subtle);
+        font-size: 13px;
+      }
+
+      .start-panel .primary {
+        width: 100%;
+        margin-top: 12px;
+      }
+
+      .hint-stack {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .hint {
+        display: flex;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .dot {
+        width: 7px;
+        height: 7px;
+        flex: 0 0 auto;
+        margin-top: 7px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      .recommendations {
+        border-top: 1px solid var(--line-soft);
+        padding-top: 18px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 10px;
+      }
+
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .article-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .article-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        border: 1px solid var(--line-soft);
+        border-radius: 12px;
+        background: #ffffff;
+        padding: 12px 14px;
+      }
+
+      .article-row h3,
+      .saved-row h3 {
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: 650;
+      }
+
+      .article-row p,
+      .saved-row p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .tag {
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        padding: 6px 10px;
+        font-size: 12px;
+        line-height: 1;
+      }
+
+      .rail {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        padding: 18px;
+      }
+
+      .rail-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--line-soft);
+      }
+
+      .mini-link {
+        color: var(--accent);
+        font-size: 13px;
+      }
+
+      .saved-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .saved-row {
+        border-bottom: 1px solid var(--line-soft);
+        padding-bottom: 12px;
+      }
+
+      .saved-row:last-child {
+        border-bottom: 0;
+      }
+
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 8px;
+        color: var(--subtle);
+        font-size: 12px;
+      }
+
+      .vocab-strip {
+        margin-top: auto;
+        border-radius: 14px;
+        background: var(--surface-soft);
+        padding: 14px;
+      }
+
+      .vocab-strip p {
+        margin: 6px 0 12px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 920px) {
+        .frame,
+        .reader-start {
+          grid-template-columns: 1fr;
+        }
+
+        .rail {
+          min-height: auto;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .shell {
+          padding: 10px;
+        }
+
+        .workspace,
+        .rail {
+          border-radius: 14px;
+          padding: 16px;
+        }
+
+        .topbar,
+        .section-head,
+        .article-row {
+          align-items: stretch;
+          grid-template-columns: 1fr;
+          flex-direction: column;
+        }
+
+        .actions {
+          justify-content: flex-start;
+        }
+
+        textarea {
+          min-height: 280px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <div class="frame">
+        <section class="workspace" aria-label="阅读工作台">
+          <header class="topbar">
+            <div class="brand">
+              <h1>Context Reader</h1>
+              <p>把英文文章放进来，边读边查词，保存真正有用的表达。</p>
+            </div>
+            <div class="actions">
+              <button class="button accent" type="button">生词本</button>
+              <button class="button" type="button">管理推荐</button>
+            </div>
+          </header>
+
+          <section class="reader-start">
+            <div class="input-wrap">
+              <div class="mode-row" aria-label="输入方式">
+                <span class="active">粘贴文章</span>
+                <span>导入 URL</span>
+                <span>图片文字</span>
+              </div>
+              <textarea placeholder="Paste your English article here..."></textarea>
+            </div>
+
+            <aside class="start-panel" aria-label="开始阅读">
+              <h2>开始阅读</h2>
+              <p>文章会保留在本地。进入阅读后，点击单词或短语即可查看中文语境解释。</p>
+              <div class="url-field">https://example.com/article</div>
+              <button class="button primary" type="button">开始阅读</button>
+
+              <div class="hint-stack">
+                <div class="hint"><span class="dot"></span><span>自动保存阅读进度和已查词条。</span></div>
+                <div class="hint"><span class="dot"></span><span>全文翻译在右侧栏手动开始。</span></div>
+                <div class="hint"><span class="dot"></span><span>生词可导出 CSV 或导入 Anki。</span></div>
+              </div>
+            </aside>
+          </section>
+
+          <section class="recommendations" aria-label="推荐阅读">
+            <div class="section-head">
+              <div>
+                <h2 class="section-title">推荐阅读</h2>
+                <p>轻量起点，不打断你的主要输入区。</p>
+              </div>
+              <button class="button" type="button">换一组</button>
+            </div>
+            <div class="article-list">
+              <article class="article-row">
+                <div>
+                  <h3>The new science of attention in digital reading</h3>
+                  <p>适合练习长句结构和抽象名词的科技评论。</p>
+                </div>
+                <span class="tag">12 min</span>
+              </article>
+              <article class="article-row">
+                <div>
+                  <h3>Why cities are redesigning quiet public spaces</h3>
+                  <p>城市设计主题，包含较多原因、让步和对比表达。</p>
+                </div>
+                <span class="tag">8 min</span>
+              </article>
+              <article class="article-row">
+                <div>
+                  <h3>How memory changes when we learn through examples</h3>
+                  <p>学习科学文章，适合积累学术动词和搭配。</p>
+                </div>
+                <span class="tag">10 min</span>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <aside class="rail" aria-label="我的文章">
+          <div class="rail-head">
+            <h2>最近文章</h2>
+            <span class="mini-link">查看全部</span>
+          </div>
+          <div class="saved-list">
+            <article class="saved-row">
+              <h3>What makes an explanation useful?</h3>
+              <p>关于解释质量、上下文和读者预期的短文。</p>
+              <div class="meta"><span>今天</span><span>26 个生词</span></div>
+            </article>
+            <article class="saved-row">
+              <h3>The hidden cost of constant notifications</h3>
+              <p>工作效率与注意力管理主题。</p>
+              <div class="meta"><span>昨天</span><span>14 个生词</span></div>
+            </article>
+            <article class="saved-row">
+              <h3>Designing tools for deliberate practice</h3>
+              <p>关于工具如何支持长期练习。</p>
+              <div class="meta"><span>6 月 12 日</span><span>31 个生词</span></div>
+            </article>
+            <article class="saved-row">
+              <h3>Reading difficult prose without losing the thread</h3>
+              <p>适合反复阅读的语言学习文章。</p>
+              <div class="meta"><span>6 月 9 日</span><span>19 个生词</span></div>
+            </article>
+          </div>
+
+          <section class="vocab-strip" aria-label="生词本摘要">
+            <h2>生词本</h2>
+            <p>当前本地保存 128 个词条，其中 43 个尚未导入 Anki。</p>
+            <button class="button primary" type="button">打开生词本</button>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>

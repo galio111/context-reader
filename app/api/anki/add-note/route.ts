@@ -2,13 +2,19 @@ import { NextResponse } from "next/server";
 import { AnkiConnectError, addVocabularyNote } from "@/lib/ankiConnect";
 import { DEFAULT_ANKI_DECK } from "@/lib/ankiTemplates";
 import { normalizeVocabularyEntries } from "@/lib/vocabulary";
+import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 
 export async function POST(request: Request) {
-  const body = (await request.json().catch(() => null)) as {
+  let body: {
     endpoint?: string;
     deckName?: string;
     entry?: unknown;
   } | null;
+  try {
+    body = await readJsonBody(request, 128 * 1024);
+  } catch (error) {
+    return NextResponse.json({ error: error instanceof RequestBodyTooLargeError ? "请求内容过大。" : "请求格式无效。" }, { status: error instanceof RequestBodyTooLargeError ? 413 : 400 });
+  }
 
   const entry = normalizeVocabularyEntries(body?.entry ? [body.entry] : [])[0];
   if (!entry) {

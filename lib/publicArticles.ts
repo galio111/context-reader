@@ -1,5 +1,5 @@
 import type { ImportedArticle } from "@/types/article";
-import type { PublicArticle, PublicArticleInput, PublicExplanation } from "@/types/publicArticle";
+import type { PublicArticle, PublicArticleInput, PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
 
 interface SupabaseArticleRow {
   id: string;
@@ -20,6 +20,13 @@ interface SupabaseExplanationRow {
   word: string;
   sentence: string;
   explanation: PublicExplanation["explanation"];
+}
+
+interface SupabaseArticleTranslationRow {
+  id: string;
+  article_id: string;
+  cache_key: string;
+  translations: PublicArticleTranslation["translations"];
 }
 
 function supabaseConfig(): { url: string; key: string } {
@@ -46,7 +53,8 @@ async function supabaseFetch<T>(path: string, init: RequestInit = {}): Promise<T
 
   if (!response.ok) {
     const message = await response.text().catch(() => "");
-    throw new Error(message || `Supabase request failed with ${response.status}`);
+    console.error("Supabase request failed", { status: response.status, path, detail: message.slice(0, 500) });
+    throw new Error("Public article storage request failed.");
   }
 
   if (response.status === 204) {
@@ -61,7 +69,11 @@ async function supabaseFetch<T>(path: string, init: RequestInit = {}): Promise<T
   return JSON.parse(text) as T;
 }
 
-function mapArticle(row: SupabaseArticleRow, explanations: PublicExplanation[] = []): PublicArticle {
+function mapArticle(
+  row: SupabaseArticleRow,
+  explanations: PublicExplanation[] = [],
+  articleTranslations: PublicArticleTranslation[] = [],
+): PublicArticle {
   return {
     id: row.id,
     title: row.title,
@@ -71,6 +83,7 @@ function mapArticle(row: SupabaseArticleRow, explanations: PublicExplanation[] =
     sourceName: row.source_name ?? "",
     ...(row.imported_article ? { importedArticle: row.imported_article } : {}),
     explanations,
+    articleTranslations,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
   };
@@ -83,6 +96,14 @@ function mapExplanation(row: SupabaseExplanationRow): PublicExplanation {
     word: row.word,
     sentence: row.sentence,
     explanation: row.explanation,
+  };
+}
+
+function mapArticleTranslation(row: SupabaseArticleTranslationRow): PublicArticleTranslation {
+  return {
+    id: row.id,
+    cacheKey: row.cache_key,
+    translations: row.translations,
   };
 }
 
@@ -116,6 +137,49 @@ async function insertPublicExplanations(articleId: string, explanations: PublicE
   });
 }
 
+async function insertPublicArticleTranslations(
+  articleId: string,
+  articleTranslations: PublicArticleTranslation[],
+): Promise<void> {
+  const validArticleTranslations = articleTranslations.filter(
+    (item) => item.cacheKey && Array.isArray(item.translations) && item.translations.length > 0,
+  );
+
+  if (validArticleTranslations.length === 0) {
+    return;
+  }
+
+  await supabaseFetch("public_article_translations", {
+    method: "POST",
+    headers: {
+      Prefer: "resolution=merge-duplicates,return=minimal",
+    },
+    body: JSON.stringify(
+      validArticleTranslations.map((item) => ({
+        article_id: articleId,
+        cache_key: item.cacheKey,
+        translations: item.translations,
+      })),
+    ),
+  });
+}
+
+async function listPublicArticleTranslations(articleId: string): Promise<PublicArticleTranslation[]> {
+  try {
+    const rows = await supabaseFetch<SupabaseArticleTranslationRow[]>(
+      `public_article_translations?select=id,article_id,cache_key,translations&article_id=eq.${encodeURIComponent(articleId)}&order=created_at.asc`,
+    );
+    return rows.map(mapArticleTranslation);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "";
+    if (message.includes("public_article_translations")) {
+      console.warn("public_article_translations table is not available; returning public article without translation cache.");
+      return [];
+    }
+    throw error;
+  }
+}
+
 async function findDuplicatePublicArticle(input: PublicArticleInput): Promise<PublicArticle | null> {
   const title = input.title.trim();
   const summary = input.summary.trim();
@@ -130,6 +194,7 @@ async function findDuplicatePublicArticle(input: PublicArticleInput): Promise<Pu
   }
 
   await insertPublicExplanations(duplicate.id, input.explanations ?? []);
+  await insertPublicArticleTranslations(duplicate.id, input.articleTranslations ?? []);
   return getPublicArticle(duplicate.id);
 }
 
@@ -149,10 +214,13 @@ export async function getPublicArticle(id: string): Promise<PublicArticle | null
     return null;
   }
 
-  const explanationRows = await supabaseFetch<SupabaseExplanationRow[]>(
-    `public_explanations?select=id,article_id,cache_key,word,sentence,explanation&article_id=eq.${encodeURIComponent(id)}&order=created_at.asc`,
-  );
-  return mapArticle(article, explanationRows.map(mapExplanation));
+  const [explanationRows, articleTranslations] = await Promise.all([
+    supabaseFetch<SupabaseExplanationRow[]>(
+      `public_explanations?select=id,article_id,cache_key,word,sentence,explanation&article_id=eq.${encodeURIComponent(id)}&order=created_at.asc`,
+    ),
+    listPublicArticleTranslations(id),
+  ]);
+  return mapArticle(article, explanationRows.map(mapExplanation), articleTranslations);
 }
 
 export async function createPublicArticle(input: PublicArticleInput): Promise<PublicArticle> {
@@ -183,6 +251,7 @@ export async function createPublicArticle(input: PublicArticleInput): Promise<Pu
   }
 
   await insertPublicExplanations(article.id, input.explanations ?? []);
+  await insertPublicArticleTranslations(article.id, input.articleTranslations ?? []);
 
   return getPublicArticle(article.id).then((created) => created ?? mapArticle(article));
 }

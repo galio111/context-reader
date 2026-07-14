@@ -6,7 +6,7 @@ product
 
 ## Users
 
-Context Reader is for Chinese-speaking English learners who read articles from pasted text or imported URLs. They are usually trying to understand real English prose without leaving the reading flow, and they need fast word-level or short-phrase explanations in Chinese.
+Context Reader is for Chinese-speaking English learners who read articles from pasted text, imported URLs, or English screenshots and scans. They are usually trying to understand real English prose without leaving the reading flow, and they need fast word-level or short-phrase explanations in Chinese.
 
 The primary context is active reading: the user is looking at an article, taps or selects unfamiliar language, reviews the explanation, and saves useful vocabulary for later study or Anki import.
 
@@ -20,21 +20,22 @@ Success means the reader can move between reading, lookup, vocabulary capture, a
 
 Quiet, focused, practical.
 
-The product should feel like a compact reading workspace rather than a marketing site. It should be calm enough for long reading sessions, precise enough for language study, and direct enough that the next action is always obvious.
+The reading workspace should remain calm and compact. The homepage may be more expressive and promotional, but its motion and spatial depth must teach the real click-word and drag-phrase interactions while keeping article entry immediately available.
 
 ## Anti-references
 
-Do not make the product look like a landing page, campaign page, or decorative hero experience. Avoid oversized marketing sections, ornamental gradients, global black brand bars, nested cards, and interface chrome that competes with article text.
+Do not make the homepage a generic AI landing page or let decorative effects replace the reading interaction. Avoid global black brand bars, nested cards, unrelated 3D mascots, tiny explanatory copy, and interface chrome that competes with the sentence demo or article entry. The reader itself remains a quiet tool rather than a campaign surface.
 
 Avoid playful language-learning gamification unless explicitly requested. The product should not feel like a toy, quiz app, or social feed.
 
 ## Design Principles
 
 1. Keep reading primary: article text should remain the visual anchor, with lookup and vocabulary tools supporting it instead of taking over.
-2. Preserve flow: common actions such as returning to edit, copying content, saving articles, and opening vocabulary should be reachable without layout surprises.
+2. Preserve flow: common actions such as returning home, editing text directly on the article, copying content, saving articles, and opening vocabulary should be reachable without layout surprises. Entering edit mode must not change the article's typography, width, wrapping, or paragraph spacing.
 3. Respect mobile touch intent: vertical scrolling is reading, while phrase selection requires a deliberate horizontal or long-press gesture.
-4. Make study artifacts durable: vocabulary data should preserve phonetics, source sentence, contextual meaning, copied explanations, CSV fields, and Anki fields.
-5. Prefer compact utility: use rounded, readable, first-screen-friendly panels and restrained color. Interface density is acceptable when it helps repeated use.
+4. Make study artifacts durable: vocabulary data should preserve phonetics, source sentence, contextual meaning, copied explanations, CSV fields, and Anki fields. Anki pronunciation should be available on demand without auto-playing when a card answer is shown.
+5. Keep entry compact even when the homepage is expressive: paste and URL controls remain visible on the first screen, while longer explanation unfolds through the word demo, phrase demo, recommendations, and final article entry.
+6. Reset ephemeral UI state: closing and reopening tools should feel fresh. Search terms, panel scroll offsets, temporary previews, status messages, and resized sheet positions should return to defaults unless preserving them clearly supports uninterrupted reading.
 
 ## Accessibility & Inclusion
 

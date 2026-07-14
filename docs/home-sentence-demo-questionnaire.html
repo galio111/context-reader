@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Context Reader 句子演示与入口问卷</title>
+  <style>
+    :root{color-scheme:light;--bg:#f5f5f7;--paper:#fff;--ink:#1d1d1f;--muted:#5f6368;--line:#d7d7dc;--blue:#0066cc;--blue-soft:#edf6ff;--dark:#222326}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}button,input,textarea{font:inherit}button,label{cursor:pointer}
+    .shell{width:min(1060px,calc(100% - 32px));margin:auto;padding:44px 0 80px}.top{max-width:830px}.kicker{color:var(--blue);font-weight:700;font-size:15px}.top h1{margin:8px 0 14px;font-size:clamp(34px,5vw,62px);line-height:1.08;letter-spacing:-.035em;text-wrap:balance}.lead{margin:0;color:var(--muted);font-size:19px;max-width:720px}.known{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0}.known span{padding:7px 11px;border-radius:999px;background:#e6e6e9;font-size:14px;color:#45464a}
+    .progress{position:sticky;top:0;z-index:5;margin:34px 0 0;padding:16px 0;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(12px)}.progress-row{display:flex;justify-content:space-between;color:var(--muted);font-size:14px}.track{height:5px;margin-top:8px;border-radius:99px;background:#dddde2;overflow:hidden}.bar{height:100%;width:0;background:var(--blue);transition:width .2s ease-out}
+    section{margin-top:42px}section h2{margin:0 0 8px;font-size:32px;line-height:1.2;letter-spacing:-.025em}.section-copy{margin:0 0 24px;color:var(--muted)}fieldset{margin:0;padding:27px 0;border:0;border-top:1px solid var(--line)}legend{width:100%;padding:0 0 15px;font-size:21px;line-height:1.45;font-weight:700}.hint{display:block;margin-top:4px;color:var(--muted);font-size:14px;font-weight:400}.options{display:grid;gap:9px}.option{display:flex;gap:13px;align-items:flex-start;padding:15px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);transition:.15s ease-out}.option:hover{border-color:#96969c;transform:translateY(-1px)}.option:has(input:checked){border-color:var(--blue);background:var(--blue-soft)}.option input{flex:none;width:19px;height:19px;margin-top:3px;accent-color:var(--blue)}.letter{display:inline-block;min-width:26px;color:var(--blue);font-weight:700}
+    .sentences{display:grid;gap:11px}.sentence{position:relative;display:block;padding:18px 19px 17px 51px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}.sentence:has(input:checked){border-color:var(--blue);background:var(--blue-soft)}.sentence input{position:absolute;left:19px;top:23px;width:19px;height:19px;accent-color:var(--blue)}.english{display:block;font:600 20px/1.5 Georgia,"Times New Roman",serif;color:#292a2d}.target{color:var(--blue);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}.meaning{display:block;margin-top:7px;color:var(--muted);font-size:14px}.meaning b{color:#424348}.risk{display:block;margin-top:3px;color:#777980;font-size:13px}
+    textarea{display:block;width:100%;min-height:105px;margin-top:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);outline:none;resize:vertical}textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,102,204,.12)}
+    .summary{min-height:280px;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--paper);white-space:pre-wrap;font:14px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace}.actions{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}.btn{min-height:46px;padding:0 18px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font-weight:700}.btn.primary{border-color:var(--blue);background:var(--blue);color:#fff}.status{color:var(--muted);font-size:14px;align-self:center}.toast{position:fixed;right:22px;bottom:22px;padding:11px 15px;border-radius:10px;background:var(--dark);color:#fff;opacity:0;transform:translateY(8px);transition:.18s;pointer-events:none}.toast.show{opacity:1;transform:none}
+    @media(max-width:680px){.shell{width:calc(100% - 24px);padding-top:24px}.top h1{font-size:38px}.lead{font-size:17px}section{margin-top:30px}section h2{font-size:27px}.english{font-size:18px}.sentence{padding-left:47px}.actions{position:sticky;bottom:0;padding:13px 0;background:var(--bg)}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<main class="shell">
+  <div class="top">
+    <div class="kicker">Context Reader · 第二阶段</div>
+    <h1>让一句话同时解释产品，也证明产品</h1>
+    <p class="lead">这一轮只决定句子演示和首屏入口。已经确认的内容不再重复询问。</p>
+    <div class="known"><span>句子视觉隐喻</span><span>用户主动点击</span><span>三阶段流式解释</span><span>明亮背景</span><span>紧凑入口</span><span>“网址”而非 URL</span></div>
+  </div>
+  <div class="progress"><div class="progress-row"><span id="count">已回答 0 / 10</span><span id="saved">等待回答</span></div><div class="track"><div class="bar" id="bar"></div></div></div>
+
+  <form id="form">
+    <section><h2>句子的角色</h2><p class="section-copy">先确定它更像一句诗、一句真实文章，还是两者之间。</p>
+      <fieldset data-q="1"><legend>1. 这句话应该更接近哪一种？</legend><div class="options" data-options></div><textarea placeholder="可以描述你心里那种‘有美感但不能太像诗歌网站’的边界。"></textarea></fieldset>
+      <fieldset data-q="2"><legend>2. 句子和产品主标题是什么关系？</legend><div class="options" data-options></div><textarea placeholder="例如：句子本身就是主标题，或上方还需要一句中文标题。"></textarea></fieldset>
+      <fieldset data-q="3"><legend>3. 用户第一次看到这句话时，应该理解多少？</legend><div class="options" data-options></div><textarea placeholder="请补充你希望它大概处于什么英语难度。"></textarea></fieldset>
+    </section>
+
+    <section><h2>候选句子</h2><p class="section-copy">这些都是原创方向稿，不是最终文案。蓝色下划线表示建议点击的位置。可多选，也可以只评价某个词。</p>
+      <fieldset data-q="4"><legend>4. 哪些句子最接近你想要的气质？<span class="hint">可以多选。选择后仍可在下方批评或改写。</span></legend><div class="sentences" id="sentences"></div><textarea placeholder="例如：喜欢第 3 句的意象，但太像广告；喜欢第 6 句的含义，但英文不够美。"></textarea></fieldset>
+      <fieldset data-q="5"><legend>5. 点击目标更适合什么？</legend><div class="options" data-options></div><textarea placeholder="也可以指定上面某一句里的另一个词。"></textarea></fieldset>
+    </section>
+
+    <section><h2>新用户与老用户</h2><p class="section-copy">重点解决演示很美，但老用户不能每次都被拦住的问题。</p>
+      <fieldset data-q="6"><legend>6. 老用户再次进入首页时，演示应该怎样让路？</legend><div class="options" data-options></div><textarea placeholder="例如：记住上次使用方式，直接聚焦已保存文章。"></textarea></fieldset>
+      <fieldset data-q="7"><legend>7. 推荐文章应该怎样接住演示？</legend><div class="options" data-options></div><textarea placeholder="例如：演示结束后，把同一视觉轨迹引到一篇推荐文章。"></textarea></fieldset>
+      <fieldset data-q="8"><legend>8. 紧凑入口什么时候出现？</legend><div class="options" data-options></div><textarea placeholder="入口必须让用户知道支持粘贴文章和输入网址。"></textarea></fieldset>
+    </section>
+
+    <section><h2>演示结束</h2><p class="section-copy">决定流式输出结束后，视觉如何回到真实使用。</p>
+      <fieldset data-q="9"><legend>9. 解释完成后，最重要的下一步是什么？</legend><div class="options" data-options></div><textarea placeholder="可以说明主按钮和推荐文章谁更重要。"></textarea></fieldset>
+      <fieldset data-q="10"><legend>10. 演示应该允许用户继续点击吗？</legend><div class="options" data-options></div><textarea placeholder="例如：只允许一个精心设计的词，保持导演感。"></textarea></fieldset>
+    </section>
+
+    <section><h2>生成结果</h2><p class="section-copy">复制后发回当前窗口，或交给其他 Codex 窗口继续。</p><div class="summary" id="summary"></div><div class="actions"><button class="btn" type="button" id="clear">清空答案</button><span class="status">答案自动保存在当前浏览器</span><button class="btn primary" type="button" id="copy">复制答案</button></div></section>
+  </form>
+</main><div class="toast" id="toast"></div>
+<script>
+const key="context-reader:sentence-demo-questionnaire:v1";
+const questions={
+1:{multi:false,options:["原创、带诗性的散文句，不直接引用诗句","像真实文章，但带一个隐喻和双关","直接使用公版英文诗句","先看诗性与真实文章两个动态方案再决定"]},
+2:{multi:false,options:["英文句子就是首屏主标题","上方有极短中文标题，英文句子承担互动演示","中文标题和英文句子在滚动中互相转换","不设传统标题，让句子与输入入口共同说明产品"]},
+3:{multi:false,options:["表面能读懂，但目标词的真正语境含义不明显","整句有一定难度，必须点击才能确认理解","句意不难，主要靠美感让用户愿意点击","介于 B2 与 C1，不能像基础教材例句"]},
+5:{multi:false,options:["常见词的不常见含义","两到三个词的短语","带隐喻的动词","表面熟悉但在句中难翻准的词","最终句子决定，不预设类型"]},
+6:{multi:false,options:["只对首次访问者完整播放，老用户直接看到入口和文章","老用户仍看到演示，但入口从一开始就固定可用","记住用户身份与使用历史，老用户默认进入继续阅读区域","首页提供明显的‘跳过演示’","根据是否存在已保存文章自动决定"]},
+7:{multi:false,options:["解释结束后直接出现‘从推荐文章开始’","演示句本身来自一篇推荐文章，完成后可继续阅读全文","推荐文章作为输入入口旁的次要按钮","向下滚动时，演示自然变形成推荐文章列表","推荐文章只服务新用户，老用户优先已保存文章"]},
+8:{multi:false,options:["页面打开时就可见，但视觉权重较低，演示后变得突出","演示完成后才出现，老用户例外","首屏始终只有一个‘开始阅读’按钮，点击后展开粘贴文章与输入网址","粘贴文章和输入网址以两个紧凑入口始终固定在首屏"]},
+9:{multi:true,options:["粘贴自己的文章","输入文章网址","从推荐文章开始","继续已保存文章","重新播放演示"]},
+10:{multi:false,options:["只允许点击一个精心设计的目标词，保持导演感","完成后可以点击句中另外两三个词","每次只允许一个词，但可切换不同候选句","完成后不再交互，直接引导进入真实文章"]}
+};
+const sentenceOptions=[
+{text:'A word rarely <u>travels</u> alone; the sentence around it decides where it is going.',meaning:'travels：在这里不是“旅行”，而是词义随语境移动。',risk:'双关明确，产品含义直接，但可能稍像品牌文案。'},
+{text:'Meaning does not sit inside a word; it <u>gathers</u> from everything around it.',meaning:'gathers：意义从周围语境中逐渐聚合。',risk:'诗性较强，视觉空间很好做，但不像真实文章原句。'},
+{text:'Some words only <u>open</u> when the sentence around them is read closely.',meaning:'open：不是物理打开，而是词义变得可理解。',risk:'短、清楚、有产品双关，可能略显简单。'},
+{text:'A familiar word can <u>turn</u> the moment its sentence changes direction.',meaning:'turn：词义在句子转向时随之改变。',risk:'动态潜力强，但“changes direction”略抽象。'},
+{text:'The sentence never defined the word; it quietly taught the word how to <u>mean</u>.',meaning:'mean：把“表达意义”写成被语境教会的动作。',risk:'最有文学感，也最不像自然文章语言。'},
+{text:'Context is the quiet force that <u>draws</u> a precise meaning from an ordinary word.',meaning:'draws：从普通词中引出精确含义。',risk:'很好解释产品，但宣传文案感较明显。'},
+{text:'The page keeps moving when meaning <u>arrives</u> without pulling the reader away.',meaning:'arrives：理解自然抵达，不打断阅读。',risk:'同时讲产品体验，目标词本身的语境挑战较弱。'},
+{text:'A word changes <u>shape</u> when the sentence around it changes the light.',meaning:'shape：词的“形状”隐喻词义；light 隐喻语境。',risk:'画面感最强，但诗性可能超过真实阅读感。'}
+];
+let state=JSON.parse(localStorage.getItem(key)||'{}');
+function renderOptions(){document.querySelectorAll('fieldset[data-q]').forEach(fs=>{const id=fs.dataset.q,q=questions[id],box=fs.querySelector('[data-options]');if(!q||!box)return;box.innerHTML=q.options.map((o,i)=>`<label class="option"><input type="${q.multi?'checkbox':'radio'}" name="q${id}" value="${i}" ${(state[id]?.choices||[]).includes(i)?'checked':''}><span><span class="letter">${String.fromCharCode(65+i)}</span>${o}</span></label>`).join('');});document.querySelector('#sentences').innerHTML=sentenceOptions.map((s,i)=>`<label class="sentence"><input type="checkbox" name="q4" value="${i}" ${(state[4]?.choices||[]).includes(i)?'checked':''}><span class="english">${i+1}. ${s.text}</span><span class="meaning"><b>建议演示：</b>${s.meaning}</span><span class="risk">${s.risk}</span></label>`).join('');document.querySelectorAll('fieldset[data-q] textarea').forEach(t=>{const id=t.closest('fieldset').dataset.q;t.value=state[id]?.note||'';});}
+function save(){document.querySelectorAll('fieldset[data-q]').forEach(fs=>{const id=fs.dataset.q,choices=[...fs.querySelectorAll('input:checked')].map(x=>+x.value),note=fs.querySelector('textarea')?.value||'';if(choices.length||note.trim())state[id]={choices,note};else delete state[id];});localStorage.setItem(key,JSON.stringify(state));update();document.querySelector('#saved').textContent='已自动保存';}
+function answerCount(){return Object.values(state).filter(x=>x.choices?.length||x.note?.trim()).length}
+function labelFor(id,i){return id==='4'?sentenceOptions[i].text.replace(/<[^>]+>/g,''):questions[id]?.options[i]}
+function build(){const lines=['# Context Reader 句子演示与入口决策',''];document.querySelectorAll('fieldset[data-q]').forEach(fs=>{const id=fs.dataset.q,title=fs.querySelector('legend').childNodes[0].textContent.trim(),a=state[id]||{},selected=(a.choices||[]).map(i=>labelFor(id,i));lines.push(title);lines.push('答案：'+(selected.length?selected.join('；'):'未选择'));if(a.note?.trim())lines.push('补充：'+a.note.trim());lines.push('');});return lines.join('\n')}
+function update(){const n=answerCount();document.querySelector('#count').textContent=`已回答 ${n} / 10`;document.querySelector('#bar').style.width=`${n*10}%`;document.querySelector('#summary').textContent=build()}
+function toast(msg){const t=document.querySelector('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
+renderOptions();document.querySelectorAll('input').forEach(x=>x.addEventListener('change',save));document.querySelectorAll('textarea').forEach(x=>x.addEventListener('input',save));document.querySelector('#copy').onclick=()=>navigator.clipboard.writeText(build()).then(()=>toast('答案已复制'),()=>toast('复制失败，请手动选择结果'));document.querySelector('#clear').onclick=()=>{if(confirm('确定清空本轮全部答案吗？')){state={};localStorage.removeItem(key);renderOptions();document.querySelectorAll('input').forEach(x=>x.addEventListener('change',save));document.querySelectorAll('textarea').forEach(x=>x.addEventListener('input',save));update()}};update();
+</script>
+</body>
+</html>

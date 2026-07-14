@@ -1,15 +1,40 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import type { CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent } from "react";
 import { AnkiSettingsPanel, defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
+import { ArticleTranslationPanel } from "@/components/ArticleTranslationPanel";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { WordToken } from "@/components/WordToken";
 import { addVocabularyNote, checkAnki } from "@/lib/ankiConnect";
-import { findSavedArticle, isValidArticleSummary, saveArticle } from "@/lib/articles";
-import { createExplanationCacheKey, getCachedExplanation, setCachedExplanation } from "@/lib/cache";
+import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
+import { findSavedArticle, isValidArticleSummary, saveArticle, saveEditedArticle } from "@/lib/articles";
+import {
+  createArticleTranslationBlockCacheKey,
+  createArticleTranslationCacheKey,
+  createExplanationCacheKey,
+  getCachedArticleTranslation,
+  getCachedArticleTranslationForBlocks,
+  getCachedExplanation,
+  setCachedExplanation,
+} from "@/lib/cache";
+import {
+  getArticleTranslationJobSnapshot,
+  startArticleTranslationJob,
+  subscribeArticleTranslationJob,
+} from "@/lib/articleTranslationJobs";
+import { fetchJson } from "@/lib/apiClient";
 import { downloadVocabularyCsv } from "@/lib/csv";
+import {
+  explanationAsStreamText,
+  mergeStreamDisplayIntoExplanation,
+} from "@/lib/explanationDisplay";
+import {
+  findBestSourceSentenceMatch,
+  findSimilarVocabularyEntry,
+  normalizeForSourceMatch,
+} from "@/lib/sourceMatching";
 import { tokenizeArticle, tokenToWordContext } from "@/lib/tokenizer";
 import {
   addVocabularyEntry,
@@ -18,21 +43,28 @@ import {
   deleteVocabularyEntry,
   getVocabularyEntries,
   markVocabularyEntryImported,
+  replaceMatchingVocabularyEntry,
   vocabularyIdentity,
 } from "@/lib/vocabulary";
 import type { AnkiSettings } from "@/types/anki";
-import type { ImportedArticle, ImportedArticleBlock, ImportedArticleInlineBaseline, ImportedArticleInlineText } from "@/types/article";
+import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, ImportedArticleInlineBaseline, ImportedArticleInlineText } from "@/types/article";
 import type { PublicExplanation } from "@/types/publicArticle";
-import type { ReaderToken, WordContext, WordExplanation } from "@/types/reader";
+import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
 interface ReaderViewProps {
   article: string;
   importedArticle?: ImportedArticle | null;
   preloadedExplanations?: PublicExplanation[];
+  sourceSentenceToHighlight?: string;
+  sourceWordToHighlight?: string;
+  sourceJumpRequestId?: number;
   onBack: () => void;
   onArticleSaved: () => void;
+  onArticleChange?: (article: string, importedArticle: ImportedArticle | null) => void;
   onImportedArticleChange?: (article: ImportedArticle) => void;
+  onJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean;
+  canJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean;
 }
 
 interface RenderableArticleBlock {
@@ -42,14 +74,27 @@ interface RenderableArticleBlock {
   tokenGroups?: RenderableTokenGroup[];
   src?: string;
   alt?: string;
+  width?: number;
+  height?: number;
   ocrStatus?: ImageOcrStatus;
   ocrError?: string;
+  layoutWords?: ImageLayoutWord[];
+  layoutError?: string;
 }
 
 interface RenderableTokenGroup {
   id: string;
   baseline?: ImportedArticleInlineBaseline;
   tokens: ReaderToken[];
+}
+
+interface ImageLayoutWord {
+  text: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  lineText: string;
 }
 
 interface TouchInteraction {
@@ -68,9 +113,23 @@ interface ResizeInteraction {
   startHeight: number;
 }
 
+interface ArticleEditSnapshot {
+  article: string;
+  importedArticle: ImportedArticle | null;
+}
+
 type ImageOcrStatus = "idle" | "loading" | "ready" | "error";
+type RightPanelMode = "explanation" | "translation";
 
 const IMAGE_OCR_ENABLED = false;
+const DEFAULT_ARTICLE_STYLE: Required<ArticleReadingStyle> = {
+  fontFamily: "system",
+  fontSize: "default",
+  lineHeight: "default",
+  paragraphSpacing: "default",
+  contentWidth: "default",
+  imageWidth: "medium",
+};
 
 interface ImageOcrState {
   status: ImageOcrStatus;
@@ -78,11 +137,47 @@ interface ImageOcrState {
   error: string;
 }
 
+function normalizeArticleStyle(style?: ArticleReadingStyle): Required<ArticleReadingStyle> {
+  return {
+    ...DEFAULT_ARTICLE_STYLE,
+    ...(style ?? {}),
+  };
+}
+
+function articleTextFromBlocks(blocks: ImportedArticleBlock[]): string {
+  return blocks
+    .filter((block) => block.type !== "image")
+    .map((block) => block.text ?? "")
+    .join("\n\n");
+}
+
+function createImportedArticleFromBlocks(
+  blocks: ImportedArticleBlock[],
+  fallbackArticle: string,
+  importedArticle: ImportedArticle | null,
+  style: ArticleReadingStyle,
+): ImportedArticle {
+  const text = articleTextFromBlocks(blocks) || fallbackArticle.trim();
+  const firstTextBlock = blocks.find((block) => block.type !== "image" && block.text?.trim());
+  return {
+    title: importedArticle?.title?.trim() || firstTextBlock?.text?.trim().slice(0, 80) || "Edited Article",
+    url: importedArticle?.url ?? "",
+    siteName: importedArticle?.siteName ?? "",
+    text,
+    blocks,
+    style,
+  };
+}
+
+function cloneImportedArticle(article: ImportedArticle | null): ImportedArticle | null {
+  return article ? JSON.parse(JSON.stringify(article)) as ImportedArticle : null;
+}
+
 async function requestExplanation(
   context: WordContext,
   signal: AbortSignal,
 ): Promise<WordExplanation> {
-  const response = await fetch("/api/explain-word", {
+  const { response, data } = await fetchJson<{ explanation?: WordExplanation; error?: string }>("/api/explain-word", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -94,11 +189,7 @@ async function requestExplanation(
       nextSentence: context.nextSentence,
     }),
     signal,
-  });
-
-  const data = (await response.json().catch(() => null)) as
-    | { explanation?: WordExplanation; error?: string }
-    | null;
+  }, "解释失败，请稍后重试。");
 
   if (!response.ok) {
     throw new Error(data?.error || "解释失败，请稍后重试。");
@@ -111,13 +202,67 @@ async function requestExplanation(
   return data.explanation;
 }
 
+async function requestExplanationStream(
+  context: WordContext,
+  signal: AbortSignal,
+  onChunk: (chunk: string) => void,
+): Promise<string> {
+  let response: Response;
+  try {
+    response = await fetch("/api/explain-word-stream", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        word: context.word,
+        sentence: context.sentence,
+        previousSentence: context.previousSentence,
+        nextSentence: context.nextSentence,
+      }),
+      signal,
+    });
+  } catch {
+    return "";
+  }
+
+  if (!response.ok || !response.body) {
+    return "";
+  }
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let fullText = "";
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) {
+        break;
+      }
+      const chunk = decoder.decode(value, { stream: true });
+      if (chunk) {
+        fullText += chunk;
+        onChunk(chunk);
+      }
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  return fullText;
+}
+
 function buildEntryText(entry: VocabularyEntry): string {
+  const contextMeaningLabel = entry.word.trim().split(/\s+/).filter(Boolean).length > 1
+    ? "所选短语在本句中的含义"
+    : "所选词在本句中的含义";
+
   return [
     `${entry.word} (${entry.lemma})`,
     entry.phonetic ? `音标：${entry.phonetic}` : "",
     `词性：${entry.partOfSpeech}`,
     `基础释义：${entry.basicMeaning}`,
-    `语境含义：${entry.contextMeaning}`,
+    `${contextMeaningLabel}：${entry.contextMeaning}`,
     `原句：${entry.sourceSentence}`,
     `自然翻译：${entry.sentenceTranslation}`,
     `用法说明：${entry.usageNote}`,
@@ -130,14 +275,13 @@ function buildEntryText(entry: VocabularyEntry): string {
 }
 
 async function requestArticleSummary(article: string): Promise<string> {
-  const response = await fetch("/api/summarize-article", {
+  const { response, data } = await fetchJson<{ summary?: string; error?: string }>("/api/summarize-article", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ article }),
-  });
-  const data = (await response.json().catch(() => null)) as { summary?: string; error?: string } | null;
+  }, "文章摘要生成失败，请稍后重试。");
 
   if (!response.ok || !data?.summary?.trim()) {
     throw new Error(data?.error || "文章摘要生成失败，请稍后重试。");
@@ -183,6 +327,10 @@ function inlinePlainText(inline: ImportedArticleInlineText[]): string {
   return inline.map((item) => item.text).join("");
 }
 
+function normalizeSentence(value: string): string {
+  return value.trim().replace(/\s+/g, " ").toLowerCase();
+}
+
 function groupTokensByInline(tokens: ReaderToken[], inline: ImportedArticleInlineText[]): RenderableTokenGroup[] {
   const groups: RenderableTokenGroup[] = [];
   let cursor = 0;
@@ -208,36 +356,57 @@ export function ReaderView({
   article,
   importedArticle,
   preloadedExplanations = [],
+  sourceSentenceToHighlight = "",
+  sourceWordToHighlight = "",
+  sourceJumpRequestId = 0,
   onBack,
   onArticleSaved,
+  onArticleChange,
   onImportedArticleChange,
+  onJumpToVocabularySourceOutsideArticle,
+  canJumpToVocabularySourceOutsideArticle,
 }: ReaderViewProps) {
+  const [currentArticle, setCurrentArticle] = useState(article);
+  const [currentImportedArticle, setCurrentImportedArticle] = useState<ImportedArticle | null>(importedArticle ?? null);
+  const [editingArticle, setEditingArticle] = useState(false);
+  const [draftPlainArticle, setDraftPlainArticle] = useState("");
+  const [draftBlocks, setDraftBlocks] = useState<ImportedArticleBlock[]>([]);
+  const [editStatus, setEditStatus] = useState("");
+  const [articleUndoStack, setArticleUndoStack] = useState<ArticleEditSnapshot[]>([]);
+  const [articleRedoStack, setArticleRedoStack] = useState<ArticleEditSnapshot[]>([]);
+  const articleUndoStackRef = useRef<ArticleEditSnapshot[]>([]);
+  const articleRedoStackRef = useRef<ArticleEditSnapshot[]>([]);
+  const articleHistoryRef = useRef<ArticleEditSnapshot[]>([]);
+  const articleHistoryIndexRef = useRef(0);
   const [imageOcr, setImageOcr] = useState<Record<string, ImageOcrState>>({});
   const [activeImageBlockId, setActiveImageBlockId] = useState<string | null>(null);
   const [activeImageZoom, setActiveImageZoom] = useState(1);
+  const [activeImageZoomOrigin, setActiveImageZoomOrigin] = useState({ x: 50, y: 50 });
   const paragraphs = useMemo(
-    () => (importedArticle?.blocks?.length ? [] : tokenizeArticle(article)),
-    [article, importedArticle?.blocks?.length],
+    () => (currentImportedArticle?.blocks?.length
+      ? []
+      : tokenizeArticle(currentArticle)),
+    [currentArticle, currentImportedArticle?.blocks?.length],
   );
   const effectiveImportedArticle = useMemo<ImportedArticle | null>(() => {
-    if (!importedArticle?.blocks?.length) {
-      return importedArticle ?? null;
+    if (!currentImportedArticle?.blocks?.length) {
+      return currentImportedArticle ?? null;
     }
 
     return {
-      ...importedArticle,
-      blocks: importedArticle.blocks.map((block) => {
+      ...currentImportedArticle,
+      blocks: currentImportedArticle.blocks.map((block) => {
         if (block.type !== "image") {
           return block;
         }
-        const recognizedText = imageOcr[block.id]?.text || block.ocrText || "";
+        const recognizedText = IMAGE_OCR_ENABLED ? imageOcr[block.id]?.text || block.ocrText || "" : "";
         return {
           ...block,
           ...(recognizedText ? { ocrText: recognizedText } : {}),
         };
       }),
     };
-  }, [imageOcr, importedArticle]);
+  }, [imageOcr, currentImportedArticle]);
   const renderableBlocks = useMemo<RenderableArticleBlock[]>(() => {
     if (!effectiveImportedArticle?.blocks?.length) {
       return paragraphs.map((paragraph) => ({
@@ -252,7 +421,7 @@ export function ReaderView({
       .map((block): RenderableArticleBlock | null => {
         if (block.type === "image") {
           const ocrState = imageOcr[block.id];
-          const ocrText = ocrState?.text || block.ocrText?.trim() || "";
+          const ocrText = IMAGE_OCR_ENABLED ? ocrState?.text || block.ocrText?.trim() || "" : "";
           const tokenized = ocrText ? tokenizeArticle(ocrText)[0] : null;
           const tokens = tokenized
             ? tokenized.tokens.map((token) => ({
@@ -269,15 +438,24 @@ export function ReaderView({
             type: "image",
             src: block.src,
             alt: block.alt,
+            width: block.width,
+            height: block.height,
             tokens,
             ocrStatus: ocrText ? "ready" : ocrState?.status ?? "idle",
             ocrError: ocrState?.error,
+            layoutWords: block.layoutWords,
+            layoutError: block.layoutError,
           };
         }
 
-        const text = block.text?.trim();
-        if (!text) {
-          return null;
+        const text = block.text ?? "";
+        if (!text.trim()) {
+          textBlockIndex += 1;
+          return {
+            id: block.id,
+            type: block.type,
+            tokens: [],
+          };
         }
 
         const tokenized = tokenizeArticle(text)[0];
@@ -302,6 +480,14 @@ export function ReaderView({
     () => renderableBlocks.flatMap((block) => block.tokens?.filter((token) => token.type === "word") ?? []),
     [renderableBlocks],
   );
+  const translationBlocks = useMemo<ArticleTranslationBlock[]>(
+    () => createArticleTranslationBlocks(currentArticle, effectiveImportedArticle),
+    [currentArticle, effectiveImportedArticle],
+  );
+  const translationSourceKey = useMemo(
+    () => createArticleTranslationCacheKey(translationBlocks),
+    [translationBlocks],
+  );
   const tokenById = useMemo(
     () => new Map(wordTokens.map((token) => [token.id, token])),
     [wordTokens],
@@ -317,10 +503,30 @@ export function ReaderView({
   }, [wordTokens]);
   const [selectedTokenIds, setSelectedTokenIds] = useState<string[]>([]);
   const selectedTokenIdSet = useMemo(() => new Set(selectedTokenIds), [selectedTokenIds]);
+  const [highlightedSourceSentence, setHighlightedSourceSentence] = useState(sourceSentenceToHighlight);
+  const [highlightedTargetTokenIds, setHighlightedTargetTokenIds] = useState<string[]>([]);
+  const highlightedTargetTokenIdSet = useMemo(() => new Set(highlightedTargetTokenIds), [highlightedTargetTokenIds]);
+  const highlightedSentenceTokenIdSet = useMemo(() => {
+    const normalizedSourceSentence = normalizeForSourceMatch(highlightedSourceSentence);
+    if (!normalizedSourceSentence) {
+      return new Set<string>();
+    }
+    return new Set(
+      wordTokens
+        .filter((token) => normalizeForSourceMatch(token.sentence) === normalizedSourceSentence)
+        .map((token) => token.id),
+    );
+  }, [highlightedSourceSentence, wordTokens]);
+  const sourceSentenceSet = useMemo(
+    () => new Set(wordTokens.map((token) => normalizeForSourceMatch(token.sentence)).filter(Boolean)),
+    [wordTokens],
+  );
   const [dragStartToken, setDragStartToken] = useState<ReaderToken | null>(null);
   const [dragCurrentToken, setDragCurrentToken] = useState<ReaderToken | null>(null);
   const [selectedContext, setSelectedContext] = useState<WordContext | null>(null);
   const [explanation, setExplanation] = useState<WordExplanation | null>(null);
+  const [explanationStreamText, setExplanationStreamText] = useState("");
+  const [explanationStreaming, setExplanationStreaming] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [vocabularyOpen, setVocabularyOpen] = useState(false);
@@ -334,22 +540,257 @@ export function ReaderView({
   const [savingArticle, setSavingArticle] = useState(false);
   const [mobileExplanationOpen, setMobileExplanationOpen] = useState(false);
   const [mobileExplanationHeight, setMobileExplanationHeight] = useState(50);
+  const [rightPanelMode, setRightPanelMode] = useState<RightPanelMode>("explanation");
+  const [articleTranslations, setArticleTranslations] = useState<ArticleTranslationItem[]>([]);
+  const [translationLoading, setTranslationLoading] = useState(false);
+  const [translationError, setTranslationError] = useState("");
+  const [translationRequested, setTranslationRequested] = useState(false);
+  const [translationEstimatedSecondsRemaining, setTranslationEstimatedSecondsRemaining] = useState<number | null>(null);
+  const [staleTranslationBlockIds, setStaleTranslationBlockIds] = useState<string[]>([]);
+  const [removedTranslationCount, setRemovedTranslationCount] = useState(0);
   const abortRef = useRef<AbortController | null>(null);
+  const activeExplanationKeyRef = useRef("");
   const suppressNextClickRef = useRef(false);
   const touchInteractionRef = useRef<TouchInteraction | null>(null);
   const touchSelectTimerRef = useRef<number | null>(null);
   const resizeInteractionRef = useRef<ResizeInteraction | null>(null);
   const propagatedImportedArticleRef = useRef("");
+  const plainArticleEditRef = useRef<HTMLDivElement | null>(null);
+  const importedArticleEditRef = useRef<HTMLDivElement | null>(null);
+  const activeImageScrollRef = useRef<HTMLDivElement | null>(null);
+  const sourceAlignmentTargetIdRef = useRef("");
+  const sourceAlignmentLockUntilRef = useRef(0);
+  const blockEditRefs = useRef<Record<string, HTMLElement | null>>({});
+
+  useEffect(() => {
+    setCurrentArticle(article);
+    setCurrentImportedArticle(importedArticle ?? null);
+    if (articleHistoryRef.current.length === 0) {
+      articleHistoryRef.current = [
+        {
+          article,
+          importedArticle: cloneImportedArticle(importedArticle ?? null),
+        },
+      ];
+      articleHistoryIndexRef.current = 0;
+      articleUndoStackRef.current = [];
+      articleRedoStackRef.current = [];
+      setArticleUndoStack([]);
+      setArticleRedoStack([]);
+    }
+  }, [article, importedArticle]);
 
   useEffect(() => {
     setVocabularyEntries(getVocabularyEntries());
   }, []);
 
   useEffect(() => {
+    if (!activeImageBlockId) {
+      return;
+    }
+    setActiveImageZoom(1);
+    setActiveImageZoomOrigin({ x: 50, y: 50 });
+    activeImageScrollRef.current?.scrollTo({ top: 0, left: 0 });
+  }, [activeImageBlockId]);
+
+  useEffect(() => {
+    function applyTranslationSnapshot(snapshot: {
+      translations: ArticleTranslationItem[];
+      loading: boolean;
+      error: string;
+      requested: boolean;
+      estimatedSecondsRemaining: number | null;
+    }) {
+      setArticleTranslations(snapshot.translations);
+      setTranslationLoading(snapshot.loading);
+      setTranslationError(snapshot.error);
+      setTranslationRequested(snapshot.requested);
+      setTranslationEstimatedSecondsRemaining(snapshot.estimatedSecondsRemaining);
+      if (!snapshot.loading && !snapshot.error) {
+        setStaleTranslationBlockIds([]);
+        setRemovedTranslationCount(0);
+      }
+    }
+
+    const runningSnapshot = getArticleTranslationJobSnapshot(translationSourceKey);
+    if (runningSnapshot) {
+      applyTranslationSnapshot(runningSnapshot);
+      setStaleTranslationBlockIds([]);
+      setRemovedTranslationCount(0);
+    } else {
+      const exactBlockTranslations = getCachedArticleTranslationForBlocks(translationBlocks);
+      const exactTranslationIds = new Set(exactBlockTranslations.map((item) => item.id));
+      const currentById = new Map(articleTranslations.map((item) => [item.id, item.translation]));
+      const currentBlockIds = new Set(translationBlocks.map((block) => block.id));
+      const removedCount = articleTranslations.filter((item) => !currentBlockIds.has(item.id)).length;
+      const staleTranslations = translationBlocks
+        .filter((block) => !exactTranslationIds.has(block.id) && currentById.has(block.id))
+        .map((block) => ({ id: block.id, translation: currentById.get(block.id) ?? "" }))
+        .filter((item) => item.translation.trim());
+      const staleIds = staleTranslations.map((item) => item.id);
+      const mergedTranslations = [
+        ...exactBlockTranslations,
+        ...staleTranslations,
+      ];
+      const cached = mergedTranslations.length > 0 ? mergedTranslations : getCachedArticleTranslation(translationSourceKey);
+      setArticleTranslations(cached ?? []);
+      setStaleTranslationBlockIds(staleIds);
+      setRemovedTranslationCount(removedCount);
+      setTranslationError("");
+      setTranslationLoading(false);
+      setTranslationRequested(Boolean(cached));
+      setTranslationEstimatedSecondsRemaining(null);
+    }
+
+    return subscribeArticleTranslationJob(translationSourceKey, applyTranslationSnapshot);
+  }, [translationSourceKey, translationBlocks]);
+
+  useEffect(() => {
     for (const item of preloadedExplanations) {
       setCachedExplanation(item.cacheKey, item.explanation);
     }
   }, [preloadedExplanations]);
+
+  function targetTokenIdsInSentence(sourceSentence: string, selectedText: string): string[] {
+    const normalizedSentence = normalizeForSourceMatch(sourceSentence);
+    const targetTerms = normalizeForSourceMatch(selectedText).match(/[a-z]+(?:['-][a-z]+)*/g) ?? [];
+    if (!normalizedSentence || targetTerms.length === 0) {
+      return [];
+    }
+
+    const sentenceTokens = wordTokens.filter(
+      (token) => normalizeForSourceMatch(token.sentence) === normalizedSentence,
+    );
+    const sentenceTerms = sentenceTokens.map(
+      (token) => normalizeForSourceMatch(token.value).match(/[a-z]+(?:['-][a-z]+)*/)?.[0] ?? "",
+    );
+
+    for (let index = 0; index <= sentenceTerms.length - targetTerms.length; index += 1) {
+      if (targetTerms.every((term, offset) => sentenceTerms[index + offset] === term)) {
+        return sentenceTokens.slice(index, index + targetTerms.length).map((token) => token.id);
+      }
+    }
+    return [];
+  }
+
+  function alignSourceToken(tokenId: string) {
+    if (typeof document === "undefined") {
+      return false;
+    }
+
+    const selector = `[data-token-id="${CSS.escape(tokenId)}"]`;
+    const tokenElement = document.querySelector<HTMLElement>(selector);
+    if (!tokenElement) {
+      return false;
+    }
+    const blockElement = tokenElement.closest<HTMLElement>("[data-reader-block]");
+    if (blockElement) {
+      blockElement.style.contentVisibility = "visible";
+    }
+    sourceAlignmentTargetIdRef.current = tokenId;
+    sourceAlignmentLockUntilRef.current = Date.now() + 8000;
+    for (const image of document.querySelectorAll<HTMLImageElement>("[data-reader-image]")) {
+      if (image.compareDocumentPosition(tokenElement) & Node.DOCUMENT_POSITION_FOLLOWING) {
+        image.loading = "eager";
+      }
+    }
+    tokenElement.scrollIntoView({
+      behavior: "instant",
+      block: "center",
+      inline: "nearest",
+    });
+    window.requestAnimationFrame(() => {
+      tokenElement.scrollIntoView({
+        behavior: "instant",
+        block: "center",
+        inline: "nearest",
+      });
+    });
+    return true;
+  }
+
+  function preserveSourceAlignmentAfterImageLayout(image: HTMLImageElement) {
+    if (Date.now() > sourceAlignmentLockUntilRef.current || !sourceAlignmentTargetIdRef.current) {
+      return;
+    }
+    const targetElement = document.querySelector<HTMLElement>(
+      `[data-token-id="${CSS.escape(sourceAlignmentTargetIdRef.current)}"]`,
+    );
+    if (
+      !targetElement ||
+      !(image.compareDocumentPosition(targetElement) & Node.DOCUMENT_POSITION_FOLLOWING)
+    ) {
+      return;
+    }
+    targetElement.scrollIntoView({ behavior: "instant", block: "center", inline: "nearest" });
+    window.requestAnimationFrame(() => {
+      targetElement.scrollIntoView({ behavior: "instant", block: "center", inline: "nearest" });
+    });
+  }
+
+  function scrollToSourceSentence(sourceSentence: string, selectedText = "") {
+    const normalizedSourceSentence = normalizeForSourceMatch(sourceSentence);
+    if (!normalizedSourceSentence) {
+      return false;
+    }
+
+    const firstToken = wordTokens.find((token) => normalizeForSourceMatch(token.sentence) === normalizedSourceSentence);
+    if (!firstToken || typeof document === "undefined") {
+      return false;
+    }
+
+    setHighlightedSourceSentence(sourceSentence);
+    const targetTokenIds = targetTokenIdsInSentence(firstToken.sentence, selectedText);
+    setHighlightedTargetTokenIds(targetTokenIds);
+    return alignSourceToken(targetTokenIds[0] ?? firstToken.id);
+  }
+
+  function scrollToBestSourceSentence(sourceSentence: string, selectedText: string): boolean {
+    if (scrollToSourceSentence(sourceSentence, selectedText)) {
+      return true;
+    }
+
+    const similarMatch = findBestSourceSentenceMatch(sourceSentence, selectedText, wordTokens);
+    if (!similarMatch || typeof document === "undefined") {
+      return false;
+    }
+
+    setHighlightedSourceSentence(similarMatch.sentence);
+    const targetTokenIds = targetTokenIdsInSentence(similarMatch.sentence, selectedText);
+    setHighlightedTargetTokenIds(targetTokenIds);
+    return alignSourceToken(targetTokenIds[0] ?? similarMatch.token.id);
+  }
+
+  function scrollToVocabularyEntrySource(entry: VocabularyEntry): boolean {
+    return scrollToBestSourceSentence(entry.sourceSentence, entry.word);
+  }
+
+  function canJumpToSourceSentence(sourceSentence: string): boolean {
+    return sourceSentenceSet.has(normalizeForSourceMatch(sourceSentence));
+  }
+
+  useLayoutEffect(() => {
+    if (!sourceSentenceToHighlight) {
+      return;
+    }
+    let cancelled = false;
+    let attempts = 0;
+
+    function performPendingJump() {
+      if (cancelled || scrollToBestSourceSentence(sourceSentenceToHighlight, sourceWordToHighlight)) {
+        return;
+      }
+      attempts += 1;
+      if (attempts < 12) {
+        window.requestAnimationFrame(performPendingJump);
+      }
+    }
+
+    performPendingJump();
+    return () => {
+      cancelled = true;
+    };
+  }, [sourceSentenceToHighlight, sourceWordToHighlight, sourceJumpRequestId, wordTokens]);
 
   useEffect(() => {
     if (!IMAGE_OCR_ENABLED || !effectiveImportedArticle?.blocks?.length || !onImportedArticleChange) {
@@ -378,11 +819,11 @@ export function ReaderView({
   }, [effectiveImportedArticle, onImportedArticleChange]);
 
   useEffect(() => {
-    if (!IMAGE_OCR_ENABLED || !importedArticle?.blocks?.length) {
+    if (!IMAGE_OCR_ENABLED || !currentImportedArticle?.blocks?.length) {
       return;
     }
 
-    const imageBlocks = importedArticle.blocks.filter((block) => block.type === "image" && block.src);
+    const imageBlocks = currentImportedArticle.blocks.filter((block) => block.type === "image" && block.src);
     for (const block of imageBlocks) {
       if (!block.src || block.ocrText?.trim() || imageOcr[block.id]) {
         continue;
@@ -419,7 +860,7 @@ export function ReaderView({
           }));
         });
     }
-  }, [imageOcr, importedArticle]);
+  }, [imageOcr, currentImportedArticle]);
 
   useEffect(() => {
     if (!activeImageBlockId) {
@@ -427,6 +868,10 @@ export function ReaderView({
     }
 
     setActiveImageZoom(1);
+    const previousOverflow = document.body.style.overflow;
+    const previousOverscrollBehavior = document.body.style.overscrollBehavior;
+    document.body.style.overflow = "hidden";
+    document.body.style.overscrollBehavior = "contain";
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -435,14 +880,23 @@ export function ReaderView({
     }
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("wheel", preventActiveImagePageWheel, { capture: true, passive: false });
+    const scrollElement = activeImageScrollRef.current;
+    scrollElement?.addEventListener("wheel", handleActiveImageNativeWheel, { passive: false });
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("wheel", preventActiveImagePageWheel, { capture: true });
+      scrollElement?.removeEventListener("wheel", handleActiveImageNativeWheel);
+      document.body.style.overflow = previousOverflow;
+      document.body.style.overscrollBehavior = previousOverscrollBehavior;
+    };
   }, [activeImageBlockId]);
 
   const articleSaved = useMemo(() => {
-    const savedArticle = findSavedArticle(article);
+    const savedArticle = findSavedArticle(currentArticle);
     const summary = savedArticle?.summary?.trim();
     return Boolean(summary && isValidArticleSummary(summary));
-  }, [article]);
+  }, [currentArticle]);
 
   function getTokenRange(startToken: ReaderToken, endToken: ReaderToken): ReaderToken[] {
     if (startToken.paragraphIndex !== endToken.paragraphIndex) {
@@ -474,43 +928,88 @@ export function ReaderView({
     };
   }
 
-  const isInVocabulary =
+  const exactVocabularyMatch =
     explanation && selectedContext
-      ? vocabularyEntries.some(
+      ? vocabularyEntries.find(
           (entry) =>
             vocabularyIdentity(entry) ===
             vocabularyIdentity({
               word: explanation.word,
               sourceSentence: selectedContext.sentence,
             }),
-        )
-      : false;
+        ) ?? null
+      : null;
+  const similarVocabularyMatch =
+    !exactVocabularyMatch && explanation && selectedContext
+      ? findSimilarVocabularyEntry(vocabularyEntries, explanation.word, selectedContext.sentence)
+      : null;
+  const isInVocabulary = Boolean(exactVocabularyMatch || similarVocabularyMatch);
+  const vocabularyMatchNotice =
+    similarVocabularyMatch
+      ? "已找到同词的相近生词条。原句可能被编辑过；点击 ↻ 重新生成可更新原生词条。"
+      : "";
 
-  async function explainContext(context: WordContext, tokenIds: string[]) {
+  async function explainContext(
+    context: WordContext,
+    tokenIds: string[],
+    options: { force?: boolean; syncVocabulary?: boolean } = {},
+  ) {
     const cacheKey = createExplanationCacheKey(context.word, context.sentence);
 
-    abortRef.current?.abort();
     setSelectedTokenIds(tokenIds);
     setSelectedContext(context);
     setError("");
     setMobileExplanationOpen(true);
+    setMobileExplanationHeight(50);
+    setRightPanelMode("explanation");
 
-    const cached = getCachedExplanation(cacheKey);
+    if (!options.force && loading && activeExplanationKeyRef.current === cacheKey) {
+      return;
+    }
+
+    abortRef.current?.abort();
+    activeExplanationKeyRef.current = "";
+
+    const cached = options.force ? null : getCachedExplanation(cacheKey);
     if (cached) {
       setExplanation(cached);
+      setExplanationStreamText(explanationAsStreamText(cached));
+      setExplanationStreaming(false);
       setLoading(false);
       return;
     }
 
     const controller = new AbortController();
     abortRef.current = controller;
+    activeExplanationKeyRef.current = cacheKey;
     setLoading(true);
     setExplanation(null);
+    setExplanationStreamText("");
+    setExplanationStreaming(true);
+
+    const streamPromise = requestExplanationStream(context, controller.signal, (chunk) => {
+      if (!controller.signal.aborted) {
+        setExplanationStreamText((current) => `${current}${chunk}`);
+      }
+    }).catch(() => "");
 
     try {
-      const nextExplanation = await requestExplanation(context, controller.signal);
+      const [structuredExplanation, completedStreamText] = await Promise.all([
+        requestExplanation(context, controller.signal),
+        streamPromise,
+      ]);
+      const nextExplanation = completedStreamText
+        ? mergeStreamDisplayIntoExplanation(structuredExplanation, completedStreamText)
+        : structuredExplanation;
+      const durableDisplayText = completedStreamText || explanationAsStreamText(nextExplanation);
+
       setCachedExplanation(cacheKey, nextExplanation);
       setExplanation(nextExplanation);
+      setExplanationStreamText(durableDisplayText);
+      setExplanationStreaming(false);
+      if (options.syncVocabulary) {
+        setVocabularyEntries(replaceMatchingVocabularyEntry(nextExplanation, context));
+      }
     } catch (requestError) {
       if (controller.signal.aborted) {
         return;
@@ -518,9 +1017,49 @@ export function ReaderView({
       setError(requestError instanceof Error ? requestError.message : "解释失败，请稍后重试。");
     } finally {
       if (!controller.signal.aborted) {
+        setExplanationStreaming(false);
         setLoading(false);
+        if (activeExplanationKeyRef.current === cacheKey) {
+          activeExplanationKeyRef.current = "";
+        }
       }
     }
+  }
+
+  function generateArticleTranslation(force = false) {
+    if ((!force && translationLoading) || translationBlocks.length === 0) {
+      return;
+    }
+    const cacheKey = translationSourceKey;
+    if (!force && articleTranslations.length > 0) {
+      setRightPanelMode("translation");
+      return;
+    }
+    const cached = force ? null : getCachedArticleTranslation(cacheKey);
+    if (cached) {
+      setRightPanelMode("translation");
+      setArticleTranslations(cached);
+      setTranslationError("");
+      return;
+    }
+
+    setRightPanelMode("translation");
+    const blocksToTranslate = translationBlocks;
+    void startArticleTranslationJob(cacheKey, blocksToTranslate, {
+      force,
+      initialTranslations: [],
+      allBlocks: translationBlocks,
+    });
+  }
+
+  function handleRegenerateExplanation() {
+    if (!selectedContext || selectedTokenIds.length === 0) {
+      return;
+    }
+    void explainContext(selectedContext, selectedTokenIds, {
+      force: true,
+      syncVocabulary: true,
+    });
   }
 
   function tokenFromEventTarget(target: EventTarget | null): ReaderToken | null {
@@ -595,8 +1134,12 @@ export function ReaderView({
   }
 
   function handleArticlePointerDown(event: React.PointerEvent<HTMLElement>) {
+    if (editingArticle) {
+      return;
+    }
     const token = tokenFromEventTarget(event.target);
     if (token) {
+      event.preventDefault();
       if (event.pointerType === "touch") {
         touchInteractionRef.current = {
           token,
@@ -624,6 +1167,9 @@ export function ReaderView({
   }
 
   function handleArticlePointerMove(event: React.PointerEvent<HTMLElement>) {
+    if (editingArticle) {
+      return;
+    }
     if (event.pointerType === "touch") {
       const interaction = touchInteractionRef.current;
       if (interaction) {
@@ -677,6 +1223,9 @@ export function ReaderView({
   }
 
   function handleArticlePointerUp(event: React.PointerEvent<HTMLElement>) {
+    if (editingArticle) {
+      return;
+    }
     const token = tokenFromEventTarget(event.target);
     if (event.pointerType === "touch") {
       clearTouchSelectTimer();
@@ -720,6 +1269,9 @@ export function ReaderView({
   }
 
   function handleArticleClick(event: React.MouseEvent<HTMLElement>) {
+    if (editingArticle) {
+      return;
+    }
     const token = tokenFromEventTarget(event.target);
     if (token) {
       handleTokenClick(token);
@@ -775,8 +1327,42 @@ export function ReaderView({
     setVocabularyEntries(deleteVocabularyEntry(id));
   }
 
+  function handleOpenVocabulary() {
+    setVocabularyEntries(getVocabularyEntries());
+    setImportError("");
+    setAnkiStatus("");
+    setVocabularyOpen(true);
+  }
+
+  function handleCloseVocabulary() {
+    setVocabularyOpen(false);
+    setImportError("");
+    setImportingId("");
+    setAnkiStatus("");
+  }
+
+  function handleJumpToVocabularySource(entry: VocabularyEntry) {
+    setVocabularyOpen(false);
+    setImportError("");
+    setImportingId("");
+    setAnkiStatus("");
+    window.setTimeout(() => {
+      if (!scrollToVocabularyEntrySource(entry)) {
+        const jumpedOutside = onJumpToVocabularySourceOutsideArticle?.(entry) ?? false;
+        if (!jumpedOutside) {
+          setImportError("当前文章和已保存文章里没有找到这个词条的原句。");
+          setVocabularyOpen(true);
+        }
+      }
+    }, 80);
+  }
+
   function handleClearVocabulary() {
-    if (!window.confirm("确定要清空生词本吗？")) {
+    const entryCount = vocabularyEntries.length;
+    const confirmed = window.confirm(
+      `将删除生词本中的 ${entryCount} 条词条，此操作无法撤销。\n\n确定要清空生词本吗？`,
+    );
+    if (!confirmed) {
       return;
     }
     clearVocabularyEntries();
@@ -799,9 +1385,378 @@ export function ReaderView({
     }
   }
 
+  function beginArticleEditing() {
+    setDraftPlainArticle(currentArticle);
+    setDraftBlocks(
+      currentImportedArticle?.blocks?.length
+        ? currentImportedArticle.blocks.map((block) => ({ ...block }))
+        : [],
+    );
+    setEditingArticle(true);
+    setSelectedTokenIds([]);
+    setSelectedContext(null);
+    abortRef.current?.abort();
+    activeExplanationKeyRef.current = "";
+    setExplanation(null);
+    setExplanationStreamText("");
+    setExplanationStreaming(false);
+    setError("");
+    setEditStatus("");
+  }
+
+  function cancelArticleEditing() {
+    if (window.confirm("放弃本次文章编辑吗？")) {
+      setEditingArticle(false);
+      setDraftPlainArticle("");
+      setDraftBlocks([]);
+      setEditStatus("");
+    }
+  }
+
+  function updateDraftBlock(id: string, patch: Partial<ImportedArticleBlock>) {
+    setDraftBlocks((current) =>
+      current.map((block) => {
+        if (block.id !== id) {
+          return block;
+        }
+        const next = { ...block, ...patch };
+        if (
+          "text" in patch &&
+          block.inline?.length &&
+          patch.text !== inlinePlainText(block.inline)
+        ) {
+          return { ...next, inline: undefined };
+        }
+        return next;
+      }),
+    );
+  }
+
+  function articleFromDraftBlocks(blocks: ImportedArticleBlock[]): ArticleEditSnapshot {
+    const nextImportedArticle = createImportedArticleFromBlocks(
+      blocks,
+      currentArticle,
+      currentImportedArticle,
+      currentImportedArticle?.style ?? DEFAULT_ARTICLE_STYLE,
+    );
+    return {
+      article: nextImportedArticle.text,
+      importedArticle: nextImportedArticle,
+    };
+  }
+
+  function deleteDraftBlock(id: string) {
+    const currentBlocks = importedDraftBlocksFromDom();
+    const nextBlocks = currentBlocks.filter((block) => block.id !== id);
+    setDraftBlocks(nextBlocks);
+    pushArticleHistorySnapshot(articleFromDraftBlocks(nextBlocks));
+  }
+
+  function editableText(node: HTMLElement | null | undefined): string {
+    return (node?.textContent ?? "").replace(/\u00a0/g, " ");
+  }
+
+  function plainDraftTextFromDom(): string {
+    const root = plainArticleEditRef.current;
+    if (!root) {
+      return currentArticle;
+    }
+
+    const childBlocks = Array.from(root.children)
+      .map((child) => editableText(child as HTMLElement));
+    return childBlocks.length > 0 ? childBlocks.join("\n") : editableText(root);
+  }
+
+  function importedDraftBlocksFromDom(): ImportedArticleBlock[] {
+    const root = importedArticleEditRef.current;
+    if (!root) {
+      return draftBlocks;
+    }
+
+    return Array.from(root.children)
+      .map((child, index): ImportedArticleBlock | null => {
+        const element = child as HTMLElement;
+        const blockId = element.dataset.blockId || `edited-block-${Date.now()}-${index}`;
+        const blockType = element.dataset.blockType as ImportedArticleBlock["type"] | undefined;
+        const originalBlock = draftBlocks.find((block) => block.id === blockId);
+        const type = blockType ?? originalBlock?.type ?? "paragraph";
+
+        if (type === "image") {
+          const src = element.dataset.src || originalBlock?.src || "";
+          if (!src) {
+            return null;
+          }
+          return {
+            ...(originalBlock ?? {}),
+            id: blockId,
+            type: "image",
+            src,
+            alt: element.dataset.alt ?? originalBlock?.alt ?? "",
+          };
+        }
+
+        const text = editableText(element);
+        if (type === "list-item" && !text.trim()) {
+          return null;
+        }
+        const nextBlock: ImportedArticleBlock = {
+          ...(originalBlock ?? {}),
+          id: blockId,
+          type,
+          text,
+        };
+
+        if (originalBlock?.inline?.length && text !== inlinePlainText(originalBlock.inline)) {
+          return { ...nextBlock, inline: undefined };
+        }
+
+        return nextBlock;
+      })
+      .filter((block): block is ImportedArticleBlock => Boolean(block));
+  }
+
+  function normalizeArticleText(value: string): string {
+    return value.replace(/\r\n/g, "\n");
+  }
+
+  function sameArticleSnapshot(left: ArticleEditSnapshot, right: ArticleEditSnapshot): boolean {
+    return (
+      normalizeArticleText(left.article) === normalizeArticleText(right.article) &&
+      JSON.stringify(left.importedArticle ?? null) === JSON.stringify(right.importedArticle ?? null)
+    );
+  }
+
+  function snapshotFromEditingSurface(): ArticleEditSnapshot {
+    if (!editingArticle) {
+      return {
+        article: currentArticle,
+        importedArticle: cloneImportedArticle(currentImportedArticle),
+      };
+    }
+
+    if (!currentImportedArticle?.blocks?.length) {
+      return {
+        article: plainDraftTextFromDom(),
+        importedArticle: null,
+      };
+    }
+
+    const nextBlocks = importedDraftBlocksFromDom();
+    const nextImportedArticle = createImportedArticleFromBlocks(
+      nextBlocks,
+      currentArticle,
+      currentImportedArticle,
+      currentImportedArticle?.style ?? DEFAULT_ARTICLE_STYLE,
+    );
+    return {
+      article: nextImportedArticle.text,
+      importedArticle: nextImportedArticle,
+    };
+  }
+
+  function hasPendingArticleEditingChanges(): boolean {
+    if (!editingArticle) {
+      return false;
+    }
+
+    return !sameArticleSnapshot(
+      snapshotFromEditingSurface(),
+      {
+        article: currentArticle,
+        importedArticle: cloneImportedArticle(currentImportedArticle),
+      },
+    );
+  }
+
+  function syncArticleHistoryButtons(updateRenderedState = true) {
+    const index = articleHistoryIndexRef.current;
+    articleUndoStackRef.current = articleHistoryRef.current.slice(0, index);
+    articleRedoStackRef.current = articleHistoryRef.current.slice(index + 1);
+    if (updateRenderedState) {
+      setArticleUndoStack([...articleUndoStackRef.current]);
+      setArticleRedoStack([...articleRedoStackRef.current]);
+    }
+  }
+
+  function pushArticleHistorySnapshot(snapshot: ArticleEditSnapshot, updateRenderedState = true) {
+    const history = articleHistoryRef.current;
+    const index = articleHistoryIndexRef.current;
+    const currentSnapshot = history[index];
+
+    if (currentSnapshot && sameArticleSnapshot(currentSnapshot, snapshot)) {
+      return;
+    }
+
+    articleHistoryRef.current = [
+      ...history.slice(0, index + 1),
+      {
+        article: snapshot.article,
+        importedArticle: cloneImportedArticle(snapshot.importedArticle),
+      },
+    ];
+    articleHistoryIndexRef.current = articleHistoryRef.current.length - 1;
+    syncArticleHistoryButtons(updateRenderedState);
+  }
+
+  function handleArticleEditInput() {
+    // The browser owns the live contentEditable DOM. Updating React state for
+    // every keystroke can make React reconcile that DOM while the selection is
+    // changing, which occasionally moves the caret or the edited paragraph.
+    // Keep history in refs while typing and render button state only at an
+    // explicit editing boundary (undo, redo, save, or block deletion).
+    pushArticleHistorySnapshot(snapshotFromEditingSurface(), false);
+  }
+
+  function handleImportedArticleEditKeyDown(event: ReactKeyboardEvent<HTMLDivElement>) {
+    if (event.key !== "Backspace" && event.key !== "Delete") {
+      return;
+    }
+
+    const target = event.target as HTMLElement | null;
+    const blockElement = target?.closest<HTMLElement>("[data-block-id]");
+    if (!blockElement || blockElement.dataset.blockType === "image") {
+      return;
+    }
+    if (editableText(blockElement).trim()) {
+      return;
+    }
+
+    event.preventDefault();
+    deleteDraftBlock(blockElement.dataset.blockId || "");
+  }
+
+  function applyArticleSnapshot(snapshot: ArticleEditSnapshot) {
+    saveEditedArticle(currentArticle, snapshot.article, snapshot.importedArticle);
+    setCurrentArticle(snapshot.article);
+    setCurrentImportedArticle(snapshot.importedArticle);
+    if (editingArticle) {
+      setDraftPlainArticle(snapshot.article);
+      setDraftBlocks(snapshot.importedArticle?.blocks?.length
+        ? snapshot.importedArticle.blocks.map((block) => ({ ...block }))
+        : []);
+    }
+    onArticleChange?.(snapshot.article, snapshot.importedArticle);
+    if (snapshot.importedArticle) {
+      onImportedArticleChange?.(snapshot.importedArticle);
+    }
+    onArticleSaved();
+  }
+
+  function undoSavedArticleEdit() {
+    const currentSnapshot = snapshotFromEditingSurface();
+    const currentHistorySnapshot = articleHistoryRef.current[articleHistoryIndexRef.current];
+    if (currentHistorySnapshot && !sameArticleSnapshot(currentHistorySnapshot, currentSnapshot)) {
+      pushArticleHistorySnapshot(currentSnapshot);
+    }
+
+    const previousIndex = articleHistoryIndexRef.current - 1;
+    const previous = articleHistoryRef.current[previousIndex];
+    if (!previous) {
+      return;
+    }
+    articleHistoryIndexRef.current = previousIndex;
+    syncArticleHistoryButtons();
+    applyArticleSnapshot(previous);
+  }
+
+  function redoSavedArticleEdit() {
+    const nextIndex = articleHistoryIndexRef.current + 1;
+    const next = articleHistoryRef.current[nextIndex];
+    if (!next) {
+      return;
+    }
+    articleHistoryIndexRef.current = nextIndex;
+    syncArticleHistoryButtons();
+    applyArticleSnapshot(next);
+  }
+
+  function recordSavedArticleEditUndo() {
+    pushArticleHistorySnapshot(snapshotFromEditingSurface());
+  }
+
+  function saveArticleEditing(): boolean {
+    if (!currentImportedArticle?.blocks?.length) {
+      const nextArticle = plainDraftTextFromDom();
+      if (!nextArticle.trim()) {
+        setEditStatus("至少保留一段英文正文。");
+        return false;
+      }
+      if (nextArticle.replace(/\r\n/g, "\n") === currentArticle.replace(/\r\n/g, "\n")) {
+        setEditingArticle(false);
+        setDraftPlainArticle("");
+        setDraftBlocks([]);
+        setEditStatus("");
+        return true;
+      }
+      recordSavedArticleEditUndo();
+      saveEditedArticle(currentArticle, nextArticle, null);
+      setCurrentArticle(nextArticle);
+      setCurrentImportedArticle(null);
+      onArticleChange?.(nextArticle, null);
+      onArticleSaved();
+      setEditingArticle(false);
+      setDraftPlainArticle("");
+      setDraftBlocks([]);
+      setEditStatus("");
+      return true;
+    }
+
+    const normalizedBlocks = importedDraftBlocksFromDom();
+    const hasText = normalizedBlocks.some((block) => block.type !== "image" && block.text?.trim());
+    if (!hasText) {
+      setEditStatus("至少保留一段英文正文。");
+      return false;
+    }
+    const blocksUnchanged = JSON.stringify(
+      normalizedBlocks.map((block) => [block.id, block.type, block.text ?? "", block.src ?? "", block.alt ?? ""]),
+    ) === JSON.stringify(
+      currentImportedArticle.blocks.map((block) => [block.id, block.type, block.text ?? "", block.src ?? "", block.alt ?? ""]),
+    );
+    if (blocksUnchanged) {
+      setEditingArticle(false);
+      setDraftPlainArticle("");
+      setDraftBlocks([]);
+      setEditStatus("");
+      return true;
+    }
+
+    const nextImportedArticle = createImportedArticleFromBlocks(
+      normalizedBlocks,
+      currentArticle,
+      currentImportedArticle,
+      currentImportedArticle?.style ?? DEFAULT_ARTICLE_STYLE,
+    );
+    recordSavedArticleEditUndo();
+    saveEditedArticle(currentArticle, nextImportedArticle.text, nextImportedArticle);
+    setCurrentArticle(nextImportedArticle.text);
+    setCurrentImportedArticle(nextImportedArticle);
+    onArticleChange?.(nextImportedArticle.text, nextImportedArticle);
+    onImportedArticleChange?.(nextImportedArticle);
+    onArticleSaved();
+    setEditingArticle(false);
+    setDraftPlainArticle("");
+    setDraftBlocks([]);
+    setEditStatus("");
+    return true;
+  }
+
+  function handleBackToHome() {
+    if (!editingArticle) {
+      onBack();
+      return;
+    }
+
+    const shouldSave = window.confirm("是否保存当前文章修改后返回主页？\n\n确定：保存并返回主页\n取消：不保存，直接返回主页");
+    if (shouldSave && hasPendingArticleEditingChanges() && !saveArticleEditing()) {
+      return;
+    }
+
+    onBack();
+  }
+
   async function handleCopyArticle() {
     try {
-      await navigator.clipboard.writeText(article);
+      await navigator.clipboard.writeText(currentArticle);
       setSaveStatus("文章内容已复制");
       window.setTimeout(() => setSaveStatus(""), 1800);
     } catch {
@@ -873,8 +1828,8 @@ export function ReaderView({
     setSavingArticle(true);
     setSaveStatus("正在生成中文摘要...");
     try {
-      const summary = await requestArticleSummary(article);
-      saveArticle(article, summary, effectiveImportedArticle);
+      const summary = await requestArticleSummary(currentArticle);
+      saveArticle(currentArticle, summary, effectiveImportedArticle);
       onArticleSaved();
       setSaveStatus("文章已保存");
     } catch (summaryError) {
@@ -885,17 +1840,130 @@ export function ReaderView({
     }
   }
 
-  const saveButtonText = savingArticle ? "保存中" : articleSaved ? "重新生成摘要" : "保存文章";
+  const saveButtonText = savingArticle ? "保存中" : articleSaved ? "重新生成首页摘要" : "保存文章";
   const hasExplanationPanelContent = Boolean(selectedContext || loading || explanation || error);
+  const activeArticleStyle = DEFAULT_ARTICLE_STYLE;
+  const articleShellClassName = [
+    "mx-auto overflow-x-hidden break-words [overflow-wrap:anywhere]",
+    editingArticle ? "select-text" : "select-none",
+    activeArticleStyle.contentWidth === "narrow" ? "max-w-2xl" : activeArticleStyle.contentWidth === "wide" ? "max-w-4xl" : "max-w-3xl",
+    activeArticleStyle.fontFamily === "serif" ? "font-serif" : activeArticleStyle.fontFamily === "mono" ? "font-mono" : "font-sans",
+  ].join(" ");
+  const paragraphStyle = {
+    "--reader-body-size": activeArticleStyle.fontSize === "small" ? "17px" : activeArticleStyle.fontSize === "large" ? "21px" : activeArticleStyle.fontSize === "xlarge" ? "23px" : "20px",
+    "--reader-body-line": activeArticleStyle.lineHeight === "compact" ? "1.45" : activeArticleStyle.lineHeight === "relaxed" ? "1.78" : "1.6",
+    "--reader-paragraph-space": activeArticleStyle.paragraphSpacing === "compact" ? "1rem" : activeArticleStyle.paragraphSpacing === "relaxed" ? "2rem" : "1.75rem",
+  } as CSSProperties;
+  const imageWidthClassName = activeArticleStyle.imageWidth === "small" ? "mx-auto max-w-md" : activeArticleStyle.imageWidth === "full" ? "max-w-none" : "mx-auto max-w-3xl";
   const activeImageBlock = useMemo(
     () => renderableBlocks.find((block) => block.type === "image" && block.id === activeImageBlockId) ?? null,
     [activeImageBlockId, renderableBlocks],
   );
+  const activeImageLayout = useMemo(() => {
+    if (!activeImageBlock) {
+      return { status: "idle" as const, words: [], error: "" };
+    }
+    if (activeImageBlock.layoutWords?.length) {
+      return { status: "ready" as const, words: activeImageBlock.layoutWords, error: "" };
+    }
+    if (activeImageBlock.layoutError) {
+      return { status: "error" as const, words: [], error: activeImageBlock.layoutError };
+    }
+    return { status: "idle" as const, words: [], error: "" };
+  }, [activeImageBlock]);
+  const ACTIVE_IMAGE_MIN_ZOOM = 0.5;
+  const ACTIVE_IMAGE_MAX_ZOOM = 3;
   const activeImageZoomPercent = Math.round(activeImageZoom * 100);
-  const activeImageWidth = activeImageZoom === 1 ? "100%" : `${activeImageZoom * 100}%`;
 
   function changeActiveImageZoom(delta: number) {
-    setActiveImageZoom((current) => Math.min(3, Math.max(1, Number((current + delta).toFixed(2)))));
+    setActiveImageZoomOrigin({ x: 50, y: 50 });
+    setActiveImageZoom((current) => Math.min(ACTIVE_IMAGE_MAX_ZOOM, Math.max(ACTIVE_IMAGE_MIN_ZOOM, Number((current + delta).toFixed(2)))));
+  }
+
+  function zoomActiveImageAt(deltaY: number, clientX?: number, clientY?: number) {
+    const container = activeImageScrollRef.current;
+    if (container && typeof clientX === "number" && typeof clientY === "number") {
+      const rect = container.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        setActiveImageZoomOrigin({
+          x: Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100)),
+          y: Math.min(100, Math.max(0, ((clientY - rect.top) / rect.height) * 100)),
+        });
+      }
+    }
+
+    const multiplier = deltaY < 0 ? 1.14 : 1 / 1.14;
+
+    setActiveImageZoom((current) => {
+      const next = Math.min(ACTIVE_IMAGE_MAX_ZOOM, Math.max(ACTIVE_IMAGE_MIN_ZOOM, Number((current * multiplier).toFixed(3))));
+      if (next === current) {
+        return current;
+      }
+
+      return next;
+    });
+  }
+
+  function preventActiveImagePageWheel(event: WheelEvent) {
+    if (!activeImageBlockId) {
+      return;
+    }
+    event.preventDefault();
+  }
+
+  function handleActiveImageNativeWheel(event: WheelEvent) {
+    const container = activeImageScrollRef.current;
+    if (!container) {
+      return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    zoomActiveImageAt(event.deltaY, event.clientX, event.clientY);
+  }
+
+  function handleActiveImageWheel(event: React.WheelEvent<HTMLDivElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+    event.nativeEvent.stopImmediatePropagation();
+  }
+
+  function imageDownloadName(block: RenderableArticleBlock): string {
+    const altName = block.alt?.trim().replace(/[\\/:*?"<>|]+/g, "-");
+    return altName || `context-reader-image-${block.id}.jpg`;
+  }
+
+  function downloadImage(block: RenderableArticleBlock) {
+    if (!block.src) {
+      return;
+    }
+
+    const link = document.createElement("a");
+    const filename = imageDownloadName(block);
+    link.href = /^https?:\/\//i.test(block.src)
+      ? `/api/download-image?url=${encodeURIComponent(block.src)}&filename=${encodeURIComponent(filename)}`
+      : block.src;
+    link.download = imageDownloadName(block);
+    link.rel = "noreferrer";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+
+  function handleImageLayoutWordClick(word: ImageLayoutWord, index: number) {
+    const sentence = word.lineText.trim() || word.text;
+    const tokenId = `image-layout-${activeImageBlockId ?? "image"}-${index}`;
+    setActiveImageBlockId(null);
+    void explainContext(
+      {
+        word: word.text,
+        paragraphIndex: -1,
+        tokenIndex: index,
+        sentence,
+        previousSentence: "",
+        nextSentence: "",
+      },
+      [tokenId],
+    );
   }
 
   function renderTokenList(tokens?: ReaderToken[]) {
@@ -904,6 +1972,8 @@ export function ReaderView({
         key={token.id}
         token={token}
         selected={selectedTokenIdSet.has(token.id)}
+        highlighted={highlightedSentenceTokenIdSet.has(token.id)}
+        targeted={highlightedTargetTokenIdSet.has(token.id)}
       />
     ));
   }
@@ -928,16 +1998,64 @@ export function ReaderView({
           <button
             type="button"
             className="h-9 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
-            onClick={onBack}
+            onClick={handleBackToHome}
           >
-            返回编辑
+            返回主页
           </button>
           <div className="flex min-w-0 items-center gap-2 overflow-x-auto">
+            {editStatus && <span className="shrink-0 text-sm text-[#333333]">{editStatus}</span>}
             {saveStatus && <span className="shrink-0 text-sm text-[#333333]">{saveStatus}</span>}
+            <button
+              type="button"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#0066cc] text-lg leading-none text-[#0066cc] transition hover:border-[#004f9f] hover:bg-[#f5f9ff] hover:text-[#004f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3]/25 active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#86868b] disabled:hover:bg-transparent"
+              onClick={undoSavedArticleEdit}
+              disabled={!editingArticle && articleUndoStack.length === 0}
+              aria-label="后退"
+              title="后退"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#0066cc] text-lg leading-none text-[#0066cc] transition hover:border-[#004f9f] hover:bg-[#f5f9ff] hover:text-[#004f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3]/25 active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#86868b] disabled:hover:bg-transparent"
+              onClick={redoSavedArticleEdit}
+              disabled={!editingArticle && articleRedoStack.length === 0}
+              aria-label="前进"
+              title="前进"
+            >
+              →
+            </button>
+            {editingArticle ? (
+              <>
+                <button
+                  type="button"
+                  className="h-9 shrink-0 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
+                  onClick={cancelArticleEditing}
+                >
+                  取消编辑
+                </button>
+                <button
+                  type="button"
+                  className="h-9 shrink-0 rounded-full bg-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-white transition active:scale-95"
+                  onClick={saveArticleEditing}
+                >
+                  保存编辑
+                </button>
+              </>
+            ) : (
+              <button
+                type="button"
+                className="h-9 shrink-0 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
+                onClick={beginArticleEditing}
+              >
+                编辑文章
+              </button>
+            )}
             <button
               type="button"
               className="hidden h-9 shrink-0 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95 lg:inline-flex lg:items-center"
               onClick={handleCopyArticle}
+              disabled={editingArticle}
             >
               复制文章内容
             </button>
@@ -945,14 +2063,14 @@ export function ReaderView({
               type="button"
               className="h-9 shrink-0 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#7a7a7a]"
               onClick={handleSaveArticle}
-              disabled={savingArticle}
+              disabled={savingArticle || editingArticle}
             >
               {saveButtonText}
             </button>
             <button
               type="button"
               className="h-9 shrink-0 rounded-full bg-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-white transition active:scale-95"
-              onClick={() => setVocabularyOpen(true)}
+              onClick={handleOpenVocabulary}
             >
               生词本
             </button>
@@ -967,57 +2085,153 @@ export function ReaderView({
         style={{ "--mobile-sheet-height": `${mobileExplanationHeight}dvh` } as CSSProperties}
       >
         <article className="min-w-0 overflow-x-hidden rounded-[24px] bg-white px-4 py-7 sm:min-h-[70vh] sm:px-10 sm:py-8 lg:px-16 lg:py-14">
-          {importedArticle && (
+          {currentImportedArticle && (
             <header className="mx-auto mb-10 max-w-3xl border-b border-[#e0e0e0] pb-6">
               <p className="text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-                {importedArticle.siteName}
+                {currentImportedArticle.siteName}
               </p>
-              <a
-                className="mt-2 block break-all text-sm leading-5 tracking-[-0.224px] text-[#0066cc]"
-                href={importedArticle.url}
-                rel="noreferrer"
-                target="_blank"
-              >
-                {importedArticle.url}
-              </a>
+              {currentImportedArticle.url && (
+                <a
+                  className="mt-2 block break-all text-sm leading-5 tracking-[-0.224px] text-[#0066cc]"
+                  href={currentImportedArticle.url}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  {currentImportedArticle.url}
+                </a>
+              )}
             </header>
           )}
           <div
-            className="mx-auto max-w-3xl overflow-x-hidden break-words [overflow-wrap:anywhere]"
+            className={articleShellClassName}
+            style={paragraphStyle}
             onPointerDown={handleArticlePointerDown}
             onPointerMove={handleArticlePointerMove}
             onPointerUp={handleArticlePointerUp}
             onPointerCancel={handleArticlePointerCancel}
             onClick={handleArticleClick}
           >
-            {renderableBlocks.map((block) => {
+            {editingArticle ? (
+              !currentImportedArticle?.blocks?.length ? (
+                <div
+                  ref={plainArticleEditRef}
+                  className="min-h-[65vh] outline-none"
+                  contentEditable
+                  suppressContentEditableWarning
+                  spellCheck={false}
+                  onInput={handleArticleEditInput}
+                >
+                  {paragraphs.map((paragraph) => (
+                    <p
+                      key={paragraph.id}
+                      className={`${textBlockClassName("paragraph")} min-w-0`}
+                    >
+                      {paragraph.tokens.map((token) => token.value).join("") || <br />}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+              <div
+                ref={importedArticleEditRef}
+                className="min-h-[65vh] outline-none"
+                contentEditable
+                suppressContentEditableWarning
+                spellCheck={false}
+                onInput={handleArticleEditInput}
+                onKeyDown={handleImportedArticleEditKeyDown}
+              >
+                {draftBlocks.map((block) => {
+                  const dataProps = {
+                    "data-block-id": block.id,
+                    "data-block-type": block.type,
+                    "data-src": block.src ?? "",
+                    "data-alt": block.alt ?? "",
+                  };
+
+                  if (block.type === "image") {
+                    return (
+                      <figure
+                        key={block.id}
+                        {...dataProps}
+                        className={`group relative my-8 min-w-0 overflow-hidden lg:my-10 ${imageWidthClassName}`}
+                        contentEditable={false}
+                      >
+                        <button
+                          type="button"
+                          className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-xl leading-none text-[#1d1d1f] shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066cc] active:scale-95"
+                          aria-label="删除图片"
+                          title="删除图片"
+                          onClick={(event) => {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            deleteDraftBlock(block.id);
+                          }}
+                        >
+                          ×
+                        </button>
+                        {block.src && (
+                          <img
+                            alt={block.alt || ""}
+                            className="h-auto max-h-[65vh] w-full max-w-full rounded-[14px] object-contain sm:max-h-[70vh]"
+                            src={block.src}
+                          />
+                        )}
+                        {block.alt && <figcaption className="mt-3 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">{block.alt}</figcaption>}
+                      </figure>
+                    );
+                  }
+
+                  const Tag = block.type === "heading" ? "h1" : block.type === "subheading" ? "h2" : block.type === "quote" ? "blockquote" : "p";
+                  return (
+                    <Tag
+                      key={block.id}
+                      {...dataProps}
+                      className={`${textBlockClassName(block.type)} min-w-0 outline-none`}
+                      suppressContentEditableWarning
+                    >
+                      {block.text ? block.text : <br />}
+                    </Tag>
+                  );
+                })}
+              </div>
+              )
+            ) : renderableBlocks.map((block) => {
               if (block.type === "image") {
                 if (!block.src) {
                   return null;
                 }
                 return (
-                  <figure key={block.id} className="my-8 min-w-0 overflow-hidden lg:my-10 lg:[content-visibility:auto] lg:[contain-intrinsic-size:720px]">
-                    <button
-                      type="button"
-                      className="group relative block w-full overflow-hidden rounded-[14px] bg-[#f5f5f7] text-left outline-none ring-0 transition focus-visible:ring-2 focus-visible:ring-[#0066cc] active:scale-[0.998]"
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        setActiveImageBlockId(block.id);
-                      }}
-                    >
+                  <figure
+                    key={block.id}
+                    data-reader-block={block.id}
+                    className={`my-8 min-w-0 overflow-hidden lg:my-10 lg:[content-visibility:auto] lg:[contain-intrinsic-size:auto_720px] ${imageWidthClassName}`}
+                  >
+                    <div className="group relative overflow-hidden rounded-[14px] bg-[#f5f5f7]">
                       <img
                         alt={block.alt || ""}
                         className="h-auto max-h-[65vh] w-full max-w-full object-contain sm:max-h-[70vh]"
                         decoding="async"
+                        data-reader-image={block.id}
+                        height={block.height}
                         loading="lazy"
+                        onError={(event) => preserveSourceAlignmentAfterImageLayout(event.currentTarget)}
+                        onLoad={(event) => preserveSourceAlignmentAfterImageLayout(event.currentTarget)}
                         referrerPolicy="no-referrer"
                         sizes="(min-width: 1024px) 768px, calc(100vw - 40px)"
                         src={block.src}
+                        width={block.width}
                       />
-                      <span className="absolute right-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-medium leading-5 text-[#1d1d1f] opacity-95 shadow-sm transition group-hover:bg-white">
+                      <button
+                        type="button"
+                        className="absolute right-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-medium leading-5 text-[#1d1d1f] opacity-95 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066cc]"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          setActiveImageBlockId(block.id);
+                        }}
+                      >
                         点击放大
-                      </span>
-                    </button>
+                      </button>
+                    </div>
                     {block.alt && (
                       <figcaption className="mt-3 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
                         {block.alt}
@@ -1048,7 +2262,11 @@ export function ReaderView({
 
               const Tag = block.type === "heading" ? "h1" : block.type === "subheading" ? "h2" : "p";
               return (
-                <Tag key={block.id} className={`${textBlockClassName(block.type)} min-w-0 lg:[content-visibility:auto] lg:[contain-intrinsic-size:120px]`}>
+                <Tag
+                  key={block.id}
+                  data-reader-block={block.id}
+                  className={`${textBlockClassName(block.type)} min-w-0 lg:[content-visibility:auto] lg:[contain-intrinsic-size:auto_120px]`}
+                >
                   {block.tokenGroups?.length
                     ? block.tokenGroups.map((group) => {
                         const content = group.tokens.map((token) => (
@@ -1056,6 +2274,8 @@ export function ReaderView({
                             key={token.id}
                             token={token}
                             selected={selectedTokenIdSet.has(token.id)}
+                            highlighted={highlightedSentenceTokenIdSet.has(token.id)}
+                            targeted={highlightedTargetTokenIdSet.has(token.id)}
                           />
                         ));
                         if (group.baseline === "sup") {
@@ -1074,13 +2294,17 @@ export function ReaderView({
                         }
                         return <span key={group.id}>{content}</span>;
                       })
-                    : block.tokens?.map((token) => (
+                    : block.tokens?.length
+                      ? block.tokens.map((token) => (
                         <WordToken
                           key={token.id}
                           token={token}
                           selected={selectedTokenIdSet.has(token.id)}
+                          highlighted={highlightedSentenceTokenIdSet.has(token.id)}
+                          targeted={highlightedTargetTokenIdSet.has(token.id)}
                         />
-                      ))}
+                      ))
+                      : <br />}
                 </Tag>
               );
             })}
@@ -1089,14 +2313,58 @@ export function ReaderView({
 
         <div className="hidden lg:block" aria-hidden="true" />
         <div className="hidden lg:fixed lg:bottom-6 lg:right-[max(1.25rem,calc((100vw-80rem)/2+1.25rem))] lg:top-20 lg:z-20 lg:block lg:w-[360px]">
-          <ExplanationPanel
-            explanation={explanation}
-            selectedContext={selectedContext}
-            loading={loading}
-            error={error}
-            isInVocabulary={Boolean(isInVocabulary)}
-            onAddToVocabulary={handleAddToVocabulary}
-          />
+          <div className="flex h-full min-h-0 flex-col gap-3">
+            <div className="grid h-10 shrink-0 grid-cols-2 rounded-full border border-[#d2d2d7] bg-white p-1">
+              <button
+                type="button"
+                className={`rounded-full text-sm leading-none tracking-[-0.224px] transition ${
+                  rightPanelMode === "explanation" ? "bg-[#1d1d1f] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
+                }`}
+                onClick={() => setRightPanelMode("explanation")}
+              >
+                词句解释
+              </button>
+              <button
+                type="button"
+                className={`rounded-full text-sm leading-none tracking-[-0.224px] transition ${
+                  rightPanelMode === "translation" ? "bg-[#1d1d1f] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
+                }`}
+                onClick={() => setRightPanelMode("translation")}
+              >
+                全文翻译
+              </button>
+            </div>
+            <div className="min-h-0 flex-1">
+              <div className={rightPanelMode === "translation" ? "h-full min-h-0" : "hidden h-full min-h-0"}>
+                <ArticleTranslationPanel
+                  blocks={translationBlocks}
+                  translations={articleTranslations}
+                  loading={translationLoading}
+                  error={translationError}
+                  requested={translationRequested}
+                  estimatedSecondsRemaining={translationEstimatedSecondsRemaining}
+                  staleBlockIds={staleTranslationBlockIds}
+                  removedTranslationCount={removedTranslationCount}
+                  onGenerate={() => generateArticleTranslation(false)}
+                  onRegenerate={() => generateArticleTranslation(true)}
+                />
+              </div>
+              <div className={rightPanelMode === "explanation" ? "h-full min-h-0" : "hidden h-full min-h-0"}>
+                <ExplanationPanel
+                  explanation={explanation}
+                  streamText={explanationStreamText}
+                  streaming={explanationStreaming}
+                  selectedContext={selectedContext}
+                  loading={loading}
+                  error={error}
+                  isInVocabulary={Boolean(isInVocabulary)}
+                  vocabularyMatchNotice={vocabularyMatchNotice}
+                  onAddToVocabulary={handleAddToVocabulary}
+                  onRegenerate={handleRegenerateExplanation}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1106,64 +2374,111 @@ export function ReaderView({
           role="dialog"
           aria-modal="true"
           aria-label="放大图片"
+          onWheel={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+          }}
           onClick={() => setActiveImageBlockId(null)}
         >
           <div
-            className={`grid max-h-[92dvh] w-full min-w-0 grid-rows-[minmax(0,1fr)] overflow-hidden rounded-[18px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.25)] ${
+            className={`relative grid max-h-[92dvh] w-full min-w-0 grid-rows-[minmax(0,1fr)] overflow-hidden rounded-[18px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.25)] ${
               IMAGE_OCR_ENABLED ? "max-w-6xl lg:grid-cols-[minmax(0,1fr)_360px]" : "max-w-5xl"
             }`}
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="min-h-0 overflow-auto bg-[#111111] p-2 sm:p-4">
-              <div className="sticky top-0 z-10 mb-2 flex items-center justify-end gap-2">
+            <div className="absolute right-3 top-3 z-10 flex items-center justify-end gap-2">
+              <button
+                type="button"
+                className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b]"
+                onClick={() => changeActiveImageZoom(-0.1)}
+                disabled={activeImageZoom <= ACTIVE_IMAGE_MIN_ZOOM}
+              >
+                缩小
+              </button>
+              <span className="min-w-14 rounded-full bg-white/95 px-3 py-1.5 text-center text-sm leading-none text-[#1d1d1f]">
+                {activeImageZoomPercent}%
+              </span>
+              <button
+                type="button"
+                className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b]"
+                onClick={() => changeActiveImageZoom(0.1)}
+                disabled={activeImageZoom >= ACTIVE_IMAGE_MAX_ZOOM}
+              >
+                放大
+              </button>
+              <button
+                type="button"
+                className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b]"
+                onClick={() => {
+                  setActiveImageZoom(1);
+                  setActiveImageZoomOrigin({ x: 50, y: 50 });
+                }}
+                disabled={activeImageZoom === 1}
+              >
+                适合
+              </button>
+              <button
+                type="button"
+                className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95"
+                onClick={() => downloadImage(activeImageBlock)}
+              >
+                下载
+              </button>
+              {!IMAGE_OCR_ENABLED && (
                 <button
                   type="button"
-                  className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b]"
-                  onClick={() => changeActiveImageZoom(-0.25)}
-                  disabled={activeImageZoom <= 1}
+                  className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95"
+                  onClick={() => setActiveImageBlockId(null)}
                 >
-                  缩小
+                  关闭
                 </button>
-                <span className="min-w-14 rounded-full bg-white/95 px-3 py-1.5 text-center text-sm leading-none text-[#1d1d1f]">
-                  {activeImageZoomPercent}%
-                </span>
-                <button
-                  type="button"
-                  className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b]"
-                  onClick={() => changeActiveImageZoom(0.25)}
-                  disabled={activeImageZoom >= 3}
-                >
-                  放大
-                </button>
-                <button
-                  type="button"
-                  className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b]"
-                  onClick={() => setActiveImageZoom(1)}
-                  disabled={activeImageZoom === 1}
-                >
-                  适合
-                </button>
-                {!IMAGE_OCR_ENABLED && (
-                  <button
-                    type="button"
-                    className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95"
-                    onClick={() => setActiveImageBlockId(null)}
-                  >
-                    关闭
-                  </button>
+              )}
+            </div>
+            <div
+              ref={activeImageScrollRef}
+              className="flex min-h-0 items-center justify-center overflow-hidden bg-[#111111] p-2 pt-14 sm:p-4 sm:pt-14"
+              onWheel={handleActiveImageWheel}
+            >
+              <div
+                className="relative flex h-full w-full items-center justify-center"
+                style={{
+                  transform: `scale(${activeImageZoom})`,
+                  transformOrigin: `${activeImageZoomOrigin.x}% ${activeImageZoomOrigin.y}%`,
+                  transition: "transform 150ms ease-out",
+                  willChange: "transform",
+                }}
+              >
+                <img
+                  alt={activeImageBlock.alt || ""}
+                  className="max-h-full max-w-full object-contain"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  src={activeImageBlock.src}
+                />
+                {activeImageLayout.status === "ready" && (
+                  <div className="absolute inset-0">
+                    {activeImageLayout.words.map((word, index) => (
+                      <button
+                        key={`${word.text}-${index}-${word.x}-${word.y}`}
+                        type="button"
+                        aria-label={`解释 ${word.text}`}
+                        className="absolute rounded-[3px] border border-transparent bg-[#0066cc]/0 transition hover:border-[#0066cc]/70 hover:bg-[#0066cc]/15 focus-visible:border-[#0066cc] focus-visible:bg-[#0066cc]/18 focus-visible:outline-none"
+                        style={{
+                          left: `${word.x}%`,
+                          top: `${word.y}%`,
+                          width: `${word.width}%`,
+                          height: `${word.height}%`,
+                        }}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          handleImageLayoutWordClick(word, index);
+                        }}
+                        title={word.text}
+                      />
+                    ))}
+                  </div>
                 )}
               </div>
-              <img
-                alt={activeImageBlock.alt || ""}
-                className="mx-auto h-auto max-w-none object-contain"
-                decoding="async"
-                referrerPolicy="no-referrer"
-                src={activeImageBlock.src}
-                style={{
-                  width: activeImageWidth,
-                  minWidth: activeImageZoom === 1 ? "0" : activeImageWidth,
-                }}
-              />
             </div>
             {IMAGE_OCR_ENABLED && (
               <aside className="flex min-h-0 flex-col border-t border-[#e0e0e0] bg-white lg:border-l lg:border-t-0">
@@ -1224,11 +2539,15 @@ export function ReaderView({
           </div>
           <ExplanationPanel
             explanation={explanation}
+            streamText={explanationStreamText}
+            streaming={explanationStreaming}
             selectedContext={selectedContext}
             loading={loading}
             error={error}
             isInVocabulary={Boolean(isInVocabulary)}
+            vocabularyMatchNotice={vocabularyMatchNotice}
             onAddToVocabulary={handleAddToVocabulary}
+            onRegenerate={handleRegenerateExplanation}
             onCollapse={() => setMobileExplanationOpen(false)}
           />
         </div>
@@ -1239,11 +2558,17 @@ export function ReaderView({
         open={vocabularyOpen}
         importingId={importingId}
         importError={importError}
-        onClose={() => setVocabularyOpen(false)}
+        onClose={handleCloseVocabulary}
         onDelete={handleDeleteVocabulary}
         onClear={handleClearVocabulary}
         onExportCsv={handleExportCsv}
         onCopy={handleCopyEntry}
+        onJumpToSource={handleJumpToVocabularySource}
+          canJumpToSource={(entry) =>
+          canJumpToSourceSentence(entry.sourceSentence) ||
+          Boolean(findBestSourceSentenceMatch(entry.sourceSentence, entry.word, wordTokens)) ||
+          Boolean(canJumpToVocabularySourceOutsideArticle?.(entry))
+        }
         onImportAnki={handleImportAnki}
         onImportAllAnki={handleImportAllAnki}
       />
@@ -1262,3 +2587,4 @@ export function ReaderView({
     </main>
   );
 }
+

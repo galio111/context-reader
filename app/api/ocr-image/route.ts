@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import { extractImageText } from "@/lib/visionOcr";
+import { readFormDataBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
+import { CostCapacityError, withCostSlot } from "@/lib/costConcurrency";
 
 const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
-const IMAGE_OCR_ENABLED = false;
+const IMAGE_OCR_ENABLED = true;
 
 function imageToDataUrl(file: File, buffer: ArrayBuffer): string {
   const base64 = Buffer.from(buffer).toString("base64");
@@ -14,7 +16,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "OCR 识别暂不可用。" }, { status: 503 });
   }
 
-  const formData = await request.formData().catch(() => null);
+  let formData: FormData | null;
+  try {
+    formData = await readFormDataBody(request, MAX_IMAGE_BYTES + 512 * 1024);
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof RequestBodyTooLargeError ? "图片不能超过 8MB。" : "上传数据格式无效。" },
+      { status: error instanceof RequestBodyTooLargeError ? 413 : 400 },
+    );
+  }
   const file = formData?.get("image");
 
   if (!(file instanceof File)) {
@@ -31,13 +41,16 @@ export async function POST(request: Request) {
 
   try {
     const buffer = await file.arrayBuffer();
-    const text = await extractImageText({
+    const text = await withCostSlot("ocr", 2, () => extractImageText({
       dataUrl: imageToDataUrl(file, buffer),
       mode: "upload",
-    });
+    }));
 
     return NextResponse.json({ text });
   } catch (error) {
+    if (error instanceof CostCapacityError) {
+      return NextResponse.json({ error: "OCR 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
+    }
     const message =
       error instanceof Error && error.name === "TimeoutError"
         ? "OCR 识别超时，请换一张更清晰或更小的图片。"

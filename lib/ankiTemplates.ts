@@ -82,6 +82,8 @@ export const cardCss = `
 .audio-row {
   display: flex;
   gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
   margin-top: 10px;
   color: #475569;
   font-size: 17px;
@@ -99,9 +101,12 @@ hr {
   margin: 20px 0;
 }
 hr.front-gap {
-  margin: 58px 0;
+  margin: 96px 0;
 }
 `;
+
+const usTts = `{{tts en_US voices=Microsoft_Jenny,Microsoft_Aria,Microsoft_Zira,Microsoft_David,Apple_Samantha,Apple_Alex,Google_US_English:Word}}`;
+const ukTts = `{{tts en_GB:Word}}`;
 
 export const clozeFrontTemplate = `<div class="card">
   <div class="sentence">{{ClozeSentence}}</div>
@@ -110,15 +115,16 @@ export const clozeFrontTemplate = `<div class="card">
 </div>`;
 
 export const clozeBackTemplate = `<div class="card">
-  <div class="word">{{Word}}</div>
+  <div class="word" data-context-reader-word>{{Word}}</div>
 
   <div class="meta">
     {{Lemma}} · {{Phonetic}} · {{PartOfSpeech}}
   </div>
 
-  <div class="audio-row">
-    <span><span class="audio-label">美：</span>{{tts en_US:Word}}</span>
-    <span><span class="audio-label">英：</span>{{tts en_GB:Word}}</span>
+  <div class="audio-row" aria-label="单词发音">
+    <span class="audio-label">发音：</span>
+    <span><span class="audio-label">美：</span>${usTts}</span>
+    <span><span class="audio-label">英：</span>${ukTts}</span>
   </div>
 
   <hr>
@@ -138,7 +144,7 @@ export const clozeBackTemplate = `<div class="card">
   <br>
 
   <div>
-    <b>语境含义：</b><br>
+    <b>所选词/短语在本句中的含义：</b><br>
     {{ContextMeaning}}
   </div>
 
@@ -178,15 +184,16 @@ export const basicFrontTemplate = `<div class="card">
 </div>`;
 
 export const basicBackTemplate = `<div class="card">
-  <div class="word">{{Word}}</div>
+  <div class="word" data-context-reader-word>{{Word}}</div>
 
   <div class="meta">
     {{Lemma}} · {{Phonetic}} · {{PartOfSpeech}}
   </div>
 
-  <div class="audio-row">
-    <span><span class="audio-label">美：</span>{{tts en_US:Word}}</span>
-    <span><span class="audio-label">英：</span>{{tts en_GB:Word}}</span>
+  <div class="audio-row" aria-label="单词发音">
+    <span class="audio-label">发音：</span>
+    <span><span class="audio-label">美：</span>${usTts}</span>
+    <span><span class="audio-label">英：</span>${ukTts}</span>
   </div>
 
   <hr>
@@ -199,7 +206,7 @@ export const basicBackTemplate = `<div class="card">
   <br>
 
   <div>
-    <b>当前语境含义：</b><br>
+    <b>所选词/短语在本句中的含义：</b><br>
     {{ContextMeaning}}
   </div>
 

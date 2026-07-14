@@ -1,4 +1,5 @@
 import { normalizeAnkiInfo } from "@/lib/ankiData";
+import { normalizePartOfSpeechLabel } from "@/lib/displayLabels";
 import type {
   Difficulty,
   ExplanationRequest,
@@ -7,52 +8,38 @@ import type {
 } from "@/types/reader";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
-const DEFAULT_FALLBACK_MODEL = "deepseek-chat";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
-const MAX_CONTEXT_CHARS = 1300;
+const MAX_CONTEXT_CHARS = 1100;
 const MAX_SINGLE_FIELD_CHARS = 500;
 const MAX_QUESTION_CHARS = 500;
-const REQUEST_TIMEOUT_MS = 12000;
-const MAX_ATTEMPTS_PER_PROFILE = 2;
+const REQUEST_TIMEOUT_MS = 30000;
+const MAX_COMPLETION_TOKENS = 760;
+const REQUIRED_CHINESE_FIELDS = [
+  "basicMeaning",
+  "contextMeaning",
+  "sentenceTranslation",
+  "usageNote",
+  "exampleChinese",
+] as const;
+const REQUIRED_TEXT_FIELDS = [
+  "collocation",
+] as const;
 
-const systemPrompt = `你是面向中文母语大学生的英语阅读和 Anki 制卡助手。用户会给你一个英文单词或短语、它所在的英文句子、前一句和后一句。你需要解释该词在当前语境中的含义，并判断当前句子是否适合制作语境挖空卡。
-
-回答必须使用中文。不要输出 Markdown。不要输出多余文字。只返回严格 JSON。
-
+const systemPrompt = `你是给中文母语英语学习者使用的语境词义助手。用户输入 JSON：w=目标词/短语，s=当前句，p=前一句，n=后一句。
+要求：
+1. 必须返回严格 JSON，不要 Markdown，不要额外文字。
+2. 中文字段要短、准、自然，重点解释当前语境，不要堆砌词典义。
+3. sentenceTranslation 必须翻译整句，并让目标词/短语在句中的语气、指代、逻辑关系都被准确体现。
+4. word 必须原样返回输入的 w，不能添加相邻单词、释义或原型。
+5. phonetic 尽量给 IPA。w 是单个单词时只给该词音标；w 是多词短语时按“单词 /音标/ · 单词 /音标/”列出每个单词，不要给整段句子音标；不知道就返回空字符串。
+6. w 是单个单词时，lemma 只返回这个单词在该句中的原型，严禁返回相邻词或多个单词；w 是多词短语时 lemma 返回空字符串。partOfSpeech 只返回规范词性，不要把 CET、IELTS、A2、B2、medium 等考试或等级写进词性。
+7. contextMeaning 只能写目标词/短语在当前句中的中文对应含义，不得翻译整句。w 是单个单词时，contextMeaning 必须解释这个单词本身在句中的贡献，不能把相邻副词、否定词、程度词或搭配词的整体效果并入释义。例如 w=intelligible 且原句含 barely intelligible 时，contextMeaning 应写“可理解的；听得清的”，不要写“口齿不清的”；“barely intelligible”的整体效果应放在 sentenceTranslation 或 usageNote。w 是用户选中的多词短语时，contextMeaning 才解释整个短语。sentenceTranslation 才翻译整句。
+8. difficulty 只返回 easy、medium、hard 三者之一。
+9. clozeSentence 只把原句中的目标词/短语替换成 ________，不要改写整句。
+10. 实词、学术词、短语动词和固定表达通常 canMakeCloze=true；功能词或无有效线索才设为 false。
+11. collocation 必须填写：优先给 2-4 个常见英文搭配，每个搭配后紧跟简短中文释义，格式严格为“service fee（服务费）；legal fee（律师费）”；如果确实没有固定搭配，写“无固定搭配”，不要留空。collocation 只能包含搭配，exampleEnglish 只能包含一个英文例句，exampleChinese 只能包含这个例句的一条中文翻译，三个字段严禁互相串入内容。
 返回字段：
-{
-  "word": "被点击的原词",
-  "lemma": "单词原形",
-  "phonetic": "IPA 音标，例如 /əˈdres/，不知道则为空字符串",
-  "partOfSpeech": "词性，用中文，例如 动词/名词/形容词/副词/短语",
-  "basicMeaning": "基础中文释义，脱离具体语境的基础义项",
-  "contextMeaning": "该词在当前句子中的语境含义，必须是中文",
-  "sentenceTranslation": "当前句子的自然中文翻译",
-  "usageNote": "这个词在这里的用法说明，必须是中文",
-  "collocation": "常见搭配或固定表达，没有则写空字符串",
-  "exampleEnglish": "一个简单英文例句",
-  "exampleChinese": "例句中文翻译",
-  "difficulty": "easy / medium / hard",
-  "shouldAddToVocabulary": true,
-  "anki": {
-    "canMakeCloze": true,
-    "cardMode": "cloze_context",
-    "clozeSentence": "只把原句中的目标词替换成 ________",
-    "contextCue": "来自 contextMeaning 的中文语境提示",
-    "basicCue": "来自 basicMeaning 的中文基础释义提示"
-  }
-}
-
-判断规则：
-1. 默认优先 canMakeCloze=true。实义词、学术词、动词、名词、形容词、副词、短语动词、固定表达，通常都适合语境挖空。
-2. 不要求挖空后只有唯一答案；只要能通过英文句子和中文语境提示回忆目标词即可。
-3. 只有功能词、句子极短且无线索、上下文无法体现目标词用法、答案过于开放时，才 canMakeCloze=false，cardMode="basic_cn_to_en"。
-4. canMakeCloze=true 时 cardMode="cloze_context"；canMakeCloze=false 时 cardMode="basic_cn_to_en"。
-5. clozeSentence 只能替换原句目标词，不要改写整句。
-6. basicCue 必须来自 basicMeaning，不要来自 contextMeaning。
-7. contextCue 必须来自 contextMeaning，可以简化但不要编造。
-8. 除 word、lemma、phonetic、clozeSentence、exampleEnglish 外，所有解释字段必须使用中文。
-9. 每个字段都必须存在，不要返回 null。内容要短，不要长篇展开。`;
+{"word":"","lemma":"","phonetic":"","partOfSpeech":"","basicMeaning":"","contextMeaning":"","sentenceTranslation":"","usageNote":"","collocation":"","exampleEnglish":"","exampleChinese":"","difficulty":"easy","shouldAddToVocabulary":true,"anki":{"canMakeCloze":true,"cardMode":"cloze_context","clozeSentence":"","contextCue":"","basicCue":""}}`;
 
 export class MissingDeepSeekEnvError extends Error {
   constructor(message: string) {
@@ -108,13 +95,49 @@ function firstMeaning(value: string): string {
   return value.split(/[。；;\n]/).map((item) => item.trim()).filter(Boolean)[0] || value;
 }
 
+function lexicalWords(value: string): string[] {
+  return value.toLowerCase().match(/[a-z]+(?:['’-][a-z]+)*/g) ?? [];
+}
+
+function normalizeLemma(value: unknown, selectedWord: string): string {
+  const selectedWords = lexicalWords(selectedWord);
+  if (selectedWords.length !== 1) {
+    return "";
+  }
+
+  const candidate = text(value).toLowerCase();
+  return lexicalWords(candidate).length === 1 ? candidate : selectedWords[0];
+}
+
+function hasChineseContent(value: string): boolean {
+  return /[\u3400-\u9fff]/.test(value);
+}
+
+function missingChineseFields(value: unknown): string[] {
+  const data = (value && typeof value === "object" ? value : {}) as Partial<Record<(typeof REQUIRED_CHINESE_FIELDS)[number], unknown>>;
+
+  return REQUIRED_CHINESE_FIELDS.filter((field) => {
+    const fieldValue = data[field];
+    return typeof fieldValue !== "string" || !hasChineseContent(fieldValue.trim());
+  });
+}
+
+function missingTextFields(value: unknown): string[] {
+  const data = (value && typeof value === "object" ? value : {}) as Partial<Record<(typeof REQUIRED_TEXT_FIELDS)[number], unknown>>;
+
+  return REQUIRED_TEXT_FIELDS.filter((field) => {
+    const fieldValue = data[field];
+    return typeof fieldValue !== "string" || fieldValue.trim().length === 0;
+  });
+}
+
 function isDeepSeekBusy(message = ""): boolean {
   return /service is too busy|temporarily switch|too busy|rate limit|overloaded/i.test(message);
 }
 
 function friendlyDeepSeekError(message = "", status?: number): string {
   if (isDeepSeekBusy(message) || status === 429 || status === 503) {
-    return "DeepSeek 当前服务繁忙，已自动重试和切换备用模型但仍失败。请稍后再点一次，或配置备用 API 地址。";
+    return "DeepSeek 当前服务繁忙，请稍后重新生成。";
   }
   if (status === 401 || status === 403) {
     return "DeepSeek API Key 无效或没有权限，请检查 .env.local。";
@@ -131,14 +154,8 @@ function parseJsonObject(content: string): unknown {
     if (start >= 0 && end > start) {
       return JSON.parse(content.slice(start, end + 1));
     }
-    throw new DeepSeekParseError("模型没有返回可解析的 JSON，请重新点击该词。");
+    throw new DeepSeekParseError("模型没有返回可解析的 JSON，请重新生成。");
   }
-}
-
-function wait(ms: number): Promise<void> {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
 }
 
 function uniqueValues(values: string[]): string[] {
@@ -154,11 +171,6 @@ function getProviderProfiles(): ProviderProfile[] {
     return [];
   }
 
-  const fallbackModels = uniqueValues([
-    ...(process.env.DEEPSEEK_FALLBACK_MODELS ?? "").split(","),
-    DEFAULT_FALLBACK_MODEL,
-  ]).filter((model) => model !== primaryModel);
-
   const profiles: ProviderProfile[] = [
     {
       apiKey: primaryApiKey,
@@ -166,12 +178,6 @@ function getProviderProfiles(): ProviderProfile[] {
       model: primaryModel,
       label: "primary",
     },
-    ...fallbackModels.map((model) => ({
-      apiKey: primaryApiKey,
-      baseURL: primaryBaseURL,
-      model,
-      label: `fallback-model:${model}`,
-    })),
   ];
 
   const fallbackBaseURL = process.env.DEEPSEEK_FALLBACK_BASE_URL;
@@ -186,6 +192,17 @@ function getProviderProfiles(): ProviderProfile[] {
       label: "fallback-provider",
     });
   }
+
+  const explicitFallbackModels = uniqueValues((process.env.DEEPSEEK_FALLBACK_MODELS ?? "").split(","))
+    .filter((model) => model !== primaryModel);
+  profiles.push(
+    ...explicitFallbackModels.map((model) => ({
+      apiKey: primaryApiKey,
+      baseURL: primaryBaseURL,
+      model,
+      label: `fallback-model:${model}`,
+    })),
+  );
 
   return profiles;
 }
@@ -207,9 +224,9 @@ export function sanitizeExplanationRequest(input: ExplanationRequest): Explanati
   if (totalLength > MAX_CONTEXT_CHARS) {
     return {
       ...request,
-      previousSentence: request.previousSentence.slice(0, 250),
-      sentence: request.sentence.slice(0, 700),
-      nextSentence: request.nextSentence.slice(0, 250),
+      previousSentence: request.previousSentence.slice(0, 220),
+      sentence: request.sentence.slice(0, 620),
+      nextSentence: request.nextSentence.slice(0, 220),
     };
   }
 
@@ -229,12 +246,13 @@ function normalizeExplanation(value: unknown, request: ExplanationRequest): Word
   const contextMeaning = text(data.contextMeaning, basicMeaning || "待补充语境含义");
   const sentenceTranslation = text(data.sentenceTranslation, "待补充句子翻译");
   const usageNote = text(data.usageNote, "结合原句理解该词在当前语境中的用法。");
+  const collocation = text(data.collocation, "无固定搭配");
   const exampleEnglish = text(data.exampleEnglish, `${request.word} is useful.`);
   const exampleChinese = text(data.exampleChinese, "这个词很有用。");
 
   const ankiSource = {
     ...data,
-    word: text(data.word, request.word),
+    word: request.word,
     basicMeaning,
     contextMeaning,
     anki: {
@@ -247,15 +265,15 @@ function normalizeExplanation(value: unknown, request: ExplanationRequest): Word
   } as Partial<WordExplanation>;
 
   return {
-    word: text(data.word, request.word),
-    lemma: text(data.lemma, request.word.toLowerCase()),
+    word: request.word,
+    lemma: normalizeLemma(data.lemma, request.word),
     phonetic: text(data.phonetic, ""),
-    partOfSpeech: text(data.partOfSpeech, "词性待确认"),
+    partOfSpeech: normalizePartOfSpeechLabel(text(data.partOfSpeech, "词性待确认")),
     basicMeaning,
     contextMeaning,
     sentenceTranslation,
     usageNote,
-    collocation: text(data.collocation, ""),
+    collocation,
     exampleEnglish,
     exampleChinese,
     difficulty: difficulty(data.difficulty),
@@ -267,76 +285,70 @@ function normalizeExplanation(value: unknown, request: ExplanationRequest): Word
 async function requestDeepSeekCompletion(args: {
   profile: ProviderProfile;
   safeRequest: ExplanationRequest;
+  repairChineseFields?: string[];
 }): Promise<DeepSeekChatCompletionResponse> {
-  let lastError: DeepSeekParseError | null = null;
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS_PER_PROFILE; attempt += 1) {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-
-    try {
-      const response = await fetch(`${args.profile.baseURL.replace(/\/$/, "")}/chat/completions`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${args.profile.apiKey}`,
-          "Content-Type": "application/json",
+  try {
+    const response = await fetch(`${args.profile.baseURL.replace(/\/$/, "")}/chat/completions`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${args.profile.apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: args.profile.model,
+        temperature: 0,
+        max_tokens: MAX_COMPLETION_TOKENS,
+        response_format: { type: "json_object" },
+        thinking: {
+          type: "disabled",
         },
-        body: JSON.stringify({
-          model: args.profile.model,
-          temperature: 0,
-          max_tokens: 620,
-          response_format: { type: "json_object" },
-          thinking: {
-            type: "disabled",
+        messages: [
+          { role: "system", content: systemPrompt },
+          {
+            role: "user",
+            content: JSON.stringify(
+              args.repairChineseFields?.length
+                ? {
+                    w: args.safeRequest.word,
+                    s: args.safeRequest.sentence,
+                    p: args.safeRequest.previousSentence,
+                    n: args.safeRequest.nextSentence,
+                    fix: `上次返回的 ${args.repairChineseFields.join(", ")} 不合格。basicMeaning、contextMeaning、sentenceTranslation、usageNote、exampleChinese 必须使用中文，不要把英文释义原样放进这些字段。collocation 必须填写常见英文搭配；没有固定搭配时写“无固定搭配”。`,
+                  }
+                : {
+                    w: args.safeRequest.word,
+                    s: args.safeRequest.sentence,
+                    p: args.safeRequest.previousSentence,
+                    n: args.safeRequest.nextSentence,
+                  },
+            ),
           },
-          messages: [
-            { role: "system", content: systemPrompt },
-            {
-              role: "user",
-              content: JSON.stringify({
-                word: args.safeRequest.word,
-                sentence: args.safeRequest.sentence,
-                previousSentence: args.safeRequest.previousSentence,
-                nextSentence: args.safeRequest.nextSentence,
-              }),
-            },
-          ],
-        }),
-        signal: controller.signal,
-      });
+        ],
+      }),
+      signal: controller.signal,
+    });
 
-      const completion = (await response.json().catch(() => null)) as DeepSeekChatCompletionResponse | null;
-      if (response.ok && completion) {
-        return completion;
-      }
-
-      const message = friendlyDeepSeekError(completion?.error?.message, response.status);
-      lastError = new DeepSeekParseError(message);
-      if (attempt < MAX_ATTEMPTS_PER_PROFILE && (response.status === 429 || response.status === 503 || isDeepSeekBusy(completion?.error?.message))) {
-        await wait(600);
-        continue;
-      }
-      throw lastError;
-    } catch (error) {
-      if (error instanceof DeepSeekParseError) {
-        throw error;
-      }
-
-      const message = error instanceof Error && error.name === "AbortError"
-        ? "DeepSeek 响应超时，请稍后重试。"
-        : "DeepSeek 请求失败，请检查网络或 API 配置。";
-      lastError = new DeepSeekParseError(message);
-      if (attempt < MAX_ATTEMPTS_PER_PROFILE) {
-        await wait(500);
-        continue;
-      }
-      throw lastError;
-    } finally {
-      clearTimeout(timeoutId);
+    const completion = (await response.json().catch(() => null)) as DeepSeekChatCompletionResponse | null;
+    if (response.ok && completion) {
+      return completion;
     }
-  }
 
-  throw lastError ?? new DeepSeekParseError("DeepSeek 请求失败，请稍后重试。");
+    throw new DeepSeekParseError(friendlyDeepSeekError(completion?.error?.message, response.status));
+  } catch (error) {
+    if (error instanceof DeepSeekParseError) {
+      throw error;
+    }
+
+    const message = error instanceof Error && error.name === "AbortError"
+      ? "DeepSeek 响应超时，请重新生成。"
+      : "DeepSeek 请求失败，请检查网络或 API 配置。";
+    throw new DeepSeekParseError(message);
+  } finally {
+    clearTimeout(timeoutId);
+  }
 }
 
 export async function explainWordWithDeepSeek(
@@ -363,11 +375,28 @@ export async function explainWordWithDeepSeek(
           finishReason: completion.choices?.[0]?.finish_reason,
           hasReasoning: Boolean(completion.choices?.[0]?.message?.reasoning_content),
         });
-        lastError = new DeepSeekParseError("DeepSeek 没有返回解释内容，请重新点击该词。");
+        lastError = new DeepSeekParseError("DeepSeek 没有返回解释内容，请重新生成。");
         continue;
       }
 
-      return normalizeExplanation(parseJsonObject(content), safeRequest);
+      const parsed = parseJsonObject(content);
+      let invalidFields = [...missingChineseFields(parsed), ...missingTextFields(parsed)];
+      if (invalidFields.length > 0) {
+        const retryCompletion = await requestDeepSeekCompletion({
+          profile,
+          safeRequest,
+          repairChineseFields: invalidFields,
+        });
+        const retryContent = retryCompletion.choices?.[0]?.message?.content?.trim();
+        const retryParsed = retryContent ? parseJsonObject(retryContent) : null;
+        invalidFields = [...missingChineseFields(retryParsed), ...missingTextFields(retryParsed)];
+        if (invalidFields.length > 0) {
+          throw new DeepSeekParseError("DeepSeek 返回的释义不完整，请重新生成。");
+        }
+        return normalizeExplanation(retryParsed, safeRequest);
+      }
+
+      return normalizeExplanation(parsed, safeRequest);
     } catch (error) {
       if (error instanceof DeepSeekParseError) {
         lastError = error;
@@ -376,6 +405,9 @@ export async function explainWordWithDeepSeek(
           model: profile.model,
           message: error.message,
         });
+        if (!isDeepSeekBusy(error.message)) {
+          break;
+        }
         continue;
       }
       throw error;

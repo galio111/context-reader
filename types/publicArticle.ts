@@ -1,5 +1,5 @@
 import type { ImportedArticle } from "@/types/article";
-import type { WordExplanation } from "@/types/reader";
+import type { ArticleTranslationItem, WordExplanation } from "@/types/reader";
 
 export interface PublicExplanation {
   id?: string;
@@ -7,6 +7,12 @@ export interface PublicExplanation {
   word: string;
   sentence: string;
   explanation: WordExplanation;
+}
+
+export interface PublicArticleTranslation {
+  id?: string;
+  cacheKey: string;
+  translations: ArticleTranslationItem[];
 }
 
 export interface PublicArticle {
@@ -18,6 +24,7 @@ export interface PublicArticle {
   sourceName: string;
   importedArticle?: ImportedArticle;
   explanations?: PublicExplanation[];
+  articleTranslations?: PublicArticleTranslation[];
   createdAt: string;
   updatedAt: string;
 }
@@ -30,5 +37,5 @@ export interface PublicArticleInput {
   sourceName?: string;
   importedArticle?: ImportedArticle | null;
   explanations?: PublicExplanation[];
+  articleTranslations?: PublicArticleTranslation[];
 }
-

@@ -1,8 +1,11 @@
 import { normalizeAnkiInfo } from "@/lib/ankiData";
+import { findSimilarVocabularyEntry, vocabularyWordsMatch } from "@/lib/sourceMatching";
+import LZString from "lz-string";
 import type { WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
 const VOCABULARY_KEY = "context-reader:vocabulary:v1";
+const COMPRESSED_VOCABULARY_PREFIX = "lz-utf16:";
 
 function safeLocalStorage(): Storage | null {
   if (typeof window === "undefined") {
@@ -77,8 +80,22 @@ export function getVocabularyEntries(): VocabularyEntry[] {
 
   try {
     const raw = storage.getItem(VOCABULARY_KEY);
-    const entries = raw ? normalizeVocabularyEntries(JSON.parse(raw)) : [];
-    saveVocabularyEntries(entries);
+    if (!raw) {
+      return [];
+    }
+
+    const compressed = raw.startsWith(COMPRESSED_VOCABULARY_PREFIX);
+    const serialized = compressed
+      ? LZString.decompressFromUTF16(raw.slice(COMPRESSED_VOCABULARY_PREFIX.length))
+      : raw;
+    if (!serialized) {
+      return [];
+    }
+
+    const entries = normalizeVocabularyEntries(JSON.parse(serialized));
+    if (!compressed) {
+      saveVocabularyEntries(entries);
+    }
     return entries;
   } catch {
     return [];
@@ -91,7 +108,11 @@ export function saveVocabularyEntries(entries: VocabularyEntry[]): void {
     return;
   }
 
-  storage.setItem(VOCABULARY_KEY, JSON.stringify(entries));
+  const serialized = JSON.stringify(entries);
+  storage.setItem(
+    VOCABULARY_KEY,
+    `${COMPRESSED_VOCABULARY_PREFIX}${LZString.compressToUTF16(serialized)}`,
+  );
 }
 
 export function createVocabularyEntry(
@@ -147,6 +168,48 @@ export function updateVocabularyEntry(updatedEntry: VocabularyEntry): Vocabulary
     entry.id === updatedEntry.id ? updatedEntry : entry,
   );
   saveVocabularyEntries(nextEntries);
+  return nextEntries;
+}
+
+export function replaceMatchingVocabularyEntry(
+  explanation: WordExplanation,
+  context: WordContext,
+): VocabularyEntry[] {
+  const entries = getVocabularyEntries();
+  const identity = vocabularyIdentity({
+    word: explanation.word,
+    sourceSentence: context.sentence,
+  });
+  let replaced = false;
+
+  const nextEntries = entries.map((entry) => {
+    const isSameSource = vocabularyIdentity(entry) === identity;
+    const isSimilarSource =
+      !isSameSource &&
+      vocabularyWordsMatch(entry.word, explanation.word) &&
+      findSimilarVocabularyEntry([entry], explanation.word, context.sentence);
+
+    if (!isSameSource && !isSimilarSource) {
+      return entry;
+    }
+
+    replaced = true;
+    const generated = createVocabularyEntry(explanation, context);
+    return {
+      ...generated,
+      id: entry.id,
+      createdAt: entry.createdAt,
+      anki: {
+        ...generated.anki,
+        ankiNoteId: entry.anki.ankiNoteId,
+        ankiImportedAt: entry.anki.ankiImportedAt,
+      },
+    };
+  });
+
+  if (replaced) {
+    saveVocabularyEntries(nextEntries);
+  }
   return nextEntries;
 }
 

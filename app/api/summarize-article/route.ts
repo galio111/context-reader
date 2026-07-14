@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
+import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
+import { acquireCostSlot } from "@/lib/costConcurrency";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const MAX_ARTICLE_CHARS = 6000;
 const MIN_SUMMARY_CHINESE_CHARS = 8;
 const MAX_SUMMARY_CHARS = 32;
+const REQUEST_TIMEOUT_MS = 30000;
+
+export const maxDuration = 60;
 
 interface DeepSeekSummaryResponse {
   choices?: Array<{
@@ -47,7 +52,15 @@ function userFriendlyDeepSeekError(message = ""): string {
 }
 
 export async function POST(request: Request) {
-  const body = (await request.json().catch(() => null)) as { article?: unknown } | null;
+  let body: { article?: unknown } | null;
+  try {
+    body = await readJsonBody(request, 128 * 1024);
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof RequestBodyTooLargeError ? "请求内容过大。" : "请求体必须是合法 JSON。" },
+      { status: error instanceof RequestBodyTooLargeError ? 413 : 400 },
+    );
+  }
   const article = typeof body?.article === "string" ? body.article.trim() : "";
 
   if (!article) {
@@ -62,8 +75,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "缺少 DeepSeek API Key，无法生成文章中文摘要。" }, { status: 500 });
   }
 
+  const releaseSlot = acquireCostSlot("ai", 8);
+  if (!releaseSlot) {
+    return NextResponse.json({ error: "AI 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
+  }
+
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 15000);
+  const abortFromClient = () => controller.abort();
+  request.signal.addEventListener("abort", abortFromClient, { once: true });
+  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
   try {
     const response = await fetch(`${baseURL.replace(/\/$/, "")}/chat/completions`, {
@@ -118,5 +138,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: message }, { status: 502 });
   } finally {
     clearTimeout(timeoutId);
+    request.signal.removeEventListener("abort", abortFromClient);
+    releaseSlot();
   }
 }

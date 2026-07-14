@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>首页互动效果选择</title>
+    <style>
+      :root {
+        --bg: #f5f5f7;
+        --paper: #fff;
+        --ink: #1d1d1f;
+        --muted: #626368;
+        --line: #d7d7dc;
+        --blue: #0670d8;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          17px/1.65 system-ui,
+          -apple-system,
+          "Segoe UI",
+          "Microsoft YaHei",
+          sans-serif;
+      }
+      button,
+      input,
+      textarea,
+      label {
+        font: inherit;
+      }
+      label,
+      button {
+        cursor: pointer;
+      }
+      .shell {
+        width: min(1080px, calc(100% - 28px));
+        margin: auto;
+        padding: 40px 0 70px;
+      }
+      .k {
+        color: var(--blue);
+        font-weight: 700;
+        font-size: 15px;
+      }
+      h1 {
+        max-width: 850px;
+        margin: 7px 0 12px;
+        font-size: clamp(36px, 5vw, 62px);
+        line-height: 1.07;
+        letter-spacing: -0.035em;
+      }
+      .lead {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 19px;
+      }
+      .demo {
+        position: relative;
+        height: 540px;
+        margin-top: 30px;
+        overflow: hidden;
+        border-radius: 16px;
+        background: linear-gradient(145deg, #fff, #eaf2fb);
+        box-shadow: inset 0 0 0 1px var(--line);
+      }
+      .toolbar {
+        position: absolute;
+        z-index: 5;
+        top: 16px;
+        left: 16px;
+        display: flex;
+        gap: 7px;
+      }
+      .toolbar button {
+        padding: 8px 12px;
+        border: 1px solid #cfd2d7;
+        border-radius: 99px;
+        background: #fff;
+        color: #4b4c50;
+        font-size: 14px;
+      }
+      .toolbar button.on {
+        border-color: var(--blue);
+        background: var(--blue);
+        color: #fff;
+      }
+      .skip {
+        position: absolute;
+        z-index: 5;
+        right: 18px;
+        top: 19px;
+        color: #555;
+        font-size: 14px;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+      }
+      .sentence {
+        position: absolute;
+        z-index: 3;
+        left: 9%;
+        right: 9%;
+        top: 31%;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(25px, 3.2vw, 42px);
+        font-weight: 590;
+        line-height: 1.42;
+        letter-spacing: -0.025em;
+      }
+      .word {
+        display: inline-block;
+        padding: 0 2px;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        transition: 0.16s;
+      }
+      .word:hover,
+      .word.active {
+        color: var(--blue);
+        transform: translateY(-2px);
+      }
+      .translation {
+        position: absolute;
+        z-index: 3;
+        left: 10%;
+        right: 10%;
+        top: 58%;
+        text-align: center;
+        color: #5f6368;
+        font-size: 15px;
+        opacity: 0.38;
+        transition: opacity 0.5s ease-out;
+      }
+      .translation.clear {
+        opacity: 0.78;
+      }
+      .explain {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        top: 68%;
+        width: min(560px, 80%);
+        transform: translateX(-50%);
+        text-align: center;
+        color: #313338;
+      }
+      .meaning {
+        color: var(--blue);
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .hint {
+        position: absolute;
+        z-index: 4;
+        left: 50%;
+        bottom: 22px;
+        transform: translate(-50%, 7px);
+        color: var(--blue);
+        font-size: 17px;
+        font-weight: 650;
+        opacity: 0;
+        transition:
+          opacity 0.55s ease-out,
+          transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .hint.show {
+        transform: translate(-50%, 0);
+        opacity: 1;
+      }
+      .guide-cursor {
+        position: absolute;
+        z-index: 5;
+        left: 0;
+        top: 0;
+        width: 24px;
+        height: 30px;
+        pointer-events: none;
+      }
+      .guide-cursor::before {
+        position: absolute;
+        inset: 0;
+        background: #1d1d1f;
+        clip-path: polygon(
+          0 0,
+          0 100%,
+          27% 76%,
+          44% 100%,
+          58% 92%,
+          40% 68%,
+          72% 68%
+        );
+        filter: drop-shadow(0 1px 1px #fff) drop-shadow(0 0 1px #fff);
+        content: "";
+      }
+      .guide-cursor::after {
+        position: absolute;
+        top: -9px;
+        left: -9px;
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--blue);
+        border-radius: 50%;
+        opacity: 0;
+        content: "";
+      }
+      .guide-cursor.press::after {
+        animation: cursor-click-ring 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      @keyframes cursor-click-ring {
+        0% {
+          opacity: 0.9;
+          transform: scale(0.25);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.8);
+        }
+      }
+      .particle {
+        position: absolute;
+        pointer-events: none;
+        color: #0875d8;
+        animation: fly 1.25s ease-out forwards;
+        font:
+          600 14px Georgia,
+          serif;
+      }
+      .orb {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 25%,
+          #fff,
+          #abd7ff 42%,
+          #0875d8
+        );
+        filter: blur(0.2px);
+        opacity: 0.78;
+        pointer-events: none;
+        transition: transform 0.18s ease-out;
+      }
+      .ribbon {
+        position: absolute;
+        width: 240px;
+        height: 80px;
+        border: 2px solid #0875d84a;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-radius: 50%;
+        pointer-events: none;
+        transition: transform 0.2s ease-out;
+      }
+      .ghost {
+        position: absolute;
+        color: #0875d814;
+        font:
+          700 70px Georgia,
+          serif;
+        pointer-events: none;
+        transition: transform 0.2s ease-out;
+      }
+      @keyframes fly {
+        to {
+          opacity: 0;
+          transform: translate(var(--dx), var(--dy)) rotate(var(--r))
+            scale(0.65);
+        }
+      }
+      .below {
+        margin-top: 46px;
+      }
+      h2 {
+        font-size: 30px;
+        margin: 38px 0 7px;
+      }
+      fieldset {
+        margin: 0;
+        padding: 25px 0;
+        border: 0;
+        border-top: 1px solid var(--line);
+      }
+      legend {
+        width: 100%;
+        padding: 0 0 14px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .options {
+        display: grid;
+        gap: 9px;
+      }
+      .opt {
+        display: flex;
+        gap: 12px;
+        padding: 14px 15px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+      }
+      .opt:has(input:checked) {
+        border-color: var(--blue);
+        background: #edf6ff;
+      }
+      .opt input {
+        width: 19px;
+        height: 19px;
+        margin-top: 3px;
+        accent-color: var(--blue);
+      }
+      textarea {
+        width: 100%;
+        min-height: 96px;
+        margin-top: 11px;
+        padding: 13px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+      }
+      .summary {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        white-space: pre-wrap;
+        font:
+          14px/1.7 ui-monospace,
+          Consolas,
+          monospace;
+      }
+      .actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 20px;
+      }
+      .btn {
+        padding: 11px 18px;
+        border: 1px solid var(--line);
+        border-radius: 99px;
+        background: #fff;
+        font-weight: 700;
+      }
+      .btn.primary {
+        border-color: var(--blue);
+        background: var(--blue);
+        color: #fff;
+      }
+      @media (max-width: 680px) {
+        .demo {
+          height: 580px;
+        }
+        .sentence {
+          top: 27%;
+        }
+        .translation {
+          top: 56%;
+        }
+        .explain {
+          top: 66%;
+        }
+        .toolbar {
+          right: 12px;
+          flex-wrap: wrap;
+        }
+        .skip {
+          top: 68px;
+        }
+        .lead {
+          font-size: 17px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <div class="k">Context Reader · 第四阶段</div>
+      <h1>先让鼠标经过语言，再决定哪种惊艳值得留下</h1>
+      <p class="lead">
+        切换背景效果，移动鼠标，再点击句中任意单词。这里验证动效语言和交互顺序，不代表最终视觉精度。
+      </p>
+      <div class="demo" id="demo">
+        <div class="toolbar">
+          <button class="on" data-mode="letters">字母微粒</button
+          ><button data-mode="orb">语境光体</button
+          ><button data-mode="ribbon">语义轨迹</button
+          ><button data-mode="quiet">纯景深</button>
+        </div>
+        <span class="skip">老用户：跳过演示</span>
+        <div class="scene" id="scene">
+          <div class="ghost" style="left: -2%; top: 9%">context</div>
+          <div class="ghost" style="right: -3%; bottom: 8%; font-size: 54px">
+            meaning
+          </div>
+          <div class="sentence" id="sentence"></div>
+          <div class="guide-cursor" aria-hidden="true"></div>
+          <div class="translation">
+            一个词很少孤立出现；它承载什么含义，由语境决定。
+          </div>
+          <div class="explain" id="explain"></div>
+          <div class="hint">点击任意单词，体验语境翻译</div>
+        </div>
+      </div>
+      <div class="below">
+        <h2>效果选择</h2>
+        <fieldset data-q="1">
+          <legend>1. 哪种鼠标背景最值得继续深化？</legend>
+          <div class="options"></div>
+          <textarea
+            placeholder="例如：字母数量减半、光体再透明一点、轨迹不要像科技网站。"
+          ></textarea>
+        </fieldset>
+        <fieldset data-q="2">
+          <legend>2. 字母从鼠标附近出现时，你更喜欢什么内容？</legend>
+          <div class="options"></div>
+          <textarea
+            placeholder="也可以描述字母出现、漂浮和消失的方式。"
+          ></textarea>
+        </fieldset>
+        <fieldset data-q="3">
+          <legend>3. 中文翻译的初始状态？</legend>
+          <div class="options"></div>
+          <textarea placeholder="请比较一直显示与淡化后点击变清晰。"></textarea>
+        </fieldset>
+        <fieldset data-q="4">
+          <legend>4. 两屏教学结构如何安排？</legend>
+          <div class="options"></div>
+          <textarea
+            placeholder="第一屏点词，第二屏划短语，之后进入推荐文章。"
+          ></textarea>
+        </fieldset>
+        <fieldset data-q="5">
+          <legend>5. 所有词都可点会不会分散主线？</legend>
+          <div class="options"></div>
+          <textarea
+            placeholder="可说明是否需要先自动演示一个词，再开放其余词。"
+          ></textarea>
+        </fieldset>
+        <h2>生成结果</h2>
+        <div class="summary" id="summary"></div>
+        <div class="actions">
+          <button class="btn" id="clear" type="button">清空</button
+          ><button class="btn primary" id="copy" type="button">复制答案</button>
+        </div>
+      </div>
+    </main>
+    <script>
+      const words =
+          "A word rarely travels alone; context decides what it carries.".split(
+            " ",
+          ),
+        meanings = {
+          A: "一（个），用于引出单数事物",
+          word: "词语；此处指任何需要结合上下文理解的表达",
+          rarely: "很少；强调词义几乎不会脱离语境独立成立",
+          travels: "出现、存在；travels alone 在这里表示‘孤立出现’",
+          alone: "孤立地；与 travels 一起强调词语总带着上下文",
+          context: "语境；决定词语在此处究竟表达什么",
+          decides: "决定、赋予方向；突出语境对词义的作用",
+          what: "什么；引导‘它承载的内容’",
+          it: "它；指前面的 word",
+          carries: "承载（某种含义）；不是字面上的搬运",
+        };
+      sentence.innerHTML = words
+        .map(
+          (w, i) =>
+            `<button class="word" data-clean="${w.replace(/[^A-Za-z]/g, "")}" type="button">${w}</button>`,
+        )
+        .join(" ");
+      let mode = "letters",
+        last = 0;
+      document.querySelectorAll("[data-mode]").forEach(
+        (b) =>
+          (b.onclick = () => {
+            mode = b.dataset.mode;
+            document
+              .querySelectorAll("[data-mode]")
+              .forEach((x) => x.classList.toggle("on", x === b));
+            scene.querySelectorAll(".orb,.ribbon").forEach((x) => x.remove());
+          }),
+      );
+      demo.onpointermove = (e) => {
+        const r = demo.getBoundingClientRect(),
+          x = e.clientX - r.left,
+          y = e.clientY - r.top;
+        if (mode === "letters" && performance.now() - last > 65) {
+          last = performance.now();
+          const p = document.createElement("span");
+          p.className = "particle";
+          p.textContent = "context".charAt(Math.floor(Math.random() * 7));
+          p.style.cssText = `left:${x}px;top:${y}px;--dx:${(Math.random() - 0.5) * 80}px;--dy:${-30 - Math.random() * 55}px;--r:${(Math.random() - 0.5) * 70}deg`;
+          scene.append(p);
+          setTimeout(() => p.remove(), 1300);
+        }
+        scene
+          .querySelectorAll(".ghost")
+          .forEach(
+            (g, i) =>
+              (g.style.transform = `translate(${(x / r.width - 0.5) * (i ? 12 : -12)}px,${(y / r.height - 0.5) * 8}px)`),
+          );
+        if (mode === "orb") {
+          let o = scene.querySelector(".orb");
+          if (!o) {
+            o = document.createElement("i");
+            o.className = "orb";
+            scene.append(o);
+          }
+          o.style.transform = `translate(${x - 60}px,${y - 60}px)`;
+        }
+        if (mode === "ribbon") {
+          let q = scene.querySelector(".ribbon");
+          if (!q) {
+            q = document.createElement("i");
+            q.className = "ribbon";
+            scene.append(q);
+          }
+          q.style.transform = `translate(${x - 120}px,${y - 40}px) rotate(${(x / r.width - 0.5) * 18}deg)`;
+        }
+        if (mode === "quiet")
+          scene
+            .querySelectorAll(".ghost")
+            .forEach(
+              (g, i) =>
+                (g.style.transform = `translate(${(x / r.width - 0.5) * (i ? 18 : -18)}px,${(y / r.height - 0.5) * 12}px)`),
+            );
+      };
+      let explanationRun = 0;
+      document.querySelectorAll(".word").forEach(
+        (w) =>
+          (w.onclick = (event) => {
+            document
+              .querySelectorAll(".word")
+              .forEach((x) => x.classList.remove("active"));
+            w.classList.add("active");
+            if (event.isTrusted)
+              document.querySelector(".guide-cursor")?.remove();
+            const m = meanings[w.dataset.clean] || "结合当前语境理解这个表达";
+            const currentRun = ++explanationRun;
+            explain.innerHTML = '<div class="meaning"></div>';
+            document.querySelector(".translation").classList.add("clear");
+            const el = explain.querySelector(".meaning");
+            let i = 0;
+            const timer = setInterval(() => {
+              el.textContent = m.slice(0, ++i);
+              if (i >= m.length) {
+                clearInterval(timer);
+                if (currentRun === explanationRun) {
+                  document.querySelector(".hint")?.classList.add("show");
+                }
+              }
+            }, 28);
+          }),
+      );
+      function runGuide() {
+        const cursor = document.querySelector(".guide-cursor");
+        const target = [...document.querySelectorAll(".word")].find(
+          (word) => word.dataset.clean === "travels",
+        );
+        if (!cursor || !target) return;
+        const demoRect = demo.getBoundingClientRect();
+        const targetRect = target.getBoundingClientRect();
+        cursor.style.left = `${targetRect.left - demoRect.left + targetRect.width * 0.55}px`;
+        cursor.style.top = `${targetRect.top - demoRect.top + targetRect.height * 0.55}px`;
+        cursor.animate(
+          [
+            { opacity: 0, transform: "translate(150px, 115px)" },
+            { opacity: 1, transform: "translate(150px, 115px)", offset: 0.18 },
+            { opacity: 1, transform: "translate(0, 0)", offset: 0.64 },
+            { opacity: 1, transform: "translate(0, 0)", offset: 0.75 },
+            {
+              opacity: 1,
+              transform: "translate(1px, 2px) scale(0.78)",
+              offset: 0.82,
+            },
+            { opacity: 1, transform: "translate(0, 0) scale(1)", offset: 0.9 },
+            { opacity: 0, transform: "translate(0, 0) scale(1)" },
+          ],
+          {
+            duration: 3200,
+            easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+            fill: "forwards",
+          },
+        );
+        window.setTimeout(() => {
+          if (cursor.isConnected) cursor.classList.add("press");
+        }, 2500);
+        window.setTimeout(() => {
+          if (cursor.isConnected) target.click();
+        }, 2700);
+        window.setTimeout(() => {
+          cursor.remove();
+        }, 3250);
+      }
+      window.setTimeout(runGuide, 500);
+      const Q = {
+        1: [
+          "字母微粒",
+          "语境光体",
+          "语义轨迹",
+          "纯景深",
+          "混合两种，但强度更低",
+        ],
+        2: [
+          "随机英文字母",
+          "当前句子里的字母",
+          "被点击词的字母",
+          "极短的语义碎片，如 context / meaning",
+          "不要字母，只保留抽象动效",
+        ],
+        3: [
+          "从一开始完整显示",
+          "初始淡化，点击后变清晰",
+          "初始只显示大意，点击后补全精确翻译",
+          "演示前隐藏，自动示范结束后显示",
+        ],
+        4: [
+          "第一屏点单词，第二屏划短语，第三段接推荐文章",
+          "第一屏同时教点词和划短语，减少滚动长度",
+          "新用户看两屏，老用户直接进入入口和文章",
+          "先只实现点词，划短语以后再决定",
+        ],
+        5: [
+          "先自动演示一个词，完成后开放所有词",
+          "从开始就允许点击所有词",
+          "只开放少数真正有语境价值的词和短语",
+          "所有词视觉上可点，但功能词只给极简说明",
+        ],
+      };
+      const key = "context-reader:interaction-effects:v1";
+      let state = JSON.parse(localStorage.getItem(key) || "{}");
+      document.querySelectorAll("fieldset").forEach((fs) => {
+        const id = fs.dataset.q,
+          box = fs.querySelector(".options");
+        box.innerHTML = Q[id]
+          .map(
+            (o, i) =>
+              `<label class="opt"><input type="radio" name="q${id}" value="${i}" ${state[id]?.choice === i ? "checked" : ""}><span>${o}</span></label>`,
+          )
+          .join("");
+        fs.querySelector("textarea").value = state[id]?.note || "";
+      });
+      function save() {
+        document.querySelectorAll("fieldset").forEach((fs) => {
+          const id = fs.dataset.q,
+            c = fs.querySelector("input:checked"),
+            note = fs.querySelector("textarea").value;
+          if (c || note.trim())
+            state[id] = { choice: c ? +c.value : null, note };
+          else delete state[id];
+        });
+        localStorage.setItem(key, JSON.stringify(state));
+        render();
+      }
+      function render() {
+        const out = ["# Context Reader 鼠标背景与双屏教学决策", ""];
+        Object.keys(Q).forEach((id) => {
+          const a = state[id] || {};
+          out.push(
+            `${id}. ${document.querySelector(`[data-q="${id}"] legend`).textContent}`,
+            "答案：" + (a.choice != null ? Q[id][a.choice] : "未选择"),
+          );
+          if (a.note?.trim()) out.push("补充：" + a.note.trim());
+          out.push("");
+        });
+        summary.textContent = out.join("\n");
+      }
+      document.querySelectorAll("input").forEach((x) => (x.onchange = save));
+      document.querySelectorAll("textarea").forEach((x) => (x.oninput = save));
+      copy.onclick = () => navigator.clipboard.writeText(summary.textContent);
+      clear.onclick = () => {
+        if (confirm("清空本轮答案？")) {
+          localStorage.removeItem(key);
+          location.reload();
+        }
+      };
+      render();
+    </script>
+  </body>
+</html>

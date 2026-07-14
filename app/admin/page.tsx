@@ -2,9 +2,15 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { getSavedArticles } from "@/lib/articles";
-import { getExplanationCacheEntries } from "@/lib/cache";
+import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
+import {
+  createArticleTranslationCacheKey,
+  getCachedArticleTranslationForBlocks,
+  getArticleTranslationCacheEntries,
+  getExplanationCacheEntries,
+} from "@/lib/cache";
 import type { SavedArticle } from "@/types/article";
-import type { PublicArticle, PublicExplanation } from "@/types/publicArticle";
+import type { PublicArticle, PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
 
 function explanationWordFromKey(cacheKey: string): string {
   return cacheKey.split("::")[0] || "";
@@ -27,6 +33,21 @@ function explanationsForArticle(article: SavedArticle): PublicExplanation[] {
       sentence: explanationSentenceFromKey(cacheKey),
       explanation,
     }));
+}
+
+function articleTranslationsForArticle(article: SavedArticle): PublicArticleTranslation[] {
+  const blocks = createArticleTranslationBlocks(article.body, article.importedArticle);
+  const cacheKey = createArticleTranslationCacheKey(blocks);
+  const cached = getArticleTranslationCacheEntries().find((item) => item.cacheKey === cacheKey);
+  if (cached) {
+    return [{ cacheKey: cached.cacheKey, translations: cached.translations }];
+  }
+
+  const blockTranslations = getCachedArticleTranslationForBlocks(blocks);
+  const translatedIds = new Set(blockTranslations.map((item) => item.id));
+  return blocks.length > 0 && blocks.every((block) => translatedIds.has(block.id))
+    ? [{ cacheKey, translations: blockTranslations }]
+    : [];
 }
 
 export default function AdminPage() {
@@ -63,6 +84,10 @@ export default function AdminPage() {
       void loadPublicArticles();
     }
   }, [authenticated]);
+
+  useEffect(() => {
+    setSelectedArticleIds((ids) => ids.filter((id) => articles.some((article) => article.id === id)));
+  }, [articles]);
 
   async function loadPublicArticles() {
     const response = await fetch("/api/admin/public-articles");
@@ -102,6 +127,7 @@ export default function AdminPage() {
           article.id,
           {
             explanations: explanationsForArticle(article).length,
+            articleTranslations: articleTranslationsForArticle(article).length,
           },
         ]),
       ),
@@ -129,6 +155,12 @@ export default function AdminPage() {
     await fetch("/api/admin/logout", { method: "POST" });
     setAuthenticated(false);
     setArticles([]);
+    setPublicArticles([]);
+    setSelectedArticleIds([]);
+    setStatus("");
+    setPublishedArticle(null);
+    setPublishingId("");
+    setDeletingId("");
   }
 
   async function handlePublish(article: SavedArticle) {
@@ -137,6 +169,7 @@ export default function AdminPage() {
     setPublishedArticle(null);
 
     const explanations = explanationsForArticle(article);
+    const articleTranslations = articleTranslationsForArticle(article);
     const response = await fetch("/api/admin/public-articles", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -148,6 +181,7 @@ export default function AdminPage() {
         sourceName: article.importedArticle?.siteName || "",
         importedArticle: article.importedArticle ?? null,
         explanations,
+        articleTranslations,
       }),
     });
     const data = (await response.json().catch(() => null)) as { article?: PublicArticle; error?: string } | null;
@@ -159,7 +193,9 @@ export default function AdminPage() {
     }
 
     setPublishedArticle(data.article);
-    setStatus(`已发布或更新《${data.article.title}》，包含 ${data.article.explanations?.length ?? 0} 条预缓存解释。`);
+    setStatus(
+      `已发布或更新《${data.article.title}》，包含 ${data.article.explanations?.length ?? 0} 条预缓存解释，${data.article.articleTranslations?.length ?? 0} 份全文翻译缓存。`,
+    );
     await loadPublicArticles();
     setPublishingId("");
   }
@@ -178,6 +214,7 @@ export default function AdminPage() {
     for (const article of selectedArticles) {
       setPublishingId(article.id);
       const explanations = explanationsForArticle(article);
+      const articleTranslations = articleTranslationsForArticle(article);
       const response = await fetch("/api/admin/public-articles", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -189,6 +226,7 @@ export default function AdminPage() {
           sourceName: article.importedArticle?.siteName || "",
           importedArticle: article.importedArticle ?? null,
           explanations,
+          articleTranslations,
         }),
       });
 
@@ -407,7 +445,7 @@ export default function AdminPage() {
                       </div>
                       <p className="mt-2 text-sm leading-6 text-[#333333]">{article.summary || "暂无摘要"}</p>
                       <p className="mt-2 text-xs leading-5 text-[#7a7a7a]">
-                        {article.body.length} 字符，{stats?.explanations ?? 0} 条可发布的预缓存解释
+                        {article.body.length} 字符，{stats?.explanations ?? 0} 条可发布的预缓存解释，{stats?.articleTranslations ?? 0} 份全文翻译缓存
                       </p>
                     </div>
                     <button

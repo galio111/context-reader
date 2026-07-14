@@ -13,6 +13,15 @@ export interface ImportedArticleInlineText {
   baseline?: ImportedArticleInlineBaseline;
 }
 
+export interface ImportedImageLayoutWord {
+  text: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  lineText: string;
+}
+
 export interface ImportedArticleBlock {
   id: string;
   type: ImportedArticleBlockType;
@@ -20,7 +29,20 @@ export interface ImportedArticleBlock {
   inline?: ImportedArticleInlineText[];
   src?: string;
   alt?: string;
+  width?: number;
+  height?: number;
   ocrText?: string;
+  layoutWords?: ImportedImageLayoutWord[];
+  layoutError?: string;
+}
+
+export interface ArticleReadingStyle {
+  fontFamily?: "system" | "serif" | "mono";
+  fontSize?: "small" | "default" | "large" | "xlarge";
+  lineHeight?: "compact" | "default" | "relaxed";
+  paragraphSpacing?: "compact" | "default" | "relaxed";
+  contentWidth?: "narrow" | "default" | "wide";
+  imageWidth?: "small" | "medium" | "full";
 }
 
 export interface ImportedArticle {
@@ -29,6 +51,7 @@ export interface ImportedArticle {
   siteName: string;
   text: string;
   blocks: ImportedArticleBlock[];
+  style?: ArticleReadingStyle;
 }
 
 export interface SavedArticle {

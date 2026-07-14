@@ -1,0 +1,60 @@
+<div id="cr-metaphor-lab">
+  <style>
+    #cr-metaphor-lab { color:var(--foreground); }
+    #cr-metaphor-lab .mode-row { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }
+    #cr-metaphor-lab .stage { position:relative; min-height:390px; overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border); perspective:900px; }
+    #cr-metaphor-lab .scene { position:absolute; inset:0; display:grid; place-items:center; padding:2rem 1rem; }
+    #cr-metaphor-lab .layer { position:absolute; transition:transform .18s ease-out,opacity .25s ease-out; will-change:transform; }
+    #cr-metaphor-lab .word-cloud { position:relative; width:min(620px,92%); height:260px; }
+    #cr-metaphor-lab .floating-word { padding:.35rem .65rem; background:color-mix(in srgb,var(--card) 86%,transparent); border:1px solid var(--border); border-radius:999px; color:var(--foreground); }
+    #cr-metaphor-lab .floating-word.active { background:var(--primary); color:var(--primary-foreground); }
+    #cr-metaphor-lab .sentence-scene { width:min(680px,94%); text-align:center; }
+    #cr-metaphor-lab .sentence { font-size:1.55em; font-weight:500; letter-spacing:-.02em; }
+    #cr-metaphor-lab .target { position:relative; display:inline-block; color:var(--primary); }
+    #cr-metaphor-lab .target::after { content:""; position:absolute; left:0; right:0; bottom:-.15rem; height:2px; background:currentColor; }
+    #cr-metaphor-lab .meaning { margin-top:2.3rem; color:var(--foreground); }
+    #cr-metaphor-lab .meaning span { display:block; margin-top:.45rem; color:var(--muted-foreground); }
+    #cr-metaphor-lab .paper-stack { position:relative; width:min(520px,80vw); height:285px; transform-style:preserve-3d; }
+    #cr-metaphor-lab .paper { position:absolute; inset:0; padding:1.4rem; background:var(--card); color:var(--card-foreground); border:1px solid var(--border); border-radius:12px; }
+    #cr-metaphor-lab .paper p { margin:.55rem 0; }
+    #cr-metaphor-lab .paper.back { transform:translate3d(-28px,-18px,-80px) rotate(-4deg); opacity:.45; }
+    #cr-metaphor-lab .paper.middle { transform:translate3d(24px,-8px,-40px) rotate(3deg); opacity:.7; }
+    #cr-metaphor-lab .depth-scene { position:relative; width:min(650px,92%); height:290px; transform-style:preserve-3d; }
+    #cr-metaphor-lab .depth-card { position:absolute; left:50%; width:min(520px,92%); padding:1rem 1.2rem; background:var(--card); color:var(--card-foreground); border:1px solid var(--border); border-radius:12px; transform:translateX(-50%); }
+    #cr-metaphor-lab .depth-card.original { top:18px; opacity:.48; transform:translateX(-50%) translateZ(-100px) scale(.9); }
+    #cr-metaphor-lab .depth-card.dictionary { top:96px; opacity:.7; transform:translateX(-50%) translateZ(-45px) scale(.95); }
+    #cr-metaphor-lab .depth-card.context { top:176px; border-color:var(--primary); transform:translateX(-50%) translateZ(20px); }
+    #cr-metaphor-lab .caption { display:flex; justify-content:space-between; gap:1rem; margin-top:1rem; color:var(--muted-foreground); }
+    #cr-metaphor-lab .caption strong { color:var(--foreground); font-weight:500; }
+    @media (max-width:560px) { #cr-metaphor-lab .stage{min-height:430px} #cr-metaphor-lab .caption{display:block} #cr-metaphor-lab .caption span{display:block;margin-top:.35rem} }
+    @media (prefers-reduced-motion:reduce) { #cr-metaphor-lab .layer{transition:none} }
+  </style>
+  <div class="mode-row" role="group" aria-label="选择视觉隐喻">
+    <button class="btn btn-primary" type="button" data-mode="words" aria-pressed="true">文字漂浮</button>
+    <button class="btn" type="button" data-mode="sentence" aria-pressed="false">句子聚焦</button>
+    <button class="btn" type="button" data-mode="paper" aria-pressed="false">浮动纸页</button>
+    <button class="btn" type="button" data-mode="depth" aria-pressed="false">语境分层</button>
+  </div>
+  <div class="stage" id="cr-stage" aria-live="polite"></div>
+  <div class="caption"><strong id="cr-caption-title"></strong><span id="cr-caption-detail"></span></div>
+  <script>
+    (() => {
+      const root=document.getElementById('cr-metaphor-lab');
+      const stage=document.getElementById('cr-stage');
+      const title=document.getElementById('cr-caption-title');
+      const detail=document.getElementById('cr-caption-detail');
+      const scenes={
+        words:{title:'文字成为空间里的物体',detail:'3D 感最直接，但容易让注意力停留在单词飞舞本身。',html:`<div class="scene"><div class="word-cloud"><span class="layer floating-word" data-depth="1.4" style="left:7%;top:14%">reading</span><span class="layer floating-word" data-depth=".7" style="right:10%;top:8%">context</span><span class="layer floating-word active" data-depth="2" style="left:39%;top:41%">addressed</span><span class="layer floating-word" data-depth="1" style="left:13%;bottom:12%">meaning</span><span class="layer floating-word" data-depth="1.6" style="right:15%;bottom:17%">sentence</span></div></div>`},
+        sentence:{title:'让一整句英文完成演示',detail:'产品价值最清楚，3D 主要用于景深、聚焦和解释出现。',html:`<div class="scene"><div class="sentence-scene layer" data-depth=".7"><div class="sentence">He <span class="target">addressed</span> the issue carefully.</div><div class="meaning">在当前语境中：认真处理<span>不是背诵词典，而是理解这句话里的意思</span></div></div></div>`},
+        paper:{title:'把文章表现成悬浮的阅读载体',detail:'阅读气质最强，但容易让人联想到电子书或杂志。',html:`<div class="scene"><div class="paper-stack layer" data-depth=".7"><div class="paper back"><p>English article</p></div><div class="paper middle"><p>Context and meaning</p></div><div class="paper"><p>The team found several problems.</p><p>He <span class="target">addressed</span> the issue carefully.</p><p>Their solution worked well.</p></div></div></div>`},
+        depth:{title:'原文、词典释义和语境释义处在不同深度',detail:'概念最独特，也最接近“语境翻译与普通翻译不同”。',html:`<div class="scene"><div class="depth-scene layer" data-depth=".55"><div class="depth-card original">原句：He addressed the issue carefully.</div><div class="depth-card dictionary">普通释义：演讲；致辞；称呼</div><div class="depth-card context">当前语境：认真处理这个问题</div></div></div>`}
+      };
+      let mode='words';
+      function render(){const s=scenes[mode];stage.innerHTML=s.html;title.textContent=s.title;detail.textContent=s.detail;root.querySelectorAll('[data-mode]').forEach(b=>{const on=b.dataset.mode===mode;b.classList.toggle('btn-primary',on);b.setAttribute('aria-pressed',String(on));});}
+      root.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;render();}));
+      stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;stage.querySelectorAll('[data-depth]').forEach(el=>{const d=Number(el.dataset.depth);el.style.translate=`${x*22*d}px ${y*15*d}px`;el.style.rotate=`${-y*2*d}deg ${x*3*d}deg`;});});
+      stage.addEventListener('pointerleave',()=>stage.querySelectorAll('[data-depth]').forEach(el=>{el.style.translate='0 0';el.style.rotate='0deg 0deg';}));
+      render();
+    })();
+  </script>
+</div>

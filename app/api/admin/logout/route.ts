@@ -3,6 +3,5 @@ import { clearAdminSession } from "@/lib/adminAuth";
 
 export async function POST() {
   await clearAdminSession();
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true }, { headers: { "Cache-Control": "private, no-store" } });
 }
-

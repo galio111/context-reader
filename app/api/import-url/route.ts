@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { readResponseText, safeRemoteFetch, UnsafeRemoteUrlError } from "@/lib/safeRemoteFetch";
+import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import type {
   ImportedArticle,
   ImportedArticleBlock,
@@ -267,6 +269,8 @@ function extractBlocks(mainHtml: string, baseUrl: string, title: string): Import
           type: "image",
           src,
           alt: getAttribute(raw, "alt"),
+          ...(Number.isFinite(width) && width > 0 ? { width } : {}),
+          ...(Number.isFinite(height) && height > 0 ? { height } : {}),
         });
         imageCount += 1;
       }
@@ -303,6 +307,65 @@ function extractBlocks(mainHtml: string, baseUrl: string, title: string): Import
   return blocks.map((block, index) => ({ ...block, id: `block-${index}` }));
 }
 
+const STANDALONE_AD_LABEL = /^(?:ad|ads|advert(?:isement|isements|ising)?|sponsored(?:\s+content)?|paid\s+content)\.?$/i;
+const AD_TOPIC_PATTERN = /\b(?:advertis(?:e|ed|er|ers|es|ing|ement|ements)|advertorials?|ad\s+(?:agency|agencies|campaign|campaigns|industry|market|markets|revenue|revenues|spend|spending))\b/i;
+
+const EMBEDDED_UI_NOISE_PATTERNS = [
+  /personalized\s+content/i,
+  /follow\s+(?:this|the)\s+(?:section|tag|topic)/i,
+  /personalize\s+your\s+feed/i,
+  /go\s+to\s+your\s+personalized\s+feed/i,
+  /why\s+follow\??/i,
+  /custom\s+feed:\s*see\s+the\s+stories/i,
+  /smart\s+alerts?:\s*get\s+notified/i,
+  /update\s+your\s+preferences\s+in\s+account\s+settings/i,
+];
+
+function normalizedBlockText(block: ImportedArticleBlock): string {
+  return block.text?.replace(/\s+/g, " ").trim() ?? "";
+}
+
+function articleIsAboutAdvertising(blocks: ImportedArticleBlock[], title: string): boolean {
+  if (AD_TOPIC_PATTERN.test(title)) {
+    return true;
+  }
+
+  let substantiveMentions = 0;
+  for (const block of blocks) {
+    const text = normalizedBlockText(block);
+    if (text.length >= 40 && AD_TOPIC_PATTERN.test(text)) {
+      substantiveMentions += 1;
+      if (substantiveMentions >= 2) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function cleanExtractedBlocks(blocks: ImportedArticleBlock[], title: string): ImportedArticleBlock[] {
+  const keepStandaloneAdLabels = articleIsAboutAdvertising(blocks, title);
+
+  return blocks
+    .filter((block) => {
+      if (block.type === "image") {
+        return true;
+      }
+
+      const text = normalizedBlockText(block);
+      if (EMBEDDED_UI_NOISE_PATTERNS.some((pattern) => pattern.test(text))) {
+        return false;
+      }
+
+      if (!keepStandaloneAdLabels && STANDALONE_AD_LABEL.test(text)) {
+        return false;
+      }
+
+      return true;
+    })
+    .map((block, index) => ({ ...block, id: `block-${index}` }));
+}
+
 function articleText(blocks: ImportedArticleBlock[]): string {
   return blocks
     .filter((block) => block.type !== "image")
@@ -313,7 +376,15 @@ function articleText(blocks: ImportedArticleBlock[]): string {
 }
 
 export async function POST(request: Request) {
-  const body = (await request.json().catch(() => null)) as { url?: unknown } | null;
+  let body: { url?: unknown } | null;
+  try {
+    body = await readJsonBody(request, 8 * 1024);
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof RequestBodyTooLargeError ? "请求内容过大。" : "请求体必须是合法 JSON。" },
+      { status: error instanceof RequestBodyTooLargeError ? 413 : 400 },
+    );
+  }
   const rawUrl = typeof body?.url === "string" ? body.url.trim() : "";
 
   if (!rawUrl) {
@@ -332,7 +403,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const response = await fetch(url, {
+    const response = await safeRemoteFetch(url, {
       headers: {
         Accept: "text/html,application/xhtml+xml",
         "User-Agent":
@@ -353,11 +424,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "这个链接不像是普通 HTML 文章页面。" }, { status: 400 });
     }
 
-    const html = (await response.text()).slice(0, MAX_HTML_CHARS);
+    const html = await readResponseText(response, MAX_HTML_CHARS);
     const cleaned = stripNoise(html);
     const meta = metadata(cleaned, url.toString());
     const mainHtml = extractMainHtml(cleaned);
-    const blocks = extractBlocks(mainHtml, url.toString(), meta.title);
+    const blocks = cleanExtractedBlocks(
+      extractBlocks(mainHtml, url.toString(), meta.title),
+      meta.title,
+    );
     const text = articleText(blocks);
 
     if (text.length < 80) {
@@ -377,6 +451,9 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ article: importedArticle });
   } catch (error) {
+    if (error instanceof UnsafeRemoteUrlError) {
+      return NextResponse.json({ error: "该网址指向受保护的内部地址，无法导入。" }, { status: 400 });
+    }
     const message =
       error instanceof Error && error.name === "TimeoutError"
         ? "网页读取超时，请稍后重试。"

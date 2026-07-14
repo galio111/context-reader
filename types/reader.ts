@@ -60,3 +60,18 @@ export interface SentenceQuestionRequest extends ExplanationRequest {
 export interface SentenceQuestionAnswer {
   answer: string;
 }
+
+export interface ArticleTranslationBlock {
+  id: string;
+  type: "heading" | "subheading" | "paragraph" | "quote" | "list-item";
+  text: string;
+}
+
+export interface ArticleTranslationItem {
+  id: string;
+  translation: string;
+}
+
+export interface ArticleTranslationResult {
+  translations: ArticleTranslationItem[];
+}

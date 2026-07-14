@@ -11,6 +11,10 @@ function firstMeaning(value: string): string {
     .slice(0, 80);
 }
 
+function buildChineseCue(data: Partial<WordExplanation>): string {
+  return String(data.contextMeaning ?? "").trim();
+}
+
 function buildLocalCloze(sentence: string, word: string): string {
   const escaped = word.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   if (!escaped) {
@@ -26,7 +30,7 @@ function buildFrontPreview(info: {
   basicCue: string;
 }): string {
   if (info.cardMode === "cloze_context") {
-    return [info.clozeSentence, info.contextCue].filter(Boolean).join("\n\n");
+    return [info.clozeSentence, info.contextCue].filter(Boolean).join("\n\n\n\n");
   }
   return ["请写出对应的英文单词：", info.basicCue].filter(Boolean).join("\n\n");
 }
@@ -48,7 +52,7 @@ export function normalizeAnkiInfo(
     : inferredMode === "cloze_context"
       ? "basic_cn_to_en"
       : inferredMode;
-  const contextCue = String(rawAnki.contextCue || firstMeaning(String(data.contextMeaning ?? "")));
+  const contextCue = buildChineseCue(data);
   const basicCue = String(rawAnki.basicCue || firstMeaning(String(data.basicMeaning ?? "")));
   const clozeSentence =
     cardMode === "cloze_context"

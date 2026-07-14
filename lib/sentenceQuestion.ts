@@ -8,7 +8,7 @@ import type { SentenceQuestionAnswer, SentenceQuestionRequest } from "@/types/re
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const DEFAULT_FALLBACK_MODEL = "deepseek-chat";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
-const REQUEST_TIMEOUT_MS = 12000;
+const REQUEST_TIMEOUT_MS = 30000;
 const MAX_ATTEMPTS_PER_PROFILE = 2;
 
 interface DeepSeekChatCompletionResponse {
@@ -118,7 +118,7 @@ export async function answerSentenceQuestionWithDeepSeek(
               {
                 role: "system",
                 content:
-                  "你是面向中文母语英语学习者的句子结构讲解助手。用户会给出一个划词或短语、它所在的英文句子、前后句，以及一个问题。请明确围绕“所划词在该句中的用法”和“该句本身”回答，不要泛泛讲整篇文章。回答使用中文，长度适中，通常 250 到 500 个汉字；如果涉及句法结构，请把主干、修饰关系、指代或逻辑关系讲清楚。可以用简短分点，但不要输出过长的课堂讲义。",
+                  "你是面向中文母语英语学习者的句子追问助手。用户会给出一个划词或短语、它所在的英文句子、前后句，以及一个自由问题。问题可能关于句子主干、结构、修饰关系、指代、逻辑，也可能只问句中某个词为什么这样用、为什么用这个时态/介词/搭配/语气，或这句话的任何局部细节。请优先回答用户实际问的问题，并结合该句语境解释；不要只按句法分析模板回答，也不要泛泛讲整篇文章。回答使用中文，长度适中，通常 250 到 500 个汉字；必要时可以简短分点。",
               },
               {
                 role: "user",

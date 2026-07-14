@@ -1,26 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
+import { fetchJson } from "@/lib/apiClient";
+import { normalizeDifficultyLabel, normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
+import { explanationStreamValue, parseExplanationStream } from "@/lib/explanationDisplay";
 import type { WordContext, WordExplanation } from "@/types/reader";
 
 interface ExplanationPanelProps {
   explanation: WordExplanation | null;
+  streamText?: string;
+  streaming?: boolean;
   selectedContext: WordContext | null;
   loading: boolean;
   error: string;
   isInVocabulary: boolean;
+  vocabularyMatchNotice?: string;
   onAddToVocabulary: () => void;
+  onRegenerate?: () => void;
   onCollapse?: () => void;
 }
 
 function buildExplanationText(explanation: WordExplanation, context: WordContext | null): string {
+  const selectedKind = selectedTextKind(context?.word ?? explanation.word);
   return [
     `${explanation.word} (${explanation.lemma})`,
     explanation.phonetic ? `音标：${explanation.phonetic}` : "",
     `词性：${explanation.partOfSpeech}`,
     `基础释义：${explanation.basicMeaning}`,
-    `语境含义：${explanation.contextMeaning}`,
+    `${meaningLabel(selectedKind)}：${explanation.contextMeaning}`,
     `原句：${context?.sentence ?? ""}`,
     `句子翻译：${explanation.sentenceTranslation}`,
     `用法说明：${explanation.usageNote}`,
@@ -32,25 +40,56 @@ function buildExplanationText(explanation: WordExplanation, context: WordContext
     .join("\n");
 }
 
+function selectedTextKind(value: string): "word" | "phrase" {
+  return value.trim().split(/\s+/).filter(Boolean).length > 1 ? "phrase" : "word";
+}
+
+function meaningLabel(kind: "word" | "phrase"): string {
+  return kind === "phrase" ? "所选短语在本句中的含义" : "所选词在本句中的含义";
+}
+
+function displaySectionLabel(label: string, kind: "word" | "phrase"): string {
+  return label === "当前语境含义" ? meaningLabel(kind) : label;
+}
+
 export function ExplanationPanel({
   explanation,
+  streamText = "",
+  streaming = false,
   selectedContext,
   loading,
   error,
   isInVocabulary,
+  vocabularyMatchNotice = "",
   onAddToVocabulary,
+  onRegenerate,
   onCollapse,
 }: ExplanationPanelProps) {
   const [sentenceQuestion, setSentenceQuestion] = useState("");
   const [sentenceAnswer, setSentenceAnswer] = useState("");
   const [sentenceQuestionError, setSentenceQuestionError] = useState("");
   const [askingSentenceQuestion, setAskingSentenceQuestion] = useState(false);
+  const panelRef = useRef<HTMLElement | null>(null);
+  const streamSections = parseExplanationStream(streamText);
+  const displayStream = Boolean(streamText || streaming);
+  const streamLemma = explanationStreamValue(streamSections, ["lemma", "Lemma", "词元", "原形", "原型"]);
+  const streamPhonetic = explanationStreamValue(streamSections, ["音标", "phonetic", "Phonetic"]);
+  const streamPartOfSpeech = explanationStreamValue(streamSections, ["词性", "partOfSpeech"]);
+  const streamDifficulty = explanationStreamValue(streamSections, ["难度", "difficulty"]);
+  const selectedKind = selectedTextKind(selectedContext?.word ?? explanation?.word ?? "");
+  const streamOriginalForm = selectedKind === "phrase"
+    ? ""
+    : originalFormLabel(streamLemma, selectedContext?.word ?? "");
+  const visibleStreamSections = streamSections.filter(
+    (section) => !["lemma", "Lemma", "词元", "原形", "原型", "音标", "phonetic", "Phonetic", "词性", "partOfSpeech", "难度", "difficulty"].includes(section.label.trim()),
+  );
 
   useEffect(() => {
     setSentenceQuestion("");
     setSentenceAnswer("");
     setSentenceQuestionError("");
     setAskingSentenceQuestion(false);
+    panelRef.current?.scrollTo({ top: 0, left: 0 });
   }, [selectedContext?.word, selectedContext?.sentence]);
 
   async function handleCopy() {
@@ -78,7 +117,7 @@ export function ExplanationPanel({
     setSentenceAnswer("");
 
     try {
-      const response = await fetch("/api/ask-sentence", {
+      const { response, data } = await fetchJson<{ answer?: string; error?: string }>("/api/ask-sentence", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,10 +129,7 @@ export function ExplanationPanel({
           nextSentence: selectedContext.nextSentence,
           question,
         }),
-      });
-      const data = (await response.json().catch(() => null)) as
-        | { answer?: string; error?: string }
-        | null;
+      }, "提问失败，请稍后重试。");
 
       if (!response.ok || !data?.answer?.trim()) {
         throw new Error(data?.error || "提问失败，请稍后重试。");
@@ -107,8 +143,17 @@ export function ExplanationPanel({
     }
   }
 
+  function handleSentenceQuestionKeyDown(event: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) {
+      return;
+    }
+
+    event.preventDefault();
+    event.currentTarget.form?.requestSubmit();
+  }
+
   return (
-    <aside className="relative h-full min-h-0 flex-1 overflow-y-auto rounded-[18px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [-webkit-overflow-scrolling:touch] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:w-[360px]">
+    <aside ref={panelRef} className="relative h-full min-h-0 flex-1 overflow-y-auto rounded-[18px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [scrollbar-gutter:stable] [-webkit-overflow-scrolling:touch] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:w-[360px]">
       <div className="sticky top-0 z-10 h-0 lg:hidden">
         <button
           type="button"
@@ -124,73 +169,207 @@ export function ExplanationPanel({
         <p className="text-sm leading-6 tracking-[-0.224px] text-[#7a7a7a]">点击文章中的任意英文单词查看语境解释。</p>
       )}
 
-      {loading && <p className="text-sm leading-6 tracking-[-0.224px] text-[#333333]">正在分析语境...</p>}
+      {loading && !streamText && <p className="text-sm leading-6 tracking-[-0.224px] text-[#333333]">正在分析语境...</p>}
 
-      {error && !loading && (
-        <div className="rounded-[18px] border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-          {error}
+      {displayStream && (
+        <div className="space-y-4 pb-5">
+          <header>
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <h2 className="text-[34px] font-semibold leading-[1.47] tracking-[-0.374px] text-[#1d1d1f]">{selectedContext?.word}</h2>
+                {(streamOriginalForm || streamPhonetic) && (
+                  <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
+                    {streamOriginalForm}
+                    {streamPhonetic ? `${streamOriginalForm ? " · " : ""}${streamPhonetic}` : ""}
+                  </p>
+                )}
+              </div>
+              {streamDifficulty && (
+                <span className="rounded-full bg-[#f5f5f7] px-3 py-1 text-xs font-medium text-[#333333]">
+                  {normalizeDifficultyLabel(streamDifficulty)}
+                </span>
+              )}
+            </div>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              {streamPartOfSpeech && <p className="text-sm font-semibold tracking-[-0.224px] text-[#333333]">{normalizePartOfSpeechLabel(streamPartOfSpeech)}</p>}
+              <PronunciationButtons text={selectedContext?.word ?? ""} />
+              {onRegenerate && selectedContext && (
+                <button
+                  type="button"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-[#0066cc] text-base leading-none text-[#0066cc] transition hover:bg-[#f5f9ff] active:scale-95"
+                  onClick={onRegenerate}
+                  aria-label="重新生成解释和翻译"
+                  title="重新生成解释和翻译"
+                >
+                  ↻
+                </button>
+              )}
+            </div>
+          </header>
+
+          <dl className="space-y-3 text-sm leading-6 tracking-[-0.224px]">
+            {visibleStreamSections.map((section, index) => (
+              <div key={`${section.label}-${index}`}>
+                <dt className="font-semibold text-[#1d1d1f]">{displaySectionLabel(section.label, selectedKind)}</dt>
+                <dd className="mt-0.5 whitespace-pre-wrap text-[#333333]">
+                  {section.value}
+                  {streaming && index === visibleStreamSections.length - 1 && (
+                    <span className="ml-0.5 inline-block h-4 w-1 translate-y-0.5 animate-pulse rounded-full bg-[#0066cc]" />
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          {!streaming && explanation && (
+            <>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  className="h-10 min-w-[112px] shrink-0 whitespace-nowrap rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
+                  onClick={onAddToVocabulary}
+                  disabled={isInVocabulary}
+                >
+                  {isInVocabulary ? "已加入生词本" : "加入生词本"}
+                </button>
+                <button
+                  type="button"
+                  className="h-10 min-w-[92px] shrink-0 whitespace-nowrap rounded-full border border-[#0066cc] px-4 text-sm tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
+                  onClick={handleCopy}
+                >
+                  复制解释
+                </button>
+              </div>
+              {vocabularyMatchNotice && (
+                <p className="text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{vocabularyMatchNotice}</p>
+              )}
+
+              <section className="hidden border-t border-[#e0e0e0] pt-5 lg:block">
+                <h3 className="text-sm font-semibold tracking-[-0.224px] text-[#1d1d1f]">向 AI 追问这句</h3>
+                <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">
+                  当前问题会带上所划词和它所在的完整句子。
+                </p>
+                <form className="mt-3 space-y-3" onSubmit={handleAskSentenceQuestion}>
+                  <textarea
+                    className="min-h-24 w-full resize-y rounded-[18px] border border-[#e0e0e0] px-3 py-2 text-sm leading-6 tracking-[-0.224px] text-[#1d1d1f] outline-none transition placeholder:text-[#7a7a7a] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
+                    value={sentenceQuestion}
+                    onChange={(event) => setSentenceQuestion(event.target.value)}
+                    onKeyDown={handleSentenceQuestionKeyDown}
+                    placeholder="例如：为什么这里用 empowering？which 指代什么？这句怎么拆？"
+                    maxLength={500}
+                  />
+                  <button
+                    type="submit"
+                    className="h-10 w-full rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
+                    disabled={askingSentenceQuestion || !sentenceQuestion.trim()}
+                  >
+                    {askingSentenceQuestion ? "正在回答..." : "提问"}
+                  </button>
+                </form>
+
+                {sentenceQuestionError && (
+                  <div className="mt-3 rounded-[18px] border border-red-200 bg-red-50 p-3 text-sm leading-6 text-red-700">
+                    {sentenceQuestionError}
+                  </div>
+                )}
+
+                {sentenceAnswer && (
+                  <div className="mt-3 whitespace-pre-wrap rounded-[18px] border border-[#e0e0e0] bg-[#f5f5f7] p-3 text-sm leading-6 tracking-[-0.224px] text-[#333333]">
+                    {sentenceAnswer}
+                  </div>
+                )}
+              </section>
+            </>
+          )}
         </div>
       )}
 
-      {explanation && !loading && (
-        <div className="space-y-5 pb-6">
+      {error && !loading && !displayStream && (
+        <div className="rounded-[18px] border border-red-200 bg-red-50 p-3 text-sm leading-6 text-red-700">
+          <div className="flex items-start justify-between gap-3">
+            <p className="min-w-0">{error}</p>
+            {onRegenerate && selectedContext && (
+              <button
+                type="button"
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-red-300 bg-white text-base leading-none text-red-700 transition hover:bg-red-100 active:scale-95"
+                onClick={onRegenerate}
+                aria-label="重新生成解释和翻译"
+                title="重新生成解释和翻译"
+              >
+                ↻
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {explanation && !loading && !displayStream && (
+        <div className="space-y-4 pb-5">
           <header>
             <div className="flex items-start justify-between gap-3">
               <div>
                 <h2 className="text-[34px] font-semibold leading-[1.47] tracking-[-0.374px] text-[#1d1d1f]">{explanation.word}</h2>
                 <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-                  lemma: {explanation.lemma}
+                  {originalFormLabel(explanation.lemma, explanation.word)}
                   {explanation.phonetic ? ` · ${explanation.phonetic}` : ""}
                 </p>
               </div>
               <span className="rounded-full bg-[#f5f5f7] px-3 py-1 text-xs font-medium text-[#333333]">
-                {explanation.difficulty}
+                {normalizeDifficultyLabel(explanation.difficulty)}
               </span>
             </div>
             <div className="mt-2 flex flex-wrap items-center gap-2">
-              <p className="text-sm font-semibold tracking-[-0.224px] text-[#333333]">{explanation.partOfSpeech}</p>
+              <p className="text-sm font-semibold tracking-[-0.224px] text-[#333333]">{normalizePartOfSpeechLabel(explanation.partOfSpeech)}</p>
               <PronunciationButtons text={explanation.word} />
+              {onRegenerate && (
+                <button
+                  type="button"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-[#0066cc] text-base leading-none text-[#0066cc] transition hover:bg-[#f5f9ff] active:scale-95"
+                  onClick={onRegenerate}
+                  aria-label="重新生成解释和翻译"
+                  title="重新生成解释和翻译"
+                >
+                  ↻
+                </button>
+              )}
             </div>
           </header>
 
-          <dl className="space-y-4 text-sm leading-6 tracking-[-0.224px]">
+          <dl className="space-y-3 text-sm leading-6 tracking-[-0.224px]">
             <div>
               <dt className="font-semibold text-[#1d1d1f]">基础释义</dt>
-              {explanation.phonetic && (
-                <dd className="mt-1 text-[#7a7a7a]">音标：{explanation.phonetic}</dd>
-              )}
-              <dd className="mt-1 text-[#333333]">{explanation.basicMeaning}</dd>
+              <dd className="mt-0.5 text-[#333333]">{explanation.basicMeaning}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-[#1d1d1f]">当前语境含义</dt>
-              <dd className="mt-1 text-[#333333]">{explanation.contextMeaning}</dd>
+              <dt className="font-semibold text-[#1d1d1f]">{meaningLabel(selectedKind)}</dt>
+              <dd className="mt-0.5 text-[#333333]">{explanation.contextMeaning}</dd>
             </div>
             <div>
               <dt className="font-semibold text-[#1d1d1f]">当前句子翻译</dt>
-              <dd className="mt-1 text-[#333333]">{explanation.sentenceTranslation}</dd>
+              <dd className="mt-0.5 text-[#333333]">{explanation.sentenceTranslation}</dd>
             </div>
             <div>
               <dt className="font-semibold text-[#1d1d1f]">用法说明</dt>
-              <dd className="mt-1 text-[#333333]">{explanation.usageNote}</dd>
+              <dd className="mt-0.5 text-[#333333]">{explanation.usageNote}</dd>
             </div>
             <div>
               <dt className="font-semibold text-[#1d1d1f]">常见搭配</dt>
-              <dd className="mt-1 text-[#333333]">{explanation.collocation || "无"}</dd>
+              <dd className="mt-0.5 text-[#333333]">{explanation.collocation || "无"}</dd>
             </div>
             <div>
               <dt className="font-semibold text-[#1d1d1f]">英文例句</dt>
-              <dd className="mt-1 text-[#333333]">{explanation.exampleEnglish}</dd>
+              <dd className="mt-0.5 text-[#333333]">{explanation.exampleEnglish}</dd>
             </div>
             <div>
               <dt className="font-semibold text-[#1d1d1f]">例句中文翻译</dt>
-              <dd className="mt-1 text-[#333333]">{explanation.exampleChinese}</dd>
+              <dd className="mt-0.5 text-[#333333]">{explanation.exampleChinese}</dd>
             </div>
           </dl>
 
-          <div className="flex flex-col gap-2 sm:flex-row">
+          <div className="flex flex-wrap gap-2">
             <button
               type="button"
-              className="h-10 rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
+              className="h-10 min-w-[112px] shrink-0 whitespace-nowrap rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
               onClick={onAddToVocabulary}
               disabled={isInVocabulary}
             >
@@ -198,12 +377,15 @@ export function ExplanationPanel({
             </button>
             <button
               type="button"
-              className="h-10 rounded-full border border-[#0066cc] px-4 text-sm tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
+              className="h-10 min-w-[92px] shrink-0 whitespace-nowrap rounded-full border border-[#0066cc] px-4 text-sm tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
               onClick={handleCopy}
             >
               复制解释
             </button>
           </div>
+          {vocabularyMatchNotice && (
+            <p className="text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{vocabularyMatchNotice}</p>
+          )}
 
           <section className="hidden border-t border-[#e0e0e0] pt-5 lg:block">
             <h3 className="text-sm font-semibold tracking-[-0.224px] text-[#1d1d1f]">向 AI 追问这句话</h3>
@@ -215,7 +397,8 @@ export function ExplanationPanel({
                 className="min-h-24 w-full resize-y rounded-[18px] border border-[#e0e0e0] px-3 py-2 text-sm leading-6 tracking-[-0.224px] text-[#1d1d1f] outline-none transition placeholder:text-[#7a7a7a] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
                 value={sentenceQuestion}
                 onChange={(event) => setSentenceQuestion(event.target.value)}
-                placeholder="例如：这个句子的主干是什么？这里的 which 指代什么？"
+                onKeyDown={handleSentenceQuestionKeyDown}
+                placeholder="例如：为什么这里用 empowering？which 指代什么？这句怎么拆？"
                 maxLength={500}
               />
               <button
