@@ -84,7 +84,11 @@ export async function accountFetch<T>(path: string, init: RequestInit = {}): Pro
   if (response.status === 204) {
     return undefined as T;
   }
-  return (await response.json()) as T;
+  const responseText = await response.text();
+  if (!responseText.trim()) {
+    return undefined as T;
+  }
+  return JSON.parse(responseText) as T;
 }
 
 async function ensureAccountRows(user: User): Promise<void> {
