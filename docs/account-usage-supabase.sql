@@ -431,7 +431,7 @@ begin
       nullif(v_item ->> 'deletedAt', '')::timestamptz,
       now()
     )
-    on conflict (user_id, kind, object_key) do update
+    on conflict on constraint user_data_objects_pkey do update
       set payload = excluded.payload,
           client_updated_at = excluded.client_updated_at,
           server_version = public.user_data_objects.server_version + 1,
