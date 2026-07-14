@@ -620,7 +620,7 @@ MVP 可以记录：
 - 额度分 `lookup_generation` 与 `deep_reading`。套餐和价格是测试假设，可在 `/admin/accounts` 调整；暂未接在线支付。
 - 云端为准，但登录先合并本地文章、生词本和缓存。同步使用逐对象 server version；冲突保留本地恢复副本。
 - 用户用量页为 `/account/usage`，数据库迁移为 `docs/account-usage-supabase.sql`，完整规则见 `docs/account-usage-plan.md`。
-- 构建完成不代表账号已上线；还必须配置 Vercel/Supabase 环境变量、执行迁移并配置 OTP 邮件模板。
+- 生产数据库、Vercel/Supabase 环境变量、项目成员邮箱登录和跨设备同步已经验证可用；但面向普通公众的邮箱登录仍未完成，因为还没有配置自定义 SMTP 与包含 `{{ .Token }}` 的验证码模板。后续讨论网站完善、登录或公开上线时必须主动提醒用户这一阻塞项。
 
 ## 24. 当前安全边界
 
