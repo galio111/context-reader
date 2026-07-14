@@ -42,7 +42,11 @@ export async function gateUsage(request: Request, options: {
   let identity: UsageIdentity;
   try {
     identity = await resolveUsageIdentity(request);
-  } catch {
+  } catch (error) {
+    console.error(
+      "[usage-gate] Failed to resolve account identity:",
+      error instanceof Error ? error.message : "Unknown account identity error",
+    );
     if (options.loginRequired) {
       throw new UsageGateError("账号与用量服务暂未配置，请稍后再试。", 503, "account_not_configured");
     }
