@@ -72,6 +72,23 @@ export async function verifyEmailOtp(email: string, token: string): Promise<Sess
   return data.session;
 }
 
+export async function adoptSupabaseSession(accessToken: string, refreshToken: string): Promise<Session> {
+  const normalizedAccessToken = accessToken.trim();
+  const normalizedRefreshToken = refreshToken.trim();
+  if (!normalizedAccessToken || !normalizedRefreshToken || normalizedAccessToken.length > 8_192 || normalizedRefreshToken.length > 8_192) {
+    throw new Error("登录链接无效或不完整。");
+  }
+
+  const { data, error } = await authClient().auth.setSession({
+    access_token: normalizedAccessToken,
+    refresh_token: normalizedRefreshToken,
+  });
+  if (error || !data.session || !data.user) {
+    throw new Error(error?.message || "登录链接无效或已过期。");
+  }
+  return data.session;
+}
+
 async function writeSessionCookies(session: Session): Promise<void> {
   const cookieStore = await cookies();
   const secure = process.env.NODE_ENV === "production";

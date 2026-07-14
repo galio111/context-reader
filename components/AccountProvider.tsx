@@ -58,7 +58,40 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     setLoading(false);
   }, []);
 
-  useEffect(() => { void refreshAccount(); }, [refreshAccount]);
+  useEffect(() => {
+    async function bootstrapAccount() {
+      const hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+      const accessToken = hash.get("access_token");
+      const refreshToken = hash.get("refresh_token");
+      const authError = hash.get("error_description") || hash.get("error");
+
+      if (accessToken && refreshToken) {
+        window.history.replaceState({}, "", `${window.location.pathname}${window.location.search}`);
+        try {
+          const response = await fetch("/api/auth/adopt-session", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ accessToken, refreshToken }),
+          });
+          const data = await response.json() as { account?: AccountSessionState; error?: string };
+          if (!response.ok || !data.account) throw new Error(data.error || "登录链接无效或已过期。");
+          setAccount(data.account);
+          setMessage("");
+        } catch (error) {
+          setLoginOpen(true);
+          setMessage(error instanceof Error ? error.message : "登录失败，请重新获取登录邮件。");
+        }
+      } else if (authError) {
+        window.history.replaceState({}, "", `${window.location.pathname}${window.location.search}`);
+        setLoginOpen(true);
+        setMessage(decodeURIComponent(authError.replace(/\+/g, " ")));
+      }
+
+      await refreshAccount();
+    }
+
+    void bootstrapAccount();
+  }, [refreshAccount]);
 
   const syncNow = useCallback(async () => {
     if (!account.authenticated || syncing.current) return;
@@ -117,7 +150,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       const data = await response.json() as { error?: string };
       if (!response.ok) throw new Error(data.error || "验证码发送失败。");
       setStep("otp");
-      setMessage("验证码已发送，请查看邮箱。验证码有效期由账号服务配置决定。");
+      setMessage("登录邮件已发送。若邮件中显示验证码，请在这里输入；若显示登录按钮，直接点击即可完成登录。");
     } catch (error) { setMessage(error instanceof Error ? error.message : "验证码发送失败。"); }
     finally { setSubmitting(false); }
   }
@@ -158,7 +191,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         <div className="fixed inset-0 z-[200] grid place-items-center bg-[#152018]/35 px-4 backdrop-blur-sm" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) closeLogin(); }}>
           <section className="w-full max-w-[430px] rounded-[28px] border border-black/10 bg-[#fbfbf8] p-7 text-[#18211d] shadow-2xl" role="dialog" aria-modal="true" aria-labelledby="account-login-title">
             <div className="flex items-start justify-between gap-6">
-              <div><p className="text-xs font-semibold uppercase tracking-[.16em] text-[#617067]">Context Reader Account</p><h2 id="account-login-title" className="mt-2 text-2xl font-semibold">{step === "email" ? "邮箱验证码登录" : "输入验证码"}</h2></div>
+              <div><p className="text-xs font-semibold uppercase tracking-[.16em] text-[#617067]">Context Reader Account</p><h2 id="account-login-title" className="mt-2 text-2xl font-semibold">{step === "email" ? "邮箱登录" : "查看登录邮件"}</h2></div>
               <button className="rounded-full px-3 py-1.5 text-sm hover:bg-black/5" type="button" onClick={closeLogin}>关闭</button>
             </div>
             {loginReason && <p className="mt-5 rounded-2xl bg-[#edf3ee] px-4 py-3 text-sm leading-6 text-[#3f5146]">{loginReason}</p>}
@@ -166,10 +199,10 @@ export function AccountProvider({ children }: { children: ReactNode }) {
             {step === "email" ? (
               <label className="mt-6 block text-sm font-medium">邮箱地址<input className="mt-2 w-full rounded-2xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad]" type="email" autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") void submitEmail(); }} placeholder="name@example.com" /></label>
             ) : (
-              <label className="mt-6 block text-sm font-medium">邮箱验证码<input className="mt-2 w-full rounded-2xl border border-black/15 bg-white px-4 py-3 text-lg tracking-[.25em] outline-none focus:border-[#2868ad]" inputMode="numeric" autoComplete="one-time-code" value={otp} onChange={(event) => setOtp(event.target.value.replace(/\D/g, "").slice(0, 12))} onKeyDown={(event) => { if (event.key === "Enter") void submitOtp(); }} placeholder="000000" /></label>
+              <label className="mt-6 block text-sm font-medium">6 位验证码（邮件若提供）<input className="mt-2 w-full rounded-2xl border border-black/15 bg-white px-4 py-3 text-lg tracking-[.25em] outline-none focus:border-[#2868ad]" inputMode="numeric" autoComplete="one-time-code" value={otp} onChange={(event) => setOtp(event.target.value.replace(/\D/g, "").slice(0, 12))} onKeyDown={(event) => { if (event.key === "Enter") void submitOtp(); }} placeholder="000000" /></label>
             )}
             {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="status">{message}</p>}
-            <button className="mt-6 w-full rounded-full bg-[#18211d] px-5 py-3.5 font-semibold text-white disabled:opacity-50" disabled={!account.configured || submitting || (step === "email" ? !email.trim() : otp.length < 6)} type="button" onClick={() => void (step === "email" ? submitEmail() : submitOtp())}>{submitting ? "请稍候…" : step === "email" ? "发送验证码" : "登录并同步"}</button>
+            <button className="mt-6 w-full rounded-full bg-[#18211d] px-5 py-3.5 font-semibold text-white disabled:opacity-50" disabled={!account.configured || submitting || (step === "email" ? !email.trim() : otp.length < 6)} type="button" onClick={() => void (step === "email" ? submitEmail() : submitOtp())}>{submitting ? "请稍候…" : step === "email" ? "发送登录邮件" : "登录并同步"}</button>
             {step === "otp" && <button className="mt-3 w-full rounded-full px-5 py-2 text-sm text-[#4f6157] hover:bg-black/5" type="button" onClick={() => { setStep("email"); setOtp(""); setMessage(""); }}>更换邮箱</button>}
             <p className="mt-5 text-xs leading-5 text-[#738078]">首次验证会自动创建账号。阅读不会被登录弹窗打断；只在查词额度用完或触发保存、全文翻译等受限操作时提示。</p>
           </section>

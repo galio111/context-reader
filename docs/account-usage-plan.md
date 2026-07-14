@@ -1,6 +1,6 @@
 # Account, Sync, and Usage Plan
 
-Status: application code is implemented. Production activation still requires the Supabase migration and environment configuration below.
+Status: application code, Supabase migration, production environment variables, and hosted Auth site URL are configured. Public email delivery still requires a custom SMTP provider; the Supabase free-tier default sender only delivers to project-team addresses.
 
 ## Product principles
 
@@ -53,7 +53,7 @@ Status: application code is implemented. Production activation still requires th
 ## Risks and phased release
 
 - Supabase counters are global, but the built-in IP limiter is per Vercel instance. Add WAF/distributed limiting before larger promotion.
-- Configure the Supabase email template with `{{ .Token }}` and verify delivery.
+- Configure custom SMTP before public launch, then change the Supabase magic-link template to include `{{ .Token }}` and verify delivery to a non-team address. Until then, the app also accepts Supabase's default email login link for project-team testing.
 - Keep the service-role credential server-only; never expose it as `NEXT_PUBLIC_*`.
 - Cost is an estimate. Default rates follow the official DeepSeek V4 Pro/Flash price page checked 2026-07-14 and can be overridden when prices change.
 - Current sync accepts up to 20,000 objects / 8 MB per request. Later, very large accounts can move to cursor-based incremental sync.
