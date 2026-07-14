@@ -8,6 +8,8 @@ import {
 } from "@/lib/safeRemoteFetch";
 import { readFormDataBody, readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { CostCapacityError, withCostSlot } from "@/lib/costConcurrency";
+import { finishUsage, refundUsage } from "@/lib/accountStore";
+import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 
 const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
 
@@ -23,6 +25,20 @@ function imageToDataUrl(contentType: string, buffer: ArrayBuffer | Uint8Array): 
 }
 
 export async function POST(request: Request) {
+  let actionId = "";
+  try {
+    actionId = (await gateUsage(request, {
+      feature: "image_layout_ocr",
+      metricKey: "deep_reading",
+      units: 5,
+      loginRequired: true,
+    })).actionId;
+  } catch (error) {
+    return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
+  }
+
+  const finish = async () => finishUsage(actionId, "succeeded").catch(() => undefined);
+  const fail = async (error: unknown) => refundUsage(actionId, "failed", error instanceof Error ? error.name : "ocr_failed").catch(() => undefined);
   const contentType = request.headers.get("content-type") ?? "";
   if (contentType.includes("multipart/form-data")) {
     let formData: FormData | null;
@@ -51,8 +67,10 @@ export async function POST(request: Request) {
     try {
       const buffer = await file.arrayBuffer();
       const layout = await withCostSlot("ocr", 2, () => extractImageLayout(fileToDataUrl(file, buffer)));
+      await finish();
       return NextResponse.json(layout);
     } catch (error) {
+      await fail(error);
       if (error instanceof CostCapacityError) {
         return NextResponse.json({ error: "OCR 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
       }
@@ -88,8 +106,10 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: "图片数据格式无效或超过 8MB。" }, { status: 413 });
       }
       const layout = await withCostSlot("ocr", 2, () => extractImageLayout(rawUrl));
+      await finish();
       return NextResponse.json(layout);
     } catch (error) {
+      await fail(error);
       if (error instanceof CostCapacityError) {
         return NextResponse.json({ error: "OCR 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
       }
@@ -133,8 +153,10 @@ export async function POST(request: Request) {
     const buffer = await readResponseBytes(imageResponse, MAX_IMAGE_BYTES);
 
     const layout = await withCostSlot("ocr", 2, () => extractImageLayout(imageToDataUrl(contentType, buffer)));
+    await finish();
     return NextResponse.json(layout);
   } catch (error) {
+    await fail(error);
     if (error instanceof CostCapacityError) {
       return NextResponse.json({ error: "OCR 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
     }

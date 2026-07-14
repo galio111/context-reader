@@ -1,5 +1,6 @@
 import { normalizeAnkiInfo } from "@/lib/ankiData";
 import type { ArticleTranslationBlock, ArticleTranslationItem, WordExplanation } from "@/types/reader";
+import { notifyAccountDataChanged } from "@/lib/accountEvents";
 
 const EXPLANATION_CACHE_KEY = "context-reader:explanations:v5";
 const ARTICLE_TRANSLATION_CACHE_KEY = "context-reader:article-translations:v1";
@@ -29,6 +30,7 @@ function writeCache(cache: ExplanationCache): void {
 
   try {
     window.localStorage.setItem(EXPLANATION_CACHE_KEY, JSON.stringify(cache));
+    notifyAccountDataChanged();
   } catch {
     // Cache failure should not break reading.
   }
@@ -112,6 +114,7 @@ function writeArticleTranslationCache(cache: ArticleTranslationCache): void {
 
   try {
     window.localStorage.setItem(ARTICLE_TRANSLATION_CACHE_KEY, JSON.stringify(cache));
+    notifyAccountDataChanged();
   } catch {
     // Translation cache failure should not block reading.
   }
@@ -124,6 +127,7 @@ function writeArticleTranslationBlockCache(cache: ArticleTranslationBlockCache):
 
   try {
     window.localStorage.setItem(ARTICLE_TRANSLATION_BLOCK_CACHE_KEY, JSON.stringify(cache));
+    notifyAccountDataChanged();
   } catch {
     // Translation cache failure should not block reading.
   }

@@ -11,6 +11,7 @@ import { hasClickableWords, tokenizeArticle } from "@/lib/tokenizer";
 import type { ImportedArticle, ImportedImageLayoutWord, SavedArticle } from "@/types/article";
 import type { PublicArticle, PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
 import type { VocabularyEntry } from "@/types/vocabulary";
+import { useAccount } from "@/components/AccountProvider";
 
 interface HomeClientProps {
   initialPublicArticles: PublicArticle[];
@@ -80,6 +81,7 @@ async function requestImageLayoutWords(file: File): Promise<ImportedImageLayoutW
 }
 
 export function HomeClient({ initialPublicArticles }: HomeClientProps) {
+  const { requireAccount } = useAccount();
   const [article, setArticle] = useState("");
   const [articleUrl, setArticleUrl] = useState("");
   const [importedArticle, setImportedArticle] = useState<ImportedArticle | null>(null);
@@ -177,6 +179,7 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
   }
 
   async function handleOcrImage(file: File | null) {
+    if (file && !requireAccount("图片 OCR 会产生上游成本，登录后才能使用。")) return;
     if (!file) {
       return;
     }

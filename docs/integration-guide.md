@@ -32,6 +32,7 @@ ADMIN_SESSION_SECRET=...
 ADMIN_SESSION_VERSION=1
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=...
+ACCOUNT_COOKIE_SECRET=...
 ```
 
 Homepage image reading is enabled. Configure either `OCR_PROVIDER=zhipu` with `ZHIPU_API_KEY`, or `OCR_PROVIDER=openai` with `OPENAI_API_KEY`. Automatic OCR for images embedded in URL-imported articles remains gated off in the reader even though the OCR routes are available.
@@ -39,6 +40,8 @@ Homepage image reading is enabled. Configure either `OCR_PROVIDER=zhipu` with `Z
 `DEEPSEEK_TRANSLATION_MODEL` overrides only full-article translation. `DEEPSEEK_FALLBACK_MODELS` is a comma-separated model list used for supported retries on the primary provider. Structured word explanations can also use `DEEPSEEK_FALLBACK_BASE_URL` with optional `DEEPSEEK_FALLBACK_API_KEY` and `DEEPSEEK_FALLBACK_MODEL`. Empty fallback values disable the secondary-provider path.
 
 `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, `SUPABASE_URL`, and `SUPABASE_SERVICE_ROLE_KEY` are needed for `/admin`, public recommendations, preloaded word explanations, and preloaded full-article translations. The password must be at least 12 characters and the independent session secret at least 32 characters. Increment `ADMIN_SESSION_VERSION` to revoke every existing admin cookie. Run the complete `docs/public-articles-supabase.sql` in Supabase before publishing and after security/schema updates; it creates the three tables, enables RLS, and revokes direct access from browser roles and `PUBLIC`.
+
+For accounts and usage, also set an independent `ACCOUNT_COOKIE_SECRET`, run `docs/account-usage-supabase.sql`, enable email OTP in Supabase Auth, and make the email template include `{{ .Token }}`. The service-role key is server-only. Do not create a `NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY`. Optional cost-rate overrides are `DEEPSEEK_CACHE_HIT_USD_PER_MILLION`, `DEEPSEEK_CACHE_MISS_USD_PER_MILLION`, and `DEEPSEEK_OUTPUT_USD_PER_MILLION`.
 
 Production requests receive security headers and pass through bounded-body, same-origin, throttling, SSRF, and concurrency controls. The built-in rate store is per Vercel instance, so it reduces accidental bursts and simple abuse but is not a distributed quota. For a broader launch, add Vercel WAF rate limiting or an atomic Redis/KV limiter and an upstream provider spending cap. Review the external service's pricing before enabling it.
 

@@ -54,6 +54,14 @@ Touch word selection separates reading scroll from lookup gestures. Vertical mov
 
 Each new explanation resets the bottom sheet to its default half-height and scrolls the explanation content to the top. Collapsing the explanation panel should preserve the article reading position, but temporary panel state should not leak into the next lookup.
 
+## Account, usage, and sync
+
+`AccountProvider` loads `/api/auth/session`, opens email OTP only for restricted actions, schedules cloud sync after durable local changes, and requires a successful final sync before explicit logout clears browser data. `lib/accountSyncClient.ts` stores each article, vocabulary entry and cache item as a versioned object. Supabase compare-and-swap prevents stale devices from overwriting newer versions; conflicts are refetched and merged, with differing local items retained as recovery copies.
+
+All cost-bearing routes use `lib/usageGate.ts`. Structured and streaming word lookup requests share `x-context-action-id`, so the quota action is idempotent while `usage_executions` stores both real upstream calls. Registered-user failures are refunded and cache hits are free; guest cached lookups call `/api/usage/cache-lookup`. Full translation, summaries, sentence questions and OCR require login. `/account/usage` is the user view and `/admin/accounts` manages users, plans, limits and provider usage.
+
+The browser never receives a Supabase key. Without account infrastructure, reading and a browser-enforced ten-lookup fallback remain available, while login and authenticated high-cost features remain disabled.
+
 ## API Routes
 
 `middleware.ts` and `lib/requestSecurity.ts` form the common request gate. They apply trusted Vercel IP extraction, route-specific fixed-window limits, daily costly-operation limits, `413` early rejection, same-origin admin checks, request ids, and private admin cache headers. `lib/limitedBody.ts` also counts actual streamed bytes before JSON or multipart parsing, so missing or forged `Content-Length` cannot bypass route limits. `lib/costConcurrency.ts` caps simultaneous AI and OCR work per server instance and releases leases on completion, error, stream cancellation, or client disconnect where the upstream route exposes a signal.

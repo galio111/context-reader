@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { getSavedArticles } from "@/lib/articles";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import {
@@ -316,13 +317,13 @@ export default function AdminPage() {
               这里读取的是当前浏览器里的本地保存文章。发布后，访客可以在首页看到公开文章。
             </p>
           </div>
-          <button
+          <div className="flex gap-2"><Link className="h-10 rounded-full border border-[#0066cc] px-4 py-2 text-sm text-[#0066cc]" href="/admin/accounts">账号与用量</Link><button
             className="h-10 self-start rounded-full border border-[#0066cc] px-4 text-sm text-[#0066cc]"
             type="button"
             onClick={handleLogout}
           >
             退出
-          </button>
+          </button></div>
         </header>
 
         {status && (

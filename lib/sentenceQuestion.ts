@@ -4,6 +4,7 @@ import {
   sanitizeSentenceQuestionRequest,
 } from "@/lib/deepseek";
 import type { SentenceQuestionAnswer, SentenceQuestionRequest } from "@/types/reader";
+import type { ProviderTokenUsage } from "@/lib/usageCost";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const DEFAULT_FALLBACK_MODEL = "deepseek-chat";
@@ -20,6 +21,13 @@ interface DeepSeekChatCompletionResponse {
   error?: {
     message?: string;
   };
+  usage?: ProviderTokenUsage;
+}
+
+export interface SentenceQuestionResult extends SentenceQuestionAnswer {
+  usage: ProviderTokenUsage;
+  model: string;
+  provider: string;
 }
 
 interface ProviderProfile {
@@ -85,7 +93,7 @@ function getProviderProfiles(): ProviderProfile[] {
 
 export async function answerSentenceQuestionWithDeepSeek(
   request: SentenceQuestionRequest,
-): Promise<SentenceQuestionAnswer> {
+): Promise<SentenceQuestionResult> {
   const profiles = getProviderProfiles();
 
   if (profiles.length === 0) {
@@ -151,7 +159,7 @@ export async function answerSentenceQuestionWithDeepSeek(
 
         const answer = completion.choices?.[0]?.message?.content?.trim();
         if (answer) {
-          return { answer };
+          return { answer, usage: completion.usage ?? {}, model: profile.model, provider: profile.label };
         }
 
         lastError = new DeepSeekParseError("DeepSeek 没有返回问答内容，请换一种问法再试。");

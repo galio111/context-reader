@@ -66,6 +66,28 @@ interface DeepSeekChatCompletionResponse {
   error?: {
     message?: string;
   };
+  usage?: {
+    prompt_tokens?: number;
+    prompt_cache_hit_tokens?: number;
+    prompt_cache_miss_tokens?: number;
+    completion_tokens?: number;
+  };
+}
+
+export interface DeepSeekExplanationResult {
+  explanation: WordExplanation;
+  model: string;
+  provider: string;
+  usage: NonNullable<DeepSeekChatCompletionResponse["usage"]>;
+}
+
+function sumUsage(...items: Array<DeepSeekChatCompletionResponse["usage"]>): NonNullable<DeepSeekChatCompletionResponse["usage"]> {
+  return items.reduce<NonNullable<DeepSeekChatCompletionResponse["usage"]>>((sum, item) => ({
+    prompt_tokens: (sum.prompt_tokens ?? 0) + (item?.prompt_tokens ?? 0),
+    prompt_cache_hit_tokens: (sum.prompt_cache_hit_tokens ?? 0) + (item?.prompt_cache_hit_tokens ?? 0),
+    prompt_cache_miss_tokens: (sum.prompt_cache_miss_tokens ?? 0) + (item?.prompt_cache_miss_tokens ?? 0),
+    completion_tokens: (sum.completion_tokens ?? 0) + (item?.completion_tokens ?? 0),
+  }), {});
 }
 
 interface ProviderProfile {
@@ -353,7 +375,7 @@ async function requestDeepSeekCompletion(args: {
 
 export async function explainWordWithDeepSeek(
   request: ExplanationRequest,
-): Promise<WordExplanation> {
+): Promise<DeepSeekExplanationResult> {
   const profiles = getProviderProfiles();
 
   if (profiles.length === 0) {
@@ -393,10 +415,10 @@ export async function explainWordWithDeepSeek(
         if (invalidFields.length > 0) {
           throw new DeepSeekParseError("DeepSeek 返回的释义不完整，请重新生成。");
         }
-        return normalizeExplanation(retryParsed, safeRequest);
+        return { explanation: normalizeExplanation(retryParsed, safeRequest), model: profile.model, provider: profile.label, usage: sumUsage(completion.usage, retryCompletion.usage) };
       }
 
-      return normalizeExplanation(parsed, safeRequest);
+      return { explanation: normalizeExplanation(parsed, safeRequest), model: profile.model, provider: profile.label, usage: sumUsage(completion.usage) };
     } catch (error) {
       if (error instanceof DeepSeekParseError) {
         lastError = error;

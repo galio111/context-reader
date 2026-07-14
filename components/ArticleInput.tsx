@@ -11,6 +11,7 @@ import { clearVocabularyEntries, deleteVocabularyEntry, getVocabularyEntries } f
 import type { SavedArticle } from "@/types/article";
 import type { PublicArticle } from "@/types/publicArticle";
 import type { VocabularyEntry } from "@/types/vocabulary";
+import { useAccount } from "@/components/AccountProvider";
 
 const IMAGE_OCR_ENABLED = true;
 
@@ -91,6 +92,7 @@ export function ArticleInput({
   onJumpToVocabularySource,
   canJumpToVocabularySource,
 }: ArticleInputProps) {
+  const { account, requireAccount } = useAccount();
   const hasArticle = article.trim().length > 0;
   const [inputMode, setInputMode] = useState<InputMode>("paste");
   const [vocabularyOpen, setVocabularyOpen] = useState(false);
@@ -117,6 +119,7 @@ export function ArticleInput({
   }, [vocabularyOpen]);
 
   function handleOpenVocabulary() {
+    if (!requireAccount("登录后才能使用生词本；登录时会把本机已有词条补充到账号中。")) return;
     setVocabularyEntries(getVocabularyEntries());
     setVocabularyError("");
     setVocabularyOpen(true);
@@ -184,8 +187,8 @@ export function ArticleInput({
           openingPublicArticleId={openingPublicArticleId}
           demoCompleted={homeDemoCompleted}
           publicArticles={initialPublicArticles}
-          savedArticles={savedArticles}
-          vocabularyCount={vocabularyEntries.length}
+          savedArticles={account.authenticated ? savedArticles : []}
+          vocabularyCount={account.authenticated ? vocabularyEntries.length : 0}
           onArticleChange={onArticleChange}
           onArticleUrlChange={onArticleUrlChange}
           onStartReading={onStartReading}

@@ -29,6 +29,7 @@ Production URL: `https://context-reader-ten.vercel.app`
 - Open the vocabulary notebook from either the homepage or the reading view.
 - Use `/guide` for first-run reading and AnkiConnect setup.
 - Export vocabulary as CSV or import vocabulary entries to Anki through browser-side AnkiConnect, with click-to-play US/UK pronunciation buttons on card backs.
+- Use email OTP accounts, a ten-lookups-per-day guest trial, separate lookup/deep-reading quotas, cross-device learning-data sync, `/account/usage`, and `/admin/accounts`. Online payment remains disabled while pricing is tested.
 
 ## Setup
 
@@ -69,13 +70,14 @@ ADMIN_PASSWORD=change_me_to_a_long_admin_password
 ADMIN_SESSION_SECRET=change_me_to_a_random_session_secret
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+ACCOUNT_COOKIE_SECRET=change_me_to_an_independent_random_32_byte_secret
 ```
 
 Homepage image reading is enabled and supports `OCR_PROVIDER=zhipu` or `OCR_PROVIDER=openai`. For Zhipu, set `ZHIPU_API_KEY`; for OpenAI, set `OPENAI_API_KEY`. If `OCR_PROVIDER` is omitted, the app uses Zhipu when `ZHIPU_API_KEY` exists, otherwise OpenAI when `OPENAI_API_KEY` exists. OCR for images embedded in URL-imported articles is still gated off in the reader. Do not commit `.env.local`.
 
 The `DEEPSEEK_TRANSLATION_MODEL` override applies only to full-article translation. `DEEPSEEK_FALLBACK_MODELS` is a comma-separated fallback model list on the primary provider; `DEEPSEEK_FALLBACK_BASE_URL`, `DEEPSEEK_FALLBACK_API_KEY`, and `DEEPSEEK_FALLBACK_MODEL` configure an optional secondary provider for structured word explanations. Leave optional fallback values blank to disable that path.
 
-`ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, `SUPABASE_URL`, and `SUPABASE_SERVICE_ROLE_KEY` are required for `/admin` publishing and public recommended articles. Run `docs/public-articles-supabase.sql` in Supabase before publishing so article rows, word explanation caches, and full-article translation caches can be stored.
+`ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, and `ACCOUNT_COOKIE_SECRET` are required for the complete admin/account system. Run both `docs/public-articles-supabase.sql` and `docs/account-usage-supabase.sql`. Configure the Supabase email OTP template to include `{{ .Token }}`. See `docs/account-usage-plan.md` for product rules, quotas, sync conflict behavior, and rollout gates.
 
 Use an independent random `ADMIN_SESSION_SECRET` of at least 32 characters and a long `ADMIN_PASSWORD` of at least 12 characters. `ADMIN_SESSION_VERSION` defaults to `1`; incrementing it invalidates all existing admin cookies after a suspected leak. The Supabase SQL enables RLS and revokes browser-role table access, so it must be applied to existing databases as well as new ones.
 

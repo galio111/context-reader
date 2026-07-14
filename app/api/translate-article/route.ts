@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import type { ArticleTranslationBlock, ArticleTranslationResult } from "@/types/reader";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { acquireCostSlot } from "@/lib/costConcurrency";
+import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
+import { deepReadingUnits, gateUsage, usageErrorResponse } from "@/lib/usageGate";
+import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
@@ -24,6 +27,7 @@ interface DeepSeekTranslationResponse {
   error?: {
     message?: string;
   };
+  usage?: ProviderTokenUsage;
 }
 
 interface TranslationRequestBody {
@@ -94,6 +98,8 @@ function friendlyError(message: string): string {
 }
 
 export async function POST(request: Request) {
+  let actionId = "";
+  let usageSucceeded = false;
   let input: TranslationRequestBody;
   try {
     input = await readJsonBody<TranslationRequestBody>(request, 512 * 1024);
@@ -118,13 +124,27 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "No translatable article text found." }, { status: 400 });
   }
 
+
+  try {
+    actionId = (await gateUsage(request, {
+      feature: "full_article_translation",
+      metricKey: "deep_reading",
+      units: deepReadingUnits(blocks.reduce((sum, block) => sum + block.text.length, 0)),
+      loginRequired: true,
+    })).actionId;
+  } catch (error) {
+    return usageErrorResponse(error) ?? NextResponse.json({ error: "Usage validation failed." }, { status: 500 });
+  }
+
   const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey) {
+    await refundUsage(actionId, "failed", "missing_api_key").catch(() => undefined);
     return NextResponse.json({ error: "DEEPSEEK_API_KEY is not configured." }, { status: 500 });
   }
 
   const releaseSlot = acquireCostSlot("ai", 8);
   if (!releaseSlot) {
+    await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
     return NextResponse.json({ error: "AI service is busy. Please try again shortly." }, { status: 503, headers: { "Retry-After": "3" } });
   }
 
@@ -181,6 +201,9 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "DeepSeek returned no usable translations." }, { status: 502 });
     }
 
+    usageSucceeded = true;
+    await recordUsageExecution({ actionId, route: "/api/translate-article", provider: "deepseek", model, promptTokens: data.usage?.prompt_tokens, promptCacheHitTokens: data.usage?.prompt_cache_hit_tokens, promptCacheMissTokens: data.usage?.prompt_cache_miss_tokens, completionTokens: data.usage?.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, data.usage ?? {}), status: "succeeded" }).catch(() => undefined);
+    await finishUsage(actionId, "succeeded").catch(() => undefined);
     return NextResponse.json(result);
   } catch (error) {
     const message =
@@ -189,6 +212,9 @@ export async function POST(request: Request) {
         : "Full-article translation failed. Check network or DeepSeek config.";
     return NextResponse.json({ error: message }, { status: 500 });
   } finally {
+    if (!usageSucceeded) {
+      await refundUsage(actionId, "failed", "translation_failed").catch(() => undefined);
+    }
     clearTimeout(timeout);
     request.signal.removeEventListener("abort", abortFromClient);
     releaseSlot();

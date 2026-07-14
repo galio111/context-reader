@@ -51,6 +51,7 @@ import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, Import
 import type { PublicExplanation } from "@/types/publicArticle";
 import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry } from "@/types/vocabulary";
+import { useAccount } from "@/components/AccountProvider";
 
 interface ReaderViewProps {
   article: string;
@@ -173,14 +174,31 @@ function cloneImportedArticle(article: ImportedArticle | null): ImportedArticle 
   return article ? JSON.parse(JSON.stringify(article)) as ImportedArticle : null;
 }
 
+function consumeFallbackGuestLookup(): boolean {
+  if (typeof window === "undefined") return true;
+  const key = "context-reader:guest-trial:fallback:v1";
+  const day = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Shanghai" }).format(new Date());
+  try {
+    const current = JSON.parse(window.localStorage.getItem(key) || "{}") as { day?: string; count?: number };
+    const count = current.day === day ? Number(current.count || 0) : 0;
+    if (count >= 10) return false;
+    window.localStorage.setItem(key, JSON.stringify({ day, count: count + 1 }));
+    return true;
+  } catch {
+    return true;
+  }
+}
+
 async function requestExplanation(
   context: WordContext,
   signal: AbortSignal,
+  actionId: string,
 ): Promise<WordExplanation> {
   const { response, data } = await fetchJson<{ explanation?: WordExplanation; error?: string }>("/api/explain-word", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "x-context-action-id": actionId,
     },
     body: JSON.stringify({
       word: context.word,
@@ -206,6 +224,7 @@ async function requestExplanationStream(
   context: WordContext,
   signal: AbortSignal,
   onChunk: (chunk: string) => void,
+  actionId: string,
 ): Promise<string> {
   let response: Response;
   try {
@@ -213,6 +232,7 @@ async function requestExplanationStream(
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "x-context-action-id": actionId,
       },
       body: JSON.stringify({
         word: context.word,
@@ -366,6 +386,7 @@ export function ReaderView({
   onJumpToVocabularySourceOutsideArticle,
   canJumpToVocabularySourceOutsideArticle,
 }: ReaderViewProps) {
+  const { account, openLogin, requireAccount, refreshAccount } = useAccount();
   const [currentArticle, setCurrentArticle] = useState(article);
   const [currentImportedArticle, setCurrentImportedArticle] = useState<ImportedArticle | null>(importedArticle ?? null);
   const [editingArticle, setEditingArticle] = useState(false);
@@ -954,6 +975,11 @@ export function ReaderView({
     tokenIds: string[],
     options: { force?: boolean; syncVocabulary?: boolean } = {},
   ) {
+    if (!account.authenticated && !account.configured && !consumeFallbackGuestLookup()) {
+      setError("今天的 10 次游客试用已用完；账号服务配置完成后即可登录继续。 ");
+      openLogin("游客每天可试用 10 次划词解释；登录后可继续查词并同步学习数据。");
+      return;
+    }
     const cacheKey = createExplanationCacheKey(context.word, context.sentence);
 
     setSelectedTokenIds(tokenIds);
@@ -972,6 +998,19 @@ export function ReaderView({
 
     const cached = options.force ? null : getCachedExplanation(cacheKey);
     if (cached) {
+      if (!account.authenticated) {
+        const cachedUsageResponse = await fetch("/api/usage/cache-lookup", {
+          method: "POST",
+          headers: { "x-context-action-id": crypto.randomUUID() },
+        });
+        const cachedUsage = await cachedUsageResponse.json().catch(() => null) as { error?: string } | null;
+        if (!cachedUsageResponse.ok) {
+          setError(cachedUsage?.error || "游客试用额度记录失败，请登录后继续。");
+          openLogin("游客每天可试用 10 次划词解释；登录后可继续阅读并同步学习数据。");
+          return;
+        }
+        void refreshAccount();
+      }
       setExplanation(cached);
       setExplanationStreamText(explanationAsStreamText(cached));
       setExplanationStreaming(false);
@@ -980,6 +1019,7 @@ export function ReaderView({
     }
 
     const controller = new AbortController();
+    const actionId = crypto.randomUUID();
     abortRef.current = controller;
     activeExplanationKeyRef.current = cacheKey;
     setLoading(true);
@@ -991,11 +1031,11 @@ export function ReaderView({
       if (!controller.signal.aborted) {
         setExplanationStreamText((current) => `${current}${chunk}`);
       }
-    }).catch(() => "");
+    }, actionId).catch(() => "");
 
     try {
       const [structuredExplanation, completedStreamText] = await Promise.all([
-        requestExplanation(context, controller.signal),
+        requestExplanation(context, controller.signal, actionId),
         streamPromise,
       ]);
       const nextExplanation = completedStreamText
@@ -1008,13 +1048,17 @@ export function ReaderView({
       setExplanationStreamText(durableDisplayText);
       setExplanationStreaming(false);
       if (options.syncVocabulary) {
-        setVocabularyEntries(replaceMatchingVocabularyEntry(nextExplanation, context));
+        if (account.authenticated) setVocabularyEntries(replaceMatchingVocabularyEntry(nextExplanation, context));
       }
+      void refreshAccount();
     } catch (requestError) {
       if (controller.signal.aborted) {
         return;
       }
       setError(requestError instanceof Error ? requestError.message : "解释失败，请稍后重试。");
+      if (!account.authenticated && requestError instanceof Error && /登录|游客|额度/.test(requestError.message)) {
+        openLogin("游客试用额度已用完，登录后可继续查词并跨设备同步学习数据。");
+      }
     } finally {
       if (!controller.signal.aborted) {
         setExplanationStreaming(false);
@@ -1027,6 +1071,7 @@ export function ReaderView({
   }
 
   function generateArticleTranslation(force = false) {
+    if (!requireAccount("全文翻译需要登录；公开推荐文章中管理员预先发布的翻译仍可直接查看。")) return;
     if ((!force && translationLoading) || translationBlocks.length === 0) {
       return;
     }
@@ -1315,6 +1360,7 @@ export function ReaderView({
   }
 
   function handleAddToVocabulary() {
+    if (!requireAccount("登录后才能把词条加入生词本并跨设备同步。")) return;
     if (!explanation || !selectedContext) {
       return;
     }
@@ -1328,6 +1374,7 @@ export function ReaderView({
   }
 
   function handleOpenVocabulary() {
+    if (!requireAccount("登录后才能使用生词本。")) return;
     setVocabularyEntries(getVocabularyEntries());
     setImportError("");
     setAnkiStatus("");
@@ -1825,6 +1872,7 @@ export function ReaderView({
   }
 
   async function handleSaveArticle() {
+    if (!requireAccount("登录后才能保存文章；登录时会先合并本机已有数据。")) return;
     setSavingArticle(true);
     setSaveStatus("正在生成中文摘要...");
     try {

@@ -11,6 +11,7 @@ import {
 } from "react";
 import type { SavedArticle } from "@/types/article";
 import type { PublicArticle } from "@/types/publicArticle";
+import { AccountNav } from "@/components/AccountProvider";
 
 type InputMode = "paste" | "url";
 type Scene = "word" | "phrase" | "articles" | "final";
@@ -757,6 +758,7 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
           <button type="button" onClick={() => goTo("articles")}><RollingLabel>推荐文章</RollingLabel></button>
           <Link href="/guide"><RollingLabel>使用说明</RollingLabel></Link>
           <button className="cr-nav-primary" type="button" onClick={props.onOpenVocabulary}><RollingLabel>{`打开生词本${props.vocabularyCount ? ` · ${props.vocabularyCount}` : ""}`}</RollingLabel></button>
+          <AccountNav />
         </nav>
       </header>
 

@@ -33,6 +33,8 @@ const DAY = 24 * 60 * MINUTE;
 
 const COSTLY_ROUTE_RULES: Array<[RegExp, RateRule[]]> = [
   [/^\/api\/admin\/login$/, [{ bucket: "admin-login", limit: 5, windowMs: 15 * MINUTE }]],
+  [/^\/api\/auth\/request-otp$/, [{ bucket: "auth-otp", limit: 5, windowMs: 15 * MINUTE }]],
+  [/^\/api\/auth\/verify-otp$/, [{ bucket: "auth-verify", limit: 10, windowMs: 15 * MINUTE }]],
   [/^\/api\/explain-word(?:-stream)?$/, [{ bucket: "ai-explain", limit: 20, windowMs: MINUTE }]],
   [/^\/api\/ask-sentence$/, [{ bucket: "ai-question", limit: 10, windowMs: MINUTE }]],
   [/^\/api\/summarize-article$/, [{ bucket: "ai-summary", limit: 6, windowMs: MINUTE }]],
@@ -97,6 +99,9 @@ function maxRequestBytes(pathname: string): number {
     return 9 * 1024 * 1024;
   }
   if (pathname === "/api/admin/public-articles") {
+    return 8 * 1024 * 1024;
+  }
+  if (pathname === "/api/account/sync") {
     return 8 * 1024 * 1024;
   }
   if (pathname === "/api/translate-article") {

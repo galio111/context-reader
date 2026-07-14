@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import type { ExplanationRequest } from "@/types/reader";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { acquireCostSlot } from "@/lib/costConcurrency";
+import { finishUsage, recordUsageExecution } from "@/lib/accountStore";
+import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
+import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
@@ -16,6 +19,7 @@ interface DeepSeekStreamChunk {
       content?: string | null;
     };
   }>;
+  usage?: ProviderTokenUsage;
 }
 
 function trimField(value: string): string {
@@ -42,7 +46,7 @@ function isValidRequestBody(body: unknown): body is ExplanationRequest {
   );
 }
 
-function parseSseContent(line: string): string {
+function parseSseContent(line: string, onUsage?: (usage: ProviderTokenUsage) => void): string {
   if (!line.startsWith("data:")) {
     return "";
   }
@@ -54,6 +58,7 @@ function parseSseContent(line: string): string {
 
   try {
     const parsed = JSON.parse(payload) as DeepSeekStreamChunk;
+    if (parsed.usage) onUsage?.(parsed.usage);
     return parsed.choices?.[0]?.delta?.content ?? "";
   } catch {
     return "";
@@ -62,6 +67,7 @@ function parseSseContent(line: string): string {
 
 export async function POST(request: Request) {
   let body: unknown;
+  let actionId = "";
 
   try {
     body = await readJsonBody(request, 16 * 1024);
@@ -77,6 +83,17 @@ export async function POST(request: Request) {
       { error: "请求缺少 word、sentence、previousSentence 或 nextSentence，或 word 格式不正确。" },
       { status: 400 },
     );
+  }
+
+  try {
+    const usage = await gateUsage(request, {
+      feature: "word_explanation",
+      metricKey: "lookup_generation",
+      units: 1,
+    });
+    actionId = usage.actionId;
+  } catch (error) {
+    return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
   }
 
   const apiKey = process.env.DEEPSEEK_API_KEY;
@@ -109,6 +126,7 @@ export async function POST(request: Request) {
         temperature: 0,
         max_tokens: 900,
         stream: true,
+        stream_options: { include_usage: true },
         thinking: {
           type: "disabled",
         },
@@ -145,6 +163,8 @@ export async function POST(request: Request) {
         const decoder = new TextDecoder();
         const encoder = new TextEncoder();
         let buffer = "";
+        let providerUsage: ProviderTokenUsage = {};
+        const captureUsage = (usage: ProviderTokenUsage) => { providerUsage = usage; };
 
         try {
           while (true) {
@@ -158,17 +178,30 @@ export async function POST(request: Request) {
             buffer = lines.pop() ?? "";
 
             for (const line of lines) {
-              const content = parseSseContent(line);
+              const content = parseSseContent(line, captureUsage);
               if (content) {
                 controller.enqueue(encoder.encode(content));
               }
             }
           }
 
-          const tail = parseSseContent(buffer);
+          const tail = parseSseContent(buffer, captureUsage);
           if (tail) {
             controller.enqueue(encoder.encode(tail));
           }
+          await recordUsageExecution({
+            actionId,
+            route: "/api/explain-word-stream",
+            provider: "deepseek",
+            model,
+            promptTokens: providerUsage.prompt_tokens,
+            promptCacheHitTokens: providerUsage.prompt_cache_hit_tokens,
+            promptCacheMissTokens: providerUsage.prompt_cache_miss_tokens,
+            completionTokens: providerUsage.completion_tokens,
+            estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, providerUsage),
+            status: "succeeded",
+          }).catch(() => undefined);
+          await finishUsage(actionId, "succeeded").catch(() => undefined);
           controller.close();
         } catch {
           controller.close();

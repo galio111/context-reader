@@ -4,6 +4,8 @@
 
 Context Reader is a Next.js 15 / React 19 app for Chinese-speaking learners reading real English articles. Reading flow is primary; lookup, translation, vocabulary, and Anki are supporting tools. The fixed production URL is `https://context-reader-ten.vercel.app`.
 
+Accounts use server-side Supabase email OTP with HttpOnly cookies. Guests receive 10 word/phrase lookups per Shanghai day; cached guest lookups count, while registered cache hits and failed/cancelled work do not. Save/vocabulary/Anki/private translation/summary/OCR require login; admin-prepublished translations stay public. Structured and streaming lookup requests share one idempotent usage action while recording both upstream executions. Cloud sync is authoritative but must preserve local data through object versions and recovery copies. Quotas and provisional plans are managed at `/admin/accounts`; payment is not connected. Apply `docs/account-usage-supabase.sql` and configure Supabase/Vercel secrets before treating accounts as active.
+
 ## Commands
 
 ```powershell

@@ -8,6 +8,8 @@ import {
 } from "@/lib/safeRemoteFetch";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { CostCapacityError, withCostSlot } from "@/lib/costConcurrency";
+import { finishUsage, refundUsage } from "@/lib/accountStore";
+import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 
 const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
 const IMAGE_OCR_ENABLED = true;
@@ -49,6 +51,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "只支持 http 或 https 图片链接。" }, { status: 400 });
   }
 
+  let actionId = "";
+  try {
+    actionId = (await gateUsage(request, {
+      feature: "article_image_ocr",
+      metricKey: "deep_reading",
+      units: 5,
+      loginRequired: true,
+    })).actionId;
+  } catch (error) {
+    return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
+  }
+
   try {
     const imageResponse = await safeRemoteFetch(imageUrl, {
       headers: {
@@ -78,8 +92,10 @@ export async function POST(request: Request) {
       mode: "article-image",
     }));
 
+    await finishUsage(actionId, "succeeded").catch(() => undefined);
     return NextResponse.json({ text });
   } catch (error) {
+    await refundUsage(actionId, "failed", error instanceof Error ? error.name : "ocr_failed").catch(() => undefined);
     if (error instanceof CostCapacityError) {
       return NextResponse.json({ error: "OCR 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
     }

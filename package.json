@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.110.4",
     "@tanstack/react-virtual": "^3.13.12",
     "@vercel/functions": "^3.7.5",
     "lz-string": "^1.5.0",

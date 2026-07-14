@@ -8,6 +8,9 @@ import {
 import type { ExplanationRequest } from "@/types/reader";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { acquireCostSlot } from "@/lib/costConcurrency";
+import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
+import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
+import { estimateDeepSeekCostMicrousd } from "@/lib/usageCost";
 
 export const maxDuration = 60;
 
@@ -26,6 +29,7 @@ function isValidRequestBody(body: unknown): body is ExplanationRequest {
 
 export async function POST(request: Request) {
   let body: unknown;
+  let actionId = "";
 
   try {
     body = await readJsonBody(request, 16 * 1024);
@@ -43,16 +47,42 @@ export async function POST(request: Request) {
     );
   }
 
+  try {
+    const usage = await gateUsage(request, {
+      feature: "word_explanation",
+      metricKey: "lookup_generation",
+      units: 1,
+    });
+    actionId = usage.actionId;
+  } catch (error) {
+    return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
+  }
+
   const releaseSlot = acquireCostSlot("ai", 8);
   if (!releaseSlot) {
+    await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
     return NextResponse.json({ error: "AI 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
   }
 
   try {
     const safeRequest = sanitizeExplanationRequest(body);
-    const explanation = await explainWordWithDeepSeek(safeRequest);
-    return NextResponse.json({ explanation });
+    const result = await explainWordWithDeepSeek(safeRequest);
+    await recordUsageExecution({
+      actionId,
+      route: "/api/explain-word",
+      provider: result.provider,
+      model: result.model,
+      promptTokens: result.usage.prompt_tokens,
+      promptCacheHitTokens: result.usage.prompt_cache_hit_tokens,
+      promptCacheMissTokens: result.usage.prompt_cache_miss_tokens,
+      completionTokens: result.usage.completion_tokens,
+      estimatedCostMicrousd: estimateDeepSeekCostMicrousd(result.model, result.usage),
+      status: "succeeded",
+    }).catch(() => undefined);
+    await finishUsage(actionId, "succeeded").catch(() => undefined);
+    return NextResponse.json({ explanation: result.explanation });
   } catch (error) {
+    await refundUsage(actionId, "failed", error instanceof Error ? error.name : "unknown").catch(() => undefined);
     if (error instanceof MissingDeepSeekEnvError) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }

@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { acquireCostSlot } from "@/lib/costConcurrency";
+import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
+import { deepReadingUnits, gateUsage, usageErrorResponse } from "@/lib/usageGate";
+import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const MAX_ARTICLE_CHARS = 6000;
@@ -19,6 +22,7 @@ interface DeepSeekSummaryResponse {
   error?: {
     message?: string;
   };
+  usage?: ProviderTokenUsage;
 }
 
 function trimSummaryLength(value: string): string {
@@ -52,6 +56,8 @@ function userFriendlyDeepSeekError(message = ""): string {
 }
 
 export async function POST(request: Request) {
+  let actionId = "";
+  let usageSucceeded = false;
   let body: { article?: unknown } | null;
   try {
     body = await readJsonBody(request, 128 * 1024);
@@ -67,16 +73,30 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "缺少文章内容，无法生成摘要。" }, { status: 400 });
   }
 
+
+  try {
+    actionId = (await gateUsage(request, {
+      feature: "article_summary",
+      metricKey: "deep_reading",
+      units: deepReadingUnits(article.length, 2),
+      loginRequired: true,
+    })).actionId;
+  } catch (error) {
+    return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
+  }
+
   const apiKey = process.env.DEEPSEEK_API_KEY;
   const baseURL = process.env.DEEPSEEK_BASE_URL ?? "https://api.deepseek.com";
   const model = process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL;
 
   if (!apiKey) {
+    await refundUsage(actionId, "failed", "missing_api_key").catch(() => undefined);
     return NextResponse.json({ error: "缺少 DeepSeek API Key，无法生成文章中文摘要。" }, { status: 500 });
   }
 
   const releaseSlot = acquireCostSlot("ai", 8);
   if (!releaseSlot) {
+    await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
     return NextResponse.json({ error: "AI 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
   }
 
@@ -130,6 +150,9 @@ export async function POST(request: Request) {
       );
     }
 
+    usageSucceeded = true;
+    await recordUsageExecution({ actionId, route: "/api/summarize-article", provider: "deepseek", model, promptTokens: data?.usage?.prompt_tokens, promptCacheHitTokens: data?.usage?.prompt_cache_hit_tokens, promptCacheMissTokens: data?.usage?.prompt_cache_miss_tokens, completionTokens: data?.usage?.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, data?.usage ?? {}), status: "succeeded" }).catch(() => undefined);
+    await finishUsage(actionId, "succeeded").catch(() => undefined);
     return NextResponse.json({ summary });
   } catch (error) {
     const message = error instanceof Error && error.name === "AbortError"
@@ -137,6 +160,9 @@ export async function POST(request: Request) {
       : "生成文章摘要失败，请检查网络和 DeepSeek 配置。";
     return NextResponse.json({ error: message }, { status: 502 });
   } finally {
+    if (!usageSucceeded) {
+      await refundUsage(actionId, "failed", "summary_failed").catch(() => undefined);
+    }
     clearTimeout(timeoutId);
     request.signal.removeEventListener("abort", abortFromClient);
     releaseSlot();

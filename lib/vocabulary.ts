@@ -3,6 +3,7 @@ import { findSimilarVocabularyEntry, vocabularyWordsMatch } from "@/lib/sourceMa
 import LZString from "lz-string";
 import type { WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry } from "@/types/vocabulary";
+import { notifyAccountDataChanged } from "@/lib/accountEvents";
 
 const VOCABULARY_KEY = "context-reader:vocabulary:v1";
 const COMPRESSED_VOCABULARY_PREFIX = "lz-utf16:";
@@ -113,6 +114,7 @@ export function saveVocabularyEntries(entries: VocabularyEntry[]): void {
     VOCABULARY_KEY,
     `${COMPRESSED_VOCABULARY_PREFIX}${LZString.compressToUTF16(serialized)}`,
   );
+  notifyAccountDataChanged();
 }
 
 export function createVocabularyEntry(

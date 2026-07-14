@@ -6,6 +6,7 @@ import type {
   ImportedImageLayoutWord,
   SavedArticle,
 } from "@/types/article";
+import { notifyAccountDataChanged } from "@/lib/accountEvents";
 
 const ARTICLES_KEY = "context-reader:articles:v1";
 const GENERIC_SUMMARY = "这是一篇已保存的英文阅读文章。";
@@ -233,6 +234,7 @@ export function saveArticles(articles: SavedArticle[]): void {
     return;
   }
   storage.setItem(ARTICLES_KEY, JSON.stringify(articles));
+  notifyAccountDataChanged();
 }
 
 export function articleIdentity(article: string): string {
