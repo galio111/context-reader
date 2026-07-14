@@ -317,12 +317,12 @@ begin
     return;
   end if;
 
-  update public.usage_counters
-  set used_units = used_units + greatest(p_units, 0), updated_at = now()
-  where owner_key = p_owner_key
-    and metric_key = p_metric_key
-    and window_start = v_window_start
-  returning usage_counters.used_units into v_current;
+  update public.usage_counters as uc
+  set used_units = uc.used_units + greatest(p_units, 0), updated_at = now()
+  where uc.owner_key = p_owner_key
+    and uc.metric_key = p_metric_key
+    and uc.window_start = v_window_start
+  returning uc.used_units into v_current;
 
   insert into public.usage_actions (
     id, owner_key, user_id, guest_id, plan_id, feature, metric_key, quota_units, counter_window_start
