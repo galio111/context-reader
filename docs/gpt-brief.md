@@ -422,6 +422,8 @@ Cloze 卡强规则：
 - 由 Supabase 存储。
 - 首页推荐列表必须由 server render 加载并传给 client 作为 initial data。
 - 不应只在 mount 后 client fetch，否则返回首页时会出现推荐区域短暂为空。
+- 新推荐先保存为 `public_articles.published=false` 的候选；难度、人群、主题、时长、时效和封面信息放在 `imported_article.recommendation`。
+- 推荐封面是发布必需项；正文内图片可选，URL 原文有有效配图时要保留。
 
 当前生产首页已经接入沉浸式阅读教学结构：首屏直接提供文章/网址入口、可点击句子和顶部已保存文章菜单，第二屏用 sticky 场景演示并练习横向划选短语，第三屏锁定且只展示推荐文章，第四屏提供粘贴、网址和图片阅读入口；桌面端滚轮在场景边界向下或向上滚动时，都会加速并锁定到相邻屏，上滑会落在上一场景的最后一个完整视口，移动端仍保持普通纵向滚动；顶部仍可进入 `/guide` 与生词本。历史静态 mockup 保留为设计参考，不再代表等待选择的未实现方案：
 
@@ -457,13 +459,17 @@ Supabase 表：
 Admin 功能：
 
 - 使用 `ADMIN_PASSWORD` 登录。
-- 从当前浏览器本地 saved articles 中选择文章发布。
-- 支持 batch publishing，但必须是选择具体本地文章后只发布所选项。
+- 粘贴文章与输入 URL 是同级入口；URL 导入会保留有效正文图片，并返回可选封面候选。
+- 自动判断适合中国学习者的难度、CEFR 参考、人群、兴趣主题、阅读时间和时效属性，结果可以手动修改。
+- 没有封面可以保存候选，但会进入“缺少封面”提醒且不能发布。
+- 支持候选 batch publishing，但必须是选择具体且封面完备的候选后只发布所选项。
 - 重新发布已公开文章时，应 merge/update 预缓存解释和全文翻译，而不是创建重复推荐。
 - 管理员可以删除公开推荐。
 - 发布文章时应上传匹配的本地 word explanation cache。
 - 发布文章时应上传匹配的本地 full-article translation cache。
 - 访客打开公开推荐文章时，返回的 translation caches 应先写入浏览器 localStorage，再进入 reader。
+- `article-covers` 上传使用 Supabase Storage 的公开 `public-article-covers` bucket，不调用 OCR。
+- 自动来源抓取和定时任务尚未实现，不能描述成已经运行。
 
 非常重要的维护规则：
 

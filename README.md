@@ -21,7 +21,7 @@ Production URL: `https://context-reader-ten.vercel.app`
 - Save vocabulary entries as compressed `localStorage` data with transparent compatibility for existing uncompressed notebooks.
 - Play US and UK word pronunciations in the explanation panel and vocabulary notebook using browser speech synthesis.
 - Keep the vocabulary notebook compact with virtualized, content-height word cards instead of manual expand controls.
-- Publish local saved articles to a public recommendation list from `/admin`.
+- Add recommendation candidates from pasted articles or public URLs in `/admin`, automatically classify them for Chinese learners, require a reviewed cover image, and publish only selected ready candidates.
 - Preload cached explanations and full-article translations for public recommended articles.
 - Server-render the homepage recommendation list so recommendations are visible on first paint, then prefetch visible recommendation details so opening one feels close to reopening a local saved article.
 - Use an immersive four-screen homepage that teaches click-to-explain and horizontal phrase selection, keeps the third screen exclusively for server-rendered recommendations, accelerates and locks desktop wheel navigation into the adjacent screen in both directions at scene boundaries, and keeps paste/URL plus the saved-article top menu available on the first screen. Long pasted text can expand into a desktop hover/focus preview, while returning from an article skips the first-visit loader and restores the homepage with both demonstrations complete.
@@ -121,7 +121,7 @@ Word explanation cache entries are durable browser data. On a cache miss, the co
 - `/api/translate-article` translates article text blocks into Chinese for the reading view's full-article translation sidebar.
 - `/api/ask-sentence` answers follow-up questions about the selected sentence.
 - `/api/summarize-article` creates a short Chinese summary for saved article lists.
-- `/api/import-url` imports public HTML articles into structured reading blocks.
+- `/api/import-url` imports public HTML articles into structured reading blocks and returns description plus cover-image candidates when available.
 - `/api/ocr-image` extracts text from an uploaded image up to 8MB.
 - `/api/ocr-image-layout` detects clickable word boxes from an uploaded image, data URL, or remote image URL.
 - `/api/ocr-image-url` extracts text from a remote image URL; automatic calls for imported article images remain disabled in the reader.
@@ -132,12 +132,14 @@ Word explanation cache entries are durable browser data. On a cache miss, the co
 - `/api/auth/*` registers and signs in phone + numeric-password accounts, keeps legacy email OTP/hosted-login compatibility, reads the current session, and logs out through server-managed HttpOnly cookies.
 - `/api/account/sync` reads and compare-and-swap merges versioned learning objects; `/api/account/export` downloads account data and recent usage actions; `/api/account/vocabulary-repair` performs an authenticated, idempotent cleanup of historical duplicate vocabulary rows.
 - `/api/usage/cache-lookup` charges cached guest lookups while leaving registered cache hits free.
-- `/api/admin/*` handles administrator login, publishing, account/plan management, and quota controls. Writes require the admin session cookie.
+- `/api/admin/article-classification` assigns a Chinese learner difficulty, CEFR reference, audience stages, interest topics, reading time, timeliness, and Chinese summary; it falls back to local readability rules if DeepSeek is unavailable.
+- `/api/admin/article-candidates` saves `published=false` candidates, lists them, batch-publishes selected ready candidates, and deletes drafts. `/api/admin/article-covers` uploads reviewed cover files to the public Supabase Storage bucket.
+- `/api/admin/*` handles administrator login, candidate review/publishing, account/plan management, and quota controls. Writes require the admin session cookie.
 - `/account/usage` is the member usage view; `/account/repair-vocabulary` runs the signed-in vocabulary repair; `/admin` combines public recommendations with the administrator account and quota console.
 
 ## Public Recommendations
 
-Open `/admin`, enter `ADMIN_PASSWORD`, and publish articles already saved in the current browser. The admin page can publish one article, publish only selected local articles in a batch, merge cached explanations and full-article translations into an already public article, and delete public recommendations. The publish action uploads the article and any matching cached explanations and full-article translations from `localStorage` to Supabase.
+Open `/admin`, enter `ADMIN_PASSWORD`, then choose either paste or URL intake. URL intake keeps meaningful inline images, proposes available article images as covers, and automatically classifies the article before review. Both modes can save an incomplete candidate, but publishing requires a cover. Candidate rows reuse `public_articles` with `published=false`; classification and cover metadata are stored in `imported_article.recommendation`, so the public table needs no destructive migration. Selected ready candidates can be published in a batch. Publishing a candidate that matches an existing public source updates that article instead of creating a duplicate, while cached explanations and full-article translations continue to merge through the existing public-article path. Automatic source crawling and scheduling are not implemented yet.
 
 Visitors do not need to log in. They can open public recommended articles from the homepage. The recommendation list is fetched during the server render, so it should appear immediately when the homepage loads. If the service worker has cached the app and public article API responses, those pages can reopen offline. Previously cached explanations and full translations can reopen from local browser data. New AI explanations, new full-article translations, URL imports, image OCR, and new summaries still require network access.
 

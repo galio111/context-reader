@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import AdminAccountsPanel from "@/components/AdminAccountsPanel";
+import AdminArticleIntakePanel from "@/components/AdminArticleIntakePanel";
 import { getSavedArticles } from "@/lib/articles";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import {
@@ -130,8 +131,8 @@ export default function AdminPage() {
     setSelectedArticleIds((ids) => (ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id]));
   }
 
-  function selectUnpublishedArticles(): void {
-    setSelectedArticleIds(articles.filter((article) => !isPublished(article)).map((article) => article.id));
+  function selectPublishedArticles(): void {
+    setSelectedArticleIds(articles.filter((article) => isPublished(article)).map((article) => article.id));
   }
 
   const articleStats = useMemo(
@@ -181,6 +182,15 @@ export default function AdminPage() {
   }
 
   async function handlePublish(article: SavedArticle) {
+    const existingPublicArticle = publicArticles.find((item) => publicArticleKey(item) === savedArticleKey(article));
+    if (!existingPublicArticle) {
+      setStatus("新的推荐文章必须先通过上方的候选流程补齐分类和封面。");
+      return;
+    }
+    if (!existingPublicArticle.recommendation?.coverImageUrl?.trim()) {
+      setStatus("这篇公开文章还缺少推荐封面，请通过上方 URL 或粘贴入口重新整理并补充封面。");
+      return;
+    }
     setPublishingId(article.id);
     setStatus("");
     setPublishedArticle(null);
@@ -197,6 +207,7 @@ export default function AdminPage() {
         sourceUrl: article.importedArticle?.url || "",
         sourceName: article.importedArticle?.siteName || "",
         importedArticle: article.importedArticle ?? null,
+        recommendation: existingPublicArticle.recommendation,
         explanations,
         articleTranslations,
       }),
@@ -232,6 +243,13 @@ export default function AdminPage() {
       setPublishingId(article.id);
       const explanations = explanationsForArticle(article);
       const articleTranslations = articleTranslationsForArticle(article);
+      const existingPublicArticle = publicArticles.find((item) => publicArticleKey(item) === savedArticleKey(article));
+      if (!existingPublicArticle?.recommendation?.coverImageUrl?.trim()) {
+        setStatus(`批量更新中断：《${article.title}》尚未补齐推荐封面。`);
+        setPublishingId("");
+        setBatchPublishing(false);
+        return;
+      }
       const response = await fetch("/api/admin/public-articles", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -242,6 +260,7 @@ export default function AdminPage() {
           sourceUrl: article.importedArticle?.url || "",
           sourceName: article.importedArticle?.siteName || "",
           importedArticle: article.importedArticle ?? null,
+          recommendation: existingPublicArticle.recommendation,
           explanations,
           articleTranslations,
         }),
@@ -392,7 +411,11 @@ export default function AdminPage() {
           </p>
         )}
 
-        <section className="mt-6 rounded-[18px] bg-white p-5">
+        <div className="mt-6">
+          <AdminArticleIntakePanel onPublished={loadPublicArticles} />
+        </div>
+
+        <section className="mt-6 rounded-2xl bg-white p-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="text-[21px] font-semibold">已公开推荐</h2>
@@ -415,7 +438,12 @@ export default function AdminPage() {
               {publicArticles.map((article) => (
                 <li key={article.id} className="flex flex-col gap-3 rounded-[16px] border border-[#e0e0e0] p-4 sm:flex-row sm:items-start sm:justify-between">
                   <div className="min-w-0">
-                    <h3 className="text-base font-semibold leading-6">{article.title}</h3>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-base font-semibold leading-6">{article.title}</h3>
+                      <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${article.recommendation?.coverImageUrl ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>
+                        {article.recommendation?.coverImageUrl ? "封面已准备" : "缺少封面"}
+                      </span>
+                    </div>
                     <p className="mt-1 text-sm leading-5 text-[#333333]">{article.summary || "暂无摘要"}</p>
                     <p className="mt-1 break-all text-xs leading-5 text-[#7a7a7a]">ID：{article.id}</p>
                   </div>
@@ -446,7 +474,7 @@ export default function AdminPage() {
             <div>
               <h2 className="text-[21px] font-semibold">本地保存文章</h2>
               <p className="mt-1 text-sm leading-6 text-[#333333]">
-                已公开的文章会显示状态；重复点击发布只会更新预缓存解释，不会再创建重复文章。
+                这里用于更新已公开文章的解释与全文翻译缓存；新的推荐文章请先通过候选流程补齐封面。
               </p>
             </div>
             <button
@@ -455,16 +483,16 @@ export default function AdminPage() {
               disabled={batchPublishing || selectedArticleIds.length === 0}
               onClick={handleBatchPublish}
             >
-              {batchPublishing ? "批量发布中..." : `发布选中 (${selectedArticleIds.length})`}
+              {batchPublishing ? "批量更新中..." : `更新选中预缓存 (${selectedArticleIds.length})`}
             </button>
           </section>
           <div className="mt-3 flex flex-wrap gap-2">
             <button
               className="h-9 rounded-full border border-[#0066cc] px-4 text-sm text-[#0066cc]"
               type="button"
-              onClick={selectUnpublishedArticles}
+              onClick={selectPublishedArticles}
             >
-              选择未公开
+              选择已公开
             </button>
             <button
               className="h-9 rounded-full border border-[#e0e0e0] px-4 text-sm text-[#333333]"
@@ -509,10 +537,10 @@ export default function AdminPage() {
                     <button
                       className="h-10 shrink-0 rounded-full bg-[#0066cc] px-5 text-sm text-white disabled:bg-[#d2d2d7]"
                       type="button"
-                      disabled={publishingId === article.id || batchPublishing}
+                      disabled={publishingId === article.id || batchPublishing || !published}
                       onClick={() => handlePublish(article)}
                     >
-                      {publishingId === article.id ? "发布中..." : published ? "更新预缓存" : "发布为公开推荐"}
+                      {publishingId === article.id ? "更新中..." : published ? "更新预缓存" : "请先加入候选"}
                     </button>
                   </div>
                 </li>

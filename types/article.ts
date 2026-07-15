@@ -52,6 +52,7 @@ export interface ImportedArticle {
   text: string;
   blocks: ImportedArticleBlock[];
   style?: ArticleReadingStyle;
+  recommendation?: import("@/types/publicArticle").ArticleRecommendationMetadata;
 }
 
 export interface SavedArticle {

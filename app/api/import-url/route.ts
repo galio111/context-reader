@@ -62,6 +62,17 @@ function getAttribute(tag: string, name: string): string {
   return decodeHtml(match?.[2] ?? match?.[3] ?? match?.[4] ?? "").trim();
 }
 
+function metaContent(html: string, key: string): string {
+  for (const match of html.matchAll(/<meta\b[^>]*>/gi)) {
+    const tag = match[0] ?? "";
+    const name = getAttribute(tag, "property") || getAttribute(tag, "name");
+    if (name.toLowerCase() === key.toLowerCase()) {
+      return getAttribute(tag, "content");
+    }
+  }
+  return "";
+}
+
 function imageCandidateFromSrcset(srcset: string): string {
   const candidates = srcset
     .split(",")
@@ -96,16 +107,27 @@ function stripNoise(html: string): string {
 
 function metadata(html: string, baseUrl: string) {
   const title =
-    getAttribute(html.match(/<meta[^>]+property=["']og:title["'][^>]*>/i)?.[0] ?? "", "content") ||
-    getAttribute(html.match(/<meta[^>]+name=["']twitter:title["'][^>]*>/i)?.[0] ?? "", "content") ||
+    metaContent(html, "og:title") ||
+    metaContent(html, "twitter:title") ||
     cleanText(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "");
   const siteName =
-    getAttribute(html.match(/<meta[^>]+property=["']og:site_name["'][^>]*>/i)?.[0] ?? "", "content") ||
+    metaContent(html, "og:site_name") ||
     new URL(baseUrl).hostname.replace(/^www\./, "");
+  const description = metaContent(html, "og:description") || metaContent(html, "description") || metaContent(html, "twitter:description");
+  const coverCandidates = [
+    metaContent(html, "og:image"),
+    metaContent(html, "og:image:secure_url"),
+    metaContent(html, "twitter:image"),
+    metaContent(html, "twitter:image:src"),
+  ]
+    .map((value) => absoluteUrl(value, baseUrl))
+    .filter((value, index, values) => value && values.indexOf(value) === index);
 
   return {
     title: title || "Imported Article",
     siteName,
+    description,
+    coverCandidates,
   };
 }
 
@@ -449,7 +471,18 @@ export async function POST(request: Request) {
       blocks,
     };
 
-    return NextResponse.json({ article: importedArticle });
+    const coverCandidates = [
+      ...meta.coverCandidates,
+      ...blocks.filter((block) => block.type === "image" && block.src).map((block) => block.src as string),
+    ].filter((value, index, values) => value && values.indexOf(value) === index).slice(0, 8);
+
+    return NextResponse.json({
+      article: importedArticle,
+      metadata: {
+        description: meta.description,
+        coverCandidates,
+      },
+    });
   } catch (error) {
     if (error instanceof UnsafeRemoteUrlError) {
       return NextResponse.json({ error: "该网址指向受保护的内部地址，无法导入。" }, { status: 400 });

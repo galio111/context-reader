@@ -61,14 +61,17 @@ The production database, secrets, Auth, and sync are active. Phone + password re
 
 Visitors read public recommendations directly from the homepage. The homepage receives the initial recommendation list from the server render, so it should not show an empty recommendation area while waiting for a browser-side fetch.
 
-Admins open `/admin`, log in with `ADMIN_PASSWORD`, then publish saved local articles to Supabase. The admin page supports:
+Admins open `/admin`, log in with `ADMIN_PASSWORD`, then build and review recommendation candidates. The admin page supports:
 
-- publishing a single local saved article,
-- selecting specific local articles and publishing only those,
+- equal paste and URL intake modes,
+- URL extraction of structured content, meaningful inline images, description, and cover candidates,
+- automatic Chinese-learner classification with an editable result,
+- saving incomplete candidates with `published=false`, while blocking publication until a cover is present,
+- selecting specific ready candidates and publishing only those,
 - merging cached explanations and full-article translation caches into an existing public article instead of duplicating it,
 - deleting public recommendations.
 
-`GET /api/public-articles` lists public articles. `GET /api/public-articles/[id]` returns one article with preloaded word explanations and full-article translation caches. Admin writes use `/api/admin/public-articles` and require the admin session cookie.
+`GET /api/public-articles` lists public articles. `GET /api/public-articles/[id]` returns one article with preloaded word explanations and full-article translation caches. `GET/POST/PATCH/DELETE /api/admin/article-candidates` manages the review queue, `POST /api/admin/article-classification` classifies content, and `POST /api/admin/article-covers` uploads cover files. Admin writes require the admin session cookie. Automatic crawling is not active yet.
 
 ## Offline Behavior
 
@@ -84,7 +87,7 @@ The production site is a PWA. After a browser opens the site online once, the ap
 }
 ```
 
-Returns an `article` object with `title`, `url`, `siteName`, plain `text`, and structured `blocks`. The importer removes high-confidence embedded page UI such as personalization, follow, account-preference, and alert prompts. A standalone advertisement label is also removed unless the article context is substantively about advertising. Text blocks may include optional `inline` segments; when present, segment `baseline` can be `sup` or `sub` so clients can render original upper/lower annotations while still using plain `text` for search and explanation context. Image blocks preserve source `width` and `height` when the page provides them, which lets the reader reserve image space before loading; they can also retain backward-compatible `ocrText`, `layoutWords`, and `layoutError` metadata, but the reader does not automatically OCR URL-imported images. The route works best on publicly accessible HTML pages. Login walls, strong anti-bot rules, and fully dynamic pages can fail.
+Returns an `article` object with `title`, `url`, `siteName`, plain `text`, and structured `blocks`, plus `metadata.description` and up to eight `metadata.coverCandidates`. Cover candidates prefer Open Graph and Twitter metadata, then meaningful article images. The importer removes high-confidence embedded page UI such as personalization, follow, account-preference, and alert prompts. A standalone advertisement label is also removed unless the article context is substantively about advertising. Text blocks may include optional `inline` segments; when present, segment `baseline` can be `sup` or `sub` so clients can render original upper/lower annotations while still using plain `text` for search and explanation context. Image blocks preserve source `width` and `height` when the page provides them, which lets the reader reserve image space before loading; they can also retain backward-compatible `ocrText`, `layoutWords`, and `layoutError` metadata, but the reader does not automatically OCR URL-imported images. The route works best on publicly accessible HTML pages. Login walls, strong anti-bot rules, and fully dynamic pages can fail.
 
 ## Full-Article Translation
 

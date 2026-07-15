@@ -13,6 +13,10 @@ create table if not exists public.public_articles (
   updated_at timestamptz not null default now()
 );
 
+-- Candidate recommendations reuse this table with published=false. Their cover,
+-- learner difficulty, audience, topics, reading time, timeliness, and source kind
+-- are stored inside imported_article.recommendation. Publishing requires a cover.
+
 create table if not exists public.public_explanations (
   id uuid primary key default gen_random_uuid(),
   article_id uuid not null references public.public_articles(id) on delete cascade,
