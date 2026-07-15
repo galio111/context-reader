@@ -30,7 +30,7 @@ export type ArticleCefrLevel = (typeof ARTICLE_CEFR_LEVELS)[number];
 export type ArticleAudienceStage = (typeof ARTICLE_AUDIENCE_STAGES)[number];
 export type ArticleTopic = (typeof ARTICLE_TOPICS)[number];
 export type ArticleTimeliness = "evergreen" | "time-sensitive";
-export type ArticleSourceKind = "manual-paste" | "manual-url" | "crawler";
+export type ArticleSourceKind = "manual-paste" | "manual-url" | "local-saved" | "crawler";
 
 export interface ArticleRecommendationMetadata {
   coverImageUrl: string;

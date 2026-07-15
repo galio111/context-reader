@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { ImportedArticle } from "@/types/article";
+import CandidateArticlePreview from "@/components/CandidateArticlePreview";
+import type { ImportedArticle, SavedArticle } from "@/types/article";
 import {
-  ARTICLE_AUDIENCE_STAGES,
-  ARTICLE_CEFR_LEVELS,
   ARTICLE_DIFFICULTIES,
   ARTICLE_TOPICS,
   type ArticleAudienceStage,
@@ -58,11 +57,12 @@ interface DraftState {
   classificationSource: "model" | "heuristic" | "manual";
   classifiedAt: string;
   reviewNotes: string;
-  sourceKind: "manual-paste" | "manual-url" | "crawler";
+  sourceKind: "manual-paste" | "manual-url" | "local-saved" | "crawler";
 }
 
 interface AdminArticleIntakePanelProps {
   onPublished?: () => void | Promise<void>;
+  savedArticles: SavedArticle[];
 }
 
 const EMPTY_DRAFT: DraftState = {
@@ -161,13 +161,52 @@ function draftFromCandidate(article: PublicArticle): DraftState {
     reviewNotes: recommendation?.reviewNotes ?? "",
     sourceKind: recommendation?.sourceKind === "crawler"
       ? "crawler"
-      : recommendation?.sourceKind === "manual-url" ? "manual-url" : "manual-paste",
+      : recommendation?.sourceKind === "local-saved"
+        ? "local-saved"
+        : recommendation?.sourceKind === "manual-url" ? "manual-url" : "manual-paste",
   };
 }
 
-export default function AdminArticleIntakePanel({ onPublished }: AdminArticleIntakePanelProps) {
-  const [mode, setMode] = useState<"paste" | "url">("paste");
+function draftFromSavedArticle(article: SavedArticle): DraftState {
+  const importedArticle = article.importedArticle ?? null;
+  const recommendation = importedArticle?.recommendation;
+  const coverCandidates = [
+    recommendation?.coverImageUrl ?? "",
+    ...(importedArticle?.blocks
+      .filter((block) => block.type === "image" && block.src)
+      .map((block) => block.src as string) ?? []),
+  ].filter((value, index, values) => value && values.indexOf(value) === index).slice(0, 8);
+
+  return {
+    ...EMPTY_DRAFT,
+    title: article.title,
+    summary: article.summary,
+    body: article.body,
+    sourceUrl: importedArticle?.url ?? "",
+    sourceName: importedArticle?.siteName ?? "",
+    importedArticle,
+    coverImageUrl: recommendation?.coverImageUrl ?? coverCandidates[0] ?? "",
+    coverImageAlt: recommendation?.coverImageAlt ?? article.title,
+    coverImageSourceUrl: recommendation?.coverImageSourceUrl ?? importedArticle?.url ?? "",
+    coverImageCredit: recommendation?.coverImageCredit ?? "",
+    coverCandidates,
+    difficulty: recommendation?.difficulty ?? EMPTY_DRAFT.difficulty,
+    cefr: recommendation?.cefr ?? EMPTY_DRAFT.cefr,
+    audienceStages: recommendation?.audienceStages ?? EMPTY_DRAFT.audienceStages,
+    topics: recommendation?.topics ?? EMPTY_DRAFT.topics,
+    readingMinutes: recommendation?.readingMinutes ?? Math.max(1, Math.ceil(article.body.split(/\s+/).length / 180)),
+    timeliness: recommendation?.timeliness ?? "evergreen",
+    classificationSource: recommendation?.classificationSource ?? "manual",
+    classifiedAt: recommendation?.classifiedAt ?? "",
+    reviewNotes: recommendation?.reviewNotes ?? "",
+    sourceKind: "local-saved",
+  };
+}
+
+export default function AdminArticleIntakePanel({ onPublished, savedArticles }: AdminArticleIntakePanelProps) {
+  const [mode, setMode] = useState<"local" | "paste" | "url">("local");
   const [url, setUrl] = useState("");
+  const [selectedLocalArticleId, setSelectedLocalArticleId] = useState("");
   const [draft, setDraft] = useState<DraftState>(EMPTY_DRAFT);
   const [candidates, setCandidates] = useState<PublicArticle[]>([]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -180,6 +219,7 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
   const [crawlerTargetInventory, setCrawlerTargetInventory] = useState(6);
   const [crawlerStatus, setCrawlerStatus] = useState<RecommendationCrawlerStatus | null>(null);
   const [crawlerResult, setCrawlerResult] = useState<RecommendationCrawlerRunResult | null>(null);
+  const [previewArticle, setPreviewArticle] = useState<PublicArticle | null>(null);
   const editorRef = useRef<HTMLDivElement>(null);
 
   const missingCoverCount = useMemo(
@@ -247,10 +287,14 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
     }
   }
 
-  function resetDraft(nextMode: "paste" | "url" = mode) {
-    setDraft({ ...EMPTY_DRAFT, sourceKind: nextMode === "url" ? "manual-url" : "manual-paste" });
+  function resetDraft(nextMode: "local" | "paste" | "url" = mode) {
+    setDraft({
+      ...EMPTY_DRAFT,
+      sourceKind: nextMode === "local" ? "local-saved" : nextMode === "url" ? "manual-url" : "manual-paste",
+    });
     setMode(nextMode);
     setUrl("");
+    setSelectedLocalArticleId("");
     setMessage("");
     setError("");
   }
@@ -286,6 +330,41 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
     setDraft(next);
     setMessage(data.classification.warning || "已完成难度、适合人群和兴趣类型判断。");
     return next;
+  }
+
+  async function handleSelectLocalArticle(articleId: string) {
+    setSelectedLocalArticleId(articleId);
+    setError("");
+    setMessage("");
+    if (!articleId) {
+      resetDraft("local");
+      return;
+    }
+    const article = savedArticles.find((item) => item.id === articleId);
+    if (!article) {
+      setError("没有找到这篇本地保存文章，请刷新后台后重试。");
+      return;
+    }
+    if (article.body.trim().length < 80) {
+      setError("这篇本地文章正文不足 80 个字符，暂时不能加入候选。");
+      return;
+    }
+
+    const localDraft = draftFromSavedArticle(article);
+    setDraft(localDraft);
+    setUrl(localDraft.sourceUrl);
+    editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    try {
+      await classifyDraft(localDraft);
+      setMessage(localDraft.coverImageUrl
+        ? "已载入本地文章并完成自动分类，请检查封面与摘要后保存到候选库。"
+        : "已载入本地文章并完成自动分类，请补充推荐封面后保存到候选库。"
+      );
+    } catch (classificationError) {
+      setError(`本地文章已载入，但自动分类失败：${classificationError instanceof Error ? classificationError.message : "请稍后重试"}`);
+    } finally {
+      setWorking("");
+    }
   }
 
   async function handleImportUrl() {
@@ -413,25 +492,6 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
     return data?.articles ?? [];
   }
 
-  async function handlePublishCurrent() {
-    setError("");
-    setMessage("");
-    if (!draft.coverImageUrl.trim()) {
-      setError("推荐封面是发布必需项，请先选择或上传封面。正文配图不作要求。");
-      return;
-    }
-    try {
-      const saved = await saveCandidate();
-      const articles = await publishIds([saved.id]);
-      setMessage(`《${articles[0]?.title || saved.title}》已发布到推荐目录。`);
-      resetDraft(mode);
-    } catch (publishError) {
-      setError(publishError instanceof Error ? publishError.message : "候选文章发布失败。");
-    } finally {
-      setWorking("");
-    }
-  }
-
   async function handleBatchPublish() {
     setError("");
     setMessage("");
@@ -500,83 +560,42 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
     }
   }
 
-  function toggleTopic(topic: ArticleTopic) {
-    setDraft((current) => {
-      const exists = current.topics.includes(topic);
-      if (exists && current.topics.length === 1) return current;
-      if (!exists && current.topics.length >= 3) return current;
-      return { ...current, topics: exists ? current.topics.filter((item) => item !== topic) : [...current.topics, topic], classificationSource: "manual" };
-    });
-  }
-
-  function toggleAudience(stage: ArticleAudienceStage) {
-    setDraft((current) => {
-      const exists = current.audienceStages.includes(stage);
-      if (exists && current.audienceStages.length === 1) return current;
-      if (!exists && current.audienceStages.length >= 4) return current;
-      return { ...current, audienceStages: exists ? current.audienceStages.filter((item) => item !== stage) : [...current.audienceStages, stage], classificationSource: "manual" };
-    });
-  }
-
   const busy = Boolean(working);
   const activeCrawlerSources = crawlerStatus?.sources.filter((source) => source.topics.includes(crawlerTopic)) ?? [];
 
   return (
-    <div className="grid gap-5">
-      {(message || error) && (
-        <div className={`rounded-xl border px-4 py-3 text-sm leading-6 ${error ? "border-red-200 bg-red-50 text-red-800" : "border-[#bfd4e5] bg-[#edf5fb] text-[#174d73]"}`} role={error ? "alert" : "status"}>
-          {error || message}
-        </div>
-      )}
-
-      <section className="rounded-2xl bg-white px-5 py-5 sm:px-6">
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-          <div>
-            <div className="flex flex-wrap items-center gap-2">
-              <h2 className="text-xl font-semibold text-[#17191c]">自动发现候选文章</h2>
-              <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${crawlerStatus?.scheduled ? "bg-[#e9f5ee] text-[#17613b]" : "bg-[#fff0ed] text-[#9b3524]"}`}>
-                {crawlerStatus?.scheduled ? "每日任务已启用" : "每日任务待配置"}
-              </span>
-            </div>
-            <p className="mt-1 max-w-3xl text-sm leading-6 text-[#4d535a]">从经过筛选的官方 Feed 发现文章，完成去重、正文与图片抓取、难度判断后放入候选库。系统不会自动发布。</p>
-            <p className="mt-2 text-xs leading-5 text-[#68717a]">{crawlerStatus?.scheduleLabel || "正在读取定时任务状态..."}。每次最多新增 {crawlerStatus?.maxNewArticlesPerRun ?? 2} 篇，避免一次任务占用过久。</p>
-          </div>
-          <button className={primaryButtonClass} type="button" onClick={() => void handleRunCrawler()} disabled={busy}>
-            {working === "crawl" ? "正在发现并分析..." : "扫描并加入候选"}
-          </button>
-        </div>
-
-        <div className="mt-5 grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_160px]">
-          <label className={labelClass}>目标主题<select className={inputClass} value={crawlerTopic} onChange={(event) => setCrawlerTopic(event.target.value as ArticleTopic)} disabled={busy}>{ARTICLE_TOPICS.map((topic) => <option key={topic}>{topic}</option>)}</select></label>
-          <label className={labelClass}>目标难度<select className={inputClass} value={crawlerDifficulty} onChange={(event) => setCrawlerDifficulty(event.target.value as CrawlerDifficulty)} disabled={busy}><option value="any">自动判断，不限难度</option>{ARTICLE_DIFFICULTIES.map((difficulty) => <option key={difficulty}>{difficulty}</option>)}</select></label>
-          <label className={labelClass}>目标库存<input className={inputClass} type="number" min={1} max={30} value={crawlerTargetInventory} onChange={(event) => setCrawlerTargetInventory(Math.max(1, Math.min(30, Number(event.target.value) || 1)))} disabled={busy} /></label>
-        </div>
-
-        <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-[#59636c]">
-          <span>本主题来源：</span>
-          {activeCrawlerSources.map((source) => <span key={source.id} className="rounded-full bg-[#eef1f4] px-2.5 py-1 text-[#3f4850]">{source.name}</span>)}
-        </div>
-
-        {crawlerResult && (
-          <div className="mt-5 border-t border-[#e1e5e9] pt-4 text-sm leading-6 text-[#3f4850]" role="status">
-            <p>库存 {crawlerResult.inventoryBefore} → {crawlerResult.inventoryAfter}，发现 {crawlerResult.discovered} 个未入库链接，尝试 {crawlerResult.attempted} 篇，新增 {crawlerResult.created.length} 篇。</p>
-            {crawlerResult.created.length > 0 && <p className="mt-1 text-[#174d73]">新增：{crawlerResult.created.map((article) => `《${article.title}》`).join("、")}</p>}
-            {crawlerResult.skipped.length > 0 && <details className="mt-2"><summary className="cursor-pointer font-medium text-[#59636c]">查看 {crawlerResult.skipped.length} 条跳过原因</summary><ul className="mt-2 list-disc space-y-1 pl-5">{crawlerResult.skipped.map((item) => <li key={`${item.url}-${item.reason}`}>{item.title}：{item.reason}</li>)}</ul></details>}
-            {crawlerResult.sourceErrors.length > 0 && <p className="mt-2 text-[#9b3524]">有 {crawlerResult.sourceErrors.length} 个来源暂时读取失败，其余来源仍已继续处理。</p>}
+    <>
+      {previewArticle && <CandidateArticlePreview article={previewArticle} onClose={() => setPreviewArticle(null)} />}
+      <div className="grid gap-5">
+        {(message || error) && (
+          <div className={`rounded-xl border px-4 py-3 text-sm leading-6 ${error ? "border-red-200 bg-red-50 text-red-800" : "border-[#bfd4e5] bg-[#edf5fb] text-[#174d73]"}`} role={error ? "alert" : "status"}>
+            {error || message}
           </div>
         )}
-      </section>
 
-      <section className="overflow-hidden rounded-2xl bg-white">
+        <section className="rounded-2xl bg-white px-5 py-5 sm:px-6">
+          <h2 className="text-xl font-semibold text-[#17191c]">推荐文章工作流</h2>
+          <ol className="mt-4 grid grid-cols-2 gap-3 xl:grid-cols-4">
+            {[
+              ["1", "选择来源", "本地文章、粘贴正文或 URL"],
+              ["2", "整理候选", "系统判断类型，你只检查摘要和封面"],
+              ["3", "候选审核", "预览用户最终看到的文章视图"],
+              ["4", "选择发布", "只从候选列表发布到首页"],
+            ].map(([number, title, detail]) => <li key={number} className="flex gap-3 rounded-xl bg-[#f1f4f6] px-4 py-3"><span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#1769aa] text-sm font-semibold text-white">{number}</span><span><strong className="block text-sm text-[#17191c]">{title}</strong><span className="mt-0.5 block text-xs leading-5 text-[#59636c]">{detail}</span></span></li>)}
+          </ol>
+        </section>
+
+        <section className="overflow-hidden rounded-2xl bg-white">
         <div className="border-b border-[#e1e5e9] px-5 py-5 sm:px-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <h2 className="text-xl font-semibold text-[#17191c]">添加推荐文章</h2>
-              <p className="mt-1 max-w-2xl text-sm leading-6 text-[#4d535a]">粘贴文章和输入 URL 是同级入口。URL 会保留有效正文配图，并自动判断难度、适合人群和兴趣类型。</p>
+              <h2 className="text-xl font-semibold text-[#17191c]">建立候选</h2>
+              <p className="mt-1 max-w-2xl text-sm leading-6 text-[#4d535a]">三种来源进入同一个编辑器。系统负责分类，你只需要确认文章、摘要和推荐封面。</p>
             </div>
             <button className={secondaryButtonClass} type="button" onClick={() => resetDraft(mode)} disabled={busy}>清空当前内容</button>
           </div>
-          <div className="mt-5 grid grid-cols-2 gap-2 rounded-xl bg-[#eef1f4] p-1" aria-label="文章录入方式">
+          <div className="mt-5 grid grid-cols-3 gap-2 rounded-xl bg-[#eef1f4] p-1" aria-label="候选文章来源">
+            <button className={`min-h-10 rounded-lg px-3 text-sm font-medium transition ${mode === "local" ? "bg-white text-[#17191c]" : "text-[#4d535a] hover:text-[#17191c]"}`} type="button" aria-pressed={mode === "local"} onClick={() => resetDraft("local")}>本地文章</button>
             <button className={`min-h-10 rounded-lg px-4 text-sm font-medium transition ${mode === "paste" ? "bg-white text-[#17191c]" : "text-[#4d535a] hover:text-[#17191c]"}`} type="button" aria-pressed={mode === "paste"} onClick={() => resetDraft("paste")}>粘贴文章</button>
             <button className={`min-h-10 rounded-lg px-4 text-sm font-medium transition ${mode === "url" ? "bg-white text-[#17191c]" : "text-[#4d535a] hover:text-[#17191c]"}`} type="button" aria-pressed={mode === "url"} onClick={() => resetDraft("url")}>输入 URL</button>
           </div>
@@ -584,7 +603,16 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
 
         <div ref={editorRef} className="grid gap-6 px-5 py-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:px-6">
           <div className="min-w-0">
-            {mode === "url" ? (
+            {mode === "local" ? (
+              <div>
+                <label className={labelClass} htmlFor="admin-local-article">选择本地已保存文章</label>
+                <select id="admin-local-article" className={inputClass} value={selectedLocalArticleId} onChange={(event) => void handleSelectLocalArticle(event.target.value)} disabled={busy || savedArticles.length === 0}>
+                  <option value="">{savedArticles.length ? `从 ${savedArticles.length} 篇文章中选择` : "还没有本地保存文章"}</option>
+                  {savedArticles.map((article) => <option key={article.id} value={article.id}>{article.title}</option>)}
+                </select>
+                {!savedArticles.length && <p className="mt-3 rounded-xl bg-[#f1f4f6] px-4 py-3 text-sm leading-6 text-[#59636c]">先在首页或阅读器保存文章，刷新后台后即可在这里选择。</p>}
+              </div>
+            ) : mode === "url" ? (
               <div>
                 <label className={labelClass} htmlFor="admin-article-url">文章 URL</label>
                 <div className="mt-2 flex flex-col gap-2 sm:flex-row">
@@ -596,23 +624,19 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
               <div className="grid gap-4">
                 <label className={labelClass}>文章标题<input className={inputClass} value={draft.title} onChange={(event) => setDraft((current) => ({ ...current, title: event.target.value, coverImageAlt: current.coverImageAlt || event.target.value }))} maxLength={200} placeholder="输入英文文章标题" disabled={busy} /></label>
                 <label className={labelClass}>英文正文<textarea className={`${inputClass} min-h-72 resize-y leading-7`} value={draft.body} onChange={(event) => setDraft((current) => ({ ...current, body: event.target.value, importedArticle: null, classifiedAt: "" }))} placeholder="粘贴完整英文文章" disabled={busy} /></label>
-                <button className={secondaryButtonClass} type="button" onClick={handleClassify} disabled={busy || !draft.title.trim() || draft.body.trim().length < 80}>{working === "classify" ? "正在判断..." : "自动判断难度与类型"}</button>
               </div>
             )}
 
-            {mode === "url" && draft.body && (
+            {mode !== "paste" && draft.body && (
               <div className="mt-5 rounded-xl bg-[#f3f5f7] p-4">
                 <p className="font-medium text-[#17191c]">{draft.title}</p>
-                <p className="mt-1 text-sm text-[#4d535a]">{draft.sourceName}，正文 {draft.body.length.toLocaleString("zh-CN")} 字符，保留 {draft.importedArticle?.blocks.filter((block) => block.type === "image").length ?? 0} 张正文配图</p>
+                <p className="mt-1 text-sm text-[#4d535a]">{draft.sourceName || "本地保存"}，正文 {draft.body.length.toLocaleString("zh-CN")} 字符，保留 {draft.importedArticle?.blocks.filter((block) => block.type === "image").length ?? 0} 张正文配图</p>
               </div>
             )}
 
             <div className="mt-6 grid gap-4">
               <label className={labelClass}>推荐摘要<textarea className={`${inputClass} min-h-24 resize-y leading-6`} value={draft.summary} onChange={(event) => setDraft((current) => ({ ...current, summary: event.target.value }))} maxLength={1000} placeholder="用于封面旁边的文章摘要" disabled={busy} /></label>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <label className={labelClass}>来源名称<input className={inputClass} value={draft.sourceName} onChange={(event) => setDraft((current) => ({ ...current, sourceName: event.target.value }))} maxLength={200} disabled={busy} /></label>
-                <label className={labelClass}>来源 URL<input className={inputClass} value={draft.sourceUrl} onChange={(event) => setDraft((current) => ({ ...current, sourceUrl: event.target.value }))} maxLength={2048} disabled={busy} /></label>
-              </div>
+              <details className="rounded-xl bg-[#f3f5f7] px-4 py-3"><summary className="cursor-pointer text-sm font-medium text-[#4d535a]">检查来源信息</summary><div className="mt-3 grid gap-4 sm:grid-cols-2"><label className={labelClass}>来源名称<input className={inputClass} value={draft.sourceName} onChange={(event) => setDraft((current) => ({ ...current, sourceName: event.target.value }))} maxLength={200} disabled={busy} /></label><label className={labelClass}>来源 URL<input className={inputClass} value={draft.sourceUrl} onChange={(event) => setDraft((current) => ({ ...current, sourceUrl: event.target.value }))} maxLength={2048} disabled={busy} /></label></div></details>
             </div>
           </div>
 
@@ -653,38 +677,32 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
               </div>
             </div>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              <label className={labelClass}>难度<select className={inputClass} value={draft.difficulty} onChange={(event) => setDraft((current) => ({ ...current, difficulty: event.target.value as ArticleDifficulty, classificationSource: "manual" }))} disabled={busy}>{ARTICLE_DIFFICULTIES.map((item) => <option key={item}>{item}</option>)}</select></label>
-              <label className={labelClass}>CEFR<select className={inputClass} value={draft.cefr} onChange={(event) => setDraft((current) => ({ ...current, cefr: event.target.value as ArticleCefrLevel, classificationSource: "manual" }))} disabled={busy}>{ARTICLE_CEFR_LEVELS.map((item) => <option key={item}>{item}</option>)}</select></label>
-              <label className={labelClass}>阅读时间（分钟）<input className={inputClass} type="number" min={1} max={240} value={draft.readingMinutes} onChange={(event) => setDraft((current) => ({ ...current, readingMinutes: Number(event.target.value) || 1 }))} disabled={busy} /></label>
+            <div className="mt-6 rounded-xl bg-[#edf5fb] px-4 py-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div><h4 className="text-sm font-semibold text-[#174d73]">系统自动判断</h4><p className="mt-1 text-xs leading-5 text-[#4d6577]">无需手动选择类型。保存前系统会根据完整正文判断并写入候选。</p></div>
+                <button className={secondaryButtonClass} type="button" onClick={handleClassify} disabled={busy || !draft.title.trim() || draft.body.trim().length < 80}>{working === "classify" ? "判断中..." : draft.classifiedAt ? "重新自动判断" : "现在自动判断"}</button>
+              </div>
+              {draft.classifiedAt ? <div className="mt-3 flex flex-wrap gap-2 text-xs"><span className="rounded-full bg-white px-3 py-1 text-[#174d73]">{draft.difficulty}</span><span className="rounded-full bg-white px-3 py-1 text-[#174d73]">CEFR {draft.cefr}</span>{draft.topics.map((topic) => <span key={topic} className="rounded-full bg-white px-3 py-1 text-[#174d73]">{topic}</span>)}<span className="rounded-full bg-white px-3 py-1 text-[#174d73]">约 {draft.readingMinutes} 分钟</span></div> : <p className="mt-3 text-sm text-[#4d6577]">尚未判断，保存候选时会自动完成。</p>}
+              {draft.classifiedAt && <p className="mt-3 text-xs leading-5 text-[#4d6577]">适合：{draft.audienceStages.join("、")}；{draft.timeliness === "time-sensitive" ? "发布前需要检查时效" : "内容长期有效"}{draft.reviewNotes ? `；${draft.reviewNotes}` : ""}</p>}
             </div>
 
-            <fieldset className="mt-5"><legend className="text-sm font-medium text-[#343a40]">适合人群，最多 4 项</legend><div className="mt-2 flex flex-wrap gap-2">{ARTICLE_AUDIENCE_STAGES.map((stage) => <label key={stage} className={`cursor-pointer rounded-full border px-3 py-1.5 text-sm ${draft.audienceStages.includes(stage) ? "border-[#1769aa] bg-[#edf5fb] text-[#174d73]" : "border-[#d5d9de] text-[#4d535a]"}`}><input className="sr-only" type="checkbox" checked={draft.audienceStages.includes(stage)} onChange={() => toggleAudience(stage)} />{stage}</label>)}</div></fieldset>
-            <fieldset className="mt-5"><legend className="text-sm font-medium text-[#343a40]">兴趣类型，最多 3 项</legend><div className="mt-2 flex flex-wrap gap-2">{ARTICLE_TOPICS.map((topic) => <label key={topic} className={`cursor-pointer rounded-full border px-3 py-1.5 text-sm ${draft.topics.includes(topic) ? "border-[#1769aa] bg-[#edf5fb] text-[#174d73]" : "border-[#d5d9de] text-[#4d535a]"}`}><input className="sr-only" type="checkbox" checked={draft.topics.includes(topic)} onChange={() => toggleTopic(topic)} />{topic}</label>)}</div></fieldset>
-
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
-              <label className={labelClass}>时效属性<select className={inputClass} value={draft.timeliness} onChange={(event) => setDraft((current) => ({ ...current, timeliness: event.target.value as ArticleTimeliness, classificationSource: "manual" }))} disabled={busy}><option value="evergreen">长期有效</option><option value="time-sensitive">需要检查时效</option></select></label>
-              <label className={labelClass}>审核备注<input className={inputClass} value={draft.reviewNotes} onChange={(event) => setDraft((current) => ({ ...current, reviewNotes: event.target.value }))} maxLength={500} disabled={busy} /></label>
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-2 border-t border-[#e1e5e9] pt-5">
-              <button className={secondaryButtonClass} type="button" onClick={handleSave} disabled={busy || !draft.title.trim() || draft.body.trim().length < 80}>{working === "save" ? "保存中..." : draft.id ? "保存候选修改" : "保存为候选"}</button>
-              <button className={primaryButtonClass} type="button" onClick={handlePublishCurrent} disabled={busy || !draft.title.trim() || draft.body.trim().length < 80}>{working === "publish" ? "发布中..." : "保存并发布推荐"}</button>
+            <div className="mt-6 border-t border-[#e1e5e9] pt-5">
+              <button className={primaryButtonClass} type="button" onClick={handleSave} disabled={busy || !draft.title.trim() || draft.body.trim().length < 80}>{working === "save" || working === "classify" ? "正在整理并保存..." : draft.id ? "保存候选修改" : "保存到候选库"}</button>
             </div>
           </div>
         </div>
-      </section>
+        </section>
 
-      <section className="rounded-2xl bg-white px-5 py-5 sm:px-6">
+        <section className="rounded-2xl bg-white px-5 py-5 sm:px-6">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <h2 className="text-xl font-semibold text-[#17191c]">候选文章</h2>
-            <p className="mt-1 text-sm leading-6 text-[#4d535a]">共 {candidates.length} 篇，其中 {missingCoverCount} 篇缺少推荐封面。缺封面文章会留在这里提醒你补充。</p>
+            <p className="mt-1 text-sm leading-6 text-[#4d535a]">先预览，再选择发布。共 {candidates.length} 篇，其中 {missingCoverCount} 篇还需要补充封面。</p>
           </div>
           <div className="flex flex-wrap gap-2"><button className={secondaryButtonClass} type="button" onClick={() => void loadCandidates()} disabled={busy || loadingCandidates}>刷新候选</button><button className={primaryButtonClass} type="button" onClick={handleBatchPublish} disabled={busy || selectedIds.length === 0}>发布选中 ({selectedIds.length})</button></div>
         </div>
 
-        {loadingCandidates ? <p className="mt-5 text-sm text-[#59636c]">正在读取候选文章...</p> : candidates.length === 0 ? <p className="mt-5 rounded-xl bg-[#f3f5f7] px-4 py-5 text-sm leading-6 text-[#59636c]">还没有候选文章。可以从上方粘贴文章，或输入一个公开 URL。</p> : (
+        {loadingCandidates ? <p className="mt-5 text-sm text-[#59636c]">正在读取候选文章...</p> : candidates.length === 0 ? <p className="mt-5 rounded-xl bg-[#f3f5f7] px-4 py-5 text-sm leading-6 text-[#59636c]">还没有候选文章。请从本地文章、粘贴正文或 URL 建立第一篇候选。</p> : (
           <ul className="mt-5 divide-y divide-[#e1e5e9]">
             {candidates.map((article) => {
               const recommendation = article.recommendation;
@@ -693,13 +711,28 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
               return <li key={article.id} className="grid gap-4 py-4 sm:grid-cols-[auto_112px_minmax(0,1fr)_auto] sm:items-center">
                 <input className="h-5 w-5 accent-[#1769aa]" type="checkbox" checked={selected} disabled={!hasCover || busy} aria-label={`选择 ${article.title}`} onChange={() => setSelectedIds((ids) => selected ? ids.filter((id) => id !== article.id) : [...ids, article.id])} />
                 <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#e8edf1]">{hasCover ? <img className="h-full w-full object-cover" src={recommendation?.coverImageUrl} alt="" /> : <div className="flex h-full items-center justify-center px-2 text-center text-xs text-[#6a4a43]">缺少封面</div>}</div>
-                <div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold leading-6 text-[#17191c]">{article.title}</h3><span className={`rounded-full px-2.5 py-1 text-xs font-medium ${hasCover ? "bg-[#e9f5ee] text-[#17613b]" : "bg-[#fff0ed] text-[#9b3524]"}`}>{hasCover ? "可发布" : "待补封面"}</span>{recommendation?.sourceKind === "crawler" && <span className="rounded-full bg-[#edf5fb] px-2.5 py-1 text-xs font-medium text-[#174d73]">自动发现</span>}</div><p className="mt-1 line-clamp-2 text-sm leading-6 text-[#4d535a]">{article.summary || "暂无摘要"}</p><p className="mt-1 text-xs leading-5 text-[#68717a]">{recommendation?.difficulty || "待判断"} · {recommendation?.topics.join("、") || "待分类"} · {recommendation?.readingMinutes || 1} 分钟</p></div>
-                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => { setDraft(draftFromCandidate(article)); setMode(article.recommendation?.sourceKind === "manual-paste" ? "paste" : "url"); setError(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }} disabled={busy}>编辑</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => void handleDeleteCandidate(article)} disabled={busy}>删除</button></div>
+                <div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold leading-6 text-[#17191c]">{article.title}</h3><span className={`rounded-full px-2.5 py-1 text-xs font-medium ${hasCover ? "bg-[#e9f5ee] text-[#17613b]" : "bg-[#fff0ed] text-[#9b3524]"}`}>{hasCover ? "可发布" : "待补封面"}</span>{recommendation?.sourceKind === "crawler" && <span className="rounded-full bg-[#edf5fb] px-2.5 py-1 text-xs font-medium text-[#174d73]">自动发现</span>}{recommendation?.sourceKind === "local-saved" && <span className="rounded-full bg-[#eef1f4] px-2.5 py-1 text-xs font-medium text-[#4d535a]">本地文章</span>}</div><p className="mt-1 line-clamp-2 text-sm leading-6 text-[#4d535a]">{article.summary || "暂无摘要"}</p><p className="mt-1 text-xs leading-5 text-[#68717a]">{recommendation?.difficulty || "待判断"} · {recommendation?.topics.join("、") || "待分类"} · {recommendation?.readingMinutes || 1} 分钟</p></div>
+                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => setPreviewArticle(article)} disabled={busy}>预览用户视图</button><button className={secondaryButtonClass} type="button" onClick={() => { setDraft(draftFromCandidate(article)); setMode(article.recommendation?.sourceKind === "local-saved" ? "local" : article.recommendation?.sourceKind === "manual-paste" ? "paste" : "url"); setSelectedLocalArticleId(""); setError(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }} disabled={busy}>编辑</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => void handleDeleteCandidate(article)} disabled={busy}>删除</button></div>
               </li>;
             })}
           </ul>
         )}
-      </section>
-    </div>
+        </section>
+
+        <details className="rounded-2xl bg-white px-5 py-5 sm:px-6">
+          <summary className="cursor-pointer list-none"><span className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span><strong className="block text-lg text-[#17191c]">自动补充候选库</strong><span className="mt-1 block text-sm leading-6 text-[#4d535a]">按主题从可信 Feed 发现文章。它只补充候选，不改变上面的人工审核与发布流程。</span></span><span className={`self-start rounded-full px-2.5 py-1 text-xs font-medium ${crawlerStatus?.scheduled ? "bg-[#e9f5ee] text-[#17613b]" : "bg-[#fff0ed] text-[#9b3524]"}`}>{crawlerStatus?.scheduled ? "每日任务已启用" : "每日任务待配置"}</span></span></summary>
+          <div className="mt-5 border-t border-[#e1e5e9] pt-5">
+            <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_160px]">
+              <label className={labelClass}>目标主题<select className={inputClass} value={crawlerTopic} onChange={(event) => setCrawlerTopic(event.target.value as ArticleTopic)} disabled={busy}>{ARTICLE_TOPICS.map((topic) => <option key={topic}>{topic}</option>)}</select></label>
+              <label className={labelClass}>目标难度<select className={inputClass} value={crawlerDifficulty} onChange={(event) => setCrawlerDifficulty(event.target.value as CrawlerDifficulty)} disabled={busy}><option value="any">自动判断，不限难度</option>{ARTICLE_DIFFICULTIES.map((difficulty) => <option key={difficulty}>{difficulty}</option>)}</select></label>
+              <label className={labelClass}>目标库存<input className={inputClass} type="number" min={1} max={30} value={crawlerTargetInventory} onChange={(event) => setCrawlerTargetInventory(Math.max(1, Math.min(30, Number(event.target.value) || 1)))} disabled={busy} /></label>
+            </div>
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-[#59636c]"><span>本主题来源：</span>{activeCrawlerSources.map((source) => <span key={source.id} className="rounded-full bg-[#eef1f4] px-2.5 py-1 text-[#3f4850]">{source.name}</span>)}</div>
+            <button className={`${primaryButtonClass} mt-5`} type="button" onClick={() => void handleRunCrawler()} disabled={busy}>{working === "crawl" ? "正在发现并分析..." : "扫描并加入候选"}</button>
+            {crawlerResult && <div className="mt-5 text-sm leading-6 text-[#3f4850]" role="status"><p>库存 {crawlerResult.inventoryBefore} → {crawlerResult.inventoryAfter}，发现 {crawlerResult.discovered} 个未入库链接，尝试 {crawlerResult.attempted} 篇，新增 {crawlerResult.created.length} 篇。</p>{crawlerResult.created.length > 0 && <p className="mt-1 text-[#174d73]">新增：{crawlerResult.created.map((article) => `《${article.title}》`).join("、")}</p>}{crawlerResult.skipped.length > 0 && <details className="mt-2"><summary className="cursor-pointer font-medium text-[#59636c]">查看 {crawlerResult.skipped.length} 条跳过原因</summary><ul className="mt-2 list-disc space-y-1 pl-5">{crawlerResult.skipped.map((item) => <li key={`${item.url}-${item.reason}`}>{item.title}：{item.reason}</li>)}</ul></details>}{crawlerResult.sourceErrors.length > 0 && <p className="mt-2 text-[#9b3524]">有 {crawlerResult.sourceErrors.length} 个来源暂时读取失败，其余来源仍已继续处理。</p>}</div>}
+          </div>
+        </details>
+      </div>
+    </>
   );
 }

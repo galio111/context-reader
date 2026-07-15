@@ -44,7 +44,7 @@ function isRecommendation(value: unknown): value is ArticleRecommendationMetadat
     item.topics.every((topic) => typeof topic === "string" && ARTICLE_TOPICS.includes(topic)) &&
     typeof item.readingMinutes === "number" && Number.isFinite(item.readingMinutes) && item.readingMinutes >= 1 && item.readingMinutes <= 240 &&
     (item.timeliness === "evergreen" || item.timeliness === "time-sensitive") &&
-    (item.sourceKind === "manual-paste" || item.sourceKind === "manual-url" || item.sourceKind === "crawler") &&
+    (item.sourceKind === "manual-paste" || item.sourceKind === "manual-url" || item.sourceKind === "local-saved" || item.sourceKind === "crawler") &&
     (item.classificationSource === "model" || item.classificationSource === "heuristic" || item.classificationSource === "manual") &&
     (item.classifiedAt === undefined || isBoundedString(item.classifiedAt, 80)) &&
     (item.reviewNotes === undefined || isBoundedString(item.reviewNotes, 500))

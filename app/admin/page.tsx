@@ -61,12 +61,10 @@ export default function AdminPage() {
   const [loginError, setLoginError] = useState("");
   const [articles, setArticles] = useState<SavedArticle[]>([]);
   const [publishingId, setPublishingId] = useState("");
-  const [batchPublishing, setBatchPublishing] = useState(false);
   const [deletingId, setDeletingId] = useState("");
   const [status, setStatus] = useState("");
   const [publishedArticle, setPublishedArticle] = useState<PublicArticle | null>(null);
   const [publicArticles, setPublicArticles] = useState<PublicArticle[]>([]);
-  const [selectedArticleIds, setSelectedArticleIds] = useState<string[]>([]);
 
   useEffect(() => {
     const section = new URLSearchParams(window.location.search).get("section");
@@ -96,19 +94,17 @@ export default function AdminPage() {
   useEffect(() => {
     if (authenticated) {
       setArticles(getSavedArticles());
-      void loadPublicArticles();
+      void loadPublicArticles({ silent: true });
     }
   }, [authenticated]);
 
-  useEffect(() => {
-    setSelectedArticleIds((ids) => ids.filter((id) => articles.some((article) => article.id === id)));
-  }, [articles]);
-
-  async function loadPublicArticles() {
+  async function loadPublicArticles(options?: { silent?: boolean }) {
     const response = await fetch("/api/admin/public-articles");
     const data = (await response.json().catch(() => null)) as { articles?: PublicArticle[]; error?: string } | null;
     if (!response.ok) {
-      setStatus(data?.error || "公开文章列表读取失败。");
+      if (!options?.silent) {
+        setStatus(data?.error || "公开文章列表读取失败。");
+      }
       return;
     }
     setPublicArticles(data?.articles ?? []);
@@ -120,19 +116,6 @@ export default function AdminPage() {
 
   function savedArticleKey(article: SavedArticle): string {
     return `${article.title.trim()}::${(article.summary || "推荐英文阅读文章").trim()}::${(article.importedArticle?.url || "").trim()}`;
-  }
-
-  function isPublished(article: SavedArticle): boolean {
-    const key = savedArticleKey(article);
-    return publicArticles.some((item) => publicArticleKey(item) === key);
-  }
-
-  function toggleSelectedArticle(id: string): void {
-    setSelectedArticleIds((ids) => (ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id]));
-  }
-
-  function selectPublishedArticles(): void {
-    setSelectedArticleIds(articles.filter((article) => isPublished(article)).map((article) => article.id));
   }
 
   const articleStats = useMemo(
@@ -172,7 +155,6 @@ export default function AdminPage() {
     setAuthenticated(false);
     setArticles([]);
     setPublicArticles([]);
-    setSelectedArticleIds([]);
     setStatus("");
     setPublishedArticle(null);
     setPublishingId("");
@@ -226,63 +208,6 @@ export default function AdminPage() {
     );
     await loadPublicArticles();
     setPublishingId("");
-  }
-
-  async function handleBatchPublish() {
-    const selectedArticles = articles.filter((article) => selectedArticleIds.includes(article.id));
-    if (selectedArticles.length === 0) {
-      setStatus("请先勾选要发布的文章。");
-      return;
-    }
-
-    setBatchPublishing(true);
-    setStatus(`正在批量发布 ${selectedArticles.length} 篇文章...`);
-
-    let successCount = 0;
-    for (const article of selectedArticles) {
-      setPublishingId(article.id);
-      const explanations = explanationsForArticle(article);
-      const articleTranslations = articleTranslationsForArticle(article);
-      const existingPublicArticle = publicArticles.find((item) => publicArticleKey(item) === savedArticleKey(article));
-      if (!existingPublicArticle?.recommendation?.coverImageUrl?.trim()) {
-        setStatus(`批量更新中断：《${article.title}》尚未补齐推荐封面。`);
-        setPublishingId("");
-        setBatchPublishing(false);
-        return;
-      }
-      const response = await fetch("/api/admin/public-articles", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title: article.title,
-          summary: article.summary || "推荐英文阅读文章",
-          body: article.body,
-          sourceUrl: article.importedArticle?.url || "",
-          sourceName: article.importedArticle?.siteName || "",
-          importedArticle: article.importedArticle ?? null,
-          recommendation: existingPublicArticle.recommendation,
-          explanations,
-          articleTranslations,
-        }),
-      });
-
-      if (response.ok) {
-        successCount += 1;
-      } else {
-        const data = (await response.json().catch(() => null)) as { error?: string } | null;
-        setStatus(`批量发布中断：${data?.error || "发布失败。"}`);
-        setPublishingId("");
-        setBatchPublishing(false);
-        await loadPublicArticles();
-        return;
-      }
-    }
-
-    setPublishingId("");
-    setBatchPublishing(false);
-    setStatus(`批量发布完成：${successCount} 篇文章已发布。`);
-    setSelectedArticleIds([]);
-    await loadPublicArticles();
   }
 
   async function handleDeletePublicArticle(article: PublicArticle) {
@@ -412,7 +337,7 @@ export default function AdminPage() {
         )}
 
         <div className="mt-6">
-          <AdminArticleIntakePanel onPublished={loadPublicArticles} />
+          <AdminArticleIntakePanel savedArticles={articles} onPublished={loadPublicArticles} />
         </div>
 
         <section className="mt-6 rounded-2xl bg-white p-5">
@@ -435,7 +360,10 @@ export default function AdminPage() {
             <p className="mt-4 text-sm leading-6 text-[#7a7a7a]">还没有公开推荐文章。</p>
           ) : (
             <ul className="mt-4 grid gap-3">
-              {publicArticles.map((article) => (
+              {publicArticles.map((article) => {
+                const localArticle = articles.find((item) => savedArticleKey(item) === publicArticleKey(article));
+                const stats = localArticle ? articleStats.get(localArticle.id) : null;
+                return (
                 <li key={article.id} className="flex flex-col gap-3 rounded-[16px] border border-[#e0e0e0] p-4 sm:flex-row sm:items-start sm:justify-between">
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
@@ -445,110 +373,37 @@ export default function AdminPage() {
                       </span>
                     </div>
                     <p className="mt-1 text-sm leading-5 text-[#333333]">{article.summary || "暂无摘要"}</p>
+                    <p className="mt-1 text-xs leading-5 text-[#7a7a7a]">
+                      {localArticle
+                        ? `本地对应文章含 ${stats?.explanations ?? 0} 条词义缓存、${stats?.articleTranslations ?? 0} 份全文翻译缓存`
+                        : "当前浏览器没有找到对应的本地保存文章"}
+                    </p>
                     <p className="mt-1 break-all text-xs leading-5 text-[#7a7a7a]">ID：{article.id}</p>
                   </div>
-                  <button
-                    className="h-9 shrink-0 rounded-full border border-red-200 px-4 text-sm text-red-600 disabled:text-[#7a7a7a]"
-                    type="button"
-                    disabled={deletingId === article.id}
-                    onClick={() => handleDeletePublicArticle(article)}
-                  >
-                    {deletingId === article.id ? "删除中..." : "删除公开"}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-
-        {articles.length === 0 ? (
-          <section className="mt-6 rounded-[18px] bg-white p-5">
-            <h2 className="text-[21px] font-semibold">还没有本地保存文章</h2>
-            <p className="mt-2 text-sm leading-6 text-[#333333]">
-              回到首页保存文章后，再来这里发布为公开推荐文章。
-            </p>
-          </section>
-        ) : (
-          <>
-          <section className="mt-6 flex flex-col gap-3 rounded-[18px] bg-white p-5 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h2 className="text-[21px] font-semibold">本地保存文章</h2>
-              <p className="mt-1 text-sm leading-6 text-[#333333]">
-                这里用于更新已公开文章的解释与全文翻译缓存；新的推荐文章请先通过候选流程补齐封面。
-              </p>
-            </div>
-            <button
-              className="h-10 self-start rounded-full bg-[#0066cc] px-5 text-sm text-white disabled:bg-[#d2d2d7]"
-              type="button"
-              disabled={batchPublishing || selectedArticleIds.length === 0}
-              onClick={handleBatchPublish}
-            >
-              {batchPublishing ? "批量更新中..." : `更新选中预缓存 (${selectedArticleIds.length})`}
-            </button>
-          </section>
-          <div className="mt-3 flex flex-wrap gap-2">
-            <button
-              className="h-9 rounded-full border border-[#0066cc] px-4 text-sm text-[#0066cc]"
-              type="button"
-              onClick={selectPublishedArticles}
-            >
-              选择已公开
-            </button>
-            <button
-              className="h-9 rounded-full border border-[#e0e0e0] px-4 text-sm text-[#333333]"
-              type="button"
-              onClick={() => setSelectedArticleIds([])}
-            >
-              清空选择
-            </button>
-          </div>
-          <ul className="mt-4 grid gap-4">
-            {articles.map((article) => {
-              const stats = articleStats.get(article.id);
-              const published = isPublished(article);
-              const selected = selectedArticleIds.includes(article.id);
-              return (
-                <li key={article.id} className="rounded-[18px] bg-white p-5">
-                  <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                    <label className="flex min-w-0 flex-1 items-start gap-3">
-                      <input
-                        className="mt-1 h-5 w-5 accent-[#0066cc]"
-                        type="checkbox"
-                        checked={selected}
-                        onChange={() => toggleSelectedArticle(article.id)}
-                        disabled={batchPublishing}
-                      />
-                      <span className="sr-only">选择 {article.title}</span>
-                    </label>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <h2 className="text-[21px] font-semibold leading-snug">{article.title}</h2>
-                        {published && (
-                          <span className="rounded-full bg-[#f5f5f7] px-3 py-1 text-xs font-medium text-[#0066cc]">
-                            已公开
-                          </span>
-                        )}
-                      </div>
-                      <p className="mt-2 text-sm leading-6 text-[#333333]">{article.summary || "暂无摘要"}</p>
-                      <p className="mt-2 text-xs leading-5 text-[#7a7a7a]">
-                        {article.body.length} 字符，{stats?.explanations ?? 0} 条可发布的预缓存解释，{stats?.articleTranslations ?? 0} 份全文翻译缓存
-                      </p>
-                    </div>
+                  <div className="flex shrink-0 flex-wrap gap-2 sm:justify-end">
                     <button
-                      className="h-10 shrink-0 rounded-full bg-[#0066cc] px-5 text-sm text-white disabled:bg-[#d2d2d7]"
+                      className="h-9 rounded-full border border-[#0066cc] px-4 text-sm text-[#0066cc] disabled:border-[#d2d2d7] disabled:text-[#7a7a7a]"
                       type="button"
-                      disabled={publishingId === article.id || batchPublishing || !published}
-                      onClick={() => handlePublish(article)}
+                      disabled={!localArticle || publishingId === localArticle.id}
+                      onClick={() => localArticle && handlePublish(localArticle)}
                     >
-                      {publishingId === article.id ? "更新中..." : published ? "更新预缓存" : "请先加入候选"}
+                      {localArticle && publishingId === localArticle.id ? "更新中..." : localArticle ? "更新预缓存" : "本地无对应文章"}
+                    </button>
+                    <button
+                      className="h-9 rounded-full border border-red-200 px-4 text-sm text-red-600 disabled:text-[#7a7a7a]"
+                      type="button"
+                      disabled={deletingId === article.id}
+                      onClick={() => handleDeletePublicArticle(article)}
+                    >
+                      {deletingId === article.id ? "删除中..." : "删除公开"}
                     </button>
                   </div>
                 </li>
-              );
-            })}
-          </ul>
-          </>
-        )}
+                );
+              })}
+            </ul>
+          )}
+        </section>
           </>
         )}
       </section>
