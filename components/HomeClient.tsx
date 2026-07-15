@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArticleInput } from "@/components/ArticleInput";
+import { BookHome } from "@/components/BookHome";
 import { ReaderView } from "@/components/ReaderView";
 import { fetchJson } from "@/lib/apiClient";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
@@ -16,6 +17,7 @@ import { useAccount } from "@/components/AccountProvider";
 
 interface HomeClientProps {
   initialPublicArticles: PublicArticle[];
+  homeVariant?: "immersive" | "book";
 }
 
 interface PublicArticleDetails {
@@ -81,7 +83,7 @@ async function requestImageLayoutWords(file: File): Promise<ImportedImageLayoutW
   return data.words;
 }
 
-export function HomeClient({ initialPublicArticles }: HomeClientProps) {
+export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }: HomeClientProps) {
   const { requireAccount } = useAccount();
   const [article, setArticle] = useState("");
   const [articleUrl, setArticleUrl] = useState("");
@@ -91,6 +93,7 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
   const [ocrLoading, setOcrLoading] = useState(false);
   const [openingPublicArticleId, setOpeningPublicArticleId] = useState("");
   const [reading, setReading] = useState(false);
+  const [readerTransitioning, setReaderTransitioning] = useState(false);
   const [homeDemoCompleted, setHomeDemoCompleted] = useState(false);
   const [sourceSentenceToHighlight, setSourceSentenceToHighlight] = useState("");
   const [sourceWordToHighlight, setSourceWordToHighlight] = useState("");
@@ -101,6 +104,7 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
   const [ocrError, setOcrError] = useState("");
   const [savedArticles, setSavedArticles] = useState<SavedArticle[]>([]);
   const publicArticleRequestsRef = useRef(new Map<string, Promise<PublicArticleDetails>>());
+  const readerTransitionTimerRef = useRef<number | null>(null);
 
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
@@ -119,6 +123,26 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
     }
   }, [sourceSentenceToHighlight]);
 
+  useEffect(() => () => {
+    if (readerTransitionTimerRef.current !== null) {
+      window.clearTimeout(readerTransitionTimerRef.current);
+    }
+  }, []);
+
+  const enterReader = useCallback(() => {
+    if (homeVariant !== "book") {
+      setReading(true);
+      return;
+    }
+    if (readerTransitionTimerRef.current !== null) return;
+    setReaderTransitioning(true);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    readerTransitionTimerRef.current = window.setTimeout(() => {
+      readerTransitionTimerRef.current = null;
+      setReading(true);
+    }, reducedMotion ? 120 : 700);
+  }, [homeVariant]);
+
   function handleStartReading() {
     const trimmedArticle = article.trim();
 
@@ -136,7 +160,16 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
     setSourceSentenceToHighlight("");
     setImportedArticle(null);
     setPreloadedExplanations([]);
-    setReading(true);
+    enterReader();
+  }
+
+  function handleOpenDemoArticle(demoArticle: ImportedArticle) {
+    setArticle(demoArticle.text);
+    setImportedArticle(demoArticle);
+    setPreloadedExplanations([]);
+    setSourceSentenceToHighlight("");
+    setError("");
+    enterReader();
   }
 
   async function handleImportUrl() {
@@ -174,7 +207,7 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
       setSourceSentenceToHighlight("");
       setError("");
       setUrlError("");
-      setReading(true);
+      enterReader();
     } catch (importError) {
       setUrlError(importError instanceof Error ? importError.message : "URL 导入失败，请稍后重试。");
     } finally {
@@ -230,7 +263,7 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
       setPreloadedExplanations([]);
       setSourceSentenceToHighlight("");
       setError("");
-      setReading(true);
+      enterReader();
     } catch (ocrImageError) {
       setOcrError(ocrImageError instanceof Error ? ocrImageError.message : "OCR 识别失败，请稍后重试。");
     } finally {
@@ -247,7 +280,7 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
     setPreloadedExplanations([]);
     setSourceSentenceToHighlight("");
     setError("");
-    setReading(true);
+    enterReader();
   }
 
   const loadPublicArticle = useCallback((id: string): Promise<PublicArticleDetails> => {
@@ -297,7 +330,7 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
         setCachedArticleTranslation(item.cacheKey, item.translations);
       }
       setSourceSentenceToHighlight("");
-      setReading(true);
+      enterReader();
     } catch (publicArticleError) {
       setError(publicArticleError instanceof Error ? publicArticleError.message : "公开文章读取失败，请稍后重试。");
     } finally {
@@ -352,7 +385,7 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
       setSourceJumpRequestId((requestId) => requestId + 1);
       setReaderSessionId((sessionId) => sessionId + 1);
       setError("");
-      setReading(true);
+      enterReader();
       return true;
     }
 
@@ -373,7 +406,7 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
       setSourceJumpRequestId((requestId) => requestId + 1);
       setReaderSessionId((sessionId) => sessionId + 1);
       setError("");
-      setReading(true);
+      enterReader();
       return true;
     }
 
@@ -408,9 +441,42 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
           setPreloadedExplanations([]);
           setSourceSentenceToHighlight("");
           setError("");
+          setReaderTransitioning(false);
           setReading(false);
         }}
         onArticleSaved={() => setSavedArticles(getSavedArticles())}
+      />
+    );
+  }
+
+  if (homeVariant === "book") {
+    return (
+      <BookHome
+        article={article}
+        articleUrl={articleUrl}
+        error={error}
+        urlError={urlError}
+        importingUrl={importingUrl}
+        openingPublicArticleId={openingPublicArticleId}
+        savedArticles={savedArticles}
+        readerTransitioning={readerTransitioning}
+        onArticleChange={(value) => {
+          setArticle(value);
+          setImportedArticle(null);
+          setSourceSentenceToHighlight("");
+          if (error) setError("");
+        }}
+        onArticleUrlChange={(value) => {
+          setArticleUrl(value);
+          if (urlError) setUrlError("");
+        }}
+        onStartReading={handleStartReading}
+        onImportUrl={handleImportUrl}
+        onOpenDemoArticle={handleOpenDemoArticle}
+        onOpenSavedArticle={handleOpenSavedArticle}
+        onDeleteSavedArticle={handleDeleteSavedArticle}
+        onJumpToVocabularySource={handleJumpToVocabularySource}
+        canJumpToVocabularySource={canJumpToVocabularySource}
       />
     );
   }

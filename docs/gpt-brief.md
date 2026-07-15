@@ -116,6 +116,8 @@ context-reader/
   components/
     AccountProvider.tsx
     ArticleInput.tsx
+    BookHome.tsx
+    BookHome.module.css
     ImmersiveHome.tsx
     HomeReadingDemo.tsx
     HomeClient.tsx
@@ -427,6 +429,8 @@ Cloze 卡强规则：
 
 当前生产首页已经接入沉浸式阅读教学结构：首屏直接提供文章/网址入口、可点击句子和顶部已保存文章菜单，第二屏用 sticky 场景演示并练习横向划选短语，第三屏锁定且只展示推荐文章，第四屏提供粘贴、网址和图片阅读入口；桌面端滚轮在场景边界向下或向上滚动时，都会加速并锁定到相邻屏，上滑会落在上一场景的最后一个完整视口，移动端仍保持普通纵向滚动；顶部仍可进入 `/guide` 与生词本。历史静态 mockup 保留为设计参考，不再代表等待选择的未实现方案：
 
+同项目已经新增 `/home-v2` 书本空间评审入口，但尚未替换 `/`。第一实现切片包括冷白/浅灰蓝数字封面、首次约一秒自动开封和回访快速展开、桌面双页与手机上下两页、左页真实微型文章及正式 `ExplanationPanel`、右页同级粘贴/URL 工作台、仅在确有保存文章时显示的继续阅读、真实 Menu/生词本/账号入口，以及书页向前展开后挂载原有 `ReaderView`。进入 ReaderView 后书本首页和鼠标字母层都会卸载。图片上传、独立快速词典和推荐目录尚未进入 `/home-v2` 第一切片，不能把该入口描述成已经完成的首页替代品。
+
 - `context-reader/docs/home-direction-1-workbench.html`
 - `context-reader/docs/home-direction-2-command.html`
 
@@ -471,7 +475,6 @@ Admin 功能：
 - 发布文章时应上传匹配的本地 full-article translation cache。
 - 访客打开公开推荐文章时，返回的 translation caches 应先写入浏览器 localStorage，再进入 reader。
 - `article-covers` 上传使用 Supabase Storage 的公开 `public-article-covers` bucket，不调用 OCR。
-- 自动来源抓取和定时任务尚未实现，不能描述成已经运行。
 
 非常重要的维护规则：
 
