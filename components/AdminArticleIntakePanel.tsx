@@ -16,6 +16,11 @@ import {
   type PublicArticle,
   type PublicArticleCandidateInput,
 } from "@/types/publicArticle";
+import type {
+  CrawlerDifficulty,
+  RecommendationCrawlerRunResult,
+  RecommendationCrawlerStatus,
+} from "@/types/recommendationCrawler";
 
 interface ClassificationResponse {
   summary: string;
@@ -53,7 +58,7 @@ interface DraftState {
   classificationSource: "model" | "heuristic" | "manual";
   classifiedAt: string;
   reviewNotes: string;
-  sourceKind: "manual-paste" | "manual-url";
+  sourceKind: "manual-paste" | "manual-url" | "crawler";
 }
 
 interface AdminArticleIntakePanelProps {
@@ -154,7 +159,9 @@ function draftFromCandidate(article: PublicArticle): DraftState {
     classificationSource: recommendation?.classificationSource ?? "manual",
     classifiedAt: recommendation?.classifiedAt ?? "",
     reviewNotes: recommendation?.reviewNotes ?? "",
-    sourceKind: recommendation?.sourceKind === "manual-url" ? "manual-url" : "manual-paste",
+    sourceKind: recommendation?.sourceKind === "crawler"
+      ? "crawler"
+      : recommendation?.sourceKind === "manual-url" ? "manual-url" : "manual-paste",
   };
 }
 
@@ -165,9 +172,14 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
   const [candidates, setCandidates] = useState<PublicArticle[]>([]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [loadingCandidates, setLoadingCandidates] = useState(true);
-  const [working, setWorking] = useState<"" | "import" | "classify" | "save" | "publish" | "upload">("");
+  const [working, setWorking] = useState<"" | "import" | "classify" | "save" | "publish" | "upload" | "crawl">("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [crawlerTopic, setCrawlerTopic] = useState<ArticleTopic>("科技科学");
+  const [crawlerDifficulty, setCrawlerDifficulty] = useState<CrawlerDifficulty>("any");
+  const [crawlerTargetInventory, setCrawlerTargetInventory] = useState(6);
+  const [crawlerStatus, setCrawlerStatus] = useState<RecommendationCrawlerStatus | null>(null);
+  const [crawlerResult, setCrawlerResult] = useState<RecommendationCrawlerRunResult | null>(null);
   const editorRef = useRef<HTMLDivElement>(null);
 
   const missingCoverCount = useMemo(
@@ -190,9 +202,50 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
     setLoadingCandidates(false);
   }
 
+  async function loadCrawlerStatus() {
+    const response = await fetch("/api/admin/article-crawler", { cache: "no-store" });
+    const data = await response.json().catch(() => null) as (RecommendationCrawlerStatus & { error?: string }) | null;
+    if (response.ok && data) {
+      setCrawlerStatus(data);
+    }
+  }
+
   useEffect(() => {
     void loadCandidates();
+    void loadCrawlerStatus();
   }, []);
+
+  async function handleRunCrawler() {
+    setWorking("crawl");
+    setError("");
+    setMessage("");
+    setCrawlerResult(null);
+    try {
+      const response = await fetch("/api/admin/article-crawler", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          topic: crawlerTopic,
+          difficulty: crawlerDifficulty,
+          targetInventory: crawlerTargetInventory,
+        }),
+      });
+      const data = await response.json().catch(() => null) as { result?: RecommendationCrawlerRunResult; error?: string } | null;
+      if (!response.ok || !data?.result) {
+        throw new Error(data?.error || "自动抓取任务失败。");
+      }
+      setCrawlerResult(data.result);
+      await loadCandidates();
+      const createdCount = data.result.created.length;
+      setMessage(createdCount
+        ? `已自动加入 ${createdCount} 篇${crawlerTopic}候选文章，请检查封面和正文后再发布。`
+        : `本次没有新增文章，当前库存可能已达目标，或候选内容未通过难度与抓取检查。`);
+    } catch (runError) {
+      setError(runError instanceof Error ? runError.message : "自动抓取任务失败。");
+    } finally {
+      setWorking("");
+    }
+  }
 
   function resetDraft(nextMode: "paste" | "url" = mode) {
     setDraft({ ...EMPTY_DRAFT, sourceKind: nextMode === "url" ? "manual-url" : "manual-paste" });
@@ -466,6 +519,7 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
   }
 
   const busy = Boolean(working);
+  const activeCrawlerSources = crawlerStatus?.sources.filter((source) => source.topics.includes(crawlerTopic)) ?? [];
 
   return (
     <div className="grid gap-5">
@@ -474,6 +528,44 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
           {error || message}
         </div>
       )}
+
+      <section className="rounded-2xl bg-white px-5 py-5 sm:px-6">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <h2 className="text-xl font-semibold text-[#17191c]">自动发现候选文章</h2>
+              <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${crawlerStatus?.scheduled ? "bg-[#e9f5ee] text-[#17613b]" : "bg-[#fff0ed] text-[#9b3524]"}`}>
+                {crawlerStatus?.scheduled ? "每日任务已启用" : "每日任务待配置"}
+              </span>
+            </div>
+            <p className="mt-1 max-w-3xl text-sm leading-6 text-[#4d535a]">从经过筛选的官方 Feed 发现文章，完成去重、正文与图片抓取、难度判断后放入候选库。系统不会自动发布。</p>
+            <p className="mt-2 text-xs leading-5 text-[#68717a]">{crawlerStatus?.scheduleLabel || "正在读取定时任务状态..."}。每次最多新增 {crawlerStatus?.maxNewArticlesPerRun ?? 2} 篇，避免一次任务占用过久。</p>
+          </div>
+          <button className={primaryButtonClass} type="button" onClick={() => void handleRunCrawler()} disabled={busy}>
+            {working === "crawl" ? "正在发现并分析..." : "扫描并加入候选"}
+          </button>
+        </div>
+
+        <div className="mt-5 grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_160px]">
+          <label className={labelClass}>目标主题<select className={inputClass} value={crawlerTopic} onChange={(event) => setCrawlerTopic(event.target.value as ArticleTopic)} disabled={busy}>{ARTICLE_TOPICS.map((topic) => <option key={topic}>{topic}</option>)}</select></label>
+          <label className={labelClass}>目标难度<select className={inputClass} value={crawlerDifficulty} onChange={(event) => setCrawlerDifficulty(event.target.value as CrawlerDifficulty)} disabled={busy}><option value="any">自动判断，不限难度</option>{ARTICLE_DIFFICULTIES.map((difficulty) => <option key={difficulty}>{difficulty}</option>)}</select></label>
+          <label className={labelClass}>目标库存<input className={inputClass} type="number" min={1} max={30} value={crawlerTargetInventory} onChange={(event) => setCrawlerTargetInventory(Math.max(1, Math.min(30, Number(event.target.value) || 1)))} disabled={busy} /></label>
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-[#59636c]">
+          <span>本主题来源：</span>
+          {activeCrawlerSources.map((source) => <span key={source.id} className="rounded-full bg-[#eef1f4] px-2.5 py-1 text-[#3f4850]">{source.name}</span>)}
+        </div>
+
+        {crawlerResult && (
+          <div className="mt-5 border-t border-[#e1e5e9] pt-4 text-sm leading-6 text-[#3f4850]" role="status">
+            <p>库存 {crawlerResult.inventoryBefore} → {crawlerResult.inventoryAfter}，发现 {crawlerResult.discovered} 个未入库链接，尝试 {crawlerResult.attempted} 篇，新增 {crawlerResult.created.length} 篇。</p>
+            {crawlerResult.created.length > 0 && <p className="mt-1 text-[#174d73]">新增：{crawlerResult.created.map((article) => `《${article.title}》`).join("、")}</p>}
+            {crawlerResult.skipped.length > 0 && <details className="mt-2"><summary className="cursor-pointer font-medium text-[#59636c]">查看 {crawlerResult.skipped.length} 条跳过原因</summary><ul className="mt-2 list-disc space-y-1 pl-5">{crawlerResult.skipped.map((item) => <li key={`${item.url}-${item.reason}`}>{item.title}：{item.reason}</li>)}</ul></details>}
+            {crawlerResult.sourceErrors.length > 0 && <p className="mt-2 text-[#9b3524]">有 {crawlerResult.sourceErrors.length} 个来源暂时读取失败，其余来源仍已继续处理。</p>}
+          </div>
+        )}
+      </section>
 
       <section className="overflow-hidden rounded-2xl bg-white">
         <div className="border-b border-[#e1e5e9] px-5 py-5 sm:px-6">
@@ -601,8 +693,8 @@ export default function AdminArticleIntakePanel({ onPublished }: AdminArticleInt
               return <li key={article.id} className="grid gap-4 py-4 sm:grid-cols-[auto_112px_minmax(0,1fr)_auto] sm:items-center">
                 <input className="h-5 w-5 accent-[#1769aa]" type="checkbox" checked={selected} disabled={!hasCover || busy} aria-label={`选择 ${article.title}`} onChange={() => setSelectedIds((ids) => selected ? ids.filter((id) => id !== article.id) : [...ids, article.id])} />
                 <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#e8edf1]">{hasCover ? <img className="h-full w-full object-cover" src={recommendation?.coverImageUrl} alt="" /> : <div className="flex h-full items-center justify-center px-2 text-center text-xs text-[#6a4a43]">缺少封面</div>}</div>
-                <div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold leading-6 text-[#17191c]">{article.title}</h3><span className={`rounded-full px-2.5 py-1 text-xs font-medium ${hasCover ? "bg-[#e9f5ee] text-[#17613b]" : "bg-[#fff0ed] text-[#9b3524]"}`}>{hasCover ? "可发布" : "待补封面"}</span></div><p className="mt-1 line-clamp-2 text-sm leading-6 text-[#4d535a]">{article.summary || "暂无摘要"}</p><p className="mt-1 text-xs leading-5 text-[#68717a]">{recommendation?.difficulty || "待判断"} · {recommendation?.topics.join("、") || "待分类"} · {recommendation?.readingMinutes || 1} 分钟</p></div>
-                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => { setDraft(draftFromCandidate(article)); setMode(article.recommendation?.sourceKind === "manual-url" ? "url" : "paste"); setError(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }} disabled={busy}>编辑</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => void handleDeleteCandidate(article)} disabled={busy}>删除</button></div>
+                <div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold leading-6 text-[#17191c]">{article.title}</h3><span className={`rounded-full px-2.5 py-1 text-xs font-medium ${hasCover ? "bg-[#e9f5ee] text-[#17613b]" : "bg-[#fff0ed] text-[#9b3524]"}`}>{hasCover ? "可发布" : "待补封面"}</span>{recommendation?.sourceKind === "crawler" && <span className="rounded-full bg-[#edf5fb] px-2.5 py-1 text-xs font-medium text-[#174d73]">自动发现</span>}</div><p className="mt-1 line-clamp-2 text-sm leading-6 text-[#4d535a]">{article.summary || "暂无摘要"}</p><p className="mt-1 text-xs leading-5 text-[#68717a]">{recommendation?.difficulty || "待判断"} · {recommendation?.topics.join("、") || "待分类"} · {recommendation?.readingMinutes || 1} 分钟</p></div>
+                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => { setDraft(draftFromCandidate(article)); setMode(article.recommendation?.sourceKind === "manual-paste" ? "paste" : "url"); setError(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }} disabled={busy}>编辑</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => void handleDeleteCandidate(article)} disabled={busy}>删除</button></div>
               </li>;
             })}
           </ul>

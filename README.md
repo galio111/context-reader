@@ -21,7 +21,7 @@ Production URL: `https://context-reader-ten.vercel.app`
 - Save vocabulary entries as compressed `localStorage` data with transparent compatibility for existing uncompressed notebooks.
 - Play US and UK word pronunciations in the explanation panel and vocabulary notebook using browser speech synthesis.
 - Keep the vocabulary notebook compact with virtualized, content-height word cards instead of manual expand controls.
-- Add recommendation candidates from pasted articles or public URLs in `/admin`, automatically classify them for Chinese learners, require a reviewed cover image, and publish only selected ready candidates.
+- Add recommendation candidates from pasted articles, public URLs, or the reviewed-source crawler in `/admin`; automatically classify them for Chinese learners, require a reviewed cover image, and publish only selected ready candidates.
 - Preload cached explanations and full-article translations for public recommended articles.
 - Server-render the homepage recommendation list so recommendations are visible on first paint, then prefetch visible recommendation details so opening one feels close to reopening a local saved article.
 - Use an immersive four-screen homepage that teaches click-to-explain and horizontal phrase selection, keeps the third screen exclusively for server-rendered recommendations, accelerates and locks desktop wheel navigation into the adjacent screen in both directions at scene boundaries, and keeps paste/URL plus the saved-article top menu available on the first screen. Long pasted text can expand into a desktop hover/focus preview, while returning from an article skips the first-visit loader and restores the homepage with both demonstrations complete.
@@ -68,6 +68,7 @@ ZHIPU_BASE_URL=https://open.bigmodel.cn/api/paas/v4
 ZHIPU_OCR_MODEL=glm-4.6v-flash
 ADMIN_PASSWORD=change_me_to_a_long_admin_password
 ADMIN_SESSION_SECRET=change_me_to_a_random_session_secret
+CRON_SECRET=change_me_to_a_separate_random_cron_secret
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 ACCOUNT_COOKIE_SECRET=change_me_to_an_independent_random_32_byte_secret
@@ -139,7 +140,9 @@ Word explanation cache entries are durable browser data. On a cache miss, the co
 
 ## Public Recommendations
 
-Open `/admin`, enter `ADMIN_PASSWORD`, then choose either paste or URL intake. URL intake keeps meaningful inline images, proposes available article images as covers, and automatically classifies the article before review. Both modes can save an incomplete candidate, but publishing requires a cover. Candidate rows reuse `public_articles` with `published=false`; classification and cover metadata are stored in `imported_article.recommendation`, so the public table needs no destructive migration. Selected ready candidates can be published in a batch. Publishing a candidate that matches an existing public source updates that article instead of creating a duplicate, while cached explanations and full-article translations continue to merge through the existing public-article path. Automatic source crawling and scheduling are not implemented yet.
+Open `/admin`, enter `ADMIN_PASSWORD`, then choose paste, URL intake, or automatic discovery. URL intake keeps meaningful inline images, proposes available article images as covers, and automatically classifies the article before review. Automatic discovery accepts a topic, optional difficulty, and target inventory; it reads the reviewed NASA, ScienceDaily, Smithsonian Magazine, Aeon, Literary Hub, and NPR Technology RSS/Atom feeds, deduplicates source URLs, imports the full article, and saves at most two new candidates per run. A daily Vercel Cron run rotates through the six topics and targets six reviewed-or-pending articles per topic. Neither manual nor scheduled discovery publishes automatically.
+
+All intake modes can save an incomplete candidate, but publishing requires a cover. Candidate rows reuse `public_articles` with `published=false`; classification and cover metadata are stored in `imported_article.recommendation`, so the public table needs no destructive migration. Selected ready candidates can be published in a batch. Publishing a candidate that matches an existing public source updates that article instead of creating a duplicate, while cached explanations and full-article translations continue to merge through the existing public-article path. Set a long random `CRON_SECRET` in Vercel Production before enabling the schedule in `vercel.json`.
 
 Visitors do not need to log in. They can open public recommended articles from the homepage. The recommendation list is fetched during the server render, so it should appear immediately when the homepage loads. If the service worker has cached the app and public article API responses, those pages can reopen offline. Previously cached explanations and full translations can reopen from local browser data. New AI explanations, new full-article translations, URL imports, image OCR, and new summaries still require network access.
 

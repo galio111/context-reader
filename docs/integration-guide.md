@@ -30,6 +30,7 @@ OPENAI_OCR_MODEL=gpt-4o-mini
 ADMIN_PASSWORD=...
 ADMIN_SESSION_SECRET=...
 ADMIN_SESSION_VERSION=1
+CRON_SECRET=...
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=...
 ACCOUNT_COOKIE_SECRET=...
@@ -39,7 +40,7 @@ Homepage image reading is enabled. Configure either `OCR_PROVIDER=zhipu` with `Z
 
 `DEEPSEEK_TRANSLATION_MODEL` overrides only full-article translation. `DEEPSEEK_FALLBACK_MODELS` is a comma-separated model list used for supported retries on the primary provider. Structured word explanations can also use `DEEPSEEK_FALLBACK_BASE_URL` with optional `DEEPSEEK_FALLBACK_API_KEY` and `DEEPSEEK_FALLBACK_MODEL`. Empty fallback values disable the secondary-provider path.
 
-`ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, `SUPABASE_URL`, and `SUPABASE_SERVICE_ROLE_KEY` are needed for `/admin`, public recommendations, preloaded word explanations, and preloaded full-article translations. Use a long unique password; only the independent session secret has an enforced minimum of 32 characters. Increment `ADMIN_SESSION_VERSION` to revoke every existing admin cookie. Run the complete `docs/public-articles-supabase.sql` in Supabase before publishing and after security/schema updates; it creates the three tables, enables RLS, and revokes direct access from browser roles and `PUBLIC`.
+`ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, `SUPABASE_URL`, and `SUPABASE_SERVICE_ROLE_KEY` are needed for `/admin`, public recommendations, preloaded word explanations, and preloaded full-article translations. `CRON_SECRET` is required for the scheduled recommendation crawler; use a separate long random value in the Vercel Production environment. Use a long unique admin password; only the independent session secret has an enforced minimum of 32 characters. Increment `ADMIN_SESSION_VERSION` to revoke every existing admin cookie. Run the complete `docs/public-articles-supabase.sql` in Supabase before publishing and after security/schema updates; it creates the three tables, enables RLS, and revokes direct access from browser roles and `PUBLIC`.
 
 For accounts and usage, also set an independent `ACCOUNT_COOKIE_SECRET` and run `docs/account-usage-supabase.sql`. The visible beta flow uses `/api/auth/phone-register` and `/api/auth/phone-login`: the server maps a mainland-China phone identifier to a reserved internal Auth email, marks it unverified, and uses a six-digit numeric password as the Supabase Auth password. It sends no SMS and the internal email must never be displayed. Legacy email OTP remains available in code; if exposed publicly later, configure custom SMTP and make the template include `{{ .Token }}`. The service-role key is server-only. Do not create a `NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY`. Optional cost-rate overrides are `DEEPSEEK_CACHE_HIT_USD_PER_MILLION`, `DEEPSEEK_CACHE_MISS_USD_PER_MILLION`, and `DEEPSEEK_OUTPUT_USD_PER_MILLION`.
 
@@ -71,7 +72,9 @@ Admins open `/admin`, log in with `ADMIN_PASSWORD`, then build and review recomm
 - merging cached explanations and full-article translation caches into an existing public article instead of duplicating it,
 - deleting public recommendations.
 
-`GET /api/public-articles` lists public articles. `GET /api/public-articles/[id]` returns one article with preloaded word explanations and full-article translation caches. `GET/POST/PATCH/DELETE /api/admin/article-candidates` manages the review queue, `POST /api/admin/article-classification` classifies content, and `POST /api/admin/article-covers` uploads cover files. Admin writes require the admin session cookie. Automatic crawling is not active yet.
+`GET /api/public-articles` lists public articles. `GET /api/public-articles/[id]` returns one article with preloaded word explanations and full-article translation caches. `GET/POST/PATCH/DELETE /api/admin/article-candidates` manages the review queue, `POST /api/admin/article-classification` classifies content, and `POST /api/admin/article-covers` uploads cover files. `GET/POST /api/admin/article-crawler` exposes the crawler status and authenticated manual runs. Admin writes require the admin session cookie.
+
+`vercel.json` calls `GET /api/cron/recommendations` at `19:00 UTC`, approximately `03:00` in China. Vercel Hobby schedules have hour-level timing precision and run no more than once per day. Vercel sends `Authorization: Bearer $CRON_SECRET`; the route returns `401` when the Production secret is absent or mismatched. Each scheduled run rotates one topic, targets six items of inventory, and adds no more than two candidates. Re-run a topic manually from `/admin` when a source is temporarily unavailable; failed jobs are not retried automatically by Vercel.
 
 ## Offline Behavior
 
