@@ -6,7 +6,8 @@ import type {
   ImportedImageLayoutWord,
   SavedArticle,
 } from "@/types/article";
-import { notifyAccountDataChanged } from "@/lib/accountEvents";
+import { notifyAccountDataChanged, notifyAccountObjectsDeleted } from "@/lib/accountEvents";
+import { mergeDuplicateSavedArticles, savedArticleBodyIdentity } from "@/lib/savedArticleMerge";
 
 const ARTICLES_KEY = "context-reader:articles:v1";
 const GENERIC_SUMMARY = "这是一篇已保存的英文阅读文章。";
@@ -206,6 +207,7 @@ function normalizeArticle(value: unknown): SavedArticle | null {
     ...(importedArticle ? { importedArticle } : {}),
     createdAt: typeof article.createdAt === "string" ? article.createdAt : now,
     updatedAt: typeof article.updatedAt === "string" ? article.updatedAt : now,
+    ...(typeof article.lastOpenedAt === "string" ? { lastOpenedAt: article.lastOpenedAt } : {}),
   };
 }
 
@@ -220,9 +222,17 @@ export function getSavedArticles(): SavedArticle[] {
     if (!raw) {
       return [];
     }
-    return (JSON.parse(raw) as unknown[])
+    const normalized = (JSON.parse(raw) as unknown[])
       .map(normalizeArticle)
       .filter((article): article is SavedArticle => Boolean(article));
+    const merged = mergeDuplicateSavedArticles(normalized);
+    const serialized = JSON.stringify(merged.articles);
+    if (serialized !== JSON.stringify(normalized)) {
+      storage.setItem(ARTICLES_KEY, serialized);
+      if (merged.removedIds.length) notifyAccountObjectsDeleted("article", merged.removedIds);
+      else notifyAccountDataChanged();
+    }
+    return merged.articles;
   } catch {
     return [];
   }
@@ -233,12 +243,14 @@ export function saveArticles(articles: SavedArticle[]): void {
   if (!storage) {
     return;
   }
-  storage.setItem(ARTICLES_KEY, JSON.stringify(articles));
-  notifyAccountDataChanged();
+  const merged = mergeDuplicateSavedArticles(articles);
+  storage.setItem(ARTICLES_KEY, JSON.stringify(merged.articles));
+  if (merged.removedIds.length) notifyAccountObjectsDeleted("article", merged.removedIds);
+  else notifyAccountDataChanged();
 }
 
 export function articleIdentity(article: string): string {
-  return article.trim().replace(/\s+/g, " ").toLowerCase();
+  return savedArticleBodyIdentity(article);
 }
 
 export function findSavedArticle(article: string): SavedArticle | null {
@@ -288,6 +300,7 @@ export function saveArticle(article: string, summary = "", importedArticle?: Imp
       ...(normalizedImportedArticle ? { importedArticle: normalizedImportedArticle } : {}),
       createdAt: now,
       updatedAt: now,
+      lastOpenedAt: now,
     },
     ...articles,
   ];
@@ -333,9 +346,11 @@ export function touchSavedArticle(id: string): SavedArticle[] {
     return articles;
   }
 
+  const openedAt = new Date().toISOString();
   const touchedArticle = {
     ...existing,
-    updatedAt: new Date().toISOString(),
+    updatedAt: openedAt,
+    lastOpenedAt: openedAt,
   };
   const nextArticles = [
     touchedArticle,
@@ -346,7 +361,11 @@ export function touchSavedArticle(id: string): SavedArticle[] {
 }
 
 export function deleteSavedArticle(id: string): SavedArticle[] {
-  const nextArticles = getSavedArticles().filter((article) => article.id !== id);
+  const articles = getSavedArticles();
+  const nextArticles = articles.filter((article) => article.id !== id);
+  if (nextArticles.length !== articles.length) {
+    notifyAccountObjectsDeleted("article", [id]);
+  }
   saveArticles(nextArticles);
   return nextArticles;
 }

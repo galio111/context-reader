@@ -151,6 +151,11 @@ export async function POST(request: Request) {
     });
 
     if (!response.ok || !response.body) {
+      console.error("[deepseek-stream] Upstream rejected request", {
+        status: response.status,
+        model,
+        baseURL,
+      });
       clearTimeout(timeoutId);
       request.signal.removeEventListener("abort", abortFromClient);
       releaseSlot();
@@ -226,7 +231,19 @@ export async function POST(request: Request) {
         "Content-Type": "text/plain; charset=utf-8",
       },
     });
-  } catch {
+  } catch (error) {
+    const cause = error && typeof error === "object" && "cause" in error
+      ? (error as { cause?: { name?: unknown; code?: unknown; message?: unknown } }).cause
+      : undefined;
+    console.error("[deepseek-stream] Upstream request failed", {
+      model,
+      baseURL,
+      errorName: error instanceof Error ? error.name : "UnknownError",
+      errorMessage: error instanceof Error ? error.message.slice(0, 300) : "",
+      causeName: typeof cause?.name === "string" ? cause.name : "",
+      causeCode: typeof cause?.code === "string" ? cause.code : "",
+      causeMessage: typeof cause?.message === "string" ? cause.message.slice(0, 300) : "",
+    });
     clearTimeout(timeoutId);
     request.signal.removeEventListener("abort", abortFromClient);
     releaseSlot();

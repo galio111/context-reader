@@ -913,11 +913,11 @@ export function ReaderView({
     };
   }, [activeImageBlockId]);
 
-  const articleSaved = useMemo(() => {
-    const savedArticle = findSavedArticle(currentArticle);
-    const summary = savedArticle?.summary?.trim();
-    return Boolean(summary && isValidArticleSummary(summary));
-  }, [currentArticle]);
+  const savedCurrentArticle = findSavedArticle(currentArticle);
+  const articleSaved = Boolean(savedCurrentArticle);
+  const articleSummaryReady = Boolean(
+    savedCurrentArticle?.summary?.trim() && isValidArticleSummary(savedCurrentArticle.summary),
+  );
 
   function getTokenRange(startToken: ReaderToken, endToken: ReaderToken): ReaderToken[] {
     if (startToken.paragraphIndex !== endToken.paragraphIndex) {
@@ -1874,21 +1874,32 @@ export function ReaderView({
   async function handleSaveArticle() {
     if (!requireAccount("登录后才能保存文章；登录时会先合并本机已有数据。")) return;
     setSavingArticle(true);
-    setSaveStatus("正在生成中文摘要...");
+    setSaveStatus("正在保存文章...");
+    let articleStored = false;
     try {
+      saveArticle(currentArticle, "", effectiveImportedArticle);
+      articleStored = true;
+      onArticleSaved();
+      setSaveStatus("文章已保存，正在生成中文摘要...");
+
       const summary = await requestArticleSummary(currentArticle);
       saveArticle(currentArticle, summary, effectiveImportedArticle);
       onArticleSaved();
       setSaveStatus("文章已保存");
     } catch (summaryError) {
-      setSaveStatus(summaryError instanceof Error ? summaryError.message : "文章摘要生成失败，请稍后重试。");
+      const message = summaryError instanceof Error ? summaryError.message : "文章摘要生成失败，请稍后重试。";
+      setSaveStatus(articleStored ? `文章已保存；${message}` : message);
     } finally {
       setSavingArticle(false);
       window.setTimeout(() => setSaveStatus(""), 2600);
     }
   }
 
-  const saveButtonText = savingArticle ? "保存中" : articleSaved ? "重新生成首页摘要" : "保存文章";
+  const saveButtonText = savingArticle
+    ? "保存中"
+    : articleSaved
+      ? articleSummaryReady ? "重新生成首页摘要" : "生成首页摘要"
+      : "保存文章";
   const hasExplanationPanelContent = Boolean(selectedContext || loading || explanation || error);
   const activeArticleStyle = DEFAULT_ARTICLE_STYLE;
   const articleShellClassName = [

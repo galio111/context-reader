@@ -63,8 +63,8 @@ https://context-reader-ten.vercel.app
 - Tailwind CSS
 - DeepSeek API
 - OpenAI SDK 依赖存在，但主要 AI 路由目前默认走 DeepSeek
-- Supabase 用于公开推荐文章和预缓存
-- 浏览器 localStorage 用于大量本地数据
+- Supabase 用于公开推荐文章、邮箱 OTP 账号、用量计数和跨设备学习数据同步
+- 浏览器 localStorage 用于本地优先数据、离线缓存和账号同步；保存文章始终合并为每篇一条，不展示恢复副本
 - AnkiConnect 用于本地 Anki 导入
 - PWA service worker 用于有限离线能力
 
@@ -95,7 +95,13 @@ context-reader/
   app/
     page.tsx
     admin/page.tsx
+    admin/accounts/page.tsx
+    account/usage/page.tsx
     api/
+      auth/*/route.ts
+      account/sync/route.ts
+      account/export/route.ts
+      usage/cache-lookup/route.ts
       explain-word/route.ts
       explain-word-stream/route.ts
       translate-article/route.ts
@@ -108,6 +114,7 @@ context-reader/
       ocr-image-layout/route.ts
     guide/page.tsx
   components/
+    AccountProvider.tsx
     ArticleInput.tsx
     ImmersiveHome.tsx
     HomeReadingDemo.tsx
@@ -118,6 +125,11 @@ context-reader/
     VocabularyPanel.tsx
     PronunciationButtons.tsx
   lib/
+    userAuth.ts
+    accountStore.ts
+    accountSyncClient.ts
+    usageIdentity.ts
+    usageGate.ts
     deepseek.ts
     apiClient.ts
     tokenizer.ts
@@ -135,12 +147,15 @@ context-reader/
     ankiTemplates.ts
     visionOcr.ts
   types/
+    account.ts
     reader.ts
     vocabulary.ts
     article.ts
     publicArticle.ts
     anki.ts
   docs/
+    account-usage-plan.md
+    account-usage-supabase.sql
     architecture.md
     integration-guide.md
     public-articles-supabase.sql
@@ -163,6 +178,7 @@ context-reader/
 - `importedArticle`
 - `createdAt`
 - `updatedAt`
+- `lastOpenedAt`（可选；首页已保存文章菜单用它按最近打开排序，旧数据回退到 `updatedAt` / `createdAt`）
 
 URL 导入文章会保留 `ImportedArticle`：
 
@@ -243,7 +259,10 @@ thinking: { type: "disabled" }
 - `/api/ocr-image-url`：远程图片文本 OCR；URL 导入文章的阅读器目前不会自动调用。
 - `/api/download-image`：阅读器远程图片下载代理。
 - `/api/public-articles` 和 `/api/public-articles/[id]`：公开推荐文章读取。
-- `/api/admin/*`：管理员登录、发布、删除推荐文章。
+- `/api/auth/*`：邮箱 OTP、托管登录会话接入、当前会话与退出。
+- `/api/account/sync` 与 `/api/account/export`：版本化学习数据同步与账号数据导出。
+- `/api/usage/cache-lookup`：记录游客缓存查词试用。
+- `/api/admin/*`：管理员登录、推荐文章发布/删除、账号套餐与额度管理。
 - `/api/anki/*`：Anki 辅助路由，实际导入仍依赖本地 AnkiConnect。
 
 ## 8. 查词和解释流
@@ -396,7 +415,7 @@ Cloze 卡强规则：
 
 ## 14. 首页和推荐文章
 
-首页第一屏必须保留紧凑的粘贴文章和输入网址入口。推荐文章与已保存文章在第三个 sticky 屏幕中统一呈现，但仍保留独立标识与打开逻辑。
+首页第一屏必须保留紧凑的粘贴文章和输入网址入口。第一屏顶部提供“已保存文章”按钮，桌面端悬停或键盘聚焦即可展开，点击也能控制开关；菜单在内部滚动区显示全部已保存文章，每篇逻辑文章只出现一次，并按最后一次打开时间倒序排列。旧的同正文记录和 `-local-recovered-*` 血缘副本会合并回原文章并同步删除。第三个 sticky 屏幕只展示推荐文章，不再混入已保存文章。
 
 公开推荐文章：
 
@@ -404,7 +423,7 @@ Cloze 卡强规则：
 - 首页推荐列表必须由 server render 加载并传给 client 作为 initial data。
 - 不应只在 mount 后 client fetch，否则返回首页时会出现推荐区域短暂为空。
 
-当前生产首页已经接入沉浸式阅读教学结构：首屏直接提供文章/网址入口和可点击句子，第二屏用 sticky 场景演示并练习横向划选短语，第三屏锁定展示推荐及已保存文章，第四屏提供粘贴、网址和图片阅读入口；桌面端滚轮在场景边界向下或向上滚动时，都会加速并锁定到相邻屏，上滑会落在上一场景的最后一个完整视口，移动端仍保持普通纵向滚动；顶部仍可进入 `/guide` 与生词本。历史静态 mockup 保留为设计参考，不再代表等待选择的未实现方案：
+当前生产首页已经接入沉浸式阅读教学结构：首屏直接提供文章/网址入口、可点击句子和顶部已保存文章菜单，第二屏用 sticky 场景演示并练习横向划选短语，第三屏锁定且只展示推荐文章，第四屏提供粘贴、网址和图片阅读入口；桌面端滚轮在场景边界向下或向上滚动时，都会加速并锁定到相邻屏，上滑会落在上一场景的最后一个完整视口，移动端仍保持普通纵向滚动；顶部仍可进入 `/guide` 与生词本。历史静态 mockup 保留为设计参考，不再代表等待选择的未实现方案：
 
 - `context-reader/docs/home-direction-1-workbench.html`
 - `context-reader/docs/home-direction-2-command.html`
@@ -490,7 +509,7 @@ Context Reader 是有限离线，不是完整离线 AI 应用。
 
 ## 18. localStorage 和缓存观念
 
-Context Reader 大量依赖浏览器 localStorage。它既是用户数据层，也是缓存层。
+Context Reader 大量依赖浏览器 localStorage。游客状态下它是主要用户数据层与缓存层；登录后仍作为本地工作副本和离线/恢复层，但云端版本化对象是跨设备同步的权威来源。
 
 耐久数据：
 
@@ -617,8 +636,8 @@ MVP 可以记录：
 - 登录首版采用邮箱 OTP；手机号与微信登录留到有对应主体、通道和转化证据后再做。
 - 游客每天可查词 10 次，缓存命中也计入游客试用；全文翻译、摘要、OCR、保存文章、生词本与 Anki 必须登录，但管理员预发布的公开全文翻译仍对游客可见。
 - 注册账号缓存命中、失败、超时和及时取消不扣额度。结构化与流式查词共用一个 action id，前台算一次，后台分别记录真实 tokens 和估算成本。
-- 额度分 `lookup_generation` 与 `deep_reading`。套餐和价格是测试假设，可在 `/admin/accounts` 调整；暂未接在线支付。
-- 云端为准，但登录先合并本地文章、生词本和缓存。同步使用逐对象 server version；冲突保留本地恢复副本。
+- 额度分 `lookup_generation` 与 `deep_reading`。套餐和价格是测试假设，可在统一 `/admin` 后台的“账号与用量”标签调整；暂未接在线支付。
+- 云端为准，但登录先合并本地文章、生词本和缓存。同步使用逐对象 server version，并用标准化、稳定排序的 JSON 内容比较跳过未变化对象。文章按标准化正文和旧恢复 ID 血缘合并为唯一原记录，保留最新打开时间，所有重复 ID 通过 tombstone 从云端删除，绝不生成或展示文章恢复副本；同步 API 会把旧标签页写入的 `-local-recovered-*` 文章强制转成 tombstone，云端合并完成后首页也会即时刷新文章列表和数量。生词按“单词＋原句”合并并去重，多余恢复 ID 通过 tombstone 从云端删除，真正无法判断的同 ID 生词冲突只进入独立本地恢复区，不计入生词本。文章和生词删除都会同步 tombstone，避免其他设备把已删除数据恢复回来。
 - 用户用量页为 `/account/usage`，数据库迁移为 `docs/account-usage-supabase.sql`，完整规则见 `docs/account-usage-plan.md`。
 - 生产数据库、Vercel/Supabase 环境变量、项目成员邮箱登录和跨设备同步已经验证可用；但面向普通公众的邮箱登录仍未完成，因为还没有配置自定义 SMTP 与包含 `{{ .Token }}` 的验证码模板。后续讨论网站完善、登录或公开上线时必须主动提醒用户这一阻塞项。
 

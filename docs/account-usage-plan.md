@@ -8,8 +8,8 @@ Status: application code, Supabase migration, production environment variables, 
 2. Ask at the restricted action. Login appears only when a guest exhausts lookup trial or tries to save, use vocabulary/Anki, request private full translation, summary, or OCR.
 3. One user action is one visible charge. Parallel structured and streaming lookup requests share an idempotent action id; backend executions still record their real token usage separately.
 4. Never charge registered users for cache hits, failures, timeouts, or cancellations. Guest cached lookups still count toward the ten-lookups-per-day trial.
-5. The cloud is authoritative after login, but migration never silently discards local data. Version conflicts are refetched and merged; differing local records are retained as recovery copies.
-6. Quotas are product configuration, not UI constants. Plans and metric allowances are editable in `/admin/accounts`; payment is deliberately not connected yet.
+5. The cloud is authoritative after login, but migration never silently discards local data. Version conflicts are refetched and merged. Article conflicts may remain visible recovery copies; vocabulary is normalized and deduplicated by word plus source sentence, while a genuinely ambiguous same-id vocabulary conflict is retained in a separate local recovery store instead of appearing as another notebook entry.
+6. Quotas are product configuration, not UI constants. Plans and metric allowances are editable from the “账号与用量” section of `/admin`; payment is deliberately not connected yet.
 7. Collect the minimum. Analytics stores identity, entitlement, quota actions, route/model, provider tokens, estimated cost, status and error code—not full private article text.
 
 ## User state matrix
@@ -47,8 +47,9 @@ Status: application code, Supabase migration, production environment variables, 
 
 - Login uses email OTP. Access and refresh cookies are HttpOnly, Secure in production and SameSite=Lax; the refresh cookie lasts 30 days.
 - First login downloads cloud objects, supplements them with local data, uploads with expected versions, and retries once after a conflict.
+- Vocabulary sync keeps one canonical entry per normalized word and source sentence, merges the most complete generated fields and Anki import record, and sends tombstones for redundant cloud recovery ids.
 - Explicit logout first requires a successful sync, then clears account-associated local caches. A sync failure stops logout instead of risking data loss.
-- `/account/usage` shows simple remaining allowances. `/admin/accounts` shows users, plans, token/cost totals, failures and global limits.
+- `/account/usage` shows simple remaining allowances. The “账号与用量” section of `/admin` shows users, plans, token/cost totals, failures and global limits.
 
 ## Risks and phased release
 

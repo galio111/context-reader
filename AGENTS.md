@@ -4,7 +4,7 @@
 
 Context Reader is a Next.js 15 / React 19 app for Chinese-speaking learners reading real English articles. Reading flow is primary; lookup, translation, vocabulary, and Anki are supporting tools. The fixed production URL is `https://context-reader-ten.vercel.app`.
 
-Accounts use server-side Supabase email OTP with HttpOnly cookies. Guests receive 10 word/phrase lookups per Shanghai day; cached guest lookups count, while registered cache hits and failed/cancelled work do not. Save/vocabulary/Anki/private translation/summary/OCR require login; admin-prepublished translations stay public. Structured and streaming lookup requests share one idempotent usage action while recording both upstream executions. Cloud sync is authoritative but must preserve local data through object versions and recovery copies. Quotas and provisional plans are managed at `/admin/accounts`; payment is not connected. The production database, secrets, member-email login, and sync are active, but public email login is not launch-ready until custom SMTP and a `{{ .Token }}` OTP template are configured. Whenever future work touches authentication, launch readiness, or general site completion, proactively remind the user about this unfinished SMTP blocker.
+Accounts use server-side Supabase email OTP with HttpOnly cookies. Guests receive 10 word/phrase lookups per Shanghai day; cached guest lookups count, while registered cache hits and failed/cancelled work do not. Save/vocabulary/Anki/private translation/summary/OCR require login; admin-prepublished translations stay public. Structured and streaming lookup requests share one idempotent usage action while recording both upstream executions. Cloud sync is authoritative but must preserve local data through object versions and recovery copies. Public recommendations, users, quotas, and provisional plans share the unified `/admin` console; payment is not connected. The production database, secrets, member-email login, and sync are active, but public email login is not launch-ready until custom SMTP and a `{{ .Token }}` OTP template are configured. Whenever future work touches authentication, launch readiness, or general site completion, proactively remind the user about this unfinished SMTP blocker.
 
 ## Commands
 
@@ -32,7 +32,7 @@ Pure documentation changes do not require a build or deployment. For user-facing
 - Anki cloze hints use only the durable `contextMeaning`. Pronunciation is click-to-play; note import must continue if deck autoplay configuration cannot be written.
 - Public recommendations are server-rendered. Any article, explanation-cache, translation-cache, import, or schema change must also be checked against `/admin` publishing, Supabase preload storage, and public-article cache replay.
 - Keep the API security boundary intact: bounded request bodies, cost-aware throttling and concurrency caps, same-origin admin mutations, pinned-DNS safe remote fetches, private-network blocking, and generic client errors. The in-process limiter is defense in depth; production abuse resistance also requires a platform/distributed rate limit or a provider spending cap when traffic grows.
-- Supabase browser roles must never bypass `/admin`. Keep RLS enabled and revoke table access from `anon`, `authenticated`, and `PUBLIC`; re-run the authoritative SQL after security/schema changes.
+- Supabase browser roles must never bypass server-side admin or public-content paths. Keep RLS enabled and revoke the three public-content tables plus server-only account tables/functions from `anon`, `authenticated`, and `PUBLIC` as defined by the authoritative SQL. The account SQL intentionally grants `authenticated` only the documented own-row permissions; the app browser still receives no Supabase key.
 
 ## OCR Boundary
 
@@ -44,7 +44,7 @@ Pure documentation changes do not require a build or deployment. For user-facing
 ## Homepage Boundary
 
 - `components/ArticleInput.tsx` delegates the shipped homepage UI to `components/ImmersiveHome.tsx`; `docs/home-complete-ui-prototype.html` is its design baseline, not an unimplemented alternative.
-- Keep the compact paste/URL entry on the first screen. The word demo, phrase-selection lesson, recommendations/saved articles, and final entry form may unfold across the page without displacing the first-screen reading action.
+- Keep the compact paste/URL entry on the first screen. The first-screen top navigation owns the saved-article menu, which opens on hover, focus, or click and orders every saved article by its latest open time. A logical article must appear only once: merge identical bodies and legacy `-local-recovered-*` lineages into the original article, preserve the newest open time, never expose recovery copies in the saved list, and have the sync API tombstone recovery ids sent by stale browser tabs. The word demo, phrase-selection lesson, recommendation-only third screen, and final entry form may unfold across the page without displacing the first-screen reading action.
 - Public recommendations must remain server-rendered through `app/page.tsx`. Desktop scene-boundary wheel snapping must not replace normal mobile vertical scrolling.
 
 ## Data And Compatibility
@@ -62,5 +62,7 @@ Pure documentation changes do not require a build or deployment. For user-facing
 - `docs/integration-guide.md`: API, environment, Supabase, OCR, and Anki integration.
 - `docs/gpt-brief.md`: portable Chinese context package for conversations that cannot read the repository.
 - `docs/public-articles-supabase.sql`: authoritative public-article schema.
+- `docs/account-usage-plan.md`: account gating, quota, sync, pricing-test, and rollout rules.
+- `docs/account-usage-supabase.sql`: authoritative account, usage, sync, and audit schema.
 
 When behavior changes, update the existing final-state description instead of appending a dated change log. Keep these files consistent with code.

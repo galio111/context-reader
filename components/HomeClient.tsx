@@ -4,6 +4,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { ArticleInput } from "@/components/ArticleInput";
 import { ReaderView } from "@/components/ReaderView";
 import { fetchJson } from "@/lib/apiClient";
+import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
 import { deleteSavedArticle, getSavedArticles, touchSavedArticle } from "@/lib/articles";
 import { setCachedArticleTranslation } from "@/lib/cache";
 import { findBestSourceSentenceMatch, normalizeForSourceMatch } from "@/lib/sourceMatching";
@@ -106,7 +107,10 @@ export function HomeClient({ initialPublicArticles }: HomeClientProps) {
   }, [reading]);
 
   useEffect(() => {
-    setSavedArticles(getSavedArticles());
+    const refreshSavedArticles = () => setSavedArticles(getSavedArticles());
+    refreshSavedArticles();
+    window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshSavedArticles);
+    return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshSavedArticles);
   }, []);
 
   useEffect(() => {

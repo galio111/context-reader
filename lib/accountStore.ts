@@ -290,10 +290,27 @@ export async function recordUsageExecution(args: {
   });
 }
 
-export async function listSyncObjects(userId: string): Promise<AccountSyncObject[]> {
-  const rows = await accountFetch<SyncObjectRow[]>(
-    `user_data_objects?user_id=eq.${encodeURIComponent(userId)}&select=kind,object_key,payload,client_updated_at,server_version,deleted_at&order=kind.asc,object_key.asc`,
-  );
+export async function listSyncObjects(
+  userId: string,
+  page?: { offset: number; limit: number },
+): Promise<AccountSyncObject[]> {
+  const rows: SyncObjectRow[] = [];
+  if (page) {
+    const limit = Math.max(1, Math.min(1_000, Math.floor(page.limit)));
+    const offset = Math.max(0, Math.floor(page.offset));
+    rows.push(...await accountFetch<SyncObjectRow[]>(
+      `user_data_objects?user_id=eq.${encodeURIComponent(userId)}&select=kind,object_key,payload,client_updated_at,server_version,deleted_at&order=kind.asc,object_key.asc&limit=${limit}&offset=${offset}`,
+    ));
+  } else {
+  const pageSize = 1_000;
+    for (let offset = 0; offset < 20_000; offset += pageSize) {
+      const nextPage = await accountFetch<SyncObjectRow[]>(
+        `user_data_objects?user_id=eq.${encodeURIComponent(userId)}&select=kind,object_key,payload,client_updated_at,server_version,deleted_at&order=kind.asc,object_key.asc&limit=${pageSize}&offset=${offset}`,
+      );
+      rows.push(...nextPage);
+      if (nextPage.length < pageSize) break;
+    }
+  }
   return rows.map((row) => ({
     kind: row.kind,
     objectKey: row.object_key,

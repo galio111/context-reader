@@ -364,6 +364,20 @@ async function requestDeepSeekCompletion(args: {
       throw error;
     }
 
+    const cause = error && typeof error === "object" && "cause" in error
+      ? (error as { cause?: { name?: unknown; code?: unknown; message?: unknown } }).cause
+      : undefined;
+    console.error("[deepseek] Upstream request failed", {
+      profile: args.profile.label,
+      model: args.profile.model,
+      baseURL: args.profile.baseURL,
+      errorName: error instanceof Error ? error.name : "UnknownError",
+      errorMessage: error instanceof Error ? error.message.slice(0, 300) : "",
+      causeName: typeof cause?.name === "string" ? cause.name : "",
+      causeCode: typeof cause?.code === "string" ? cause.code : "",
+      causeMessage: typeof cause?.message === "string" ? cause.message.slice(0, 300) : "",
+    });
+
     const message = error instanceof Error && error.name === "AbortError"
       ? "DeepSeek 响应超时，请重新生成。"
       : "DeepSeek 请求失败，请检查网络或 API 配置。";

@@ -62,4 +62,5 @@ export interface SavedArticle {
   importedArticle?: ImportedArticle;
   createdAt: string;
   updatedAt: string;
+  lastOpenedAt?: string;
 }

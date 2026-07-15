@@ -106,6 +106,10 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!account.authenticated) return;
+    if (
+      window.location.pathname.startsWith("/admin") ||
+      window.location.pathname === "/account/repair-vocabulary"
+    ) return;
     void syncNow();
     const schedule = () => {
       if (syncTimer.current !== null) window.clearTimeout(syncTimer.current);

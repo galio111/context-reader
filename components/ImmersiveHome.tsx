@@ -3,6 +3,7 @@
 import Link from "next/link";
 import {
   useEffect,
+  useMemo,
   useRef,
   useState,
   type CSSProperties,
@@ -12,10 +13,10 @@ import {
 import type { SavedArticle } from "@/types/article";
 import type { PublicArticle } from "@/types/publicArticle";
 import { AccountNav } from "@/components/AccountProvider";
+import { savedArticleOpenTimestamp } from "@/lib/savedArticleMerge";
 
 type InputMode = "paste" | "url";
 type Scene = "word" | "phrase" | "articles" | "final";
-type ArticleMode = "public" | "saved";
 
 function isLocalScrollSurfaceEvent(event: Event): boolean {
   return event.target instanceof Element && Boolean(event.target.closest("[data-local-scroll-surface]"));
@@ -87,6 +88,124 @@ function Arrow() {
 
 function RollingLabel({ children }: { children: string }) {
   return <span className="cr-roll"><span>{children}</span><span aria-hidden="true">{children}</span></span>;
+}
+
+const savedArticleDateFormatter = new Intl.DateTimeFormat("zh-CN", {
+  timeZone: "Asia/Shanghai",
+  month: "numeric",
+  day: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+});
+
+function savedArticleTimestamp(article: SavedArticle): number {
+  return savedArticleOpenTimestamp(article);
+}
+
+function savedArticlePreview(article: SavedArticle): string {
+  const summary = article.summary?.trim();
+  if (summary) return summary;
+  return article.body.trim().replace(/\s+/g, " ").slice(0, 90);
+}
+
+function formatSavedArticleDate(article: SavedArticle): string {
+  const value = savedArticleTimestamp(article);
+  return value ? savedArticleDateFormatter.format(new Date(value)) : "时间未知";
+}
+
+function SavedArticlesMenu({
+  articles,
+  onOpen,
+  onDelete,
+}: {
+  articles: SavedArticle[];
+  onOpen: (article: SavedArticle) => void;
+  onDelete: (id: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const sortedArticles = useMemo(
+    () => [...articles].sort((left, right) => savedArticleTimestamp(right) - savedArticleTimestamp(left)),
+    [articles],
+  );
+
+  useEffect(() => {
+    if (!open) return;
+    const closeOnOutsidePointer = (event: PointerEvent) => {
+      if (event.target instanceof Node && !menuRef.current?.contains(event.target)) setOpen(false);
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+      }
+    };
+    document.addEventListener("pointerdown", closeOnOutsidePointer);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsidePointer);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [open]);
+
+  return (
+    <div ref={menuRef} className={`cr-saved-menu ${open ? "is-open" : ""}`} data-local-scroll-surface>
+      <button
+        className="cr-saved-trigger"
+        type="button"
+        aria-haspopup="dialog"
+        aria-label={`已保存文章，共 ${articles.length} 篇`}
+        aria-expanded={open}
+        aria-controls="cr-saved-articles-panel"
+        onClick={(event) => {
+          if (open) event.currentTarget.blur();
+          setOpen((current) => !current);
+        }}
+      >
+        <span className="cr-saved-label-full">已保存</span>
+        <span className="cr-saved-label-short">保存</span>
+        <span className="cr-saved-count" aria-label={`${articles.length} 篇`}>{articles.length}</span>
+        <span className="cr-saved-chevron" aria-hidden="true">⌄</span>
+      </button>
+      <section id="cr-saved-articles-panel" className="cr-saved-panel" aria-label="已保存文章，按最近打开排序">
+        <header>
+          <div><strong>已保存文章</strong><span>按最近打开排序</span></div>
+          <span>{articles.length} 篇</span>
+        </header>
+        {sortedArticles.length ? (
+          <div className="cr-saved-list">
+            {sortedArticles.map((article) => (
+              <div className="cr-saved-row" key={article.id}>
+                <button
+                  className="cr-saved-open"
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    onOpen(article);
+                  }}
+                >
+                  <span className="cr-saved-title">{article.title || "未命名文章"}</span>
+                  <span className="cr-saved-summary">{savedArticlePreview(article)}</span>
+                  <span className="cr-saved-time">最近打开 {formatSavedArticleDate(article)}</span>
+                </button>
+                <button
+                  className="cr-saved-delete"
+                  type="button"
+                  aria-label={`删除 ${article.title || "这篇文章"}`}
+                  onClick={() => {
+                    if (window.confirm(`确定删除“${article.title || "这篇文章"}”吗？`)) onDelete(article.id);
+                  }}
+                >删除</button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="cr-saved-empty"><strong>还没有保存文章</strong><span>阅读时保存的文章会出现在这里。</span></div>
+        )}
+      </section>
+    </div>
+  );
 }
 
 function PhraseTarget({ phrase, meaning }: { phrase: string; meaning: string }) {
@@ -180,8 +299,6 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
   const [demoMeaning, setDemoMeaning] = useState(props.demoCompleted ? demoMeaningText : "");
   const [phraseInstruction, setPhraseInstruction] = useState(props.demoCompleted ? phraseInstructionText : "");
   const [inputMode, setInputMode] = useState<InputMode>("paste");
-  const [articleMode, setArticleMode] = useState<ArticleMode>("public");
-  const [showAllSavedArticles, setShowAllSavedArticles] = useState(false);
   const [activeScene, setActiveScene] = useState<Scene>("word");
   const [sceneChanging, setSceneChanging] = useState(false);
   const [transition, setTransition] = useState<{ x: number; y: number; phase: "show" | "out" } | null>(null);
@@ -295,9 +412,9 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
   }, [activeScene, heroUnlocked, phraseStage]);
 
   useEffect(() => {
-    if (activeScene !== "articles" || articleMode !== "public") return;
+    if (activeScene !== "articles") return;
     props.publicArticles.slice(0, 5).forEach((article) => props.onPrefetchPublicArticle(article.id));
-  }, [activeScene, articleMode, props.onPrefetchPublicArticle, props.publicArticles]);
+  }, [activeScene, props.onPrefetchPublicArticle, props.publicArticles]);
 
   useEffect(() => {
     const sections = [
@@ -658,7 +775,6 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
     if (!heroUnlocked) unlockPage();
     document.body.classList.remove("cr-home-locked");
     const target = ({ word: heroRef, articles: articlesRef, final: finalRef } as const)[id].current;
-    if (id === "articles") setArticleMode("public");
     setActiveScene(id);
     if (target) window.scrollTo({ top: target.offsetTop, left: 0, behavior: "auto" });
   }
@@ -754,10 +870,11 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
         <button type="button" className="cr-brand" onClick={() => goTo("word")}>Context Reader</button>
         <span className="cr-chapter-count">{({ word: "01", phrase: "02", articles: "03", final: "04" } as const)[activeScene]} / 04</span>
         <nav aria-label="首页导航">
-          <button type="button" onClick={() => goTo("final")}><RollingLabel>跳过演示</RollingLabel></button>
+          <button className="cr-nav-skip" type="button" onClick={() => goTo("final")}><RollingLabel>跳过演示</RollingLabel></button>
           <button type="button" onClick={() => goTo("articles")}><RollingLabel>推荐文章</RollingLabel></button>
-          <Link href="/guide"><RollingLabel>使用说明</RollingLabel></Link>
-          <button className="cr-nav-primary" type="button" onClick={props.onOpenVocabulary}><RollingLabel>{`打开生词本${props.vocabularyCount ? ` · ${props.vocabularyCount}` : ""}`}</RollingLabel></button>
+          <Link className="cr-nav-guide" href="/guide"><RollingLabel>使用说明</RollingLabel></Link>
+          <SavedArticlesMenu articles={props.savedArticles} onOpen={props.onOpenSavedArticle} onDelete={props.onDeleteSavedArticle} />
+          <button className="cr-nav-primary cr-vocabulary-trigger" type="button" onClick={props.onOpenVocabulary}><RollingLabel>{`打开生词本${props.vocabularyCount ? ` · ${props.vocabularyCount}` : ""}`}</RollingLabel></button>
           <AccountNav />
         </nav>
       </header>
@@ -822,14 +939,11 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
       <section ref={articlesRef} className={`cr-articles-section ${activeScene === "articles" ? "is-active" : ""}`}>
         <div className="cr-sticky cr-articles-inner">
           <div className="cr-articles-head">
-            <h2>从一篇文章开始</h2>
-            <div className="cr-article-tabs" role="group" aria-label="文章列表">
-              <button type="button" className={articleMode === "public" ? "is-active" : ""} aria-pressed={articleMode === "public"} onClick={() => setArticleMode("public")}>推荐阅读</button>
-              <button type="button" className={articleMode === "saved" ? "is-active" : ""} aria-pressed={articleMode === "saved"} onClick={() => setArticleMode("saved")}>已保存文章</button>
-            </div>
+            <h2>推荐阅读</h2>
+            <p>从一篇整理好的英文文章开始，直接进入语境阅读。</p>
           </div>
           <div className="cr-article-list">
-            {articleMode === "public" && (props.publicArticles.length ? props.publicArticles.slice(0, 5).map((item, index) => (
+            {props.publicArticles.length ? props.publicArticles.slice(0, 5).map((item, index) => (
               <button
                 style={{ "--row-index": index } as CSSProperties}
                 type="button"
@@ -841,18 +955,8 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
               >
                 <small>{String(index + 1).padStart(2, "0")}</small><span><strong>{item.title}</strong><em>{props.openingPublicArticleId === item.id ? "正在打开…" : item.summary}</em></span><Arrow />
               </button>
-            )) : <p className="cr-empty">暂时没有推荐文章，可以带一篇自己的文章开始阅读。</p>)}
-            {articleMode === "saved" && (props.savedArticles.length ? props.savedArticles.map((item, index) => (
-              <button hidden={!showAllSavedArticles && index >= 5} style={{ "--row-index": index } as CSSProperties} type="button" key={item.id} onClick={() => props.onOpenSavedArticle(item)}>
-                <small>S{index + 1}</small><span><strong>{item.title || "未命名文章"}</strong><em>继续上次阅读</em></span><Arrow />
-              </button>
-            )) : <p className="cr-empty">还没有保存文章，读完一篇后可以从这里继续。</p>)}
+            )) : <p className="cr-empty">暂时没有推荐文章，可以带一篇自己的文章开始阅读。</p>}
           </div>
-          {articleMode === "saved" && props.savedArticles.length > 5 && !showAllSavedArticles && (
-            <button className="cr-show-all-articles" type="button" onClick={() => setShowAllSavedArticles(true)}>
-              查看全部 {props.savedArticles.length} 篇 <span aria-hidden="true">↓</span>
-            </button>
-          )}
         </div>
         <div className="cr-section-handoff" aria-hidden="true"><span>YOUR TEXT</span></div>
       </section>

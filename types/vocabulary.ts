@@ -20,5 +20,6 @@ export interface VocabularyEntry {
   difficulty: Difficulty;
   shouldAddToVocabulary: boolean;
   createdAt: string;
+  updatedAt: string;
   anki: AnkiCardInfo;
 }

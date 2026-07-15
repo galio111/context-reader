@@ -3,9 +3,13 @@ import { findSimilarVocabularyEntry, vocabularyWordsMatch } from "@/lib/sourceMa
 import LZString from "lz-string";
 import type { WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry } from "@/types/vocabulary";
-import { notifyAccountDataChanged } from "@/lib/accountEvents";
+import { notifyAccountDataChanged, notifyAccountObjectsDeleted } from "@/lib/accountEvents";
+import { deduplicateVocabularyEntries, vocabularyIdentity } from "@/lib/vocabularyMerge";
+
+export { vocabularyIdentity } from "@/lib/vocabularyMerge";
 
 const VOCABULARY_KEY = "context-reader:vocabulary:v1";
+const VOCABULARY_PRE_DEDUPE_BACKUP_KEY = "context-reader:vocabulary-backup-before-dedupe:v1";
 const COMPRESSED_VOCABULARY_PREFIX = "lz-utf16:";
 
 function safeLocalStorage(): Storage | null {
@@ -29,6 +33,7 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
     return null;
   }
 
+  const createdAt = typeof entry.createdAt === "string" ? entry.createdAt : new Date().toISOString();
   const normalizedBase = {
     id: typeof entry.id === "string" ? entry.id : `${entry.word.toLowerCase()}-${Date.now()}`,
     word: entry.word,
@@ -51,7 +56,8 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
       : "medium",
     shouldAddToVocabulary:
       typeof entry.shouldAddToVocabulary === "boolean" ? entry.shouldAddToVocabulary : true,
-    createdAt: typeof entry.createdAt === "string" ? entry.createdAt : new Date().toISOString(),
+    createdAt,
+    updatedAt: typeof entry.updatedAt === "string" ? entry.updatedAt : createdAt,
   };
 
   return {
@@ -93,11 +99,19 @@ export function getVocabularyEntries(): VocabularyEntry[] {
       return [];
     }
 
-    const entries = normalizeVocabularyEntries(JSON.parse(serialized));
-    if (!compressed) {
-      saveVocabularyEntries(entries);
+    const normalizedEntries = normalizeVocabularyEntries(JSON.parse(serialized));
+    const deduplicated = deduplicateVocabularyEntries(normalizedEntries);
+    const normalizedSerialized = JSON.stringify(deduplicated.entries);
+    if (deduplicated.removedIds.length > 0) {
+      if (!storage.getItem(VOCABULARY_PRE_DEDUPE_BACKUP_KEY)) {
+        storage.setItem(VOCABULARY_PRE_DEDUPE_BACKUP_KEY, raw);
+      }
+      notifyAccountObjectsDeleted("vocabulary", deduplicated.removedIds);
     }
-    return entries;
+    if (!compressed || normalizedSerialized !== serialized) {
+      saveVocabularyEntries(deduplicated.entries);
+    }
+    return deduplicated.entries;
   } catch {
     return [];
   }
@@ -141,16 +155,13 @@ export function createVocabularyEntry(
     difficulty: explanation.difficulty,
     shouldAddToVocabulary: explanation.shouldAddToVocabulary,
     createdAt,
+    updatedAt: createdAt,
   };
 
   return {
     ...base,
     anki: normalizeAnkiInfo({ ...explanation, anki: explanation.anki }, context.sentence),
   };
-}
-
-export function vocabularyIdentity(entry: Pick<VocabularyEntry, "word" | "sourceSentence">): string {
-  return `${entry.word.trim().toLowerCase()}::${entry.sourceSentence.trim().toLowerCase()}`;
 }
 
 export function addVocabularyEntry(entry: VocabularyEntry): VocabularyEntry[] {
@@ -166,8 +177,9 @@ export function addVocabularyEntry(entry: VocabularyEntry): VocabularyEntry[] {
 }
 
 export function updateVocabularyEntry(updatedEntry: VocabularyEntry): VocabularyEntry[] {
+  const nextUpdatedEntry = { ...updatedEntry, updatedAt: new Date().toISOString() };
   const nextEntries = getVocabularyEntries().map((entry) =>
-    entry.id === updatedEntry.id ? updatedEntry : entry,
+    entry.id === updatedEntry.id ? nextUpdatedEntry : entry,
   );
   saveVocabularyEntries(nextEntries);
   return nextEntries;
@@ -201,6 +213,7 @@ export function replaceMatchingVocabularyEntry(
       ...generated,
       id: entry.id,
       createdAt: entry.createdAt,
+      updatedAt: new Date().toISOString(),
       anki: {
         ...generated.anki,
         ankiNoteId: entry.anki.ankiNoteId,
@@ -220,6 +233,7 @@ export function markVocabularyEntryImported(id: string, ankiNoteId: number): Voc
     entry.id === id
       ? {
           ...entry,
+          updatedAt: new Date().toISOString(),
           anki: {
             ...entry.anki,
             ankiNoteId,
@@ -233,11 +247,16 @@ export function markVocabularyEntryImported(id: string, ankiNoteId: number): Voc
 }
 
 export function deleteVocabularyEntry(id: string): VocabularyEntry[] {
-  const nextEntries = getVocabularyEntries().filter((entry) => entry.id !== id);
+  const entries = getVocabularyEntries();
+  const nextEntries = entries.filter((entry) => entry.id !== id);
+  if (nextEntries.length !== entries.length) {
+    notifyAccountObjectsDeleted("vocabulary", [id]);
+  }
   saveVocabularyEntries(nextEntries);
   return nextEntries;
 }
 
 export function clearVocabularyEntries(): void {
+  notifyAccountObjectsDeleted("vocabulary", getVocabularyEntries().map((entry) => entry.id));
   saveVocabularyEntries([]);
 }

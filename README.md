@@ -10,7 +10,7 @@ Production URL: `https://context-reader-ten.vercel.app`
 - Import a public article URL and preserve extracted structure such as headings, paragraphs, lists, quotes, images, and inline upper/lower annotations.
 - Save imported URL articles with their rich layout metadata so reopening from the homepage restores the same layout.
 - Edit saved article text directly in the reading canvas, with global reading-session undo/redo controls and the same typography classes used by reading mode. Explicit blank lines are preserved. Editing disables word lookup; imported images remain read-only but can be removed as whole image blocks.
-- Persist article edits in browser storage, move an article to the front of the homepage whenever it is opened, and jump from the in-reader vocabulary drawer to a matching word in another saved article.
+- Persist article edits in browser storage, merge duplicate and legacy recovery-copy records into one logical article, record each article's latest open time, expose saved articles once each from the first-screen top menu in most-recently-opened order, and jump from the in-reader vocabulary drawer to a matching word in another saved article.
 - Click an imported article image to enlarge it. The image viewer uses cursor-anchored mouse-wheel zoom within a fit-to-window range so the full image remains visible, without internal viewer scrollbars or background article scrolling.
 - Upload an English screenshot or scan from the homepage. Text OCR and layout-word detection run in parallel; the original image is preserved, and detected word boxes can be clicked in the image viewer. Automatic OCR for images inside URL-imported articles remains disabled.
 - Click English words without sending the full article to AI.
@@ -24,12 +24,12 @@ Production URL: `https://context-reader-ten.vercel.app`
 - Publish local saved articles to a public recommendation list from `/admin`.
 - Preload cached explanations and full-article translations for public recommended articles.
 - Server-render the homepage recommendation list so recommendations are visible on first paint, then prefetch visible recommendation details so opening one feels close to reopening a local saved article.
-- Use an immersive four-screen homepage that teaches click-to-explain and horizontal phrase selection, accelerates and locks desktop wheel navigation into the adjacent screen in both directions at scene boundaries, and keeps paste/URL entry visible on the first screen. Long pasted text can expand into a desktop hover/focus preview, while returning from an article skips the first-visit loader and restores the homepage with both demonstrations complete.
+- Use an immersive four-screen homepage that teaches click-to-explain and horizontal phrase selection, keeps the third screen exclusively for server-rendered recommendations, accelerates and locks desktop wheel navigation into the adjacent screen in both directions at scene boundaries, and keeps paste/URL plus the saved-article top menu available on the first screen. Long pasted text can expand into a desktop hover/focus preview, while returning from an article skips the first-visit loader and restores the homepage with both demonstrations complete.
 - Install as a PWA and reopen the cached app shell while offline.
 - Open the vocabulary notebook from either the homepage or the reading view.
 - Use `/guide` for first-run reading and AnkiConnect setup.
 - Export vocabulary as CSV or import vocabulary entries to Anki through browser-side AnkiConnect, with click-to-play US/UK pronunciation buttons on card backs.
-- Use email OTP accounts, a ten-lookups-per-day guest trial, separate lookup/deep-reading quotas, cross-device learning-data sync, `/account/usage`, and `/admin/accounts`. Online payment remains disabled while pricing is tested.
+- Use email OTP accounts, a ten-lookups-per-day guest trial, separate lookup/deep-reading quotas, cross-device learning-data sync, `/account/usage`, and the unified `/admin` console. Online payment remains disabled while pricing is tested.
 
 ## Setup
 
@@ -129,7 +129,11 @@ Word explanation cache entries are durable browser data. On a cache miss, the co
 - `/api/anki/*` supports Anki model/deck helpers; note creation still depends on local AnkiConnect from the browser.
 - `/api/public-articles` lists public recommended articles.
 - `/api/public-articles/[id]` reads one public article and its preloaded explanations and full-article translations.
-- `/api/admin/*` handles administrator login and publishing. Writes require the admin session cookie.
+- `/api/auth/*` requests/verifies email OTP, adopts hosted-login sessions, reads the current session, and logs out through server-managed HttpOnly cookies.
+- `/api/account/sync` reads and compare-and-swap merges versioned learning objects; `/api/account/export` downloads account data and recent usage actions; `/api/account/vocabulary-repair` performs an authenticated, idempotent cleanup of historical duplicate vocabulary rows.
+- `/api/usage/cache-lookup` charges cached guest lookups while leaving registered cache hits free.
+- `/api/admin/*` handles administrator login, publishing, account/plan management, and quota controls. Writes require the admin session cookie.
+- `/account/usage` is the member usage view; `/account/repair-vocabulary` runs the signed-in vocabulary repair; `/admin` combines public recommendations with the administrator account and quota console.
 
 ## Public Recommendations
 
