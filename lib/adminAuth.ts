@@ -23,7 +23,7 @@ function safeEqual(left: string, right: string): boolean {
 
 export function isAdminPassword(password: string): boolean {
   const expected = process.env.ADMIN_PASSWORD || "";
-  if (expected.length < 12 || !password || password.length > 256) {
+  if (!expected || !password || password.length > 256) {
     return false;
   }
   return safeEqual(password, expected);
