@@ -5,6 +5,9 @@ export type UsageMetricKey = "guest_lookup" | "lookup_generation" | "deep_readin
 export interface AccountProfile {
   userId: string;
   email: string;
+  phone: string;
+  loginMethod: "email" | "phone_pin";
+  phoneVerified: boolean;
   nickname: string;
   avatarUrl: string;
   englishLevel: string;

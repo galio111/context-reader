@@ -1,9 +1,11 @@
 import { createClient, type Session, type User } from "@supabase/supabase-js";
+import { randomInt } from "node:crypto";
 import { cookies } from "next/headers";
 
 const ACCESS_COOKIE = "context_reader_access";
 const REFRESH_COOKIE = "context_reader_refresh";
-const SESSION_MAX_AGE_SECONDS = 30 * 24 * 60 * 60;
+const SESSION_MAX_AGE_SECONDS = 7 * 24 * 60 * 60;
+const PHONE_ACCOUNT_DOMAIN = "phone.context-reader.invalid";
 
 function authConfig(): { url: string; key: string } | null {
   const url = process.env.SUPABASE_URL?.trim();
@@ -35,6 +37,110 @@ export function normalizeEmail(value: string): string {
 
 export function isValidEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizeEmail(value));
+}
+
+export function normalizeMainlandPhone(value: string): string {
+  let normalized = value.trim().replace(/[\s()-]/g, "");
+  if (normalized.startsWith("+86")) normalized = normalized.slice(3);
+  else if (normalized.startsWith("0086")) normalized = normalized.slice(4);
+  return normalized.slice(0, 20);
+}
+
+export function isValidMainlandPhone(value: string): boolean {
+  return /^1[3-9]\d{9}$/.test(normalizeMainlandPhone(value));
+}
+
+export function normalizeNickname(value: string): string {
+  return value.trim().replace(/\s+/g, " ").slice(0, 40);
+}
+
+export function isValidPin(value: string): boolean {
+  return /^\d{6}$/.test(value.trim());
+}
+
+export function phoneAccountEmail(phone: string): string {
+  return `p${normalizeMainlandPhone(phone)}@${PHONE_ACCOUNT_DOMAIN}`;
+}
+
+export function phoneFromAccountEmail(email: string): string {
+  const match = email.trim().toLowerCase().match(new RegExp(`^p(1[3-9]\\d{9})@${PHONE_ACCOUNT_DOMAIN.replace(/\./g, "\\.")}$`));
+  return match?.[1] ?? "";
+}
+
+export function phoneFromUser(user: Pick<User, "email" | "user_metadata">): string {
+  const metadataPhone = normalizeMainlandPhone(String(user.user_metadata?.phone ?? ""));
+  return isValidMainlandPhone(metadataPhone) ? metadataPhone : phoneFromAccountEmail(user.email ?? "");
+}
+
+export async function registerPhonePinAccount(phone: string, nickname: string, pin: string): Promise<Session> {
+  const normalizedPhone = normalizeMainlandPhone(phone);
+  const normalizedNickname = normalizeNickname(nickname);
+  const normalizedPin = pin.trim();
+  if (!isValidMainlandPhone(normalizedPhone)) {
+    throw new Error("请输入有效的中国大陆手机号。");
+  }
+  if (normalizedNickname.length < 1) {
+    throw new Error("请输入昵称，方便你和管理员识别账号。");
+  }
+  if (!isValidPin(normalizedPin)) {
+    throw new Error("PIN 必须是 6 位数字。");
+  }
+
+  const client = authClient();
+  const email = phoneAccountEmail(normalizedPhone);
+  const { error: createError } = await client.auth.admin.createUser({
+    email,
+    password: normalizedPin,
+    email_confirm: true,
+    user_metadata: {
+      nickname: normalizedNickname,
+      phone: normalizedPhone,
+      login_method: "phone_pin",
+      phone_verified: false,
+    },
+  });
+  if (createError) {
+    if (/already|registered|exists|unique/i.test(createError.message)) {
+      throw new Error("该手机号已注册，请直接登录。");
+    }
+    throw new Error("注册失败，请稍后重试。");
+  }
+
+  return loginPhonePinAccount(normalizedPhone, normalizedPin);
+}
+
+export async function loginPhonePinAccount(phone: string, pin: string): Promise<Session> {
+  const normalizedPhone = normalizeMainlandPhone(phone);
+  const normalizedPin = pin.trim();
+  if (!isValidMainlandPhone(normalizedPhone) || !isValidPin(normalizedPin)) {
+    throw new Error("手机号或 PIN 不正确。");
+  }
+
+  const { data, error } = await authClient().auth.signInWithPassword({
+    email: phoneAccountEmail(normalizedPhone),
+    password: normalizedPin,
+  });
+  if (error || !data.session || !data.user) {
+    throw new Error("手机号或 PIN 不正确。");
+  }
+  return data.session;
+}
+
+export async function resetPhoneAccountPin(userId: string): Promise<string> {
+  const client = authClient();
+  const { data, error } = await client.auth.admin.getUserById(userId);
+  if (error || !data.user) {
+    throw new Error("未找到这个账号。");
+  }
+  if (!phoneFromUser(data.user)) {
+    throw new Error("这个账号不是手机号 PIN 账号。");
+  }
+  const temporaryPin = String(randomInt(0, 1_000_000)).padStart(6, "0");
+  const { error: updateError } = await client.auth.admin.updateUserById(userId, { password: temporaryPin });
+  if (updateError) {
+    throw new Error(updateError.message || "PIN 重置失败。");
+  }
+  return temporaryPin;
 }
 
 export async function requestEmailOtp(email: string): Promise<void> {

@@ -15,6 +15,7 @@ export default function AdminAccountsPanel() {
   const [data, setData] = useState<DashboardData | null>(null);
   const [error, setError] = useState("");
   const [saving, setSaving] = useState("");
+  const [notice, setNotice] = useState<{ phone: string; pin: string } | null>(null);
 
   async function load() {
     const response = await fetch("/api/admin/accounts");
@@ -31,17 +32,27 @@ export default function AdminAccountsPanel() {
     void load();
   }, []);
 
-  async function patchAccount(body: Record<string, unknown>, key: string) {
+  async function patchAccount(body: Record<string, unknown>, key: string): Promise<Record<string, unknown>> {
     setSaving(key);
-    const response = await fetch("/api/admin/accounts", {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    const result = (await response.json()) as { error?: string };
-    if (!response.ok) setError(result.error || "保存失败");
-    else await load();
-    setSaving("");
+    try {
+      const response = await fetch("/api/admin/accounts", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const result = (await response.json().catch(() => ({}))) as Record<string, unknown> & { error?: string };
+      if (!response.ok) setError(result.error || "保存失败");
+      else {
+        setError("");
+        await load();
+      }
+      return result;
+    } catch {
+      setError("网络连接失败，请稍后重试。");
+      return {};
+    } finally {
+      setSaving("");
+    }
   }
 
   const entitlementByUser = useMemo(
@@ -80,6 +91,7 @@ export default function AdminAccountsPanel() {
       </div>
 
       {error && <p className="mt-5 rounded-[16px] bg-red-50 p-4 text-sm text-red-700">{error}</p>}
+      {notice && <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[16px] border border-[#ad7b2b]/25 bg-[#fff6e6] p-4 text-sm text-[#674716]" role="status"><p><strong>{notice.phone}</strong> 的临时 PIN：<span className="ml-1 font-mono text-base tracking-[.14em]">{notice.pin}</span><br /><span className="text-xs">请立即复制给用户；页面关闭后不会再次显示。</span></p><div className="flex gap-2"><button className="rounded-lg border border-[#ad7b2b]/30 bg-white px-3 py-2" type="button" onClick={() => void navigator.clipboard.writeText(notice.pin)}>复制 PIN</button><button className="rounded-lg px-3 py-2" type="button" onClick={() => setNotice(null)}>关闭</button></div></div>}
       {!data && !error && <p className="mt-6 text-sm text-[#6e6e73]">正在读取账号与用量...</p>}
 
       {data && (
@@ -194,8 +206,9 @@ export default function AdminAccountsPanel() {
                   <article key={userId} className="rounded-[16px] border border-black/10 p-4">
                     <div className="flex flex-wrap items-start justify-between gap-4">
                       <div>
-                        <strong>{String(profile.nickname || profile.email || "未设置昵称")}</strong>
-                        <p className="mt-1 break-all text-xs text-[#758078]">{String(profile.email || userId)}</p>
+                        <strong>{String(profile.nickname || profile.phone || profile.email || "未设置昵称")}</strong>
+                        <p className="mt-1 break-all text-xs text-[#758078]">{profile.phone ? `手机号 ${String(profile.phone)}` : String(profile.email || userId)}</p>
+                        {profile.login_method === "phone_pin" && <span className="mt-2 inline-block rounded-full bg-[#fff3dc] px-2.5 py-1 text-[11px] text-[#7b5821]">手机号账号 · 未验证</span>}
                       </div>
                       <span className="rounded-full bg-[#eef2ee] px-3 py-1 text-xs">{String(profile.status)}</span>
                     </div>
@@ -251,6 +264,18 @@ export default function AdminAccountsPanel() {
                     >
                       清零本周期用量
                     </button>
+                    {profile.login_method === "phone_pin" && <button
+                      className="ml-2 mt-3 rounded-xl border border-black/15 px-3 py-2 text-sm"
+                      type="button"
+                      disabled={saving === `pin-${userId}`}
+                      onClick={async () => {
+                        if (!window.confirm(`确定要重置 ${String(profile.phone)} 的 PIN 吗？旧 PIN 会立即失效。`)) return;
+                        const result = await patchAccount({ action: "reset_pin", userId }, `pin-${userId}`);
+                        if (typeof result.temporaryPin === "string") setNotice({ phone: String(profile.phone), pin: result.temporaryPin });
+                      }}
+                    >
+                      {saving === `pin-${userId}` ? "重置中..." : "重置 PIN"}
+                    </button>}
                   </article>
                 );
               })}
@@ -271,7 +296,7 @@ function BonusControl({
   userId: string;
   metric: string;
   value: number;
-  onSave: (body: Record<string, unknown>, key: string) => Promise<void>;
+  onSave: (body: Record<string, unknown>, key: string) => Promise<unknown>;
 }) {
   const id = `bonus-${metric}-${userId}`;
   return (

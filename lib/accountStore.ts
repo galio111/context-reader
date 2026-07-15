@@ -10,6 +10,7 @@ import type {
   UsageMetricKey,
   UsageReservation,
 } from "@/types/account";
+import { phoneFromUser } from "@/lib/userAuth";
 
 interface ProfileRow {
   user_id: string;
@@ -144,10 +145,14 @@ export async function getUserPlanId(userId: string): Promise<AccountPlanId> {
   return entitlement.plan_id;
 }
 
-function profileFromRow(row: ProfileRow, email: string): AccountProfile {
+function profileFromRow(row: ProfileRow, user: User): AccountProfile {
+  const phone = phoneFromUser(user);
   return {
     userId: row.user_id,
-    email,
+    email: phone ? "" : (user.email ?? ""),
+    phone,
+    loginMethod: phone ? "phone_pin" : "email",
+    phoneVerified: phone ? Boolean(user.user_metadata?.phone_verified) : false,
     nickname: row.nickname,
     avatarUrl: row.avatar_url,
     englishLevel: row.english_level,
@@ -196,7 +201,7 @@ export async function getAccountSessionState(user: User): Promise<AccountSession
   return {
     configured: true,
     authenticated: true,
-    profile: profileFromRow(profile, user.email ?? ""),
+    profile: profileFromRow(profile, user),
     plan,
     usage,
   };

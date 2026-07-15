@@ -29,7 +29,7 @@ Production URL: `https://context-reader-ten.vercel.app`
 - Open the vocabulary notebook from either the homepage or the reading view.
 - Use `/guide` for first-run reading and AnkiConnect setup.
 - Export vocabulary as CSV or import vocabulary entries to Anki through browser-side AnkiConnect, with click-to-play US/UK pronunciation buttons on card backs.
-- Use email OTP accounts, a ten-lookups-per-day guest trial, separate lookup/deep-reading quotas, cross-device learning-data sync, `/account/usage`, and the unified `/admin` console. Online payment remains disabled while pricing is tested.
+- Use unverified phone-identifier + six-digit PIN accounts, a ten-lookups-per-day guest trial, separate lookup/deep-reading quotas, cross-device learning-data sync, `/account/usage`, and the unified `/admin` console. No SMS is sent, and online payment remains disabled while pricing is tested.
 
 ## Setup
 
@@ -77,9 +77,9 @@ Homepage image reading is enabled and supports `OCR_PROVIDER=zhipu` or `OCR_PROV
 
 The `DEEPSEEK_TRANSLATION_MODEL` override applies only to full-article translation. `DEEPSEEK_FALLBACK_MODELS` is a comma-separated fallback model list on the primary provider; `DEEPSEEK_FALLBACK_BASE_URL`, `DEEPSEEK_FALLBACK_API_KEY`, and `DEEPSEEK_FALLBACK_MODEL` configure an optional secondary provider for structured word explanations. Leave optional fallback values blank to disable that path.
 
-`ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, and `ACCOUNT_COOKIE_SECRET` are required for the complete admin/account system. Run both `docs/public-articles-supabase.sql` and `docs/account-usage-supabase.sql`. The app supports the default Supabase email login link as well as a six-digit OTP. Public delivery requires custom SMTP; after configuring it, change the magic-link template to include `{{ .Token }}`. See `docs/account-usage-plan.md` for product rules, quotas, sync conflict behavior, and rollout gates.
+`ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, and `ACCOUNT_COOKIE_SECRET` are required for the complete admin/account system. Run both `docs/public-articles-supabase.sql` and `docs/account-usage-supabase.sql`. The visible beta flow registers a nickname, mainland-China phone identifier, and six-digit PIN without sending SMS. The server maps the phone to a reserved internal Auth email and Supabase hashes the PIN as a password; the internal email is never a user-facing identity. Legacy email OTP routes remain available but hidden. If email login returns, custom SMTP and a template containing `{{ .Token }}` are still required for public delivery. See `docs/account-usage-plan.md` for product rules, quotas, sync conflict behavior, and rollout gates.
 
-Use an independent random `ADMIN_SESSION_SECRET` of at least 32 characters and a long `ADMIN_PASSWORD` of at least 12 characters. `ADMIN_SESSION_VERSION` defaults to `1`; incrementing it invalidates all existing admin cookies after a suspected leak. The Supabase SQL enables RLS and revokes browser-role table access, so it must be applied to existing databases as well as new ones.
+Use an independent random `ADMIN_SESSION_SECRET` of at least 32 characters. A long unique `ADMIN_PASSWORD` is strongly recommended, though the application no longer enforces a twelve-character minimum. `ADMIN_SESSION_VERSION` defaults to `1`; incrementing it invalidates all existing admin cookies after a suspected leak. The Supabase SQL enables RLS and revokes browser-role table access, so it must be applied to existing databases as well as new ones.
 
 ## Security
 
@@ -129,7 +129,7 @@ Word explanation cache entries are durable browser data. On a cache miss, the co
 - `/api/anki/*` supports Anki model/deck helpers; note creation still depends on local AnkiConnect from the browser.
 - `/api/public-articles` lists public recommended articles.
 - `/api/public-articles/[id]` reads one public article and its preloaded explanations and full-article translations.
-- `/api/auth/*` requests/verifies email OTP, adopts hosted-login sessions, reads the current session, and logs out through server-managed HttpOnly cookies.
+- `/api/auth/*` registers and signs in phone + PIN accounts, keeps legacy email OTP/hosted-login compatibility, reads the current session, and logs out through server-managed HttpOnly cookies.
 - `/api/account/sync` reads and compare-and-swap merges versioned learning objects; `/api/account/export` downloads account data and recent usage actions; `/api/account/vocabulary-repair` performs an authenticated, idempotent cleanup of historical duplicate vocabulary rows.
 - `/api/usage/cache-lookup` charges cached guest lookups while leaving registered cache hits free.
 - `/api/admin/*` handles administrator login, publishing, account/plan management, and quota controls. Writes require the admin session cookie.

@@ -35,9 +35,12 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [loginOpen, setLoginOpen] = useState(false);
   const [loginReason, setLoginReason] = useState("");
-  const [email, setEmail] = useState("");
-  const [otp, setOtp] = useState("");
-  const [step, setStep] = useState<"email" | "otp">("email");
+  const [loginMode, setLoginMode] = useState<"login" | "register">("login");
+  const [phone, setPhone] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [pin, setPin] = useState("");
+  const [confirmPin, setConfirmPin] = useState("");
+  const [showPin, setShowPin] = useState(false);
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [usageNotice, setUsageNotice] = useState("");
@@ -135,40 +138,52 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   const openLogin = useCallback((reason = "") => {
     setLoginReason(reason);
+    setLoginMode("login");
+    setPhone("");
+    setNickname("");
+    setPin("");
+    setConfirmPin("");
+    setShowPin(false);
     setMessage("");
     setLoginOpen(true);
   }, []);
-  const closeLogin = useCallback(() => { if (!submitting) setLoginOpen(false); }, [submitting]);
+  const closeLogin = useCallback(() => {
+    if (submitting) return;
+    setLoginOpen(false);
+    setLoginReason("");
+    setPhone("");
+    setNickname("");
+    setPin("");
+    setConfirmPin("");
+    setMessage("");
+  }, [submitting]);
   const requireAccount = useCallback((reason = "此操作需要登录") => {
     if (account.authenticated) return true;
     openLogin(reason);
     return false;
   }, [account.authenticated, openLogin]);
 
-  async function submitEmail() {
+  async function submitPhoneAccount() {
+    if (loginMode === "register" && pin !== confirmPin) {
+      setMessage("两次输入的 PIN 不一致。");
+      return;
+    }
     setSubmitting(true); setMessage("");
     try {
-      const response = await fetch("/api/auth/request-otp", {
-        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email }),
-      });
-      const data = await response.json() as { error?: string };
-      if (!response.ok) throw new Error(data.error || "验证码发送失败。");
-      setStep("otp");
-      setMessage("登录邮件已发送。若邮件中显示验证码，请在这里输入；若显示登录按钮，直接点击即可完成登录。");
-    } catch (error) { setMessage(error instanceof Error ? error.message : "验证码发送失败。"); }
-    finally { setSubmitting(false); }
-  }
-
-  async function submitOtp() {
-    setSubmitting(true); setMessage("");
-    try {
-      const response = await fetch("/api/auth/verify-otp", {
-        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, token: otp }),
+      const response = await fetch(loginMode === "register" ? "/api/auth/phone-register" : "/api/auth/phone-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(loginMode === "register" ? { phone, nickname, pin } : { phone, pin }),
       });
       const data = await response.json() as { account?: AccountSessionState; error?: string };
-      if (!response.ok || !data.account) throw new Error(data.error || "验证码无效或已过期。");
+      if (!response.ok || !data.account) throw new Error(data.error || (loginMode === "register" ? "注册失败。" : "登录失败。"));
       setAccount(data.account);
-      setLoginOpen(false); setStep("email"); setOtp(""); setMessage("");
+      setLoginOpen(false);
+      setPhone("");
+      setNickname("");
+      setPin("");
+      setConfirmPin("");
+      setMessage("");
       window.setTimeout(() => void syncAccountData().then(refreshAccount).catch(() => undefined), 0);
     } catch (error) { setMessage(error instanceof Error ? error.message : "登录失败。"); }
     finally { setSubmitting(false); }
@@ -193,22 +208,26 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       {usageNotice && !loginOpen && <div className="fixed bottom-4 left-1/2 z-[150] flex w-[min(92vw,520px)] -translate-x-1/2 items-center justify-between gap-4 rounded-2xl border border-black/10 bg-[#fbfbf8] px-4 py-3 text-sm text-[#34443a] shadow-xl"><span>{usageNotice} <Link className="font-semibold text-[#2868ad]" href="/account/usage">查看用量</Link></span><button className="shrink-0 rounded-full px-2 py-1 text-xs hover:bg-black/5" type="button" onClick={() => setUsageNotice("")}>关闭</button></div>}
       {loginOpen && (
         <div className="fixed inset-0 z-[200] grid place-items-center bg-[#152018]/35 px-4 backdrop-blur-sm" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) closeLogin(); }}>
-          <section className="w-full max-w-[430px] rounded-[28px] border border-black/10 bg-[#fbfbf8] p-7 text-[#18211d] shadow-2xl" role="dialog" aria-modal="true" aria-labelledby="account-login-title">
+          <section className="w-full max-w-[430px] rounded-[24px] border border-black/10 bg-[#fbfbf8] p-7 text-[#18211d] shadow-2xl" role="dialog" aria-modal="true" aria-labelledby="account-login-title">
             <div className="flex items-start justify-between gap-6">
-              <div><p className="text-xs font-semibold uppercase tracking-[.16em] text-[#617067]">Context Reader Account</p><h2 id="account-login-title" className="mt-2 text-2xl font-semibold">{step === "email" ? "邮箱登录" : "查看登录邮件"}</h2></div>
-              <button className="rounded-full px-3 py-1.5 text-sm hover:bg-black/5" type="button" onClick={closeLogin}>关闭</button>
+              <div><p className="text-xs font-semibold uppercase tracking-[.16em] text-[#617067]">Context Reader Account</p><h2 id="account-login-title" className="mt-2 text-2xl font-semibold">{loginMode === "login" ? "手机号登录" : "创建账号"}</h2></div>
+              <button className="rounded-full px-3 py-1.5 text-sm hover:bg-black/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2868ad]" type="button" onClick={closeLogin}>关闭</button>
             </div>
             {loginReason && <p className="mt-5 rounded-2xl bg-[#edf3ee] px-4 py-3 text-sm leading-6 text-[#3f5146]">{loginReason}</p>}
             {!account.configured && <p className="mt-4 rounded-2xl bg-[#fff4df] px-4 py-3 text-sm leading-6 text-[#76531f]">账号数据库尚未连接。站点仍可阅读并使用本机游客试用；完成 Supabase 环境变量与数据库迁移后即可登录。</p>}
-            {step === "email" ? (
-              <label className="mt-6 block text-sm font-medium">邮箱地址<input className="mt-2 w-full rounded-2xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad]" type="email" autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") void submitEmail(); }} placeholder="name@example.com" /></label>
-            ) : (
-              <label className="mt-6 block text-sm font-medium">6 位验证码（邮件若提供）<input className="mt-2 w-full rounded-2xl border border-black/15 bg-white px-4 py-3 text-lg tracking-[.25em] outline-none focus:border-[#2868ad]" inputMode="numeric" autoComplete="one-time-code" value={otp} onChange={(event) => setOtp(event.target.value.replace(/\D/g, "").slice(0, 12))} onKeyDown={(event) => { if (event.key === "Enter") void submitOtp(); }} placeholder="000000" /></label>
-            )}
-            {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="status">{message}</p>}
-            <button className="mt-6 w-full rounded-full bg-[#18211d] px-5 py-3.5 font-semibold text-white disabled:opacity-50" disabled={!account.configured || submitting || (step === "email" ? !email.trim() : otp.length < 6)} type="button" onClick={() => void (step === "email" ? submitEmail() : submitOtp())}>{submitting ? "请稍候…" : step === "email" ? "发送登录邮件" : "登录并同步"}</button>
-            {step === "otp" && <button className="mt-3 w-full rounded-full px-5 py-2 text-sm text-[#4f6157] hover:bg-black/5" type="button" onClick={() => { setStep("email"); setOtp(""); setMessage(""); }}>更换邮箱</button>}
-            <p className="mt-5 text-xs leading-5 text-[#738078]">首次验证会自动创建账号。阅读不会被登录弹窗打断；只在查词额度用完或触发保存、全文翻译等受限操作时提示。</p>
+            <div className="mt-6 grid grid-cols-2 rounded-xl bg-[#e9ede9] p-1" aria-label="登录或注册">
+              <button className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${loginMode === "login" ? "bg-white text-[#18211d] shadow-sm" : "text-[#5f6c64]"}`} type="button" aria-pressed={loginMode === "login"} onClick={() => { setLoginMode("login"); setNickname(""); setConfirmPin(""); setMessage(""); }}>登录</button>
+              <button className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${loginMode === "register" ? "bg-white text-[#18211d] shadow-sm" : "text-[#5f6c64]"}`} type="button" aria-pressed={loginMode === "register"} onClick={() => { setLoginMode("register"); setMessage(""); }}>注册</button>
+            </div>
+            <form onSubmit={(event) => { event.preventDefault(); void submitPhoneAccount(); }}>
+              {loginMode === "register" && <label className="mt-5 block text-sm font-medium">昵称<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="text" autoComplete="nickname" maxLength={40} value={nickname} onChange={(event) => setNickname(event.target.value)} placeholder="例如：小林" /></label>}
+              <label className="mt-5 block text-sm font-medium">手机号<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={(event) => setPhone(event.target.value.replace(/[^\d+\s()-]/g, "").slice(0, 24))} placeholder="中国大陆手机号" /></label>
+              <label className="mt-5 block text-sm font-medium">6 位 PIN<span className="relative mt-2 block"><input className="w-full rounded-xl border border-black/15 bg-white px-4 py-3 pr-16 text-lg tracking-[.22em] outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type={showPin ? "text" : "password"} inputMode="numeric" autoComplete={loginMode === "login" ? "current-password" : "new-password"} value={pin} onChange={(event) => setPin(event.target.value.replace(/\D/g, "").slice(0, 6))} placeholder="000000" /><button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg px-2 py-1.5 text-xs text-[#526158] hover:bg-black/5" type="button" onClick={() => setShowPin((value) => !value)} aria-label={showPin ? "隐藏 PIN" : "显示 PIN"}>{showPin ? "隐藏" : "显示"}</button></span></label>
+              {loginMode === "register" && <label className="mt-5 block text-sm font-medium">确认 PIN<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-lg tracking-[.22em] outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type={showPin ? "text" : "password"} inputMode="numeric" autoComplete="new-password" value={confirmPin} onChange={(event) => setConfirmPin(event.target.value.replace(/\D/g, "").slice(0, 6))} placeholder="再次输入" /></label>}
+              {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="status">{message}</p>}
+              <button className="mt-6 w-full rounded-full bg-[#18211d] px-5 py-3.5 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2868ad] disabled:cursor-not-allowed disabled:opacity-50" disabled={!account.configured || submitting || phone.trim().length < 11 || pin.length !== 6 || (loginMode === "register" && (!nickname.trim() || confirmPin.length !== 6))} type="submit">{submitting ? "请稍候…" : loginMode === "login" ? "登录并同步" : "创建账号并登录"}</button>
+            </form>
+            <p className="mt-5 text-xs leading-5 text-[#738078]">手机号目前只作为登录账号，不发送验证码，也尚未验证归属。请记住 PIN；忘记后需联系管理员重置。阅读只会在触发受限操作时提示登录。</p>
           </section>
         </div>
       )}

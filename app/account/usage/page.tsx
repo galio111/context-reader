@@ -20,6 +20,9 @@ const plans = [
 
 export default function UsagePage() {
   const { account, loading, openLogin, refreshAccount, syncNow } = useAccount();
+  const accountIdentifier = account.profile?.phone
+    ? `手机号 ${account.profile.phone}`
+    : account.profile?.email || "";
   useEffect(() => { void refreshAccount(); }, [refreshAccount]);
 
   async function exportData() {
@@ -54,13 +57,13 @@ export default function UsagePage() {
             <h2 className="text-2xl font-semibold">当前为游客</h2>
             <p className="mt-3 text-[#617067]">每天可试用 10 次划词解释；保存文章、生词本、全文翻译和 OCR 需要登录。</p>
             {account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}
-            <button className="mt-7 rounded-full bg-[#18211d] px-6 py-3 font-semibold text-white" type="button" onClick={() => openLogin("登录后会合并本机试用中产生的解释缓存，并开启跨设备同步。")}>邮箱验证码登录</button>
+            <button className="mt-7 rounded-full bg-[#18211d] px-6 py-3 font-semibold text-white" type="button" onClick={() => openLogin("登录后会合并本机试用中产生的解释缓存，并开启跨设备同步。")}>手机号登录</button>
           </section>
         ) : (
           <>
             <section className="mt-12 rounded-[28px] border border-black/10 bg-[#fbfbf8] p-7 sm:p-9">
               <div className="flex flex-wrap items-start justify-between gap-5">
-                <div><p className="text-sm text-[#617067]">当前账号</p><h2 className="mt-1 text-2xl font-semibold">{account.profile?.nickname || account.profile?.email}</h2><p className="mt-2 text-sm text-[#617067]">{account.profile?.email}</p></div>
+                <div><p className="text-sm text-[#617067]">当前账号</p><h2 className="mt-1 text-2xl font-semibold">{account.profile?.nickname || accountIdentifier}</h2><p className="mt-2 text-sm text-[#617067]">{accountIdentifier}</p>{account.profile?.loginMethod === "phone_pin" && <p className="mt-1 text-xs text-[#7a847d]">手机号尚未验证 · PIN 登录</p>}</div>
                 <span className="rounded-full bg-[#e8f0e9] px-4 py-2 text-sm font-semibold text-[#355342]">{account.plan?.displayName || "免费用户"}</span>
               </div>
               <div className="mt-8 grid gap-5 sm:grid-cols-2">{account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}</div>
