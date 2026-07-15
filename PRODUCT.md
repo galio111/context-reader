@@ -16,7 +16,7 @@ Context Reader helps learners read English articles with less interruption. It p
 
 Success means the reader can move between reading, lookup, vocabulary capture, and review without fighting the interface. The article remains readable, the lookup action feels immediate, saved words keep IPA phonetics when available, mobile scrolling does not accidentally trigger word queries, and login or sync never silently discards local learning data.
 
-Guests can read immediately and receive a small daily lookup trial. Login is requested only when that trial is exhausted or at a restricted action such as saving, vocabulary/Anki, private translation, summary, or OCR. The public-beta login uses an unverified mainland-China phone identifier, nickname, and a six-digit PIN without SMS; this is a low-friction temporary identity, not proof that the user owns the phone number. Plans and quotas are configurable product experiments; online payment is not connected.
+Guests can read immediately and receive a small daily lookup trial. Login is requested only when that trial is exhausted or at a restricted action such as saving, vocabulary/Anki, private translation, summary, or OCR. The public-beta login uses an unverified mainland-China phone identifier, nickname, and a six-digit numeric password without SMS; this is a low-friction temporary identity, not proof that the user owns the phone number. Plans and quotas are configurable product experiments; online payment is not connected.
 
 ## Brand Personality
 

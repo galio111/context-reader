@@ -58,7 +58,7 @@ export async function PATCH(request: Request) {
       result = { ok: true, temporaryPin };
     } catch (error) {
       return NextResponse.json(
-        { error: error instanceof Error ? error.message : "PIN 重置失败。" },
+        { error: error instanceof Error ? error.message : "密码重置失败。" },
         { status: 400, headers: { "Cache-Control": "no-store" } },
       );
     }

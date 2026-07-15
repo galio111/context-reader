@@ -1,6 +1,6 @@
 # Account, Sync, and Usage Plan
 
-Status: application code, Supabase migration, production environment variables, and Auth are configured. The visible beta flow uses an unverified mainland-China phone identifier plus nickname and a six-digit PIN, with no SMS or email required. Email OTP remains hidden and still requires custom SMTP before it can be offered publicly.
+Status: application code, Supabase migration, production environment variables, and Auth are configured. The visible beta flow uses an unverified mainland-China phone identifier plus nickname and a six-digit numeric password, with no SMS or email required. Email OTP remains hidden and still requires custom SMTP before it can be offered publicly.
 
 ## Product principles
 
@@ -34,7 +34,7 @@ Status: application code, Supabase migration, production environment variables, 
 
 ## Data model
 
-- Supabase Auth: phone-identifier + PIN identity and refresh session. The phone is mapped server-side to a reserved internal email; it is explicitly unverified and the PIN is handled as a hashed Auth password.
+- Supabase Auth: phone-identifier + numeric-password identity and refresh session. The phone is mapped server-side to a reserved internal email; it is explicitly unverified and the password is hashed by Auth.
 - `account_profiles`, `user_entitlements`: profile, status and plan.
 - `quota_plans`, `quota_plan_limits`, `account_settings`: editable global configuration.
 - `guest_identities`: signed anonymous cookie identity, hashed last IP and status.
@@ -45,23 +45,23 @@ Status: application code, Supabase migration, production environment variables, 
 
 ## Key interactions
 
-- Registration uses nickname + mainland-China phone identifier + six-digit PIN; later login uses phone + PIN. No SMS is sent and the phone is not proof of ownership. Access and refresh cookies are HttpOnly, Secure in production and SameSite=Lax; the refresh cookie lasts 7 days.
+- Registration uses nickname + mainland-China phone identifier + six-digit numeric password; later login uses phone + password. No SMS is sent and the phone is not proof of ownership. Access and refresh cookies are HttpOnly, Secure in production and SameSite=Lax; the refresh cookie lasts 7 days.
 - First login downloads cloud objects, supplements them with local data, uploads with expected versions, and retries once after a conflict.
 - Vocabulary sync keeps one canonical entry per normalized word and source sentence, merges the most complete generated fields and Anki import record, and sends tombstones for redundant cloud recovery ids.
 - Explicit logout first requires a successful sync, then clears account-associated local caches. A sync failure stops logout instead of risking data loss.
-- `/account/usage` shows simple remaining allowances. The “账号与用量” section of `/admin` shows users, plans, token/cost totals, failures and global limits, and can issue a one-time displayed temporary PIN for phone accounts.
+- `/account/usage` shows simple remaining allowances. The “账号与用量” section of `/admin` shows users, plans, token/cost totals, failures and global limits, and can issue a one-time displayed temporary password for phone accounts.
 
 ## Risks and phased release
 
 - Supabase counters are global, but the built-in IP limiter is per Vercel instance. Add WAF/distributed limiting before larger promotion.
-- Phone + PIN avoids an email-delivery dependency for the beta, but the phone identifier can be claimed by someone else and has no self-service recovery. Keep registration rate limits, explain the limitation, and add stronger verification before broad promotion. If email login is re-enabled, configure custom SMTP, add `{{ .Token }}` to the template, and verify a non-team address first.
+- Phone + password avoids an email-delivery dependency for the beta, but the phone identifier can be claimed by someone else and has no self-service recovery. Keep registration rate limits, explain the limitation, and add stronger verification before broad promotion. If email login is re-enabled, configure custom SMTP, add `{{ .Token }}` to the template, and verify a non-team address first.
 - Keep the service-role credential server-only; never expose it as `NEXT_PUBLIC_*`.
 - Cost is an estimate. Default rates follow the official DeepSeek V4 Pro/Flash price page checked 2026-07-14 and can be overridden when prices change.
 - Current sync accepts up to 20,000 objects / 8 MB per request. Later, very large accounts can move to cursor-based incremental sync.
 
 Release phases:
 
-1. Run `docs/account-usage-supabase.sql`, set secrets, and smoke-test phone registration/login plus cross-device sync in two browsers.
+1. Run `docs/account-usage-supabase.sql`, set secrets, and smoke-test phone/password registration and login plus cross-device sync in two browsers.
 2. Invite test: manually assign tiers and tune quotas using real token/cost and failure data.
 3. Public test: keep payment disabled; validate guest conversion, cost, storage and abuse.
 4. Billing: add payment webhooks, entitlement expiry, terms/invoices and legally reviewed refund rules only after pricing evidence.

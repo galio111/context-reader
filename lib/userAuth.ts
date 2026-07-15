@@ -83,7 +83,7 @@ export async function registerPhonePinAccount(phone: string, nickname: string, p
     throw new Error("请输入昵称，方便你和管理员识别账号。");
   }
   if (!isValidPin(normalizedPin)) {
-    throw new Error("PIN 必须是 6 位数字。");
+    throw new Error("密码必须是 6 位数字。");
   }
 
   const client = authClient();
@@ -113,7 +113,7 @@ export async function loginPhonePinAccount(phone: string, pin: string): Promise<
   const normalizedPhone = normalizeMainlandPhone(phone);
   const normalizedPin = pin.trim();
   if (!isValidMainlandPhone(normalizedPhone) || !isValidPin(normalizedPin)) {
-    throw new Error("手机号或 PIN 不正确。");
+    throw new Error("手机号或密码不正确。");
   }
 
   const { data, error } = await authClient().auth.signInWithPassword({
@@ -121,7 +121,7 @@ export async function loginPhonePinAccount(phone: string, pin: string): Promise<
     password: normalizedPin,
   });
   if (error || !data.session || !data.user) {
-    throw new Error("手机号或 PIN 不正确。");
+    throw new Error("手机号或密码不正确。");
   }
   return data.session;
 }
@@ -133,12 +133,12 @@ export async function resetPhoneAccountPin(userId: string): Promise<string> {
     throw new Error("未找到这个账号。");
   }
   if (!phoneFromUser(data.user)) {
-    throw new Error("这个账号不是手机号 PIN 账号。");
+    throw new Error("这个账号不是手机号密码账号。");
   }
   const temporaryPin = String(randomInt(0, 1_000_000)).padStart(6, "0");
   const { error: updateError } = await client.auth.admin.updateUserById(userId, { password: temporaryPin });
   if (updateError) {
-    throw new Error(updateError.message || "PIN 重置失败。");
+    throw new Error(updateError.message || "密码重置失败。");
   }
   return temporaryPin;
 }

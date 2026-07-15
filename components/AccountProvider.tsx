@@ -165,7 +165,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   async function submitPhoneAccount() {
     if (loginMode === "register" && pin !== confirmPin) {
-      setMessage("两次输入的 PIN 不一致。");
+      setMessage("两次输入的密码不一致。");
       return;
     }
     setSubmitting(true); setMessage("");
@@ -222,12 +222,12 @@ export function AccountProvider({ children }: { children: ReactNode }) {
             <form onSubmit={(event) => { event.preventDefault(); void submitPhoneAccount(); }}>
               {loginMode === "register" && <label className="mt-5 block text-sm font-medium">昵称<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="text" autoComplete="nickname" maxLength={40} value={nickname} onChange={(event) => setNickname(event.target.value)} placeholder="例如：小林" /></label>}
               <label className="mt-5 block text-sm font-medium">手机号<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={(event) => setPhone(event.target.value.replace(/[^\d+\s()-]/g, "").slice(0, 24))} placeholder="中国大陆手机号" /></label>
-              <label className="mt-5 block text-sm font-medium">6 位 PIN<span className="relative mt-2 block"><input className="w-full rounded-xl border border-black/15 bg-white px-4 py-3 pr-16 text-lg tracking-[.22em] outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type={showPin ? "text" : "password"} inputMode="numeric" autoComplete={loginMode === "login" ? "current-password" : "new-password"} value={pin} onChange={(event) => setPin(event.target.value.replace(/\D/g, "").slice(0, 6))} placeholder="000000" /><button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg px-2 py-1.5 text-xs text-[#526158] hover:bg-black/5" type="button" onClick={() => setShowPin((value) => !value)} aria-label={showPin ? "隐藏 PIN" : "显示 PIN"}>{showPin ? "隐藏" : "显示"}</button></span></label>
-              {loginMode === "register" && <label className="mt-5 block text-sm font-medium">确认 PIN<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-lg tracking-[.22em] outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type={showPin ? "text" : "password"} inputMode="numeric" autoComplete="new-password" value={confirmPin} onChange={(event) => setConfirmPin(event.target.value.replace(/\D/g, "").slice(0, 6))} placeholder="再次输入" /></label>}
+              <label className="mt-5 block text-sm font-medium">6 位数字密码<span className="relative mt-2 block"><input className="w-full rounded-xl border border-black/15 bg-white px-4 py-3 pr-16 text-lg tracking-[.22em] outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type={showPin ? "text" : "password"} inputMode="numeric" autoComplete={loginMode === "login" ? "current-password" : "new-password"} value={pin} onChange={(event) => setPin(event.target.value.replace(/\D/g, "").slice(0, 6))} placeholder="000000" /><button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg px-2 py-1.5 text-xs text-[#526158] hover:bg-black/5" type="button" onClick={() => setShowPin((value) => !value)} aria-label={showPin ? "隐藏密码" : "显示密码"}>{showPin ? "隐藏" : "显示"}</button></span></label>
+              {loginMode === "register" && <label className="mt-5 block text-sm font-medium">确认密码<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-lg tracking-[.22em] outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type={showPin ? "text" : "password"} inputMode="numeric" autoComplete="new-password" value={confirmPin} onChange={(event) => setConfirmPin(event.target.value.replace(/\D/g, "").slice(0, 6))} placeholder="再次输入" /></label>}
               {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="status">{message}</p>}
               <button className="mt-6 w-full rounded-full bg-[#18211d] px-5 py-3.5 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2868ad] disabled:cursor-not-allowed disabled:opacity-50" disabled={!account.configured || submitting || phone.trim().length < 11 || pin.length !== 6 || (loginMode === "register" && (!nickname.trim() || confirmPin.length !== 6))} type="submit">{submitting ? "请稍候…" : loginMode === "login" ? "登录并同步" : "创建账号并登录"}</button>
             </form>
-            <p className="mt-5 text-xs leading-5 text-[#738078]">手机号目前只作为登录账号，不发送验证码，也尚未验证归属。请记住 PIN；忘记后需联系管理员重置。阅读只会在触发受限操作时提示登录。</p>
+            <p className="mt-5 text-xs leading-5 text-[#738078]">手机号目前只作为登录账号，不发送验证码，也尚未验证归属。请记住密码；忘记后需联系管理员重置。阅读只会在触发受限操作时提示登录。</p>
           </section>
         </div>
       )}

@@ -91,7 +91,7 @@ export default function AdminAccountsPanel() {
       </div>
 
       {error && <p className="mt-5 rounded-[16px] bg-red-50 p-4 text-sm text-red-700">{error}</p>}
-      {notice && <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[16px] border border-[#ad7b2b]/25 bg-[#fff6e6] p-4 text-sm text-[#674716]" role="status"><p><strong>{notice.phone}</strong> 的临时 PIN：<span className="ml-1 font-mono text-base tracking-[.14em]">{notice.pin}</span><br /><span className="text-xs">请立即复制给用户；页面关闭后不会再次显示。</span></p><div className="flex gap-2"><button className="rounded-lg border border-[#ad7b2b]/30 bg-white px-3 py-2" type="button" onClick={() => void navigator.clipboard.writeText(notice.pin)}>复制 PIN</button><button className="rounded-lg px-3 py-2" type="button" onClick={() => setNotice(null)}>关闭</button></div></div>}
+      {notice && <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[16px] border border-[#ad7b2b]/25 bg-[#fff6e6] p-4 text-sm text-[#674716]" role="status"><p><strong>{notice.phone}</strong> 的临时密码：<span className="ml-1 font-mono text-base tracking-[.14em]">{notice.pin}</span><br /><span className="text-xs">请立即复制给用户；页面关闭后不会再次显示。</span></p><div className="flex gap-2"><button className="rounded-lg border border-[#ad7b2b]/30 bg-white px-3 py-2" type="button" onClick={() => void navigator.clipboard.writeText(notice.pin)}>复制密码</button><button className="rounded-lg px-3 py-2" type="button" onClick={() => setNotice(null)}>关闭</button></div></div>}
       {!data && !error && <p className="mt-6 text-sm text-[#6e6e73]">正在读取账号与用量...</p>}
 
       {data && (
@@ -269,12 +269,12 @@ export default function AdminAccountsPanel() {
                       type="button"
                       disabled={saving === `pin-${userId}`}
                       onClick={async () => {
-                        if (!window.confirm(`确定要重置 ${String(profile.phone)} 的 PIN 吗？旧 PIN 会立即失效。`)) return;
+                        if (!window.confirm(`确定要重置 ${String(profile.phone)} 的密码吗？旧密码会立即失效。`)) return;
                         const result = await patchAccount({ action: "reset_pin", userId }, `pin-${userId}`);
                         if (typeof result.temporaryPin === "string") setNotice({ phone: String(profile.phone), pin: result.temporaryPin });
                       }}
                     >
-                      {saving === `pin-${userId}` ? "重置中..." : "重置 PIN"}
+                      {saving === `pin-${userId}` ? "重置中..." : "重置密码"}
                     </button>}
                   </article>
                 );
