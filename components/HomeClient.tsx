@@ -458,6 +458,7 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
         urlError={urlError}
         importingUrl={importingUrl}
         openingPublicArticleId={openingPublicArticleId}
+        publicArticles={initialPublicArticles}
         savedArticles={savedArticles}
         readerTransitioning={readerTransitioning}
         onArticleChange={(value) => {
@@ -474,6 +475,8 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
         onImportUrl={handleImportUrl}
         onOpenDemoArticle={handleOpenDemoArticle}
         onOpenSavedArticle={handleOpenSavedArticle}
+        onOpenPublicArticle={handleOpenPublicArticle}
+        onPrefetchPublicArticle={handlePrefetchPublicArticle}
         onDeleteSavedArticle={handleDeleteSavedArticle}
         onJumpToVocabularySource={handleJumpToVocabularySource}
         canJumpToVocabularySource={canJumpToVocabularySource}

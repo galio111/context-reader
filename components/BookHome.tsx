@@ -10,6 +10,10 @@ import {
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
+import { BookDictionary } from "@/components/BookDictionary";
+import { BookLetterField } from "@/components/BookLetterField";
+import { BookRecommendations } from "@/components/BookRecommendations";
+import { FeedbackPanel } from "@/components/FeedbackPanel";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { useAccount } from "@/components/AccountProvider";
 import { createExplanationCacheKey, getCachedExplanation, setCachedExplanation } from "@/lib/cache";
@@ -30,11 +34,12 @@ import {
   vocabularyIdentity,
 } from "@/lib/vocabulary";
 import type { ImportedArticle, SavedArticle } from "@/types/article";
+import type { PublicArticle } from "@/types/publicArticle";
 import type { ReaderToken, WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import styles from "./BookHome.module.css";
 
-const BOOK_OPENED_KEY = "context-reader:book-home-opened:v1";
+const BOOK_OPENED_KEY = "context-reader:book-home-opened:2026-07-book-space-v3";
 const DEMO_HINT_KEY = "context-reader:book-demo-hint-seen:v1";
 
 const DEMO_TITLE = "A Railway Takes Root";
@@ -104,6 +109,7 @@ interface BookHomeProps {
   urlError: string;
   importingUrl: boolean;
   openingPublicArticleId: string;
+  publicArticles: PublicArticle[];
   savedArticles: SavedArticle[];
   readerTransitioning: boolean;
   onArticleChange: (article: string) => void;
@@ -112,6 +118,8 @@ interface BookHomeProps {
   onImportUrl: () => void;
   onOpenDemoArticle: (article: ImportedArticle) => void;
   onOpenSavedArticle: (article: SavedArticle) => void;
+  onOpenPublicArticle: (id: string) => Promise<void>;
+  onPrefetchPublicArticle: (id: string) => void;
   onDeleteSavedArticle: (id: string) => void;
   onJumpToVocabularySource: (entry: VocabularyEntry) => void;
   canJumpToVocabularySource: (entry: VocabularyEntry) => boolean;
@@ -126,15 +134,6 @@ interface DemoDrag {
   horizontal: boolean;
   cancelled: boolean;
 }
-
-interface TrailLetter {
-  id: number;
-  x: number;
-  y: number;
-  letter: string;
-}
-
-const TRAIL_LETTERS = "CONTEXTREADER";
 
 function entryCopyText(entry: VocabularyEntry): string {
   const contextMeaningLabel = entry.word.trim().split(/\s+/).length > 1
@@ -178,6 +177,7 @@ export function BookHome({
   urlError,
   importingUrl,
   openingPublicArticleId,
+  publicArticles,
   savedArticles,
   readerTransitioning,
   onArticleChange,
@@ -186,6 +186,8 @@ export function BookHome({
   onImportUrl,
   onOpenDemoArticle,
   onOpenSavedArticle,
+  onOpenPublicArticle,
+  onPrefetchPublicArticle,
   onDeleteSavedArticle,
   onJumpToVocabularySource,
   canJumpToVocabularySource,
@@ -197,6 +199,7 @@ export function BookHome({
   const [clientReady, setClientReady] = useState(false);
   const [inputMode, setInputMode] = useState<"paste" | "url">("paste");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [vocabularyOpen, setVocabularyOpen] = useState(false);
   const [vocabularyEntries, setVocabularyEntries] = useState<VocabularyEntry[]>([]);
   const [vocabularyError, setVocabularyError] = useState("");
@@ -208,13 +211,12 @@ export function BookHome({
   const [explanationStreaming, setExplanationStreaming] = useState(false);
   const [explanationLoading, setExplanationLoading] = useState(false);
   const [explanationError, setExplanationError] = useState("");
-  const [trailLetters, setTrailLetters] = useState<TrailLetter[]>([]);
   const workbenchRef = useRef<HTMLElement | null>(null);
+  const dictionaryRef = useRef<HTMLDivElement | null>(null);
+  const recommendationRef = useRef<HTMLDivElement | null>(null);
   const dragRef = useRef<DemoDrag | null>(null);
   const suppressClickRef = useRef(false);
   const explanationAbortRef = useRef<AbortController | null>(null);
-  const lastTrailAtRef = useRef(0);
-  const trailIdRef = useRef(0);
 
   const tokenById = useMemo(
     () => new Map(DEMO_WORD_TOKENS.map((token) => [token.id, token])),
@@ -241,8 +243,8 @@ export function BookHome({
     const openTimer = window.setTimeout(() => {
       setCoverOpen(true);
       window.localStorage.setItem(BOOK_OPENED_KEY, "1");
-    }, hasOpened ? 30 : 70);
-    const settleTimer = window.setTimeout(() => setCoverVisible(false), hasOpened ? 500 : 1080);
+    }, hasOpened ? 90 : 170);
+    const settleTimer = window.setTimeout(() => setCoverVisible(false), hasOpened ? 1120 : 2180);
     setVocabularyEntries(getVocabularyEntries());
     return () => {
       window.clearTimeout(openTimer);
@@ -251,14 +253,14 @@ export function BookHome({
   }, []);
 
   useEffect(() => {
-    const locked = menuOpen || vocabularyOpen;
+    const locked = menuOpen || vocabularyOpen || feedbackOpen;
     document.documentElement.classList.toggle("cr-overlay-locked", locked);
     document.body.classList.toggle("cr-overlay-locked", locked);
     return () => {
       document.documentElement.classList.remove("cr-overlay-locked");
       document.body.classList.remove("cr-overlay-locked");
     };
-  }, [menuOpen, vocabularyOpen]);
+  }, [feedbackOpen, menuOpen, vocabularyOpen]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -470,43 +472,23 @@ export function BookHome({
     }
   }
 
-  function handleBackgroundPointerMove(event: ReactPointerEvent<HTMLElement>) {
-    if (event.pointerType !== "mouse") return;
-    if ((event.target as Element).closest(`.${styles.book}, .${styles.topbar}`)) return;
-    const now = performance.now();
-    if (now - lastTrailAtRef.current < 90) return;
-    lastTrailAtRef.current = now;
-    const id = ++trailIdRef.current;
-    const nextLetter: TrailLetter = {
-      id,
-      x: event.clientX,
-      y: event.clientY,
-      letter: TRAIL_LETTERS[id % TRAIL_LETTERS.length],
-    };
-    setTrailLetters((current) => [...current.slice(-6), nextLetter]);
-    window.setTimeout(() => {
-      setTrailLetters((current) => current.filter((item) => item.id !== id));
-    }, 760);
-  }
-
   function scrollToWorkbench() {
     workbenchRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
+  function scrollToSection(target: "dictionary" | "recommendations") {
+    setMenuOpen(false);
+    const ref = target === "dictionary" ? dictionaryRef : recommendationRef;
+    window.setTimeout(() => ref.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 40);
+  }
+
   return (
-    <main
-      className={`${styles.root} ${readerTransitioning ? styles.readerEntering : ""}`}
-      onPointerMove={handleBackgroundPointerMove}
-    >
+    <main className={`${styles.root} ${readerTransitioning ? styles.readerEntering : ""}`}>
+      <BookLetterField paused={coverVisible || readerTransitioning || menuOpen || vocabularyOpen || feedbackOpen} />
       <div className={styles.ambient} aria-hidden="true">
         <span>context</span>
         <span>meaning</span>
         <span>read</span>
-      </div>
-      <div className={styles.trailLayer} aria-hidden="true">
-        {trailLetters.map((item) => (
-          <span key={item.id} style={{ left: item.x, top: item.y }}>{item.letter}</span>
-        ))}
       </div>
 
       <header className={styles.topbar}>
@@ -709,6 +691,32 @@ export function BookHome({
         </div>
       </section>
 
+      <div ref={dictionaryRef} className={styles.sectionAnchor}>
+        <BookDictionary />
+      </div>
+
+      <div ref={recommendationRef} className={styles.sectionAnchor}>
+        <BookRecommendations
+          articles={publicArticles}
+          openingPublicArticleId={openingPublicArticleId}
+          readerTransitioning={readerTransitioning}
+          onOpenArticle={onOpenPublicArticle}
+          onPrefetchArticle={onPrefetchPublicArticle}
+        />
+      </div>
+
+      <section className={styles.closing} aria-labelledby="book-closing-heading">
+        <div>
+          <span>Context Reader</span>
+          <h2 id="book-closing-heading">下一页，由你选一篇文章开始。</h2>
+        </div>
+        <p>首页保持有表达力，真正进入阅读器后，背景字母和翻页动效都会退出，让文字安静下来。</p>
+        <div>
+          <button type="button" onClick={scrollToWorkbench}>粘贴文章或输入网址</button>
+          <button type="button" onClick={() => scrollToSection("recommendations")}>浏览推荐文章</button>
+        </div>
+      </section>
+
       {menuOpen && (
         <div className={styles.menuOverlay} role="presentation" onPointerDown={(event) => {
           if (event.target === event.currentTarget) setMenuOpen(false);
@@ -723,10 +731,19 @@ export function BookHome({
             </header>
 
             <nav className={styles.menuLinks} aria-label="产品功能">
+              <button type="button" onClick={() => scrollToSection("dictionary")}>
+                <span>独立深度词典</span><em>查单词或短语</em>
+              </button>
+              <button type="button" onClick={() => scrollToSection("recommendations")}>
+                <span>分级推荐文章</span><em>{publicArticles.length ? `${publicArticles.length} 篇已发布` : "等待首批发布"}</em>
+              </button>
               <button type="button" onClick={handleOpenVocabulary}>
                 <span>生词本</span><em>{account.authenticated ? `${vocabularyEntries.length} 条` : "登录后使用"}</em>
               </button>
               <Link href="/guide" onClick={() => setMenuOpen(false)}><span>使用说明</span><em>打开指南</em></Link>
+              <button type="button" onClick={() => { setMenuOpen(false); setFeedbackOpen(true); }}>
+                <span>意见反馈</span><em>提交建议或问题</em>
+              </button>
               {account.authenticated ? (
                 <Link href="/account/usage" onClick={() => setMenuOpen(false)}><span>账号、用量与同步</span><em>查看状态</em></Link>
               ) : (
@@ -786,6 +803,8 @@ export function BookHome({
         onImportAnki={() => undefined}
         onImportAllAnki={() => undefined}
       />
+
+      <FeedbackPanel open={feedbackOpen} onClose={() => setFeedbackOpen(false)} />
 
       <div className={styles.readerTransitionStatus} aria-live="polite">
         {readerTransitioning ? "正在展开为阅读器…" : openingPublicArticleId ? "正在打开文章…" : ""}
