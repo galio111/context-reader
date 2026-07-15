@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
+import AdminAccountsPanel from "@/components/AdminAccountsPanel";
 import { getSavedArticles } from "@/lib/articles";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import {
@@ -55,6 +55,8 @@ export default function AdminPage() {
   const [authenticated, setAuthenticated] = useState(false);
   const [checkingSession, setCheckingSession] = useState(true);
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [activeSection, setActiveSection] = useState<"articles" | "accounts">("articles");
   const [loginError, setLoginError] = useState("");
   const [articles, setArticles] = useState<SavedArticle[]>([]);
   const [publishingId, setPublishingId] = useState("");
@@ -64,6 +66,11 @@ export default function AdminPage() {
   const [publishedArticle, setPublishedArticle] = useState<PublicArticle | null>(null);
   const [publicArticles, setPublicArticles] = useState<PublicArticle[]>([]);
   const [selectedArticleIds, setSelectedArticleIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    const section = new URLSearchParams(window.location.search).get("section");
+    if (section === "accounts") setActiveSection("accounts");
+  }, []);
 
   useEffect(() => {
     async function checkSession() {
@@ -78,6 +85,12 @@ export default function AdminPage() {
 
     void checkSession();
   }, []);
+
+  function selectSection(section: "articles" | "accounts") {
+    setActiveSection(section);
+    const url = section === "accounts" ? "/admin?section=accounts" : "/admin";
+    window.history.replaceState(null, "", url);
+  }
 
   useEffect(() => {
     if (authenticated) {
@@ -149,6 +162,7 @@ export default function AdminPage() {
       return;
     }
     setPassword("");
+    setShowPassword(false);
     setAuthenticated(true);
   }
 
@@ -162,6 +176,8 @@ export default function AdminPage() {
     setPublishedArticle(null);
     setPublishingId("");
     setDeletingId("");
+    setPassword("");
+    setShowPassword(false);
   }
 
   async function handlePublish(article: SavedArticle) {
@@ -286,17 +302,28 @@ export default function AdminPage() {
         <form className="mx-auto max-w-xl rounded-[18px] bg-white p-5" onSubmit={handleLogin}>
           <h1 className="text-[28px] font-semibold leading-tight">管理员入口</h1>
           <p className="mt-2 text-sm leading-6 text-[#333333]">
-            登录后可以把本浏览器保存的文章发布为首页公开推荐文章。
+            登录后可以管理公开推荐文章、用户账号、套餐和用量。
           </p>
           <label className="mt-5 block">
             <span className="mb-2 block text-sm font-semibold text-[#333333]">管理员密码</span>
-            <input
-              className="h-11 w-full rounded-full border border-black/10 px-5 text-[17px] outline-none focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              autoComplete="current-password"
-            />
+            <span className="relative block">
+              <input
+                className="h-11 w-full rounded-full border border-black/10 px-5 pr-20 text-[17px] outline-none focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                autoComplete="current-password"
+              />
+              <button
+                className="absolute inset-y-0 right-1 my-auto h-9 rounded-full px-3 text-sm font-medium text-[#0066cc] hover:bg-[#f2f7fc] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30"
+                type="button"
+                aria-pressed={showPassword}
+                aria-label={showPassword ? "隐藏管理员密码" : "显示管理员密码"}
+                onClick={() => setShowPassword((visible) => !visible)}
+              >
+                {showPassword ? "隐藏" : "显示"}
+              </button>
+            </span>
           </label>
           {loginError && <p className="mt-3 text-sm text-red-600">{loginError}</p>}
           <button className="mt-5 h-11 rounded-full bg-[#0066cc] px-6 text-[17px] text-white" type="submit">
@@ -309,22 +336,52 @@ export default function AdminPage() {
 
   return (
     <main className="min-h-screen bg-[#f5f5f7] px-4 py-6 text-[#1d1d1f]">
-      <section className="mx-auto max-w-5xl">
+      <section className="mx-auto max-w-6xl">
         <header className="flex flex-col gap-3 border-b border-black/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-[32px] font-semibold leading-tight">公开推荐文章管理</h1>
+            <h1 className="text-[32px] font-semibold leading-tight">Context Reader 管理后台</h1>
             <p className="mt-1 text-sm leading-6 text-[#333333]">
-              这里读取的是当前浏览器里的本地保存文章。发布后，访客可以在首页看到公开文章。
+              在一个后台管理公开内容、用户账号、套餐和 AI 用量。
             </p>
           </div>
-          <div className="flex gap-2"><Link className="h-10 rounded-full border border-[#0066cc] px-4 py-2 text-sm text-[#0066cc]" href="/admin/accounts">账号与用量</Link><button
+          <button
             className="h-10 self-start rounded-full border border-[#0066cc] px-4 text-sm text-[#0066cc]"
             type="button"
             onClick={handleLogout}
           >
             退出
-          </button></div>
+          </button>
         </header>
+
+        <nav className="mt-5 flex w-fit gap-1 rounded-full bg-white p-1" aria-label="后台功能">
+          <button
+            className={`h-10 rounded-full px-5 text-sm font-medium transition-colors ${
+              activeSection === "articles" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
+            }`}
+            type="button"
+            aria-current={activeSection === "articles" ? "page" : undefined}
+            onClick={() => selectSection("articles")}
+          >
+            推荐文章
+          </button>
+          <button
+            className={`h-10 rounded-full px-5 text-sm font-medium transition-colors ${
+              activeSection === "accounts" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
+            }`}
+            type="button"
+            aria-current={activeSection === "accounts" ? "page" : undefined}
+            onClick={() => selectSection("accounts")}
+          >
+            账号与用量
+          </button>
+        </nav>
+
+        {activeSection === "accounts" ? (
+          <div className="mt-6">
+            <AdminAccountsPanel />
+          </div>
+        ) : (
+          <>
 
         {status && (
           <p className="mt-5 rounded-[16px] border border-[#d2d2d7] bg-white p-4 text-sm leading-6 text-[#333333]">
@@ -462,6 +519,8 @@ export default function AdminPage() {
               );
             })}
           </ul>
+          </>
+        )}
           </>
         )}
       </section>
