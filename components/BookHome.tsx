@@ -7,6 +7,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type CSSProperties,
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
@@ -34,13 +35,44 @@ import {
   vocabularyIdentity,
 } from "@/lib/vocabulary";
 import type { ImportedArticle, SavedArticle } from "@/types/article";
-import type { PublicArticle } from "@/types/publicArticle";
+import type { ArticleAudienceStage, PublicArticle } from "@/types/publicArticle";
 import type { ReaderToken, WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import styles from "./BookHome.module.css";
 
-const BOOK_OPENED_KEY = "context-reader:book-home-opened:2026-07-book-space-v3";
 const DEMO_HINT_KEY = "context-reader:book-demo-hint-seen:v1";
+const RECOMMENDATION_PROFILE_KEY = "context-reader:recommendation-profile:v1";
+
+type BookChapter = "workbench" | "dictionary" | "preferences" | "recommendations";
+type TurnDirection = "forward" | "backward";
+
+interface RecommendationProfile {
+  level: ArticleAudienceStage | "all";
+  pace: "轻松" | "适中" | "挑战" | "";
+  interests: string[];
+  complete: boolean;
+}
+
+const INITIAL_RECOMMENDATION_PROFILE: RecommendationProfile = {
+  level: "all",
+  pace: "",
+  interests: [],
+  complete: false,
+};
+
+const PROFILE_LEVELS: Array<{ value: ArticleAudienceStage; label: string; group: string }> = [
+  { value: "小学", label: "小学", group: "18 岁以下" },
+  { value: "初中", label: "初中", group: "18 岁以下" },
+  { value: "高中", label: "高中", group: "18 岁以下" },
+  { value: "CET-4", label: "四级", group: "成人与大学" },
+  { value: "CET-6", label: "六级", group: "成人与大学" },
+  { value: "考研", label: "考研", group: "成人与大学" },
+  { value: "IELTS", label: "雅思", group: "考试路线" },
+  { value: "TOEFL", label: "托福", group: "考试路线" },
+];
+
+const PROFILE_INTERESTS = ["科技", "自然", "文化", "社会", "成长", "故事"];
+const PAGE_STRIPS = Array.from({ length: 18 }, (_, index) => index);
 
 const DEMO_TITLE = "A Railway Takes Root";
 const DEMO_PARAGRAPH_ONE =
@@ -193,9 +225,13 @@ export function BookHome({
   canJumpToVocabularySource,
 }: BookHomeProps) {
   const { account, loading: accountLoading, openLogin, requireAccount, logout, refreshAccount } = useAccount();
-  const [coverOpen, setCoverOpen] = useState(false);
-  const [coverVisible, setCoverVisible] = useState(true);
-  const [fastOpen, setFastOpen] = useState(false);
+  const [coverState, setCoverState] = useState<"closed" | "opening" | "open">("closed");
+  const [chapter, setChapter] = useState<BookChapter>("workbench");
+  const [turning, setTurning] = useState(false);
+  const [turnDirection, setTurnDirection] = useState<TurnDirection>("forward");
+  const [turnTarget, setTurnTarget] = useState<BookChapter | null>(null);
+  const [mobileWorkbenchPage, setMobileWorkbenchPage] = useState<"demo" | "desk">("demo");
+  const [recommendationProfile, setRecommendationProfile] = useState<RecommendationProfile>(INITIAL_RECOMMENDATION_PROFILE);
   const [clientReady, setClientReady] = useState(false);
   const [inputMode, setInputMode] = useState<"paste" | "url">("paste");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -211,9 +247,13 @@ export function BookHome({
   const [explanationStreaming, setExplanationStreaming] = useState(false);
   const [explanationLoading, setExplanationLoading] = useState(false);
   const [explanationError, setExplanationError] = useState("");
+  const storyRef = useRef<HTMLElement | null>(null);
   const workbenchRef = useRef<HTMLElement | null>(null);
-  const dictionaryRef = useRef<HTMLDivElement | null>(null);
-  const recommendationRef = useRef<HTMLDivElement | null>(null);
+  const chapterRef = useRef<BookChapter>("workbench");
+  const turningRef = useRef(false);
+  const queuedChapterRef = useRef<BookChapter | null>(null);
+  const turnTimersRef = useRef<number[]>([]);
+  const scrollFrameRef = useRef<number | null>(null);
   const dragRef = useRef<DemoDrag | null>(null);
   const suppressClickRef = useRef(false);
   const explanationAbortRef = useRef<AbortController | null>(null);
@@ -237,18 +277,25 @@ export function BookHome({
 
   useEffect(() => {
     setClientReady(true);
-    const hasOpened = window.localStorage.getItem(BOOK_OPENED_KEY) === "1";
-    setFastOpen(hasOpened);
     setShowHint(window.localStorage.getItem(DEMO_HINT_KEY) !== "1");
-    const openTimer = window.setTimeout(() => {
-      setCoverOpen(true);
-      window.localStorage.setItem(BOOK_OPENED_KEY, "1");
-    }, hasOpened ? 90 : 170);
-    const settleTimer = window.setTimeout(() => setCoverVisible(false), hasOpened ? 1120 : 2180);
+    try {
+      const storedProfile = window.localStorage.getItem(RECOMMENDATION_PROFILE_KEY);
+      if (storedProfile) {
+        const parsed = JSON.parse(storedProfile) as Partial<RecommendationProfile>;
+        setRecommendationProfile({
+          level: parsed.level ?? "all",
+          pace: parsed.pace ?? "",
+          interests: Array.isArray(parsed.interests) ? parsed.interests : [],
+          complete: Boolean(parsed.complete),
+        });
+      }
+    } catch {
+      // A malformed optional preference must not block the reading entry.
+    }
     setVocabularyEntries(getVocabularyEntries());
     return () => {
-      window.clearTimeout(openTimer);
-      window.clearTimeout(settleTimer);
+      turnTimersRef.current.forEach((timer) => window.clearTimeout(timer));
+      if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
     };
   }, []);
 
@@ -270,6 +317,87 @@ export function BookHome({
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [menuOpen]);
+
+  useEffect(() => {
+    chapterRef.current = chapter;
+  }, [chapter]);
+
+  const beginTurn = useCallback(function performTurn(nextChapter: BookChapter, direction: TurnDirection = "forward") {
+    if (nextChapter === chapterRef.current && !turningRef.current) return;
+    if (turningRef.current) {
+      queuedChapterRef.current = nextChapter;
+      return;
+    }
+
+    turningRef.current = true;
+    setTurning(true);
+    setTurnDirection(direction);
+    setTurnTarget(nextChapter);
+
+    const swapTimer = window.setTimeout(() => {
+      chapterRef.current = nextChapter;
+      setChapter(nextChapter);
+    }, 430);
+    const settleTimer = window.setTimeout(() => {
+      turningRef.current = false;
+      setTurning(false);
+      setTurnTarget(null);
+      const queued = queuedChapterRef.current;
+      queuedChapterRef.current = null;
+      if (queued && queued !== chapterRef.current) {
+        const ranks: Record<BookChapter, number> = { workbench: 0, dictionary: 1, preferences: 2, recommendations: 3 };
+        performTurn(queued, ranks[queued] >= ranks[chapterRef.current] ? "forward" : "backward");
+      }
+    }, 1120);
+    turnTimersRef.current.push(swapTimer, settleTimer);
+  }, []);
+
+  function openBook(afterOpen?: () => void) {
+    if (coverState !== "closed") {
+      afterOpen?.();
+      return;
+    }
+    setCoverState("opening");
+    const openTimer = window.setTimeout(() => {
+      setCoverState("open");
+      afterOpen?.();
+    }, 1680);
+    turnTimersRef.current.push(openTimer);
+  }
+
+  useEffect(() => {
+    if (coverState !== "open") return;
+    const story = storyRef.current;
+    if (!story) return;
+
+    const updateFromScroll = () => {
+      scrollFrameRef.current = null;
+      if (chapterRef.current === "dictionary") return;
+      const storyTop = story.getBoundingClientRect().top + window.scrollY;
+      const distance = Math.max(1, story.offsetHeight - window.innerHeight);
+      const progress = Math.min(1, Math.max(0, (window.scrollY - storyTop) / distance));
+      let desired: BookChapter = "workbench";
+      if (progress >= 0.31) desired = "preferences";
+      if (progress >= 0.64 && recommendationProfile.complete) desired = "recommendations";
+      if (desired === chapterRef.current) return;
+      const ranks: Record<BookChapter, number> = { workbench: 0, dictionary: 1, preferences: 2, recommendations: 3 };
+      beginTurn(desired, ranks[desired] >= ranks[chapterRef.current] ? "forward" : "backward");
+    };
+
+    const onScroll = () => {
+      if (scrollFrameRef.current !== null) return;
+      scrollFrameRef.current = window.requestAnimationFrame(updateFromScroll);
+    };
+    updateFromScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
+      scrollFrameRef.current = null;
+    };
+  }, [beginTurn, coverState, recommendationProfile.complete]);
 
   useEffect(() => () => explanationAbortRef.current?.abort(), []);
 
@@ -473,18 +601,74 @@ export function BookHome({
   }
 
   function scrollToWorkbench() {
-    workbenchRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    setMenuOpen(false);
+    const showWorkbench = () => {
+      beginTurn("workbench", "backward");
+      setMobileWorkbenchPage("desk");
+      storyRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.setTimeout(() => workbenchRef.current?.focus({ preventScroll: true }), 900);
+    };
+    openBook(showWorkbench);
   }
 
-  function scrollToSection(target: "dictionary" | "recommendations") {
+  function openDictionary() {
     setMenuOpen(false);
-    const ref = target === "dictionary" ? dictionaryRef : recommendationRef;
-    window.setTimeout(() => ref.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 40);
+    openBook(() => beginTurn("dictionary", "forward"));
+  }
+
+  function scrollToRecommendations() {
+    setMenuOpen(false);
+    openBook(() => {
+      const story = storyRef.current;
+      if (!story) return;
+      if (!recommendationProfile.complete) {
+        beginTurn("preferences", "forward");
+      } else {
+        beginTurn("recommendations", "forward");
+      }
+      const top = story.getBoundingClientRect().top + window.scrollY;
+      const distance = Math.max(0, story.offsetHeight - window.innerHeight);
+      window.scrollTo({ top: top + distance * (recommendationProfile.complete ? 0.77 : 0.46), behavior: "smooth" });
+    });
+  }
+
+  function updateProfile(next: RecommendationProfile) {
+    setRecommendationProfile(next);
+    window.localStorage.setItem(RECOMMENDATION_PROFILE_KEY, JSON.stringify(next));
+  }
+
+  function toggleProfileInterest(interest: string) {
+    const interests = recommendationProfile.interests.includes(interest)
+      ? recommendationProfile.interests.filter((item) => item !== interest)
+      : [...recommendationProfile.interests, interest];
+    updateProfile({ ...recommendationProfile, interests });
+  }
+
+  function completeRecommendationProfile() {
+    const next = { ...recommendationProfile, complete: true };
+    updateProfile(next);
+    beginTurn("recommendations", "forward");
+    const story = storyRef.current;
+    if (story) {
+      const top = story.getBoundingClientRect().top + window.scrollY;
+      const distance = Math.max(0, story.offsetHeight - window.innerHeight);
+      window.setTimeout(() => window.scrollTo({ top: top + distance * 0.78, behavior: "smooth" }), 260);
+    }
+  }
+
+  function editRecommendationProfile() {
+    beginTurn("preferences", "backward");
+    const story = storyRef.current;
+    if (story) {
+      const top = story.getBoundingClientRect().top + window.scrollY;
+      const distance = Math.max(0, story.offsetHeight - window.innerHeight);
+      window.scrollTo({ top: top + distance * 0.46, behavior: "smooth" });
+    }
   }
 
   return (
     <main className={`${styles.root} ${readerTransitioning ? styles.readerEntering : ""}`}>
-      <BookLetterField paused={coverVisible || readerTransitioning || menuOpen || vocabularyOpen || feedbackOpen} />
+      <BookLetterField paused={coverState !== "open" || readerTransitioning || menuOpen || vocabularyOpen || feedbackOpen} />
       <div className={styles.ambient} aria-hidden="true">
         <span>context</span>
         <span>meaning</span>
@@ -511,10 +695,18 @@ export function BookHome({
         </div>
       </header>
 
-      <section className={styles.stage} aria-label="Context Reader 书本工作台">
-        <div className={`${styles.bookShell} ${coverOpen ? styles.open : ""} ${fastOpen ? styles.fast : ""}`}>
-          <div className={styles.book}>
-            <section className={`${styles.page} ${styles.leftPage}`} aria-labelledby="book-demo-heading">
+      <section
+        ref={storyRef}
+        className={`${styles.story} ${styles[`cover${coverState[0].toUpperCase()}${coverState.slice(1)}`]}`}
+        data-chapter={chapter}
+        aria-label="Context Reader 连续书本空间"
+      >
+        <div className={styles.stickyStage}>
+          <div className={styles.bookShell}>
+            <div className={styles.book}>
+              {chapter === "workbench" && (
+                <div className={styles.workbenchSpread} data-mobile-page={mobileWorkbenchPage}>
+                  <section className={`${styles.page} ${styles.leftPage}`} aria-labelledby="book-demo-heading">
               <div className={styles.pageNumber}>Context note · 01</div>
               <div className={styles.demoHeader}>
                 <div>
@@ -581,16 +773,16 @@ export function BookHome({
               <button className={styles.mobileNextPage} type="button" onClick={scrollToWorkbench}>
                 下一页：开始阅读 <span aria-hidden="true">↓</span>
               </button>
-            </section>
+                  </section>
 
-            <div className={styles.spine} aria-hidden="true"><i /></div>
+                  <div className={styles.spine} aria-hidden="true"><i /></div>
 
-            <section ref={workbenchRef} className={`${styles.page} ${styles.rightPage}`} aria-labelledby="book-workbench-heading">
+                  <section ref={workbenchRef} tabIndex={-1} className={`${styles.page} ${styles.rightPage}`} aria-labelledby="book-workbench-heading">
               <div className={styles.pageNumber}>Reading desk · 02</div>
               <div className={styles.workbenchHeader}>
                 <p className={styles.sectionLabel}>阅读起点</p>
                 <h2 id="book-workbench-heading">从你想读的内容开始。</h2>
-                <p>粘贴文章或输入公开网址，进入同一个阅读器。</p>
+                <p>粘贴文章、输入公开网址或单独查一个词，选择一种方式开始。</p>
               </div>
 
               {latestSavedArticle && (
@@ -610,7 +802,7 @@ export function BookHome({
                 </button>
               )}
 
-              <div className={styles.inputModes} role="tablist" aria-label="选择文章输入方式">
+              <div className={styles.inputModes} role="tablist" aria-label="选择阅读或查词方式">
                 <button
                   type="button"
                   role="tab"
@@ -625,6 +817,12 @@ export function BookHome({
                   className={inputMode === "url" ? styles.activeMode : ""}
                   onClick={() => setInputMode("url")}
                 >输入网址</button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  onClick={openDictionary}
+                >单独查词</button>
               </div>
 
               {inputMode === "paste" ? (
@@ -669,51 +867,148 @@ export function BookHome({
                 <span>不上传图片，不锁定滚动。</span>
                 <button type="button" onClick={() => onOpenDemoArticle(DEMO_IMPORTED_ARTICLE)}>先用左页示例阅读</button>
               </div>
-            </section>
-
-            {coverVisible && (
-              <div className={styles.cover} aria-hidden="true">
-                <div className={styles.coverSpine} />
-                <div className={styles.coverFace}>
-                  <span className={styles.coverMonogram}>CR</span>
-                  <div>
-                    <p>Context Reader</p>
-                    <h2>Read beyond<br />the word.</h2>
-                  </div>
-                  <footer>
-                    <span>语境英语阅读</span>
-                    <span>{fastOpen ? "Welcome back" : "Opening the reading space"}</span>
-                  </footer>
+                  </section>
                 </div>
-              </div>
-            )}
+              )}
+
+              {chapter === "dictionary" && (
+                <BookDictionary embedded onBack={scrollToWorkbench} />
+              )}
+
+              {chapter === "preferences" && (
+                <section className={styles.preferenceSpread} aria-labelledby="recommendation-profile-heading">
+                  <div className={`${styles.page} ${styles.preferenceIntro}`}>
+                    <div className={styles.pageNumber}>Reading note · 04</div>
+                    <p className={styles.sectionLabel}>推荐前的简单选择</p>
+                    <h2 id="recommendation-profile-heading">先告诉这本书，你现在想读什么。</h2>
+                    <p>不用做词汇量测试。选择大致学习阶段、阅读强度和兴趣，之后可以随时修改。</p>
+                    <dl className={styles.profileSummary}>
+                      <div><dt>学习阶段</dt><dd>{recommendationProfile.level === "all" ? "尚未选择" : recommendationProfile.level}</dd></div>
+                      <div><dt>阅读强度</dt><dd>{recommendationProfile.pace || "尚未选择"}</dd></div>
+                      <div><dt>兴趣</dt><dd>{recommendationProfile.interests.length ? recommendationProfile.interests.join("、") : "尚未选择"}</dd></div>
+                    </dl>
+                    <button type="button" className={styles.backToDesk} onClick={scrollToWorkbench}>返回阅读工作台</button>
+                  </div>
+                  <div className={styles.preferenceLeaf} aria-hidden="true" />
+                  <div className={`${styles.page} ${styles.preferenceForm}`} data-pointer-quiet>
+                    <fieldset>
+                      <legend>1. 你目前更接近哪个阶段？</legend>
+                      <div className={styles.choiceGrid}>
+                        {PROFILE_LEVELS.map((item) => (
+                          <button
+                            key={item.value}
+                            type="button"
+                            aria-pressed={recommendationProfile.level === item.value}
+                            className={recommendationProfile.level === item.value ? styles.choiceSelected : ""}
+                            onClick={() => updateProfile({ ...recommendationProfile, level: item.value })}
+                          ><small>{item.group}</small><strong>{item.label}</strong></button>
+                        ))}
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>2. 这次想读到什么强度？</legend>
+                      <div className={styles.paceChoices}>
+                        {(["轻松", "适中", "挑战"] as const).map((pace) => (
+                          <button
+                            key={pace}
+                            type="button"
+                            aria-pressed={recommendationProfile.pace === pace}
+                            className={recommendationProfile.pace === pace ? styles.choiceSelected : ""}
+                            onClick={() => updateProfile({ ...recommendationProfile, pace })}
+                          >{pace === "轻松" ? "较轻松" : pace === "挑战" ? "想挑战" : pace}</button>
+                        ))}
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>3. 哪些内容更容易让你读下去？</legend>
+                      <div className={styles.interestChoices}>
+                        {PROFILE_INTERESTS.map((interest) => (
+                          <button
+                            key={interest}
+                            type="button"
+                            aria-pressed={recommendationProfile.interests.includes(interest)}
+                            className={recommendationProfile.interests.includes(interest) ? styles.choiceSelected : ""}
+                            onClick={() => toggleProfileInterest(interest)}
+                          >{interest}</button>
+                        ))}
+                      </div>
+                    </fieldset>
+                    <div className={styles.profileActions}>
+                      <button type="button" onClick={completeRecommendationProfile}>暂时跳过</button>
+                      <button type="button" onClick={completeRecommendationProfile}>生成我的推荐目录</button>
+                    </div>
+                  </div>
+                </section>
+              )}
+
+              {chapter === "recommendations" && (
+                <BookRecommendations
+                  embedded
+                  articles={publicArticles}
+                  openingPublicArticleId={openingPublicArticleId}
+                  readerTransitioning={readerTransitioning}
+                  preferredLevel={recommendationProfile.level}
+                  onPreferredLevelChange={(level) => updateProfile({ ...recommendationProfile, level })}
+                  onEditPreferences={editRecommendationProfile}
+                  onOpenArticle={onOpenPublicArticle}
+                  onPrefetchArticle={onPrefetchPublicArticle}
+                />
+              )}
+
+              {turning && (
+                <div className={`${styles.pageTurn} ${turnDirection === "backward" ? styles.pageTurnBackward : ""}`} aria-hidden="true" data-target={turnTarget ?? ""}>
+                  <div className={styles.pageTurnShadow} />
+                  {PAGE_STRIPS.map((index) => <i key={index} style={{ "--strip": index } as CSSProperties} />)}
+                  <span className={styles.pageTurnEdge} />
+                </div>
+              )}
+
+              {coverState !== "open" && (
+                <button
+                  type="button"
+                  className={styles.coverAssembly}
+                  onClick={() => openBook()}
+                  disabled={coverState === "opening"}
+                  aria-label={coverState === "closed" ? "打开 Context Reader" : "正在打开 Context Reader"}
+                >
+                  <span className={styles.closedBook}>
+                    <span className={styles.backBoard} />
+                    <span className={styles.pageBlockEdges}><i /><i /><i /><i /></span>
+                    <span className={styles.frontBoard}>
+                      <span className={styles.frontBoardBack} />
+                      <span className={styles.coverSpine} />
+                      <span className={styles.coverFace}>
+                        <span className={styles.coverMonogram}>CR</span>
+                        <span className={styles.coverTitle}>
+                          <small>Context Reader</small>
+                          <strong>Read beyond<br />the word.</strong>
+                        </span>
+                        <span className={styles.coverFooter}><span>语境英语阅读</span><span>Open the book</span></span>
+                      </span>
+                    </span>
+                    <span className={styles.bookForeEdge} />
+                  </span>
+                </button>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
 
-      <div ref={dictionaryRef} className={styles.sectionAnchor}>
-        <BookDictionary />
-      </div>
+          <div className={styles.stageGuidance} aria-live="polite">
+            {coverState === "closed" && <><strong>点击封面，打开这本书</strong><span>真实划词、文章导入和推荐都在书里</span></>}
+            {coverState === "opening" && <><strong>正在打开阅读空间</strong><span>封面、纸芯与光影会一起展开</span></>}
+            {coverState === "open" && chapter === "workbench" && <><strong>先阅读，也可以继续向下翻页</strong><span>下一页会询问你的阅读偏好</span></>}
+            {coverState === "open" && chapter === "preferences" && <><strong>阅读偏好夹页</strong><span>完成选择后进入推荐目录</span></>}
+            {coverState === "open" && chapter === "recommendations" && <><strong>推荐目录</strong><span>点击整篇文章，从封面展开进入阅读器</span></>}
+            {coverState === "open" && chapter === "dictionary" && <><strong>独立深度词典</strong><span>返回后仍是同一本书</span></>}
+          </div>
 
-      <div ref={recommendationRef} className={styles.sectionAnchor}>
-        <BookRecommendations
-          articles={publicArticles}
-          openingPublicArticleId={openingPublicArticleId}
-          readerTransitioning={readerTransitioning}
-          onOpenArticle={onOpenPublicArticle}
-          onPrefetchArticle={onPrefetchPublicArticle}
-        />
-      </div>
-
-      <section className={styles.closing} aria-labelledby="book-closing-heading">
-        <div>
-          <span>Context Reader</span>
-          <h2 id="book-closing-heading">下一页，由你选一篇文章开始。</h2>
-        </div>
-        <p>首页保持有表达力，真正进入阅读器后，背景字母和翻页动效都会退出，让文字安静下来。</p>
-        <div>
-          <button type="button" onClick={scrollToWorkbench}>粘贴文章或输入网址</button>
-          <button type="button" onClick={() => scrollToSection("recommendations")}>浏览推荐文章</button>
+          {coverState === "open" && chapter !== "dictionary" && (
+            <nav className={styles.chapterRail} aria-label="书本章节">
+              <button type="button" aria-current={chapter === "workbench" ? "step" : undefined} onClick={scrollToWorkbench}><i />开始阅读</button>
+              <button type="button" aria-current={chapter === "preferences" ? "step" : undefined} onClick={() => { beginTurn("preferences", "forward"); const story = storyRef.current; if (story) { const top = story.getBoundingClientRect().top + window.scrollY; window.scrollTo({ top: top + (story.offsetHeight - window.innerHeight) * .46, behavior: "smooth" }); } }}><i />阅读偏好</button>
+              <button type="button" aria-current={chapter === "recommendations" ? "step" : undefined} onClick={scrollToRecommendations}><i />推荐目录</button>
+            </nav>
+          )}
         </div>
       </section>
 
@@ -731,10 +1026,10 @@ export function BookHome({
             </header>
 
             <nav className={styles.menuLinks} aria-label="产品功能">
-              <button type="button" onClick={() => scrollToSection("dictionary")}>
+              <button type="button" onClick={openDictionary}>
                 <span>独立深度词典</span><em>查单词或短语</em>
               </button>
-              <button type="button" onClick={() => scrollToSection("recommendations")}>
+              <button type="button" onClick={scrollToRecommendations}>
                 <span>分级推荐文章</span><em>{publicArticles.length ? `${publicArticles.length} 篇已发布` : "等待首批发布"}</em>
               </button>
               <button type="button" onClick={handleOpenVocabulary}>

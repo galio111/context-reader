@@ -28,6 +28,10 @@ interface BookRecommendationsProps {
   readerTransitioning: boolean;
   onOpenArticle: (id: string) => Promise<void>;
   onPrefetchArticle: (id: string) => void;
+  embedded?: boolean;
+  preferredLevel?: ArticleAudienceStage | "all";
+  onPreferredLevelChange?: (level: ArticleAudienceStage | "all") => void;
+  onEditPreferences?: () => void;
 }
 
 export function BookRecommendations({
@@ -36,8 +40,12 @@ export function BookRecommendations({
   readerTransitioning,
   onOpenArticle,
   onPrefetchArticle,
+  embedded = false,
+  preferredLevel,
+  onPreferredLevelChange,
+  onEditPreferences,
 }: BookRecommendationsProps) {
-  const [level, setLevel] = useState<ArticleAudienceStage | "all">("all");
+  const [localLevel, setLocalLevel] = useState<ArticleAudienceStage | "all">("all");
   const [openingCover, setOpeningCover] = useState<OpeningCover | null>(null);
   const [coverExpanded, setCoverExpanded] = useState(false);
   const [sectionEntered, setSectionEntered] = useState(false);
@@ -45,8 +53,10 @@ export function BookRecommendations({
 
   useEffect(() => {
     const stored = window.localStorage.getItem(LEVEL_KEY) as ArticleAudienceStage | "all" | null;
-    if (levels.some((item) => item.value === stored)) setLevel(stored ?? "all");
+    if (levels.some((item) => item.value === stored)) setLocalLevel(stored ?? "all");
   }, []);
+
+  const level = preferredLevel ?? localLevel;
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -73,7 +83,8 @@ export function BookRecommendations({
   const visibleArticles = matchedArticles.length ? matchedArticles : coveredArticles;
 
   function selectLevel(value: ArticleAudienceStage | "all") {
-    setLevel(value);
+    setLocalLevel(value);
+    onPreferredLevelChange?.(value);
     window.localStorage.setItem(LEVEL_KEY, value);
   }
 
@@ -99,8 +110,8 @@ export function BookRecommendations({
   } as CSSProperties) : undefined;
 
   return (
-    <section ref={sectionRef} className={`${styles.section} ${sectionEntered ? styles.entered : ""}`} aria-labelledby="recommendation-heading">
-      <div className={styles.turnLeaf} aria-hidden="true" />
+    <section ref={sectionRef} className={`${styles.section} ${embedded ? styles.embedded : ""} ${sectionEntered ? styles.entered : ""}`} aria-labelledby="recommendation-heading">
+      {!embedded && <div className={styles.turnLeaf} aria-hidden="true" />}
       <header className={styles.header}>
         <div>
           <span>Reading list · 04</span>
@@ -108,7 +119,7 @@ export function BookRecommendations({
           <p>图片和标题属于同一篇文章。点击整块内容，封面会向前展开，再连续进入阅读器。</p>
         </div>
         <div className={styles.levelPicker} data-pointer-quiet>
-          <p>按你的阶段筛选</p>
+          <p>按你的阶段筛选{onEditPreferences && <button type="button" className={styles.editPreferences} onClick={onEditPreferences}>修改完整偏好</button>}</p>
           <div>
             {levels.map((item) => (
               <button

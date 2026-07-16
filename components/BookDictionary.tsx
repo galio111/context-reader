@@ -33,7 +33,12 @@ function setCached(result: DictionaryResult) {
   }
 }
 
-export function BookDictionary() {
+interface BookDictionaryProps {
+  embedded?: boolean;
+  onBack?: () => void;
+}
+
+export function BookDictionary({ embedded = false, onBack }: BookDictionaryProps) {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState<DictionaryResult | null>(null);
   const [loading, setLoading] = useState(false);
@@ -74,9 +79,12 @@ export function BookDictionary() {
   }
 
   return (
-    <section className={styles.dictionary} aria-labelledby="book-dictionary-heading">
+    <section className={`${styles.dictionary} ${embedded ? styles.embedded : ""}`} aria-labelledby="book-dictionary-heading">
       <div className={styles.headingPage}>
-        <span className={styles.pageLabel}>Dictionary · 03</span>
+        <div className={styles.pageTopline}>
+          <span className={styles.pageLabel}>Dictionary · 03</span>
+          {onBack && <button type="button" className={styles.backButton} onClick={onBack}>返回阅读工作台</button>}
+        </div>
         <p className={styles.kicker}>独立深度词典</p>
         <h2 id="book-dictionary-heading">没有原句，也可以把一个词查透。</h2>
         <p className={styles.intro}>这里负责单独查词和短语。文章里的划词仍优先解释当前语境，两种入口不会混在一起。</p>
