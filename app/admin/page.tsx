@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import AdminAccountsPanel from "@/components/AdminAccountsPanel";
 import AdminArticleIntakePanel from "@/components/AdminArticleIntakePanel";
 import AdminFeedbackPanel from "@/components/AdminFeedbackPanel";
+import { ReaderView } from "@/components/ReaderView";
 import { getSavedArticles } from "@/lib/articles";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import {
@@ -11,9 +12,13 @@ import {
   getCachedArticleTranslationForBlocks,
   getArticleTranslationCacheEntries,
   getExplanationCacheEntries,
+  setCachedArticleTranslation,
 } from "@/lib/cache";
-import type { SavedArticle } from "@/types/article";
+import type { ImportedArticle, SavedArticle } from "@/types/article";
 import type { PublicArticle, PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
+
+type AdminAccessMode = "developer" | "password" | null;
+type AdminReaderState = { kind: "candidate" | "published"; article: PublicArticle };
 
 function explanationWordFromKey(cacheKey: string): string {
   return cacheKey.split("::")[0] || "";
@@ -55,6 +60,7 @@ function articleTranslationsForArticle(article: SavedArticle): PublicArticleTran
 
 export default function AdminPage() {
   const [authenticated, setAuthenticated] = useState(false);
+  const [accessMode, setAccessMode] = useState<AdminAccessMode>(null);
   const [checkingSession, setCheckingSession] = useState(true);
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -66,6 +72,8 @@ export default function AdminPage() {
   const [status, setStatus] = useState("");
   const [publishedArticle, setPublishedArticle] = useState<PublicArticle | null>(null);
   const [publicArticles, setPublicArticles] = useState<PublicArticle[]>([]);
+  const [readerState, setReaderState] = useState<AdminReaderState | null>(null);
+  const [openingArticleId, setOpeningArticleId] = useState("");
 
   useEffect(() => {
     const section = new URLSearchParams(window.location.search).get("section");
@@ -77,8 +85,9 @@ export default function AdminPage() {
     async function checkSession() {
       try {
         const response = await fetch("/api/admin/session");
-        const data = (await response.json()) as { authenticated?: boolean };
+        const data = (await response.json()) as { authenticated?: boolean; accessMode?: AdminAccessMode };
         setAuthenticated(Boolean(data.authenticated));
+        setAccessMode(data.accessMode ?? null);
       } finally {
         setCheckingSession(false);
       }
@@ -110,6 +119,72 @@ export default function AdminPage() {
       return;
     }
     setPublicArticles(data?.articles ?? []);
+  }
+
+  function openCandidateArticle(article: PublicArticle) {
+    setStatus("");
+    setReaderState({ kind: "candidate", article });
+  }
+
+  async function openPublishedArticle(article: PublicArticle) {
+    if (openingArticleId) return;
+    setOpeningArticleId(article.id);
+    setStatus("");
+    try {
+      const response = await fetch(`/api/public-articles/${encodeURIComponent(article.id)}`, { cache: "no-store" });
+      const data = await response.json().catch(() => null) as { article?: PublicArticle; error?: string } | null;
+      if (!response.ok || !data?.article?.body?.trim()) {
+        throw new Error(data?.error || "公开文章读取失败，请稍后重试。");
+      }
+      for (const translation of data.article.articleTranslations ?? []) {
+        setCachedArticleTranslation(translation.cacheKey, translation.translations);
+      }
+      setReaderState({ kind: "published", article: data.article });
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "公开文章读取失败，请稍后重试。");
+    } finally {
+      setOpeningArticleId("");
+    }
+  }
+
+  async function persistReaderArticleEdit(body: string, importedArticle: ImportedArticle | null) {
+    const active = readerState;
+    if (!active) return;
+    const recommendation = active.article.recommendation ?? active.article.importedArticle?.recommendation;
+    const nextImportedArticle = importedArticle
+      ? {
+          ...importedArticle,
+          title: active.article.title,
+          text: body,
+          ...(recommendation ? { recommendation } : {}),
+        }
+      : null;
+    const payload = {
+      id: active.article.id,
+      title: active.article.title,
+      summary: active.article.summary,
+      body,
+      sourceUrl: active.article.sourceUrl,
+      sourceName: active.article.sourceName,
+      importedArticle: nextImportedArticle,
+      ...(recommendation ? { recommendation } : {}),
+    };
+    const response = await fetch(
+      active.kind === "candidate" ? "/api/admin/article-candidates" : "/api/admin/public-articles",
+      {
+        method: active.kind === "candidate" ? "POST" : "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      },
+    );
+    const data = await response.json().catch(() => null) as { article?: PublicArticle; error?: string } | null;
+    if (!response.ok || !data?.article) {
+      throw new Error(data?.error || "文章修改保存失败，请重试。");
+    }
+    setReaderState({ kind: active.kind, article: data.article });
+    if (active.kind === "published") {
+      setPublicArticles((items) => items.map((item) => item.id === data.article?.id ? data.article : item));
+    }
   }
 
   function publicArticleKey(article: Pick<PublicArticle, "title" | "summary" | "sourceUrl">): string {
@@ -150,11 +225,17 @@ export default function AdminPage() {
     setPassword("");
     setShowPassword(false);
     setAuthenticated(true);
+    setAccessMode("password");
   }
 
   async function handleLogout() {
+    if (accessMode === "developer") {
+      window.location.href = "/";
+      return;
+    }
     await fetch("/api/admin/logout", { method: "POST" });
     setAuthenticated(false);
+    setAccessMode(null);
     setArticles([]);
     setPublicArticles([]);
     setStatus("");
@@ -280,6 +361,33 @@ export default function AdminPage() {
     );
   }
 
+  if (readerState) {
+    return (
+      <ReaderView
+        key={`${readerState.kind}:${readerState.article.id}`}
+        article={readerState.article.body}
+        importedArticle={readerState.article.importedArticle ?? null}
+        preloadedExplanations={readerState.article.explanations ?? []}
+        backLabel="返回后台"
+        onBack={() => setReaderState(null)}
+        onArticleSaved={() => setArticles(getSavedArticles())}
+        onArticleEditCommit={persistReaderArticleEdit}
+        onArticleChange={(body, importedArticle) => {
+          setReaderState((current) => current
+            ? {
+                ...current,
+                article: {
+                  ...current.article,
+                  body,
+                  ...(importedArticle ? { importedArticle } : { importedArticle: undefined }),
+                },
+              }
+            : null);
+        }}
+      />
+    );
+  }
+
   return (
     <main className="min-h-screen bg-[#f5f5f7] px-4 py-6 text-[#1d1d1f]">
       <section className="mx-auto max-w-6xl">
@@ -293,9 +401,9 @@ export default function AdminPage() {
           <button
             className="h-10 self-start rounded-full border border-[#0066cc] px-4 text-sm text-[#0066cc]"
             type="button"
-            onClick={handleLogout}
+            onClick={() => void handleLogout()}
           >
-            退出
+            {accessMode === "developer" ? "返回首页" : "退出"}
           </button>
         </header>
 
@@ -353,7 +461,7 @@ export default function AdminPage() {
         )}
 
         <div className="mt-6">
-          <AdminArticleIntakePanel savedArticles={articles} onPublished={loadPublicArticles} />
+          <AdminArticleIntakePanel savedArticles={articles} onPublished={loadPublicArticles} onOpenArticle={openCandidateArticle} />
         </div>
 
         <section className="mt-6 rounded-2xl bg-white p-5">
@@ -397,6 +505,14 @@ export default function AdminPage() {
                     <p className="mt-1 break-all text-xs leading-5 text-[#7a7a7a]">ID：{article.id}</p>
                   </div>
                   <div className="flex shrink-0 flex-wrap gap-2 sm:justify-end">
+                    <button
+                      className="h-9 rounded-full border border-[#0066cc] px-4 text-sm text-[#0066cc] disabled:border-[#d2d2d7] disabled:text-[#7a7a7a]"
+                      type="button"
+                      disabled={Boolean(openingArticleId)}
+                      onClick={() => void openPublishedArticle(article)}
+                    >
+                      {openingArticleId === article.id ? "正在打开..." : "打开并编辑正文"}
+                    </button>
                     <button
                       className="h-9 rounded-full border border-[#0066cc] px-4 text-sm text-[#0066cc] disabled:border-[#d2d2d7] disabled:text-[#7a7a7a]"
                       type="button"

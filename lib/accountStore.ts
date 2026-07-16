@@ -145,6 +145,16 @@ export async function getUserPlanId(userId: string): Promise<AccountPlanId> {
   return entitlement.plan_id;
 }
 
+export async function isActiveDeveloperAccount(userId: string): Promise<boolean> {
+  const [planId, profiles] = await Promise.all([
+    getUserPlanId(userId),
+    accountFetch<Array<{ status: AccountProfile["status"] }>>(
+      `account_profiles?user_id=eq.${encodeURIComponent(userId)}&select=status&limit=1`,
+    ),
+  ]);
+  return planId === "admin" && profiles[0]?.status === "active";
+}
+
 function profileFromRow(row: ProfileRow, user: User): AccountProfile {
   const phone = phoneFromUser(user);
   return {

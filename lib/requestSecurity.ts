@@ -100,7 +100,7 @@ function maxRequestBytes(pathname: string): number {
   if (/^\/api\/ocr-image(?:-layout)?$/.test(pathname)) {
     return 9 * 1024 * 1024;
   }
-  if (pathname === "/api/admin/public-articles") {
+  if (pathname === "/api/admin/public-articles" || pathname === "/api/admin/article-candidates") {
     return 8 * 1024 * 1024;
   }
   if (pathname === "/api/account/sync") {

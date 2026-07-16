@@ -1055,6 +1055,9 @@ export function BookHome({
                   <span>登录与同步</span><em>{accountLoading ? "正在读取" : "游客模式"}</em>
                 </button>
               )}
+              {account.plan?.id === "admin" && (
+                <Link href="/admin" onClick={() => setMenuOpen(false)}><span>管理后台</span><em>候选、推荐、用户与反馈</em></Link>
+              )}
             </nav>
 
             <section className={styles.savedSection} aria-labelledby="book-saved-heading">
