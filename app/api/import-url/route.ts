@@ -95,14 +95,84 @@ function imageCandidateFromSrcset(srcset: string): string {
   );
 }
 
+const VOID_HTML_TAGS = new Set([
+  "area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr",
+]);
+const ALWAYS_NOISE_TAGS = new Set(["script", "style", "svg", "noscript", "template", "nav", "footer", "aside", "form", "button", "iframe"]);
+const NOISE_ROLE_PATTERN = /^(?:navigation|complementary|contentinfo|dialog)$/i;
+const NOISE_IDENTITY_PATTERN = /(?:^|[-_])(?:related(?:[-_]?(?:topics?|terms?|stories|articles|releases|links|content))?|recommend(?:ed|ation|ations)?|suggested|story[-_]?source|journal[-_]?references?|citations?|cite[-_]?this|explore[-_]?more|read[-_]?more|more[-_]?(?:stories|articles|from)|newsletter|comments?|disqus|share(?:[-_]?(?:buttons?|links?|tools?|icons?))?|sharing|social[-_]?(?:share|sharing|buttons?|links?|tools?|icons?)|outbrain|taboola|advert(?:isement|ising)?|sponsored|promo|paywall|subscription|cookie|consent|breadcrumb|sidebar|site[-_]?(?:header|footer)|navigation)(?:$|[-_])/i;
+
+function isNoiseElement(tagName: string, tag: string): boolean {
+  if (ALWAYS_NOISE_TAGS.has(tagName)) {
+    return true;
+  }
+  if (NOISE_ROLE_PATTERN.test(getAttribute(tag, "role"))) {
+    return true;
+  }
+  const identityTokens = `${getAttribute(tag, "id")} ${getAttribute(tag, "class")}`
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
+  return identityTokens.some((token) => NOISE_IDENTITY_PATTERN.test(token));
+}
+
 function stripNoise(html: string): string {
-  return html
-    .replace(/<!--[\s\S]*?-->/g, "")
-    .replace(/<script[\s\S]*?<\/script>/gi, "")
-    .replace(/<style[\s\S]*?<\/style>/gi, "")
-    .replace(/<svg[\s\S]*?<\/svg>/gi, "")
-    .replace(/<noscript[\s\S]*?<\/noscript>/gi, "")
-    .replace(/<(nav|footer|aside|form|button|iframe)[\s\S]*?<\/\1>/gi, "");
+  const output: string[] = [];
+  const stack: Array<{ tagName: string; skipped: boolean }> = [];
+  const tokenPattern = /<!--[\s\S]*?-->|<![^>]*>|<\/?([a-z][\w:-]*)\b[^>]*>/gi;
+  let cursor = 0;
+  let skipDepth = 0;
+
+  for (const match of html.matchAll(tokenPattern)) {
+    const raw = match[0] ?? "";
+    const index = match.index ?? cursor;
+    if (skipDepth === 0) {
+      output.push(html.slice(cursor, index));
+    }
+    cursor = index + raw.length;
+
+    if (raw.startsWith("<!--") || raw.startsWith("<!")) {
+      continue;
+    }
+
+    const tagName = (match[1] ?? "").toLowerCase();
+    if (!tagName) {
+      continue;
+    }
+    const closing = /^<\//.test(raw);
+    if (closing) {
+      const wasSkipping = skipDepth > 0;
+      let matchingIndex = stack.length - 1;
+      while (matchingIndex >= 0 && stack[matchingIndex]?.tagName !== tagName) {
+        matchingIndex -= 1;
+      }
+      if (matchingIndex >= 0) {
+        const closed = stack.splice(matchingIndex);
+        skipDepth -= closed.filter((entry) => entry.skipped).length;
+      }
+      if (!wasSkipping && skipDepth === 0) {
+        output.push(raw);
+      }
+      continue;
+    }
+
+    const selfClosing = /\/\s*>$/.test(raw) || VOID_HTML_TAGS.has(tagName);
+    const skipped = skipDepth > 0 || isNoiseElement(tagName, raw);
+    if (!skipped && skipDepth === 0) {
+      output.push(raw);
+    }
+    if (!selfClosing) {
+      stack.push({ tagName, skipped });
+      if (skipped) {
+        skipDepth += 1;
+      }
+    }
+  }
+
+  if (skipDepth === 0) {
+    output.push(html.slice(cursor));
+  }
+  return output.join("");
 }
 
 function metadata(html: string, baseUrl: string) {
@@ -141,19 +211,80 @@ function scoreArticleCandidate(fragment: string): number {
   return text.length + paragraphCount * 350 + headingCount * 120 - linkDensity * 1500;
 }
 
-function extractMainHtml(html: string): string {
-  const candidates = [
-    ...html.matchAll(/<article\b[^>]*>[\s\S]*?<\/article>/gi),
-    ...html.matchAll(/<main\b[^>]*>[\s\S]*?<\/main>/gi),
-    ...html.matchAll(/<section\b[^>]*(?:article|content|post|story|entry)[^>]*>[\s\S]*?<\/section>/gi),
-    ...html.matchAll(/<div\b[^>]*(?:article|content|post|story|entry|body)[^>]*>[\s\S]*?<\/div>/gi),
-  ].map((match) => match[0]);
+interface ArticleHtmlCandidate {
+  html: string;
+  bonus: number;
+}
 
+function candidateBonus(tagName: string, tag: string): number | null {
+  if (tagName === "article") {
+    return 6_000;
+  }
+  if (tagName === "main") {
+    return 2_000;
+  }
+  if (tagName !== "section" && tagName !== "div") {
+    return null;
+  }
+  const identity = `${getAttribute(tag, "id")} ${getAttribute(tag, "class")}`.toLowerCase();
+  if (!/(?:^|[\s_-])(?:article|content|post|story|entry|body)(?:$|[\s_-])/.test(identity)) {
+    return null;
+  }
+  return /(?:article[-_]?body|article[-_]?content|entry[-_]?content|post[-_]?content|story[-_]?text)/.test(identity)
+    ? 10_000
+    : 0;
+}
+
+function balancedArticleCandidates(html: string): ArticleHtmlCandidate[] {
+  const candidates: ArticleHtmlCandidate[] = [];
+  const stack: Array<{ tagName: string; start: number; bonus: number | null }> = [];
+  const tagPattern = /<\/?([a-z][\w:-]*)\b[^>]*>/gi;
+
+  for (const match of html.matchAll(tagPattern)) {
+    const raw = match[0] ?? "";
+    const tagName = (match[1] ?? "").toLowerCase();
+    if (!tagName) {
+      continue;
+    }
+    if (/^<\//.test(raw)) {
+      let matchingIndex = stack.length - 1;
+      while (matchingIndex >= 0 && stack[matchingIndex]?.tagName !== tagName) {
+        matchingIndex -= 1;
+      }
+      if (matchingIndex < 0) {
+        continue;
+      }
+      const frame = stack[matchingIndex];
+      stack.splice(matchingIndex);
+      if (frame && frame.bonus !== null) {
+        candidates.push({
+          html: html.slice(frame.start, (match.index ?? frame.start) + raw.length),
+          bonus: frame.bonus,
+        });
+      }
+      continue;
+    }
+    if (/\/\s*>$/.test(raw) || VOID_HTML_TAGS.has(tagName)) {
+      continue;
+    }
+    stack.push({
+      tagName,
+      start: match.index ?? 0,
+      bonus: candidateBonus(tagName, raw),
+    });
+  }
+  return candidates;
+}
+
+function extractMainHtml(html: string): string {
+  const candidates = balancedArticleCandidates(html);
   if (candidates.length === 0) {
     return html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i)?.[1] ?? html;
   }
 
-  return candidates.sort((a, b) => scoreArticleCandidate(b) - scoreArticleCandidate(a))[0];
+  return candidates.sort(
+    (left, right) => scoreArticleCandidate(right.html) + right.bonus - scoreArticleCandidate(left.html) - left.bonus,
+  )[0]?.html ?? html;
 }
 
 function absoluteUrl(value: string, baseUrl: string): string {
@@ -343,6 +474,8 @@ const EMBEDDED_UI_NOISE_PATTERNS = [
   /update\s+your\s+preferences\s+in\s+account\s+settings/i,
 ];
 
+const TRAILING_SECTION_PATTERN = /^(?:related\s+(?:topics?|terms?|stories|articles|content)|story\s+source|journal\s+references?|cite\s+this\s+page|explore\s+more|recommended(?:\s+for\s+you)?|you\s+(?:may|might)\s+also\s+like|read\s+next|more\s+(?:stories|articles|from)|most\s+popular|trending|about\s+the\s+author|sign\s+up\s+for\b|advertisement)\b/i;
+
 function normalizedBlockText(block: ImportedArticleBlock): string {
   return block.text?.replace(/\s+/g, " ").trim() ?? "";
 }
@@ -367,8 +500,28 @@ function articleIsAboutAdvertising(blocks: ImportedArticleBlock[], title: string
 
 function cleanExtractedBlocks(blocks: ImportedArticleBlock[], title: string): ImportedArticleBlock[] {
   const keepStandaloneAdLabels = articleIsAboutAdvertising(blocks, title);
+  let substantiveBlocks = 0;
+  let substantiveCharacters = 0;
+  let trailingBoundary = blocks.length;
+
+  for (let index = 0; index < blocks.length; index += 1) {
+    const block = blocks[index];
+    if (!block || block.type === "image") {
+      continue;
+    }
+    const text = normalizedBlockText(block);
+    if (substantiveBlocks >= 3 && substantiveCharacters >= 400 && TRAILING_SECTION_PATTERN.test(text)) {
+      trailingBoundary = index;
+      break;
+    }
+    if (text.length >= 40) {
+      substantiveBlocks += 1;
+      substantiveCharacters += text.length;
+    }
+  }
 
   return blocks
+    .slice(0, trailingBoundary)
     .filter((block) => {
       if (block.type === "image") {
         return true;

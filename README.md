@@ -7,7 +7,7 @@ Production URL: `https://context-reader-ten.vercel.app`
 ## Features
 
 - Paste an English article and enter plain-text reading mode.
-- Import a public article URL and preserve extracted structure such as headings, paragraphs, lists, quotes, images, and inline upper/lower annotations.
+- Import a public article URL, preserve headings, paragraphs, lists, quotes, meaningful images, and inline upper/lower annotations, and exclude navigation, citations, related stories, recommendation modules, comments, and other page chrome from the reading body.
 - Save imported URL articles with their rich layout metadata so reopening from the homepage restores the same layout.
 - Edit saved article text directly in the reading canvas, with global reading-session undo/redo controls and the same typography classes used by reading mode. Explicit blank lines are preserved. Editing disables word lookup; imported images remain read-only but can be removed as whole image blocks.
 - Persist article edits in browser storage, merge duplicate and legacy recovery-copy records into one logical article, record each article's latest open time, expose saved articles once each from the first-screen top menu in most-recently-opened order, and jump from the in-reader vocabulary drawer to a matching word in another saved article.
@@ -21,7 +21,7 @@ Production URL: `https://context-reader-ten.vercel.app`
 - Save vocabulary entries as compressed `localStorage` data with transparent compatibility for existing uncompressed notebooks.
 - Play US and UK word pronunciations in the explanation panel and vocabulary notebook using browser speech synthesis.
 - Keep the vocabulary notebook compact with virtualized, content-height word cards instead of manual expand controls.
-- Add recommendation candidates from browser-local saved articles, pasted articles, public URLs, or the reviewed-source crawler in `/admin`; automatically classify them for Chinese learners, preview the user-facing article view, require a reviewed cover image, and publish only selected ready candidates from the candidate list.
+- Add recommendation candidates from browser-local saved articles, pasted articles, public URLs, or the reviewed-source crawler in `/admin`; URL and crawler intake share the same article-boundary cleanup, then the system classifies the cleaned article for Chinese learners, provides a user-view preview, requires a reviewed cover image, and publishes only selected ready candidates.
 - Preload cached explanations and full-article translations for public recommended articles.
 - Server-render the homepage recommendation list so recommendations are visible on first paint, then prefetch visible recommendation details so opening one feels close to reopening a local saved article.
 - Use an immersive four-screen homepage that teaches click-to-explain and horizontal phrase selection, keeps the third screen exclusively for server-rendered recommendations, accelerates and locks desktop wheel navigation into the adjacent screen in both directions at scene boundaries, and keeps paste/URL plus the saved-article top menu available on the first screen. Long pasted text can expand into a desktop hover/focus preview, while returning from an article skips the first-visit loader and restores the homepage with both demonstrations complete.
