@@ -21,6 +21,13 @@ interface Ripple {
   life: number;
 }
 
+interface QuietRect {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+}
+
 const palette = ["0,122,255", "232,91,75", "0,158,143", "130,84,218", "226,151,32"];
 
 export function BookLetterField({ paused = false }: { paused?: boolean }) {
@@ -29,7 +36,14 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas?.getContext("2d");
-    if (!canvas || !context || paused) return;
+    if (!canvas || !context) return;
+    if (paused) {
+      context.save();
+      context.setTransform(1, 0, 0, 1, 0, 0);
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.restore();
+      return;
+    }
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let width = window.innerWidth;
@@ -41,8 +55,10 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
     let smoothY = pointerY;
     let lastEmit = 0;
     let frame = 0;
+    let quietRectRefreshFrame = 0;
     const particles: Particle[] = [];
     const ripples: Ripple[] = [];
+    let quietRects: QuietRect[] = [];
     const compactLayout = window.matchMedia("(max-width: 760px)").matches;
     const ambient = Array.from({ length: compactLayout ? 0 : 38 }, (_, index) => ({
       letter: String.fromCharCode(65 + Math.floor(Math.random() * 26)),
@@ -62,9 +78,38 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
       canvas.height = Math.round(height * dpr);
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
-    const isQuietTarget = (target: EventTarget | null) => (
-      target instanceof Element && Boolean(target.closest("input, textarea, button, a, [role='dialog'], [data-pointer-quiet]"))
-    );
+    const isQuietTarget = (target: EventTarget | null) => {
+      if (!(target instanceof Element)) return false;
+      if (target.closest("[data-pointer-live]")) return false;
+      return Boolean(target.closest("input, textarea, button, a, [role='dialog'], [data-pointer-quiet]"));
+    };
+    const refreshQuietRects = () => {
+      if (!document.querySelector("[data-book-cover-state='open']")) {
+        quietRects = [];
+        return;
+      }
+      quietRects = Array.from(document.querySelectorAll<HTMLElement>("[data-pointer-quiet], input, textarea, button, a, [role='dialog']"))
+        .filter((element) => !element.closest("[data-pointer-live]"))
+        .map((element) => element.getBoundingClientRect())
+        .filter((rect) => rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < height)
+        .map((rect) => ({
+          left: rect.left - 12,
+          top: rect.top - 12,
+          width: rect.width + 24,
+          height: rect.height + 24,
+        }));
+    };
+    const fadeQuietZones = () => {
+      if (quietRects.length === 0) return;
+      context.save();
+      context.globalCompositeOperation = "destination-out";
+      context.filter = "blur(12px)";
+      context.fillStyle = "rgba(0,0,0,.98)";
+      quietRects.forEach((rect) => {
+        context.fillRect(rect.left, rect.top, rect.width, rect.height);
+      });
+      context.restore();
+    };
     const pushParticle = (x: number, y: number, burst = false) => {
       particles.push({
         letter: String.fromCharCode(65 + Math.floor(Math.random() * 26)),
@@ -93,9 +138,10 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
       pointerX = event.clientX;
       pointerY = event.clientY;
       ripples.push({ x: pointerX, y: pointerY, life: 1 });
-      for (let index = 0; index < 4; index += 1) pushParticle(pointerX, pointerY, true);
     };
     const render = (now: number) => {
+      quietRectRefreshFrame += 1;
+      if (quietRectRefreshFrame === 1 || quietRectRefreshFrame % 12 === 0) refreshQuietRects();
       smoothX += (pointerX - smoothX) * 0.075;
       smoothY += (pointerY - smoothY) * 0.075;
       context.clearRect(0, 0, width, height);
@@ -141,6 +187,7 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
         context.stroke();
         if (ripple.life <= 0) ripples.splice(index, 1);
       }
+      fadeQuietZones();
       frame = requestAnimationFrame(render);
     };
 
@@ -154,6 +201,10 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
       window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", pointerMove);
       window.removeEventListener("pointerdown", pointerDown);
+      context.save();
+      context.setTransform(1, 0, 0, 1, 0, 0);
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.restore();
     };
   }, [paused]);
 

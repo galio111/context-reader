@@ -668,7 +668,7 @@ export function BookHome({
 
   return (
     <main className={`${styles.root} ${readerTransitioning ? styles.readerEntering : ""}`}>
-      <BookLetterField paused={coverState !== "open" || readerTransitioning || menuOpen || vocabularyOpen || feedbackOpen} />
+      <BookLetterField paused={readerTransitioning || menuOpen || vocabularyOpen || feedbackOpen} />
       <div className={styles.ambient} aria-hidden="true">
         <span>context</span>
         <span>meaning</span>
@@ -698,6 +698,7 @@ export function BookHome({
       <section
         ref={storyRef}
         className={`${styles.story} ${styles[`cover${coverState[0].toUpperCase()}${coverState.slice(1)}`]}`}
+        data-book-cover-state={coverState}
         data-chapter={chapter}
         aria-label="Context Reader 连续书本空间"
       >
@@ -716,7 +717,7 @@ export function BookHome({
                 <span className={styles.demoStatus}>可交互</span>
               </div>
 
-              <article className={styles.demoArticle} aria-label="可划词的英文短文">
+              <article className={styles.demoArticle} aria-label="可划词的英文短文" data-pointer-quiet>
                 <h2>{DEMO_TITLE}</h2>
                 {DEMO_PARAGRAPHS.map((paragraph) => (
                   <p key={paragraph.id}>
@@ -749,7 +750,7 @@ export function BookHome({
                 <button type="button" onClick={() => onOpenDemoArticle(DEMO_IMPORTED_ARTICLE)}>在阅读器中继续</button>
               </div>
 
-              <div className={styles.explanationShell}>
+              <div className={styles.explanationShell} data-pointer-quiet>
                 {clientReady ? (
                   <ExplanationPanel
                     explanation={explanation}
@@ -826,7 +827,7 @@ export function BookHome({
               </div>
 
               {inputMode === "paste" ? (
-                <form className={styles.articleForm} onSubmit={(event) => { event.preventDefault(); onStartReading(); }}>
+                <form className={styles.articleForm} data-pointer-quiet onSubmit={(event) => { event.preventDefault(); onStartReading(); }}>
                   <label htmlFor="book-home-article">英文文章</label>
                   <textarea
                     id="book-home-article"
@@ -842,7 +843,7 @@ export function BookHome({
                   {error && <p className={styles.formError} role="alert">{error}</p>}
                 </form>
               ) : (
-                <form className={styles.urlForm} onSubmit={(event) => { event.preventDefault(); onImportUrl(); }}>
+                <form className={styles.urlForm} data-pointer-quiet onSubmit={(event) => { event.preventDefault(); onImportUrl(); }}>
                   <label htmlFor="book-home-url">公开文章网址</label>
                   <div>
                     <input
@@ -967,6 +968,7 @@ export function BookHome({
                 <button
                   type="button"
                   className={styles.coverAssembly}
+                  data-pointer-live
                   onClick={() => openBook()}
                   disabled={coverState === "opening"}
                   aria-label={coverState === "closed" ? "打开 Context Reader" : "正在打开 Context Reader"}

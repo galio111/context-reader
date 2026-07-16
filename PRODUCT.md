@@ -24,6 +24,8 @@ Quiet, focused, practical.
 
 The reading workspace should remain calm and compact. The homepage may be more expressive and promotional, but its motion and spatial depth must teach the real click-word and drag-phrase interactions while keeping article entry immediately available.
 
+The desktop cursor-letter trail from the original homepage is an approved brand motion layer. Keep it clearly visible on expressive homepage surfaces, mask it around readable or editable content, pause it for overlays, remove it entirely inside the reader, and reduce mobile feedback to a light touch ripple.
+
 ## Anti-references
 
 Do not make the homepage a generic AI landing page or let decorative effects replace the reading interaction. Avoid global black brand bars, nested cards, unrelated 3D mascots, tiny explanatory copy, and interface chrome that competes with the sentence demo or article entry. The reader itself remains a quiet tool rather than a campaign surface.
