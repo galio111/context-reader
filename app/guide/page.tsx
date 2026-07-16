@@ -58,8 +58,7 @@ export default function GuidePage() {
     <main className="min-h-screen bg-[#f3f5f2] text-[#18211d]">
       <header className="border-b border-[#18211d]/10 bg-[#f3f5f2]/95">
         <div className="mx-auto flex h-16 max-w-[1080px] items-center justify-between px-4 sm:px-6">
-          <Link className="group flex items-center gap-3" href="/">
-            <span className="grid h-9 w-9 place-items-center rounded-[10px] bg-[#183f34] text-sm font-semibold text-white transition-transform duration-200 group-hover:-translate-y-0.5">CR</span>
+          <Link className="group flex items-center" href="/">
             <span>
               <span className="block text-[15px] font-semibold leading-5">Context Reader</span>
               <span className="hidden text-xs text-[#5d6b65] sm:block">使用说明</span>

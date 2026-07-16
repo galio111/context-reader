@@ -16,6 +16,7 @@ interface ExplanationPanelProps {
   error: string;
   isInVocabulary: boolean;
   vocabularyMatchNotice?: string;
+  showLearningActions?: boolean;
   onAddToVocabulary: () => void;
   onRegenerate?: () => void;
   onCollapse?: () => void;
@@ -61,6 +62,7 @@ export function ExplanationPanel({
   error,
   isInVocabulary,
   vocabularyMatchNotice = "",
+  showLearningActions = true,
   onAddToVocabulary,
   onRegenerate,
   onCollapse,
@@ -223,7 +225,7 @@ export function ExplanationPanel({
 
           {!streaming && explanation && (
             <>
-              <div className="flex flex-wrap gap-2">
+              {showLearningActions && <div className="flex flex-wrap gap-2">
                 <button
                   type="button"
                   className="h-10 min-w-[112px] shrink-0 whitespace-nowrap rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
@@ -239,8 +241,8 @@ export function ExplanationPanel({
                 >
                   复制解释
                 </button>
-              </div>
-              {vocabularyMatchNotice && (
+              </div>}
+              {showLearningActions && vocabularyMatchNotice && (
                 <p className="text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{vocabularyMatchNotice}</p>
               )}
 
@@ -366,7 +368,7 @@ export function ExplanationPanel({
             </div>
           </dl>
 
-          <div className="flex flex-wrap gap-2">
+          {showLearningActions && <div className="flex flex-wrap gap-2">
             <button
               type="button"
               className="h-10 min-w-[112px] shrink-0 whitespace-nowrap rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
@@ -382,8 +384,8 @@ export function ExplanationPanel({
             >
               复制解释
             </button>
-          </div>
-          {vocabularyMatchNotice && (
+          </div>}
+          {showLearningActions && vocabularyMatchNotice && (
             <p className="text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{vocabularyMatchNotice}</p>
           )}
 

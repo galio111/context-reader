@@ -4,19 +4,6 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEve
 import type { ArticleAudienceStage, PublicArticle } from "@/types/publicArticle";
 import styles from "./BookRecommendations.module.css";
 
-const LEVEL_KEY = "context-reader:recommendation-level:v1";
-const levels: Array<{ value: ArticleAudienceStage | "all"; label: string }> = [
-  { value: "all", label: "先看全部" },
-  { value: "小学", label: "小学" },
-  { value: "初中", label: "初中" },
-  { value: "高中", label: "高中" },
-  { value: "CET-4", label: "四级" },
-  { value: "CET-6", label: "六级" },
-  { value: "考研", label: "考研" },
-  { value: "IELTS", label: "雅思" },
-  { value: "TOEFL", label: "托福" },
-];
-
 interface OpeningCover {
   article: PublicArticle;
   rect: { left: number; top: number; width: number; height: number };
@@ -30,8 +17,6 @@ interface BookRecommendationsProps {
   onPrefetchArticle: (id: string) => void;
   embedded?: boolean;
   preferredLevel?: ArticleAudienceStage | "all";
-  onPreferredLevelChange?: (level: ArticleAudienceStage | "all") => void;
-  onEditPreferences?: () => void;
 }
 
 export function BookRecommendations({
@@ -42,21 +27,13 @@ export function BookRecommendations({
   onPrefetchArticle,
   embedded = false,
   preferredLevel,
-  onPreferredLevelChange,
-  onEditPreferences,
 }: BookRecommendationsProps) {
-  const [localLevel, setLocalLevel] = useState<ArticleAudienceStage | "all">("all");
   const [openingCover, setOpeningCover] = useState<OpeningCover | null>(null);
   const [coverExpanded, setCoverExpanded] = useState(false);
   const [sectionEntered, setSectionEntered] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    const stored = window.localStorage.getItem(LEVEL_KEY) as ArticleAudienceStage | "all" | null;
-    if (levels.some((item) => item.value === stored)) setLocalLevel(stored ?? "all");
-  }, []);
-
-  const level = preferredLevel ?? localLevel;
+  const level = preferredLevel ?? "all";
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -81,12 +58,6 @@ export function BookRecommendations({
       : coveredArticles.filter((article) => article.recommendation?.audienceStages.includes(level))
   ), [coveredArticles, level]);
   const visibleArticles = matchedArticles.length ? matchedArticles : coveredArticles;
-
-  function selectLevel(value: ArticleAudienceStage | "all") {
-    setLocalLevel(value);
-    onPreferredLevelChange?.(value);
-    window.localStorage.setItem(LEVEL_KEY, value);
-  }
 
   async function openArticle(event: MouseEvent<HTMLButtonElement>, article: PublicArticle) {
     if (openingCover || openingPublicArticleId || readerTransitioning) return;
@@ -115,23 +86,7 @@ export function BookRecommendations({
       <header className={styles.header}>
         <div>
           <span>Reading list · 04</span>
-          <h2 id="recommendation-heading">从真正想读的题目开始。</h2>
-          <p>图片和标题属于同一篇文章。点击整块内容，封面会向前展开，再连续进入阅读器。</p>
-        </div>
-        <div className={styles.levelPicker} data-pointer-quiet>
-          <p>按你的阶段筛选{onEditPreferences && <button type="button" className={styles.editPreferences} onClick={onEditPreferences}>修改完整偏好</button>}</p>
-          <div>
-            {levels.map((item) => (
-              <button
-                key={item.value}
-                type="button"
-                aria-pressed={level === item.value}
-                className={level === item.value ? styles.selectedLevel : ""}
-                onClick={() => selectLevel(item.value)}
-              >{item.label}</button>
-            ))}
-          </div>
-          {level !== "all" && matchedArticles.length === 0 && coveredArticles.length > 0 && <small>这个阶段暂时没有单独匹配，先显示全部文章。</small>}
+          <h2 id="recommendation-heading">推荐文章</h2>
         </div>
       </header>
 

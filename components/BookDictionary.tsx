@@ -35,10 +35,11 @@ function setCached(result: DictionaryResult) {
 
 interface BookDictionaryProps {
   embedded?: boolean;
+  compact?: boolean;
   onBack?: () => void;
 }
 
-export function BookDictionary({ embedded = false, onBack }: BookDictionaryProps) {
+export function BookDictionary({ embedded = false, compact = false, onBack }: BookDictionaryProps) {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState<DictionaryResult | null>(null);
   const [loading, setLoading] = useState(false);
@@ -79,7 +80,7 @@ export function BookDictionary({ embedded = false, onBack }: BookDictionaryProps
   }
 
   return (
-    <section className={`${styles.dictionary} ${embedded ? styles.embedded : ""}`} aria-labelledby="book-dictionary-heading">
+    <section className={`${styles.dictionary} ${embedded ? styles.embedded : ""} ${compact ? styles.compact : ""}`} aria-labelledby="book-dictionary-heading">
       <div className={styles.headingPage}>
         <div className={styles.pageTopline}>
           <span className={styles.pageLabel}>Dictionary · 03</span>

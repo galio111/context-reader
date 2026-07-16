@@ -225,8 +225,7 @@ export function ArticleInput({
     <main className="min-h-screen bg-[#f3f5f2] text-[#18211d]">
       <header className="border-b border-[#18211d]/10 bg-[#f3f5f2]/95">
         <div className="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-4 sm:px-6">
-          <button className="group flex items-center gap-3 text-left" type="button" onClick={scrollToWorkbench}>
-            <span className="grid h-9 w-9 place-items-center rounded-[10px] bg-[#183f34] text-sm font-semibold text-white transition-transform duration-200 group-hover:-translate-y-0.5">CR</span>
+          <button className="group flex items-center text-left" type="button" onClick={scrollToWorkbench}>
             <span>
               <span className="block text-[15px] font-semibold leading-5">Context Reader</span>
               <span className="hidden text-xs text-[#5d6b65] sm:block">语境英语阅读工作台</span>
