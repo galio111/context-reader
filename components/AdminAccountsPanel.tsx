@@ -2,29 +2,112 @@
 
 import { useEffect, useMemo, useState } from "react";
 
+type ManagedPlanId = "guest" | "free" | "basic" | "plus" | "max";
+type UserPlanId = "free" | "basic" | "plus" | "max" | "admin";
+type ManagedMetric = "guest_lookup" | "lookup_generation" | "deep_reading";
+
 interface DashboardData {
   profiles: Array<Record<string, unknown>>;
   entitlements: Array<Record<string, unknown>>;
-  plans: Array<Record<string, unknown>>;
   limits: Array<Record<string, unknown>>;
   actions: Array<Record<string, unknown>>;
   executions: Array<Record<string, unknown>>;
 }
 
+interface PlanRule {
+  id: ManagedPlanId;
+  name: string;
+  description: string;
+  metrics: Array<{
+    key: ManagedMetric;
+    label: string;
+    unit: string;
+    windowType: "day" | "month";
+  }>;
+}
+
+const PLAN_RULES: PlanRule[] = [
+  {
+    id: "guest",
+    name: "游客试用",
+    description: "未登录访客",
+    metrics: [{ key: "guest_lookup", label: "每日试用查词", unit: "次 / 天", windowType: "day" }],
+  },
+  {
+    id: "free",
+    name: "免费账号",
+    description: "注册后的默认套餐",
+    metrics: [
+      { key: "lookup_generation", label: "AI 查词与追问", unit: "次 / 天", windowType: "day" },
+      { key: "deep_reading", label: "深度阅读", unit: "点 / 月", windowType: "month" },
+    ],
+  },
+  {
+    id: "basic",
+    name: "Basic",
+    description: "轻量使用",
+    metrics: [
+      { key: "lookup_generation", label: "AI 查词与追问", unit: "次 / 天", windowType: "day" },
+      { key: "deep_reading", label: "深度阅读", unit: "点 / 月", windowType: "month" },
+    ],
+  },
+  {
+    id: "plus",
+    name: "Plus",
+    description: "高频阅读",
+    metrics: [
+      { key: "lookup_generation", label: "AI 查词与追问", unit: "次 / 天", windowType: "day" },
+      { key: "deep_reading", label: "深度阅读", unit: "点 / 月", windowType: "month" },
+    ],
+  },
+  {
+    id: "max",
+    name: "Max",
+    description: "重度使用",
+    metrics: [
+      { key: "lookup_generation", label: "AI 查词与追问", unit: "次 / 天", windowType: "day" },
+      { key: "deep_reading", label: "深度阅读", unit: "点 / 月", windowType: "month" },
+    ],
+  },
+];
+
+const USER_PLAN_LABELS: Record<UserPlanId, string> = {
+  free: "免费账号",
+  basic: "Basic",
+  plus: "Plus",
+  max: "Max",
+  admin: "开发者账号",
+};
+
+function limitKey(planId: string, metricKey: string): string {
+  return `${planId}:${metricKey}`;
+}
+
+function profileName(profile: Record<string, unknown>): string {
+  return String(profile.nickname || profile.phone || profile.email || "未设置昵称");
+}
+
 export default function AdminAccountsPanel() {
   const [data, setData] = useState<DashboardData | null>(null);
+  const [limitDrafts, setLimitDrafts] = useState<Record<string, string>>({});
+  const [search, setSearch] = useState("");
   const [error, setError] = useState("");
+  const [savedMessage, setSavedMessage] = useState("");
   const [saving, setSaving] = useState("");
   const [notice, setNotice] = useState<{ phone: string; pin: string } | null>(null);
 
   async function load() {
-    const response = await fetch("/api/admin/accounts");
-    const next = (await response.json()) as DashboardData & { error?: string };
-    if (!response.ok) {
-      setError(next.error || "读取失败，请重新登录管理员后台。");
+    const response = await fetch("/api/admin/accounts", { cache: "no-store" });
+    const next = (await response.json().catch(() => null)) as DashboardData & { error?: string } | null;
+    if (!response.ok || !next) {
+      setError(next?.error || "账号与用量读取失败，请重新登录管理员后台。");
       return;
     }
     setData(next);
+    setLimitDrafts(Object.fromEntries(next.limits.map((limit) => [
+      limitKey(String(limit.plan_id), String(limit.metric_key)),
+      String(Number(limit.allowance || 0)),
+    ])));
     setError("");
   }
 
@@ -34,6 +117,7 @@ export default function AdminAccountsPanel() {
 
   async function patchAccount(body: Record<string, unknown>, key: string): Promise<Record<string, unknown>> {
     setSaving(key);
+    setSavedMessage("");
     try {
       const response = await fetch("/api/admin/accounts", {
         method: "PATCH",
@@ -41,10 +125,12 @@ export default function AdminAccountsPanel() {
         body: JSON.stringify(body),
       });
       const result = (await response.json().catch(() => ({}))) as Record<string, unknown> & { error?: string };
-      if (!response.ok) setError(result.error || "保存失败");
-      else {
+      if (!response.ok) {
+        setError(result.error || "保存失败。");
+      } else {
         setError("");
         await load();
+        setSavedMessage("设置已保存。");
       }
       return result;
     } catch {
@@ -55,231 +141,161 @@ export default function AdminAccountsPanel() {
     }
   }
 
+  async function savePlanRule(plan: PlanRule) {
+    const limits = plan.metrics.map((metric) => ({
+      metricKey: metric.key,
+      allowance: Number(limitDrafts[limitKey(plan.id, metric.key)]),
+      windowType: metric.windowType,
+    }));
+    if (limits.some((limit) => !Number.isFinite(limit.allowance) || limit.allowance < 0 || !Number.isInteger(limit.allowance))) {
+      setError("套餐额度必须填写为不小于 0 的整数。");
+      return;
+    }
+    await patchAccount({ action: "set_plan_limits", planId: plan.id, limits }, `limits-${plan.id}`);
+  }
+
   const entitlementByUser = useMemo(
     () => new Map((data?.entitlements ?? []).map((item) => [String(item.user_id), item])),
     [data],
   );
-  const totals = useMemo(
-    () => ({
-      tokens: (data?.executions ?? []).reduce(
-        (sum, item) => sum + Number(item.prompt_tokens || 0) + Number(item.completion_tokens || 0),
-        0,
-      ),
-      cost: (data?.executions ?? []).reduce(
-        (sum, item) => sum + Number(item.estimated_cost_microusd || 0),
-        0,
-      ),
-      failed: (data?.executions ?? []).filter((item) => item.status === "failed").length,
-    }),
-    [data],
-  );
+
+  const totals = useMemo(() => {
+    const executions = data?.executions ?? [];
+    const failed = executions.filter((item) => item.status === "failed").length;
+    return {
+      executions: executions.length,
+      cost: executions.reduce((sum, item) => sum + Number(item.estimated_cost_microusd || 0), 0),
+      failed,
+      failureRate: executions.length ? failed / executions.length : 0,
+    };
+  }, [data]);
+
+  const visibleProfiles = useMemo(() => {
+    const term = search.trim().toLowerCase();
+    const profiles = data?.profiles ?? [];
+    if (!term) return profiles;
+    return profiles.filter((profile) => [profile.nickname, profile.phone, profile.email]
+      .some((value) => String(value || "").toLowerCase().includes(term)));
+  }, [data, search]);
 
   return (
     <div>
-      <div className="flex flex-wrap items-start justify-between gap-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h2 className="text-[24px] font-semibold leading-tight">账号与用量</h2>
-          <p className="mt-1 text-sm leading-6 text-[#333333]">查看用户成本，并调整套餐、额度和账号状态。</p>
+          <h2 className="text-[24px] font-semibold leading-tight">用户与额度</h2>
+          <p className="mt-1 max-w-2xl text-sm leading-6 text-[#4d535a]">管理普通用户能用多少次 AI 功能，并处理账号套餐、封禁和密码重置。</p>
         </div>
-        <button
-          className="h-10 rounded-full border border-[#0066cc] px-4 text-sm text-[#0066cc]"
-          type="button"
-          onClick={() => void load()}
-        >
+        <button className="min-h-10 self-start rounded-full border border-[#0066cc] px-4 text-sm font-medium text-[#0066cc] hover:bg-[#f2f7fc]" type="button" onClick={() => void load()}>
           刷新数据
         </button>
       </div>
 
-      {error && <p className="mt-5 rounded-[16px] bg-red-50 p-4 text-sm text-red-700">{error}</p>}
-      {notice && <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[16px] border border-[#ad7b2b]/25 bg-[#fff6e6] p-4 text-sm text-[#674716]" role="status"><p><strong>{notice.phone}</strong> 的临时密码：<span className="ml-1 font-mono text-base tracking-[.14em]">{notice.pin}</span><br /><span className="text-xs">请立即复制给用户；页面关闭后不会再次显示。</span></p><div className="flex gap-2"><button className="rounded-lg border border-[#ad7b2b]/30 bg-white px-3 py-2" type="button" onClick={() => void navigator.clipboard.writeText(notice.pin)}>复制密码</button><button className="rounded-lg px-3 py-2" type="button" onClick={() => setNotice(null)}>关闭</button></div></div>}
-      {!data && !error && <p className="mt-6 text-sm text-[#6e6e73]">正在读取账号与用量...</p>}
+      {error && <p className="mt-5 rounded-xl bg-red-50 px-4 py-3 text-sm leading-6 text-red-700" role="alert">{error}</p>}
+      {savedMessage && <p className="mt-5 rounded-xl bg-[#e9f5ee] px-4 py-3 text-sm text-[#17613b]" role="status">{savedMessage}</p>}
+      {notice && (
+        <div className="mt-5 flex flex-col gap-3 rounded-xl bg-[#fff6e6] px-4 py-4 text-sm text-[#674716] sm:flex-row sm:items-center sm:justify-between" role="status">
+          <p><strong>{notice.phone}</strong> 的临时密码：<span className="ml-1 font-mono text-base tracking-[.14em]">{notice.pin}</span><br /><span className="text-xs">请立即复制给用户，关闭后不会再次显示。</span></p>
+          <div className="flex gap-2"><button className="min-h-9 rounded-full bg-white px-3" type="button" onClick={() => void navigator.clipboard.writeText(notice.pin)}>复制密码</button><button className="min-h-9 rounded-full px-3" type="button" onClick={() => setNotice(null)}>关闭</button></div>
+        </div>
+      )}
+      {!data && !error && <div className="mt-6 grid gap-3 sm:grid-cols-3" aria-label="正在读取账号与用量">{[0, 1, 2].map((item) => <div key={item} className="h-24 animate-pulse rounded-xl bg-white motion-reduce:animate-none" />)}</div>}
 
       {data && (
         <>
-          <section className="mt-6 grid gap-4 sm:grid-cols-3">
-            <Stat label="记录 Tokens" value={totals.tokens.toLocaleString()} />
-            <Stat label="估算成本" value={`$${(totals.cost / 1_000_000).toFixed(4)}`} />
-            <Stat label="失败执行" value={String(totals.failed)} />
-          </section>
-
-          <section className="mt-6 rounded-[18px] bg-white p-5">
-            <h2 className="text-[21px] font-semibold">套餐价格与状态</h2>
-            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {data.plans.map((plan) => {
-                const key = `plan-config-${plan.id}`;
-                return (
-                  <article key={String(plan.id)} className="rounded-[16px] border border-black/10 p-4">
-                    <strong>{String(plan.display_name)}</strong>
-                    <label className="mt-4 block text-xs text-[#6b776f]">
-                      月价（人民币）
-                      <input
-                        id={`price-${plan.id}`}
-                        className="mt-1 w-full rounded-xl border border-black/15 px-3 py-2 text-base text-black"
-                        type="number"
-                        min="0"
-                        defaultValue={Number(plan.price_cny)}
-                      />
-                    </label>
-                    <label className="mt-3 flex items-center gap-2 text-sm">
-                      <input id={`active-${plan.id}`} type="checkbox" defaultChecked={Boolean(plan.active)} />
-                      启用套餐
-                    </label>
-                    <button
-                      className="mt-4 rounded-xl border border-black/15 px-3 py-2 text-sm"
-                      type="button"
-                      disabled={saving === key}
-                      onClick={() => {
-                        const price = document.getElementById(`price-${plan.id}`) as HTMLInputElement;
-                        const active = document.getElementById(`active-${plan.id}`) as HTMLInputElement;
-                        void patchAccount(
-                          {
-                            action: "set_plan_config",
-                            planId: plan.id,
-                            priceCny: Number(price.value),
-                            active: active.checked,
-                          },
-                          key,
-                        );
-                      }}
-                    >
-                      {saving === key ? "保存中..." : "保存"}
-                    </button>
-                  </article>
-                );
-              })}
+          <section className="mt-6 overflow-hidden rounded-2xl bg-white">
+            <div className="border-b border-[#e1e5e9] px-5 py-4">
+              <h3 className="text-lg font-semibold">近期运行情况</h3>
+              <p className="mt-1 text-xs leading-5 text-[#68717a]">以下是后台最近载入的最多 5,000 条 AI 执行记录，成本为估算值，不是账单。</p>
             </div>
+            <dl className="grid divide-y divide-[#e1e5e9] sm:grid-cols-4 sm:divide-x sm:divide-y-0">
+              <SummaryItem label="注册账号" value={data.profiles.length.toLocaleString("zh-CN")} />
+              <SummaryItem label="AI 执行" value={totals.executions.toLocaleString("zh-CN")} />
+              <SummaryItem label="估算成本" value={`$${(totals.cost / 1_000_000).toFixed(4)}`} />
+              <SummaryItem label="失败执行" value={`${totals.failed} 次（${(totals.failureRate * 100).toFixed(1)}%）`} />
+            </dl>
           </section>
 
-          <section className="mt-6 rounded-[18px] bg-white p-5">
-            <h2 className="text-[21px] font-semibold">全局套餐额度</h2>
-            <div className="mt-5 grid gap-3">
-              {data.limits.map((limit) => {
-                const key = `${limit.plan_id}:${limit.metric_key}`;
-                return (
-                  <div
-                    key={key}
-                    className="grid gap-3 rounded-[16px] border border-black/10 p-4 sm:grid-cols-[1fr_1fr_130px_100px]"
-                  >
-                    <span>{String(limit.plan_id)} · {String(limit.metric_key)}</span>
-                    <span className="text-sm text-[#68746c]">{String(limit.window_type)}</span>
-                    <input
-                      className="rounded-xl border border-black/15 px-3 py-2"
-                      type="number"
-                      min="0"
-                      defaultValue={Number(limit.allowance)}
-                      id={`limit-${key}`}
-                    />
-                    <button
-                      className="rounded-xl border border-black/15 px-3 py-2 text-sm"
-                      type="button"
-                      disabled={saving === key}
-                      onClick={() => {
-                        const element = document.getElementById(`limit-${key}`) as HTMLInputElement;
-                        void patchAccount(
-                          {
-                            action: "set_limit",
-                            planId: limit.plan_id,
-                            metricKey: limit.metric_key,
-                            allowance: Number(element.value),
-                            windowType: limit.window_type,
-                          },
-                          key,
-                        );
-                      }}
-                    >
-                      {saving === key ? "保存中..." : "保存"}
-                    </button>
+          <section className="mt-6 overflow-hidden rounded-2xl bg-white">
+            <div className="border-b border-[#e1e5e9] px-5 py-5">
+              <h3 className="text-[21px] font-semibold">套餐额度规则</h3>
+              <div className="mt-3 max-w-3xl rounded-xl bg-[#edf5fb] px-4 py-3 text-sm leading-6 text-[#174d73]">
+                <p><strong>AI 查词与追问：</strong>注册用户只有新生成解释或句子追问会扣次数，缓存命中免费；游客无论缓存或新生成都计入每日试用。</p>
+                <p className="mt-1"><strong>深度阅读：</strong>用于全文翻译、摘要和 OCR。大约每 1,000 个字符消耗 1 点，摘要至少 2 点，OCR 每张图片 5 点。</p>
+              </div>
+            </div>
+            <div className="divide-y divide-[#e1e5e9]">
+              {PLAN_RULES.map((plan) => (
+                <div key={plan.id} className="grid gap-4 px-5 py-5 lg:grid-cols-[180px_minmax(0,1fr)_auto] lg:items-end">
+                  <div><strong className="text-base text-[#17191c]">{plan.name}</strong><p className="mt-1 text-xs text-[#68717a]">{plan.description}</p></div>
+                  <div className={`grid gap-3 ${plan.metrics.length > 1 ? "sm:grid-cols-2" : "sm:max-w-sm"}`}>
+                    {plan.metrics.map((metric) => {
+                      const key = limitKey(plan.id, metric.key);
+                      return (
+                        <label key={metric.key} className="text-sm font-medium text-[#343a40]">
+                          {metric.label}
+                          <span className="mt-2 flex min-h-11 overflow-hidden rounded-xl border border-[#c9ced6] bg-white focus-within:border-[#1769aa] focus-within:ring-2 focus-within:ring-[#1769aa]/15">
+                            <input className="min-w-0 flex-1 px-3.5 text-base outline-none" type="number" min="0" step="1" inputMode="numeric" value={limitDrafts[key] ?? ""} onChange={(event) => setLimitDrafts((current) => ({ ...current, [key]: event.target.value }))} aria-label={`${plan.name} ${metric.label}`} />
+                            <span className="flex items-center bg-[#f3f5f7] px-3 text-xs text-[#59636c]">{metric.unit}</span>
+                          </span>
+                        </label>
+                      );
+                    })}
                   </div>
-                );
-              })}
+                  <button className="min-h-10 rounded-full bg-[#1769aa] px-4 text-sm font-medium text-white hover:bg-[#10598f] disabled:bg-[#aeb8c2]" type="button" disabled={saving === `limits-${plan.id}`} onClick={() => void savePlanRule(plan)}>
+                    {saving === `limits-${plan.id}` ? "保存中..." : "保存本套餐"}
+                  </button>
+                </div>
+              ))}
             </div>
           </section>
 
-          <section className="mt-6 rounded-[18px] bg-white p-5">
-            <h2 className="text-[21px] font-semibold">用户</h2>
-            <div className="mt-5 grid gap-3">
-              {data.profiles.map((profile) => {
-                const userId = String(profile.user_id);
-                const entitlement = entitlementByUser.get(userId);
-                const bonuses = (entitlement?.bonus_limits ?? {}) as Record<string, number>;
-                return (
-                  <article key={userId} className="rounded-[16px] border border-black/10 p-4">
-                    <div className="flex flex-wrap items-start justify-between gap-4">
-                      <div>
-                        <strong>{String(profile.nickname || profile.phone || profile.email || "未设置昵称")}</strong>
-                        <p className="mt-1 break-all text-xs text-[#758078]">{profile.phone ? `手机号 ${String(profile.phone)}` : String(profile.email || userId)}</p>
-                        {profile.login_method === "phone_pin" && <span className="mt-2 inline-block rounded-full bg-[#fff3dc] px-2.5 py-1 text-[11px] text-[#7b5821]">手机号账号 · 未验证</span>}
-                      </div>
-                      <span className="rounded-full bg-[#eef2ee] px-3 py-1 text-xs">{String(profile.status)}</span>
-                    </div>
-                    <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                      <select
-                        className="rounded-xl border border-black/15 px-3 py-2"
-                        value={String(entitlement?.plan_id || "free")}
-                        aria-label="用户套餐"
-                        onChange={(event) =>
-                          void patchAccount(
-                            { action: "set_plan", userId, planId: event.target.value },
-                            `plan-${userId}`,
-                          )
-                        }
-                      >
-                        {["free", "basic", "plus", "max", "admin"].map((plan) => (
-                          <option key={plan}>{plan}</option>
-                        ))}
-                      </select>
-                      <button
-                        className="rounded-xl border border-black/15 px-3 py-2 text-sm"
-                        type="button"
-                        onClick={() =>
-                          void patchAccount(
-                            {
-                              action: "set_status",
-                              userId,
-                              status: profile.status === "active" ? "suspended" : "active",
-                            },
-                            `status-${userId}`,
-                          )
-                        }
-                      >
-                        {profile.status === "active" ? "封禁" : "解封"}
-                      </button>
-                      <BonusControl
-                        userId={userId}
-                        metric="lookup_generation"
-                        value={Number(bonuses.lookup_generation || 0)}
-                        onSave={patchAccount}
-                      />
-                      <BonusControl
-                        userId={userId}
-                        metric="deep_reading"
-                        value={Number(bonuses.deep_reading || 0)}
-                        onSave={patchAccount}
-                      />
-                    </div>
-                    <button
-                      className="mt-3 rounded-xl border border-black/15 px-3 py-2 text-sm"
-                      type="button"
-                      onClick={() => void patchAccount({ action: "reset_usage", userId }, `reset-${userId}`)}
-                    >
-                      清零本周期用量
-                    </button>
-                    {profile.login_method === "phone_pin" && <button
-                      className="ml-2 mt-3 rounded-xl border border-black/15 px-3 py-2 text-sm"
-                      type="button"
-                      disabled={saving === `pin-${userId}`}
-                      onClick={async () => {
-                        if (!window.confirm(`确定要重置 ${String(profile.phone)} 的密码吗？旧密码会立即失效。`)) return;
-                        const result = await patchAccount({ action: "reset_pin", userId }, `pin-${userId}`);
-                        if (typeof result.temporaryPin === "string") setNotice({ phone: String(profile.phone), pin: result.temporaryPin });
-                      }}
-                    >
-                      {saving === `pin-${userId}` ? "重置中..." : "重置密码"}
-                    </button>}
-                  </article>
-                );
-              })}
+          <section className="mt-6 overflow-hidden rounded-2xl bg-white">
+            <div className="flex flex-col gap-4 border-b border-[#e1e5e9] px-5 py-5 sm:flex-row sm:items-end sm:justify-between">
+              <div><h3 className="text-[21px] font-semibold">用户账号</h3><p className="mt-1 text-sm leading-6 text-[#4d535a]">日常通常只需要分配套餐、封禁异常账号或帮助用户重置密码。</p></div>
+              <label className="text-sm font-medium text-[#343a40]">搜索用户<input className="mt-2 block min-h-10 w-full rounded-xl border border-[#c9ced6] px-3.5 outline-none focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15 sm:w-64" type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="昵称或手机号" /></label>
             </div>
+
+            {visibleProfiles.length === 0 ? (
+              <div className="px-5 py-12 text-center"><h4 className="font-semibold">没有找到用户</h4><p className="mt-2 text-sm text-[#68717a]">换一个昵称或手机号再试。</p></div>
+            ) : (
+              <ul className="divide-y divide-[#e1e5e9]">
+                {visibleProfiles.map((profile) => {
+                  const userId = String(profile.user_id);
+                  const entitlement = entitlementByUser.get(userId);
+                  const bonuses = (entitlement?.bonus_limits ?? {}) as Record<string, number>;
+                  const status = String(profile.status || "active");
+                  return (
+                    <li key={userId} className="px-5 py-5">
+                      <article>
+                        <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                          <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-2"><strong>{profileName(profile)}</strong><span className={`rounded-full px-2.5 py-1 text-xs font-medium ${status === "active" ? "bg-[#e9f5ee] text-[#17613b]" : "bg-red-50 text-red-700"}`}>{status === "active" ? "正常" : "已封禁"}</span></div>
+                            <p className="mt-1 break-all text-xs text-[#68717a]">{profile.phone ? `手机号 ${String(profile.phone)}` : String(profile.email || userId)}</p>
+                          </div>
+                          <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                            <label className="text-xs font-medium text-[#59636c]">套餐<select className="ml-2 min-h-10 rounded-xl border border-[#c9ced6] bg-white px-3 text-sm text-[#17191c]" value={String(entitlement?.plan_id || "free")} aria-label={`${profileName(profile)} 的套餐`} disabled={saving === `plan-${userId}`} onChange={(event) => void patchAccount({ action: "set_plan", userId, planId: event.target.value }, `plan-${userId}`)}>{(Object.entries(USER_PLAN_LABELS) as Array<[UserPlanId, string]>).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select></label>
+                            <button className={`min-h-10 rounded-full px-4 text-sm font-medium ${status === "active" ? "text-red-700 hover:bg-red-50" : "border border-[#b8c7d5] text-[#175a8d] hover:bg-[#edf5fb]"}`} type="button" disabled={saving === `status-${userId}`} onClick={() => void patchAccount({ action: "set_status", userId, status: status === "active" ? "suspended" : "active" }, `status-${userId}`)}>{saving === `status-${userId}` ? "处理中..." : status === "active" ? "封禁账号" : "解除封禁"}</button>
+                          </div>
+                        </div>
+
+                        <details className="mt-4 rounded-xl bg-[#f3f5f7] px-4 py-3">
+                          <summary className="cursor-pointer text-sm font-medium text-[#4d535a]">更多账号操作</summary>
+                          <p className="mt-3 text-xs leading-5 text-[#68717a]">额外额度会在用户每个周期都叠加到套餐额度上，只有特殊邀请或补偿时才需要设置。</p>
+                          <div className="mt-3 grid gap-3 md:grid-cols-2">
+                            <BonusControl label="每周期额外查词次数" userId={userId} metric="lookup_generation" value={Number(bonuses.lookup_generation || 0)} saving={saving} onSave={patchAccount} />
+                            <BonusControl label="每周期额外深度阅读点数" userId={userId} metric="deep_reading" value={Number(bonuses.deep_reading || 0)} saving={saving} onSave={patchAccount} />
+                          </div>
+                          <div className="mt-3 flex flex-wrap gap-2">
+                            <button className="min-h-9 rounded-full border border-[#b8c7d5] bg-white px-3 text-sm text-[#175a8d] hover:bg-[#edf5fb]" type="button" disabled={saving === `reset-${userId}`} onClick={() => void patchAccount({ action: "reset_usage", userId }, `reset-${userId}`)}>{saving === `reset-${userId}` ? "清零中..." : "清零当前周期用量"}</button>
+                            {profile.login_method === "phone_pin" && <button className="min-h-9 rounded-full border border-[#b8c7d5] bg-white px-3 text-sm text-[#175a8d] hover:bg-[#edf5fb]" type="button" disabled={saving === `pin-${userId}`} onClick={async () => { if (!window.confirm(`确定重置 ${String(profile.phone)} 的密码吗？旧密码会立即失效。`)) return; const result = await patchAccount({ action: "reset_pin", userId }, `pin-${userId}`); if (typeof result.temporaryPin === "string") setNotice({ phone: String(profile.phone), pin: result.temporaryPin }); }}>{saving === `pin-${userId}` ? "重置中..." : "生成临时密码"}</button>}
+                          </div>
+                        </details>
+                      </article>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </section>
         </>
       )}
@@ -288,46 +304,37 @@ export default function AdminAccountsPanel() {
 }
 
 function BonusControl({
+  label,
   userId,
   metric,
   value,
+  saving,
   onSave,
 }: {
+  label: string;
   userId: string;
-  metric: string;
+  metric: "lookup_generation" | "deep_reading";
   value: number;
+  saving: string;
   onSave: (body: Record<string, unknown>, key: string) => Promise<unknown>;
 }) {
   const id = `bonus-${metric}-${userId}`;
   return (
-    <div className="flex rounded-xl border border-black/15">
-      <input
-        id={id}
-        className="min-w-0 flex-1 rounded-l-xl px-3 py-2 text-sm"
-        type="number"
-        min="0"
-        defaultValue={value}
-        aria-label={`${metric} 加量`}
-      />
-      <button
-        className="border-l border-black/15 px-3 text-xs"
-        type="button"
-        onClick={() => {
-          const input = document.getElementById(id) as HTMLInputElement;
-          void onSave({ action: "set_bonus", userId, metricKey: metric, allowance: Number(input.value) }, id);
-        }}
-      >
-        加量
-      </button>
-    </div>
+    <label className="text-sm font-medium text-[#343a40]">
+      {label}
+      <span className="mt-2 flex min-h-10 overflow-hidden rounded-xl border border-[#c9ced6] bg-white focus-within:border-[#1769aa] focus-within:ring-2 focus-within:ring-[#1769aa]/15">
+        <input id={id} className="min-w-0 flex-1 px-3 outline-none" type="number" min="0" step="1" defaultValue={value} />
+        <button className="border-l border-[#d7dce1] px-3 text-xs font-medium text-[#175a8d] hover:bg-[#edf5fb] disabled:text-[#8c969e]" type="button" disabled={saving === id} onClick={() => { const input = document.getElementById(id) as HTMLInputElement; void onSave({ action: "set_bonus", userId, metricKey: metric, allowance: Number(input.value) }, id); }}>{saving === id ? "保存中" : "保存"}</button>
+      </span>
+    </label>
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function SummaryItem({ label, value }: { label: string; value: string }) {
   return (
-    <article className="rounded-[18px] bg-white p-5">
-      <p className="text-sm text-[#6b776f]">{label}</p>
-      <strong className="mt-3 block text-3xl">{value}</strong>
-    </article>
+    <div className="px-5 py-4">
+      <dt className="text-xs text-[#68717a]">{label}</dt>
+      <dd className="mt-1 text-lg font-semibold text-[#17191c]">{value}</dd>
+    </div>
   );
 }

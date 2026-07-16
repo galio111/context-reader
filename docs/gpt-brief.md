@@ -478,6 +478,9 @@ Admin 功能：
 - 发布文章时应上传匹配的本地 full-article translation cache。
 - 访客打开公开推荐文章时，返回的 translation caches 应先写入浏览器 localStorage，再进入 reader。
 - `article-covers` 上传使用 Supabase Storage 的公开 `public-article-covers` bucket，不调用 OCR。
+- “账号与用量”只展示需要管理员理解和调整的普通用户规则：游客、免费、Basic、Plus、Max 的中文查词次数和深度阅读点数。开发者账号的百万级保护额度、原始 metric key、固定 day/month 字段和未接支付的价格配置不显示。
+- 用户列表保留套餐分配、封禁、周期用量清零和临时密码；每周期额外额度属于少用操作，折叠在“更多账号操作”中。
+- `/admin?section=feedback` 读取私有 `context-reader-feedback` Storage 中的用户反馈，显示类别、时间、内容、可选联系方式和来源页面，并支持标为已处理、重新打开和删除；不显示 user-agent 或 Storage 路径。
 
 非常重要的维护规则：
 
@@ -650,7 +653,7 @@ MVP 可以记录：
 - 当前公开测试入口采用“中国大陆手机号标识 + 昵称注册 + 6 位数字密码”，不发短信，也不验证手机号归属。服务端把手机号映射为保留的内部 Auth 邮箱，密码由 Supabase 哈希保存；内部邮箱绝不能展示给用户。邮箱 OTP 代码只保留兼容，微信登录留到有对应主体、通道和转化证据后再做。
 - 游客每天可查词 10 次，缓存命中也计入游客试用；全文翻译、摘要、OCR、保存文章、生词本与 Anki 必须登录，但管理员预发布的公开全文翻译仍对游客可见。
 - 注册账号缓存命中、失败、超时和及时取消不扣额度。结构化与流式查词共用一个 action id，前台算一次，后台分别记录真实 tokens 和估算成本。
-- 额度分 `lookup_generation` 与 `deep_reading`。套餐和价格是测试假设，可在统一 `/admin` 后台的“账号与用量”标签调整；暂未接在线支付。
+- 底层额度仍分 `guest_lookup`、`lookup_generation` 与 `deep_reading`，但 `/admin` 用中文产品含义呈现，只允许调整普通用户套餐额度。价格仍是测试假设，暂未接在线支付，也不在日常后台显示。
 - 云端为准，但登录先合并本地文章、生词本和缓存。同步使用逐对象 server version，并用标准化、稳定排序的 JSON 内容比较跳过未变化对象。文章按标准化正文和旧恢复 ID 血缘合并为唯一原记录，保留最新打开时间，所有重复 ID 通过 tombstone 从云端删除，绝不生成或展示文章恢复副本；同步 API 会把旧标签页写入的 `-local-recovered-*` 文章强制转成 tombstone，云端合并完成后首页也会即时刷新文章列表和数量。生词按“单词＋原句”合并并去重，多余恢复 ID 通过 tombstone 从云端删除，真正无法判断的同 ID 生词冲突只进入独立本地恢复区，不计入生词本。文章和生词删除都会同步 tombstone，避免其他设备把已删除数据恢复回来。
 - 用户用量页为 `/account/usage`，数据库迁移为 `docs/account-usage-supabase.sql`，完整规则见 `docs/account-usage-plan.md`。
 - 生产数据库、Vercel/Supabase 环境变量和跨设备同步已经可用。手机号 + 密码让 SMTP 不再阻塞公开测试，但手机号未验证，忘记密码只能由 `/admin` 生成一次性显示的临时密码，当前会话为 7 天。面向普通公众的邮箱登录仍未完成；若以后重新开放邮箱入口，必须先配置自定义 SMTP 与包含 `{{ .Token }}` 的模板并验证非团队邮箱。

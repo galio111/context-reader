@@ -30,7 +30,7 @@ Production URL: `https://context-reader-ten.vercel.app`
 - Open the vocabulary notebook from either the homepage or the reading view.
 - Use `/guide` for first-run reading and AnkiConnect setup.
 - Export vocabulary as CSV or import vocabulary entries to Anki through browser-side AnkiConnect, with click-to-play US/UK pronunciation buttons on card backs.
-- Use unverified phone-identifier + six-digit numeric-password accounts, a ten-lookups-per-day guest trial, separate lookup/deep-reading quotas, cross-device learning-data sync, `/account/usage`, and the unified `/admin` console. No SMS is sent, and online payment remains disabled while pricing is tested.
+- Use unverified phone-identifier + six-digit numeric-password accounts, a ten-lookups-per-day guest trial, separate lookup/deep-reading quotas, cross-device learning-data sync, `/account/usage`, and the unified `/admin` console. Admin presents ordinary-user quotas in Chinese, hides developer safety limits and inactive price experiments, and includes the private user-feedback inbox. No SMS is sent, and online payment remains disabled while pricing is tested.
 
 ## Setup
 
@@ -136,7 +136,7 @@ Word explanation cache entries are durable browser data. On a cache miss, the co
 - `/api/usage/cache-lookup` charges cached guest lookups while leaving registered cache hits free.
 - `/api/admin/article-classification` assigns a Chinese learner difficulty, CEFR reference, audience stages, interest topics, reading time, timeliness, and Chinese summary; it falls back to local readability rules if DeepSeek is unavailable.
 - `/api/admin/article-candidates` saves `published=false` candidates, lists them, batch-publishes selected ready candidates, and deletes drafts. `/api/admin/article-covers` uploads reviewed cover files to the public Supabase Storage bucket.
-- `/api/admin/*` handles administrator login, candidate review/publishing, account/plan management, and quota controls. Writes require the admin session cookie.
+- `/api/admin/*` handles administrator login, candidate review/publishing, account and quota controls, and the private feedback inbox. Writes require the admin session cookie.
 - `/account/usage` is the member usage view; `/account/repair-vocabulary` runs the signed-in vocabulary repair; `/admin` combines public recommendations with the administrator account and quota console.
 
 ## Public Recommendations

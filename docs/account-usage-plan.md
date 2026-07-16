@@ -9,7 +9,7 @@ Status: application code, Supabase migration, production environment variables, 
 3. One user action is one visible charge. Parallel structured and streaming lookup requests share an idempotent action id; backend executions still record their real token usage separately.
 4. Never charge registered users for cache hits, failures, timeouts, or cancellations. Guest cached lookups still count toward the ten-lookups-per-day trial.
 5. The cloud is authoritative after login, but migration never silently discards local data. Version conflicts are refetched and merged. Article conflicts collapse into one canonical article and discarded ids become tombstones, so visible recovery copies must not remain; vocabulary is normalized and deduplicated by word plus source sentence, while a genuinely ambiguous same-id vocabulary conflict is retained in a separate local recovery store instead of appearing as another notebook entry.
-6. Quotas are product configuration, not UI constants. Plans and metric allowances are editable from the “账号与用量” section of `/admin`; payment is deliberately not connected yet.
+6. Quotas are product configuration, not UI constants. Ordinary-user allowances are editable from the “账号与用量” section of `/admin`; raw metric keys, fixed period internals, developer safety allowances, and unconnected price experiments are hidden from the daily management UI. Payment is deliberately not connected yet.
 7. Collect the minimum. Analytics stores identity, entitlement, quota actions, route/model, provider tokens, estimated cost, status and error code—not full private article text.
 
 ## User state matrix
@@ -49,7 +49,7 @@ Status: application code, Supabase migration, production environment variables, 
 - First login downloads cloud objects, supplements them with local data, uploads with expected versions, and retries up to three times after conflicts.
 - Vocabulary sync keeps one canonical entry per normalized word and source sentence, merges the most complete generated fields and Anki import record, and sends tombstones for redundant cloud recovery ids.
 - Explicit logout first requires a successful sync, then clears account-associated local caches. A sync failure stops logout instead of risking data loss.
-- `/account/usage` shows simple remaining allowances. The “账号与用量” section of `/admin` shows users, plans, token/cost totals, failures and global limits, and can issue a one-time displayed temporary password for phone accounts.
+- `/account/usage` shows simple remaining allowances. The “账号与用量” section of `/admin` explains and edits guest/free/Basic/Plus/Max limits in Chinese, shows a recent execution/cost summary, assigns user plans, handles suspension, hides rarely used per-user bonuses under progressive disclosure, and can issue a one-time displayed temporary password for phone accounts. Admin-plan limits and payment price controls stay out of the main UI.
 
 ## Risks and phased release
 

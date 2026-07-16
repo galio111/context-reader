@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import AdminAccountsPanel from "@/components/AdminAccountsPanel";
 import AdminArticleIntakePanel from "@/components/AdminArticleIntakePanel";
+import AdminFeedbackPanel from "@/components/AdminFeedbackPanel";
 import { getSavedArticles } from "@/lib/articles";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import {
@@ -57,7 +58,7 @@ export default function AdminPage() {
   const [checkingSession, setCheckingSession] = useState(true);
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [activeSection, setActiveSection] = useState<"articles" | "accounts">("articles");
+  const [activeSection, setActiveSection] = useState<"articles" | "accounts" | "feedback">("articles");
   const [loginError, setLoginError] = useState("");
   const [articles, setArticles] = useState<SavedArticle[]>([]);
   const [publishingId, setPublishingId] = useState("");
@@ -69,6 +70,7 @@ export default function AdminPage() {
   useEffect(() => {
     const section = new URLSearchParams(window.location.search).get("section");
     if (section === "accounts") setActiveSection("accounts");
+    if (section === "feedback") setActiveSection("feedback");
   }, []);
 
   useEffect(() => {
@@ -85,9 +87,9 @@ export default function AdminPage() {
     void checkSession();
   }, []);
 
-  function selectSection(section: "articles" | "accounts") {
+  function selectSection(section: "articles" | "accounts" | "feedback") {
     setActiveSection(section);
-    const url = section === "accounts" ? "/admin?section=accounts" : "/admin";
+    const url = section === "articles" ? "/admin" : `/admin?section=${section}`;
     window.history.replaceState(null, "", url);
   }
 
@@ -246,7 +248,7 @@ export default function AdminPage() {
         <form className="mx-auto max-w-xl rounded-[18px] bg-white p-5" onSubmit={handleLogin}>
           <h1 className="text-[28px] font-semibold leading-tight">管理员入口</h1>
           <p className="mt-2 text-sm leading-6 text-[#333333]">
-            登录后可以管理公开推荐文章、用户账号、套餐和用量。
+            登录后可以管理推荐文章、用户与额度，以及用户反馈。
           </p>
           <label className="mt-5 block">
             <span className="mb-2 block text-sm font-semibold text-[#333333]">管理员密码</span>
@@ -285,7 +287,7 @@ export default function AdminPage() {
           <div>
             <h1 className="text-[32px] font-semibold leading-tight">Context Reader 管理后台</h1>
             <p className="mt-1 text-sm leading-6 text-[#333333]">
-              在一个后台管理公开内容、用户账号、套餐和 AI 用量。
+              管理推荐内容、用户额度和反馈处理。
             </p>
           </div>
           <button
@@ -297,9 +299,9 @@ export default function AdminPage() {
           </button>
         </header>
 
-        <nav className="mt-5 flex w-fit gap-1 rounded-full bg-white p-1" aria-label="后台功能">
+        <nav className="mt-5 flex w-full gap-1 rounded-full bg-white p-1 sm:w-fit" aria-label="后台功能">
           <button
-            className={`h-10 rounded-full px-5 text-sm font-medium transition-colors ${
+            className={`h-10 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
               activeSection === "articles" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
             }`}
             type="button"
@@ -309,18 +311,32 @@ export default function AdminPage() {
             推荐文章
           </button>
           <button
-            className={`h-10 rounded-full px-5 text-sm font-medium transition-colors ${
+            className={`h-10 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
               activeSection === "accounts" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
             }`}
             type="button"
             aria-current={activeSection === "accounts" ? "page" : undefined}
             onClick={() => selectSection("accounts")}
           >
-            账号与用量
+            用户与额度
+          </button>
+          <button
+            className={`h-10 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
+              activeSection === "feedback" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
+            }`}
+            type="button"
+            aria-current={activeSection === "feedback" ? "page" : undefined}
+            onClick={() => selectSection("feedback")}
+          >
+            用户反馈
           </button>
         </nav>
 
-        {activeSection === "accounts" ? (
+        {activeSection === "feedback" ? (
+          <div className="mt-6">
+            <AdminFeedbackPanel />
+          </div>
+        ) : activeSection === "accounts" ? (
           <div className="mt-6">
             <AdminAccountsPanel />
           </div>

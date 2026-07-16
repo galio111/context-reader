@@ -66,7 +66,7 @@ Account sync transport uses byte-bounded response pages, and continues paging pa
 
 Saving an article commits the local article object and schedules account sync before requesting its generated Chinese list summary. Summary or provider failures therefore leave the article saved and retryable instead of rolling back the durable article record.
 
-All cost-bearing routes use `lib/usageGate.ts`. Structured and streaming word lookup requests share `x-context-action-id`, so the quota action is idempotent while `usage_executions` stores both real upstream calls. Registered-user failures are refunded and cache hits are free; guest cached lookups call `/api/usage/cache-lookup`. Full translation, summaries, sentence questions and OCR require login. `/account/usage` is the user view; the unified `/admin` console manages public recommendations, users, plans, limits and provider usage.
+All cost-bearing routes use `lib/usageGate.ts`. Structured and streaming word lookup requests share `x-context-action-id`, so the quota action is idempotent while `usage_executions` stores both real upstream calls. Registered-user failures are refunded and cache hits are free; guest cached lookups call `/api/usage/cache-lookup`. Full translation, summaries, sentence questions and OCR require login. `/account/usage` is the user view; the unified `/admin` console manages public recommendations, users, ordinary-user limits, provider cost summaries, and feedback. Admin quota rows are grouped by Chinese product meaning, batch-save the fixed metric/window pairs for each ordinary plan, and intentionally hide the developer allowance plus unconnected price settings.
 
 The browser never receives a Supabase key. Without account infrastructure, reading and a browser-enforced ten-lookup fallback remain available, while login and authenticated high-cost features remain disabled.
 
@@ -81,7 +81,7 @@ All user-controlled outbound URL reads use `lib/safeRemoteFetch.ts`. It accepts 
 - `/api/auth/*`: registers/signs in phone + numeric-password accounts, retains legacy email OTP and hosted-session adoption, reads/refreshes the current account session, and logs out through server-managed cookies.
 - `/api/account/sync`: reads and compare-and-swap merges versioned account objects; `/api/account/export` returns the member's profile, synced objects, and usage-action history.
 - `/api/usage/cache-lookup`: records cached guest lookups as trial usage without charging authenticated cache hits.
-- `/api/admin/*`: handles administrator login, public article listing/publishing/deletion, and account/plan/quota administration. Writes require the admin session cookie.
+- `/api/admin/*`: handles administrator login, public article listing/publishing/deletion, account/quota administration, and private feedback listing/status/deletion. Writes require the admin session cookie.
 - `/api/import-url`: fetches public HTML, strips noisy elements, extracts article-like content, removes embedded personalization/follow/alert modules, normalizes image URLs, preserves `sup`/`sub` inline segments, and returns `ImportedArticle`. Standalone advertisement labels are removed unless the surrounding article is itself substantively about advertising.
 - `/api/ocr-image`: extracts text from one uploaded image up to 8MB.
 - `/api/ocr-image-layout`: detects word boxes for multipart uploads, data URLs, or remote image URLs and returns percentage coordinates plus line context.
@@ -117,6 +117,8 @@ The three public-content tables enable RLS and revoke all direct table privilege
 When the public-recommendation scene becomes visible, `HomeClient` prefetches the visible article details and deduplicates hover, focus, and click requests in memory. The public-article server read fetches explanation and translation-cache rows in parallel after locating the article. On open, `HomeClient` writes returned `articleTranslations` into the browser's local translation cache before entering the reader. The reader then opens the full-article translation sidebar from cache instead of regenerating when the cached block hash matches the article text.
 
 The admin UI follows one sequence: choose a browser-local, pasted, or URL source; accept automatic classification; review the cover and summary; save a candidate; preview the user-facing reading layout; then publish selected candidates. Topic-based discovery is a secondary collapsed intake source that reports inventory movement and skipped-item reasons but never publishes. The public list owns delete and per-row cache-refresh maintenance, so there is no duplicate local-article publishing selector. Candidate preview is intentionally read-only until the developer account and admin entry are unified. Visitors can read public articles without logging in.
+
+Feedback submitted by `FeedbackPanel` is stored as bounded private JSON under month folders in the `context-reader-feedback` Supabase Storage bucket. `/api/admin/feedback` lists at most the latest 300 objects in bounded batches, treats older objects without status as new, updates `new`/`resolved` status by replacing the same private object, and deletes only validated feedback paths. The Admin view deliberately omits user-agent and Storage paths from its visible content.
 
 ## Offline Behavior
 

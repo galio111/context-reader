@@ -1,10 +1,9 @@
-import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
+import { ensureFeedbackBucket, FEEDBACK_BUCKET, feedbackAdminClient } from "@/lib/feedbackStore";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 
 export const runtime = "nodejs";
 
-const BUCKET = "context-reader-feedback";
 const feedbackWindows = new Map<string, { count: number; resetAt: number }>();
 
 function allowFeedback(request: Request): boolean {
@@ -20,24 +19,6 @@ function allowFeedback(request: Request): boolean {
   if (current.count >= 5) return false;
   current.count += 1;
   return true;
-}
-
-function supabaseAdmin() {
-  const url = process.env.SUPABASE_URL?.trim() || "";
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() || "";
-  if (!url || !key) throw new Error("反馈存储尚未配置。");
-  return createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
-}
-
-async function ensureBucket(client: ReturnType<typeof supabaseAdmin>) {
-  const { data } = await client.storage.getBucket(BUCKET);
-  if (data) return;
-  const { error } = await client.storage.createBucket(BUCKET, {
-    public: false,
-    fileSizeLimit: 24 * 1024,
-    allowedMimeTypes: ["application/json"],
-  });
-  if (error && !/already exists/i.test(error.message)) throw error;
 }
 
 function isSameOrigin(request: Request): boolean {
@@ -81,8 +62,8 @@ export async function POST(request: Request) {
   }
 
   try {
-    const client = supabaseAdmin();
-    await ensureBucket(client);
+    const client = feedbackAdminClient();
+    await ensureFeedbackBucket(client);
     const id = crypto.randomUUID();
     const createdAt = new Date().toISOString();
     const objectPath = `${createdAt.slice(0, 7)}/${createdAt.slice(0, 10)}-${id}.json`;
@@ -95,7 +76,7 @@ export async function POST(request: Request) {
       page,
       userAgent: (request.headers.get("user-agent") || "").slice(0, 300),
     }, null, 2);
-    const { error } = await client.storage.from(BUCKET).upload(objectPath, Buffer.from(payload), {
+    const { error } = await client.storage.from(FEEDBACK_BUCKET).upload(objectPath, Buffer.from(payload), {
       contentType: "application/json",
       upsert: false,
       cacheControl: "0",
