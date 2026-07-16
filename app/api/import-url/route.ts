@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { trimTrailingWebsiteBlocks } from "@/lib/articleContentSanitizer";
 import { readResponseText, safeRemoteFetch, UnsafeRemoteUrlError } from "@/lib/safeRemoteFetch";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import type {
@@ -474,8 +475,6 @@ const EMBEDDED_UI_NOISE_PATTERNS = [
   /update\s+your\s+preferences\s+in\s+account\s+settings/i,
 ];
 
-const TRAILING_SECTION_PATTERN = /^(?:related\s+(?:topics?|terms?|stories|articles|content)|story\s+source|journal\s+references?|cite\s+this\s+page|explore\s+more|recommended(?:\s+for\s+you)?|you\s+(?:may|might)\s+also\s+like|read\s+next|more\s+(?:stories|articles|from)|most\s+popular|trending|about\s+the\s+author|sign\s+up\s+for\b|advertisement)\b/i;
-
 function normalizedBlockText(block: ImportedArticleBlock): string {
   return block.text?.replace(/\s+/g, " ").trim() ?? "";
 }
@@ -500,28 +499,8 @@ function articleIsAboutAdvertising(blocks: ImportedArticleBlock[], title: string
 
 function cleanExtractedBlocks(blocks: ImportedArticleBlock[], title: string): ImportedArticleBlock[] {
   const keepStandaloneAdLabels = articleIsAboutAdvertising(blocks, title);
-  let substantiveBlocks = 0;
-  let substantiveCharacters = 0;
-  let trailingBoundary = blocks.length;
 
-  for (let index = 0; index < blocks.length; index += 1) {
-    const block = blocks[index];
-    if (!block || block.type === "image") {
-      continue;
-    }
-    const text = normalizedBlockText(block);
-    if (substantiveBlocks >= 3 && substantiveCharacters >= 400 && TRAILING_SECTION_PATTERN.test(text)) {
-      trailingBoundary = index;
-      break;
-    }
-    if (text.length >= 40) {
-      substantiveBlocks += 1;
-      substantiveCharacters += text.length;
-    }
-  }
-
-  return blocks
-    .slice(0, trailingBoundary)
+  return trimTrailingWebsiteBlocks(blocks)
     .filter((block) => {
       if (block.type === "image") {
         return true;

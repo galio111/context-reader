@@ -30,6 +30,22 @@ const LOCAL_ACCOUNT_KEYS = [
   "context-reader:article-translation-blocks:v1",
 ];
 
+const LOGOUT_SYNC_TIMEOUT_MS = 12_000;
+
+async function waitForLogoutSync(): Promise<void> {
+  let timeoutId: number | null = null;
+  try {
+    await Promise.race([
+      syncAccountData().then(() => undefined),
+      new Promise<never>((_, reject) => {
+        timeoutId = window.setTimeout(() => reject(new Error("同步时间过长，尚未退出。请检查网络后重试。")), LOGOUT_SYNC_TIMEOUT_MS);
+      }),
+    ]);
+  } finally {
+    if (timeoutId !== null) window.clearTimeout(timeoutId);
+  }
+}
+
 export function AccountProvider({ children }: { children: ReactNode }) {
   const [account, setAccount] = useState<AccountSessionState>(emptyAccount);
   const [loading, setLoading] = useState(true);
@@ -190,7 +206,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   }
 
   const logout = useCallback(async () => {
-    await syncAccountData();
+    await waitForLogoutSync();
     const response = await fetch("/api/auth/logout", { method: "POST" });
     if (!response.ok) throw new Error("退出失败，请稍后重试。");
     for (const key of LOCAL_ACCOUNT_KEYS) window.localStorage.removeItem(key);
@@ -244,16 +260,32 @@ export function useAccount(): AccountContextValue {
 export function AccountNav() {
   const { account, loading, openLogin, logout } = useAccount();
   const [open, setOpen] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
+  const [logoutError, setLogoutError] = useState("");
+
+  async function handleLogout() {
+    if (loggingOut) return;
+    setLoggingOut(true);
+    setLogoutError("");
+    try {
+      await logout();
+    } catch (error) {
+      setLogoutError(error instanceof Error ? error.message : "退出失败，请稍后重试。");
+      setLoggingOut(false);
+    }
+  }
+
   if (loading) return <span className="text-sm text-black/45">账号</span>;
   if (!account.authenticated) return <button className="cr-nav-primary" type="button" onClick={() => openLogin("登录后可跨设备同步生词本、文章和翻译缓存。")}>登录</button>;
   const label = account.profile?.nickname || account.profile?.email.split("@")[0] || "账号";
   return (
     <span className="relative">
-      <button className="cr-nav-primary" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open}>{label}</button>
-      {open && <span className="absolute right-0 top-[calc(100%+10px)] z-50 grid w-52 gap-1 rounded-2xl border border-black/10 bg-[#fbfbf8] p-2 text-left text-sm shadow-xl">
+      <button className="cr-nav-primary" type="button" onClick={() => { setOpen((value) => !value); setLogoutError(""); }} aria-expanded={open}>{label}</button>
+      {open && <span className="absolute right-0 top-[calc(100%+10px)] z-50 grid w-60 gap-1 rounded-2xl border border-black/10 bg-[#fbfbf8] p-2 text-left text-sm shadow-xl">
         <span className="px-3 py-2 text-xs text-[#6c786f]">{account.plan?.displayName || "当前套餐"}</span>
         <Link className="rounded-xl px-3 py-2 hover:bg-black/5" href="/account/usage">用量与套餐</Link>
-        <button className="rounded-xl px-3 py-2 text-left hover:bg-black/5" type="button" onClick={() => void logout().catch((error) => window.alert(error instanceof Error ? error.message : "退出失败"))}>退出登录</button>
+        <button className="rounded-xl px-3 py-2 text-left hover:bg-black/5 disabled:cursor-wait disabled:text-black/45" type="button" disabled={loggingOut} onClick={() => void handleLogout()}>{loggingOut ? "正在同步并退出…" : "退出登录"}</button>
+        {logoutError && <span className="rounded-xl bg-red-50 px-3 py-2 text-xs leading-5 text-red-700" role="alert">{logoutError}</span>}
       </span>}
     </span>
   );

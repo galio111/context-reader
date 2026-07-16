@@ -123,7 +123,7 @@ export async function getAccountPlan(planId: AccountPlanId): Promise<AccountPlan
   }
   return {
     id: row.id,
-    displayName: row.display_name,
+    displayName: row.id === "admin" ? "开发者账号" : row.display_name,
     priceCny: row.price_cny,
     active: row.active,
     limits: limitRows.map((limit) => ({

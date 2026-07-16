@@ -1,4 +1,9 @@
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
+import {
+  isRemoteImportedArticle,
+  sanitizeImportedArticleContent,
+  trimTrailingWebsiteText,
+} from "@/lib/articleContentSanitizer";
 import type {
   ArticleRecommendationMetadata,
   PublicArticle,
@@ -87,14 +92,20 @@ function mapArticle(
   articleTranslations: PublicArticleTranslation[] = [],
 ): PublicArticle {
   const recommendation = recommendationFromRow(row);
+  const importedArticle = isRemoteImportedArticle(row.imported_article)
+    ? sanitizeImportedArticleContent(row.imported_article)
+    : row.imported_article;
+  const body = importedArticle && row.body
+    ? trimTrailingWebsiteText(row.body)
+    : row.body ?? "";
   return {
     id: row.id,
     title: row.title,
     summary: row.summary,
-    body: row.body ?? "",
+    body,
     sourceUrl: row.source_url ?? "",
     sourceName: row.source_name ?? "",
-    ...(row.imported_article ? { importedArticle: row.imported_article } : {}),
+    ...(importedArticle ? { importedArticle } : {}),
     ...(recommendation ? { recommendation } : {}),
     explanations,
     articleTranslations,
@@ -332,14 +343,20 @@ export async function publishArticleCandidate(id: string): Promise<PublicArticle
     throw new Error("推荐封面缺失，补充封面后才能发布。");
   }
 
+  const importedArticle = isRemoteImportedArticle(candidate.imported_article)
+    ? sanitizeImportedArticleContent(candidate.imported_article)
+    : candidate.imported_article;
+  const candidateBody = importedArticle
+    ? trimTrailingWebsiteText(candidate.body ?? importedArticle.text)
+    : candidate.body ?? "";
   const candidateInput: PublicArticleInput = {
     title: candidate.title,
     summary: candidate.summary,
-    body: candidate.body ?? candidate.imported_article.text,
+    body: candidateBody,
     sourceUrl: candidate.source_url ?? "",
     sourceName: candidate.source_name ?? "",
-    importedArticle: candidate.imported_article,
-    recommendation: candidate.imported_article.recommendation,
+    importedArticle,
+    recommendation: importedArticle?.recommendation,
   };
   const duplicate = await findDuplicateArticleRow(candidateInput, true);
   if (duplicate && duplicate.id !== candidate.id) {
@@ -359,7 +376,11 @@ export async function publishArticleCandidate(id: string): Promise<PublicArticle
   await supabaseFetch(`public_articles?id=eq.${encodeURIComponent(id)}&published=eq.false`, {
     method: "PATCH",
     headers: { Prefer: "return=minimal" },
-    body: JSON.stringify({ published: true }),
+    body: JSON.stringify({
+      published: true,
+      body: candidateBody,
+      ...(importedArticle ? { imported_article: importedArticle } : {}),
+    }),
   });
   const article = await getPublicArticle(id);
   if (!article) {
