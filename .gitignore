@@ -16,3 +16,4 @@ tsconfig.tsbuildinfo
 
 .vercel
 supabase/.temp/
+backups/
