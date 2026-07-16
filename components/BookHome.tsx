@@ -17,6 +17,7 @@ import { BookRecommendations } from "@/components/BookRecommendations";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { useAccount } from "@/components/AccountProvider";
+import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
 import { createExplanationCacheKey, getCachedExplanation, setCachedExplanation } from "@/lib/cache";
 import {
   requestContextExplanation,
@@ -292,8 +293,11 @@ export function BookHome({
     } catch {
       // A malformed optional preference must not block the reading entry.
     }
-    setVocabularyEntries(getVocabularyEntries());
+    const refreshVocabularyEntries = () => setVocabularyEntries(getVocabularyEntries());
+    refreshVocabularyEntries();
+    window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
     return () => {
+      window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
       turnTimersRef.current.forEach((timer) => window.clearTimeout(timer));
       if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
     };

@@ -25,6 +25,7 @@ import {
   subscribeArticleTranslationJob,
 } from "@/lib/articleTranslationJobs";
 import { fetchJson } from "@/lib/apiClient";
+import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
 import { downloadVocabularyCsv } from "@/lib/csv";
 import {
   explanationAsStreamText,
@@ -607,7 +608,10 @@ export function ReaderView({
   }, [article, importedArticle]);
 
   useEffect(() => {
-    setVocabularyEntries(getVocabularyEntries());
+    const refreshVocabularyEntries = () => setVocabularyEntries(getVocabularyEntries());
+    refreshVocabularyEntries();
+    window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
+    return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
   }, []);
 
   useEffect(() => {

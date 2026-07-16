@@ -22,6 +22,36 @@ const KEYS = {
 };
 const COMPRESSED_PREFIX = "lz-utf16:";
 const VOCABULARY_CONFLICT_RECOVERY_KEY = "context-reader:vocabulary-conflict-recovery:v1";
+const ACCOUNT_LOCAL_OWNER_KEY = "context-reader:local-account-owner:v1";
+const LAST_SYNC_KEY = "context-reader:last-sync:v1";
+const ACCOUNT_LOCAL_DATA_KEYS = [
+  ...Object.values(KEYS),
+  ACCOUNT_SYNC_TOMBSTONES_KEY,
+  VOCABULARY_CONFLICT_RECOVERY_KEY,
+  LAST_SYNC_KEY,
+];
+
+export function prepareLocalAccountForUser(userId: string): boolean {
+  if (typeof window === "undefined" || !userId) return false;
+
+  const storage = window.localStorage;
+  const previousOwner = storage.getItem(ACCOUNT_LOCAL_OWNER_KEY);
+  const switchedAccount = Boolean(previousOwner && previousOwner !== userId);
+  if (switchedAccount) {
+    for (const key of ACCOUNT_LOCAL_DATA_KEYS) storage.removeItem(key);
+    notifyAccountDataMerged();
+  }
+  storage.setItem(ACCOUNT_LOCAL_OWNER_KEY, userId);
+  return switchedAccount;
+}
+
+export function clearLocalAccountData(): void {
+  if (typeof window === "undefined") return;
+
+  for (const key of ACCOUNT_LOCAL_DATA_KEYS) window.localStorage.removeItem(key);
+  window.localStorage.removeItem(ACCOUNT_LOCAL_OWNER_KEY);
+  notifyAccountDataMerged();
+}
 
 function parseJson<T>(raw: string | null, fallback: T): T {
   if (!raw) return fallback;
@@ -336,7 +366,7 @@ async function performAccountSync(retriesRemaining: number): Promise<{ objectCou
   }
   if (!response.ok) throw new Error(data.error || "同步失败，请稍后重试。");
   const syncedAt = new Date().toISOString();
-  window.localStorage.setItem("context-reader:last-sync:v1", syncedAt);
+  window.localStorage.setItem(LAST_SYNC_KEY, syncedAt);
   return { objectCount: local.length, syncedAt };
 }
 
