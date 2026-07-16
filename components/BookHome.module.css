@@ -1071,10 +1071,14 @@
 }
 
 .bookShell {
-  position: relative;
+  position: absolute;
+  top: calc(50% + 19px);
+  left: 50%;
   width: min(92vw, 1320px);
   height: clamp(600px, calc(100svh - 134px), 820px);
   perspective: 2800px;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
   transform-style: preserve-3d;
 }
 
@@ -1398,11 +1402,12 @@
 .bookForeEdge {
   z-index: 7;
   top: 10px;
-  right: -8px;
+  right: -10px;
   bottom: 7px;
-  width: 10px;
+  width: 12px;
   border-radius: 0 9px 9px 0;
   background: linear-gradient(180deg, #f7f9fa 0%, #becbd4 13%, #fafbfc 28%, #c3d0d8 43%, #f8fafb 61%, #bcc9d2 78%, #f7f9fa 100%);
+  box-shadow: 2px 0 0 rgb(103 124 139 / 18%), 5px 5px 8px rgb(39 58 72 / 10%);
   transform: translateZ(4px);
   transition: opacity .55s ease, right 1.82s var(--ease), width 1.1s ease;
 }
@@ -1435,10 +1440,12 @@
 .coverOpening .bookShell { animation: openingCamera 2.08s var(--ease) both; }
 
 @keyframes openingCamera {
-  0% { transform: scale(.985) translateY(2px); }
-  54% { transform: scale(1.018) translateY(-5px) rotateX(.6deg); }
-  100% { transform: none; }
+  0% { transform: translate(-50%, -50%) scale(.985) translateY(2px); }
+  54% { transform: translate(-50%, -50%) scale(1.018) translateY(-5px) rotateX(.6deg); }
+  100% { transform: translate(-50%, -50%); }
 }
+
+.readerEntering .bookShell { transform: translate(-50%, -50%) scale(1.08) translateY(-1vh); }
 
 .coverFace::after {
   position: absolute;
@@ -1585,10 +1592,14 @@
   .stickyStage { padding: 72px 10px 48px; }
 
   .bookShell {
+    position: relative;
+    top: auto;
+    left: auto;
     width: 100%;
     height: calc(100svh - 130px);
     min-height: 630px;
     perspective: 1800px;
+    transform: none;
   }
 
   .book,
@@ -1624,6 +1635,7 @@
   .frontBoard { transform-origin: top center; }
   .coverOpening .frontBoard,
   .coverOpen .frontBoard { right: -2px; left: -2px; width: auto; transform: translateZ(12px) rotateX(102deg); }
+  .coverOpen .coverAssembly { display: none; }
   .coverOpening .backBoard,
   .coverOpen .backBoard { left: 0; }
   .coverOpening .pageBlockEdges:not(.leftPageBlockEdges),
@@ -1645,6 +1657,13 @@
   .profileActions button { width: 100%; }
 
   .readerEntering .bookShell { transform: scale(1.02) translateY(-4px); }
+}
+
+@media (min-width: 360px) and (max-width: 760px) {
+  .topActions { gap: 6px; }
+  .brand { padding: 0 13px; font-size: 12px; }
+  .textAction { display: inline-flex; height: 38px; padding: 0 11px; font-size: 11px; }
+  .menuButton { padding-right: 12px; padding-left: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
