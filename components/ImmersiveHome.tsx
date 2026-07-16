@@ -35,6 +35,7 @@ interface ImmersiveHomeProps {
   publicArticles: PublicArticle[];
   savedArticles: SavedArticle[];
   vocabularyCount: number;
+  overlayOpen: boolean;
   onArticleChange: (value: string) => void;
   onArticleUrlChange: (value: string) => void;
   onStartReading: () => void;
@@ -471,6 +472,7 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
   }, []);
 
   useEffect(() => {
+    if (props.overlayOpen) return;
     let targetTravel = 0;
     let currentTravel = 0;
     let frame = 0;
@@ -512,7 +514,7 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", updateTarget);
     };
-  }, [phraseStage]);
+  }, [phraseStage, props.overlayOpen]);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -584,6 +586,7 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
   }, [activeScene, heroUnlocked]);
 
   useEffect(() => {
+    if (props.overlayOpen) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const context = canvas.getContext("2d");
@@ -714,7 +717,7 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
       window.removeEventListener("pointermove", pointerMove);
       window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, [props.overlayOpen]);
 
   function unlockPage() {
     setHeroUnlocked(true);

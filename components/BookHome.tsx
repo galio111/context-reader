@@ -7,13 +7,13 @@ import {
   useMemo,
   useRef,
   useState,
-  type CSSProperties,
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { BookDictionary } from "@/components/BookDictionary";
 import { BookLetterField } from "@/components/BookLetterField";
 import { BookRecommendations } from "@/components/BookRecommendations";
+import { CurvedPageTurn, type CurvedPageTurnHandle } from "@/components/CurvedPageTurn";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { useAccount } from "@/components/AccountProvider";
@@ -73,8 +73,6 @@ const PROFILE_LEVELS: Array<{ value: ArticleAudienceStage; label: string; group:
 ];
 
 const PROFILE_INTERESTS = ["科技", "自然", "文化", "社会", "成长", "故事"];
-const PAGE_STRIPS = Array.from({ length: 18 }, (_, index) => index);
-
 const DEMO_TITLE = "A Railway Takes Root";
 const DEMO_PARAGRAPH_ONE =
   "On the edge of Rotterdam, an abandoned railway has taken root as a ribbon of gardens.";
@@ -230,7 +228,6 @@ export function BookHome({
   const [chapter, setChapter] = useState<BookChapter>("workbench");
   const [turning, setTurning] = useState(false);
   const [turnDirection, setTurnDirection] = useState<TurnDirection>("forward");
-  const [turnTarget, setTurnTarget] = useState<BookChapter | null>(null);
   const [mobileWorkbenchPage, setMobileWorkbenchPage] = useState<"demo" | "desk">("demo");
   const [recommendationProfile, setRecommendationProfile] = useState<RecommendationProfile>(INITIAL_RECOMMENDATION_PROFILE);
   const [clientReady, setClientReady] = useState(false);
@@ -250,6 +247,12 @@ export function BookHome({
   const [explanationError, setExplanationError] = useState("");
   const storyRef = useRef<HTMLElement | null>(null);
   const workbenchRef = useRef<HTMLElement | null>(null);
+  const pageTurnRef = useRef<CurvedPageTurnHandle | null>(null);
+  const spreadRefs = useRef<Record<BookChapter, HTMLElement | null>>({
+    workbench: null,
+    preferences: null,
+    recommendations: null,
+  });
   const chapterRef = useRef<BookChapter>("workbench");
   const turningRef = useRef(false);
   const queuedChapterRef = useRef<BookChapter | null>(null);
@@ -336,23 +339,28 @@ export function BookHome({
     turningRef.current = true;
     setTurning(true);
     setTurnDirection(direction);
-    setTurnTarget(nextChapter);
+    window.requestAnimationFrame(() => {
+      pageTurnRef.current?.flip(
+        direction,
+        spreadRefs.current[chapterRef.current],
+        spreadRefs.current[nextChapter],
+      );
+    });
 
     const swapTimer = window.setTimeout(() => {
       chapterRef.current = nextChapter;
       setChapter(nextChapter);
-    }, 430);
+    }, 550);
     const settleTimer = window.setTimeout(() => {
       turningRef.current = false;
       setTurning(false);
-      setTurnTarget(null);
       const queued = queuedChapterRef.current;
       queuedChapterRef.current = null;
       if (queued && queued !== chapterRef.current) {
         const ranks: Record<BookChapter, number> = { workbench: 0, preferences: 1, recommendations: 2 };
         performTurn(queued, ranks[queued] >= ranks[chapterRef.current] ? "forward" : "backward");
       }
-    }, 1120);
+    }, 1180);
     turnTimersRef.current.push(swapTimer, settleTimer);
   }, []);
 
@@ -365,7 +373,7 @@ export function BookHome({
     const openTimer = window.setTimeout(() => {
       setCoverState("open");
       afterOpen?.();
-    }, 1680);
+    }, 2080);
     turnTimersRef.current.push(openTimer);
   }
 
@@ -698,8 +706,14 @@ export function BookHome({
         <div className={styles.stickyStage}>
           <div className={styles.bookShell}>
             <div className={styles.book}>
-              {chapter === "workbench" && (
-                <div className={styles.workbenchSpread} data-mobile-page={mobileWorkbenchPage}>
+              <div
+                ref={(element) => { spreadRefs.current.workbench = element; }}
+                data-book-spread="workbench"
+                data-mobile-page={mobileWorkbenchPage}
+                className={`${styles.workbenchSpread} ${styles.spreadLayer} ${chapter === "workbench" ? styles.spreadActive : styles.spreadInactive}`}
+                aria-hidden={chapter !== "workbench"}
+                inert={chapter !== "workbench"}
+              >
                   <section className={`${styles.page} ${styles.leftPage}`} aria-labelledby="book-demo-heading">
               <div className={styles.pageNumber}>Context note · 01</div>
               <div className={styles.demoHeader}>
@@ -865,11 +879,16 @@ export function BookHome({
                 <button type="button" onClick={() => onOpenDemoArticle(DEMO_IMPORTED_ARTICLE)}>先用左页示例阅读</button>
               </div>
                   </section>
-                </div>
-              )}
+              </div>
 
-              {chapter === "preferences" && (
-                <section className={styles.preferenceSpread} aria-labelledby="recommendation-profile-heading">
+              <section
+                ref={(element) => { spreadRefs.current.preferences = element; }}
+                data-book-spread="preferences"
+                className={`${styles.preferenceSpread} ${styles.spreadLayer} ${chapter === "preferences" ? styles.spreadActive : styles.spreadInactive}`}
+                aria-labelledby="recommendation-profile-heading"
+                aria-hidden={chapter !== "preferences"}
+                inert={chapter !== "preferences"}
+              >
                   <div className={`${styles.page} ${styles.preferenceIntro}`}>
                     <div className={styles.pageNumber}>Reading note · 04</div>
                     <p className={styles.sectionLabel}>推荐前的简单选择</p>
@@ -931,10 +950,15 @@ export function BookHome({
                       <button type="button" onClick={completeRecommendationProfile}>生成我的推荐目录</button>
                     </div>
                   </div>
-                </section>
-              )}
+              </section>
 
-              {chapter === "recommendations" && (
+              <div
+                ref={(element) => { spreadRefs.current.recommendations = element; }}
+                data-book-spread="recommendations"
+                className={`${styles.recommendationSpread} ${styles.spreadLayer} ${chapter === "recommendations" ? styles.spreadActive : styles.spreadInactive}`}
+                aria-hidden={chapter !== "recommendations"}
+                inert={chapter !== "recommendations"}
+              >
                 <BookRecommendations
                   embedded
                   articles={publicArticles}
@@ -944,27 +968,23 @@ export function BookHome({
                   onOpenArticle={onOpenPublicArticle}
                   onPrefetchArticle={onPrefetchPublicArticle}
                 />
-              )}
+              </div>
 
-              {turning && (
-                <div className={`${styles.pageTurn} ${turnDirection === "backward" ? styles.pageTurnBackward : ""}`} aria-hidden="true" data-target={turnTarget ?? ""}>
-                  <div className={styles.pageTurnShadow} />
-                  {PAGE_STRIPS.map((index) => <i key={index} style={{ "--strip": index } as CSSProperties} />)}
-                  <span className={styles.pageTurnEdge} />
-                </div>
-              )}
+              <CurvedPageTurn ref={pageTurnRef} active={turning} direction={turnDirection} />
 
-              {coverState !== "open" && (
-                <button
+              <button
                   type="button"
                   className={styles.coverAssembly}
                   data-pointer-live
                   onClick={() => openBook()}
-                  disabled={coverState === "opening"}
+                  disabled={coverState !== "closed"}
+                  tabIndex={coverState === "open" ? -1 : 0}
+                  aria-hidden={coverState === "open"}
                   aria-label={coverState === "closed" ? "打开 Context Reader" : "正在打开 Context Reader"}
                 >
                   <span className={styles.closedBook}>
                     <span className={styles.backBoard} />
+                    <span className={`${styles.pageBlockEdges} ${styles.leftPageBlockEdges}`}><i /><i /><i /><i /></span>
                     <span className={styles.pageBlockEdges}><i /><i /><i /><i /></span>
                     <span className={styles.frontBoard}>
                       <span className={styles.frontBoardBack} />
@@ -979,8 +999,7 @@ export function BookHome({
                     </span>
                     <span className={styles.bookForeEdge} />
                   </span>
-                </button>
-              )}
+              </button>
             </div>
           </div>
 

@@ -27,6 +27,16 @@ function parsedTime(value: string | undefined): number {
   return Number.isFinite(parsed) ? parsed : 0;
 }
 
+export function sortVocabularyEntriesByCreatedAt(entries: VocabularyEntry[]): VocabularyEntry[] {
+  return [...entries].sort((left, right) => {
+    const createdDifference = parsedTime(right.createdAt) - parsedTime(left.createdAt);
+    if (createdDifference !== 0) return createdDifference;
+    const updatedDifference = parsedTime(right.updatedAt) - parsedTime(left.updatedAt);
+    if (updatedDifference !== 0) return updatedDifference;
+    return right.id.localeCompare(left.id);
+  });
+}
+
 function recoveryDepth(id: string): number {
   return id.match(RECOVERY_ID_PATTERN)?.length ?? 0;
 }
@@ -123,5 +133,8 @@ export function deduplicateVocabularyEntries(entries: VocabularyEntry[]): {
     }
     return merged;
   });
-  return { entries: deduplicated, removedIds: Array.from(removedIds) };
+  return {
+    entries: sortVocabularyEntriesByCreatedAt(deduplicated),
+    removedIds: Array.from(removedIds),
+  };
 }

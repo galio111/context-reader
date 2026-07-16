@@ -5,11 +5,52 @@ import { useVirtualizer } from "@tanstack/react-virtual";
 import { AnkiPreviewModal } from "@/components/AnkiPreviewModal";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
+import { sortVocabularyEntriesByCreatedAt } from "@/lib/vocabularyMerge";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
-const VOCABULARY_ESTIMATED_ROW_HEIGHT = 340;
 const VOCABULARY_ROW_GAP = 12;
-const VOCABULARY_OVERSCAN = 4;
+const VOCABULARY_OVERSCAN = 2;
+const keepScrollOffsetStable = () => false;
+
+function wrappedLineCount(value: string, charactersPerLine: number): number {
+  return Math.max(1, Math.ceil(value.trim().length / charactersPerLine));
+}
+
+function estimatedVocabularyRowHeight(
+  entry: VocabularyEntry,
+  expanded: boolean,
+  showAnkiActions: boolean,
+): number {
+  const narrow = typeof window !== "undefined" && window.innerWidth < 640;
+  const proseWidth = narrow ? 28 : 72;
+  const translationWidth = narrow ? 24 : 48;
+  const baseLines =
+    wrappedLineCount(entry.contextMeaning, proseWidth)
+    + wrappedLineCount(entry.basicMeaning, proseWidth)
+    + wrappedLineCount(entry.sourceSentence, proseWidth)
+    + wrappedLineCount(entry.sentenceTranslation, translationWidth);
+  const extraBaseLines = Math.max(0, baseLines - 4);
+  const hasExtendedDetails = Boolean(
+    entry.usageNote || entry.collocation || entry.exampleEnglish || entry.exampleChinese,
+  );
+  let height = 350 + extraBaseLines * 24;
+  if (narrow) height += 34;
+  if (hasExtendedDetails) height += 32;
+  if (showAnkiActions && entry.anki.cardMode === "basic_cn_to_en") height += 64;
+  if (!expanded) return height;
+
+  const extendedValues = [
+    entry.usageNote,
+    entry.collocation,
+    entry.exampleEnglish,
+    entry.exampleChinese,
+  ].filter(Boolean);
+  const extendedLines = extendedValues.reduce(
+    (total, value) => total + wrappedLineCount(value, narrow ? 26 : 66),
+    0,
+  );
+  return height + extendedValues.length * 36 + extendedLines * 24;
+}
 
 function selectedTextKind(value: string): "word" | "phrase" {
   return value.trim().split(/\s+/).filter(Boolean).length > 1 ? "phrase" : "word";
@@ -74,13 +115,14 @@ export function VocabularyPanel({
     });
   }, [open]);
 
+  const orderedEntries = useMemo(() => sortVocabularyEntriesByCreatedAt(entries), [entries]);
   const normalizedSearchQuery = searchQuery.trim().toLowerCase();
   const filteredEntries = useMemo(
     () =>
       normalizedSearchQuery
-        ? entries.filter((entry) => entry.word.trim().toLowerCase().startsWith(normalizedSearchQuery))
-        : entries,
-    [entries, normalizedSearchQuery],
+        ? orderedEntries.filter((entry) => entry.word.trim().toLowerCase().startsWith(normalizedSearchQuery))
+        : orderedEntries,
+    [orderedEntries, normalizedSearchQuery],
   );
   const getVocabularyEntryKey = useCallback(
     (index: number) => filteredEntries[index]?.id ?? index,
@@ -89,11 +131,18 @@ export function VocabularyPanel({
   const rowVirtualizer = useVirtualizer({
     count: filteredEntries.length,
     getScrollElement: () => listRef.current,
-    estimateSize: () => VOCABULARY_ESTIMATED_ROW_HEIGHT,
+    estimateSize: (index) => {
+      const entry = filteredEntries[index];
+      return entry
+        ? estimatedVocabularyRowHeight(entry, expandedEntryIds.has(entry.id), showAnkiActions)
+        : 400;
+    },
     getItemKey: getVocabularyEntryKey,
     gap: VOCABULARY_ROW_GAP,
     overscan: VOCABULARY_OVERSCAN,
+    useAnimationFrameWithResizeObserver: true,
   });
+  rowVirtualizer.shouldAdjustScrollPositionOnItemSizeChange = keepScrollOffsetStable;
   const unimportedCount = useMemo(
     () => entries.filter((entry) => !entry.anki.ankiNoteId).length,
     [entries],
@@ -154,7 +203,7 @@ export function VocabularyPanel({
 
   return (
     <div
-      className="fixed inset-0 z-40 overflow-hidden bg-black/25 backdrop-blur-sm"
+      className="fixed inset-0 z-40 overflow-hidden bg-black/25"
       data-local-scroll-surface
     >
       <div className={panelClassName}>

@@ -626,6 +626,11 @@ a:hover .cr-roll > span {
   scrollbar-gutter: stable;
 }
 
+.cr-overlay-locked .cr-home,
+.cr-overlay-locked .cr-home * {
+  animation-play-state: paused !important;
+}
+
 .cr-saved-row {
   position: relative;
   display: grid;

@@ -193,6 +193,7 @@ export function ArticleInput({
           publicArticles={initialPublicArticles}
           savedArticles={account.authenticated ? savedArticles : []}
           vocabularyCount={account.authenticated ? vocabularyEntries.length : 0}
+          overlayOpen={vocabularyOpen}
           onArticleChange={onArticleChange}
           onArticleUrlChange={onArticleUrlChange}
           onStartReading={onStartReading}

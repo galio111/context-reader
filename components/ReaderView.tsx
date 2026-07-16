@@ -925,7 +925,7 @@ export function ReaderView({
 
   function getTokenRange(startToken: ReaderToken, endToken: ReaderToken): ReaderToken[] {
     if (startToken.paragraphIndex !== endToken.paragraphIndex) {
-      return [endToken];
+      return [startToken];
     }
 
     const startIndex = Math.min(startToken.tokenIndex, endToken.tokenIndex);
@@ -1188,7 +1188,6 @@ export function ReaderView({
     }
     const token = tokenFromEventTarget(event.target);
     if (token) {
-      event.preventDefault();
       if (event.pointerType === "touch") {
         touchInteractionRef.current = {
           token,
@@ -1211,6 +1210,7 @@ export function ReaderView({
         }, 260);
         return;
       }
+      event.preventDefault();
       handleTokenPointerDown(token);
     }
   }
@@ -1290,7 +1290,10 @@ export function ReaderView({
         return;
       }
 
-      const finalToken = tokenFromPoint(event.clientX, event.clientY) ?? interaction.currentToken;
+      const pointToken = tokenFromPoint(event.clientX, event.clientY);
+      const finalToken = pointToken?.paragraphIndex === interaction.token.paragraphIndex
+        ? pointToken
+        : interaction.currentToken;
       const range = getTokenRange(interaction.token, finalToken).slice(0, 8);
       if (interaction.selecting) {
         suppressNextClickRef.current = true;
@@ -1908,7 +1911,7 @@ export function ReaderView({
   const activeArticleStyle = DEFAULT_ARTICLE_STYLE;
   const articleShellClassName = [
     "mx-auto overflow-x-hidden break-words [overflow-wrap:anywhere]",
-    editingArticle ? "select-text" : "select-none",
+    editingArticle ? "select-text" : "select-none touch-pan-y",
     activeArticleStyle.contentWidth === "narrow" ? "max-w-2xl" : activeArticleStyle.contentWidth === "wide" ? "max-w-4xl" : "max-w-3xl",
     activeArticleStyle.fontFamily === "serif" ? "font-serif" : activeArticleStyle.fontFamily === "mono" ? "font-mono" : "font-sans",
   ].join(" ");

@@ -190,6 +190,8 @@ Anki import depends on local browser access to AnkiConnect:
 - `http://127.0.0.1:8765` should respond with version 6.
 - CORS must include `https://context-reader-ten.vercel.app`.
 
+The public `/guide` route provides the user-facing setup flow. It detects the current device, links to the official Anki desktop download, copies AnkiConnect add-on code `2055492159`, tests the local connection, and reveals a targeted troubleshooting list plus a copyable production-origin configuration when the check fails. Clipboard copying falls back to a temporary selectable field for restricted browsers. A webpage cannot silently install desktop software or operate Anki before AnkiConnect exists, so the guide describes this as a three-step assisted setup rather than a literal one-click install.
+
 Context Reader creates or updates its Anki note templates during import. Cloze-card fronts show the cloze sentence first, then a large gap, then only the target word or phrase's exact current-context translation from the latest generated explanation. The hint does not include the basic meaning, full-sentence translation, fallback text, or an added label. Card backs include Anki native US and UK TTS replay controls. The UK control requests `en_GB` without hard-coded voice names, so Anki can select an installed British voice across operating systems.
 
 No audio files are downloaded or stored in Anki media for this feature. During import, Context Reader tries to set the target deck config's `autoplay` option to `false` through AnkiConnect, so pronunciation should play only when the user clicks the replay control. If deck config writes are unavailable in the user's Anki setup, disable audio autoplay manually in Anki's deck options.

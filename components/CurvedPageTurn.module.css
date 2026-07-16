@@ -1,0 +1,216 @@
+.turnLayer {
+  position: absolute;
+  z-index: 42;
+  inset: 0;
+  overflow: visible;
+  border-radius: inherit;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateZ(26px);
+  transition: opacity 110ms ease, visibility 0s linear 110ms;
+  pointer-events: none;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 80ms ease, visibility 0s;
+}
+
+.active::after {
+  position: absolute;
+  z-index: 18;
+  top: 1.5%;
+  bottom: 1.5%;
+  left: 50%;
+  width: 18%;
+  content: "";
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, rgb(37 53 66 / 19%), rgb(37 53 66 / 4%), transparent);
+  filter: blur(7px);
+  transform: translateX(175%) scaleX(.24);
+  transform-origin: center;
+  animation: contactShadow 1.08s cubic-bezier(.2,.68,.18,1) both;
+  pointer-events: none;
+}
+
+.backward.active::after { animation-name: contactShadowBackward; }
+
+@keyframes contactShadow {
+  0% { opacity: 0; transform: translateX(175%) scaleX(.24); }
+  18% { opacity: .38; }
+  52% { opacity: .92; transform: translateX(-55%) scaleX(1); }
+  100% { opacity: 0; transform: translateX(-220%) scaleX(.22); }
+}
+
+@keyframes contactShadowBackward {
+  0% { opacity: 0; transform: translateX(-220%) scaleX(.22); }
+  18% { opacity: .38; }
+  52% { opacity: .92; transform: translateX(-55%) scaleX(1); }
+  100% { opacity: 0; transform: translateX(175%) scaleX(.24); }
+}
+
+.engine,
+.engine :global(.stf__parent),
+.engine :global(.stf__wrapper),
+.engine :global(.stf__block) {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.engine {
+  position: absolute;
+  inset: 0;
+}
+
+.engine :global(.stf__parent) {
+  min-width: 0 !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+
+.engine :global(.stf__wrapper) {
+  padding-bottom: 0 !important;
+  overflow: visible !important;
+}
+
+.engine :global(.stf__block) {
+  overflow: visible !important;
+  perspective: 2600px !important;
+}
+
+.turnPaper {
+  overflow: hidden;
+  color: #1a2a35;
+  background:
+    radial-gradient(circle at 18% 10%, rgb(255 255 255 / 96%), transparent 35%),
+    linear-gradient(106deg, rgb(202 217 228 / 22%), transparent 17%, transparent 82%, rgb(122 146 163 / 11%)),
+    #f7fafc;
+  box-shadow: inset 0 0 0 1px rgb(59 82 99 / 7%);
+  backface-visibility: visible;
+}
+
+.turnPaper::before,
+.turnPaper::after {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  width: 22px;
+  content: "";
+  pointer-events: none;
+}
+
+.turnPaper::before {
+  left: 0;
+  background: linear-gradient(90deg, rgb(39 58 72 / 15%), transparent);
+}
+
+.turnPaper::after {
+  right: 0;
+  width: 5px;
+  background: linear-gradient(90deg, transparent, rgb(55 77 94 / 14%));
+}
+
+.snapshotViewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #f7fafc;
+}
+
+.snapshotContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  transform-origin: left top;
+  pointer-events: none;
+}
+
+.snapshotRight .snapshotContent { transform: translateX(-50%); }
+
+.snapshotContent > [data-book-spread] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: none !important;
+}
+
+.snapshotContent *,
+.snapshotContent *::before,
+.snapshotContent *::after {
+  animation: none !important;
+  caret-color: transparent !important;
+  transition: none !important;
+}
+
+.paperGrain {
+  position: absolute;
+  z-index: 7;
+  inset: 0;
+  opacity: .25;
+  background:
+    radial-gradient(circle at 20% 28%, rgb(119 143 159 / 13%) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 72% 66%, rgb(255 255 255 / 80%) 0 1px, transparent 1.5px);
+  background-size: 34px 31px, 29px 37px;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.fallbackLeaf {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 0 14px 14px 0;
+  opacity: 0;
+  background: linear-gradient(100deg, #dbe5eb, #fff 18% 76%, #d5e0e7);
+  box-shadow: -16px 0 28px rgb(39 58 72 / 18%);
+  transform: rotateY(0deg);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+}
+
+.active:not(.ready) .fallbackLeaf { animation: fallbackTurn 1.08s cubic-bezier(.18,.72,.16,1) both; }
+.backward .fallbackLeaf { right: 50%; transform-origin: right center; }
+.backward.active:not(.ready) .fallbackLeaf { animation-name: fallbackTurnBackward; }
+
+@keyframes fallbackTurn {
+  0% { opacity: 1; transform: rotateY(0deg) skewY(0deg); }
+  52% { opacity: 1; transform: translateZ(48px) rotateY(-92deg) skewY(-1.2deg); }
+  100% { opacity: 0; transform: rotateY(-180deg) skewY(0deg); }
+}
+
+@keyframes fallbackTurnBackward {
+  0% { opacity: 1; transform: rotateY(0deg) skewY(0deg); }
+  52% { opacity: 1; transform: translateZ(48px) rotateY(92deg) skewY(1.2deg); }
+  100% { opacity: 0; transform: rotateY(180deg) skewY(0deg); }
+}
+
+@media (max-width: 760px) {
+  .turnLayer { transform: translateZ(18px); }
+  .engine { display: none; }
+  .fallbackLeaf { display: block; width: 100%; right: 0; border-radius: inherit; }
+  .backward .fallbackLeaf { right: 0; }
+  .active .fallbackLeaf { animation: mobileLeafPass .72s cubic-bezier(.2,.72,.18,1) both !important; }
+  @keyframes mobileLeafPass {
+    0% { opacity: 0; clip-path: inset(0 0 0 100%); transform: translateX(9%) rotateY(-8deg); }
+    30% { opacity: 1; }
+    100% { opacity: 0; clip-path: inset(0 100% 0 0); transform: translateX(-8%) rotateY(8deg); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .engine { display: none; }
+  .active .fallbackLeaf {
+    animation: reducedTurn .16s ease both !important;
+  }
+  @keyframes reducedTurn {
+    0%, 100% { opacity: 0; }
+    50% { opacity: .72; }
+  }
+}

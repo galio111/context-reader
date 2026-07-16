@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef, useState } from "react";
+
 type PronunciationAccent = "en-US" | "en-GB";
 
 interface PronunciationButtonsProps {
@@ -10,6 +12,14 @@ const VOICE_LOAD_TIMEOUT_MS = 1000;
 let cachedVoices: SpeechSynthesisVoice[] = [];
 let voiceLoadPromise: Promise<SpeechSynthesisVoice[]> | null = null;
 let speechWarmupPromise: Promise<void> | null = null;
+
+function supportsBrowserSpeech(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    "speechSynthesis" in window &&
+    typeof window.SpeechSynthesisUtterance !== "undefined"
+  );
+}
 
 function voiceNameScore(voice: SpeechSynthesisVoice, accent: PronunciationAccent): number {
   const lang = voice.lang.toLowerCase().replace("_", "-");
@@ -76,6 +86,7 @@ function waitForVoices(): Promise<SpeechSynthesisVoice[]> {
       settled = true;
       window.speechSynthesis.removeEventListener("voiceschanged", finish);
       cachedVoices = window.speechSynthesis.getVoices();
+      voiceLoadPromise = null;
       resolve(cachedVoices);
     };
     window.speechSynthesis.addEventListener("voiceschanged", finish);
@@ -118,17 +129,29 @@ function warmSpeechEngine(): Promise<void> {
 }
 
 export function PronunciationButtons({ text }: PronunciationButtonsProps) {
-  const supportsSpeech =
-    typeof window !== "undefined" &&
-    "speechSynthesis" in window &&
-    typeof window.SpeechSynthesisUtterance !== "undefined";
+  const [playingAccent, setPlayingAccent] = useState<PronunciationAccent | null>(null);
+  const [playbackError, setPlaybackError] = useState("");
+  const playbackRequestIdRef = useRef(0);
+
+  function preparePronunciation() {
+    if (supportsBrowserSpeech()) {
+      void warmSpeechEngine();
+    }
+  }
 
   async function playPronunciation(accent: PronunciationAccent) {
     const spokenText = text.trim();
-    if (!supportsSpeech || !spokenText) {
+    if (!spokenText) {
+      return;
+    }
+    if (!supportsBrowserSpeech()) {
+      setPlaybackError("当前浏览器没有提供系统发音能力，请尝试用手机系统浏览器打开本站。");
       return;
     }
 
+    setPlaybackError("");
+    setPlayingAccent(accent);
+    const playbackRequestId = ++playbackRequestIdRef.current;
     await warmSpeechEngine();
 
     const loadedVoices = cachedVoices.length > 0 ? cachedVoices : await waitForVoices();
@@ -138,41 +161,61 @@ export function PronunciationButtons({ text }: PronunciationButtonsProps) {
     utterance.rate = 0.9;
     utterance.pitch = 1;
     utterance.voice = pickVoice(loadedVoices, accent) ?? null;
+    utterance.onstart = () => {
+      if (playbackRequestIdRef.current === playbackRequestId) {
+        setPlayingAccent(accent);
+      }
+    };
+    utterance.onend = () => {
+      if (playbackRequestIdRef.current === playbackRequestId) {
+        setPlayingAccent(null);
+      }
+    };
+    utterance.onerror = (event) => {
+      if (playbackRequestIdRef.current !== playbackRequestId) {
+        return;
+      }
+      setPlayingAccent(null);
+      if (event.error !== "canceled" && event.error !== "interrupted") {
+        setPlaybackError("当前浏览器暂时无法播放发音，请检查系统语音设置。");
+      }
+    };
 
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utterance);
   }
 
-  if (!supportsSpeech) {
-    return null;
-  }
-
   return (
-    <div className="flex items-center gap-1.5" aria-label="单词发音">
+    <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="发音选项">
       <button
         type="button"
-        className="inline-flex h-8 items-center gap-1 rounded-full border border-[#d2d2d7] bg-white px-2.5 text-xs font-medium text-[#1d1d1f] transition hover:border-[#0066cc] hover:text-[#0066cc] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20"
-        onPointerEnter={() => void warmSpeechEngine()}
-        onFocus={() => void warmSpeechEngine()}
+        className="inline-flex h-11 items-center gap-1.5 rounded-full border border-[#d2d2d7] bg-white px-3.5 text-sm font-medium text-[#1d1d1f] transition hover:border-[#0066cc] hover:text-[#0066cc] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 lg:h-8 lg:gap-1 lg:px-2.5 lg:text-xs"
+        onPointerDown={preparePronunciation}
+        onPointerEnter={preparePronunciation}
+        onFocus={preparePronunciation}
         onClick={() => void playPronunciation("en-US")}
         aria-label={`播放 ${text} 的美式发音`}
+        aria-pressed={playingAccent === "en-US"}
         title="美式发音"
       >
-        <span aria-hidden="true">▶</span>
-        <span>美</span>
+        <span aria-hidden="true">{playingAccent === "en-US" ? "■" : "▶"}</span>
+        <span>美音</span>
       </button>
       <button
         type="button"
-        className="inline-flex h-8 items-center gap-1 rounded-full border border-[#d2d2d7] bg-white px-2.5 text-xs font-medium text-[#1d1d1f] transition hover:border-[#0066cc] hover:text-[#0066cc] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20"
-        onPointerEnter={() => void warmSpeechEngine()}
-        onFocus={() => void warmSpeechEngine()}
+        className="inline-flex h-11 items-center gap-1.5 rounded-full border border-[#d2d2d7] bg-white px-3.5 text-sm font-medium text-[#1d1d1f] transition hover:border-[#0066cc] hover:text-[#0066cc] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 lg:h-8 lg:gap-1 lg:px-2.5 lg:text-xs"
+        onPointerDown={preparePronunciation}
+        onPointerEnter={preparePronunciation}
+        onFocus={preparePronunciation}
         onClick={() => void playPronunciation("en-GB")}
         aria-label={`播放 ${text} 的英式发音`}
+        aria-pressed={playingAccent === "en-GB"}
         title="英式发音"
       >
-        <span aria-hidden="true">▶</span>
-        <span>英</span>
+        <span aria-hidden="true">{playingAccent === "en-GB" ? "■" : "▶"}</span>
+        <span>英音</span>
       </button>
+      {playbackError && <p className="basis-full text-xs leading-5 text-[#b42318]" role="status">{playbackError}</p>}
     </div>
   );
 }
