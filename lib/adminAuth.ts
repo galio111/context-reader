@@ -1,5 +1,7 @@
 import { createHmac, randomBytes, timingSafeEqual } from "crypto";
 import { cookies } from "next/headers";
+import { isActiveDeveloperAccount } from "@/lib/accountStore";
+import { getAuthenticatedUser, isAccountSystemConfigured } from "@/lib/userAuth";
 
 const ADMIN_COOKIE = process.env.NODE_ENV === "production"
   ? "__Host-context_reader_admin"
@@ -59,7 +61,7 @@ export async function clearAdminSession(): Promise<void> {
   });
 }
 
-export async function isAdminRequest(): Promise<boolean> {
+async function hasPasswordAdminSession(): Promise<boolean> {
   if (sessionSecret().length < 32) {
     return false;
   }
@@ -82,4 +84,29 @@ export async function isAdminRequest(): Promise<boolean> {
   }
 
   return safeEqual(signature, sign(`${issuedAt}.${nonce}.${version}`));
+}
+
+async function hasDeveloperAccountSession(): Promise<boolean> {
+  if (!isAccountSystemConfigured()) {
+    return false;
+  }
+  try {
+    const user = await getAuthenticatedUser();
+    return Boolean(user && await isActiveDeveloperAccount(user.id));
+  } catch {
+    return false;
+  }
+}
+
+export type AdminAccessMode = "developer" | "password" | null;
+
+export async function getAdminAccessMode(): Promise<AdminAccessMode> {
+  if (await hasDeveloperAccountSession()) {
+    return "developer";
+  }
+  return await hasPasswordAdminSession() ? "password" : null;
+}
+
+export async function isAdminRequest(): Promise<boolean> {
+  return Boolean(await getAdminAccessMode());
 }

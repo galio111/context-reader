@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import CandidateArticlePreview from "@/components/CandidateArticlePreview";
 import type { ImportedArticle, SavedArticle } from "@/types/article";
 import {
   ARTICLE_DIFFICULTIES,
@@ -62,6 +61,7 @@ interface DraftState {
 
 interface AdminArticleIntakePanelProps {
   onPublished?: () => void | Promise<void>;
+  onOpenArticle: (article: PublicArticle) => void;
   savedArticles: SavedArticle[];
 }
 
@@ -203,7 +203,7 @@ function draftFromSavedArticle(article: SavedArticle): DraftState {
   };
 }
 
-export default function AdminArticleIntakePanel({ onPublished, savedArticles }: AdminArticleIntakePanelProps) {
+export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, savedArticles }: AdminArticleIntakePanelProps) {
   const [mode, setMode] = useState<"local" | "paste" | "url">("local");
   const [url, setUrl] = useState("");
   const [selectedLocalArticleId, setSelectedLocalArticleId] = useState("");
@@ -219,7 +219,6 @@ export default function AdminArticleIntakePanel({ onPublished, savedArticles }: 
   const [crawlerTargetInventory, setCrawlerTargetInventory] = useState(6);
   const [crawlerStatus, setCrawlerStatus] = useState<RecommendationCrawlerStatus | null>(null);
   const [crawlerResult, setCrawlerResult] = useState<RecommendationCrawlerRunResult | null>(null);
-  const [previewArticle, setPreviewArticle] = useState<PublicArticle | null>(null);
   const editorRef = useRef<HTMLDivElement>(null);
 
   const missingCoverCount = useMemo(
@@ -565,7 +564,6 @@ export default function AdminArticleIntakePanel({ onPublished, savedArticles }: 
 
   return (
     <>
-      {previewArticle && <CandidateArticlePreview article={previewArticle} onClose={() => setPreviewArticle(null)} />}
       <div className="grid gap-5">
         {(message || error) && (
           <div className={`rounded-xl border px-4 py-3 text-sm leading-6 ${error ? "border-red-200 bg-red-50 text-red-800" : "border-[#bfd4e5] bg-[#edf5fb] text-[#174d73]"}`} role={error ? "alert" : "status"}>
@@ -712,7 +710,7 @@ export default function AdminArticleIntakePanel({ onPublished, savedArticles }: 
                 <input className="h-5 w-5 accent-[#1769aa]" type="checkbox" checked={selected} disabled={!hasCover || busy} aria-label={`选择 ${article.title}`} onChange={() => setSelectedIds((ids) => selected ? ids.filter((id) => id !== article.id) : [...ids, article.id])} />
                 <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#e8edf1]">{hasCover ? <img className="h-full w-full object-cover" src={recommendation?.coverImageUrl} alt="" /> : <div className="flex h-full items-center justify-center px-2 text-center text-xs text-[#6a4a43]">缺少封面</div>}</div>
                 <div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold leading-6 text-[#17191c]">{article.title}</h3><span className={`rounded-full px-2.5 py-1 text-xs font-medium ${hasCover ? "bg-[#e9f5ee] text-[#17613b]" : "bg-[#fff0ed] text-[#9b3524]"}`}>{hasCover ? "可发布" : "待补封面"}</span>{recommendation?.sourceKind === "crawler" && <span className="rounded-full bg-[#edf5fb] px-2.5 py-1 text-xs font-medium text-[#174d73]">自动发现</span>}{recommendation?.sourceKind === "local-saved" && <span className="rounded-full bg-[#eef1f4] px-2.5 py-1 text-xs font-medium text-[#4d535a]">本地文章</span>}</div><p className="mt-1 line-clamp-2 text-sm leading-6 text-[#4d535a]">{article.summary || "暂无摘要"}</p><p className="mt-1 text-xs leading-5 text-[#68717a]">{recommendation?.difficulty || "待判断"} · {recommendation?.topics.join("、") || "待分类"} · {recommendation?.readingMinutes || 1} 分钟</p></div>
-                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => setPreviewArticle(article)} disabled={busy}>预览用户视图</button><button className={secondaryButtonClass} type="button" onClick={() => { setDraft(draftFromCandidate(article)); setMode(article.recommendation?.sourceKind === "local-saved" ? "local" : article.recommendation?.sourceKind === "manual-paste" ? "paste" : "url"); setSelectedLocalArticleId(""); setError(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }} disabled={busy}>编辑</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => void handleDeleteCandidate(article)} disabled={busy}>删除</button></div>
+                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => onOpenArticle(article)} disabled={busy}>打开并编辑正文</button><button className={secondaryButtonClass} type="button" onClick={() => { setDraft(draftFromCandidate(article)); setMode(article.recommendation?.sourceKind === "local-saved" ? "local" : article.recommendation?.sourceKind === "manual-paste" ? "paste" : "url"); setSelectedLocalArticleId(""); setError(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }} disabled={busy}>编辑资料与封面</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => void handleDeleteCandidate(article)} disabled={busy}>删除</button></div>
               </li>;
             })}
           </ul>

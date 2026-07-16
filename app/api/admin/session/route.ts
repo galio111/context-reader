@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
-import { isAdminRequest } from "@/lib/adminAuth";
+import { getAdminAccessMode } from "@/lib/adminAuth";
 
 export async function GET() {
+  const accessMode = await getAdminAccessMode();
   return NextResponse.json(
-    { authenticated: await isAdminRequest() },
+    { authenticated: Boolean(accessMode), accessMode },
     { headers: { "Cache-Control": "private, no-store", Vary: "Cookie" } },
   );
 }

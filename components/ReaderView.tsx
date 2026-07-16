@@ -61,8 +61,10 @@ interface ReaderViewProps {
   sourceWordToHighlight?: string;
   sourceJumpRequestId?: number;
   onBack: () => void;
+  backLabel?: string;
   onArticleSaved: () => void;
   onArticleChange?: (article: string, importedArticle: ImportedArticle | null) => void;
+  onArticleEditCommit?: (article: string, importedArticle: ImportedArticle | null) => Promise<void> | void;
   onImportedArticleChange?: (article: ImportedArticle) => void;
   onJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean;
   canJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean;
@@ -380,8 +382,10 @@ export function ReaderView({
   sourceWordToHighlight = "",
   sourceJumpRequestId = 0,
   onBack,
+  backLabel = "返回首页",
   onArticleSaved,
   onArticleChange,
+  onArticleEditCommit,
   onImportedArticleChange,
   onJumpToVocabularySourceOutsideArticle,
   canJumpToVocabularySourceOutsideArticle,
@@ -393,6 +397,7 @@ export function ReaderView({
   const [draftPlainArticle, setDraftPlainArticle] = useState("");
   const [draftBlocks, setDraftBlocks] = useState<ImportedArticleBlock[]>([]);
   const [editStatus, setEditStatus] = useState("");
+  const [savingArticleEdit, setSavingArticleEdit] = useState(false);
   const [articleUndoStack, setArticleUndoStack] = useState<ArticleEditSnapshot[]>([]);
   const [articleRedoStack, setArticleRedoStack] = useState<ArticleEditSnapshot[]>([]);
   const articleUndoStackRef = useRef<ArticleEditSnapshot[]>([]);
@@ -1672,7 +1677,29 @@ export function ReaderView({
     deleteDraftBlock(blockElement.dataset.blockId || "");
   }
 
-  function applyArticleSnapshot(snapshot: ArticleEditSnapshot) {
+  async function commitExternalArticleEdit(snapshot: ArticleEditSnapshot): Promise<boolean> {
+    if (!onArticleEditCommit) {
+      return true;
+    }
+    setSavingArticleEdit(true);
+    setEditStatus("正在同步文章修改...");
+    try {
+      await onArticleEditCommit(snapshot.article, snapshot.importedArticle);
+      setEditStatus("文章修改已同步");
+      window.setTimeout(() => setEditStatus(""), 2200);
+      return true;
+    } catch (error) {
+      setEditStatus(error instanceof Error ? error.message : "文章修改同步失败，请重试。");
+      return false;
+    } finally {
+      setSavingArticleEdit(false);
+    }
+  }
+
+  async function applyArticleSnapshot(snapshot: ArticleEditSnapshot): Promise<boolean> {
+    if (!(await commitExternalArticleEdit(snapshot))) {
+      return false;
+    }
     saveEditedArticle(currentArticle, snapshot.article, snapshot.importedArticle);
     setCurrentArticle(snapshot.article);
     setCurrentImportedArticle(snapshot.importedArticle);
@@ -1687,9 +1714,10 @@ export function ReaderView({
       onImportedArticleChange?.(snapshot.importedArticle);
     }
     onArticleSaved();
+    return true;
   }
 
-  function undoSavedArticleEdit() {
+  async function undoSavedArticleEdit() {
     const currentSnapshot = snapshotFromEditingSurface();
     const currentHistorySnapshot = articleHistoryRef.current[articleHistoryIndexRef.current];
     if (currentHistorySnapshot && !sameArticleSnapshot(currentHistorySnapshot, currentSnapshot)) {
@@ -1701,27 +1729,31 @@ export function ReaderView({
     if (!previous) {
       return;
     }
+    if (!(await applyArticleSnapshot(previous))) {
+      return;
+    }
     articleHistoryIndexRef.current = previousIndex;
     syncArticleHistoryButtons();
-    applyArticleSnapshot(previous);
   }
 
-  function redoSavedArticleEdit() {
+  async function redoSavedArticleEdit() {
     const nextIndex = articleHistoryIndexRef.current + 1;
     const next = articleHistoryRef.current[nextIndex];
     if (!next) {
       return;
     }
+    if (!(await applyArticleSnapshot(next))) {
+      return;
+    }
     articleHistoryIndexRef.current = nextIndex;
     syncArticleHistoryButtons();
-    applyArticleSnapshot(next);
   }
 
   function recordSavedArticleEditUndo() {
     pushArticleHistorySnapshot(snapshotFromEditingSurface());
   }
 
-  function saveArticleEditing(): boolean {
+  async function saveArticleEditing(): Promise<boolean> {
     if (!currentImportedArticle?.blocks?.length) {
       const nextArticle = plainDraftTextFromDom();
       if (!nextArticle.trim()) {
@@ -1734,6 +1766,9 @@ export function ReaderView({
         setDraftBlocks([]);
         setEditStatus("");
         return true;
+      }
+      if (!(await commitExternalArticleEdit({ article: nextArticle, importedArticle: null }))) {
+        return false;
       }
       recordSavedArticleEditUndo();
       saveEditedArticle(currentArticle, nextArticle, null);
@@ -1773,6 +1808,9 @@ export function ReaderView({
       currentImportedArticle,
       currentImportedArticle?.style ?? DEFAULT_ARTICLE_STYLE,
     );
+    if (!(await commitExternalArticleEdit({ article: nextImportedArticle.text, importedArticle: nextImportedArticle }))) {
+      return false;
+    }
     recordSavedArticleEditUndo();
     saveEditedArticle(currentArticle, nextImportedArticle.text, nextImportedArticle);
     setCurrentArticle(nextImportedArticle.text);
@@ -1787,14 +1825,14 @@ export function ReaderView({
     return true;
   }
 
-  function handleBackToHome() {
+  async function handleBackToHome() {
     if (!editingArticle) {
       onBack();
       return;
     }
 
-    const shouldSave = window.confirm("是否保存当前文章修改后返回主页？\n\n确定：保存并返回主页\n取消：不保存，直接返回主页");
-    if (shouldSave && hasPendingArticleEditingChanges() && !saveArticleEditing()) {
+    const shouldSave = window.confirm("是否保存当前文章修改后返回？\n\n确定：保存并返回\n取消：不保存，直接返回");
+    if (shouldSave && hasPendingArticleEditingChanges() && !(await saveArticleEditing())) {
       return;
     }
 
@@ -2057,9 +2095,10 @@ export function ReaderView({
           <button
             type="button"
             className="h-9 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
-            onClick={handleBackToHome}
+            onClick={() => void handleBackToHome()}
+            disabled={savingArticleEdit}
           >
-            返回主页
+            {backLabel}
           </button>
           <div className="flex min-w-0 items-center gap-2 overflow-x-auto">
             {editStatus && <span className="shrink-0 text-sm text-[#333333]">{editStatus}</span>}
@@ -2067,8 +2106,8 @@ export function ReaderView({
             <button
               type="button"
               className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#0066cc] text-lg leading-none text-[#0066cc] transition hover:border-[#004f9f] hover:bg-[#f5f9ff] hover:text-[#004f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3]/25 active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#86868b] disabled:hover:bg-transparent"
-              onClick={undoSavedArticleEdit}
-              disabled={!editingArticle && articleUndoStack.length === 0}
+              onClick={() => void undoSavedArticleEdit()}
+              disabled={savingArticleEdit || (!editingArticle && articleUndoStack.length === 0)}
               aria-label="后退"
               title="后退"
             >
@@ -2077,8 +2116,8 @@ export function ReaderView({
             <button
               type="button"
               className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#0066cc] text-lg leading-none text-[#0066cc] transition hover:border-[#004f9f] hover:bg-[#f5f9ff] hover:text-[#004f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3]/25 active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#86868b] disabled:hover:bg-transparent"
-              onClick={redoSavedArticleEdit}
-              disabled={!editingArticle && articleRedoStack.length === 0}
+              onClick={() => void redoSavedArticleEdit()}
+              disabled={savingArticleEdit || (!editingArticle && articleRedoStack.length === 0)}
               aria-label="前进"
               title="前进"
             >
@@ -2090,15 +2129,17 @@ export function ReaderView({
                   type="button"
                   className="h-9 shrink-0 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
                   onClick={cancelArticleEditing}
+                  disabled={savingArticleEdit}
                 >
                   取消编辑
                 </button>
                 <button
                   type="button"
                   className="h-9 shrink-0 rounded-full bg-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-white transition active:scale-95"
-                  onClick={saveArticleEditing}
+                  onClick={() => void saveArticleEditing()}
+                  disabled={savingArticleEdit}
                 >
-                  保存编辑
+                  {savingArticleEdit ? "保存中..." : "保存编辑"}
                 </button>
               </>
             ) : (
@@ -2122,7 +2163,7 @@ export function ReaderView({
               type="button"
               className="h-9 shrink-0 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#7a7a7a]"
               onClick={handleSaveArticle}
-              disabled={savingArticle || editingArticle}
+              disabled={savingArticle || savingArticleEdit || editingArticle}
             >
               {saveButtonText}
             </button>

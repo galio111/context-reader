@@ -124,7 +124,6 @@ export function BookRecommendations({
           <div aria-hidden="true"><i /><i /><i /></div>
           <h3>推荐目录已经就位，公开书目仍是空的</h3>
           <p>候选文章必须补齐封面并由管理员审核发布，才会出现在游客和新用户眼前。这里不会用假文章填满版面。</p>
-          <a href="/admin">前往管理员文章库</a>
         </div>
       )}
 

@@ -126,7 +126,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!account.authenticated) return;
     if (
-      window.location.pathname.startsWith("/admin") ||
+      (window.location.pathname.startsWith("/admin") && account.plan?.id !== "admin") ||
       window.location.pathname === "/account/repair-vocabulary"
     ) return;
     void syncNow();
@@ -141,7 +141,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       window.removeEventListener("storage", schedule);
       if (syncTimer.current !== null) window.clearTimeout(syncTimer.current);
     };
-  }, [account.authenticated, syncNow]);
+  }, [account.authenticated, account.plan?.id, syncNow]);
 
   useEffect(() => {
     document.documentElement.classList.toggle("cr-overlay-locked", loginOpen);
@@ -283,6 +283,7 @@ export function AccountNav() {
       <button className="cr-nav-primary" type="button" onClick={() => { setOpen((value) => !value); setLogoutError(""); }} aria-expanded={open}>{label}</button>
       {open && <span className="absolute right-0 top-[calc(100%+10px)] z-50 grid w-60 gap-1 rounded-2xl border border-black/10 bg-[#fbfbf8] p-2 text-left text-sm shadow-xl">
         <span className="px-3 py-2 text-xs text-[#6c786f]">{account.plan?.displayName || "当前套餐"}</span>
+        {account.plan?.id === "admin" && <Link className="rounded-xl px-3 py-2 font-medium text-[#174d73] hover:bg-[#edf5fb]" href="/admin">打开管理后台</Link>}
         <Link className="rounded-xl px-3 py-2 hover:bg-black/5" href="/account/usage">用量与套餐</Link>
         <button className="rounded-xl px-3 py-2 text-left hover:bg-black/5 disabled:cursor-wait disabled:text-black/45" type="button" disabled={loggingOut} onClick={() => void handleLogout()}>{loggingOut ? "正在同步并退出…" : "退出登录"}</button>
         {logoutError && <span className="rounded-xl bg-red-50 px-3 py-2 text-xs leading-5 text-red-700" role="alert">{logoutError}</span>}
