@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAccount } from "@/components/AccountProvider";
 import type { UsageMetricKey } from "@/types/account";
 
@@ -19,7 +19,9 @@ const plans = [
 ] as const;
 
 export default function UsagePage() {
-  const { account, loading, openLogin, refreshAccount, syncNow } = useAccount();
+  const { account, loading, openLogin, refreshAccount, syncNow, logout } = useAccount();
+  const [loggingOut, setLoggingOut] = useState(false);
+  const [logoutError, setLogoutError] = useState("");
   const accountIdentifier = account.profile?.phone
     ? `手机号 ${account.profile.phone}`
     : account.profile?.email || "";
@@ -36,6 +38,18 @@ export default function UsagePage() {
     anchor.download = `context-reader-data-${new Date().toISOString().slice(0, 10)}.json`;
     anchor.click();
     URL.revokeObjectURL(url);
+  }
+
+  async function handleLogout() {
+    if (loggingOut) return;
+    setLoggingOut(true);
+    setLogoutError("");
+    try {
+      await logout();
+    } catch (error) {
+      setLogoutError(error instanceof Error ? error.message : "退出登录失败，请稍后重试。");
+      setLoggingOut(false);
+    }
   }
 
   return (
@@ -67,7 +81,13 @@ export default function UsagePage() {
                 <span className="rounded-full bg-[#e8f0e9] px-4 py-2 text-sm font-semibold text-[#355342]">{account.plan?.displayName || "免费用户"}</span>
               </div>
               <div className="mt-8 grid gap-5 sm:grid-cols-2">{account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}</div>
-              <div className="mt-8 flex flex-wrap items-center gap-3"><button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold" type="button" onClick={() => void syncNow()}>立即同步</button><button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold" type="button" onClick={() => void exportData()}>导出个人数据</button><span className="text-xs text-[#748078]">云端为准；冲突时保留本地恢复副本。</span></div>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold" type="button" onClick={() => void syncNow()}>立即同步</button>
+                <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold" type="button" onClick={() => void exportData()}>导出个人数据</button>
+                <button className="rounded-full border border-[#9b5353]/25 bg-transparent px-5 py-2.5 text-sm font-semibold text-[#854343] disabled:cursor-wait disabled:opacity-55" type="button" disabled={loggingOut} onClick={() => void handleLogout()}>{loggingOut ? "正在同步并退出…" : "退出登录"}</button>
+                <span className="text-xs text-[#748078]">云端为准；冲突时保留本地恢复副本。</span>
+              </div>
+              {logoutError && <p className="mt-4 text-sm text-[#963f3f]" role="alert">{logoutError}</p>}
             </section>
           </>
         )}

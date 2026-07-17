@@ -11,6 +11,17 @@
   pointer-events: none;
 }
 
+.turnLayer *,
+.turnLayer *::before,
+.turnLayer *::after {
+  cursor: default !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+.turnLayer:not(.active) .engine { display: none !important; }
+.active .engine { display: block !important; }
+
 .active {
   opacity: 1;
   visibility: visible;
@@ -143,7 +154,10 @@
 .snapshotContent *::after {
   animation: none !important;
   caret-color: transparent !important;
+  cursor: default !important;
+  pointer-events: none !important;
   transition: none !important;
+  user-select: none !important;
 }
 
 .paperGrain {

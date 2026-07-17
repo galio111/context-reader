@@ -1,0 +1,91 @@
+.root {
+  --ow-text-color: #8fa1ad;
+  --ow-active-color: #ffffff;
+  --ow-font-size: 2.25rem;
+  --ow-inset: 44px;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: none;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.dragging {
+  cursor: grabbing;
+}
+
+.item {
+  position: absolute;
+  top: 50%;
+  left: var(--ow-inset);
+  display: block;
+  margin: 0;
+  padding: 8px 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: color-mix(in srgb, var(--ow-active-color) calc(var(--ow-p, 0) * 100%), var(--ow-text-color));
+  font: inherit;
+  font-size: var(--ow-font-size);
+  font-weight: 350;
+  line-height: 1;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  transform-origin: left center;
+  will-change: transform, opacity, filter;
+}
+
+.right .item {
+  right: var(--ow-inset);
+  left: auto;
+  text-align: right;
+  transform-origin: right center;
+}
+
+.selected {
+  font-weight: 650;
+}
+
+.selected::after {
+  position: absolute;
+  top: 50%;
+  right: -28px;
+  width: 16px;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  opacity: .8;
+}
+
+.item:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 8px;
+}
+
+@media (max-width: 760px) {
+  .root {
+    --ow-font-size: 1.65rem !important;
+    --ow-inset: 24px !important;
+  }
+
+  .item {
+    padding-block: 7px;
+  }
+
+  .selected::after {
+    right: -22px;
+    width: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    will-change: auto;
+  }
+}

@@ -74,9 +74,9 @@
   padding: 0 17px;
   align-items: center;
   border-radius: 999px;
-  color: var(--ink);
-  background: rgb(248 251 253 / 94%);
-  box-shadow: 0 2px 8px rgb(39 58 72 / 13%);
+  color: oklch(38% .055 220);
+  background: oklch(97% .015 220);
+  box-shadow: 0 2px 8px oklch(42% .05 220 / 15%);
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
@@ -103,24 +103,22 @@
 
 .textAction {
   padding: 0 18px;
-  color: var(--blue-deep);
-  background: rgb(248 251 253 / 94%);
-  box-shadow: 0 2px 8px rgb(39 58 72 / 13%);
+  color: oklch(39% .075 220);
+  background: oklch(94.5% .028 210);
+  box-shadow: 0 2px 8px oklch(42% .05 220 / 14%);
 }
-
-.textAction:hover { background: rgb(255 255 255 / 58%); }
 
 .menuButton {
+  --pill-action-gap: 12px;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
   padding: 0 17px 0 20px;
-  color: white;
-  background: var(--ink);
-  transition: transform .2s ease, background .2s ease;
+  color: oklch(98.5% .006 220);
+  background: oklch(48% .095 220);
+  transition: transform .2s var(--ease);
 }
 
-.menuButton:hover { background: #263746; transform: translateY(-1px); }
+.menuButton:hover { transform: translateY(-1px); }
 .menuButton:active { transform: translateY(0) scale(.97); }
 
 .menuGlyph {
@@ -1122,6 +1120,24 @@
   transform-style: preserve-3d;
 }
 
+.coverOpen .book { transform: none; }
+
+.coverOpen .workbenchSpread,
+.coverOpen .preferenceSpread,
+.coverOpen .recommendationSpread {
+  transform: none;
+  transform-style: flat;
+}
+
+.coverOpen .page { transform-style: flat; }
+
+.root input,
+.root textarea,
+.root [contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 .recommendationSpread { display: block; background: #f7fafc; }
 .recommendationSpread > section { width: 100%; height: 100%; }
 
@@ -1346,6 +1362,8 @@
 
 .coverFace {
   z-index: 2;
+  isolation: isolate;
+  overflow: hidden;
   padding: clamp(34px, 3.6vw, 62px);
   flex-direction: column;
   justify-content: space-between;
@@ -1357,6 +1375,32 @@
   box-shadow:
     inset 0 0 0 1px rgb(28 75 108 / 13%),
     10px 18px 28px rgb(39 60 77 / 20%);
+}
+
+.coverBallpit {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  opacity: .72;
+  contain: paint;
+  pointer-events: none;
+}
+
+.coverBallpit::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    radial-gradient(ellipse at 22% 20%, rgb(220 232 242 / 94%) 0 12%, rgb(220 232 242 / 62%) 27%, transparent 49%),
+    linear-gradient(180deg, transparent 64%, rgb(220 232 242 / 58%) 100%);
+}
+
+.coverBallpitCanvas {
+  opacity: 1;
+  transform: scale(1.035) translateX(2%);
+  transform-origin: center;
 }
 
 .coverSpine {
@@ -1372,6 +1416,8 @@
 }
 
 .coverTitle {
+  position: relative;
+  z-index: 2;
   display: block;
   text-align: left;
 }
@@ -1391,6 +1437,8 @@
 }
 
 .coverFooter {
+  position: relative;
+  z-index: 2;
   display: flex;
   padding-top: 16px;
   justify-content: space-between;
@@ -1449,6 +1497,7 @@
 
 .coverFace::after {
   position: absolute;
+  z-index: 4;
   inset: 0;
   border-radius: inherit;
   content: "";
@@ -1642,6 +1691,7 @@
   .coverOpen .pageBlockEdges:not(.leftPageBlockEdges) { left: 7px; }
   .leftPageBlockEdges { display: none; }
   .coverFace { padding: 38px 28px 42px 50px; }
+  .coverBallpit { opacity: .62; }
   .coverTitle strong { font-size: clamp(43px, 13vw, 57px); }
   .coverFooter { flex-direction: column; gap: 5px; }
   .stageGuidance { bottom: 9px; padding: 0 18px; text-align: center; }
@@ -1674,4 +1724,5 @@
   .preferenceSpread,
   .recommendationSpread { transition-duration: .12s !important; animation-duration: .12s !important; }
   .coverOpening .frontBoard { opacity: 0; transform: none; }
+  .coverBallpit { display: none; }
 }

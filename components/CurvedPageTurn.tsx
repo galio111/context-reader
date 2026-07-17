@@ -19,6 +19,30 @@ interface CurvedPageTurnProps {
   direction: "forward" | "backward";
 }
 
+interface SuspendableRender {
+  drawFrame: () => void;
+}
+
+interface RenderControl {
+  render: SuspendableRender;
+  drawFrame: () => void;
+}
+
+interface PageFlipRuntime {
+  getRender: () => SuspendableRender;
+  getSettings: () => {
+    width: number;
+    height: number;
+    minWidth: number;
+    maxWidth: number;
+    minHeight: number;
+    maxHeight: number;
+  };
+  update: () => void;
+}
+
+const noFrame = () => {};
+
 function copyLiveFormState(source: HTMLElement, clone: HTMLElement) {
   const sourceControls = source.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>("input, textarea, select");
   const cloneControls = clone.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>("input, textarea, select");
@@ -45,8 +69,8 @@ function makeSnapshotPage(spread: HTMLElement | null, side: "left" | "right") {
   if (spread) {
     const clone = spread.cloneNode(true) as HTMLElement;
     copyLiveFormState(spread, clone);
-    clone.removeAttribute("aria-hidden");
-    clone.removeAttribute("inert");
+    clone.setAttribute("aria-hidden", "true");
+    clone.setAttribute("inert", "");
     clone.querySelectorAll<HTMLElement>("[id], [aria-labelledby], [aria-describedby], [tabindex]").forEach((element) => {
       element.removeAttribute("id");
       element.removeAttribute("aria-labelledby");
@@ -54,9 +78,9 @@ function makeSnapshotPage(spread: HTMLElement | null, side: "left" | "right") {
       element.setAttribute("tabindex", "-1");
     });
     clone.querySelectorAll<HTMLButtonElement | HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>("button, input, textarea, select").forEach((element) => {
-      element.disabled = true;
       element.setAttribute("tabindex", "-1");
     });
+    clone.querySelectorAll<HTMLElement>("canvas, video, iframe").forEach((element) => element.remove());
     content.appendChild(clone);
   }
 
@@ -67,92 +91,93 @@ function makeSnapshotPage(spread: HTMLElement | null, side: "left" | "right") {
   return page;
 }
 
+function makeBlankPages() {
+  return [
+    makeSnapshotPage(null, "left"),
+    makeSnapshotPage(null, "right"),
+    makeSnapshotPage(null, "left"),
+    makeSnapshotPage(null, "right"),
+  ];
+}
+
 export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnProps>(function CurvedPageTurn(
   { active, direction },
   ref,
 ) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const pageFlipRef = useRef<PageFlip | null>(null);
+  const renderControlRef = useRef<RenderControl | null>(null);
   const destroyedRef = useRef(false);
   const [ready, setReady] = useState(false);
+
+  const setRendererActive = (nextActive: boolean) => {
+    const control = renderControlRef.current;
+    if (!control) return;
+    control.render.drawFrame = nextActive ? control.drawFrame : noFrame;
+  };
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
     destroyedRef.current = false;
     let host: HTMLDivElement | null = null;
-    let resizeObserver: ResizeObserver | null = null;
-    let resizeTimer = 0;
-    let lastWidth = 0;
-    let lastHeight = 0;
 
     void import("page-flip/dist/js/page-flip.module.js").then(({ PageFlip: PageFlipConstructor }) => {
-      const rebuild = () => {
-        if (destroyedRef.current || !container.isConnected) return;
-        const rect = container.getBoundingClientRect();
-        if (rect.width < 40 || rect.height < 40) return;
+      if (destroyedRef.current || !container.isConnected) return;
+      const rect = container.getBoundingClientRect();
+      if (rect.width < 40 || rect.height < 40) return;
 
-        const previous = pageFlipRef.current;
-        pageFlipRef.current = null;
-        if (previous) {
-          try { previous.destroy(); } catch { host?.remove(); }
-        } else {
-          host?.remove();
-        }
-
-        host = document.createElement("div");
-        host.className = styles.engine;
-        container.appendChild(host);
-        const initialPages = [
-          makeSnapshotPage(null, "left"),
-          makeSnapshotPage(null, "right"),
-          makeSnapshotPage(null, "left"),
-          makeSnapshotPage(null, "right"),
-        ];
-        const instance = new PageFlipConstructor(host, {
-          width: Math.max(1, rect.width / 2),
-          height: Math.max(1, rect.height),
-          size: "fixed",
-          drawShadow: false,
-          flippingTime: 1080,
-          usePortrait: false,
-          autoSize: false,
-          maxShadowOpacity: .18,
-          showCover: false,
-          mobileScrollSupport: true,
-          clickEventForward: false,
-          useMouseEvents: false,
-          showPageCorners: false,
-          disableFlipByClick: true,
-          startPage: 0,
-        });
-        instance.on("changeState", (event) => {
-          container.dataset.flipState = String(event.data);
-        });
-        instance.loadFromHTML(initialPages);
-        pageFlipRef.current = instance;
-        lastWidth = rect.width;
-        lastHeight = rect.height;
-        container.dataset.flipState = "read";
-        setReady(true);
-      };
-
-      rebuild();
-      resizeObserver = new ResizeObserver(([entry]) => {
-        const { width, height } = entry.contentRect;
-        if (Math.abs(width - lastWidth) < 2 && Math.abs(height - lastHeight) < 2) return;
-        window.clearTimeout(resizeTimer);
-        resizeTimer = window.setTimeout(rebuild, 120);
+      host = document.createElement("div");
+      host.className = styles.engine;
+      container.appendChild(host);
+      const initialPages = makeBlankPages();
+      const instance = new PageFlipConstructor(host, {
+        width: Math.max(1, rect.width / 2),
+        height: Math.max(1, rect.height),
+        size: "fixed",
+        drawShadow: false,
+        flippingTime: 720,
+        usePortrait: false,
+        autoSize: false,
+        maxShadowOpacity: .18,
+        showCover: false,
+        mobileScrollSupport: true,
+        clickEventForward: false,
+        useMouseEvents: false,
+        showPageCorners: false,
+        disableFlipByClick: true,
+        startPage: 0,
       });
-      resizeObserver.observe(container);
+      instance.on("changeState", (event) => {
+        const state = String(event.data);
+        container.dataset.flipState = state;
+        if (state === "read") {
+          window.requestAnimationFrame(() => {
+            window.requestAnimationFrame(() => {
+              if (destroyedRef.current || pageFlipRef.current !== instance) return;
+              instance.updateFromHtml(makeBlankPages());
+              setRendererActive(false);
+            });
+          });
+        }
+      });
+      instance.loadFromHTML(initialPages);
+      const render = (instance as unknown as PageFlipRuntime).getRender();
+      renderControlRef.current = { render, drawFrame: render.drawFrame };
+      pageFlipRef.current = instance;
+      container.dataset.flipState = "read";
+      setReady(true);
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => setRendererActive(false));
+      });
     }).catch(() => {
       setReady(false);
     });
 
     return () => {
       destroyedRef.current = true;
-      resizeObserver?.disconnect();
-      window.clearTimeout(resizeTimer);
+      setRendererActive(false);
+      renderControlRef.current = null;
       const instance = pageFlipRef.current;
       pageFlipRef.current = null;
       if (instance) {
@@ -167,6 +192,16 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
     flip(nextDirection, source, target) {
       const instance = pageFlipRef.current;
       if (!instance || window.matchMedia("(max-width: 760px), (prefers-reduced-motion: reduce)").matches) return;
+      setRendererActive(true);
+      const container = containerRef.current;
+      if (container) {
+        const rect = container.getBoundingClientRect();
+        const runtime = instance as unknown as PageFlipRuntime;
+        const settings = runtime.getSettings();
+        settings.width = settings.minWidth = settings.maxWidth = Math.max(1, rect.width / 2);
+        settings.height = settings.minHeight = settings.maxHeight = Math.max(1, rect.height);
+        runtime.update();
+      }
 
       const sourceLeft = makeSnapshotPage(source, "left");
       const sourceRight = makeSnapshotPage(source, "right");
@@ -178,7 +213,7 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
 
       instance.updateFromHtml(pages);
       instance.turnToPage(nextDirection === "forward" ? 0 : 2);
-      if (containerRef.current) containerRef.current.dataset.flipState = "queued";
+      if (container) container.dataset.flipState = "queued";
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => instance.flip(nextDirection === "forward" ? 2 : 0, "bottom"));
       });

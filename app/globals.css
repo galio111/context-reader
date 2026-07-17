@@ -31,6 +31,32 @@ textarea {
   font: inherit;
 }
 
+/* Hide only the browser's native blue selection paint. Keep selection,
+   pointer gestures, scrolling, dragging, and application controls intact. */
+::selection {
+  color: inherit;
+  background: transparent;
+}
+
+::-moz-selection {
+  color: inherit;
+  background: transparent;
+}
+
+input::selection,
+textarea::selection,
+[contenteditable="true"]::selection {
+  color: inherit;
+  background: rgb(142 190 235 / 58%);
+}
+
+input::-moz-selection,
+textarea::-moz-selection,
+[contenteditable="true"]::-moz-selection {
+  color: inherit;
+  background: rgb(142 190 235 / 58%);
+}
+
 button {
   cursor: pointer;
 }
@@ -487,6 +513,27 @@ a:hover .cr-roll > span {
   background: var(--cr-blue);
   color: white;
   font-weight: 700;
+}
+
+.cr-menu-trigger {
+  gap: 10px;
+}
+
+.cr-menu-glyph {
+  display: grid;
+  width: 17px;
+  gap: 4px;
+}
+
+.cr-menu-glyph i {
+  display: block;
+  height: 1px;
+  background: currentColor;
+}
+
+.cr-menu-glyph i:last-child {
+  width: 11px;
+  justify-self: end;
 }
 
 .cr-saved-menu {

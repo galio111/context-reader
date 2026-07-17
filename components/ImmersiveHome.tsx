@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import {
   useEffect,
-  useMemo,
   useRef,
   useState,
   type CSSProperties,
@@ -12,8 +10,9 @@ import {
 } from "react";
 import type { SavedArticle } from "@/types/article";
 import type { PublicArticle } from "@/types/publicArticle";
-import { AccountNav } from "@/components/AccountProvider";
-import { savedArticleOpenTimestamp } from "@/lib/savedArticleMerge";
+import { useAccount } from "@/components/AccountProvider";
+import { FeedbackPanel } from "@/components/FeedbackPanel";
+import { HomeOptionMenu } from "@/components/HomeOptionMenu";
 
 type InputMode = "paste" | "url";
 type Scene = "word" | "phrase" | "articles" | "final";
@@ -91,124 +90,6 @@ function RollingLabel({ children }: { children: string }) {
   return <span className="cr-roll"><span>{children}</span><span aria-hidden="true">{children}</span></span>;
 }
 
-const savedArticleDateFormatter = new Intl.DateTimeFormat("zh-CN", {
-  timeZone: "Asia/Shanghai",
-  month: "numeric",
-  day: "numeric",
-  hour: "2-digit",
-  minute: "2-digit",
-  hour12: false,
-});
-
-function savedArticleTimestamp(article: SavedArticle): number {
-  return savedArticleOpenTimestamp(article);
-}
-
-function savedArticlePreview(article: SavedArticle): string {
-  const summary = article.summary?.trim();
-  if (summary) return summary;
-  return article.body.trim().replace(/\s+/g, " ").slice(0, 90);
-}
-
-function formatSavedArticleDate(article: SavedArticle): string {
-  const value = savedArticleTimestamp(article);
-  return value ? savedArticleDateFormatter.format(new Date(value)) : "时间未知";
-}
-
-function SavedArticlesMenu({
-  articles,
-  onOpen,
-  onDelete,
-}: {
-  articles: SavedArticle[];
-  onOpen: (article: SavedArticle) => void;
-  onDelete: (id: string) => void;
-}) {
-  const [open, setOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const sortedArticles = useMemo(
-    () => [...articles].sort((left, right) => savedArticleTimestamp(right) - savedArticleTimestamp(left)),
-    [articles],
-  );
-
-  useEffect(() => {
-    if (!open) return;
-    const closeOnOutsidePointer = (event: PointerEvent) => {
-      if (event.target instanceof Node && !menuRef.current?.contains(event.target)) setOpen(false);
-    };
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-        if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
-      }
-    };
-    document.addEventListener("pointerdown", closeOnOutsidePointer);
-    document.addEventListener("keydown", closeOnEscape);
-    return () => {
-      document.removeEventListener("pointerdown", closeOnOutsidePointer);
-      document.removeEventListener("keydown", closeOnEscape);
-    };
-  }, [open]);
-
-  return (
-    <div ref={menuRef} className={`cr-saved-menu ${open ? "is-open" : ""}`} data-local-scroll-surface>
-      <button
-        className="cr-saved-trigger"
-        type="button"
-        aria-haspopup="dialog"
-        aria-label={`已保存文章，共 ${articles.length} 篇`}
-        aria-expanded={open}
-        aria-controls="cr-saved-articles-panel"
-        onClick={(event) => {
-          if (open) event.currentTarget.blur();
-          setOpen((current) => !current);
-        }}
-      >
-        <span className="cr-saved-label-full">已保存</span>
-        <span className="cr-saved-label-short">保存</span>
-        <span className="cr-saved-count" aria-label={`${articles.length} 篇`}>{articles.length}</span>
-        <span className="cr-saved-chevron" aria-hidden="true">⌄</span>
-      </button>
-      <section id="cr-saved-articles-panel" className="cr-saved-panel" aria-label="已保存文章，按最近打开排序">
-        <header>
-          <div><strong>已保存文章</strong><span>按最近打开排序</span></div>
-          <span>{articles.length} 篇</span>
-        </header>
-        {sortedArticles.length ? (
-          <div className="cr-saved-list">
-            {sortedArticles.map((article) => (
-              <div className="cr-saved-row" key={article.id}>
-                <button
-                  className="cr-saved-open"
-                  type="button"
-                  onClick={() => {
-                    setOpen(false);
-                    onOpen(article);
-                  }}
-                >
-                  <span className="cr-saved-title">{article.title || "未命名文章"}</span>
-                  <span className="cr-saved-summary">{savedArticlePreview(article)}</span>
-                  <span className="cr-saved-time">最近打开 {formatSavedArticleDate(article)}</span>
-                </button>
-                <button
-                  className="cr-saved-delete"
-                  type="button"
-                  aria-label={`删除 ${article.title || "这篇文章"}`}
-                  onClick={() => {
-                    if (window.confirm(`确定删除“${article.title || "这篇文章"}”吗？`)) onDelete(article.id);
-                  }}
-                >删除</button>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="cr-saved-empty"><strong>还没有保存文章</strong><span>阅读时保存的文章会出现在这里。</span></div>
-        )}
-      </section>
-    </div>
-  );
-}
-
 function PhraseTarget({ phrase, meaning }: { phrase: string; meaning: string }) {
   const targetRef = useRef<HTMLButtonElement | null>(null);
   const startRef = useRef<{ id: number; left: number; width: number; valid: boolean; max: number } | null>(null);
@@ -284,6 +165,7 @@ function PhraseTarget({ phrase, meaning }: { phrase: string; meaning: string }) 
 }
 
 export function ImmersiveHome(props: ImmersiveHomeProps) {
+  const { account } = useAccount();
   const [ready, setReady] = useState(props.demoCompleted);
   const [loadPercent, setLoadPercent] = useState(props.demoCompleted ? 100 : 0);
   const [guideReady, setGuideReady] = useState(props.demoCompleted);
@@ -302,6 +184,8 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
   const [inputMode, setInputMode] = useState<InputMode>("paste");
   const [activeScene, setActiveScene] = useState<Scene>("word");
   const [sceneChanging, setSceneChanging] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [transition, setTransition] = useState<{ x: number; y: number; phase: "show" | "out" } | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const heroRef = useRef<HTMLElement | null>(null);
@@ -317,6 +201,7 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
   const hintStreamRef = useRef<number | null>(null);
   const timersRef = useRef<number[]>([]);
   const wheelSnapLockedRef = useRef(false);
+  const overlayActive = props.overlayOpen || menuOpen || feedbackOpen;
 
   function later(callback: () => void, delay: number) {
     const timer = window.setTimeout(callback, delay);
@@ -364,6 +249,15 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
     if (heroStreamRef.current !== null) window.clearInterval(heroStreamRef.current);
     if (hintStreamRef.current !== null) window.clearInterval(hintStreamRef.current);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("cr-overlay-locked", overlayActive);
+    document.body.classList.toggle("cr-overlay-locked", overlayActive);
+    return () => {
+      document.documentElement.classList.remove("cr-overlay-locked");
+      document.body.classList.remove("cr-overlay-locked");
+    };
+  }, [overlayActive]);
 
   useEffect(() => {
     if (!guideReady || !cursorVisible) return;
@@ -472,7 +366,7 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
   }, []);
 
   useEffect(() => {
-    if (props.overlayOpen) return;
+    if (overlayActive) return;
     let targetTravel = 0;
     let currentTravel = 0;
     let frame = 0;
@@ -514,7 +408,7 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", updateTarget);
     };
-  }, [phraseStage, props.overlayOpen]);
+  }, [overlayActive, phraseStage]);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -533,6 +427,8 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
 
     const onWheel = (event: WheelEvent) => {
       if (
+        overlayActive
+        ||
         isLocalScrollSurfaceEvent(event)
         || window.innerWidth <= 820
         || reducedMotion.matches
@@ -583,10 +479,10 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
     };
     window.addEventListener("wheel", onWheel, { passive: false });
     return () => window.removeEventListener("wheel", onWheel);
-  }, [activeScene, heroUnlocked]);
+  }, [activeScene, heroUnlocked, overlayActive]);
 
   useEffect(() => {
-    if (props.overlayOpen) return;
+    if (overlayActive) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const context = canvas.getContext("2d");
@@ -717,7 +613,7 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
       window.removeEventListener("pointermove", pointerMove);
       window.removeEventListener("scroll", onScroll);
     };
-  }, [props.overlayOpen]);
+  }, [overlayActive]);
 
   function unlockPage() {
     setHeroUnlocked(true);
@@ -875,10 +771,17 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
         <nav aria-label="首页导航">
           <button className="cr-nav-skip" type="button" onClick={() => goTo("final")}><RollingLabel>跳过演示</RollingLabel></button>
           <button type="button" onClick={() => goTo("articles")}><RollingLabel>推荐文章</RollingLabel></button>
-          <Link className="cr-nav-guide" href="/guide"><RollingLabel>使用说明</RollingLabel></Link>
-          <SavedArticlesMenu articles={props.savedArticles} onOpen={props.onOpenSavedArticle} onDelete={props.onDeleteSavedArticle} />
-          <button className="cr-nav-primary cr-vocabulary-trigger" type="button" onClick={props.onOpenVocabulary}><RollingLabel>{`打开生词本${props.vocabularyCount ? ` · ${props.vocabularyCount}` : ""}`}</RollingLabel></button>
-          <AccountNav />
+          <button
+            className="cr-nav-primary cr-menu-trigger"
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded={menuOpen}
+            aria-controls="home-option-menu"
+            onClick={() => setMenuOpen(true)}
+          >
+            <RollingLabel>Menu</RollingLabel>
+            <span className="cr-menu-glyph" aria-hidden="true"><i /><i /></span>
+          </button>
         </nav>
       </header>
 
@@ -983,6 +886,16 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
           <p className="cr-error" role="alert">{inputMode === "url" ? props.urlError : props.error}</p>
         </div>
       </section>
+      <HomeOptionMenu
+        open={menuOpen}
+        isAdmin={account.plan?.id === "admin"}
+        savedArticles={account.authenticated ? props.savedArticles : []}
+        onClose={() => setMenuOpen(false)}
+        onOpenVocabulary={props.onOpenVocabulary}
+        onOpenFeedback={() => setFeedbackOpen(true)}
+        onOpenSavedArticle={props.onOpenSavedArticle}
+      />
+      <FeedbackPanel open={feedbackOpen} onClose={() => setFeedbackOpen(false)} />
     </main>
   );
 }

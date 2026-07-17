@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import dynamic from "next/dynamic";
 import {
   useCallback,
   useEffect,
@@ -15,6 +15,8 @@ import { BookLetterField } from "@/components/BookLetterField";
 import { BookRecommendations } from "@/components/BookRecommendations";
 import { CurvedPageTurn, type CurvedPageTurnHandle } from "@/components/CurvedPageTurn";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
+import { HomeOptionMenu } from "@/components/HomeOptionMenu";
+import { PillNavAction } from "@/components/PillNavAction";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { useAccount } from "@/components/AccountProvider";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
@@ -40,6 +42,8 @@ import type { ArticleAudienceStage, PublicArticle } from "@/types/publicArticle"
 import type { ReaderToken, WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import styles from "./BookHome.module.css";
+
+const Ballpit = dynamic(() => import("@/components/Ballpit"), { ssr: false });
 
 const DEMO_HINT_KEY = "context-reader:book-demo-hint-seen:v1";
 const RECOMMENDATION_PROFILE_KEY = "context-reader:recommendation-profile:v1";
@@ -158,6 +162,7 @@ interface BookHomeProps {
 
 interface DemoDrag {
   pointerId: number;
+  target: HTMLButtonElement;
   startTokenId: string;
   currentTokenId: string;
   startX: number;
@@ -223,7 +228,7 @@ export function BookHome({
   onJumpToVocabularySource,
   canJumpToVocabularySource,
 }: BookHomeProps) {
-  const { account, loading: accountLoading, openLogin, requireAccount, logout, refreshAccount } = useAccount();
+  const { account, openLogin, requireAccount, refreshAccount } = useAccount();
   const [coverState, setCoverState] = useState<"closed" | "opening" | "open">("closed");
   const [chapter, setChapter] = useState<BookChapter>("workbench");
   const [turning, setTurning] = useState(false);
@@ -337,6 +342,13 @@ export function BookHome({
     }
 
     turningRef.current = true;
+    const activeDrag = dragRef.current;
+    if (activeDrag) {
+      if (activeDrag.target.hasPointerCapture(activeDrag.pointerId)) {
+        activeDrag.target.releasePointerCapture(activeDrag.pointerId);
+      }
+      dragRef.current = null;
+    }
     setTurning(true);
     setTurnDirection(direction);
     window.requestAnimationFrame(() => {
@@ -350,7 +362,8 @@ export function BookHome({
     const swapTimer = window.setTimeout(() => {
       chapterRef.current = nextChapter;
       setChapter(nextChapter);
-    }, 550);
+      window.dispatchEvent(new Event("context-reader:book-layout-change"));
+    }, 360);
     const settleTimer = window.setTimeout(() => {
       turningRef.current = false;
       setTurning(false);
@@ -360,7 +373,8 @@ export function BookHome({
         const ranks: Record<BookChapter, number> = { workbench: 0, preferences: 1, recommendations: 2 };
         performTurn(queued, ranks[queued] >= ranks[chapterRef.current] ? "forward" : "backward");
       }
-    }, 1180);
+      window.dispatchEvent(new Event("context-reader:book-layout-change"));
+    }, 790);
     turnTimersRef.current.push(swapTimer, settleTimer);
   }, []);
 
@@ -390,6 +404,10 @@ export function BookHome({
       let desired: BookChapter = "workbench";
       if (progress >= 0.31) desired = "preferences";
       if (progress >= 0.64 && recommendationProfile.complete) desired = "recommendations";
+      if (turningRef.current) {
+        queuedChapterRef.current = desired;
+        return;
+      }
       if (desired === chapterRef.current) return;
       const ranks: Record<BookChapter, number> = { workbench: 0, preferences: 1, recommendations: 2 };
       beginTurn(desired, ranks[desired] >= ranks[chapterRef.current] ? "forward" : "backward");
@@ -533,6 +551,7 @@ export function BookHome({
   function handleTokenPointerDown(event: ReactPointerEvent<HTMLButtonElement>, tokenId: string) {
     dragRef.current = {
       pointerId: event.pointerId,
+      target: event.currentTarget,
       startTokenId: tokenId,
       currentTokenId: tokenId,
       startX: event.clientX,
@@ -576,6 +595,15 @@ export function BookHome({
     window.setTimeout(() => { suppressClickRef.current = false; }, 0);
     const range = rangeFromTokenIds(drag.startTokenId, drag.currentTokenId);
     void explainTokens(range);
+  }
+
+  function handleTokenPointerCancel(event: ReactPointerEvent<HTMLButtonElement>) {
+    const drag = dragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+    if (drag.target.hasPointerCapture(drag.pointerId)) {
+      drag.target.releasePointerCapture(drag.pointerId);
+    }
+    dragRef.current = null;
   }
 
   function handleTokenClick(token: ReaderToken) {
@@ -678,21 +706,29 @@ export function BookHome({
       </div>
 
       <header className={styles.topbar}>
-        <Link className={styles.brand} href="/home-v2" aria-label="Context Reader 书本主页">
-          <span>Context Reader</span>
-        </Link>
+        <PillNavAction
+          className={styles.brand}
+          href="/home-v2"
+          label="Context Reader"
+          ariaLabel="Context Reader 书本主页"
+        />
         <div className={styles.topActions}>
-          <button className={styles.textAction} type="button" onClick={scrollToWorkbench}>开始阅读</button>
-          <button
+          <PillNavAction
+            className={styles.textAction}
+            label="开始阅读"
+            onClick={scrollToWorkbench}
+          />
+          <PillNavAction
             className={styles.menuButton}
-            type="button"
-            aria-expanded={menuOpen}
-            aria-controls="book-home-menu"
+            tone="dark"
+            label="Menu"
+            ariaExpanded={menuOpen}
+            ariaControls="book-home-menu"
             onClick={() => setMenuOpen(true)}
-          >
-            <span>Menu</span>
-            <span className={styles.menuGlyph} aria-hidden="true"><i /><i /></span>
-          </button>
+            renderIcon={() => (
+              <span className={styles.menuGlyph} aria-hidden="true"><i /><i /></span>
+            )}
+          />
         </div>
       </header>
 
@@ -724,7 +760,7 @@ export function BookHome({
                 <span className={styles.demoStatus}>可交互</span>
               </div>
 
-              <article className={styles.demoArticle} aria-label="可划词的英文短文" data-pointer-quiet>
+              <article className={styles.demoArticle} aria-label="可划词的英文短文" data-pointer-mask>
                 <h2>{DEMO_TITLE}</h2>
                 {DEMO_PARAGRAPHS.map((paragraph) => (
                   <p key={paragraph.id}>
@@ -738,7 +774,7 @@ export function BookHome({
                         onPointerDown={(event) => handleTokenPointerDown(event, token.id)}
                         onPointerMove={handleTokenPointerMove}
                         onPointerUp={handleTokenPointerUp}
-                        onPointerCancel={() => { dragRef.current = null; }}
+                        onPointerCancel={handleTokenPointerCancel}
                         onClick={() => handleTokenClick(token)}
                       >
                         {token.value}
@@ -757,7 +793,7 @@ export function BookHome({
                 <button type="button" onClick={() => onOpenDemoArticle(DEMO_IMPORTED_ARTICLE)}>在阅读器中继续</button>
               </div>
 
-              <div className={styles.explanationShell} data-pointer-quiet>
+              <div className={styles.explanationShell} data-pointer-mask>
                 {clientReady ? (
                   <ExplanationPanel
                     explanation={explanation}
@@ -836,7 +872,7 @@ export function BookHome({
               </div>
 
               {inputMode === "paste" ? (
-                <form className={styles.articleForm} data-pointer-quiet onSubmit={(event) => { event.preventDefault(); onStartReading(); }}>
+                <form className={styles.articleForm} onSubmit={(event) => { event.preventDefault(); onStartReading(); }}>
                   <label htmlFor="book-home-article">英文文章</label>
                   <textarea
                     id="book-home-article"
@@ -852,7 +888,7 @@ export function BookHome({
                   {error && <p className={styles.formError} role="alert">{error}</p>}
                 </form>
               ) : inputMode === "url" ? (
-                <form className={styles.urlForm} data-pointer-quiet onSubmit={(event) => { event.preventDefault(); onImportUrl(); }}>
+                <form className={styles.urlForm} onSubmit={(event) => { event.preventDefault(); onImportUrl(); }}>
                   <label htmlFor="book-home-url">公开文章网址</label>
                   <div>
                     <input
@@ -902,7 +938,7 @@ export function BookHome({
                     <button type="button" className={styles.backToDesk} onClick={scrollToWorkbench}>返回阅读工作台</button>
                   </div>
                   <div className={styles.preferenceLeaf} aria-hidden="true" />
-                  <div className={`${styles.page} ${styles.preferenceForm}`} data-pointer-quiet>
+                  <div className={`${styles.page} ${styles.preferenceForm}`}>
                     <fieldset>
                       <legend>1. 你目前更接近哪个阶段？</legend>
                       <div className={styles.choiceGrid}>
@@ -990,6 +1026,18 @@ export function BookHome({
                       <span className={styles.frontBoardBack} />
                       <span className={styles.coverSpine} />
                       <span className={styles.coverFace}>
+                        {coverState !== "open" && (
+                          <span className={styles.coverBallpit} aria-hidden="true">
+                            <Ballpit
+                              className={styles.coverBallpitCanvas}
+                              count={290}
+                              gravity={0.7}
+                              friction={0.983}
+                              wallBounce={0.95}
+                              followCursor={false}
+                            />
+                          </span>
+                        )}
                         <span className={styles.coverTitle}>
                           <strong>Context Reader</strong>
                           <small>语境翻译魔法书</small>
@@ -1021,74 +1069,15 @@ export function BookHome({
         </div>
       </section>
 
-      {menuOpen && (
-        <div className={styles.menuOverlay} role="presentation" onPointerDown={(event) => {
-          if (event.target === event.currentTarget) setMenuOpen(false);
-        }}>
-          <aside id="book-home-menu" className={styles.menuPanel} role="dialog" aria-modal="true" aria-labelledby="book-home-menu-title">
-            <header>
-              <div>
-                <span>Context Reader</span>
-                <h2 id="book-home-menu-title">Menu</h2>
-              </div>
-              <button type="button" onClick={() => setMenuOpen(false)} aria-label="关闭菜单">×</button>
-            </header>
-
-            <nav className={styles.menuLinks} aria-label="产品功能">
-              <button type="button" onClick={openDictionary}>
-                <span>独立深度词典</span><em>查单词或短语</em>
-              </button>
-              <button type="button" onClick={scrollToRecommendations}>
-                <span>分级推荐文章</span><em>{publicArticles.length ? `${publicArticles.length} 篇已发布` : "等待首批发布"}</em>
-              </button>
-              <button type="button" onClick={handleOpenVocabulary}>
-                <span>生词本</span><em>{account.authenticated ? `${vocabularyEntries.length} 条` : "登录后使用"}</em>
-              </button>
-              <Link href="/guide" onClick={() => setMenuOpen(false)}><span>使用说明</span><em>打开指南</em></Link>
-              <button type="button" onClick={() => { setMenuOpen(false); setFeedbackOpen(true); }}>
-                <span>意见反馈</span><em>提交建议或问题</em>
-              </button>
-              {account.authenticated ? (
-                <Link href="/account/usage" onClick={() => setMenuOpen(false)}><span>账号、用量与同步</span><em>查看状态</em></Link>
-              ) : (
-                <button type="button" onClick={() => { setMenuOpen(false); openLogin("登录后可同步生词本、文章和翻译缓存。"); }}>
-                  <span>登录与同步</span><em>{accountLoading ? "正在读取" : "游客模式"}</em>
-                </button>
-              )}
-              {account.plan?.id === "admin" && (
-                <Link href="/admin" onClick={() => setMenuOpen(false)}><span>管理后台</span><em>候选、推荐、用户与反馈</em></Link>
-              )}
-            </nav>
-
-            <section className={styles.savedSection} aria-labelledby="book-saved-heading">
-              <div><h3 id="book-saved-heading">已保存文章</h3><span>{sortedSavedArticles.length} 篇</span></div>
-              {sortedSavedArticles.length ? (
-                <div className={styles.savedList} data-local-scroll-surface>
-                  {sortedSavedArticles.map((savedArticle) => (
-                    <article key={savedArticle.id}>
-                      <button type="button" onClick={() => { setMenuOpen(false); onOpenSavedArticle(savedArticle); }}>
-                        <strong>{savedArticle.title || "未命名文章"}</strong>
-                        <span>{savedArticlePreview(savedArticle)}</span>
-                        <time>{formatSavedDate(savedArticle)}</time>
-                      </button>
-                      <button type="button" aria-label={`删除 ${savedArticle.title || "这篇文章"}`} onClick={() => onDeleteSavedArticle(savedArticle.id)}>删除</button>
-                    </article>
-                  ))}
-                </div>
-              ) : (
-                <p className={styles.savedEmpty}>保存过的文章会按最近打开时间出现在这里。</p>
-              )}
-            </section>
-
-            {account.authenticated && (
-              <footer className={styles.menuAccount}>
-                <span>{account.profile?.nickname || "已登录账号"}</span>
-                <button type="button" onClick={() => { setMenuOpen(false); void logout(); }}>退出登录</button>
-              </footer>
-            )}
-          </aside>
-        </div>
-      )}
+      <HomeOptionMenu
+        open={menuOpen}
+        isAdmin={account.plan?.id === "admin"}
+        savedArticles={account.authenticated ? savedArticles : []}
+        onClose={() => setMenuOpen(false)}
+        onOpenVocabulary={handleOpenVocabulary}
+        onOpenFeedback={() => setFeedbackOpen(true)}
+        onOpenSavedArticle={onOpenSavedArticle}
+      />
 
       <VocabularyPanel
         entries={vocabularyEntries}
