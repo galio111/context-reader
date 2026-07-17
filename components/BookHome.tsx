@@ -824,7 +824,7 @@ export function BookHome({
             tone="dark"
             label="Menu"
             ariaExpanded={menuOpen}
-            ariaControls="book-home-menu"
+            ariaControls="home-option-menu"
             onClick={() => setMenuOpen(true)}
             renderIcon={() => (
               <span className={styles.menuGlyph} aria-hidden="true"><i /><i /></span>
@@ -1102,12 +1102,13 @@ export function BookHome({
                           <span className={styles.coverBallpit} aria-hidden="true">
                             <Ballpit
                               className={styles.coverBallpitCanvas}
-                              count={50}
+                              count={120}
                               gravity={0}
                               friction={0.983}
                               wallBounce={0.95}
                               colors={COVER_BALLPIT_COLORS}
-                              followCursor={false}
+                              followCursor
+                              showCursorBall={false}
                             />
                           </span>
                         )}

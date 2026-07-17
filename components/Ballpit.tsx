@@ -47,6 +47,7 @@ export interface BallpitProps {
   maxY?: number;
   maxZ?: number;
   followCursor?: boolean;
+  showCursorBall?: boolean;
 }
 
 interface BallpitConfig {
@@ -68,6 +69,7 @@ interface BallpitConfig {
   maxZ: number;
   controlSphere0: boolean;
   followCursor: boolean;
+  showCursorBall: boolean;
 }
 
 const DEFAULT_CONFIG: BallpitConfig = {
@@ -94,6 +96,7 @@ const DEFAULT_CONFIG: BallpitConfig = {
   maxZ: 2,
   controlSphere0: false,
   followCursor: true,
+  showCursorBall: true,
 };
 
 class BallPhysics {
@@ -360,7 +363,10 @@ class BallSpheres extends InstancedMesh {
     this.frustumCulled = false;
 
     this.ambientLight = new AmbientLight(config.ambientColor, config.ambientIntensity);
-    this.pointLight = new PointLight(config.colors[0], config.lightIntensity);
+    this.pointLight = new PointLight(
+      config.colors[0],
+      config.showCursorBall ? config.lightIntensity : 0,
+    );
     this.add(this.ambientLight, this.pointLight);
     this.setColors(config.colors);
     this.update(0);
@@ -390,7 +396,7 @@ class BallSpheres extends InstancedMesh {
     for (let index = 0; index < this.count; index += 1) {
       this.transformObject.position.fromArray(this.physics.positionData, index * 3);
       this.transformObject.scale.setScalar(
-        index === 0 && !this.config.followCursor
+        index === 0 && (!this.config.followCursor || !this.config.showCursorBall)
           ? 0
           : this.physics.sizeData[index],
       );
@@ -623,6 +629,7 @@ export default function Ballpit({
   maxY = DEFAULT_CONFIG.maxY,
   maxZ = DEFAULT_CONFIG.maxZ,
   followCursor = DEFAULT_CONFIG.followCursor,
+  showCursorBall = DEFAULT_CONFIG.showCursorBall,
 }: BallpitProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -638,7 +645,7 @@ export default function Ballpit({
       canvas.style.display = "block";
       try {
         ballpitScene = new BallpitScene(canvas, {
-          count,
+          count: count + (followCursor && !showCursorBall ? 1 : 0),
           colors,
           ambientColor,
           ambientIntensity,
@@ -656,6 +663,7 @@ export default function Ballpit({
           maxZ,
           controlSphere0: false,
           followCursor,
+          showCursorBall,
         });
       } catch (error) {
         canvas.style.display = "none";
@@ -696,6 +704,7 @@ export default function Ballpit({
     maxZ,
     minSize,
     size0,
+    showCursorBall,
     wallBounce,
   ]);
 

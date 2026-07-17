@@ -1,9 +1,15 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type KeyboardEvent,
+} from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
-import { OptionWheel } from "@/components/OptionWheel";
 import { savedArticleOpenTimestamp } from "@/lib/savedArticleMerge";
 import type { SavedArticle } from "@/types/article";
 import styles from "./HomeOptionMenu.module.css";
@@ -47,9 +53,10 @@ export function HomeOptionMenu({
 }: HomeOptionMenuProps) {
   const router = useRouter();
   const dialogRef = useRef<HTMLElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const savedCloseTimerRef = useRef<number | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState(2);
+  const [mounted, setMounted] = useState(open);
   const [savedHovered, setSavedHovered] = useState(false);
   const [savedPinned, setSavedPinned] = useState(false);
   const items = useMemo(
@@ -72,25 +79,33 @@ export function HomeOptionMenu({
   const savedPreviewVisible = savedHovered || savedPinned;
 
   useEffect(() => {
-    if (!open) return;
+    if (open) setMounted(true);
+  }, [open]);
+
+  useEffect(() => {
+    if (!mounted) return;
     previousFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus({ preventScroll: true }));
     return () => {
+      window.cancelAnimationFrame(focusFrame);
       previousFocusRef.current?.focus({ preventScroll: true });
     };
-  }, [open]);
+  }, [mounted]);
 
   useEffect(() => {
     if (open) return;
     setSavedHovered(false);
     setSavedPinned(false);
-    setSelectedIndex(2);
-  }, [open]);
+    if (mounted && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setMounted(false);
+    }
+  }, [mounted, open]);
 
   useEffect(() => () => {
     if (savedCloseTimerRef.current !== null) window.clearTimeout(savedCloseTimerRef.current);
   }, []);
 
-  if (!open || typeof document === "undefined") return null;
+  if (!mounted || typeof document === "undefined") return null;
 
   function cancelSavedClose() {
     if (savedCloseTimerRef.current !== null) {
@@ -101,7 +116,7 @@ export function HomeOptionMenu({
 
   function closeSavedPreviewSoon() {
     cancelSavedClose();
-    savedCloseTimerRef.current = window.setTimeout(() => setSavedHovered(false), 150);
+    savedCloseTimerRef.current = window.setTimeout(() => setSavedHovered(false), 170);
   }
 
   function navigate(href: string) {
@@ -109,7 +124,7 @@ export function HomeOptionMenu({
     router.push(href);
   }
 
-  function activateItem(_: number, label: string) {
+  function activateItem(label: string) {
     if (label === "保存文章") {
       setSavedPinned((current) => !current);
       setSavedHovered(true);
@@ -165,95 +180,114 @@ export function HomeOptionMenu({
     <div
       className={styles.overlay}
       role="presentation"
+      data-open={open || undefined}
       data-local-scroll-surface
       onPointerDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
     >
+      <div className={styles.backdrop} aria-hidden="true" />
+      <div className={styles.prelayers} aria-hidden="true">
+        <div className={styles.prelayer} style={{ "--layer-color": "#87b8d2" } as CSSProperties} />
+        <div className={styles.prelayer} style={{ "--layer-color": "#345f78" } as CSSProperties} />
+      </div>
+
       <section
         id="home-option-menu"
         ref={dialogRef}
-        className={styles.frame}
+        className={styles.panel}
         role="dialog"
         aria-modal="true"
         aria-labelledby="home-option-menu-title"
-        onPointerDown={(event) => {
-          if (event.target === event.currentTarget) onClose();
-        }}
+        onPointerDown={(event) => event.stopPropagation()}
         onKeyDown={handleDialogKeyDown}
+        onAnimationEnd={(event) => {
+          if (event.target === event.currentTarget && !open) setMounted(false);
+        }}
       >
-        <header className={styles.heading}>
-          <span>Context Reader</span>
-          <h2 id="home-option-menu-title">Menu</h2>
+        <header className={styles.panelHeader}>
+          <div>
+            <span>Context Reader</span>
+            <h2 id="home-option-menu-title">Menu</h2>
+          </div>
+          <button
+            ref={closeButtonRef}
+            className={styles.close}
+            type="button"
+            aria-label="关闭菜单"
+            onClick={onClose}
+          >
+            <span>Close</span>
+            <i aria-hidden="true"><b /><b /></i>
+          </button>
         </header>
-        <button className={styles.close} type="button" aria-label="关闭菜单" onClick={onClose}>×</button>
 
-        <section
-          className={`${styles.savedPreview} ${savedPreviewVisible ? styles.savedPreviewVisible : ""}`}
-          aria-label="保存文章"
-          aria-hidden={!savedPreviewVisible}
-          inert={!savedPreviewVisible}
-          onPointerEnter={() => {
-            cancelSavedClose();
-            setSavedHovered(true);
-          }}
-          onPointerLeave={closeSavedPreviewSoon}
-        >
-          <header className={styles.savedHeader}>
-            <div>
-              <h3>保存文章</h3>
-              <p>按最近打开排序</p>
-            </div>
-            <span>{sortedSavedArticles.length} 篇</span>
-          </header>
-          {sortedSavedArticles.length ? (
-            <div className={styles.savedList} data-local-scroll-surface>
-              {sortedSavedArticles.map((article) => (
+        <div className={styles.panelInner}>
+          <ul className={styles.menuList}>
+            {items.map((label, index) => (
+              <li className={styles.itemWrap} key={label}>
                 <button
-                  className={styles.savedArticle}
+                  className={styles.menuItem}
                   type="button"
-                  key={article.id}
-                  onClick={() => {
-                    onClose();
-                    onOpenSavedArticle(article);
-                  }}
+                  data-index={String(index + 1).padStart(2, "0")}
+                  style={{
+                    "--item-delay": `${.25 + index * .085}s`,
+                    "--number-delay": `${.28 + index * .065}s`,
+                  } as CSSProperties}
+                  onPointerEnter={() => handleItemHover(index)}
+                  onPointerLeave={index === 2 ? closeSavedPreviewSoon : undefined}
+                  onFocus={() => handleItemHover(index)}
+                  onBlur={index === 2 ? closeSavedPreviewSoon : undefined}
+                  onClick={() => activateItem(label)}
                 >
-                  <strong>{article.title || "未命名文章"}</strong>
-                  <span>{savedArticlePreview(article)}</span>
-                  <time>最近打开 {formatSavedArticleDate(article)}</time>
+                  <span className={styles.itemLabel}>{label}</span>
                 </button>
-              ))}
-            </div>
-          ) : (
-            <p className={styles.empty}>还没有保存文章。阅读时保存的内容会出现在这里。</p>
-          )}
-        </section>
-
-        <div className={styles.wheelRegion}>
-          <OptionWheel
-            className={styles.wheel}
-            items={items}
-            defaultSelected={2}
-            side="right"
-            fontSize={2.25}
-            spacing={1.55}
-            curve={.82}
-            tilt={7}
-            blur={.7}
-            fade={.14}
-            minOpacity={.24}
-            smoothing={165}
-            inset={44}
-            draggable
-            autoFocus
-            onChange={(index) => setSelectedIndex(index)}
-            onItemHover={handleItemHover}
-            onActivate={activateItem}
-          />
-          <p className={styles.wheelHint}>
-            {selectedIndex === 2 ? "悬停查看文章，点击可固定" : "滚动或拖动选择，点击打开"}
-          </p>
+              </li>
+            ))}
+          </ul>
         </div>
+      </section>
+
+      <section
+        className={`${styles.savedPreview} ${savedPreviewVisible ? styles.savedPreviewVisible : ""}`}
+        aria-label="保存文章"
+        aria-hidden={!savedPreviewVisible}
+        inert={!savedPreviewVisible}
+        onPointerDown={(event) => event.stopPropagation()}
+        onPointerEnter={() => {
+          cancelSavedClose();
+          setSavedHovered(true);
+        }}
+        onPointerLeave={closeSavedPreviewSoon}
+      >
+        <header className={styles.savedHeader}>
+          <div>
+            <h3>保存文章</h3>
+            <p>按最近打开排序</p>
+          </div>
+          <span>{sortedSavedArticles.length} 篇</span>
+        </header>
+        {sortedSavedArticles.length ? (
+          <div className={styles.savedList} data-local-scroll-surface>
+            {sortedSavedArticles.map((article) => (
+              <button
+                className={styles.savedArticle}
+                type="button"
+                key={article.id}
+                onClick={() => {
+                  onClose();
+                  onOpenSavedArticle(article);
+                }}
+              >
+                <strong>{article.title || "未命名文章"}</strong>
+                <span>{savedArticlePreview(article)}</span>
+                <time>最近打开 {formatSavedArticleDate(article)}</time>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <p className={styles.empty}>还没有保存文章。阅读时保存的内容会出现在这里。</p>
+        )}
       </section>
     </div>,
     document.body,
