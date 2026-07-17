@@ -58,10 +58,33 @@ const COVER_BALLPIT_COLORS = [
 
 const DEMO_HINT_KEY = "context-reader:book-demo-hint-seen:v1";
 const RECOMMENDATION_PROFILE_KEY = "context-reader:recommendation-profile:v1";
+const COVER_SCROLL_END = .24;
+const FOREWORD_SCROLL_POSITION = .29;
+const FIRST_TURN_START = .36;
+const FIRST_TURN_END = .56;
+const WORKBENCH_SCROLL_POSITION = .61;
+const SECOND_TURN_START = .68;
+const SECOND_TURN_END = .88;
+const RECOMMENDATION_SCROLL_POSITION = .94;
 
 type BookChapter = "foreword" | "workbench" | "recommendations";
 type TurnDirection = "forward" | "backward";
 type CoverState = "closed" | "opening" | "open" | "closing";
+
+interface DirectorySeek {
+  key: string;
+  source: BookChapter;
+  target: BookChapter;
+  direction: TurnDirection;
+  startProgress: number;
+  targetProgress: number;
+  closeAfter: boolean;
+}
+
+interface PendingDirectoryTarget {
+  target: BookChapter;
+  closeAfter?: boolean;
+}
 
 interface RecommendationProfile {
   level: ArticleAudienceStage | "all";
@@ -273,9 +296,13 @@ export function BookHome({
     recommendations: null,
   });
   const chapterRef = useRef<BookChapter>("foreword");
+  const coverStateRef = useRef<CoverState>("closed");
+  const coverProgressRef = useRef(0);
+  const storyProgressRef = useRef(0);
   const turningRef = useRef(false);
-  const queuedChapterRef = useRef<BookChapter | null>(null);
-  const turnTimersRef = useRef<number[]>([]);
+  const turnDirectionRef = useRef<TurnDirection>("forward");
+  const directorySeekRef = useRef<DirectorySeek | null>(null);
+  const pendingDirectoryTargetRef = useRef<PendingDirectoryTarget | null>(null);
   const scrollFrameRef = useRef<number | null>(null);
   const dragRef = useRef<DemoDrag | null>(null);
   const suppressClickRef = useRef(false);
@@ -320,7 +347,7 @@ export function BookHome({
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
     return () => {
       window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
-      turnTimersRef.current.forEach((timer) => window.clearTimeout(timer));
+      pageTurnRef.current?.clear();
       if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
     };
   }, []);
@@ -350,48 +377,21 @@ export function BookHome({
     chapterRef.current = chapter;
   }, [chapter]);
 
-  const beginTurn = useCallback(function performTurn(nextChapter: BookChapter, direction: TurnDirection = "forward") {
-    if (nextChapter === chapterRef.current && !turningRef.current) return;
-    if (turningRef.current) {
-      queuedChapterRef.current = nextChapter;
-      return;
-    }
+  const setChapterImmediately = useCallback((nextChapter: BookChapter) => {
+    if (chapterRef.current === nextChapter) return;
+    chapterRef.current = nextChapter;
+    setChapter(nextChapter);
+    window.dispatchEvent(new Event("context-reader:book-layout-change"));
+  }, []);
 
-    turningRef.current = true;
-    const activeDrag = dragRef.current;
-    if (activeDrag) {
-      if (activeDrag.target.hasPointerCapture(activeDrag.pointerId)) {
-        activeDrag.target.releasePointerCapture(activeDrag.pointerId);
-      }
-      dragRef.current = null;
+  const setTurnVisual = useCallback((active: boolean, direction: TurnDirection = "forward") => {
+    if (turnDirectionRef.current !== direction) {
+      turnDirectionRef.current = direction;
+      setTurnDirection(direction);
     }
-    setTurning(true);
-    setTurnDirection(direction);
-    window.requestAnimationFrame(() => {
-      pageTurnRef.current?.flip(
-        direction,
-        spreadRefs.current[chapterRef.current],
-        spreadRefs.current[nextChapter],
-      );
-    });
-
-    const swapTimer = window.setTimeout(() => {
-      chapterRef.current = nextChapter;
-      setChapter(nextChapter);
-      window.dispatchEvent(new Event("context-reader:book-layout-change"));
-    }, 360);
-    const settleTimer = window.setTimeout(() => {
-      turningRef.current = false;
-      setTurning(false);
-      const queued = queuedChapterRef.current;
-      queuedChapterRef.current = null;
-      if (queued && queued !== chapterRef.current) {
-        const ranks: Record<BookChapter, number> = { foreword: 0, workbench: 1, recommendations: 2 };
-        performTurn(queued, ranks[queued] >= ranks[chapterRef.current] ? "forward" : "backward");
-      }
-      window.dispatchEvent(new Event("context-reader:book-layout-change"));
-    }, 790);
-    turnTimersRef.current.push(swapTimer, settleTimer);
+    if (turningRef.current === active) return;
+    turningRef.current = active;
+    setTurning(active);
   }, []);
 
   const scrollStoryTo = useCallback((progress: number, behavior: ScrollBehavior = "smooth") => {
@@ -402,79 +402,57 @@ export function BookHome({
     window.scrollTo({ top: top + distance * progress, behavior });
   }, []);
 
-  const openBook = useCallback((afterOpen?: () => void) => {
-    if (coverState !== "closed") {
-      if (coverState === "open") afterOpen?.();
-      return;
-    }
-    chapterRef.current = "foreword";
-    setChapter("foreword");
-    setCoverState("opening");
-    const openTimer = window.setTimeout(() => {
-      setCoverState("open");
-      afterOpen?.();
-    }, 2080);
-    turnTimersRef.current.push(openTimer);
-  }, [coverState]);
+  const openBook = useCallback(() => {
+    pendingDirectoryTargetRef.current = null;
+    directorySeekRef.current = null;
+    setChapterImmediately("foreword");
+    scrollStoryTo(FOREWORD_SCROLL_POSITION);
+  }, [scrollStoryTo, setChapterImmediately]);
 
   const closeBook = useCallback(() => {
-    if (coverState !== "open" || turningRef.current) return;
-    setCoverState("closing");
+    pendingDirectoryTargetRef.current = null;
+    directorySeekRef.current = null;
     scrollStoryTo(0, "smooth");
-    const closeTimer = window.setTimeout(() => {
-      chapterRef.current = "foreword";
-      setChapter("foreword");
-      setCoverState("closed");
-      window.dispatchEvent(new Event("context-reader:book-layout-change"));
-    }, 1920);
-    turnTimersRef.current.push(closeTimer);
-  }, [coverState, scrollStoryTo]);
+  }, [scrollStoryTo]);
 
-  useEffect(() => {
-    const onWheel = (event: WheelEvent) => {
-      if (menuOpen || vocabularyOpen || feedbackOpen || recommendationDialogOpen || readerTransitioning) return;
-      if (Math.abs(event.deltaY) < 18) return;
-      const story = storyRef.current;
-      if (!story) return;
-      const storyTop = story.getBoundingClientRect().top + window.scrollY;
+  const startDirectorySeek = useCallback((
+    target: BookChapter,
+    targetProgress: number,
+    closeAfter = false,
+  ) => {
+    const source = chapterRef.current;
+    if (source === target) {
+      directorySeekRef.current = null;
+      setTurnVisual(false);
+      pageTurnRef.current?.clear();
+      scrollStoryTo(targetProgress);
+      if (closeAfter) window.requestAnimationFrame(() => closeBook());
+      return;
+    }
 
-      if (coverState === "closed" && event.deltaY > 0) {
-        event.preventDefault();
-        openBook();
-        return;
-      }
-
-      if (coverState === "opening" || coverState === "closing") {
-        event.preventDefault();
-        return;
-      }
-
-      if (
-        coverState === "open" &&
-        chapterRef.current === "foreword" &&
-        event.deltaY < 0 &&
-        window.scrollY <= storyTop + 8
-      ) {
-        event.preventDefault();
-        closeBook();
-      }
+    const ranks: Record<BookChapter, number> = { foreword: 0, workbench: 1, recommendations: 2 };
+    const direction: TurnDirection = ranks[target] >= ranks[source] ? "forward" : "backward";
+    directorySeekRef.current = {
+      key: `directory:${source}:${target}:${performance.now().toFixed(0)}`,
+      source,
+      target,
+      direction,
+      startProgress: storyProgressRef.current,
+      targetProgress,
+      closeAfter,
     };
-
-    window.addEventListener("wheel", onWheel, { passive: false });
-    return () => window.removeEventListener("wheel", onWheel);
-  }, [
-    closeBook,
-    coverState,
-    feedbackOpen,
-    menuOpen,
-    openBook,
-    readerTransitioning,
-    recommendationDialogOpen,
-    vocabularyOpen,
-  ]);
+    setTurnVisual(true, direction);
+    pageTurnRef.current?.seek(
+      directorySeekRef.current.key,
+      direction,
+      spreadRefs.current[source],
+      spreadRefs.current[target],
+      0,
+    );
+    scrollStoryTo(targetProgress);
+  }, [closeBook, scrollStoryTo, setTurnVisual]);
 
   useEffect(() => {
-    if (coverState !== "open") return;
     const story = storyRef.current;
     if (!story) return;
 
@@ -483,16 +461,124 @@ export function BookHome({
       const storyTop = story.getBoundingClientRect().top + window.scrollY;
       const distance = Math.max(1, story.offsetHeight - window.innerHeight);
       const progress = Math.min(1, Math.max(0, (window.scrollY - storyTop) / distance));
-      let desired: BookChapter = "foreword";
-      if (progress >= 0.28) desired = "workbench";
-      if (progress >= 0.68) desired = "recommendations";
-      if (turningRef.current) {
-        queuedChapterRef.current = desired;
+      storyProgressRef.current = progress;
+
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const rawCoverProgress = Math.min(1, Math.max(0, progress / COVER_SCROLL_END));
+      const visualCoverProgress = reducedMotion
+        ? (rawCoverProgress >= .5 ? 1 : 0)
+        : rawCoverProgress;
+      story.style.setProperty("--cover-progress", visualCoverProgress.toFixed(5));
+
+      const previousCoverProgress = coverProgressRef.current;
+      coverProgressRef.current = rawCoverProgress;
+      let nextCoverState: CoverState;
+      if (rawCoverProgress <= .002) {
+        nextCoverState = "closed";
+      } else if (rawCoverProgress >= .998) {
+        nextCoverState = "open";
+      } else {
+        nextCoverState = rawCoverProgress >= previousCoverProgress ? "opening" : "closing";
+      }
+      if (coverStateRef.current !== nextCoverState) {
+        coverStateRef.current = nextCoverState;
+        setCoverState(nextCoverState);
+      }
+
+      const directorySeek = directorySeekRef.current;
+      if (directorySeek) {
+        const denominator = directorySeek.targetProgress - directorySeek.startProgress;
+        const rawDirectoryProgress = Math.abs(denominator) < .0001
+          ? 1
+          : (progress - directorySeek.startProgress) / denominator;
+        const directoryProgress = Math.min(1, Math.max(0, rawDirectoryProgress));
+
+        if (rawDirectoryProgress < -.025) {
+          directorySeekRef.current = null;
+          pageTurnRef.current?.clear();
+          setTurnVisual(false);
+        } else if (directoryProgress >= .998) {
+          directorySeekRef.current = null;
+          pageTurnRef.current?.clear();
+          setTurnVisual(false);
+          setChapterImmediately(directorySeek.target);
+          if (directorySeek.target === "workbench") {
+            setMobileWorkbenchPage("demo");
+            window.requestAnimationFrame(() => workbenchRef.current?.focus({ preventScroll: true }));
+          }
+          if (directorySeek.closeAfter) {
+            window.requestAnimationFrame(() => scrollStoryTo(0));
+          }
+          return;
+        } else {
+          setTurnVisual(true, directorySeek.direction);
+          pageTurnRef.current?.seek(
+            directorySeek.key,
+            directorySeek.direction,
+            spreadRefs.current[directorySeek.source],
+            spreadRefs.current[directorySeek.target],
+            reducedMotion ? (directoryProgress >= .5 ? 1 : 0) : directoryProgress,
+          );
+          return;
+        }
+      }
+
+      if (rawCoverProgress < .998) {
+        pageTurnRef.current?.clear();
+        setTurnVisual(false);
+        setChapterImmediately("foreword");
         return;
       }
-      if (desired === chapterRef.current) return;
-      const ranks: Record<BookChapter, number> = { foreword: 0, workbench: 1, recommendations: 2 };
-      beginTurn(desired, ranks[desired] >= ranks[chapterRef.current] ? "forward" : "backward");
+
+      const pendingTarget = pendingDirectoryTargetRef.current;
+      if (pendingTarget && progress >= FOREWORD_SCROLL_POSITION - .008) {
+        pendingDirectoryTargetRef.current = null;
+        const targetProgress = pendingTarget.target === "workbench"
+          ? WORKBENCH_SCROLL_POSITION
+          : pendingTarget.target === "recommendations"
+            ? RECOMMENDATION_SCROLL_POSITION
+            : FOREWORD_SCROLL_POSITION;
+        window.requestAnimationFrame(() => {
+          startDirectorySeek(pendingTarget.target, targetProgress, Boolean(pendingTarget.closeAfter));
+        });
+        return;
+      }
+
+      if (progress > FIRST_TURN_START && progress < FIRST_TURN_END) {
+        const turnProgress = (progress - FIRST_TURN_START) / (FIRST_TURN_END - FIRST_TURN_START);
+        setTurnVisual(true, "forward");
+        pageTurnRef.current?.seek(
+          "scroll:foreword:workbench",
+          "forward",
+          spreadRefs.current.foreword,
+          spreadRefs.current.workbench,
+          reducedMotion ? (turnProgress >= .5 ? 1 : 0) : turnProgress,
+        );
+        return;
+      }
+
+      if (progress > SECOND_TURN_START && progress < SECOND_TURN_END) {
+        const turnProgress = (progress - SECOND_TURN_START) / (SECOND_TURN_END - SECOND_TURN_START);
+        setTurnVisual(true, "forward");
+        pageTurnRef.current?.seek(
+          "scroll:workbench:recommendations",
+          "forward",
+          spreadRefs.current.workbench,
+          spreadRefs.current.recommendations,
+          reducedMotion ? (turnProgress >= .5 ? 1 : 0) : turnProgress,
+        );
+        return;
+      }
+
+      pageTurnRef.current?.clear();
+      setTurnVisual(false);
+      if (progress >= SECOND_TURN_END) {
+        setChapterImmediately("recommendations");
+      } else if (progress >= FIRST_TURN_END) {
+        setChapterImmediately("workbench");
+      } else {
+        setChapterImmediately("foreword");
+      }
     };
 
     const onScroll = () => {
@@ -508,7 +594,7 @@ export function BookHome({
       if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
       scrollFrameRef.current = null;
     };
-  }, [beginTurn, coverState]);
+  }, [scrollStoryTo, setChapterImmediately, setTurnVisual, startDirectorySeek]);
 
   useEffect(() => () => explanationAbortRef.current?.abort(), []);
 
@@ -723,47 +809,46 @@ export function BookHome({
 
   function scrollToWorkbench() {
     setMenuOpen(false);
-    const showWorkbench = () => {
-      const direction: TurnDirection = chapterRef.current === "recommendations" ? "backward" : "forward";
-      beginTurn("workbench", direction);
-      setMobileWorkbenchPage("demo");
-      scrollStoryTo(.42);
-      window.setTimeout(() => workbenchRef.current?.focus({ preventScroll: true }), 900);
-    };
-    openBook(showWorkbench);
+    if (coverProgressRef.current < .998) {
+      pendingDirectoryTargetRef.current = { target: "workbench" };
+      scrollStoryTo(FOREWORD_SCROLL_POSITION);
+      return;
+    }
+    startDirectorySeek("workbench", WORKBENCH_SCROLL_POSITION);
   }
 
   function scrollToForeword() {
     setMenuOpen(false);
-    openBook(() => {
-      beginTurn("foreword", "backward");
-      scrollStoryTo(0);
-    });
+    pendingDirectoryTargetRef.current = null;
+    if (coverProgressRef.current < .998) {
+      scrollStoryTo(FOREWORD_SCROLL_POSITION);
+      return;
+    }
+    startDirectorySeek("foreword", FOREWORD_SCROLL_POSITION);
   }
 
   function scrollToCover() {
     setMenuOpen(false);
-    if (coverState === "closed") {
+    pendingDirectoryTargetRef.current = null;
+    if (coverProgressRef.current <= .002) {
       scrollStoryTo(0);
       return;
     }
-    if (coverState !== "open") return;
-    scrollStoryTo(0);
     if (chapterRef.current === "foreword") {
       closeBook();
       return;
     }
-    beginTurn("foreword", "backward");
-    const closeTimer = window.setTimeout(closeBook, 820);
-    turnTimersRef.current.push(closeTimer);
+    startDirectorySeek("foreword", FOREWORD_SCROLL_POSITION, true);
   }
 
   function scrollToRecommendations() {
     setMenuOpen(false);
-    openBook(() => {
-      beginTurn("recommendations", "forward");
-      scrollStoryTo(.82);
-    });
+    if (coverProgressRef.current < .998) {
+      pendingDirectoryTargetRef.current = { target: "recommendations" };
+      scrollStoryTo(FOREWORD_SCROLL_POSITION);
+      return;
+    }
+    startDirectorySeek("recommendations", RECOMMENDATION_SCROLL_POSITION);
   }
 
   function updateProfile(next: RecommendationProfile) {
@@ -1098,20 +1183,19 @@ export function BookHome({
                       <span className={styles.frontBoardBack} />
                       <span className={styles.coverSpine} />
                       <span className={styles.coverFace}>
-                        {coverState !== "open" && (
-                          <span className={styles.coverBallpit} aria-hidden="true">
-                            <Ballpit
-                              className={styles.coverBallpitCanvas}
-                              count={120}
-                              gravity={0}
-                              friction={0.983}
-                              wallBounce={0.95}
-                              colors={COVER_BALLPIT_COLORS}
-                              followCursor
-                              showCursorBall={false}
-                            />
-                          </span>
-                        )}
+                        <span className={styles.coverBallpit} aria-hidden="true">
+                          <Ballpit
+                            className={styles.coverBallpitCanvas}
+                            count={120}
+                            gravity={0}
+                            driftSpeed={0.012}
+                            friction={0.983}
+                            wallBounce={0.95}
+                            colors={COVER_BALLPIT_COLORS}
+                            followCursor
+                            showCursorBall={false}
+                          />
+                        </span>
                         <span className={styles.coverTitle}>
                           <strong>Context Reader</strong>
                           <small>语境翻译魔法书</small>

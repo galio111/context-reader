@@ -1,5 +1,5 @@
 .overlay {
-  --menu-panel-width: clamp(370px, 38vw, 500px);
+  --menu-panel-width: clamp(200px, 19vw, 250px);
 
   position: fixed;
   z-index: 90;
@@ -56,11 +56,12 @@
   width: var(--menu-panel-width);
   height: 100%;
   min-height: 520px;
-  padding: clamp(24px, 3.2vw, 44px);
+  padding: clamp(18px, 1.8vw, 26px);
   flex-direction: column;
   overflow-y: auto;
   background: #f4f7f8;
   box-shadow: -8px 0 18px rgb(3 14 22 / 8%);
+  font-family: "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", "Source Han Sans SC", system-ui, sans-serif;
   animation: panelOut .32s cubic-bezier(.7, 0, .84, 0) both;
   will-change: transform;
 }
@@ -75,7 +76,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 28px;
+  gap: 12px;
 }
 
 .panelHeader span,
@@ -107,7 +108,7 @@
   color: #122430;
   font: inherit;
   font-size: 13px;
-  font-weight: 650;
+  font-weight: 400;
   line-height: 1;
   cursor: pointer;
 }
@@ -176,15 +177,15 @@
   display: block;
   width: 100%;
   margin: 0;
-  padding: .15rem 3.1rem .15rem 0;
+  padding: .2rem 2rem .2rem 0;
   border: 0;
   background: transparent;
   color: #132632;
   font: inherit;
-  font-size: 2.12rem;
-  font-weight: 620;
-  line-height: 1.12;
-  letter-spacing: -.03em;
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.24;
+  letter-spacing: .01em;
   text-align: left;
   cursor: pointer;
   transition: color .25s ease;
@@ -387,7 +388,7 @@
 
 @media (max-width: 760px) {
   .overlay {
-    --menu-panel-width: 100%;
+    --menu-panel-width: min(78vw, 300px);
   }
 
   .panel {
@@ -409,8 +410,8 @@
   }
 
   .menuItem {
-    padding-right: 2.5rem;
-    font-size: 1.68rem;
+    padding-right: 2rem;
+    font-size: 1.45rem;
   }
 
   .savedPreview {

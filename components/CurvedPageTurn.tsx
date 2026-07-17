@@ -11,7 +11,14 @@ import type { PageFlip } from "page-flip/dist/js/page-flip.module.js";
 import styles from "./CurvedPageTurn.module.css";
 
 export interface CurvedPageTurnHandle {
-  flip: (direction: "forward" | "backward", source: HTMLElement | null, target: HTMLElement | null) => void;
+  seek: (
+    key: string,
+    direction: "forward" | "backward",
+    source: HTMLElement | null,
+    target: HTMLElement | null,
+    progress: number,
+  ) => void;
+  clear: () => void;
 }
 
 interface CurvedPageTurnProps {
@@ -21,6 +28,26 @@ interface CurvedPageTurnProps {
 
 interface SuspendableRender {
   drawFrame: () => void;
+}
+
+interface SeekableRender extends SuspendableRender {
+  finishAnimation: () => void;
+  setBottomPage: (page: null) => void;
+  setFlippingPage: (page: null) => void;
+  clearShadow: () => void;
+  getRect: () => {
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+    pageWidth: number;
+  };
+}
+
+interface SeekableFlipControl {
+  reset: () => void;
+  start: (position: { x: number; y: number }) => boolean;
+  fold: (position: { x: number; y: number }) => void;
 }
 
 interface RenderControl {
@@ -39,6 +66,8 @@ interface PageFlipRuntime {
     maxHeight: number;
   };
   update: () => void;
+  getFlipController: () => SeekableFlipControl;
+  updateState: (state: string) => void;
 }
 
 const noFrame = () => {};
@@ -107,6 +136,9 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
   const containerRef = useRef<HTMLDivElement | null>(null);
   const pageFlipRef = useRef<PageFlip | null>(null);
   const renderControlRef = useRef<RenderControl | null>(null);
+  const seekKeyRef = useRef<string | null>(null);
+  const seekTouchActiveRef = useRef(false);
+  const seekSizeRef = useRef("");
   const destroyedRef = useRef(false);
   const [ready, setReady] = useState(false);
 
@@ -114,6 +146,49 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
     const control = renderControlRef.current;
     if (!control) return;
     control.render.drawFrame = nextActive ? control.drawFrame : noFrame;
+  };
+
+  const resetSeek = (blank = true) => {
+    const instance = pageFlipRef.current;
+    const container = containerRef.current;
+    const hadSeek = seekKeyRef.current !== null || container?.dataset.seeking === "true";
+    seekKeyRef.current = null;
+    seekTouchActiveRef.current = false;
+    seekSizeRef.current = "";
+    if (container) {
+      container.dataset.seeking = "false";
+      container.style.setProperty("--turn-progress", "0");
+    }
+    if (!instance || !hadSeek) {
+      setRendererActive(false);
+      return;
+    }
+    try {
+      const runtime = instance as unknown as PageFlipRuntime;
+      const render = runtime.getRender() as SeekableRender;
+      render.finishAnimation();
+      render.setBottomPage(null);
+      render.setFlippingPage(null);
+      render.clearShadow();
+      runtime.getFlipController().reset();
+      runtime.updateState("read");
+      if (blank) instance.updateFromHtml(makeBlankPages());
+    } catch {
+      // A stale page-flip frame should never block the real DOM spread.
+    }
+    setRendererActive(false);
+  };
+
+  const syncEngineSize = (instance: PageFlip) => {
+    const container = containerRef.current;
+    if (!container) return null;
+    const rect = container.getBoundingClientRect();
+    const runtime = instance as unknown as PageFlipRuntime;
+    const settings = runtime.getSettings();
+    settings.width = settings.minWidth = settings.maxWidth = Math.max(1, rect.width / 2);
+    settings.height = settings.minHeight = settings.maxHeight = Math.max(1, rect.height);
+    runtime.update();
+    return (runtime.getRender() as SeekableRender).getRect();
   };
 
   useEffect(() => {
@@ -154,7 +229,11 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
         if (state === "read") {
           window.requestAnimationFrame(() => {
             window.requestAnimationFrame(() => {
-              if (destroyedRef.current || pageFlipRef.current !== instance) return;
+              if (
+                destroyedRef.current ||
+                pageFlipRef.current !== instance ||
+                seekKeyRef.current !== null
+              ) return;
               instance.updateFromHtml(makeBlankPages());
               setRendererActive(false);
             });
@@ -166,9 +245,13 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
       renderControlRef.current = { render, drawFrame: render.drawFrame };
       pageFlipRef.current = instance;
       container.dataset.flipState = "read";
+      container.dataset.seeking = "false";
       setReady(true);
       window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => setRendererActive(false));
+        window.requestAnimationFrame(() => {
+          setRendererActive(false);
+          window.dispatchEvent(new Event("scroll"));
+        });
       });
     }).catch(() => {
       setReady(false);
@@ -180,6 +263,9 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
       renderControlRef.current = null;
       const instance = pageFlipRef.current;
       pageFlipRef.current = null;
+      seekKeyRef.current = null;
+      seekTouchActiveRef.current = false;
+      seekSizeRef.current = "";
       if (instance) {
         try { instance.destroy(); } catch { /* The host may already be detached during route changes. */ }
       } else {
@@ -189,34 +275,82 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
   }, []);
 
   useImperativeHandle(ref, () => ({
-    flip(nextDirection, source, target) {
-      const instance = pageFlipRef.current;
-      if (!instance || window.matchMedia("(max-width: 760px), (prefers-reduced-motion: reduce)").matches) return;
-      setRendererActive(true);
+    seek(key, nextDirection, source, target, progress) {
       const container = containerRef.current;
-      if (container) {
-        const rect = container.getBoundingClientRect();
-        const runtime = instance as unknown as PageFlipRuntime;
-        const settings = runtime.getSettings();
-        settings.width = settings.minWidth = settings.maxWidth = Math.max(1, rect.width / 2);
-        settings.height = settings.minHeight = settings.maxHeight = Math.max(1, rect.height);
-        runtime.update();
+      if (!container) return;
+
+      const normalized = Math.min(1, Math.max(0, progress));
+      container.style.setProperty("--turn-progress", normalized.toFixed(5));
+      container.dataset.seeking = normalized > .001 && normalized < .999 ? "true" : "false";
+
+      if (window.matchMedia("(max-width: 760px), (prefers-reduced-motion: reduce)").matches) {
+        seekKeyRef.current = normalized > .001 && normalized < .999 ? key : null;
+        return;
       }
 
-      const sourceLeft = makeSnapshotPage(source, "left");
-      const sourceRight = makeSnapshotPage(source, "right");
-      const targetLeft = makeSnapshotPage(target, "left");
-      const targetRight = makeSnapshotPage(target, "right");
-      const pages = nextDirection === "forward"
-        ? [sourceLeft, sourceRight, targetLeft, targetRight]
-        : [targetLeft, targetRight, sourceLeft, sourceRight];
+      const instance = pageFlipRef.current;
+      if (!instance) return;
+      if (normalized <= .001 || normalized >= .999) {
+        if (seekKeyRef.current !== null) resetSeek();
+        return;
+      }
 
-      instance.updateFromHtml(pages);
-      instance.turnToPage(nextDirection === "forward" ? 0 : 2);
-      if (container) container.dataset.flipState = "queued";
-      window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => instance.flip(nextDirection === "forward" ? 2 : 0, "bottom"));
-      });
+      const liveRect = container.getBoundingClientRect();
+      const sizeKey = `${Math.round(liveRect.width)}x${Math.round(liveRect.height)}`;
+      const needsSetup =
+        seekKeyRef.current !== key ||
+        !seekTouchActiveRef.current ||
+        seekSizeRef.current !== sizeKey;
+      let rect: ReturnType<SeekableRender["getRect"]>;
+
+      if (needsSetup) {
+        resetSeek(false);
+        setRendererActive(true);
+        const syncedRect = syncEngineSize(instance);
+        if (!syncedRect) return;
+        rect = syncedRect;
+        const sourceLeft = makeSnapshotPage(source, "left");
+        const sourceRight = makeSnapshotPage(source, "right");
+        const targetLeft = makeSnapshotPage(target, "left");
+        const targetRight = makeSnapshotPage(target, "right");
+        const pages = nextDirection === "forward"
+          ? [sourceLeft, sourceRight, targetLeft, targetRight]
+          : [targetLeft, targetRight, sourceLeft, sourceRight];
+
+        instance.updateFromHtml(pages);
+        const runtime = instance as unknown as PageFlipRuntime;
+        runtime.update();
+        instance.turnToPage(nextDirection === "forward" ? 0 : 2);
+        const start = nextDirection === "forward"
+          ? { x: rect.left + rect.width - 2, y: rect.top + rect.height - 3 }
+          : { x: rect.left + 2, y: rect.top + rect.height - 3 };
+        const started = runtime.getFlipController().start(start);
+        seekKeyRef.current = key;
+        seekTouchActiveRef.current = started;
+        seekSizeRef.current = sizeKey;
+        container.style.setProperty("--turn-progress", normalized.toFixed(5));
+        container.dataset.seeking = "true";
+      } else {
+        setRendererActive(true);
+        rect = ((instance as unknown as PageFlipRuntime).getRender() as SeekableRender).getRect();
+      }
+
+      const easedLift = Math.sin(normalized * Math.PI) * rect.height * .075;
+      const position = nextDirection === "forward"
+        ? {
+            x: rect.left + rect.width * (1 - normalized),
+            y: rect.top + rect.height - 3 - easedLift,
+          }
+        : {
+            x: rect.left + rect.width * normalized,
+            y: rect.top + rect.height - 3 - easedLift,
+          };
+      const runtime = instance as unknown as PageFlipRuntime;
+      runtime.getFlipController().fold(position);
+      (runtime.getRender() as SeekableRender).drawFrame();
+    },
+    clear() {
+      resetSeek();
     },
   }), []);
 

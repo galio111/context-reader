@@ -46,6 +46,7 @@ export interface BallpitProps {
   maxX?: number;
   maxY?: number;
   maxZ?: number;
+  driftSpeed?: number;
   followCursor?: boolean;
   showCursorBall?: boolean;
 }
@@ -67,6 +68,7 @@ interface BallpitConfig {
   maxX: number;
   maxY: number;
   maxZ: number;
+  driftSpeed: number;
   controlSphere0: boolean;
   followCursor: boolean;
   showCursorBall: boolean;
@@ -94,6 +96,7 @@ const DEFAULT_CONFIG: BallpitConfig = {
   maxX: 5,
   maxY: 5,
   maxZ: 2,
+  driftSpeed: 0,
   controlSphere0: false,
   followCursor: true,
   showCursorBall: true,
@@ -119,6 +122,7 @@ class BallPhysics {
     this.sizeData = new Float32Array(config.count).fill(1);
     this.initializePositions();
     this.initializeSizes();
+    this.initializeVelocities();
   }
 
   private initializePositions() {
@@ -138,9 +142,27 @@ class BallPhysics {
     }
   }
 
+  private initializeVelocities() {
+    if (this.config.driftSpeed <= 0) return;
+    const startIndex = this.config.followCursor ? 1 : 0;
+
+    for (let index = startIndex; index < this.config.count; index += 1) {
+      this.velocity.set(
+        MathUtils.randFloatSpread(2),
+        MathUtils.randFloatSpread(2),
+        MathUtils.randFloatSpread(1.2),
+      );
+      if (this.velocity.lengthSq() < 0.0001) this.velocity.set(1, 0, 0);
+      this.velocity
+        .normalize()
+        .multiplyScalar(this.config.driftSpeed)
+        .toArray(this.velocityData, index * 3);
+    }
+  }
+
   update(delta: number) {
     const { config, positionData, sizeData, velocityData } = this;
-    const startIndex = config.controlSphere0 ? 1 : 0;
+    const startIndex = config.followCursor ? 1 : 0;
 
     if (config.controlSphere0) {
       this.position
@@ -157,6 +179,20 @@ class BallPhysics {
       this.velocity.y -= delta * config.gravity * sizeData[index];
       this.velocity.multiplyScalar(config.friction);
       this.velocity.clampLength(0, config.maxVelocity);
+      if (
+        config.gravity === 0
+        && config.driftSpeed > 0
+        && this.velocity.lengthSq() < config.driftSpeed * config.driftSpeed
+      ) {
+        if (this.velocity.lengthSq() < 0.000001) {
+          this.velocity.set(
+            Math.sin(index * 12.9898),
+            Math.cos(index * 78.233),
+            Math.sin(index * 37.719) * 0.6,
+          );
+        }
+        this.velocity.setLength(config.driftSpeed);
+      }
       this.position.add(this.velocity);
       this.position.toArray(positionData, offset);
       this.velocity.toArray(velocityData, offset);
@@ -179,22 +215,33 @@ class BallPhysics {
         const combinedRadius = radius + otherRadius;
         if (distance >= combinedRadius || distance === 0) continue;
 
+        this.difference.multiplyScalar(1 / distance);
+        const inverseMass = 1 / Math.max(radius ** 3, 0.001);
+        const otherInverseMass = 1 / Math.max(otherRadius ** 3, 0.001);
+        const totalInverseMass = inverseMass + otherInverseMass;
+
         this.correction
           .copy(this.difference)
-          .normalize()
-          .multiplyScalar((combinedRadius - distance) * 0.5);
-        this.velocityCorrection
-          .copy(this.correction)
-          .multiplyScalar(Math.max(this.velocity.length(), 1));
+          .multiplyScalar((combinedRadius - distance) / totalInverseMass);
+        this.position.addScaledVector(this.correction, -inverseMass);
+        this.otherPosition.addScaledVector(this.correction, otherInverseMass);
 
-        this.position.sub(this.correction);
-        this.velocity.sub(this.velocityCorrection);
-        this.otherPosition.add(this.correction);
-        this.otherVelocity.add(
+        const velocityAlongNormal = this.velocityCorrection
+          .copy(this.otherVelocity)
+          .sub(this.velocity)
+          .dot(this.difference);
+        if (velocityAlongNormal < 0) {
+          const impulseMagnitude = -(
+            (1 + config.wallBounce) * velocityAlongNormal
+          ) / totalInverseMass;
           this.velocityCorrection
-            .copy(this.correction)
-            .multiplyScalar(Math.max(this.otherVelocity.length(), 1)),
-        );
+            .copy(this.difference)
+            .multiplyScalar(impulseMagnitude);
+          this.velocity.addScaledVector(this.velocityCorrection, -inverseMass);
+          this.otherVelocity.addScaledVector(this.velocityCorrection, otherInverseMass);
+          this.velocity.clampLength(0, config.maxVelocity);
+          this.otherVelocity.clampLength(0, config.maxVelocity);
+        }
 
         this.position.toArray(positionData, offset);
         this.velocity.toArray(velocityData, offset);
@@ -396,7 +443,7 @@ class BallSpheres extends InstancedMesh {
     for (let index = 0; index < this.count; index += 1) {
       this.transformObject.position.fromArray(this.physics.positionData, index * 3);
       this.transformObject.scale.setScalar(
-        index === 0 && (!this.config.followCursor || !this.config.showCursorBall)
+        index === 0 && this.config.followCursor && !this.config.showCursorBall
           ? 0
           : this.physics.sizeData[index],
       );
@@ -603,7 +650,6 @@ class BallpitScene {
     this.spheres.disposeResources();
     this.timer.dispose();
     this.renderer.dispose();
-    this.renderer.forceContextLoss();
   }
 }
 
@@ -628,6 +674,7 @@ export default function Ballpit({
   maxX = DEFAULT_CONFIG.maxX,
   maxY = DEFAULT_CONFIG.maxY,
   maxZ = DEFAULT_CONFIG.maxZ,
+  driftSpeed = DEFAULT_CONFIG.driftSpeed,
   followCursor = DEFAULT_CONFIG.followCursor,
   showCursorBall = DEFAULT_CONFIG.showCursorBall,
 }: BallpitProps) {
@@ -661,6 +708,7 @@ export default function Ballpit({
           maxX,
           maxY,
           maxZ,
+          driftSpeed,
           controlSphere0: false,
           followCursor,
           showCursorBall,
@@ -692,6 +740,7 @@ export default function Ballpit({
     ambientIntensity,
     colors,
     count,
+    driftSpeed,
     followCursor,
     friction,
     gravity,

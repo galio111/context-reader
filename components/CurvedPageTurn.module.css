@@ -28,6 +28,12 @@
   transition: opacity 80ms ease, visibility 0s;
 }
 
+.turnLayer[data-seeking="true"] {
+  opacity: 1;
+  visibility: visible;
+  transition: none;
+}
+
 .active::after {
   position: absolute;
   z-index: 18;
@@ -43,6 +49,18 @@
   transform-origin: center;
   animation: contactShadow 1.08s cubic-bezier(.2,.68,.18,1) both;
   pointer-events: none;
+}
+
+.turnLayer[data-seeking="true"]::after {
+  opacity: min(
+    .9,
+    calc(var(--turn-progress, 0) * 3.6),
+    calc((1 - var(--turn-progress, 0)) * 3.6)
+  );
+  transform:
+    translateX(calc(175% - var(--turn-progress, 0) * 395%))
+    scaleX(calc(.24 + min(var(--turn-progress, 0), calc(1 - var(--turn-progress, 0))) * 1.52));
+  animation: none;
 }
 
 .backward.active::after { animation-name: contactShadowBackward; }
@@ -192,6 +210,19 @@
 .active:not(.ready) .fallbackLeaf { animation: fallbackTurn 1.08s cubic-bezier(.18,.72,.16,1) both; }
 .backward .fallbackLeaf { right: 50%; transform-origin: right center; }
 .backward.active:not(.ready) .fallbackLeaf { animation-name: fallbackTurnBackward; }
+.turnLayer:not(.ready)[data-seeking="true"] .fallbackLeaf {
+  right: 0;
+  display: block;
+  opacity: min(
+    1,
+    calc(var(--turn-progress, 0) * 4),
+    calc((1 - var(--turn-progress, 0)) * 4)
+  );
+  transform:
+    translateZ(calc(min(var(--turn-progress, 0), calc(1 - var(--turn-progress, 0))) * 96px))
+    rotateY(calc(var(--turn-progress, 0) * -180deg));
+  animation: none;
+}
 
 @keyframes fallbackTurn {
   0% { opacity: 1; transform: rotateY(0deg) skewY(0deg); }
@@ -211,6 +242,21 @@
   .fallbackLeaf { display: block; width: 100%; right: 0; border-radius: inherit; }
   .backward .fallbackLeaf { right: 0; }
   .active .fallbackLeaf { animation: mobileLeafPass .72s cubic-bezier(.2,.72,.18,1) both !important; }
+  .turnLayer[data-seeking="true"] .fallbackLeaf {
+    opacity: min(
+      .92,
+      calc(var(--turn-progress, 0) * 4),
+      calc((1 - var(--turn-progress, 0)) * 4)
+    );
+    clip-path: inset(
+      0
+      calc(var(--turn-progress, 0) * 88%)
+      0
+      calc((1 - var(--turn-progress, 0)) * 88%)
+    );
+    transform: translateX(calc(9% - var(--turn-progress, 0) * 17%)) rotateY(calc(-8deg + var(--turn-progress, 0) * 16deg));
+    animation: none !important;
+  }
   @keyframes mobileLeafPass {
     0% { opacity: 0; clip-path: inset(0 0 0 100%); transform: translateX(9%) rotateY(-8deg); }
     30% { opacity: 1; }
