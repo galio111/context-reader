@@ -177,6 +177,9 @@ export function HomeOptionMenu({
         role="dialog"
         aria-modal="true"
         aria-labelledby="home-option-menu-title"
+        onPointerDown={(event) => {
+          if (event.target === event.currentTarget) onClose();
+        }}
         onKeyDown={handleDialogKeyDown}
       >
         <header className={styles.heading}>
@@ -189,6 +192,7 @@ export function HomeOptionMenu({
           className={`${styles.savedPreview} ${savedPreviewVisible ? styles.savedPreviewVisible : ""}`}
           aria-label="保存文章"
           aria-hidden={!savedPreviewVisible}
+          inert={!savedPreviewVisible}
           onPointerEnter={() => {
             cancelSavedClose();
             setSavedHovered(true);

@@ -17,6 +17,22 @@ interface BookRecommendationsProps {
   onPrefetchArticle: (id: string) => void;
   embedded?: boolean;
   preferredLevel?: ArticleAudienceStage | "all";
+  preferredPace?: "轻松" | "适中" | "挑战" | "";
+  preferredInterests?: string[];
+  personalized?: boolean;
+  onPersonalize?: () => void;
+}
+
+const DEFAULT_RECOMMENDATION_STAGES: ArticleAudienceStage[] = ["CET-4", "CET-6", "考研", "IELTS", "TOEFL"];
+
+function dailyArticleRank(articleId: string): number {
+  const day = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Shanghai" }).format(new Date());
+  let hash = 2166136261;
+  for (const character of `${day}:${articleId}`) {
+    hash ^= character.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
 }
 
 export function BookRecommendations({
@@ -27,6 +43,10 @@ export function BookRecommendations({
   onPrefetchArticle,
   embedded = false,
   preferredLevel,
+  preferredPace = "",
+  preferredInterests = [],
+  personalized = false,
+  onPersonalize,
 }: BookRecommendationsProps) {
   const [openingCover, setOpeningCover] = useState<OpeningCover | null>(null);
   const [coverExpanded, setCoverExpanded] = useState(false);
@@ -52,12 +72,34 @@ export function BookRecommendations({
     () => articles.filter((article) => Boolean(article.recommendation?.coverImageUrl?.trim())),
     [articles],
   );
-  const matchedArticles = useMemo(() => (
-    level === "all"
-      ? coveredArticles
-      : coveredArticles.filter((article) => article.recommendation?.audienceStages.includes(level))
-  ), [coveredArticles, level]);
-  const visibleArticles = matchedArticles.length ? matchedArticles : coveredArticles;
+  const visibleArticles = useMemo(() => {
+    if (!personalized) {
+      const defaultPool = coveredArticles.filter((article) =>
+        article.recommendation?.audienceStages.some((stage) => DEFAULT_RECOMMENDATION_STAGES.includes(stage)),
+      );
+      return [...(defaultPool.length ? defaultPool : coveredArticles)]
+        .sort((left, right) => dailyArticleRank(left.id) - dailyArticleRank(right.id));
+    }
+
+    const ranked = coveredArticles.map((article) => {
+      const recommendation = article.recommendation!;
+      let score = 0;
+      if (level !== "all" && recommendation.audienceStages.includes(level)) score += 8;
+      for (const interest of preferredInterests) {
+        if (recommendation.topics.some((topic) => topic.includes(interest))) score += 3;
+      }
+      const difficulty = recommendation.difficulty;
+      if (preferredPace === "轻松" && /(小学|初中|高中|CET-4)/.test(difficulty)) score += 2;
+      if (preferredPace === "挑战" && /(CET-6|考研|雅思|托福)/.test(difficulty)) score += 2;
+      if (preferredPace === "适中") score += 1;
+      return { article, score, dailyRank: dailyArticleRank(article.id) };
+    });
+
+    const matched = ranked.filter((item) => item.score > 0);
+    return (matched.length ? matched : ranked)
+      .sort((left, right) => right.score - left.score || left.dailyRank - right.dailyRank)
+      .map((item) => item.article);
+  }, [coveredArticles, level, personalized, preferredInterests, preferredPace]);
 
   async function openArticle(event: MouseEvent<HTMLButtonElement>, article: PublicArticle) {
     if (openingCover || openingPublicArticleId || readerTransitioning) return;
@@ -85,8 +127,17 @@ export function BookRecommendations({
       {!embedded && <div className={styles.turnLeaf} aria-hidden="true" />}
       <header className={styles.header}>
         <div>
-          <span>Reading list · 04</span>
+          <span>Reading list · 03</span>
           <h2 id="recommendation-heading">推荐文章</h2>
+        </div>
+        <div className={styles.recommendationControls}>
+          <span className={styles.dailyBadge}><i aria-hidden="true" />每日更新</span>
+          {onPersonalize && (
+            <button type="button" className={styles.personalizeButton} onClick={onPersonalize}>
+              {personalized ? "修改个性化推荐" : "个性化推荐"}
+            </button>
+          )}
+          <small>{personalized ? "正在按照你的阶段、强度和兴趣排序" : "当前为四级及以上默认推荐"}</small>
         </div>
       </header>
 
