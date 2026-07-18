@@ -24,7 +24,7 @@ Quiet, focused, practical.
 
 The reading workspace should remain calm and compact. The homepage may be more expressive and promotional, but its motion and spatial depth must teach the real click-word and drag-phrase interactions while keeping article entry immediately available.
 
-The desktop cursor-letter trail from the original homepage is an approved brand motion layer. Keep it clearly visible on expressive homepage surfaces, mask it around readable or editable content, pause it for overlays, remove it entirely inside the reader, and reduce mobile feedback to a light touch ripple.
+The desktop cursor-letter trail from the original homepage is an approved brand motion layer. Keep it clearly visible above expressive homepage surfaces, including controls, forms, Menu, and overlays; mask only article-reading and explanation-reading content, remove it entirely inside the reader, and reduce mobile feedback to a light touch ripple.
 
 ## Anti-references
 
@@ -38,7 +38,7 @@ Avoid playful language-learning gamification unless explicitly requested. The pr
 2. Preserve flow: common actions such as returning home, editing text directly on the article, copying content, saving articles, and opening vocabulary should be reachable without layout surprises. Entering edit mode must not change the article's typography, width, wrapping, or paragraph spacing.
 3. Respect mobile touch intent: vertical scrolling is reading, while phrase selection requires a deliberate horizontal or long-press gesture.
 4. Make study artifacts durable: vocabulary data should preserve phonetics, source sentence, contextual meaning, copied explanations, CSV fields, and Anki fields. Anki pronunciation should be available on demand without auto-playing when a card answer is shown.
-5. Keep entry compact even when the homepage is expressive: paste and URL controls remain visible on the first screen, saved articles stay reachable from its top navigation, every logical article appears only once in latest-opened order, and longer explanation unfolds through the word demo, phrase demo, recommendations, and final article entry.
+5. Keep entry compact even when the homepage is expressive: the legacy `/` keeps paste and URL controls on its first screen; `/home-v2` keeps a permanent start-reading action outside the closed cover and places standalone lookup, paste, and URL as equal modes in the first reading workbench. Saved articles remain reachable from the shared Menu, and every logical article appears only once in latest-opened order.
 6. Reset ephemeral UI state: closing and reopening tools should feel fresh. Search terms, panel scroll offsets, temporary previews, status messages, and resized sheet positions should return to defaults unless preserving them clearly supports uninterrupted reading.
 
 ## Accessibility & Inclusion

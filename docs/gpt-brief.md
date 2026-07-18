@@ -68,6 +68,7 @@ https://context-reader-ten.vercel.app
 - 浏览器 localStorage 用于本地优先数据、离线缓存和账号同步；保存文章始终合并为每篇一条，不展示恢复副本
 - AnkiConnect 用于本地 Anki 导入
 - PWA service worker 用于有限离线能力
+- Three.js 用于 `/home-v2` 封面的被动漂浮球体场景；GSAP 用于悬浮胶囊按钮；MIT `page-flip` 用于滚动进度控制的单张曲面翻页
 
 常用命令：
 
@@ -105,6 +106,7 @@ context-reader/
       usage/cache-lookup/route.ts
       explain-word/route.ts
       explain-word-stream/route.ts
+      dictionary/route.ts
       translate-article/route.ts
       download-image/route.ts
       import-url/route.ts
@@ -119,6 +121,12 @@ context-reader/
     ArticleInput.tsx
     BookHome.tsx
     BookHome.module.css
+    BookDictionary.tsx
+    CurvedPageTurn.tsx
+    HomeOptionMenu.tsx
+    Ballpit.tsx
+    OptionWheel.tsx
+    PillNavAction.tsx
     ImmersiveHome.tsx
     HomeReadingDemo.tsx
     HomeClient.tsx
@@ -253,6 +261,7 @@ thinking: { type: "disabled" }
 
 - `/api/explain-word`：结构化单词/短语解释。
 - `/api/explain-word-stream`：流式解释，负责用户可见的逐步输出。
+- `/api/dictionary`：无原句时的独立深度词典；接受一个英文单词或不超过 8 个词的短语，计一次 `lookup_generation`。
 - `/api/ask-sentence`：围绕句子的提问。
 - `/api/translate-article`：全文翻译，按文章 text block 返回 id 对齐翻译。
 - `/api/summarize-article`：文章摘要。
@@ -394,6 +403,7 @@ thinking: { type: "disabled" }
 
 - 解释和词汇本中应提供紧凑的浏览器 TTS 播放控件。
 - 需要 US 和 UK 两种发音入口。
+- 两个控件始终可见；浏览器不支持 `SpeechSynthesis` 时，点击后说明能力限制，不能直接隐藏入口。
 
 Anki：
 
@@ -419,7 +429,7 @@ Cloze 卡强规则：
 
 ## 14. 首页和推荐文章
 
-首页第一屏必须保留紧凑的粘贴文章和输入网址入口。`/` 与 `/home-v2` 共用同一个 Menu：未打开时沿用既有 Menu 按钮，点击后从右侧依次滑入彩色底板、主面板和菜单文字。菜单项严格按“使用说明、生词本、保存文章、账号与用量、意见反馈”排列，只有服务端确认的开发者账号才在末尾看到“admin后台”。鼠标悬停“保存文章”时，左侧展开可上下滚动的保存文章列表；点击该项可为触屏固定列表。Menu 内没有退出登录，退出入口位于 `/account/usage`。保存文章每篇逻辑文章只出现一次，并按最后一次打开时间倒序排列。旧的同正文记录和 `-local-recovered-*` 血缘副本会合并回原文章并同步删除。第三个 sticky 屏幕只展示推荐文章，不再混入保存文章。
+旧首页 `/` 的第一屏必须保留紧凑的粘贴文章和输入网址入口；`/home-v2` 初始是闭合封面，但封面外始终保留“开始阅读”动作，展开后的开始阅读页把独立查词、粘贴文章和输入网址作为三个同级模式。两条路由共用同一个 Menu：未打开时沿用既有 Menu 按钮，点击后从右侧依次滑入彩色底板、主面板和菜单文字。菜单项严格按“使用说明、生词本、保存文章、账号与用量、意见反馈”排列，只有服务端确认的开发者账号才在末尾看到“admin后台”。鼠标悬停“保存文章”时，左侧展开可上下滚动的保存文章列表；点击该项可为触屏固定列表。Menu 内没有退出登录，退出入口位于 `/account/usage`，退出前必须先成功同步。保存文章每篇逻辑文章只出现一次，并按最后一次打开时间倒序排列。旧的同正文记录和 `-local-recovered-*` 血缘副本会合并回原文章并同步删除。旧首页第三个 sticky 屏幕只展示推荐文章，不再混入保存文章。
 
 公开推荐文章：
 
@@ -464,7 +474,7 @@ Supabase 表：
 
 Admin 功能：
 
-- 使用 `ADMIN_PASSWORD` 登录。
+- 主入口是服务端确认 `plan_id=admin` 的开发者账号；`ADMIN_PASSWORD` 只保留为恢复登录。
 - 本地已保存文章、粘贴文章与输入 URL 是同级入口，共用同一个候选编辑器；URL 导入会保留有效正文图片，并返回可选封面候选。手动 URL 与系统自动候选抓取必须复用同一个 `/api/import-url` 正文边界：按嵌套 DOM 容器剔除导航、引用/来源、相关阅读、推荐、评论、订阅和社交模块，再用块级结束标记兜底，不能把站点尾部杂项写入正文。旧的远程 URL 候选在 Admin 读取和发布前还会经过 `lib/articleContentSanitizer.ts` 的同类尾部清理，发布时写回干净正文；纯粘贴文章不参与该兼容清理。
 - 自动判断适合中国学习者的难度、CEFR 参考、人群、兴趣主题、阅读时间和时效属性；这些结果由系统负责，不要求管理员手动选择类型。
 - 编辑器只保存候选，不直接发布；发布入口只存在于候选列表。候选与已发布推荐都直接打开正式 `ReaderView`，不是另做一套预览组件。

@@ -62,7 +62,7 @@ The production database, secrets, Auth, and sync are active. Phone + password re
 
 Visitors read public recommendations directly from the homepage. The homepage receives the initial recommendation list from the server render, so it should not show an empty recommendation area while waiting for a browser-side fetch.
 
-Admins open `/admin`, log in with `ADMIN_PASSWORD`, then build and review recommendation candidates. The admin page supports:
+The primary Admin entry is a signed-in account whose server-verified entitlement is `admin`; the homepage/Menu exposes `/admin` only for that account. `ADMIN_PASSWORD` remains a recovery login, not the normal developer-account path. After authorization, the admin page supports:
 
 - equal paste and URL intake modes,
 - URL extraction of structured content, meaningful inline images, description, and cover candidates,
@@ -91,6 +91,18 @@ The production site is a PWA. After a browser opens the site online once, the ap
 ```
 
 Returns an `article` object with `title`, `url`, `siteName`, plain `text`, and structured `blocks`, plus `metadata.description` and up to eight `metadata.coverCandidates`. Cover candidates prefer Open Graph and Twitter metadata, then meaningful article images. The importer removes high-confidence embedded page UI such as personalization, follow, account-preference, and alert prompts. A standalone advertisement label is also removed unless the article context is substantively about advertising. Text blocks may include optional `inline` segments; when present, segment `baseline` can be `sup` or `sub` so clients can render original upper/lower annotations while still using plain `text` for search and explanation context. Image blocks preserve source `width` and `height` when the page provides them, which lets the reader reserve image space before loading; they can also retain backward-compatible `ocrText`, `layoutWords`, and `layoutError` metadata, but the reader does not automatically OCR URL-imported images. The route works best on publicly accessible HTML pages. Login walls, strong anti-bot rules, and fully dynamic pages can fail.
+
+## Standalone Dictionary
+
+`POST /api/dictionary`
+
+```json
+{
+  "query": "take in"
+}
+```
+
+The query must be one English word or a phrase of at most eight words. The route consumes one `lookup_generation` unit and returns `dictionary` with lemma, IPA, multiple senses and examples, usage distinctions, collocations, word family, synonyms, common mistakes, and a memory hint. It uses the shared DeepSeek model defaults, bounded JSON parsing, usage ledger, AI concurrency guard, and provider-cost recording. `BookDictionary` keeps a bounded browser cache and renders the result inside the `/home-v2` workbench rather than navigating away from the current spread.
 
 ## Full-Article Translation
 

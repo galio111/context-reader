@@ -14,6 +14,7 @@ Production URL: `https://context-reader-ten.vercel.app`
 - Click an imported article image to enlarge it. The image viewer uses cursor-anchored mouse-wheel zoom within a fit-to-window range so the full image remains visible, without internal viewer scrollbars or background article scrolling.
 - Upload an English screenshot or scan from the homepage. Text OCR and layout-word detection run in parallel; the original image is preserved, and detected word boxes can be clicked in the image viewer. Automatic OCR for images inside URL-imported articles remains disabled.
 - Click English words without sending the full article to AI.
+- Use the standalone dictionary inside the `/home-v2` start-reading spread when no source sentence exists. It accepts one English word or a phrase of up to eight words and returns IPA, senses, usage distinctions, collocations, word family, synonyms, common mistakes, and a memory hint without replacing the current book spread.
 - Explain only `word`, `sentence`, `previousSentence`, and `nextSentence`.
 - Stream word explanations in the final explanation-panel shape while the full structured explanation continues generating. The completed stream's visible fields are merged into the durable explanation so progressive output, completed display, and cache replay remain identical; action controls appear after both requests complete.
 - Cache explanations in `localStorage` by `word + sentence`.
@@ -120,6 +121,7 @@ Word explanation cache entries are durable browser data. On a cache miss, the co
 
 - `/api/explain-word` explains a word or short phrase from sentence context.
 - `/api/explain-word-stream` streams fixed-label text for progressive rendering; its completed visible fields are merged into the durable explanation.
+- `/api/dictionary` provides a detailed context-free lookup for one English word or a phrase of up to eight words and charges the normal generated-lookup allowance.
 - `/api/translate-article` translates article text blocks into Chinese for the reading view's full-article translation sidebar.
 - `/api/ask-sentence` answers follow-up questions about the selected sentence.
 - `/api/summarize-article` creates a short Chinese summary for saved article lists.
@@ -149,7 +151,7 @@ Visitors do not need to log in. They can open public recommended articles from t
 
 ## Pronunciation And Anki
 
-The explanation panel and vocabulary notebook show compact `美` / `英` pronunciation buttons when the browser supports SpeechSynthesis. These are runtime browser voices and do not create audio files.
+The explanation panel and vocabulary notebook always show compact `美音` / `英音` pronunciation buttons. Supported browsers use runtime `SpeechSynthesis` voices without creating audio files; unsupported browsers keep the controls visible and explain the capability limitation after the user taps one.
 
 Anki card backs use Anki native TTS replay controls for US and UK pronunciation. The UK control requests `en_GB` and lets Anki select an installed British English voice instead of requiring a hard-coded voice name. During import, Context Reader also tries to set the target deck's audio `autoplay` option to `false` through AnkiConnect, so pronunciation is clicked rather than played automatically.
 
