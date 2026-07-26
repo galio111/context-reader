@@ -83,6 +83,10 @@ function mergeVocabularyGroup(entries: VocabularyEntry[]): VocabularyEntry {
     }
   }
 
+  if (!merged.sourceArticle) {
+    merged.sourceArticle = richestFirst.find((entry) => entry.sourceArticle)?.sourceArticle;
+  }
+
   const imported = richestFirst.find((entry) => Boolean(entry.anki.ankiNoteId));
   if (imported) {
     merged.anki = imported.anki;

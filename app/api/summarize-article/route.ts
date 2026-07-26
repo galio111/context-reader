@@ -4,6 +4,7 @@ import { acquireCostSlot } from "@/lib/costConcurrency";
 import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
 import { deepReadingUnits, gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
+import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const MAX_ARTICLE_CHARS = 6000;
@@ -91,7 +92,20 @@ export async function POST(request: Request) {
 
   if (!apiKey) {
     await refundUsage(actionId, "failed", "missing_api_key").catch(() => undefined);
-    return NextResponse.json({ error: "缺少 DeepSeek API Key，无法生成文章中文摘要。" }, { status: 500 });
+    const report = await recordServerError(request, {
+      category: "configuration",
+      severity: "critical",
+      operation: "article_summary",
+      endpoint: "/api/summarize-article",
+      userMessage: "文章摘要服务暂时不可用，开发者已收到异常并正在处理。",
+      technicalMessage: "DEEPSEEK_API_KEY is missing.",
+      code: "missing_api_key",
+      httpStatus: 500,
+    });
+    return NextResponse.json(
+      { error: "文章摘要服务暂时不可用，开发者已收到异常并正在处理。", ...reportReference(report) },
+      { status: 500 },
+    );
   }
 
   const releaseSlot = acquireCostSlot("ai", 8);
@@ -136,16 +150,37 @@ export async function POST(request: Request) {
 
     const data = (await response.json().catch(() => null)) as DeepSeekSummaryResponse | null;
     if (!response.ok) {
+      const providerMessage = data?.error?.message || response.statusText;
+      const report = await recordServerError(request, {
+        category: "provider",
+        operation: "article_summary",
+        endpoint: "/api/summarize-article",
+        userMessage: userFriendlyDeepSeekError(providerMessage),
+        technicalMessage: `DeepSeek summary rejected: HTTP ${response.status}. ${providerMessage}`,
+        code: "provider_rejected",
+        httpStatus: response.status >= 500 ? response.status : 502,
+        metadata: { providerStatus: response.status, model },
+      });
       return NextResponse.json(
-        { error: userFriendlyDeepSeekError(data?.error?.message) },
-        { status: response.status },
+        { error: userFriendlyDeepSeekError(providerMessage), ...reportReference(report) },
+        { status: response.status >= 500 ? response.status : 502 },
       );
     }
 
     const summary = cleanSummary(data?.choices?.[0]?.message?.content ?? "");
     if (!summary || !hasEnoughChineseContent(summary)) {
+      const report = await recordServerError(request, {
+        category: "provider",
+        operation: "article_summary",
+        endpoint: "/api/summarize-article",
+        userMessage: "文章摘要结果格式异常，开发者已收到问题并正在处理。",
+        technicalMessage: `Invalid summary content: ${JSON.stringify(summary)}`,
+        code: "provider_invalid_content",
+        httpStatus: 502,
+        metadata: { model },
+      });
       return NextResponse.json(
-        { error: "DeepSeek 返回的文章摘要内容无效，请重新保存。" },
+        { error: "文章摘要结果格式异常，开发者已收到问题并正在处理。", ...reportReference(report) },
         { status: 502 },
       );
     }
@@ -158,7 +193,16 @@ export async function POST(request: Request) {
     const message = error instanceof Error && error.name === "AbortError"
       ? "生成文章摘要超时，请稍后重试。"
       : "生成文章摘要失败，请检查网络和 DeepSeek 配置。";
-    return NextResponse.json({ error: message }, { status: 502 });
+    const report = await recordServerError(request, {
+      category: "provider",
+      operation: "article_summary",
+      endpoint: "/api/summarize-article",
+      userMessage: "文章摘要服务暂时不可用，开发者已收到异常并正在处理。",
+      code: error instanceof Error && error.name === "AbortError" ? "provider_timeout" : "provider_request_failed",
+      httpStatus: 502,
+      metadata: { model },
+    }, error);
+    return NextResponse.json({ error: message, ...reportReference(report) }, { status: 502 });
   } finally {
     if (!usageSucceeded) {
       await refundUsage(actionId, "failed", "summary_failed").catch(() => undefined);

@@ -4,9 +4,12 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent } from "react";
 import { AnkiSettingsPanel, defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { ArticleTranslationPanel } from "@/components/ArticleTranslationPanel";
+import { BookDictionary } from "@/components/BookDictionary";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
+import { PillNavAction } from "@/components/PillNavAction";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { WordToken } from "@/components/WordToken";
+import toolbarStyles from "@/components/ReaderToolbar.module.css";
 import { addVocabularyNote, checkAnki } from "@/lib/ankiConnect";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import { findSavedArticle, isValidArticleSummary, saveArticle, saveEditedArticle } from "@/lib/articles";
@@ -47,17 +50,20 @@ import {
   replaceMatchingVocabularyEntry,
   vocabularyIdentity,
 } from "@/lib/vocabulary";
+import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import type { AnkiSettings } from "@/types/anki";
 import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, ImportedArticleInlineBaseline, ImportedArticleInlineText } from "@/types/article";
 import type { PublicExplanation } from "@/types/publicArticle";
 import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, WordContext, WordExplanation } from "@/types/reader";
-import type { VocabularyEntry } from "@/types/vocabulary";
+import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
+import type { DictionaryResult } from "@/types/dictionary";
 import { useAccount } from "@/components/AccountProvider";
 
 interface ReaderViewProps {
   article: string;
   importedArticle?: ImportedArticle | null;
   preloadedExplanations?: PublicExplanation[];
+  articleSource?: VocabularySourceArticle;
   sourceSentenceToHighlight?: string;
   sourceWordToHighlight?: string;
   sourceJumpRequestId?: number;
@@ -67,7 +73,7 @@ interface ReaderViewProps {
   onArticleChange?: (article: string, importedArticle: ImportedArticle | null) => void;
   onArticleEditCommit?: (article: string, importedArticle: ImportedArticle | null) => Promise<void> | void;
   onImportedArticleChange?: (article: ImportedArticle) => void;
-  onJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean;
+  onJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean | Promise<boolean>;
   canJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean;
 }
 
@@ -123,7 +129,7 @@ interface ArticleEditSnapshot {
 }
 
 type ImageOcrStatus = "idle" | "loading" | "ready" | "error";
-type RightPanelMode = "explanation" | "translation";
+type RightPanelMode = "explanation" | "translation" | "dictionary" | "article";
 
 const IMAGE_OCR_ENABLED = false;
 const DEFAULT_ARTICLE_STYLE: Required<ArticleReadingStyle> = {
@@ -210,7 +216,13 @@ async function requestExplanation(
       nextSentence: context.nextSentence,
     }),
     signal,
-  }, "解释失败，请稍后重试。");
+  }, "解释失败，请稍后重试。", {
+    operation: "context_word_explanation",
+    metadata: {
+      selectedCharacters: context.word.length,
+      sentenceCharacters: context.sentence.length,
+    },
+  });
 
   if (!response.ok) {
     throw new Error(data?.error || "解释失败，请稍后重试。");
@@ -304,7 +316,10 @@ async function requestArticleSummary(article: string): Promise<string> {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ article }),
-  }, "文章摘要生成失败，请稍后重试。");
+  }, "文章摘要生成失败，请稍后重试。", {
+    operation: "article_summary",
+    metadata: { articleCharacters: article.length },
+  });
 
   if (!response.ok || !data?.summary?.trim()) {
     throw new Error(data?.error || "文章摘要生成失败，请稍后重试。");
@@ -379,6 +394,7 @@ export function ReaderView({
   article,
   importedArticle,
   preloadedExplanations = [],
+  articleSource,
   sourceSentenceToHighlight = "",
   sourceWordToHighlight = "",
   sourceJumpRequestId = 0,
@@ -391,7 +407,15 @@ export function ReaderView({
   onJumpToVocabularySourceOutsideArticle,
   canJumpToVocabularySourceOutsideArticle,
 }: ReaderViewProps) {
-  const { account, openLogin, requireAccount, refreshAccount } = useAccount();
+  const {
+    account,
+    hasLocalAccountAccess,
+    isOffline,
+    openLogin,
+    requireAccount,
+    requireLocalAccount,
+    refreshAccount,
+  } = useAccount();
   const [currentArticle, setCurrentArticle] = useState(article);
   const [currentImportedArticle, setCurrentImportedArticle] = useState<ImportedArticle | null>(importedArticle ?? null);
   const [editingArticle, setEditingArticle] = useState(false);
@@ -566,13 +590,14 @@ export function ReaderView({
   const [saveStatus, setSaveStatus] = useState("");
   const [savingArticle, setSavingArticle] = useState(false);
   const [mobileExplanationOpen, setMobileExplanationOpen] = useState(false);
-  const [mobileExplanationHeight, setMobileExplanationHeight] = useState(50);
+  const [mobileExplanationHeight, setMobileExplanationHeight] = useState(72);
   const [rightPanelMode, setRightPanelMode] = useState<RightPanelMode>("explanation");
   const [articleTranslations, setArticleTranslations] = useState<ArticleTranslationItem[]>([]);
   const [translationLoading, setTranslationLoading] = useState(false);
   const [translationError, setTranslationError] = useState("");
   const [translationRequested, setTranslationRequested] = useState(false);
   const [translationEstimatedSecondsRemaining, setTranslationEstimatedSecondsRemaining] = useState<number | null>(null);
+  const [translationRetryAfterSeconds, setTranslationRetryAfterSeconds] = useState<number | null>(null);
   const [staleTranslationBlockIds, setStaleTranslationBlockIds] = useState<string[]>([]);
   const [removedTranslationCount, setRemovedTranslationCount] = useState(0);
   const abortRef = useRef<AbortController | null>(null);
@@ -630,12 +655,14 @@ export function ReaderView({
       error: string;
       requested: boolean;
       estimatedSecondsRemaining: number | null;
+      retryAfterSeconds: number | null;
     }) {
       setArticleTranslations(snapshot.translations);
       setTranslationLoading(snapshot.loading);
       setTranslationError(snapshot.error);
       setTranslationRequested(snapshot.requested);
       setTranslationEstimatedSecondsRemaining(snapshot.estimatedSecondsRemaining);
+      setTranslationRetryAfterSeconds(snapshot.retryAfterSeconds);
       if (!snapshot.loading && !snapshot.error) {
         setStaleTranslationBlockIds([]);
         setRemovedTranslationCount(0);
@@ -648,7 +675,8 @@ export function ReaderView({
       setStaleTranslationBlockIds([]);
       setRemovedTranslationCount(0);
     } else {
-      const exactBlockTranslations = getCachedArticleTranslationForBlocks(translationBlocks);
+      const exactArticleTranslations = getCachedArticleTranslation(translationSourceKey);
+      const exactBlockTranslations = exactArticleTranslations ?? getCachedArticleTranslationForBlocks(translationBlocks);
       const exactTranslationIds = new Set(exactBlockTranslations.map((item) => item.id));
       const currentById = new Map(articleTranslations.map((item) => [item.id, item.translation]));
       const currentBlockIds = new Set(translationBlocks.map((block) => block.id));
@@ -670,14 +698,43 @@ export function ReaderView({
       setTranslationLoading(false);
       setTranslationRequested(Boolean(cached));
       setTranslationEstimatedSecondsRemaining(null);
+      setTranslationRetryAfterSeconds(null);
     }
 
     return subscribeArticleTranslationJob(translationSourceKey, applyTranslationSnapshot);
   }, [translationSourceKey, translationBlocks]);
 
   useEffect(() => {
+    if (!account.authenticated || translationBlocks.length === 0 || getArticleTranslationJobSnapshot(translationSourceKey)) {
+      return;
+    }
+
+    const persisted = getCachedArticleTranslation(translationSourceKey);
+    if (!persisted || persisted.length === 0) {
+      return;
+    }
+
+    const persistedById = new Map(persisted.map((item) => [item.id, item]));
+    const initialTranslations = translationBlocks
+      .map((block) => persistedById.get(block.id))
+      .filter((item): item is ArticleTranslationItem => Boolean(item?.translation.trim()));
+    const completedIds = new Set(initialTranslations.map((item) => item.id));
+    const missingBlocks = translationBlocks.filter((block) => !completedIds.has(block.id));
+    if (missingBlocks.length === 0) {
+      return;
+    }
+
+    void startArticleTranslationJob(translationSourceKey, missingBlocks, {
+      initialTranslations,
+      allBlocks: translationBlocks,
+    });
+  }, [account.authenticated, translationSourceKey, translationBlocks]);
+
+  useEffect(() => {
     for (const item of preloadedExplanations) {
-      setCachedExplanation(item.cacheKey, item.explanation);
+      if (!getCachedExplanation(item.cacheKey)) {
+        setCachedExplanation(item.cacheKey, item.explanation);
+      }
     }
   }, [preloadedExplanations]);
 
@@ -995,7 +1052,7 @@ export function ReaderView({
     setSelectedContext(context);
     setError("");
     setMobileExplanationOpen(true);
-    setMobileExplanationHeight(50);
+    setMobileExplanationHeight(56);
     setRightPanelMode("explanation");
 
     if (!options.force && loading && activeExplanationKeyRef.current === cacheKey) {
@@ -1007,7 +1064,7 @@ export function ReaderView({
 
     const cached = options.force ? null : getCachedExplanation(cacheKey);
     if (cached) {
-      if (!account.authenticated) {
+      if (!account.authenticated && !(isOffline && hasLocalAccountAccess)) {
         const cachedUsageResponse = await fetch("/api/usage/cache-lookup", {
           method: "POST",
           headers: { "x-context-action-id": crypto.randomUUID() },
@@ -1024,6 +1081,11 @@ export function ReaderView({
       setExplanationStreamText(explanationAsStreamText(cached));
       setExplanationStreaming(false);
       setLoading(false);
+      return;
+    }
+
+    if (isOffline) {
+      setError("当前离线，未找到这次选择的已有解释。联网后可生成新的查词结果。");
       return;
     }
 
@@ -1057,7 +1119,9 @@ export function ReaderView({
       setExplanationStreamText(durableDisplayText);
       setExplanationStreaming(false);
       if (options.syncVocabulary) {
-        if (account.authenticated) setVocabularyEntries(replaceMatchingVocabularyEntry(nextExplanation, context));
+        if (account.authenticated) {
+          setVocabularyEntries(replaceMatchingVocabularyEntry(nextExplanation, context, articleSource));
+        }
       }
       void refreshAccount();
     } catch (requestError) {
@@ -1085,23 +1149,29 @@ export function ReaderView({
       return;
     }
     const cacheKey = translationSourceKey;
-    if (!force && articleTranslations.length > 0) {
-      setRightPanelMode("translation");
-      return;
-    }
-    const cached = force ? null : getCachedArticleTranslation(cacheKey);
-    if (cached) {
-      setRightPanelMode("translation");
-      setArticleTranslations(cached);
+    setRightPanelMode("translation");
+    const cached = force
+      ? []
+      : (getCachedArticleTranslation(cacheKey) ?? getCachedArticleTranslationForBlocks(translationBlocks));
+    const cachedById = new Map(cached.map((item) => [item.id, item]));
+    const initialTranslations = translationBlocks
+      .map((block) => cachedById.get(block.id))
+      .filter((item): item is ArticleTranslationItem => Boolean(item?.translation.trim()));
+    const translatedIds = new Set(initialTranslations.map((item) => item.id));
+    const blocksToTranslate = force
+      ? translationBlocks
+      : translationBlocks.filter((block) => !translatedIds.has(block.id));
+
+    if (!force && blocksToTranslate.length === 0) {
+      setArticleTranslations(initialTranslations);
       setTranslationError("");
+      setTranslationRequested(true);
       return;
     }
 
-    setRightPanelMode("translation");
-    const blocksToTranslate = translationBlocks;
     void startArticleTranslationJob(cacheKey, blocksToTranslate, {
       force,
-      initialTranslations: [],
+      initialTranslations,
       allBlocks: translationBlocks,
     });
   }
@@ -1372,13 +1442,26 @@ export function ReaderView({
   }
 
   function handleAddToVocabulary() {
-    if (!requireAccount("登录后才能把词条加入生词本并跨设备同步。")) return;
+    if (!requireLocalAccount("登录后才能把词条加入生词本并跨设备同步。")) return;
     if (!explanation || !selectedContext) {
       return;
     }
 
-    const entry = createVocabularyEntry(explanation, selectedContext);
+    const entry = createVocabularyEntry(explanation, selectedContext, articleSource);
     setVocabularyEntries(addVocabularyEntry(entry));
+  }
+
+  function isStandaloneDictionaryInVocabulary(result: DictionaryResult) {
+    const identity = vocabularyIdentity({
+      word: result.query,
+      sourceSentence: "",
+    });
+    return vocabularyEntries.some((entry) => vocabularyIdentity(entry) === identity);
+  }
+
+  function handleAddStandaloneDictionaryToVocabulary(result: DictionaryResult) {
+    if (!requireLocalAccount("登录后才能把独立查词结果加入生词本并跨设备同步。")) return;
+    setVocabularyEntries(addVocabularyEntry(createStandaloneVocabularyEntry(result)));
   }
 
   function handleDeleteVocabulary(id: string) {
@@ -1386,11 +1469,17 @@ export function ReaderView({
   }
 
   function handleOpenVocabulary() {
-    if (!requireAccount("登录后才能使用生词本。")) return;
+    if (!requireLocalAccount("登录后才能使用生词本。")) return;
     setVocabularyEntries(getVocabularyEntries());
     setImportError("");
     setAnkiStatus("");
     setVocabularyOpen(true);
+  }
+
+  function openMobileTool(mode: RightPanelMode) {
+    setRightPanelMode(mode);
+    setMobileExplanationHeight(mode === "explanation" ? 56 : 76);
+    setMobileExplanationOpen(true);
   }
 
   function handleCloseVocabulary() {
@@ -1405,11 +1494,11 @@ export function ReaderView({
     setImportError("");
     setImportingId("");
     setAnkiStatus("");
-    window.setTimeout(() => {
+    window.setTimeout(async () => {
       if (!scrollToVocabularyEntrySource(entry)) {
-        const jumpedOutside = onJumpToVocabularySourceOutsideArticle?.(entry) ?? false;
+        const jumpedOutside = await onJumpToVocabularySourceOutsideArticle?.(entry) ?? false;
         if (!jumpedOutside) {
-          setImportError("当前文章和已保存文章里没有找到这个词条的原句。");
+          setImportError("当前文章、本地保存文章和推荐文章里都没有找到这个词条的原句。");
           setVocabularyOpen(true);
         }
       }
@@ -1917,7 +2006,7 @@ export function ReaderView({
   }
 
   async function handleSaveArticle() {
-    if (!requireAccount("登录后才能保存文章；登录时会先合并本机已有数据。")) return;
+    if (!requireLocalAccount("登录后才能保存文章；登录时会先合并本机已有数据。")) return;
     setSavingArticle(true);
     setSaveStatus("正在保存文章...");
     let articleStored = false;
@@ -1925,6 +2014,10 @@ export function ReaderView({
       saveArticle(currentArticle, "", effectiveImportedArticle);
       articleStored = true;
       onArticleSaved();
+      if (isOffline) {
+        setSaveStatus("文章已保存到本机；联网后会自动同步");
+        return;
+      }
       setSaveStatus("文章已保存，正在生成中文摘要...");
 
       const summary = await requestArticleSummary(currentArticle);
@@ -1945,6 +2038,7 @@ export function ReaderView({
     : articleSaved
       ? articleSummaryReady ? "重新生成首页摘要" : "生成首页摘要"
       : "保存文章";
+  const toolbarStatus = [editStatus, saveStatus].filter(Boolean).join(" · ");
   const hasExplanationPanelContent = Boolean(selectedContext || loading || explanation || error);
   const activeArticleStyle = DEFAULT_ARTICLE_STYLE;
   const articleShellClassName = [
@@ -2097,97 +2191,82 @@ export function ReaderView({
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#1d1d1f]">
-      <header className="fixed inset-x-0 top-0 z-30 border-b border-black/10 bg-[#f5f5f7]/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-3 sm:gap-3 sm:px-5">
-          <button
-            type="button"
-            className="h-9 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
-            onClick={() => void handleBackToHome()}
-            disabled={savingArticleEdit}
-          >
-            {backLabel}
-          </button>
-          <div className="flex min-w-0 items-center gap-2 overflow-x-auto">
-            {editStatus && <span className="shrink-0 text-sm text-[#333333]">{editStatus}</span>}
-            {saveStatus && <span className="shrink-0 text-sm text-[#333333]">{saveStatus}</span>}
-            <button
-              type="button"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#0066cc] text-lg leading-none text-[#0066cc] transition hover:border-[#004f9f] hover:bg-[#f5f9ff] hover:text-[#004f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3]/25 active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#86868b] disabled:hover:bg-transparent"
-              onClick={() => void undoSavedArticleEdit()}
-              disabled={savingArticleEdit || (!editingArticle && articleUndoStack.length === 0)}
-              aria-label="后退"
-              title="后退"
-            >
-              ←
-            </button>
-            <button
-              type="button"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#0066cc] text-lg leading-none text-[#0066cc] transition hover:border-[#004f9f] hover:bg-[#f5f9ff] hover:text-[#004f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3]/25 active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#86868b] disabled:hover:bg-transparent"
-              onClick={() => void redoSavedArticleEdit()}
-              disabled={savingArticleEdit || (!editingArticle && articleRedoStack.length === 0)}
-              aria-label="前进"
-              title="前进"
-            >
-              →
-            </button>
-            {editingArticle ? (
-              <>
-                <button
-                  type="button"
-                  className="h-9 shrink-0 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
-                  onClick={cancelArticleEditing}
-                  disabled={savingArticleEdit}
-                >
-                  取消编辑
-                </button>
-                <button
-                  type="button"
-                  className="h-9 shrink-0 rounded-full bg-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-white transition active:scale-95"
-                  onClick={() => void saveArticleEditing()}
-                  disabled={savingArticleEdit}
-                >
-                  {savingArticleEdit ? "保存中..." : "保存编辑"}
-                </button>
-              </>
-            ) : (
-              <button
-                type="button"
-                className="h-9 shrink-0 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95"
-                onClick={beginArticleEditing}
-              >
-                编辑文章
-              </button>
-            )}
-            <button
-              type="button"
-              className="hidden h-9 shrink-0 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95 lg:inline-flex lg:items-center"
-              onClick={handleCopyArticle}
-              disabled={editingArticle}
-            >
-              复制文章内容
-            </button>
-            <button
-              type="button"
-              className="h-9 shrink-0 rounded-full border border-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-[#0066cc] transition active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#7a7a7a]"
-              onClick={handleSaveArticle}
-              disabled={savingArticle || savingArticleEdit || editingArticle}
-            >
-              {saveButtonText}
-            </button>
-            <button
-              type="button"
-              className="h-9 shrink-0 rounded-full bg-[#0066cc] px-4 text-sm leading-none tracking-[-0.224px] text-white transition active:scale-95"
-              onClick={handleOpenVocabulary}
-            >
-              生词本
-            </button>
-          </div>
+      <header className={toolbarStyles.toolbar} aria-label="文章工具">
+        <PillNavAction
+          className={`${toolbarStyles.action} ${toolbarStyles.backAction}`}
+          label={backLabel}
+          onClick={() => void handleBackToHome()}
+          disabled={savingArticleEdit}
+        />
+        <div className={toolbarStyles.actions}>
+          <PillNavAction
+            className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
+            label="←"
+            onClick={() => void undoSavedArticleEdit()}
+            disabled={savingArticleEdit || (!editingArticle && articleUndoStack.length === 0)}
+            ariaLabel="后退"
+            title="后退"
+          />
+          <PillNavAction
+            className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
+            label="→"
+            onClick={() => void redoSavedArticleEdit()}
+            disabled={savingArticleEdit || (!editingArticle && articleRedoStack.length === 0)}
+            ariaLabel="前进"
+            title="前进"
+          />
+          {editingArticle ? (
+            <>
+              <PillNavAction
+                className={toolbarStyles.action}
+                label="取消编辑"
+                onClick={cancelArticleEditing}
+                disabled={savingArticleEdit}
+              />
+              <PillNavAction
+                className={`${toolbarStyles.action} ${toolbarStyles.primaryAction}`}
+                tone="dark"
+                label={savingArticleEdit ? "保存中..." : "保存编辑"}
+                onClick={() => void saveArticleEditing()}
+                disabled={savingArticleEdit}
+              />
+            </>
+          ) : (
+            <PillNavAction
+              className={toolbarStyles.action}
+              label="编辑文章"
+              onClick={beginArticleEditing}
+            />
+          )}
+          <PillNavAction
+            className={`${toolbarStyles.action} ${toolbarStyles.copyAction}`}
+            label="复制文章内容"
+            onClick={handleCopyArticle}
+            disabled={editingArticle}
+          />
+          <PillNavAction
+            className={toolbarStyles.action}
+            label={saveButtonText}
+            onClick={handleSaveArticle}
+            disabled={savingArticle || savingArticleEdit || editingArticle}
+          />
+          <PillNavAction
+            className={`${toolbarStyles.action} ${toolbarStyles.primaryAction}`}
+            tone="dark"
+            label="生词本"
+            onClick={handleOpenVocabulary}
+          />
         </div>
       </header>
+      {toolbarStatus && (
+        <div className={toolbarStyles.status} role="status" aria-live="polite">
+          {toolbarStatus}
+        </div>
+      )}
 
       <div
         className={`mx-auto grid max-w-7xl gap-5 overflow-x-hidden px-0 pt-20 sm:px-5 lg:grid-cols-[minmax(0,1fr)_360px] ${
-          hasExplanationPanelContent && mobileExplanationOpen ? "pb-[calc(var(--mobile-sheet-height,50dvh)+2rem)] lg:pb-6" : "pb-6"
+          mobileExplanationOpen ? "pb-[calc(var(--mobile-sheet-height,72dvh)+5.5rem)] lg:pb-6" : "pb-24 lg:pb-6"
         }`}
         style={{ "--mobile-sheet-height": `${mobileExplanationHeight}dvh` } as CSSProperties}
       >
@@ -2223,6 +2302,7 @@ export function ReaderView({
                 <div
                   ref={plainArticleEditRef}
                   className="min-h-[65vh] outline-none"
+                  data-native-selection="blue"
                   contentEditable
                   suppressContentEditableWarning
                   spellCheck={false}
@@ -2241,6 +2321,7 @@ export function ReaderView({
               <div
                 ref={importedArticleEditRef}
                 className="min-h-[65vh] outline-none"
+                data-native-selection="blue"
                 contentEditable
                 suppressContentEditableWarning
                 spellCheck={false}
@@ -2421,7 +2502,7 @@ export function ReaderView({
         <div className="hidden lg:block" aria-hidden="true" />
         <div className="hidden lg:fixed lg:bottom-6 lg:right-[max(1.25rem,calc((100vw-80rem)/2+1.25rem))] lg:top-20 lg:z-20 lg:block lg:w-[360px]">
           <div className="flex h-full min-h-0 flex-col gap-3">
-            <div className="grid h-10 shrink-0 grid-cols-2 rounded-full border border-[#d2d2d7] bg-white p-1">
+            <div className="grid h-10 shrink-0 grid-cols-3 rounded-full border border-[#d2d2d7] bg-white p-1">
               <button
                 type="button"
                 className={`rounded-full text-sm leading-none tracking-[-0.224px] transition ${
@@ -2440,6 +2521,15 @@ export function ReaderView({
               >
                 全文翻译
               </button>
+              <button
+                type="button"
+                className={`rounded-full text-sm leading-none tracking-[-0.224px] transition ${
+                  rightPanelMode === "dictionary" ? "bg-[#1d1d1f] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
+                }`}
+                onClick={() => setRightPanelMode("dictionary")}
+              >
+                单独查词
+              </button>
             </div>
             <div className="min-h-0 flex-1">
               <div className={rightPanelMode === "translation" ? "h-full min-h-0" : "hidden h-full min-h-0"}>
@@ -2450,6 +2540,7 @@ export function ReaderView({
                   error={translationError}
                   requested={translationRequested}
                   estimatedSecondsRemaining={translationEstimatedSecondsRemaining}
+                  retryAfterSeconds={translationRetryAfterSeconds}
                   staleBlockIds={staleTranslationBlockIds}
                   removedTranslationCount={removedTranslationCount}
                   onGenerate={() => generateArticleTranslation(false)}
@@ -2468,6 +2559,20 @@ export function ReaderView({
                   vocabularyMatchNotice={vocabularyMatchNotice}
                   onAddToVocabulary={handleAddToVocabulary}
                   onRegenerate={handleRegenerateExplanation}
+                />
+              </div>
+              <div
+                className={rightPanelMode === "dictionary"
+                  ? "h-full min-h-0 overflow-y-auto rounded-[18px] border border-[#d2d2d7] bg-white p-4 [scrollbar-gutter:stable]"
+                  : "hidden h-full min-h-0"}
+                data-local-scroll-surface
+              >
+                <BookDictionary
+                  compact
+                  panel
+                  offline={isOffline}
+                  onAddToVocabulary={handleAddStandaloneDictionaryToVocabulary}
+                  isInVocabulary={isStandaloneDictionaryInVocabulary}
                 />
               </div>
             </div>
@@ -2628,15 +2733,15 @@ export function ReaderView({
         </div>
       )}
 
-      {hasExplanationPanelContent && mobileExplanationOpen && (
+      {mobileExplanationOpen && (
         <div
-          className="fixed inset-x-0 bottom-0 z-20 flex min-h-0 touch-pan-y flex-col overflow-hidden border-t border-gray-200 bg-white p-3 pt-1 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] overscroll-contain lg:hidden"
+          className={toolbarStyles.mobileToolSheet}
           style={{ height: `${mobileExplanationHeight}dvh` }}
           onWheel={(event) => event.stopPropagation()}
           onTouchMove={(event) => event.stopPropagation()}
         >
           <div
-            className="flex h-8 shrink-0 touch-none cursor-ns-resize items-center justify-center"
+            className={toolbarStyles.mobileSheetHandle}
             onPointerDown={handleResizePointerDown}
             onPointerMove={handleResizePointerMove}
             onPointerUp={handleResizePointerEnd}
@@ -2644,21 +2749,97 @@ export function ReaderView({
           >
             <span className="h-1.5 w-8 rounded-full bg-[#d2d2d7]" />
           </div>
-          <ExplanationPanel
-            explanation={explanation}
-            streamText={explanationStreamText}
-            streaming={explanationStreaming}
-            selectedContext={selectedContext}
-            loading={loading}
-            error={error}
-            isInVocabulary={Boolean(isInVocabulary)}
-            vocabularyMatchNotice={vocabularyMatchNotice}
-            onAddToVocabulary={handleAddToVocabulary}
-            onRegenerate={handleRegenerateExplanation}
-            onCollapse={() => setMobileExplanationOpen(false)}
-          />
+          <div className={toolbarStyles.mobileSheetHeader}>
+            <strong>
+              {rightPanelMode === "explanation"
+                ? "词句解释"
+                : rightPanelMode === "translation"
+                  ? "全文翻译"
+                  : rightPanelMode === "dictionary"
+                    ? "单独查词"
+                    : "文章操作"}
+            </strong>
+            <button type="button" onClick={() => setMobileExplanationOpen(false)}>回到原文</button>
+          </div>
+          <div className={toolbarStyles.mobileSheetBody} data-local-scroll-surface>
+            {rightPanelMode === "explanation" && (
+              hasExplanationPanelContent ? (
+                <ExplanationPanel
+                  explanation={explanation}
+                  streamText={explanationStreamText}
+                  streaming={explanationStreaming}
+                  selectedContext={selectedContext}
+                  loading={loading}
+                  error={error}
+                  isInVocabulary={Boolean(isInVocabulary)}
+                  vocabularyMatchNotice={vocabularyMatchNotice}
+                  onAddToVocabulary={handleAddToVocabulary}
+                  onRegenerate={handleRegenerateExplanation}
+                  onCollapse={() => setMobileExplanationOpen(false)}
+                />
+              ) : (
+                <div className={toolbarStyles.mobileToolEmpty}>
+                  <strong>先点击一个英文词</strong>
+                  <p>直接点击查单词；需要查短语时，横向拖动或长按后选择。上下滑动始终用于阅读。</p>
+                </div>
+              )
+            )}
+            {rightPanelMode === "translation" && (
+              <ArticleTranslationPanel
+                blocks={translationBlocks}
+                translations={articleTranslations}
+                loading={translationLoading}
+                error={translationError}
+                requested={translationRequested}
+                estimatedSecondsRemaining={translationEstimatedSecondsRemaining}
+                retryAfterSeconds={translationRetryAfterSeconds}
+                staleBlockIds={staleTranslationBlockIds}
+                removedTranslationCount={removedTranslationCount}
+                onGenerate={() => generateArticleTranslation(false)}
+                onRegenerate={() => generateArticleTranslation(true)}
+              />
+            )}
+            {rightPanelMode === "dictionary" && (
+              <div className={toolbarStyles.mobileDictionary}>
+                <BookDictionary
+                  compact
+                  panel
+                  offline={isOffline}
+                  onAddToVocabulary={handleAddStandaloneDictionaryToVocabulary}
+                  isInVocabulary={isStandaloneDictionaryInVocabulary}
+                />
+              </div>
+            )}
+            {rightPanelMode === "article" && (
+              <div className={toolbarStyles.mobileArticleActions}>
+                <p>低频操作收在这里，正文仍保持完整宽度。</p>
+                <div>
+                  <button type="button" onClick={() => void undoSavedArticleEdit()} disabled={savingArticleEdit || (!editingArticle && articleUndoStack.length === 0)}>后退一步</button>
+                  <button type="button" onClick={() => void redoSavedArticleEdit()} disabled={savingArticleEdit || (!editingArticle && articleRedoStack.length === 0)}>前进一步</button>
+                  {editingArticle ? (
+                    <>
+                      <button type="button" onClick={cancelArticleEditing} disabled={savingArticleEdit}>取消编辑</button>
+                      <button type="button" onClick={() => void saveArticleEditing()} disabled={savingArticleEdit}>{savingArticleEdit ? "保存中…" : "保存编辑"}</button>
+                    </>
+                  ) : (
+                    <button type="button" onClick={() => { beginArticleEditing(); setMobileExplanationOpen(false); }}>编辑文章</button>
+                  )}
+                  <button type="button" onClick={handleCopyArticle} disabled={editingArticle}>复制文章内容</button>
+                  <button type="button" onClick={handleSaveArticle} disabled={savingArticle || savingArticleEdit || editingArticle}>{saveButtonText}</button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
+
+      <nav className={toolbarStyles.mobileToolDock} aria-label="阅读工具">
+        <button type="button" aria-pressed={mobileExplanationOpen && rightPanelMode === "explanation"} onClick={() => openMobileTool("explanation")}>解释</button>
+        <button type="button" aria-pressed={mobileExplanationOpen && rightPanelMode === "translation"} onClick={() => openMobileTool("translation")}>翻译</button>
+        <button type="button" aria-pressed={mobileExplanationOpen && rightPanelMode === "dictionary"} onClick={() => openMobileTool("dictionary")}>查词</button>
+        <button type="button" onClick={handleOpenVocabulary}>生词本</button>
+        <button type="button" aria-pressed={mobileExplanationOpen && rightPanelMode === "article"} onClick={() => openMobileTool("article")}>更多</button>
+      </nav>
 
       <VocabularyPanel
         entries={vocabularyEntries}
@@ -2671,7 +2852,7 @@ export function ReaderView({
         onExportCsv={handleExportCsv}
         onCopy={handleCopyEntry}
         onJumpToSource={handleJumpToVocabularySource}
-          canJumpToSource={(entry) =>
+        canJumpToSource={(entry) =>
           canJumpToSourceSentence(entry.sourceSentence) ||
           Boolean(findBestSourceSentenceMatch(entry.sourceSentence, entry.word, wordTokens)) ||
           Boolean(canJumpToVocabularySourceOutsideArticle?.(entry))

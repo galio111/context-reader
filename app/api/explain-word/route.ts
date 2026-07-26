@@ -11,6 +11,7 @@ import { acquireCostSlot } from "@/lib/costConcurrency";
 import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd } from "@/lib/usageCost";
+import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 
 export const maxDuration = 60;
 
@@ -61,7 +62,20 @@ export async function POST(request: Request) {
   const releaseSlot = acquireCostSlot("ai", 8);
   if (!releaseSlot) {
     await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
-    return NextResponse.json({ error: "AI 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
+    const report = await recordServerError(request, {
+      category: "service",
+      severity: "warning",
+      operation: "context_word_explanation",
+      endpoint: "/api/explain-word",
+      userMessage: "解释服务当前请求较多，请稍后重试。",
+      technicalMessage: "Local AI concurrency limit reached.",
+      code: "local_concurrency",
+      httpStatus: 503,
+    });
+    return NextResponse.json(
+      { error: "解释服务当前请求较多，请稍后重试。", code: "local_concurrency", ...reportReference(report) },
+      { status: 503, headers: { "Retry-After": "3" } },
+    );
   }
 
   try {
@@ -84,15 +98,49 @@ export async function POST(request: Request) {
   } catch (error) {
     await refundUsage(actionId, "failed", error instanceof Error ? error.name : "unknown").catch(() => undefined);
     if (error instanceof MissingDeepSeekEnvError) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      const report = await recordServerError(request, {
+        category: "configuration",
+        severity: "critical",
+        operation: "context_word_explanation",
+        endpoint: "/api/explain-word",
+        userMessage: "解释服务暂时不可用，开发者已收到异常并正在处理。",
+        code: "missing_provider_configuration",
+        httpStatus: 500,
+      }, error);
+      return NextResponse.json(
+        { error: "解释服务暂时不可用，开发者已收到异常并正在处理。", ...reportReference(report) },
+        { status: 500 },
+      );
     }
 
     if (error instanceof DeepSeekParseError) {
-      return NextResponse.json({ error: error.message }, { status: 502 });
+      const report = await recordServerError(request, {
+        category: "provider",
+        operation: "context_word_explanation",
+        endpoint: "/api/explain-word",
+        userMessage: "解释结果格式异常，开发者已收到问题并正在处理。",
+        code: "provider_parse_error",
+        httpStatus: 502,
+      }, error);
+      return NextResponse.json(
+        { error: "解释结果格式异常，开发者已收到问题并正在处理。", ...reportReference(report) },
+        { status: 502 },
+      );
     }
 
     console.error("DeepSeek request failed", error);
-    return NextResponse.json({ error: "DeepSeek 请求失败，请稍后重试。" }, { status: 502 });
+    const report = await recordServerError(request, {
+      category: "provider",
+      operation: "context_word_explanation",
+      endpoint: "/api/explain-word",
+      userMessage: "解释服务暂时不可用，开发者已收到异常并正在处理。",
+      code: "provider_request_failed",
+      httpStatus: 502,
+    }, error);
+    return NextResponse.json(
+      { error: "解释服务暂时不可用，开发者已收到异常并正在处理。", ...reportReference(report) },
+      { status: 502 },
+    );
   } finally {
     releaseSlot();
   }

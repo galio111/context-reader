@@ -10,6 +10,7 @@ import {
 } from "react";
 import type { SavedArticle } from "@/types/article";
 import type { PublicArticle } from "@/types/publicArticle";
+import type { VocabularyEntry } from "@/types/vocabulary";
 import { useAccount } from "@/components/AccountProvider";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
 import { HomeOptionMenu } from "@/components/HomeOptionMenu";
@@ -33,6 +34,7 @@ interface ImmersiveHomeProps {
   demoCompleted: boolean;
   publicArticles: PublicArticle[];
   savedArticles: SavedArticle[];
+  vocabularyEntries: VocabularyEntry[];
   vocabularyCount: number;
   overlayOpen: boolean;
   onArticleChange: (value: string) => void;
@@ -165,7 +167,7 @@ function PhraseTarget({ phrase, meaning }: { phrase: string; meaning: string }) 
 }
 
 export function ImmersiveHome(props: ImmersiveHomeProps) {
-  const { account } = useAccount();
+  const { account, hasLocalAccountAccess, isOffline, localAccount } = useAccount();
   const [ready, setReady] = useState(props.demoCompleted);
   const [loadPercent, setLoadPercent] = useState(props.demoCompleted ? 100 : 0);
   const [guideReady, setGuideReady] = useState(props.demoCompleted);
@@ -889,10 +891,12 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
       <HomeOptionMenu
         open={menuOpen}
         isAdmin={account.plan?.id === "admin"}
-        savedArticles={account.authenticated ? props.savedArticles : []}
+        account={account}
+        isOffline={isOffline}
+        localAccount={localAccount}
+        savedArticles={hasLocalAccountAccess ? props.savedArticles : []}
+        vocabularyEntries={hasLocalAccountAccess ? props.vocabularyEntries : []}
         onClose={() => setMenuOpen(false)}
-        onOpenVocabulary={props.onOpenVocabulary}
-        onOpenFeedback={() => setFeedbackOpen(true)}
         onOpenSavedArticle={props.onOpenSavedArticle}
       />
       <FeedbackPanel open={feedbackOpen} onClose={() => setFeedbackOpen(false)} />

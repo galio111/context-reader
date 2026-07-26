@@ -1,10 +1,5 @@
-import { HomeClient } from "@/components/HomeClient";
-import { listPublicArticles } from "@/lib/publicArticles";
+import { redirect } from "next/navigation";
 
-export const dynamic = "force-dynamic";
-
-export default async function Home() {
-  const initialPublicArticles = await listPublicArticles().catch(() => []);
-
-  return <HomeClient initialPublicArticles={initialPublicArticles} />;
+export default function Home() {
+  redirect("/home-v2");
 }

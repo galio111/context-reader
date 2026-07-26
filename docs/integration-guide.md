@@ -36,13 +36,15 @@ SUPABASE_SERVICE_ROLE_KEY=...
 ACCOUNT_COOKIE_SECRET=...
 ```
 
-Homepage image reading is enabled. Configure either `OCR_PROVIDER=zhipu` with `ZHIPU_API_KEY`, or `OCR_PROVIDER=openai` with `OPENAI_API_KEY`. Automatic OCR for images embedded in URL-imported articles remains gated off in the reader even though the OCR routes are available.
+OCR routes and the dormant legacy image-import path can use either `OCR_PROVIDER=zhipu` with `ZHIPU_API_KEY`, or `OCR_PROVIDER=openai` with `OPENAI_API_KEY`. The shipped `/home-v2` homepage exposes no image upload, and automatic OCR for images embedded in URL-imported articles remains gated off in the reader.
 
 `DEEPSEEK_TRANSLATION_MODEL` overrides only full-article translation. `DEEPSEEK_FALLBACK_MODELS` is a comma-separated model list used for supported retries on the primary provider. Structured word explanations can also use `DEEPSEEK_FALLBACK_BASE_URL` with optional `DEEPSEEK_FALLBACK_API_KEY` and `DEEPSEEK_FALLBACK_MODEL`. Empty fallback values disable the secondary-provider path.
 
 `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, `SUPABASE_URL`, and `SUPABASE_SERVICE_ROLE_KEY` are needed for `/admin`, public recommendations, preloaded word explanations, and preloaded full-article translations. `CRON_SECRET` is required for the scheduled recommendation crawler; use a separate long random value in the Vercel Production environment. Use a long unique admin password; only the independent session secret has an enforced minimum of 32 characters. Increment `ADMIN_SESSION_VERSION` to revoke every existing admin cookie. Run the complete `docs/public-articles-supabase.sql` in Supabase before publishing and after security/schema updates; it creates the three tables, enables RLS, and revokes direct access from browser roles and `PUBLIC`.
 
 For accounts and usage, also set an independent `ACCOUNT_COOKIE_SECRET` and run `docs/account-usage-supabase.sql`. The visible beta flow uses `/api/auth/phone-register` and `/api/auth/phone-login`: the server maps a mainland-China phone identifier to a reserved internal Auth email, marks it unverified, and uses a six-digit numeric password as the Supabase Auth password. It sends no SMS and the internal email must never be displayed. Legacy email OTP remains available in code; if exposed publicly later, configure custom SMTP and make the template include `{{ .Token }}`. The service-role key is server-only. Do not create a `NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY`. Optional cost-rate overrides are `DEEPSEEK_CACHE_HIT_USD_PER_MILLION`, `DEEPSEEK_CACHE_MISS_USD_PER_MILLION`, and `DEEPSEEK_OUTPUT_USD_PER_MILLION`.
+
+Automatic error diagnostics use the existing private `context-reader-feedback` Storage bucket. `/api/error-reports` accepts bounded same-origin browser reports, while server routes call the same store directly; both deduplicate by operation, endpoint, status/code, category, day, and release. `/api/admin/error-reports` is server-authorized and supplies `/admin?section=errors`. Configure `ERROR_ALERT_SMTP_HOST`, `ERROR_ALERT_SMTP_PORT` (normally `465`), `ERROR_ALERT_SMTP_USER`, `ERROR_ALERT_SMTP_PASSWORD`, and optional `ERROR_ALERT_FROM` to email alerts to the fixed developer address. As an alternative, set `RESEND_API_KEY` and `ERROR_ALERT_FROM`. Storage is written before email delivery, repeated alerts are suppressed for fifteen minutes, and an unconfigured or failed email channel remains visible on the Admin record.
 
 Production requests receive security headers and pass through bounded-body, same-origin, throttling, SSRF, and concurrency controls. The built-in rate store is per Vercel instance, so it reduces accidental bursts and simple abuse but is not a distributed quota. For a broader launch, add Vercel WAF rate limiting or an atomic Redis/KV limiter and an upstream provider spending cap. Review the external service's pricing before enabling it.
 
@@ -70,7 +72,8 @@ The primary Admin entry is a signed-in account whose server-verified entitlement
 - saving incomplete candidates with `published=false`, while blocking publication until a cover is present,
 - selecting specific ready candidates and publishing only those,
 - merging cached explanations and full-article translation caches into an existing public article instead of duplicating it,
-- deleting public recommendations.
+- deleting public recommendations,
+- reviewing detailed automatic site/API/provider/client errors, marking them resolved, reopening them, or deleting their private records.
 
 `GET /api/public-articles` lists public articles. `GET /api/public-articles/[id]` returns one article with preloaded word explanations and full-article translation caches. `GET/POST/PATCH/DELETE /api/admin/article-candidates` manages the review queue, `POST /api/admin/article-classification` classifies content, and `POST /api/admin/article-covers` uploads cover files. `GET/POST /api/admin/article-crawler` exposes the crawler status and authenticated manual runs. Admin writes require the admin session cookie.
 
@@ -78,7 +81,9 @@ The primary Admin entry is a signed-in account whose server-verified entitlement
 
 ## Offline Behavior
 
-The production site is a PWA. After a browser opens the site online once, the app shell can reopen offline. Public article API responses are cached network-first, so articles already loaded by that browser can reopen offline. Previously cached explanations and full translations can reopen from local browser data. New AI explanations, new full-article translations, URL import, image OCR, and summary generation require network access.
+The production site is a PWA. After a browser opens the site online once, the app shell can reopen offline. Public article API responses are cached network-first, so articles already loaded by that browser can reopen offline. A previously verified account is represented offline by a minimal local snapshot containing its user id, nickname, and last verification time. This snapshot only unlocks the same browser's local articles, vocabulary, and caches; server authorization, Admin visibility, plan, and quota always require a live verified session. The persistent offline banner states what remains available.
+
+Offline remembered accounts can read and save local articles, update local vocabulary, and replay cached explanations, standalone dictionary results, and full translations. New AI explanations, standalone dictionary generation, new full-article translations, URL import, image OCR, feedback submission, summary generation, cloud sync, and usage reads require network access. `GET /api/auth/session` returns `503` when its account dependencies are unavailable so the client preserves the offline identity instead of misclassifying the user as a guest.
 
 ## URL Import
 
@@ -96,13 +101,15 @@ Returns an `article` object with `title`, `url`, `siteName`, plain `text`, and s
 
 `POST /api/dictionary`
 
+`POST /api/dictionary-stream`
+
 ```json
 {
   "query": "take in"
 }
 ```
 
-The query must be one English word or a phrase of at most eight words. The route consumes one `lookup_generation` unit and returns `dictionary` with lemma, IPA, multiple senses and examples, usage distinctions, collocations, word family, synonyms, common mistakes, and a memory hint. It uses the shared DeepSeek model defaults, bounded JSON parsing, usage ledger, AI concurrency guard, and provider-cost recording. `BookDictionary` keeps a bounded browser cache and renders the result inside the `/home-v2` workbench rather than navigating away from the current spread.
+The query must be one English word or a phrase of at most eight words. `/api/dictionary-stream` returns newline-delimited JSON events in final display order. `BookDictionary` incrementally parses each complete line and mounts that final pronunciation, sense, usage, collocation, word-family, synonym, mistake, or memory block immediately; the accumulated event model is the durable `DictionaryResult`, so completion never replaces the visible content with a separately generated result. The route uses the shared DeepSeek model defaults, usage ledger, AI concurrency guard, and provider-cost recording. The browser keeps at most 80 results plus the latest query/result in `sessionStorage`; the Home V2 workbench and ReaderView sidebar share that session, so moving between them, switching modes, or reloading the same tab preserves the work, while closing the tab clears it.
 
 ## Full-Article Translation
 
@@ -133,7 +140,7 @@ Returns id-aligned Chinese translations:
 }
 ```
 
-Valid block types are `heading`, `subheading`, `paragraph`, `quote`, and `list-item`. The route sanitizes oversized input and calls DeepSeek with the current default model. In the app UI, long articles are translated one text block at a time so the first completed paragraph appears immediately and later paragraphs continue appending after it. The panel estimates remaining time from completed blocks, and the merged result is cached in browser `localStorage`. Admin publishing uploads the matching full-article translation cache to Supabase when the article hash matches.
+Valid block types are `heading`, `subheading`, `paragraph`, `quote`, and `list-item`. The route sanitizes oversized input and calls DeepSeek with the current default model. In the app UI, long articles are translated one text block at a time so the first completed paragraph appears immediately and later paragraphs continue appending after it. Every completed block immediately updates the merged partial result and per-block cache in browser `localStorage`; incomplete work resumes from missing blocks after a refresh or later return. The route returns structured temporary-error codes for provider throttling, overload, timeout, and connectivity failures so the client can queue and back off without losing progress, while quota, balance, and configuration failures remain explicit. Admin publishing uploads the matching full-article translation cache to Supabase when the article hash matches.
 
 ## Word Explanation Stream
 
@@ -189,7 +196,7 @@ It fetches a remote image server-side, sends it to the configured vision model, 
 }
 ```
 
-`POST /api/ocr-image-layout` accepts either the same multipart upload, a JSON data URL, or a JSON remote `url`. It returns `words` with `text`, percentage `x/y/width/height`, and `lineText`. Homepage image reading calls text and layout OCR in parallel, preserves the original image, and uses the word boxes for click-to-explain when layout detection succeeds. Plain OCR text is the fallback reading body.
+`POST /api/ocr-image-layout` accepts either the same multipart upload, a JSON data URL, or a JSON remote `url`. It returns `words` with `text`, percentage `x/y/width/height`, and `lineText`. The dormant legacy image-import path can call text and layout OCR in parallel, preserve the original image, and use the word boxes for click-to-explain when layout detection succeeds; it is not exposed on `/home-v2`. Plain OCR text remains the fallback reading body for any compatible stored legacy image article.
 
 Automatic OCR for images inside URL-imported articles remains disabled in `ReaderView`; stored legacy OCR/layout metadata is still accepted. Imported images can be enlarged, cursor-anchored zoomed, and downloaded. Remote downloads use `GET /api/download-image?url=...&filename=...`, which validates image content and enforces a 20MB limit.
 
@@ -204,6 +211,6 @@ Anki import depends on local browser access to AnkiConnect:
 
 The public `/guide` route provides the user-facing setup flow. It detects the current device, links to the official Anki desktop download, copies AnkiConnect add-on code `2055492159`, tests the local connection, and reveals a targeted troubleshooting list plus a copyable production-origin configuration when the check fails. Clipboard copying falls back to a temporary selectable field for restricted browsers. A webpage cannot silently install desktop software or operate Anki before AnkiConnect exists, so the guide describes this as a three-step assisted setup rather than a literal one-click install.
 
-Context Reader creates or updates its Anki note templates during import. Cloze-card fronts show the cloze sentence first, then a large gap, then only the target word or phrase's exact current-context translation from the latest generated explanation. The hint does not include the basic meaning, full-sentence translation, fallback text, or an added label. Card backs include Anki native US and UK TTS replay controls. The UK control requests `en_GB` without hard-coded voice names, so Anki can select an installed British voice across operating systems.
+Context Reader creates or updates its Anki note templates during import. Cloze-card fronts show the cloze sentence first, then a large gap, then only the target word or phrase's exact current-context translation from the latest generated explanation. The hint does not include the basic meaning, full-sentence translation, fallback text, or an added label. Card backs include Anki native US and UK TTS replay controls. The UK control requests `en_GB` without hard-coded voice names, so Anki can select an installed British voice across operating systems. Standalone dictionary entries use `basic_en_to_cn`: the front remains English-only, while the formatted back includes Chinese senses, lemma/part of speech/IPA, both TTS controls, usage points, collocations, synonyms, word family, examples, mistakes, and memory guidance. `ensureModel` refreshes this template before a later import, so importing another standalone word upgrades an existing Context Reader EN-CN model.
 
 No audio files are downloaded or stored in Anki media for this feature. During import, Context Reader tries to set the target deck config's `autoplay` option to `false` through AnkiConnect, so pronunciation should play only when the user clicks the replay control. If deck config writes are unavailable in the user's Anki setup, disable audio autoplay manually in Anki's deck options.

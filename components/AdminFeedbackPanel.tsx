@@ -9,6 +9,12 @@ interface AdminFeedbackItem {
   message: string;
   contact: string;
   page: string;
+  attachments: Array<{
+    path: string;
+    name: string;
+    type: string;
+    size: number;
+  }>;
   status: "new" | "resolved";
   resolvedAt: string;
   objectPath: string;
@@ -172,6 +178,27 @@ export default function AdminFeedbackPanel() {
                       <span className="text-xs text-[#68717a]">来源：{pageLabel(item.page)}</span>
                     </div>
                     <p className="mt-4 max-w-4xl whitespace-pre-wrap text-[15px] leading-7 text-[#252a2e]">{item.message}</p>
+                    {item.attachments?.length > 0 && (
+                      <div className="mt-4 grid max-w-3xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                        {item.attachments.map((attachment, index) => (
+                          <a
+                            className="group overflow-hidden rounded-xl bg-[#eef1f4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0066cc]"
+                            href={`/api/admin/feedback?attachment=${encodeURIComponent(attachment.path)}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            key={attachment.path}
+                          >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              className="aspect-[4/3] w-full object-cover transition-transform duration-200 group-hover:scale-[1.02] motion-reduce:transform-none"
+                              src={`/api/admin/feedback?attachment=${encodeURIComponent(attachment.path)}`}
+                              alt={`用户反馈图片 ${index + 1}`}
+                            />
+                            <span className="block truncate px-3 py-2 text-xs text-[#59636c]">{attachment.name || `图片 ${index + 1}`}</span>
+                          </a>
+                        ))}
+                      </div>
+                    )}
                     {item.contact && <p className="mt-3 text-sm text-[#4d535a]"><strong className="font-medium text-[#252a2e]">联系方式：</strong>{item.contact}</p>}
                     <div className="mt-4 flex flex-wrap gap-2">
                       <button className="min-h-9 rounded-full border border-[#b8c7d5] px-3 text-sm font-medium text-[#175a8d] hover:bg-[#edf5fb] disabled:opacity-50" type="button" onClick={() => void updateStatus(item)} disabled={working}>

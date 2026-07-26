@@ -131,7 +131,13 @@ export function ExplanationPanel({
           nextSentence: selectedContext.nextSentence,
           question,
         }),
-      }, "提问失败，请稍后重试。");
+      }, "提问失败，请稍后重试。", {
+        operation: "sentence_question",
+        metadata: {
+          sentenceCharacters: selectedContext.sentence.length,
+          questionCharacters: question.length,
+        },
+      });
 
       if (!response.ok || !data?.answer?.trim()) {
         throw new Error(data?.error || "提问失败，请稍后重试。");

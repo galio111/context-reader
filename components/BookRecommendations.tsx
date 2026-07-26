@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent } from "react";
 import type { ArticleAudienceStage, PublicArticle } from "@/types/publicArticle";
 import styles from "./BookRecommendations.module.css";
 
@@ -21,6 +21,7 @@ interface BookRecommendationsProps {
   preferredInterests?: string[];
   personalized?: boolean;
   onPersonalize?: () => void;
+  scrollContainerRef?: { current: HTMLElement | null };
 }
 
 const DEFAULT_RECOMMENDATION_STAGES: ArticleAudienceStage[] = ["CET-4", "CET-6", "考研", "IELTS", "TOEFL"];
@@ -47,11 +48,16 @@ export function BookRecommendations({
   preferredInterests = [],
   personalized = false,
   onPersonalize,
+  scrollContainerRef,
 }: BookRecommendationsProps) {
   const [openingCover, setOpeningCover] = useState<OpeningCover | null>(null);
   const [coverExpanded, setCoverExpanded] = useState(false);
   const [sectionEntered, setSectionEntered] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
+  const setSectionRef = useCallback((element: HTMLElement | null) => {
+    sectionRef.current = element;
+    if (scrollContainerRef) scrollContainerRef.current = element;
+  }, [scrollContainerRef]);
 
   const level = preferredLevel ?? "all";
 
@@ -123,7 +129,7 @@ export function BookRecommendations({
   } as CSSProperties) : undefined;
 
   return (
-    <section ref={sectionRef} className={`${styles.section} ${embedded ? styles.embedded : ""} ${sectionEntered ? styles.entered : ""}`} aria-labelledby="recommendation-heading">
+    <section ref={setSectionRef} className={`${styles.section} ${embedded ? styles.embedded : ""} ${sectionEntered ? styles.entered : ""}`} aria-labelledby="recommendation-heading">
       {!embedded && <div className={styles.turnLeaf} aria-hidden="true" />}
       <header className={styles.header}>
         <div>

@@ -11,6 +11,7 @@ yarn-error.log*
 pnpm-debug.log*
 dev-server*.log
 next-dev*.log
+.codex-dev-*.log
 tsconfig.tsbuildinfo
 .DS_Store
 

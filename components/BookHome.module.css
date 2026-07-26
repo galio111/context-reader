@@ -11,10 +11,7 @@
   min-height: 100svh;
   overflow-x: clip;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 15% 12%, rgb(112 160 199 / 18%), transparent 26rem),
-    radial-gradient(circle at 88% 82%, rgb(94 130 165 / 12%), transparent 30rem),
-    linear-gradient(145deg, #e9eff4 0%, #f4f6f8 44%, #e7edf2 100%);
+  background: var(--cr-site-background);
   font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
@@ -90,6 +87,10 @@
   pointer-events: auto;
 }
 
+.mobileDesktopHint {
+  display: none;
+}
+
 .textAction,
 .menuButton {
   height: 42px;
@@ -118,7 +119,6 @@
   transition: transform .2s var(--ease);
 }
 
-.menuButton:hover { transform: translateY(-1px); }
 .menuButton:active { transform: translateY(0) scale(.97); }
 
 .menuGlyph {
@@ -296,7 +296,6 @@
   transition: color .18s ease, background .18s ease;
 }
 
-.word:hover,
 .word:focus-visible {
   color: var(--blue-deep);
   background: rgb(194 220 241 / 38%);
@@ -348,9 +347,6 @@
   font-weight: 700;
   cursor: pointer;
 }
-
-.demoInstruction button:hover,
-.workbenchFoot button:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 @keyframes hintPulse {
   50% { opacity: .35; transform: scale(.72); }
@@ -439,7 +435,6 @@
   cursor: pointer;
 }
 
-.continueReading:hover strong { color: var(--blue-deep); }
 .continueReading:disabled { opacity: .55; cursor: wait; }
 
 .continueMarker {
@@ -488,6 +483,8 @@
   background: white;
   box-shadow: 0 2px 5px rgb(46 68 84 / 12%);
 }
+
+.modePanel[hidden] { display: none; }
 
 .articleForm,
 .urlForm {
@@ -558,8 +555,6 @@
 }
 
 .formFooter button { padding: 0 20px; }
-.formFooter button:hover,
-.urlForm button:hover { background: #23689f; transform: translateY(-1px); }
 .formFooter button:disabled,
 .urlForm button:disabled { opacity: .48; cursor: not-allowed; transform: none; }
 
@@ -656,8 +651,6 @@
 .closing > div:last-child { display: flex; grid-column: 1 / -1; gap: 10px; }
 .closing button { min-height: 46px; padding: 0 17px; border: 1px solid #aebfca; border-radius: 9px; color: #244f6e; background: transparent; font-weight: 700; cursor: pointer; }
 .closing button:first-child { border-color: #2868ad; color: white; background: #2868ad; }
-.closing button:hover { transform: translateY(-1px); }
-
 .coverSpine {
   position: absolute;
   top: 0;
@@ -786,8 +779,6 @@
   cursor: pointer;
 }
 
-.menuLinks a:hover span,
-.menuLinks button:hover span { color: var(--blue-deep); }
 .menuLinks span { font-size: 15px; font-weight: 700; }
 .menuLinks em { color: #6b7984; font-size: 11px; font-style: normal; }
 
@@ -1212,6 +1203,40 @@
   justify-content: center;
 }
 
+.forewordContent {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.forewordContent .pageNumber,
+.forewordContent .sectionLabel,
+.forewordTitleGlyph,
+.forewordCopy p > span,
+.developerSignature > span,
+.developerSignature strong {
+  opacity: 0;
+}
+
+.forewordContentVisible .pageNumber,
+.forewordContentVisible .sectionLabel {
+  animation: forewordMetaReveal 480ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.forewordContentVisible .sectionLabel { animation-delay: 70ms; }
+
+.forewordContentPrinted [data-foreword-reveal-part] {
+  opacity: 1;
+  animation: none !important;
+  clip-path: none;
+  filter: none;
+  transform: none;
+}
+
+.forewordContentPrinted [data-foreword-signature] { transform: rotate(-3deg); }
+
 .forewordPage h1 {
   max-width: 11ch;
   margin: 20px 0 28px;
@@ -1219,6 +1244,26 @@
   font: 500 clamp(42px, 4vw, 66px)/1.07 Georgia, "Songti SC", serif;
   letter-spacing: -.03em;
   text-wrap: balance;
+}
+
+.forewordTitleLine {
+  display: block;
+  overflow: hidden;
+  padding: .08em .03em .11em;
+  margin: -.08em -.03em -.11em;
+  perspective: 700px;
+  white-space: nowrap;
+}
+
+.forewordTitleGlyph {
+  display: inline-block;
+  transform: translateY(112%) rotateX(-18deg) skewY(3deg);
+  transform-origin: 50% 100%;
+  filter: blur(7px);
+}
+
+.forewordContentVisible .forewordTitleGlyph {
+  animation: forewordGlyphReveal 760ms cubic-bezier(.16, 1, .3, 1) both;
 }
 
 .forewordCopy {
@@ -1231,7 +1276,22 @@
   text-wrap: pretty;
 }
 
-.forewordCopy p { margin: 0; }
+.forewordCopy p {
+  overflow: hidden;
+  margin: 0;
+}
+
+.forewordCopy p > span {
+  display: block;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(18px);
+  filter: blur(4px);
+}
+
+.forewordContentVisible .forewordCopy p > span {
+  animation: forewordCopyReveal 720ms cubic-bezier(.16, 1, .3, 1) both;
+  animation-delay: inherit;
+}
 
 .developerSignature {
   display: grid;
@@ -1242,16 +1302,53 @@
   color: #536c7d;
 }
 
-.developerSignature span {
+.developerSignature > span {
+  display: block;
   font-size: 10px;
+  font-style: normal;
   letter-spacing: .04em;
 }
 
 .developerSignature strong {
+  display: block;
   margin-top: 7px;
   color: #1c4d70;
   font: 500 27px/1.1 "STKaiti", "KaiTi", "Songti SC", serif;
-  transform: rotate(-3deg);
+  transform: translateY(14px) rotate(-3deg);
+}
+
+.forewordContentVisible .developerSignature > span {
+  animation: forewordSignatureLabelReveal 520ms cubic-bezier(.16, 1, .3, 1) 1280ms both;
+}
+
+.forewordContentVisible .developerSignature strong {
+  animation: forewordSignatureReveal 680ms cubic-bezier(.16, 1, .3, 1) 1370ms both;
+}
+
+@keyframes forewordMetaReveal {
+  from { opacity: 0; transform: translateY(9px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes forewordGlyphReveal {
+  0% { opacity: 0; transform: translateY(112%) rotateX(-18deg) skewY(3deg); filter: blur(7px); }
+  42% { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0) rotateX(0) skewY(0); filter: none; }
+}
+
+@keyframes forewordCopyReveal {
+  from { opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(18px); filter: blur(4px); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); transform: none; filter: none; }
+}
+
+@keyframes forewordSignatureLabelReveal {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes forewordSignatureReveal {
+  from { opacity: 0; transform: translateY(14px) rotate(-3deg); filter: blur(3px); }
+  to { opacity: 1; transform: translateY(0) rotate(-3deg); filter: none; }
 }
 
 .spine {
@@ -1300,18 +1397,13 @@
 .closedBook {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 0;
   display: block;
-  width: clamp(590px, 47%, 660px);
+  width: 100%;
   height: 100%;
-  transform: translateX(-50%);
+  transform: none;
   transform-style: preserve-3d;
-  transition: left 1.82s var(--ease), width 1.82s var(--ease), transform .5s var(--ease), filter .5s ease;
-}
-
-.coverClosed .coverAssembly:hover .closedBook {
-  filter: brightness(1.015);
-  transform: translateX(-50%) translateY(-4px) rotateX(1.5deg) rotateY(-2deg);
+  transition: transform .5s var(--ease), filter .5s ease;
 }
 
 .backBoard,
@@ -1324,17 +1416,23 @@
 
 .backBoard {
   z-index: 1;
-  inset: 3px -7px -7px 0;
+  top: 3px;
+  right: 25%;
+  bottom: -7px;
+  left: 25%;
   border-radius: 5px 15px 15px 5px;
   background: #b8cfe0;
   box-shadow: 14px 24px 42px rgb(32 51 67 / 28%);
   transform: translateZ(-8px);
-  transition: left 1.82s var(--ease), box-shadow 1.2s ease, border-radius 1.1s ease;
+  transition: right 1.82s var(--ease), left 1.82s var(--ease), box-shadow 1.2s ease, border-radius 1.1s ease;
 }
 
 .pageBlockEdges {
   z-index: 2;
-  inset: 7px 1px 4px 7px;
+  top: 7px;
+  right: calc(25% + 1px);
+  bottom: 4px;
+  left: calc(25% + 7px);
   overflow: hidden;
   border-radius: 3px 12px 12px 3px;
   background: linear-gradient(90deg, #edf3f6, #fbfcfd 7% 96%, #d8e2e8);
@@ -1378,12 +1476,31 @@
 
 .frontBoard {
   z-index: 5;
-  inset: -3px -2px -4px -2px;
+  top: -3px;
+  right: auto;
+  bottom: -4px;
+  left: 25%;
+  width: 50%;
   border-radius: 5px 16px 16px 5px;
   transform: translateZ(12px) rotateY(0deg);
   transform-origin: left center;
   transform-style: preserve-3d;
   transition: top .45s ease, bottom .45s ease, left 1.82s var(--ease), right 1.82s var(--ease), width 1.82s var(--ease), transform 1.9s cubic-bezier(.14,.78,.18,1), filter .45s ease;
+}
+
+.frontBoard::before {
+  position: absolute;
+  z-index: 5;
+  top: 3px;
+  right: -4px;
+  bottom: 3px;
+  width: 5px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #c7d8e4, #82a8c3 48%, #d5e1e9);
+  box-shadow: 1px 0 1px rgb(34 66 89 / 20%);
+  content: "";
+  transform: rotateY(90deg);
+  transform-origin: left center;
 }
 
 .frontBoardBack,
@@ -1532,7 +1649,7 @@
 .bookForeEdge {
   z-index: 7;
   top: 10px;
-  right: -10px;
+  right: calc(25% - 10px);
   bottom: 7px;
   width: 12px;
   border-radius: 0 9px 9px 0;
@@ -1546,10 +1663,10 @@
 .coverOpen .closedBook { left: 0; width: 100%; transform: none; }
 
 .coverOpening .backBoard,
-.coverOpen .backBoard { left: 50%; border-radius: 5px 15px 15px 2px; box-shadow: 8px 18px 28px rgb(32 51 67 / 18%); }
+.coverOpen .backBoard { right: -7px; left: 50%; border-radius: 5px 15px 15px 2px; box-shadow: 8px 18px 28px rgb(32 51 67 / 18%); }
 
 .coverOpening .pageBlockEdges:not(.leftPageBlockEdges),
-.coverOpen .pageBlockEdges:not(.leftPageBlockEdges) { left: 50%; }
+.coverOpen .pageBlockEdges:not(.leftPageBlockEdges) { right: 1px; left: 50%; }
 
 .coverOpening .leftPageBlockEdges,
 .coverOpen .leftPageBlockEdges { right: 50%; left: 5px; opacity: 1; }
@@ -1668,12 +1785,7 @@
 }
 
 @keyframes scrollClosedBook {
-  0% {
-    left: 50%;
-    width: clamp(590px, 47%, 660px);
-    transform: translateX(-50%);
-  }
-  100% {
+  0%, 100% {
     left: 0;
     width: 100%;
     transform: none;
@@ -1682,11 +1794,13 @@
 
 @keyframes scrollBackBoard {
   0% {
-    left: 0;
+    right: 25%;
+    left: 25%;
     border-radius: 5px 15px 15px 5px;
     box-shadow: 14px 24px 42px rgb(32 51 67 / 28%);
   }
   100% {
+    right: -7px;
     left: 50%;
     border-radius: 5px 15px 15px 2px;
     box-shadow: 8px 18px 28px rgb(32 51 67 / 18%);
@@ -1694,8 +1808,8 @@
 }
 
 @keyframes scrollRightPageBlock {
-  0% { left: 7px; }
-  100% { left: 50%; }
+  0% { right: calc(25% + 1px); left: calc(25% + 7px); }
+  100% { right: 1px; left: 50%; }
 }
 
 @keyframes scrollLeftPageBlock {
@@ -1717,8 +1831,8 @@
     top: -3px;
     right: auto;
     bottom: -4px;
-    left: -2px;
-    width: calc(100% + 4px);
+    left: 25%;
+    width: 50%;
     filter: brightness(1);
     transform: translateZ(12px) rotateY(0deg);
   }
@@ -1746,7 +1860,7 @@
 
 @keyframes scrollForeEdge {
   0% {
-    right: -10px;
+    right: calc(25% - 10px);
     width: 12px;
     opacity: 1;
   }
@@ -1891,9 +2005,6 @@
 .interestChoices { display: flex; flex-wrap: wrap; gap: 8px; }
 .paceChoices button,
 .interestChoices button { min-height: 36px; padding: 0 14px; border-radius: 999px; }
-.choiceGrid button:hover,
-.paceChoices button:hover,
-.interestChoices button:hover { border-color: #2868ad; color: #1f5785; transform: translateY(-1px); }
 .choiceGrid .choiceSelected,
 .paceChoices .choiceSelected,
 .interestChoices .choiceSelected { border-color: #2868ad; color: white; background: #2868ad; }
@@ -1965,7 +2076,6 @@
   cursor: pointer;
 }
 
-.profileDialogHeader > button:hover { color: white; background: #2868ad; }
 .profileDialogHeader > button:focus-visible { outline: 3px solid rgb(40 104 173 / 28%); outline-offset: 2px; }
 
 .profileDialogBody {
@@ -1998,8 +2108,29 @@
 }
 
 .profileDialogActions button:last-child { color: white; background: #2868ad; }
-.profileDialogActions button:hover { transform: translateY(-1px); }
 .profileDialogActions button:focus-visible { outline: 3px solid rgb(40 104 173 / 28%); outline-offset: 2px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .menuButton:hover { transform: translateY(-1px); }
+  .word:hover { color: var(--blue-deep); background: rgb(194 220 241 / 38%); outline: none; }
+  .demoInstruction button:hover,
+  .workbenchFoot button:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .continueReading:hover strong { color: var(--blue-deep); }
+  .formFooter button:hover,
+  .urlForm button:hover { background: #23689f; transform: translateY(-1px); }
+  .closing button:hover { transform: translateY(-1px); }
+  .menuLinks a:hover span,
+  .menuLinks button:hover span { color: var(--blue-deep); }
+  .coverClosed .coverAssembly:hover .closedBook {
+    filter: brightness(1.015);
+    transform: translateY(-4px) rotateX(1.5deg) rotateY(-2deg);
+  }
+  .choiceGrid button:hover,
+  .paceChoices button:hover,
+  .interestChoices button:hover { border-color: #2868ad; color: #1f5785; transform: translateY(-1px); }
+  .profileDialogHeader > button:hover { color: white; background: #2868ad; }
+  .profileDialogActions button:hover { transform: translateY(-1px); }
+}
 
 @media (max-width: 1280px) {
   .bookShell { width: 95vw; }
@@ -2033,7 +2164,13 @@
   }
 
   .book,
-  .coverOpen .book { display: block; height: 100%; border-radius: 8px 11px 11px 8px; transform: none; }
+  .coverOpen .book {
+    display: block;
+    height: 100%;
+    border-radius: 8px 11px 11px 8px;
+    box-shadow: 0 10px 18px rgb(42 59 73 / 15%);
+    transform: none;
+  }
 
   .forewordSpread,
   .workbenchSpread,
@@ -2048,14 +2185,21 @@
   .workbenchSpread[data-mobile-page="demo"] .rightPage,
   .workbenchSpread[data-mobile-page="desk"] .leftPage { display: none; }
 
-  .page { height: 100%; min-height: 0; overflow-y: auto; padding: 26px 20px 32px; }
+  .page {
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 26px 20px 32px;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
   .page { scrollbar-width: none; }
   .page::-webkit-scrollbar { display: none; }
   .leftPage,
   .rightPage { border-radius: inherit; box-shadow: inset 10px 0 24px rgb(61 80 95 / 7%); }
   .spine { display: none; }
   .inputModes { grid-template-columns: repeat(3, 1fr); }
-  .inputModes button { padding: 0 5px; font-size: 11px; }
+  .inputModes button { min-height: 44px; padding: 0 5px; font-size: 11px; touch-action: manipulation; }
   .explanationShell { height: 300px; }
 
   .closedBook {
@@ -2065,6 +2209,12 @@
     height: 100%;
     transform: none;
   }
+
+  .backBoard { right: -7px; left: 0; }
+  .pageBlockEdges { right: 1px; left: 7px; }
+  .frontBoard { right: -2px; left: -2px; width: auto; }
+  .frontBoard::before { display: none; }
+  .bookForeEdge { right: -10px; }
 
   .coverOpening .closedBook,
   .coverOpen .closedBook { left: 7%; width: 86%; }
@@ -2079,17 +2229,71 @@
   .leftPageBlockEdges { display: none; }
   .recommendationSpine { display: none; }
   .coverFace { padding: 38px 28px 42px 50px; }
-  .coverBallpit { opacity: .62; }
+  .coverBallpit {
+    background:
+      radial-gradient(circle at 18% 24%, rgb(255 255 255 / 75%) 0 3%, transparent 3.5%),
+      radial-gradient(circle at 74% 32%, rgb(82 39 255 / 48%) 0 5%, transparent 5.5%),
+      radial-gradient(circle at 38% 70%, rgb(6 182 212 / 45%) 0 4%, transparent 4.5%),
+      radial-gradient(circle at 82% 78%, rgb(244 63 94 / 36%) 0 4%, transparent 4.5%);
+    opacity: .62;
+  }
   .coverTitle strong { font-size: clamp(43px, 13vw, 57px); }
   .coverFooter { flex-direction: column; gap: 5px; }
   .stageGuidance { bottom: 9px; padding: 0 18px; text-align: center; }
   .stageGuidance span { display: none; }
 
-  .story .bookShell { animation-name: scrollMobileCamera; }
-  .story .closedBook { animation-name: scrollMobileClosedBook; }
-  .story .backBoard { animation-name: scrollMobileBackBoard; }
-  .story .pageBlockEdges:not(.leftPageBlockEdges) { animation-name: scrollMobilePageBlock; }
-  .story .frontBoard { animation-name: scrollMobileFrontBoard; }
+  .story .bookShell,
+  .story .closedBook,
+  .story .backBoard,
+  .story .pageBlockEdges:not(.leftPageBlockEdges),
+  .story .frontBoard,
+  .story .bookForeEdge {
+    animation: none !important;
+  }
+
+  .mobileDesktopHint {
+    position: fixed;
+    z-index: 34;
+    top: calc(68px + env(safe-area-inset-top));
+    right: 12px;
+    left: 12px;
+    display: flex;
+    min-height: 58px;
+    padding: 11px 11px 11px 14px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-radius: 12px;
+    background: rgb(245 249 251 / 97%);
+    color: #2d4859;
+    box-shadow: 0 5px 8px rgb(33 55 69 / 14%);
+  }
+
+  .mobileDesktopHint p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .mobileDesktopHint strong {
+    display: inline;
+    color: #17384d;
+  }
+
+  .mobileDesktopHint button {
+    min-width: 64px;
+    min-height: 44px;
+    padding: 0 12px;
+    flex: 0 0 auto;
+    border: 0;
+    border-radius: 999px;
+    background: #dceaf1;
+    color: #245f82;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    touch-action: manipulation;
+  }
 
   @keyframes scrollMobileCamera {
     0% { transform: scale(.985) translateY(2px); }
@@ -2143,6 +2347,11 @@
     }
   }
 
+  @keyframes scrollMobileForeEdge {
+    0% { right: -10px; width: 12px; opacity: 1; }
+    100% { right: -5px; width: 7px; opacity: .72; }
+  }
+
   .preferenceIntro,
   .preferenceForm { position: absolute; inset: 0; }
   .preferenceIntro { display: none; }
@@ -2182,4 +2391,21 @@
   .coverOpening .frontBoard { opacity: 0; transform: none; }
   .coverClosing .frontBoard { transform: none; }
   .coverBallpit { display: none; }
+  .forewordContentVisible .pageNumber,
+  .forewordContentVisible .sectionLabel,
+  .forewordContentVisible .forewordTitleGlyph,
+  .forewordContentVisible .forewordCopy p > span,
+  .forewordContentVisible .developerSignature > span,
+  .forewordContentVisible .developerSignature strong {
+    opacity: 1;
+    animation: none;
+    clip-path: none;
+    filter: none;
+  }
+  .forewordContentVisible .pageNumber,
+  .forewordContentVisible .sectionLabel,
+  .forewordContentVisible .forewordTitleGlyph,
+  .forewordContentVisible .forewordCopy p > span,
+  .forewordContentVisible .developerSignature > span { transform: none; }
+  .forewordContentVisible .developerSignature strong { transform: rotate(-3deg); }
 }

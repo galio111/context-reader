@@ -28,6 +28,7 @@ import {
 import { downloadVocabularyCsv } from "@/lib/csv";
 import { explanationAsStreamText, mergeStreamDisplayIntoExplanation } from "@/lib/explanationDisplay";
 import { savedArticleOpenTimestamp } from "@/lib/savedArticleMerge";
+import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import { tokenizeArticle } from "@/lib/tokenizer";
 import {
   addVocabularyEntry,
@@ -38,6 +39,7 @@ import {
   vocabularyIdentity,
 } from "@/lib/vocabulary";
 import type { ImportedArticle, SavedArticle } from "@/types/article";
+import type { DictionaryResult } from "@/types/dictionary";
 import type { ArticleAudienceStage, PublicArticle } from "@/types/publicArticle";
 import type { ReaderToken, WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry } from "@/types/vocabulary";
@@ -57,6 +59,7 @@ const COVER_BALLPIT_COLORS = [
 ];
 
 const DEMO_HINT_KEY = "context-reader:book-demo-hint-seen:v1";
+const MOBILE_DESKTOP_HINT_KEY = "context-reader:mobile-desktop-hint-seen:v1";
 const RECOMMENDATION_PROFILE_KEY = "context-reader:recommendation-profile:v1";
 const COVER_SCROLL_END = .24;
 const FOREWORD_SCROLL_POSITION = .29;
@@ -65,7 +68,14 @@ const FIRST_TURN_END = .56;
 const WORKBENCH_SCROLL_POSITION = .61;
 const SECOND_TURN_START = .68;
 const SECOND_TURN_END = .88;
-const RECOMMENDATION_SCROLL_POSITION = .94;
+const RECOMMENDATION_SCROLL_POSITION = SECOND_TURN_END;
+const PAGE_TURN_SETTLE_IDLE_MS = 90;
+const PAGE_TURN_SETTLE_MIN_MS = 180;
+const PAGE_TURN_SETTLE_MAX_MS = 480;
+const PAGE_TURN_EDGE_EPSILON = .0015;
+const PROGRAMMATIC_TURN_MIN_MS = 260;
+const PROGRAMMATIC_TURN_MAX_MS = 620;
+const PAGE_SCROLL_BOUNDARY_IDLE_MS = 520;
 
 type BookChapter = "foreword" | "workbench" | "recommendations";
 type TurnDirection = "forward" | "backward";
@@ -79,6 +89,11 @@ interface DirectorySeek {
   startProgress: number;
   targetProgress: number;
   closeAfter: boolean;
+}
+
+interface ActiveTurnRange {
+  start: number;
+  end: number;
 }
 
 interface PendingDirectoryTarget {
@@ -118,6 +133,15 @@ const DEMO_PARAGRAPH_ONE =
 const DEMO_PARAGRAPH_TWO =
   "What once divided neighborhoods now carries cyclists, bees, and small acts of everyday life across the city.";
 const DEMO_TEXT = `${DEMO_PARAGRAPH_ONE}\n\n${DEMO_PARAGRAPH_TWO}`;
+const FOREWORD_SEGMENTS = [
+  "写给正在翻开这本书的人",
+  "我做 Context Reader，是因为查懂一个词，常常还不等于读懂一句话。",
+  "我希望这里能保留你正在阅读的上下文，让查词、理解和继续读下去发生在同一页里。你可以从一篇真正想读的文章开始，遇到陌生表达时停一下，再继续往前。",
+  "愿这本书帮你少一些被打断的时刻，多读完几篇原本想放弃的文章。",
+  "Context Reader 开发者",
+  "欧阳子浩",
+] as const;
+const FOREWORD_TITLE_LINES = ["写给正在翻开", "这本书的人"] as const;
 
 const DEMO_IMPORTED_ARTICLE: ImportedArticle = {
   title: DEMO_TITLE,
@@ -207,6 +231,18 @@ interface DemoDrag {
 }
 
 function entryCopyText(entry: VocabularyEntry): string {
+  if (!entry.sourceSentence.trim()) {
+    return [
+      `${entry.word} (${entry.lemma})`,
+      entry.phonetic ? `音标：${entry.phonetic}` : "",
+      entry.partOfSpeech ? `词性：${entry.partOfSpeech}` : "",
+      `中文释义：${entry.basicMeaning}`,
+      entry.usageNote ? `用法与补充：${entry.usageNote}` : "",
+      entry.collocation ? `常见搭配：${entry.collocation}` : "",
+      entry.exampleEnglish ? `例句：${entry.exampleEnglish}` : "",
+      entry.exampleChinese ? `例句翻译：${entry.exampleChinese}` : "",
+    ].filter(Boolean).join("\n");
+  }
   const contextMeaningLabel = entry.word.trim().split(/\s+/).length > 1
     ? "所选短语在本句中的含义"
     : "所选词在本句中的含义";
@@ -263,7 +299,15 @@ export function BookHome({
   onJumpToVocabularySource,
   canJumpToVocabularySource,
 }: BookHomeProps) {
-  const { account, openLogin, requireAccount, refreshAccount } = useAccount();
+  const {
+    account,
+    hasLocalAccountAccess,
+    isOffline,
+    localAccount,
+    openLogin,
+    requireLocalAccount,
+    refreshAccount,
+  } = useAccount();
   const [coverState, setCoverState] = useState<CoverState>("closed");
   const [chapter, setChapter] = useState<BookChapter>("foreword");
   const [turning, setTurning] = useState(false);
@@ -273,7 +317,9 @@ export function BookHome({
   const [recommendationDraft, setRecommendationDraft] = useState<RecommendationProfile>(INITIAL_RECOMMENDATION_PROFILE);
   const [recommendationDialogOpen, setRecommendationDialogOpen] = useState(false);
   const [clientReady, setClientReady] = useState(false);
-  const [inputMode, setInputMode] = useState<"paste" | "url" | "dictionary">("dictionary");
+  const [isMobileLayout, setIsMobileLayout] = useState(false);
+  const [showMobileDesktopHint, setShowMobileDesktopHint] = useState(false);
+  const [inputMode, setInputMode] = useState<"paste" | "url" | "dictionary">("paste");
   const [menuOpen, setMenuOpen] = useState(false);
   const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [vocabularyOpen, setVocabularyOpen] = useState(false);
@@ -287,8 +333,12 @@ export function BookHome({
   const [explanationStreaming, setExplanationStreaming] = useState(false);
   const [explanationLoading, setExplanationLoading] = useState(false);
   const [explanationError, setExplanationError] = useState("");
+  const [forewordRevealStarted, setForewordRevealStarted] = useState(false);
+  const [forewordPrinted, setForewordPrinted] = useState(false);
   const storyRef = useRef<HTMLElement | null>(null);
   const workbenchRef = useRef<HTMLElement | null>(null);
+  const explanationShellRef = useRef<HTMLDivElement | null>(null);
+  const recommendationScrollRef = useRef<HTMLElement | null>(null);
   const pageTurnRef = useRef<CurvedPageTurnHandle | null>(null);
   const spreadRefs = useRef<Record<BookChapter, HTMLElement | null>>({
     foreword: null,
@@ -304,9 +354,19 @@ export function BookHome({
   const directorySeekRef = useRef<DirectorySeek | null>(null);
   const pendingDirectoryTargetRef = useRef<PendingDirectoryTarget | null>(null);
   const scrollFrameRef = useRef<number | null>(null);
+  const turnSettleFrameRef = useRef<number | null>(null);
+  const turnSettleTimerRef = useRef<number | null>(null);
+  const turnSettleTargetRef = useRef<number | null>(null);
+  const turnCommitFrameRef = useRef<number | null>(null);
+  const startIntentFrameRef = useRef<number | null>(null);
+  const lastObservedStoryProgressRef = useRef(0);
+  const lastScrollDirectionRef = useRef<TurnDirection>("forward");
   const dragRef = useRef<DemoDrag | null>(null);
   const suppressClickRef = useRef(false);
   const explanationAbortRef = useRef<AbortController | null>(null);
+  const forewordRevealTimerRef = useRef<number | null>(null);
+  const forewordRevealPlayedRef = useRef(false);
+  const forewordPrintedRef = useRef(false);
 
   const tokenById = useMemo(
     () => new Map(DEMO_WORD_TOKENS.map((token) => [token.id, token])),
@@ -345,11 +405,98 @@ export function BookHome({
     const refreshVocabularyEntries = () => setVocabularyEntries(getVocabularyEntries());
     refreshVocabularyEntries();
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
+
+    const currentUrl = new URL(window.location.href);
+    if (currentUrl.searchParams.get("start") === "paste") {
+      setInputMode("paste");
+      startIntentFrameRef.current = window.requestAnimationFrame(() => {
+        startIntentFrameRef.current = window.requestAnimationFrame(() => {
+          startIntentFrameRef.current = null;
+          scrollToWorkbench();
+          currentUrl.searchParams.delete("start");
+          window.history.replaceState(window.history.state, "", `${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`);
+        });
+      });
+    }
+
     return () => {
       window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
       pageTurnRef.current?.clear();
       if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
+      if (turnSettleFrameRef.current !== null) window.cancelAnimationFrame(turnSettleFrameRef.current);
+      if (turnSettleTimerRef.current !== null) window.clearTimeout(turnSettleTimerRef.current);
+      if (turnCommitFrameRef.current !== null) window.cancelAnimationFrame(turnCommitFrameRef.current);
+      if (startIntentFrameRef.current !== null) window.cancelAnimationFrame(startIntentFrameRef.current);
     };
+  }, []);
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 760px)");
+    const syncMobileLayout = () => {
+      const mobile = mobileQuery.matches;
+      setIsMobileLayout(mobile);
+      setShowMobileDesktopHint(
+        mobile && window.localStorage.getItem(MOBILE_DESKTOP_HINT_KEY) !== "1",
+      );
+    };
+    syncMobileLayout();
+    mobileQuery.addEventListener("change", syncMobileLayout);
+    return () => mobileQuery.removeEventListener("change", syncMobileLayout);
+  }, []);
+
+  useEffect(() => {
+    if (coverState === "closed") {
+      if (forewordRevealTimerRef.current !== null) {
+        window.clearTimeout(forewordRevealTimerRef.current);
+        forewordRevealTimerRef.current = null;
+      }
+      forewordRevealPlayedRef.current = false;
+      forewordPrintedRef.current = false;
+      setForewordRevealStarted(false);
+      setForewordPrinted(false);
+      return;
+    }
+
+    if (forewordPrintedRef.current) {
+      if (forewordRevealTimerRef.current !== null) {
+        window.clearTimeout(forewordRevealTimerRef.current);
+        forewordRevealTimerRef.current = null;
+      }
+      forewordRevealPlayedRef.current = true;
+      return;
+    }
+
+    if (coverState !== "open" || chapter !== "foreword") {
+      if (forewordRevealTimerRef.current !== null) {
+        window.clearTimeout(forewordRevealTimerRef.current);
+        forewordRevealTimerRef.current = null;
+        forewordRevealPlayedRef.current = false;
+      }
+      return;
+    }
+
+    if (forewordRevealPlayedRef.current) return;
+    forewordRevealPlayedRef.current = true;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    forewordRevealTimerRef.current = window.setTimeout(() => {
+      forewordRevealTimerRef.current = null;
+      setForewordRevealStarted(true);
+    }, reducedMotion ? 180 : 280);
+  }, [chapter, coverState]);
+
+  useEffect(() => () => {
+    if (forewordRevealTimerRef.current !== null) window.clearTimeout(forewordRevealTimerRef.current);
+  }, []);
+
+  const ensureForewordPrinted = useCallback(() => {
+    if (forewordRevealTimerRef.current !== null) {
+      window.clearTimeout(forewordRevealTimerRef.current);
+      forewordRevealTimerRef.current = null;
+    }
+    forewordRevealPlayedRef.current = true;
+    if (forewordPrintedRef.current) return;
+    forewordPrintedRef.current = true;
+    setForewordPrinted(true);
   }, []);
 
   useEffect(() => {
@@ -385,6 +532,10 @@ export function BookHome({
   }, []);
 
   const setTurnVisual = useCallback((active: boolean, direction: TurnDirection = "forward") => {
+    if (active && turnCommitFrameRef.current !== null) {
+      window.cancelAnimationFrame(turnCommitFrameRef.current);
+      turnCommitFrameRef.current = null;
+    }
     if (turnDirectionRef.current !== direction) {
       turnDirectionRef.current = direction;
       setTurnDirection(direction);
@@ -394,13 +545,155 @@ export function BookHome({
     setTurning(active);
   }, []);
 
+  const finishTurnVisual = useCallback((nextChapter: BookChapter) => {
+    if (!turningRef.current && chapterRef.current === nextChapter) return;
+    if (turnCommitFrameRef.current !== null) {
+      window.cancelAnimationFrame(turnCommitFrameRef.current);
+    }
+    setChapterImmediately(nextChapter);
+    setTurnVisual(false);
+    turnCommitFrameRef.current = window.requestAnimationFrame(() => {
+      turnCommitFrameRef.current = null;
+      if (turningRef.current || chapterRef.current !== nextChapter) return;
+      pageTurnRef.current?.clear();
+    });
+  }, [setChapterImmediately, setTurnVisual]);
+
+  const cancelTurnSettle = useCallback(() => {
+    if (turnSettleTimerRef.current !== null) {
+      window.clearTimeout(turnSettleTimerRef.current);
+      turnSettleTimerRef.current = null;
+    }
+    if (turnSettleFrameRef.current !== null) {
+      window.cancelAnimationFrame(turnSettleFrameRef.current);
+      turnSettleFrameRef.current = null;
+    }
+    turnSettleTargetRef.current = null;
+  }, []);
+
+  useEffect(() => {
+    const shell = explanationShellRef.current;
+    if (!shell || !clientReady) return;
+    const scroller = shell.querySelector<HTMLElement>("aside");
+    if (!scroller) return;
+
+    const isolateExplanationWheel = (event: WheelEvent) => {
+      if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      cancelTurnSettle();
+      const multiplier = event.deltaMode === WheelEvent.DOM_DELTA_LINE
+        ? 18
+        : event.deltaMode === WheelEvent.DOM_DELTA_PAGE
+          ? scroller.clientHeight
+          : 1;
+      scroller.scrollTop += event.deltaY * multiplier;
+    };
+
+    shell.addEventListener("wheel", isolateExplanationWheel, { passive: false });
+    return () => shell.removeEventListener("wheel", isolateExplanationWheel);
+  }, [cancelTurnSettle, clientReady]);
+
+  useEffect(() => {
+    if (!clientReady || window.innerWidth <= 760) return;
+    const workbenchScroller = workbenchRef.current;
+    const recommendationScroller = recommendationScrollRef.current;
+    if (!workbenchScroller || !recommendationScroller) return;
+
+    const boundaryState = new WeakMap<HTMLElement, { direction: "up" | "down"; lastWheelAt: number }>();
+    const isolatePageWheel = (scroller: HTMLElement) => (event: WheelEvent) => {
+      if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      const multiplier = event.deltaMode === WheelEvent.DOM_DELTA_LINE
+        ? 18
+        : event.deltaMode === WheelEvent.DOM_DELTA_PAGE
+          ? scroller.clientHeight
+          : 1;
+      const delta = event.deltaY * multiplier;
+      const direction = delta > 0 ? "down" : "up";
+      const maxScroll = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
+      if (maxScroll <= 1) return;
+
+      const nextScrollTop = Math.min(maxScroll, Math.max(0, scroller.scrollTop + delta));
+      const canConsume = direction === "down"
+        ? scroller.scrollTop < maxScroll - 1
+        : scroller.scrollTop > 1;
+      const now = performance.now();
+
+      if (canConsume) {
+        event.preventDefault();
+        event.stopPropagation();
+        cancelTurnSettle();
+        scroller.scrollTop = nextScrollTop;
+        if (nextScrollTop <= 1 || nextScrollTop >= maxScroll - 1) {
+          boundaryState.set(scroller, { direction, lastWheelAt: now });
+        } else {
+          boundaryState.delete(scroller);
+        }
+        return;
+      }
+
+      const state = boundaryState.get(scroller);
+      if (state?.direction === direction && now - state.lastWheelAt < PAGE_SCROLL_BOUNDARY_IDLE_MS) {
+        event.preventDefault();
+        event.stopPropagation();
+        cancelTurnSettle();
+        boundaryState.set(scroller, { direction, lastWheelAt: now });
+        return;
+      }
+
+      boundaryState.delete(scroller);
+    };
+
+    const isolateWorkbenchWheel = isolatePageWheel(workbenchScroller);
+    const isolateRecommendationWheel = isolatePageWheel(recommendationScroller);
+    workbenchScroller.addEventListener("wheel", isolateWorkbenchWheel, { passive: false });
+    recommendationScroller.addEventListener("wheel", isolateRecommendationWheel, { passive: false });
+    return () => {
+      workbenchScroller.removeEventListener("wheel", isolateWorkbenchWheel);
+      recommendationScroller.removeEventListener("wheel", isolateRecommendationWheel);
+    };
+  }, [cancelTurnSettle, clientReady]);
+
   const scrollStoryTo = useCallback((progress: number, behavior: ScrollBehavior = "smooth") => {
     const story = storyRef.current;
     if (!story) return;
+    cancelTurnSettle();
     const top = story.getBoundingClientRect().top + window.scrollY;
-    const distance = Math.max(0, story.offsetHeight - window.innerHeight);
-    window.scrollTo({ top: top + distance * progress, behavior });
-  }, []);
+    const distance = Math.max(1, story.offsetHeight - window.innerHeight);
+    const startProgress = Math.min(1, Math.max(0, (window.scrollY - top) / distance));
+    const targetProgress = Math.min(1, Math.max(0, progress));
+    if (
+      behavior === "auto"
+      || window.matchMedia("(max-width: 760px)").matches
+      || window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      || Math.abs(targetProgress - startProgress) < .001
+    ) {
+      window.scrollTo({ top: top + distance * targetProgress, behavior: "auto" });
+      return;
+    }
+
+    const travelFraction = Math.min(1, Math.abs(targetProgress - startProgress) / .3);
+    const duration = PROGRAMMATIC_TURN_MIN_MS
+      + (PROGRAMMATIC_TURN_MAX_MS - PROGRAMMATIC_TURN_MIN_MS) * travelFraction;
+    const startedAt = performance.now();
+    turnSettleTargetRef.current = targetProgress;
+    const tick = (now: number) => {
+      if (turnSettleTargetRef.current !== targetProgress) return;
+      const elapsed = Math.min(1, (now - startedAt) / duration);
+      const eased = .5 - Math.cos(Math.PI * elapsed) / 2;
+      const currentTop = story.getBoundingClientRect().top + window.scrollY;
+      const currentDistance = Math.max(1, story.offsetHeight - window.innerHeight);
+      const currentProgress = startProgress + (targetProgress - startProgress) * eased;
+      window.scrollTo({ top: currentTop + currentDistance * currentProgress, behavior: "auto" });
+      if (elapsed < 1) {
+        turnSettleFrameRef.current = window.requestAnimationFrame(tick);
+        return;
+      }
+      turnSettleFrameRef.current = null;
+      turnSettleTargetRef.current = null;
+    };
+    turnSettleFrameRef.current = window.requestAnimationFrame(tick);
+  }, [cancelTurnSettle]);
 
   const openBook = useCallback(() => {
     pendingDirectoryTargetRef.current = null;
@@ -421,6 +714,17 @@ export function BookHome({
     closeAfter = false,
   ) => {
     const source = chapterRef.current;
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      directorySeekRef.current = null;
+      pendingDirectoryTargetRef.current = null;
+      pageTurnRef.current?.clear();
+      setTurnVisual(false);
+      setChapterImmediately(target);
+      scrollStoryTo(targetProgress, "auto");
+      if (target === "workbench") setMobileWorkbenchPage("demo");
+      if (closeAfter) window.requestAnimationFrame(() => closeBook());
+      return;
+    }
     if (source === target) {
       directorySeekRef.current = null;
       setTurnVisual(false);
@@ -432,6 +736,7 @@ export function BookHome({
 
     const ranks: Record<BookChapter, number> = { foreword: 0, workbench: 1, recommendations: 2 };
     const direction: TurnDirection = ranks[target] >= ranks[source] ? "forward" : "backward";
+    if (source === "foreword" || target === "foreword") ensureForewordPrinted();
     directorySeekRef.current = {
       key: `directory:${source}:${target}:${performance.now().toFixed(0)}`,
       source,
@@ -450,20 +755,171 @@ export function BookHome({
       0,
     );
     scrollStoryTo(targetProgress);
-  }, [closeBook, scrollStoryTo, setTurnVisual]);
+  }, [closeBook, ensureForewordPrinted, scrollStoryTo, setTurnVisual]);
 
   useEffect(() => {
     const story = storyRef.current;
     if (!story) return;
+    let recommendationSyncFrame: number | null = null;
+    let syncingRecommendationFromStory = false;
+
+    const activeTurnRangeAt = (
+      progress: number,
+      directorySeek: DirectorySeek | null,
+    ): ActiveTurnRange | null => {
+      if (directorySeek) {
+        const start = Math.min(directorySeek.startProgress, directorySeek.targetProgress);
+        const end = Math.max(directorySeek.startProgress, directorySeek.targetProgress);
+        if (progress > start + PAGE_TURN_EDGE_EPSILON && progress < end - PAGE_TURN_EDGE_EPSILON) {
+          return { start, end };
+        }
+        return null;
+      }
+      if (progress > PAGE_TURN_EDGE_EPSILON && progress < COVER_SCROLL_END - PAGE_TURN_EDGE_EPSILON) {
+        return { start: 0, end: COVER_SCROLL_END };
+      }
+      if (progress > FIRST_TURN_START + PAGE_TURN_EDGE_EPSILON && progress < FIRST_TURN_END - PAGE_TURN_EDGE_EPSILON) {
+        return { start: FIRST_TURN_START, end: FIRST_TURN_END };
+      }
+      if (progress > SECOND_TURN_START + PAGE_TURN_EDGE_EPSILON && progress < SECOND_TURN_END - PAGE_TURN_EDGE_EPSILON) {
+        return { start: SECOND_TURN_START, end: SECOND_TURN_END };
+      }
+      return null;
+    };
+
+    const scrollToStoryProgress = (progress: number) => {
+      const storyTop = story.getBoundingClientRect().top + window.scrollY;
+      const distance = Math.max(1, story.offsetHeight - window.innerHeight);
+      window.scrollTo({ top: storyTop + distance * progress, behavior: "auto" });
+    };
+
+    const syncRecommendationScrollFromStory = (progress: number) => {
+      const scroller = recommendationScrollRef.current;
+      if (!scroller) return;
+      const maxScroll = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
+      const recommendationProgress = Math.min(
+        1,
+        Math.max(0, (progress - SECOND_TURN_END) / (1 - SECOND_TURN_END)),
+      );
+      const nextScrollTop = maxScroll * recommendationProgress;
+      if (Math.abs(scroller.scrollTop - nextScrollTop) < 1) return;
+
+      syncingRecommendationFromStory = true;
+      scroller.scrollTop = nextScrollTop;
+      if (recommendationSyncFrame !== null) window.cancelAnimationFrame(recommendationSyncFrame);
+      recommendationSyncFrame = window.requestAnimationFrame(() => {
+        recommendationSyncFrame = null;
+        syncingRecommendationFromStory = false;
+      });
+    };
+
+    const syncStoryFromRecommendationScroll = () => {
+      if (syncingRecommendationFromStory) return;
+      if (chapterRef.current !== "recommendations" || turningRef.current || directorySeekRef.current) return;
+      const scroller = recommendationScrollRef.current;
+      if (!scroller) return;
+      const maxScroll = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
+      if (maxScroll <= 0) return;
+      const recommendationProgress = Math.min(1, Math.max(0, scroller.scrollTop / maxScroll));
+      scrollToStoryProgress(
+        SECOND_TURN_END + recommendationProgress * (1 - SECOND_TURN_END),
+      );
+    };
+
+    const beginTurnSettle = (reducedMotion: boolean) => {
+      turnSettleTimerRef.current = null;
+      const startProgress = storyProgressRef.current;
+      const range = activeTurnRangeAt(startProgress, directorySeekRef.current);
+      if (!range) return;
+
+      const targetProgress = lastScrollDirectionRef.current === "forward" ? range.end : range.start;
+      const rangeLength = Math.max(.0001, range.end - range.start);
+      const remainingFraction = Math.min(1, Math.abs(targetProgress - startProgress) / rangeLength);
+      const duration = reducedMotion
+        ? 0
+        : PAGE_TURN_SETTLE_MIN_MS
+          + (PAGE_TURN_SETTLE_MAX_MS - PAGE_TURN_SETTLE_MIN_MS) * remainingFraction;
+
+      turnSettleTargetRef.current = targetProgress;
+      if (duration === 0) {
+        scrollToStoryProgress(targetProgress);
+        turnSettleTargetRef.current = null;
+        return;
+      }
+
+      const startedAt = performance.now();
+      const tick = (now: number) => {
+        if (turnSettleTargetRef.current !== targetProgress) return;
+        const elapsed = Math.min(1, (now - startedAt) / duration);
+        const eased = Math.sin(elapsed * Math.PI / 2);
+        scrollToStoryProgress(startProgress + (targetProgress - startProgress) * eased);
+        if (elapsed < 1) {
+          turnSettleFrameRef.current = window.requestAnimationFrame(tick);
+          return;
+        }
+        turnSettleFrameRef.current = null;
+        turnSettleTargetRef.current = null;
+      };
+      turnSettleFrameRef.current = window.requestAnimationFrame(tick);
+    };
+
+    const queueTurnSettle = (progress: number, reducedMotion: boolean) => {
+      if (turnSettleFrameRef.current !== null) return;
+      if (turnSettleTimerRef.current !== null) {
+        window.clearTimeout(turnSettleTimerRef.current);
+        turnSettleTimerRef.current = null;
+      }
+      if (!activeTurnRangeAt(progress, directorySeekRef.current)) return;
+      turnSettleTimerRef.current = window.setTimeout(
+        () => beginTurnSettle(reducedMotion),
+        PAGE_TURN_SETTLE_IDLE_MS,
+      );
+    };
 
     const updateFromScroll = () => {
       scrollFrameRef.current = null;
       const storyTop = story.getBoundingClientRect().top + window.scrollY;
       const distance = Math.max(1, story.offsetHeight - window.innerHeight);
       const progress = Math.min(1, Math.max(0, (window.scrollY - storyTop) / distance));
+      const previousStoryProgress = lastObservedStoryProgressRef.current;
+      const progressDelta = progress - previousStoryProgress;
+      if (Math.abs(progressDelta) > .00005) {
+        lastScrollDirectionRef.current = progressDelta > 0 ? "forward" : "backward";
+      }
+      lastObservedStoryProgressRef.current = progress;
       storyProgressRef.current = progress;
 
+      if (window.matchMedia("(max-width: 760px)").matches) {
+        cancelTurnSettle();
+        directorySeekRef.current = null;
+        pageTurnRef.current?.clear();
+        setTurnVisual(false);
+        const coverOpen = progress >= COVER_SCROLL_END * .5;
+        const nextCoverState: CoverState = coverOpen ? "open" : "closed";
+        story.style.setProperty("--cover-progress", coverOpen ? "1" : "0");
+        coverProgressRef.current = coverOpen ? 1 : 0;
+        if (coverStateRef.current !== nextCoverState) {
+          coverStateRef.current = nextCoverState;
+          setCoverState(nextCoverState);
+        }
+        if (!coverOpen) {
+          setChapterImmediately("foreword");
+          return;
+        }
+        ensureForewordPrinted();
+        const mobileChapter: BookChapter = progress >= SECOND_TURN_START
+          ? "recommendations"
+          : progress >= FIRST_TURN_START
+            ? "workbench"
+            : "foreword";
+        setChapterImmediately(mobileChapter);
+        return;
+      }
+
+      syncRecommendationScrollFromStory(progress);
+
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      queueTurnSettle(progress, reducedMotion);
       const rawCoverProgress = Math.min(1, Math.max(0, progress / COVER_SCROLL_END));
       const visualCoverProgress = reducedMotion
         ? (rawCoverProgress >= .5 ? 1 : 0)
@@ -492,16 +948,25 @@ export function BookHome({
           ? 1
           : (progress - directorySeek.startProgress) / denominator;
         const directoryProgress = Math.min(1, Math.max(0, rawDirectoryProgress));
+        const movingTowardTarget = denominator >= 0
+          ? lastScrollDirectionRef.current === "forward"
+          : lastScrollDirectionRef.current === "backward";
 
         if (rawDirectoryProgress < -.025) {
           directorySeekRef.current = null;
           pageTurnRef.current?.clear();
           setTurnVisual(false);
+        } else if (
+          directoryProgress <= .002
+          && !movingTowardTarget
+          && Math.abs(progress - directorySeek.startProgress) <= .004
+        ) {
+          directorySeekRef.current = null;
+          finishTurnVisual(directorySeek.source);
+          return;
         } else if (directoryProgress >= .998) {
           directorySeekRef.current = null;
-          pageTurnRef.current?.clear();
-          setTurnVisual(false);
-          setChapterImmediately(directorySeek.target);
+          finishTurnVisual(directorySeek.target);
           if (directorySeek.target === "workbench") {
             setMobileWorkbenchPage("demo");
             window.requestAnimationFrame(() => workbenchRef.current?.focus({ preventScroll: true }));
@@ -544,8 +1009,12 @@ export function BookHome({
         return;
       }
 
-      if (progress > FIRST_TURN_START && progress < FIRST_TURN_END) {
+      if (
+        progress > FIRST_TURN_START + PAGE_TURN_EDGE_EPSILON
+        && progress < FIRST_TURN_END - PAGE_TURN_EDGE_EPSILON
+      ) {
         const turnProgress = (progress - FIRST_TURN_START) / (FIRST_TURN_END - FIRST_TURN_START);
+        ensureForewordPrinted();
         setTurnVisual(true, "forward");
         pageTurnRef.current?.seek(
           "scroll:foreword:workbench",
@@ -557,7 +1026,10 @@ export function BookHome({
         return;
       }
 
-      if (progress > SECOND_TURN_START && progress < SECOND_TURN_END) {
+      if (
+        progress > SECOND_TURN_START + PAGE_TURN_EDGE_EPSILON
+        && progress < SECOND_TURN_END - PAGE_TURN_EDGE_EPSILON
+      ) {
         const turnProgress = (progress - SECOND_TURN_START) / (SECOND_TURN_END - SECOND_TURN_START);
         setTurnVisual(true, "forward");
         pageTurnRef.current?.seek(
@@ -570,31 +1042,55 @@ export function BookHome({
         return;
       }
 
-      pageTurnRef.current?.clear();
-      setTurnVisual(false);
-      if (progress >= SECOND_TURN_END) {
-        setChapterImmediately("recommendations");
-      } else if (progress >= FIRST_TURN_END) {
-        setChapterImmediately("workbench");
-      } else {
-        setChapterImmediately("foreword");
-      }
+      const settledChapter: BookChapter = progress >= SECOND_TURN_END - PAGE_TURN_EDGE_EPSILON
+        ? "recommendations"
+        : progress >= FIRST_TURN_END - PAGE_TURN_EDGE_EPSILON
+          ? "workbench"
+          : "foreword";
+      finishTurnVisual(settledChapter);
     };
 
     const onScroll = () => {
       if (scrollFrameRef.current !== null) return;
       scrollFrameRef.current = window.requestAnimationFrame(updateFromScroll);
     };
+    const measureAfterUserIntent = () => {
+      if (scrollFrameRef.current !== null) return;
+      scrollFrameRef.current = window.requestAnimationFrame(updateFromScroll);
+    };
+    const cancelSettleOnWheelIntent = () => {
+      cancelTurnSettle();
+      measureAfterUserIntent();
+    };
+    const cancelSettleOnTouchStart = () => cancelTurnSettle();
+    const cancelSettleOnScrollKey = (event: KeyboardEvent) => {
+      if (!["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) return;
+      cancelTurnSettle();
+      measureAfterUserIntent();
+    };
     updateFromScroll();
+    const recommendationScroller = recommendationScrollRef.current;
+    recommendationScroller?.addEventListener("scroll", syncStoryFromRecommendationScroll, { passive: true });
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
+    window.addEventListener("wheel", cancelSettleOnWheelIntent, { passive: true });
+    window.addEventListener("touchstart", cancelSettleOnTouchStart, { passive: true });
+    window.addEventListener("touchend", measureAfterUserIntent, { passive: true });
+    window.addEventListener("keydown", cancelSettleOnScrollKey);
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      window.removeEventListener("wheel", cancelSettleOnWheelIntent);
+      window.removeEventListener("touchstart", cancelSettleOnTouchStart);
+      window.removeEventListener("touchend", measureAfterUserIntent);
+      window.removeEventListener("keydown", cancelSettleOnScrollKey);
+      recommendationScroller?.removeEventListener("scroll", syncStoryFromRecommendationScroll);
+      cancelTurnSettle();
+      if (recommendationSyncFrame !== null) window.cancelAnimationFrame(recommendationSyncFrame);
       if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
       scrollFrameRef.current = null;
     };
-  }, [scrollStoryTo, setChapterImmediately, setTurnVisual, startDirectorySeek]);
+  }, [cancelTurnSettle, ensureForewordPrinted, finishTurnVisual, scrollStoryTo, setChapterImmediately, setTurnVisual, startDirectorySeek]);
 
   useEffect(() => () => explanationAbortRef.current?.abort(), []);
 
@@ -649,7 +1145,7 @@ export function BookHome({
     explanationAbortRef.current?.abort();
     const cached = force ? null : getCachedExplanation(cacheKey);
     if (cached) {
-      if (!account.authenticated) {
+      if (!account.authenticated && !(isOffline && hasLocalAccountAccess)) {
         const cachedUsageResponse = await fetch("/api/usage/cache-lookup", {
           method: "POST",
           headers: { "x-context-action-id": crypto.randomUUID() },
@@ -666,6 +1162,11 @@ export function BookHome({
       setExplanationStreaming(false);
       setExplanationLoading(false);
       void refreshAccount();
+      return;
+    }
+
+    if (isOffline) {
+      setExplanationError("当前离线，未找到这次选择的已有解释。联网后可生成新的查词结果。");
       return;
     }
 
@@ -714,7 +1215,7 @@ export function BookHome({
         setExplanationStreaming(false);
       }
     }
-  }, [account.authenticated, openLogin, refreshAccount, showHint, tokenById]);
+  }, [account.authenticated, hasLocalAccountAccess, isOffline, openLogin, refreshAccount, showHint, tokenById]);
 
   function handleTokenPointerDown(event: ReactPointerEvent<HTMLButtonElement>, tokenId: string) {
     dragRef.current = {
@@ -780,7 +1281,7 @@ export function BookHome({
   }
 
   function handleOpenVocabulary() {
-    if (!requireAccount("登录后才能使用生词本；登录时会把本机已有词条补充到账号中。")) return;
+    if (!requireLocalAccount("登录后才能使用生词本；登录时会把本机已有词条补充到账号中。")) return;
     setMenuOpen(false);
     setVocabularyEntries(getVocabularyEntries());
     setVocabularyError("");
@@ -788,9 +1289,19 @@ export function BookHome({
   }
 
   function handleAddToVocabulary() {
-    if (!requireAccount("登录后才能把词条加入生词本并跨设备同步。")) return;
+    if (!requireLocalAccount("登录后才能把词条加入生词本并跨设备同步。")) return;
     if (!explanation || !selectedContext) return;
     setVocabularyEntries(addVocabularyEntry(createVocabularyEntry(explanation, selectedContext)));
+  }
+
+  function isStandaloneDictionaryInVocabulary(result: DictionaryResult): boolean {
+    const identity = vocabularyIdentity({ word: result.query, sourceSentence: "" });
+    return vocabularyEntries.some((entry) => vocabularyIdentity(entry) === identity);
+  }
+
+  function handleAddStandaloneDictionaryToVocabulary(result: DictionaryResult) {
+    if (!requireLocalAccount("登录后才能把独立查词结果加入生词本并跨设备同步。")) return;
+    setVocabularyEntries(addVocabularyEntry(createStandaloneVocabularyEntry(result)));
   }
 
   function handleClearVocabulary() {
@@ -918,6 +1429,21 @@ export function BookHome({
         </div>
       </header>
 
+      {showMobileDesktopHint && (
+        <aside className={styles.mobileDesktopHint} aria-label="电脑端体验提示">
+          <p><strong>手机端已切换为轻量布局，</strong>电脑可体验完整书页动效与更宽工具区。</p>
+          <button
+            type="button"
+            onClick={() => {
+              window.localStorage.setItem(MOBILE_DESKTOP_HINT_KEY, "1");
+              setShowMobileDesktopHint(false);
+            }}
+          >
+            知道了
+          </button>
+        </aside>
+      )}
+
       <section
         ref={storyRef}
         className={`${styles.story} ${styles[`cover${coverState[0].toUpperCase()}${coverState.slice(1)}`]}`}
@@ -938,17 +1464,44 @@ export function BookHome({
                 <section className={`${styles.page} ${styles.leftPage} ${styles.forewordBlank}`} aria-hidden="true" />
                 <div className={styles.spine} aria-hidden="true"><i /></div>
                 <section className={`${styles.page} ${styles.rightPage} ${styles.forewordPage}`} aria-labelledby="book-foreword-heading">
-                  <div className={styles.pageNumber}>Foreword · 01</div>
-                  <p className={styles.sectionLabel}>开发者的话</p>
-                  <h1 id="book-foreword-heading">写给正在翻开这本书的人</h1>
+                  <div
+                    className={`${styles.forewordContent} ${forewordRevealStarted ? styles.forewordContentVisible : ""} ${forewordPrinted ? styles.forewordContentPrinted : ""}`}
+                    data-foreword-content
+                  >
+                  <div className={styles.pageNumber} data-foreword-reveal-part>Foreword · 01</div>
+                  <p className={styles.sectionLabel} data-foreword-reveal-part>开发者的话</p>
+                  <h1 id="book-foreword-heading" aria-label={FOREWORD_SEGMENTS[0]}>
+                    {FOREWORD_TITLE_LINES.map((line, lineIndex) => {
+                      const precedingGlyphs = FOREWORD_TITLE_LINES
+                        .slice(0, lineIndex)
+                        .reduce((total, titleLine) => total + titleLine.length, 0);
+                      return (
+                        <span key={line} className={styles.forewordTitleLine} aria-hidden="true">
+                          {Array.from(line).map((glyph, glyphIndex) => (
+                            <span
+                              key={`${glyph}-${glyphIndex}`}
+                              className={styles.forewordTitleGlyph}
+                              data-foreword-reveal-part
+                              style={{ animationDelay: `${115 + (precedingGlyphs + glyphIndex) * 52}ms` }}
+                            >
+                              {glyph}
+                            </span>
+                          ))}
+                        </span>
+                      );
+                    })}
+                  </h1>
                   <div className={styles.forewordCopy}>
-                    <p>我做 Context Reader，是因为查懂一个词，常常还不等于读懂一句话。</p>
-                    <p>我希望这里能保留你正在阅读的上下文，让查词、理解和继续读下去发生在同一页里。你可以从一篇真正想读的文章开始，遇到陌生表达时停一下，再继续往前。</p>
-                    <p>愿这本书帮你少一些被打断的时刻，多读完几篇原本想放弃的文章。</p>
+                    {FOREWORD_SEGMENTS.slice(1, 4).map((segment, offset) => (
+                      <p key={segment} style={{ animationDelay: `${790 + offset * 145}ms` }}>
+                        <span data-foreword-reveal-part>{segment}</span>
+                      </p>
+                    ))}
                   </div>
                   <div className={styles.developerSignature}>
-                    <span>Context Reader 开发者</span>
-                    <strong>欧阳子浩</strong>
+                    <span data-foreword-reveal-part>{FOREWORD_SEGMENTS[4]}</span>
+                    <strong data-foreword-reveal-part data-foreword-signature>{FOREWORD_SEGMENTS[5]}</strong>
+                  </div>
                   </div>
                 </section>
               </div>
@@ -1004,7 +1557,7 @@ export function BookHome({
                 <button type="button" onClick={() => onOpenDemoArticle(DEMO_IMPORTED_ARTICLE)}>在阅读器中继续</button>
               </div>
 
-              <div className={styles.explanationShell} data-pointer-mask>
+              <div ref={explanationShellRef} className={styles.explanationShell} data-pointer-mask>
                 {clientReady ? (
                   <ExplanationPanel
                     explanation={explanation}
@@ -1068,13 +1621,6 @@ export function BookHome({
                 <button
                   type="button"
                   role="tab"
-                  aria-selected={inputMode === "dictionary"}
-                  className={inputMode === "dictionary" ? styles.activeMode : ""}
-                  onClick={() => setInputMode("dictionary")}
-                >单独查词</button>
-                <button
-                  type="button"
-                  role="tab"
                   aria-selected={inputMode === "paste"}
                   className={inputMode === "paste" ? styles.activeMode : ""}
                   onClick={() => setInputMode("paste")}
@@ -1086,9 +1632,16 @@ export function BookHome({
                   className={inputMode === "url" ? styles.activeMode : ""}
                   onClick={() => setInputMode("url")}
                 >输入网址</button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={inputMode === "dictionary"}
+                  className={inputMode === "dictionary" ? styles.activeMode : ""}
+                  onClick={() => setInputMode("dictionary")}
+                >单独查词</button>
               </div>
 
-              {inputMode === "paste" ? (
+              <div className={styles.modePanel} hidden={inputMode !== "paste"} inert={inputMode !== "paste"}>
                 <form className={styles.articleForm} onSubmit={(event) => { event.preventDefault(); onStartReading(); }}>
                   <label htmlFor="book-home-article">英文文章</label>
                   <textarea
@@ -1104,7 +1657,8 @@ export function BookHome({
                   </div>
                   {error && <p className={styles.formError} role="alert">{error}</p>}
                 </form>
-              ) : inputMode === "url" ? (
+              </div>
+              <div className={styles.modePanel} hidden={inputMode !== "url"} inert={inputMode !== "url"}>
                 <form className={styles.urlForm} onSubmit={(event) => { event.preventDefault(); onImportUrl(); }}>
                   <label htmlFor="book-home-url">公开文章网址</label>
                   <div>
@@ -1124,9 +1678,15 @@ export function BookHome({
                   <p>会保留可读取的正文结构和原文配图；部分网站可能限制抓取。</p>
                   {urlError && <p className={styles.formError} role="alert">{urlError}</p>}
                 </form>
-              ) : (
-                <BookDictionary compact />
-              )}
+              </div>
+              <div className={styles.modePanel} hidden={inputMode !== "dictionary"} inert={inputMode !== "dictionary"}>
+                <BookDictionary
+                  compact
+                  offline={isOffline}
+                  onAddToVocabulary={handleAddStandaloneDictionaryToVocabulary}
+                  isInVocabulary={isStandaloneDictionaryInVocabulary}
+                />
+              </div>
 
               <div className={styles.workbenchFoot}>
                 <button type="button" onClick={() => onOpenDemoArticle(DEMO_IMPORTED_ARTICLE)}>先用左页示例阅读</button>
@@ -1151,13 +1711,14 @@ export function BookHome({
                   preferredInterests={recommendationProfile.interests}
                   personalized={recommendationProfile.complete}
                   onPersonalize={openRecommendationDialog}
+                  scrollContainerRef={recommendationScrollRef}
                   onOpenArticle={onOpenPublicArticle}
                   onPrefetchArticle={onPrefetchPublicArticle}
                 />
                 <div className={`${styles.spine} ${styles.recommendationSpine}`} aria-hidden="true"><i /></div>
               </div>
 
-              <CurvedPageTurn ref={pageTurnRef} active={turning} direction={turnDirection} />
+              {!isMobileLayout && <CurvedPageTurn ref={pageTurnRef} active={turning} direction={turnDirection} />}
 
               <button
                   type="button"
@@ -1184,17 +1745,19 @@ export function BookHome({
                       <span className={styles.coverSpine} />
                       <span className={styles.coverFace}>
                         <span className={styles.coverBallpit} aria-hidden="true">
-                          <Ballpit
-                            className={styles.coverBallpitCanvas}
-                            count={120}
-                            gravity={0}
-                            driftSpeed={0.012}
-                            friction={0.983}
-                            wallBounce={0.95}
-                            colors={COVER_BALLPIT_COLORS}
-                            followCursor
-                            showCursorBall={false}
-                          />
+                          {!isMobileLayout && (
+                            <Ballpit
+                              className={styles.coverBallpitCanvas}
+                              count={90}
+                              gravity={0}
+                              driftSpeed={0.012}
+                              friction={0.983}
+                              wallBounce={0.95}
+                              colors={COVER_BALLPIT_COLORS}
+                              followCursor
+                              showCursorBall={false}
+                            />
+                          )}
                         </span>
                         <span className={styles.coverTitle}>
                           <strong>Context Reader</strong>
@@ -1230,11 +1793,15 @@ export function BookHome({
       <HomeOptionMenu
         open={menuOpen}
         isAdmin={account.plan?.id === "admin"}
-        savedArticles={account.authenticated ? savedArticles : []}
+        account={account}
+        isOffline={isOffline}
+        localAccount={localAccount}
+        savedArticles={hasLocalAccountAccess ? savedArticles : []}
+        vocabularyEntries={hasLocalAccountAccess ? vocabularyEntries : []}
         onClose={() => setMenuOpen(false)}
-        onOpenVocabulary={handleOpenVocabulary}
-        onOpenFeedback={() => setFeedbackOpen(true)}
         onOpenSavedArticle={onOpenSavedArticle}
+        onJumpToVocabularySource={onJumpToVocabularySource}
+        canJumpToVocabularySource={canJumpToVocabularySource}
       />
 
       {recommendationDialogOpen && (

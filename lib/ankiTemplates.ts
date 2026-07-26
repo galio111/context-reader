@@ -1,10 +1,12 @@
 import type { AnkiCardMode } from "@/types/anki";
 import type { VocabularyEntry } from "@/types/vocabulary";
+import { standaloneVocabularyPresentation } from "@/lib/vocabularyPresentation";
 
 export const DEFAULT_ANKI_ENDPOINT = "http://127.0.0.1:8765";
 export const DEFAULT_ANKI_DECK = "long term run";
 export const CLOZE_MODEL_NAME = "Context Reader Cloze Context";
 export const BASIC_MODEL_NAME = "Context Reader Basic CN-EN";
+export const EN_TO_CN_MODEL_NAME = "Context Reader Basic EN-CN";
 
 export const clozeFields = [
   "Word",
@@ -91,6 +93,47 @@ export const cardCss = `
 .audio-label {
   font-weight: 700;
   color: #334155;
+}
+.study-section {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #d7e0e6;
+}
+.study-section h3 {
+  margin: 0 0 8px;
+  color: #25495d;
+  font-size: 16px;
+}
+.study-section ul,
+.meaning-list {
+  margin: 0;
+  padding-left: 1.2em;
+}
+.study-section li,
+.meaning-list li {
+  margin: 6px 0;
+}
+.study-section.mistake {
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: #f7ece9;
+}
+.study-section.mistake h3 {
+  color: #813f34;
+}
+.example-block {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #eef3f6;
+}
+.example-english {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #243f50;
+}
+.example-chinese {
+  margin-top: 4px;
+  color: #5d707b;
 }
 b {
   color: #111827;
@@ -247,8 +290,50 @@ export const basicBackTemplate = `<div class="card">
   </div>
 </div>`;
 
+export const englishToChineseFrontTemplate = `<div class="card">
+  <div class="word">{{Word}}</div>
+</div>`;
+
+export const englishToChineseBackTemplate = `<div class="card">
+  <div class="word" data-context-reader-word>{{Word}}</div>
+  <div class="meta">{{Lemma}} · {{Phonetic}} · {{PartOfSpeech}}</div>
+
+  <div class="audio-row" aria-label="单词发音">
+    <span class="audio-label">发音：</span>
+    <span><span class="audio-label">美：</span>${usTts}</span>
+    <span><span class="audio-label">英：</span>${ukTts}</span>
+  </div>
+
+  <hr>
+
+  <section>
+    <b>中文核心释义</b>
+    {{BasicMeaning}}
+  </section>
+
+  {{UsageNote}}
+
+  {{#Collocation}}
+  <section class="study-section">
+    <h3>常见搭配</h3>
+    {{Collocation}}
+  </section>
+  {{/Collocation}}
+
+  {{#ExampleEnglish}}
+  <section class="study-section">
+    <h3>例句</h3>
+    <div class="example-block">
+      <div class="example-english">{{ExampleEnglish}}</div>
+      <div class="example-chinese">{{ExampleChinese}}</div>
+    </div>
+  </section>
+  {{/ExampleEnglish}}
+</div>`;
+
 export function modelNameForMode(mode: AnkiCardMode): string {
-  return mode === "cloze_context" ? CLOZE_MODEL_NAME : BASIC_MODEL_NAME;
+  if (mode === "cloze_context") return CLOZE_MODEL_NAME;
+  return mode === "basic_en_to_cn" ? EN_TO_CN_MODEL_NAME : BASIC_MODEL_NAME;
 }
 
 export function fieldsForEntry(entry: VocabularyEntry): Record<string, string> {
@@ -277,10 +362,43 @@ export function fieldsForEntry(entry: VocabularyEntry): Record<string, string> {
     };
   }
 
+  if (entry.anki.cardMode === "basic_en_to_cn") {
+    const presentation = standaloneVocabularyPresentation(entry);
+    const list = (values: string[]) => values.length
+      ? `<ul>${values.map((value) => `<li>${escapeAnkiHtml(value)}</li>`).join("")}</ul>`
+      : "";
+    const section = (label: string, values: string[], className = "") => values.length
+      ? `<section class="study-section${className ? ` ${className}` : ""}"><h3>${label}</h3>${list(values)}</section>`
+      : "";
+    return {
+      ...common,
+      BasicMeaning: list(entry.basicMeaning.split(/\r?\n/).map((value) => value.trim()).filter(Boolean)),
+      UsageNote: [
+        section("用法提示", presentation.usagePoints),
+        section("近义词辨析", presentation.synonymPoints),
+        section("词族", presentation.wordFamilyPoints),
+        section("易错点", presentation.mistakePoints, "mistake"),
+        section("记忆提示", presentation.memoryPoints),
+      ].filter(Boolean).join(""),
+      Collocation: list(presentation.collocationPoints),
+      ExampleEnglish: escapeAnkiHtml(entry.exampleEnglish),
+      ExampleChinese: escapeAnkiHtml(entry.exampleChinese),
+    };
+  }
+
   return {
     ...common,
     BasicCue: entry.anki.basicCue || entry.basicMeaning,
   };
+}
+
+function escapeAnkiHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 export function modelDefinition(mode: AnkiCardMode) {
@@ -294,6 +412,21 @@ export function modelDefinition(mode: AnkiCardMode) {
           Name: "Cloze Context",
           Front: clozeFrontTemplate,
           Back: clozeBackTemplate,
+        },
+      ],
+    };
+  }
+
+  if (mode === "basic_en_to_cn") {
+    return {
+      modelName: EN_TO_CN_MODEL_NAME,
+      inOrderFields: [...basicFields],
+      css: cardCss,
+      cardTemplates: [
+        {
+          Name: "Basic EN-CN",
+          Front: englishToChineseFrontTemplate,
+          Back: englishToChineseBackTemplate,
         },
       ],
     };

@@ -1,5 +1,5 @@
-const CACHE_VERSION = "context-reader-v2";
-const APP_SHELL = ["/", "/offline.html", "/manifest.webmanifest", "/icon.svg"];
+const CACHE_VERSION = "context-reader-v3";
+const APP_SHELL = ["/home-v2", "/offline.html", "/manifest.webmanifest", "/icon.svg"];
 const PUBLIC_ARTICLE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 const MAX_PUBLIC_ARTICLE_ENTRIES = 50;
 
@@ -85,7 +85,7 @@ self.addEventListener("fetch", (event) => {
   if (request.mode === "navigate") {
     event.respondWith(
       networkFirst(request).catch(async () => {
-        return (await caches.match("/")) || caches.match("/offline.html");
+        return (await caches.match("/home-v2")) || caches.match("/offline.html");
       }),
     );
   }

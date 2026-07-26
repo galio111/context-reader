@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import { isAdminRequest } from "@/lib/adminAuth";
-import { FEEDBACK_BUCKET, feedbackAdminClient, isFeedbackObjectPath } from "@/lib/feedbackStore";
+import {
+  FEEDBACK_BUCKET,
+  feedbackAdminClient,
+  isFeedbackAttachmentPath,
+  isFeedbackObjectPath,
+} from "@/lib/feedbackStore";
 import { readJsonBody } from "@/lib/limitedBody";
 
 export const runtime = "nodejs";
@@ -12,6 +17,12 @@ interface StoredFeedback {
   message: string;
   contact: string;
   page: string;
+  attachments?: Array<{
+    path: string;
+    name: string;
+    type: string;
+    size: number;
+  }>;
   status?: "new" | "resolved";
   resolvedAt?: string;
 }
@@ -66,16 +77,43 @@ async function readFeedback(client: ReturnType<typeof feedbackAdminClient>, path
     message: String(input.message),
     contact: String(input.contact || ""),
     page: String(input.page || ""),
+    attachments: Array.isArray(input.attachments)
+      ? input.attachments.filter((attachment) => (
+        attachment
+        && isFeedbackAttachmentPath(String(attachment.path || ""))
+        && /^image\/(?:jpeg|png|webp|gif)$/.test(String(attachment.type || ""))
+      )).slice(0, 3).map((attachment) => ({
+        path: String(attachment.path),
+        name: String(attachment.name || "用户反馈图片").slice(0, 160),
+        type: String(attachment.type),
+        size: Number(attachment.size) || 0,
+      }))
+      : [],
     status: input.status === "resolved" ? "resolved" as const : "new" as const,
     resolvedAt: input.resolvedAt ? String(input.resolvedAt) : "",
     objectPath: path,
   };
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   if (!(await isAdminRequest())) return NextResponse.json({ error: "未登录管理员。" }, { status: 401 });
   try {
     const client = feedbackAdminClient();
+    const attachmentPath = new URL(request.url).searchParams.get("attachment") || "";
+    if (attachmentPath) {
+      if (!isFeedbackAttachmentPath(attachmentPath)) {
+        return NextResponse.json({ error: "反馈图片路径无效。" }, { status: 400 });
+      }
+      const { data, error } = await client.storage.from(FEEDBACK_BUCKET).download(attachmentPath);
+      if (error) throw error;
+      return new NextResponse(await data.arrayBuffer(), {
+        headers: {
+          "Cache-Control": "private, no-store",
+          "Content-Type": data.type || "application/octet-stream",
+          "X-Content-Type-Options": "nosniff",
+        },
+      });
+    }
     if (!(await bucketExists(client))) {
       return NextResponse.json({ feedback: [] }, { headers: { "Cache-Control": "private, no-store" } });
     }
@@ -127,7 +165,13 @@ export async function DELETE(request: Request) {
   if (!isFeedbackObjectPath(path)) return NextResponse.json({ error: "反馈路径无效。" }, { status: 400 });
   try {
     const client = feedbackAdminClient();
-    const { error } = await client.storage.from(FEEDBACK_BUCKET).remove([path]);
+    const { data, error: downloadError } = await client.storage.from(FEEDBACK_BUCKET).download(path);
+    if (downloadError) throw downloadError;
+    const input = JSON.parse(await data.text()) as Partial<StoredFeedback>;
+    const attachmentPaths = Array.isArray(input.attachments)
+      ? input.attachments.map((attachment) => String(attachment.path || "")).filter(isFeedbackAttachmentPath)
+      : [];
+    const { error } = await client.storage.from(FEEDBACK_BUCKET).remove([path, ...attachmentPaths]);
     if (error) throw error;
     return NextResponse.json({ ok: true }, { headers: { "Cache-Control": "private, no-store" } });
   } catch (error) {

@@ -8,6 +8,7 @@
   visibility: hidden;
   transform: translateZ(26px);
   transition: opacity 110ms ease, visibility 0s linear 110ms;
+  isolation: isolate;
   pointer-events: none;
 }
 
@@ -18,9 +19,6 @@
   pointer-events: none !important;
   user-select: none !important;
 }
-
-.turnLayer:not(.active) .engine { display: none !important; }
-.active .engine { display: block !important; }
 
 .active {
   opacity: 1;
@@ -83,13 +81,18 @@
 .engine :global(.stf__parent),
 .engine :global(.stf__wrapper),
 .engine :global(.stf__block) {
+  position: absolute !important;
+  inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
+  margin: 0 !important;
 }
 
 .engine {
   position: absolute;
   inset: 0;
+  /* PageFlip measures before React commits the active class for the same frame. */
+  display: block !important;
 }
 
 .engine :global(.stf__parent) {
@@ -176,6 +179,17 @@
   pointer-events: none !important;
   transition: none !important;
   user-select: none !important;
+}
+
+.snapshotContent [data-foreword-content] [data-foreword-reveal-part] {
+  opacity: 1 !important;
+  clip-path: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+.snapshotContent [data-foreword-content] [data-foreword-signature] {
+  transform: rotate(-3deg) !important;
 }
 
 .paperGrain {

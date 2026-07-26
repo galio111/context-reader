@@ -37,8 +37,7 @@
 .compact .resultPage { padding: 0; background: transparent; }
 .compact .pageTopline { display: none; }
 .compact .kicker { margin: 20px 0 6px; }
-.compact .headingPage h2 { max-width: 22ch; font-size: 27px; line-height: 1.12; }
-.compact .intro { margin-top: 10px; font-size: 12px; line-height: 1.65; }
+.compact .headingPage h2 { max-width: none; font-size: 27px; line-height: 1.12; white-space: nowrap; }
 .compact .search { margin-top: 18px; }
 .compact .search input { height: 46px; }
 .compact .search button { min-width: 96px; }
@@ -51,6 +50,22 @@
 .compact .result { font-size: 13px; }
 .compact .result h3 { font-size: 38px; }
 .compact .result footer { grid-template-columns: 1fr; }
+
+.panel .kicker { margin-top: 2px; }
+.panel .headingPage h2 { max-width: 14ch; font-size: 23px; line-height: 1.2; white-space: normal; }
+.panel .search { margin-top: 16px; }
+.panel .search > div { align-items: stretch; flex-direction: column; }
+.panel .search input { height: 44px; flex: none; }
+.panel .search button { min-height: 42px; }
+.panel .resultPage { margin-top: 18px; padding-top: 18px; }
+.panel .resultToolbar { align-items: flex-start; flex-direction: column; }
+.panel .result > header { align-items: flex-start; flex-direction: column; gap: 4px; }
+.panel .result h3 { font-size: 34px; }
+.panel .pronunciation { padding-top: 0; align-items: flex-start; }
+.panel .details li,
+.panel .twoColumns,
+.panel .result footer { grid-template-columns: 1fr; }
+.panel .details li em { grid-column: 1; }
 
 .dictionary::after {
   position: absolute;
@@ -93,6 +108,36 @@
 .examples button { padding: 5px 9px; border: 0; border-radius: 999px; color: #285a7e; background: #e1edf5; font: inherit; cursor: pointer; }
 .error { margin: 14px 0 0; color: #9c4035; font-size: 13px; line-height: 1.5; }
 
+.resultToolbar {
+  display: flex;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #dbe2e7;
+  color: #657682;
+  font-size: 12px;
+}
+.resultToolbar button {
+  min-height: 34px;
+  padding: 0 13px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: #2868ad;
+  font: 700 12px Arial, sans-serif;
+  cursor: pointer;
+}
+.resultToolbar button:hover { background: #1f578f; }
+.resultToolbar button:focus-visible { outline: 2px solid #2868ad; outline-offset: 2px; }
+.resultToolbar button:disabled { color: #64727c; background: #e2e8ec; cursor: default; }
+
+.streamStarting { display: flex; min-height: 180px; align-items: center; justify-content: center; gap: 10px; color: #657682; }
+.streamStarting i { background: #2868ad; animation: streamPulse .8s ease-in-out infinite alternate; }
+.streamStarting i { width: 8px; height: 8px; border-radius: 50%; }
+@keyframes streamPulse { to { opacity: .25; } }
+
 .empty { display: grid; min-height: 100%; place-content: center; padding: 40px; text-align: center; }
 .empty > span { color: #b6cddd; font: 500 84px Georgia, serif; }
 .empty h3 { margin: 12px 0 6px; color: #263845; font: 500 24px Georgia, "Songti SC", serif; }
@@ -109,7 +154,8 @@
 .result > header { display: flex; padding-bottom: 22px; align-items: flex-start; justify-content: space-between; gap: 28px; border-bottom: 1px solid #dbe2e7; }
 .result h3 { margin: 0; color: #13202a; font: 500 clamp(42px, 4vw, 62px) Georgia, serif; letter-spacing: -.03em; }
 .result header p { margin: 4px 0 0; color: #71818c; }
-.result header > span { margin-top: 14px; color: #255c84; font-family: Georgia, serif; font-size: 16px; }
+.pronunciation { display: flex; padding-top: 8px; align-items: flex-end; flex-direction: column; gap: 8px; }
+.pronunciation > span { color: #255c84; font-family: Georgia, serif; font-size: 16px; }
 .result h4 { margin: 0 0 8px; color: #284b63; font-size: 12px; }
 .senses { margin: 26px 0 0; padding: 0; list-style: none; counter-reset: sense; }
 .senses li { position: relative; padding: 0 0 22px 36px; counter-increment: sense; }
@@ -136,6 +182,15 @@
 .twoColumns strong { display: block; color: #244f6e; }
 .result footer { display: grid; margin-top: 28px; padding: 20px; grid-template-columns: 1fr 1fr; gap: 24px; border-radius: 10px; background: #e9f1f6; }
 .result footer p { margin: 5px 0; color: #455e6f; font-size: 13px; }
+.streamingResult > header,
+.streamingResult .senses li,
+.streamingResult .usage,
+.streamingResult .details,
+.streamingResult .twoColumns section,
+.streamingResult footer { animation: blockReveal .22s cubic-bezier(.22, 1, .36, 1) both; }
+.streamTail { display: flex; margin-top: 22px; align-items: center; gap: 8px; color: #657682; font-size: 12px; }
+.streamTail i { width: 7px; height: 7px; border-radius: 50%; background: #2868ad; animation: streamPulse .8s ease-in-out infinite alternate; }
+@keyframes blockReveal { from { opacity: .25; transform: translateY(5px); } }
 
 @media (max-width: 900px) {
   .dictionary { width: calc(100% - 20px); min-height: 0; margin: 8vh 10px 12vh; grid-template-columns: 1fr; }
@@ -150,7 +205,7 @@
   .search input { height: 52px; flex: none; }
   .search button { min-height: 48px; }
   .result > header { align-items: flex-start; flex-direction: column; gap: 4px; }
-  .result header > span { margin-top: 0; }
+  .pronunciation { padding-top: 0; align-items: flex-start; }
   .twoColumns,
   .result footer { grid-template-columns: 1fr; }
   .details li { grid-template-columns: 1fr; }
@@ -161,6 +216,7 @@
   .compact { display: block; width: 100%; min-height: 0; margin: 0; overflow: visible; }
   .compact .headingPage,
   .compact .resultPage { min-height: 0; padding: 0; }
+  .compact .headingPage h2 { white-space: normal; }
   .compact .resultPage { margin-top: 22px; padding-top: 22px; overflow: visible; }
   .compact .search > div { flex-direction: row; }
   .compact .search input { flex: 1; }
@@ -169,4 +225,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   .skeleton i { animation: none; }
+  .streamStarting i,
+  .streamTail i { animation: none; }
+  .streamingResult > header,
+  .streamingResult .senses li,
+  .streamingResult .usage,
+  .streamingResult .details,
+  .streamingResult .twoColumns section,
+  .streamingResult footer { animation: none; }
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
+import { PronunciationButtons } from "@/components/PronunciationButtons";
+import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
 interface AnkiPreviewModalProps {
@@ -31,6 +33,7 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
   }
 
   const isCloze = entry.anki.cardMode === "cloze_context";
+  const isEnglishToChinese = entry.anki.cardMode === "basic_en_to_cn";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 backdrop-blur-sm">
@@ -39,7 +42,7 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
           <div>
             <h2 className="text-[21px] font-semibold leading-[1.19] tracking-[0.231px] text-[#1d1d1f]">Anki 卡片预览</h2>
             <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-              {isCloze ? "语境挖空卡" : "基础释义中译英卡"}
+              {isCloze ? "语境挖空卡" : isEnglishToChinese ? "独立查词英译中卡" : "基础释义中译英卡"}
             </p>
           </div>
           <button
@@ -64,6 +67,8 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
                   {entry.anki.contextCue}
                 </p>
               </div>
+            ) : isEnglishToChinese ? (
+              <p className="text-2xl font-semibold leading-8 text-[#1d1d1f]">{entry.word}</p>
             ) : (
               <div className="space-y-4">
                 <p className="text-base text-[#333333]">请写出对应的英文单词：</p>
@@ -82,9 +87,17 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
                 {originalFormLabel(entry.lemma, entry.word)} · {normalizePartOfSpeechLabel(entry.partOfSpeech)}
                 {entry.phonetic ? ` · ${entry.phonetic}` : ""}
               </p>
-              <p className="mt-2 text-sm text-[#333333]">Anki 背面会显示美式 / 英式发音按钮。</p>
+              <div className="mt-3"><PronunciationButtons text={entry.word} /></div>
             </div>
-            <dl className="space-y-3 text-sm leading-6">
+            {isEnglishToChinese ? (
+              <>
+                <section className="rounded-[10px] bg-[#eef3f6] p-4">
+                  <h4 className="text-xs font-semibold text-[#25495d]">中文核心释义</h4>
+                  <p className="mt-2 whitespace-pre-wrap text-lg font-semibold leading-8 text-[#1d1d1f]">{entry.basicMeaning}</p>
+                </section>
+                <VocabularyLearningDetails entry={entry} variant="anki" />
+              </>
+            ) : <dl className="space-y-3 text-sm leading-6">
               {isCloze ? (
                 <>
                   <Field label="原句" value={entry.sourceSentence} />
@@ -106,7 +119,7 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
                 label="补充例句"
                 value={[entry.exampleEnglish, entry.exampleChinese].filter(Boolean).join("\n")}
               />
-            </dl>
+            </dl>}
           </section>
         </div>
       </div>

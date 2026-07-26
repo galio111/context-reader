@@ -7,12 +7,13 @@ import { ReaderView } from "@/components/ReaderView";
 import { fetchJson } from "@/lib/apiClient";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
 import { deleteSavedArticle, getSavedArticles, touchSavedArticle } from "@/lib/articles";
-import { setCachedArticleTranslation } from "@/lib/cache";
+import { getCachedArticleTranslation, setCachedArticleTranslation } from "@/lib/cache";
 import { findBestSourceSentenceMatch, normalizeForSourceMatch } from "@/lib/sourceMatching";
 import { hasClickableWords, tokenizeArticle } from "@/lib/tokenizer";
 import type { ImportedArticle, ImportedImageLayoutWord, SavedArticle } from "@/types/article";
-import type { PublicArticle, PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
-import type { VocabularyEntry } from "@/types/vocabulary";
+import type { PublicArticle, PublicExplanation } from "@/types/publicArticle";
+import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
+import { updateVocabularyEntry } from "@/lib/vocabulary";
 import { useAccount } from "@/components/AccountProvider";
 
 interface HomeClientProps {
@@ -20,12 +21,10 @@ interface HomeClientProps {
   homeVariant?: "immersive" | "book";
 }
 
-interface PublicArticleDetails {
-  body: string;
-  importedArticle?: ImportedArticle;
-  explanations?: PublicExplanation[];
-  articleTranslations?: PublicArticleTranslation[];
-}
+type PublicArticleDetails = Pick<
+  PublicArticle,
+  "id" | "title" | "body" | "importedArticle" | "explanations" | "articleTranslations"
+>;
 
 function readFileAsDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -60,7 +59,10 @@ async function requestImageText(file: File): Promise<string> {
   const { response, data } = await fetchJson<{ text?: string; error?: string }>("/api/ocr-image", {
     method: "POST",
     body: formData,
-  }, "OCR 识别失败，请稍后重试。");
+  }, "OCR 识别失败，请稍后重试。", {
+    operation: "image_ocr",
+    metadata: { fileType: file.type, fileBytes: file.size },
+  });
 
   if (!response.ok || !data?.text?.trim()) {
     throw new Error(data?.error || "OCR 识别失败，请稍后重试。");
@@ -75,7 +77,10 @@ async function requestImageLayoutWords(file: File): Promise<ImportedImageLayoutW
   const { response, data } = await fetchJson<{ words?: ImportedImageLayoutWord[]; error?: string }>("/api/ocr-image-layout", {
     method: "POST",
     body: formData,
-  }, "图片词框识别失败，请稍后重试。");
+  }, "图片词框识别失败，请稍后重试。", {
+    operation: "image_layout_ocr",
+    metadata: { fileType: file.type, fileBytes: file.size },
+  });
 
   if (!response.ok || !Array.isArray(data?.words) || data.words.length === 0) {
     throw new Error(data?.error || "图片词框识别失败。");
@@ -84,11 +89,12 @@ async function requestImageLayoutWords(file: File): Promise<ImportedImageLayoutW
 }
 
 export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }: HomeClientProps) {
-  const { requireAccount } = useAccount();
+  const { isOffline, requireAccount } = useAccount();
   const [article, setArticle] = useState("");
   const [articleUrl, setArticleUrl] = useState("");
   const [importedArticle, setImportedArticle] = useState<ImportedArticle | null>(null);
   const [preloadedExplanations, setPreloadedExplanations] = useState<PublicExplanation[]>([]);
+  const [activeArticleSource, setActiveArticleSource] = useState<VocabularySourceArticle | undefined>();
   const [importingUrl, setImportingUrl] = useState(false);
   const [ocrLoading, setOcrLoading] = useState(false);
   const [openingPublicArticleId, setOpeningPublicArticleId] = useState("");
@@ -160,6 +166,7 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
     setSourceSentenceToHighlight("");
     setImportedArticle(null);
     setPreloadedExplanations([]);
+    setActiveArticleSource(undefined);
     enterReader();
   }
 
@@ -167,6 +174,7 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
     setArticle(demoArticle.text);
     setImportedArticle(demoArticle);
     setPreloadedExplanations([]);
+    setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setError("");
     enterReader();
@@ -177,6 +185,10 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
 
     if (!url) {
       setUrlError("");
+      return;
+    }
+    if (isOffline) {
+      setUrlError("当前离线，URL 导入需要联网。你仍可粘贴文章或打开本机保存的文章。");
       return;
     }
 
@@ -190,7 +202,10 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ url }),
-      }, "URL 导入失败，请稍后重试。");
+      }, "URL 导入失败，请稍后重试。", {
+        operation: "url_import",
+        metadata: { hostname: (() => { try { return new URL(url).hostname; } catch { return ""; } })() },
+      });
 
       if (!response.ok || !data?.article?.text?.trim()) {
         throw new Error(data?.error || "URL 导入失败，请稍后重试。");
@@ -204,6 +219,7 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
       setArticleUrl("");
       setImportedArticle(data.article);
       setPreloadedExplanations([]);
+      setActiveArticleSource(undefined);
       setSourceSentenceToHighlight("");
       setError("");
       setUrlError("");
@@ -261,6 +277,7 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
         ],
       });
       setPreloadedExplanations([]);
+      setActiveArticleSource(undefined);
       setSourceSentenceToHighlight("");
       setError("");
       enterReader();
@@ -278,6 +295,7 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
     setArticle(touchedArticle.body);
     setImportedArticle(touchedArticle.importedArticle ?? null);
     setPreloadedExplanations([]);
+    setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setError("");
     enterReader();
@@ -293,6 +311,10 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
       `/api/public-articles/${encodeURIComponent(id)}`,
       {},
       "公开文章读取失败，请稍后重试。",
+      {
+        operation: "public_article_open",
+        metadata: { articleId: id },
+      },
     ).then(({ response, data }) => {
       if (!response.ok || !data?.article?.body?.trim()) {
         throw new Error(data?.error || "公开文章读取失败，请稍后重试。");
@@ -313,6 +335,22 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
     });
   }, [loadPublicArticle]);
 
+  function applyPublicArticle(publicArticle: PublicArticleDetails, fallbackId: string) {
+    setArticle(publicArticle.body);
+    setImportedArticle(publicArticle.importedArticle ?? null);
+    setPreloadedExplanations(publicArticle.explanations ?? []);
+    setActiveArticleSource({
+      kind: "public",
+      id: publicArticle.id || fallbackId,
+      title: publicArticle.title || initialPublicArticles.find((item) => item.id === fallbackId)?.title || "",
+    });
+    for (const item of publicArticle.articleTranslations ?? []) {
+      if (!getCachedArticleTranslation(item.cacheKey)) {
+        setCachedArticleTranslation(item.cacheKey, item.translations);
+      }
+    }
+  }
+
   async function handleOpenPublicArticle(id: string) {
     if (openingPublicArticleId) {
       return;
@@ -323,16 +361,15 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
     try {
       const publicArticle = await loadPublicArticle(id);
 
-      setArticle(publicArticle.body);
-      setImportedArticle(publicArticle.importedArticle ?? null);
-      setPreloadedExplanations(publicArticle.explanations ?? []);
-      for (const item of publicArticle.articleTranslations ?? []) {
-        setCachedArticleTranslation(item.cacheKey, item.translations);
-      }
+      applyPublicArticle(publicArticle, id);
       setSourceSentenceToHighlight("");
       enterReader();
     } catch (publicArticleError) {
-      setError(publicArticleError instanceof Error ? publicArticleError.message : "公开文章读取失败，请稍后重试。");
+      setError(isOffline
+        ? "当前离线，而且这篇公开文章尚未缓存在此设备上。请选择本机保存文章，或联网后再打开。"
+        : publicArticleError instanceof Error
+          ? publicArticleError.message
+          : "公开文章读取失败，请稍后重试。");
     } finally {
       setOpeningPublicArticleId("");
     }
@@ -369,13 +406,41 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
 
   function canJumpToVocabularySource(entry: VocabularyEntry): boolean {
     return (
+      Boolean(entry.sourceArticle?.kind === "public" && entry.sourceArticle.id) ||
       containsSourceSentence(article, entry.sourceSentence) ||
       Boolean(findSimilarSourceSentence(article, entry)) ||
-      Boolean(findArticleForVocabularyEntry(entry))
+      Boolean(findArticleForVocabularyEntry(entry)) ||
+      Boolean(entry.sourceSentence.trim() && initialPublicArticles.length > 0)
     );
   }
 
-  function handleJumpToVocabularySource(entry: VocabularyEntry) {
+  async function findPublicArticleForVocabularyEntry(
+    entry: VocabularyEntry,
+  ): Promise<{ article: PublicArticleDetails; matchedSentence: string } | null> {
+    const candidateIds = entry.sourceArticle?.kind === "public"
+      ? [
+          entry.sourceArticle.id,
+          ...initialPublicArticles.map((item) => item.id).filter((id) => id !== entry.sourceArticle?.id),
+        ]
+      : initialPublicArticles.map((item) => item.id);
+
+    for (const id of candidateIds) {
+      try {
+        const publicArticle = await loadPublicArticle(id);
+        const matchedSentence = containsSourceSentence(publicArticle.body, entry.sourceSentence)
+          ? entry.sourceSentence
+          : findSimilarSourceSentence(publicArticle.body, entry);
+        if (matchedSentence) {
+          return { article: publicArticle, matchedSentence };
+        }
+      } catch {
+        // A removed or temporarily unavailable recommendation should not block checking the rest.
+      }
+    }
+    return null;
+  }
+
+  async function handleJumpToVocabularySource(entry: VocabularyEntry): Promise<boolean> {
     const currentArticleMatchedSentence = containsSourceSentence(article, entry.sourceSentence)
       ? entry.sourceSentence
       : findSimilarSourceSentence(article, entry);
@@ -397,6 +462,7 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
       setArticle(touchedArticle.body);
       setImportedArticle(touchedArticle.importedArticle ?? null);
       setPreloadedExplanations([]);
+      setActiveArticleSource(undefined);
       setSourceSentenceToHighlight(
         containsSourceSentence(touchedArticle.body, entry.sourceSentence)
           ? entry.sourceSentence
@@ -410,7 +476,30 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
       return true;
     }
 
-    setError("当前文章和已保存文章里没有找到这个词条的原句。");
+    const publicMatch = await findPublicArticleForVocabularyEntry(entry);
+    if (publicMatch) {
+      const sourceArticle: VocabularySourceArticle = {
+        kind: "public",
+        id: publicMatch.article.id,
+        title: publicMatch.article.title,
+      };
+      applyPublicArticle(publicMatch.article, sourceArticle.id);
+      setSourceSentenceToHighlight(publicMatch.matchedSentence);
+      setSourceWordToHighlight(entry.word);
+      setSourceJumpRequestId((requestId) => requestId + 1);
+      setReaderSessionId((sessionId) => sessionId + 1);
+      setError("");
+      if (
+        entry.sourceArticle?.id !== sourceArticle.id ||
+        entry.sourceArticle.title !== sourceArticle.title
+      ) {
+        updateVocabularyEntry({ ...entry, sourceArticle });
+      }
+      enterReader();
+      return true;
+    }
+
+    setError("当前文章、本地保存文章和推荐文章里都没有找到这个词条的原句。");
     return false;
   }
 
@@ -421,6 +510,7 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
         article={article}
         importedArticle={importedArticle}
         preloadedExplanations={preloadedExplanations}
+        articleSource={activeArticleSource}
         sourceSentenceToHighlight={sourceSentenceToHighlight}
         sourceWordToHighlight={sourceWordToHighlight}
         sourceJumpRequestId={sourceJumpRequestId}
@@ -431,6 +521,7 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
           setArticle(nextArticle);
           setImportedArticle(nextImportedArticle);
           setPreloadedExplanations([]);
+          setActiveArticleSource(undefined);
           setSourceSentenceToHighlight("");
         }}
         onBack={() => {
@@ -439,6 +530,7 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
           setArticle("");
           setImportedArticle(null);
           setPreloadedExplanations([]);
+          setActiveArticleSource(undefined);
           setSourceSentenceToHighlight("");
           setError("");
           setReaderTransitioning(false);
@@ -464,6 +556,7 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
         onArticleChange={(value) => {
           setArticle(value);
           setImportedArticle(null);
+          setActiveArticleSource(undefined);
           setSourceSentenceToHighlight("");
           if (error) setError("");
         }}
@@ -499,9 +592,10 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
       savedArticles={savedArticles}
       onArticleChange={(value) => {
         setArticle(value);
-          setImportedArticle(null);
-          setSourceSentenceToHighlight("");
-          if (error) {
+        setImportedArticle(null);
+        setActiveArticleSource(undefined);
+        setSourceSentenceToHighlight("");
+        if (error) {
           setError("");
         }
       }}

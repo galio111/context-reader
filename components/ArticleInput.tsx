@@ -93,7 +93,7 @@ export function ArticleInput({
   onJumpToVocabularySource,
   canJumpToVocabularySource,
 }: ArticleInputProps) {
-  const { account, requireAccount } = useAccount();
+  const { hasLocalAccountAccess, requireLocalAccount } = useAccount();
   const hasArticle = article.trim().length > 0;
   const [inputMode, setInputMode] = useState<InputMode>("paste");
   const [vocabularyOpen, setVocabularyOpen] = useState(false);
@@ -123,7 +123,7 @@ export function ArticleInput({
   }, [vocabularyOpen]);
 
   function handleOpenVocabulary() {
-    if (!requireAccount("登录后才能使用生词本；登录时会把本机已有词条补充到账号中。")) return;
+    if (!requireLocalAccount("登录后才能使用生词本；登录时会把本机已有词条补充到账号中。")) return;
     setVocabularyEntries(getVocabularyEntries());
     setVocabularyError("");
     setVocabularyOpen(true);
@@ -191,8 +191,9 @@ export function ArticleInput({
           openingPublicArticleId={openingPublicArticleId}
           demoCompleted={homeDemoCompleted}
           publicArticles={initialPublicArticles}
-          savedArticles={account.authenticated ? savedArticles : []}
-          vocabularyCount={account.authenticated ? vocabularyEntries.length : 0}
+          savedArticles={hasLocalAccountAccess ? savedArticles : []}
+          vocabularyEntries={hasLocalAccountAccess ? vocabularyEntries : []}
+          vocabularyCount={hasLocalAccountAccess ? vocabularyEntries.length : 0}
           overlayOpen={vocabularyOpen}
           onArticleChange={onArticleChange}
           onArticleUrlChange={onArticleUrlChange}

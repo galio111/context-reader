@@ -17,9 +17,11 @@ interface PillNavActionProps {
   href?: string;
   type?: "button" | "submit" | "reset";
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
   ariaLabel?: string;
   ariaExpanded?: boolean;
   ariaControls?: string;
+  title?: string;
   renderIcon?: () => ReactNode;
   ease?: string;
 }
@@ -31,9 +33,11 @@ export function PillNavAction({
   href,
   type = "button",
   onClick,
+  disabled = false,
   ariaLabel,
   ariaExpanded,
   ariaControls,
+  title,
   renderIcon,
   ease = "power3.out",
 }: PillNavActionProps) {
@@ -54,6 +58,18 @@ export function PillNavAction({
 
     let cancelled = false;
     const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const hoverQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+    if (!hoverQuery.matches) {
+      activeTweenRef.current?.kill();
+      timelineRef.current?.kill();
+      timelineRef.current = null;
+      reducedMotionRef.current = true;
+      gsap.set(circle, { scale: 0 });
+      gsap.set(primaryContent, { y: 0 });
+      gsap.set(hoverContent, { opacity: 0 });
+      return;
+    }
 
     const layout = () => {
       if (cancelled) return;
@@ -84,7 +100,7 @@ export function PillNavAction({
         opacity: 0,
       });
 
-      reducedMotionRef.current = reducedMotionQuery.matches;
+      reducedMotionRef.current = reducedMotionQuery.matches || disabled || !hoverQuery.matches;
       if (reducedMotionRef.current) {
         timelineRef.current = null;
         return;
@@ -138,9 +154,10 @@ export function PillNavAction({
       activeTweenRef.current?.kill();
       timelineRef.current?.kill();
     };
-  }, [ease, label]);
+  }, [disabled, ease, label]);
 
   const play = () => {
+    if (disabled) return;
     const timeline = timelineRef.current;
     if (!timeline || reducedMotionRef.current) return;
     activeTweenRef.current?.kill();
@@ -152,6 +169,7 @@ export function PillNavAction({
   };
 
   const reverse = () => {
+    if (disabled) return;
     const timeline = timelineRef.current;
     if (!timeline || reducedMotionRef.current) return;
     activeTweenRef.current?.kill();
@@ -195,6 +213,7 @@ export function PillNavAction({
         className={sharedClassName}
         href={href}
         aria-label={ariaLabel}
+        title={title}
         onMouseEnter={play}
         onMouseLeave={reverse}
         onFocus={play}
@@ -213,6 +232,8 @@ export function PillNavAction({
       aria-label={ariaLabel}
       aria-expanded={ariaExpanded}
       aria-controls={ariaControls}
+      title={title}
+      disabled={disabled}
       onClick={onClick}
       onMouseEnter={play}
       onMouseLeave={reverse}

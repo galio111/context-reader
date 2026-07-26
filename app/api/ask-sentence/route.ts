@@ -7,6 +7,7 @@ import { acquireCostSlot } from "@/lib/costConcurrency";
 import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd } from "@/lib/usageCost";
+import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 
 export const maxDuration = 60;
 
@@ -70,16 +71,23 @@ export async function POST(request: Request) {
     return NextResponse.json({ answer: result.answer });
   } catch (error) {
     await refundUsage(actionId, "failed", error instanceof Error ? error.name : "unknown").catch(() => undefined);
-    if (error instanceof MissingDeepSeekEnvError) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
-    }
-
-    if (error instanceof DeepSeekParseError) {
-      return NextResponse.json({ error: error.message }, { status: 502 });
-    }
-
+    const configurationError = error instanceof MissingDeepSeekEnvError;
+    const parseError = error instanceof DeepSeekParseError;
+    const status = configurationError ? 500 : 502;
+    const report = await recordServerError(request, {
+      category: configurationError ? "configuration" : "provider",
+      severity: configurationError ? "critical" : "error",
+      operation: "sentence_question",
+      endpoint: "/api/ask-sentence",
+      userMessage: "句子提问服务暂时不可用，开发者已收到异常并正在处理。",
+      code: configurationError ? "missing_provider_configuration" : parseError ? "provider_parse_error" : "provider_request_failed",
+      httpStatus: status,
+    }, error);
     console.error("Sentence question request failed", error);
-    return NextResponse.json({ error: "DeepSeek 请求失败，请稍后重试。" }, { status: 502 });
+    return NextResponse.json(
+      { error: "句子提问服务暂时不可用，开发者已收到异常并正在处理。", ...reportReference(report) },
+      { status },
+    );
   } finally {
     releaseSlot();
   }

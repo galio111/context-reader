@@ -1,6 +1,12 @@
 import type { Difficulty } from "./reader";
 import type { AnkiCardInfo } from "./anki";
 
+export interface VocabularySourceArticle {
+  kind: "public";
+  id: string;
+  title: string;
+}
+
 export interface VocabularyEntry {
   id: string;
   word: string;
@@ -17,6 +23,7 @@ export interface VocabularyEntry {
   sourceSentence: string;
   previousSentence: string;
   nextSentence: string;
+  sourceArticle?: VocabularySourceArticle;
   difficulty: Difficulty;
   shouldAddToVocabulary: boolean;
   createdAt: string;

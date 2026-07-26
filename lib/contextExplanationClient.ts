@@ -27,6 +27,13 @@ export async function requestContextExplanation(
       signal,
     },
     "解释失败，请稍后重试。",
+    {
+      operation: "context_word_explanation",
+      metadata: {
+        selectedCharacters: context.word.length,
+        sentenceCharacters: context.sentence.length,
+      },
+    },
   );
 
   if (!response.ok) {

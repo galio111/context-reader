@@ -4,7 +4,7 @@ import type { AnkiCardMode } from "@/types/anki";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 
 function isMode(value: unknown): value is AnkiCardMode {
-  return value === "cloze_context" || value === "basic_cn_to_en";
+  return value === "cloze_context" || value === "basic_cn_to_en" || value === "basic_en_to_cn";
 }
 
 export async function POST(request: Request) {
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
   if (!isMode(body.cardMode)) {
     return NextResponse.json(
-      { error: "cardMode 必须是 cloze_context 或 basic_cn_to_en。" },
+      { error: "cardMode 必须是 cloze_context、basic_cn_to_en 或 basic_en_to_cn。" },
       { status: 400 },
     );
   }

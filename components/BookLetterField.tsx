@@ -95,6 +95,10 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
         return;
       }
       maskRects = Array.from(document.querySelectorAll<HTMLElement>("[data-pointer-mask]"))
+        .filter((element) => {
+          const style = window.getComputedStyle(element);
+          return style.display !== "none" && style.visibility !== "hidden";
+        })
         .map((element) => element.getBoundingClientRect())
         .filter((rect) => rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < height)
         .map((rect) => ({

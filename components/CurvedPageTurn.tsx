@@ -71,6 +71,7 @@ interface PageFlipRuntime {
 }
 
 const noFrame = () => {};
+const SEEK_ENDPOINT_EPSILON = .00001;
 
 function copyLiveFormState(source: HTMLElement, clone: HTMLElement) {
   const sourceControls = source.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>("input, textarea, select");
@@ -82,6 +83,32 @@ function copyLiveFormState(source: HTMLElement, clone: HTMLElement) {
     if (control instanceof HTMLInputElement && clonedControl instanceof HTMLInputElement) {
       clonedControl.checked = control.checked;
     }
+  });
+}
+
+function copyLiveScrollState(source: HTMLElement, clone: HTMLElement) {
+  const sourceElements = [source, ...source.querySelectorAll<HTMLElement>("*")];
+  const cloneElements = [clone, ...clone.querySelectorAll<HTMLElement>("*")];
+  sourceElements.forEach((element, index) => {
+    const clonedElement = cloneElements[index];
+    if (!clonedElement) return;
+    if (element.scrollTop > 0) {
+      clonedElement.dataset.snapshotScrollTop = String(element.scrollTop);
+    }
+    if (element.scrollLeft > 0) {
+      clonedElement.dataset.snapshotScrollLeft = String(element.scrollLeft);
+    }
+  });
+}
+
+function restoreSnapshotScrollState(pages: HTMLElement[]) {
+  pages.forEach((page) => {
+    page.querySelectorAll<HTMLElement>("[data-snapshot-scroll-top], [data-snapshot-scroll-left]").forEach((element) => {
+      const scrollTop = Number(element.dataset.snapshotScrollTop);
+      const scrollLeft = Number(element.dataset.snapshotScrollLeft);
+      if (Number.isFinite(scrollTop) && scrollTop > 0) element.scrollTop = scrollTop;
+      if (Number.isFinite(scrollLeft) && scrollLeft > 0) element.scrollLeft = scrollLeft;
+    });
   });
 }
 
@@ -98,6 +125,7 @@ function makeSnapshotPage(spread: HTMLElement | null, side: "left" | "right") {
   if (spread) {
     const clone = spread.cloneNode(true) as HTMLElement;
     copyLiveFormState(spread, clone);
+    copyLiveScrollState(spread, clone);
     clone.setAttribute("aria-hidden", "true");
     clone.setAttribute("inert", "");
     clone.querySelectorAll<HTMLElement>("[id], [aria-labelledby], [aria-describedby], [tabindex]").forEach((element) => {
@@ -182,11 +210,12 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
   const syncEngineSize = (instance: PageFlip) => {
     const container = containerRef.current;
     if (!container) return null;
-    const rect = container.getBoundingClientRect();
+    const width = container.clientWidth;
+    const height = container.clientHeight;
     const runtime = instance as unknown as PageFlipRuntime;
     const settings = runtime.getSettings();
-    settings.width = settings.minWidth = settings.maxWidth = Math.max(1, rect.width / 2);
-    settings.height = settings.minHeight = settings.maxHeight = Math.max(1, rect.height);
+    settings.width = settings.minWidth = settings.maxWidth = Math.max(1, width / 2);
+    settings.height = settings.minHeight = settings.maxHeight = Math.max(1, height);
     runtime.update();
     return (runtime.getRender() as SeekableRender).getRect();
   };
@@ -199,16 +228,17 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
 
     void import("page-flip/dist/js/page-flip.module.js").then(({ PageFlip: PageFlipConstructor }) => {
       if (destroyedRef.current || !container.isConnected) return;
-      const rect = container.getBoundingClientRect();
-      if (rect.width < 40 || rect.height < 40) return;
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      if (width < 40 || height < 40) return;
 
       host = document.createElement("div");
       host.className = styles.engine;
       container.appendChild(host);
       const initialPages = makeBlankPages();
       const instance = new PageFlipConstructor(host, {
-        width: Math.max(1, rect.width / 2),
-        height: Math.max(1, rect.height),
+        width: Math.max(1, width / 2),
+        height: Math.max(1, height),
         size: "fixed",
         drawShadow: false,
         flippingTime: 720,
@@ -280,23 +310,23 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
       if (!container) return;
 
       const normalized = Math.min(1, Math.max(0, progress));
+      const betweenEndpoints = normalized > SEEK_ENDPOINT_EPSILON && normalized < 1 - SEEK_ENDPOINT_EPSILON;
       container.style.setProperty("--turn-progress", normalized.toFixed(5));
-      container.dataset.seeking = normalized > .001 && normalized < .999 ? "true" : "false";
+      container.dataset.seeking = betweenEndpoints ? "true" : "false";
 
       if (window.matchMedia("(max-width: 760px), (prefers-reduced-motion: reduce)").matches) {
-        seekKeyRef.current = normalized > .001 && normalized < .999 ? key : null;
+        seekKeyRef.current = betweenEndpoints ? key : null;
         return;
       }
 
       const instance = pageFlipRef.current;
       if (!instance) return;
-      if (normalized <= .001 || normalized >= .999) {
+      if (!betweenEndpoints) {
         if (seekKeyRef.current !== null) resetSeek();
         return;
       }
 
-      const liveRect = container.getBoundingClientRect();
-      const sizeKey = `${Math.round(liveRect.width)}x${Math.round(liveRect.height)}`;
+      const sizeKey = `${container.clientWidth}x${container.clientHeight}`;
       const needsSetup =
         seekKeyRef.current !== key ||
         !seekTouchActiveRef.current ||
@@ -320,6 +350,7 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
         instance.updateFromHtml(pages);
         const runtime = instance as unknown as PageFlipRuntime;
         runtime.update();
+        restoreSnapshotScrollState(pages);
         instance.turnToPage(nextDirection === "forward" ? 0 : 2);
         const start = nextDirection === "forward"
           ? { x: rect.left + rect.width - 2, y: rect.top + rect.height - 3 }
@@ -344,8 +375,9 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
         : {
             x: rect.left + rect.width * normalized,
             y: rect.top + rect.height - 3 - easedLift,
-          };
+      };
       const runtime = instance as unknown as PageFlipRuntime;
+      restoreSnapshotScrollState([container]);
       runtime.getFlipController().fold(position);
       (runtime.getRender() as SeekableRender).drawFrame();
     },

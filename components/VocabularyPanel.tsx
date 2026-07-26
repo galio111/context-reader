@@ -1,11 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { AnkiPreviewModal } from "@/components/AnkiPreviewModal";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
+import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
 import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
 import { sortVocabularyEntriesByCreatedAt } from "@/lib/vocabularyMerge";
+import { createVocabularySearchIndex, searchVocabularyIndex } from "@/lib/vocabularySearch";
+import { hasStandaloneVocabularyDetails } from "@/lib/vocabularyPresentation";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
 const VOCABULARY_ROW_GAP = 12;
@@ -24,16 +27,18 @@ function estimatedVocabularyRowHeight(
   const narrow = typeof window !== "undefined" && window.innerWidth < 640;
   const proseWidth = narrow ? 28 : 72;
   const translationWidth = narrow ? 24 : 48;
-  const baseLines =
-    wrappedLineCount(entry.contextMeaning, proseWidth)
-    + wrappedLineCount(entry.basicMeaning, proseWidth)
-    + wrappedLineCount(entry.sourceSentence, proseWidth)
-    + wrappedLineCount(entry.sentenceTranslation, translationWidth);
-  const extraBaseLines = Math.max(0, baseLines - 4);
+  const isStandalone = !entry.sourceSentence.trim();
+  const baseLines = isStandalone
+    ? wrappedLineCount(entry.basicMeaning, proseWidth)
+    : wrappedLineCount(entry.contextMeaning, proseWidth)
+      + wrappedLineCount(entry.basicMeaning, proseWidth)
+      + wrappedLineCount(entry.sourceSentence, proseWidth)
+      + wrappedLineCount(entry.sentenceTranslation, translationWidth);
+  const extraBaseLines = Math.max(0, baseLines - (isStandalone ? 1 : 4));
   const hasExtendedDetails = Boolean(
     entry.usageNote || entry.collocation || entry.exampleEnglish || entry.exampleChinese,
   );
-  let height = 350 + extraBaseLines * 24;
+  let height = (isStandalone ? 250 : 350) + extraBaseLines * 24;
   if (narrow) height += 34;
   if (hasExtendedDetails) height += 32;
   if (showAnkiActions && entry.anki.cardMode === "basic_cn_to_en") height += 64;
@@ -116,13 +121,14 @@ export function VocabularyPanel({
   }, [open]);
 
   const orderedEntries = useMemo(() => sortVocabularyEntriesByCreatedAt(entries), [entries]);
-  const normalizedSearchQuery = searchQuery.trim().toLowerCase();
+  const deferredSearchQuery = useDeferredValue(searchQuery);
+  const vocabularySearchIndex = useMemo(
+    () => createVocabularySearchIndex(orderedEntries),
+    [orderedEntries],
+  );
   const filteredEntries = useMemo(
-    () =>
-      normalizedSearchQuery
-        ? orderedEntries.filter((entry) => entry.word.trim().toLowerCase().startsWith(normalizedSearchQuery))
-        : orderedEntries,
-    [orderedEntries, normalizedSearchQuery],
+    () => searchVocabularyIndex(vocabularySearchIndex, deferredSearchQuery),
+    [deferredSearchQuery, vocabularySearchIndex],
   );
   const getVocabularyEntryKey = useCallback(
     (index: number) => filteredEntries[index]?.id ?? index,
@@ -157,7 +163,7 @@ export function VocabularyPanel({
     if (open) {
       rowVirtualizer.scrollToOffset(0);
     }
-  }, [open, normalizedSearchQuery, filteredEntries.length, rowVirtualizer]);
+  }, [deferredSearchQuery, filteredEntries.length, open, rowVirtualizer]);
 
   useEffect(() => {
     if (!open) {
@@ -284,11 +290,12 @@ export function VocabularyPanel({
                   return null;
                 }
                 const imported = Boolean(entry.anki.ankiNoteId);
+                const isStandalone = !entry.sourceSentence.trim();
                 const sourceJumpEnabled = onJumpToSource && (canJumpToSource ? canJumpToSource(entry) : true);
                 const isExpanded = expandedEntryIds.has(entry.id);
-                const hasExtendedDetails = Boolean(
-                  entry.usageNote || entry.collocation || entry.exampleEnglish || entry.exampleChinese,
-                );
+                const hasExtendedDetails = isStandalone
+                  ? hasStandaloneVocabularyDetails(entry)
+                  : Boolean(entry.usageNote || entry.collocation || entry.exampleEnglish || entry.exampleChinese);
                 return (
                   <article
                     key={entry.id}
@@ -303,7 +310,7 @@ export function VocabularyPanel({
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
                           <h3 className="text-[21px] font-semibold leading-[1.19] tracking-[0.231px] text-[#1d1d1f]">{entry.word}</h3>
-                          {onJumpToSource && (
+                          {onJumpToSource && !isStandalone && (
                             <button
                               type="button"
                               className="h-8 shrink-0 rounded-full border border-[#0066cc] px-3 text-xs tracking-[-0.12px] text-[#0066cc] transition active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#86868b]"
@@ -341,49 +348,61 @@ export function VocabularyPanel({
                     </div>
 
                     <dl className="mt-3 grid gap-3 text-sm leading-6 tracking-[-0.224px] text-[#333333]">
-                      <div>
-                        <dt className="font-semibold text-[#1d1d1f]">{meaningLabel(entry.word)}</dt>
-                        <dd>{entry.contextMeaning}</dd>
-                      </div>
-                      <div>
-                        <dt className="font-semibold text-[#1d1d1f]">基础释义</dt>
-                        <dd>{entry.basicMeaning}</dd>
-                      </div>
-                      <div>
-                        <dt className="font-semibold text-[#1d1d1f]">原句</dt>
-                        <dd>{entry.sourceSentence}</dd>
-                      </div>
-                      <div>
-                        <dt className="font-semibold text-[#1d1d1f]">自然翻译</dt>
-                        <dd>{entry.sentenceTranslation}</dd>
-                      </div>
+                      {isStandalone ? (
+                        <div>
+                          <dt className="font-semibold text-[#1d1d1f]">中文释义</dt>
+                          <dd className="whitespace-pre-line">{entry.basicMeaning}</dd>
+                        </div>
+                      ) : (
+                        <>
+                          <div>
+                            <dt className="font-semibold text-[#1d1d1f]">{meaningLabel(entry.word)}</dt>
+                            <dd>{entry.contextMeaning}</dd>
+                          </div>
+                          <div>
+                            <dt className="font-semibold text-[#1d1d1f]">基础释义</dt>
+                            <dd>{entry.basicMeaning}</dd>
+                          </div>
+                          <div>
+                            <dt className="font-semibold text-[#1d1d1f]">原句</dt>
+                            <dd>{entry.sourceSentence}</dd>
+                          </div>
+                          <div>
+                            <dt className="font-semibold text-[#1d1d1f]">自然翻译</dt>
+                            <dd>{entry.sentenceTranslation}</dd>
+                          </div>
+                        </>
+                      )}
                     </dl>
 
                     {hasExtendedDetails && isExpanded && (
-                      <dl
-                        id={`vocabulary-details-${entry.id}`}
-                        className="mt-3 grid gap-3 text-sm leading-6 tracking-[-0.224px] text-[#333333]"
-                      >
-                        {entry.usageNote && (
-                          <div>
-                            <dt className="font-semibold text-[#1d1d1f]">用法提示</dt>
-                            <dd>{entry.usageNote}</dd>
-                          </div>
+                      <div id={`vocabulary-details-${entry.id}`}>
+                        {isStandalone ? (
+                          <VocabularyLearningDetails entry={entry} />
+                        ) : (
+                          <dl className="mt-3 grid gap-3 text-sm leading-6 tracking-[-0.224px] text-[#333333]">
+                            {entry.usageNote && (
+                              <div>
+                                <dt className="font-semibold text-[#1d1d1f]">用法提示</dt>
+                                <dd className="whitespace-pre-line">{entry.usageNote}</dd>
+                              </div>
+                            )}
+                            {entry.collocation && (
+                              <div>
+                                <dt className="font-semibold text-[#1d1d1f]">常见搭配</dt>
+                                <dd className="whitespace-pre-line">{entry.collocation}</dd>
+                              </div>
+                            )}
+                            {(entry.exampleEnglish || entry.exampleChinese) && (
+                              <div>
+                                <dt className="font-semibold text-[#1d1d1f]">例句</dt>
+                                {entry.exampleEnglish && <dd>{entry.exampleEnglish}</dd>}
+                                {entry.exampleChinese && <dd className="text-[#555555]">{entry.exampleChinese}</dd>}
+                              </div>
+                            )}
+                          </dl>
                         )}
-                        {entry.collocation && (
-                          <div>
-                            <dt className="font-semibold text-[#1d1d1f]">常见搭配</dt>
-                            <dd className="whitespace-pre-line">{entry.collocation}</dd>
-                          </div>
-                        )}
-                        {(entry.exampleEnglish || entry.exampleChinese) && (
-                          <div>
-                            <dt className="font-semibold text-[#1d1d1f]">例句</dt>
-                            {entry.exampleEnglish && <dd>{entry.exampleEnglish}</dd>}
-                            {entry.exampleChinese && <dd className="text-[#555555]">{entry.exampleChinese}</dd>}
-                          </div>
-                        )}
-                      </dl>
+                      </div>
                     )}
 
                     {showAnkiActions && entry.anki.cardMode === "basic_cn_to_en" && (

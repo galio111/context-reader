@@ -28,10 +28,12 @@ function buildFrontPreview(info: {
   clozeSentence: string;
   contextCue: string;
   basicCue: string;
+  word: string;
 }): string {
   if (info.cardMode === "cloze_context") {
     return [info.clozeSentence, info.contextCue].filter(Boolean).join("\n\n\n\n");
   }
+  if (info.cardMode === "basic_en_to_cn") return info.word;
   return ["请写出对应的英文单词：", info.basicCue].filter(Boolean).join("\n\n");
 }
 
@@ -42,7 +44,9 @@ export function normalizeAnkiInfo(
   const rawAnki = (data.anki ?? {}) as Partial<AnkiCardInfo>;
   const canMakeCloze = Boolean(rawAnki.canMakeCloze);
   const inferredMode: AnkiCardMode =
-    rawAnki.cardMode === "cloze_context" || rawAnki.cardMode === "basic_cn_to_en"
+    rawAnki.cardMode === "cloze_context"
+      || rawAnki.cardMode === "basic_cn_to_en"
+      || rawAnki.cardMode === "basic_en_to_cn"
       ? rawAnki.cardMode
       : canMakeCloze
         ? "cloze_context"
@@ -63,6 +67,7 @@ export function normalizeAnkiInfo(
     clozeSentence,
     contextCue,
     basicCue,
+    word: String(data.word ?? ""),
   });
 
   return {
@@ -72,7 +77,7 @@ export function normalizeAnkiInfo(
     contextCue: cardMode === "cloze_context" ? contextCue : "",
     basicCue,
     frontPreview,
-    backPreview: "",
+    backPreview: cardMode === "basic_en_to_cn" ? String(data.basicMeaning ?? "") : "",
     ankiNoteId: rawAnki.ankiNoteId ?? null,
     ankiImportedAt: rawAnki.ankiImportedAt ?? null,
   };

@@ -4,7 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import AdminAccountsPanel from "@/components/AdminAccountsPanel";
 import AdminArticleIntakePanel from "@/components/AdminArticleIntakePanel";
 import AdminFeedbackPanel from "@/components/AdminFeedbackPanel";
+import AdminErrorReportsPanel from "@/components/AdminErrorReportsPanel";
 import { ReaderView } from "@/components/ReaderView";
+import { SiteBackdrop } from "@/components/SiteBackdrop";
 import { getSavedArticles } from "@/lib/articles";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import {
@@ -64,7 +66,7 @@ export default function AdminPage() {
   const [checkingSession, setCheckingSession] = useState(true);
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [activeSection, setActiveSection] = useState<"articles" | "accounts" | "feedback">("articles");
+  const [activeSection, setActiveSection] = useState<"articles" | "accounts" | "feedback" | "errors">("articles");
   const [loginError, setLoginError] = useState("");
   const [articles, setArticles] = useState<SavedArticle[]>([]);
   const [publishingId, setPublishingId] = useState("");
@@ -79,6 +81,7 @@ export default function AdminPage() {
     const section = new URLSearchParams(window.location.search).get("section");
     if (section === "accounts") setActiveSection("accounts");
     if (section === "feedback") setActiveSection("feedback");
+    if (section === "errors") setActiveSection("errors");
   }, []);
 
   useEffect(() => {
@@ -96,7 +99,7 @@ export default function AdminPage() {
     void checkSession();
   }, []);
 
-  function selectSection(section: "articles" | "accounts" | "feedback") {
+  function selectSection(section: "articles" | "accounts" | "feedback" | "errors") {
     setActiveSection(section);
     const url = section === "articles" ? "/admin" : `/admin?section=${section}`;
     window.history.replaceState(null, "", url);
@@ -230,7 +233,7 @@ export default function AdminPage() {
 
   async function handleLogout() {
     if (accessMode === "developer") {
-      window.location.href = "/";
+      window.location.href = "/home-v2";
       return;
     }
     await fetch("/api/admin/logout", { method: "POST" });
@@ -317,7 +320,8 @@ export default function AdminPage() {
 
   if (checkingSession) {
     return (
-      <main className="min-h-screen bg-[#f5f5f7] px-4 py-8 text-[#1d1d1f]">
+      <main className="cr-site-background px-4 py-8 text-[#17212b]">
+        <SiteBackdrop />
         <section className="mx-auto max-w-xl rounded-[18px] bg-white p-5">正在检查管理员状态...</section>
       </main>
     );
@@ -325,11 +329,12 @@ export default function AdminPage() {
 
   if (!authenticated) {
     return (
-      <main className="min-h-screen bg-[#f5f5f7] px-4 py-8 text-[#1d1d1f]">
+      <main className="cr-site-background px-4 py-8 text-[#17212b]">
+        <SiteBackdrop />
         <form className="mx-auto max-w-xl rounded-[18px] bg-white p-5" onSubmit={handleLogin}>
           <h1 className="text-[28px] font-semibold leading-tight">管理员入口</h1>
           <p className="mt-2 text-sm leading-6 text-[#333333]">
-            登录后可以管理推荐文章、用户与额度，以及用户反馈。
+            登录后可以管理推荐文章、用户与额度、用户反馈，以及站点错误与 Bug。
           </p>
           <label className="mt-5 block">
             <span className="mb-2 block text-sm font-semibold text-[#333333]">管理员密码</span>
@@ -389,13 +394,14 @@ export default function AdminPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f5f5f7] px-4 py-6 text-[#1d1d1f]">
+    <main className="cr-site-background px-4 py-6 text-[#17212b]">
+      <SiteBackdrop />
       <section className="mx-auto max-w-6xl">
         <header className="flex flex-col gap-3 border-b border-black/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-[32px] font-semibold leading-tight">Context Reader 管理后台</h1>
             <p className="mt-1 text-sm leading-6 text-[#333333]">
-              管理推荐内容、用户额度和反馈处理。
+              管理推荐内容、用户额度、反馈处理和站点异常。
             </p>
           </div>
           <button
@@ -438,9 +444,23 @@ export default function AdminPage() {
           >
             用户反馈
           </button>
+          <button
+            className={`h-10 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
+              activeSection === "errors" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
+            }`}
+            type="button"
+            aria-current={activeSection === "errors" ? "page" : undefined}
+            onClick={() => selectSection("errors")}
+          >
+            错误与 Bug
+          </button>
         </nav>
 
-        {activeSection === "feedback" ? (
+        {activeSection === "errors" ? (
+          <div className="mt-6">
+            <AdminErrorReportsPanel />
+          </div>
+        ) : activeSection === "feedback" ? (
           <div className="mt-6">
             <AdminFeedbackPanel />
           </div>

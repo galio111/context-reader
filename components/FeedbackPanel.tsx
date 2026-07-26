@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
+import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
 import styles from "./FeedbackPanel.module.css";
 
 export function FeedbackPanel({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -45,11 +46,22 @@ export function FeedbackPanel({ open, onClose }: { open: boolean; onClose: () =>
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ category, message, contact, website, page: window.location.href }),
       });
-      const data = await response.json() as { error?: string };
-      if (!response.ok) throw new Error(data.error || "反馈提交失败，请稍后重试。");
+      const data = await response.json().catch(() => null) as { error?: string } | null;
+      if (!response.ok) {
+        setStatus(await describeApiFailure(response, data, {
+          operation: "feedback_submit",
+          endpoint: "/api/feedback",
+          fallbackMessage: "反馈提交失败，请稍后重试。",
+        }));
+        return;
+      }
       setSent(true);
     } catch (error) {
-      setStatus(error instanceof Error ? error.message : "反馈提交失败，请稍后重试。");
+      setStatus(await describeCaughtRequestError(error, {
+        operation: "feedback_submit",
+        endpoint: "/api/feedback",
+        fallbackMessage: "反馈提交失败，请稍后重试。",
+      }));
     } finally {
       setSubmitting(false);
     }

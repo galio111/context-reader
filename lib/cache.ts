@@ -160,6 +160,15 @@ export function setCachedArticleTranslation(key: string, translations: ArticleTr
   writeArticleTranslationCache(cache);
 }
 
+export function removeCachedArticleTranslation(key: string): void {
+  const cache = readArticleTranslationCache();
+  if (!(key in cache)) {
+    return;
+  }
+  delete cache[key];
+  writeArticleTranslationCache(cache);
+}
+
 export function getCachedArticleTranslationForBlocks(blocks: ArticleTranslationBlock[]): ArticleTranslationItem[] {
   const cache = readArticleTranslationBlockCache();
   return blocks
@@ -183,6 +192,23 @@ export function setCachedArticleTranslationForBlocks(
   }
 
   writeArticleTranslationBlockCache(cache);
+}
+
+export function removeCachedArticleTranslationForBlocks(blocks: ArticleTranslationBlock[]): void {
+  const cache = readArticleTranslationBlockCache();
+  let changed = false;
+
+  for (const block of blocks) {
+    const key = createArticleTranslationBlockCacheKey(block);
+    if (key in cache) {
+      delete cache[key];
+      changed = true;
+    }
+  }
+
+  if (changed) {
+    writeArticleTranslationBlockCache(cache);
+  }
 }
 
 export function getArticleTranslationCacheEntries(): Array<{ cacheKey: string; translations: ArticleTranslationItem[] }> {

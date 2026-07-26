@@ -1,0 +1,113 @@
+.details {
+  display: grid;
+  margin-top: 16px;
+  gap: 18px;
+  color: #283d49;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.section {
+  min-width: 0;
+}
+
+.section + .section {
+  padding-top: 16px;
+  border-top: 1px solid rgb(23 39 53 / 11%);
+}
+
+.section h4 {
+  margin: 0 0 8px;
+  color: #25495d;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.points {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+  list-style: none;
+}
+
+.points li {
+  position: relative;
+  padding-left: 15px;
+  overflow-wrap: anywhere;
+}
+
+.points li::before {
+  position: absolute;
+  top: .72em;
+  left: 1px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #347ca7;
+  content: "";
+}
+
+.synonyms li {
+  display: grid;
+  padding-left: 0;
+  grid-template-columns: minmax(76px, auto) minmax(0, 1fr);
+  gap: 10px;
+}
+
+.synonyms li::before {
+  display: none;
+}
+
+.synonyms strong {
+  color: #245f82;
+  font-weight: 700;
+}
+
+.mistakes {
+  padding: 13px 14px;
+  border-radius: 10px;
+  background: #f7ece9;
+}
+
+.mistakes h4 {
+  color: #813f34;
+}
+
+.mistakes .points li::before {
+  background: #a65345;
+}
+
+.example {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #eaf1f5;
+}
+
+.example p {
+  margin: 0;
+}
+
+.example p:first-child {
+  color: #243f50;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.example p + p {
+  margin-top: 4px;
+  color: #5d707b;
+}
+
+.compact {
+  margin-top: 12px;
+  gap: 14px;
+}
+
+.compact .section + .section {
+  padding-top: 12px;
+}
+
+.anki {
+  font-size: 14px;
+}

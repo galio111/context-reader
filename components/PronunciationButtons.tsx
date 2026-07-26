@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
 
 type PronunciationAccent = "en-US" | "en-GB";
 
@@ -128,7 +128,7 @@ function warmSpeechEngine(): Promise<void> {
   return speechWarmupPromise;
 }
 
-export function PronunciationButtons({ text }: PronunciationButtonsProps) {
+export const PronunciationButtons = memo(function PronunciationButtons({ text }: PronunciationButtonsProps) {
   const [playingAccent, setPlayingAccent] = useState<PronunciationAccent | null>(null);
   const [playbackError, setPlaybackError] = useState("");
   const playbackRequestIdRef = useRef(0);
@@ -218,4 +218,4 @@ export function PronunciationButtons({ text }: PronunciationButtonsProps) {
       {playbackError && <p className="basis-full text-xs leading-5 text-[#b42318]" role="status">{playbackError}</p>}
     </div>
   );
-}
+});

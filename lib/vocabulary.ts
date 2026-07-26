@@ -2,7 +2,7 @@ import { normalizeAnkiInfo } from "@/lib/ankiData";
 import { findSimilarVocabularyEntry, vocabularyWordsMatch } from "@/lib/sourceMatching";
 import LZString from "lz-string";
 import type { WordContext, WordExplanation } from "@/types/reader";
-import type { VocabularyEntry } from "@/types/vocabulary";
+import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
 import { notifyAccountDataChanged, notifyAccountObjectsDeleted } from "@/lib/accountEvents";
 import { deduplicateVocabularyEntries, vocabularyIdentity } from "@/lib/vocabularyMerge";
 
@@ -34,6 +34,16 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
   }
 
   const createdAt = typeof entry.createdAt === "string" ? entry.createdAt : new Date().toISOString();
+  const sourceArticle = entry.sourceArticle
+    && entry.sourceArticle.kind === "public"
+    && typeof entry.sourceArticle.id === "string"
+    && entry.sourceArticle.id.trim()
+      ? {
+          kind: "public" as const,
+          id: entry.sourceArticle.id.trim(),
+          title: typeof entry.sourceArticle.title === "string" ? entry.sourceArticle.title : "",
+        }
+      : undefined;
   const normalizedBase = {
     id: typeof entry.id === "string" ? entry.id : `${entry.word.toLowerCase()}-${Date.now()}`,
     word: entry.word,
@@ -51,6 +61,7 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
     sourceSentence: entry.sourceSentence,
     previousSentence: typeof entry.previousSentence === "string" ? entry.previousSentence : "",
     nextSentence: typeof entry.nextSentence === "string" ? entry.nextSentence : "",
+    sourceArticle,
     difficulty: ["easy", "medium", "hard"].includes(String(entry.difficulty))
       ? entry.difficulty!
       : "medium",
@@ -134,6 +145,7 @@ export function saveVocabularyEntries(entries: VocabularyEntry[]): void {
 export function createVocabularyEntry(
   explanation: WordExplanation,
   context: WordContext,
+  sourceArticle?: VocabularySourceArticle,
 ): VocabularyEntry {
   const createdAt = new Date().toISOString();
   const base = {
@@ -152,6 +164,7 @@ export function createVocabularyEntry(
     sourceSentence: context.sentence,
     previousSentence: context.previousSentence,
     nextSentence: context.nextSentence,
+    sourceArticle,
     difficulty: explanation.difficulty,
     shouldAddToVocabulary: explanation.shouldAddToVocabulary,
     createdAt,
@@ -188,6 +201,7 @@ export function updateVocabularyEntry(updatedEntry: VocabularyEntry): Vocabulary
 export function replaceMatchingVocabularyEntry(
   explanation: WordExplanation,
   context: WordContext,
+  sourceArticle?: VocabularySourceArticle,
 ): VocabularyEntry[] {
   const entries = getVocabularyEntries();
   const identity = vocabularyIdentity({
@@ -208,9 +222,10 @@ export function replaceMatchingVocabularyEntry(
     }
 
     replaced = true;
-    const generated = createVocabularyEntry(explanation, context);
+    const generated = createVocabularyEntry(explanation, context, sourceArticle);
     return {
       ...generated,
+      sourceArticle: generated.sourceArticle ?? entry.sourceArticle,
       id: entry.id,
       createdAt: entry.createdAt,
       updatedAt: new Date().toISOString(),

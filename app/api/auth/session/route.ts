@@ -32,6 +32,9 @@ export async function GET(request: Request) {
     }
     return NextResponse.json({ account: await getAccountSessionState(user) });
   } catch {
-    return NextResponse.json({ account: anonymousState });
+    return NextResponse.json(
+      { account: anonymousState, unavailable: true },
+      { status: 503 },
+    );
   }
 }

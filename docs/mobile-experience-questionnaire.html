@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Context Reader 手机端体验取舍问卷</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17242d;
+      --muted: #5f717c;
+      --line: #d9e2e7;
+      --surface: #fff;
+      --wash: #eef3f6;
+      --accent: #246d98;
+      --accent-soft: #e2eff6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(160deg, #edf2f5, #f8fafb 54%, #e7eef2);
+      color: var(--ink);
+      font: 16px/1.65 "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif;
+    }
+    main { width: min(760px, calc(100% - 28px)); margin: 0 auto; padding: 42px 0 120px; }
+    header { padding: 0 2px 28px; }
+    h1 { max-width: 13ch; margin: 0; font-size: clamp(2rem, 8vw, 3.6rem); line-height: 1.08; letter-spacing: -.035em; }
+    header p { max-width: 64ch; margin: 18px 0 0; color: var(--muted); }
+    .note { margin-top: 18px; padding: 14px 16px; border-radius: 12px; background: var(--accent-soft); color: #254b62; font-size: 14px; }
+    form { display: grid; gap: 16px; }
+    fieldset { margin: 0; padding: 22px; border: 0; border-radius: 14px; background: var(--surface); box-shadow: 0 6px 8px rgb(39 61 74 / 7%); }
+    legend { width: 100%; padding: 0; font-size: 19px; font-weight: 700; line-height: 1.4; }
+    .why { margin: 7px 0 16px; color: var(--muted); font-size: 14px; }
+    .options { display: grid; gap: 9px; }
+    label {
+      display: grid;
+      min-height: 52px;
+      padding: 12px 14px;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    label:has(input:checked) { border-color: var(--accent); background: #f0f7fb; }
+    input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--accent); }
+    label strong { display: block; font-size: 15px; }
+    label small { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .recommended { color: var(--accent); }
+    textarea { width: 100%; min-height: 112px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; font: inherit; resize: vertical; }
+    .actions {
+      position: sticky;
+      bottom: 0;
+      display: grid;
+      padding: 14px 0 max(14px, env(safe-area-inset-bottom));
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background: linear-gradient(transparent, #eef3f6 24%);
+    }
+    button { min-height: 48px; border: 0; border-radius: 999px; font: inherit; font-weight: 700; cursor: pointer; }
+    #generate { background: var(--accent); color: white; }
+    #copy { background: var(--ink); color: white; }
+    #result { min-height: 200px; margin-top: 16px; background: #f8fafb; }
+    @media (max-width: 560px) {
+      main { width: min(100% - 20px, 760px); padding-top: 26px; }
+      fieldset { padding: 18px 16px; }
+      .actions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>手机端应该怎样舒服地阅读</h1>
+      <p>这份问卷只处理会改变产品形态的取舍。已确定的内容不再重复询问：手机取消依赖悬停的交互、保留全文翻译等核心能力、移除 Anki 导入，并优先解决滑动卡顿。</p>
+      <div class="note">标记“推荐”的选项是当前实现默认值。你可以先直接生成答案，也可以修改后复制给 Codex。</div>
+    </header>
+
+    <form id="survey">
+      <fieldset>
+        <legend>1. 手机首页还要保留多少“书”的感觉？</legend>
+        <p class="why">手机性能和纵向空间有限，书本身份可以保留，但不必照搬桌面的逐帧翻页。</p>
+        <div class="options">
+          <label><input type="radio" name="home" value="保留封面与纸张视觉，但章节切换改为普通纵向页面，不再由滚动逐帧驱动 3D。"><span><strong>轻量书页 <span class="recommended">（推荐）</span></strong><small>保留品牌记忆，滑动最接近普通好网站。</small></span></label>
+          <label><input type="radio" name="home" value="首页完全改为普通移动网页，只在局部保留书本图形。"><span><strong>完全移动网页</strong><small>最轻最快，但和桌面视觉差异最大。</small></span></label>
+          <label><input type="radio" name="home" value="继续保留手机端滚动翻书，但显著降低层数、阴影和动画精度。"><span><strong>保留滚动翻书</strong><small>视觉更接近桌面，低端手机仍可能不够稳。</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. 阅读页的手机工具怎样出现？</legend>
+        <p class="why">全文翻译、词句解释、单独查词都需要保留，但不能同时挤在窄屏里。</p>
+        <div class="options">
+          <label><input type="radio" name="tools" value="底部保留一个紧凑工具条，点击解释、全文翻译或查词后打开可拖动的近全屏工具层。"><span><strong>底部工具条 + 工具层 <span class="recommended">（推荐）</span></strong><small>单手可达，阅读正文保持完整宽度。</small></span></label>
+          <label><input type="radio" name="tools" value="在文章顶部放工具入口，点击后进入独立全屏工具页。"><span><strong>独立工具页</strong><small>空间最充足，但来回切换会离开当前阅读位置。</small></span></label>
+          <label><input type="radio" name="tools" value="翻译直接插在每段英文下面，其他工具使用底部面板。"><span><strong>段落内双语</strong><small>对照方便，但文章会变长，可能削弱英文主阅读流。</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. 手机全文翻译默认怎样展示？</legend>
+        <div class="options">
+          <label><input type="radio" name="translation" value="在工具层内按文章顺序显示翻译，保持独立滚动；需要时可收起回到原文。"><span><strong>独立翻译层 <span class="recommended">（推荐）</span></strong><small>不改变原文排版，也不会让页面突然变得很长。</small></span></label>
+          <label><input type="radio" name="translation" value="允许在独立翻译层与逐段对照之间切换。"><span><strong>提供两种模式</strong><small>更灵活，但界面和状态管理更复杂。</small></span></label>
+          <label><input type="radio" name="translation" value="只保留逐段对照翻译。"><span><strong>只做逐段对照</strong><small>最直观，但英文视觉主次更难控制。</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. 哪些手机功能可以渐进收纳？（可多选）</legend>
+        <p class="why">收纳不是删除。入口仍可找到，只是不和最常用操作抢第一屏。</p>
+        <div class="options">
+          <label><input type="checkbox" name="disclosure" value="文章编辑、复制、保存放进“更多”菜单。" checked><span><strong>文章管理动作 <span class="recommended">（推荐）</span></strong><small>编辑、复制、保存仍保留。</small></span></label>
+          <label><input type="checkbox" name="disclosure" value="图片下载与缩放控制收纳为点击图片后的查看器工具条。" checked><span><strong>图片工具 <span class="recommended">（推荐）</span></strong></span></label>
+          <label><input type="checkbox" name="disclosure" value="生词本的清空、CSV 导出等低频动作放进二级菜单。" checked><span><strong>生词本管理 <span class="recommended">（推荐）</span></strong></span></label>
+          <label><input type="checkbox" name="disclosure" value="推荐个性化问题只在用户主动点击时展开。" checked><span><strong>推荐个性化 <span class="recommended">（推荐）</span></strong></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. “电脑端效果更好”的提示放在哪里？</legend>
+        <div class="options">
+          <label><input type="radio" name="desktop_hint" value="首次打开手机首页时，在内容下方显示一次可关闭的轻提示；之后只在使用说明和 Anki 相关位置保留说明。"><span><strong>一次性轻提示 <span class="recommended">（推荐）</span></strong><small>说明桌面有完整书本动效和更宽工作区，不阻挡开始阅读。</small></span></label>
+          <label><input type="radio" name="desktop_hint" value="长期放在手机首页底部，不弹出。"><span><strong>首页底部常驻</strong><small>最克制，但很多用户可能看不到。</small></span></label>
+          <label><input type="radio" name="desktop_hint" value="只在使用说明里提及。"><span><strong>只写进说明</strong><small>首页最干净，但提示效果最弱。</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>6. 你最常用的手机场景是什么？（可多选）</legend>
+        <div class="options">
+          <label><input type="checkbox" name="context" value="通勤或碎片时间，单手快速阅读和查词。"><span><strong>通勤碎片时间</strong></span></label>
+          <label><input type="checkbox" name="context" value="坐下来连续阅读 10 到 30 分钟。"><span><strong>连续阅读</strong></span></label>
+          <label><input type="checkbox" name="context" value="从微信、浏览器或其他 App 复制文章后立即阅读。"><span><strong>从其他 App 导入</strong></span></label>
+          <label><input type="checkbox" name="context" value="主要用手机复习生词和回看原句。"><span><strong>复习生词</strong></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. 还有哪些手机端不舒服的具体时刻？</legend>
+        <p class="why">例如：某个按钮难点、键盘弹出后挡住内容、返回时丢阅读位置、面板关不掉。</p>
+        <textarea name="notes" placeholder="可以暂时留空，之后遇到再补。"></textarea>
+      </fieldset>
+    </form>
+
+    <div class="actions">
+      <button id="generate" type="button">生成答案</button>
+      <button id="copy" type="button">复制答案</button>
+    </div>
+    <textarea id="result" readonly placeholder="答案会生成在这里"></textarea>
+  </main>
+  <script>
+    const form = document.querySelector("#survey");
+    const result = document.querySelector("#result");
+    const questions = ["home", "tools", "translation", "disclosure", "desktop_hint", "context"];
+    function generate() {
+      const data = new FormData(form);
+      const lines = ["Context Reader 手机端体验问卷答案"];
+      questions.forEach((name, index) => {
+        const values = data.getAll(name);
+        lines.push(`${index + 1}. ${values.length ? values.join("；") : "未选择"}`);
+      });
+      const notes = String(data.get("notes") || "").trim();
+      lines.push(`7. 补充：${notes || "暂无"}`);
+      result.value = lines.join("\n");
+      result.scrollIntoView({ behavior: "smooth", block: "center" });
+      return result.value;
+    }
+    document.querySelector("#generate").addEventListener("click", generate);
+    document.querySelector("#copy").addEventListener("click", async (event) => {
+      const text = result.value || generate();
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        result.focus();
+        result.select();
+        document.execCommand("copy");
+      }
+      event.currentTarget.textContent = "已复制";
+      setTimeout(() => { event.currentTarget.textContent = "复制答案"; }, 1400);
+    });
+    document.querySelectorAll("input[type=radio]").forEach((input) => {
+      if (!document.querySelector(`input[name="${input.name}"]:checked`)) input.checked = true;
+    });
+    generate();
+  </script>
+</body>
+</html>

@@ -1,30 +1,38 @@
 "use client";
 
-function friendlyFetchError(error: unknown, fallbackMessage: string): Error {
-  if (error instanceof Error) {
-    if (error.name === "AbortError") {
-      return new Error("请求已超时或被取消，请稍后重试。");
-    }
-
-    if (/failed to fetch|networkerror|load failed|fetch failed/i.test(error.message)) {
-      return new Error("网络请求失败：请确认本地服务/生产站点可访问，刷新页面后重试。");
-    }
-  }
-
-  return new Error(fallbackMessage);
-}
+import {
+  describeApiFailure,
+  describeCaughtRequestError,
+  type ClientErrorContext,
+} from "@/lib/clientErrorReporting";
 
 export async function fetchJson<T>(
   input: RequestInfo | URL,
   init: RequestInit,
   fallbackMessage: string,
+  context?: Omit<ClientErrorContext, "fallbackMessage" | "endpoint"> & { endpoint?: string },
 ): Promise<{ response: Response; data: T | null }> {
+  const endpoint = context?.endpoint
+    || (typeof input === "string" ? input : input instanceof URL ? input.pathname : "request");
+  const errorContext: ClientErrorContext = {
+    operation: context?.operation || "api_request",
+    endpoint,
+    fallbackMessage,
+    metadata: context?.metadata,
+  };
   try {
     const response = await fetch(input, init);
-    const data = (await response.json().catch(() => null)) as T | null;
+    let data = (await response.json().catch(() => null)) as T | null;
+    if (!response.ok) {
+      const message = await describeApiFailure(response, data, errorContext);
+      if (data && typeof data === "object") {
+        data = { ...data, error: message } as T;
+      } else {
+        data = { error: message } as T;
+      }
+    }
     return { response, data };
   } catch (error) {
-    throw friendlyFetchError(error, fallbackMessage);
+    throw new Error(await describeCaughtRequestError(error, errorContext));
   }
 }
-
