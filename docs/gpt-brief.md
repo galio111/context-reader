@@ -1,6 +1,6 @@
 # Context Reader GPT 项目上下文包
 
-这份文档用于把 Context Reader 的项目背景、产品目标、技术现状、用户偏好和重要约束同步给 ChatGPT。首选做法是在 ChatGPT 的“设置 → 应用”中连接 GitHub，并授权 `galio111/context-reader`：这样 GPT 可以按需搜索默认分支中的当前代码、`AGENTS.md`、README 和 `docs/`。开始讨论时可直接 `@GitHub`，明确指定仓库并要求先读取 `AGENTS.md` 和相关文档。
+这份文档用于把 Context Reader 的项目背景、产品目标、技术现状、用户偏好和重要约束同步给 ChatGPT。首选做法是在 ChatGPT 的“设置 → 插件（官方帮助文档也称 Apps）”中连接 GitHub，并授权 `galio111/context-reader`：这样 GPT 可以按需搜索默认分支中的当前代码、`AGENTS.md`、README 和 `docs/`。开始讨论时可直接 `@GitHub`，明确指定仓库并要求先读取 `AGENTS.md` 和相关文档。
 
 GitHub 只包含已经提交并推送的状态，不能读取未提交的本地改动、Codex 记忆、浏览器 `localStorage`、Vercel/Supabase 私有数据或密钥。每个重要开发阶段结束后，先让 Codex 对齐代码、项目文档和记忆，再构建、部署并推送 GitHub；之后 GPT 才能看到这一版。ChatGPT 的 GitHub 连接用于读取和分析，不应被当作写入仓库的发布工具，代码修改与推送仍交给 Codex。
 

@@ -168,7 +168,7 @@ Cloze-card fronts show the cloze sentence, a large visual gap, then the target w
 
 ## ChatGPT Project Context
 
-The public repository is `galio111/context-reader`. The preferred ChatGPT workflow is to connect GitHub from ChatGPT Settings → Apps, authorize this repository, then invoke `@GitHub` and ask it to read `AGENTS.md` plus the relevant files before discussing the project. ChatGPT's GitHub connection is a read/search context source; use Codex for local edits, validation, commits, deployment, and pushes.
+The public repository is `galio111/context-reader`. The preferred ChatGPT workflow is to connect GitHub from ChatGPT Settings → Plugins (called Apps in OpenAI's help documentation), authorize this repository, then invoke `@GitHub` and ask it to read `AGENTS.md` plus the relevant files before discussing the project. ChatGPT's GitHub connection is a read/search context source; use Codex for local edits, validation, commits, deployment, and pushes.
 
 GitHub reflects only committed and pushed files. It does not include local uncommitted work, browser `localStorage`, Codex memory, private Vercel/Supabase state, or secrets. At a milestone, reconcile code, docs, and memory first, then validate and push. `docs/gpt-brief.md` remains the curated fallback for product intent and hard boundaries when the connector is unavailable or the repository has not finished indexing.
 
