@@ -1,32 +1,23 @@
-import type { Metadata } from "next";
-import { HomeClient } from "@/components/HomeClient";
-import { listPublicArticleSummaries } from "@/lib/publicArticles";
-import { getHomepageCuration } from "@/lib/homepageCuration";
+import { permanentRedirect } from "next/navigation";
 
-export const dynamic = "force-dynamic";
+type LegacyHomeSearchParams = Record<string, string | string[] | undefined>;
 
-export const metadata: Metadata = {
-  title: "Context Reader · Book preview",
-  description: "Context Reader 书本空间首页预览。",
-};
-
-export default async function BookHomePage({
+export default async function LegacyHomePage({
   searchParams,
 }: {
-  searchParams: Promise<{ preview?: string }>;
+  searchParams: Promise<LegacyHomeSearchParams>;
 }) {
   const params = await searchParams;
-  const [initialPublicArticles, initialHomepageCuration] = await Promise.all([
-    listPublicArticleSummaries().catch(() => []),
-    getHomepageCuration().catch(() => undefined),
-  ]);
-  return (
-    <HomeClient
-      initialPublicArticles={initialPublicArticles}
-      initialHomepageCuration={initialHomepageCuration}
-      homeVariant="book"
-      forceGuestPreview={params.preview === "guest"}
-      forceMemberPreview={params.preview === "member"}
-    />
-  );
+  const query = new URLSearchParams();
+
+  for (const [key, value] of Object.entries(params)) {
+    if (Array.isArray(value)) {
+      value.forEach((item) => query.append(key, item));
+    } else if (value !== undefined) {
+      query.set(key, value);
+    }
+  }
+
+  const suffix = query.toString();
+  permanentRedirect(suffix ? `/?${suffix}` : "/");
 }

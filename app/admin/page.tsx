@@ -300,7 +300,7 @@ export default function AdminPage() {
 
   async function handleLogout() {
     if (accessMode === "developer") {
-      window.location.href = "/home-v2";
+      window.location.href = "/";
       return;
     }
     await fetch("/api/admin/logout", { method: "POST" });

@@ -3,7 +3,7 @@ import { GuideAnkiSetup } from "@/components/GuideAnkiSetup";
 import { SiteBackdrop } from "@/components/SiteBackdrop";
 import { PUBLIC_CONTACT } from "@/lib/publicContact";
 
-const START_READING_HREF = "/home-v2?start=paste";
+const START_READING_HREF = "/?start=paste";
 
 const guideNav = [
   ["#understand", "这个网站做什么"],
@@ -156,7 +156,7 @@ export function GuidePageContent({ embedded = false }: { embedded?: boolean }) {
       {!embedded && <SiteBackdrop />}
       <header className={`${embedded ? "" : "cr-site-header"} z-30 border-b border-[#17212b]/10 backdrop-blur-md ${embedded ? "sticky top-0" : "fixed inset-x-0 top-0"}`}>
         <div className="mx-auto flex h-[68px] max-w-[1180px] items-center justify-between gap-5 px-4 sm:px-6">
-          <Link className="group flex min-w-0 items-center" href="/home-v2">
+          <Link className="group flex min-w-0 items-center" href="/">
             <span className="min-w-0">
               <span className="block truncate text-[15px] font-semibold leading-5">Context Reader</span>
               <span className="block truncate text-xs text-[#60717f]">新手使用指南</span>

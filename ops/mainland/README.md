@@ -37,6 +37,6 @@ Newly published recommendation covers are first-party assets. Candidate creation
 
    `ssh -L 8080:127.0.0.1:8080 ubuntu@SERVER_IP`
 
-6. Browse `http://127.0.0.1:8080/home-v2` while the tunnel remains open.
+6. Browse `http://127.0.0.1:8080` while the tunnel remains open.
 
 The public ports remain blocked by UFW during shadow mode. After ICP filing and DNS setup, run `cutover-production.sh`; it changes the port overlay only after the DNS guard passes. Never start both shadow and production port overlays together.

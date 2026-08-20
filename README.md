@@ -3,7 +3,7 @@
 Context Reader is a Next.js reading tool for importing real English articles and understanding them with Chinese context-aware explanations, full-article translation, vocabulary capture and Anki export.
 
 - Production: `https://context-reader.com`
-- Primary route: `/home-v2` (`/` redirects there)
+- Primary route: `/`; legacy `/home-v2` links permanently redirect to the root and preserve query parameters
 - Rollback/reference: `https://context-reader-ten.vercel.app`
 - Stack: Next.js 15, React 19, TypeScript, DeepSeek, local-first browser data and a mainland self-hosted Supabase-compatible PostgreSQL/Auth/REST/Storage backend
 
@@ -40,7 +40,7 @@ The reader is the product center. Article text remains visually primary while lo
 
 ### Recommendations And Admin
 
-- `/home-v2` receives recommendation summaries during server rendering; article bodies load only on intent/open.
+- `/` receives recommendation summaries during server rendering; article bodies load only on intent/open.
 - The homepage external-publication header includes a persistent personalization control for guests and members. Signed-in users may expand the remaining library in place with category, difficulty and search filters.
 - `/admin` accepts saved, pasted, URL-imported and crawler-discovered candidates. The crawler uses reviewed RSS/Atom sources and never auto-publishes.
 - Admin publication and homepage placement are separate: a category-slot editor controls the visitor showcase and its featured first recommendation.
@@ -54,9 +54,9 @@ OCR routes and compatibility data remain in the repository, but OCR is not a cur
 
 ## Homepage Design Status
 
-Mainland production has not yet received the pending homepage redesign. In the current workspace, however, real `/home-v2` is already rendered by `HomeRedesign`: it keeps Ballpit as the brand surface, removes page turns, and connects SSR recommendations, personalization, import, Menu, Reader, account state and Admin curation. Complex motion, Chinese copy and several return paths are still explicitly unaccepted; see the implementation audit before describing the redesign as complete.
+Mainland production runs the connected `HomeRedesign` review baseline: it keeps Ballpit as the brand surface, removes page turns, and connects SSR recommendations, personalization, import, Menu, Reader, account state and Admin curation. Complex motion, Chinese copy and several return paths are still explicitly unaccepted; see the implementation audit before describing the redesign as complete.
 
-Do not create a separate `/home-lab` or a static mock homepage. Read `docs/home-redesign-current-decisions.md` first for the latest accepted choices, then `docs/home-v2-implementation-contract.md` for detailed current/target status and the three-part technical, visual and product-experience acceptance process.
+Do not create a separate `/home-lab` or a static mock homepage. Iterate on the real root homepage. Read `docs/home-redesign-current-decisions.md` first for the latest accepted choices, then `docs/home-v2-implementation-contract.md` for detailed current/target status and the three-part technical, visual and product-experience acceptance process.
 
 ## Setup
 
@@ -115,7 +115,8 @@ Without usable backend credentials, loopback development falls back to browser-l
 
 | Route | Purpose |
 |---|---|
-| `/home-v2` | Primary homepage and recommendation entry |
+| `/` | Canonical homepage and recommendation entry |
+| `/home-v2` | Compatibility redirect to `/`, preserving query parameters |
 | `/guide` | New-user and AnkiConnect setup guide |
 | `/account/usage` | Account status and usage |
 | `/admin` | Server-authorized recommendations, accounts, feedback and error console |

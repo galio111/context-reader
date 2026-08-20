@@ -44,7 +44,7 @@ VOLCENGINE_TTS_US_VOICE=en_female_amanda_mars_bigtts
 VOLCENGINE_TTS_UK_VOICE=en_female_emily_mars_bigtts
 ```
 
-OCR routes and the dormant legacy image-import path can use either `OCR_PROVIDER=zhipu` with `ZHIPU_API_KEY`, or `OCR_PROVIDER=openai` with `OPENAI_API_KEY`. The shipped `/home-v2` homepage exposes no image upload, and automatic OCR for images embedded in URL-imported articles remains gated off in the reader.
+OCR routes and the dormant legacy image-import path can use either `OCR_PROVIDER=zhipu` with `ZHIPU_API_KEY`, or `OCR_PROVIDER=openai` with `OPENAI_API_KEY`. The shipped root homepage exposes no image upload, and automatic OCR for images embedded in URL-imported articles remains gated off in the reader.
 
 `DEEPSEEK_TRANSLATION_MODEL` overrides only full-article translation. `DEEPSEEK_FALLBACK_MODELS` is a comma-separated model list used for supported retries on the primary provider. Structured word explanations can also use `DEEPSEEK_FALLBACK_BASE_URL` with optional `DEEPSEEK_FALLBACK_API_KEY` and `DEEPSEEK_FALLBACK_MODEL`. Empty fallback values disable the secondary-provider path.
 
@@ -210,7 +210,7 @@ It fetches a remote image server-side, sends it to the configured vision model, 
 }
 ```
 
-`POST /api/ocr-image-layout` accepts either the same multipart upload, a JSON data URL, or a JSON remote `url`. It returns `words` with `text`, percentage `x/y/width/height`, and `lineText`. The dormant legacy image-import path can call text and layout OCR in parallel, preserve the original image, and use the word boxes for click-to-explain when layout detection succeeds; it is not exposed on `/home-v2`. Plain OCR text remains the fallback reading body for any compatible stored legacy image article.
+`POST /api/ocr-image-layout` accepts either the same multipart upload, a JSON data URL, or a JSON remote `url`. It returns `words` with `text`, percentage `x/y/width/height`, and `lineText`. The dormant legacy image-import path can call text and layout OCR in parallel, preserve the original image, and use the word boxes for click-to-explain when layout detection succeeds; it is not exposed on the root homepage. Plain OCR text remains the fallback reading body for any compatible stored legacy image article.
 
 Automatic OCR for images inside URL-imported articles remains disabled in `ReaderView`; stored legacy OCR/layout metadata is still accepted. Imported images can be enlarged, cursor-anchored zoomed, and downloaded. Remote downloads use `GET /api/download-image?url=...&filename=...`, which validates image content and enforces a 20MB limit.
 

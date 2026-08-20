@@ -497,7 +497,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   const logout = useCallback(async () => {
     if (account.localOnly || account.localDirect) {
-      window.location.href = "/home-v2";
+      window.location.href = "/";
       return;
     }
     try {
@@ -523,7 +523,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     clearLocalAccountSession();
     setLocalAccount(null);
     setAccount(emptyAccount);
-    window.location.href = "/home-v2";
+    window.location.href = "/";
   }, [account.localDirect, account.localOnly]);
 
   const value = useMemo<AccountContextValue>(() => ({

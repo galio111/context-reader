@@ -212,7 +212,7 @@ export function GuideAnkiSetup() {
 
                 <div className={`mt-4 rounded-[10px] px-4 py-3 text-sm leading-6 ${statusClass}`} role={statusTone === "error" ? "alert" : "status"} aria-live="polite">
                   {status}
-                  {connected && <Link className="ml-1 font-semibold underline underline-offset-4" href="/home-v2?start=paste">返回首页开始阅读</Link>}
+                  {connected && <Link className="ml-1 font-semibold underline underline-offset-4" href="/?start=paste">返回首页开始阅读</Link>}
                 </div>
 
                 {statusTone === "error" && (

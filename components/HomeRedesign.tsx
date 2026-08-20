@@ -871,7 +871,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       <BookLetterField paused={memberOpeningVisible} />
       <header className={styles.topbar}>
         <div className={`${styles.brandCluster} ${memberHome ? styles.brandClusterFixed : ""}`}>
-          <PillNavAction className={styles.brand} href="/home-v2" label="Context Reader" ariaLabel="Context Reader 首页" />
+          <PillNavAction className={styles.brand} href="/" label="Context Reader" ariaLabel="Context Reader 首页" />
           <nav className={styles.quickNav} aria-label="常用功能">
             <span className={styles.quickItem} data-tooltip="粘贴正文或输入文章网址">
               <PillNavAction motion="none" className={styles.quickButton} label="导入" ariaLabel="导入文章" onClick={(event) => { if (event.detail > 0) event.currentTarget.blur(); scrollToImport(); }} renderIcon={() => <QuickActionIcon kind="import" />} />

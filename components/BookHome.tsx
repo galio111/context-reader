@@ -1565,7 +1565,7 @@ export function BookHome({
       <header className={styles.topbar}>
         <PillNavAction
           className={styles.brand}
-          href="/home-v2"
+          href="/"
           label="Context Reader"
           ariaLabel="Context Reader 书本主页"
         />

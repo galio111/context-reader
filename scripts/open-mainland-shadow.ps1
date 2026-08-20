@@ -37,4 +37,4 @@ if (-not $listener) {
   throw "SSH tunnel did not open localhost:$localPort"
 }
 
-Write-Output "Context Reader mainland shadow: http://127.0.0.1:$localPort/home-v2"
+Write-Output "Context Reader mainland shadow: http://127.0.0.1:$localPort"

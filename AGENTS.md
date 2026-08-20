@@ -4,7 +4,7 @@
 
 Context Reader is a Next.js 15 / React 19 reading tool for Chinese-speaking learners reading real English articles. Reading flow is primary; lookup, translation, vocabulary, recommendations, accounts and Anki support it.
 
-Primary production is `https://context-reader.com` on the mainland-China stack. `https://context-reader-ten.vercel.app` and the managed Supabase project are rollback/reference environments only. `/` redirects to `/home-v2`.
+Primary production is `https://context-reader.com` on the mainland-China stack. `https://context-reader-ten.vercel.app` and the managed Supabase project are rollback/reference environments only. The canonical homepage is the bare domain root; legacy `/home-v2` links permanently redirect to `/` while preserving their query string.
 
 The public beta uses an unverified mainland-China phone identifier, nickname and six-digit numeric password. It sends no SMS. The internal synthetic email is never user-visible. Email OTP remains legacy/future code and is not launch-ready until custom SMTP and a `{{ .Token }}` template are configured.
 
@@ -47,7 +47,7 @@ Do not say a release is live because code was edited, committed, built, uploaded
 
 ## Recommendations And Admin
 
-- Public recommendations are server-rendered by `app/home-v2/page.tsx`. Changes to article data, caches, import or schema must be checked against Admin publishing, preload storage and public replay.
+- Public recommendations are server-rendered by `app/page.tsx`. Changes to article data, caches, import or schema must be checked against Admin publishing, preload storage and public replay.
 - New recommendations enter one `/admin` candidate workflow from saved article, pasted text, URL or reviewed RSS/Atom discovery. URL intake and crawling reuse `/api/import-url` and the shared article-boundary sanitizer. Crawler output never publishes automatically.
 - Candidate and published rows open the real `ReaderView`; body edits write back to that row, while title/summary/cover metadata stay in Admin. Publishing requires a reviewed cover.
 - Remote candidate covers must be fetched through the pinned-DNS safe path, converted to bounded content-addressed WebP and stored in the active `public-article-covers` bucket before publication. Published failures show a calm source-labelled fallback, never browser broken-image UI.
@@ -62,10 +62,10 @@ Do not say a release is live because code was edited, committed, built, uploaded
 
 ## Homepage Boundary
 
-- `/home-v2` is the only current homepage route and receives server-rendered public articles. `HomeClient` owns every real transition into `ReaderView`. Do not create `/home-lab` or a disconnected fake homepage.
+- `/` is the only canonical homepage and receives server-rendered public articles. `/home-v2` is compatibility-only and must redirect to `/`. `HomeClient` owns every real transition into `ReaderView`. Do not create `/home-lab` or a disconnected fake homepage.
 - Current code still ships `BookHome` and `CurvedPageTurn`, but their book/page-turn interaction is explicitly superseded as the future design direction. It is not a protected motion system.
 - Accepted next direction: keep the existing cover and Ballpit physics as a brand/IP surface; remove all cover and inner page turns plus scroll/wheel-driven turning; clicking the cover or primary action should reveal real recommendations and a fast reading path. A user-confirmed Lusion reference may be reproduced with Context Reader content and slightly smaller imagery.
-- The redesign is not implemented yet. Work directly on real `/home-v2` in a branch and connect each visual slice to real SSR recommendations, HomeClient callbacks, Menu/account surfaces and `ReaderView` from the first iteration. Do not finish UI first and synchronize functionality later.
+- Continue redesign work on the real root homepage in a branch and connect each visual slice to real SSR recommendations, HomeClient callbacks, Menu/account surfaces and `ReaderView` from the first iteration. Do not finish UI first and synchronize functionality later.
 - Homepage layout, Menu presentation and visual hierarchy may be redesigned, but existing capabilities cannot disappear by implication. Any removal requires an explicit functional decision.
 - Suppress native blue selection only through scoped/shared selection rules while restoring normal selection in inputs, textareas, editable fields and the translation panel. Never apply site-wide `user-select: none`.
 - Full current/target status and the implementation workflow live in `docs/home-v2-implementation-contract.md`.

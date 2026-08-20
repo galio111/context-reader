@@ -2,7 +2,7 @@
   "name": "Context Reader",
   "short_name": "Context Reader",
   "description": "A focused English reading workspace with contextual Chinese explanations.",
-  "start_url": "/home-v2",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#f5f5f7",

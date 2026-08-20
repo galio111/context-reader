@@ -139,8 +139,8 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
       {!embedded && <SiteBackdrop />}
       <div className="mx-auto max-w-5xl">
         <header className="flex items-center justify-between gap-4">
-          <Link className="text-lg font-semibold" href="/home-v2">Context Reader</Link>
-          <Link className="rounded-full border border-black/10 bg-white px-4 py-2 text-sm" href="/home-v2">返回阅读</Link>
+          <Link className="text-lg font-semibold" href="/">Context Reader</Link>
+          <Link className="rounded-full border border-black/10 bg-white px-4 py-2 text-sm" href="/">返回阅读</Link>
         </header>
 
         <section className="mt-14 max-w-2xl">

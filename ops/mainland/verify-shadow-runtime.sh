@@ -6,7 +6,7 @@ compose=(docker compose --env-file "$script_dir/.env" -f "$script_dir/compose.ym
 
 "${compose[@]}" ps
 
-for path in /api/connectivity /api/auth/session /api/public-articles /guide /home-v2; do
+for path in /api/connectivity /api/auth/session /api/public-articles /guide /; do
   passed=0
   for _ in $(seq 1 20); do
     code=$(curl --silent --show-error --output /tmp/context-reader-verify-body --write-out '%{http_code}' "http://127.0.0.1:8080$path" || true)
