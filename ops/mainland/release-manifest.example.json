@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "YYYYMMDDTHHMMSS",
+  "parentReleaseId": "CURRENT_ACTIVE_RELEASE_ID",
+  "sourceRevision": "40-character-git-commit",
+  "guardVersion": 1,
+  "requiredContracts": [
+    "release-lineage-v1",
+    "phonetic-current-form-v1"
+  ],
+  "changedFiles": [
+    "path/to/reviewed-file"
+  ]
+}

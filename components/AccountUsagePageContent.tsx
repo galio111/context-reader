@@ -4,10 +4,17 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAccount } from "@/components/AccountProvider";
 import { SiteBackdrop } from "@/components/SiteBackdrop";
+import type { AccountSyncProgress, AccountSyncResult } from "@/lib/accountSyncClient";
+import { PUBLIC_COMMERCIAL_UI_ENABLED, PUBLIC_USAGE_DETAILS_ENABLED } from "@/lib/commercialUi";
+import { RECOMMENDATION_INTERESTS, RECOMMENDATION_READING_LEVELS } from "@/lib/recommendationPreferences";
 import type { UsageMetricKey } from "@/types/account";
 
 const metricLabels: Record<UsageMetricKey, string> = {
   guest_lookup: "游客查词",
+  guest_article_lookup: "游客文章查询",
+  guest_dictionary_lookup: "游客单独查词",
+  guest_text_import: "游客正文导入",
+  guest_url_import: "游客网址导入",
   lookup_generation: "查词与问答",
   deep_reading: "深度阅读点数",
 };
@@ -20,26 +27,100 @@ const plans = [
 ] as const;
 
 export function AccountUsagePageContent({ embedded = false }: { embedded?: boolean }) {
-  const { account, loading, openLogin, refreshAccount, syncNow, logout } = useAccount();
+  const { account, loading, isOffline, localAccount, openLogin, refreshAccount, syncNow, logout } = useAccount();
   const [loggingOut, setLoggingOut] = useState(false);
   const [logoutError, setLogoutError] = useState("");
+  const [syncStatus, setSyncStatus] = useState<"idle" | "working" | "success" | "error">("idle");
+  const [syncProgress, setSyncProgress] = useState<AccountSyncProgress | null>(null);
+  const [lastSyncResult, setLastSyncResult] = useState<AccountSyncResult | null>(null);
+  const [exportStatus, setExportStatus] = useState<"idle" | "working" | "success" | "error">("idle");
+  const [profileEditing, setProfileEditing] = useState(false);
+  const [profileSaving, setProfileSaving] = useState(false);
+  const [profileMessage, setProfileMessage] = useState("");
+  const [profileLevel, setProfileLevel] = useState("");
+  const [profileInterests, setProfileInterests] = useState<string[]>([]);
   const accountIdentifier = account.profile?.phone
     ? `手机号 ${account.profile.phone}`
     : account.profile?.email || "";
   useEffect(() => { void refreshAccount(); }, [refreshAccount]);
+  useEffect(() => {
+    setProfileLevel(account.profile?.englishLevel || "");
+    setProfileInterests(account.profile?.readingInterests || []);
+  }, [account.profile?.englishLevel, account.profile?.readingInterests]);
+
+  async function saveProfile(patch: Record<string, unknown>) {
+    if (profileSaving) return;
+    setProfileSaving(true);
+    setProfileMessage("");
+    try {
+      const response = await fetch("/api/account/profile", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(patch),
+      });
+      const data = await response.json().catch(() => null) as { error?: string } | null;
+      if (!response.ok) throw new Error(data?.error || "资料保存失败。");
+      await refreshAccount();
+      setProfileEditing(false);
+      setProfileMessage("资料已保存，之后的推荐会参考新的英语水平和阅读偏好。");
+    } catch (error) {
+      setProfileMessage(error instanceof Error ? error.message : "资料保存失败。");
+    } finally {
+      setProfileSaving(false);
+    }
+  }
 
   async function exportData() {
-    await syncNow();
-    const response = await fetch("/api/account/export", { cache: "no-store" });
-    if (!response.ok) return;
-    const blob = await response.blob();
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = `context-reader-data-${new Date().toISOString().slice(0, 10)}.json`;
-    anchor.click();
-    URL.revokeObjectURL(url);
+    if (exportStatus === "working") return;
+    setExportStatus("working");
+    try {
+      await syncNow();
+      const response = await fetch("/api/account/export", { cache: "no-store" });
+      if (!response.ok) throw new Error("export failed");
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = `context-reader-data-${new Date().toISOString().slice(0, 10)}.json`;
+      anchor.click();
+      URL.revokeObjectURL(url);
+      setExportStatus("success");
+    } catch {
+      setExportStatus("error");
+    }
   }
+
+  async function handleSync() {
+    if (syncStatus === "working") return;
+    setSyncStatus("working");
+    setSyncProgress(null);
+    setLastSyncResult(null);
+    try {
+      const result = await syncNow({ onProgress: setSyncProgress });
+      setLastSyncResult(result);
+      setSyncStatus("success");
+    } catch {
+      setSyncStatus("error");
+    }
+  }
+
+  const syncButtonLabel = syncStatus !== "working"
+    ? syncStatus === "success" ? "再次检查同步" : "立即同步"
+    : syncProgress?.phase === "waiting"
+      ? "正在等待同步…"
+      : syncProgress?.phase === "pulling"
+        ? syncProgress.initial ? `首次校准 ${syncProgress.pulledCount} 项…` : `正在接收 ${syncProgress.pulledCount} 项…`
+        : syncProgress?.phase === "merging"
+          ? "正在合并数据…"
+          : syncProgress?.phase === "pushing"
+            ? `正在上传 ${syncProgress.pushedCount} 项…`
+            : "正在同步…";
+
+  const syncResultText = lastSyncResult
+    ? lastSyncResult.pulledCount === 0 && lastSyncResult.pushedCount === 0
+      ? `已是最新，用时 ${(lastSyncResult.durationMs / 1000).toFixed(1)} 秒。`
+      : `同步完成：接收 ${lastSyncResult.pulledCount} 项，上传 ${lastSyncResult.pushedCount} 项，用时 ${(lastSyncResult.durationMs / 1000).toFixed(1)} 秒。`
+    : "";
 
   async function handleLogout() {
     if (loggingOut) return;
@@ -54,7 +135,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
   }
 
   return (
-    <main className={`cr-site-background px-4 py-8 text-[#17212b] sm:px-6 sm:py-12 ${embedded ? "min-h-full" : ""}`}>
+    <main className={`${embedded ? "min-h-full" : "cr-site-background"} px-4 py-8 text-[#17212b] sm:px-6 sm:py-12`}>
       {!embedded && <SiteBackdrop />}
       <div className="mx-auto max-w-5xl">
         <header className="flex items-center justify-between gap-4">
@@ -63,16 +144,23 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
         </header>
 
         <section className="mt-14 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#5f6d79]">Usage</p>
-          <h1 className="mt-3 text-4xl font-semibold tracking-[-.04em] sm:text-5xl">用量清楚，阅读不中断。</h1>
-          <p className="mt-5 text-base leading-7 text-[#536675]">查词与重型功能分开计算。缓存命中、失败、超时和及时取消不扣注册账号额度；1 个深度阅读点约对应 1,000 个待处理字符，摘要至少 2 点，OCR 每张 5 点。</p>
+          <h1 className="text-4xl font-semibold tracking-[-.04em] sm:text-5xl">账号与数据</h1>
+          {PUBLIC_USAGE_DETAILS_ENABLED && <p className="mt-5 text-base leading-7 text-[#536675]">查词与深度阅读功能分开计算。缓存命中、失败、超时和及时取消不扣注册账号额度；1 个深度阅读点约对应 1,000 个待处理字符，摘要至少 2 点。</p>}
         </section>
 
-        {loading ? <p className="mt-12 text-[#657582]">正在读取用量…</p> : !account.authenticated ? (
+        {loading ? <p className="mt-12 text-[#657582]">正在读取账号…</p> : isOffline ? (
+          <section className="mt-12 rounded-[16px] bg-[#fff7df] p-7 text-[#533d17] shadow-[0_4px_8px_rgb(69_48_12_/_12%)] sm:p-9">
+            <h2 className="text-2xl font-semibold">当前为离线访问</h2>
+            <p className="mt-3 leading-7">
+              {localAccount?.nickname ? `${localAccount.nickname} 的本机文章、生词和已有缓存仍可使用。` : "当前页面与已缓存内容仍可使用。"}
+              {" "}云同步、账号操作和数据导出会在恢复联网后可用。
+            </p>
+          </section>
+        ) : !account.authenticated ? (
           <section className="mt-12 rounded-[16px] bg-[#fbfcfe] p-7 shadow-[0_4px_8px_rgb(43_61_77_/_10%)] sm:p-9">
             <h2 className="text-2xl font-semibold">当前为游客</h2>
-            <p className="mt-3 text-[#5f6d79]">每天可试用 10 次划词解释；保存文章、生词本、全文翻译和 OCR 需要登录。</p>
-            {account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}
+            <p className="mt-3 text-[#5f6d79]">保存文章、生词本和私有全文翻译需要登录。</p>
+            {PUBLIC_USAGE_DETAILS_ENABLED && account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}
             <button className="mt-7 rounded-full bg-[#174f82] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#123f68]" type="button" onClick={() => openLogin("登录后会合并本机试用中产生的解释缓存，并开启跨设备同步。")}>手机号登录</button>
           </section>
         ) : (
@@ -80,25 +168,55 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
             <section className="mt-12 rounded-[16px] bg-[#fbfcfe] p-7 shadow-[0_4px_8px_rgb(43_61_77_/_10%)] sm:p-9">
               <div className="flex flex-wrap items-start justify-between gap-5">
                 <div><p className="text-sm text-[#5f6d79]">当前账号</p><h2 className="mt-1 text-2xl font-semibold">{account.profile?.nickname || accountIdentifier}</h2><p className="mt-2 text-sm text-[#5f6d79]">{accountIdentifier}</p>{account.profile?.loginMethod === "phone_pin" && <p className="mt-1 text-xs text-[#738391]">手机号尚未验证 · 6 位数字密码登录</p>}</div>
-                <span className="rounded-full bg-[#dce9f3] px-4 py-2 text-sm font-semibold text-[#285a7c]">{account.plan?.displayName || "免费用户"}</span>
+                <span className="rounded-full bg-[#dce9f3] px-4 py-2 text-sm font-semibold text-[#285a7c]">
+                  {PUBLIC_COMMERCIAL_UI_ENABLED ? account.plan?.displayName || "免费用户" : "公开测试中"}
+                </span>
               </div>
-              <div className="mt-8 grid gap-5 sm:grid-cols-2">{account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}</div>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold" type="button" onClick={() => void syncNow()}>立即同步</button>
-                <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold" type="button" onClick={() => void exportData()}>导出个人数据</button>
-                <button className="rounded-full border border-[#9b5353]/25 bg-transparent px-5 py-2.5 text-sm font-semibold text-[#854343] disabled:cursor-wait disabled:opacity-55" type="button" disabled={loggingOut} onClick={() => void handleLogout()}>{loggingOut ? "正在同步并退出…" : "退出登录"}</button>
-                <span className="text-xs text-[#6f7f8c]">云端为准；冲突时保留本地恢复副本。</span>
+              {account.localOnly ? (
+                <p className="mt-7 max-w-2xl text-sm leading-6 text-[#526b5a]">这是仅限 <code>127.0.0.1 / localhost</code> 的本机开发者身份。保存文章、生词本、阅读进度与缓存会持续保存在当前浏览器；它不会访问 Vercel 或云端账号服务，也不会自动同步到其他设备。</p>
+              ) : (
+                <>
+                  {account.localDirect && <p className="mt-7 max-w-2xl text-sm leading-6 text-[#526b5a]">当前 localhost 已固定连接到真实的 galio 开发者账号。保存文章、生词本、阅读进度和缓存会继续与 Supabase 云端同步；本地开发不会访问或部署到 Vercel。</p>}
+                  {PUBLIC_USAGE_DETAILS_ENABLED && <div className="mt-8 grid gap-5 sm:grid-cols-2">{account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}</div>}
+                  <div className="mt-8 flex flex-wrap items-center gap-3">
+                    <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold transition-[transform,background-color,opacity] hover:bg-[#edf5fb] active:scale-[.97] disabled:cursor-wait disabled:opacity-55" type="button" onClick={() => void handleSync()} disabled={syncStatus === "working"} aria-busy={syncStatus === "working"}>{syncButtonLabel}</button>
+                    <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold transition-[transform,background-color,opacity] hover:bg-[#edf5fb] active:scale-[.97] disabled:cursor-wait disabled:opacity-55" type="button" onClick={() => void exportData()} disabled={exportStatus === "working"} aria-busy={exportStatus === "working"}>{exportStatus === "working" ? "正在准备数据…" : exportStatus === "success" ? "已开始下载" : "导出个人数据"}</button>
+                    {!account.localDirect && <button className="rounded-full border border-[#9b5353]/25 bg-transparent px-5 py-2.5 text-sm font-semibold text-[#854343] disabled:cursor-wait disabled:opacity-55" type="button" disabled={loggingOut} onClick={() => void handleLogout()}>{loggingOut ? "正在同步并退出…" : "退出登录"}</button>}
+                  </div>
+                  {syncResultText && <p className="mt-4 text-sm font-medium text-[#35634a]" role="status" aria-live="polite">{syncResultText}</p>}
+                  {syncStatus === "error" && <p className="mt-4 text-sm text-[#963f3f]" role="alert">同步没有完成，请检查网络后重试。</p>}
+                  {exportStatus === "error" && <p className="mt-2 text-sm text-[#963f3f]" role="alert">数据导出没有完成，请检查网络后重试。</p>}
+                  {logoutError && <p className="mt-4 text-sm text-[#963f3f]" role="alert">{logoutError}</p>}
+                </>
+              )}
+            </section>
+            <section className="mt-6 rounded-[16px] bg-[#fbfcfe] p-7 shadow-[0_4px_8px_rgb(43_61_77_/_10%)] sm:p-9" aria-labelledby="reading-profile-title">
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div><p className="text-sm text-[#5f6d79]">个性化推荐</p><h2 id="reading-profile-title" className="mt-1 text-2xl font-semibold">阅读资料</h2><p className="mt-2 max-w-2xl text-sm leading-6 text-[#60717f]">英语水平与阅读偏好只用于调整“推荐”的默认顺序，不会改变你主动选择的外刊分类。</p></div>
+                {!account.localOnly && <button className="rounded-full border border-black/15 bg-white px-4 py-2 text-sm font-semibold hover:bg-[#edf5fb]" type="button" onClick={() => { setProfileEditing((value) => !value); setProfileMessage(""); }}>{profileEditing ? "收起" : "修改"}</button>}
               </div>
-              {logoutError && <p className="mt-4 text-sm text-[#963f3f]" role="alert">{logoutError}</p>}
+              {!profileEditing ? <dl className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div><dt className="text-xs text-[#738391]">英语水平</dt><dd className="mt-1 font-medium">{account.profile?.englishLevel || "未填写"}</dd></div>
+                <div><dt className="text-xs text-[#738391]">阅读偏好</dt><dd className="mt-1 font-medium">{account.profile?.readingInterests?.length ? account.profile.readingInterests.map((id) => RECOMMENDATION_INTERESTS.find((item) => item.id === id)?.label || id).join("、") : "未填写"}</dd></div>
+                <div><dt className="text-xs text-[#738391]">出生年份（选填）</dt><dd className="mt-1 flex items-center gap-3 font-medium">{account.profile?.birthYear || "未填写"}{account.profile?.birthYear && !account.localOnly ? <button className="text-xs text-[#8a4c45] underline underline-offset-4" type="button" onClick={() => void saveProfile({ birthYear: null })}>清除</button> : null}</dd></div>
+                <div><dt className="text-xs text-[#738391]">性别（选填）</dt><dd className="mt-1 flex items-center gap-3 font-medium">{account.profile?.gender === "male" ? "男" : account.profile?.gender === "female" ? "女" : "未填写"}{account.profile?.gender && !account.localOnly ? <button className="text-xs text-[#8a4c45] underline underline-offset-4" type="button" onClick={() => void saveProfile({ gender: null })}>清除</button> : null}</dd></div>
+              </dl> : <div className="mt-6">
+                <fieldset><legend className="text-sm font-semibold">当前最接近的英语阅读水平</legend><div className="mt-3 flex flex-wrap gap-2">{RECOMMENDATION_READING_LEVELS.map((level) => <button key={level} className={`rounded-full border px-4 py-2 text-sm ${profileLevel === level ? "border-[#236f91] bg-[#e6f1f5] text-[#174f69]" : "border-black/10 bg-white"}`} type="button" aria-pressed={profileLevel === level} onClick={() => setProfileLevel(level)}>{level}</button>)}</div></fieldset>
+                <fieldset className="mt-6"><legend className="text-sm font-semibold">感兴趣的内容（可多选）</legend><div className="mt-3 flex flex-wrap gap-2">{RECOMMENDATION_INTERESTS.map((interest) => <button key={interest.id} className={`rounded-full border px-4 py-2 text-sm ${profileInterests.includes(interest.id) ? "border-[#236f91] bg-[#e6f1f5] text-[#174f69]" : "border-black/10 bg-white"}`} type="button" aria-pressed={profileInterests.includes(interest.id)} onClick={() => setProfileInterests((current) => current.includes(interest.id) ? current.filter((id) => id !== interest.id) : [...current, interest.id])}>{interest.label}</button>)}</div></fieldset>
+                <div className="mt-7 flex flex-wrap gap-3"><button className="rounded-full bg-[#174f82] px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50" type="button" disabled={profileSaving} onClick={() => void saveProfile({ englishLevel: profileLevel, readingInterests: profileInterests })}>{profileSaving ? "保存中…" : "保存阅读资料"}</button><button className="rounded-full px-4 py-2.5 text-sm" type="button" onClick={() => { setProfileLevel(""); setProfileInterests([]); }}>清空选择</button></div>
+              </div>}
+              {profileMessage && <p className="mt-4 text-sm text-[#315e66]" role="status">{profileMessage}</p>}
             </section>
           </>
         )}
 
-        <section className="mt-14">
-          <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-semibold uppercase tracking-[.18em] text-[#5f6d79]">Plans</p><h2 className="mt-2 text-3xl font-semibold">待验证套餐</h2></div><span className="rounded-full bg-[#edf2f6] px-4 py-2 text-sm text-[#5d6872]">暂不开放在线支付</span></div>
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-[#657582]">价格与额度均由后台配置。公开测试期由管理员手动分配套餐，积累真实成本和阅读频率后再接支付。</p>
-          <div className="mt-7 grid gap-4 md:grid-cols-2">{plans.map(([name, price, detail]) => <article key={name} className="rounded-[16px] bg-[#fbfcfe] p-6 shadow-[0_3px_8px_rgb(43_61_77_/_9%)]"><div className="flex items-center justify-between"><h3 className="text-xl font-semibold">{name}</h3><strong>{price}</strong></div><p className="mt-5 text-sm leading-6 text-[#60717f]">{detail}</p></article>)}</div>
-        </section>
+        {PUBLIC_COMMERCIAL_UI_ENABLED && (
+          <section className="mt-14">
+            <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-semibold uppercase tracking-[.18em] text-[#5f6d79]">Plans</p><h2 className="mt-2 text-3xl font-semibold">待验证套餐</h2></div><span className="rounded-full bg-[#edf2f6] px-4 py-2 text-sm text-[#5d6872]">暂不开放在线支付</span></div>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#657582]">价格与额度均由后台配置。公开测试期由管理员手动分配套餐，积累真实成本和阅读频率后再接支付。</p>
+            <div className="mt-7 grid gap-4 md:grid-cols-2">{plans.map(([name, price, detail]) => <article key={name} className="rounded-[16px] bg-[#fbfcfe] p-6 shadow-[0_3px_8px_rgb(43_61_77_/_9%)]"><div className="flex items-center justify-between"><h3 className="text-xl font-semibold">{name}</h3><strong>{price}</strong></div><p className="mt-5 text-sm leading-6 text-[#60717f]">{detail}</p></article>)}</div>
+          </section>
+        )}
       </div>
     </main>
   );
@@ -106,5 +224,5 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
 
 function UsageBar({ usage }: { usage: { metricKey: UsageMetricKey; used: number; allowance: number; remaining: number; windowEnd: string } }) {
   const ratio = usage.allowance > 0 ? Math.min(100, Math.round((usage.used / usage.allowance) * 100)) : 0;
-  return <div className="mt-6 first:mt-0"><div className="flex items-center justify-between text-sm"><span className="font-medium">{metricLabels[usage.metricKey]}</span><span className="text-[#60717f]">剩余 {usage.remaining} / {usage.allowance}</span></div><div className="mt-3 h-2 overflow-hidden rounded-full bg-[#dce5ec]"><div className="h-full rounded-full bg-[#2b6eaa]" style={{ width: `${ratio}%` }} /></div>{usage.windowEnd && <p className="mt-2 text-xs text-[#738391]">{new Date(usage.windowEnd).toLocaleString("zh-CN")} 重置</p>}</div>;
+  return <div className="mt-6 first:mt-0"><div className="flex items-center justify-between text-sm"><span className="font-medium">{metricLabels[usage.metricKey] || usage.metricKey}</span><span className="text-[#60717f]">剩余 {usage.remaining} / {usage.allowance}</span></div><div className="mt-3 h-2 overflow-hidden rounded-full bg-[#dce5ec]"><div className="h-full rounded-full bg-[#2b6eaa]" style={{ width: `${ratio}%` }} /></div>{usage.windowEnd && <p className="mt-2 text-xs text-[#738391]">{new Date(usage.windowEnd).toLocaleString("zh-CN")} 重置</p>}</div>;
 }

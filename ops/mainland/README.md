@@ -1,0 +1,42 @@
+# Mainland deployment
+
+This stack keeps the mainland environment self-contained and reversible:
+
+- `compose.yml`: Next.js standalone app, Supabase-compatible PostgreSQL 17, GoTrue Auth, PostgREST, Storage API, an internal API gateway, and Caddy.
+- `compose.shadow.yml`: binds HTTP only to server loopback port `8080`.
+- `compose.production.yml`: opens public HTTP/HTTPS only after ICP filing.
+- `backup-postgres.sh`: daily custom-format dumps, SHA-256 sidecars, 7 daily / 5 weekly / 12 monthly retention and optional rclone off-site copy.
+- `verify-backup.sh`: restores into the fixed disposable database `context_reader_restore_check`; it never overwrites the production database.
+- `healthcheck.sh`: checks all seven services, the active shadow or production URL, disk pressure, and backup freshness every five minutes.
+- `rollback-shadow.sh`: retags a previously accepted application image and restarts only the private shadow stack.
+- `cutover-production.sh`: refuses to run until both DNS names resolve to the expected server, switches Caddy to HTTPS, opens only 80/443, and automatically restores shadow mode if acceptance fails.
+- `package-release.py`: packages only a clean Git commit whose exact parent-to-candidate delta matches a reviewed JSON file list; it writes the release id, active parent, source commit and protected contracts into the archive manifest.
+- `deploy-release.sh`: stable server-side release guard. It serializes cutovers, rejects stale parents and undeclared file deltas, verifies protected contracts, builds and health-checks the candidate identity, then recreates only `app` and `caddy` with `--no-deps`; routine application releases must never recreate PostgreSQL, Auth, REST, Storage, or the internal gateway.
+- `verify-release-contracts.sh`: stable verifier installed outside candidate releases at `/opt/context-reader/bin/verify-release-contracts`; a candidate may add contracts but cannot remove the server's existing protected checks.
+- `acceptance-admin.py`: verifies the recovery Admin surface and recommendation controls without printing its password; `--test-recommendation-email` sends one explicit SMTP test.
+- `repair-public-covers.py`: uses the protected Admin API to download, resize, and localize existing external recommendation covers without printing credentials.
+- `context-reader-recommendations.timer`: wakes the protected crawler every five minutes; the application reads the Admin-controlled enabled/time/count settings, runs once on the due Shanghai date, emails a success summary, and never publishes automatically.
+- `install-site-email-config.py`: accepts only the whitelisted `SITE_*` SMTP values over standard input and installs them in the private runtime environment with mode `0600`.
+
+Production must call `/opt/context-reader/bin/deploy-release`, not the copy inside the candidate archive. A successful edit, build or candidate health check is not an accepted deployment. The public `/api/connectivity` response must report the exact new release and parent ids before reporting production success. See `docs/release-governance.md` for the cumulative multi-session workflow and rejection recovery.
+
+Recommendation discovery, backup, restore verification, and health checks run on server-side timers even when the developer computer is off. The optional Windows pull task only copies an additional archive after the computer starts; it is not the primary backup job.
+
+Newly published recommendation covers are first-party assets. Candidate creation may keep a reviewed external URL, but publication fetches it through the pinned-DNS safe path, converts it to a bounded 1280×800 WebP, and stores it in `public-article-covers`. Use `repair-public-covers.py --id ARTICLE_ID` only for legacy published rows that still point at a failing external host; a legacy source that remains reachable but exceeds the bounded mainland download window may stay external until a reviewed manual upload is available.
+
+## First private deployment
+
+1. Run `bootstrap-ubuntu.sh` as root on a fresh Ubuntu 24.04 server.
+2. Clone the reviewed repository into `/opt/context-reader`.
+3. Copy `env.example` to `.env` and `env.runtime.example` to `.env.runtime`, then fill secrets on the server.
+4. Start the private stack:
+
+   `docker compose --env-file .env -f compose.yml -f compose.shadow.yml up -d --build`
+
+5. From the developer computer, open an SSH tunnel:
+
+   `ssh -L 8080:127.0.0.1:8080 ubuntu@SERVER_IP`
+
+6. Browse `http://127.0.0.1:8080/home-v2` while the tunnel remains open.
+
+The public ports remain blocked by UFW during shadow mode. After ICP filing and DNS setup, run `cutover-production.sh`; it changes the port overlay only after the DNS guard passes. Never start both shadow and production port overlays together.

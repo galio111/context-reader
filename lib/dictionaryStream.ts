@@ -1,12 +1,24 @@
 import type { DictionaryResult } from "@/types/dictionary";
+import { normalizeDictionarySpelling } from "@/lib/dictionarySpelling";
+import { pronunciationTargetMatches } from "@/lib/pronunciation";
 
 type DictionaryStreamEvent =
-  | { type: "head"; query?: string; lemma?: string; phonetic?: string }
-  | { type: "sense"; partOfSpeech?: string; meaning?: string; register?: string; exampleEnglish?: string; exampleChinese?: string }
+  | {
+    type: "head";
+    query?: string;
+    lemma?: string;
+    phonetic?: string;
+    phoneticFor?: string;
+    direction?: "en_to_cn" | "cn_to_en";
+    inputStatus?: "valid" | "inflection" | "misspelled";
+    suggestedQuery?: string;
+  }
+  | { type: "sense"; partOfSpeech?: string; meaning?: string; phonetic?: string; register?: string; usageNote?: string; exampleEnglish?: string; exampleChinese?: string }
+  | { type: "verbForms"; pastTense?: string; pastParticiple?: string; presentParticiple?: string }
   | { type: "usage"; value?: string }
-  | { type: "collocation"; phrase?: string; meaning?: string; exampleEnglish?: string }
-  | { type: "wordFamily"; word?: string; partOfSpeech?: string; meaning?: string }
-  | { type: "synonym"; word?: string; difference?: string }
+  | { type: "collocation"; phrase?: string; meaning?: string; exampleEnglish?: string; value?: string }
+  | { type: "wordFamily"; word?: string; partOfSpeech?: string; meaning?: string; value?: string }
+  | { type: "synonym"; word?: string; difference?: string; value?: string }
   | { type: "mistake"; value?: string }
   | { type: "memory"; value?: string }
   | { type: "done" };
@@ -37,7 +49,12 @@ export function parseDictionaryStream(text: string, fallbackQuery: string): Pars
     query: fallbackQuery,
     lemma: fallbackQuery,
     phonetic: "",
+    phoneticFor: "",
+    direction: /[\u3400-\u9fff\uf900-\ufaff]/u.test(fallbackQuery) ? "cn_to_en" : "en_to_cn",
+    inputStatus: "valid",
+    suggestedQuery: "",
     senses: [],
+    verbForms: null,
     usageGuide: "",
     collocations: [],
     wordFamily: [],
@@ -54,9 +71,20 @@ export function parseDictionaryStream(text: string, fallbackQuery: string): Pars
     eventCount += 1;
     switch (event.type) {
       case "head":
-        result.query = clean(event.query) || fallbackQuery;
+        result.query = fallbackQuery;
         result.lemma = clean(event.lemma) || result.query;
-        result.phonetic = clean(event.phonetic);
+        result.phonetic = pronunciationTargetMatches(clean(event.phoneticFor), fallbackQuery)
+          ? clean(event.phonetic)
+          : "";
+        result.phoneticFor = result.phonetic ? fallbackQuery : "";
+        result.direction = /[\u3400-\u9fff\uf900-\ufaff]/u.test(fallbackQuery)
+          ? "cn_to_en"
+          : "en_to_cn";
+        result.inputStatus =
+          event.inputStatus === "inflection" || event.inputStatus === "misspelled"
+            ? event.inputStatus
+            : "valid";
+        result.suggestedQuery = clean(event.suggestedQuery);
         break;
       case "sense": {
         const meaning = clean(event.meaning);
@@ -64,17 +92,31 @@ export function parseDictionaryStream(text: string, fallbackQuery: string): Pars
         result.senses.push({
           partOfSpeech: clean(event.partOfSpeech) || "词性待确认",
           meaning,
+          phonetic: clean(event.phonetic),
           register: clean(event.register) || "常用",
+          usageNote: clean(event.usageNote),
           exampleEnglish: clean(event.exampleEnglish),
           exampleChinese: clean(event.exampleChinese),
         });
+        if (result.direction === "cn_to_en" && result.senses.length === 1) {
+          result.lemma = meaning;
+          result.phonetic = clean(event.phonetic) || result.phonetic;
+          result.phoneticFor = result.phonetic ? meaning : "";
+        }
         break;
       }
       case "usage":
         result.usageGuide = clean(event.value);
         break;
+      case "verbForms":
+        result.verbForms = {
+          pastTense: clean(event.pastTense),
+          pastParticiple: clean(event.pastParticiple),
+          presentParticiple: clean(event.presentParticiple),
+        };
+        break;
       case "collocation": {
-        const phrase = clean(event.phrase);
+        const phrase = clean(event.phrase) || clean(event.value);
         if (!phrase || result.collocations.length >= 6) break;
         result.collocations.push({
           phrase,
@@ -84,13 +126,13 @@ export function parseDictionaryStream(text: string, fallbackQuery: string): Pars
         break;
       }
       case "wordFamily": {
-        const word = clean(event.word);
+        const word = clean(event.word) || clean(event.value);
         if (!word || result.wordFamily.length >= 5) break;
         result.wordFamily.push({ word, partOfSpeech: clean(event.partOfSpeech), meaning: clean(event.meaning) });
         break;
       }
       case "synonym": {
-        const word = clean(event.word);
+        const word = clean(event.word) || clean(event.value);
         if (!word || result.synonyms.length >= 5) break;
         result.synonyms.push({ word, difference: clean(event.difference) });
         break;
@@ -109,9 +151,13 @@ export function parseDictionaryStream(text: string, fallbackQuery: string): Pars
     }
   }
 
-  return { result, complete, eventCount };
+  return { result: normalizeDictionarySpelling(result, fallbackQuery), complete, eventCount };
 }
 
 export function isCompleteDictionaryResult(parsed: ParsedDictionaryStream): boolean {
-  return parsed.complete && parsed.result.senses.length > 0 && Boolean(parsed.result.query.trim());
+  if (!parsed.result.query.trim()) return false;
+  if (parsed.result.inputStatus === "misspelled") {
+    return Boolean(parsed.result.suggestedQuery.trim()) && parsed.eventCount > 0;
+  }
+  return parsed.complete && parsed.result.senses.length > 0;
 }

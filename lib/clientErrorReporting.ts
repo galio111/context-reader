@@ -93,7 +93,7 @@ export async function describeCaughtRequestError(
     if (typeof navigator !== "undefined" && navigator.onLine === false) {
       return "当前没有网络连接。请检查 Wi-Fi、移动网络或代理设置，然后重试。";
     }
-    return "无法连接到 Context Reader。请检查网络或代理设置；如果其他网站可以正常访问，本站可能暂时不可用，请稍后重试。";
+    return "无法连接到 Context Reader。请检查网络或代理设置。";
   }
 
   const technicalMessage = error instanceof Error ? error.message : String(error);
@@ -168,15 +168,23 @@ export async function describeClientFailure(
 
 export function validateStandaloneDictionaryInput(value: string): string {
   const normalized = value.trim().replace(/\s+/g, " ");
-  if (!normalized) return "请输入要查询的英文单词或短语。";
-  if (/[\u3400-\u9fff\uf900-\ufaff]/u.test(normalized)) {
-    return "单独查词目前只支持英文单词或英文短语，暂不支持中文查英文。中译英功能之后会开放。";
+  if (!normalized) return "请输入要查询的中文或英文单词、短语。";
+  const hasChinese = /[\u3400-\u9fff\uf900-\ufaff]/u.test(normalized);
+  const hasEnglish = /[A-Za-z]/u.test(normalized);
+  if (hasChinese && hasEnglish) {
+    return "请只输入中文或英文，不要在一次查询中混合两种语言。";
   }
   if (/[.!?。！？;；]/u.test(normalized) || normalized.split(" ").length > 8) {
-    return "这看起来是一整句话。单独查词目前只支持英文单词或不超过 8 个词的英文短语；句子请放到文章中选择后查询。";
+    return "这看起来是一整句话。单独查词支持中文词语、短语，以及不超过 8 个词的英文短语；英文句子请放到文章中选择后查询。";
+  }
+  if (hasChinese) {
+    if (!/^[\u3400-\u9fff\uf900-\ufaff·\s]+$/u.test(normalized) || normalized.replace(/\s/g, "").length > 16) {
+      return "请输入不超过 16 个汉字的中文词语或短语，暂不支持数字和其他符号。";
+    }
+    return "";
   }
   if (!/^[A-Za-z][A-Za-z'’ -]*$/u.test(normalized)) {
-    return "请输入英文单词或不超过 8 个词的英文短语，暂不支持数字和其他符号。";
+    return "请输入中文词语，或不超过 8 个词的英文短语，暂不支持数字和其他符号。";
   }
   return "";
 }

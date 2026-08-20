@@ -12,6 +12,7 @@ import type { SavedArticle } from "@/types/article";
 import type { PublicArticle } from "@/types/publicArticle";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import { useAccount } from "@/components/AccountProvider";
+import ClearableField from "@/components/ClearableField";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
 import { HomeOptionMenu } from "@/components/HomeOptionMenu";
 
@@ -716,11 +717,15 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
       </div>
       {inputMode === "url" ? (
         <div className="cr-compact-field">
-          <input value={props.articleUrl} onChange={(event) => props.onArticleUrlChange(event.target.value)} placeholder="输入公开文章网址" />
+          <ClearableField className="cr-compact-input" value={props.articleUrl} onClear={() => props.onArticleUrlChange("")} label="清空文章网址">
+            <input value={props.articleUrl} onChange={(event) => props.onArticleUrlChange(event.target.value)} placeholder="输入公开文章网址" />
+          </ClearableField>
         </div>
       ) : (
         <div className={`cr-compact-field ${props.article.trim().length > 80 ? "has-preview" : ""}`}>
-          <input value={props.article} onChange={(event) => props.onArticleChange(event.target.value)} placeholder="粘贴一篇你想读的英文文章" />
+          <ClearableField className="cr-compact-input" value={props.article} onClear={() => props.onArticleChange("")} label="清空粘贴文章">
+            <input value={props.article} onChange={(event) => props.onArticleChange(event.target.value)} placeholder="粘贴一篇你想读的英文文章" />
+          </ClearableField>
           {props.article.trim().length > 80 && <div className="cr-input-preview" role="tooltip">{props.article}</div>}
         </div>
       )}
@@ -875,8 +880,8 @@ export function ImmersiveHome(props: ImmersiveHomeProps) {
           <div className="cr-final-tabs">
             {(["paste", "url"] as InputMode[]).map((mode) => <button type="button" key={mode} className={inputMode === mode ? "is-active" : ""} onClick={() => setInputMode(mode)}>{mode === "paste" ? "粘贴文章" : "输入网址"}</button>)}
           </div>
-          {inputMode === "paste" && <textarea value={props.article} onChange={(event) => props.onArticleChange(event.target.value)} placeholder="粘贴英文文章内容" />}
-          {inputMode === "url" && <input className="cr-final-input" value={props.articleUrl} onChange={(event) => props.onArticleUrlChange(event.target.value)} placeholder="https://example.com/article" />}
+          {inputMode === "paste" && <ClearableField value={props.article} onClear={() => props.onArticleChange("")} label="清空粘贴文章" multiline><textarea value={props.article} onChange={(event) => props.onArticleChange(event.target.value)} placeholder="粘贴英文文章内容" /></ClearableField>}
+          {inputMode === "url" && <ClearableField value={props.articleUrl} onClear={() => props.onArticleUrlChange("")} label="清空文章网址"><input className="cr-final-input" value={props.articleUrl} onChange={(event) => props.onArticleUrlChange(event.target.value)} placeholder="https://example.com/article" /></ClearableField>}
           <button
             className="cr-primary cr-final-start"
             type="button"

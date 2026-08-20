@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
+import ClearableField from "@/components/ClearableField";
 import { checkAnki } from "@/lib/ankiConnect";
 import { DEFAULT_ANKI_ENDPOINT } from "@/lib/ankiTemplates";
 
@@ -230,14 +231,16 @@ export function GuideAnkiSetup() {
                   <summary className="cursor-pointer font-semibold text-[#344d5e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1769aa]">高级设置：连接地址与线上网站跨域配置</summary>
                   <div className="mt-4">
                     <label className="block font-semibold text-[#344d5e]" htmlFor="guide-anki-endpoint">AnkiConnect 地址</label>
-                    <input
-                      id="guide-anki-endpoint"
-                      className="mt-2 h-11 w-full rounded-[10px] border border-[#c4d0d9] bg-white px-3 text-sm text-[#17212b] outline-none transition-colors placeholder:text-[#657582] focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15"
-                      value={endpoint}
-                      onChange={(event) => setEndpoint(event.target.value)}
-                      placeholder={DEFAULT_ANKI_ENDPOINT}
-                      inputMode="url"
-                    />
+                    <ClearableField className="mt-2" value={endpoint} onClear={() => setEndpoint("")} label="清空 AnkiConnect 地址">
+                      <input
+                        id="guide-anki-endpoint"
+                        className="h-11 w-full rounded-[10px] border border-[#c4d0d9] bg-white px-3 text-sm text-[#17212b] outline-none transition-colors placeholder:text-[#657582] focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15"
+                        value={endpoint}
+                        onChange={(event) => setEndpoint(event.target.value)}
+                        placeholder={DEFAULT_ANKI_ENDPOINT}
+                        inputMode="url"
+                      />
+                    </ClearableField>
                     <p className="mt-2 text-xs leading-5 text-[#657582]">出于安全原因，本站只连接本机的 127.0.0.1:8765。</p>
 
                     <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">

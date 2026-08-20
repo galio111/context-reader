@@ -1,0 +1,237 @@
+name: context-reader
+
+services:
+  postgres:
+    image: supabase/postgres:17.6.1.136
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXP: ${JWT_EXPIRY:-3600}
+    command:
+      - postgres
+      - -c
+      - config_file=/etc/postgresql/postgresql.conf
+      - -c
+      - shared_buffers=256MB
+      - -c
+      - effective_cache_size=1GB
+      - -c
+      - work_mem=8MB
+      - -c
+      - maintenance_work_mem=128MB
+      - -c
+      - max_connections=50
+      - -c
+      - log_min_duration_statement=1000
+    volumes:
+      - supabase-postgres-data:/var/lib/postgresql/data
+      - ./supabase/roles.sql:/docker-entrypoint-initdb.d/init-scripts/99-context-reader-roles.sql:ro
+      - ./supabase/jwt.sql:/docker-entrypoint-initdb.d/init-scripts/99-context-reader-jwt.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    mem_limit: 1050m
+    cpus: 1.25
+    networks:
+      - private
+    logging: &rotated-logs
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  auth:
+    image: supabase/gotrue:v2.189.0
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      GOTRUE_API_HOST: 0.0.0.0
+      GOTRUE_API_PORT: 9999
+      API_EXTERNAL_URL: ${SUPABASE_PUBLIC_URL}/auth/v1
+      GOTRUE_DB_DRIVER: postgres
+      GOTRUE_DB_DATABASE_URL: postgresql://supabase_auth_admin:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      GOTRUE_SITE_URL: ${PUBLIC_SITE_URL}
+      GOTRUE_URI_ALLOW_LIST: ${PUBLIC_SITE_URL},${ROLLBACK_SITE_URL:-https://context-reader-ten.vercel.app}
+      GOTRUE_DISABLE_SIGNUP: "false"
+      GOTRUE_JWT_ADMIN_ROLES: service_role
+      GOTRUE_JWT_AUD: authenticated
+      GOTRUE_JWT_DEFAULT_GROUP_NAME: authenticated
+      GOTRUE_JWT_EXP: ${JWT_EXPIRY:-3600}
+      GOTRUE_JWT_SECRET: ${JWT_SECRET}
+      GOTRUE_JWT_ISSUER: ${SUPABASE_PUBLIC_URL}/auth/v1
+      GOTRUE_EXTERNAL_EMAIL_ENABLED: "true"
+      GOTRUE_EXTERNAL_ANONYMOUS_USERS_ENABLED: "false"
+      GOTRUE_MAILER_AUTOCONFIRM: "true"
+      GOTRUE_SMTP_ADMIN_EMAIL: ${SMTP_ADMIN_EMAIL:-noreply@context-reader.com}
+      GOTRUE_SMTP_HOST: ${SMTP_HOST:-localhost}
+      GOTRUE_SMTP_PORT: ${SMTP_PORT:-2525}
+      GOTRUE_SMTP_USER: ${SMTP_USER:-unused}
+      GOTRUE_SMTP_PASS: ${SMTP_PASS:-unused}
+      GOTRUE_SMTP_SENDER_NAME: ${SMTP_SENDER_NAME:-Context Reader}
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:9999/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    mem_limit: 256m
+    cpus: 0.5
+    networks:
+      - private
+    logging: *rotated-logs
+
+  rest:
+    image: postgrest/postgrest:v14.12
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGRST_DB_URI: postgresql://authenticator:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      PGRST_DB_SCHEMAS: public,storage
+      PGRST_DB_MAX_ROWS: 1000
+      PGRST_DB_EXTRA_SEARCH_PATH: public,extensions
+      PGRST_DB_ANON_ROLE: anon
+      PGRST_ADMIN_SERVER_PORT: 3001
+      PGRST_ADMIN_SERVER_HOST: 0.0.0.0
+      PGRST_JWT_SECRET: ${JWT_SECRET}
+      PGRST_DB_USE_LEGACY_GUCS: "false"
+      PGRST_APP_SETTINGS_JWT_SECRET: ${JWT_SECRET}
+      PGRST_APP_SETTINGS_JWT_EXP: ${JWT_EXPIRY:-3600}
+    healthcheck:
+      test: ["CMD", "postgrest", "--ready"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    mem_limit: 192m
+    cpus: 0.5
+    networks:
+      - private
+    logging: *rotated-logs
+
+  storage:
+    image: supabase/storage-api:v1.60.4
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rest:
+        condition: service_healthy
+    environment:
+      ANON_KEY: ${ANON_KEY}
+      SERVICE_KEY: ${SERVICE_ROLE_KEY}
+      POSTGREST_URL: http://rest:3000
+      AUTH_JWT_SECRET: ${JWT_SECRET}
+      DATABASE_URL: postgresql://supabase_storage_admin:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      STORAGE_PUBLIC_URL: ${SUPABASE_PUBLIC_URL}
+      REQUEST_ALLOW_X_FORWARDED_PATH: "true"
+      FILE_SIZE_LIMIT: 52428800
+      STORAGE_BACKEND: file
+      GLOBAL_S3_BUCKET: context-reader
+      FILE_STORAGE_BACKEND_PATH: /var/lib/storage
+      TENANT_ID: context-reader
+      REGION: ap-shanghai
+      ENABLE_IMAGE_TRANSFORMATION: "false"
+    volumes:
+      - supabase-storage-data:/var/lib/storage
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:5000/status"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    mem_limit: 256m
+    cpus: 0.5
+    networks:
+      - private
+    logging: *rotated-logs
+
+  supabase-api:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    volumes:
+      - ./SupabaseGateway.Caddyfile:/etc/caddy/Caddyfile:ro
+    depends_on:
+      auth:
+        condition: service_healthy
+      rest:
+        condition: service_healthy
+      storage:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:8000/auth/v1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    mem_limit: 96m
+    cpus: 0.25
+    networks:
+      - private
+    logging: *rotated-logs
+
+  app:
+    build:
+      context: ../..
+      dockerfile: ops/mainland/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - .env.runtime
+    environment:
+      NODE_ENV: production
+      HOSTNAME: 0.0.0.0
+      PORT: 3000
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      SUPABASE_URL: http://supabase-api:8000
+      SUPABASE_PUBLIC_URL: ${SUPABASE_PUBLIC_URL}
+      SUPABASE_SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      supabase-api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/api/connectivity >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    mem_limit: 1250m
+    cpus: 2.0
+    networks:
+      - private
+    logging: *rotated-logs
+
+  caddy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:-:80}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      app:
+        condition: service_healthy
+    mem_limit: 192m
+    cpus: 0.5
+    networks:
+      - private
+    logging: *rotated-logs
+
+networks:
+  private:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  supabase-postgres-data:
+  supabase-storage-data:
+  caddy-data:
+  caddy-config:

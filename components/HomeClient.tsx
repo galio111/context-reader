@@ -2,29 +2,66 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArticleInput } from "@/components/ArticleInput";
-import { BookHome } from "@/components/BookHome";
+import { HomeRedesign } from "@/components/HomeRedesign";
 import { ReaderView } from "@/components/ReaderView";
 import { fetchJson } from "@/lib/apiClient";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
-import { deleteSavedArticle, getSavedArticles, touchSavedArticle } from "@/lib/articles";
+import { deleteSavedArticle, getSavedArticles, saveArticleReadingProgress, touchSavedArticle } from "@/lib/articles";
 import { getCachedArticleTranslation, setCachedArticleTranslation } from "@/lib/cache";
 import { findBestSourceSentenceMatch, normalizeForSourceMatch } from "@/lib/sourceMatching";
 import { hasClickableWords, tokenizeArticle } from "@/lib/tokenizer";
+import { primeLeadingArticleImage } from "@/lib/articleImagePreload";
 import type { ImportedArticle, ImportedImageLayoutWord, SavedArticle } from "@/types/article";
 import type { PublicArticle, PublicExplanation } from "@/types/publicArticle";
+import type { ReaderViewportAnchor } from "@/types/reader";
 import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
 import { updateVocabularyEntry } from "@/lib/vocabulary";
 import { useAccount } from "@/components/AccountProvider";
+import {
+  clearTemporaryReading,
+  readTemporaryReading,
+  updateTemporaryReadingProgress,
+  writeTemporaryReading,
+  type TemporaryReading,
+} from "@/lib/temporaryReading";
+import type { HomepageCuration } from "@/lib/homepageCurationShared";
 
 interface HomeClientProps {
   initialPublicArticles: PublicArticle[];
+  initialHomepageCuration?: HomepageCuration;
   homeVariant?: "immersive" | "book";
+  forceGuestPreview?: boolean;
+  forceMemberPreview?: boolean;
 }
 
 type PublicArticleDetails = Pick<
   PublicArticle,
   "id" | "title" | "body" | "importedArticle" | "explanations" | "articleTranslations"
 >;
+
+type ReaderOriginKind = "pasted-text" | "url-import" | "saved-article" | "temporary-article" | "public-article" | "demo" | "vocabulary";
+
+interface ReaderOriginSnapshot {
+  kind: ReaderOriginKind;
+  scrollY: number;
+  capturedAt: number;
+}
+
+interface ReaderSessionSnapshot {
+  article: string;
+  importedArticle: ImportedArticle | null;
+  preloadedExplanations: PublicExplanation[];
+  articleSource?: VocabularySourceArticle;
+  sourceSentenceToHighlight: string;
+  sourceWordToHighlight: string;
+  sourceJumpRequestId: number;
+  viewportAnchor: ReaderViewportAnchor | null;
+  savedArticleId: string | null;
+  temporaryUserId: string | null;
+}
+
+const MAX_READER_SESSION_DEPTH = 5;
+const READER_HISTORY_STATE_KEY = "contextReaderReaderDepth";
 
 function readFileAsDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -88,10 +125,11 @@ async function requestImageLayoutWords(file: File): Promise<ImportedImageLayoutW
   return data.words;
 }
 
-export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }: HomeClientProps) {
-  const { isOffline, requireAccount } = useAccount();
+export function HomeClient({ initialPublicArticles, initialHomepageCuration, homeVariant = "immersive", forceGuestPreview = false, forceMemberPreview = false }: HomeClientProps) {
+  const { account, isOffline, requireAccount } = useAccount();
   const [article, setArticle] = useState("");
   const [articleUrl, setArticleUrl] = useState("");
+  const [urlPreview, setUrlPreview] = useState<ImportedArticle | null>(null);
   const [importedArticle, setImportedArticle] = useState<ImportedArticle | null>(null);
   const [preloadedExplanations, setPreloadedExplanations] = useState<PublicExplanation[]>([]);
   const [activeArticleSource, setActiveArticleSource] = useState<VocabularySourceArticle | undefined>();
@@ -99,21 +137,59 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
   const [ocrLoading, setOcrLoading] = useState(false);
   const [openingPublicArticleId, setOpeningPublicArticleId] = useState("");
   const [reading, setReading] = useState(false);
-  const [readerTransitioning, setReaderTransitioning] = useState(false);
   const [homeDemoCompleted, setHomeDemoCompleted] = useState(false);
   const [sourceSentenceToHighlight, setSourceSentenceToHighlight] = useState("");
   const [sourceWordToHighlight, setSourceWordToHighlight] = useState("");
   const [sourceJumpRequestId, setSourceJumpRequestId] = useState(0);
   const [readerSessionId, setReaderSessionId] = useState(0);
+  const [readerInitialViewportAnchor, setReaderInitialViewportAnchor] = useState<ReaderViewportAnchor | null>(null);
   const [error, setError] = useState("");
   const [urlError, setUrlError] = useState("");
   const [ocrError, setOcrError] = useState("");
   const [savedArticles, setSavedArticles] = useState<SavedArticle[]>([]);
+  const [temporaryReading, setTemporaryReading] = useState<TemporaryReading | null>(null);
   const publicArticleRequestsRef = useRef(new Map<string, Promise<PublicArticleDetails>>());
-  const readerTransitionTimerRef = useRef<number | null>(null);
+  const readingRef = useRef(false);
+  const readerOriginRef = useRef<ReaderOriginSnapshot | null>(null);
+  const readerSessionStackRef = useRef<ReaderSessionSnapshot[]>([]);
+  const readerViewportAnchorRef = useRef<ReaderViewportAnchor | null>(null);
+  const activeSavedArticleIdRef = useRef<string | null>(null);
+  const activeTemporaryUserIdRef = useRef<string | null>(null);
+  const progressSaveTimerRef = useRef<number | null>(null);
+  const pendingHomeScrollRef = useRef<number | null>(null);
+  const initialHomePositionedRef = useRef(false);
+  const readerHistoryDepthRef = useRef(0);
 
   useLayoutEffect(() => {
+    if (reading && sourceSentenceToHighlight) {
+      return;
+    }
+    if (!reading && pendingHomeScrollRef.current !== null) {
+      const scrollY = pendingHomeScrollRef.current;
+      pendingHomeScrollRef.current = null;
+      const frameId = window.requestAnimationFrame(() => {
+        window.scrollTo({ top: scrollY, left: 0, behavior: "auto" });
+      });
+      return () => window.cancelAnimationFrame(frameId);
+    }
+    if (!reading && !initialHomePositionedRef.current) {
+      initialHomePositionedRef.current = true;
+      let secondFrameId = 0;
+      const firstFrameId = window.requestAnimationFrame(() => {
+        secondFrameId = window.requestAnimationFrame(() => {
+          window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        });
+      });
+      return () => {
+        window.cancelAnimationFrame(firstFrameId);
+        if (secondFrameId) window.cancelAnimationFrame(secondFrameId);
+      };
+    }
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [reading]);
+
+  useEffect(() => {
+    readingRef.current = reading;
   }, [reading]);
 
   useEffect(() => {
@@ -124,32 +200,190 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
   }, []);
 
   useEffect(() => {
+    const userId = account.authenticated ? account.profile?.userId ?? "" : "";
+    setTemporaryReading(userId ? readTemporaryReading(userId) : null);
+  }, [account.authenticated, account.profile?.userId]);
+
+  useEffect(() => {
     if (!sourceSentenceToHighlight) {
       setSourceWordToHighlight("");
     }
   }, [sourceSentenceToHighlight]);
 
-  useEffect(() => () => {
-    if (readerTransitionTimerRef.current !== null) {
-      window.clearTimeout(readerTransitionTimerRef.current);
+  const flushReadingProgress = useCallback(() => {
+    if (progressSaveTimerRef.current !== null) {
+      window.clearTimeout(progressSaveTimerRef.current);
+      progressSaveTimerRef.current = null;
+    }
+    const savedArticleId = activeSavedArticleIdRef.current;
+    const anchor = readerViewportAnchorRef.current;
+    if (savedArticleId && anchor) {
+      saveArticleReadingProgress(savedArticleId, anchor);
+    } else if (activeTemporaryUserIdRef.current && anchor) {
+      setTemporaryReading(updateTemporaryReadingProgress(activeTemporaryUserIdRef.current, anchor));
     }
   }, []);
 
-  const enterReader = useCallback(() => {
-    if (homeVariant !== "book") {
-      setReading(true);
+  useEffect(() => () => flushReadingProgress(), [flushReadingProgress]);
+
+  const enterReader = useCallback((originKind: ReaderOriginKind) => {
+    if (!readingRef.current) {
+      readerOriginRef.current = {
+        kind: originKind,
+        scrollY: window.scrollY,
+        capturedAt: Date.now(),
+      };
+      readerSessionStackRef.current = [];
+      readerHistoryDepthRef.current = 1;
+      window.history.pushState(
+        { ...(window.history.state ?? {}), [READER_HISTORY_STATE_KEY]: 1 },
+        "",
+        window.location.href,
+      );
+    }
+    setReading(true);
+  }, []);
+
+  const captureCurrentReaderSession = useCallback((): ReaderSessionSnapshot => ({
+    article,
+    importedArticle,
+    preloadedExplanations,
+    articleSource: activeArticleSource,
+    sourceSentenceToHighlight,
+    sourceWordToHighlight,
+    sourceJumpRequestId,
+    viewportAnchor: readerViewportAnchorRef.current,
+    savedArticleId: activeSavedArticleIdRef.current,
+    temporaryUserId: activeTemporaryUserIdRef.current,
+  }), [
+    activeArticleSource,
+    article,
+    importedArticle,
+    preloadedExplanations,
+    sourceJumpRequestId,
+    sourceSentenceToHighlight,
+    sourceWordToHighlight,
+  ]);
+
+  const pushCurrentReaderSession = useCallback(() => {
+    if (!readingRef.current) return;
+    flushReadingProgress();
+    readerSessionStackRef.current = [
+      ...readerSessionStackRef.current,
+      captureCurrentReaderSession(),
+    ].slice(-MAX_READER_SESSION_DEPTH);
+    readerHistoryDepthRef.current += 1;
+    window.history.pushState(
+      { ...(window.history.state ?? {}), [READER_HISTORY_STATE_KEY]: readerHistoryDepthRef.current },
+      "",
+      window.location.href,
+    );
+  }, [captureCurrentReaderSession, flushReadingProgress]);
+
+  const restoreReaderSession = useCallback((snapshot: ReaderSessionSnapshot) => {
+    setArticle(snapshot.article);
+    setImportedArticle(snapshot.importedArticle);
+    setPreloadedExplanations(snapshot.preloadedExplanations);
+    setActiveArticleSource(snapshot.articleSource);
+    setSourceSentenceToHighlight(snapshot.sourceSentenceToHighlight);
+    setSourceWordToHighlight(snapshot.sourceWordToHighlight);
+    setSourceJumpRequestId(snapshot.sourceJumpRequestId);
+    setReaderInitialViewportAnchor(snapshot.viewportAnchor);
+    readerViewportAnchorRef.current = snapshot.viewportAnchor;
+    activeSavedArticleIdRef.current = snapshot.savedArticleId;
+    activeTemporaryUserIdRef.current = snapshot.temporaryUserId;
+    setReaderSessionId((sessionId) => sessionId + 1);
+    setError("");
+  }, []);
+
+  const leaveOrRestoreReader = useCallback(() => {
+    flushReadingProgress();
+    const previousSession = readerSessionStackRef.current.pop();
+    if (previousSession) {
+      restoreReaderSession(previousSession);
       return;
     }
-    if (readerTransitionTimerRef.current !== null) return;
-    setReaderTransitioning(true);
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    readerTransitionTimerRef.current = window.setTimeout(() => {
-      readerTransitionTimerRef.current = null;
-      setReading(true);
-    }, reducedMotion ? 120 : 700);
-  }, [homeVariant]);
 
-  function handleStartReading() {
+    pendingHomeScrollRef.current = readerOriginRef.current?.scrollY ?? 0;
+    readerOriginRef.current = null;
+    readerViewportAnchorRef.current = null;
+    activeSavedArticleIdRef.current = null;
+    activeTemporaryUserIdRef.current = null;
+    setReaderInitialViewportAnchor(null);
+    setHomeDemoCompleted(true);
+    setSavedArticles(getSavedArticles());
+    setArticle("");
+    setImportedArticle(null);
+    setPreloadedExplanations([]);
+    setActiveArticleSource(undefined);
+    setSourceSentenceToHighlight("");
+    setSourceWordToHighlight("");
+    setError("");
+    setReading(false);
+  }, [flushReadingProgress, restoreReaderSession]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      if (!readingRef.current) return;
+      readerHistoryDepthRef.current = Math.max(0, readerHistoryDepthRef.current - 1);
+      leaveOrRestoreReader();
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [leaveOrRestoreReader]);
+
+  const handleReaderBack = useCallback(() => {
+    if (readerHistoryDepthRef.current > 0) {
+      window.history.back();
+      return;
+    }
+    leaveOrRestoreReader();
+  }, [leaveOrRestoreReader]);
+
+  const handleReaderViewportAnchorChange = useCallback((anchor: ReaderViewportAnchor) => {
+    readerViewportAnchorRef.current = anchor;
+    if (!activeSavedArticleIdRef.current && !activeTemporaryUserIdRef.current) return;
+    if (progressSaveTimerRef.current !== null) window.clearTimeout(progressSaveTimerRef.current);
+    progressSaveTimerRef.current = window.setTimeout(() => {
+      progressSaveTimerRef.current = null;
+      const savedArticleId = activeSavedArticleIdRef.current;
+      if (savedArticleId) {
+        saveArticleReadingProgress(savedArticleId, anchor);
+      } else if (activeTemporaryUserIdRef.current) {
+        setTemporaryReading(updateTemporaryReadingProgress(activeTemporaryUserIdRef.current, anchor));
+      }
+    }, 1_200);
+  }, []);
+
+  async function consumeGuestImport(kind: "text" | "url"): Promise<boolean> {
+    if (account.authenticated) return true;
+    try {
+      const response = await fetch("/api/usage/guest-import", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-context-action-id": crypto.randomUUID(),
+        },
+        body: JSON.stringify({ kind }),
+      });
+      const data = await response.json().catch(() => null) as { error?: string } | null;
+      if (!response.ok) {
+        const message = data?.error || "游客导入次数校验失败，请稍后重试。";
+        if (response.status === 401 || response.status === 429) requireAccount(message);
+        if (kind === "url") setUrlError(message);
+        else setError(message);
+        return false;
+      }
+      return true;
+    } catch {
+      const message = "暂时无法确认游客导入次数，请稍后重试。";
+      if (kind === "url") setUrlError(message);
+      else setError(message);
+      return false;
+    }
+  }
+
+  async function handleStartReading() {
     const trimmedArticle = article.trim();
 
     if (!trimmedArticle) {
@@ -162,34 +396,46 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
       return;
     }
 
+    if (!(await consumeGuestImport("text"))) return;
+
     setError("");
     setSourceSentenceToHighlight("");
     setImportedArticle(null);
     setPreloadedExplanations([]);
     setActiveArticleSource(undefined);
-    enterReader();
+    activeSavedArticleIdRef.current = null;
+    const userId = account.authenticated ? account.profile?.userId ?? "" : "";
+    activeTemporaryUserIdRef.current = userId || null;
+    if (userId) setTemporaryReading(writeTemporaryReading(userId, trimmedArticle, null));
+    readerViewportAnchorRef.current = null;
+    setReaderInitialViewportAnchor(null);
+    enterReader("pasted-text");
   }
 
   function handleOpenDemoArticle(demoArticle: ImportedArticle) {
+    void primeLeadingArticleImage(demoArticle);
     setArticle(demoArticle.text);
     setImportedArticle(demoArticle);
     setPreloadedExplanations([]);
     setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setError("");
-    enterReader();
+    activeSavedArticleIdRef.current = null;
+    readerViewportAnchorRef.current = null;
+    setReaderInitialViewportAnchor(null);
+    enterReader("demo");
   }
 
-  async function handleImportUrl() {
+  async function fetchUrlImport(): Promise<ImportedArticle | null> {
     const url = articleUrl.trim();
 
     if (!url) {
       setUrlError("");
-      return;
+      return null;
     }
     if (isOffline) {
       setUrlError("当前离线，URL 导入需要联网。你仍可粘贴文章或打开本机保存的文章。");
-      return;
+      return null;
     }
 
     setImportingUrl(true);
@@ -215,20 +461,48 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
         throw new Error("导入的正文里没有可点击的英文单词。");
       }
 
-      setArticle(data.article.text);
-      setArticleUrl("");
-      setImportedArticle(data.article);
-      setPreloadedExplanations([]);
-      setActiveArticleSource(undefined);
-      setSourceSentenceToHighlight("");
-      setError("");
       setUrlError("");
-      enterReader();
+      return data.article;
     } catch (importError) {
       setUrlError(importError instanceof Error ? importError.message : "URL 导入失败，请稍后重试。");
+      return null;
     } finally {
       setImportingUrl(false);
     }
+  }
+
+  function openImportedUrlArticle(nextArticle: ImportedArticle) {
+    setArticle(nextArticle.text);
+    setImportedArticle(nextArticle);
+    void primeLeadingArticleImage(nextArticle);
+    setPreloadedExplanations([]);
+    setActiveArticleSource(undefined);
+    setSourceSentenceToHighlight("");
+    setError("");
+    setUrlError("");
+    activeSavedArticleIdRef.current = null;
+    const userId = account.authenticated ? account.profile?.userId ?? "" : "";
+    activeTemporaryUserIdRef.current = userId || null;
+    if (userId) setTemporaryReading(writeTemporaryReading(userId, nextArticle.text, nextArticle));
+    readerViewportAnchorRef.current = null;
+    setReaderInitialViewportAnchor(null);
+    enterReader("url-import");
+  }
+
+  async function handlePrepareUrlImport() {
+    const nextArticle = await fetchUrlImport();
+    if (nextArticle) setUrlPreview(nextArticle);
+  }
+
+  async function handleConfirmUrlImport() {
+    if (!urlPreview) return;
+    if (!(await consumeGuestImport("url"))) return;
+    openImportedUrlArticle(urlPreview);
+  }
+
+  async function handleImportUrl() {
+    const nextArticle = await fetchUrlImport();
+    if (nextArticle) openImportedUrlArticle(nextArticle);
   }
 
   async function handleOcrImage(file: File | null) {
@@ -280,7 +554,10 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
       setActiveArticleSource(undefined);
       setSourceSentenceToHighlight("");
       setError("");
-      enterReader();
+      activeSavedArticleIdRef.current = null;
+      readerViewportAnchorRef.current = null;
+      setReaderInitialViewportAnchor(null);
+      enterReader("pasted-text");
     } catch (ocrImageError) {
       setOcrError(ocrImageError instanceof Error ? ocrImageError.message : "OCR 识别失败，请稍后重试。");
     } finally {
@@ -294,11 +571,69 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
     setSavedArticles(nextSavedArticles);
     setArticle(touchedArticle.body);
     setImportedArticle(touchedArticle.importedArticle ?? null);
+    void primeLeadingArticleImage(touchedArticle.importedArticle ?? null);
     setPreloadedExplanations([]);
     setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setError("");
-    enterReader();
+    activeSavedArticleIdRef.current = touchedArticle.id;
+    activeTemporaryUserIdRef.current = null;
+    readerViewportAnchorRef.current = touchedArticle.readingProgress ?? null;
+    setReaderInitialViewportAnchor(touchedArticle.readingProgress ?? null);
+    enterReader("saved-article");
+  }
+
+  function handleOpenSavedArticleFromReader(savedArticle: SavedArticle) {
+    pushCurrentReaderSession();
+    handleOpenSavedArticle(savedArticle);
+  }
+
+  async function handleOpenImportedArticleFromReader(
+    nextText: string,
+    nextImportedArticle: ImportedArticle | null,
+    kind: "text" | "url",
+  ): Promise<boolean> {
+    const trimmedArticle = nextText.trim();
+    if (!trimmedArticle || !hasClickableWords(trimmedArticle)) {
+      setError("文章中没有可点击的英文单词。");
+      return false;
+    }
+    if (!(await consumeGuestImport(kind))) return false;
+
+    pushCurrentReaderSession();
+    setArticle(trimmedArticle);
+    setImportedArticle(nextImportedArticle);
+    if (nextImportedArticle) void primeLeadingArticleImage(nextImportedArticle);
+    setPreloadedExplanations([]);
+    setActiveArticleSource(undefined);
+    setSourceSentenceToHighlight("");
+    setSourceWordToHighlight("");
+    setError("");
+    setUrlError("");
+    activeSavedArticleIdRef.current = null;
+    const userId = account.authenticated ? account.profile?.userId ?? "" : "";
+    activeTemporaryUserIdRef.current = userId || null;
+    if (userId) setTemporaryReading(writeTemporaryReading(userId, trimmedArticle, nextImportedArticle));
+    readerViewportAnchorRef.current = null;
+    setReaderInitialViewportAnchor(null);
+    enterReader(kind === "url" ? "url-import" : "pasted-text");
+    return true;
+  }
+
+  function handleOpenTemporaryReading(record: TemporaryReading) {
+    setArticle(record.body);
+    setImportedArticle(record.importedArticle);
+    void primeLeadingArticleImage(record.importedArticle);
+    setPreloadedExplanations([]);
+    setActiveArticleSource(undefined);
+    setSourceSentenceToHighlight("");
+    setError("");
+    activeSavedArticleIdRef.current = null;
+    const userId = account.authenticated ? account.profile?.userId ?? "" : "";
+    activeTemporaryUserIdRef.current = userId || null;
+    readerViewportAnchorRef.current = record.readingProgress;
+    setReaderInitialViewportAnchor(record.readingProgress);
+    enterReader("temporary-article");
   }
 
   const loadPublicArticle = useCallback((id: string): Promise<PublicArticleDetails> => {
@@ -336,8 +671,26 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
   }, [loadPublicArticle]);
 
   function applyPublicArticle(publicArticle: PublicArticleDetails, fallbackId: string) {
+    const publicSummary = initialPublicArticles.find((item) => item.id === fallbackId);
+    const coverImageUrl = publicSummary?.recommendation?.coverImageUrl?.trim() ?? "";
+    const importedWithCover = publicArticle.importedArticle && coverImageUrl
+      && !publicArticle.importedArticle.blocks.some((block) => block.type === "image" && block.src === coverImageUrl)
+      ? {
+          ...publicArticle.importedArticle,
+          blocks: [
+            {
+              id: `public-cover-${publicArticle.id || fallbackId}`,
+              type: "image" as const,
+              src: coverImageUrl,
+              alt: publicSummary?.recommendation?.coverImageAlt || publicArticle.title,
+            },
+            ...publicArticle.importedArticle.blocks,
+          ],
+        }
+      : publicArticle.importedArticle ?? null;
+    void primeLeadingArticleImage(importedWithCover);
     setArticle(publicArticle.body);
-    setImportedArticle(publicArticle.importedArticle ?? null);
+    setImportedArticle(importedWithCover);
     setPreloadedExplanations(publicArticle.explanations ?? []);
     setActiveArticleSource({
       kind: "public",
@@ -363,7 +716,10 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
 
       applyPublicArticle(publicArticle, id);
       setSourceSentenceToHighlight("");
-      enterReader();
+      activeSavedArticleIdRef.current = null;
+      readerViewportAnchorRef.current = null;
+      setReaderInitialViewportAnchor(null);
+      enterReader("public-article");
     } catch (publicArticleError) {
       setError(isOffline
         ? "当前离线，而且这篇公开文章尚未缓存在此设备上。请选择本机保存文章，或联网后再打开。"
@@ -407,10 +763,10 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
   function canJumpToVocabularySource(entry: VocabularyEntry): boolean {
     return (
       Boolean(entry.sourceArticle?.kind === "public" && entry.sourceArticle.id) ||
+      Boolean(entry.sourceSentence.trim() && initialPublicArticles.length > 0) ||
       containsSourceSentence(article, entry.sourceSentence) ||
       Boolean(findSimilarSourceSentence(article, entry)) ||
-      Boolean(findArticleForVocabularyEntry(entry)) ||
-      Boolean(entry.sourceSentence.trim() && initialPublicArticles.length > 0)
+      Boolean(findArticleForVocabularyEntry(entry))
     );
   }
 
@@ -450,12 +806,13 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
       setSourceJumpRequestId((requestId) => requestId + 1);
       setReaderSessionId((sessionId) => sessionId + 1);
       setError("");
-      enterReader();
+      enterReader("vocabulary");
       return true;
     }
 
     const savedArticle = findArticleForVocabularyEntry(entry);
     if (savedArticle) {
+      pushCurrentReaderSession();
       const nextSavedArticles = touchSavedArticle(savedArticle.id);
       const touchedArticle = nextSavedArticles.find((articleItem) => articleItem.id === savedArticle.id) ?? savedArticle;
       setSavedArticles(nextSavedArticles);
@@ -472,12 +829,16 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
       setSourceJumpRequestId((requestId) => requestId + 1);
       setReaderSessionId((sessionId) => sessionId + 1);
       setError("");
-      enterReader();
+      activeSavedArticleIdRef.current = touchedArticle.id;
+      readerViewportAnchorRef.current = touchedArticle.readingProgress ?? null;
+      setReaderInitialViewportAnchor(touchedArticle.readingProgress ?? null);
+      enterReader("vocabulary");
       return true;
     }
 
     const publicMatch = await findPublicArticleForVocabularyEntry(entry);
     if (publicMatch) {
+      pushCurrentReaderSession();
       const sourceArticle: VocabularySourceArticle = {
         kind: "public",
         id: publicMatch.article.id,
@@ -495,7 +856,10 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
       ) {
         updateVocabularyEntry({ ...entry, sourceArticle });
       }
-      enterReader();
+      activeSavedArticleIdRef.current = null;
+      readerViewportAnchorRef.current = null;
+      setReaderInitialViewportAnchor(null);
+      enterReader("vocabulary");
       return true;
     }
 
@@ -514,45 +878,59 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
         sourceSentenceToHighlight={sourceSentenceToHighlight}
         sourceWordToHighlight={sourceWordToHighlight}
         sourceJumpRequestId={sourceJumpRequestId}
+        desktopViewportInsetLeft={132}
+        initialViewportAnchor={readerInitialViewportAnchor}
+        onViewportAnchorChange={handleReaderViewportAnchorChange}
+        savedArticles={savedArticles}
+        onOpenSavedArticle={handleOpenSavedArticleFromReader}
+        onOpenImportedArticle={handleOpenImportedArticleFromReader}
         onImportedArticleChange={handleImportedArticleChange}
         onJumpToVocabularySourceOutsideArticle={handleJumpToVocabularySource}
         canJumpToVocabularySourceOutsideArticle={canJumpToVocabularySource}
         onArticleChange={(nextArticle, nextImportedArticle) => {
           setArticle(nextArticle);
           setImportedArticle(nextImportedArticle);
+          if (activeTemporaryUserIdRef.current) {
+            setTemporaryReading(writeTemporaryReading(
+              activeTemporaryUserIdRef.current,
+              nextArticle,
+              nextImportedArticle,
+              readerViewportAnchorRef.current,
+            ));
+          }
           setPreloadedExplanations([]);
           setActiveArticleSource(undefined);
           setSourceSentenceToHighlight("");
         }}
-        onBack={() => {
-          setHomeDemoCompleted(true);
+        onBack={handleReaderBack}
+        onArticleSaved={() => {
           setSavedArticles(getSavedArticles());
-          setArticle("");
-          setImportedArticle(null);
-          setPreloadedExplanations([]);
-          setActiveArticleSource(undefined);
-          setSourceSentenceToHighlight("");
-          setError("");
-          setReaderTransitioning(false);
-          setReading(false);
+          if (activeTemporaryUserIdRef.current) {
+            clearTemporaryReading(activeTemporaryUserIdRef.current);
+            activeTemporaryUserIdRef.current = null;
+            setTemporaryReading(null);
+          }
         }}
-        onArticleSaved={() => setSavedArticles(getSavedArticles())}
       />
     );
   }
 
   if (homeVariant === "book") {
     return (
-      <BookHome
+      <HomeRedesign
+        forceGuestPreview={forceGuestPreview}
+        forceMemberPreview={forceMemberPreview}
         article={article}
         articleUrl={articleUrl}
+        urlPreview={urlPreview}
         error={error}
         urlError={urlError}
         importingUrl={importingUrl}
         openingPublicArticleId={openingPublicArticleId}
         publicArticles={initialPublicArticles}
+        homepageCuration={initialHomepageCuration}
         savedArticles={savedArticles}
-        readerTransitioning={readerTransitioning}
+        temporaryReading={temporaryReading}
         onArticleChange={(value) => {
           setArticle(value);
           setImportedArticle(null);
@@ -562,12 +940,15 @@ export function HomeClient({ initialPublicArticles, homeVariant = "immersive" }:
         }}
         onArticleUrlChange={(value) => {
           setArticleUrl(value);
+          setUrlPreview(null);
           if (urlError) setUrlError("");
         }}
         onStartReading={handleStartReading}
-        onImportUrl={handleImportUrl}
+        onPrepareUrlImport={handlePrepareUrlImport}
+        onConfirmUrlImport={handleConfirmUrlImport}
         onOpenDemoArticle={handleOpenDemoArticle}
         onOpenSavedArticle={handleOpenSavedArticle}
+        onOpenTemporaryReading={handleOpenTemporaryReading}
         onOpenPublicArticle={handleOpenPublicArticle}
         onPrefetchPublicArticle={handlePrefetchPublicArticle}
         onDeleteSavedArticle={handleDeleteSavedArticle}

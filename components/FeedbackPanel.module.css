@@ -1,5 +1,7 @@
 .overlay { position: fixed; z-index: 150; inset: 0; display: grid; padding: 24px; place-items: center; background: rgb(27 42 53 / 38%); backdrop-filter: blur(10px); }
 .panel { width: min(620px, 100%); max-height: min(760px, calc(100svh - 36px)); overflow: auto; padding: 28px; border-radius: 14px; background: #f9fbfc; box-shadow: 0 20px 48px rgb(22 35 45 / 24%); scrollbar-gutter: stable; }
+.embeddedShell { display: grid; width: 100%; overflow: clip; }
+.embeddedPanel { width: 100%; max-height: none; padding: clamp(20px, 4vw, 38px); border: 1px solid rgb(23 76 94 / 13%); border-radius: 20px; box-shadow: 0 24px 70px rgb(22 52 64 / 9%); }
 .panel > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
 .panel header span { color: #647887; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
 .panel h2 { margin: 6px 0 0; color: #172630; font: 500 32px Georgia, "Songti SC", serif; }

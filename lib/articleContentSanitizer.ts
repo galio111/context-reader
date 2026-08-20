@@ -1,6 +1,7 @@
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 
 const TRAILING_SECTION_PATTERN = /^(?:related\s+(?:topics?|terms?|stories|articles|content)|story\s+source|journal\s+references?|cite\s+this\s+page|explore\s+more|recommended(?:\s+for\s+you)?|you\s+(?:may|might)\s+also\s+like|read\s+next|more\s+(?:stories|articles|from)|most\s+popular|trending|about\s+the\s+author|sign\s+up\s+for\b|advertisement)\b/i;
+const EXPLICIT_END_MARKER_PATTERN = /^[-–—]?\s*end\s*[-–—]?\.?$/i;
 
 function normalizedBlockText(block: ImportedArticleBlock): string {
   return block.text?.replace(/\s+/g, " ").trim() ?? "";
@@ -17,10 +18,14 @@ export function trimTrailingWebsiteBlocks(blocks: ImportedArticleBlock[]): Impor
 
   for (let index = 0; index < blocks.length; index += 1) {
     const block = blocks[index];
-    if (!block || block.type === "image") {
+    if (!block || block.type === "image" || block.type === "table") {
       continue;
     }
     const text = normalizedBlockText(block);
+    if (hasEnoughArticleContent(substantiveBlocks, substantiveCharacters) && EXPLICIT_END_MARKER_PATTERN.test(text)) {
+      trailingBoundary = index;
+      break;
+    }
     if (hasEnoughArticleContent(substantiveBlocks, substantiveCharacters) && TRAILING_SECTION_PATTERN.test(text)) {
       trailingBoundary = index;
       break;

@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Context Reader PostgreSQL backup daily
+
+[Timer]
+OnCalendar=*-*-* 03:15:00 Asia/Shanghai
+RandomizedDelaySec=15m
+Persistent=true
+Unit=context-reader-backup.service
+
+[Install]
+WantedBy=timers.target

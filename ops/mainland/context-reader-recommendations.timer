@@ -1,0 +1,11 @@
+[Unit]
+Description=Check whether Context Reader recommendation discovery is due
+
+[Timer]
+OnBootSec=1m
+OnUnitActiveSec=5m
+AccuracySec=30s
+Unit=context-reader-recommendations.service
+
+[Install]
+WantedBy=timers.target

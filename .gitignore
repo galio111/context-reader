@@ -1,5 +1,6 @@
 node_modules
 .next
+.next-dev
 .npm-cache
 out
 build
@@ -14,7 +15,14 @@ next-dev*.log
 .codex-dev-*.log
 tsconfig.tsbuildinfo
 .DS_Store
+__pycache__/
+artifacts/task-worktrees/
 
 .vercel
+.codex/
 supabase/.temp/
 backups/
+ops/mainland/.env
+ops/mainland/.env.runtime
+
+.env*

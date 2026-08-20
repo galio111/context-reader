@@ -1,4 +1,5 @@
 import type { VocabularyEntry } from "@/types/vocabulary";
+import { currentFormPhonetic } from "@/lib/pronunciation";
 
 const CSV_FIELDS = [
   "Word",
@@ -29,7 +30,7 @@ function rowForEntry(entry: VocabularyEntry): Record<(typeof CSV_FIELDS)[number]
   return {
     Word: entry.word,
     Lemma: entry.lemma,
-    Phonetic: entry.phonetic,
+    Phonetic: currentFormPhonetic(entry),
     PartOfSpeech: entry.partOfSpeech,
     CardMode: entry.anki.cardMode,
     ClozeSentence: entry.anki.cardMode === "cloze_context" ? entry.anki.clozeSentence : "",

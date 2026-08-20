@@ -3,6 +3,7 @@
 import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
+import { currentFormPhonetic } from "@/lib/pronunciation";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
 interface AnkiPreviewModalProps {
@@ -34,6 +35,8 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
 
   const isCloze = entry.anki.cardMode === "cloze_context";
   const isEnglishToChinese = entry.anki.cardMode === "basic_en_to_cn";
+  const isStandaloneChineseToEnglish = entry.anki.cardMode === "basic_cn_to_en_dictionary";
+  const entryPhonetic = currentFormPhonetic(entry);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 backdrop-blur-sm">
@@ -42,7 +45,13 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
           <div>
             <h2 className="text-[21px] font-semibold leading-[1.19] tracking-[0.231px] text-[#1d1d1f]">Anki 卡片预览</h2>
             <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-              {isCloze ? "语境挖空卡" : isEnglishToChinese ? "独立查词英译中卡" : "基础释义中译英卡"}
+              {isCloze
+                ? "语境挖空卡"
+                : isEnglishToChinese
+                  ? "独立查词英译中卡"
+                  : isStandaloneChineseToEnglish
+                    ? "独立查词中译英卡"
+                    : "基础释义中译英卡"}
             </p>
           </div>
           <button
@@ -69,6 +78,11 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
               </div>
             ) : isEnglishToChinese ? (
               <p className="text-2xl font-semibold leading-8 text-[#1d1d1f]">{entry.word}</p>
+            ) : isStandaloneChineseToEnglish ? (
+              <div className="space-y-4">
+                <p className="text-base text-[#333333]">请写出自然的英文表达：</p>
+                <p className="text-xl font-semibold leading-8 text-[#0066cc]">{entry.anki.basicCue}</p>
+              </div>
             ) : (
               <div className="space-y-4">
                 <p className="text-base text-[#333333]">请写出对应的英文单词：</p>
@@ -84,15 +98,17 @@ export function AnkiPreviewModal({ entry, onClose }: AnkiPreviewModalProps) {
             <div className="mb-4">
               <p className="text-2xl font-semibold text-[#1d1d1f]">{entry.word}</p>
               <p className="mt-1 text-sm text-[#7a7a7a]">
-                {originalFormLabel(entry.lemma, entry.word)} · {normalizePartOfSpeechLabel(entry.partOfSpeech)}
-                {entry.phonetic ? ` · ${entry.phonetic}` : ""}
+                原型：{originalFormLabel(entry.lemma, entry.word)} · {normalizePartOfSpeechLabel(entry.partOfSpeech)}
               </p>
-              <div className="mt-3"><PronunciationButtons text={entry.word} /></div>
+              {entryPhonetic && <p className="mt-1 text-sm text-[#555555]"><span className="font-medium text-[#7a7a7a]">当前词音标：</span>{entryPhonetic}</p>}
+              <div className="mt-3"><PronunciationButtons text={entry.word} preload /></div>
             </div>
-            {isEnglishToChinese ? (
+            {isEnglishToChinese || isStandaloneChineseToEnglish ? (
               <>
                 <section className="rounded-[10px] bg-[#eef3f6] p-4">
-                  <h4 className="text-xs font-semibold text-[#25495d]">中文核心释义</h4>
+                  <h4 className="text-xs font-semibold text-[#25495d]">
+                    {isStandaloneChineseToEnglish ? "英文表达" : "中文核心释义"}
+                  </h4>
                   <p className="mt-2 whitespace-pre-wrap text-lg font-semibold leading-8 text-[#1d1d1f]">{entry.basicMeaning}</p>
                 </section>
                 <VocabularyLearningDetails entry={entry} variant="anki" />

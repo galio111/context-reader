@@ -24,6 +24,7 @@ interface PillNavActionProps {
   title?: string;
   renderIcon?: () => ReactNode;
   ease?: string;
+  motion?: "pill" | "none";
 }
 
 export function PillNavAction({
@@ -40,6 +41,7 @@ export function PillNavAction({
   title,
   renderIcon,
   ease = "power3.out",
+  motion = "pill",
 }: PillNavActionProps) {
   const actionRef = useRef<HTMLAnchorElement | HTMLButtonElement | null>(null);
   const circleRef = useRef<HTMLSpanElement | null>(null);
@@ -60,7 +62,7 @@ export function PillNavAction({
     const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const hoverQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
 
-    if (!hoverQuery.matches) {
+    if (!hoverQuery.matches || motion === "none") {
       activeTweenRef.current?.kill();
       timelineRef.current?.kill();
       timelineRef.current = null;
@@ -154,7 +156,7 @@ export function PillNavAction({
       activeTweenRef.current?.kill();
       timelineRef.current?.kill();
     };
-  }, [disabled, ease, label]);
+  }, [disabled, ease, label, motion]);
 
   const play = () => {
     if (disabled) return;
@@ -203,6 +205,7 @@ export function PillNavAction({
   const sharedClassName = [
     styles.pillAction,
     tone === "dark" ? styles.dark : styles.light,
+    motion === "none" ? styles.noMotion : "",
     className,
   ].filter(Boolean).join(" ");
 

@@ -4,6 +4,8 @@ export type ImportedArticleBlockType =
   | "paragraph"
   | "list-item"
   | "quote"
+  | "caption"
+  | "table"
   | "image";
 
 export type ImportedArticleInlineBaseline = "sup" | "sub";
@@ -11,6 +13,19 @@ export type ImportedArticleInlineBaseline = "sup" | "sub";
 export interface ImportedArticleInlineText {
   text: string;
   baseline?: ImportedArticleInlineBaseline;
+}
+
+export interface ImportedArticleTableCell {
+  text: string;
+  header?: boolean;
+  scope?: "row" | "col";
+  rowSpan?: number;
+  colSpan?: number;
+}
+
+export interface ImportedArticleTable {
+  caption?: string;
+  rows: ImportedArticleTableCell[][];
 }
 
 export interface ImportedImageLayoutWord {
@@ -31,6 +46,11 @@ export interface ImportedArticleBlock {
   alt?: string;
   width?: number;
   height?: number;
+  caption?: string;
+  listStyle?: "ordered" | "unordered";
+  listLevel?: number;
+  listOrdinal?: number;
+  table?: ImportedArticleTable;
   ocrText?: string;
   layoutWords?: ImportedImageLayoutWord[];
   layoutError?: string;
@@ -51,6 +71,9 @@ export interface ImportedArticle {
   siteName: string;
   text: string;
   blocks: ImportedArticleBlock[];
+  byline?: string;
+  publishedTime?: string;
+  language?: string;
   style?: ArticleReadingStyle;
   recommendation?: import("@/types/publicArticle").ArticleRecommendationMetadata;
 }
@@ -64,4 +87,5 @@ export interface SavedArticle {
   createdAt: string;
   updatedAt: string;
   lastOpenedAt?: string;
+  readingProgress?: import("@/types/reader").ReaderReadingProgress;
 }

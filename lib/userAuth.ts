@@ -1,6 +1,7 @@
 import { createClient, type Session, type User } from "@supabase/supabase-js";
 import { randomInt } from "node:crypto";
 import { cookies } from "next/headers";
+import { getLocalDeveloperUser, isLocalDeveloperEnvironment } from "@/lib/localDeveloper";
 
 const ACCESS_COOKIE = "context_reader_access";
 const REFRESH_COOKIE = "context_reader_refresh";
@@ -10,7 +11,17 @@ const PHONE_ACCOUNT_DOMAIN = "phone.context-reader.invalid";
 function authConfig(): { url: string; key: string } | null {
   const url = process.env.SUPABASE_URL?.trim();
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
-  return url && key ? { url: url.replace(/\/$/, ""), key } : null;
+  if (!url || !key || key.length < 32) return null;
+  try {
+    const parsed = new URL(url);
+    const isPrivateDockerEndpoint =
+      parsed.protocol === "http:" &&
+      ["supabase-api", "localhost", "127.0.0.1"].includes(parsed.hostname);
+    if ((parsed.protocol !== "https:" && !isPrivateDockerEndpoint) || !parsed.hostname) return null;
+    return { url: url.replace(/\/$/, ""), key };
+  } catch {
+    return null;
+  }
 }
 
 function authClient() {
@@ -28,7 +39,7 @@ function authClient() {
 }
 
 export function isAccountSystemConfigured(): boolean {
-  return Boolean(authConfig());
+  return Boolean(authConfig()) || isLocalDeveloperEnvironment();
 }
 
 export function normalizeEmail(value: string): string {
@@ -235,6 +246,9 @@ async function readTokens(): Promise<{ accessToken: string; refreshToken: string
 }
 
 export async function getAuthenticatedUser(): Promise<User | null> {
+  const localDeveloper = await getLocalDeveloperUser();
+  if (localDeveloper) return localDeveloper;
+
   const { accessToken, refreshToken } = await readTokens();
   const client = authClient();
 

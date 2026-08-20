@@ -32,6 +32,11 @@
   transition: none;
 }
 
+.coverMode {
+  z-index: 58;
+  transform: translate3d(var(--cover-offset, -25%), 0, 26px);
+}
+
 .active::after {
   position: absolute;
   z-index: 18;
@@ -163,6 +168,77 @@
 
 .snapshotRight .snapshotContent { transform: translateX(-50%); }
 
+.coverSnapshotViewport {
+  border-radius: 5px 16px 16px 5px;
+  background: #dce8f2;
+}
+
+.coverSnapshotContent {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.coverSnapshotContent > * {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.coverTurnPaper {
+  border-radius: 5px 16px 16px 5px;
+  box-shadow: inset 0 0 0 1px rgb(28 75 108 / 13%), 10px 18px 28px rgb(39 60 77 / 18%);
+}
+
+.coverInsideTurnPaper {
+  border-radius: 16px 5px 5px 16px;
+  background: #e4eff6;
+  box-shadow: inset 0 0 0 1px rgb(28 75 108 / 12%), -8px 16px 24px rgb(39 60 77 / 13%);
+}
+
+.coverInsideSurface {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 22% 24%, rgb(255 255 255 / 72%) 0 7%, transparent 7.5%),
+    radial-gradient(circle at 39% 43%, rgb(126 205 216 / 11%) 0 9%, transparent 9.5%),
+    radial-gradient(circle at 68% 69%, rgb(119 112 224 / 9%) 0 8%, transparent 8.5%),
+    linear-gradient(96deg, rgb(111 161 192 / 16%), transparent 15%, transparent 82%, rgb(77 113 136 / 9%)),
+    #e4eff6;
+}
+
+.coverInsideHinge {
+  position: absolute;
+  z-index: 8;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 24px;
+  background: linear-gradient(90deg, transparent, rgb(44 96 130 / 18%), rgb(255 255 255 / 38%));
+  pointer-events: none;
+}
+
+.coverInsideTurnPaper::before,
+.coverInsideTurnPaper::after {
+  display: none;
+}
+
+.transparentTurnPaper {
+  background: transparent;
+  box-shadow: none;
+}
+
+.transparentTurnPaper::before,
+.transparentTurnPaper::after {
+  display: none;
+}
+
 .snapshotContent > [data-book-spread] {
   opacity: 1 !important;
   visibility: visible !important;
@@ -181,14 +257,16 @@
   user-select: none !important;
 }
 
-.snapshotContent [data-foreword-content] [data-foreword-reveal-part] {
+.snapshotContent [data-page-reveal-state="revealing"] [data-page-reveal-part],
+.snapshotContent [data-page-reveal-state="printed"] [data-page-reveal-part] {
   opacity: 1 !important;
   clip-path: none !important;
   filter: none !important;
   transform: none !important;
 }
 
-.snapshotContent [data-foreword-content] [data-foreword-signature] {
+.snapshotContent [data-page-reveal-state="revealing"] [data-foreword-signature],
+.snapshotContent [data-page-reveal-state="printed"] [data-foreword-signature] {
   transform: rotate(-3deg) !important;
 }
 

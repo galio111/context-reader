@@ -6,13 +6,47 @@ export interface RecommendationCrawlerSourceInfo {
   id: string;
   name: string;
   topics: ArticleTopic[];
+  levelHint?: "lower" | "mixed" | "advanced";
 }
 
 export interface RecommendationCrawlerStatus {
   scheduled: boolean;
   scheduleLabel: string;
   maxNewArticlesPerRun: number;
+  automation: RecommendationAutomationStatus;
   sources: RecommendationCrawlerSourceInfo[];
+}
+
+export interface RecommendationAutomationConfig {
+  enabled: boolean;
+  runTime: string;
+  maxNewArticles: number;
+}
+
+export interface RecommendationAutomationState {
+  status: "never_run" | "running" | "succeeded" | "failed";
+  lastTrigger: "" | "scheduled" | "manual";
+  lastScheduledDate: string;
+  lastTopic: "" | ArticleTopic;
+  lastStartedAt: string;
+  lastFinishedAt: string;
+  lastCreatedCount: number;
+  lastAttemptedCount: number;
+  lastSkippedCount: number;
+  lastSourceErrorCount: number;
+  lastError: string;
+  lastEmailStatus: "not_requested" | "sent" | "failed" | "not_configured";
+  lastEmailError: string;
+}
+
+export interface RecommendationAutomationStatus {
+  config: RecommendationAutomationConfig;
+  state: RecommendationAutomationState;
+  nextRunAt: string;
+  timeZone: "Asia/Shanghai";
+  schedulePrecisionMinutes: number;
+  emailConfigured: boolean;
+  notificationEmail: string;
 }
 
 export interface RecommendationCrawlerRunInput {
@@ -20,6 +54,8 @@ export interface RecommendationCrawlerRunInput {
   difficulty: CrawlerDifficulty;
   targetInventory: number;
   maxNewArticles?: number;
+  inventoryScope?: "all" | "candidates";
+  ignoreInventoryTarget?: boolean;
 }
 
 export interface RecommendationCrawlerSkippedItem {

@@ -3,9 +3,11 @@
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { AnkiPreviewModal } from "@/components/AnkiPreviewModal";
+import ClearableField from "@/components/ClearableField";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
 import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
+import { currentFormPhonetic } from "@/lib/pronunciation";
 import { sortVocabularyEntriesByCreatedAt } from "@/lib/vocabularyMerge";
 import { createVocabularySearchIndex, searchVocabularyIndex } from "@/lib/vocabularySearch";
 import { hasStandaloneVocabularyDetails } from "@/lib/vocabularyPresentation";
@@ -104,6 +106,39 @@ export function VocabularyPanel({
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedEntryIds, setExpandedEntryIds] = useState<Set<string>>(() => new Set());
   const listRef = useRef<HTMLDivElement | null>(null);
+  const sourceJumpAvailabilityRef = useRef<{
+    entries: VocabularyEntry[];
+    canJumpToSource: VocabularyPanelProps["canJumpToSource"];
+    results: Map<string, boolean>;
+  }>({
+    entries,
+    canJumpToSource,
+    results: new Map(),
+  });
+
+  if (
+    sourceJumpAvailabilityRef.current.entries !== entries ||
+    sourceJumpAvailabilityRef.current.canJumpToSource !== canJumpToSource
+  ) {
+    sourceJumpAvailabilityRef.current = {
+      entries,
+      canJumpToSource,
+      results: new Map(),
+    };
+  }
+
+  const canJumpToEntrySource = useCallback((entry: VocabularyEntry) => {
+    if (!canJumpToSource) {
+      return true;
+    }
+    const cached = sourceJumpAvailabilityRef.current.results.get(entry.id);
+    if (cached !== undefined) {
+      return cached;
+    }
+    const available = canJumpToSource(entry);
+    sourceJumpAvailabilityRef.current.results.set(entry.id, available);
+    return available;
+  }, [canJumpToSource]);
 
   useEffect(() => {
     if (!open) {
@@ -154,6 +189,7 @@ export function VocabularyPanel({
     [entries],
   );
   const importingAll = importingId === "__all__";
+  const reconcilingAnki = importingId === "__reconcile__";
   const panelClassName =
     placement === "dialog"
       ? "mx-auto mt-8 flex h-[calc(100dvh-4rem)] min-h-0 w-[min(920px,calc(100vw-2rem))] flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_22px_60px_rgba(15,23,42,0.22)] sm:mt-10"
@@ -230,15 +266,41 @@ export function VocabularyPanel({
         <div className="grid gap-3 border-b border-[#e0e0e0] px-5 py-3">
           <label className="block">
             <span className="sr-only">检索生词</span>
-            <input
-              type="search"
-              className="h-11 w-full rounded-full border border-black/10 px-5 text-[17px] leading-[1.47] tracking-[-0.374px] text-[#1d1d1f] outline-none transition placeholder:text-[#7a7a7a] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
-              value={searchQuery}
-              onChange={(event) => setSearchQuery(event.target.value)}
-              placeholder="输入单词前缀检索生词"
-            />
+            <ClearableField value={searchQuery} onClear={() => setSearchQuery("")} label="清空生词检索">
+              <input
+                type="search"
+                className="h-11 w-full rounded-full border border-black/10 px-5 text-[17px] leading-[1.47] tracking-[-0.374px] text-[#1d1d1f] outline-none transition placeholder:text-[#7a7a7a] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="输入单词前缀检索生词"
+              />
+            </ClearableField>
           </label>
-          <div className="flex flex-wrap gap-2">
+          <details className="group lg:hidden">
+            <summary className="flex h-11 cursor-pointer list-none items-center justify-between rounded-full border border-[#d2d2d7] px-4 text-sm font-medium text-[#333333] marker:content-none">
+              更多操作
+              <span aria-hidden="true" className="text-lg leading-none transition-transform group-open:rotate-45">＋</span>
+            </summary>
+            <div className="mt-2 grid grid-cols-2 gap-2 rounded-[12px] bg-[#f5f7f8] p-2">
+              <button
+                type="button"
+                className="h-11 rounded-full bg-[#0066cc] px-4 text-sm text-white active:scale-95 disabled:bg-[#d2d2d7]"
+                onClick={onExportCsv}
+                disabled={entries.length === 0}
+              >
+                导出 CSV
+              </button>
+              <button
+                type="button"
+                className="h-11 rounded-full border border-[#d2d2d7] bg-white px-4 text-sm text-[#333333] active:scale-95 disabled:text-[#7a7a7a]"
+                onClick={onClear}
+                disabled={entries.length === 0 || importingAll}
+              >
+                清空生词本
+              </button>
+            </div>
+          </details>
+          <div className="hidden flex-wrap gap-2 lg:flex">
             <button
               type="button"
               className="h-10 rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
@@ -254,7 +316,11 @@ export function VocabularyPanel({
                 onClick={onImportAllAnki}
                 disabled={unimportedCount === 0 || Boolean(importingId)}
               >
-                {importingAll ? "批量导入中" : `导入未导入 (${unimportedCount})`}
+                {importingAll
+                  ? "批量导入中"
+                  : reconcilingAnki
+                    ? "正在核对 Anki…"
+                    : `导入未导入 (${unimportedCount})`}
               </button>
             )}
             <button
@@ -291,8 +357,11 @@ export function VocabularyPanel({
                 }
                 const imported = Boolean(entry.anki.ankiNoteId);
                 const isStandalone = !entry.sourceSentence.trim();
-                const sourceJumpEnabled = onJumpToSource && (canJumpToSource ? canJumpToSource(entry) : true);
+                const isStandaloneChineseToEnglish =
+                  entry.anki.cardMode === "basic_cn_to_en_dictionary";
+                const sourceJumpEnabled = onJumpToSource && canJumpToEntrySource(entry);
                 const isExpanded = expandedEntryIds.has(entry.id);
+                const entryPhonetic = currentFormPhonetic(entry);
                 const hasExtendedDetails = isStandalone
                   ? hasStandaloneVocabularyDetails(entry)
                   : Boolean(entry.usageNote || entry.collocation || entry.exampleEnglish || entry.exampleChinese);
@@ -322,17 +391,17 @@ export function VocabularyPanel({
                             </button>
                           )}
                         </div>
-                        <div className="mt-1 flex flex-wrap items-center gap-2">
+                        <div className="mt-1 space-y-1">
                           <p className="text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-                            {originalFormLabel(entry.lemma, entry.word)} · {normalizePartOfSpeechLabel(entry.partOfSpeech)}
+                            原型：{originalFormLabel(entry.lemma, entry.word)} · {normalizePartOfSpeechLabel(entry.partOfSpeech)}
                           </p>
-                          {entry.phonetic && (
-                            <span className="text-sm leading-5 tracking-[-0.224px] text-[#555555]">
-                              {entry.phonetic}
-                            </span>
+                          {entryPhonetic && (
+                            <p className="text-sm leading-5 tracking-[-0.224px] text-[#555555]">
+                              <span className="font-medium text-[#7a7a7a]">当前词音标：</span>{entryPhonetic}
+                            </p>
                           )}
-                          <PronunciationButtons text={entry.word} />
                         </div>
+                        <div className="mt-2"><PronunciationButtons text={entry.word} /></div>
                       </div>
                       {showAnkiActions && (
                         <span
@@ -350,7 +419,9 @@ export function VocabularyPanel({
                     <dl className="mt-3 grid gap-3 text-sm leading-6 tracking-[-0.224px] text-[#333333]">
                       {isStandalone ? (
                         <div>
-                          <dt className="font-semibold text-[#1d1d1f]">中文释义</dt>
+                          <dt className="font-semibold text-[#1d1d1f]">
+                            {isStandaloneChineseToEnglish ? "英文表达" : "中文释义"}
+                          </dt>
                           <dd className="whitespace-pre-line">{entry.basicMeaning}</dd>
                         </div>
                       ) : (
@@ -407,7 +478,7 @@ export function VocabularyPanel({
 
                     {showAnkiActions && entry.anki.cardMode === "basic_cn_to_en" && (
                       <p className="mt-3 hidden rounded-[18px] bg-[#f5f5f7] px-3 py-2 text-sm tracking-[-0.224px] text-[#333333] lg:block">
-                        当前句子不适合语境挖空，导入时将使用“基础释义中译英卡”。
+                        原句中无法可靠定位并挖空该词，导入时将使用“基础释义中译英卡”。
                       </p>
                     )}
 

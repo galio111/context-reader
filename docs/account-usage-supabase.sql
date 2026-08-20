@@ -7,12 +7,18 @@ create table if not exists public.account_profiles (
   avatar_url text not null default '',
   english_level text not null default '',
   learning_goal text not null default '',
+  reading_interests jsonb not null default '[]'::jsonb,
+  birth_year integer null check (birth_year is null or (birth_year >= 1900 and birth_year <= 2100)),
+  gender text null check (gender is null or gender in ('male', 'female')),
   status text not null default 'active' check (status in ('active', 'suspended', 'deleted')),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
 
 alter table public.account_profiles add column if not exists email text not null default '';
+alter table public.account_profiles add column if not exists reading_interests jsonb not null default '[]'::jsonb;
+alter table public.account_profiles add column if not exists birth_year integer null;
+alter table public.account_profiles add column if not exists gender text null;
 
 create table if not exists public.quota_plans (
   id text primary key,
@@ -152,6 +158,10 @@ on conflict (id) do update set
 insert into public.quota_plan_limits (plan_id, metric_key, allowance, window_type)
 values
   ('guest', 'guest_lookup', 10, 'day'),
+  ('guest', 'guest_article_lookup', 10, 'day'),
+  ('guest', 'guest_dictionary_lookup', 5, 'day'),
+  ('guest', 'guest_text_import', 2, 'day'),
+  ('guest', 'guest_url_import', 2, 'day'),
   ('free', 'lookup_generation', 30, 'day'),
   ('free', 'deep_reading', 20, 'month'),
   ('basic', 'lookup_generation', 80, 'day'),
@@ -172,7 +182,9 @@ values
   ('translation_chars_per_point', '1000'::jsonb),
   ('summary_base_points', '2'::jsonb),
   ('ocr_points_per_image', '5'::jsonb),
-  ('global_monthly_budget_microusd', '50000000'::jsonb)
+  ('global_monthly_budget_microusd', '50000000'::jsonb),
+  ('recommendation_automation_config', '{"enabled":true,"runTime":"03:00","maxNewArticles":2}'::jsonb),
+  ('recommendation_automation_state', '{}'::jsonb)
 on conflict (key) do nothing;
 
 create or replace function public.set_account_updated_at()
@@ -346,13 +358,33 @@ language plpgsql
 security definer
 set search_path = public
 as $$
+declare
+  v_action public.usage_actions%rowtype;
 begin
+  select * into v_action
+  from public.usage_actions
+  where id = p_action_id
+  for update;
+
+  if not found or v_action.status <> 'reserved' then
+    return;
+  end if;
+
+  if p_cache_hit and v_action.quota_units > 0 then
+    update public.usage_counters
+    set used_units = greatest(0, used_units - v_action.quota_units), updated_at = now()
+    where owner_key = v_action.owner_key
+      and metric_key = v_action.metric_key
+      and window_start = v_action.counter_window_start;
+  end if;
+
   update public.usage_actions
   set status = case when p_status in ('succeeded', 'cached', 'failed', 'cancelled') then p_status else 'failed' end,
       cache_hit = p_cache_hit,
+      quota_units = case when p_cache_hit then 0 else quota_units end,
       error_code = left(coalesce(p_error_code, ''), 120),
       completed_at = now()
-  where id = p_action_id and status = 'reserved';
+  where id = p_action_id;
 end;
 $$;
 

@@ -19,11 +19,13 @@ import { useVirtualizer } from "@tanstack/react-virtual";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import { AccountUsagePageContent } from "@/components/AccountUsagePageContent";
+import ClearableField from "@/components/ClearableField";
 import { GuidePageContent } from "@/components/GuidePageContent";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
 import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
+import { currentFormPhonetic } from "@/lib/pronunciation";
 import type { LocalAccountSession } from "@/lib/localAccountSession";
 import { savedArticleOpenTimestamp } from "@/lib/savedArticleMerge";
 import { sortVocabularyEntriesByCreatedAt } from "@/lib/vocabularyMerge";
@@ -45,21 +47,37 @@ interface HomeOptionMenuProps {
   onOpenSavedArticle: (article: SavedArticle) => void;
   onJumpToVocabularySource?: (entry: VocabularyEntry) => void;
   canJumpToVocabularySource?: (entry: VocabularyEntry) => boolean;
+  initialPreview?: PreviewKind | null;
+  onOpenImport?: () => void;
+  onOpenDictionary?: () => void;
 }
 
-type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "feedback";
+export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "feedback";
+type MenuAction = "import" | "dictionary";
+interface MenuItem {
+  label: string;
+  preview?: PreviewKind;
+  action?: MenuAction;
+  adminOnly?: boolean;
+  quick?: boolean;
+}
 const PREVIEW_ANCHOR_MIN = 72;
 const FEEDBACK_IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
 const MAX_FEEDBACK_IMAGES = 3;
 const MAX_FEEDBACK_IMAGE_BYTES = 5 * 1024 * 1024;
 
-const menuItems: Array<{ label: string; preview?: PreviewKind; adminOnly?: boolean }> = [
-  { label: "使用说明", preview: "guide" },
-  { label: "生词本", preview: "vocabulary" },
-  { label: "保存文章", preview: "saved" },
+const menuItems: MenuItem[] = [
   { label: "账号与用量", preview: "account" },
+  { label: "使用说明", preview: "guide" },
   { label: "意见反馈", preview: "feedback" },
   { label: "admin后台", adminOnly: true },
+];
+
+const mobileQuickItems: MenuItem[] = [
+  { label: "导入文章", action: "import", quick: true },
+  { label: "单独查词", action: "dictionary", quick: true },
+  { label: "生词本", preview: "vocabulary", quick: true },
+  { label: "我的文章", preview: "saved", quick: true },
 ];
 
 const savedArticleDateFormatter = new Intl.DateTimeFormat("zh-CN", {
@@ -92,6 +110,9 @@ export function HomeOptionMenu({
   onOpenSavedArticle,
   onJumpToVocabularySource,
   canJumpToVocabularySource,
+  initialPreview = null,
+  onOpenImport,
+  onOpenDictionary,
 }: HomeOptionMenuProps) {
   const router = useRouter();
   const dialogRef = useRef<HTMLElement | null>(null);
@@ -99,14 +120,17 @@ export function HomeOptionMenu({
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const vocabularyListRef = useRef<HTMLDivElement | null>(null);
   const [mounted, setMounted] = useState(open);
-  const [hoveredPreview, setHoveredPreview] = useState<PreviewKind | null>(null);
   const [hoveredVocabularyId, setHoveredVocabularyId] = useState<string | null>(null);
   const [vocabularySearchQuery, setVocabularySearchQuery] = useState("");
   const [pinnedPreview, setPinnedPreview] = useState<PreviewKind | null>(null);
   const [previewAnchorY, setPreviewAnchorY] = useState<number | null>(null);
+  const [mobileMenu, setMobileMenu] = useState(false);
   const items = useMemo(
-    () => menuItems.filter((item) => !item.adminOnly || isAdmin),
-    [isAdmin],
+    () => [
+      ...(mobileMenu ? mobileQuickItems : []),
+      ...menuItems,
+    ].filter((item) => !item.adminOnly || isAdmin),
+    [isAdmin, mobileMenu],
   );
   const sortedSavedArticles = useMemo(
     () => [...savedArticles].sort(
@@ -151,11 +175,25 @@ export function HomeOptionMenu({
     () => hoveredVocabularyId ? vocabularyEntriesById.get(hoveredVocabularyId) ?? null : null,
     [hoveredVocabularyId, vocabularyEntriesById],
   );
-  const visiblePreview = hoveredPreview ?? pinnedPreview;
+  const visiblePreview = pinnedPreview;
 
   useEffect(() => {
     if (open) setMounted(true);
   }, [open]);
+
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 760px)");
+    const update = () => setMobileMenu(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!open || !initialPreview) return;
+    setPreviewAnchorY(PREVIEW_ANCHOR_MIN + 54);
+    setPinnedPreview(initialPreview);
+  }, [initialPreview, open]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -169,7 +207,6 @@ export function HomeOptionMenu({
 
   useEffect(() => {
     if (open) return;
-    setHoveredPreview(null);
     setHoveredVocabularyId(null);
     setVocabularySearchQuery("");
     setPinnedPreview(null);
@@ -211,10 +248,15 @@ export function HomeOptionMenu({
   }
 
   function activateItem(item: (typeof items)[number], trigger: HTMLButtonElement) {
+    if (item.action) {
+      onClose();
+      if (item.action === "import") onOpenImport?.();
+      else onOpenDictionary?.();
+      return;
+    }
     if (item.preview) {
       const preview = item.preview;
       anchorPreview(trigger);
-      setHoveredPreview(preview);
       setPinnedPreview((current) => current === preview ? null : preview);
       return;
     }
@@ -224,14 +266,7 @@ export function HomeOptionMenu({
 
   function handleItemHover(item: (typeof items)[number], event: PointerEvent<HTMLButtonElement> | FocusEvent<HTMLButtonElement>) {
     if ("pointerType" in event && event.pointerType !== "mouse") return;
-    if (!item.preview) {
-      setPinnedPreview(null);
-      setHoveredPreview(null);
-      return;
-    }
-    anchorPreview(event.currentTarget);
-    setPinnedPreview(null);
-    setHoveredPreview(item.preview);
+    if (item.preview) anchorPreview(event.currentTarget);
   }
 
   function handleDialogKeyDown(event: KeyboardEvent<HTMLElement>) {
@@ -270,8 +305,9 @@ export function HomeOptionMenu({
     >
       <div className={styles.backdrop} aria-hidden="true" />
       <div className={styles.prelayers} aria-hidden="true">
-        <div className={styles.prelayer} style={{ "--layer-color": "#87b8d2" } as CSSProperties} />
-        <div className={styles.prelayer} style={{ "--layer-color": "#345f78" } as CSSProperties} />
+        <div className={styles.prelayer} style={{ "--layer-color": "#dfecef" } as CSSProperties} />
+        <div className={styles.prelayer} style={{ "--layer-color": "#d8e2f0" } as CSSProperties} />
+        <div className={styles.prelayer} style={{ "--layer-color": "#eadfd8" } as CSSProperties} />
       </div>
 
       <section
@@ -307,7 +343,7 @@ export function HomeOptionMenu({
         <div className={styles.panelInner}>
           <ul className={styles.menuList}>
             {items.map((item, index) => (
-              <li className={styles.itemWrap} key={item.label}>
+              <li className={styles.itemWrap} key={item.label} data-quick={item.quick || undefined}>
                 <button
                   className={styles.menuItem}
                   type="button"
@@ -350,7 +386,6 @@ export function HomeOptionMenu({
               setHoveredVocabularyId(null);
               return;
             }
-            setHoveredPreview(null);
             setPinnedPreview(null);
           }}
         >
@@ -415,6 +450,7 @@ export function HomeOptionMenu({
                   {vocabularyVirtualizer.getVirtualItems().map((virtualRow) => {
                     const entry = filteredVocabularyEntries[virtualRow.index];
                     if (!entry) return null;
+                    const entryPhonetic = currentFormPhonetic(entry);
                     return (
                       <button
                         data-index={virtualRow.index}
@@ -434,8 +470,8 @@ export function HomeOptionMenu({
                         aria-expanded={hoveredVocabularyId === entry.id}
                       >
                         <strong>{entry.word}</strong>
-                        {(entry.phonetic || entry.partOfSpeech) && (
-                          <small>{[entry.phonetic, normalizePartOfSpeechLabel(entry.partOfSpeech)].filter(Boolean).join(" · ")}</small>
+                        {(entryPhonetic || entry.partOfSpeech) && (
+                          <small>{[entryPhonetic, normalizePartOfSpeechLabel(entry.partOfSpeech)].filter(Boolean).join(" · ")}</small>
                         )}
                         <span>{entry.contextMeaning || entry.basicMeaning || "暂无释义"}</span>
                         {entry.sourceSentence && <em>{entry.sourceSentence}</em>}
@@ -698,20 +734,24 @@ function MenuFeedbackForm({ isOffline }: { isOffline: boolean }) {
         </select>
       </label>
       <label>你的想法
-        <textarea
-          value={message}
-          onChange={(event) => {
-            setMessage(event.target.value);
-            if (status) setStatus("");
-          }}
-          minLength={10}
-          maxLength={3000}
-          placeholder="请描述发生了什么，或你希望怎样改…"
-          required
-        />
+        <ClearableField value={message} onClear={() => { setMessage(""); setStatus(""); }} label="清空反馈内容" multiline>
+          <textarea
+            value={message}
+            onChange={(event) => {
+              setMessage(event.target.value);
+              if (status) setStatus("");
+            }}
+            minLength={10}
+            maxLength={3000}
+            placeholder="请描述发生了什么，或你希望怎样改…"
+            required
+          />
+        </ClearableField>
       </label>
       <label>联系方式（可不填）
-        <input value={contact} onChange={(event) => setContact(event.target.value)} maxLength={160} placeholder="邮箱、微信或其他联系方式" />
+        <ClearableField value={contact} onClear={() => setContact("")} label="清空联系方式">
+          <input value={contact} onChange={(event) => setContact(event.target.value)} maxLength={160} placeholder="邮箱、微信或其他联系方式" />
+        </ClearableField>
       </label>
       <div className={styles.feedbackImages}>
         <div>
@@ -772,6 +812,7 @@ function VocabularyHoverDetail({
   onJumpToSource: () => void;
 }) {
   const isStandalone = !entry.sourceSentence.trim();
+  const entryPhonetic = currentFormPhonetic(entry);
   const detailSections = [
     [entry.sourceSentence ? "所选词在本句中的含义" : "中文释义", entry.contextMeaning || entry.basicMeaning],
     ...(entry.sourceSentence ? [["基础释义", entry.basicMeaning]] : []),
@@ -790,15 +831,10 @@ function VocabularyHoverDetail({
       <header className={styles.vocabularyDetailHeader}>
         <div>
           <h3>{entry.word}</h3>
-          <p>
-            {[
-              originalFormLabel(entry.lemma, entry.word),
-              normalizePartOfSpeechLabel(entry.partOfSpeech),
-              entry.phonetic,
-            ].filter(Boolean).join(" · ")}
-          </p>
+          <p>原型：{originalFormLabel(entry.lemma, entry.word)} · {normalizePartOfSpeechLabel(entry.partOfSpeech)}</p>
+          {entryPhonetic && <p><strong>当前词音标：</strong>{entryPhonetic}</p>}
         </div>
-        <PronunciationButtons text={entry.word} />
+        <PronunciationButtons text={entry.word} preload />
       </header>
 
       {showJumpToSource && (

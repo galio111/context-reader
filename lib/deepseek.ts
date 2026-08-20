@@ -1,5 +1,6 @@
 import { normalizeAnkiInfo } from "@/lib/ankiData";
 import { normalizePartOfSpeechLabel } from "@/lib/displayLabels";
+import { pronunciationTargetMatches } from "@/lib/pronunciation";
 import type {
   Difficulty,
   ExplanationRequest,
@@ -12,7 +13,9 @@ const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const MAX_CONTEXT_CHARS = 1100;
 const MAX_SINGLE_FIELD_CHARS = 500;
 const MAX_QUESTION_CHARS = 500;
-const REQUEST_TIMEOUT_MS = 30000;
+const REQUEST_TIMEOUT_MS = 26000;
+const MAX_PROVIDER_ATTEMPTS = 2;
+const RETRY_DELAY_MS = 250;
 const MAX_COMPLETION_TOKENS = 760;
 const REQUIRED_CHINESE_FIELDS = [
   "basicMeaning",
@@ -31,15 +34,15 @@ const systemPrompt = `你是给中文母语英语学习者使用的语境词义�
 2. 中文字段要短、准、自然，重点解释当前语境，不要堆砌词典义。
 3. sentenceTranslation 必须翻译整句，并让目标词/短语在句中的语气、指代、逻辑关系都被准确体现。
 4. word 必须原样返回输入的 w，不能添加相邻单词、释义或原型。
-5. phonetic 尽量给 IPA。w 是单个单词时只给该词音标；w 是多词短语时按“单词 /音标/ · 单词 /音标/”列出每个单词，不要给整段句子音标；不知道就返回空字符串。
+5. phonetic 尽量给 IPA，且必须描述用户实际选择的 w，绝不能改成 lemma（原型）的音标。phoneticFor 必须原样返回 w，用来明确音标归属；无法确认 w 的音标时，phonetic 和 phoneticFor 都返回空字符串。w 是单个单词时只给该词当前词形的音标；w 是多词短语时按“单词 /音标/ · 单词 /音标/”列出每个实际选中词形，不要给整段句子音标。
 6. w 是单个单词时，lemma 只返回这个单词在该句中的原型，严禁返回相邻词或多个单词；w 是多词短语时 lemma 返回空字符串。partOfSpeech 只返回规范词性，不要把 CET、IELTS、A2、B2、medium 等考试或等级写进词性。
 7. contextMeaning 只能写目标词/短语在当前句中的中文对应含义，不得翻译整句。w 是单个单词时，contextMeaning 必须解释这个单词本身在句中的贡献，不能把相邻副词、否定词、程度词或搭配词的整体效果并入释义。例如 w=intelligible 且原句含 barely intelligible 时，contextMeaning 应写“可理解的；听得清的”，不要写“口齿不清的”；“barely intelligible”的整体效果应放在 sentenceTranslation 或 usageNote。w 是用户选中的多词短语时，contextMeaning 才解释整个短语。sentenceTranslation 才翻译整句。
 8. difficulty 只返回 easy、medium、hard 三者之一。
 9. clozeSentence 只把原句中的目标词/短语替换成 ________，不要改写整句。
-10. 实词、学术词、短语动词和固定表达通常 canMakeCloze=true；功能词或无有效线索才设为 false。
+10. 判断 Anki 卡片类型时，优先考虑“保留原句语境是否能帮助回忆目标表达”，不要按词长、词频或词性筛选。只要能在原句中准确定位目标词/短语、仅将它替换为 ________，且挖空后仍保留其他英文语境，canMakeCloze 必须为 true，cardMode 必须为 cloze_context。短词以及介词、副词、连词、代词、助动词等功能词往往更依赖上下文辨析，同样应当语境挖空，不能因此降级。只有以下结构性情况才返回 canMakeCloze=false、cardMode=basic_cn_to_en：s 为空；w 为空；w 未出现在 s 中；无法只替换 w 而保持原句其余内容不变；或 w 覆盖整句，挖空后没有任何可用英文语境。不要用“线索太少”“词太简单”“功能词”等主观理由判为 false。
 11. collocation 必须填写：优先给 2-4 个常见英文搭配，每个搭配后紧跟简短中文释义，格式严格为“service fee（服务费）；legal fee（律师费）”；如果确实没有固定搭配，写“无固定搭配”，不要留空。collocation 只能包含搭配，exampleEnglish 只能包含一个英文例句，exampleChinese 只能包含这个例句的一条中文翻译，三个字段严禁互相串入内容。
 返回字段：
-{"word":"","lemma":"","phonetic":"","partOfSpeech":"","basicMeaning":"","contextMeaning":"","sentenceTranslation":"","usageNote":"","collocation":"","exampleEnglish":"","exampleChinese":"","difficulty":"easy","shouldAddToVocabulary":true,"anki":{"canMakeCloze":true,"cardMode":"cloze_context","clozeSentence":"","contextCue":"","basicCue":""}}`;
+{"word":"","lemma":"","phonetic":"","phoneticFor":"","partOfSpeech":"","basicMeaning":"","contextMeaning":"","sentenceTranslation":"","usageNote":"","collocation":"","exampleEnglish":"","exampleChinese":"","difficulty":"easy","shouldAddToVocabulary":true,"anki":{"canMakeCloze":true,"cardMode":"cloze_context","clozeSentence":"","contextCue":"","basicCue":""}}`;
 
 export class MissingDeepSeekEnvError extends Error {
   constructor(message: string) {
@@ -52,6 +55,38 @@ export class DeepSeekParseError extends Error {
   constructor(message: string) {
     super(message);
     this.name = "DeepSeekParseError";
+  }
+}
+
+export class DeepSeekHttpError extends DeepSeekParseError {
+  constructor(
+    message: string,
+    public readonly status: number,
+    public readonly providerCode = "",
+  ) {
+    super(message);
+    this.name = "DeepSeekHttpError";
+  }
+}
+
+export class DeepSeekTimeoutError extends DeepSeekParseError {
+  constructor(message = "DeepSeek 响应超时，请重新生成。") {
+    super(message);
+    this.name = "DeepSeekTimeoutError";
+  }
+}
+
+export class DeepSeekTransportError extends DeepSeekParseError {
+  constructor(message = "DeepSeek 请求失败，请稍后重试。") {
+    super(message);
+    this.name = "DeepSeekTransportError";
+  }
+}
+
+export class DeepSeekEmptyContentError extends DeepSeekParseError {
+  constructor(message = "DeepSeek 没有返回解释内容，请重新生成。") {
+    super(message);
+    this.name = "DeepSeekEmptyContentError";
   }
 }
 
@@ -165,6 +200,20 @@ function friendlyDeepSeekError(message = "", status?: number): string {
     return "DeepSeek API Key 无效或没有权限，请检查 .env.local。";
   }
   return message || "DeepSeek 请求失败，请稍后重试。";
+}
+
+function isRetryableProviderError(error: unknown): boolean {
+  return (
+    error instanceof DeepSeekTimeoutError ||
+    error instanceof DeepSeekTransportError ||
+    (error instanceof DeepSeekHttpError && (error.status === 429 || error.status >= 500))
+  );
+}
+
+function waitForProviderRetry(attempt: number): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(resolve, RETRY_DELAY_MS * attempt);
+  });
 }
 
 function parseJsonObject(content: string): unknown {
@@ -289,7 +338,12 @@ function normalizeExplanation(value: unknown, request: ExplanationRequest): Word
   return {
     word: request.word,
     lemma: normalizeLemma(data.lemma, request.word),
-    phonetic: text(data.phonetic, ""),
+    phonetic: pronunciationTargetMatches(text(data.phoneticFor), request.word)
+      ? text(data.phonetic, "")
+      : "",
+    phoneticFor: pronunciationTargetMatches(text(data.phoneticFor), request.word)
+      ? request.word
+      : "",
     partOfSpeech: normalizePartOfSpeechLabel(text(data.partOfSpeech, "词性待确认")),
     basicMeaning,
     contextMeaning,
@@ -304,7 +358,7 @@ function normalizeExplanation(value: unknown, request: ExplanationRequest): Word
   };
 }
 
-async function requestDeepSeekCompletion(args: {
+async function requestDeepSeekCompletionOnce(args: {
   profile: ProviderProfile;
   safeRequest: ExplanationRequest;
   repairChineseFields?: string[];
@@ -354,11 +408,18 @@ async function requestDeepSeekCompletion(args: {
     });
 
     const completion = (await response.json().catch(() => null)) as DeepSeekChatCompletionResponse | null;
-    if (response.ok && completion) {
-      return completion;
+    if (response.ok) {
+      if (completion) {
+        return completion;
+      }
+      throw new DeepSeekParseError("DeepSeek 返回了无法读取的响应，请重新生成。");
     }
 
-    throw new DeepSeekParseError(friendlyDeepSeekError(completion?.error?.message, response.status));
+    throw new DeepSeekHttpError(
+      friendlyDeepSeekError(completion?.error?.message, response.status),
+      response.status,
+      text((completion?.error as { code?: unknown } | undefined)?.code),
+    );
   } catch (error) {
     if (error instanceof DeepSeekParseError) {
       throw error;
@@ -378,13 +439,48 @@ async function requestDeepSeekCompletion(args: {
       causeMessage: typeof cause?.message === "string" ? cause.message.slice(0, 300) : "",
     });
 
-    const message = error instanceof Error && error.name === "AbortError"
-      ? "DeepSeek 响应超时，请重新生成。"
-      : "DeepSeek 请求失败，请检查网络或 API 配置。";
-    throw new DeepSeekParseError(message);
+    if (error instanceof Error && error.name === "AbortError") {
+      throw new DeepSeekTimeoutError();
+    }
+    throw new DeepSeekTransportError();
   } finally {
     clearTimeout(timeoutId);
   }
+}
+
+async function requestDeepSeekCompletion(args: {
+  profile: ProviderProfile;
+  safeRequest: ExplanationRequest;
+  repairChineseFields?: string[];
+}): Promise<DeepSeekChatCompletionResponse> {
+  let lastError: DeepSeekParseError | null = null;
+
+  for (let attempt = 1; attempt <= MAX_PROVIDER_ATTEMPTS; attempt += 1) {
+    try {
+      return await requestDeepSeekCompletionOnce(args);
+    } catch (error) {
+      if (!(error instanceof DeepSeekParseError)) {
+        throw error;
+      }
+
+      lastError = error;
+      if (!isRetryableProviderError(error) || attempt === MAX_PROVIDER_ATTEMPTS) {
+        throw error;
+      }
+
+      console.warn("[deepseek] Retrying transient provider failure", {
+        profile: args.profile.label,
+        model: args.profile.model,
+        attempt,
+        errorName: error.name,
+        status: error instanceof DeepSeekHttpError ? error.status : undefined,
+        providerCode: error instanceof DeepSeekHttpError ? error.providerCode : undefined,
+      });
+      await waitForProviderRetry(attempt);
+    }
+  }
+
+  throw lastError ?? new DeepSeekTransportError();
 }
 
 export async function explainWordWithDeepSeek(
@@ -401,8 +497,8 @@ export async function explainWordWithDeepSeek(
 
   for (const profile of profiles) {
     try {
-      const completion = await requestDeepSeekCompletion({ profile, safeRequest });
-      const content = completion.choices?.[0]?.message?.content?.trim();
+      let completion = await requestDeepSeekCompletion({ profile, safeRequest });
+      let content = completion.choices?.[0]?.message?.content?.trim();
 
       if (!content) {
         console.warn("DeepSeek returned empty content", {
@@ -411,8 +507,16 @@ export async function explainWordWithDeepSeek(
           finishReason: completion.choices?.[0]?.finish_reason,
           hasReasoning: Boolean(completion.choices?.[0]?.message?.reasoning_content),
         });
-        lastError = new DeepSeekParseError("DeepSeek 没有返回解释内容，请重新生成。");
-        continue;
+        await waitForProviderRetry(1);
+        const retryCompletion = await requestDeepSeekCompletion({ profile, safeRequest });
+        completion = {
+          ...retryCompletion,
+          usage: sumUsage(completion.usage, retryCompletion.usage),
+        };
+        content = retryCompletion.choices?.[0]?.message?.content?.trim();
+        if (!content) {
+          throw new DeepSeekEmptyContentError();
+        }
       }
 
       const parsed = parseJsonObject(content);
@@ -441,7 +545,7 @@ export async function explainWordWithDeepSeek(
           model: profile.model,
           message: error.message,
         });
-        if (!isDeepSeekBusy(error.message)) {
+        if (!isRetryableProviderError(error) && !(error instanceof DeepSeekEmptyContentError) && !isDeepSeekBusy(error.message)) {
           break;
         }
         continue;

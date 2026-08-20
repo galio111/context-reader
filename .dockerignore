@@ -1,0 +1,13 @@
+.git
+.github
+.next
+.next-dev
+.vercel
+node_modules
+backups
+artifacts
+ops/mainland/.env
+ops/mainland/.env.runtime
+.env*
+*.log
+.next-corrupt-*

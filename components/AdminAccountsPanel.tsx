@@ -1,10 +1,12 @@
 "use client";
 
+import ClearableField from "@/components/ClearableField";
+
 import { useEffect, useMemo, useState } from "react";
 
 type ManagedPlanId = "guest" | "free" | "basic" | "plus" | "max";
 type UserPlanId = "free" | "basic" | "plus" | "max" | "admin";
-type ManagedMetric = "guest_lookup" | "lookup_generation" | "deep_reading";
+type ManagedMetric = "guest_article_lookup" | "guest_dictionary_lookup" | "guest_text_import" | "guest_url_import" | "lookup_generation" | "deep_reading";
 
 interface DashboardData {
   profiles: Array<Record<string, unknown>>;
@@ -31,7 +33,12 @@ const PLAN_RULES: PlanRule[] = [
     id: "guest",
     name: "游客试用",
     description: "未登录访客",
-    metrics: [{ key: "guest_lookup", label: "每日试用查词", unit: "次 / 天", windowType: "day" }],
+    metrics: [
+      { key: "guest_article_lookup", label: "文章语境查询", unit: "次 / 天", windowType: "day" },
+      { key: "guest_dictionary_lookup", label: "单独查词", unit: "次 / 天", windowType: "day" },
+      { key: "guest_text_import", label: "粘贴正文", unit: "次 / 天", windowType: "day" },
+      { key: "guest_url_import", label: "网址导入", unit: "次 / 天", windowType: "day" },
+    ],
   },
   {
     id: "free",
@@ -220,7 +227,7 @@ export default function AdminAccountsPanel() {
               <h3 className="text-[21px] font-semibold">套餐额度规则</h3>
               <div className="mt-3 max-w-3xl rounded-xl bg-[#edf5fb] px-4 py-3 text-sm leading-6 text-[#174d73]">
                 <p><strong>AI 查词与追问：</strong>注册用户只有新生成解释或句子追问会扣次数，缓存命中免费；游客无论缓存或新生成都计入每日试用。</p>
-                <p className="mt-1"><strong>深度阅读：</strong>用于全文翻译、摘要和 OCR。大约每 1,000 个字符消耗 1 点，摘要至少 2 点，OCR 每张图片 5 点。</p>
+                <p className="mt-1"><strong>深度阅读：</strong>用于全文翻译和摘要。大约每 1,000 个字符消耗 1 点，摘要至少 2 点。</p>
               </div>
             </div>
             <div className="divide-y divide-[#e1e5e9]">
@@ -252,7 +259,7 @@ export default function AdminAccountsPanel() {
           <section className="mt-6 overflow-hidden rounded-2xl bg-white">
             <div className="flex flex-col gap-4 border-b border-[#e1e5e9] px-5 py-5 sm:flex-row sm:items-end sm:justify-between">
               <div><h3 className="text-[21px] font-semibold">用户账号</h3><p className="mt-1 text-sm leading-6 text-[#4d535a]">日常通常只需要分配套餐、封禁异常账号或帮助用户重置密码。</p></div>
-              <label className="text-sm font-medium text-[#343a40]">搜索用户<input className="mt-2 block min-h-10 w-full rounded-xl border border-[#c9ced6] px-3.5 outline-none focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15 sm:w-64" type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="昵称或手机号" /></label>
+              <label className="text-sm font-medium text-[#343a40]">搜索用户<ClearableField className="mt-2 sm:w-64" value={search} onClear={() => setSearch("")} label="清空用户搜索"><input className="block min-h-10 w-full rounded-xl border border-[#c9ced6] px-3.5 outline-none focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15" type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="昵称或手机号" /></ClearableField></label>
             </div>
 
             {visibleProfiles.length === 0 ? (

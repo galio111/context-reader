@@ -1,0 +1,81 @@
+.field {
+  --clearable-button-inset: 0.45rem;
+  --clearable-input-padding: 2.75rem;
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+
+.field > input,
+.field > textarea {
+  width: 100%;
+  padding-right: var(--clearable-input-padding) !important;
+}
+
+.field > input[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.button {
+  position: absolute !important;
+  z-index: 2;
+  top: 50%;
+  right: var(--clearable-button-inset) !important;
+  display: grid !important;
+  width: 2rem !important;
+  min-width: 2rem !important;
+  height: 2rem !important;
+  min-height: 2rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 0 !important;
+  border-radius: 999px !important;
+  color: #526158 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font: inherit !important;
+  line-height: 1 !important;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  transition: color 160ms ease, background-color 160ms ease !important;
+}
+
+.multiline .button {
+  top: 0.55rem;
+  transform: none;
+}
+
+.button:hover {
+  color: #18211d !important;
+  background: rgb(24 33 29 / 8%) !important;
+}
+
+.button:active {
+  background: rgb(24 33 29 / 13%) !important;
+}
+
+.button:focus-visible {
+  outline: 2px solid #2868ad !important;
+  outline-offset: 1px;
+}
+
+.button:disabled {
+  color: #8b9690 !important;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.button svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none !important;
+  }
+}

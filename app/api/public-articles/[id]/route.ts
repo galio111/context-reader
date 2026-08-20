@@ -5,6 +5,10 @@ interface RouteContext {
   params: Promise<{ id: string }>;
 }
 
+const PUBLIC_CACHE_HEADERS = {
+  "Cache-Control": "public, max-age=60, s-maxage=300, stale-while-revalidate=86400",
+};
+
 export async function GET(_request: Request, context: RouteContext) {
   const { id } = await context.params;
 
@@ -13,7 +17,7 @@ export async function GET(_request: Request, context: RouteContext) {
     if (!article) {
       return NextResponse.json({ error: "没有找到这篇公开文章。" }, { status: 404 });
     }
-    return NextResponse.json({ article });
+    return NextResponse.json({ article }, { headers: PUBLIC_CACHE_HEADERS });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "公开文章读取失败。" },
@@ -21,4 +25,3 @@ export async function GET(_request: Request, context: RouteContext) {
     );
   }
 }
-

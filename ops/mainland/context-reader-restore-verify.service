@@ -1,0 +1,11 @@
+[Unit]
+Description=Verify the latest Context Reader PostgreSQL backup
+Requires=docker.service
+After=docker.service context-reader-backup.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/context-reader-current/ops/mainland/verify-latest-backup.sh
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7

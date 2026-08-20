@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
 import { acquireCostSlot } from "@/lib/costConcurrency";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
-import { sanitizeDictionaryQuery } from "@/lib/deepseekDictionary";
+import { isValidStandaloneDictionaryQuery, sanitizeDictionaryQuery } from "@/lib/deepseekDictionary";
+import { normalizeDictionaryStreamLine } from "@/lib/dictionaryStreamServer";
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
@@ -12,8 +13,6 @@ export const maxDuration = 60;
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const REQUEST_TIMEOUT_MS = 35_000;
-const QUERY_PATTERN = /^[A-Za-z]+(?:['’-][A-Za-z]+)*(?:\s+[A-Za-z]+(?:['’-][A-Za-z]+)*){0,7}$/;
-
 interface DeepSeekStreamChunk {
   choices?: Array<{ delta?: { content?: string | null } }>;
   usage?: ProviderTokenUsage;
@@ -49,14 +48,15 @@ export async function POST(request: Request) {
       ? String((body as { query?: unknown }).query ?? "")
       : "",
   );
-  if (!query || !QUERY_PATTERN.test(query)) {
-    return NextResponse.json({ error: "请输入一个英文单词，或不超过 8 个词的英文短语。" }, { status: 400 });
+  if (!query || !isValidStandaloneDictionaryQuery(query)) {
+    return NextResponse.json({ error: "请输入中文词语，或不超过 8 个词的英文短语。" }, { status: 400 });
   }
 
   try {
     const usage = await gateUsage(request, {
       feature: "standalone_dictionary",
       metricKey: "lookup_generation",
+      guestMetricKey: "guest_dictionary_lookup",
       units: 1,
     });
     actionId = usage.actionId;
@@ -116,24 +116,29 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         model,
         temperature: 0,
-        max_tokens: 1_500,
+        max_tokens: 2_400,
         stream: true,
         stream_options: { include_usage: true },
         thinking: { type: "disabled" },
         messages: [
           {
             role: "system",
-            content: `你是给中文母语英语学习者使用的独立深度英汉词典。只输出 NDJSON，每行一个独立、完整、紧凑的 JSON 对象；不要 Markdown、代码块、数组、总对象或额外文字。必须严格按以下顺序逐行输出，让客户端每收到一行就能渲染一个最终界面区块：
-1. 一行词头：{"type":"head","query":"用户输入","lemma":"原形","phonetic":"IPA"}
-2. 1-4 行常用义项：{"type":"sense","partOfSpeech":"英文词性","meaning":"准确中文释义","register":"常用/正式/口语/学术","exampleEnglish":"自然英文例句","exampleChinese":"对应中文"}
-3. 一行用法：{"type":"usage","value":"核心用法、语气、句型和易混点"}
-4. 3-6 行搭配：{"type":"collocation","phrase":"英文搭配","meaning":"中文","exampleEnglish":"简短英文例句"}
-5. 0-5 行词族：{"type":"wordFamily","word":"词","partOfSpeech":"英文词性","meaning":"中文"}
-6. 0-5 行近义词：{"type":"synonym","word":"词","difference":"中文差别"}
-7. 0-4 行易错点：{"type":"mistake","value":"中文说明"}
-8. 一行记忆提示：{"type":"memory","value":"可信提示，不编造词源"}
-9. 最后一行：{"type":"done"}
-短语的 phonetic 按“word /音标/ · word /音标/”逐词给出。每个 JSON 对象必须单独占一行并在该行一次闭合，不能把同一对象拆成多行。所有解释字段使用自然、准确的中文，内容要紧凑但把词查透。`,
+            content: `你是给中文母语英语学习者使用的双向深度英汉词典。只输出 NDJSON，每行一个独立、完整、紧凑的 JSON 对象；不要 Markdown、代码块、数组、总对象或额外文字。必须严格按以下顺序逐行输出，让客户端每收到一行就能渲染一个最终界面区块：
+1. 英文输入使用 direction="en_to_cn"；中文输入使用 direction="cn_to_en"。query 必须保留用户原输入。输出一行词头：{"type":"head","query":"用户输入","lemma":"英文原形或中译英第一候选","phonetic":"英文输入当前词形或中译英第一候选的 IPA","phoneticFor":"该音标实际描述的英文，英译中必须原样等于 query，中译英等于第一候选","direction":"en_to_cn 或 cn_to_en","inputStatus":"valid、inflection 或 misspelled","suggestedQuery":"仅英文拼错时填写"}
+2. 英译中：真实表达用 valid，正常词形变化用 inflection，明显拼错用 misspelled；拼错时不得编造词义、音标或例句，词头后立刻输出 done。继续输出 1-4 行中文义项：{"type":"sense","partOfSpeech":"英文词性","meaning":"准确中文释义","phonetic":"","register":"中文语域说明","usageNote":"","exampleEnglish":"自然英文例句","exampleChinese":"对应中文"}。每个常用义项必须有自然的英中例句，不能为了缩短输出而删减例句。
+3. 中译英：中文 query 始终是页面词头，inputStatus 固定为 valid。按实际需要输出 1-4 个自然英文候选，不得默认只有一个，也不得为凑数量返回生硬表达。若中文可表示多种词性（例如“绑架”既可作动词也可作名词），必须先按词性分类，同一词性的候选连续输出，再输出下一词性。每个候选单独一行：{"type":"sense","partOfSpeech":"准确英文词性","meaning":"英文候选表达","phonetic":"该候选的 IPA","register":"常用、正式、口语等中文语域说明","usageNote":"一两句中文说明适用场景","exampleEnglish":"自然英文例句","exampleChinese":"对应中文"}
+例如输入 consiiider 时，第一行必须把 query 保留为 consiiider、lemma 和 suggestedQuery 写为 consider、inputStatus 写为 misspelled，第二行直接 done。
+4. 必须先输出完全部 sense 行。仅英译中：若词头或其常用义项可作动词，随后输出一行变形：{"type":"verbForms","pastTense":"过去式","pastParticiple":"过去分词","presentParticiple":"现在分词"}。规则变化也必须完整填写；不是动词则跳过。中译英不得输出此行。
+5. 输出一行用法。英译中写核心用法、句型、语气和易混点，必须具体；中译英只简短比较候选之间怎么选：{"type":"usage","value":"中文说明"}
+6. 仅英译中继续输出完整学习板块，字段名必须严格照抄，禁止改成通用 value：
+- 3-6 行真正高频的搭配：{"type":"collocation","phrase":"英文搭配","meaning":"中文含义","exampleEnglish":"自然英文例句"}
+- 有合理派生词时输出 2-5 行词族：{"type":"wordFamily","word":"派生词","partOfSpeech":"英文词性","meaning":"中文含义"}
+- 输出 2-5 行常见近义词：{"type":"synonym","word":"近义词","difference":"与词头在语气、语域或使用场景上的中文辨析"}
+- 一行可信且不牵强的记忆提示：{"type":"memory","value":"中文提示"}
+除非客观上不存在合理内容，否则不得省略这些板块。中译英跳过这些区块。
+7. 两个方向都可输出 0-3 行真正有帮助的易错点：{"type":"mistake","value":"中文说明"}
+8. 最后一行：{"type":"done"}
+英文输入的 phonetic 必须描述用户实际输入的 query，绝不能改成 lemma（原型）的音标；无法确认当前词形的音标时，phonetic 和 phoneticFor 都留空。短语的 phonetic 按“word /音标/ · word /音标/”逐个描述实际输入的词形。每个 JSON 对象必须单独占一行并在该行一次闭合，不能把同一对象拆成多行。所有说明字段使用自然、准确的中文。`,
           },
           { role: "user", content: JSON.stringify({ query }) },
         ],
@@ -178,7 +183,21 @@ export async function POST(request: Request) {
         const decoder = new TextDecoder();
         const encoder = new TextEncoder();
         let buffer = "";
+        let modelLineBuffer = "";
         let providerUsage: ProviderTokenUsage = {};
+        const enqueueModelContent = (content: string, flush = false) => {
+          modelLineBuffer += content;
+          const lines = modelLineBuffer.split(/\r?\n/);
+          if (flush) {
+            modelLineBuffer = "";
+          } else {
+            modelLineBuffer = lines.pop() ?? "";
+          }
+          for (const line of lines) {
+            const normalized = normalizeDictionaryStreamLine(line, query);
+            if (normalized) controller.enqueue(encoder.encode(`${normalized}\n`));
+          }
+        };
         try {
           while (true) {
             const { done, value } = await reader.read();
@@ -188,11 +207,12 @@ export async function POST(request: Request) {
             buffer = lines.pop() ?? "";
             for (const line of lines) {
               const content = parseSseContent(line, (usage) => { providerUsage = usage; });
-              if (content) controller.enqueue(encoder.encode(content));
+              if (content) enqueueModelContent(content);
             }
           }
           const tail = parseSseContent(buffer, (usage) => { providerUsage = usage; });
-          if (tail) controller.enqueue(encoder.encode(tail));
+          if (tail) enqueueModelContent(tail);
+          enqueueModelContent("", true);
           await recordUsageExecution({
             actionId,
             route: "/api/dictionary-stream",

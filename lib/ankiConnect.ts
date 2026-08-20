@@ -7,10 +7,20 @@ import {
   modelDefinition,
   modelNameForMode,
 } from "@/lib/ankiTemplates";
+import {
+  PronunciationRequestError,
+  requestPronunciationPair,
+  type PronunciationMedia,
+} from "@/lib/pronunciationClient";
 
 interface AnkiConnectResponse<T> {
   result: T;
   error: string | null;
+}
+
+interface AnkiNoteInfo {
+  noteId: number;
+  fields?: Record<string, { value?: string }>;
 }
 
 export class AnkiConnectError extends Error {
@@ -120,12 +130,131 @@ async function disableDeckAudioAutoplay(deckName: string, endpoint?: string): Pr
   }
 }
 
+function bytesToBase64(bytes: Uint8Array): string {
+  let binary = "";
+  const chunkSize = 0x8000;
+  for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+    binary += String.fromCharCode(...bytes.subarray(offset, offset + chunkSize));
+  }
+  return window.btoa(binary);
+}
+
+function ankiAudio(
+  media: PronunciationMedia,
+  field: "AudioUS" | "AudioUK",
+): {
+  data: string;
+  filename: string;
+  fields: string[];
+} {
+  return {
+    data: bytesToBase64(media.bytes),
+    filename: media.filename,
+    fields: [field],
+  };
+}
+
+async function pronunciationAudioForNote(entry: VocabularyEntry) {
+  const media = await requestPronunciationPair(entry.word);
+  return [
+    ankiAudio(media.us, "AudioUS"),
+    ankiAudio(media.uk, "AudioUK"),
+  ];
+}
+
+const PRONUNCIATION_RETRY_DELAYS_MS = [0, 1_500, 4_500, 9_000];
+
+function delay(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
+}
+
+function isRetryablePronunciationError(error: unknown): boolean {
+  if (!(error instanceof PronunciationRequestError)) return false;
+  return (
+    error.status === 0
+    || error.status === 408
+    || error.status === 429
+    || error.status >= 500
+    || error.code === "pronunciation_network"
+  );
+}
+
+async function pronunciationAudioForNoteWithRetry(entry: VocabularyEntry) {
+  let lastError: unknown;
+  for (const retryDelay of PRONUNCIATION_RETRY_DELAYS_MS) {
+    if (retryDelay > 0) await delay(retryDelay);
+    try {
+      return await pronunciationAudioForNote(entry);
+    } catch (error) {
+      lastError = error;
+      if (
+        error instanceof PronunciationRequestError
+        && error.code === "pronunciation_not_configured"
+      ) {
+        // Local development can still import a complete card: the maintained
+        // templates use Anki's own en_US/en_GB TTS when cloud MP3s are absent.
+        return [];
+      }
+      if (!isRetryablePronunciationError(error)) throw error;
+    }
+  }
+  throw lastError;
+}
+
 export async function getModelNames(endpoint?: string): Promise<string[]> {
   return invokeAnkiConnect<string[]>("modelNames", {}, endpoint);
 }
 
 export async function getModelFieldNames(modelName: string, endpoint?: string): Promise<string[]> {
   return invokeAnkiConnect<string[]>("modelFieldNames", { modelName }, endpoint);
+}
+
+function escapeAnkiSearchValue(value: string): string {
+  return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+}
+
+/**
+ * Finds Context Reader notes which were successfully created in Anki but whose
+ * browser-side import receipt was not persisted (for example, after an
+ * interrupted browser session). The CreatedAt + Word pair is written into
+ * every Context Reader card and is unique for a vocabulary entry.
+ */
+export async function findImportedVocabularyNoteIds(
+  entries: VocabularyEntry[],
+  deckName = DEFAULT_ANKI_DECK,
+  endpoint?: string,
+): Promise<Map<string, number>> {
+  const missingEntries = entries.filter((entry) => !entry.anki.ankiNoteId);
+  if (missingEntries.length === 0) return new Map();
+
+  const entryIdsBySignature = new Map<string, string[]>();
+  for (const entry of missingEntries) {
+    const signature = `${entry.createdAt}\u0000${entry.word}`;
+    const ids = entryIdsBySignature.get(signature) ?? [];
+    ids.push(entry.id);
+    entryIdsBySignature.set(signature, ids);
+  }
+
+  const noteIds = await invokeAnkiConnect<number[]>(
+    "findNotes",
+    { query: `deck:\"${escapeAnkiSearchValue(deckName)}\" tag:context-reader` },
+    endpoint,
+  );
+  if (noteIds.length === 0) return new Map();
+
+  const notes = await invokeAnkiConnect<AnkiNoteInfo[]>("notesInfo", { notes: noteIds }, endpoint);
+  const recovered = new Map<string, number>();
+  for (const note of notes) {
+    const createdAt = note.fields?.CreatedAt?.value;
+    const word = note.fields?.Word?.value;
+    if (!createdAt || !word || !Number.isFinite(note.noteId) || note.noteId <= 0) continue;
+    const entryIds = entryIdsBySignature.get(`${createdAt}\u0000${word}`);
+    if (!entryIds) continue;
+    for (const entryId of entryIds) {
+      if (!recovered.has(entryId)) recovered.set(entryId, note.noteId);
+    }
+  }
+  return recovered;
 }
 
 async function ensureModelFields(
@@ -206,6 +335,9 @@ export async function addVocabularyNote(
   await createDeck(deckName, endpoint);
   await disableDeckAudioAutoplay(deckName, endpoint);
   const modelName = await ensureModel(entry.anki.cardMode, endpoint);
+  // Production notes own both cloud MP3s. A deliberately unconfigured local
+  // TTS provider falls back to the maintained Anki template's system TTS.
+  const audio = await pronunciationAudioForNoteWithRetry(entry);
   const result = await invokeAnkiConnect<number>(
     "addNote",
     {
@@ -213,6 +345,7 @@ export async function addVocabularyNote(
         deckName,
         modelName,
         fields: fieldsForEntry(entry),
+        audio,
         options: { allowDuplicate: true },
         tags: ["context-reader", entry.anki.cardMode],
       },

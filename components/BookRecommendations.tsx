@@ -53,6 +53,7 @@ export function BookRecommendations({
   const [openingCover, setOpeningCover] = useState<OpeningCover | null>(null);
   const [coverExpanded, setCoverExpanded] = useState(false);
   const [sectionEntered, setSectionEntered] = useState(false);
+  const [failedCoverIds, setFailedCoverIds] = useState<Set<string>>(() => new Set());
   const sectionRef = useRef<HTMLElement | null>(null);
   const setSectionRef = useCallback((element: HTMLElement | null) => {
     sectionRef.current = element;
@@ -113,8 +114,11 @@ export function BookRecommendations({
     const rect = (image ?? event.currentTarget).getBoundingClientRect();
     setOpeningCover({ article, rect: { left: rect.left, top: rect.top, width: rect.width, height: rect.height } });
     window.requestAnimationFrame(() => window.requestAnimationFrame(() => setCoverExpanded(true)));
-    await new Promise((resolve) => window.setTimeout(resolve, 480));
-    await onOpenArticle(article.id);
+    const articleRequest = onOpenArticle(article.id);
+    await Promise.all([
+      articleRequest,
+      new Promise((resolve) => window.setTimeout(resolve, 480)),
+    ]);
     window.setTimeout(() => {
       setCoverExpanded(false);
       window.setTimeout(() => setOpeningCover(null), 420);
@@ -127,6 +131,15 @@ export function BookRecommendations({
     "--cover-width": `${openingCover.rect.width}px`,
     "--cover-height": `${openingCover.rect.height}px`,
   } as CSSProperties) : undefined;
+
+  const markCoverUnavailable = useCallback((articleId: string) => {
+    setFailedCoverIds((current) => {
+      if (current.has(articleId)) return current;
+      const next = new Set(current);
+      next.add(articleId);
+      return next;
+    });
+  }, []);
 
   return (
     <section ref={setSectionRef} className={`${styles.section} ${embedded ? styles.embedded : ""} ${sectionEntered ? styles.entered : ""}`} aria-labelledby="recommendation-heading">
@@ -152,6 +165,7 @@ export function BookRecommendations({
           {visibleArticles.map((article) => {
             const recommendation = article.recommendation!;
             const busy = openingPublicArticleId === article.id || openingCover?.article.id === article.id;
+            const coverUnavailable = failedCoverIds.has(article.id);
             return (
               <button
                 key={article.id}
@@ -159,12 +173,24 @@ export function BookRecommendations({
                 className={styles.article}
                 disabled={Boolean(openingCover) || readerTransitioning}
                 onPointerEnter={() => onPrefetchArticle(article.id)}
+                onPointerDown={() => onPrefetchArticle(article.id)}
                 onFocus={() => onPrefetchArticle(article.id)}
                 onClick={(event) => void openArticle(event, article)}
               >
                 <span className={styles.imageWrap}>
-                  <img src={recommendation.coverImageUrl} alt={recommendation.coverImageAlt || `${article.title} 推荐封面`} />
-                  <i>{busy ? "正在展开" : `${recommendation.readingMinutes} 分钟`}</i>
+                  {coverUnavailable ? (
+                    <span className={styles.coverFallback} aria-hidden="true">
+                      <span>封面暂时无法加载</span>
+                      <small>{article.sourceName || "Context Reader"}</small>
+                    </span>
+                  ) : (
+                    <img
+                      src={recommendation.coverImageUrl}
+                      alt={recommendation.coverImageAlt || `${article.title} 推荐封面`}
+                      onError={() => markCoverUnavailable(article.id)}
+                    />
+                  )}
+                  <i>{busy ? "正在展开" : `${recommendation.wordCount.toLocaleString("zh-CN")} 词`}</i>
                 </span>
                 <span className={styles.articleCopy}>
                   <span className={styles.meta}>{recommendation.topics.slice(0, 2).join(" · ")}<em>{recommendation.difficulty}</em></span>
@@ -186,7 +212,15 @@ export function BookRecommendations({
 
       {openingCover && (
         <div className={`${styles.coverOverlay} ${coverExpanded ? styles.coverOverlayExpanded : ""}`} style={overlayStyle} aria-hidden="true">
-          <img src={openingCover.article.recommendation?.coverImageUrl} alt="" />
+          {failedCoverIds.has(openingCover.article.id) ? (
+            <span className={styles.coverOverlayFallback}>封面暂时无法加载</span>
+          ) : (
+            <img
+              src={openingCover.article.recommendation?.coverImageUrl}
+              alt=""
+              onError={() => markCoverUnavailable(openingCover.article.id)}
+            />
+          )}
           <div><span>{openingCover.article.sourceName || "Context Reader"}</span><strong>{openingCover.article.title}</strong></div>
         </div>
       )}

@@ -2,14 +2,16 @@ import { NextResponse } from "next/server";
 import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
 import { acquireCostSlot } from "@/lib/costConcurrency";
 import { DeepSeekParseError, MissingDeepSeekEnvError } from "@/lib/deepseek";
-import { lookupDictionaryWithDeepSeek, sanitizeDictionaryQuery } from "@/lib/deepseekDictionary";
+import {
+  isValidStandaloneDictionaryQuery,
+  lookupDictionaryWithDeepSeek,
+  sanitizeDictionaryQuery,
+} from "@/lib/deepseekDictionary";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd } from "@/lib/usageCost";
 
 export const maxDuration = 60;
-
-const QUERY_PATTERN = /^[A-Za-z]+(?:['’-][A-Za-z]+)*(?:\s+[A-Za-z]+(?:['’-][A-Za-z]+)*){0,7}$/;
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -26,14 +28,15 @@ export async function POST(request: Request) {
   const query = sanitizeDictionaryQuery(
     body && typeof body === "object" && "query" in body ? String((body as { query?: unknown }).query ?? "") : "",
   );
-  if (!query || !QUERY_PATTERN.test(query)) {
-    return NextResponse.json({ error: "请输入一个英文单词，或不超过 8 个词的英文短语。" }, { status: 400 });
+  if (!query || !isValidStandaloneDictionaryQuery(query)) {
+    return NextResponse.json({ error: "请输入中文词语，或不超过 8 个词的英文短语。" }, { status: 400 });
   }
 
   try {
     const usage = await gateUsage(request, {
       feature: "standalone_dictionary",
       metricKey: "lookup_generation",
+      guestMetricKey: "guest_dictionary_lookup",
       units: 1,
     });
     actionId = usage.actionId;

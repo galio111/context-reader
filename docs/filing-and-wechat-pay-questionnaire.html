@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Context Reader 备案与微信支付路线问卷</title>
+  <style>
+    :root{color-scheme:light;--ink:#17251f;--muted:#68766f;--line:#d7dfda;--paper:#fbfcf9;--blue:#1769aa;--green:#1d6a4a;--warn:#9a5b17}
+    *{box-sizing:border-box}body{margin:0;background:#eef2ed;color:var(--ink);font:15px/1.65 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+    main{width:min(980px,calc(100% - 28px));margin:28px auto 60px}header,.card,.result{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 34px rgba(28,46,36,.07)}
+    header{padding:28px 30px}h1{margin:0 0 8px;font:700 clamp(26px,4vw,42px)/1.15 Georgia,"Songti SC",serif}h2{margin:0 0 12px;font-size:18px}p{margin:7px 0}.muted{color:var(--muted)}.warn{color:var(--warn);font-weight:700}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}.card{padding:22px}.wide{grid-column:1/-1}.options{display:grid;gap:9px;margin-top:12px}
+    label.option{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:13px;cursor:pointer;background:white}label.option:hover{border-color:#9fb9aa}
+    input[type=radio],input[type=checkbox]{margin-top:5px;accent-color:var(--blue)}input[type=text],textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:white;color:var(--ink);font:inherit}textarea{min-height:90px;resize:vertical}.field{display:grid;gap:7px;margin-top:12px}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}button{border:0;border-radius:999px;padding:12px 18px;font:700 14px/1 system-ui;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:white;color:var(--ink);border:1px solid var(--line)}
+    .result{padding:22px;display:none}.result.show{display:block}pre{white-space:pre-wrap;word-break:break-word;margin:0;padding:16px;background:#122019;color:#e9f2ec;border-radius:14px}.status{min-height:24px;color:var(--green);font-weight:700}
+    @media(max-width:720px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}header,.card{padding:20px}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>备案与微信支付路线问卷</h1>
+    <p>用来决定：现在做个人免费站备案，还是先准备经营主体，再按未来收费路线备案和申请微信支付。</p>
+    <p class="warn">不要填写身份证号码、手机号、银行卡、密码、验证码或任何密钥。</p>
+  </header>
+
+  <form id="form" class="grid">
+    <section class="card">
+      <h2>1. 备案地区</h2>
+      <div class="field"><label for="idRegion">身份证所在省市</label><input id="idRegion" name="idRegion" type="text" placeholder="例如：湖南省长沙市" /></div>
+      <div class="field"><label for="livingRegion">当前长期居住省市</label><input id="livingRegion" name="livingRegion" type="text" placeholder="与证件一致可写“同上”" /></div>
+    </section>
+
+    <section class="card">
+      <h2>2. 目前有没有经营主体</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="entity" value="没有营业执照，目前是纯个人" />没有，纯个人</label>
+        <label class="option"><input type="radio" name="entity" value="已有个体工商户营业执照" />已有个体工商户</label>
+        <label class="option"><input type="radio" name="entity" value="已有有限责任公司" />已有公司</label>
+        <label class="option"><input type="radio" name="entity" value="没有，但愿意根据路线办理个体工商户或公司" />没有，但愿意办理</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. 预计什么时候开始收钱</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="chargeTime" value="半年以后，先长期免费测试" />半年以后，先免费测试</label>
+        <label class="option"><input type="radio" name="chargeTime" value="预计3至6个月内收费" />3–6 个月</label>
+        <label class="option"><input type="radio" name="chargeTime" value="预计1至3个月内收费" />1–3 个月</label>
+        <label class="option"><input type="radio" name="chargeTime" value="备案后就想尽快收费" />备案后尽快收费</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. 打算卖什么</h2>
+      <div class="options">
+        <label class="option"><input type="checkbox" name="product" value="按月或按年会员订阅" />会员订阅</label>
+        <label class="option"><input type="checkbox" name="product" value="购买查词或翻译次数包" />次数包</label>
+        <label class="option"><input type="checkbox" name="product" value="一次性永久版或功能解锁" />一次性功能解锁</label>
+        <label class="option"><input type="checkbox" name="product" value="自愿赞赏，不影响功能" />自愿赞赏</label>
+        <label class="option"><input type="checkbox" name="product" value="暂未决定具体收费方式" />暂未决定</label>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>5. 希望用户怎么付款（可多选）</h2>
+      <div class="options">
+        <label class="option"><input type="checkbox" name="payScene" value="电脑网页显示二维码，用户用微信扫码付款" />电脑网页二维码付款（推荐先做）</label>
+        <label class="option"><input type="checkbox" name="payScene" value="手机浏览器里直接跳转微信付款" />手机浏览器直接调起微信</label>
+        <label class="option"><input type="checkbox" name="payScene" value="在微信公众号内打开并付款" />微信公众号内付款</label>
+        <label class="option"><input type="checkbox" name="payScene" value="以后做微信小程序并在小程序内付款" />以后做小程序付款</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>6. 微信侧已有的东西</h2>
+      <div class="options">
+        <label class="option"><input type="checkbox" name="wechatState" value="已有微信支付商户号" />微信支付商户号</label>
+        <label class="option"><input type="checkbox" name="wechatState" value="已有认证公众号" />认证公众号</label>
+        <label class="option"><input type="checkbox" name="wechatState" value="已有微信开放平台账号" />微信开放平台账号</label>
+        <label class="option"><input type="checkbox" name="wechatState" value="以上都没有" />以上都没有</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>7. 域名主体调整</h2>
+      <p class="muted">当前域名是个人实名。若以后用公司或个体工商户收款，通常需要让域名实名、备案主体和微信商户主体保持一致。</p>
+      <div class="options">
+        <label class="option"><input type="radio" name="domainTransfer" value="愿意在首次备案前先调整到经营主体" />愿意备案前调整</label>
+        <label class="option"><input type="radio" name="domainTransfer" value="先个人备案，以后收费前再变更" />先个人备案，以后再变更</label>
+        <label class="option"><input type="radio" name="domainTransfer" value="不确定，希望比较时间、成本和返工" />不确定，先比较</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>8. 可接受的经营维护成本</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="adminCost" value="暂不接受记账报税等固定成本" />暂不接受固定成本</label>
+        <label class="option"><input type="radio" name="adminCost" value="每月可接受约100至300元记账报税等成本" />每月 100–300 元</label>
+        <label class="option"><input type="radio" name="adminCost" value="愿意为尽快正式收费承担必要成本" />愿意承担必要成本</label>
+        <label class="option"><input type="radio" name="adminCost" value="不了解，先给我完整成本表" />先看成本表</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>9. 用户与内容</h2>
+      <div class="options">
+        <label class="option"><input type="checkbox" name="audience" value="可能有未成年人使用" />可能有未成年人</label>
+        <label class="option"><input type="checkbox" name="audience" value="主要是成年人英语学习者" />主要是成年人</label>
+        <label class="option"><input type="checkbox" name="audience" value="会公开展示第三方英文文章" />展示第三方文章</label>
+        <label class="option"><input type="checkbox" name="audience" value="会提供AI生成解释、翻译或总结" />提供 AI 解释/翻译</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>10. 你最在意什么</h2>
+      <div class="options">
+        <label class="option"><input type="checkbox" name="priority" value="尽量少花钱" />少花钱</label>
+        <label class="option"><input type="checkbox" name="priority" value="尽快公开网站" />尽快公开</label>
+        <label class="option"><input type="checkbox" name="priority" value="尽快接入微信支付" />尽快接支付</label>
+        <label class="option"><input type="checkbox" name="priority" value="减少以后变更主体和重新备案的返工" />减少以后返工</label>
+        <label class="option"><input type="checkbox" name="priority" value="合规和稳定优先" />合规稳定优先</label>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>11. 其他说明</h2>
+      <textarea name="notes" placeholder="例如：我现在没有营业执照，但愿意先免费公开半年；或我希望三个月内开始收费。"></textarea>
+    </section>
+  </form>
+
+  <div class="actions">
+    <button class="primary" type="button" id="generate">生成答案</button>
+    <button class="secondary" type="button" id="copy">复制答案</button>
+    <button class="secondary" type="button" id="clear">清空</button>
+  </div>
+  <div class="status" id="status" aria-live="polite"></div>
+  <section class="result" id="result"><pre id="output"></pre></section>
+</main>
+<script>
+  const form=document.getElementById("form"),output=document.getElementById("output"),result=document.getElementById("result"),status=document.getElementById("status");
+  const one=name=>form.querySelector(`[name="${name}"]:checked`)?.value||"未填写";
+  const many=name=>[...form.querySelectorAll(`[name="${name}"]:checked`)].map(x=>x.value).join("；")||"未填写";
+  const value=name=>form.elements[name]?.value?.trim()||"未填写";
+  function generate(){
+    const text=[
+      "# Context Reader 备案与微信支付路线答案","",
+      `1. 身份证所在省市：${value("idRegion")}`,
+      `   当前居住省市：${value("livingRegion")}`,
+      `2. 经营主体：${one("entity")}`,
+      `3. 收费时间：${one("chargeTime")}`,
+      `4. 收费产品：${many("product")}`,
+      `5. 支付场景：${many("payScene")}`,
+      `6. 微信侧现状：${many("wechatState")}`,
+      `7. 域名主体调整：${one("domainTransfer")}`,
+      `8. 可接受经营成本：${one("adminCost")}`,
+      `9. 用户与内容：${many("audience")}`,
+      `10. 优先级：${many("priority")}`,
+      `11. 其他说明：${value("notes")}`
+    ].join("\n");
+    output.textContent=text;result.classList.add("show");status.textContent="答案已生成。请检查后复制给 Codex。";result.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  document.getElementById("generate").addEventListener("click",generate);
+  document.getElementById("copy").addEventListener("click",async()=>{if(!output.textContent)generate();try{await navigator.clipboard.writeText(output.textContent);status.textContent="已复制，可以直接粘贴回 Codex。"}catch{status.textContent="自动复制失败，请手动选择下方文字复制。"}});
+  document.getElementById("clear").addEventListener("click",()=>{form.reset();output.textContent="";result.classList.remove("show");status.textContent="已清空。"});
+</script>
+</body>
+</html>

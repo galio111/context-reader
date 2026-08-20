@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Context Reader 首页与全站外壳收口问卷</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --canvas: #edf3f6;
+      --surface: #ffffff;
+      --ink: #143342;
+      --muted: #596f7a;
+      --line: #cbd9df;
+      --accent: #17566e;
+      --accent-soft: #e4f1f6;
+      --focus: #2c7ea0;
+      --success: #276b54;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    button, textarea, input { font: inherit; }
+    button, label { -webkit-tap-highlight-color: transparent; }
+    button { cursor: pointer; }
+    .shell { width: min(960px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 72px; }
+
+    .intro {
+      padding: clamp(28px, 6vw, 56px);
+      border-radius: 16px;
+      background: #dfeef4;
+    }
+    .brand {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      padding: 0 15px;
+      border-radius: 999px;
+      background: #f4fbfe;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 720;
+      box-shadow: 0 2px 8px rgb(23 86 110 / 14%);
+    }
+    h1 {
+      max-width: 760px;
+      margin: 26px 0 0;
+      font-size: clamp(34px, 6vw, 60px);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+    .lead { max-width: 750px; margin: 18px 0 0; color: #3c5967; font-size: 18px; }
+    .boundary { max-width: 750px; margin: 16px 0 0; color: var(--muted); font-size: 14px; }
+
+    .confirmed {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+    .confirmed summary { cursor: pointer; color: var(--accent); font-weight: 720; }
+    .confirmed ul { margin: 14px 0 0; padding-left: 21px; color: var(--muted); }
+
+    .status {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 14px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 13px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgb(237 243 246 / 94%);
+    }
+    .status-label, .save-state { color: var(--muted); font-size: 13px; }
+    .progress { height: 6px; overflow: hidden; border-radius: 99px; background: #cedce2; }
+    .progress span { display: block; width: 0; height: 100%; background: var(--accent); transition: width 180ms ease-out; }
+
+    form { margin-top: 18px; }
+    .group {
+      margin-top: 16px;
+      padding: clamp(22px, 4vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+    }
+    .group:first-child { margin-top: 0; }
+    .group h2 { margin: 0; font-size: 27px; line-height: 1.2; letter-spacing: -0.025em; }
+    .group-copy { max-width: 690px; margin: 9px 0 4px; color: var(--muted); }
+
+    fieldset { margin: 0; padding: 27px 0; border: 0; border-top: 1px solid var(--line); }
+    fieldset:first-of-type { margin-top: 17px; }
+    legend { width: 100%; padding: 0 0 14px; font-size: 18px; font-weight: 720; line-height: 1.45; }
+    .hint { display: block; margin-top: 5px; color: var(--muted); font-size: 13px; font-weight: 450; }
+    .options { display: grid; gap: 9px; }
+    .option {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
+    }
+    .option:hover { border-color: #7e9eab; transform: translateY(-1px); }
+    .option:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+    .option input { flex: none; width: 19px; height: 19px; margin: 3px 0 0; accent-color: var(--accent); }
+    .option strong { font-weight: 690; }
+    .choice-key { display: inline-block; min-width: 25px; color: var(--accent); font-weight: 760; }
+    .detail { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .recommended {
+      display: inline-flex;
+      margin-left: 7px;
+      padding: 1px 7px;
+      border-radius: 999px;
+      background: #d8ebe5;
+      color: var(--success);
+      font-size: 11px;
+      font-weight: 720;
+      vertical-align: 2px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 78px;
+      margin-top: 10px;
+      padding: 12px 13px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+    }
+    textarea:focus-visible { border-color: var(--focus); box-shadow: 0 0 0 3px rgb(44 126 160 / 15%); }
+
+    .summary-wrap { margin-top: 16px; padding: clamp(22px, 4vw, 40px); border-radius: 16px; background: #183d4d; color: #f5fafc; }
+    .summary-wrap h2 { margin: 0; font-size: 27px; }
+    .summary-wrap p { margin: 7px 0 16px; color: #bed1da; }
+    .summary {
+      min-height: 270px;
+      max-height: 520px;
+      overflow: auto;
+      padding: 17px;
+      border-radius: 10px;
+      background: #f7fafb;
+      color: #143342;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: 14px/1.72 ui-monospace, SFMono-Regular, Consolas, monospace;
+    }
+    .actions { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-top: 15px; }
+    .button { min-height: 44px; padding: 0 17px; border: 1px solid #83a2af; border-radius: 999px; background: transparent; color: #e5f0f4; font-weight: 690; }
+    .button:hover { background: rgb(255 255 255 / 8%); }
+    .button.primary { border-color: #f4fbfe; background: #f4fbfe; color: #17566e; }
+    .button:focus-visible, .option:has(input:focus-visible) { outline: 3px solid rgb(44 126 160 / 28%); outline-offset: 2px; }
+    .toast { position: fixed; right: 20px; bottom: 20px; z-index: 20; padding: 10px 14px; border-radius: 9px; background: #102d39; color: #fff; font-size: 13px; opacity: 0; transform: translateY(8px); pointer-events: none; transition: opacity 160ms ease, transform 160ms ease; }
+    .toast.show { opacity: 1; transform: none; }
+
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 20px, 600px); padding-top: 10px; }
+      .intro, .group, .summary-wrap { border-radius: 13px; }
+      .lead { font-size: 16px; }
+      .status { grid-template-columns: 1fr auto; }
+      .progress { grid-column: 1 / -1; grid-row: 2; }
+      .actions { position: sticky; bottom: 0; padding: 12px 0; background: #183d4d; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="intro">
+      <span class="brand">Context Reader</span>
+      <h1>还剩八个会影响实现的选择</h1>
+      <p class="lead">大方向已经确定。这份问卷只收口球幕时间轴、精选外刊首屏和全站导航的几个分叉，不再让你重复回答已经确认的产品定位。</p>
+      <p class="boundary">答案仍然只用于继续设计讨论，不代表授权实施。精确配色、字体、侧栏宽度和板块转场会在视觉稿里看，不要求你继续凭文字想象。</p>
+    </header>
+
+    <details class="confirmed">
+      <summary>已经确认，不会在这份问卷里重问</summary>
+      <ul>
+        <li>保留自由碰撞的 Ballpit 封面，彻底舍弃书本翻页和滚轮翻页。</li>
+        <li>球体必须从触发瞬间的实时位置散向左右，外刊列表逐渐上移，列表就位时球体才消失。</li>
+        <li>精选外刊使用 Lusion 式悬停、滚动和点击转场，图片更小、比例正常、两侧留白。</li>
+        <li>Reader 保留全站导航入口，但侧栏覆盖正文，不重排文章，也不改变滚动位置。</li>
+        <li>左上品牌胶囊负责唤出侧栏，Menu 仍在右上；现有胶囊、封面按钮和 Menu 外壳暂不重做。</li>
+      </ul>
+    </details>
+
+    <div class="status">
+      <span class="status-label" id="progressLabel">已回答 0 / 8</span>
+      <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+      <span class="save-state" id="saveState">等待回答</span>
+    </div>
+
+    <form id="questionnaire">
+      <section class="group">
+        <h2>球幕与精选外刊</h2>
+        <p class="group-copy">这些选择会决定滚动手感、转场时长和首个可评审切片的构图。</p>
+
+        <fieldset data-question="1">
+          <legend>1. 下滑和点击应该怎样控制同一条球幕时间轴？</legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="q1" value="A" /><span><span class="choice-key">A</span><strong>下滑连续控制，点击自动播完</strong><span class="recommended">建议</span><span class="detail">自然滚动直接控制球体散开和列表上移；点击封面时，沿同一条时间轴平滑播放到终点。</span></span></label>
+            <label class="option"><input type="radio" name="q1" value="B" /><span><span class="choice-key">B</span><strong>第一次下滑后自动播完</strong><span class="detail">滚轮只负责触发，转场随后自行完成；更容易控制固定速度，但用户不能停在中间观察。</span></span></label>
+            <label class="option"><input type="radio" name="q1" value="C" /><span><span class="choice-key">C</span><strong>只有点击触发球幕</strong><span class="detail">下滑直接进入普通列表，点击才看到完整转场；两种入口体验不同。</span></span></label>
+          </div>
+          <textarea data-note="1" placeholder="如果你想让点击、触控和滚轮采用不同规则，可以写在这里。"></textarea>
+        </fieldset>
+
+        <fieldset data-question="2">
+          <legend>2. 转场尚未完成时，向上滚动应该发生什么？</legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="q2" value="A" /><span><span class="choice-key">A</span><strong>按滚动自然反向</strong><span class="recommended">建议</span><span class="detail">列表向下退，球体沿连续状态重新合拢；完全进入列表后，不因细小回滚反复播放开场。</span></span></label>
+            <label class="option"><input type="radio" name="q2" value="B" /><span><span class="choice-key">B</span><strong>一旦开始就完成</strong><span class="detail">用户向上滚动也不会打断，等转场结束后才能回到封面。</span></span></label>
+            <label class="option"><input type="radio" name="q2" value="C" /><span><span class="choice-key">C</span><strong>允许任意来回重播</strong><span class="detail">始终完全跟随滚动，可玩性更强，但重复使用可能显得黏滞。</span></span></label>
+          </div>
+          <textarea data-note="2" placeholder="补充你希望返回封面时看到的状态。"></textarea>
+        </fieldset>
+
+        <fieldset data-question="3">
+          <legend>3. 点击触发时，你更想要哪种可辨识速度？<span class="hint">这里只定体感起点，最后仍会看录屏调整。</span></legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="q3" value="A" /><span><span class="choice-key">A</span><strong>约 1.4–1.8 秒，能看清又不拖沓</strong><span class="recommended">建议</span><span class="detail">散球、列表上移和球体退场都有可见过程，适合先做高保真评审。</span></span></label>
+            <label class="option"><input type="radio" name="q3" value="B" /><span><span class="choice-key">B</span><strong>约 0.9–1.2 秒，更快进入内容</strong><span class="detail">更像产品操作，球体运动的表演感会明显减少。</span></span></label>
+            <label class="option"><input type="radio" name="q3" value="C" /><span><span class="choice-key">C</span><strong>约 2.0–2.5 秒，强调开场仪式</strong><span class="detail">最容易看清，但更可能在多次使用后让人等待。</span></span></label>
+          </div>
+          <textarea data-note="3" placeholder="也可以写“第一次慢，之后快”等节奏规则。"></textarea>
+        </fieldset>
+
+        <fieldset data-question="4">
+          <legend>4. 精选外刊完全移上来后的首屏排布，更接近哪种？</legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="q4" value="A" /><span><span class="choice-key">A</span><strong>双列编辑式，6 篇，4:3 图片</strong><span class="recommended">建议</span><span class="detail">最接近已确认的 Lusion 语法，但尺寸更克制，桌面一眼能看到多篇文章。</span></span></label>
+            <label class="option"><input type="radio" name="q4" value="B" /><span><span class="choice-key">B</span><strong>三列紧凑式，6 篇，4:3 图片</strong><span class="detail">资源感更强，单篇标题、来源和摘要的展示空间更少。</span></span></label>
+            <label class="option"><input type="radio" name="q4" value="C" /><span><span class="choice-key">C</span><strong>单列主刊式，一次突出 1–2 篇</strong><span class="detail">视觉更有气势，但用户寻找不同文章需要滚动更久。</span></span></label>
+          </div>
+          <textarea data-note="4" placeholder="如果你喜欢不规则双列、大小错落，也可以具体说明。"></textarea>
+        </fieldset>
+
+        <fieldset data-question="5">
+          <legend>5. 外刊类型切换放在哪里最自然？</legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="q5" value="A" /><span><span class="choice-key">A</span><strong>标题下方的横向文字分类</strong><span class="recommended">建议</span><span class="detail">例如“全部、时事、科技、文化、商业”，清楚、直接，不抢图片注意力。</span></span></label>
+            <label class="option"><input type="radio" name="q5" value="B" /><span><span class="choice-key">B</span><strong>右上角一个紧凑选择器</strong><span class="detail">界面更干净，但分类不够显眼，新用户可能忽略。</span></span></label>
+            <label class="option"><input type="radio" name="q5" value="C" /><span><span class="choice-key">C</span><strong>列表左侧纵向分类</strong><span class="detail">编辑感更强，但会与全站左侧栏形成双重左侧导航。</span></span></label>
+          </div>
+          <textarea data-note="5" placeholder="可补充你最想保留的分类名称。"></textarea>
+        </fieldset>
+      </section>
+
+      <section class="group">
+        <h2>品牌胶囊、左侧栏与 Menu</h2>
+        <p class="group-copy">这里解决入口重复和悬停行为，避免实现后才发现品牌返回、侧栏固定或 Menu 预览互相冲突。</p>
+
+        <fieldset data-question="6">
+          <legend>6. 鼠标悬停已经负责展开侧栏，那么点击左上品牌胶囊应该做什么？</legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="q6" value="A" /><span><span class="choice-key">A</span><strong>点击固定/取消固定侧栏，侧栏内提供“回到首页”</strong><span class="recommended">建议</span><span class="detail">悬停适合快速看，点击适合进入侧栏操作；Reader 返回首页仍有明确入口。</span></span></label>
+            <label class="option"><input type="radio" name="q6" value="B" /><span><span class="choice-key">B</span><strong>点击始终回到首页</strong><span class="detail">保留传统品牌链接语义；侧栏只能在悬停期间使用，触屏需单独处理。</span></span></label>
+            <label class="option"><input type="radio" name="q6" value="C" /><span><span class="choice-key">C</span><strong>点击只负责展开/关闭，不提供固定状态</strong><span class="detail">桌面和触屏一致；返回首页需要放在侧栏或 Reader 的其他位置。</span></span></label>
+          </div>
+          <textarea data-note="6" placeholder="如果首页和 Reader 中点击含义不同，请分别说明。"></textarea>
+        </fieldset>
+
+        <fieldset data-question="7">
+          <legend>7. 左栏已经有生词本和我的文章后，Menu 里还保留重复入口吗？</legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="q7" value="A" /><span><span class="choice-key">A</span><strong>不重复，Menu 只保留低频与账户内容</strong><span class="recommended">建议</span><span class="detail">Menu 包含登录/账户与用量、使用说明、意见反馈、设置与无障碍、Admin；高频能力只在左栏。</span></span></label>
+            <label class="option"><input type="radio" name="q7" value="B" /><span><span class="choice-key">B</span><strong>暂时重复，避免老用户找不到</strong><span class="detail">迁移风险最低，但 Menu 仍会显得内容偏多。</span></span></label>
+            <label class="option"><input type="radio" name="q7" value="C" /><span><span class="choice-key">C</span><strong>按登录和页面状态动态调整</strong><span class="detail">能针对场景优化，但规则更复杂，也更容易让入口位置不稳定。</span></span></label>
+          </div>
+          <textarea data-note="7" placeholder="也可以直接写出你希望的最终 Menu 顺序。"></textarea>
+        </fieldset>
+
+        <fieldset data-question="8">
+          <legend>8. 在 Reader 中导入新文章成功后，旧阅读会话怎样保留？</legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="q8" value="A" /><span><span class="choice-key">A</span><strong>新文章在当前 Reader 打开，返回可恢复旧文章原位置</strong><span class="recommended">建议</span><span class="detail">导入工作区保留旧会话快照；新文章成功后切换阅读，返回时恢复旧文章、解释面板和滚动位置。</span></span></label>
+            <label class="option"><input type="radio" name="q8" value="B" /><span><span class="choice-key">B</span><strong>先预览导入结果，再确认是否替换当前阅读</strong><span class="detail">最稳妥，但每次导入多一步确认，进入新文章会略慢。</span></span></label>
+            <label class="option"><input type="radio" name="q8" value="C" /><span><span class="choice-key">C</span><strong>新文章在新标签页打开</strong><span class="detail">旧文章完全不动，但移动端和 PWA 的多标签体验较弱。</span></span></label>
+          </div>
+          <textarea data-note="8" placeholder="可补充需要保留哪些状态，例如解释结果、编辑草稿或全文翻译进度。"></textarea>
+        </fieldset>
+      </section>
+    </form>
+
+    <section class="summary-wrap">
+      <h2>生成本轮收口答案</h2>
+      <p>复制后直接发回当前对话。我会据此制作下一步视觉稿，不会直接改网站。</p>
+      <div class="summary" id="summary"></div>
+      <div class="actions">
+        <button class="button" type="button" id="clearButton">清空答案</button>
+        <button class="button primary" type="button" id="copyButton">复制完整答案</button>
+      </div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const storageKey = "context-reader-home-shell-final-decisions-v1";
+    const questionCount = 8;
+    const titles = {
+      1: "下滑和点击应该怎样控制同一条球幕时间轴？",
+      2: "转场尚未完成时，向上滚动应该发生什么？",
+      3: "点击触发时，你更想要哪种可辨识速度？",
+      4: "精选外刊完全移上来后的首屏排布，更接近哪种？",
+      5: "外刊类型切换放在哪里最自然？",
+      6: "点击左上品牌胶囊应该做什么？",
+      7: "左栏已有高频入口后，Menu 里还保留重复入口吗？",
+      8: "在 Reader 中导入新文章成功后，旧阅读会话怎样保留？"
+    };
+
+    function readState() {
+      try { return JSON.parse(localStorage.getItem(storageKey) || "{}"); }
+      catch { return {}; }
+    }
+
+    let state = readState();
+
+    function optionLabel(question, value) {
+      const input = document.querySelector(`input[name="q${question}"][value="${value}"]`);
+      if (!input) return "";
+      return input.closest("label")?.querySelector("strong")?.textContent?.trim() || "";
+    }
+
+    function restore() {
+      Object.entries(state).forEach(([question, answer]) => {
+        const input = document.querySelector(`input[name="q${question}"][value="${answer.choice || ""}"]`);
+        if (input) input.checked = true;
+        const note = document.querySelector(`[data-note="${question}"]`);
+        if (note) note.value = answer.note || "";
+      });
+    }
+
+    function collect() {
+      for (let question = 1; question <= questionCount; question += 1) {
+        const choice = document.querySelector(`input[name="q${question}"]:checked`)?.value || "";
+        const note = document.querySelector(`[data-note="${question}"]`)?.value.trim() || "";
+        if (choice || note) state[question] = { choice, note };
+        else delete state[question];
+      }
+      localStorage.setItem(storageKey, JSON.stringify(state));
+      document.querySelector("#saveState").textContent = "已自动保存";
+      update();
+    }
+
+    function buildSummary() {
+      const lines = [
+        "# Context Reader 首页与全站外壳收口选择",
+        "",
+        "说明：以下答案用于继续设计讨论，不代表授权直接实施。",
+        ""
+      ];
+
+      for (let question = 1; question <= questionCount; question += 1) {
+        const answer = state[question] || {};
+        lines.push(`${question}. ${titles[question]}`);
+        lines.push(answer.choice ? `选择：${answer.choice}. ${optionLabel(question, answer.choice)}` : "选择：未选择");
+        if (answer.note) lines.push(`补充：${answer.note}`);
+        lines.push("");
+      }
+      return lines.join("\n");
+    }
+
+    function update() {
+      const answered = Object.values(state).filter(answer => answer.choice || answer.note).length;
+      document.querySelector("#progressLabel").textContent = `已回答 ${answered} / ${questionCount}`;
+      document.querySelector("#progressBar").style.width = `${answered / questionCount * 100}%`;
+      document.querySelector("#summary").textContent = buildSummary();
+    }
+
+    async function copySummary() {
+      collect();
+      const value = buildSummary();
+      try {
+        await navigator.clipboard.writeText(value);
+        toast("完整答案已复制");
+      } catch {
+        const helper = document.createElement("textarea");
+        helper.value = value;
+        helper.style.position = "fixed";
+        helper.style.opacity = "0";
+        document.body.appendChild(helper);
+        helper.select();
+        const copied = document.execCommand("copy");
+        helper.remove();
+        toast(copied ? "完整答案已复制" : "复制失败，请手动复制下方答案");
+      }
+    }
+
+    function toast(message) {
+      const element = document.querySelector("#toast");
+      element.textContent = message;
+      element.classList.add("show");
+      window.setTimeout(() => element.classList.remove("show"), 1800);
+    }
+
+    document.querySelectorAll("input").forEach(input => input.addEventListener("change", collect));
+    document.querySelectorAll("textarea").forEach(textarea => textarea.addEventListener("input", collect));
+    document.querySelector("#copyButton").addEventListener("click", copySummary);
+    document.querySelector("#clearButton").addEventListener("click", () => {
+      if (!window.confirm("确定清空这份问卷的全部答案吗？")) return;
+      state = {};
+      localStorage.removeItem(storageKey);
+      document.querySelector("#questionnaire").reset();
+      document.querySelectorAll("textarea").forEach(textarea => { textarea.value = ""; });
+      update();
+      toast("答案已清空");
+    });
+
+    restore();
+    update();
+  </script>
+</body>
+</html>

@@ -75,6 +75,206 @@
   background: oklch(97% 0.015 220);
 }
 
+.desktopRail {
+  position: fixed;
+  z-index: 34;
+  top: 16px;
+  left: clamp(14px, 2.2vw, 42px);
+  display: none;
+  width: 108px;
+  gap: 14px;
+}
+
+.railBackAction {
+  width: 108px;
+  padding-inline: 12px;
+}
+
+.railActions {
+  display: grid;
+  gap: 8px;
+}
+
+.railActions > button {
+  position: relative;
+  display: grid;
+  width: 108px;
+  min-height: 40px;
+  padding: 0 12px;
+  grid-template-columns: 17px 1fr;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid oklch(86% 0.022 220);
+  border-radius: 999px;
+  color: oklch(38% 0.065 220);
+  background: oklch(97.5% 0.012 220 / 96%);
+  box-shadow: 0 5px 16px oklch(35% 0.045 220 / 9%);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 180ms cubic-bezier(.22,1,.36,1), box-shadow 180ms ease, background 180ms ease;
+}
+
+.railActions svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.railActions small {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 10px);
+  width: max-content;
+  max-width: 210px;
+  padding: 7px 10px;
+  border: 1px solid oklch(86% 0.018 220);
+  border-radius: 9px;
+  color: oklch(34% 0.045 220);
+  background: oklch(99% 0.006 220 / 98%);
+  box-shadow: 0 8px 22px oklch(32% 0.04 220 / 12%);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.35;
+  opacity: 0;
+  transform: translate(5px, -50%);
+  pointer-events: none;
+  transition: opacity 150ms ease, transform 180ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .railActions > button:hover {
+    background: white;
+    box-shadow: 0 8px 22px oklch(35% 0.045 220 / 14%);
+    transform: translateX(3px) scale(1.025);
+  }
+
+  .railActions > button:hover small {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+.dictionaryWindow {
+  position: fixed;
+  z-index: 46;
+  top: 92px;
+  left: 132px;
+  display: grid;
+  width: min(340px, calc(100vw - 28px));
+  height: min(560px, calc(100svh - 118px));
+  min-width: 300px;
+  min-height: 380px;
+  grid-template-rows: 46px minmax(0, 1fr);
+  overflow: hidden;
+  resize: both;
+  border: 1px solid oklch(82% 0.026 220);
+  border-radius: 16px;
+  background: oklch(98.5% 0.008 220 / 98%);
+  box-shadow: 0 22px 64px oklch(24% 0.05 220 / 18%);
+  animation: dictionary-window-in 230ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.dictionaryWindowClosing {
+  pointer-events: none;
+  animation: dictionary-window-out 220ms cubic-bezier(.55,0,1,.45) both;
+}
+
+.dictionaryWindow > header {
+  display: flex;
+  padding: 0 9px 0 15px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid oklch(89% 0.018 220);
+  cursor: grab;
+  touch-action: none;
+}
+
+.dictionaryWindow > header:active { cursor: grabbing; }
+.dictionaryWindow > header span { display: inline-flex; align-items: center; gap: 8px; color: oklch(38% 0.065 220); font-size: 12px; font-weight: 700; }
+.dictionaryWindow > header svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.45; }
+.dictionaryWindow > header button { display: grid; width: 30px; height: 30px; padding: 0; place-items: center; border: 0; border-radius: 50%; color: oklch(43% 0.035 220); background: transparent; font: inherit; font-size: 20px; cursor: pointer; }
+.dictionaryWindow > header button:hover { background: oklch(92% 0.025 220); }
+.dictionaryWindowBody { min-height: 0; padding: 16px; overflow: auto; overscroll-behavior: contain; }
+
+@keyframes dictionary-window-in { from { opacity: 0; transform: translate(-32px, 7px) scale(.84); } }
+@keyframes dictionary-window-out { to { opacity: 0; transform: translate(-92px, -8px) scale(.28); } }
+
+.workLayerBackdrop {
+  position: fixed;
+  z-index: 44;
+  inset: 0;
+  display: grid;
+  padding: 72px 24px 24px 150px;
+  place-items: stretch start;
+  background: oklch(25% 0.035 220 / 16%);
+  backdrop-filter: blur(3px);
+  animation: work-backdrop-in 180ms ease both;
+}
+
+.workLayer {
+  display: grid;
+  width: min(760px, calc(100vw - 188px));
+  max-height: calc(100svh - 96px);
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid oklch(86% 0.018 220);
+  border-radius: 20px;
+  background: oklch(99% 0.005 220);
+  box-shadow: 0 26px 80px oklch(22% 0.035 220 / 22%);
+  animation: work-layer-in 260ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.workLayer > header {
+  display: flex;
+  min-height: 98px;
+  padding: 24px 26px 20px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid oklch(91% 0.012 220);
+}
+
+.workLayer > header small { color: oklch(50% 0.045 220); font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+.workLayer > header h2 { margin: 5px 0 0; color: oklch(28% 0.045 220); font-family: "Songti SC", "Noto Serif CJK SC", serif; font-size: 28px; font-weight: 500; line-height: 1.2; letter-spacing: -.03em; }
+.workLayer > header > button { display: grid; width: 36px; height: 36px; padding: 0; place-items: center; border: 1px solid oklch(88% 0.016 220); border-radius: 50%; color: oklch(40% 0.035 220); background: white; font: inherit; font-size: 22px; cursor: pointer; }
+
+.importWorkspace { display: grid; min-height: 0; padding: 24px 26px 26px; grid-template-rows: auto minmax(220px, 1fr) auto; gap: 18px; }
+.importTabs { display: flex; align-items: center; gap: 22px; }
+.importTabs button { padding: 0 0 7px; border: 0; border-bottom: 1px solid transparent; color: oklch(52% 0.03 220); background: transparent; font: inherit; font-size: 13px; font-weight: 650; cursor: pointer; }
+.importTabs button[aria-selected="true"] { color: oklch(35% 0.07 220); border-bottom-color: currentColor; }
+.importWorkspace textarea, .urlWorkspace input { width: 100%; border: 1px solid oklch(87% 0.018 220); border-radius: 14px; color: oklch(27% 0.025 220); background: white; font: inherit; outline: none; }
+.importWorkspace textarea { min-height: 240px; padding: 18px; resize: none; font-size: 15px; line-height: 1.75; }
+.urlWorkspace { display: grid; min-height: 220px; align-content: start; gap: 16px; }
+.urlWorkspace input { height: 52px; padding: 0 16px; font-size: 14px; }
+.importWorkspace textarea:focus, .urlWorkspace input:focus { border-color: oklch(59% 0.09 220); box-shadow: 0 0 0 3px oklch(84% 0.055 220 / 35%); }
+.urlWorkspace article { display: grid; padding: 18px; gap: 6px; border: 1px solid oklch(88% 0.015 220); border-radius: 14px; background: oklch(97% 0.01 220); }
+.urlWorkspace article small { color: oklch(52% 0.035 220); font-size: 11px; }
+.urlWorkspace article strong { color: oklch(28% 0.04 220); font-size: 17px; line-height: 1.35; }
+.urlWorkspace article p { margin: 0; color: oklch(47% 0.025 220); font-size: 13px; line-height: 1.65; }
+.importActionRow { display: flex; min-height: 44px; align-items: center; justify-content: space-between; gap: 20px; }
+.importActionRow p { margin: 0; color: oklch(49% 0.025 220); font-size: 12px; line-height: 1.55; }
+.importActionRow button { min-width: 110px; min-height: 42px; padding: 0 18px; border: 0; border-radius: 999px; color: white; background: oklch(42% 0.085 220); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.importActionRow button:disabled { opacity: .5; cursor: wait; }
+
+.savedWorkspace { min-height: 0; padding: 8px 26px 26px; overflow: auto; overscroll-behavior: contain; }
+.savedWorkspace > button { display: flex; width: 100%; min-height: 88px; padding: 18px 0; align-items: center; justify-content: space-between; gap: 24px; border: 0; border-bottom: 1px solid oklch(91% 0.014 220); color: inherit; background: transparent; font: inherit; text-align: left; cursor: pointer; }
+.savedWorkspace > button > span { display: grid; min-width: 0; gap: 6px; }
+.savedWorkspace strong { overflow: hidden; color: oklch(29% 0.04 220); font-size: 16px; line-height: 1.35; text-overflow: ellipsis; white-space: nowrap; }
+.savedWorkspace small { display: -webkit-box; overflow: hidden; color: oklch(51% 0.025 220); font-size: 12px; line-height: 1.5; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.savedWorkspace em { color: oklch(46% 0.07 220); font-size: 12px; font-style: normal; font-weight: 700; }
+.emptyWorkspace { margin: 36px 0; color: oklch(49% 0.03 220); font-size: 14px; line-height: 1.7; }
+
+@keyframes work-backdrop-in { from { opacity: 0; } }
+@keyframes work-layer-in { from { opacity: 0; transform: translateX(-24px) scale(.985); } }
+
 .historyAction {
   width: 42px;
   padding: 0;
@@ -118,15 +318,67 @@
   }
 }
 
+.mobileBackAction { display: none; }
+
+@media (min-width: 1024px) {
+  .desktopRail { display: grid; }
+}
+
+@media (min-width: 1024px) {
+  .readerLayout {
+    width: min(calc(100% - 148px), 1280px);
+    margin-right: 0 !important;
+    margin-left: max(148px, calc((100vw - 1280px) / 2 + 74px)) !important;
+    padding-right: 20px !important;
+  }
+
+  .readerSidePanel { right: 20px !important; }
+}
+
+@media (min-width: 1500px) {
+  .readerLayout {
+    width: min(calc(100% - 520px), 1280px);
+    margin-left: 500px !important;
+  }
+}
+
 .mobileToolDock,
 .mobileToolSheet {
   display: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .actions {
     display: none;
   }
+
+  .dictionaryWindow {
+    inset: auto 0 0 !important;
+    width: 100% !important;
+    height: min(88svh, 760px) !important;
+    min-width: 0;
+    min-height: 0;
+    resize: none;
+    border-radius: 22px 22px 0 0;
+  }
+
+  .workLayerBackdrop {
+    padding: 0;
+    place-items: end stretch;
+  }
+
+  .workLayer {
+    width: 100%;
+    max-height: 90svh;
+    border-radius: 22px 22px 0 0;
+  }
+
+  .workLayer > header { min-height: 84px; padding: 20px 18px 16px; }
+  .workLayer > header h2 { font-size: 24px; }
+  .importWorkspace { padding: 18px; }
+  .savedWorkspace { padding-inline: 18px; }
+  .importActionRow { align-items: stretch; flex-direction: column; gap: 12px; }
+  .importActionRow button { width: 100%; }
 
   .mobileToolDock {
     position: fixed;
@@ -307,6 +559,10 @@
     color: oklch(58% 0.015 220);
     background: oklch(95% 0.006 220);
   }
+}
+
+@media (max-width: 1023px) {
+  .mobileBackAction { display: inline-flex; }
 }
 
 @media (min-width: 1400px) {

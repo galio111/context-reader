@@ -1,0 +1,1 @@
+export const EXPLANATION_STREAM_COMPLETE_MARKER = "\u001e";

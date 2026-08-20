@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Context Reader 产品重设计决策问卷</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --canvas: #eef1ed;
+      --paper: #fbfcf8;
+      --ink: #14221f;
+      --muted: #5f706c;
+      --line: #ccd5d0;
+      --accent: #175b4f;
+      --accent-soft: #e4f0ea;
+      --warm: #ef7558;
+      --blue: #4b77d1;
+      --violet: #8555c7;
+      --shadow: 0 24px 70px rgba(28, 54, 47, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 8% 4%, rgba(239, 117, 88, 0.14), transparent 22rem),
+        radial-gradient(circle at 92% 14%, rgba(75, 119, 209, 0.13), transparent 24rem),
+        var(--canvas);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    button, textarea, input { font: inherit; }
+    button { cursor: pointer; }
+    .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 34px 0 72px; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 6vw, 68px);
+      border: 1px solid rgba(20, 34, 31, 0.1);
+      border-radius: 30px;
+      background: rgba(251, 252, 248, 0.88);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .orb { position: absolute; border-radius: 50%; opacity: 0.86; pointer-events: none; }
+    .orb.one { width: 128px; height: 128px; right: 9%; top: -40px; background: var(--warm); }
+    .orb.two { width: 72px; height: 72px; right: 4%; top: 90px; background: var(--blue); }
+    .orb.three { width: 44px; height: 44px; right: 17%; top: 118px; background: var(--violet); }
+    .eyebrow { margin: 0 0 15px; color: var(--accent); font-size: 13px; font-weight: 720; letter-spacing: 0.13em; text-transform: uppercase; }
+    h1 { max-width: 760px; margin: 0; font-size: clamp(34px, 6vw, 68px); line-height: 1.04; letter-spacing: -0.045em; text-wrap: balance; }
+    .lead { max-width: 760px; margin: 22px 0 0; color: var(--muted); font-size: clamp(17px, 2vw, 20px); }
+    .hero-note { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 26px; }
+    .tag { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font-size: 13px; }
+
+    .research {
+      margin: 22px 0 0;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(251, 252, 248, 0.76);
+    }
+    .research summary { padding: 15px 18px; cursor: pointer; color: var(--accent); font-weight: 680; }
+    .research-copy { padding: 0 18px 17px; color: var(--muted); }
+    .research-copy p { margin: 8px 0; }
+
+    .progress-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: grid;
+      grid-template-columns: auto minmax(120px, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      margin: 26px 0 0;
+      padding: 15px 18px;
+      border: 1px solid rgba(20, 34, 31, 0.1);
+      border-radius: 17px;
+      background: rgba(238, 241, 237, 0.9);
+      backdrop-filter: blur(18px);
+    }
+    .progress-label, .save-state { color: var(--muted); font-size: 13px; }
+    .progress { height: 6px; overflow: hidden; border-radius: 99px; background: #d4dcd7; }
+    .progress span { display: block; width: 0; height: 100%; border-radius: inherit; background: var(--accent); transition: width 180ms ease-out; }
+
+    .layout { display: grid; grid-template-columns: 224px minmax(0, 1fr); gap: 32px; margin-top: 24px; }
+    nav { position: sticky; top: 82px; align-self: start; padding: 12px; border: 1px solid var(--line); border-radius: 18px; background: rgba(251, 252, 248, 0.86); }
+    nav button { width: 100%; padding: 11px 12px; border: 0; border-radius: 11px; background: transparent; color: var(--muted); text-align: left; }
+    nav button:hover { background: #edf1ed; color: var(--ink); }
+    nav button.active { background: var(--accent); color: #fff; }
+
+    main { min-width: 0; }
+    .section { display: none; padding: clamp(24px, 5vw, 48px); border: 1px solid var(--line); border-radius: 24px; background: var(--paper); box-shadow: 0 16px 50px rgba(28, 54, 47, 0.08); }
+    .section.active { display: block; animation: section-in 180ms ease-out; }
+    @keyframes section-in { from { opacity: 0.55; transform: translateY(5px); } }
+    .section-kicker { margin: 0 0 5px; color: var(--accent); font-size: 13px; font-weight: 720; letter-spacing: 0.08em; }
+    h2 { margin: 0; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: -0.035em; }
+    .section-copy { max-width: 720px; margin: 12px 0 30px; color: var(--muted); }
+
+    fieldset { margin: 0; padding: 28px 0; border: 0; border-top: 1px solid var(--line); }
+    legend { width: 100%; padding: 0 0 15px; font-size: 19px; font-weight: 680; line-height: 1.45; }
+    .hint { display: block; margin-top: 5px; color: var(--muted); font-size: 13px; font-weight: 450; }
+    .options { display: grid; gap: 9px; }
+    .option { display: flex; gap: 13px; align-items: flex-start; padding: 15px 16px; border: 1px solid var(--line); border-radius: 14px; background: #fff; transition: border-color 150ms ease, background 150ms ease, transform 150ms ease; }
+    .option:hover { border-color: #93a49e; transform: translateY(-1px); }
+    .option:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+    .option input { flex: none; width: 19px; height: 19px; margin: 3px 0 0; accent-color: var(--accent); }
+    .choice-key { display: inline-block; min-width: 24px; color: var(--accent); font-weight: 740; }
+    .option-copy { display: block; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .recommended { display: inline-block; margin-left: 7px; padding: 2px 7px; border-radius: 999px; background: #d7e9df; color: #275d4f; font-size: 11px; font-weight: 720; vertical-align: 2px; }
+
+    textarea { width: 100%; min-height: 92px; margin-top: 11px; padding: 13px 15px; resize: vertical; border: 1px solid var(--line); border-radius: 13px; background: #fff; color: var(--ink); outline: none; }
+    textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(23, 91, 79, 0.12); }
+
+    .summary { min-height: 420px; padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: #f5f7f4; white-space: pre-wrap; overflow-wrap: anywhere; font: 14px/1.72 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .button { min-height: 45px; padding: 0 18px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--ink); font-weight: 680; }
+    .button:hover { border-color: #92a39d; }
+    .button.primary { border-color: var(--accent); background: var(--accent); color: #fff; }
+    .button.ghost { background: transparent; color: var(--muted); }
+    .toast { position: fixed; right: 22px; bottom: 22px; z-index: 40; padding: 11px 15px; border-radius: 11px; background: var(--ink); color: #fff; font-size: 13px; opacity: 0; transform: translateY(8px); pointer-events: none; transition: opacity 180ms ease, transform 180ms ease; }
+    .toast.show { opacity: 1; transform: none; }
+
+    @media (max-width: 800px) {
+      .shell { width: min(100% - 22px, 700px); padding-top: 12px; }
+      .hero { border-radius: 22px; }
+      .orb.one { right: -48px; }
+      .orb.two { right: 3%; }
+      .layout { display: block; }
+      nav { position: static; display: flex; gap: 7px; margin-bottom: 14px; overflow-x: auto; scrollbar-width: none; }
+      nav::-webkit-scrollbar { display: none; }
+      nav button { width: auto; min-width: max-content; padding: 9px 12px; }
+      .progress-wrap { grid-template-columns: 1fr auto; }
+      .progress { grid-row: 2; grid-column: 1 / -1; }
+      .section { border-radius: 20px; }
+      .actions { position: sticky; bottom: 0; margin-inline: -5px; padding: 13px 5px; background: linear-gradient(to bottom, transparent, var(--paper) 22%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <span class="orb one"></span>
+      <span class="orb two"></span>
+      <span class="orb three"></span>
+      <p class="eyebrow">Context Reader · Product Reset</p>
+      <h1>先确定产品骨架，再重做界面</h1>
+      <p class="lead">这份问卷不讨论零散装饰，而是确定首页如何同时服务“我有文章”和“我需要文章”两类人，以及封面、外刊、Menu、阅读器和动效各自应该承担什么职责。</p>
+      <div class="hero-note">
+        <span class="tag">自动保存</span>
+        <span class="tag">单选与多选</span>
+        <span class="tag">一键复制答案</span>
+        <span class="tag">不会改动网站</span>
+      </div>
+    </header>
+
+    <details class="research">
+      <summary>展开查看：这份问卷基于哪些竞品事实</summary>
+      <div class="research-copy">
+        <p>Readlang、LingQ、Migaku、Language Reactor 和沉浸式翻译已经覆盖点击释义、上下文理解、导入文章、内容库或生词复习的一部分，说明需求真实，但“语境翻译”单项功能并不构成长期壁垒。</p>
+        <p>LingQ 同时提供内容库和用户导入，证明两类入口可以共存。Context Reader 更有机会做成面向中文用户、入口更直接、阅读感更纯净的一体化产品。</p>
+        <p>“外刊”有明确的中文用户心智，但大量收录完整商业期刊正文涉及版权与站点条款。问卷因此会让你同时决定产品表达、内容规模和合法来源策略。</p>
+      </div>
+    </details>
+
+    <div class="progress-wrap">
+      <span class="progress-label" id="stepText">第 1 组，共 5 组</span>
+      <div class="progress"><span id="progressBar"></span></div>
+      <span class="save-state" id="saveState">等待回答</span>
+    </div>
+
+    <div class="layout">
+      <nav id="nav" aria-label="问卷分组"></nav>
+      <main id="form"></main>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const groups = [
+      {
+        title: "产品承诺",
+        copy: "先确定用户为什么打开它。这个答案会约束首页、外刊内容、导航和后续功能优先级。",
+        questions: [
+          {
+            id: "1",
+            title: "如果首页只能让用户记住一句话，最接近哪一句？",
+            options: [
+              ["把你想读的外刊，变成真正读得下去的英语。", "同时容纳自带文章和精选内容。", true],
+              ["粘贴一篇英文，马上开始无障碍阅读。", "把最初的工具初心放在第一位。"],
+              ["中文学习者的外刊阅读与学习空间。", "更强调完整平台和内容心智。"],
+              ["点一下不懂的地方，在语境里真正理解它。", "把语境解释作为最强记忆点。"]
+            ]
+          },
+          {
+            id: "2",
+            title: "“我有文章”和“我需要文章”两类用户，应该是什么关系？",
+            options: [
+              ["同一产品的两扇门，首页并列出现", "粘贴或导入文章与精选外刊都属于主入口。", true],
+              ["自带文章是主线，精选外刊是补充", "更接近最初的工具定位。"],
+              ["精选外刊是主线，自带文章是高级能力", "更像内容产品，增长更直观。"],
+              ["首次访问并列，回访时根据使用历史突出一条", "更智能，但状态设计和测试成本更高。"]
+            ]
+          },
+          {
+            id: "3",
+            title: "哪些能力必须构成长期留存？",
+            hint: "可多选。不是问现在有没有，而是问未来产品离开它就不完整。",
+            multiple: true,
+            options: [
+              ["语境解释与划词理解", "读不懂时不离开文章。"],
+              ["精选外刊与持续更新的阅读资源", "解决用户没有材料的问题。"],
+              ["保存文章、进度和跨设备继续阅读", "让一次阅读变成长期关系。"],
+              ["生词本、复习与 Anki", "把理解沉淀为学习资产。"],
+              ["全文翻译与摘要", "降低长文进入门槛。"],
+              ["难度、兴趣和历史驱动的推荐", "让内容越来越贴合用户。"]
+            ]
+          }
+        ]
+      },
+      {
+        title: "首页与封面",
+        copy: "保留最有辨识度的球体和第一印象，同时拆掉“必须像一本实体书”的限制。",
+        questions: [
+          {
+            id: "4",
+            title: "封面以后应该被理解成什么？",
+            options: [
+              ["编辑式封面或品牌门面，不再暗示实体书", "保留矩形构图、球体和标题，但去掉书脊、厚度与翻页逻辑。", true],
+              ["仍然是一册书的封面，只是不翻页", "视觉隐喻更强，但后续页面仍可能割裂。"],
+              ["缩小成首页中的品牌卡片", "让输入区成为绝对主角，第一印象更工具化。"],
+              ["不再保留封面，只保留球体 IP", "变化最大，需要重新解决全屏球体的怪异感。"]
+            ]
+          },
+          {
+            id: "5",
+            title: "新用户打开网站的第一屏，最理想的状态是什么？",
+            options: [
+              ["看到品牌封面，同时直接看到“粘贴文章”和“精选外刊”两个入口", "第一印象与立即使用同时成立。", true],
+              ["先看完整封面，点击后再看到两个入口", "最有仪式感，但多一步。"],
+              ["直接看到搜索引擎式输入框，封面退到背景或侧边", "最贴近最初初心。"],
+              ["先看到精选外刊，输入文章作为次级入口", "更像内容平台。"]
+            ]
+          },
+          {
+            id: "6",
+            title: "老用户再次打开网站，应该优先看到什么？",
+            options: [
+              ["直接工作台：继续阅读、粘贴文章、输入网址，封面缩成品牌标识", "减少重复介绍，最快开始阅读。", true],
+              ["记住上次状态，回到离开的位置", "连续性强，但有时会缺少重新选择的空间。"],
+              ["仍然看到完整封面，但入口一直可见", "品牌一致，但重复访问略慢。"],
+              ["先看到今天的精选外刊", "强化内容习惯和每日回访。"]
+            ]
+          },
+          {
+            id: "7",
+            title: "首页动效应该把预算集中在哪里？",
+            hint: "可多选。阅读正文中的动效应明显更克制。",
+            multiple: true,
+            options: [
+              ["封面球体碰撞", "作为最强品牌识别。"],
+              ["鼠标移动产生彩色字母", "只在品牌与首页区域出现。"],
+              ["点击封面后，内容快速而有层次地展开", "替代翻页，承担主要的状态转场。", true],
+              ["精选外刊图片和标题的滚动或悬停响应", "让内容区不再静态。"],
+              ["全站导航打开、切换和返回的微动效", "建立系统感。"],
+              ["阅读器只保留状态反馈，不做装饰性动效", "保护长时间阅读。"]
+            ]
+          }
+        ]
+      },
+      {
+        title: "精选外刊",
+        copy: "决定它只是“推荐文章”的改名，还是 Context Reader 的第二条产品主线。",
+        questions: [
+          {
+            id: "8",
+            title: "这个板块最适合叫什么？",
+            options: [
+              ["精选外刊", "认知最直接，也最能击中“外刊难读”。", true],
+              ["外刊阅读", "更像一个稳定产品栏目。"],
+              ["今日外刊", "每日感强，但会形成高频更新承诺。"],
+              ["阅读精选", "范围更宽，但失去“外刊”的即时心智。"],
+              ["先保留推荐文章", "最稳妥，但传播力较弱。"]
+            ]
+          },
+          {
+            id: "9",
+            title: "首个成熟版本的内容规模，更接近哪种？",
+            options: [
+              ["少而精：每周稳定更新，人工选题和封面，确保每篇都值得读", "先证明质量和使用闭环。", true],
+              ["中等规模：按考试、主题和难度持续扩展", "需要更完整的分类与运营。"],
+              ["大量收录：尽快形成外刊资源库", "吸引力强，但版权、质量、抓取和维护成本最高。"],
+              ["以用户导入为主，只维护少量公开示范文章", "成本最低，内容增长较慢。"]
+            ]
+          },
+          {
+            id: "10",
+            title: "哪些内容来源是你愿意长期采用的？",
+            hint: "可多选。完整转载商业外刊不应在未获得授权时成为默认方案。",
+            multiple: true,
+            options: [
+              ["公共领域、开放许可或明确允许再发布的文章", "最适合形成站内全文库。", true],
+              ["与作者或媒体获得授权后收录全文", "质量高，但需要商务与版权成本。"],
+              ["站内提供简介、难度和原文链接，用户自行导入正文", "降低再发布风险，同时保留发现价值。", true],
+              ["自制或合法改写的分级阅读内容", "能控制难度，但会弱化原汁原味的外刊感。"],
+              ["用户私人导入，仅供该用户阅读", "继续强化最初的工具路径。"]
+            ]
+          },
+          {
+            id: "11",
+            title: "划词案例还需要单独做一段演示吗？",
+            options: [
+              ["不单独做，用一篇真实精选外刊的短摘录直接演示划词", "演示、内容吸引力和真实产品合成一件事。", true],
+              ["保留独立的极短案例，用户主动点击才展开", "更可控，但首页多一个模块。"],
+              ["完全不演示，用户进入真实文章后自然发现", "最克制，但新用户可能低估功能。"],
+              ["做完整自动演示", "表达最充分，但容易拖慢回访用户。"]
+            ]
+          }
+        ]
+      },
+      {
+        title: "全站导航",
+        copy: "Menu 可以全站存在，但不应继续兼任所有功能的悬停工作区。先把目的地、工具和管理功能分开。",
+        questions: [
+          {
+            id: "12",
+            title: "哪些入口应该在页面外部直接可见，而不是藏进 Menu？",
+            hint: "可多选。这里指首页或全局导航的一级入口。",
+            multiple: true,
+            options: [
+              ["开始阅读或粘贴文章", "核心任务入口。", true],
+              ["精选外刊", "第二条主线。", true],
+              ["继续阅读", "只对有历史的用户出现。", true],
+              ["我的文章或书架", "个人内容目的地。"],
+              ["生词本", "高频学习资产。"],
+              ["单独查词", "工具入口。"]
+            ]
+          },
+          {
+            id: "13",
+            title: "哪些内容更适合留在 Menu 或账户菜单里？",
+            hint: "可多选。",
+            multiple: true,
+            options: [
+              ["账户与用量", "低频账户信息。", true],
+              ["使用说明", "帮助内容。", true],
+              ["开发者的话或关于产品", "真诚的背景故事。", true],
+              ["意见反馈", "支持入口。", true],
+              ["设置与无障碍选项", "用户偏好。"],
+              ["开发者 Admin", "仅对有权限者显示。", true]
+            ]
+          },
+          {
+            id: "14",
+            title: "阅读界面的全站 Menu 应该多强？",
+            options: [
+              ["安静的小型全局栏：品牌、返回首页、精选外刊、个人内容、账户", "全站一致，但不抢文章注意力。", true],
+              ["只有一个统一 Menu 按钮，打开后出现全站目的地", "最克制，但入口可发现性略低。"],
+              ["与首页完全相同的完整导航", "一致性最强，也最容易干扰阅读。"],
+              ["阅读页仍然不要 Menu，只修首页", "改动最小，但全站结构继续割裂。"]
+            ]
+          },
+          {
+            id: "15",
+            title: "Menu 的悬停预览以后应该怎么处理？",
+            options: [
+              ["只显示一句说明或少量状态，点击进入稳定页面或面板", "保留悬停质感，停止在透明层里承载完整工作区。", true],
+              ["继续保留完整悬停工作区，但改成高不透明背景", "功能变化小，复杂度仍然很高。"],
+              ["取消悬停预览，只保留直接点击", "最清晰，但会舍弃当前已经喜欢的交互。"],
+              ["不同条目采用不同规则", "最灵活，也最容易重新变得不一致。"]
+            ]
+          },
+          {
+            id: "16",
+            title: "Menu 和浮层的可读性底线是什么？",
+            options: [
+              ["接近不透明的纸张表面，动态背景不能穿透正文", "最稳定，也适合长内容。", true],
+              ["较强磨砂玻璃，仍能感知背景，但文字区有实色衬底", "保留空间感。"],
+              ["继续透明，只加强阴影和文字描边", "视觉最轻，但无法真正解决复杂背景上的可读性。"]
+            ]
+          }
+        ]
+      },
+      {
+        title: "取舍与验收",
+        copy: "最后确定这次重构怎样避免再次变成高额度、长链路、开盲盒式调 UI。",
+        questions: [
+          {
+            id: "17",
+            title: "第一阶段只能证明一件事，你最想先证明什么？",
+            options: [
+              ["新老用户都能在几秒内进入真实阅读", "先证明主路径。", true],
+              ["封面保留下来后，品牌与后续页面不再割裂", "先证明视觉母题。"],
+              ["精选外刊足够有吸引力，用户愿意点进去", "先证明内容方向。"],
+              ["全站导航清楚，Menu 不再像功能仓库", "先证明信息架构。"],
+              ["做出一个真正惊艳且可反复使用的首页动效", "先证明表现力。"]
+            ]
+          },
+          {
+            id: "18",
+            title: "这次重构最需要防止哪些风险？",
+            hint: "可多选。",
+            multiple: true,
+            options: [
+              ["效果和描述差距巨大，又要反复调 UI", "需要参考、关键帧和小切片验收。", true],
+              ["先做视觉，最后才同步真实功能", "需要第一片就接真实数据和 ReaderView。", true],
+              ["功能在重构中悄悄消失或产生回归", "需要功能清单和逐片验收。", true],
+              ["动效惊艳一次，但长期使用很烦或很慢", "需要重复使用体验单独验收。", true],
+              ["外刊内容带来版权或运营负担", "需要先定来源和规模。", true],
+              ["讨论太长导致旧决定失效", "需要把每次决定写回实施合同和产品历程。", true]
+            ]
+          },
+          {
+            id: "19",
+            title: "请写下你此刻最接近的“产品初心”。",
+            hint: "不用像宣传文案。写成你自己愿意长期遵守的一两句话即可。",
+            textareaOnly: true,
+            placeholder: "例如：我想让中文学习者不必因为几个生词放弃一篇真正想读的英文，也不必先到处找资源……"
+          },
+          {
+            id: "20",
+            title: "还有哪些想法现在很模糊，但你不希望下一轮被忽略？",
+            textareaOnly: true,
+            placeholder: "可以继续边写边想。这里的内容也会进入最终复制结果。"
+          }
+        ]
+      }
+    ];
+
+    const storageKey = "context-reader:product-redesign-questionnaire:v1";
+    const allQuestions = groups.flatMap(group => group.questions);
+    let state = readState();
+    let step = 0;
+
+    const nav = document.querySelector("#nav");
+    const form = document.querySelector("#form");
+
+    function readState() {
+      try { return JSON.parse(localStorage.getItem(storageKey) || "{}"); }
+      catch { return {}; }
+    }
+
+    function escapeHtml(value = "") {
+      return value.replace(/[&<>'"]/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#039;", '"': "&quot;"
+      })[character]);
+    }
+
+    function render() {
+      nav.innerHTML = groups.map((group, index) => `
+        <button type="button" data-step="${index}" class="${index === step ? "active" : ""}">
+          ${index + 1}. ${group.title}
+        </button>
+      `).join("");
+
+      form.innerHTML = groups.map((group, index) => `
+        <section class="section ${index === step ? "active" : ""}" data-section="${index}">
+          <p class="section-kicker">DECISION ${String(index + 1).padStart(2, "0")}</p>
+          <h2>${group.title}</h2>
+          <p class="section-copy">${group.copy}</p>
+          ${group.questions.map(questionTemplate).join("")}
+          ${index === groups.length - 1 ? summaryTemplate() : ""}
+          <div class="actions">
+            <button class="button ${index === 0 ? "ghost" : ""}" type="button" data-action="${index === 0 ? "clear" : "prev"}">
+              ${index === 0 ? "清空答案" : "上一组"}
+            </button>
+            <button class="button primary" type="button" data-action="${index === groups.length - 1 ? "copy" : "next"}">
+              ${index === groups.length - 1 ? "复制完整决策稿" : "下一组"}
+            </button>
+          </div>
+        </section>
+      `).join("");
+
+      bindEvents();
+      updateStatus();
+    }
+
+    function questionTemplate(question) {
+      const saved = state[question.id] || { choices: [], note: "" };
+      const type = question.multiple ? "checkbox" : "radio";
+      const options = question.textareaOnly ? "" : `
+        <div class="options">
+          ${question.options.map((option, index) => {
+            const [label, detail, recommended = false] = option;
+            const checked = (saved.choices || []).includes(index) ? "checked" : "";
+            return `
+              <label class="option">
+                <input type="${type}" name="q${question.id}" value="${index}" ${checked} />
+                <span>
+                  <span class="choice-key">${String.fromCharCode(65 + index)}</span>${label}${recommended ? '<span class="recommended">建议起点</span>' : ""}
+                  ${detail ? `<span class="option-copy">${detail}</span>` : ""}
+                </span>
+              </label>
+            `;
+          }).join("")}
+        </div>
+      `;
+
+      return `
+        <fieldset>
+          <legend>
+            ${question.id}. ${question.title}
+            ${question.hint ? `<span class="hint">${question.hint}</span>` : ""}
+          </legend>
+          ${options}
+          <textarea data-note="${question.id}" placeholder="${escapeHtml(question.placeholder || "如果现有选项都不准确，请在这里补充。")}">${escapeHtml(saved.note || "")}</textarea>
+        </fieldset>
+      `;
+    }
+
+    function summaryTemplate() {
+      return `
+        <fieldset>
+          <legend>你的产品重设计决策稿<span class="hint">完成后复制给 Codex，我们再据此继续讨论，不会立刻开工。</span></legend>
+          <div class="summary" id="summary"></div>
+        </fieldset>
+      `;
+    }
+
+    function bindEvents() {
+      nav.querySelectorAll("[data-step]").forEach(button => {
+        button.addEventListener("click", () => {
+          step = Number(button.dataset.step);
+          render();
+          window.scrollTo({ top: document.querySelector(".progress-wrap").offsetTop - 8, behavior: "smooth" });
+        });
+      });
+
+      form.querySelectorAll("input").forEach(input => input.addEventListener("change", save));
+      form.querySelectorAll("textarea").forEach(textarea => textarea.addEventListener("input", save));
+      form.querySelectorAll("[data-action]").forEach(button => {
+        button.addEventListener("click", () => handleAction(button.dataset.action));
+      });
+    }
+
+    function save() {
+      allQuestions.forEach(question => {
+        const visibleChoices = [...document.querySelectorAll(`[name="q${question.id}"]:checked`)].map(input => Number(input.value));
+        const noteField = document.querySelector(`[data-note="${question.id}"]`);
+        const previous = state[question.id] || { choices: [], note: "" };
+        const choices = document.querySelector(`[name="q${question.id}"]`) ? visibleChoices : previous.choices || [];
+        const note = noteField ? noteField.value : previous.note || "";
+        if (choices.length || note.trim()) state[question.id] = { choices, note };
+        else delete state[question.id];
+      });
+      localStorage.setItem(storageKey, JSON.stringify(state));
+      document.querySelector("#saveState").textContent = "已自动保存";
+      updateStatus();
+    }
+
+    function answeredCount() {
+      return allQuestions.filter(question => {
+        const answer = state[question.id] || {};
+        return (answer.choices || []).length || (answer.note || "").trim();
+      }).length;
+    }
+
+    function updateStatus() {
+      const answered = answeredCount();
+      document.querySelector("#stepText").textContent = `第 ${step + 1} 组，共 ${groups.length} 组 · 已回答 ${answered} / ${allQuestions.length}`;
+      document.querySelector("#progressBar").style.width = `${(answered / allQuestions.length) * 100}%`;
+      const summary = document.querySelector("#summary");
+      if (summary) summary.textContent = buildSummary();
+    }
+
+    function buildSummary() {
+      const lines = [
+        "# Context Reader 产品重设计决策稿",
+        "",
+        "说明：以下答案用于继续产品讨论，不代表已授权直接实施。",
+        ""
+      ];
+
+      groups.forEach(group => {
+        lines.push(`## ${group.title}`, "");
+        group.questions.forEach(question => {
+          const answer = state[question.id] || {};
+          const selected = (answer.choices || []).map(index => question.options?.[index]?.[0]).filter(Boolean);
+          lines.push(`${question.id}. ${question.title}`);
+          if (!question.textareaOnly) lines.push(`选择：${selected.length ? selected.join("；") : "未选择"}`);
+          if ((answer.note || "").trim()) lines.push(`补充：${answer.note.trim()}`);
+          if (question.textareaOnly && !(answer.note || "").trim()) lines.push("回答：未填写");
+          lines.push("");
+        });
+      });
+
+      return lines.join("\n");
+    }
+
+    function handleAction(action) {
+      if (action === "next") {
+        save();
+        step = Math.min(step + 1, groups.length - 1);
+        render();
+        window.scrollTo({ top: document.querySelector(".progress-wrap").offsetTop - 8, behavior: "smooth" });
+        return;
+      }
+
+      if (action === "prev") {
+        save();
+        step = Math.max(step - 1, 0);
+        render();
+        window.scrollTo({ top: document.querySelector(".progress-wrap").offsetTop - 8, behavior: "smooth" });
+        return;
+      }
+
+      if (action === "clear") {
+        if (window.confirm("确定清空这份问卷的全部答案吗？")) {
+          state = {};
+          localStorage.removeItem(storageKey);
+          render();
+          toast("答案已清空");
+        }
+        return;
+      }
+
+      if (action === "copy") {
+        save();
+        copyText(buildSummary());
+      }
+    }
+
+    async function copyText(value) {
+      try {
+        await navigator.clipboard.writeText(value);
+        toast("完整决策稿已复制");
+      } catch {
+        const helper = document.createElement("textarea");
+        helper.value = value;
+        helper.style.position = "fixed";
+        helper.style.opacity = "0";
+        document.body.appendChild(helper);
+        helper.select();
+        const copied = document.execCommand("copy");
+        helper.remove();
+        toast(copied ? "完整决策稿已复制" : "复制失败，请手动选择下方决策稿");
+      }
+    }
+
+    function toast(message) {
+      const element = document.querySelector("#toast");
+      element.textContent = message;
+      element.classList.add("show");
+      window.setTimeout(() => element.classList.remove("show"), 1800);
+    }
+
+    render();
+  </script>
+</body>
+</html>

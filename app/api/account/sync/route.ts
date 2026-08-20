@@ -1,5 +1,12 @@
 import { NextResponse } from "next/server";
-import { listSyncObjects, writeSyncObjects } from "@/lib/accountStore";
+import { decodeAccountSyncCursor, encodeAccountSyncCursor } from "@/lib/accountSyncCursor";
+import {
+  getLatestSyncCursor,
+  listSyncBootstrapObjects,
+  listSyncChanges,
+  listSyncObjects,
+  writeSyncObjects,
+} from "@/lib/accountStore";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { getAuthenticatedUser } from "@/lib/userAuth";
 import type { AccountSyncObject, SyncObjectKind } from "@/types/account";
@@ -28,7 +35,86 @@ export async function GET(request: Request) {
   if (!user) {
     return NextResponse.json({ error: "请先登录。", code: "login_required" }, { status: 401 });
   }
-  const requestedOffset = Number(new URL(request.url).searchParams.get("offset") || "0");
+  const searchParams = new URL(request.url).searchParams;
+  if (searchParams.get("protocol") === "2") {
+    const bootstrapKind = searchParams.get("bootstrap");
+    if (bootstrapKind === "active" || bootstrapKind === "deleted") {
+      const rawSnapshot = searchParams.get("snapshot") || "";
+      const snapshot = rawSnapshot
+        ? decodeAccountSyncCursor(rawSnapshot)
+        : await getLatestSyncCursor(user.id);
+      if (!snapshot) {
+        return NextResponse.json(
+          { objects: [], nextOffset: null, snapshotCursor: "" },
+          { headers: { "Cache-Control": "no-store" } },
+        );
+      }
+      if (rawSnapshot && !decodeAccountSyncCursor(rawSnapshot)) {
+        return NextResponse.json({ error: "首次同步快照无效，请重新开始。" }, { status: 400 });
+      }
+      const requestedOffset = Number(searchParams.get("offset") || "0");
+      const offset = Number.isFinite(requestedOffset)
+        ? Math.max(0, Math.min(100_000, Math.floor(requestedOffset)))
+        : 0;
+      const sourcePageSize = bootstrapKind === "deleted" ? 1_000 : 500;
+      const source = await listSyncBootstrapObjects(
+        user.id,
+        snapshot,
+        bootstrapKind === "deleted",
+        offset,
+        sourcePageSize,
+      );
+      const objects: AccountSyncObject[] = [];
+      const responseByteLimit = 2_000_000;
+      let responseBytes = 0;
+      for (const object of source) {
+        const objectBytes = new TextEncoder().encode(JSON.stringify(object)).byteLength;
+        if (objects.length > 0 && responseBytes + objectBytes > responseByteLimit) break;
+        objects.push(object);
+        responseBytes += objectBytes;
+      }
+      const consumed = objects.length;
+      const hasMore = consumed < source.length || source.length === sourcePageSize;
+      return NextResponse.json(
+        {
+          objects,
+          nextOffset: hasMore ? offset + consumed : null,
+          snapshotCursor: encodeAccountSyncCursor(snapshot),
+        },
+        { headers: { "Cache-Control": "no-store" } },
+      );
+    }
+
+    const rawCursor = searchParams.get("cursor") || "";
+    const cursor = rawCursor ? decodeAccountSyncCursor(rawCursor) : null;
+    if (rawCursor && !cursor) {
+      return NextResponse.json({ error: "同步游标无效，请重新执行首次同步。" }, { status: 400 });
+    }
+    const sourcePageSize = 500;
+    const source = await listSyncChanges(user.id, cursor, sourcePageSize);
+    const objects: AccountSyncObject[] = [];
+    const responseByteLimit = 2_000_000;
+    let responseBytes = 0;
+    for (const object of source.objects) {
+      const objectBytes = new TextEncoder().encode(JSON.stringify(object)).byteLength;
+      if (objects.length > 0 && responseBytes + objectBytes > responseByteLimit) break;
+      objects.push(object);
+      responseBytes += objectBytes;
+    }
+    const consumed = objects.length;
+    const lastCursor = consumed > 0 ? source.cursors[consumed - 1] : cursor;
+    const hasMore = consumed < source.objects.length || source.objects.length === sourcePageSize;
+    return NextResponse.json(
+      {
+        objects,
+        nextCursor: lastCursor ? encodeAccountSyncCursor(lastCursor) : rawCursor,
+        hasMore,
+      },
+      { headers: { "Cache-Control": "no-store" } },
+    );
+  }
+
+  const requestedOffset = Number(searchParams.get("offset") || "0");
   const offset = Number.isFinite(requestedOffset)
     ? Math.max(0, Math.min(20_000, Math.floor(requestedOffset)))
     : 0;

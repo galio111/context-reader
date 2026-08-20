@@ -1,0 +1,24 @@
+.body {
+  margin-bottom: var(--reader-paragraph-space-mobile);
+  font-size: var(--reader-body-size-mobile);
+  font-weight: var(--reader-body-weight);
+  line-height: var(--reader-body-line-mobile);
+  letter-spacing: -0.12px;
+}
+
+.list {
+  margin-bottom: 0.5rem;
+  font-size: var(--reader-list-size);
+  font-weight: var(--reader-body-weight);
+  line-height: var(--reader-list-line);
+  letter-spacing: -0.12px;
+}
+
+@media (min-width: 640px) {
+  .body {
+    margin-bottom: var(--reader-paragraph-space);
+    font-size: var(--reader-body-size);
+    line-height: var(--reader-body-line);
+    letter-spacing: -0.2px;
+  }
+}

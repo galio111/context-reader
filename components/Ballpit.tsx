@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type CSSProperties } from "react";
+import { useEffect, useRef, type CSSProperties, type MutableRefObject } from "react";
 import {
   ACESFilmicToneMapping,
   AmbientLight,
@@ -49,6 +49,15 @@ export interface BallpitProps {
   driftSpeed?: number;
   followCursor?: boolean;
   showCursorBall?: boolean;
+  departureProgress?: number;
+  initialLayout?: "full" | "right";
+  controllerRef?: MutableRefObject<BallpitHandle | null>;
+  onReady?: () => void;
+}
+
+export interface BallpitHandle {
+  setDepartureProgress: (progress: number) => void;
+  setGatherProgress: (progress: number) => void;
 }
 
 interface BallpitConfig {
@@ -72,6 +81,7 @@ interface BallpitConfig {
   controlSphere0: boolean;
   followCursor: boolean;
   showCursorBall: boolean;
+  initialLayout: "full" | "right";
 }
 
 const DEFAULT_CONFIG: BallpitConfig = {
@@ -100,7 +110,14 @@ const DEFAULT_CONFIG: BallpitConfig = {
   controlSphere0: false,
   followCursor: true,
   showCursorBall: true,
+  initialLayout: "full",
 };
+
+// High-refresh displays do not need the physics scene to follow 144/165 Hz.
+// A 90 Hz ceiling still lands at the native 60 Hz cadence on ordinary screens,
+// while 120/144/165 Hz screens naturally settle near 60/72/82 Hz.
+const TARGET_FRAME_INTERVAL = 1000 / 90;
+const MAX_RENDER_PIXELS = 1_300_000;
 
 class BallPhysics {
   readonly positionData: Float32Array;
@@ -387,12 +404,15 @@ class BallSpheres extends InstancedMesh {
   private readonly environmentTexture: Texture;
   private readonly ambientLight: AmbientLight;
   private readonly pointLight: PointLight;
+  departureProgress = 0;
+  gatherProgress = 0;
+  private gatherStartPositions: Float32Array | null = null;
 
   constructor(renderer: WebGLRenderer, config: BallpitConfig) {
     const environment = new RoomEnvironment();
     const environmentGenerator = new PMREMGenerator(renderer);
     const environmentTexture = environmentGenerator.fromScene(environment).texture;
-    const geometry = new SphereGeometry(1, 24, 18);
+    const geometry = new SphereGeometry(1, 16, 12);
     const material = new TranslucentBallMaterial({
       envMap: environmentTexture,
       ...config.materialParams,
@@ -439,20 +459,101 @@ class BallSpheres extends InstancedMesh {
 
   update(delta: number) {
     this.physics.update(delta);
+    const gather = MathUtils.smoothstep(this.gatherProgress, 0.03, 0.82);
+    const aperture = MathUtils.smoothstep(this.gatherProgress, 0.82, 1);
 
     for (let index = 0; index < this.count; index += 1) {
       this.transformObject.position.fromArray(this.physics.positionData, index * 3);
-      this.transformObject.scale.setScalar(
+      if (this.config.initialLayout === "right" && gather === 0) {
+        const fullX = this.transformObject.position.x;
+        const fullY = this.transformObject.position.y;
+        const layoutX = Math.sin((index + 1) * 12.9898);
+        const layoutY = Math.cos((index + 1) * 9.173);
+        this.transformObject.position.x = fullX * 1.1
+          + layoutX * this.config.maxX * 0.17
+          + this.config.maxX * 0.34;
+        this.transformObject.position.y = fullY * 0.98 + layoutY * this.config.maxY * 0.1;
+      }
+      if (gather > 0 && this.gatherStartPositions) {
+        const startOffset = index * 3;
+        const startX = this.gatherStartPositions[startOffset];
+        const startY = this.gatherStartPositions[startOffset + 1];
+        const startRadius = Math.hypot(startX, startY);
+        const startAngle = Math.atan2(startY, startX);
+        const layer = (index % 7) / 6;
+        const arm = index % 3;
+        const lane = Math.floor(index / 3);
+        const coherentAngle = arm * (Math.PI * 2 / 3) + lane * 0.22;
+        const wrappedAngle = Math.atan2(
+          Math.sin(coherentAngle - startAngle),
+          Math.cos(coherentAngle - startAngle),
+        );
+        const trackCoherence = Math.sin(gather * Math.PI) * 0.72;
+        const spiralAngle = startAngle
+          + gather * Math.PI * (4.2 + layer * 2.2)
+          + wrappedAngle * trackCoherence;
+        const clusterRadius = 0.52 + layer * 1.72;
+        const trackSeparation = Math.sin(gather * Math.PI) * (1.2 + layer * 2.4);
+        const currentRadius = MathUtils.lerp(startRadius, clusterRadius, gather) + trackSeparation;
+        const spiralX = Math.cos(spiralAngle) * currentRadius;
+        const spiralY = Math.sin(spiralAngle) * currentRadius;
+        const spiralZ = ((index % 9) - 4) * 0.2;
+        const settle = MathUtils.smoothstep(gather, 0.68, 1);
+        const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+        const sphereT = (index + 0.5) / this.count;
+        const sphereY = 1 - sphereT * 2;
+        const sphereRing = Math.sqrt(Math.max(0, 1 - sphereY * sphereY));
+        const sphereAngle = index * goldenAngle;
+        const sphereRadius = 2.15;
+        const targetX = MathUtils.lerp(spiralX, Math.cos(sphereAngle) * sphereRing * sphereRadius, settle);
+        const targetY = MathUtils.lerp(spiralY, sphereY * sphereRadius, settle);
+        const targetZ = MathUtils.lerp(spiralZ, Math.sin(sphereAngle) * sphereRing * sphereRadius * 0.72, settle);
+        this.transformObject.position.set(
+          targetX,
+          targetY,
+          MathUtils.lerp(this.gatherStartPositions[startOffset + 2], targetZ, gather),
+        );
+        const openingLength = Math.max(0.28, Math.hypot(targetX, targetY));
+        this.transformObject.position.x += (targetX / openingLength) * aperture * (this.config.maxX * 1.32 + 2);
+        this.transformObject.position.y += (targetY / openingLength) * aperture * (this.config.maxY * 1.18 + 1.5);
+      }
+      const ballPhase = ((index * 37) % 17) / 16;
+      const departureLane = MathUtils.smoothstep(this.departureProgress, 0.04 + ballPhase * 0.09, 0.7 + ballPhase * 0.08);
+      const departureExit = MathUtils.smoothstep(this.departureProgress, 0.64 + ballPhase * 0.08, 0.98);
+      const liveX = this.physics.positionData[index * 3];
+      const liveVelocityX = this.physics.velocityData[index * 3];
+      const splitSignal = liveX + liveVelocityX * 18 + Math.sin(index * 1.71) * 0.34;
+      const side = Math.abs(splitSignal) > 0.08
+        ? Math.sign(splitSignal)
+        : index % 2 === 0 ? 1 : -1;
+      const relativeSpeed = 0.78 + ballPhase * 0.48;
+      this.transformObject.position.x += side * (
+        departureLane * this.config.maxX * (0.47 + relativeSpeed * 0.18)
+        + departureExit * (this.config.maxX * (1.24 + relativeSpeed * 0.24) + this.physics.sizeData[index] * 2.1)
+      );
+      this.transformObject.position.y += Math.sin(index * 1.73 + ballPhase) * (departureLane * 0.48 + departureExit * 0.72);
+      const gatherScale = 1 - aperture;
+      this.transformObject.scale.setScalar(gatherScale * (
         index === 0 && this.config.followCursor && !this.config.showCursorBall
           ? 0
-          : this.physics.sizeData[index],
-      );
+          : this.physics.sizeData[index]
+      ));
       this.transformObject.updateMatrix();
       this.setMatrixAt(index, this.transformObject.matrix);
       if (index === 0) this.pointLight.position.copy(this.transformObject.position);
     }
 
     this.instanceMatrix.needsUpdate = true;
+  }
+
+  setGatherProgress(progress: number) {
+    const next = Math.min(1, Math.max(0, progress));
+    if (next > 0 && this.gatherProgress === 0) {
+      this.gatherStartPositions = this.physics.positionData.slice();
+    } else if (next === 0) {
+      this.gatherStartPositions = null;
+    }
+    this.gatherProgress = next;
   }
 
   disposeResources() {
@@ -474,12 +575,21 @@ class BallpitScene {
   private readonly intersectionPoint = new Vector3();
   private readonly pointerPosition = new Vector2();
   private readonly spheres: BallSpheres;
+  private canvasBounds = { left: 0, top: 0, right: 1, bottom: 1, width: 1, height: 1 };
 
   private animationFrame = 0;
   private resizeFrame = 0;
+  private lastRenderedAt = 0;
   private isIntersecting = true;
   private isAnimating = false;
   private disposed = false;
+  private readonly debugPerformance = typeof window !== "undefined"
+    && new URLSearchParams(window.location.search).has("perf");
+  private performanceSampleStart = 0;
+  private performanceLastFrame = 0;
+  private performanceFrameCount = 0;
+  private performanceWorkTotal = 0;
+  private performanceWorstGap = 0;
 
   constructor(
     private readonly canvas: HTMLCanvasElement,
@@ -564,7 +674,7 @@ class BallpitScene {
       return;
     }
 
-    const bounds = this.canvas.getBoundingClientRect();
+    const bounds = this.canvasBounds;
     const inside = event.clientX >= bounds.left
       && event.clientX <= bounds.right
       && event.clientY >= bounds.top
@@ -596,6 +706,15 @@ class BallpitScene {
     const parent = this.canvas.parentElement;
     const width = Math.max(1, parent?.clientWidth ?? window.innerWidth);
     const height = Math.max(1, parent?.clientHeight ?? window.innerHeight);
+    const bounds = this.canvas.getBoundingClientRect();
+    this.canvasBounds = {
+      left: bounds.left,
+      top: bounds.top,
+      right: bounds.right,
+      bottom: bounds.bottom,
+      width: Math.max(1, bounds.width),
+      height: Math.max(1, bounds.height),
+    };
 
     this.camera.aspect = width / height;
     this.camera.fov = 50;
@@ -607,7 +726,8 @@ class BallpitScene {
     this.spheres.config.maxX = worldWidth / 2;
     this.spheres.config.maxY = worldHeight / 2;
 
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    const pixelBudgetRatio = Math.sqrt(MAX_RENDER_PIXELS / Math.max(1, width * height));
+    this.renderer.setPixelRatio(Math.max(0.8, Math.min(window.devicePixelRatio || 1, 1, pixelBudgetRatio)));
     this.renderer.setSize(width, height, false);
     this.renderer.render(this.scene, this.camera);
   }
@@ -617,20 +737,74 @@ class BallpitScene {
 
     this.isAnimating = true;
     this.timer.reset();
-    const animate = () => {
+    this.lastRenderedAt = 0;
+    const animate = (time: number) => {
       if (!this.isAnimating || this.disposed) return;
       this.animationFrame = window.requestAnimationFrame(animate);
+      if (this.lastRenderedAt && time - this.lastRenderedAt < TARGET_FRAME_INTERVAL - 0.75) {
+        return;
+      }
+      this.lastRenderedAt = time;
+      const frameStartedAt = performance.now();
+      if (this.debugPerformance) {
+        if (!this.performanceSampleStart) {
+          this.performanceSampleStart = frameStartedAt;
+          this.performanceLastFrame = frameStartedAt;
+        }
+        this.performanceWorstGap = Math.max(
+          this.performanceWorstGap,
+          frameStartedAt - this.performanceLastFrame,
+        );
+        this.performanceLastFrame = frameStartedAt;
+      }
       this.timer.update();
       this.spheres.update(Math.min(this.timer.getDelta(), 0.034));
       this.renderer.render(this.scene, this.camera);
+      if (this.debugPerformance) {
+        this.performanceFrameCount += 1;
+        this.performanceWorkTotal += performance.now() - frameStartedAt;
+        if (frameStartedAt - this.performanceSampleStart >= 3_000) {
+          const duration = frameStartedAt - this.performanceSampleStart;
+          console.info(
+            `[Ballpit perf] fps=${(this.performanceFrameCount * 1000 / duration).toFixed(1)} `
+            + `work=${(this.performanceWorkTotal / this.performanceFrameCount).toFixed(2)}ms `
+            + `worstGap=${this.performanceWorstGap.toFixed(1)}ms count=${this.spheres.count}`,
+          );
+          this.performanceSampleStart = frameStartedAt;
+          this.performanceFrameCount = 0;
+          this.performanceWorkTotal = 0;
+          this.performanceWorstGap = 0;
+        }
+      }
     };
-    animate();
+    this.animationFrame = window.requestAnimationFrame(animate);
   }
 
   private stop() {
     if (!this.isAnimating) return;
     window.cancelAnimationFrame(this.animationFrame);
     this.isAnimating = false;
+    this.lastRenderedAt = 0;
+  }
+
+  setDepartureProgress(progress: number) {
+    const next = Math.min(1, Math.max(0, progress));
+    const previous = this.spheres.departureProgress;
+    if (Math.abs(next - previous) < 0.0005) return;
+    this.spheres.departureProgress = next;
+    this.canvas.style.visibility = next >= 0.985 ? "hidden" : "visible";
+    if (next >= 0.985) {
+      if (previous < 0.985) {
+        this.spheres.update(0);
+        this.renderer.render(this.scene, this.camera);
+      }
+      this.stop();
+    }
+    else if (this.isIntersecting && !document.hidden) this.start();
+  }
+
+  setGatherProgress(progress: number) {
+    this.spheres.setGatherProgress(progress);
   }
 
   dispose() {
@@ -677,8 +851,18 @@ export default function Ballpit({
   driftSpeed = DEFAULT_CONFIG.driftSpeed,
   followCursor = DEFAULT_CONFIG.followCursor,
   showCursorBall = DEFAULT_CONFIG.showCursorBall,
+  departureProgress = 0,
+  initialLayout = DEFAULT_CONFIG.initialLayout,
+  controllerRef,
+  onReady,
 }: BallpitProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const sceneRef = useRef<BallpitScene | null>(null);
+  const onReadyRef = useRef(onReady);
+
+  useEffect(() => {
+    onReadyRef.current = onReady;
+  }, [onReady]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -712,7 +896,17 @@ export default function Ballpit({
           controlSphere0: false,
           followCursor,
           showCursorBall,
+          initialLayout,
         });
+        ballpitScene.setDepartureProgress(departureProgress);
+        sceneRef.current = ballpitScene;
+        if (controllerRef) {
+          controllerRef.current = {
+            setDepartureProgress: (progress) => sceneRef.current?.setDepartureProgress(progress),
+            setGatherProgress: (progress) => sceneRef.current?.setGatherProgress(progress),
+          };
+        }
+        onReadyRef.current?.();
       } catch (error) {
         canvas.style.display = "none";
         console.info("Ballpit is using its static cover fallback.", error);
@@ -723,6 +917,8 @@ export default function Ballpit({
       if (reducedMotion.matches) {
         ballpitScene?.dispose();
         ballpitScene = null;
+        sceneRef.current = null;
+        if (controllerRef) controllerRef.current = null;
       } else {
         createScene();
       }
@@ -734,6 +930,8 @@ export default function Ballpit({
     return () => {
       reducedMotion.removeEventListener("change", handleMotionPreference);
       ballpitScene?.dispose();
+      sceneRef.current = null;
+      if (controllerRef) controllerRef.current = null;
     };
   }, [
     ambientColor,
@@ -754,8 +952,14 @@ export default function Ballpit({
     minSize,
     size0,
     showCursorBall,
+    initialLayout,
     wallBounce,
+    controllerRef,
   ]);
+
+  useEffect(() => {
+    sceneRef.current?.setDepartureProgress(departureProgress);
+  }, [departureProgress]);
 
   return (
     <canvas

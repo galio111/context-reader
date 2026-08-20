@@ -1,0 +1,8 @@
+[Unit]
+Description=Context Reader health check
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/context-reader-current/ops/mainland/healthcheck.sh

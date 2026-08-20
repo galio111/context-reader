@@ -49,6 +49,7 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
     word: entry.word,
     lemma: typeof entry.lemma === "string" ? entry.lemma : entry.word,
     phonetic: typeof entry.phonetic === "string" ? entry.phonetic : "",
+    phoneticFor: typeof entry.phoneticFor === "string" ? entry.phoneticFor : "",
     partOfSpeech: typeof entry.partOfSpeech === "string" ? entry.partOfSpeech : "",
     basicMeaning: typeof entry.basicMeaning === "string" ? entry.basicMeaning : "",
     contextMeaning: typeof entry.contextMeaning === "string" ? entry.contextMeaning : "",
@@ -153,6 +154,7 @@ export function createVocabularyEntry(
     word: explanation.word,
     lemma: explanation.lemma,
     phonetic: explanation.phonetic,
+    phoneticFor: explanation.phoneticFor,
     partOfSpeech: explanation.partOfSpeech,
     basicMeaning: explanation.basicMeaning,
     contextMeaning: explanation.contextMeaning,
@@ -258,6 +260,30 @@ export function markVocabularyEntryImported(id: string, ankiNoteId: number): Voc
       : entry,
   );
   saveVocabularyEntries(nextEntries);
+  return nextEntries;
+}
+
+export function markVocabularyEntriesImported(noteIdsByEntryId: ReadonlyMap<string, number>): VocabularyEntry[] {
+  const entries = getVocabularyEntries();
+  if (noteIdsByEntryId.size === 0) return entries;
+
+  const importedAt = new Date().toISOString();
+  let changed = false;
+  const nextEntries = entries.map((entry) => {
+    const ankiNoteId = noteIdsByEntryId.get(entry.id);
+    if (entry.anki.ankiNoteId || !ankiNoteId || !Number.isFinite(ankiNoteId)) return entry;
+    changed = true;
+    return {
+      ...entry,
+      updatedAt: importedAt,
+      anki: {
+        ...entry.anki,
+        ankiNoteId,
+        ankiImportedAt: importedAt,
+      },
+    };
+  });
+  if (changed) saveVocabularyEntries(nextEntries);
   return nextEntries;
 }
 

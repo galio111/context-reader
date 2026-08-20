@@ -10,6 +10,10 @@ interface ArticleTranslationPanelProps {
   requested: boolean;
   estimatedSecondsRemaining: number | null;
   retryAfterSeconds: number | null;
+  retryReason: string | null;
+  regenerating: boolean;
+  completedTargetBlocks: number;
+  totalTargetBlocks: number;
   staleBlockIds?: string[];
   removedTranslationCount?: number;
   onGenerate: () => void;
@@ -17,7 +21,8 @@ interface ArticleTranslationPanelProps {
 }
 
 export function ArticleTranslationPanel({
-  blocks, translations, loading, error, requested, estimatedSecondsRemaining, retryAfterSeconds,
+  blocks, translations, loading, error, requested, estimatedSecondsRemaining, retryAfterSeconds, retryReason,
+  regenerating, completedTargetBlocks, totalTargetBlocks,
   staleBlockIds = [], removedTranslationCount = 0, onGenerate, onRegenerate,
 }: ArticleTranslationPanelProps) {
   const translationById = new Map(translations.map((item) => [item.id, item.translation]));
@@ -32,7 +37,16 @@ export function ArticleTranslationPanel({
       : estimatedSecondsRemaining < 60
         ? `预计还需约 ${estimatedSecondsRemaining} 秒`
         : `预计还需约 ${Math.ceil(estimatedSecondsRemaining / 60)} 分钟`;
-  const retryText = retryAfterSeconds === null ? null : `服务正在排队，约 ${retryAfterSeconds} 秒后自动继续，已完成的译文不会丢失。`;
+  const retryText = retryAfterSeconds === null
+    ? null
+    : `${retryReason ?? "翻译服务正在等待恢复"}约 ${retryAfterSeconds} 秒后自动继续。${
+        regenerating
+          ? "尚未更新的段落继续显示上一次译文。"
+          : "已完成的译文不会丢失。"
+      }`;
+  const activeProgressText = regenerating
+    ? `正在重新翻译，已更新 ${completedTargetBlocks}/${totalTargetBlocks} 段；其余段落继续显示上一次译文。${estimateText}`
+    : `已生成 ${translations.length}/${blocks.length} 段，剩余内容正在后台翻译。${estimateText}`;
 
   return (
     <aside className="h-full min-h-0 overflow-y-auto rounded-[18px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [-webkit-overflow-scrolling:touch]" data-native-selection="blue">
@@ -69,7 +83,7 @@ export function ArticleTranslationPanel({
 
       {hasTranslations && (
         <div className="space-y-5 py-5">
-          {loading && <div className="rounded-[14px] bg-[#f5f5f7] px-3 py-2 text-xs leading-5 tracking-[-0.12px] text-[#333333]"><p>{retryText ?? `已生成 ${translations.length}/${blocks.length} 段，剩余内容正在后台翻译。${estimateText}`}</p></div>}
+          {loading && <div className="rounded-[14px] bg-[#f5f5f7] px-3 py-2 text-xs leading-5 tracking-[-0.12px] text-[#333333]"><p>{retryText ?? activeProgressText}</p></div>}
           {!loading && !error && hasIncompleteTranslations && (
             <div className="flex items-center justify-between gap-3 rounded-[14px] bg-[#f5f5f7] px-3 py-2 text-xs leading-5 tracking-[-0.12px] text-[#333333]">
               <p>已保留 {translations.length}/{blocks.length} 段，可从缺失处继续。</p>

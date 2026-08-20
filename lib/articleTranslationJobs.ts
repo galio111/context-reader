@@ -1,8 +1,6 @@
 "use client";
 
 import {
-  removeCachedArticleTranslation,
-  removeCachedArticleTranslationForBlocks,
   setCachedArticleTranslation,
   setCachedArticleTranslationForBlocks,
 } from "@/lib/cache";
@@ -29,6 +27,10 @@ export interface ArticleTranslationJobSnapshot {
   requested: boolean;
   estimatedSecondsRemaining: number | null;
   retryAfterSeconds: number | null;
+  retryReason: string | null;
+  regenerating: boolean;
+  completedTargetBlocks: number;
+  totalTargetBlocks: number;
 }
 
 type ArticleTranslationJobListener = (snapshot: ArticleTranslationJobSnapshot) => void;
@@ -50,6 +52,10 @@ function snapshotJob(job: ArticleTranslationJob): ArticleTranslationJobSnapshot 
     requested: job.requested,
     estimatedSecondsRemaining: job.estimatedSecondsRemaining,
     retryAfterSeconds: job.retryAfterSeconds,
+    retryReason: job.retryReason,
+    regenerating: job.regenerating,
+    completedTargetBlocks: job.completedTargetBlocks,
+    totalTargetBlocks: job.totalTargetBlocks,
   };
 }
 
@@ -78,7 +84,7 @@ async function requestArticleTranslation(
   blocks: ArticleTranslationBlock[],
   signal: AbortSignal,
   contextBlocks: ArticleTranslationBlock[],
-  onRetry: (delaySeconds: number) => void,
+  onRetry: (delaySeconds: number, reason: string) => void,
 ): Promise<ArticleTranslationItem[]> {
   for (let attempt = 0; attempt <= MAX_RETRY_ATTEMPTS; attempt += 1) {
     let response: Response;
@@ -104,7 +110,10 @@ async function requestArticleTranslation(
         throw error;
       }
       const delayMs = Math.min(RETRY_MAX_DELAY_MS, RETRY_BASE_DELAY_MS * 2 ** attempt);
-      onRetry(Math.ceil(delayMs / 1_000));
+      onRetry(
+        Math.ceil(delayMs / 1_000),
+        "网络连接暂时中断，正在等待恢复。",
+      );
       await waitForRetry(signal, delayMs);
       continue;
     }
@@ -116,6 +125,8 @@ async function requestArticleTranslation(
       data?.code === "provider_rate_limit" ||
       data?.code === "provider_temporary" ||
       data?.code === "local_concurrency" ||
+      data?.code === "site_rate_limit" ||
+      response.status === 429 ||
       (response.status === 503 && data?.code !== "account_not_configured");
     if (!canRetry || attempt === MAX_RETRY_ATTEMPTS) throw new Error(message);
 
@@ -127,7 +138,14 @@ async function requestArticleTranslation(
         RETRY_BASE_DELAY_MS * 2 ** attempt,
       ),
     );
-    onRetry(Math.ceil(delayMs / 1_000));
+    const retryReason = data?.code === "site_rate_limit" || response.status === 429
+      ? "本站正在平稳提交后续段落，避免瞬时请求过多。"
+      : data?.code === "provider_rate_limit"
+        ? "AI 翻译服务暂时限流，正在等待可用通道。"
+        : data?.code === "local_concurrency"
+          ? "当前有其他翻译任务，正在等待处理位置。"
+          : "AI 翻译服务短暂波动，正在等待恢复。";
+    onRetry(Math.ceil(delayMs / 1_000), retryReason);
     await waitForRetry(signal, delayMs);
   }
   throw new Error(FALLBACK_ERROR);
@@ -179,10 +197,6 @@ export async function startArticleTranslationJob(
 
   const controller = new AbortController();
   const initialTranslations = options.initialTranslations ?? [];
-  if (options.force) {
-    removeCachedArticleTranslation(key);
-    removeCachedArticleTranslationForBlocks(options.allBlocks ?? blocks);
-  }
   const job: ArticleTranslationJob = {
     controller,
     translations: initialTranslations,
@@ -191,8 +205,12 @@ export async function startArticleTranslationJob(
     requested: true,
     estimatedSecondsRemaining: null,
     retryAfterSeconds: null,
+    retryReason: null,
+    regenerating: Boolean(options.force),
+    completedTargetBlocks: 0,
+    totalTargetBlocks: blocks.length,
     startedAt: Date.now(),
-    totalBlocks: initialTranslations.length + blocks.length,
+    totalBlocks: blocks.length,
   };
   jobs.set(key, job);
   notifyJob(key);
@@ -200,21 +218,24 @@ export async function startArticleTranslationJob(
   try {
     const mergedTranslations: ArticleTranslationItem[] = [...initialTranslations];
     for (const batch of createTranslationBatches(blocks)) {
-      const translations = await requestArticleTranslation(batch, controller.signal, options.allBlocks ?? blocks, (delaySeconds) => {
+      const translations = await requestArticleTranslation(batch, controller.signal, options.allBlocks ?? blocks, (delaySeconds, reason) => {
         job.retryAfterSeconds = delaySeconds;
+        job.retryReason = reason;
         notifyJob(key);
       });
       job.retryAfterSeconds = null;
+      job.retryReason = null;
       const translatedIds = new Set(translations.map((item) => item.id));
       for (let index = mergedTranslations.length - 1; index >= 0; index -= 1) {
         if (translatedIds.has(mergedTranslations[index].id)) mergedTranslations.splice(index, 1);
       }
       mergedTranslations.push(...translations);
       job.translations = [...mergedTranslations];
+      job.completedTargetBlocks += translations.length;
       setCachedArticleTranslation(key, job.translations);
       setCachedArticleTranslationForBlocks(options.allBlocks ?? blocks, translations);
-      const completedBlocks = Math.max(1, job.translations.length);
-      const remainingBlocks = Math.max(0, job.totalBlocks - completedBlocks);
+      const completedBlocks = Math.max(1, job.completedTargetBlocks);
+      const remainingBlocks = Math.max(0, job.totalBlocks - job.completedTargetBlocks);
       const elapsedSeconds = Math.max(1, (Date.now() - job.startedAt) / 1_000);
       job.estimatedSecondsRemaining = remainingBlocks > 0 ? Math.ceil((elapsedSeconds / completedBlocks) * remainingBlocks) : 0;
       notifyJob(key);
@@ -223,6 +244,7 @@ export async function startArticleTranslationJob(
     job.error = "";
     job.estimatedSecondsRemaining = 0;
     job.retryAfterSeconds = null;
+    job.retryReason = null;
     setCachedArticleTranslation(key, mergedTranslations);
     setCachedArticleTranslationForBlocks(options.allBlocks ?? blocks, mergedTranslations);
     notifyJob(key);
@@ -230,6 +252,7 @@ export async function startArticleTranslationJob(
     if (controller.signal.aborted) return;
     job.loading = false;
     job.retryAfterSeconds = null;
+    job.retryReason = null;
     job.error = translationRequestError instanceof Error ? translationRequestError.message : FALLBACK_ERROR;
     if (job.translations.length > 0) {
       setCachedArticleTranslation(key, job.translations);

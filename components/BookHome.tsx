@@ -7,12 +7,14 @@ import {
   useMemo,
   useRef,
   useState,
+  type CSSProperties,
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { BookDictionary } from "@/components/BookDictionary";
 import { BookLetterField } from "@/components/BookLetterField";
 import { BookRecommendations } from "@/components/BookRecommendations";
+import ClearableField from "@/components/ClearableField";
 import { CurvedPageTurn, type CurvedPageTurnHandle } from "@/components/CurvedPageTurn";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
 import { HomeOptionMenu } from "@/components/HomeOptionMenu";
@@ -28,6 +30,7 @@ import {
 import { downloadVocabularyCsv } from "@/lib/csv";
 import { explanationAsStreamText, mergeStreamDisplayIntoExplanation } from "@/lib/explanationDisplay";
 import { savedArticleOpenTimestamp } from "@/lib/savedArticleMerge";
+import { currentFormPhonetic } from "@/lib/pronunciation";
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import { tokenizeArticle } from "@/lib/tokenizer";
 import {
@@ -61,14 +64,17 @@ const COVER_BALLPIT_COLORS = [
 const DEMO_HINT_KEY = "context-reader:book-demo-hint-seen:v1";
 const MOBILE_DESKTOP_HINT_KEY = "context-reader:mobile-desktop-hint-seen:v1";
 const RECOMMENDATION_PROFILE_KEY = "context-reader:recommendation-profile:v1";
-const COVER_SCROLL_END = .24;
-const FOREWORD_SCROLL_POSITION = .29;
-const FIRST_TURN_START = .36;
-const FIRST_TURN_END = .56;
-const WORKBENCH_SCROLL_POSITION = .61;
-const SECOND_TURN_START = .68;
-const SECOND_TURN_END = .88;
-const RECOMMENDATION_SCROLL_POSITION = SECOND_TURN_END;
+const COVER_SCROLL_END = .18;
+const FOREWORD_SCROLL_POSITION = .22;
+const FIRST_TURN_START = .28;
+const FIRST_TURN_END = .42;
+const EXPERIENCE_SCROLL_POSITION = .46;
+const SECOND_TURN_START = .52;
+const SECOND_TURN_END = .66;
+const WORKBENCH_SCROLL_POSITION = .70;
+const THIRD_TURN_START = .76;
+const THIRD_TURN_END = .90;
+const RECOMMENDATION_SCROLL_POSITION = THIRD_TURN_END;
 const PAGE_TURN_SETTLE_IDLE_MS = 90;
 const PAGE_TURN_SETTLE_MIN_MS = 180;
 const PAGE_TURN_SETTLE_MAX_MS = 480;
@@ -77,9 +83,24 @@ const PROGRAMMATIC_TURN_MIN_MS = 260;
 const PROGRAMMATIC_TURN_MAX_MS = 620;
 const PAGE_SCROLL_BOUNDARY_IDLE_MS = 520;
 
-type BookChapter = "foreword" | "workbench" | "recommendations";
+type BookChapter = "foreword" | "experience" | "workbench" | "recommendations";
+type RevealChapter = Exclude<BookChapter, "recommendations">;
+type RevealPhase = "hidden" | "revealing" | "printed";
 type TurnDirection = "forward" | "backward";
 type CoverState = "closed" | "opening" | "open" | "closing";
+
+const CHAPTER_ORDER: BookChapter[] = ["foreword", "experience", "workbench", "recommendations"];
+const CHAPTER_SCROLL_POSITIONS: Record<BookChapter, number> = {
+  foreword: FOREWORD_SCROLL_POSITION,
+  experience: EXPERIENCE_SCROLL_POSITION,
+  workbench: WORKBENCH_SCROLL_POSITION,
+  recommendations: RECOMMENDATION_SCROLL_POSITION,
+};
+const INITIAL_REVEAL_PHASES: Record<RevealChapter, RevealPhase> = {
+  foreword: "hidden",
+  experience: "hidden",
+  workbench: "hidden",
+};
 
 interface DirectorySeek {
   key: string;
@@ -143,6 +164,16 @@ const FOREWORD_SEGMENTS = [
 ] as const;
 const FOREWORD_TITLE_LINES = ["写给正在翻开", "这本书的人"] as const;
 
+function revealOrder(order: number): CSSProperties {
+  return { "--reveal-order": order } as CSSProperties;
+}
+
+function revealPhaseClass(phase: RevealPhase): string {
+  if (phase === "revealing") return styles.chapterRevealActive;
+  if (phase === "printed") return styles.chapterRevealPrinted;
+  return styles.chapterRevealHidden;
+}
+
 const DEMO_IMPORTED_ARTICLE: ImportedArticle = {
   title: DEMO_TITLE,
   url: "",
@@ -174,7 +205,8 @@ const INITIAL_CONTEXT: WordContext = {
 const INITIAL_EXPLANATION: WordExplanation = {
   word: "taken root",
   lemma: "take root",
-  phonetic: "take /teɪk/ · root /ruːt/",
+  phonetic: "taken /ˈteɪkən/ · root /ruːt/",
+  phoneticFor: "taken root",
   partOfSpeech: "短语",
   basicMeaning: "生根；开始稳固生长或建立",
   contextMeaning: "废弃铁路被重新利用，并逐渐成为城市里稳定存在的花园空间",
@@ -231,12 +263,16 @@ interface DemoDrag {
 }
 
 function entryCopyText(entry: VocabularyEntry): string {
+  const phonetic = currentFormPhonetic(entry);
   if (!entry.sourceSentence.trim()) {
+    const isChineseToEnglish = entry.anki.cardMode === "basic_cn_to_en_dictionary";
     return [
-      `${entry.word} (${entry.lemma})`,
-      entry.phonetic ? `音标：${entry.phonetic}` : "",
+      `${isChineseToEnglish ? "英文表达" : "当前词"}：${entry.word}`,
+      entry.lemma ? `原型：${entry.lemma}` : "",
+      phonetic ? `当前词音标（${entry.word}）：${phonetic}` : "",
       entry.partOfSpeech ? `词性：${entry.partOfSpeech}` : "",
-      `中文释义：${entry.basicMeaning}`,
+      isChineseToEnglish ? `中文提示：${entry.contextMeaning}` : "",
+      `${isChineseToEnglish ? "英文表达" : "中文释义"}：${entry.basicMeaning}`,
       entry.usageNote ? `用法与补充：${entry.usageNote}` : "",
       entry.collocation ? `常见搭配：${entry.collocation}` : "",
       entry.exampleEnglish ? `例句：${entry.exampleEnglish}` : "",
@@ -247,8 +283,9 @@ function entryCopyText(entry: VocabularyEntry): string {
     ? "所选短语在本句中的含义"
     : "所选词在本句中的含义";
   return [
-    `${entry.word} (${entry.lemma})`,
-    entry.phonetic ? `音标：${entry.phonetic}` : "",
+    `当前词：${entry.word}`,
+    entry.lemma ? `原型：${entry.lemma}` : "",
+    phonetic ? `当前词音标（${entry.word}）：${phonetic}` : "",
     `词性：${entry.partOfSpeech}`,
     `基础释义：${entry.basicMeaning}`,
     `${contextMeaningLabel}：${entry.contextMeaning}`,
@@ -312,14 +349,13 @@ export function BookHome({
   const [chapter, setChapter] = useState<BookChapter>("foreword");
   const [turning, setTurning] = useState(false);
   const [turnDirection, setTurnDirection] = useState<TurnDirection>("forward");
-  const [mobileWorkbenchPage, setMobileWorkbenchPage] = useState<"demo" | "desk">("demo");
   const [recommendationProfile, setRecommendationProfile] = useState<RecommendationProfile>(INITIAL_RECOMMENDATION_PROFILE);
   const [recommendationDraft, setRecommendationDraft] = useState<RecommendationProfile>(INITIAL_RECOMMENDATION_PROFILE);
   const [recommendationDialogOpen, setRecommendationDialogOpen] = useState(false);
   const [clientReady, setClientReady] = useState(false);
   const [isMobileLayout, setIsMobileLayout] = useState(false);
   const [showMobileDesktopHint, setShowMobileDesktopHint] = useState(false);
-  const [inputMode, setInputMode] = useState<"paste" | "url" | "dictionary">("paste");
+  const [inputMode, setInputMode] = useState<"paste" | "url">("paste");
   const [menuOpen, setMenuOpen] = useState(false);
   const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [vocabularyOpen, setVocabularyOpen] = useState(false);
@@ -333,15 +369,18 @@ export function BookHome({
   const [explanationStreaming, setExplanationStreaming] = useState(false);
   const [explanationLoading, setExplanationLoading] = useState(false);
   const [explanationError, setExplanationError] = useState("");
-  const [forewordRevealStarted, setForewordRevealStarted] = useState(false);
-  const [forewordPrinted, setForewordPrinted] = useState(false);
+  const [revealPhases, setRevealPhases] = useState<Record<RevealChapter, RevealPhase>>(INITIAL_REVEAL_PHASES);
   const storyRef = useRef<HTMLElement | null>(null);
+  const coverAssemblyRef = useRef<HTMLButtonElement | null>(null);
+  const coverFaceRef = useRef<HTMLSpanElement | null>(null);
   const workbenchRef = useRef<HTMLElement | null>(null);
   const explanationShellRef = useRef<HTMLDivElement | null>(null);
   const recommendationScrollRef = useRef<HTMLElement | null>(null);
   const pageTurnRef = useRef<CurvedPageTurnHandle | null>(null);
+  const coverTurnRef = useRef<CurvedPageTurnHandle | null>(null);
   const spreadRefs = useRef<Record<BookChapter, HTMLElement | null>>({
     foreword: null,
+    experience: null,
     workbench: null,
     recommendations: null,
   });
@@ -364,9 +403,9 @@ export function BookHome({
   const dragRef = useRef<DemoDrag | null>(null);
   const suppressClickRef = useRef(false);
   const explanationAbortRef = useRef<AbortController | null>(null);
-  const forewordRevealTimerRef = useRef<number | null>(null);
-  const forewordRevealPlayedRef = useRef(false);
-  const forewordPrintedRef = useRef(false);
+  const revealPhasesRef = useRef<Record<RevealChapter, RevealPhase>>(INITIAL_REVEAL_PHASES);
+  const revealStartTimerRef = useRef<number | null>(null);
+  const revealFinishTimerRef = useRef<number | null>(null);
 
   const tokenById = useMemo(
     () => new Map(DEMO_WORD_TOKENS.map((token) => [token.id, token])),
@@ -422,11 +461,14 @@ export function BookHome({
     return () => {
       window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
       pageTurnRef.current?.clear();
+      coverTurnRef.current?.clear();
       if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
       if (turnSettleFrameRef.current !== null) window.cancelAnimationFrame(turnSettleFrameRef.current);
       if (turnSettleTimerRef.current !== null) window.clearTimeout(turnSettleTimerRef.current);
       if (turnCommitFrameRef.current !== null) window.cancelAnimationFrame(turnCommitFrameRef.current);
       if (startIntentFrameRef.current !== null) window.cancelAnimationFrame(startIntentFrameRef.current);
+      if (revealStartTimerRef.current !== null) window.clearTimeout(revealStartTimerRef.current);
+      if (revealFinishTimerRef.current !== null) window.clearTimeout(revealFinishTimerRef.current);
     };
   }, []);
 
@@ -444,60 +486,71 @@ export function BookHome({
     return () => mobileQuery.removeEventListener("change", syncMobileLayout);
   }, []);
 
+  const setRevealPhase = useCallback((target: RevealChapter, phase: RevealPhase) => {
+    if (revealPhasesRef.current[target] === phase) return;
+    revealPhasesRef.current = { ...revealPhasesRef.current, [target]: phase };
+    setRevealPhases(revealPhasesRef.current);
+  }, []);
+
+  const ensureChapterPrinted = useCallback((target: BookChapter) => {
+    if (target === "recommendations") return;
+    if (revealStartTimerRef.current !== null) {
+      window.clearTimeout(revealStartTimerRef.current);
+      revealStartTimerRef.current = null;
+    }
+    if (revealFinishTimerRef.current !== null) {
+      window.clearTimeout(revealFinishTimerRef.current);
+      revealFinishTimerRef.current = null;
+    }
+    setRevealPhase(target, "printed");
+  }, [setRevealPhase]);
+
+  const ensureChapterPathPrinted = useCallback((source: BookChapter, target: BookChapter) => {
+    const sourceIndex = CHAPTER_ORDER.indexOf(source);
+    const targetIndex = CHAPTER_ORDER.indexOf(target);
+    const start = Math.min(sourceIndex, targetIndex);
+    const end = Math.max(sourceIndex, targetIndex);
+    CHAPTER_ORDER.slice(start, end + 1).forEach(ensureChapterPrinted);
+  }, [ensureChapterPrinted]);
+
   useEffect(() => {
-    if (coverState === "closed") {
-      if (forewordRevealTimerRef.current !== null) {
-        window.clearTimeout(forewordRevealTimerRef.current);
-        forewordRevealTimerRef.current = null;
-      }
-      forewordRevealPlayedRef.current = false;
-      forewordPrintedRef.current = false;
-      setForewordRevealStarted(false);
-      setForewordPrinted(false);
+    if (!isMobileLayout) return;
+    CHAPTER_ORDER.forEach(ensureChapterPrinted);
+  }, [ensureChapterPrinted, isMobileLayout]);
+
+  useEffect(() => {
+    if (isMobileLayout || coverState !== "open" || chapter === "recommendations") return;
+    if (revealPhasesRef.current[chapter] !== "hidden") return;
+    if (lastScrollDirectionRef.current === "backward") {
+      ensureChapterPrinted(chapter);
       return;
     }
-
-    if (forewordPrintedRef.current) {
-      if (forewordRevealTimerRef.current !== null) {
-        window.clearTimeout(forewordRevealTimerRef.current);
-        forewordRevealTimerRef.current = null;
-      }
-      forewordRevealPlayedRef.current = true;
-      return;
-    }
-
-    if (coverState !== "open" || chapter !== "foreword") {
-      if (forewordRevealTimerRef.current !== null) {
-        window.clearTimeout(forewordRevealTimerRef.current);
-        forewordRevealTimerRef.current = null;
-        forewordRevealPlayedRef.current = false;
-      }
-      return;
-    }
-
-    if (forewordRevealPlayedRef.current) return;
-    forewordRevealPlayedRef.current = true;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    forewordRevealTimerRef.current = window.setTimeout(() => {
-      forewordRevealTimerRef.current = null;
-      setForewordRevealStarted(true);
-    }, reducedMotion ? 180 : 280);
-  }, [chapter, coverState]);
+    revealStartTimerRef.current = window.setTimeout(() => {
+      revealStartTimerRef.current = null;
+      setRevealPhase(chapter, reducedMotion ? "printed" : "revealing");
+    }, reducedMotion ? 80 : 240);
+    return () => {
+      if (revealStartTimerRef.current !== null) {
+        window.clearTimeout(revealStartTimerRef.current);
+        revealStartTimerRef.current = null;
+      }
+    };
+  }, [chapter, coverState, ensureChapterPrinted, isMobileLayout, setRevealPhase]);
 
-  useEffect(() => () => {
-    if (forewordRevealTimerRef.current !== null) window.clearTimeout(forewordRevealTimerRef.current);
-  }, []);
-
-  const ensureForewordPrinted = useCallback(() => {
-    if (forewordRevealTimerRef.current !== null) {
-      window.clearTimeout(forewordRevealTimerRef.current);
-      forewordRevealTimerRef.current = null;
-    }
-    forewordRevealPlayedRef.current = true;
-    if (forewordPrintedRef.current) return;
-    forewordPrintedRef.current = true;
-    setForewordPrinted(true);
-  }, []);
+  useEffect(() => {
+    if (chapter === "recommendations" || revealPhases[chapter] !== "revealing") return;
+    revealFinishTimerRef.current = window.setTimeout(() => {
+      revealFinishTimerRef.current = null;
+      setRevealPhase(chapter, "printed");
+    }, chapter === "foreword" ? 2100 : 1650);
+    return () => {
+      if (revealFinishTimerRef.current !== null) {
+        window.clearTimeout(revealFinishTimerRef.current);
+        revealFinishTimerRef.current = null;
+      }
+    };
+  }, [chapter, revealPhases, setRevealPhase]);
 
   useEffect(() => {
     const locked = menuOpen || vocabularyOpen || feedbackOpen || recommendationDialogOpen;
@@ -699,12 +752,25 @@ export function BookHome({
     pendingDirectoryTargetRef.current = null;
     directorySeekRef.current = null;
     setChapterImmediately("foreword");
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      coverStateRef.current = "open";
+      setCoverState("open");
+      ensureChapterPrinted("foreword");
+      spreadRefs.current.foreword?.scrollIntoView({ behavior: "auto", block: "start" });
+      return;
+    }
     scrollStoryTo(FOREWORD_SCROLL_POSITION);
-  }, [scrollStoryTo, setChapterImmediately]);
+  }, [ensureChapterPrinted, scrollStoryTo, setChapterImmediately]);
 
   const closeBook = useCallback(() => {
     pendingDirectoryTargetRef.current = null;
     directorySeekRef.current = null;
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      coverStateRef.current = "closed";
+      setCoverState("closed");
+      coverAssemblyRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
+      return;
+    }
     scrollStoryTo(0, "smooth");
   }, [scrollStoryTo]);
 
@@ -719,9 +785,9 @@ export function BookHome({
       pendingDirectoryTargetRef.current = null;
       pageTurnRef.current?.clear();
       setTurnVisual(false);
+      ensureChapterPrinted(target);
       setChapterImmediately(target);
-      scrollStoryTo(targetProgress, "auto");
-      if (target === "workbench") setMobileWorkbenchPage("demo");
+      spreadRefs.current[target]?.scrollIntoView({ behavior: "auto", block: "start" });
       if (closeAfter) window.requestAnimationFrame(() => closeBook());
       return;
     }
@@ -729,14 +795,15 @@ export function BookHome({
       directorySeekRef.current = null;
       setTurnVisual(false);
       pageTurnRef.current?.clear();
+      ensureChapterPrinted(target);
       scrollStoryTo(targetProgress);
       if (closeAfter) window.requestAnimationFrame(() => closeBook());
       return;
     }
 
-    const ranks: Record<BookChapter, number> = { foreword: 0, workbench: 1, recommendations: 2 };
+    const ranks = Object.fromEntries(CHAPTER_ORDER.map((item, index) => [item, index])) as Record<BookChapter, number>;
     const direction: TurnDirection = ranks[target] >= ranks[source] ? "forward" : "backward";
-    if (source === "foreword" || target === "foreword") ensureForewordPrinted();
+    ensureChapterPathPrinted(source, target);
     directorySeekRef.current = {
       key: `directory:${source}:${target}:${performance.now().toFixed(0)}`,
       source,
@@ -755,11 +822,60 @@ export function BookHome({
       0,
     );
     scrollStoryTo(targetProgress);
-  }, [closeBook, ensureForewordPrinted, scrollStoryTo, setTurnVisual]);
+  }, [closeBook, ensureChapterPathPrinted, ensureChapterPrinted, scrollStoryTo, setTurnVisual]);
 
   useEffect(() => {
     const story = storyRef.current;
     if (!story) return;
+
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      cancelTurnSettle();
+      pageTurnRef.current?.clear();
+      setTurnVisual(false);
+
+      const mobileSections: Array<[Element | null, BookChapter | "cover"]> = [
+        [coverAssemblyRef.current, "cover"],
+        [spreadRefs.current.foreword, "foreword"],
+        [spreadRefs.current.experience, "experience"],
+        [spreadRefs.current.workbench, "workbench"],
+        [spreadRefs.current.recommendations, "recommendations"],
+      ];
+      const visibleRatios = new Map<Element, number>();
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) visibleRatios.set(entry.target, entry.intersectionRatio);
+        const visible = mobileSections
+          .filter(([element]) => element)
+          .map(([element, section]) => ({
+            element: element as Element,
+            section,
+            ratio: visibleRatios.get(element as Element) ?? 0,
+          }))
+          .sort((left, right) => right.ratio - left.ratio)[0];
+        if (!visible || visible.ratio < .18) return;
+        if (visible.section === "cover") {
+          if (coverStateRef.current !== "closed") {
+            coverStateRef.current = "closed";
+            setCoverState("closed");
+          }
+          return;
+        }
+        if (coverStateRef.current !== "open") {
+          coverStateRef.current = "open";
+          setCoverState("open");
+        }
+        ensureChapterPrinted(visible.section);
+        setChapterImmediately(visible.section);
+      }, {
+        rootMargin: "-72px 0px -22% 0px",
+        threshold: [0, .18, .35, .55, .75],
+      });
+
+      for (const [element] of mobileSections) {
+        if (element) observer.observe(element);
+      }
+      return () => observer.disconnect();
+    }
+
     let recommendationSyncFrame: number | null = null;
     let syncingRecommendationFromStory = false;
 
@@ -784,6 +900,9 @@ export function BookHome({
       if (progress > SECOND_TURN_START + PAGE_TURN_EDGE_EPSILON && progress < SECOND_TURN_END - PAGE_TURN_EDGE_EPSILON) {
         return { start: SECOND_TURN_START, end: SECOND_TURN_END };
       }
+      if (progress > THIRD_TURN_START + PAGE_TURN_EDGE_EPSILON && progress < THIRD_TURN_END - PAGE_TURN_EDGE_EPSILON) {
+        return { start: THIRD_TURN_START, end: THIRD_TURN_END };
+      }
       return null;
     };
 
@@ -799,7 +918,7 @@ export function BookHome({
       const maxScroll = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
       const recommendationProgress = Math.min(
         1,
-        Math.max(0, (progress - SECOND_TURN_END) / (1 - SECOND_TURN_END)),
+        Math.max(0, (progress - THIRD_TURN_END) / (1 - THIRD_TURN_END)),
       );
       const nextScrollTop = maxScroll * recommendationProgress;
       if (Math.abs(scroller.scrollTop - nextScrollTop) < 1) return;
@@ -822,7 +941,7 @@ export function BookHome({
       if (maxScroll <= 0) return;
       const recommendationProgress = Math.min(1, Math.max(0, scroller.scrollTop / maxScroll));
       scrollToStoryProgress(
-        SECOND_TURN_END + recommendationProgress * (1 - SECOND_TURN_END),
+        THIRD_TURN_END + recommendationProgress * (1 - THIRD_TURN_END),
       );
     };
 
@@ -890,6 +1009,7 @@ export function BookHome({
       storyProgressRef.current = progress;
 
       if (window.matchMedia("(max-width: 760px)").matches) {
+        story.dataset.coverTurning = "false";
         cancelTurnSettle();
         directorySeekRef.current = null;
         pageTurnRef.current?.clear();
@@ -906,12 +1026,14 @@ export function BookHome({
           setChapterImmediately("foreword");
           return;
         }
-        ensureForewordPrinted();
-        const mobileChapter: BookChapter = progress >= SECOND_TURN_START
+        ensureChapterPrinted("foreword");
+        const mobileChapter: BookChapter = progress >= THIRD_TURN_START
           ? "recommendations"
-          : progress >= FIRST_TURN_START
+          : progress >= SECOND_TURN_START
             ? "workbench"
-            : "foreword";
+            : progress >= FIRST_TURN_START
+              ? "experience"
+              : "foreword";
         setChapterImmediately(mobileChapter);
         return;
       }
@@ -921,6 +1043,7 @@ export function BookHome({
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       queueTurnSettle(progress, reducedMotion);
       const rawCoverProgress = Math.min(1, Math.max(0, progress / COVER_SCROLL_END));
+      story.dataset.coverTurning = rawCoverProgress > .002 && rawCoverProgress < .998 ? "true" : "false";
       const visualCoverProgress = reducedMotion
         ? (rawCoverProgress >= .5 ? 1 : 0)
         : rawCoverProgress;
@@ -968,7 +1091,6 @@ export function BookHome({
           directorySeekRef.current = null;
           finishTurnVisual(directorySeek.target);
           if (directorySeek.target === "workbench") {
-            setMobileWorkbenchPage("demo");
             window.requestAnimationFrame(() => workbenchRef.current?.focus({ preventScroll: true }));
           }
           if (directorySeek.closeAfter) {
@@ -992,17 +1114,21 @@ export function BookHome({
         pageTurnRef.current?.clear();
         setTurnVisual(false);
         setChapterImmediately("foreword");
+        coverTurnRef.current?.seek(
+          "cover:foreword",
+          "forward",
+          coverFaceRef.current,
+          spreadRefs.current.foreword,
+          visualCoverProgress,
+        );
         return;
       }
+      coverTurnRef.current?.clear();
 
       const pendingTarget = pendingDirectoryTargetRef.current;
       if (pendingTarget && progress >= FOREWORD_SCROLL_POSITION - .008) {
         pendingDirectoryTargetRef.current = null;
-        const targetProgress = pendingTarget.target === "workbench"
-          ? WORKBENCH_SCROLL_POSITION
-          : pendingTarget.target === "recommendations"
-            ? RECOMMENDATION_SCROLL_POSITION
-            : FOREWORD_SCROLL_POSITION;
+        const targetProgress = CHAPTER_SCROLL_POSITIONS[pendingTarget.target];
         window.requestAnimationFrame(() => {
           startDirectorySeek(pendingTarget.target, targetProgress, Boolean(pendingTarget.closeAfter));
         });
@@ -1014,13 +1140,13 @@ export function BookHome({
         && progress < FIRST_TURN_END - PAGE_TURN_EDGE_EPSILON
       ) {
         const turnProgress = (progress - FIRST_TURN_START) / (FIRST_TURN_END - FIRST_TURN_START);
-        ensureForewordPrinted();
+        ensureChapterPrinted(lastScrollDirectionRef.current === "forward" ? "foreword" : "experience");
         setTurnVisual(true, "forward");
         pageTurnRef.current?.seek(
-          "scroll:foreword:workbench",
+          "scroll:foreword:experience",
           "forward",
           spreadRefs.current.foreword,
-          spreadRefs.current.workbench,
+          spreadRefs.current.experience,
           reducedMotion ? (turnProgress >= .5 ? 1 : 0) : turnProgress,
         );
         return;
@@ -1031,6 +1157,24 @@ export function BookHome({
         && progress < SECOND_TURN_END - PAGE_TURN_EDGE_EPSILON
       ) {
         const turnProgress = (progress - SECOND_TURN_START) / (SECOND_TURN_END - SECOND_TURN_START);
+        ensureChapterPrinted(lastScrollDirectionRef.current === "forward" ? "experience" : "workbench");
+        setTurnVisual(true, "forward");
+        pageTurnRef.current?.seek(
+          "scroll:experience:workbench",
+          "forward",
+          spreadRefs.current.experience,
+          spreadRefs.current.workbench,
+          reducedMotion ? (turnProgress >= .5 ? 1 : 0) : turnProgress,
+        );
+        return;
+      }
+
+      if (
+        progress > THIRD_TURN_START + PAGE_TURN_EDGE_EPSILON
+        && progress < THIRD_TURN_END - PAGE_TURN_EDGE_EPSILON
+      ) {
+        const turnProgress = (progress - THIRD_TURN_START) / (THIRD_TURN_END - THIRD_TURN_START);
+        if (lastScrollDirectionRef.current === "forward") ensureChapterPrinted("workbench");
         setTurnVisual(true, "forward");
         pageTurnRef.current?.seek(
           "scroll:workbench:recommendations",
@@ -1042,11 +1186,13 @@ export function BookHome({
         return;
       }
 
-      const settledChapter: BookChapter = progress >= SECOND_TURN_END - PAGE_TURN_EDGE_EPSILON
+      const settledChapter: BookChapter = progress >= THIRD_TURN_END - PAGE_TURN_EDGE_EPSILON
         ? "recommendations"
-        : progress >= FIRST_TURN_END - PAGE_TURN_EDGE_EPSILON
+        : progress >= SECOND_TURN_END - PAGE_TURN_EDGE_EPSILON
           ? "workbench"
-          : "foreword";
+          : progress >= FIRST_TURN_END - PAGE_TURN_EDGE_EPSILON
+            ? "experience"
+            : "foreword";
       finishTurnVisual(settledChapter);
     };
 
@@ -1090,7 +1236,7 @@ export function BookHome({
       if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
       scrollFrameRef.current = null;
     };
-  }, [cancelTurnSettle, ensureForewordPrinted, finishTurnVisual, scrollStoryTo, setChapterImmediately, setTurnVisual, startDirectorySeek]);
+  }, [cancelTurnSettle, ensureChapterPrinted, finishTurnVisual, isMobileLayout, scrollStoryTo, setChapterImmediately, setTurnVisual, startDirectorySeek]);
 
   useEffect(() => () => explanationAbortRef.current?.abort(), []);
 
@@ -1295,7 +1441,10 @@ export function BookHome({
   }
 
   function isStandaloneDictionaryInVocabulary(result: DictionaryResult): boolean {
-    const identity = vocabularyIdentity({ word: result.query, sourceSentence: "" });
+    const identity = vocabularyIdentity({
+      word: result.direction === "cn_to_en" ? result.lemma : result.query,
+      sourceSentence: "",
+    });
     return vocabularyEntries.some((entry) => vocabularyIdentity(entry) === identity);
   }
 
@@ -1328,10 +1477,21 @@ export function BookHome({
     startDirectorySeek("workbench", WORKBENCH_SCROLL_POSITION);
   }
 
+  function scrollToExperience() {
+    setMenuOpen(false);
+    if (coverProgressRef.current < .998) {
+      pendingDirectoryTargetRef.current = { target: "experience" };
+      scrollStoryTo(FOREWORD_SCROLL_POSITION);
+      return;
+    }
+    startDirectorySeek("experience", EXPERIENCE_SCROLL_POSITION);
+  }
+
   function scrollToForeword() {
     setMenuOpen(false);
     pendingDirectoryTargetRef.current = null;
     if (coverProgressRef.current < .998) {
+      ensureChapterPrinted("foreword");
       scrollStoryTo(FOREWORD_SCROLL_POSITION);
       return;
     }
@@ -1429,21 +1589,6 @@ export function BookHome({
         </div>
       </header>
 
-      {showMobileDesktopHint && (
-        <aside className={styles.mobileDesktopHint} aria-label="电脑端体验提示">
-          <p><strong>手机端已切换为轻量布局，</strong>电脑可体验完整书页动效与更宽工具区。</p>
-          <button
-            type="button"
-            onClick={() => {
-              window.localStorage.setItem(MOBILE_DESKTOP_HINT_KEY, "1");
-              setShowMobileDesktopHint(false);
-            }}
-          >
-            知道了
-          </button>
-        </aside>
-      )}
-
       <section
         ref={storyRef}
         className={`${styles.story} ${styles[`cover${coverState[0].toUpperCase()}${coverState.slice(1)}`]}`}
@@ -1458,18 +1603,19 @@ export function BookHome({
                 ref={(element) => { spreadRefs.current.foreword = element; }}
                 data-book-spread="foreword"
                 className={`${styles.forewordSpread} ${styles.spreadLayer} ${chapter === "foreword" ? styles.spreadActive : styles.spreadInactive}`}
-                aria-hidden={chapter !== "foreword"}
-                inert={chapter !== "foreword"}
+                aria-hidden={!isMobileLayout && chapter !== "foreword"}
+                inert={!isMobileLayout && chapter !== "foreword"}
               >
                 <section className={`${styles.page} ${styles.leftPage} ${styles.forewordBlank}`} aria-hidden="true" />
                 <div className={styles.spine} aria-hidden="true"><i /></div>
                 <section className={`${styles.page} ${styles.rightPage} ${styles.forewordPage}`} aria-labelledby="book-foreword-heading">
                   <div
-                    className={`${styles.forewordContent} ${forewordRevealStarted ? styles.forewordContentVisible : ""} ${forewordPrinted ? styles.forewordContentPrinted : ""}`}
+                    className={`${styles.forewordContent} ${styles.chapterReveal} ${revealPhaseClass(revealPhases.foreword)} ${revealPhases.foreword === "revealing" ? styles.forewordContentVisible : ""} ${revealPhases.foreword === "printed" ? styles.forewordContentPrinted : ""}`}
                     data-foreword-content
+                    data-page-reveal-state={revealPhases.foreword}
                   >
-                  <div className={styles.pageNumber} data-foreword-reveal-part>Foreword · 01</div>
-                  <p className={styles.sectionLabel} data-foreword-reveal-part>开发者的话</p>
+                  <div className={styles.pageNumber} data-foreword-reveal-part data-page-reveal-part>Foreword · 01</div>
+                  <p className={styles.sectionLabel} data-foreword-reveal-part data-page-reveal-part>开发者的话</p>
                   <h1 id="book-foreword-heading" aria-label={FOREWORD_SEGMENTS[0]}>
                     {FOREWORD_TITLE_LINES.map((line, lineIndex) => {
                       const precedingGlyphs = FOREWORD_TITLE_LINES
@@ -1482,6 +1628,7 @@ export function BookHome({
                               key={`${glyph}-${glyphIndex}`}
                               className={styles.forewordTitleGlyph}
                               data-foreword-reveal-part
+                              data-page-reveal-part
                               style={{ animationDelay: `${115 + (precedingGlyphs + glyphIndex) * 52}ms` }}
                             >
                               {glyph}
@@ -1494,14 +1641,108 @@ export function BookHome({
                   <div className={styles.forewordCopy}>
                     {FOREWORD_SEGMENTS.slice(1, 4).map((segment, offset) => (
                       <p key={segment} style={{ animationDelay: `${790 + offset * 145}ms` }}>
-                        <span data-foreword-reveal-part>{segment}</span>
+                        <span data-foreword-reveal-part data-page-reveal-part>{segment}</span>
                       </p>
                     ))}
                   </div>
                   <div className={styles.developerSignature}>
-                    <span data-foreword-reveal-part>{FOREWORD_SEGMENTS[4]}</span>
-                    <strong data-foreword-reveal-part data-foreword-signature>{FOREWORD_SEGMENTS[5]}</strong>
+                    <span data-foreword-reveal-part data-page-reveal-part>{FOREWORD_SEGMENTS[4]}</span>
+                    <strong data-foreword-reveal-part data-page-reveal-part data-foreword-signature>{FOREWORD_SEGMENTS[5]}</strong>
                   </div>
+                  </div>
+                </section>
+              </div>
+
+              <div
+                ref={(element) => { spreadRefs.current.experience = element; }}
+                data-book-spread="experience"
+                className={`${styles.experienceSpread} ${styles.spreadLayer} ${chapter === "experience" ? styles.spreadActive : styles.spreadInactive}`}
+                aria-hidden={!isMobileLayout && chapter !== "experience"}
+                inert={!isMobileLayout && chapter !== "experience"}
+              >
+                <section className={`${styles.page} ${styles.leftPage} ${styles.experienceArticlePage}`} aria-labelledby="book-demo-heading">
+                  <div
+                    className={`${styles.chapterReveal} ${revealPhaseClass(revealPhases.experience)}`}
+                    data-page-reveal-state={revealPhases.experience}
+                  >
+                    <div className={styles.pageNumber} data-page-reveal-part style={revealOrder(0)}>Reading · 02</div>
+                    <div className={styles.demoHeader} data-page-reveal-part style={revealOrder(1)}>
+                      <div>
+                        <p className={styles.sectionLabel}>真实划词体验</p>
+                        <h1 id="book-demo-heading">不止一个词，也划过一段表达</h1>
+                      </div>
+                      <span className={styles.demoStatus}>可交互</span>
+                    </div>
+
+                    <article className={styles.demoArticle} aria-label="可划词的英文短文" data-pointer-mask data-page-reveal-part style={revealOrder(2)}>
+                      <h2>{DEMO_TITLE}</h2>
+                      {DEMO_PARAGRAPHS.map((paragraph) => (
+                        <p key={paragraph.id}>
+                          {paragraph.tokens.map((token) => token.type === "word" ? (
+                            <button
+                              key={token.id}
+                              type="button"
+                              className={selectedTokenIds.includes(token.id) ? styles.selectedWord : styles.word}
+                              data-demo-token={token.id}
+                              aria-pressed={selectedTokenIds.includes(token.id)}
+                              onPointerDown={(event) => handleTokenPointerDown(event, token.id)}
+                              onPointerMove={handleTokenPointerMove}
+                              onPointerUp={handleTokenPointerUp}
+                              onPointerCancel={handleTokenPointerCancel}
+                              onClick={() => handleTokenClick(token)}
+                            >
+                              {token.value}
+                            </button>
+                          ) : <span key={token.id}>{token.value}</span>)}
+                        </p>
+                      ))}
+                    </article>
+
+                    <div className={styles.demoInstruction} aria-live="polite" data-page-reveal-part style={revealOrder(3)}>
+                      {showHint ? (
+                        <span><i aria-hidden="true" />点一个词，或从左向右划过 2–8 个词</span>
+                      ) : (
+                        <span>当前选择：<strong>{selectedContext.word}</strong></span>
+                      )}
+                      <button type="button" onClick={() => onOpenDemoArticle(DEMO_IMPORTED_ARTICLE)}>在阅读器中继续</button>
+                    </div>
+                  </div>
+                </section>
+
+                <div className={styles.spine} aria-hidden="true"><i /></div>
+
+                <section className={`${styles.page} ${styles.rightPage} ${styles.contextExplanationPage}`} aria-labelledby="book-context-heading">
+                  <div
+                    className={`${styles.chapterReveal} ${revealPhaseClass(revealPhases.experience)}`}
+                    data-page-reveal-state={revealPhases.experience}
+                  >
+                    <div className={styles.pageNumber} data-page-reveal-part style={revealOrder(4)}>Context · 03</div>
+                    <header className={styles.contextPageHeader} data-page-reveal-part style={revealOrder(5)}>
+                      <p className={styles.sectionLabel}>语境解释</p>
+                      <h2 id="book-context-heading">把表达放回它的句子里。</h2>
+                      <p>左页的选择会在这里展开，解释词义，也保留它在当前语境里的作用。</p>
+                    </header>
+                    <div ref={explanationShellRef} className={`${styles.explanationShell} ${styles.experienceExplanationShell}`} data-pointer-mask data-page-reveal-part style={revealOrder(6)}>
+                      {clientReady ? (
+                        <ExplanationPanel
+                          explanation={explanation}
+                          streamText={explanationStreamText}
+                          streaming={explanationStreaming}
+                          selectedContext={selectedContext}
+                          loading={explanationLoading}
+                          error={explanationError}
+                          isInVocabulary={isInVocabulary}
+                          showLearningActions={false}
+                          onAddToVocabulary={handleAddToVocabulary}
+                          onRegenerate={() => {
+                            const tokens = selectedTokenIds.map((id) => tokenById.get(id)).filter((token): token is ReaderToken => Boolean(token));
+                            void explainTokens(tokens, true);
+                          }}
+                        />
+                      ) : (
+                        <div className={styles.explanationPlaceholder}>正在准备语境解释…</div>
+                      )}
+                    </div>
                   </div>
                 </section>
               </div>
@@ -1509,197 +1750,139 @@ export function BookHome({
               <div
                 ref={(element) => { spreadRefs.current.workbench = element; }}
                 data-book-spread="workbench"
-                data-mobile-page={mobileWorkbenchPage}
                 className={`${styles.workbenchSpread} ${styles.spreadLayer} ${chapter === "workbench" ? styles.spreadActive : styles.spreadInactive}`}
-                aria-hidden={chapter !== "workbench"}
-                inert={chapter !== "workbench"}
+                aria-hidden={!isMobileLayout && chapter !== "workbench"}
+                inert={!isMobileLayout && chapter !== "workbench"}
               >
-                  <section className={`${styles.page} ${styles.leftPage}`} aria-labelledby="book-demo-heading">
-              <div className={styles.pageNumber}>Reading · 02</div>
-              <div className={styles.demoHeader}>
-                <div>
-                  <p className={styles.sectionLabel}>真实划词体验</p>
-                  <h1 id="book-demo-heading">不止一个词，也划过一段表达</h1>
-                </div>
-                <span className={styles.demoStatus}>可交互</span>
-              </div>
+                <section ref={workbenchRef} tabIndex={-1} className={`${styles.page} ${styles.leftPage} ${styles.articleEntryPage}`} aria-labelledby="book-workbench-heading">
+                  <div
+                    className={`${styles.chapterReveal} ${revealPhaseClass(revealPhases.workbench)}`}
+                    data-page-reveal-state={revealPhases.workbench}
+                  >
+                    <div className={styles.pageNumber} data-page-reveal-part style={revealOrder(0)}>Start · 04</div>
+                    <div className={styles.workbenchHeader} data-page-reveal-part style={revealOrder(1)}>
+                      <p className={styles.sectionLabel}>阅读起点</p>
+                      <h2 id="book-workbench-heading">带一篇文章来。</h2>
+                      <p>粘贴英文文章或输入公开网址，直接进入阅读器。</p>
+                    </div>
 
-              <article className={styles.demoArticle} aria-label="可划词的英文短文" data-pointer-mask>
-                <h2>{DEMO_TITLE}</h2>
-                {DEMO_PARAGRAPHS.map((paragraph) => (
-                  <p key={paragraph.id}>
-                    {paragraph.tokens.map((token) => token.type === "word" ? (
+                    {latestSavedArticle && (
                       <button
-                        key={token.id}
+                        className={styles.continueReading}
                         type="button"
-                        className={selectedTokenIds.includes(token.id) ? styles.selectedWord : styles.word}
-                        data-demo-token={token.id}
-                        aria-pressed={selectedTokenIds.includes(token.id)}
-                        onPointerDown={(event) => handleTokenPointerDown(event, token.id)}
-                        onPointerMove={handleTokenPointerMove}
-                        onPointerUp={handleTokenPointerUp}
-                        onPointerCancel={handleTokenPointerCancel}
-                        onClick={() => handleTokenClick(token)}
+                        onClick={() => onOpenSavedArticle(latestSavedArticle)}
+                        disabled={readerTransitioning}
+                        data-page-reveal-part
+                        style={revealOrder(2)}
                       >
-                        {token.value}
+                        <span className={styles.continueMarker} aria-hidden="true">↗</span>
+                        <span>
+                          <small>继续上次阅读</small>
+                          <strong>{latestSavedArticle.title || "未命名文章"}</strong>
+                          <em>{savedArticlePreview(latestSavedArticle)}</em>
+                        </span>
+                        <time>{formatSavedDate(latestSavedArticle)}</time>
                       </button>
-                    ) : <span key={token.id}>{token.value}</span>)}
-                  </p>
-                ))}
-              </article>
+                    )}
 
-              <div className={styles.demoInstruction} aria-live="polite">
-                {showHint ? (
-                  <span><i aria-hidden="true" />点一个词，或从左向右划过 2–8 个词</span>
-                ) : (
-                  <span>当前选择：<strong>{selectedContext.word}</strong></span>
-                )}
-                <button type="button" onClick={() => onOpenDemoArticle(DEMO_IMPORTED_ARTICLE)}>在阅读器中继续</button>
-              </div>
+                    <div className={`${styles.inputModes} ${styles.articleInputModes}`} role="tablist" aria-label="选择文章导入方式" data-page-reveal-part style={revealOrder(3)}>
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={inputMode === "paste"}
+                        className={inputMode === "paste" ? styles.activeMode : ""}
+                        onClick={() => setInputMode("paste")}
+                      >粘贴文章</button>
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={inputMode === "url"}
+                        className={inputMode === "url" ? styles.activeMode : ""}
+                        onClick={() => setInputMode("url")}
+                      >输入网址</button>
+                    </div>
 
-              <div ref={explanationShellRef} className={styles.explanationShell} data-pointer-mask>
-                {clientReady ? (
-                  <ExplanationPanel
-                    explanation={explanation}
-                    streamText={explanationStreamText}
-                    streaming={explanationStreaming}
-                    selectedContext={selectedContext}
-                    loading={explanationLoading}
-                    error={explanationError}
-                    isInVocabulary={isInVocabulary}
-                    showLearningActions={false}
-                    onAddToVocabulary={handleAddToVocabulary}
-                    onRegenerate={() => {
-                      const tokens = selectedTokenIds.map((id) => tokenById.get(id)).filter((token): token is ReaderToken => Boolean(token));
-                      void explainTokens(tokens, true);
-                    }}
-                  />
-                ) : (
-                  <div className={styles.explanationPlaceholder}>正在准备语境解释…</div>
-                )}
-              </div>
-
-              <button className={styles.mobileNextPage} type="button" onClick={() => setMobileWorkbenchPage("desk")}>
-                下一页：单独查词 <span aria-hidden="true">↓</span>
-              </button>
-                  </section>
-
-                  <div className={styles.spine} aria-hidden="true"><i /></div>
-
-                  <section ref={workbenchRef} tabIndex={-1} className={`${styles.page} ${styles.rightPage}`} aria-labelledby="book-workbench-heading">
-              <div className={styles.pageNumber}>Dictionary · 02</div>
-              <div className={styles.workbenchHeader}>
-                <p className={styles.sectionLabel}>{inputMode === "dictionary" ? "独立查词" : "阅读起点"}</p>
-                <h2 id="book-workbench-heading">
-                  {inputMode === "dictionary" ? "单独查一个词或短语。" : "从你想读的内容开始。"}
-                </h2>
-                <p>
-                  {inputMode === "dictionary"
-                    ? "没有原句也可以深度查询；粘贴文章和网址导入仍保留在同一页。"
-                    : "粘贴文章或输入公开网址，直接进入阅读器。"}
-                </p>
-              </div>
-
-              {latestSavedArticle && (
-                <button
-                  className={styles.continueReading}
-                  type="button"
-                  onClick={() => onOpenSavedArticle(latestSavedArticle)}
-                  disabled={readerTransitioning}
-                >
-                  <span className={styles.continueMarker} aria-hidden="true">↗</span>
-                  <span>
-                    <small>继续上次阅读</small>
-                    <strong>{latestSavedArticle.title || "未命名文章"}</strong>
-                    <em>{savedArticlePreview(latestSavedArticle)}</em>
-                  </span>
-                  <time>{formatSavedDate(latestSavedArticle)}</time>
-                </button>
-              )}
-
-              <div className={styles.inputModes} role="tablist" aria-label="选择阅读或查词方式">
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={inputMode === "paste"}
-                  className={inputMode === "paste" ? styles.activeMode : ""}
-                  onClick={() => setInputMode("paste")}
-                >粘贴文章</button>
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={inputMode === "url"}
-                  className={inputMode === "url" ? styles.activeMode : ""}
-                  onClick={() => setInputMode("url")}
-                >输入网址</button>
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={inputMode === "dictionary"}
-                  className={inputMode === "dictionary" ? styles.activeMode : ""}
-                  onClick={() => setInputMode("dictionary")}
-                >单独查词</button>
-              </div>
-
-              <div className={styles.modePanel} hidden={inputMode !== "paste"} inert={inputMode !== "paste"}>
-                <form className={styles.articleForm} onSubmit={(event) => { event.preventDefault(); onStartReading(); }}>
-                  <label htmlFor="book-home-article">英文文章</label>
-                  <textarea
-                    id="book-home-article"
-                    value={article}
-                    onChange={(event) => onArticleChange(event.target.value)}
-                    placeholder="Paste an English article here…"
-                    maxLength={120000}
-                  />
-                  <div className={styles.formFooter}>
-                    <span>{article.trim() ? `${article.trim().split(/\s+/).length} 词` : "支持短文与长文章"}</span>
-                    <button type="submit" disabled={!article.trim() || readerTransitioning}>打开文章</button>
+                    <div className={styles.entryModeArea} data-page-reveal-part style={revealOrder(4)}>
+                      <div className={styles.modePanel} hidden={inputMode !== "paste"} inert={inputMode !== "paste"}>
+                        <form className={styles.articleForm} onSubmit={(event) => { event.preventDefault(); onStartReading(); }}>
+                          <label htmlFor="book-home-article">英文文章</label>
+                          <ClearableField value={article} onClear={() => onArticleChange("")} label="清空粘贴文章" multiline>
+                            <textarea
+                              id="book-home-article"
+                              value={article}
+                              onChange={(event) => onArticleChange(event.target.value)}
+                              placeholder="Paste an English article here…"
+                              maxLength={120000}
+                            />
+                          </ClearableField>
+                          <div className={styles.formFooter}>
+                            <span>{article.trim() ? `${article.trim().split(/\s+/).length} 词` : "支持短文与长文章"}</span>
+                            <button type="submit" disabled={!article.trim() || readerTransitioning}>打开文章</button>
+                          </div>
+                          {error && <p className={styles.formError} role="alert">{error}</p>}
+                        </form>
+                      </div>
+                      <div className={styles.modePanel} hidden={inputMode !== "url"} inert={inputMode !== "url"}>
+                        <form className={styles.urlForm} onSubmit={(event) => { event.preventDefault(); onImportUrl(); }}>
+                          <label htmlFor="book-home-url">公开文章网址</label>
+                          <div>
+                            <ClearableField className={styles.urlInputField} value={articleUrl} onClear={() => onArticleUrlChange("")} label="清空文章网址">
+                              <input
+                                id="book-home-url"
+                                type="url"
+                                inputMode="url"
+                                value={articleUrl}
+                                onChange={(event) => onArticleUrlChange(event.target.value)}
+                                placeholder="https://example.com/article"
+                                autoComplete="url"
+                              />
+                            </ClearableField>
+                            <button type="submit" disabled={!articleUrl.trim() || importingUrl || readerTransitioning}>
+                              {importingUrl ? "正在读取…" : "读取网址"}
+                            </button>
+                          </div>
+                          <p>会保留可读取的正文结构和原文配图；部分网站可能限制抓取。</p>
+                          {urlError && <p className={styles.formError} role="alert">{urlError}</p>}
+                        </form>
+                      </div>
+                    </div>
                   </div>
-                  {error && <p className={styles.formError} role="alert">{error}</p>}
-                </form>
-              </div>
-              <div className={styles.modePanel} hidden={inputMode !== "url"} inert={inputMode !== "url"}>
-                <form className={styles.urlForm} onSubmit={(event) => { event.preventDefault(); onImportUrl(); }}>
-                  <label htmlFor="book-home-url">公开文章网址</label>
-                  <div>
-                    <input
-                      id="book-home-url"
-                      type="url"
-                      inputMode="url"
-                      value={articleUrl}
-                      onChange={(event) => onArticleUrlChange(event.target.value)}
-                      placeholder="https://example.com/article"
-                      autoComplete="url"
-                    />
-                    <button type="submit" disabled={!articleUrl.trim() || importingUrl || readerTransitioning}>
-                      {importingUrl ? "正在读取…" : "读取网址"}
-                    </button>
-                  </div>
-                  <p>会保留可读取的正文结构和原文配图；部分网站可能限制抓取。</p>
-                  {urlError && <p className={styles.formError} role="alert">{urlError}</p>}
-                </form>
-              </div>
-              <div className={styles.modePanel} hidden={inputMode !== "dictionary"} inert={inputMode !== "dictionary"}>
-                <BookDictionary
-                  compact
-                  offline={isOffline}
-                  onAddToVocabulary={handleAddStandaloneDictionaryToVocabulary}
-                  isInVocabulary={isStandaloneDictionaryInVocabulary}
-                />
-              </div>
+                </section>
 
-              <div className={styles.workbenchFoot}>
-                <button type="button" onClick={() => onOpenDemoArticle(DEMO_IMPORTED_ARTICLE)}>先用左页示例阅读</button>
-              </div>
-                  </section>
+                <div className={styles.spine} aria-hidden="true"><i /></div>
+
+                <section className={`${styles.page} ${styles.rightPage} ${styles.dictionaryPage}`} aria-labelledby="book-dictionary-heading">
+                  <div
+                    className={`${styles.chapterReveal} ${revealPhaseClass(revealPhases.workbench)}`}
+                    data-page-reveal-state={revealPhases.workbench}
+                  >
+                    <div className={styles.pageNumber} data-page-reveal-part style={revealOrder(5)}>Dictionary · 05</div>
+                    <div className={`${styles.workbenchHeader} ${styles.dictionaryHeader}`} data-page-reveal-part style={revealOrder(6)}>
+                      <p className={styles.sectionLabel}>独立查词</p>
+                      <h2 id="book-dictionary-heading">单独查一个词或短语。</h2>
+                      <p>输入英文看中文释义，输入中文看可用的英文表达。</p>
+                    </div>
+                    <div className={styles.dictionaryStage} data-page-reveal-part style={revealOrder(7)}>
+                      <BookDictionary
+                        compact
+                        offline={isOffline}
+                        onAddToVocabulary={handleAddStandaloneDictionaryToVocabulary}
+                        isInVocabulary={isStandaloneDictionaryInVocabulary}
+                      />
+                    </div>
+                    <div className={styles.workbenchFoot} data-page-reveal-part style={revealOrder(8)}>
+                      <button type="button" onClick={scrollToExperience}>返回划词体验</button>
+                    </div>
+                  </div>
+                </section>
               </div>
 
               <div
                 ref={(element) => { spreadRefs.current.recommendations = element; }}
                 data-book-spread="recommendations"
                 className={`${styles.recommendationSpread} ${styles.spreadLayer} ${chapter === "recommendations" ? styles.spreadActive : styles.spreadInactive}`}
-                aria-hidden={chapter !== "recommendations"}
-                inert={chapter !== "recommendations"}
+                aria-hidden={!isMobileLayout && chapter !== "recommendations"}
+                inert={!isMobileLayout && chapter !== "recommendations"}
               >
                 <BookRecommendations
                   embedded
@@ -1719,8 +1902,17 @@ export function BookHome({
               </div>
 
               {!isMobileLayout && <CurvedPageTurn ref={pageTurnRef} active={turning} direction={turnDirection} />}
+              {!isMobileLayout && (
+                <CurvedPageTurn
+                  ref={coverTurnRef}
+                  active={coverState === "opening" || coverState === "closing"}
+                  direction={coverState === "closing" ? "backward" : "forward"}
+                  mode="cover"
+                />
+              )}
 
               <button
+                  ref={coverAssemblyRef}
                   type="button"
                   className={styles.coverAssembly}
                   data-pointer-live
@@ -1743,7 +1935,7 @@ export function BookHome({
                     <span className={styles.frontBoard}>
                       <span className={styles.frontBoardBack} />
                       <span className={styles.coverSpine} />
-                      <span className={styles.coverFace}>
+                      <span ref={coverFaceRef} className={styles.coverFace}>
                         <span className={styles.coverBallpit} aria-hidden="true">
                           {!isMobileLayout && (
                             <Ballpit
@@ -1769,21 +1961,38 @@ export function BookHome({
                     <span className={styles.bookForeEdge} />
                   </span>
               </button>
+
+              {showMobileDesktopHint && (
+                <aside className={styles.mobileDesktopHint} aria-label="电脑端体验提示">
+                  <p><strong>手机端专注流畅阅读。</strong>电脑端可体验完整书页动效与更宽工具区。</p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      window.localStorage.setItem(MOBILE_DESKTOP_HINT_KEY, "1");
+                      setShowMobileDesktopHint(false);
+                    }}
+                  >
+                    知道了
+                  </button>
+                </aside>
+              )}
             </div>
           </div>
 
           <div className={styles.stageGuidance} aria-live="polite">
             {coverState === "closed" && <><strong>点击封面或向下滚动，打开这本书</strong><span>向上滚动可以重新合上封面</span></>}
-            {coverState === "opening" && <><strong>正在打开阅读空间</strong><span>封面、纸芯与光影会一起展开</span></>}
+            {coverState === "opening" && <><strong>正在打开阅读空间</strong><span>封面像纸页一样弯曲，落定后内容开始显现</span></>}
             {coverState === "closing" && <><strong>正在合上这本书</strong><span>书页、纸芯与封面会连续回到原位</span></>}
-            {coverState === "open" && chapter === "foreword" && <><strong>开发者的话</strong><span>继续向下翻页，进入真实划词与查词</span></>}
-            {coverState === "open" && chapter === "workbench" && <><strong>开始阅读</strong><span>左页体验语境划词，右页可以独立查词或导入文章</span></>}
+            {coverState === "open" && chapter === "foreword" && <><strong>开发者的话</strong><span>继续向下翻页，进入真实划词体验</span></>}
+            {coverState === "open" && chapter === "experience" && <><strong>划词体验</strong><span>左页选择表达，右页查看完整语境解释</span></>}
+            {coverState === "open" && chapter === "workbench" && <><strong>开始阅读</strong><span>左页导入文章，右页可以随时单独查词</span></>}
             {coverState === "open" && chapter === "recommendations" && <><strong>推荐文章</strong><span>点击整篇文章，从图片连续展开进入阅读器</span></>}
           </div>
 
           <nav className={styles.chapterRail} aria-label="书本目录">
             <button type="button" aria-current={coverState === "closed" ? "step" : undefined} onClick={scrollToCover}><i />封面</button>
             <button type="button" aria-current={coverState === "open" && chapter === "foreword" ? "step" : undefined} onClick={scrollToForeword}><i />开发者的话</button>
+            <button type="button" aria-current={coverState === "open" && chapter === "experience" ? "step" : undefined} onClick={scrollToExperience}><i />划词体验</button>
             <button type="button" aria-current={coverState === "open" && chapter === "workbench" ? "step" : undefined} onClick={scrollToWorkbench}><i />开始阅读</button>
             <button type="button" aria-current={coverState === "open" && chapter === "recommendations" ? "step" : undefined} onClick={scrollToRecommendations}><i />推荐文章</button>
           </nav>
@@ -1905,6 +2114,15 @@ export function BookHome({
       />
 
       <FeedbackPanel open={feedbackOpen} onClose={() => setFeedbackOpen(false)} />
+
+      <a
+        className={styles.icpLink}
+        href="https://beian.miit.gov.cn/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        蜀ICP备2026045148号-1
+      </a>
 
       <div className={styles.readerTransitionStatus} aria-live="polite">
         {readerTransitioning ? "正在展开为阅读器…" : openingPublicArticleId ? "正在打开文章…" : ""}

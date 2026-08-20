@@ -1,12 +1,14 @@
 import type { AnkiCardMode } from "@/types/anki";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import { standaloneVocabularyPresentation } from "@/lib/vocabularyPresentation";
+import { currentFormPhonetic } from "@/lib/pronunciation";
 
 export const DEFAULT_ANKI_ENDPOINT = "http://127.0.0.1:8765";
 export const DEFAULT_ANKI_DECK = "long term run";
 export const CLOZE_MODEL_NAME = "Context Reader Cloze Context";
 export const BASIC_MODEL_NAME = "Context Reader Basic CN-EN";
 export const EN_TO_CN_MODEL_NAME = "Context Reader Basic EN-CN";
+export const CN_TO_EN_DICTIONARY_MODEL_NAME = "Context Reader Dictionary CN-EN";
 
 export const clozeFields = [
   "Word",
@@ -25,6 +27,8 @@ export const clozeFields = [
   "ExampleChinese",
   "Difficulty",
   "CreatedAt",
+  "AudioUS",
+  "AudioUK",
 ] as const;
 
 export const basicFields = [
@@ -43,6 +47,8 @@ export const basicFields = [
   "ExampleChinese",
   "Difficulty",
   "CreatedAt",
+  "AudioUS",
+  "AudioUK",
 ] as const;
 
 export const cardCss = `
@@ -80,6 +86,15 @@ export const cardCss = `
   color: #475569;
   font-size: 18px;
   margin-top: 4px;
+}
+.meta-row {
+  margin-top: 4px;
+  color: #475569;
+  font-size: 18px;
+}
+.meta-label {
+  color: #64748b;
+  font-weight: 700;
 }
 .audio-row {
   display: flex;
@@ -150,6 +165,8 @@ hr.front-gap {
 
 const usTts = `{{tts en_US voices=Microsoft_Jenny,Microsoft_Aria,Microsoft_Zira,Microsoft_David,Apple_Samantha,Apple_Alex,Google_US_English:Word}}`;
 const ukTts = `{{tts en_GB:Word}}`;
+const usAudio = `{{#AudioUS}}{{AudioUS}}{{/AudioUS}}{{^AudioUS}}${usTts}{{/AudioUS}}`;
+const ukAudio = `{{#AudioUK}}{{AudioUK}}{{/AudioUK}}{{^AudioUK}}${ukTts}{{/AudioUK}}`;
 
 export const clozeFrontTemplate = `<div class="card">
   <div class="sentence">{{ClozeSentence}}</div>
@@ -160,14 +177,13 @@ export const clozeFrontTemplate = `<div class="card">
 export const clozeBackTemplate = `<div class="card">
   <div class="word" data-context-reader-word>{{Word}}</div>
 
-  <div class="meta">
-    {{Lemma}} · {{Phonetic}} · {{PartOfSpeech}}
-  </div>
+  <div class="meta"><span class="meta-label">原型：</span>{{Lemma}} · {{PartOfSpeech}}</div>
+  {{#Phonetic}}<div class="meta-row"><span class="meta-label">当前词音标：</span>{{Phonetic}}</div>{{/Phonetic}}
 
   <div class="audio-row" aria-label="单词发音">
     <span class="audio-label">发音：</span>
-    <span><span class="audio-label">美：</span>${usTts}</span>
-    <span><span class="audio-label">英：</span>${ukTts}</span>
+    <span><span class="audio-label">美：</span>${usAudio}</span>
+    <span><span class="audio-label">英：</span>${ukAudio}</span>
   </div>
 
   <hr>
@@ -229,14 +245,13 @@ export const basicFrontTemplate = `<div class="card">
 export const basicBackTemplate = `<div class="card">
   <div class="word" data-context-reader-word>{{Word}}</div>
 
-  <div class="meta">
-    {{Lemma}} · {{Phonetic}} · {{PartOfSpeech}}
-  </div>
+  <div class="meta"><span class="meta-label">原型：</span>{{Lemma}} · {{PartOfSpeech}}</div>
+  {{#Phonetic}}<div class="meta-row"><span class="meta-label">当前词音标：</span>{{Phonetic}}</div>{{/Phonetic}}
 
   <div class="audio-row" aria-label="单词发音">
     <span class="audio-label">发音：</span>
-    <span><span class="audio-label">美：</span>${usTts}</span>
-    <span><span class="audio-label">英：</span>${ukTts}</span>
+    <span><span class="audio-label">美：</span>${usAudio}</span>
+    <span><span class="audio-label">英：</span>${ukAudio}</span>
   </div>
 
   <hr>
@@ -296,12 +311,13 @@ export const englishToChineseFrontTemplate = `<div class="card">
 
 export const englishToChineseBackTemplate = `<div class="card">
   <div class="word" data-context-reader-word>{{Word}}</div>
-  <div class="meta">{{Lemma}} · {{Phonetic}} · {{PartOfSpeech}}</div>
+  <div class="meta"><span class="meta-label">原型：</span>{{Lemma}} · {{PartOfSpeech}}</div>
+  {{#Phonetic}}<div class="meta-row"><span class="meta-label">当前词音标：</span>{{Phonetic}}</div>{{/Phonetic}}
 
   <div class="audio-row" aria-label="单词发音">
     <span class="audio-label">发音：</span>
-    <span><span class="audio-label">美：</span>${usTts}</span>
-    <span><span class="audio-label">英：</span>${ukTts}</span>
+    <span><span class="audio-label">美：</span>${usAudio}</span>
+    <span><span class="audio-label">英：</span>${ukAudio}</span>
   </div>
 
   <hr>
@@ -331,8 +347,52 @@ export const englishToChineseBackTemplate = `<div class="card">
   {{/ExampleEnglish}}
 </div>`;
 
+export const chineseToEnglishDictionaryFrontTemplate = `<div class="card">
+  <div class="prompt">请写出自然的英文表达：</div>
+  <div class="basic-cue">{{BasicCue}}</div>
+</div>`;
+
+export const chineseToEnglishDictionaryBackTemplate = `<div class="card">
+  <div class="word" data-context-reader-word>{{Word}}</div>
+  <div class="meta"><span class="meta-label">英文表达：</span>{{Lemma}} · {{PartOfSpeech}}</div>
+  {{#Phonetic}}<div class="meta-row"><span class="meta-label">该表达音标：</span>{{Phonetic}}</div>{{/Phonetic}}
+
+  <div class="audio-row" aria-label="英文发音">
+    <span class="audio-label">发音：</span>
+    <span><span class="audio-label">美：</span>${usAudio}</span>
+    <span><span class="audio-label">英：</span>${ukAudio}</span>
+  </div>
+
+  <hr>
+
+  <section>
+    <b>常用英文表达</b>
+    {{BasicMeaning}}
+  </section>
+
+  {{UsageNote}}
+
+  {{#Collocation}}
+  <section class="study-section">
+    <h3>常见搭配</h3>
+    {{Collocation}}
+  </section>
+  {{/Collocation}}
+
+  {{#ExampleEnglish}}
+  <section class="study-section">
+    <h3>例句</h3>
+    <div class="example-block">
+      <div class="example-english">{{ExampleEnglish}}</div>
+      <div class="example-chinese">{{ExampleChinese}}</div>
+    </div>
+  </section>
+  {{/ExampleEnglish}}
+</div>`;
+
 export function modelNameForMode(mode: AnkiCardMode): string {
   if (mode === "cloze_context") return CLOZE_MODEL_NAME;
+  if (mode === "basic_cn_to_en_dictionary") return CN_TO_EN_DICTIONARY_MODEL_NAME;
   return mode === "basic_en_to_cn" ? EN_TO_CN_MODEL_NAME : BASIC_MODEL_NAME;
 }
 
@@ -340,7 +400,7 @@ export function fieldsForEntry(entry: VocabularyEntry): Record<string, string> {
   const common = {
     Word: entry.word,
     Lemma: entry.lemma,
-    Phonetic: entry.phonetic,
+    Phonetic: currentFormPhonetic(entry),
     PartOfSpeech: entry.partOfSpeech,
     BasicMeaning: entry.basicMeaning,
     ContextMeaning: entry.contextMeaning,
@@ -352,6 +412,8 @@ export function fieldsForEntry(entry: VocabularyEntry): Record<string, string> {
     ExampleChinese: entry.exampleChinese,
     Difficulty: entry.difficulty,
     CreatedAt: entry.createdAt,
+    AudioUS: "",
+    AudioUK: "",
   };
 
   if (entry.anki.cardMode === "cloze_context") {
@@ -362,7 +424,10 @@ export function fieldsForEntry(entry: VocabularyEntry): Record<string, string> {
     };
   }
 
-  if (entry.anki.cardMode === "basic_en_to_cn") {
+  if (
+    entry.anki.cardMode === "basic_en_to_cn"
+    || entry.anki.cardMode === "basic_cn_to_en_dictionary"
+  ) {
     const presentation = standaloneVocabularyPresentation(entry);
     const list = (values: string[]) => values.length
       ? `<ul>${values.map((value) => `<li>${escapeAnkiHtml(value)}</li>`).join("")}</ul>`
@@ -372,6 +437,7 @@ export function fieldsForEntry(entry: VocabularyEntry): Record<string, string> {
       : "";
     return {
       ...common,
+      BasicCue: entry.anki.basicCue,
       BasicMeaning: list(entry.basicMeaning.split(/\r?\n/).map((value) => value.trim()).filter(Boolean)),
       UsageNote: [
         section("用法提示", presentation.usagePoints),
@@ -427,6 +493,21 @@ export function modelDefinition(mode: AnkiCardMode) {
           Name: "Basic EN-CN",
           Front: englishToChineseFrontTemplate,
           Back: englishToChineseBackTemplate,
+        },
+      ],
+    };
+  }
+
+  if (mode === "basic_cn_to_en_dictionary") {
+    return {
+      modelName: CN_TO_EN_DICTIONARY_MODEL_NAME,
+      inOrderFields: [...basicFields],
+      css: cardCss,
+      cardTemplates: [
+        {
+          Name: "Dictionary CN-EN",
+          Front: chineseToEnglishDictionaryFrontTemplate,
+          Back: chineseToEnglishDictionaryBackTemplate,
         },
       ],
     };

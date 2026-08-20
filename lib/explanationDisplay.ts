@@ -1,5 +1,7 @@
 import { normalizeDifficultyLabel, normalizePartOfSpeechLabel } from "@/lib/displayLabels";
-import type { Difficulty, WordExplanation } from "@/types/reader";
+import { normalizeAnkiInfo } from "@/lib/ankiData";
+import { currentFormPhonetic } from "@/lib/pronunciation";
+import type { Difficulty, WordContext, WordExplanation } from "@/types/reader";
 
 export interface ExplanationDisplaySection {
   label: string;
@@ -8,7 +10,8 @@ export interface ExplanationDisplaySection {
 
 const FIELD_LABELS = {
   lemma: ["原型", "原形", "词元", "lemma", "Lemma"],
-  phonetic: ["音标", "phonetic", "Phonetic"],
+  phonetic: ["当前词音标", "音标", "phonetic", "Phonetic"],
+  phoneticFor: ["当前词音标归属", "音标归属", "phoneticFor"],
   partOfSpeech: ["词性", "partOfSpeech"],
   difficulty: ["难度", "difficulty"],
   basicMeaning: ["基础释义"],
@@ -91,10 +94,19 @@ export function mergeStreamDisplayIntoExplanation(
   }
 
   const partOfSpeech = streamField(sections, "partOfSpeech");
+  const streamLemma = streamField(sections, "lemma") || explanation.lemma;
+  const streamPhoneticFor = streamField(sections, "phoneticFor");
+  const streamPhonetic = currentFormPhonetic({
+    word: explanation.word,
+    lemma: streamLemma,
+    phonetic: streamField(sections, "phonetic"),
+    phoneticFor: streamPhoneticFor,
+  });
   return {
     ...explanation,
-    lemma: streamField(sections, "lemma") || explanation.lemma,
-    phonetic: streamField(sections, "phonetic") || explanation.phonetic,
+    lemma: streamLemma,
+    phonetic: streamPhonetic || explanation.phonetic,
+    phoneticFor: streamPhonetic ? explanation.word : explanation.phoneticFor,
     partOfSpeech: partOfSpeech
       ? normalizePartOfSpeechLabel(partOfSpeech)
       : explanation.partOfSpeech,
@@ -112,10 +124,74 @@ export function mergeStreamDisplayIntoExplanation(
   };
 }
 
+export function explanationFromCompletedStream(
+  streamText: string,
+  context: WordContext,
+): WordExplanation | null {
+  const sections = parseExplanationStream(streamText);
+  const partOfSpeech = streamField(sections, "partOfSpeech");
+  const difficulty = streamField(sections, "difficulty");
+  const basicMeaning = streamField(sections, "basicMeaning");
+  const contextMeaning = streamField(sections, "contextMeaning");
+  const sentenceTranslation = streamField(sections, "sentenceTranslation");
+  const usageNote = streamField(sections, "usageNote");
+  const collocation = streamField(sections, "collocation");
+  const exampleEnglish = streamField(sections, "exampleEnglish");
+  const exampleChinese = streamField(sections, "exampleChinese");
+  const lemma = context.word.trim().split(/\s+/).length > 1
+    ? ""
+    : streamField(sections, "lemma") || context.word;
+  const phonetic = currentFormPhonetic({
+    word: context.word,
+    lemma,
+    phonetic: streamField(sections, "phonetic"),
+    phoneticFor: streamField(sections, "phoneticFor"),
+  });
+
+  // The last required field is the completion boundary promised by the stream.
+  // A truncated or malformed response must not enable save/copy actions.
+  if (
+    !partOfSpeech
+    || !difficulty
+    || !basicMeaning
+    || !contextMeaning
+    || !sentenceTranslation
+    || !usageNote
+    || !collocation
+    || !exampleEnglish
+    || !exampleChinese
+  ) {
+    return null;
+  }
+
+  const explanationWithoutAnki = {
+    word: context.word,
+    lemma,
+    phonetic,
+    phoneticFor: phonetic ? context.word : "",
+    partOfSpeech: normalizePartOfSpeechLabel(partOfSpeech),
+    difficulty: difficultyFromDisplay(difficulty, "medium"),
+    basicMeaning,
+    contextMeaning,
+    sentenceTranslation,
+    usageNote,
+    collocation,
+    exampleEnglish,
+    exampleChinese,
+    shouldAddToVocabulary: true,
+  };
+
+  return {
+    ...explanationWithoutAnki,
+    anki: normalizeAnkiInfo(explanationWithoutAnki, context.sentence),
+  };
+}
+
 export function explanationAsStreamText(explanation: WordExplanation): string {
   return [
     `原型：${explanation.lemma}`,
-    `音标：${explanation.phonetic}`,
+    `当前词音标：${explanation.phonetic}`,
+    `当前词音标归属：${explanation.phoneticFor || ""}`,
     `词性：${explanation.partOfSpeech}`,
     `难度：${normalizeDifficultyLabel(explanation.difficulty)}`,
     `基础释义：${explanation.basicMeaning}`,

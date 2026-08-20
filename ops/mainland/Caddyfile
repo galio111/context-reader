@@ -1,0 +1,30 @@
+{$SITE_ADDRESS::80} {
+  encode zstd gzip
+
+  header {
+    -Server
+    X-Content-Type-Options nosniff
+    Referrer-Policy strict-origin-when-cross-origin
+  }
+
+  handle_path /auth/v1/* {
+    reverse_proxy auth:9999
+  }
+
+  handle_path /storage/v1/* {
+    reverse_proxy storage:5000
+  }
+
+  handle {
+    reverse_proxy app:3000 {
+      health_uri /api/connectivity
+      health_interval 30s
+      health_timeout 5s
+    }
+  }
+
+  log {
+    output stdout
+    format json
+  }
+}

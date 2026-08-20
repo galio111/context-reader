@@ -20,6 +20,19 @@ export interface ParsedParagraph {
   tokens: ReaderToken[];
 }
 
+export interface ReaderViewportAnchor {
+  blockId: string;
+  blockIndex: number;
+  blockText: string;
+  top: number;
+  scrollY: number;
+  scrollRatio: number;
+}
+
+export interface ReaderReadingProgress extends ReaderViewportAnchor {
+  capturedAt: string;
+}
+
 export interface WordContext {
   word: string;
   paragraphIndex: number;
@@ -33,6 +46,7 @@ export interface WordExplanation {
   word: string;
   lemma: string;
   phonetic: string;
+  phoneticFor?: string;
   partOfSpeech: string;
   basicMeaning: string;
   contextMeaning: string;
@@ -63,7 +77,7 @@ export interface SentenceQuestionAnswer {
 
 export interface ArticleTranslationBlock {
   id: string;
-  type: "heading" | "subheading" | "paragraph" | "quote" | "list-item";
+  type: "heading" | "subheading" | "paragraph" | "quote" | "list-item" | "caption" | "table";
   text: string;
 }
 

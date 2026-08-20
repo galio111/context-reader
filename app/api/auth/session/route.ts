@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
 import { getAccountPlan, getAccountSessionState, getUsageBalances } from "@/lib/accountStore";
+import {
+  getLocalDeveloperAccountState,
+  isCloudBackedLocalDeveloperUser,
+  isLocalOnlyDeveloperUser,
+} from "@/lib/localDeveloper";
 import { getAuthenticatedUser, isAccountSystemConfigured } from "@/lib/userAuth";
 import { resolveUsageIdentity } from "@/lib/usageIdentity";
 import type { AccountSessionState } from "@/types/account";
@@ -19,6 +24,9 @@ export async function GET(request: Request) {
 
   try {
     const user = await getAuthenticatedUser();
+    if (isLocalOnlyDeveloperUser(user)) {
+      return NextResponse.json({ account: getLocalDeveloperAccountState() });
+    }
     if (!user) {
       const identity = await resolveUsageIdentity(request);
       const plan = await getAccountPlan("guest");
@@ -30,7 +38,12 @@ export async function GET(request: Request) {
         },
       });
     }
-    return NextResponse.json({ account: await getAccountSessionState(user) });
+    const account = await getAccountSessionState(user);
+    return NextResponse.json({
+      account: isCloudBackedLocalDeveloperUser(user)
+        ? { ...account, localDirect: true }
+        : account,
+    });
   } catch {
     return NextResponse.json(
       { account: anonymousState, unavailable: true },

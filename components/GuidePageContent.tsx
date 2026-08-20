@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { GuideAnkiSetup } from "@/components/GuideAnkiSetup";
 import { SiteBackdrop } from "@/components/SiteBackdrop";
+import { PUBLIC_CONTACT } from "@/lib/publicContact";
 
 const START_READING_HREF = "/home-v2?start=paste";
 
@@ -11,6 +12,7 @@ const guideNav = [
   ["#anki", "认识并连接 Anki（背单词的软件）"],
   ["#daily-workflow", "日常使用建议"],
   ["#faq", "常见问题"],
+  ["#updates", "更新记录"],
 ] as const;
 
 const firstReadingSteps = [
@@ -51,6 +53,24 @@ const dailySteps = [
   ["复习", "用生词本回看，或让 Anki（背单词的软件）安排下一次出现。"],
 ] as const;
 
+const releaseNotes = [
+  {
+    date: "2026-08-13",
+    title: "长文章更快进入，也更适合持续阅读",
+    copy: "推荐文章在打开动效开始时就并行读取正文；长文首屏不再一次生成全文交互节点。桌面与手机阅读字号恢复，并保留图片与正文的完整内容。",
+  },
+  {
+    date: "2026-08-09",
+    title: "大陆站点成为正式服务入口",
+    copy: "Context Reader 切换到中国大陆服务器与 context-reader.com，同时保留旧环境作为可回退来源。账户、文章、生词和阅读状态继续使用同一套同步边界。",
+  },
+  {
+    date: "2026-07-23",
+    title: "离线状态不再伪装成退出登录",
+    copy: "账号服务暂时不可用时，网站会明确说明本地仍可阅读的内容和需要联网的能力，不再把连接问题误显示成游客状态。",
+  },
+] as const;
+
 const faqGroups = [
   {
     title: "关于阅读与查词",
@@ -65,7 +85,7 @@ const faqGroups = [
       },
       {
         question: "一定要注册账号才能用吗？",
-        answer: "不需要。游客可以直接开始阅读，并按上海自然日试用 10 次单词或短语查询。保存、生词本、Anki（背单词的软件）、私有全文翻译、总结和图片识别等功能需要登录。",
+        answer: "不需要。游客可以直接开始阅读，并按上海自然日试用 10 次单词或短语查询。保存、生词本、Anki（背单词的软件）、私有全文翻译和总结等功能需要登录。",
       },
     ],
   },
@@ -132,9 +152,9 @@ function SectionHeading({ title, copy }: { title: string; copy: string }) {
 
 export function GuidePageContent({ embedded = false }: { embedded?: boolean }) {
   return (
-    <main className={`cr-site-background text-[#17212b] ${embedded ? "min-h-full" : ""}`}>
+    <main className={`${embedded ? "min-h-full" : "cr-site-background"} text-[#17212b]`}>
       {!embedded && <SiteBackdrop />}
-      <header className={`cr-site-header z-30 border-b border-[#17212b]/10 backdrop-blur-md ${embedded ? "sticky top-0" : "fixed inset-x-0 top-0"}`}>
+      <header className={`${embedded ? "" : "cr-site-header"} z-30 border-b border-[#17212b]/10 backdrop-blur-md ${embedded ? "sticky top-0" : "fixed inset-x-0 top-0"}`}>
         <div className="mx-auto flex h-[68px] max-w-[1180px] items-center justify-between gap-5 px-4 sm:px-6">
           <Link className="group flex min-w-0 items-center" href="/home-v2">
             <span className="min-w-0">
@@ -391,7 +411,31 @@ export function GuidePageContent({ embedded = false }: { embedded?: boolean }) {
           </div>
         </div>
 
-        <footer className="mt-20 flex flex-col gap-6 rounded-[16px] bg-[#e3edf4] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+        <section id="updates" className="scroll-mt-24 pt-20" aria-labelledby="updates-title">
+          <SectionHeading title="更新记录" copy="这里只记录已经实际完成并经过验证的变化。仍在讨论或尚未上线的设计，不会提前写成产品承诺。" />
+          <ol className="mt-9 divide-y divide-[#17212b]/12 border-y border-[#17212b]/12">
+            {releaseNotes.map((item) => (
+              <li className="grid gap-3 py-6 sm:grid-cols-[120px_minmax(0,1fr)] sm:gap-8" key={item.date}>
+                <time className="font-mono text-xs font-semibold tracking-[0.08em] text-[#2b6eaa]" dateTime={item.date}>{item.date}</time>
+                <div><h3 className="text-lg font-semibold text-[#253b4b]">{item.title}</h3><p className="mt-2 max-w-[68ch] text-sm leading-6 text-[#5d6e7b]">{item.copy}</p></div>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="mt-20 grid gap-8 border-y border-[#17212b]/12 py-10 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end" aria-labelledby="developer-note-title">
+          <div className="max-w-[68ch]">
+            <p className="font-mono text-xs font-semibold tracking-[0.12em] text-[#2b6eaa]">A NOTE FROM THE DEVELOPER</p>
+            <h2 id="developer-note-title" className="mt-4 text-2xl font-semibold tracking-[-0.02em] text-[#253b4b]">有些阅读障碍，不该靠硬撑过去。</h2>
+            <p className="mt-4 text-sm leading-7 text-[#5d6e7b]">Context Reader 仍在持续完善。如果某个解释不够准确、某篇文章难以导入，或你只是想聊聊真实的英文阅读体验，都可以直接告诉我。</p>
+          </div>
+          <div className="flex flex-col items-start gap-2 text-sm sm:items-end">
+            <a className="font-semibold text-[#174f82] underline decoration-[#174f82]/30 underline-offset-4" href={`mailto:${PUBLIC_CONTACT.email}`}>{PUBLIC_CONTACT.email}</a>
+            <span className="text-[#5d6e7b]">微信：{PUBLIC_CONTACT.wechat}</span>
+          </div>
+        </section>
+
+        <footer className="mt-10 flex flex-col gap-6 rounded-[16px] bg-[#e3edf4] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <div>
             <p className="text-lg font-semibold text-[#253b4b]">现在，带一篇你本来就想读的文章开始。</p>
             <p className="mt-2 text-sm leading-6 text-[#5d6e7b]">第一次只完成阅读和一次查词，其他设置都可以稍后再做。</p>

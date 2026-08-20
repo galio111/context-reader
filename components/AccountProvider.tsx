@@ -2,9 +2,16 @@
 
 import Link from "next/link";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import ClearableField from "@/components/ClearableField";
 import { ACCOUNT_DATA_CHANGED_EVENT } from "@/lib/accountEvents";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
-import { clearLocalAccountData, prepareLocalAccountForUser, syncAccountData } from "@/lib/accountSyncClient";
+import {
+  clearLocalAccountData,
+  prepareLocalAccountForUser,
+  syncAccountData,
+  type AccountSyncOptions,
+  type AccountSyncResult,
+} from "@/lib/accountSyncClient";
 import {
   clearLocalAccountSession,
   readLocalAccountSession,
@@ -12,6 +19,7 @@ import {
   type LocalAccountSession,
 } from "@/lib/localAccountSession";
 import type { AccountSessionState } from "@/types/account";
+import { RECOMMENDATION_INTERESTS, RECOMMENDATION_READING_LEVELS, writeRecommendationPreferences } from "@/lib/recommendationPreferences";
 
 const emptyAccount: AccountSessionState = { configured: true, authenticated: false, profile: null, plan: null, usage: [] };
 
@@ -26,14 +34,39 @@ interface AccountContextValue {
   closeLogin: () => void;
   requireAccount: (reason?: string) => boolean;
   requireLocalAccount: (reason?: string) => boolean;
-  refreshAccount: () => Promise<void>;
+  refreshAccount: () => Promise<ConnectionResult>;
   logout: () => Promise<void>;
-  syncNow: () => Promise<void>;
+  syncNow: (options?: AccountSyncOptions) => Promise<AccountSyncResult>;
 }
 
 const AccountContext = createContext<AccountContextValue | null>(null);
 
 const LOGOUT_SYNC_TIMEOUT_MS = 12_000;
+const ACCOUNT_SESSION_TIMEOUT_MS = 8_000;
+const CONNECTIVITY_TIMEOUT_MS = 5_000;
+const OFFLINE_RECHECK_INTERVAL_MS = 12_000;
+const REMOTE_SYNC_INTERVAL_MS = 15_000;
+const LOCAL_SYNC_DEBOUNCE_MS = 800;
+
+type ConnectionResult = "online" | "network" | "service";
+
+async function canReachContextReader(): Promise<boolean> {
+  if (typeof navigator !== "undefined" && navigator.onLine === false) return false;
+
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), CONNECTIVITY_TIMEOUT_MS);
+  try {
+    const response = await fetch(`/api/connectivity?checkedAt=${Date.now()}`, {
+      cache: "no-store",
+      signal: controller.signal,
+    });
+    return response.ok;
+  } catch {
+    return false;
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
+}
 
 async function waitForLogoutSync(): Promise<void> {
   let timeoutId: number | null = null;
@@ -53,8 +86,12 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [account, setAccount] = useState<AccountSessionState>(emptyAccount);
   const [loading, setLoading] = useState(true);
   const [isOffline, setIsOffline] = useState(false);
+  const [offlineReason, setOfflineReason] = useState<Exclude<ConnectionResult, "online">>("network");
   const [localAccount, setLocalAccount] = useState<LocalAccountSession | null>(null);
   const [offlineActionNotice, setOfflineActionNotice] = useState("");
+  const [offlineDetailsOpen, setOfflineDetailsOpen] = useState(false);
+  const [connectivityChecking, setConnectivityChecking] = useState(false);
+  const [connectivityToast, setConnectivityToast] = useState("");
   const [loginOpen, setLoginOpen] = useState(false);
   const [loginReason, setLoginReason] = useState("");
   const [loginMode, setLoginMode] = useState<"login" | "register">("login");
@@ -71,12 +108,30 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [submitting, setSubmitting] = useState(false);
   const [syncingLogin, setSyncingLogin] = useState(false);
   const [usageNotice, setUsageNotice] = useState("");
+  const [registrationProfileStep, setRegistrationProfileStep] = useState(false);
+  const [registrationProfileSaving, setRegistrationProfileSaving] = useState(false);
+  const [registrationLevel, setRegistrationLevel] = useState("");
+  const [registrationInterests, setRegistrationInterests] = useState<string[]>([]);
+  const [registrationBirthYear, setRegistrationBirthYear] = useState("");
+  const [registrationGender, setRegistrationGender] = useState<"" | "male" | "female">("");
   const syncTimer = useRef<number | null>(null);
-  const syncing = useRef(false);
+  const connectivityCheckingRef = useRef(false);
+  const connectivityToastTimer = useRef<number | null>(null);
 
-  const refreshAccount = useCallback(async () => {
+  const announceConnectivity = useCallback((notice: string) => {
+    setConnectivityToast(notice);
+    if (connectivityToastTimer.current !== null) window.clearTimeout(connectivityToastTimer.current);
+    connectivityToastTimer.current = window.setTimeout(() => {
+      setConnectivityToast("");
+      connectivityToastTimer.current = null;
+    }, 3200);
+  }, []);
+
+  const refreshAccount = useCallback(async (): Promise<ConnectionResult> => {
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), ACCOUNT_SESSION_TIMEOUT_MS);
     try {
-      const response = await fetch("/api/auth/session", { cache: "no-store" });
+      const response = await fetch("/api/auth/session", { cache: "no-store", signal: controller.signal });
       const data = await response.json().catch(() => null) as { account?: AccountSessionState; unavailable?: boolean } | null;
       if (!response.ok || data?.unavailable) {
         throw new Error("account service unavailable");
@@ -84,10 +139,14 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       const nextAccount = data?.account ?? emptyAccount;
       setAccount(nextAccount);
       setIsOffline(false);
+      setOfflineReason("network");
       setOfflineActionNotice("");
       if (nextAccount.authenticated) {
         const snapshot = rememberLocalAccountSession(nextAccount);
         setLocalAccount(snapshot);
+        if ((nextAccount.localOnly || nextAccount.localDirect) && nextAccount.profile?.userId) {
+          prepareLocalAccountForUser(nextAccount.profile.userId, { preserveExistingData: true });
+        }
         const low = nextAccount.usage.find((item) => item.allowance > 0 && item.remaining / item.allowance <= 0.2);
         setUsageNotice(low ? (low.remaining === 0 ? "本周期额度已用完，可前往用量页查看。" : `额度剩余 ${low.remaining} / ${low.allowance}，已低于 20%。`) : "");
       } else {
@@ -95,15 +154,40 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         setLocalAccount(null);
         setUsageNotice("");
       }
+      return "online";
     } catch {
+      const reason = await canReachContextReader() ? "service" : "network";
       setIsOffline(true);
+      setOfflineReason(reason);
       setAccount(emptyAccount);
       setLocalAccount(readLocalAccountSession());
       setUsageNotice("");
+      return reason;
     } finally {
+      window.clearTimeout(timeoutId);
       setLoading(false);
     }
   }, []);
+
+  const runConnectivityCheck = useCallback(async (announce = true) => {
+    if (connectivityCheckingRef.current) return;
+    connectivityCheckingRef.current = true;
+    setConnectivityChecking(true);
+    setOfflineActionNotice("正在检查网络与在线服务…");
+    try {
+      const result = await refreshAccount();
+      if (result === "online") {
+        if (announce) announceConnectivity("网络已恢复，在线功能现在可以使用。");
+      } else if (result === "service") {
+        setOfflineActionNotice("网络连接正常，但账号服务暂未响应。我们会继续自动检测。");
+      } else {
+        setOfflineActionNotice("仍未连接到 Context Reader。请检查网络，我们会继续自动检测。");
+      }
+    } finally {
+      connectivityCheckingRef.current = false;
+      setConnectivityChecking(false);
+    }
+  }, [announceConnectivity, refreshAccount]);
 
   useEffect(() => {
     async function bootstrapAccount() {
@@ -156,14 +240,16 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const markOffline = () => {
       setIsOffline(true);
+      setOfflineReason("network");
       setAccount(emptyAccount);
       setLocalAccount(readLocalAccountSession());
       setUsageNotice("");
+      setOfflineActionNotice("检测到网络已断开，本机内容仍可继续使用。");
       setLoading(false);
     };
     const retryOnline = () => {
-      setLoading(true);
-      void refreshAccount();
+      setOfflineActionNotice("检测到网络变化，正在确认在线服务…");
+      void runConnectivityCheck();
     };
 
     if (!navigator.onLine) markOffline();
@@ -173,39 +259,75 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       window.removeEventListener("offline", markOffline);
       window.removeEventListener("online", retryOnline);
     };
-  }, [refreshAccount]);
-
-  const syncNow = useCallback(async () => {
-    if (!account.authenticated || syncing.current) return;
-    syncing.current = true;
-    try {
-      if (account.profile?.userId) prepareLocalAccountForUser(account.profile.userId);
-      await syncAccountData();
-      await refreshAccount();
-    } finally {
-      syncing.current = false;
-    }
-  }, [account.authenticated, account.profile?.userId, refreshAccount]);
+  }, [runConnectivityCheck]);
 
   useEffect(() => {
-    if (!account.authenticated) return;
+    if (!isOffline) return;
+
+    const retryWhenVisible = () => {
+      if (document.visibilityState === "visible") void runConnectivityCheck();
+    };
+    const intervalId = window.setInterval(() => {
+      if (document.visibilityState === "visible") void runConnectivityCheck();
+    }, OFFLINE_RECHECK_INTERVAL_MS);
+
+    window.addEventListener("focus", retryWhenVisible);
+    document.addEventListener("visibilitychange", retryWhenVisible);
+    return () => {
+      window.clearInterval(intervalId);
+      window.removeEventListener("focus", retryWhenVisible);
+      document.removeEventListener("visibilitychange", retryWhenVisible);
+    };
+  }, [isOffline, runConnectivityCheck]);
+
+  useEffect(() => () => {
+    if (connectivityToastTimer.current !== null) window.clearTimeout(connectivityToastTimer.current);
+  }, []);
+
+  const syncNow = useCallback(async (options: AccountSyncOptions = {}) => {
+    if (!account.authenticated || account.localOnly) {
+      throw new Error("当前账号不能使用云同步。");
+    }
+    if (account.profile?.userId) {
+      prepareLocalAccountForUser(account.profile.userId, { preserveExistingData: account.localDirect });
+    }
+    return syncAccountData(options);
+  }, [account.authenticated, account.localDirect, account.localOnly, account.profile?.userId]);
+
+  useEffect(() => {
+    if (!account.authenticated || account.localOnly) return;
     if (
       (window.location.pathname.startsWith("/admin") && account.plan?.id !== "admin") ||
       window.location.pathname === "/account/repair-vocabulary"
     ) return;
-    void syncNow();
-    const schedule = () => {
+    void syncNow().catch(() => undefined);
+    const scheduleLocalPush = () => {
       if (syncTimer.current !== null) window.clearTimeout(syncTimer.current);
-      syncTimer.current = window.setTimeout(() => void syncNow(), 1800);
+      syncTimer.current = window.setTimeout(() => {
+        void syncNow().catch(() => undefined);
+      }, LOCAL_SYNC_DEBOUNCE_MS);
     };
-    window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, schedule);
-    window.addEventListener("storage", schedule);
+    const pullRemoteChanges = () => {
+      if (document.visibilityState === "visible") void syncNow().catch(() => undefined);
+    };
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === "context-reader:sync-state:v2" || event.key === "context-reader:last-sync:v1") return;
+      scheduleLocalPush();
+    };
+    const intervalId = window.setInterval(pullRemoteChanges, REMOTE_SYNC_INTERVAL_MS);
+    window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, scheduleLocalPush);
+    window.addEventListener("storage", handleStorage);
+    window.addEventListener("focus", pullRemoteChanges);
+    document.addEventListener("visibilitychange", pullRemoteChanges);
     return () => {
-      window.removeEventListener(ACCOUNT_DATA_CHANGED_EVENT, schedule);
-      window.removeEventListener("storage", schedule);
+      window.clearInterval(intervalId);
+      window.removeEventListener(ACCOUNT_DATA_CHANGED_EVENT, scheduleLocalPush);
+      window.removeEventListener("storage", handleStorage);
+      window.removeEventListener("focus", pullRemoteChanges);
+      document.removeEventListener("visibilitychange", pullRemoteChanges);
       if (syncTimer.current !== null) window.clearTimeout(syncTimer.current);
     };
-  }, [account.authenticated, account.plan?.id, syncNow]);
+  }, [account.authenticated, account.localOnly, account.plan?.id, syncNow]);
 
   useEffect(() => {
     document.documentElement.classList.toggle("cr-overlay-locked", loginOpen);
@@ -230,6 +352,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     setConfirmPasswordInputReady(false);
     setMessage("");
     setSyncingLogin(false);
+    setRegistrationProfileStep(false);
     setLoginOpen(true);
   }, []);
   const closeLogin = useCallback(() => {
@@ -246,6 +369,12 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     setConfirmPasswordInputReady(false);
     setMessage("");
     setSyncingLogin(false);
+    setRegistrationProfileStep(false);
+    setRegistrationProfileSaving(false);
+    setRegistrationLevel("");
+    setRegistrationInterests([]);
+    setRegistrationBirthYear("");
+    setRegistrationGender("");
   }, [submitting]);
   const requireAccount = useCallback((reason = "此操作需要登录") => {
     if (account.authenticated) return true;
@@ -308,6 +437,11 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       setSyncingLogin(true);
       await syncAccountData();
       await refreshAccount();
+      if (loginMode === "register") {
+        setRegistrationProfileStep(true);
+        setMessage("");
+        return;
+      }
       setLoginOpen(false);
       setPhone("");
       setNickname("");
@@ -329,7 +463,43 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     finally { setSyncingLogin(false); setSubmitting(false); }
   }
 
+  async function finishRegistrationProfile(save: boolean) {
+    if (registrationProfileSaving) return;
+    setRegistrationProfileSaving(true);
+    setMessage("");
+    try {
+      if (save) {
+        const response = await fetch("/api/account/profile", {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            englishLevel: registrationLevel,
+            readingInterests: registrationInterests,
+            birthYear: registrationBirthYear || null,
+            gender: registrationGender || null,
+          }),
+        });
+        const data = await response.json().catch(() => null) as { error?: string } | null;
+        if (!response.ok) throw new Error(data?.error || "阅读资料保存失败。");
+        writeRecommendationPreferences({ readingLevel: registrationLevel as typeof RECOMMENDATION_READING_LEVELS[number] | "", interests: registrationInterests as Array<typeof RECOMMENDATION_INTERESTS[number]["id"]> }, { authenticated: true });
+        await refreshAccount();
+      }
+      setRegistrationProfileStep(false);
+      setLoginOpen(false);
+      setPhone(""); setNickname(""); setPin(""); setConfirmPin("");
+      setRegistrationLevel(""); setRegistrationInterests([]); setRegistrationBirthYear(""); setRegistrationGender("");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "阅读资料保存失败。");
+    } finally {
+      setRegistrationProfileSaving(false);
+    }
+  }
+
   const logout = useCallback(async () => {
+    if (account.localOnly || account.localDirect) {
+      window.location.href = "/home-v2";
+      return;
+    }
     try {
       await waitForLogoutSync();
       const response = await fetch("/api/auth/logout", { method: "POST" });
@@ -354,7 +524,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     setLocalAccount(null);
     setAccount(emptyAccount);
     window.location.href = "/home-v2";
-  }, []);
+  }, [account.localDirect, account.localOnly]);
 
   const value = useMemo<AccountContextValue>(() => ({
     account, loading, isOffline, hasLocalAccountAccess, localAccount, loginOpen, openLogin, closeLogin,
@@ -379,36 +549,57 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       {children}
       {isOffline && (
         <aside
-          className="fixed left-1/2 top-3 z-[190] w-[min(94vw,760px)] -translate-x-1/2 rounded-xl bg-[#fff7df] px-4 py-3 text-[#533d17] shadow-[0_4px_8px_rgba(69,48,12,.16)]"
+          className="fixed left-1/2 top-2 z-[190] w-[min(94vw,760px)] -translate-x-1/2 rounded-xl bg-[#fff7df] px-3 py-2 text-[#533d17] shadow-[0_4px_8px_rgba(69,48,12,.16)] sm:top-3 sm:px-4 sm:py-3"
           role="status"
           aria-live="polite"
         >
-          <div className="flex flex-wrap items-start justify-between gap-x-5 gap-y-2">
+          <div className="flex items-center justify-between gap-3 sm:items-start sm:gap-5">
             <div className="min-w-0 flex-1">
-              <p className="font-semibold">
-                离线模式
+              <p className="truncate text-sm font-semibold sm:text-base">
+                {offlineReason === "network" ? "离线模式" : "账号服务暂不可用"}
                 {localAccount?.nickname ? ` · ${localAccount.nickname}` : ""}
               </p>
-              <p className="mt-1 text-sm leading-6">
-                {localAccount
-                  ? "可阅读和保存本机文章、查看或记录生词、使用已有解释与翻译缓存。"
-                  : "可继续阅读当前页面；此设备没有可确认的历史账号，因此账号内容暂不显示。"}
-                {" "}新查词、AI 翻译、URL 导入、OCR、云同步和用量查询需要联网。
-              </p>
-              {offlineActionNotice && <p className="mt-1 text-sm font-medium" role="alert">{offlineActionNotice}</p>}
+              <div className={`${offlineDetailsOpen ? "block" : "hidden"} sm:block`}>
+                <p className="mt-1 text-sm leading-6">
+                  {localAccount
+                    ? "可阅读和保存本机文章、查看或记录生词、使用已有解释与翻译缓存。"
+                    : "可继续阅读当前页面；此设备没有可确认的历史账号，因此账号内容暂不显示。"}
+                  {" "}新查词、AI 翻译、URL 导入、云同步和用量查询需要联网并连接在线服务。
+                </p>
+                {offlineActionNotice && <p className="mt-1 text-sm font-medium" role="alert">{offlineActionNotice}</p>}
+              </div>
             </div>
-            <button
-              className="shrink-0 rounded-full bg-[#684c17] px-3 py-1.5 text-sm font-semibold text-white hover:bg-[#543c12] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#684c17]"
-              type="button"
-              onClick={() => {
-                setLoading(true);
-                void refreshAccount();
-              }}
-            >
-              重新检测网络
-            </button>
+            <div className="flex shrink-0 items-center gap-1.5">
+              <button
+                className="rounded-full px-2 py-1 text-xs font-semibold hover:bg-[#684c17]/10 sm:hidden"
+                type="button"
+                aria-expanded={offlineDetailsOpen}
+                onClick={() => setOfflineDetailsOpen((open) => !open)}
+              >
+                {offlineDetailsOpen ? "收起" : "详情"}
+              </button>
+              <button
+                className="shrink-0 rounded-full bg-[#684c17] px-3 py-1.5 text-xs font-semibold text-white transition-[transform,background-color,opacity] hover:bg-[#543c12] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#684c17] active:scale-[.97] disabled:cursor-wait disabled:opacity-65 sm:text-sm"
+                type="button"
+                disabled={connectivityChecking}
+                aria-busy={connectivityChecking}
+                onClick={() => void runConnectivityCheck()}
+              >
+                <span className="sm:hidden">{connectivityChecking ? "检查中…" : "重试"}</span>
+                <span className="hidden sm:inline">{connectivityChecking ? "正在检查网络…" : "重新检测网络"}</span>
+              </button>
+            </div>
           </div>
         </aside>
+      )}
+      {connectivityToast && (
+        <div
+          className="fixed bottom-4 left-1/2 z-[195] w-[min(92vw,460px)] -translate-x-1/2 rounded-xl bg-[#173f32] px-4 py-3 text-center text-sm font-medium text-white shadow-[0_4px_8px_rgba(13,49,37,.2)]"
+          role="status"
+          aria-live="polite"
+        >
+          {connectivityToast}
+        </div>
       )}
       {usageNotice && !loginOpen && <div className="fixed bottom-4 left-1/2 z-[150] flex w-[min(92vw,520px)] -translate-x-1/2 items-center justify-between gap-4 rounded-2xl border border-black/10 bg-[#fbfcfe] px-4 py-3 text-sm text-[#344d5e] shadow-xl"><span>{usageNotice} <Link className="font-semibold text-[#2868ad]" href="/account/usage">查看用量</Link></span><button className="shrink-0 rounded-full px-2 py-1 text-xs hover:bg-black/5" type="button" onClick={() => setUsageNotice("")}>关闭</button></div>}
       {loginOpen && (
@@ -420,15 +611,23 @@ export function AccountProvider({ children }: { children: ReactNode }) {
             </div>
             {loginReason && <p className="mt-5 rounded-xl bg-[#e3edf4] px-4 py-3 text-sm leading-6 text-[#405d70]">{loginReason}</p>}
             {!account.configured && <p className="mt-4 rounded-2xl bg-[#fff4df] px-4 py-3 text-sm leading-6 text-[#76531f]">账号数据库尚未连接。站点仍可阅读并使用本机游客试用；完成 Supabase 环境变量与数据库迁移后即可登录。</p>}
-            <div className="mt-6 grid grid-cols-2 rounded-xl bg-[#e4ebf1] p-1" aria-label="登录或注册">
+            {registrationProfileStep && <div className="mt-6">
+              <p className="text-sm leading-6 text-[#526675]">账号已经创建。下面都是选填项，用来让“推荐”更贴近你的阅读阶段；以后也可以在账号详情里修改或清除。</p>
+              <fieldset className="mt-6"><legend className="text-sm font-semibold">当前最接近的英语阅读水平</legend><div className="mt-3 flex flex-wrap gap-2">{RECOMMENDATION_READING_LEVELS.map((level) => <button key={level} className={`rounded-full border px-3 py-2 text-sm ${registrationLevel === level ? "border-[#2868ad] bg-[#e3edf4]" : "border-black/15 bg-white"}`} type="button" aria-pressed={registrationLevel === level} onClick={() => setRegistrationLevel(level)}>{level}</button>)}</div></fieldset>
+              <fieldset className="mt-6"><legend className="text-sm font-semibold">感兴趣的内容（可多选）</legend><div className="mt-3 flex flex-wrap gap-2">{RECOMMENDATION_INTERESTS.map((interest) => <button key={interest.id} className={`rounded-full border px-3 py-2 text-sm ${registrationInterests.includes(interest.id) ? "border-[#2868ad] bg-[#e3edf4]" : "border-black/15 bg-white"}`} type="button" aria-pressed={registrationInterests.includes(interest.id)} onClick={() => setRegistrationInterests((current) => current.includes(interest.id) ? current.filter((id) => id !== interest.id) : [...current, interest.id])}>{interest.label}</button>)}</div></fieldset>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2"><label className="text-sm font-medium">出生年份（选填）<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad]" inputMode="numeric" value={registrationBirthYear} onChange={(event) => setRegistrationBirthYear(event.target.value.replace(/\D/g, "").slice(0, 4))} placeholder="例如 2003" /></label><fieldset><legend className="text-sm font-medium">性别（选填）</legend><div className="mt-2 flex gap-2">{[["male", "男"], ["female", "女"]].map(([value, label]) => <button key={value} className={`flex-1 rounded-xl border px-3 py-3 text-sm ${registrationGender === value ? "border-[#2868ad] bg-[#e3edf4]" : "border-black/15 bg-white"}`} type="button" aria-pressed={registrationGender === value} onClick={() => setRegistrationGender((current) => current === value ? "" : value as "male" | "female")}>{label}</button>)}</div></fieldset></div>
+              {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="alert">{message}</p>}
+              <div className="mt-7 grid gap-3"><button className="w-full rounded-full bg-[#174f82] px-5 py-3.5 font-semibold text-white disabled:opacity-50" type="button" disabled={registrationProfileSaving} onClick={() => void finishRegistrationProfile(true)}>{registrationProfileSaving ? "保存中…" : "保存并开始阅读"}</button><button className="w-full rounded-full px-5 py-3 text-sm text-[#526675]" type="button" disabled={registrationProfileSaving} onClick={() => void finishRegistrationProfile(false)}>以后再填</button></div>
+            </div>}
+            <div className={`${registrationProfileStep ? "hidden" : "grid"} mt-6 grid-cols-2 rounded-xl bg-[#e4ebf1] p-1`} aria-label="登录或注册">
               <button className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors disabled:cursor-wait ${loginMode === "login" ? "bg-white text-[#17212b] shadow-sm" : "text-[#5f6d79]"}`} type="button" disabled={submitting} aria-pressed={loginMode === "login"} onClick={() => { setLoginMode("login"); setNickname(""); setConfirmPin(""); setPin(""); setPinTouched(false); setConfirmPinTouched(false); setPasswordInputReady(false); setConfirmPasswordInputReady(false); setMessage(""); }}>登录</button>
               <button className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors disabled:cursor-wait ${loginMode === "register" ? "bg-white text-[#17212b] shadow-sm" : "text-[#5f6d79]"}`} type="button" disabled={submitting} aria-pressed={loginMode === "register"} onClick={() => { setLoginMode("register"); setPin(""); setConfirmPin(""); setPinTouched(false); setConfirmPinTouched(false); setPasswordInputReady(false); setConfirmPasswordInputReady(false); setMessage(""); }}>注册</button>
             </div>
-            <form autoComplete="off" onSubmit={(event) => { event.preventDefault(); void submitPhoneAccount(); }}>
-              {loginMode === "register" && <label className="mt-5 block text-sm font-medium">昵称<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="text" autoComplete="nickname" maxLength={40} value={nickname} onChange={(event) => setNickname(event.target.value)} placeholder="例如：小林" /></label>}
-              <label className="mt-5 block text-sm font-medium">手机号<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={(event) => setPhone(event.target.value.replace(/[^\d+\s()-]/g, "").slice(0, 24))} placeholder="中国大陆手机号" /></label>
+            <form className={registrationProfileStep ? "hidden" : "block"} autoComplete="off" onSubmit={(event) => { event.preventDefault(); void submitPhoneAccount(); }}>
+              {loginMode === "register" && <label className="mt-5 block text-sm font-medium">昵称<ClearableField className="mt-2" value={nickname} onClear={() => setNickname("")} label="清空昵称"><input className="w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="text" autoComplete="nickname" maxLength={40} value={nickname} onChange={(event) => setNickname(event.target.value)} placeholder="例如：小林" /></ClearableField></label>}
+              <label className="mt-5 block text-sm font-medium">手机号<ClearableField className="mt-2" value={phone} onClear={() => setPhone("")} label="清空手机号"><input className="w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={(event) => setPhone(event.target.value.replace(/[^\d+\s()-]/g, "").slice(0, 24))} placeholder="中国大陆手机号" /></ClearableField></label>
               <label className="mt-5 block text-sm font-medium">6 位数字密码
-                <span className="relative mt-2 block">
+                <ClearableField className="mt-2" value={pin} onClear={() => { setPin(""); setPinTouched(false); setPasswordInputReady(true); }} label="清空密码" clearButtonInset="4.4rem" inputPaddingRight="7rem">
                   <input
                     className={`w-full rounded-xl border bg-white px-4 py-3 pr-16 text-lg tracking-[.22em] outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15 ${pinTouched && !pinIsValid ? "border-[#b85a4c]" : "border-black/15"}`}
                     type={showPin ? "text" : "password"}
@@ -456,12 +655,13 @@ export function AccountProvider({ children }: { children: ReactNode }) {
                     placeholder="请输入 6 位数字"
                   />
                   <button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg px-2 py-1.5 text-xs text-[#526158] hover:bg-black/5" type="button" onClick={() => { if (!passwordInputReady) { setPin(""); setPasswordInputReady(true); } setShowPin((value) => !value); }} aria-label={showPin ? "隐藏密码" : "显示密码"}>{showPin ? "隐藏" : "显示"}</button>
-                </span>
+                </ClearableField>
               </label>
               <p id="account-password-help" className={`mt-2 text-xs leading-5 ${pinTouched && !pinIsValid ? "text-[#a1473b]" : pinIsValid ? "text-[#52705d]" : "text-[#738078]"}`} aria-live="polite">{pinFeedback}</p>
               {loginMode === "register" && <label className="mt-5 block text-sm font-medium">确认密码
+                <ClearableField className="mt-2" value={confirmPin} onClear={() => { setConfirmPin(""); setConfirmPinTouched(false); setConfirmPasswordInputReady(true); }} label="清空确认密码">
                 <input
-                  className={`mt-2 w-full rounded-xl border bg-white px-4 py-3 text-lg tracking-[.22em] outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15 ${confirmPinTouched && !confirmPinIsValid ? "border-[#b85a4c]" : "border-black/15"}`}
+                  className={`w-full rounded-xl border bg-white px-4 py-3 text-lg tracking-[.22em] outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15 ${confirmPinTouched && !confirmPinIsValid ? "border-[#b85a4c]" : "border-black/15"}`}
                   type={showPin ? "text" : "password"}
                   name="context-reader-confirm-credential"
                   inputMode="numeric"
@@ -486,13 +686,14 @@ export function AccountProvider({ children }: { children: ReactNode }) {
                   }}
                   placeholder="再次输入 6 位数字"
                 />
+                </ClearableField>
                 <span id="account-confirm-password-help" className={`mt-2 block text-xs leading-5 ${confirmPinTouched && !confirmPinIsValid ? "text-[#a1473b]" : "text-[#738078]"}`} aria-live="polite">{confirmPinTouched && !confirmPinIsValid ? (confirmPin.length < 6 ? `确认密码还需输入 ${6 - confirmPin.length} 位数字。` : "两次输入的密码不一致。") : "请再次输入同一组 6 位数字。"}</span>
               </label>}
               {syncingLogin && <p className="mt-4 rounded-xl bg-[#e3edf4] px-3 py-2 text-sm leading-6 text-[#405d70]" role="status">登录成功，正在同步当前账号的生词本、文章和缓存，请稍候…</p>}
               {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="alert">{message}</p>}
               <button className="mt-6 w-full rounded-full bg-[#174f82] px-5 py-3.5 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2868ad] disabled:cursor-not-allowed disabled:opacity-50" disabled={!account.configured || submitting || phone.trim().length < 11 || !pinIsValid || (loginMode === "register" && (!nickname.trim() || !confirmPinIsValid))} type="submit">{syncingLogin ? "正在同步账号数据…" : submitting ? (loginMode === "login" ? "正在登录…" : "正在创建账号…") : loginMode === "login" ? "登录并同步" : "创建账号并登录"}</button>
             </form>
-            <p className="mt-5 text-xs leading-5 text-[#738078]">手机号目前只作为登录账号，不发送验证码，也尚未验证归属。请记住密码；忘记后需联系管理员重置。阅读只会在触发受限操作时提示登录。</p>
+            {!registrationProfileStep && <p className="mt-5 text-xs leading-5 text-[#738078]">手机号目前只作为登录账号，不发送验证码，也尚未验证归属。请记住密码；忘记后需联系管理员重置。阅读只会在触发受限操作时提示登录。</p>}
           </section>
         </div>
       )}
@@ -541,7 +742,11 @@ export function AccountNav() {
         <span className="px-3 py-2 text-xs text-[#6c786f]">{account.plan?.displayName || "当前套餐"}</span>
         {account.plan?.id === "admin" && <Link className="rounded-xl px-3 py-2 font-medium text-[#174d73] hover:bg-[#edf5fb]" href="/admin">打开管理后台</Link>}
         <Link className="rounded-xl px-3 py-2 hover:bg-black/5" href="/account/usage">用量与套餐</Link>
-        <button className="rounded-xl px-3 py-2 text-left hover:bg-black/5 disabled:cursor-wait disabled:text-black/45" type="button" disabled={loggingOut} onClick={() => void handleLogout()}>{loggingOut ? "正在同步并退出…" : "退出登录"}</button>
+        {account.localOnly || account.localDirect ? (
+          <span className="rounded-xl px-3 py-2 text-xs leading-5 text-[#6c786f]">{account.localDirect ? "localhost 已固定连接到这个云端开发者账号；数据会正常同步。" : "本机学习身份固定启用；文章和生词本保存在此浏览器。"}</span>
+        ) : (
+          <button className="rounded-xl px-3 py-2 text-left hover:bg-black/5 disabled:cursor-wait disabled:text-black/45" type="button" disabled={loggingOut} onClick={() => void handleLogout()}>{loggingOut ? "正在同步并退出…" : "退出登录"}</button>
+        )}
         {logoutError && <span className="rounded-xl bg-red-50 px-3 py-2 text-xs leading-5 text-red-700" role="alert">{logoutError}</span>}
       </span>}
     </span>

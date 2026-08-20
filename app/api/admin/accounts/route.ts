@@ -6,9 +6,9 @@ import { phoneFromAccountEmail, resetPhoneAccountPin } from "@/lib/userAuth";
 import type { AccountPlanId, UsageMetricKey } from "@/types/account";
 
 const PLANS = new Set<AccountPlanId>(["guest", "free", "basic", "plus", "max", "admin"]);
-const METRICS = new Set<UsageMetricKey>(["guest_lookup", "lookup_generation", "deep_reading"]);
+const METRICS = new Set<UsageMetricKey>(["guest_lookup", "guest_article_lookup", "guest_dictionary_lookup", "guest_text_import", "guest_url_import", "lookup_generation", "deep_reading"]);
 const MANAGED_PLAN_METRICS: Partial<Record<AccountPlanId, UsageMetricKey[]>> = {
-  guest: ["guest_lookup"],
+  guest: ["guest_article_lookup", "guest_dictionary_lookup", "guest_text_import", "guest_url_import"],
   free: ["lookup_generation", "deep_reading"],
   basic: ["lookup_generation", "deep_reading"],
   plus: ["lookup_generation", "deep_reading"],

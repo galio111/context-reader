@@ -936,7 +936,8 @@ a:hover .cr-roll > span {
   min-width: 0;
 }
 
-.cr-compact-field > input { width: 100%; }
+.cr-compact-input,
+.cr-compact-input > input { width: 100%; }
 
 .cr-input-preview {
   position: absolute;

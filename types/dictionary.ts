@@ -1,7 +1,9 @@
 export interface DictionarySense {
   partOfSpeech: string;
   meaning: string;
+  phonetic: string;
   register: string;
+  usageNote: string;
   exampleEnglish: string;
   exampleChinese: string;
 }
@@ -23,11 +25,25 @@ export interface DictionarySynonym {
   difference: string;
 }
 
+export interface DictionaryVerbForms {
+  pastTense: string;
+  pastParticiple: string;
+  presentParticiple: string;
+}
+
+export type DictionaryInputStatus = "valid" | "inflection" | "misspelled";
+export type DictionaryDirection = "en_to_cn" | "cn_to_en";
+
 export interface DictionaryResult {
   query: string;
   lemma: string;
   phonetic: string;
+  phoneticFor?: string;
+  direction: DictionaryDirection;
+  inputStatus: DictionaryInputStatus;
+  suggestedQuery: string;
   senses: DictionarySense[];
+  verbForms: DictionaryVerbForms | null;
   usageGuide: string;
   collocations: DictionaryCollocation[];
   wordFamily: DictionaryWordFamilyItem[];

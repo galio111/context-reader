@@ -3,9 +3,12 @@ import type {
   ImportedArticle,
   ImportedArticleBlock,
   ImportedArticleInlineText,
+  ImportedArticleTable,
+  ImportedArticleTableCell,
   ImportedImageLayoutWord,
   SavedArticle,
 } from "@/types/article";
+import type { ReaderViewportAnchor } from "@/types/reader";
 import { notifyAccountDataChanged, notifyAccountObjectsDeleted } from "@/lib/accountEvents";
 import { mergeDuplicateSavedArticles, savedArticleBodyIdentity } from "@/lib/savedArticleMerge";
 
@@ -93,6 +96,13 @@ function normalizeImportedBlock(value: unknown): ImportedArticleBlock | null {
       type: "image",
       src,
       alt: typeof block.alt === "string" ? block.alt : "",
+      ...(typeof block.caption === "string" ? { caption: block.caption } : {}),
+      ...(typeof block.width === "number" && Number.isFinite(block.width) && block.width > 0
+        ? { width: block.width }
+        : {}),
+      ...(typeof block.height === "number" && Number.isFinite(block.height) && block.height > 0
+        ? { height: block.height }
+        : {}),
       ocrText: typeof block.ocrText === "string" ? block.ocrText : "",
       ...(Array.isArray(block.layoutWords)
         ? {
@@ -105,12 +115,26 @@ function normalizeImportedBlock(value: unknown): ImportedArticleBlock | null {
     };
   }
 
+  if (block.type === "table") {
+    const table = normalizeImportedTable(block.table);
+    if (!table) {
+      return null;
+    }
+    return {
+      id: block.id,
+      type: "table",
+      text: typeof block.text === "string" ? block.text : table.rows.map((row) => row.map((cell) => cell.text).join(" | ")).join("\n"),
+      table,
+    };
+  }
+
   if (
     block.type !== "heading" &&
     block.type !== "subheading" &&
     block.type !== "paragraph" &&
     block.type !== "list-item" &&
-    block.type !== "quote"
+    block.type !== "quote" &&
+    block.type !== "caption"
   ) {
     return null;
   }
@@ -120,6 +144,9 @@ function normalizeImportedBlock(value: unknown): ImportedArticleBlock | null {
     id: block.id,
     type: block.type,
     text,
+    ...(block.listStyle === "ordered" || block.listStyle === "unordered" ? { listStyle: block.listStyle } : {}),
+    ...(typeof block.listLevel === "number" && Number.isFinite(block.listLevel) ? { listLevel: Math.max(0, Math.min(4, Math.floor(block.listLevel))) } : {}),
+    ...(typeof block.listOrdinal === "number" && Number.isFinite(block.listOrdinal) ? { listOrdinal: Math.floor(block.listOrdinal) } : {}),
     ...(Array.isArray(block.inline)
       ? {
           inline: block.inline
@@ -127,6 +154,44 @@ function normalizeImportedBlock(value: unknown): ImportedArticleBlock | null {
             .filter((item): item is ImportedArticleInlineText => Boolean(item)),
         }
       : {}),
+  };
+}
+
+function normalizeImportedTableCell(value: unknown): ImportedArticleTableCell | null {
+  const cell = value as Partial<ImportedArticleTableCell>;
+  if (!cell || typeof cell.text !== "string") {
+    return null;
+  }
+  return {
+    text: cell.text.slice(0, 2_000),
+    ...(cell.header === true ? { header: true } : {}),
+    ...(cell.scope === "row" || cell.scope === "col" ? { scope: cell.scope } : {}),
+    ...(typeof cell.rowSpan === "number" && Number.isFinite(cell.rowSpan) && cell.rowSpan > 1
+      ? { rowSpan: Math.min(50, Math.floor(cell.rowSpan)) }
+      : {}),
+    ...(typeof cell.colSpan === "number" && Number.isFinite(cell.colSpan) && cell.colSpan > 1
+      ? { colSpan: Math.min(50, Math.floor(cell.colSpan)) }
+      : {}),
+  };
+}
+
+function normalizeImportedTable(value: unknown): ImportedArticleTable | null {
+  const table = value as Partial<ImportedArticleTable>;
+  if (!table || !Array.isArray(table.rows)) {
+    return null;
+  }
+  const rows = table.rows
+    .slice(0, 500)
+    .map((row) => Array.isArray(row)
+      ? row.slice(0, 40).map(normalizeImportedTableCell).filter((cell): cell is ImportedArticleTableCell => Boolean(cell))
+      : [])
+    .filter((row) => row.length > 0);
+  if (rows.length === 0) {
+    return null;
+  }
+  return {
+    ...(typeof table.caption === "string" && table.caption.trim() ? { caption: table.caption.trim().slice(0, 1_000) } : {}),
+    rows,
   };
 }
 
@@ -185,6 +250,9 @@ function normalizeImportedArticle(value: unknown, body: string): ImportedArticle
       ? importedArticle.text
       : body,
     blocks,
+    ...(typeof importedArticle.byline === "string" ? { byline: importedArticle.byline } : {}),
+    ...(typeof importedArticle.publishedTime === "string" ? { publishedTime: importedArticle.publishedTime } : {}),
+    ...(typeof importedArticle.language === "string" ? { language: importedArticle.language } : {}),
     ...(normalizeArticleStyle(importedArticle.style) ? { style: normalizeArticleStyle(importedArticle.style) } : {}),
   };
 }
@@ -197,6 +265,25 @@ function normalizeArticle(value: unknown): SavedArticle | null {
 
   const now = new Date().toISOString();
   const importedArticle = normalizeImportedArticle(article.importedArticle, article.body);
+  const candidateProgress = article.readingProgress;
+  const readingProgress = candidateProgress
+    && typeof candidateProgress.blockId === "string"
+    && Number.isFinite(candidateProgress.blockIndex)
+    && typeof candidateProgress.blockText === "string"
+    && Number.isFinite(candidateProgress.top)
+    && Number.isFinite(candidateProgress.scrollY)
+    && Number.isFinite(candidateProgress.scrollRatio)
+    && typeof candidateProgress.capturedAt === "string"
+      ? {
+          blockId: candidateProgress.blockId,
+          blockIndex: Math.max(0, Math.floor(candidateProgress.blockIndex)),
+          blockText: candidateProgress.blockText.slice(0, 120),
+          top: candidateProgress.top,
+          scrollY: Math.max(0, candidateProgress.scrollY),
+          scrollRatio: Math.min(1, Math.max(0, candidateProgress.scrollRatio)),
+          capturedAt: candidateProgress.capturedAt,
+        }
+      : undefined;
   return {
     id: typeof article.id === "string" ? article.id : `article-${Date.now()}`,
     title: typeof article.title === "string" && article.title.trim()
@@ -208,6 +295,7 @@ function normalizeArticle(value: unknown): SavedArticle | null {
     createdAt: typeof article.createdAt === "string" ? article.createdAt : now,
     updatedAt: typeof article.updatedAt === "string" ? article.updatedAt : now,
     ...(typeof article.lastOpenedAt === "string" ? { lastOpenedAt: article.lastOpenedAt } : {}),
+    ...(readingProgress ? { readingProgress } : {}),
   };
 }
 
@@ -356,6 +444,32 @@ export function touchSavedArticle(id: string): SavedArticle[] {
     touchedArticle,
     ...articles.filter((article) => article.id !== id),
   ];
+  saveArticles(nextArticles);
+  return nextArticles;
+}
+
+export function saveArticleReadingProgress(id: string, anchor: ReaderViewportAnchor): SavedArticle[] {
+  const articles = getSavedArticles();
+  const existing = articles.find((article) => article.id === id);
+  if (!existing) {
+    return articles;
+  }
+
+  const capturedAt = new Date().toISOString();
+  const nextArticles = articles.map((article) => article.id === id
+    ? {
+        ...article,
+        readingProgress: {
+          ...anchor,
+          blockIndex: Math.max(0, Math.floor(anchor.blockIndex)),
+          blockText: anchor.blockText.slice(0, 120),
+          scrollY: Math.max(0, anchor.scrollY),
+          scrollRatio: Math.min(1, Math.max(0, anchor.scrollRatio)),
+          capturedAt,
+        },
+        updatedAt: capturedAt,
+      }
+    : article);
   saveArticles(nextArticles);
   return nextArticles;
 }

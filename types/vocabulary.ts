@@ -12,6 +12,7 @@ export interface VocabularyEntry {
   word: string;
   lemma: string;
   phonetic: string;
+  phoneticFor?: string;
   partOfSpeech: string;
   basicMeaning: string;
   contextMeaning: string;

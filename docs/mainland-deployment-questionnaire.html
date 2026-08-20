@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Context Reader 大陆部署决策问卷</title>
+  <style>
+    :root { color-scheme: light; --ink:#14231c; --muted:#647169; --line:#d8e0db; --paper:#fbfcf9; --blue:#1769aa; --green:#1d6a4a; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#eef2ed; color:var(--ink); font:15px/1.65 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; }
+    main { width:min(980px,calc(100% - 28px)); margin:28px auto 60px; }
+    header,.card,.result { background:var(--paper); border:1px solid var(--line); border-radius:22px; box-shadow:0 12px 34px rgba(28,46,36,.07); }
+    header { padding:28px 30px; }
+    h1 { margin:0 0 8px; font:700 clamp(26px,4vw,42px)/1.15 Georgia,"Songti SC",serif; }
+    h2 { margin:0 0 12px; font-size:18px; }
+    p { margin:7px 0; }
+    .muted { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:16px; }
+    .card { padding:22px; }
+    .wide { grid-column:1/-1; }
+    .options { display:grid; gap:9px; margin-top:12px; }
+    label.option { display:flex; gap:10px; align-items:flex-start; padding:11px 12px; border:1px solid var(--line); border-radius:13px; cursor:pointer; background:white; }
+    label.option:hover { border-color:#9fb9aa; }
+    input[type=radio],input[type=checkbox] { margin-top:5px; accent-color:var(--blue); }
+    input[type=text],input[type=number],textarea { width:100%; border:1px solid var(--line); border-radius:12px; padding:11px 12px; background:white; color:var(--ink); font:inherit; }
+    textarea { min-height:90px; resize:vertical; }
+    .field { display:grid; gap:7px; margin-top:12px; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0; }
+    button { border:0; border-radius:999px; padding:12px 18px; font:700 14px/1 system-ui; cursor:pointer; }
+    .primary { background:var(--blue); color:white; }
+    .secondary { background:white; color:var(--ink); border:1px solid var(--line); }
+    .result { padding:22px; display:none; }
+    .result.show { display:block; }
+    pre { white-space:pre-wrap; word-break:break-word; margin:0; padding:16px; background:#122019; color:#e9f2ec; border-radius:14px; }
+    .status { min-height:24px; color:var(--green); font-weight:700; }
+    @media (max-width:720px) { .grid { grid-template-columns:1fr; } .wide { grid-column:auto; } header,.card { padding:20px; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>大陆部署决策问卷</h1>
+    <p>这份问卷用来确定备案主体、云厂商、预算、Supabase 迁移深度和可接受的切换方式。填写后点击“生成答案”，把结果复制给 Codex。</p>
+    <p class="muted">不要在答案中填写身份证号码、手机号、密码、API Key 或云密钥。</p>
+  </header>
+
+  <form id="form" class="grid">
+    <section class="card">
+      <h2>1. 备案主体</h2>
+      <div class="options" data-required="subject">
+        <label class="option"><input type="radio" name="subject" value="个人主体，短期不收费" />个人主体，短期不收费</label>
+        <label class="option"><input type="radio" name="subject" value="已有公司/个体工商户，使用单位主体" />已有公司/个体工商户</label>
+        <label class="option"><input type="radio" name="subject" value="目前没有单位主体，但近期考虑成立" />暂无单位主体，近期考虑成立</label>
+        <label class="option"><input type="radio" name="subject" value="暂不确定，希望先比较个人与单位备案" />暂不确定</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. 备案省份</h2>
+      <div class="field"><label for="province">身份证/单位证件所在省市</label><input id="province" name="province" type="text" placeholder="例如：湖南省长沙市" /></div>
+      <div class="field"><label for="living">当前长期居住/办公省市</label><input id="living" name="living" type="text" placeholder="若与证件一致可写“同上”" /></div>
+    </section>
+
+    <section class="card">
+      <h2>3. 域名现状</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="domain" value="还没有域名，需要一起挑选和购买" />还没有，需要一起挑选</label>
+        <label class="option"><input type="radio" name="domain" value="已有本人实名认证域名" />已有个人实名域名</label>
+        <label class="option"><input type="radio" name="domain" value="已有单位实名认证域名" />已有单位实名域名</label>
+        <label class="option"><input type="radio" name="domain" value="已有域名，但实名主体/注册商情况不确定" />已有但情况不确定</label>
+      </div>
+      <div class="field"><label for="domainNote">域名/注册商说明（可不填具体域名）</label><input id="domainNote" name="domainNote" type="text" placeholder="例如：腾讯云，.com，个人实名" /></div>
+    </section>
+
+    <section class="card">
+      <h2>4. 云厂商偏好</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="cloud" value="腾讯云，按推荐路线执行" />腾讯云（当前推荐）</label>
+        <label class="option"><input type="radio" name="cloud" value="阿里云" />阿里云</label>
+        <label class="option"><input type="radio" name="cloud" value="已有其他大陆云资源" />已有其他云资源</label>
+        <label class="option"><input type="radio" name="cloud" value="没有偏好，以成本和稳定性决定" />没有偏好</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 每月基础设施预算</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="budget" value="尽量控制在 100 元以内" />100 元以内</label>
+        <label class="option"><input type="radio" name="budget" value="100–200 元，稳定优先一些" />100–200 元</label>
+        <label class="option"><input type="radio" name="budget" value="200–500 元，可以购买托管服务" />200–500 元</label>
+        <label class="option"><input type="radio" name="budget" value="先给不同可靠性档位再决定" />先比较档位</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>6. 上线时间</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="timeline" value="可以等待备案和完整迁移，稳定最重要" />可以慢一些，稳定最重要</label>
+        <label class="option"><input type="radio" name="timeline" value="希望 2–4 周内完成大陆入口" />希望 2–4 周</label>
+        <label class="option"><input type="radio" name="timeline" value="备案通过后尽快切换，但必须可回滚" />备案后尽快切换</label>
+        <label class="option"><input type="radio" name="timeline" value="没有硬期限" />没有硬期限</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>7. 当前真实数据规模</h2>
+      <div class="field"><label for="users">真实注册用户约多少人</label><input id="users" name="users" type="number" min="0" placeholder="不知道可留空" /></div>
+      <div class="field"><label for="active">每周活跃用户约多少人</label><input id="active" name="active" type="number" min="0" placeholder="不知道可留空" /></div>
+      <div class="field"><label for="critical">是否有绝对不能丢的生产数据</label><input id="critical" name="critical" type="text" placeholder="例如：我的账号、生词、17 篇文章" /></div>
+    </section>
+
+    <section class="card">
+      <h2>8. 可接受停机</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="downtime" value="完全不能计划停机，只能灰度切换" />不能停机</label>
+        <label class="option"><input type="radio" name="downtime" value="可接受深夜 5–15 分钟只读窗口" />可接受 5–15 分钟</label>
+        <label class="option"><input type="radio" name="downtime" value="可接受提前公告的 30–60 分钟维护" />可接受 30–60 分钟</label>
+        <label class="option"><input type="radio" name="downtime" value="目前只是小范围测试，停机要求不高" />小范围测试，要求不高</label>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>9. Supabase 路线</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="supabase" value="推荐：先在大陆服务器实测，应用先迁，Supabase 按结果分层迁移" />推荐：先实测，再分层迁移</label>
+        <label class="option"><input type="radio" name="supabase" value="成本优先：尽快迁到同机 PostgreSQL + COS，但必须分阶段和可回滚" />成本优先，最终自托管 PostgreSQL + COS</label>
+        <label class="option"><input type="radio" name="supabase" value="可靠性优先：愿意为托管数据库付费" />可靠性优先，考虑托管数据库</label>
+        <label class="option"><input type="radio" name="supabase" value="目前不懂，按 Codex 推荐并解释每一步" />由 Codex 推荐</label>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>10. 未来 6 个月计划（可多选）</h2>
+      <div class="options">
+        <label class="option"><input type="checkbox" name="future" value="只做邀请测试" />只做邀请测试</label>
+        <label class="option"><input type="checkbox" name="future" value="面向公众开放注册" />公众开放注册</label>
+        <label class="option"><input type="checkbox" name="future" value="考虑接入收费" />考虑收费</label>
+        <label class="option"><input type="checkbox" name="future" value="需要微信登录/手机号验证" />更强账号验证</label>
+        <label class="option"><input type="checkbox" name="future" value="预计增加大量推荐文章或图片" />增加大量文章/图片</label>
+        <label class="option"><input type="checkbox" name="future" value="预计用户量仍很小" />用户量仍很小</label>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>11. 最担心的问题（可多选）</h2>
+      <div class="options">
+        <label class="option"><input type="checkbox" name="worry" value="界面、书本动画和移动端体验回归" />界面和动效出现回归</label>
+        <label class="option"><input type="checkbox" name="worry" value="文章、生词、解释或翻译数据丢失" />学习数据丢失</label>
+        <label class="option"><input type="checkbox" name="worry" value="登录和跨设备同步故障" />登录和同步故障</label>
+        <label class="option"><input type="checkbox" name="worry" value="服务器、数据库和对象存储费用失控" />成本失控</label>
+        <label class="option"><input type="checkbox" name="worry" value="备案、AI 和个人信息合规" />备案与合规</label>
+        <label class="option"><input type="checkbox" name="worry" value="国外文章 URL、RSS 和图片在大陆不可用" />国外内容源不可用</label>
+      </div>
+      <div class="field"><label for="notes">其他要求或限制</label><textarea id="notes" name="notes" placeholder="例如：任何时候都不要下线 Vercel；必须先让我在新域名验收。"></textarea></div>
+    </section>
+  </form>
+
+  <div class="actions">
+    <button class="primary" type="button" id="generate">生成答案</button>
+    <button class="secondary" type="button" id="copy">复制答案</button>
+    <button class="secondary" type="button" id="clear">清空</button>
+  </div>
+  <div class="status" id="status" aria-live="polite"></div>
+  <section class="result" id="result"><pre id="output"></pre></section>
+</main>
+<script>
+  const form = document.getElementById("form");
+  const output = document.getElementById("output");
+  const result = document.getElementById("result");
+  const status = document.getElementById("status");
+  const one = name => form.querySelector(`[name="${name}"]:checked`)?.value || "未填写";
+  const many = name => [...form.querySelectorAll(`[name="${name}"]:checked`)].map(x => x.value).join("；") || "未填写";
+  const value = name => form.elements[name]?.value?.trim() || "未填写";
+  function generate() {
+    const text = [
+      "# Context Reader 大陆部署问卷答案",
+      "",
+      `1. 备案主体：${one("subject")}`,
+      `2. 证件所在省市：${value("province")}`,
+      `   当前居住/办公省市：${value("living")}`,
+      `3. 域名现状：${one("domain")}`,
+      `   域名说明：${value("domainNote")}`,
+      `4. 云厂商：${one("cloud")}`,
+      `5. 月预算：${one("budget")}`,
+      `6. 时间要求：${one("timeline")}`,
+      `7. 注册用户：${value("users")}；周活：${value("active")}`,
+      `   关键数据：${value("critical")}`,
+      `8. 可接受停机：${one("downtime")}`,
+      `9. Supabase 路线：${one("supabase")}`,
+      `10. 未来计划：${many("future")}`,
+      `11. 最担心：${many("worry")}`,
+      `12. 其他要求：${value("notes")}`,
+      "",
+      "请据此给出最终云资源购买清单、备案逐屏填写建议、迁移阶段、成本上限、验收和回滚方案。"
+    ].join("\n");
+    output.textContent = text;
+    result.classList.add("show");
+    status.textContent = "答案已生成。";
+    return text;
+  }
+  document.getElementById("generate").addEventListener("click", generate);
+  document.getElementById("copy").addEventListener("click", async () => {
+    const text = output.textContent || generate();
+    try { await navigator.clipboard.writeText(text); status.textContent = "已复制，可以直接粘贴给 Codex。"; }
+    catch {
+      const range = document.createRange(); range.selectNodeContents(output);
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      status.textContent = "浏览器未允许自动复制，答案已选中，请按 Ctrl+C。";
+    }
+  });
+  document.getElementById("clear").addEventListener("click", () => {
+    form.reset(); output.textContent = ""; result.classList.remove("show"); status.textContent = "已清空。";
+  });
+</script>
+</body>
+</html>

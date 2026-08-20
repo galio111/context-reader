@@ -3,7 +3,31 @@
 import LZString from "lz-string";
 import { ACCOUNT_SYNC_TOMBSTONES_KEY, notifyAccountDataMerged } from "@/lib/accountEvents";
 import { mergeDuplicateSavedArticles } from "@/lib/savedArticleMerge";
+import {
+  clearStandaloneDictionaryRuntimeCache,
+  isStandaloneDictionaryCacheObjectKey,
+  normalizeStandaloneDictionaryCacheItem,
+  readStandaloneDictionaryCache,
+  standaloneDictionaryCacheObjectKey,
+  STANDALONE_DICTIONARY_CACHE_KEY,
+  writeStandaloneDictionaryCache,
+} from "@/lib/standaloneDictionaryCache";
+import {
+  isStandaloneDictionaryHistoryObjectKey,
+  normalizeStandaloneDictionaryHistoryItem,
+  readStandaloneDictionaryHistory,
+  standaloneDictionaryHistoryObjectKey,
+  STANDALONE_DICTIONARY_HISTORY_KEY,
+  STANDALONE_DICTIONARY_HISTORY_OBJECT_PREFIX,
+  writeStandaloneDictionaryHistory,
+} from "@/lib/standaloneDictionaryHistory";
 import { normalizeVocabularyEntries } from "@/lib/vocabulary";
+import {
+  readRecommendationPreferences,
+  RECOMMENDATION_PREFERENCES_OBJECT_KEY,
+  RECOMMENDATION_PREFERENCES_STORAGE_KEY,
+  writeRecommendationPreferencesFromSync,
+} from "@/lib/recommendationPreferences";
 import {
   deduplicateVocabularyEntries,
   mergeVocabularyEntryVersions,
@@ -19,26 +43,66 @@ const KEYS = {
   explanations: "context-reader:explanations:v5",
   translations: "context-reader:article-translations:v1",
   translationBlocks: "context-reader:article-translation-blocks:v1",
+  dictionaryHistory: STANDALONE_DICTIONARY_HISTORY_KEY,
+  dictionaryCache: STANDALONE_DICTIONARY_CACHE_KEY,
+  recommendationPreferences: RECOMMENDATION_PREFERENCES_STORAGE_KEY,
 };
 const COMPRESSED_PREFIX = "lz-utf16:";
 const VOCABULARY_CONFLICT_RECOVERY_KEY = "context-reader:vocabulary-conflict-recovery:v1";
 const ACCOUNT_LOCAL_OWNER_KEY = "context-reader:local-account-owner:v1";
 const LAST_SYNC_KEY = "context-reader:last-sync:v1";
+const SYNC_STATE_KEY = "context-reader:sync-state:v2";
 const ACCOUNT_LOCAL_DATA_KEYS = [
   ...Object.values(KEYS),
   ACCOUNT_SYNC_TOMBSTONES_KEY,
   VOCABULARY_CONFLICT_RECOVERY_KEY,
   LAST_SYNC_KEY,
+  SYNC_STATE_KEY,
 ];
 
-export function prepareLocalAccountForUser(userId: string): boolean {
+interface SyncManifestEntry {
+  version: number;
+  hash: string;
+  deleted: boolean;
+}
+
+interface StoredSyncState {
+  protocol: 2;
+  initialized: boolean;
+  cursor: string;
+  manifest: Record<string, SyncManifestEntry>;
+}
+
+export type AccountSyncPhase = "waiting" | "pulling" | "merging" | "pushing" | "complete";
+
+export interface AccountSyncProgress {
+  phase: AccountSyncPhase;
+  initial: boolean;
+  pulledCount: number;
+  pushedCount: number;
+}
+
+export interface AccountSyncResult {
+  initial: boolean;
+  pulledCount: number;
+  pushedCount: number;
+  syncedAt: string;
+  durationMs: number;
+}
+
+export interface AccountSyncOptions {
+  onProgress?: (progress: AccountSyncProgress) => void;
+}
+
+export function prepareLocalAccountForUser(userId: string, options?: { preserveExistingData?: boolean }): boolean {
   if (typeof window === "undefined" || !userId) return false;
 
   const storage = window.localStorage;
   const previousOwner = storage.getItem(ACCOUNT_LOCAL_OWNER_KEY);
   const switchedAccount = Boolean(previousOwner && previousOwner !== userId);
-  if (switchedAccount) {
+  if (switchedAccount && !options?.preserveExistingData) {
     for (const key of ACCOUNT_LOCAL_DATA_KEYS) storage.removeItem(key);
+    clearStandaloneDictionaryRuntimeCache();
     notifyAccountDataMerged();
   }
   storage.setItem(ACCOUNT_LOCAL_OWNER_KEY, userId);
@@ -49,6 +113,7 @@ export function clearLocalAccountData(): void {
   if (typeof window === "undefined") return;
 
   for (const key of ACCOUNT_LOCAL_DATA_KEYS) window.localStorage.removeItem(key);
+  clearStandaloneDictionaryRuntimeCache();
   window.localStorage.removeItem(ACCOUNT_LOCAL_OWNER_KEY);
   notifyAccountDataMerged();
 }
@@ -86,10 +151,6 @@ function preserveVocabularyConflict(storage: Storage, entry: VocabularyEntry): v
   );
 }
 
-function cloudMap(objects: AccountSyncObject[]): Map<string, AccountSyncObject> {
-  return new Map(objects.map((item) => [`${item.kind}:${item.objectKey}`, item]));
-}
-
 function stableSerialize(value: unknown): string {
   if (Array.isArray(value)) {
     return `[${value.map(stableSerialize).join(",")}]`;
@@ -122,6 +183,44 @@ function stableHash(value: unknown): string {
   return (hash >>> 0).toString(36);
 }
 
+function emptySyncState(): StoredSyncState {
+  return { protocol: 2, initialized: false, cursor: "", manifest: {} };
+}
+
+function readSyncState(): StoredSyncState {
+  const parsed = parseJson<Partial<StoredSyncState> | null>(window.localStorage.getItem(SYNC_STATE_KEY), null);
+  if (
+    !parsed
+    || parsed.protocol !== 2
+    || typeof parsed.initialized !== "boolean"
+    || typeof parsed.cursor !== "string"
+    || !parsed.manifest
+    || typeof parsed.manifest !== "object"
+  ) {
+    return emptySyncState();
+  }
+  return parsed as StoredSyncState;
+}
+
+function writeSyncState(state: StoredSyncState): void {
+  window.localStorage.setItem(SYNC_STATE_KEY, JSON.stringify(state));
+}
+
+function mergeManifest(
+  current: Record<string, SyncManifestEntry>,
+  objects: AccountSyncObject[],
+): Record<string, SyncManifestEntry> {
+  const next = { ...current };
+  for (const object of objects) {
+    next[`${object.kind}:${object.objectKey}`] = {
+      version: object.serverVersion,
+      hash: stableHash(object.payload),
+      deleted: Boolean(object.deletedAt),
+    };
+  }
+  return next;
+}
+
 function conflictId(id: string, payload: unknown): string {
   return `${id}-local-recovered-${stableHash(payload)}`;
 }
@@ -134,7 +233,10 @@ function writeTombstones(storage: Storage, tombstones: Record<string, string>): 
   storage.setItem(ACCOUNT_SYNC_TOMBSTONES_KEY, JSON.stringify(tombstones));
 }
 
-function mergeCloudIntoLocal(objects: AccountSyncObject[]): void {
+function mergeCloudIntoLocal(
+  objects: AccountSyncObject[],
+  manifest: Record<string, SyncManifestEntry>,
+): void {
   const storage = window.localStorage;
   const tombstones = readTombstones(storage);
   const localArticleMerge = mergeDuplicateSavedArticles(
@@ -150,10 +252,17 @@ function mergeCloudIntoLocal(objects: AccountSyncObject[]): void {
   ).entries;
   const localArticleById = new Map(localArticles.map((item) => [item.id, item]));
   const localVocabularyById = new Map(localVocabulary.map((item) => [item.id, item]));
+  const localDictionaryHistoryByQuery = new Map(
+    readStandaloneDictionaryHistory(storage).map((item) => [item.normalizedQuery, item]),
+  );
+  const localDictionaryCacheByQuery = new Map(
+    readStandaloneDictionaryCache(storage).map((item) => [item.normalizedQuery, item]),
+  );
+  let localRecommendationPreferences = readRecommendationPreferences(storage);
   const activeCloudVocabularyIds = new Set(
-    objects
-      .filter((object) => object.kind === "vocabulary" && !object.deletedAt)
-      .map((object) => object.objectKey),
+    Object.entries(manifest)
+      .filter(([identity, entry]) => identity.startsWith("vocabulary:") && !entry.deleted)
+      .map(([identity]) => identity.slice("vocabulary:".length)),
   );
 
   const maps: Record<string, Record<string, unknown>> = {
@@ -168,7 +277,20 @@ function mergeCloudIntoLocal(objects: AccountSyncObject[]): void {
     if (object.deletedAt) {
       if (object.kind === "article") localArticleById.delete(object.objectKey);
       else if (object.kind === "vocabulary") localVocabularyById.delete(object.objectKey);
-      else if (object.kind in maps) delete maps[object.kind][object.objectKey];
+      else if (object.kind === "preferences" && isStandaloneDictionaryHistoryObjectKey(object.objectKey)) {
+        const historyItem = normalizeStandaloneDictionaryHistoryItem(object.payload);
+        let normalizedQuery = historyItem?.normalizedQuery ?? "";
+        if (!normalizedQuery) {
+          try {
+            normalizedQuery = decodeURIComponent(
+              object.objectKey.slice(STANDALONE_DICTIONARY_HISTORY_OBJECT_PREFIX.length),
+            );
+          } catch {
+            normalizedQuery = "";
+          }
+        }
+        if (normalizedQuery) localDictionaryHistoryByQuery.delete(normalizedQuery);
+      } else if (object.kind in maps) delete maps[object.kind][object.objectKey];
       delete tombstones[objectIdentity];
       continue;
     }
@@ -219,6 +341,29 @@ function mergeCloudIntoLocal(objects: AccountSyncObject[]): void {
         preserveVocabularyConflict(storage, local);
         localVocabularyById.set(cloud.id, cloud);
       }
+    } else if (object.kind === "preferences" && object.objectKey === RECOMMENDATION_PREFERENCES_OBJECT_KEY) {
+      const cloud = writeRecommendationPreferencesFromSync(
+        storage,
+        localRecommendationPreferences.scope === "guest"
+          || timestamp(object.clientUpdatedAt) >= timestamp(localRecommendationPreferences.updatedAt)
+          ? object.payload
+          : localRecommendationPreferences,
+      );
+      localRecommendationPreferences = cloud;
+    } else if (object.kind === "preferences" && isStandaloneDictionaryHistoryObjectKey(object.objectKey)) {
+      const cloud = normalizeStandaloneDictionaryHistoryItem(object.payload);
+      if (!cloud) continue;
+      const local = localDictionaryHistoryByQuery.get(cloud.normalizedQuery);
+      if (!local || timestamp(cloud.lastLookedUpAt) > timestamp(local.lastLookedUpAt)) {
+        localDictionaryHistoryByQuery.set(cloud.normalizedQuery, cloud);
+      }
+    } else if (object.kind === "preferences" && isStandaloneDictionaryCacheObjectKey(object.objectKey)) {
+      const cloud = normalizeStandaloneDictionaryCacheItem(object.payload);
+      if (!cloud) continue;
+      const local = localDictionaryCacheByQuery.get(cloud.normalizedQuery);
+      if (!local || timestamp(cloud.updatedAt) > timestamp(local.updatedAt)) {
+        localDictionaryCacheByQuery.set(cloud.normalizedQuery, cloud);
+      }
     } else if (object.kind in maps) {
       maps[object.kind][object.objectKey] = object.payload;
     }
@@ -241,26 +386,29 @@ function mergeCloudIntoLocal(objects: AccountSyncObject[]): void {
   storage.setItem(KEYS.explanations, JSON.stringify(maps.explanation));
   storage.setItem(KEYS.translations, JSON.stringify(maps.article_translation));
   storage.setItem(KEYS.translationBlocks, JSON.stringify(maps.translation_block));
+  writeStandaloneDictionaryHistory(storage, Array.from(localDictionaryHistoryByQuery.values()));
+  writeStandaloneDictionaryCache(storage, Array.from(localDictionaryCacheByQuery.values()));
   writeTombstones(storage, tombstones);
 }
 
-function collectLocalObjects(serverObjects: AccountSyncObject[]): AccountSyncObject[] {
+function collectLocalObjects(manifest: Record<string, SyncManifestEntry>): AccountSyncObject[] {
   const storage = window.localStorage;
-  const versions = cloudMap(serverObjects);
   const now = new Date().toISOString();
   const tombstones = readTombstones(storage);
   const result = new Map<string, AccountSyncObject>();
   const add = (kind: SyncObjectKind, objectKey: string, payload: unknown, updatedAt = now) => {
-    const server = versions.get(`${kind}:${objectKey}`);
-    if (server && !server.deletedAt && payloadEqual(payload, server.payload)) {
+    const identity = `${kind}:${objectKey}`;
+    const server = manifest[identity];
+    const hash = stableHash(payload);
+    if (server?.deleted || (server && server.hash === hash)) {
       return;
     }
-    result.set(`${kind}:${objectKey}`, {
+    result.set(identity, {
       kind,
       objectKey,
       payload,
       clientUpdatedAt: updatedAt,
-      serverVersion: server?.serverVersion ?? 0,
+      serverVersion: server?.version ?? 0,
     });
   };
 
@@ -282,6 +430,21 @@ function collectLocalObjects(serverObjects: AccountSyncObject[]): AccountSyncObj
   for (const item of localVocabulary) {
     add("vocabulary", item.id, item, item.updatedAt || item.createdAt || now);
   }
+  for (const item of readStandaloneDictionaryHistory(storage)) {
+    add("preferences", standaloneDictionaryHistoryObjectKey(item), item, item.lastLookedUpAt);
+  }
+  for (const item of readStandaloneDictionaryCache(storage)) {
+    add("preferences", standaloneDictionaryCacheObjectKey(item), item, item.updatedAt);
+  }
+  const recommendationPreferences = readRecommendationPreferences(storage);
+  if (recommendationPreferences.scope === "account") {
+    add(
+      "preferences",
+      RECOMMENDATION_PREFERENCES_OBJECT_KEY,
+      recommendationPreferences,
+      recommendationPreferences.updatedAt || now,
+    );
+  }
 
   const cacheSpecs: Array<[SyncObjectKind, string]> = [
     ["explanation", KEYS.explanations],
@@ -297,18 +460,21 @@ function collectLocalObjects(serverObjects: AccountSyncObject[]): AccountSyncObj
     const separator = identity.indexOf(":");
     const kind = identity.slice(0, separator) as SyncObjectKind;
     const objectKey = identity.slice(separator + 1);
-    if ((kind !== "article" && kind !== "vocabulary") || !objectKey) continue;
-    const server = versions.get(identity);
-    if (server?.deletedAt && timestamp(server.deletedAt) >= timestamp(deletedAt)) {
+    const deletable = kind === "article"
+      || kind === "vocabulary"
+      || (kind === "preferences" && isStandaloneDictionaryHistoryObjectKey(objectKey));
+    if (!deletable || !objectKey) continue;
+    const server = manifest[identity];
+    if (server?.deleted) {
       delete tombstones[identity];
       continue;
     }
     result.set(identity, {
       kind,
       objectKey,
-      payload: server?.payload ?? {},
+      payload: {},
       clientUpdatedAt: deletedAt,
-      serverVersion: server?.serverVersion ?? 0,
+      serverVersion: server?.version ?? 0,
       deletedAt,
     });
   }
@@ -328,59 +494,150 @@ function clearAcceptedTombstones(objects: AccountSyncWriteResult[]): void {
   if (changed) writeTombstones(storage, tombstones);
 }
 
-async function readCloud(): Promise<AccountSyncObject[]> {
+async function readInitialSnapshot(
+  report: (progress: AccountSyncProgress) => void,
+): Promise<{ objects: AccountSyncObject[]; cursor: string }> {
   const objects: AccountSyncObject[] = [];
-  let offset = 0;
-  while (offset <= 20_000) {
-    const response = await fetch(`/api/account/sync?offset=${offset}`, { cache: "no-store" });
+  let snapshotCursor = "";
+  for (const bootstrap of ["active", "deleted"] as const) {
+    let offset = 0;
+    for (let page = 0; page < 200; page += 1) {
+      const query = new URLSearchParams({ protocol: "2", bootstrap, offset: String(offset) });
+      if (snapshotCursor) query.set("snapshot", snapshotCursor);
+      const response = await fetch(`/api/account/sync?${query.toString()}`, { cache: "no-store" });
+      const data = await response.json() as {
+        objects?: AccountSyncObject[];
+        nextOffset?: number | null;
+        snapshotCursor?: string;
+        error?: string;
+      };
+      if (!response.ok) throw new Error(data.error || "读取首次同步快照失败。");
+      if (!snapshotCursor) snapshotCursor = data.snapshotCursor ?? "";
+      const pageObjects = data.objects ?? [];
+      objects.push(...pageObjects);
+      report({ phase: "pulling", initial: true, pulledCount: objects.length, pushedCount: 0 });
+      if (data.nextOffset === null || data.nextOffset === undefined) break;
+      if (!Number.isFinite(data.nextOffset) || data.nextOffset <= offset) {
+        throw new Error("首次同步分页没有前进，请稍后重试。");
+      }
+      offset = data.nextOffset;
+      if (page === 199) throw new Error("首次同步对象过多，请先导出备份后重试。");
+    }
+  }
+  return { objects, cursor: snapshotCursor };
+}
+
+async function readCloudChanges(
+  state: StoredSyncState,
+  report: (progress: AccountSyncProgress) => void,
+): Promise<{ objects: AccountSyncObject[]; cursor: string }> {
+  if (!state.initialized) return readInitialSnapshot(report);
+  const objects: AccountSyncObject[] = [];
+  let cursor = state.cursor;
+  for (let page = 0; page < 200; page += 1) {
+    const query = new URLSearchParams({ protocol: "2" });
+    if (cursor) query.set("cursor", cursor);
+    const response = await fetch(`/api/account/sync?${query.toString()}`, { cache: "no-store" });
     const data = await response.json() as {
       objects?: AccountSyncObject[];
-      nextOffset?: number | null;
+      nextCursor?: string;
+      hasMore?: boolean;
       error?: string;
     };
     if (!response.ok) throw new Error(data.error || "读取云端数据失败。");
-    objects.push(...(data.objects ?? []));
-    if (data.nextOffset === null || data.nextOffset === undefined) return objects;
-    if (!Number.isFinite(data.nextOffset) || data.nextOffset <= offset) {
-      throw new Error("云端同步分页无效，请稍后重试。");
+    const pageObjects = data.objects ?? [];
+    objects.push(...pageObjects);
+    report({
+      phase: "pulling",
+      initial: !state.initialized,
+      pulledCount: objects.length,
+      pushedCount: 0,
+    });
+    const nextCursor = data.nextCursor ?? cursor;
+    if (!data.hasMore) return { objects, cursor: nextCursor };
+    if (!nextCursor || nextCursor === cursor) {
+      throw new Error("云端增量同步游标没有前进，请稍后重试。");
     }
-    offset = data.nextOffset;
+    cursor = nextCursor;
   }
-  throw new Error("云端同步对象超过 20000 条，请先导出备份后分批处理。");
+  throw new Error("云端同步变更过多，请先导出备份后重试。");
 }
 
-async function performAccountSync(retriesRemaining: number): Promise<{ objectCount: number; syncedAt: string }> {
-  const cloud = await readCloud();
-  mergeCloudIntoLocal(cloud);
+async function performAccountSync(
+  retriesRemaining: number,
+  report: (progress: AccountSyncProgress) => void,
+  startedAt: number,
+): Promise<AccountSyncResult> {
+  const state = readSyncState();
+  const initial = !state.initialized;
+  const cloud = await readCloudChanges(state, report);
+  let manifest = mergeManifest(state.manifest, cloud.objects);
+  report({ phase: "merging", initial, pulledCount: cloud.objects.length, pushedCount: 0 });
+  mergeCloudIntoLocal(cloud.objects, manifest);
   notifyAccountDataMerged();
-  const local = collectLocalObjects(cloud);
-  const response = await fetch("/api/account/sync", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ objects: local }),
-  });
-  const data = await response.json() as { objects?: AccountSyncWriteResult[]; error?: string; conflict?: boolean };
-  clearAcceptedTombstones(data.objects ?? []);
-  if (response.status === 409 && retriesRemaining > 0) {
-    return performAccountSync(retriesRemaining - 1);
+  const local = collectLocalObjects(manifest);
+  let writeResults: AccountSyncWriteResult[] = [];
+
+  if (local.length > 0) {
+    report({ phase: "pushing", initial, pulledCount: cloud.objects.length, pushedCount: local.length });
+    const response = await fetch("/api/account/sync", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ objects: local }),
+    });
+    const data = await response.json() as { objects?: AccountSyncWriteResult[]; error?: string; conflict?: boolean };
+    writeResults = data.objects ?? [];
+    clearAcceptedTombstones(writeResults);
+    manifest = mergeManifest(manifest, writeResults);
+    if (response.status === 409 && retriesRemaining > 0) {
+      writeSyncState({ protocol: 2, initialized: true, cursor: cloud.cursor, manifest });
+      return performAccountSync(retriesRemaining - 1, report, startedAt);
+    }
+    if (!response.ok) throw new Error(data.error || "同步失败，请稍后重试。");
   }
-  if (!response.ok) throw new Error(data.error || "同步失败，请稍后重试。");
+
+  writeSyncState({ protocol: 2, initialized: true, cursor: cloud.cursor, manifest });
   const syncedAt = new Date().toISOString();
   window.localStorage.setItem(LAST_SYNC_KEY, syncedAt);
-  return { objectCount: local.length, syncedAt };
+  const result: AccountSyncResult = {
+    initial,
+    pulledCount: cloud.objects.length,
+    pushedCount: writeResults.filter((object) => object.accepted).length,
+    syncedAt,
+    durationMs: Math.max(0, Date.now() - startedAt),
+  };
+  report({
+    phase: "complete",
+    initial,
+    pulledCount: result.pulledCount,
+    pushedCount: result.pushedCount,
+  });
+  return result;
 }
 
-let activeSync: Promise<{ objectCount: number; syncedAt: string }> | null = null;
+let activeSync: Promise<AccountSyncResult> | null = null;
+const progressListeners = new Set<(progress: AccountSyncProgress) => void>();
 
-export function syncAccountData(): Promise<{ objectCount: number; syncedAt: string }> {
-  if (activeSync) return activeSync;
-  const run = () => performAccountSync(3);
-  const lockedSync = typeof navigator !== "undefined" && navigator.locks
-    ? navigator.locks.request("context-reader:account-sync", { mode: "exclusive" }, run)
-    : run();
-  const sync = lockedSync.finally(() => {
-    if (activeSync === sync) activeSync = null;
+function reportProgress(progress: AccountSyncProgress): void {
+  for (const listener of progressListeners) listener(progress);
+}
+
+export function syncAccountData(options: AccountSyncOptions = {}): Promise<AccountSyncResult> {
+  if (options.onProgress) progressListeners.add(options.onProgress);
+  if (!activeSync) {
+    const startedAt = Date.now();
+    reportProgress({ phase: "waiting", initial: !readSyncState().initialized, pulledCount: 0, pushedCount: 0 });
+    const run = () => performAccountSync(3, reportProgress, startedAt);
+    const lockedSync = typeof navigator !== "undefined" && navigator.locks
+      ? navigator.locks.request("context-reader:account-sync", { mode: "exclusive" }, run)
+      : run();
+    const sync = lockedSync.finally(() => {
+      if (activeSync === sync) activeSync = null;
+    });
+    activeSync = sync;
+  }
+  const current = activeSync;
+  return current.finally(() => {
+    if (options.onProgress) progressListeners.delete(options.onProgress);
   });
-  activeSync = sync;
-  return sync;
 }

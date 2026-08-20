@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
-import type { PageFlip } from "page-flip/dist/js/page-flip.module.js";
+import { PageFlip } from "page-flip/dist/js/page-flip.module.js";
 import styles from "./CurvedPageTurn.module.css";
 
 export interface CurvedPageTurnHandle {
@@ -24,6 +24,7 @@ export interface CurvedPageTurnHandle {
 interface CurvedPageTurnProps {
   active: boolean;
   direction: "forward" | "backward";
+  mode?: "spread" | "cover";
 }
 
 interface SuspendableRender {
@@ -66,6 +67,12 @@ interface PageFlipRuntime {
     maxHeight: number;
   };
   update: () => void;
+  getPageCollection: () => {
+    getPage: (index: number) => {
+      setDensity: (density: "soft" | "hard") => void;
+      setDrawingDensity: (density: "soft" | "hard") => void;
+    };
+  };
   getFlipController: () => SeekableFlipControl;
   updateState: (state: string) => void;
 }
@@ -148,6 +155,84 @@ function makeSnapshotPage(spread: HTMLElement | null, side: "left" | "right") {
   return page;
 }
 
+function copyCanvasPixels(source: HTMLElement, clone: HTMLElement) {
+  const sourceCanvases = Array.from(source.querySelectorAll<HTMLCanvasElement>("canvas"));
+  const cloneCanvases = Array.from(clone.querySelectorAll<HTMLCanvasElement>("canvas"));
+
+  cloneCanvases.forEach((canvas, index) => {
+    const sourceCanvas = sourceCanvases[index];
+    if (!sourceCanvas) {
+      canvas.remove();
+      return;
+    }
+
+    const width = Math.max(1, sourceCanvas.width);
+    const height = Math.max(1, sourceCanvas.height);
+    canvas.width = width;
+    canvas.height = height;
+    const context = canvas.getContext("2d");
+    if (!context) {
+      canvas.remove();
+      return;
+    }
+
+    try {
+      context.drawImage(sourceCanvas, 0, 0, width, height);
+    } catch {
+      canvas.remove();
+    }
+  });
+}
+
+function makeCoverSnapshotPage(cover: HTMLElement | null) {
+  const page = document.createElement("div");
+  page.className = `${styles.turnPaper} ${styles.coverTurnPaper}`;
+  page.dataset.density = "soft";
+
+  const viewport = document.createElement("div");
+  viewport.className = `${styles.snapshotViewport} ${styles.coverSnapshotViewport}`;
+  const content = document.createElement("div");
+  content.className = styles.coverSnapshotContent;
+
+  if (cover) {
+    const clone = cover.cloneNode(true) as HTMLElement;
+    clone.setAttribute("aria-hidden", "true");
+    clone.setAttribute("inert", "");
+    copyCanvasPixels(cover, clone);
+    clone.querySelectorAll<HTMLElement>("video, iframe").forEach((element) => element.remove());
+    content.appendChild(clone);
+  }
+
+  const grain = document.createElement("span");
+  grain.className = styles.paperGrain;
+  viewport.append(content, grain);
+  page.appendChild(viewport);
+  return page;
+}
+
+function makeCoverInsidePage() {
+  const page = document.createElement("div");
+  page.className = `${styles.turnPaper} ${styles.coverInsideTurnPaper}`;
+  page.dataset.density = "soft";
+
+  const surface = document.createElement("div");
+  surface.className = styles.coverInsideSurface;
+  const hinge = document.createElement("span");
+  hinge.className = styles.coverInsideHinge;
+  const grain = document.createElement("span");
+  grain.className = styles.paperGrain;
+  surface.append(hinge, grain);
+  page.appendChild(surface);
+  return page;
+}
+
+function makeTransparentPage() {
+  const page = document.createElement("div");
+  page.className = `${styles.turnPaper} ${styles.transparentTurnPaper}`;
+  page.dataset.density = "soft";
+  return page;
+}
+
 function makeBlankPages() {
   return [
     makeSnapshotPage(null, "left"),
@@ -157,8 +242,17 @@ function makeBlankPages() {
   ];
 }
 
+function makeBlankCoverPages() {
+  return [
+    makeTransparentPage(),
+    makeCoverInsidePage(),
+    makeCoverSnapshotPage(null),
+    makeTransparentPage(),
+  ];
+}
+
 export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnProps>(function CurvedPageTurn(
-  { active, direction },
+  { active, direction, mode = "spread" },
   ref,
 ) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -186,6 +280,7 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
     if (container) {
       container.dataset.seeking = "false";
       container.style.setProperty("--turn-progress", "0");
+      if (mode === "cover") container.style.setProperty("--cover-offset", "-25%");
     }
     if (!instance || !hadSeek) {
       setRendererActive(false);
@@ -200,7 +295,7 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
       render.clearShadow();
       runtime.getFlipController().reset();
       runtime.updateState("read");
-      if (blank) instance.updateFromHtml(makeBlankPages());
+      if (blank) instance.updateFromHtml(mode === "cover" ? makeBlankCoverPages() : makeBlankPages());
     } catch {
       // A stale page-flip frame should never block the real DOM spread.
     }
@@ -226,7 +321,7 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
     destroyedRef.current = false;
     let host: HTMLDivElement | null = null;
 
-    void import("page-flip/dist/js/page-flip.module.js").then(({ PageFlip: PageFlipConstructor }) => {
+    void Promise.resolve({ PageFlip }).then(({ PageFlip: PageFlipConstructor }) => {
       if (destroyedRef.current || !container.isConnected) return;
       const width = container.clientWidth;
       const height = container.clientHeight;
@@ -235,7 +330,7 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
       host = document.createElement("div");
       host.className = styles.engine;
       container.appendChild(host);
-      const initialPages = makeBlankPages();
+      const initialPages = mode === "cover" ? makeBlankCoverPages() : makeBlankPages();
       const instance = new PageFlipConstructor(host, {
         width: Math.max(1, width / 2),
         height: Math.max(1, height),
@@ -302,7 +397,7 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
         host?.remove();
       }
     };
-  }, []);
+  }, [mode]);
 
   useImperativeHandle(ref, () => ({
     seek(key, nextDirection, source, target, progress) {
@@ -312,6 +407,9 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
       const normalized = Math.min(1, Math.max(0, progress));
       const betweenEndpoints = normalized > SEEK_ENDPOINT_EPSILON && normalized < 1 - SEEK_ENDPOINT_EPSILON;
       container.style.setProperty("--turn-progress", normalized.toFixed(5));
+      if (mode === "cover") {
+        container.style.setProperty("--cover-offset", `${(-25 * (1 - normalized)).toFixed(4)}%`);
+      }
       container.dataset.seeking = betweenEndpoints ? "true" : "false";
 
       if (window.matchMedia("(max-width: 760px), (prefers-reduced-motion: reduce)").matches) {
@@ -339,19 +437,21 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
         const syncedRect = syncEngineSize(instance);
         if (!syncedRect) return;
         rect = syncedRect;
-        const sourceLeft = makeSnapshotPage(source, "left");
-        const sourceRight = makeSnapshotPage(source, "right");
-        const targetLeft = makeSnapshotPage(target, "left");
-        const targetRight = makeSnapshotPage(target, "right");
-        const pages = nextDirection === "forward"
-          ? [sourceLeft, sourceRight, targetLeft, targetRight]
-          : [targetLeft, targetRight, sourceLeft, sourceRight];
+        const pages = mode === "cover"
+          ? [makeTransparentPage(), makeCoverInsidePage(), makeCoverSnapshotPage(source), makeTransparentPage()]
+          : (() => {
+              const targetLeft = makeSnapshotPage(target, "left");
+              const targetRight = makeSnapshotPage(target, "right");
+              return nextDirection === "forward"
+                ? [makeSnapshotPage(source, "left"), makeSnapshotPage(source, "right"), targetLeft, targetRight]
+                : [targetLeft, targetRight, makeSnapshotPage(source, "left"), makeSnapshotPage(source, "right")];
+            })();
 
         instance.updateFromHtml(pages);
         const runtime = instance as unknown as PageFlipRuntime;
         runtime.update();
         restoreSnapshotScrollState(pages);
-        instance.turnToPage(nextDirection === "forward" ? 0 : 2);
+        instance.turnToPage(mode === "cover" || nextDirection === "forward" ? 0 : 2);
         const start = nextDirection === "forward"
           ? { x: rect.left + rect.width - 2, y: rect.top + rect.height - 3 }
           : { x: rect.left + 2, y: rect.top + rect.height - 3 };
@@ -360,6 +460,9 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
         seekTouchActiveRef.current = started;
         seekSizeRef.current = sizeKey;
         container.style.setProperty("--turn-progress", normalized.toFixed(5));
+        if (mode === "cover") {
+          container.style.setProperty("--cover-offset", `${(-25 * (1 - normalized)).toFixed(4)}%`);
+        }
         container.dataset.seeking = "true";
       } else {
         setRendererActive(true);
@@ -384,12 +487,12 @@ export const CurvedPageTurn = forwardRef<CurvedPageTurnHandle, CurvedPageTurnPro
     clear() {
       resetSeek();
     },
-  }), []);
+  }), [mode]);
 
   return (
     <div
       ref={containerRef}
-      className={`${styles.turnLayer} ${active ? styles.active : ""} ${ready ? styles.ready : ""} ${direction === "backward" ? styles.backward : ""}`}
+      className={`${styles.turnLayer} ${mode === "cover" ? styles.coverMode : ""} ${active ? styles.active : ""} ${ready ? styles.ready : ""} ${direction === "backward" ? styles.backward : ""}`}
       data-flip-direction={direction}
       aria-hidden="true"
     >

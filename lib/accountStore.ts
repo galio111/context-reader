@@ -18,6 +18,9 @@ interface ProfileRow {
   avatar_url: string;
   english_level: string;
   learning_goal: string;
+  reading_interests: unknown;
+  birth_year: number | null;
+  gender: string | null;
   status: AccountProfile["status"];
 }
 
@@ -50,6 +53,27 @@ interface SyncObjectRow {
   kind: AccountSyncObject["kind"];
   object_key: string;
   payload: unknown;
+  client_updated_at: string;
+  server_version: number;
+  deleted_at: string | null;
+  updated_at?: string;
+}
+
+export interface SyncChangeCursor {
+  updatedAt: string;
+  kind: AccountSyncObject["kind"];
+  objectKey: string;
+}
+
+export interface SyncChangePage {
+  objects: AccountSyncObject[];
+  cursors: SyncChangeCursor[];
+}
+
+interface SyncBootstrapRow {
+  kind: AccountSyncObject["kind"];
+  object_key: string;
+  payload?: unknown;
   client_updated_at: string;
   server_version: number;
   deleted_at: string | null;
@@ -167,6 +191,11 @@ function profileFromRow(row: ProfileRow, user: User): AccountProfile {
     avatarUrl: row.avatar_url,
     englishLevel: row.english_level,
     learningGoal: row.learning_goal,
+    readingInterests: Array.isArray(row.reading_interests)
+      ? row.reading_interests.filter((item): item is string => typeof item === "string")
+      : [],
+    birthYear: Number.isInteger(row.birth_year) ? row.birth_year : null,
+    gender: row.gender === "male" || row.gender === "female" ? row.gender : null,
     status: row.status,
   };
 }
@@ -198,7 +227,7 @@ export async function getAccountSessionState(user: User): Promise<AccountSession
   await ensureAccountRows(user);
   const [profiles, planId] = await Promise.all([
     accountFetch<ProfileRow[]>(
-      `account_profiles?user_id=eq.${encodeURIComponent(user.id)}&select=user_id,nickname,avatar_url,english_level,learning_goal,status&limit=1`,
+      `account_profiles?user_id=eq.${encodeURIComponent(user.id)}&select=user_id,nickname,avatar_url,english_level,learning_goal,reading_interests,birth_year,gender,status&limit=1`,
     ),
     getUserPlanId(user.id),
   ]);
@@ -330,6 +359,96 @@ export async function listSyncObjects(
     kind: row.kind,
     objectKey: row.object_key,
     payload: row.payload,
+    clientUpdatedAt: row.client_updated_at,
+    serverVersion: Number(row.server_version),
+    ...(row.deleted_at ? { deletedAt: row.deleted_at } : {}),
+  }));
+}
+
+function postgrestQuoted(value: string): string {
+  return `"${value.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
+}
+
+export async function listSyncChanges(
+  userId: string,
+  cursor: SyncChangeCursor | null,
+  requestedLimit: number,
+): Promise<SyncChangePage> {
+  const limit = Math.max(1, Math.min(1_000, Math.floor(requestedLimit)));
+  const params = new URLSearchParams({
+    user_id: `eq.${userId}`,
+    select: "kind,object_key,payload,client_updated_at,server_version,deleted_at,updated_at",
+    order: "updated_at.asc,kind.asc,object_key.asc",
+    limit: String(limit),
+  });
+  if (cursor) {
+    const updatedAt = postgrestQuoted(cursor.updatedAt);
+    const kind = postgrestQuoted(cursor.kind);
+    const objectKey = postgrestQuoted(cursor.objectKey);
+    params.set(
+      "or",
+      `(updated_at.gt.${updatedAt},and(updated_at.eq.${updatedAt},kind.gt.${kind}),and(updated_at.eq.${updatedAt},kind.eq.${kind},object_key.gt.${objectKey}))`,
+    );
+  }
+  const rows = await accountFetch<Array<SyncObjectRow & { updated_at: string }>>(
+    `user_data_objects?${params.toString()}`,
+  );
+  return {
+    objects: rows.map((row) => ({
+      kind: row.kind,
+      objectKey: row.object_key,
+      payload: row.payload,
+      clientUpdatedAt: row.client_updated_at,
+      serverVersion: Number(row.server_version),
+      ...(row.deleted_at ? { deletedAt: row.deleted_at } : {}),
+    })),
+    cursors: rows.map((row) => ({
+      updatedAt: row.updated_at,
+      kind: row.kind,
+      objectKey: row.object_key,
+    })),
+  };
+}
+
+export async function getLatestSyncCursor(userId: string): Promise<SyncChangeCursor | null> {
+  const params = new URLSearchParams({
+    user_id: `eq.${userId}`,
+    select: "kind,object_key,updated_at",
+    order: "updated_at.desc,kind.desc,object_key.desc",
+    limit: "1",
+  });
+  const rows = await accountFetch<Array<{ kind: AccountSyncObject["kind"]; object_key: string; updated_at: string }>>(
+    `user_data_objects?${params.toString()}`,
+  );
+  const row = rows[0];
+  return row ? { updatedAt: row.updated_at, kind: row.kind, objectKey: row.object_key } : null;
+}
+
+export async function listSyncBootstrapObjects(
+  userId: string,
+  snapshot: SyncChangeCursor,
+  deleted: boolean,
+  requestedOffset: number,
+  requestedLimit: number,
+): Promise<AccountSyncObject[]> {
+  const offset = Math.max(0, Math.min(100_000, Math.floor(requestedOffset)));
+  const limit = Math.max(1, Math.min(1_000, Math.floor(requestedLimit)));
+  const params = new URLSearchParams({
+    user_id: `eq.${userId}`,
+    deleted_at: deleted ? "not.is.null" : "is.null",
+    updated_at: `lte.${snapshot.updatedAt}`,
+    select: deleted
+      ? "kind,object_key,client_updated_at,server_version,deleted_at"
+      : "kind,object_key,payload,client_updated_at,server_version,deleted_at",
+    order: "kind.asc,object_key.asc",
+    limit: String(limit),
+    offset: String(offset),
+  });
+  const rows = await accountFetch<SyncBootstrapRow[]>(`user_data_objects?${params.toString()}`);
+  return rows.map((row) => ({
+    kind: row.kind,
+    objectKey: row.object_key,
+    payload: deleted ? {} : row.payload,
     clientUpdatedAt: row.client_updated_at,
     serverVersion: Number(row.server_version),
     ...(row.deleted_at ? { deletedAt: row.deleted_at } : {}),

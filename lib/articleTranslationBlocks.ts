@@ -7,7 +7,7 @@ function tokensToText(tokens?: ReaderToken[]): string {
 }
 
 function isTranslationBlockType(type: string): type is ArticleTranslationBlock["type"] {
-  return type === "heading" || type === "subheading" || type === "paragraph" || type === "quote" || type === "list-item";
+  return type === "heading" || type === "subheading" || type === "paragraph" || type === "quote" || type === "list-item" || type === "caption" || type === "table";
 }
 
 export function createArticleTranslationBlocks(article: string, importedArticle?: ImportedArticle | null): ArticleTranslationBlock[] {

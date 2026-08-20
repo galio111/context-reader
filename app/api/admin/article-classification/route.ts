@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
   }
 
-  let body: { title?: unknown; text?: unknown } | null;
+  let body: { title?: unknown; text?: unknown; sourceUrl?: unknown; sourceName?: unknown } | null;
   try {
     body = await readJsonBody(request, 600 * 1024);
   } catch (error) {
@@ -24,6 +24,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "请提供标题和至少 80 个字符的英文正文。" }, { status: 400 });
   }
 
-  const classification = await classifyArticle(title, text);
+  const sourceUrl = typeof body?.sourceUrl === "string" ? body.sourceUrl.trim().slice(0, 2048) : "";
+  const sourceName = typeof body?.sourceName === "string" ? body.sourceName.trim().slice(0, 200) : "";
+  const classification = await classifyArticle(title, text, { sourceUrl, sourceName });
   return NextResponse.json({ classification });
 }

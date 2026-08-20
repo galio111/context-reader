@@ -1,1 +1,6 @@
 backups/
+.next-corrupt-*/
+.next-dev/
+artifacts/
+.dev-qa-*.log
+.qa-server-*.log

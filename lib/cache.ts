@@ -1,6 +1,7 @@
 import { normalizeAnkiInfo } from "@/lib/ankiData";
 import type { ArticleTranslationBlock, ArticleTranslationItem, WordExplanation } from "@/types/reader";
 import { notifyAccountDataChanged } from "@/lib/accountEvents";
+import { currentFormPhonetic } from "@/lib/pronunciation";
 
 const EXPLANATION_CACHE_KEY = "context-reader:explanations:v5";
 const ARTICLE_TRANSLATION_CACHE_KEY = "context-reader:article-translations:v1";
@@ -48,14 +49,23 @@ export function getCachedExplanation(key: string): WordExplanation | null {
   const selectedWord = key.split("::", 1)[0].trim();
   const isPhrase = selectedWord.split(/\s+/).filter(Boolean).length > 1;
   const cachedLemmaWords = String(cached.lemma ?? "").match(/[a-z]+(?:['’-][a-z]+)*/gi) ?? [];
+  const lemma = isPhrase
+    ? ""
+    : cachedLemmaWords.length === 1
+      ? cachedLemmaWords[0].toLowerCase()
+      : selectedWord.toLowerCase();
+  const phonetic = currentFormPhonetic({
+    word: selectedWord || cached.word,
+    lemma,
+    phonetic: cached.phonetic ?? "",
+    phoneticFor: cached.phoneticFor,
+  });
   return {
     ...cached,
     word: selectedWord || cached.word,
-    lemma: isPhrase
-      ? ""
-      : cachedLemmaWords.length === 1
-        ? cachedLemmaWords[0].toLowerCase()
-        : selectedWord.toLowerCase(),
+    lemma,
+    phonetic,
+    phoneticFor: phonetic ? selectedWord || cached.word : "",
     collocation: cached.collocation || "无固定搭配",
     anki: normalizeAnkiInfo(cached, ""),
   };
@@ -72,6 +82,7 @@ export function getExplanationCacheEntries(): Array<{ cacheKey: string; explanat
     cacheKey,
     explanation: {
       ...explanation,
+      phoneticFor: explanation.phoneticFor ?? "",
       anki: normalizeAnkiInfo(explanation, ""),
     },
   }));

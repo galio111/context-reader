@@ -2,7 +2,15 @@ import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
 import { reserveUsage } from "@/lib/accountStore";
 import { resolveUsageIdentity, type UsageIdentity } from "@/lib/usageIdentity";
-import type { UsageMetricKey, UsageReservation } from "@/types/account";
+import type { GuestUsageMetricKey, UsageMetricKey, UsageReservation } from "@/types/account";
+
+const GUEST_FALLBACK_ALLOWANCE: Record<GuestUsageMetricKey | "guest_lookup", number> = {
+  guest_lookup: 10,
+  guest_article_lookup: 10,
+  guest_dictionary_lookup: 5,
+  guest_text_import: 2,
+  guest_url_import: 2,
+};
 
 export interface UsageGateResult {
   actionId: string;
@@ -36,8 +44,10 @@ export function deepReadingUnits(characterCount: number, minimum = 1): number {
 export async function gateUsage(request: Request, options: {
   feature: string;
   metricKey: UsageMetricKey;
+  guestMetricKey?: GuestUsageMetricKey;
   units?: number;
   loginRequired?: boolean;
+  guestOnly?: boolean;
 }): Promise<UsageGateResult> {
   let identity: UsageIdentity;
   try {
@@ -57,18 +67,20 @@ export async function gateUsage(request: Request, options: {
       authenticated: false,
       suspended: false,
     };
+    const fallbackMetric = options.guestMetricKey ?? "guest_lookup";
+    const fallbackAllowance = GUEST_FALLBACK_ALLOWANCE[fallbackMetric];
     return {
       actionId,
       identity: fallbackIdentity,
       reservation: {
         allowed: true,
         used: 0,
-        allowance: 10,
-        remaining: 10,
+        allowance: fallbackAllowance,
+        remaining: fallbackAllowance,
         windowEnd: "",
         duplicate: false,
         actionId,
-        metricKey: "guest_lookup",
+        metricKey: fallbackMetric,
       },
     };
   }
@@ -81,6 +93,38 @@ export async function gateUsage(request: Request, options: {
   }
 
   const actionId = actionIdFromRequest(request);
+  if (options.guestOnly && identity.authenticated) {
+    return {
+      actionId,
+      identity,
+      reservation: {
+        allowed: true,
+        used: 0,
+        allowance: 0,
+        remaining: 0,
+        windowEnd: "",
+        duplicate: false,
+        actionId,
+        metricKey: options.metricKey,
+      },
+    };
+  }
+  if (identity.localOnly) {
+    return {
+      actionId,
+      identity,
+      reservation: {
+        allowed: true,
+        used: 0,
+        allowance: 0,
+        remaining: 0,
+        windowEnd: "",
+        duplicate: false,
+        actionId,
+        metricKey: options.metricKey,
+      },
+    };
+  }
   const reservation = await reserveUsage({
     actionId,
     ownerKey: identity.ownerKey,
@@ -88,13 +132,13 @@ export async function gateUsage(request: Request, options: {
     guestId: identity.guestId,
     planId: identity.planId,
     feature: options.feature,
-    metricKey: identity.authenticated ? options.metricKey : "guest_lookup",
+    metricKey: identity.authenticated ? options.metricKey : options.guestMetricKey ?? "guest_lookup",
     units: Math.max(1, Math.floor(options.units ?? 1)),
   });
 
   if (!reservation.allowed) {
     throw new UsageGateError(
-      identity.authenticated ? "本周期额度已用完，可在用量页查看详情。" : "今天的 10 次游客试用已用完，登录后可继续查词。",
+      identity.authenticated ? "本周期额度已用完，可在用量页查看详情。" : "今天这项游客试用次数已用完，登录后可继续使用。",
       429,
       "quota_exhausted",
     );

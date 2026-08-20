@@ -90,6 +90,10 @@ function isBlockedAddress(address: string): boolean {
   return true;
 }
 
+function keepSafeAddresses<T extends { address: string }>(addresses: T[]): T[] {
+  return addresses.filter(({ address }) => !isBlockedAddress(address));
+}
+
 export async function assertSafeRemoteUrl(input: URL | string): Promise<URL> {
   const url = input instanceof URL ? new URL(input.toString()) : new URL(input);
   if (url.protocol !== "http:" && url.protocol !== "https:") {
@@ -127,7 +131,7 @@ export async function assertSafeRemoteUrl(input: URL | string): Promise<URL> {
   } catch {
     throw new UnsafeRemoteUrlError("目标域名无法解析。");
   }
-  if (!addresses.length || addresses.some(({ address }) => isBlockedAddress(address))) {
+  if (!keepSafeAddresses(addresses).length) {
     throw new UnsafeRemoteUrlError();
   }
   return url;
@@ -138,8 +142,8 @@ async function resolveSafeAddresses(url: URL): Promise<Array<{ address: string; 
   if (isIP(hostname)) {
     return [{ address: hostname, family: isIP(hostname) }];
   }
-  const addresses = await lookup(hostname, { all: true, verbatim: true });
-  if (!addresses.length || addresses.some(({ address }) => isBlockedAddress(address))) {
+  const addresses = keepSafeAddresses(await lookup(hostname, { all: true, verbatim: true }));
+  if (!addresses.length) {
     throw new UnsafeRemoteUrlError();
   }
   return addresses.sort((left, right) => left.family - right.family);

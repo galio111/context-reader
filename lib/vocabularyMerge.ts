@@ -5,6 +5,7 @@ const TEXT_FIELDS = [
   "word",
   "lemma",
   "phonetic",
+  "phoneticFor",
   "partOfSpeech",
   "basicMeaning",
   "contextMeaning",

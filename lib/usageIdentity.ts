@@ -2,6 +2,7 @@ import { createHash, createHmac, randomUUID, timingSafeEqual } from "crypto";
 import { ipAddress } from "@vercel/functions/headers";
 import { cookies } from "next/headers";
 import { accountFetch, getUserPlanId } from "@/lib/accountStore";
+import { isLocalOnlyDeveloperUser } from "@/lib/localDeveloper";
 import { getAuthenticatedUser, isAccountSystemConfigured } from "@/lib/userAuth";
 import type { AccountPlanId } from "@/types/account";
 
@@ -15,6 +16,7 @@ export interface UsageIdentity {
   guestId?: string;
   authenticated: boolean;
   suspended: boolean;
+  localOnly?: boolean;
 }
 
 function cookieSecret(): string {
@@ -91,6 +93,16 @@ export async function resolveUsageIdentity(request: Request): Promise<UsageIdent
 
   const user = await getAuthenticatedUser();
   if (user) {
+    if (isLocalOnlyDeveloperUser(user)) {
+      return {
+        ownerKey: `local:${user.id}`,
+        userId: user.id,
+        planId: "free",
+        authenticated: true,
+        suspended: false,
+        localOnly: true,
+      };
+    }
     const [planId, profiles] = await Promise.all([
       getUserPlanId(user.id),
       accountFetch<Array<{ status: "active" | "suspended" | "deleted" }>>(

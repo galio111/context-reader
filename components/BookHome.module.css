@@ -15,6 +15,33 @@
   font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
+.root button:not(:disabled):active {
+  filter: brightness(.9);
+}
+
+.root button:disabled {
+  cursor: not-allowed;
+}
+
+.icpLink {
+  position: fixed;
+  bottom: max(8px, env(safe-area-inset-bottom));
+  left: 50%;
+  z-index: 24;
+  color: rgb(42 57 70 / 58%);
+  font-size: 11px;
+  line-height: 1.35;
+  text-decoration: none;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.icpLink:hover,
+.icpLink:focus-visible {
+  color: rgb(28 48 64 / 88%);
+  text-decoration: underline;
+}
+
 .root::after {
   content: "";
   position: fixed;
@@ -563,6 +590,7 @@
   gap: 9px;
 }
 
+.urlInputField { min-width: 0; flex: 1; }
 .urlForm input { min-height: 48px; padding: 0 13px; }
 .urlForm button { flex: 0 0 auto; padding: 0 18px; }
 
@@ -1043,11 +1071,11 @@
 
   position: relative;
   z-index: 5;
-  height: 360svh;
+  height: 480svh;
 }
 
 .story.coverOpen,
-.story.coverClosing { height: 360svh; }
+.story.coverClosing { height: 480svh; }
 
 .stickyStage {
   position: fixed;
@@ -1101,6 +1129,7 @@
 .book::after { top: -7px; }
 
 .forewordSpread,
+.experienceSpread,
 .workbenchSpread,
 .preferenceSpread,
 .recommendationSpread {
@@ -1117,6 +1146,7 @@
 .coverOpen .book { transform: none; }
 
 .coverOpen .forewordSpread,
+.coverOpen .experienceSpread,
 .coverOpen .workbenchSpread,
 .coverOpen .preferenceSpread,
 .coverOpen .recommendationSpread {
@@ -1351,6 +1381,163 @@
   to { opacity: 1; transform: translateY(0) rotate(-3deg); filter: none; }
 }
 
+.chapterReveal {
+  width: 100%;
+  min-height: 0;
+}
+
+.experienceSpread .chapterReveal,
+.workbenchSpread .chapterReveal {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.experienceSpread .chapterRevealHidden,
+.workbenchSpread .chapterRevealHidden {
+  pointer-events: none;
+}
+
+.experienceSpread .chapterRevealHidden [data-page-reveal-part],
+.workbenchSpread .chapterRevealHidden [data-page-reveal-part] {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  filter: blur(8px);
+  transform: translateX(-18px);
+}
+
+.experienceSpread .chapterRevealActive [data-page-reveal-part],
+.workbenchSpread .chapterRevealActive [data-page-reveal-part] {
+  animation: chapterInkReveal 820ms cubic-bezier(.16, 1, .3, 1) both;
+  animation-delay: calc(var(--reveal-order, 0) * 115ms);
+}
+
+.experienceSpread .chapterRevealPrinted [data-page-reveal-part],
+.workbenchSpread .chapterRevealPrinted [data-page-reveal-part] {
+  opacity: 1;
+  clip-path: none;
+  filter: none;
+  transform: none;
+}
+
+@keyframes chapterInkReveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    filter: blur(8px);
+    transform: translateX(-18px);
+  }
+  38% { opacity: 1; }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    filter: none;
+    transform: none;
+  }
+}
+
+.experienceArticlePage,
+.contextExplanationPage,
+.articleEntryPage,
+.dictionaryPage {
+  overflow: hidden;
+}
+
+.experienceArticlePage .demoHeader h1 {
+  max-width: 13ch;
+  font-size: clamp(38px, 3.4vw, 55px);
+}
+
+.experienceArticlePage .demoArticle {
+  margin-top: clamp(28px, 4.5vh, 48px);
+}
+
+.experienceArticlePage .demoArticle p {
+  font-size: clamp(17px, 1.45vw, 22px);
+  line-height: 1.78;
+}
+
+.experienceArticlePage .demoInstruction {
+  margin-top: auto;
+  padding-top: clamp(22px, 3.5vh, 36px);
+}
+
+.contextPageHeader {
+  max-width: 42em;
+  padding-bottom: clamp(18px, 2.6vh, 28px);
+}
+
+.contextPageHeader h2 {
+  max-width: 13ch;
+  margin: 12px 0 10px;
+  color: #152a38;
+  font: 500 clamp(34px, 3.1vw, 50px)/1.08 Georgia, "Songti SC", serif;
+  letter-spacing: -.03em;
+  text-wrap: balance;
+}
+
+.contextPageHeader > p:last-child,
+.dictionaryHeader > p:last-child {
+  max-width: 44em;
+  margin: 0;
+  color: #586d7b;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.experienceExplanationShell {
+  height: auto;
+  min-height: 0;
+  margin-top: 0;
+  flex: 1;
+}
+
+.experienceExplanationShell > aside {
+  height: 100%;
+  min-height: 0;
+}
+
+.articleEntryPage .workbenchHeader h2,
+.dictionaryPage .workbenchHeader h2 {
+  margin-top: 12px;
+  font-size: clamp(34px, 3vw, 49px);
+}
+
+.articleEntryPage .continueReading {
+  margin-top: clamp(18px, 2.8vh, 28px);
+}
+
+.articleInputModes {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.entryModeArea {
+  min-height: 0;
+  margin-top: 16px;
+  flex: 1;
+}
+
+.articleEntryPage .articleForm textarea {
+  height: clamp(158px, 24vh, 226px);
+}
+
+.dictionaryHeader {
+  flex: 0 0 auto;
+}
+
+.dictionaryStage {
+  min-height: 0;
+  margin-top: 8px;
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.dictionaryPage .workbenchFoot {
+  flex: 0 0 auto;
+}
+
 .spine {
   z-index: 24;
   width: 54px;
@@ -1361,7 +1548,7 @@
   transition: opacity .7s ease .72s, transform .9s var(--ease);
 }
 
-.inputModes { grid-template-columns: repeat(3, 1fr); }
+.inputModes { grid-template-columns: repeat(2, 1fr); }
 
 .coverClosed .book { background: transparent; box-shadow: none; transform: none; }
 .coverClosed .book::before,
@@ -1369,6 +1556,10 @@
 .coverClosed .spreadLayer { opacity: 0; visibility: hidden; }
 .coverClosed .spine { opacity: 0; transform: translateX(-50%) translateZ(25px) scaleX(.35); }
 .coverClosing .spreadLayer { opacity: .12; pointer-events: none; }
+.story[data-cover-turning="true"] .forewordBlank {
+  opacity: 0 !important;
+  visibility: hidden;
+}
 .coverOpening .book::before,
 .coverOpening .book::after { transition: opacity .8s ease .42s; }
 .coverOpening .spreadActive { animation: spreadAwake 1.72s var(--ease) both; }
@@ -1587,6 +1778,32 @@
   pointer-events: none;
 }
 
+.coverBallpit::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    radial-gradient(circle at 18% 18%, rgb(255 255 255 / 92%) 0 4.2%, rgb(197 221 234 / 58%) 4.8%, transparent 5.7%),
+    radial-gradient(circle at 44% 12%, rgb(151 230 215 / 72%) 0 5.1%, rgb(54 170 181 / 34%) 5.8%, transparent 6.7%),
+    radial-gradient(circle at 76% 20%, rgb(173 163 245 / 72%) 0 5.6%, rgb(77 62 202 / 35%) 6.3%, transparent 7.2%),
+    radial-gradient(circle at 30% 34%, rgb(240 206 172 / 78%) 0 5%, rgb(204 143 93 / 34%) 5.7%, transparent 6.6%),
+    radial-gradient(circle at 62% 36%, rgb(144 221 232 / 76%) 0 6.4%, rgb(40 146 182 / 33%) 7.1%, transparent 8%),
+    radial-gradient(circle at 88% 40%, rgb(168 194 244 / 78%) 0 5.1%, rgb(47 91 197 / 34%) 5.8%, transparent 6.7%),
+    radial-gradient(circle at 14% 52%, rgb(151 225 200 / 75%) 0 6.2%, rgb(39 154 135 / 32%) 6.9%, transparent 7.8%),
+    radial-gradient(circle at 48% 55%, rgb(199 197 213 / 82%) 0 4.8%, rgb(105 108 121 / 32%) 5.5%, transparent 6.4%),
+    radial-gradient(circle at 78% 58%, rgb(237 169 155 / 78%) 0 6%, rgb(197 82 82 / 32%) 6.7%, transparent 7.7%),
+    radial-gradient(circle at 28% 70%, rgb(137 210 229 / 82%) 0 6.6%, rgb(28 133 175 / 34%) 7.3%, transparent 8.3%),
+    radial-gradient(circle at 60% 72%, rgb(137 223 208 / 82%) 0 5.4%, rgb(26 158 151 / 34%) 6.1%, transparent 7%),
+    radial-gradient(circle at 86% 78%, rgb(155 146 236 / 80%) 0 6.6%, rgb(69 56 196 / 34%) 7.3%, transparent 8.3%),
+    radial-gradient(circle at 42% 86%, rgb(225 212 158 / 78%) 0 5.8%, rgb(167 132 63 / 32%) 6.5%, transparent 7.4%),
+    radial-gradient(circle at 68% 91%, rgb(143 214 224 / 76%) 0 5.2%, rgb(36 144 173 / 32%) 5.9%, transparent 6.8%);
+  opacity: .86;
+}
+
+.coverBallpit:has(canvas:not([style*="display: none"]))::before {
+  opacity: 0;
+}
+
 .coverBallpit::after {
   position: absolute;
   inset: 0;
@@ -1744,6 +1961,12 @@
   animation-iteration-count: 1;
   animation-fill-mode: both;
   animation-play-state: paused;
+}
+
+/* The curved snapshot is the only visible cover while the sheet moves. */
+.story[data-cover-turning="true"] .frontBoard {
+  opacity: 0 !important;
+  visibility: hidden;
 }
 
 .story .bookShell { animation-name: scrollCoverCamera; }
@@ -1909,7 +2132,7 @@
 .stageGuidance {
   position: absolute;
   right: 0;
-  bottom: 13px;
+  bottom: 34px;
   left: 0;
   z-index: 55;
   display: flex;
@@ -2146,55 +2369,116 @@
 }
 
 @media (max-width: 760px) {
+  .icpLink {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    text-align: center;
+    transform: none;
+  }
+
   .story,
   .story.coverOpen,
-  .story.coverClosing { height: 350svh; }
+  .story.coverClosing {
+    height: auto;
+    min-height: 100svh;
+  }
 
-  .stickyStage { padding: 72px 10px 48px; }
+  .stickyStage {
+    position: relative;
+    inset: auto;
+    display: block;
+    height: auto;
+    padding: 72px 10px 32px;
+  }
 
   .bookShell {
     position: relative;
     top: auto;
     left: auto;
     width: 100%;
-    height: calc(100svh - 130px);
-    min-height: 630px;
-    perspective: 1800px;
+    height: auto;
+    min-height: 0;
+    perspective: none;
     transform: none;
   }
 
   .book,
   .coverOpen .book {
-    display: block;
-    height: 100%;
-    border-radius: 8px 11px 11px 8px;
-    box-shadow: 0 10px 18px rgb(42 59 73 / 15%);
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 0;
+    box-shadow: none;
     transform: none;
   }
 
+  .book::before,
+  .book::after {
+    display: none;
+  }
+
+  .coverAssembly {
+    position: relative;
+    inset: auto;
+    order: -2;
+    width: min(86vw, 430px);
+    height: min(72svh, 620px);
+    min-height: 520px;
+    margin: 0 auto;
+    flex: 0 0 auto;
+  }
+
   .forewordSpread,
+  .experienceSpread,
   .workbenchSpread,
   .preferenceSpread,
-  .recommendationSpread { display: block; }
+  .recommendationSpread {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    min-height: calc(100svh - 92px);
+    overflow: visible;
+    border-radius: 10px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
 
   .forewordBlank { display: none; }
-  .forewordPage { height: 100%; padding: 42px 28px 46px; border-radius: inherit; }
+  .forewordPage { min-height: calc(100svh - 92px); padding: 42px 28px 46px; border-radius: inherit; }
   .forewordPage h1 { font-size: clamp(39px, 11vw, 48px); }
   .forewordCopy { font-size: 13px; line-height: 1.8; }
 
-  .workbenchSpread[data-mobile-page="demo"] .rightPage,
-  .workbenchSpread[data-mobile-page="desk"] .leftPage { display: none; }
+  .experienceSpread .chapterRevealHidden [data-page-reveal-part],
+  .workbenchSpread .chapterRevealHidden [data-page-reveal-part],
+  .experienceSpread .chapterRevealActive [data-page-reveal-part],
+  .workbenchSpread .chapterRevealActive [data-page-reveal-part] {
+    opacity: 1;
+    animation: none;
+    clip-path: none;
+    filter: none;
+    transform: none;
+  }
+
+  .experienceSpread .chapterRevealHidden,
+  .workbenchSpread .chapterRevealHidden { pointer-events: auto; }
 
   .page {
-    height: 100%;
-    min-height: 0;
-    overflow-y: auto;
+    height: auto;
+    min-height: calc(100svh - 92px);
+    overflow: visible;
     padding: 26px 20px 32px;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
-  .page { scrollbar-width: none; }
-  .page::-webkit-scrollbar { display: none; }
   .leftPage,
   .rightPage { border-radius: inherit; box-shadow: inset 10px 0 24px rgb(61 80 95 / 7%); }
   .spine { display: none; }
@@ -2204,8 +2488,8 @@
 
   .closedBook {
     top: 0;
-    left: 7%;
-    width: 86%;
+    left: 0;
+    width: 100%;
     height: 100%;
     transform: none;
   }
@@ -2217,7 +2501,7 @@
   .bookForeEdge { right: -10px; }
 
   .coverOpening .closedBook,
-  .coverOpen .closedBook { left: 7%; width: 86%; }
+  .coverOpen .closedBook { left: 0; width: 100%; }
   .frontBoard { transform-origin: top center; }
   .coverOpening .frontBoard,
   .coverOpen .frontBoard { right: -2px; left: -2px; width: auto; transform: translateZ(12px) rotateX(102deg); }
@@ -2239,7 +2523,7 @@
   }
   .coverTitle strong { font-size: clamp(43px, 13vw, 57px); }
   .coverFooter { flex-direction: column; gap: 5px; }
-  .stageGuidance { bottom: 9px; padding: 0 18px; text-align: center; }
+  .stageGuidance { bottom: 34px; padding: 0 18px; text-align: center; }
   .stageGuidance span { display: none; }
 
   .story .bookShell,
@@ -2252,13 +2536,12 @@
   }
 
   .mobileDesktopHint {
-    position: fixed;
-    z-index: 34;
-    top: calc(68px + env(safe-area-inset-top));
-    right: 12px;
-    left: 12px;
+    position: relative;
+    z-index: 2;
+    order: -1;
     display: flex;
     min-height: 58px;
+    margin: 0 4px 2px;
     padding: 11px 11px 11px 14px;
     align-items: center;
     justify-content: space-between;
@@ -2266,7 +2549,7 @@
     border-radius: 12px;
     background: rgb(245 249 251 / 97%);
     color: #2d4859;
-    box-shadow: 0 5px 8px rgb(33 55 69 / 14%);
+    border: 1px solid rgb(77 116 140 / 16%);
   }
 
   .mobileDesktopHint p {
@@ -2293,6 +2576,10 @@
     font-size: 12px;
     font-weight: 700;
     touch-action: manipulation;
+  }
+
+  .stageGuidance {
+    display: none;
   }
 
   @keyframes scrollMobileCamera {
@@ -2385,6 +2672,7 @@
   .closedBook,
   .frontBoard,
   .forewordSpread,
+  .experienceSpread,
   .workbenchSpread,
   .preferenceSpread,
   .recommendationSpread { transition-duration: .12s !important; animation-duration: .12s !important; }
@@ -2408,4 +2696,12 @@
   .forewordContentVisible .forewordCopy p > span,
   .forewordContentVisible .developerSignature > span { transform: none; }
   .forewordContentVisible .developerSignature strong { transform: rotate(-3deg); }
+  .experienceSpread .chapterRevealActive [data-page-reveal-part],
+  .workbenchSpread .chapterRevealActive [data-page-reveal-part] {
+    opacity: 1;
+    animation: none;
+    clip-path: none;
+    filter: none;
+    transform: none;
+  }
 }

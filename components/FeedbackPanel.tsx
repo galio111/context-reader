@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
+import ClearableField from "@/components/ClearableField";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
 import styles from "./FeedbackPanel.module.css";
 
-export function FeedbackPanel({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function FeedbackPanel({ open, onClose, embedded = false }: { open: boolean; onClose: () => void; embedded?: boolean }) {
   const [category, setCategory] = useState("产品建议");
   const [message, setMessage] = useState("");
   const [contact, setContact] = useState("");
@@ -67,9 +68,8 @@ export function FeedbackPanel({ open, onClose }: { open: boolean; onClose: () =>
     }
   }
 
-  return (
-    <div className={styles.overlay} onPointerDown={(event) => { if (event.target === event.currentTarget && !submitting) onClose(); }}>
-      <section className={styles.panel} role="dialog" aria-modal="true" aria-labelledby="feedback-title" data-pointer-quiet>
+  const panel = (
+      <section className={`${styles.panel} ${embedded ? styles.embeddedPanel : ""}`} role={embedded ? "region" : "dialog"} aria-modal={embedded ? undefined : "true"} aria-labelledby="feedback-title" data-pointer-quiet>
         <header>
           <div><span>Feedback</span><h2 id="feedback-title">告诉我哪里需要变好</h2></div>
           <button type="button" aria-label="关闭意见反馈" onClick={onClose} disabled={submitting}>×</button>
@@ -89,10 +89,14 @@ export function FeedbackPanel({ open, onClose }: { open: boolean; onClose: () =>
               </select>
             </label>
             <label>你的想法
-              <textarea value={message} onChange={(event) => { setMessage(event.target.value); if (status) setStatus(""); }} minLength={10} maxLength={3000} placeholder="请描述发生了什么，或你希望怎样改…" required />
+              <ClearableField value={message} onClear={() => { setMessage(""); setStatus(""); }} label="清空反馈内容" multiline>
+                <textarea value={message} onChange={(event) => { setMessage(event.target.value); if (status) setStatus(""); }} minLength={10} maxLength={3000} placeholder="请描述发生了什么，或你希望怎样改…" required />
+              </ClearableField>
             </label>
             <label>联系方式（可不填）
-              <input value={contact} onChange={(event) => setContact(event.target.value)} maxLength={160} placeholder="邮箱、微信或其他联系方式" />
+              <ClearableField value={contact} onClear={() => setContact("")} label="清空联系方式">
+                <input value={contact} onChange={(event) => setContact(event.target.value)} maxLength={160} placeholder="邮箱、微信或其他联系方式" />
+              </ClearableField>
             </label>
             <label className={styles.honeypot} aria-hidden="true">Website<input value={website} onChange={(event) => setWebsite(event.target.value)} tabIndex={-1} autoComplete="off" /></label>
             <div className={styles.footer}>
@@ -103,6 +107,15 @@ export function FeedbackPanel({ open, onClose }: { open: boolean; onClose: () =>
           </form>
         )}
       </section>
+  );
+
+  if (embedded) {
+    return <div className={styles.embeddedShell}>{panel}</div>;
+  }
+
+  return (
+    <div className={styles.overlay} onPointerDown={(event) => { if (event.target === event.currentTarget && !submitting) onClose(); }}>
+      {panel}
     </div>
   );
 }

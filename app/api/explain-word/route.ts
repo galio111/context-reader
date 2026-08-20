@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import {
+  DeepSeekEmptyContentError,
+  DeepSeekHttpError,
   DeepSeekParseError,
+  DeepSeekTimeoutError,
+  DeepSeekTransportError,
   MissingDeepSeekEnvError,
   explainWordWithDeepSeek,
   sanitizeExplanationRequest,
@@ -52,6 +56,7 @@ export async function POST(request: Request) {
     const usage = await gateUsage(request, {
       feature: "word_explanation",
       metricKey: "lookup_generation",
+      guestMetricKey: "guest_article_lookup",
       units: 1,
     });
     actionId = usage.actionId;
@@ -114,17 +119,41 @@ export async function POST(request: Request) {
     }
 
     if (error instanceof DeepSeekParseError) {
+      const code =
+        error instanceof DeepSeekHttpError
+          ? "provider_http_error"
+          : error instanceof DeepSeekTimeoutError
+            ? "provider_timeout"
+            : error instanceof DeepSeekTransportError
+              ? "provider_transport_error"
+              : error instanceof DeepSeekEmptyContentError
+                ? "provider_empty_content"
+                : "provider_parse_error";
+      const httpStatus = error instanceof DeepSeekTimeoutError ? 504 : 502;
+      const userMessage =
+        error instanceof DeepSeekTimeoutError
+          ? "解释服务响应超时，开发者已收到问题并正在处理。"
+          : error instanceof DeepSeekHttpError || error instanceof DeepSeekTransportError
+            ? "解释服务暂时不可用，开发者已收到问题并正在处理。"
+            : error instanceof DeepSeekEmptyContentError
+              ? "解释服务暂时没有返回内容，开发者已收到问题并正在处理。"
+              : "解释结果格式异常，开发者已收到问题并正在处理。";
       const report = await recordServerError(request, {
         category: "provider",
         operation: "context_word_explanation",
         endpoint: "/api/explain-word",
-        userMessage: "解释结果格式异常，开发者已收到问题并正在处理。",
-        code: "provider_parse_error",
-        httpStatus: 502,
+        userMessage,
+        technicalMessage:
+          error instanceof DeepSeekHttpError
+            ? `DeepSeek HTTP ${error.status}${error.providerCode ? ` (${error.providerCode})` : ""}: ${error.message}`
+            : error.message,
+        code,
+        httpStatus,
+        metadata: error instanceof DeepSeekHttpError ? { upstreamStatus: error.status } : undefined,
       }, error);
       return NextResponse.json(
-        { error: "解释结果格式异常，开发者已收到问题并正在处理。", ...reportReference(report) },
-        { status: 502 },
+        { error: userMessage, code, ...reportReference(report) },
+        { status: httpStatus },
       );
     }
 

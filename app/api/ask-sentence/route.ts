@@ -50,6 +50,7 @@ export async function POST(request: Request) {
     actionId = (await gateUsage(request, {
       feature: "sentence_question",
       metricKey: "lookup_generation",
+      guestMetricKey: "guest_article_lookup",
       units: 1,
       loginRequired: true,
     })).actionId;

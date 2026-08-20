@@ -34,6 +34,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  output: "standalone",
+  // Keep development assets isolated so `next build` cannot blank a running
+  // localhost session by replacing the dev server's CSS and chunk manifests.
+  distDir: isDevelopment ? ".next-dev" : ".next",
   poweredByHeader: false,
   experimental: {
     cpus: 1,

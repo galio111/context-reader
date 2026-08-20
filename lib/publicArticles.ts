@@ -4,6 +4,8 @@ import {
   sanitizeImportedArticleContent,
   trimTrailingWebsiteText,
 } from "@/lib/articleContentSanitizer";
+import { countArticleEnglishWords } from "@/lib/articleWordCount";
+import { localizePublicArticleInputCover } from "@/lib/publicArticleCovers";
 import type {
   ArticleRecommendationMetadata,
   PublicArticle,
@@ -12,6 +14,7 @@ import type {
   PublicArticleTranslation,
   PublicExplanation,
 } from "@/types/publicArticle";
+import { ARTICLE_DIFFICULTIES } from "@/types/publicArticle";
 
 interface SupabaseArticleRow {
   id: string;
@@ -43,6 +46,13 @@ interface SupabaseArticleTranslationRow {
   translations: PublicArticleTranslation["translations"];
 }
 
+interface SupabaseRequestInit extends RequestInit {
+  next?: {
+    revalidate?: number | false;
+    tags?: string[];
+  };
+}
+
 function supabaseConfig(): { url: string; key: string } {
   const url = process.env.SUPABASE_URL?.trim() || "";
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() || "";
@@ -52,8 +62,9 @@ function supabaseConfig(): { url: string; key: string } {
   return { url: url.replace(/\/$/, ""), key };
 }
 
-async function supabaseFetch<T>(path: string, init: RequestInit = {}): Promise<T> {
+async function supabaseFetch<T>(path: string, init: SupabaseRequestInit = {}): Promise<T> {
   const { url, key } = supabaseConfig();
+  const hasNextDataCache = Boolean(init.next);
   const response = await fetch(`${url}/rest/v1/${path}`, {
     ...init,
     headers: {
@@ -62,7 +73,7 @@ async function supabaseFetch<T>(path: string, init: RequestInit = {}): Promise<T
       "Content-Type": "application/json",
       ...(init.headers ?? {}),
     },
-    cache: "no-store",
+    ...(hasNextDataCache ? {} : { cache: "no-store" as const }),
   });
 
   if (!response.ok) {
@@ -82,8 +93,22 @@ async function supabaseFetch<T>(path: string, init: RequestInit = {}): Promise<T
   return JSON.parse(text) as T;
 }
 
-function recommendationFromRow(row: SupabaseArticleRow): ArticleRecommendationMetadata | undefined {
-  return row.recommendation ?? row.imported_article?.recommendation ?? undefined;
+function recommendationFromRow(row: SupabaseArticleRow, body: string): ArticleRecommendationMetadata | undefined {
+  const recommendation = row.recommendation ?? row.imported_article?.recommendation ?? undefined;
+  if (!recommendation) {
+    return undefined;
+  }
+  const wordCount = recommendation.wordCount || countArticleEnglishWords(body || row.imported_article?.text || "");
+  const difficultyIndex = ARTICLE_DIFFICULTIES.indexOf(recommendation.difficulty);
+  const automaticCefr = (["A2", "B1", "B2", "C1", "C1", "C2"] as const)[difficultyIndex];
+  const cefrWasManuallySet =
+    recommendation.classificationSource === "manual"
+    || recommendation.manualFields?.includes("cefr");
+  return {
+    ...recommendation,
+    wordCount,
+    ...(!cefrWasManuallySet && automaticCefr ? { cefr: automaticCefr } : {}),
+  };
 }
 
 function mapArticle(
@@ -91,13 +116,13 @@ function mapArticle(
   explanations: PublicExplanation[] = [],
   articleTranslations: PublicArticleTranslation[] = [],
 ): PublicArticle {
-  const recommendation = recommendationFromRow(row);
   const importedArticle = isRemoteImportedArticle(row.imported_article)
     ? sanitizeImportedArticleContent(row.imported_article)
     : row.imported_article;
   const body = importedArticle && row.body
     ? trimTrailingWebsiteText(row.body)
     : row.body ?? "";
+  const recommendation = recommendationFromRow(row, body);
   return {
     id: row.id,
     title: row.title,
@@ -148,6 +173,10 @@ function plainTextBlocks(title: string, body: string): ImportedArticleBlock[] {
 function importedArticleForInput(input: PublicArticleInput): ImportedArticle {
   const sourceUrl = input.sourceUrl?.trim() || input.importedArticle?.url || "";
   const sourceName = input.sourceName?.trim() || input.importedArticle?.siteName || "Context Reader";
+  const recommendation = input.recommendation ?? input.importedArticle?.recommendation;
+  const storedRecommendation = recommendation
+    ? { ...recommendation, wordCount: countArticleEnglishWords(input.body) }
+    : undefined;
   if (input.importedArticle) {
     return {
       ...input.importedArticle,
@@ -155,7 +184,7 @@ function importedArticleForInput(input: PublicArticleInput): ImportedArticle {
       url: sourceUrl,
       siteName: sourceName,
       text: input.body,
-      ...(input.recommendation ? { recommendation: input.recommendation } : {}),
+      ...(storedRecommendation ? { recommendation: storedRecommendation } : {}),
     };
   }
   return {
@@ -164,7 +193,7 @@ function importedArticleForInput(input: PublicArticleInput): ImportedArticle {
     siteName: sourceName,
     text: input.body,
     blocks: plainTextBlocks(input.title, input.body),
-    ...(input.recommendation ? { recommendation: input.recommendation } : {}),
+    ...(storedRecommendation ? { recommendation: storedRecommendation } : {}),
   };
 }
 
@@ -265,7 +294,21 @@ async function findDuplicateArticleRow(input: PublicArticleInput, published: boo
 
 export async function listPublicArticles(): Promise<PublicArticle[]> {
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
+    "public_articles?select=id,title,summary,body,source_url,source_name,recommendation:imported_article->recommendation,created_at,updated_at&published=eq.true&order=updated_at.desc",
+  );
+  return rows.map((row) => mapArticle(row));
+}
+
+/**
+ * Homepage-safe recommendation catalogue. Deliberately excludes article bodies,
+ * structured blocks and preload caches so a homepage render cannot amplify
+ * database egress. The full article is loaded only after explicit hover/focus
+ * intent or a click through getPublicArticle().
+ */
+export async function listPublicArticleSummaries(): Promise<PublicArticle[]> {
+  const rows = await supabaseFetch<SupabaseArticleRow[]>(
     "public_articles?select=id,title,summary,source_url,source_name,recommendation:imported_article->recommendation,created_at,updated_at&published=eq.true&order=updated_at.desc",
+    { next: { revalidate: 300, tags: ["public-article-summaries"] } },
   );
   return rows.map((row) => mapArticle(row));
 }
@@ -358,14 +401,16 @@ export async function publishArticleCandidate(id: string): Promise<PublicArticle
     importedArticle,
     recommendation: importedArticle?.recommendation,
   };
-  const duplicate = await findDuplicateArticleRow(candidateInput, true);
+  const storedCandidateInput = await localizePublicArticleInputCover(candidateInput);
+  const storedCandidateImportedArticle = importedArticleForInput(storedCandidateInput);
+  const duplicate = await findDuplicateArticleRow(storedCandidateInput, true);
   if (duplicate && duplicate.id !== candidate.id) {
     const [explanations, articleTranslations] = await Promise.all([
       listPublicExplanations(candidate.id),
       listPublicArticleTranslations(candidate.id),
     ]);
     const updated = await updatePublicArticle(duplicate.id, {
-      ...candidateInput,
+      ...storedCandidateInput,
       explanations,
       articleTranslations,
     });
@@ -379,7 +424,7 @@ export async function publishArticleCandidate(id: string): Promise<PublicArticle
     body: JSON.stringify({
       published: true,
       body: candidateBody,
-      ...(importedArticle ? { imported_article: importedArticle } : {}),
+      imported_article: storedCandidateImportedArticle,
     }),
   });
   const article = await getPublicArticle(id);
@@ -400,26 +445,28 @@ export async function updatePublicArticle(id: string, input: PublicArticleInput)
   if (!(input.recommendation?.coverImageUrl || input.importedArticle?.recommendation?.coverImageUrl || "").trim()) {
     throw new Error("推荐封面缺失，补充封面后才能更新公开文章。");
   }
+  const storedInput = await localizePublicArticleInputCover(input);
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
     `public_articles?id=eq.${encodeURIComponent(id)}&published=eq.true`,
     {
       method: "PATCH",
       headers: { Prefer: "return=representation" },
-      body: JSON.stringify(articleRowPayload(input, true)),
+      body: JSON.stringify(articleRowPayload(storedInput, true)),
     },
   );
   const row = rows[0];
   if (!row) {
     throw new Error("Published article was not found.");
   }
-  await mergeArticleCaches(row.id, input);
+  await mergeArticleCaches(row.id, storedInput);
   return getPublicArticle(row.id).then((article) => article ?? mapArticle(row));
 }
 
 export async function createPublicArticle(input: PublicArticleInput): Promise<PublicArticle> {
-  const duplicate = await findDuplicateArticleRow(input, true);
+  const storedInput = await localizePublicArticleInputCover(input);
+  const duplicate = await findDuplicateArticleRow(storedInput, true);
   if (duplicate) {
-    return updatePublicArticle(duplicate.id, input);
+    return updatePublicArticle(duplicate.id, storedInput);
   }
   if (!(input.recommendation?.coverImageUrl || input.importedArticle?.recommendation?.coverImageUrl || "").trim()) {
     throw new Error("推荐封面缺失，补充封面后才能发布。");
@@ -427,13 +474,13 @@ export async function createPublicArticle(input: PublicArticleInput): Promise<Pu
   const rows = await supabaseFetch<SupabaseArticleRow[]>("public_articles", {
     method: "POST",
     headers: { Prefer: "return=representation" },
-    body: JSON.stringify(articleRowPayload(input, true)),
+    body: JSON.stringify(articleRowPayload(storedInput, true)),
   });
   const article = rows[0];
   if (!article) {
     throw new Error("Supabase did not return the created article.");
   }
-  await mergeArticleCaches(article.id, input);
+  await mergeArticleCaches(article.id, storedInput);
   return getPublicArticle(article.id).then((created) => created ?? mapArticle(article));
 }
 

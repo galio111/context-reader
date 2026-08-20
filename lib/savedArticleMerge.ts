@@ -20,6 +20,13 @@ function earliestDate(values: Array<string | undefined>): string | undefined {
     .sort((left, right) => timestamp(left) - timestamp(right))[0];
 }
 
+function latestReadingProgress(group: SavedArticle[]): SavedArticle["readingProgress"] {
+  return group
+    .map((article) => article.readingProgress)
+    .filter((progress): progress is NonNullable<SavedArticle["readingProgress"]> => Boolean(progress))
+    .sort((left, right) => timestamp(right.capturedAt) - timestamp(left.capturedAt))[0];
+}
+
 function articleRichness(article: SavedArticle): number {
   return article.body.length
     + article.summary.length * 4
@@ -107,6 +114,7 @@ export function mergeDuplicateSavedArticles(source: SavedArticle[]): {
     const createdAt = earliestDate(group.map((article) => article.createdAt)) || richest.createdAt;
     const updatedAt = latestDate(group.map((article) => article.updatedAt)) || richest.updatedAt;
     const lastOpenedAt = latestDate(group.map((article) => article.lastOpenedAt)) || updatedAt;
+    const readingProgress = latestReadingProgress(group);
 
     for (const article of group) {
       if (article.id !== canonicalId) removedIds.add(article.id);
@@ -119,6 +127,7 @@ export function mergeDuplicateSavedArticles(source: SavedArticle[]): {
       createdAt,
       updatedAt,
       lastOpenedAt,
+      ...(readingProgress ? { readingProgress } : {}),
     };
   });
 

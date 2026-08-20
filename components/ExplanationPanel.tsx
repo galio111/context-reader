@@ -2,9 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
+import ClearableField from "@/components/ClearableField";
 import { fetchJson } from "@/lib/apiClient";
 import { normalizeDifficultyLabel, normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
 import { explanationStreamValue, parseExplanationStream } from "@/lib/explanationDisplay";
+import { currentFormPhonetic, pronunciationTargetMatches } from "@/lib/pronunciation";
 import type { WordContext, WordExplanation } from "@/types/reader";
 
 interface ExplanationPanelProps {
@@ -24,9 +26,11 @@ interface ExplanationPanelProps {
 
 function buildExplanationText(explanation: WordExplanation, context: WordContext | null): string {
   const selectedKind = selectedTextKind(context?.word ?? explanation.word);
+  const phonetic = currentFormPhonetic(explanation);
   return [
-    `${explanation.word} (${explanation.lemma})`,
-    explanation.phonetic ? `音标：${explanation.phonetic}` : "",
+    `当前词：${explanation.word}`,
+    explanation.lemma ? `原型：${explanation.lemma}` : "",
+    phonetic ? `当前词音标（${explanation.word}）：${phonetic}` : "",
     `词性：${explanation.partOfSpeech}`,
     `基础释义：${explanation.basicMeaning}`,
     `${meaningLabel(selectedKind)}：${explanation.contextMeaning}`,
@@ -75,16 +79,25 @@ export function ExplanationPanel({
   const streamSections = parseExplanationStream(streamText);
   const displayStream = Boolean(streamText || streaming);
   const streamLemma = explanationStreamValue(streamSections, ["lemma", "Lemma", "词元", "原形", "原型"]);
-  const streamPhonetic = explanationStreamValue(streamSections, ["音标", "phonetic", "Phonetic"]);
+  const rawStreamPhonetic = explanationStreamValue(streamSections, ["当前词音标", "音标", "phonetic", "Phonetic"]);
+  const streamPhoneticFor = explanationStreamValue(streamSections, ["当前词音标归属", "音标归属", "phoneticFor"]);
   const streamPartOfSpeech = explanationStreamValue(streamSections, ["词性", "partOfSpeech"]);
   const streamDifficulty = explanationStreamValue(streamSections, ["难度", "difficulty"]);
   const selectedKind = selectedTextKind(selectedContext?.word ?? explanation?.word ?? "");
   const streamOriginalForm = selectedKind === "phrase"
     ? ""
     : originalFormLabel(streamLemma, selectedContext?.word ?? "");
+  const streamWord = selectedContext?.word ?? "";
+  const streamPhonetic = rawStreamPhonetic && (
+    pronunciationTargetMatches(streamPhoneticFor, streamWord)
+    || (!streamPhoneticFor && pronunciationTargetMatches(streamLemma, streamWord))
+  ) ? rawStreamPhonetic : "";
   const visibleStreamSections = streamSections.filter(
-    (section) => !["lemma", "Lemma", "词元", "原形", "原型", "音标", "phonetic", "Phonetic", "词性", "partOfSpeech", "难度", "difficulty"].includes(section.label.trim()),
+    (section) => !["lemma", "Lemma", "词元", "原形", "原型", "当前词音标", "音标", "phonetic", "Phonetic", "当前词音标归属", "音标归属", "phoneticFor", "词性", "partOfSpeech", "难度", "difficulty"].includes(section.label.trim()),
   );
+  const savedPhonetic = explanation
+    ? currentFormPhonetic(explanation)
+    : "";
 
   useEffect(() => {
     setSentenceQuestion("");
@@ -185,10 +198,9 @@ export function ExplanationPanel({
             <div className="flex items-start justify-between gap-3">
               <div>
                 <h2 className="text-[34px] font-semibold leading-[1.47] tracking-[-0.374px] text-[#1d1d1f]">{selectedContext?.word}</h2>
-                {(streamOriginalForm || streamPhonetic) && (
+                {streamOriginalForm && (
                   <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-                    {streamOriginalForm}
-                    {streamPhonetic ? `${streamOriginalForm ? " · " : ""}${streamPhonetic}` : ""}
+                    原型：{streamOriginalForm}
                   </p>
                 )}
               </div>
@@ -198,9 +210,14 @@ export function ExplanationPanel({
                 </span>
               )}
             </div>
+            {streamPhonetic && (
+              <p className="mt-2 text-sm leading-5 tracking-[-0.224px] text-[#555555]">
+                <span className="font-medium text-[#7a7a7a]">当前词音标：</span>{streamPhonetic}
+              </p>
+            )}
             <div className="mt-2 flex flex-wrap items-center gap-2">
               {streamPartOfSpeech && <p className="text-sm font-semibold tracking-[-0.224px] text-[#333333]">{normalizePartOfSpeechLabel(streamPartOfSpeech)}</p>}
-              <PronunciationButtons text={selectedContext?.word ?? ""} />
+              <PronunciationButtons text={selectedContext?.word ?? ""} preload />
               {onRegenerate && selectedContext && (
                 <button
                   type="button"
@@ -258,14 +275,16 @@ export function ExplanationPanel({
                   当前问题会带上所划词和它所在的完整句子。
                 </p>
                 <form className="mt-3 space-y-3" onSubmit={handleAskSentenceQuestion}>
-                  <textarea
-                    className="min-h-24 w-full resize-y rounded-[18px] border border-[#e0e0e0] px-3 py-2 text-sm leading-6 tracking-[-0.224px] text-[#1d1d1f] outline-none transition placeholder:text-[#7a7a7a] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
-                    value={sentenceQuestion}
-                    onChange={(event) => setSentenceQuestion(event.target.value)}
-                    onKeyDown={handleSentenceQuestionKeyDown}
-                    placeholder="例如：为什么这里用 empowering？which 指代什么？这句怎么拆？"
-                    maxLength={500}
-                  />
+                  <ClearableField value={sentenceQuestion} onClear={() => setSentenceQuestion("")} label="清空追问内容" multiline>
+                    <textarea
+                      className="min-h-24 w-full resize-y rounded-[18px] border border-[#e0e0e0] px-3 py-2 text-sm leading-6 tracking-[-0.224px] text-[#1d1d1f] outline-none transition placeholder:text-[#7a7a7a] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
+                      value={sentenceQuestion}
+                      onChange={(event) => setSentenceQuestion(event.target.value)}
+                      onKeyDown={handleSentenceQuestionKeyDown}
+                      placeholder="例如：为什么这里用 empowering？which 指代什么？这句怎么拆？"
+                      maxLength={500}
+                    />
+                  </ClearableField>
                   <button
                     type="submit"
                     className="h-10 w-full rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
@@ -318,17 +337,21 @@ export function ExplanationPanel({
               <div>
                 <h2 className="text-[34px] font-semibold leading-[1.47] tracking-[-0.374px] text-[#1d1d1f]">{explanation.word}</h2>
                 <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-                  {originalFormLabel(explanation.lemma, explanation.word)}
-                  {explanation.phonetic ? ` · ${explanation.phonetic}` : ""}
+                  原型：{originalFormLabel(explanation.lemma, explanation.word)}
                 </p>
               </div>
               <span className="rounded-full bg-[#f5f5f7] px-3 py-1 text-xs font-medium text-[#333333]">
                 {normalizeDifficultyLabel(explanation.difficulty)}
               </span>
             </div>
+            {savedPhonetic && (
+              <p className="mt-2 text-sm leading-5 tracking-[-0.224px] text-[#555555]">
+                <span className="font-medium text-[#7a7a7a]">当前词音标：</span>{savedPhonetic}
+              </p>
+            )}
             <div className="mt-2 flex flex-wrap items-center gap-2">
               <p className="text-sm font-semibold tracking-[-0.224px] text-[#333333]">{normalizePartOfSpeechLabel(explanation.partOfSpeech)}</p>
-              <PronunciationButtons text={explanation.word} />
+              <PronunciationButtons text={explanation.word} preload />
               {onRegenerate && (
                 <button
                   type="button"
@@ -401,14 +424,16 @@ export function ExplanationPanel({
               当前问题会带上所划词和它所在的完整句子。
             </p>
             <form className="mt-3 space-y-3" onSubmit={handleAskSentenceQuestion}>
-              <textarea
-                className="min-h-24 w-full resize-y rounded-[18px] border border-[#e0e0e0] px-3 py-2 text-sm leading-6 tracking-[-0.224px] text-[#1d1d1f] outline-none transition placeholder:text-[#7a7a7a] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
-                value={sentenceQuestion}
-                onChange={(event) => setSentenceQuestion(event.target.value)}
-                onKeyDown={handleSentenceQuestionKeyDown}
-                placeholder="例如：为什么这里用 empowering？which 指代什么？这句怎么拆？"
-                maxLength={500}
-              />
+              <ClearableField value={sentenceQuestion} onClear={() => setSentenceQuestion("")} label="清空追问内容" multiline>
+                <textarea
+                  className="min-h-24 w-full resize-y rounded-[18px] border border-[#e0e0e0] px-3 py-2 text-sm leading-6 tracking-[-0.224px] text-[#1d1d1f] outline-none transition placeholder:text-[#7a7a7a] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
+                  value={sentenceQuestion}
+                  onChange={(event) => setSentenceQuestion(event.target.value)}
+                  onKeyDown={handleSentenceQuestionKeyDown}
+                  placeholder="例如：为什么这里用 empowering？which 指代什么？这句怎么拆？"
+                  maxLength={500}
+                />
+              </ClearableField>
               <button
                 type="submit"
                 className="h-10 w-full rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"

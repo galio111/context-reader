@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Context Reader 大陆基础设施选型问卷</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1d2924;
+      --muted: #68756f;
+      --paper: #f7f3e9;
+      --card: rgba(255, 255, 255, 0.84);
+      --line: rgba(29, 41, 36, 0.14);
+      --accent: #285b4b;
+      --accent-soft: #e4eee8;
+      --warn: #8b5b1c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(111, 148, 126, 0.16), transparent 30rem),
+        linear-gradient(135deg, #f9f6ee, var(--paper));
+      font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main { width: min(980px, calc(100% - 32px)); margin: 42px auto 72px; }
+    header { margin-bottom: 28px; }
+    h1 { margin: 0 0 10px; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(30px, 5vw, 50px); line-height: 1.15; }
+    h2 { margin: 0 0 14px; font-size: 20px; }
+    p { margin: 8px 0; }
+    .muted { color: var(--muted); }
+    .notice {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 0 12px 12px 0;
+    }
+    .plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 24px 0; }
+    .plan, section {
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: 0 16px 44px rgba(37, 49, 43, 0.06);
+      border-radius: 18px;
+    }
+    .plan { padding: 18px; }
+    .plan.recommended { border-color: rgba(40, 91, 75, 0.52); }
+    .tag { display: inline-block; margin-bottom: 8px; padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 700; }
+    .price { font-size: 22px; font-weight: 750; }
+    .caveat { color: var(--warn); font-size: 13px; }
+    form { display: grid; gap: 16px; }
+    section { padding: 22px; }
+    .options { display: grid; gap: 10px; }
+    label.option {
+      display: block;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.66);
+    }
+    label.option:hover { border-color: rgba(40, 91, 75, 0.45); }
+    input { margin-right: 9px; accent-color: var(--accent); }
+    textarea {
+      width: 100%; min-height: 92px; resize: vertical; padding: 12px;
+      border: 1px solid var(--line); border-radius: 12px; font: inherit; color: inherit; background: white;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+    button { border: 0; border-radius: 999px; padding: 12px 20px; font: inherit; font-weight: 700; cursor: pointer; }
+    button.primary { color: white; background: var(--accent); }
+    button.secondary { color: var(--accent); background: var(--accent-soft); }
+    pre {
+      min-height: 180px; white-space: pre-wrap; word-break: break-word; padding: 18px;
+      border: 1px dashed rgba(40, 91, 75, 0.36); border-radius: 14px; background: rgba(255, 255, 255, 0.72);
+    }
+    a { color: var(--accent); }
+    @media (max-width: 720px) { .plans { grid-template-columns: 1fr; } main { margin-top: 24px; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="muted">Context Reader · 大陆部署第二阶段问卷</p>
+    <h1>先选底座，再做无感迁移</h1>
+    <p>服务器、数据库、对象存储和登录不是四次孤立购买。此问卷把它们组合成可比较的路线，生成的答案可以直接复制给 Codex。</p>
+    <div class="notice"><strong>当前推荐：</strong>个人调试期先选中国大陆 2 核 4 GB 服务器，把 Next.js 与 PostgreSQL 放在同一台机器，封面与备份放 COS/OSS。它最便宜，也最接近现有 Supabase PostgreSQL，迁移风险最低。</div>
+  </header>
+
+  <div class="plans" aria-label="候选路线摘要">
+    <article class="plan recommended">
+      <span class="tag">推荐 · 最利于无感迁移</span>
+      <h2>轻量服务器 + PostgreSQL + 对象存储</h2>
+      <div class="price">约 ¥199–960/年 + 用量</div>
+      <p>Next.js 与 PostgreSQL 同机，COS/OSS 保存文件和异地备份。保留 UUID、JSONB、事务和同步游标语义。</p>
+      <p class="caveat">促销资格、库存和续费价必须在付款页再次确认。</p>
+    </article>
+    <article class="plan">
+      <span class="tag">一体化 · 运维少</span>
+      <h2>腾讯 CloudBase 个人版</h2>
+      <div class="price">¥19.9/月，约 ¥239/年</div>
+      <p>托管应用、数据库、认证、存储和函数；但数据库/Auth 接口与 Supabase 不同，需要更多适配与回归。</p>
+    </article>
+    <article class="plan">
+      <span class="tag">省心 · 早期不划算</span>
+      <h2>服务器 + 托管 PostgreSQL</h2>
+      <div class="price">约 ¥300–500+/月</div>
+      <p>自动备份、高可用、故障切换更省心；腾讯云 2 核 4 GB PostgreSQL 目录价约 ¥408/月，个人期明显过量。</p>
+    </article>
+    <article class="plan">
+      <span class="tag">仅开发试验</span>
+      <h2>2 核 2 GB 长效低价服务器</h2>
+      <div class="price">阿里云 ECS ¥99/年</div>
+      <p>固定 3M、40 GB 云盘、新购续费同价；单机同时跑 Next.js 与 PostgreSQL 内存偏紧，不建议直接作为正式主站。</p>
+    </article>
+  </div>
+
+  <form id="survey">
+    <section>
+      <h2>1. 你希望先比较哪条路线？</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="route" value="推荐：轻量服务器 + 同机 PostgreSQL + COS/OSS" checked />推荐：轻量服务器 + 同机 PostgreSQL + COS/OSS</label>
+        <label class="option"><input type="radio" name="route" value="一体化：腾讯 CloudBase 个人版" />一体化：腾讯 CloudBase 个人版</label>
+        <label class="option"><input type="radio" name="route" value="省心：轻量服务器 + 托管 PostgreSQL" />省心：轻量服务器 + 托管 PostgreSQL</label>
+        <label class="option"><input type="radio" name="route" value="都保留，先按真实购买页价格再决定" />都保留，先按真实购买页价格再决定</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. 服务器候选（可多选）</h2>
+      <div class="options">
+        <label class="option"><input type="checkbox" name="server" value="阿里云轻量 2核4G，活动参考约199元/年" checked />阿里云轻量 2 核 4 GB，活动参考约 ¥199/年</label>
+        <label class="option"><input type="checkbox" name="server" value="腾讯云轻量 4核4G，新用户活动页标示99元/年，需确认库存" checked />腾讯云轻量 4 核 4 GB，新用户活动页标示 ¥99/年，需确认库存</label>
+        <label class="option"><input type="checkbox" name="server" value="腾讯云轻量 2核4G，目录价80元/月，90GB盘、6M、800GB/月" />腾讯云轻量 2 核 4 GB，目录价 ¥80/月，90 GB SSD、6M、800 GB/月</label>
+        <label class="option"><input type="checkbox" name="server" value="阿里云ECS 2核2G，99元/年，只做测试或应用机" />阿里云 ECS 2 核 2 GB，¥99/年，只做测试或应用机</label>
+      </div>
+      <p class="caveat">活动商品可能限新用户、限库存或改变续费价；最终结论以登录后的订单确认页为准，不会由 Codex代购。</p>
+    </section>
+
+    <section>
+      <h2>3. 能接受多少基础设施预算？</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="budget" value="尽量控制在30元/月以内" checked />尽量控制在 ¥30/月以内</label>
+        <label class="option"><input type="radio" name="budget" value="30–100元/月" />¥30–100/月</label>
+        <label class="option"><input type="radio" name="budget" value="100–300元/月，稳定优先" />¥100–300/月，稳定优先</label>
+        <label class="option"><input type="radio" name="budget" value="可以更高，但必须说明收益" />可以更高，但必须说明收益</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. “无痕迁移”对你意味着什么？（可多选）</h2>
+      <div class="options">
+        <label class="option"><input type="checkbox" name="seamless" value="首页、Reader和所有视觉交互不改变" checked />首页、Reader 和所有视觉交互不改变</label>
+        <label class="option"><input type="checkbox" name="seamless" value="文章、生词、解释、翻译、阅读状态完整保留" checked />文章、生词、解释、翻译、阅读状态完整保留</label>
+        <label class="option"><input type="checkbox" name="seamless" value="账号UUID、Admin权限和配额记录完整保留" checked />账号 UUID、Admin 权限和配额记录完整保留</label>
+        <label class="option"><input type="checkbox" name="seamless" value="旧域名本机数据可迁到新域名" checked />旧域名本机数据可迁到新域名</label>
+        <label class="option"><input type="checkbox" name="seamless" value="公开上线后不安排可见维护窗口" />公开上线后不安排可见维护窗口</label>
+        <label class="option"><input type="checkbox" name="seamless" value="任何异常都能快速切回Vercel和Supabase" checked />任何异常都能快速切回 Vercel/Supabase</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. 你愿意承担哪种运维？（可多选）</h2>
+      <div class="options">
+        <label class="option"><input type="checkbox" name="ops" value="由Codex配置Docker、Caddy、PostgreSQL和备份" checked />由 Codex 配置 Docker、Caddy、PostgreSQL 和备份</label>
+        <label class="option"><input type="checkbox" name="ops" value="我接受偶尔确认云控制台告警和续费" checked />我接受偶尔确认云控制台告警和续费</label>
+        <label class="option"><input type="checkbox" name="ops" value="我不希望自己处理数据库升级或恢复" />我不希望自己处理数据库升级或恢复</label>
+        <label class="option"><input type="checkbox" name="ops" value="开始收费后再升级托管数据库" checked />开始收费或用户增长后再升级托管数据库</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. 调试和上线节奏</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="timeline" value="先仅自己使用影子环境，备案完成后再公开" checked />先仅自己使用影子环境，备案完成后再公开</label>
+        <label class="option"><input type="radio" name="timeline" value="先买服务器备案，同时继续在本地开发" />先买服务器备案，同时继续在本地开发</label>
+        <label class="option"><input type="radio" name="timeline" value="希望尽快邀请少量测试用户" />希望尽快邀请少量测试用户</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>7. 备案和账号现状</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="filing" value="个人备案，尚未购买域名/服务器" checked />个人备案，尚未购买域名/服务器</label>
+        <label class="option"><input type="radio" name="filing" value="个人备案，已有域名" />个人备案，已有域名</label>
+        <label class="option"><input type="radio" name="filing" value="单位备案" />单位备案</label>
+        <label class="option"><input type="radio" name="filing" value="暂时不确定" />暂时不确定</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>8. 预计公开测试规模</h2>
+      <div class="options">
+        <label class="option"><input type="radio" name="scale" value="仅自己，1个开发账号" checked />仅自己，1 个开发账号</label>
+        <label class="option"><input type="radio" name="scale" value="10–50名邀请用户" />10–50 名邀请用户</label>
+        <label class="option"><input type="radio" name="scale" value="100–500名注册用户" />100–500 名注册用户</label>
+        <label class="option"><input type="radio" name="scale" value="暂时无法估计" />暂时无法估计</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>9. 其他偏好</h2>
+      <textarea name="notes" placeholder="例如：已有哪家云账号、新用户资格、偏好地域、身份证所在省份、是否已有域名。不要填写身份证号、密码、API Key 或云密钥。"></textarea>
+    </section>
+
+    <div class="actions">
+      <button class="primary" type="button" id="generate">生成答案</button>
+      <button class="secondary" type="button" id="copy">复制答案</button>
+    </div>
+    <p id="status" class="muted" role="status"></p>
+    <pre id="output" aria-live="polite">填写后点击“生成答案”。</pre>
+  </form>
+
+  <p class="muted">价格核对日期：2026-08-03。参考：<a href="https://cloud.tencent.com/document/product/1207/119345" target="_blank" rel="noreferrer">腾讯云轻量目录价</a>、<a href="https://cloud.tencent.com/act/pro/lhsale" target="_blank" rel="noreferrer">腾讯云活动页</a>、<a href="https://www.aliyun.com/daily-act/ecs/99program" target="_blank" rel="noreferrer">阿里云99计划</a>、<a href="https://cloud.tencent.com/document/product/876/75213" target="_blank" rel="noreferrer">CloudBase价格</a>。</p>
+</main>
+<script>
+  const form = document.getElementById("survey");
+  const output = document.getElementById("output");
+  const status = document.getElementById("status");
+
+  function one(name) {
+    return form.querySelector(`input[name="${name}"]:checked`)?.value || "未选择";
+  }
+
+  function many(name) {
+    const values = [...form.querySelectorAll(`input[name="${name}"]:checked`)].map((item) => item.value);
+    return values.length ? values.join("；") : "未选择";
+  }
+
+  function generate() {
+    const notes = form.elements.notes.value.trim() || "无";
+    const result = [
+      "# Context Reader 大陆基础设施选型答案",
+      "",
+      `1. 倾向路线：${one("route")}`,
+      `2. 服务器候选：${many("server")}`,
+      `3. 月预算：${one("budget")}`,
+      `4. 无痕迁移要求：${many("seamless")}`,
+      `5. 可接受运维：${many("ops")}`,
+      `6. 调试/上线节奏：${one("timeline")}`,
+      `7. 备案现状：${one("filing")}`,
+      `8. 预计规模：${one("scale")}`,
+      `9. 其他偏好：${notes}`,
+      "",
+      "请据此核对我账号实际可买价格，给出最终购买清单、年度与月度成本、无感迁移阶段、验收门槛和回滚方案。未经我确认，不购买、不切换生产、不删除Vercel/Supabase数据。"
+    ].join("\n");
+    output.textContent = result;
+    status.textContent = "答案已生成。";
+    return result;
+  }
+
+  document.getElementById("generate").addEventListener("click", generate);
+  document.getElementById("copy").addEventListener("click", async () => {
+    const text = output.textContent.startsWith("# Context Reader") ? output.textContent : generate();
+    try {
+      await navigator.clipboard.writeText(text);
+      status.textContent = "已复制，可以直接粘贴给 Codex。";
+    } catch {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(output);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      status.textContent = "浏览器未允许自动复制，答案已选中，请按 Ctrl+C。";
+    }
+  });
+</script>
+</body>
+</html>

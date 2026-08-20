@@ -1,4 +1,8 @@
-export type AnkiCardMode = "cloze_context" | "basic_cn_to_en" | "basic_en_to_cn";
+export type AnkiCardMode =
+  | "cloze_context"
+  | "basic_cn_to_en"
+  | "basic_en_to_cn"
+  | "basic_cn_to_en_dictionary";
 
 export interface AnkiCardInfo {
   canMakeCloze: boolean;

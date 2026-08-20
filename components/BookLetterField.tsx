@@ -60,6 +60,13 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
     let lastPointerAt = 0;
     let frame = 0;
     let maskFrame = 0;
+    const debugPerformance = new URLSearchParams(window.location.search).has("perf");
+    let performanceSampleStart = 0;
+    let performanceLastFrame = 0;
+    let performanceFrameCount = 0;
+    let performancePaintCount = 0;
+    let performanceWorkTotal = 0;
+    let performanceWorstGap = 0;
     const particles: Particle[] = [];
     const ripples: Ripple[] = [];
     let maskRects: MaskRect[] = [];
@@ -82,7 +89,7 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
-      scheduleMaskRefresh();
+      if (!compactLayout) scheduleMaskRefresh();
     };
     const isMaskedTarget = (target: EventTarget | null) => {
       if (!(target instanceof Element)) return false;
@@ -90,6 +97,10 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
     };
     const refreshMaskRects = () => {
       maskFrame = 0;
+      if (compactLayout) {
+        maskRects = [];
+        return;
+      }
       if (!document.querySelector("[data-book-cover-state='open']")) {
         maskRects = [];
         return;
@@ -137,9 +148,11 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
       });
     };
     const pointerMove = (event: PointerEvent) => {
+      if (compactLayout) return;
       pointerX = event.clientX;
       pointerY = event.clientY;
       lastPointerAt = performance.now();
+      if (frame === 0) frame = requestAnimationFrame(render);
       if (event.pointerType !== "mouse" || reduced || isMaskedTarget(event.target)) return;
       const now = performance.now();
       if (now - lastEmit > 52) {
@@ -152,11 +165,23 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
       pointerX = event.clientX;
       pointerY = event.clientY;
       ripples.push({ x: pointerX, y: pointerY, life: 1 });
+      if (frame === 0) frame = requestAnimationFrame(render);
     };
     const render = (now: number) => {
+      const workStartedAt = performance.now();
+      if (debugPerformance) {
+        if (!performanceSampleStart) {
+          performanceSampleStart = workStartedAt;
+          performanceLastFrame = workStartedAt;
+        }
+        performanceFrameCount += 1;
+        performanceWorstGap = Math.max(performanceWorstGap, workStartedAt - performanceLastFrame);
+        performanceLastFrame = workStartedAt;
+      }
       const activeMotion = particles.length > 0 || ripples.length > 0 || now - lastPointerAt < 450;
       const minFrameTime = activeMotion ? 1000 / 60 : 1000 / 30;
       if (now - lastPaint < minFrameTime) {
+        if (debugPerformance) performanceWorkTotal += performance.now() - workStartedAt;
         frame = requestAnimationFrame(render);
         return;
       }
@@ -206,14 +231,43 @@ export function BookLetterField({ paused = false }: { paused?: boolean }) {
         if (ripple.life <= 0) ripples.splice(index, 1);
       }
       clearMaskedZones();
+      if (debugPerformance) {
+        performancePaintCount += 1;
+        performanceWorkTotal += performance.now() - workStartedAt;
+        if (workStartedAt - performanceSampleStart >= 3_000) {
+          const duration = workStartedAt - performanceSampleStart;
+          console.info(
+            `[LetterField perf] callbacks=${(performanceFrameCount * 1000 / duration).toFixed(1)} `
+            + `paints=${(performancePaintCount * 1000 / duration).toFixed(1)} `
+            + `work=${(performanceWorkTotal / performanceFrameCount).toFixed(2)}ms `
+            + `worstGap=${performanceWorstGap.toFixed(1)}ms`,
+          );
+          performanceSampleStart = workStartedAt;
+          performanceFrameCount = 0;
+          performancePaintCount = 0;
+          performanceWorkTotal = 0;
+          performanceWorstGap = 0;
+        }
+      }
+      const pointerSettling = Math.abs(pointerX - smoothX) + Math.abs(pointerY - smoothY) > 0.6;
+      const needsAnotherFrame = particles.length > 0
+        || ripples.length > 0
+        || now - lastPointerAt < 520
+        || pointerSettling;
+      if (!needsAnotherFrame) {
+        frame = 0;
+        return;
+      }
       frame = requestAnimationFrame(render);
     };
 
     resize();
-    refreshMaskRects();
+    if (!compactLayout) refreshMaskRects();
     window.addEventListener("resize", resize);
-    window.addEventListener("scroll", scheduleMaskRefresh, { passive: true });
-    window.addEventListener("context-reader:book-layout-change", scheduleMaskRefresh);
+    if (!compactLayout) {
+      window.addEventListener("scroll", scheduleMaskRefresh, { passive: true });
+      window.addEventListener("context-reader:book-layout-change", scheduleMaskRefresh);
+    }
     window.addEventListener("pointermove", pointerMove, { passive: true });
     window.addEventListener("pointerdown", pointerDown, { passive: true });
     frame = requestAnimationFrame(render);

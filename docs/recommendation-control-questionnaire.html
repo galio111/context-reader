@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Context Reader 推荐文章控制与难度体系问卷</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17212b;
+      --muted: #52606d;
+      --line: #cfd8df;
+      --surface: #ffffff;
+      --wash: #edf3f7;
+      --blue: #0066cc;
+      --blue-soft: #e8f2fc;
+      --green: #17613b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f3f6f8;
+      font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    button, input, textarea { font: inherit; }
+    main { width: min(960px, calc(100% - 28px)); margin: 0 auto; padding: 40px 0 72px; }
+    header { max-width: 760px; }
+    h1 { margin: 0; font-size: clamp(30px, 5vw, 48px); line-height: 1.12; letter-spacing: -.03em; text-wrap: balance; }
+    .lead { margin: 16px 0 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+    .fixed {
+      margin: 26px 0 0;
+      padding: 18px 20px;
+      border-radius: 12px;
+      color: #29485e;
+      background: #e5eef4;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+    .fixed strong { display: block; margin-bottom: 4px; color: var(--ink); }
+    fieldset { margin: 38px 0 0; padding: 0; border: 0; }
+    legend { margin-bottom: 14px; font-size: 18px; font-weight: 700; line-height: 1.5; }
+    .hint { margin: -7px 0 14px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+    .choices { display: grid; gap: 10px; }
+    .choice {
+      position: relative;
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      cursor: pointer;
+    }
+    .choice:hover { border-color: #91aac0; }
+    .choice:has(input:checked) { border-color: var(--blue); background: var(--blue-soft); }
+    .choice input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--blue); }
+    .choice strong { display: block; font-size: 15px; line-height: 1.45; }
+    .choice span { display: block; margin-top: 5px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .recommended { color: var(--green); font-size: 12px; font-weight: 700; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { position: relative; }
+    .chip input { position: absolute; opacity: 0; pointer-events: none; }
+    .chip span {
+      display: inline-flex;
+      min-height: 40px;
+      padding: 0 14px;
+      align-items: center;
+      border: 1px solid #aebdc9;
+      border-radius: 999px;
+      color: #334e62;
+      background: var(--surface);
+      cursor: pointer;
+    }
+    .chip input:focus-visible + span { outline: 3px solid rgb(0 102 204 / 22%); outline-offset: 2px; }
+    .chip input:checked + span { border-color: var(--blue); color: white; background: var(--blue); }
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 14px 16px;
+      border: 1px solid #aebdc9;
+      border-radius: 12px;
+      color: var(--ink);
+      background: var(--surface);
+      line-height: 1.7;
+      resize: vertical;
+      outline: none;
+    }
+    textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgb(0 102 204 / 14%); }
+    .actions { display: flex; margin-top: 28px; flex-wrap: wrap; gap: 12px; }
+    .actions button {
+      min-height: 44px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      color: white;
+      background: var(--blue);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .actions button.secondary { color: #29485e; background: #dce8f0; }
+    .answer {
+      display: none;
+      margin-top: 18px;
+      padding: 18px;
+      white-space: pre-wrap;
+      border-radius: 12px;
+      color: #29485e;
+      background: #dfeaf1;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .answer.visible { display: block; }
+    @media (max-width: 640px) {
+      main { width: min(100% - 20px, 620px); padding-top: 26px; }
+      .choice { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>把推荐文章的判断权交还给你</h1>
+      <p class="lead">这份问卷决定后台左侧调节窗口、难度判断标准，以及低于六级的文章如何寻找。已明确的改动不会再让你重复选择。</p>
+      <div class="fixed">
+        <strong>已经确定</strong>
+        全站推荐文章不再展示“预计阅读分钟”，统一展示英文词数。词数按正文自动计算且不可手填。候选文章和已公开文章都会标注词数、类型、难度、适合人群、CEFR、时效与来源。后台会修复“明明是本地文章却显示无对应文章”的关联问题。
+      </div>
+    </header>
+
+    <form id="form">
+      <fieldset>
+        <legend>1. 打开文章后，左侧调节窗口采用哪种工作方式？（单选）</legend>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="panel" value="固定左侧检查器：阅读正文始终在右侧，修改后点击保存" checked />
+            <span><strong>固定左侧检查器 <b class="recommended">推荐</b></strong><span>像编辑器的属性面板，文章滚动时仍然可见，适合边读边校准。</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="panel" value="可收起左侧抽屉：默认展开，需要更多正文宽度时收起" />
+            <span><strong>可收起左侧抽屉</strong><span>保留更多阅读宽度，但调节窗口的位置会发生变化。</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="panel" value="只在编辑资料时显示：读正文时隐藏" />
+            <span><strong>只在编辑资料时显示</strong><span>最安静，但不利于读到一半马上修正判断。</span></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. 你希望能在左侧直接修改哪些信息？（多选）</legend>
+        <p class="hint">词数与来源事实保持自动计算。摘要和封面目前已有编辑入口，这里决定是否也并入阅读页左侧。</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="fields" value="难度档位" checked /><span>难度档位</span></label>
+          <label class="chip"><input type="checkbox" name="fields" value="CEFR 等级" checked /><span>CEFR</span></label>
+          <label class="chip"><input type="checkbox" name="fields" value="适合人群" checked /><span>适合人群</span></label>
+          <label class="chip"><input type="checkbox" name="fields" value="文章类型/主题" checked /><span>类型与主题</span></label>
+          <label class="chip"><input type="checkbox" name="fields" value="时效性" checked /><span>时效性</span></label>
+          <label class="chip"><input type="checkbox" name="fields" value="中文摘要" /><span>中文摘要</span></label>
+          <label class="chip"><input type="checkbox" name="fields" value="封面信息" /><span>封面信息</span></label>
+          <label class="chip"><input type="checkbox" name="fields" value="发布前备注" checked /><span>发布前备注</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. 难度应该怎样判断？（单选）</legend>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="difficulty" value="证据组合：词汇覆盖、句长与句法、篇章抽象度、背景知识、模型判断，再允许人工覆盖" checked />
+            <span><strong>证据组合 <b class="recommended">推荐</b></strong><span>不只问模型一个结论。后台同时展示关键证据，并保留你的最终决定。</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="difficulty" value="国外普通网站硬性设为 CET-6 起步，只有儿童/分级学习来源允许更低" />
+            <span><strong>普通国外网站硬性从六级起步</strong><span>非常符合你的当前直觉，但少数语言简单的真实文章也会被强制抬高。</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="difficulty" value="国外普通网站默认 CET-6 起步，但证据充分时允许判为高中/CET-4" />
+            <span><strong>六级起步，可由证据降级</strong><span>把“国外原生文章通常偏难”作为强先验，不把它变成绝对规则。</span></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. 人工修正之后，系统以后应当怎样处理？（单选）</legend>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="override" value="人工结果锁定，重新分析只更新证据，不覆盖人工选择" checked />
+            <span><strong>人工结果锁定 <b class="recommended">推荐</b></strong><span>重新抓取或重新分析文章时，你已经确认的字段不会悄悄变回去。</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="override" value="每次重新分析都覆盖，再由我复核" />
+            <span><strong>重新分析可以覆盖</strong><span>总是使用最新算法，但需要你反复复核同一篇文章。</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="override" value="系统与人工结果并列保存，发布时选择采用哪一个" />
+            <span><strong>并列保存两套结果</strong><span>信息最完整，后台也会更复杂。</span></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. 高中及以下文章可以从哪些来源寻找？（多选）</legend>
+        <p class="hint">这里决定后续推荐爬虫的白名单方向，不会绕过现有的代码审查与候选审核。</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="sources" value="面向英语学习者的分级新闻/科普" checked /><span>分级新闻与科普</span></label>
+          <label class="chip"><input type="checkbox" name="sources" value="英美青少年新闻、科学、历史与文化网站" checked /><span>青少年原生内容</span></label>
+          <label class="chip"><input type="checkbox" name="sources" value="博物馆、动物园、航天与公共机构的青少年栏目" checked /><span>公共机构青少年栏目</span></label>
+          <label class="chip"><input type="checkbox" name="sources" value="公共版权故事与非虚构短文" /><span>公共版权短文</span></label>
+          <label class="chip"><input type="checkbox" name="sources" value="由系统把优质原文改写成较低等级版本" /><span>系统分级改写</span></label>
+          <label class="chip"><input type="checkbox" name="sources" value="中国考试导向的英文阅读材料" /><span>中国考试材料</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>6. 对“真实原文”这条边界，你更看重什么？（单选）</legend>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="authenticity" value="只推荐真实发布过的英文原文，不做 AI 改写" checked />
+            <span><strong>只要真实原文</strong><span>最符合 Context Reader 的真实阅读定位，但高中以下的稳定库存会比较难做。</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="authenticity" value="优先真实原文，低等级库存不足时允许明确标注的分级改写" />
+            <span><strong>原文优先，允许明确标注的改写 <b class="recommended">推荐</b></strong><span>不把改写内容伪装成原文，同时解决低难度库存不足。</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="authenticity" value="学习效果优先，原文与分级改写同等推荐" />
+            <span><strong>学习效果优先</strong><span>文章覆盖最容易做，但产品会从真实文章阅读向分级阅读扩展。</span></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. 难度标签最终怎样呈现给读者？（单选）</legend>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="labels" value="主标签显示中国学习阶段，CEFR 作为辅助证据，例如 CET-6 / 考研，CEFR C1" checked />
+            <span><strong>中国阶段为主，CEFR 为辅 <b class="recommended">推荐</b></strong><span>读者更容易理解，后台仍保留国际参照。</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="labels" value="主标签只显示 CEFR，适合人群另列" />
+            <span><strong>CEFR 为主</strong><span>标准更统一，但中国学习者不一定能直观看懂。</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="labels" value="拆成语言难度与背景知识门槛两个标签" />
+            <span><strong>语言难度与知识门槛分开</strong><span>判断更准确，也会增加前台信息量和后台维护成本。</span></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>8. 还有哪些你读起来明显“判低了”或“判高了”的文章？</legend>
+        <textarea name="notes" placeholder="可以写标题、网址、你的真实判断，或说明你通常一分钟能认真读多少词。示例越具体，新的校准标准越可靠。"></textarea>
+      </fieldset>
+
+      <div class="actions">
+        <button type="button" id="generate">生成答案</button>
+        <button type="button" class="secondary" id="copy">复制答案</button>
+      </div>
+      <output class="answer" id="answer"></output>
+    </form>
+  </main>
+
+  <script>
+    const form = document.querySelector("#form");
+    const answer = document.querySelector("#answer");
+
+    function checked(name) {
+      return [...form.querySelectorAll(`[name="${name}"]:checked`)].map((item) => item.value);
+    }
+
+    function one(name) {
+      return checked(name)[0] || "未选择";
+    }
+
+    function many(name) {
+      return checked(name).join("、") || "未选择";
+    }
+
+    function generate() {
+      const value = [
+        "Context Reader 推荐文章控制与难度体系",
+        "",
+        "已确认：全站以正文英文词数替代预计阅读分钟；候选与公开文章都展示完整信息；修复本地文章关联。",
+        `左侧窗口：${one("panel")}`,
+        `可编辑字段：${many("fields")}`,
+        `难度判断：${one("difficulty")}`,
+        `人工覆盖规则：${one("override")}`,
+        `低等级来源：${many("sources")}`,
+        `原文边界：${one("authenticity")}`,
+        `读者标签：${one("labels")}`,
+        `补充：${form.elements.notes.value.trim() || "无"}`,
+      ].join("\n");
+
+      answer.textContent = value;
+      answer.classList.add("visible");
+      return value;
+    }
+
+    document.querySelector("#generate").addEventListener("click", generate);
+    document.querySelector("#copy").addEventListener("click", async () => {
+      const value = generate();
+      try {
+        await navigator.clipboard.writeText(value);
+        const button = document.querySelector("#copy");
+        button.textContent = "已复制";
+        setTimeout(() => { button.textContent = "复制答案"; }, 1200);
+      } catch {
+        window.prompt("复制下面的答案：", value);
+      }
+    });
+  </script>
+</body>
+</html>

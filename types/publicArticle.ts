@@ -31,6 +31,40 @@ export type ArticleAudienceStage = (typeof ARTICLE_AUDIENCE_STAGES)[number];
 export type ArticleTopic = (typeof ARTICLE_TOPICS)[number];
 export type ArticleTimeliness = "evergreen" | "time-sensitive";
 export type ArticleSourceKind = "manual-paste" | "manual-url" | "local-saved" | "crawler";
+export type ArticleSourceProfile = "general" | "youth" | "learner" | "exam" | "unknown";
+export type ArticleClassificationConfidence = "low" | "medium" | "high";
+export type ArticleManualField =
+  | "summary"
+  | "difficulty"
+  | "cefr"
+  | "audienceStages"
+  | "topics"
+  | "timeliness"
+  | "reviewNotes";
+
+export interface ArticleVocabularyProfile {
+  a2OrBelow: number;
+  b1: number;
+  b2: number;
+  c1OrAbove: number;
+}
+
+export interface ArticleDifficultyEvidence {
+  wordCount: number;
+  sentenceCount: number;
+  averageSentenceLength: number;
+  longWordRatio: number;
+  lexicalDiversity: number;
+  complexSentenceRatio: number;
+  sourceProfile: ArticleSourceProfile;
+  sourcePrior: string;
+  vocabularyProfile?: ArticleVocabularyProfile;
+  abstractness: number;
+  backgroundKnowledge: number;
+  challengingTerms: string[];
+  confidence: ArticleClassificationConfidence;
+  rationale: string;
+}
 
 export interface ArticleRecommendationMetadata {
   coverImageUrl: string;
@@ -41,12 +75,16 @@ export interface ArticleRecommendationMetadata {
   cefr: ArticleCefrLevel;
   audienceStages: ArticleAudienceStage[];
   topics: ArticleTopic[];
-  readingMinutes: number;
+  wordCount: number;
+  /** Kept only so older recommendation JSON can be read during migration. */
+  readingMinutes?: number;
   timeliness: ArticleTimeliness;
   sourceKind: ArticleSourceKind;
   classificationSource: "model" | "heuristic" | "manual";
   classifiedAt?: string;
   reviewNotes?: string;
+  difficultyEvidence?: ArticleDifficultyEvidence;
+  manualFields?: ArticleManualField[];
 }
 
 export interface PublicExplanation {

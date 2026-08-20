@@ -40,9 +40,15 @@ const COSTLY_ROUTE_RULES: Array<[RegExp, RateRule[]]> = [
   [/^\/api\/explain-word(?:-stream)?$/, [{ bucket: "ai-explain", limit: 20, windowMs: MINUTE }]],
   [/^\/api\/ask-sentence$/, [{ bucket: "ai-question", limit: 10, windowMs: MINUTE }]],
   [/^\/api\/summarize-article$/, [{ bucket: "ai-summary", limit: 6, windowMs: MINUTE }]],
-  [/^\/api\/translate-article$/, [{ bucket: "ai-translation", limit: 8, windowMs: MINUTE }]],
+  // Full-article translation intentionally sends one sequential request per text block.
+  // Keep abuse protection without treating a normal multi-paragraph article as a burst.
+  [/^\/api\/translate-article$/, [{ bucket: "ai-translation", limit: 60, windowMs: MINUTE }]],
   [/^\/api\/ocr-image(?:-layout|-url)?$/, [{ bucket: "ocr", limit: 4, windowMs: MINUTE }]],
   [/^\/api\/(?:import-url|download-image)$/, [{ bucket: "remote-fetch", limit: 15, windowMs: MINUTE }]],
+  [/^\/api\/pronunciation$/, [
+    { bucket: "pronunciation", limit: 120, windowMs: MINUTE },
+    { bucket: "pronunciation-daily", limit: 2_000, windowMs: DAY },
+  ]],
 ];
 
 const COSTLY_ROUTE = /^\/api\/(?:explain-word(?:-stream)?|ask-sentence|summarize-article|translate-article|ocr-image(?:-layout|-url)?)$/;
@@ -115,8 +121,38 @@ function maxRequestBytes(pathname: string): number {
   return 64 * 1024;
 }
 
-function jsonError(message: string, status: number, headers: Record<string, string> = {}): NextResponse {
-  return NextResponse.json({ error: message }, { status, headers: { "Cache-Control": "no-store", ...headers } });
+function jsonError(
+  message: string,
+  status: number,
+  headers: Record<string, string> = {},
+  details: Record<string, unknown> = {},
+): NextResponse {
+  return NextResponse.json(
+    { error: message, ...details },
+    { status, headers: { "Cache-Control": "no-store", ...headers } },
+  );
+}
+
+function firstForwardedValue(value: string | null): string {
+  return value?.split(",", 1)[0]?.trim() ?? "";
+}
+
+export function requestExternalOrigin(request: Request, fallbackUrl = new URL(request.url)): string {
+  const protocol = firstForwardedValue(request.headers.get("x-forwarded-proto"));
+  const host = firstForwardedValue(request.headers.get("x-forwarded-host"))
+    || firstForwardedValue(request.headers.get("host"));
+  if ((protocol !== "http" && protocol !== "https") || !host) {
+    return fallbackUrl.origin;
+  }
+  try {
+    const candidate = new URL(`${protocol}://${host}`);
+    if (candidate.host !== host || candidate.username || candidate.password) {
+      return fallbackUrl.origin;
+    }
+    return candidate.origin;
+  } catch {
+    return fallbackUrl.origin;
+  }
 }
 
 export function protectApiRequest(request: Request): NextResponse | null {
@@ -143,7 +179,7 @@ export function protectApiRequest(request: Request): NextResponse | null {
       }
       if (origin) {
         try {
-          if (new URL(origin).origin !== url.origin) {
+          if (new URL(origin).origin !== requestExternalOrigin(request, url)) {
             return jsonError("管理操作必须来自本站。", 403);
           }
         } catch {
@@ -163,6 +199,9 @@ export function protectApiRequest(request: Request): NextResponse | null {
         "RateLimit-Limit": String(rule.limit),
         "RateLimit-Remaining": "0",
         "RateLimit-Reset": String(Math.ceil(result.resetAt / 1000)),
+      }, {
+        code: "site_rate_limit",
+        retryAfterSeconds: retryAfter,
       });
     }
   }

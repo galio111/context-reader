@@ -1,13 +1,17 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import AdminAccountsPanel from "@/components/AdminAccountsPanel";
+import ClearableField from "@/components/ClearableField";
 import AdminArticleIntakePanel from "@/components/AdminArticleIntakePanel";
+import AdminArticleMetadataInspector from "@/components/AdminArticleMetadataInspector";
+import AdminHomepageCurationPanel from "@/components/AdminHomepageCurationPanel";
 import AdminFeedbackPanel from "@/components/AdminFeedbackPanel";
 import AdminErrorReportsPanel from "@/components/AdminErrorReportsPanel";
 import { ReaderView } from "@/components/ReaderView";
 import { SiteBackdrop } from "@/components/SiteBackdrop";
 import { getSavedArticles } from "@/lib/articles";
+import { countArticleEnglishWords } from "@/lib/articleWordCount";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import {
   createArticleTranslationCacheKey,
@@ -17,7 +21,7 @@ import {
   setCachedArticleTranslation,
 } from "@/lib/cache";
 import type { ImportedArticle, SavedArticle } from "@/types/article";
-import type { PublicArticle, PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
+import type { ArticleRecommendationMetadata, PublicArticle, PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
 
 type AdminAccessMode = "developer" | "password" | null;
 type AdminReaderState = { kind: "candidate" | "published"; article: PublicArticle };
@@ -76,6 +80,7 @@ export default function AdminPage() {
   const [publicArticles, setPublicArticles] = useState<PublicArticle[]>([]);
   const [readerState, setReaderState] = useState<AdminReaderState | null>(null);
   const [openingArticleId, setOpeningArticleId] = useState("");
+  const publicArticlesRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const section = new URLSearchParams(window.location.search).get("section");
@@ -153,7 +158,15 @@ export default function AdminPage() {
   async function persistReaderArticleEdit(body: string, importedArticle: ImportedArticle | null) {
     const active = readerState;
     if (!active) return;
-    const recommendation = active.article.recommendation ?? active.article.importedArticle?.recommendation;
+    const currentRecommendation = active.article.recommendation ?? active.article.importedArticle?.recommendation;
+    const recommendation = currentRecommendation
+      ? {
+          ...currentRecommendation,
+          wordCount: countArticleEnglishWords(body),
+          difficultyEvidence: undefined,
+          classifiedAt: undefined,
+        }
+      : undefined;
     const nextImportedArticle = importedArticle
       ? {
           ...importedArticle,
@@ -190,12 +203,66 @@ export default function AdminPage() {
     }
   }
 
-  function publicArticleKey(article: Pick<PublicArticle, "title" | "summary" | "sourceUrl">): string {
-    return `${article.title.trim()}::${article.summary.trim()}::${article.sourceUrl.trim()}`;
+  async function persistReaderMetadata(summary: string, recommendation: ArticleRecommendationMetadata) {
+    const active = readerState;
+    if (!active) return;
+    const importedArticle = active.article.importedArticle
+      ? {
+          ...active.article.importedArticle,
+          title: active.article.title,
+          text: active.article.body,
+          recommendation,
+        }
+      : null;
+    const payload = {
+      id: active.article.id,
+      title: active.article.title,
+      summary,
+      body: active.article.body,
+      sourceUrl: active.article.sourceUrl,
+      sourceName: active.article.sourceName,
+      importedArticle,
+      recommendation,
+    };
+    const response = await fetch(
+      active.kind === "candidate" ? "/api/admin/article-candidates" : "/api/admin/public-articles",
+      {
+        method: active.kind === "candidate" ? "POST" : "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      },
+    );
+    const data = await response.json().catch(() => null) as { article?: PublicArticle; error?: string } | null;
+    if (!response.ok || !data?.article) {
+      throw new Error(data?.error || "文章资料保存失败，请重试。");
+    }
+    setReaderState({ kind: active.kind, article: data.article });
+    if (active.kind === "published") {
+      setPublicArticles((items) => items.map((item) => item.id === data.article?.id ? data.article : item));
+    }
   }
 
-  function savedArticleKey(article: SavedArticle): string {
-    return `${article.title.trim()}::${(article.summary || "推荐英文阅读文章").trim()}::${(article.importedArticle?.url || "").trim()}`;
+  function normalizeArticleIdentityText(value: string): string {
+    return value
+      .normalize("NFKC")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase();
+  }
+
+  function findMatchingSavedArticle(article: PublicArticle): SavedArticle | undefined {
+    const sourceUrl = normalizeArticleIdentityText(article.sourceUrl);
+    const body = normalizeArticleIdentityText(article.body);
+
+    return articles.find((savedArticle) => {
+      const savedSourceUrl = normalizeArticleIdentityText(savedArticle.importedArticle?.url || "");
+      if (sourceUrl && savedSourceUrl && sourceUrl === savedSourceUrl) {
+        return true;
+      }
+
+      const savedBody = normalizeArticleIdentityText(savedArticle.body);
+      return Boolean(body && savedBody && body === savedBody);
+    });
   }
 
   const articleStats = useMemo(
@@ -250,7 +317,7 @@ export default function AdminPage() {
   }
 
   async function handlePublish(article: SavedArticle) {
-    const existingPublicArticle = publicArticles.find((item) => publicArticleKey(item) === savedArticleKey(article));
+    const existingPublicArticle = publicArticles.find((item) => findMatchingSavedArticle(item)?.id === article.id);
     if (!existingPublicArticle) {
       setStatus("新的推荐文章必须先通过上方的候选流程补齐分类和封面。");
       return;
@@ -338,7 +405,7 @@ export default function AdminPage() {
           </p>
           <label className="mt-5 block">
             <span className="mb-2 block text-sm font-semibold text-[#333333]">管理员密码</span>
-            <span className="relative block">
+            <ClearableField value={password} onClear={() => setPassword("")} label="清空管理员密码" clearButtonInset="4.4rem" inputPaddingRight="7rem">
               <input
                 className="h-11 w-full rounded-full border border-black/10 px-5 pr-20 text-[17px] outline-none focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
                 type={showPassword ? "text" : "password"}
@@ -355,7 +422,7 @@ export default function AdminPage() {
               >
                 {showPassword ? "隐藏" : "显示"}
               </button>
-            </span>
+            </ClearableField>
           </label>
           {loginError && <p className="mt-3 text-sm text-red-600">{loginError}</p>}
           <button className="mt-5 h-11 rounded-full bg-[#0066cc] px-6 text-[17px] text-white" type="submit">
@@ -368,28 +435,38 @@ export default function AdminPage() {
 
   if (readerState) {
     return (
-      <ReaderView
-        key={`${readerState.kind}:${readerState.article.id}`}
-        article={readerState.article.body}
-        importedArticle={readerState.article.importedArticle ?? null}
-        preloadedExplanations={readerState.article.explanations ?? []}
-        backLabel="返回后台"
-        onBack={() => setReaderState(null)}
-        onArticleSaved={() => setArticles(getSavedArticles())}
-        onArticleEditCommit={persistReaderArticleEdit}
-        onArticleChange={(body, importedArticle) => {
-          setReaderState((current) => current
-            ? {
-                ...current,
-                article: {
-                  ...current.article,
-                  body,
-                  ...(importedArticle ? { importedArticle } : { importedArticle: undefined }),
-                },
-              }
-            : null);
-        }}
-      />
+      <div className="flex min-h-screen bg-[#f5f5f7]">
+        <AdminArticleMetadataInspector
+          article={readerState.article}
+          articleKind={readerState.kind}
+          onSave={persistReaderMetadata}
+        />
+        <div className="min-w-0 flex-1">
+          <ReaderView
+            key={`${readerState.kind}:${readerState.article.id}`}
+            article={readerState.article.body}
+            desktopViewportInsetLeft={350}
+            importedArticle={readerState.article.importedArticle ?? null}
+            preloadedExplanations={readerState.article.explanations ?? []}
+            backLabel="返回后台"
+            onBack={() => setReaderState(null)}
+            onArticleSaved={() => setArticles(getSavedArticles())}
+            onArticleEditCommit={persistReaderArticleEdit}
+            onArticleChange={(body, importedArticle) => {
+              setReaderState((current) => current
+                ? {
+                    ...current,
+                    article: {
+                      ...current.article,
+                      body,
+                      ...(importedArticle ? { importedArticle } : { importedArticle: undefined }),
+                    },
+                  }
+                : null);
+            }}
+          />
+        </div>
+      </div>
     );
   }
 
@@ -481,15 +558,23 @@ export default function AdminPage() {
         )}
 
         <div className="mt-6">
-          <AdminArticleIntakePanel savedArticles={articles} onPublished={loadPublicArticles} onOpenArticle={openCandidateArticle} />
+          <AdminArticleIntakePanel
+            savedArticles={articles}
+            publicArticleCount={publicArticles.length}
+            onPublished={loadPublicArticles}
+            onOpenArticle={openCandidateArticle}
+            onShowPublished={() => publicArticlesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+          />
         </div>
 
-        <section className="mt-6 rounded-2xl bg-white p-5">
+        <AdminHomepageCurationPanel articles={publicArticles} />
+
+        <section ref={publicArticlesRef} className="mt-6 scroll-mt-5 rounded-2xl bg-white p-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="text-[21px] font-semibold">已公开推荐</h2>
               <p className="mt-1 text-sm leading-6 text-[#333333]">
-                当前首页会显示这些公开文章。删除后访客将无法再从推荐列表打开。
+                这些文章已经进入公开外刊库；是否出现在首页橱窗以及显示顺序，由上方“首页外刊编排”单独控制。
               </p>
             </div>
             <button
@@ -503,9 +588,9 @@ export default function AdminPage() {
           {publicArticles.length === 0 ? (
             <p className="mt-4 text-sm leading-6 text-[#7a7a7a]">还没有公开推荐文章。</p>
           ) : (
-            <ul className="mt-4 grid gap-3">
+            <ul className="mt-4 grid max-h-[min(70vh,760px)] gap-3 overflow-y-auto overscroll-contain border-y border-[#e1e5e9] py-3 pr-2" aria-label="已公开推荐文章列表" tabIndex={0}>
               {publicArticles.map((article) => {
-                const localArticle = articles.find((item) => savedArticleKey(item) === publicArticleKey(article));
+                const localArticle = findMatchingSavedArticle(article);
                 const stats = localArticle ? articleStats.get(localArticle.id) : null;
                 return (
                 <li key={article.id} className="flex flex-col gap-3 rounded-[16px] border border-[#e0e0e0] p-4 sm:flex-row sm:items-start sm:justify-between">
@@ -517,6 +602,12 @@ export default function AdminPage() {
                       </span>
                     </div>
                     <p className="mt-1 text-sm leading-5 text-[#333333]">{article.summary || "暂无摘要"}</p>
+                    <p className="mt-2 text-xs leading-5 text-[#59636c]">
+                      {article.recommendation?.difficulty || "待判断"} · CEFR {article.recommendation?.cefr || "待判断"} · {article.recommendation?.topics.join("、") || "待分类"} · {(article.recommendation?.wordCount ?? countArticleEnglishWords(article.body)).toLocaleString("zh-CN")} 词
+                    </p>
+                    <p className="text-xs leading-5 text-[#7a7a7a]">
+                      适合：{article.recommendation?.audienceStages.join("、") || "待判断"} · {article.recommendation?.timeliness === "time-sensitive" ? "发布前需检查时效" : "长期有效"} · {article.sourceName || "来源待确认"}
+                    </p>
                     <p className="mt-1 text-xs leading-5 text-[#7a7a7a]">
                       {localArticle
                         ? `本地对应文章含 ${stats?.explanations ?? 0} 条词义缓存、${stats?.articleTranslations ?? 0} 份全文翻译缓存`

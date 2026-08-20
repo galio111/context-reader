@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { HomeReadingDemo } from "@/components/HomeReadingDemo";
+import ClearableField from "@/components/ClearableField";
 import { ImmersiveHome } from "@/components/ImmersiveHome";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
 import { isValidArticleSummary } from "@/lib/articles";
+import { currentFormPhonetic } from "@/lib/pronunciation";
 import { downloadVocabularyCsv } from "@/lib/csv";
 import { clearVocabularyEntries, deleteVocabularyEntry, getVocabularyEntries } from "@/lib/vocabulary";
 import type { SavedArticle } from "@/types/article";
@@ -14,7 +16,7 @@ import type { PublicArticle } from "@/types/publicArticle";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import { useAccount } from "@/components/AccountProvider";
 
-const IMAGE_OCR_ENABLED = true;
+const IMAGE_OCR_ENABLED = false;
 
 type InputMode = "paste" | "url" | "image";
 
@@ -147,12 +149,14 @@ export function ArticleInput({
   }
 
   async function handleCopyVocabularyEntry(entry: VocabularyEntry) {
+    const phonetic = currentFormPhonetic(entry);
     const contextMeaningLabel = entry.word.trim().split(/\s+/).filter(Boolean).length > 1
       ? "所选短语在本句中的含义"
       : "所选词在本句中的含义";
     const text = [
-      `${entry.word} (${entry.lemma})`,
-      entry.phonetic ? `音标：${entry.phonetic}` : "",
+      `当前词：${entry.word}`,
+      entry.lemma ? `原型：${entry.lemma}` : "",
+      phonetic ? `当前词音标（${entry.word}）：${phonetic}` : "",
       `词性：${entry.partOfSpeech}`,
       `基础释义：${entry.basicMeaning}`,
       `${contextMeaningLabel}：${entry.contextMeaning}`,
@@ -309,11 +313,12 @@ export function ArticleInput({
             {inputMode === "paste" && (
               <div role="tabpanel">
                 <label className="sr-only" htmlFor="article-text">英文文章内容</label>
-                <textarea id="article-text" ref={articleInputRef} className="min-h-[260px] w-full resize-y rounded-[14px] border border-[#cfd7d2] bg-[#f8faf8] p-5 text-[17px] leading-7 text-[#18211d] outline-none transition-colors placeholder:text-[#69766f] focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15 sm:min-h-[300px]" value={article} onChange={(event) => onArticleChange(event.target.value)} placeholder="Paste your English article here..." />
+                <ClearableField value={article} onClear={() => onArticleChange("")} label="清空粘贴文章" multiline>
+                  <textarea id="article-text" ref={articleInputRef} className="min-h-[260px] w-full resize-y rounded-[14px] border border-[#cfd7d2] bg-[#f8faf8] p-5 text-[17px] leading-7 text-[#18211d] outline-none transition-colors placeholder:text-[#69766f] focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15 sm:min-h-[300px]" value={article} onChange={(event) => onArticleChange(event.target.value)} placeholder="Paste your English article here..." />
+                </ClearableField>
                 <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <p className="min-h-5 text-sm text-red-700" role="alert">{error}</p>
                   <div className="flex items-center justify-end gap-2">
-                    <button className="h-10 rounded-full px-4 text-sm font-medium text-[#5b6962] transition-colors hover:bg-[#eef1ee] disabled:opacity-40" type="button" onClick={() => onArticleChange("")} disabled={!hasArticle}>清空内容</button>
                     <button className="inline-flex h-11 items-center gap-2 rounded-full bg-[#1769aa] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#125b94]" type="button" onClick={onStartReading}>开始阅读 <ArrowIcon /></button>
                   </div>
                 </div>
@@ -323,10 +328,12 @@ export function ArticleInput({
             {inputMode === "url" && (
               <div className="mx-auto max-w-3xl py-8 sm:py-12" role="tabpanel">
                 <h3 className="text-center text-2xl font-semibold tracking-[-0.025em]">把网页正文带进阅读工作台</h3>
-                <p className="mx-auto mt-2 max-w-xl text-center text-sm leading-6 text-[#637169]">支持公开网页，尽量保留标题、段落、列表、引用和原文图片。</p>
+                <p className="mx-auto mt-2 max-w-xl text-center text-sm leading-6 text-[#637169]">支持公开网页，尽量保留标题、段落、列表、引用、表格和正文图片，并略去广告与页面导航。</p>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <label className="sr-only" htmlFor="article-url">文章 URL</label>
-                  <input id="article-url" className="h-12 min-w-0 flex-1 rounded-full border border-[#cfd7d2] bg-[#f8faf8] px-5 text-base text-[#18211d] outline-none placeholder:text-[#69766f] focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15" value={articleUrl} onChange={(event) => onArticleUrlChange(event.target.value)} placeholder="https://example.com/article" type="url" onKeyDown={(event) => { if (event.key === "Enter") onImportUrl(); }} />
+                  <ClearableField className="min-w-0 flex-1" value={articleUrl} onClear={() => onArticleUrlChange("")} label="清空文章网址">
+                    <input id="article-url" className="h-12 w-full min-w-0 rounded-full border border-[#cfd7d2] bg-[#f8faf8] px-5 text-base text-[#18211d] outline-none placeholder:text-[#69766f] focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15" value={articleUrl} onChange={(event) => onArticleUrlChange(event.target.value)} placeholder="https://example.com/article" type="url" onKeyDown={(event) => { if (event.key === "Enter") onImportUrl(); }} />
+                  </ClearableField>
                   <button className="h-12 rounded-full bg-[#1769aa] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#125b94] disabled:bg-[#9ba7a1]" type="button" onClick={onImportUrl} disabled={importingUrl}>{importingUrl ? "正在导入..." : "导入并阅读"}</button>
                 </div>
                 <p className="mt-3 min-h-5 text-center text-sm text-red-700" role="alert">{urlError}</p>

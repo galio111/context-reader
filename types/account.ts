@@ -1,6 +1,12 @@
 export type AccountPlanId = "guest" | "free" | "basic" | "plus" | "max" | "admin";
 export type AccountStatus = "active" | "suspended" | "deleted";
-export type UsageMetricKey = "guest_lookup" | "lookup_generation" | "deep_reading";
+export type GuestUsageMetricKey =
+  | "guest_article_lookup"
+  | "guest_dictionary_lookup"
+  | "guest_text_import"
+  | "guest_url_import";
+/** Server-managed metric keys are extensible; guest-facing product rules use the stricter subtype above. */
+export type UsageMetricKey = string;
 
 export interface AccountProfile {
   userId: string;
@@ -12,6 +18,10 @@ export interface AccountProfile {
   avatarUrl: string;
   englishLevel: string;
   learningGoal: string;
+  /** Optional for compatibility with pre-profile snapshots and offline artifacts. */
+  readingInterests?: string[];
+  birthYear?: number | null;
+  gender?: "male" | "female" | null;
   status: AccountStatus;
 }
 
@@ -40,6 +50,10 @@ export interface UsageBalance {
 export interface AccountSessionState {
   configured: boolean;
   authenticated: boolean;
+  /** True only for the loopback-only development identity; never a cloud account. */
+  localOnly?: boolean;
+  /** True when localhost is pinned to a real, server-verified cloud account. */
+  localDirect?: boolean;
   profile: AccountProfile | null;
   plan: AccountPlan | null;
   usage: UsageBalance[];

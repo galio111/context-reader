@@ -17,9 +17,9 @@ import type {
 
 const MAX_FEED_BYTES = 700_000;
 const MAX_FEED_ITEMS = 50;
-const MAX_ATTEMPTS_PER_RUN = 8;
+const MAX_ATTEMPTS_PER_RUN = 18;
 const DEFAULT_MAX_NEW_ARTICLES = 2;
-const LATEST_NEXT_ATTEMPT_MS = 24_000;
+const MAX_NEW_ARTICLES_PER_RUN = 6;
 
 interface FeedItem {
   title: string;
@@ -186,6 +186,26 @@ function uniqueTopics(requested: RecommendationCrawlerRunInput["topic"], classif
   return [requested, ...classified.filter((topic) => topic !== requested)].slice(0, 3);
 }
 
+function interleaveSources(items: FeedItem[]): FeedItem[] {
+  const groups = new Map<string, FeedItem[]>();
+  for (const item of items) {
+    const group = groups.get(item.source.id) ?? [];
+    group.push(item);
+    groups.set(item.source.id, group);
+  }
+  const orderedGroups = [...groups.values()].map((group) => group.sort((left, right) => {
+    if (right.relevance !== left.relevance) return right.relevance - left.relevance;
+    return Date.parse(right.publishedAt || "") - Date.parse(left.publishedAt || "");
+  }));
+  const result: FeedItem[] = [];
+  for (let index = 0; orderedGroups.some((group) => index < group.length); index += 1) {
+    for (const group of orderedGroups) {
+      if (group[index]) result.push(group[index]);
+    }
+  }
+  return result;
+}
+
 function crawlerCandidateInput(
   item: FeedItem,
   imported: ImportApiResponse,
@@ -203,12 +223,13 @@ function crawlerCandidateInput(
     cefr: classification.cefr,
     audienceStages: classification.audienceStages,
     topics: uniqueTopics(requestedTopic, classification.topics),
-    readingMinutes: classification.readingMinutes,
+    wordCount: classification.wordCount,
     timeliness: classification.timeliness,
     sourceKind: "crawler",
     classificationSource: classification.classificationSource,
     classifiedAt: classification.classifiedAt,
     reviewNotes: [`自动发现自 ${item.source.name}`, classification.reviewNotes].filter(Boolean).join("；").slice(0, 500),
+    difficultyEvidence: classification.difficultyEvidence,
   };
   return {
     title: article.title,
@@ -227,10 +248,12 @@ export async function runRecommendationCrawler(
 ): Promise<RecommendationCrawlerRunResult> {
   const startedAt = new Date().toISOString();
   const startedMs = Date.now();
-  const maxNewArticles = Math.max(1, Math.min(DEFAULT_MAX_NEW_ARTICLES, input.maxNewArticles ?? DEFAULT_MAX_NEW_ARTICLES));
+  const maxNewArticles = Math.max(1, Math.min(MAX_NEW_ARTICLES_PER_RUN, input.maxNewArticles ?? DEFAULT_MAX_NEW_ARTICLES));
+  const latestNextAttemptMs = 42_000 + Math.max(0, maxNewArticles - DEFAULT_MAX_NEW_ARTICLES) * 55_000;
   const [published, candidates] = await Promise.all([listPublicArticles(), listArticleCandidates()]);
   const allArticles = [...published, ...candidates];
-  const inventoryBefore = allArticles.filter((article) => inventoryMatches(article, input)).length;
+  const inventoryArticles = input.inventoryScope === "candidates" ? candidates : allArticles;
+  const inventoryBefore = inventoryArticles.filter((article) => inventoryMatches(article, input)).length;
   const resultBase = {
     topic: input.topic,
     difficulty: input.difficulty,
@@ -244,7 +267,7 @@ export async function runRecommendationCrawler(
     startedAt,
   };
 
-  if (inventoryBefore >= input.targetInventory) {
+  if (!input.ignoreInventoryTarget && inventoryBefore >= input.targetInventory) {
     return { ...resultBase, inventoryAfter: inventoryBefore, finishedAt: new Date().toISOString() };
   }
 
@@ -263,26 +286,33 @@ export async function runRecommendationCrawler(
   });
 
   const knownUrls = new Set(allArticles.map((article) => canonicalArticleUrl(article.sourceUrl)).filter(Boolean));
-  const uniqueItems = [...new Map(discoveredItems.map((item) => [item.url, item])).values()]
-    .filter((item) => !knownUrls.has(item.url))
-    .sort((left, right) => {
-      if (right.relevance !== left.relevance) return right.relevance - left.relevance;
-      return Date.parse(right.publishedAt || "") - Date.parse(left.publishedAt || "");
-    });
+  const uniqueItems = interleaveSources(
+    [...new Map(discoveredItems.map((item) => [item.url, item])).values()]
+      .filter((item) => !knownUrls.has(item.url)),
+  );
   resultBase.discovered = uniqueItems.length;
 
-  const needed = Math.min(maxNewArticles, input.targetInventory - inventoryBefore);
+  const needed = input.ignoreInventoryTarget
+    ? maxNewArticles
+    : Math.min(maxNewArticles, input.targetInventory - inventoryBefore);
   for (const item of uniqueItems.slice(0, MAX_ATTEMPTS_PER_RUN)) {
     if (
       resultBase.created.length >= needed ||
-      (resultBase.attempted > 0 && Date.now() - startedMs > LATEST_NEXT_ATTEMPT_MS)
+      (resultBase.attempted > 0 && Date.now() - startedMs > latestNextAttemptMs)
     ) {
       break;
     }
     resultBase.attempted += 1;
     try {
       const imported = await importArticleThroughApi(origin, item.url);
-      const classification = await classifyArticle(imported.article?.title || item.title, imported.article?.text || "");
+      const classification = await classifyArticle(
+        imported.article?.title || item.title,
+        imported.article?.text || "",
+        {
+          sourceUrl: item.url,
+          sourceName: imported.article?.siteName || item.source.name,
+        },
+      );
       if (input.difficulty !== "any" && classification.difficulty !== input.difficulty) {
         resultBase.skipped.push({ title: item.title, url: item.url, reason: `判断为${classification.difficulty}，与目标难度不符` });
         continue;

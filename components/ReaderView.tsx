@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent } from "react";
+import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
 import { AnkiSettingsPanel, defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { ArticleTranslationPanel } from "@/components/ArticleTranslationPanel";
 import { BookDictionary } from "@/components/BookDictionary";
@@ -10,7 +10,13 @@ import { PillNavAction } from "@/components/PillNavAction";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { WordToken } from "@/components/WordToken";
 import toolbarStyles from "@/components/ReaderToolbar.module.css";
-import { addVocabularyNote, checkAnki } from "@/lib/ankiConnect";
+import loadingStyles from "@/components/ReaderLoading.module.css";
+import typographyStyles from "@/components/ReaderTypography.module.css";
+import {
+  addVocabularyNote,
+  checkAnki,
+  findImportedVocabularyNoteIds,
+} from "@/lib/ankiConnect";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import { findSavedArticle, isValidArticleSummary, saveArticle, saveEditedArticle } from "@/lib/articles";
 import {
@@ -32,14 +38,18 @@ import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
 import { downloadVocabularyCsv } from "@/lib/csv";
 import {
   explanationAsStreamText,
+  explanationFromCompletedStream,
   mergeStreamDisplayIntoExplanation,
 } from "@/lib/explanationDisplay";
+import { EXPLANATION_STREAM_COMPLETE_MARKER } from "@/lib/explanationStreamProtocol";
+import { currentFormPhonetic } from "@/lib/pronunciation";
 import {
   findBestSourceSentenceMatch,
   findSimilarVocabularyEntry,
   normalizeForSourceMatch,
 } from "@/lib/sourceMatching";
 import { tokenizeArticle, tokenToWordContext } from "@/lib/tokenizer";
+import { getArticleImageSources, primeArticleImage } from "@/lib/articleImagePreload";
 import {
   addVocabularyEntry,
   clearVocabularyEntries,
@@ -47,14 +57,15 @@ import {
   deleteVocabularyEntry,
   getVocabularyEntries,
   markVocabularyEntryImported,
+  markVocabularyEntriesImported,
   replaceMatchingVocabularyEntry,
   vocabularyIdentity,
 } from "@/lib/vocabulary";
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import type { AnkiSettings } from "@/types/anki";
-import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, ImportedArticleInlineBaseline, ImportedArticleInlineText } from "@/types/article";
+import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, ImportedArticleInlineBaseline, ImportedArticleInlineText, ImportedArticleTableCell, SavedArticle } from "@/types/article";
 import type { PublicExplanation } from "@/types/publicArticle";
-import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, WordContext, WordExplanation } from "@/types/reader";
+import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, ReaderViewportAnchor, WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
 import type { DictionaryResult } from "@/types/dictionary";
 import { useAccount } from "@/components/AccountProvider";
@@ -75,6 +86,31 @@ interface ReaderViewProps {
   onImportedArticleChange?: (article: ImportedArticle) => void;
   onJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean | Promise<boolean>;
   canJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean;
+  desktopViewportInsetLeft?: number;
+  initialViewportAnchor?: ReaderViewportAnchor | null;
+  onViewportAnchorChange?: (anchor: ReaderViewportAnchor) => void;
+  savedArticles?: SavedArticle[];
+  onOpenSavedArticle?: (article: SavedArticle) => void;
+  onOpenImportedArticle?: (
+    article: string,
+    importedArticle: ImportedArticle | null,
+    kind: "text" | "url",
+  ) => Promise<boolean> | boolean;
+}
+
+function getCombinedCachedArticleTranslation(
+  key: string,
+  blocks: ArticleTranslationBlock[],
+): ArticleTranslationItem[] {
+  const perBlock = getCachedArticleTranslationForBlocks(blocks);
+  const exact = getCachedArticleTranslation(key) ?? [];
+  const byId = new Map(perBlock.map((item) => [item.id, item]));
+  for (const item of exact) {
+    byId.set(item.id, item);
+  }
+  return blocks
+    .map((block) => byId.get(block.id))
+    .filter((item): item is ArticleTranslationItem => Boolean(item?.translation.trim()));
 }
 
 interface RenderableArticleBlock {
@@ -90,6 +126,17 @@ interface RenderableArticleBlock {
   ocrError?: string;
   layoutWords?: ImageLayoutWord[];
   layoutError?: string;
+  listStyle?: ImportedArticleBlock["listStyle"];
+  listLevel?: number;
+  listOrdinal?: number;
+  table?: ImportedArticleBlock["table"];
+  tableRows?: RenderableTableCell[][];
+  plainText?: string;
+}
+
+interface RenderableTableCell {
+  cell: ImportedArticleTableCell;
+  tokens: ReaderToken[];
 }
 
 interface RenderableTokenGroup {
@@ -130,8 +177,11 @@ interface ArticleEditSnapshot {
 
 type ImageOcrStatus = "idle" | "loading" | "ready" | "error";
 type RightPanelMode = "explanation" | "translation" | "dictionary" | "article";
+type ReaderWorkLayer = "import" | "articles" | null;
 
 const IMAGE_OCR_ENABLED = false;
+const INITIAL_INTERACTIVE_BLOCK_LIMIT = 8;
+const SOURCE_JUMP_UNLOCK_TIMEOUT_MS = 2_000;
 const DEFAULT_ARTICLE_STYLE: Required<ArticleReadingStyle> = {
   fontFamily: "system",
   fontSize: "default",
@@ -141,10 +191,43 @@ const DEFAULT_ARTICLE_STYLE: Required<ArticleReadingStyle> = {
   imageWidth: "medium",
 };
 
+function restoreReaderViewport(root: HTMLElement, anchor: ReaderViewportAnchor): number | null {
+  const blocks = Array.from(root.querySelectorAll<HTMLElement>("[data-reader-block]"));
+  const target = blocks.find((block) => block.dataset.readerBlock === anchor.blockId)
+    ?? blocks.find((block) => (block.textContent ?? "").replace(/\s+/g, " ").trim().slice(0, 120) === anchor.blockText)
+    ?? blocks[anchor.blockIndex];
+  if (!target) {
+    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    const fallbackTop = anchor.scrollRatio > 0 ? maxScroll * anchor.scrollRatio : anchor.scrollY;
+    window.scrollTo({ top: fallbackTop, behavior: "auto" });
+    return null;
+  }
+  const restoreTop = () => {
+    const delta = target.getBoundingClientRect().top - anchor.top;
+    if (Math.abs(delta) > 0.5) {
+      window.scrollBy({ top: delta, behavior: "auto" });
+    }
+  };
+  restoreTop();
+  return window.requestAnimationFrame(restoreTop);
+}
+
 interface ImageOcrState {
   status: ImageOcrStatus;
   text: string;
   error: string;
+}
+
+function isDocumentScrollLocked(): boolean {
+  if (typeof document === "undefined") {
+    return true;
+  }
+
+  return (
+    document.documentElement.classList.contains("cr-overlay-locked") ||
+    document.body.classList.contains("cr-overlay-locked") ||
+    document.body.style.position === "fixed"
+  );
 }
 
 function normalizeArticleStyle(style?: ArticleReadingStyle): Required<ArticleReadingStyle> {
@@ -170,6 +253,7 @@ function createImportedArticleFromBlocks(
   const text = articleTextFromBlocks(blocks) || fallbackArticle.trim();
   const firstTextBlock = blocks.find((block) => block.type !== "image" && block.text?.trim());
   return {
+    ...(importedArticle ?? {}),
     title: importedArticle?.title?.trim() || firstTextBlock?.text?.trim().slice(0, 80) || "Edited Article",
     url: importedArticle?.url ?? "",
     siteName: importedArticle?.siteName ?? "",
@@ -239,6 +323,7 @@ async function requestExplanationStream(
   context: WordContext,
   signal: AbortSignal,
   onChunk: (chunk: string) => void,
+  onComplete: (fullText: string) => void,
   actionId: string,
 ): Promise<string> {
   let response: Response;
@@ -268,6 +353,22 @@ async function requestExplanationStream(
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
   let fullText = "";
+  let completionNotified = false;
+
+  function acceptDecodedChunk(chunk: string) {
+    const pieces = chunk.split(EXPLANATION_STREAM_COMPLETE_MARKER);
+    for (let index = 0; index < pieces.length; index += 1) {
+      if (index > 0 && !completionNotified) {
+        completionNotified = true;
+        onComplete(fullText);
+      }
+      const piece = pieces[index];
+      if (piece) {
+        fullText += piece;
+        onChunk(piece);
+      }
+    }
+  }
 
   try {
     while (true) {
@@ -277,9 +378,12 @@ async function requestExplanationStream(
       }
       const chunk = decoder.decode(value, { stream: true });
       if (chunk) {
-        fullText += chunk;
-        onChunk(chunk);
+        acceptDecodedChunk(chunk);
       }
+    }
+    const tail = decoder.decode();
+    if (tail) {
+      acceptDecodedChunk(tail);
     }
   } finally {
     reader.releaseLock();
@@ -288,13 +392,15 @@ async function requestExplanationStream(
 }
 
 function buildEntryText(entry: VocabularyEntry): string {
+  const phonetic = currentFormPhonetic(entry);
   const contextMeaningLabel = entry.word.trim().split(/\s+/).filter(Boolean).length > 1
     ? "所选短语在本句中的含义"
     : "所选词在本句中的含义";
 
   return [
-    `${entry.word} (${entry.lemma})`,
-    entry.phonetic ? `音标：${entry.phonetic}` : "",
+    `当前词：${entry.word}`,
+    entry.lemma ? `原型：${entry.lemma}` : "",
+    phonetic ? `当前词音标（${entry.word}）：${phonetic}` : "",
     `词性：${entry.partOfSpeech}`,
     `基础释义：${entry.basicMeaning}`,
     `${contextMeaningLabel}：${entry.contextMeaning}`,
@@ -353,12 +459,69 @@ function textBlockClassName(type: ImportedArticleBlock["type"]): string {
     return "mb-4 mt-9 text-[24px] font-semibold leading-[1.24] tracking-normal text-[#1d1d1f] sm:text-[28px] sm:leading-[1.19]";
   }
   if (type === "quote") {
-    return "my-7 border-l-2 border-[#0066cc] pl-4 text-[21px] font-light leading-[1.5] tracking-normal text-[#333333] sm:pl-5 sm:text-[24px]";
+    return "my-7 border-l-2 border-[#0066cc] pl-4 text-[21px] font-normal leading-[1.5] tracking-normal text-[#333333] sm:pl-5 sm:text-[24px]";
   }
   if (type === "list-item") {
-    return "mb-3 ml-5 list-item text-[17px] leading-[1.47] tracking-[-0.374px] text-[#1d1d1f]";
+    return `${typographyStyles.list} list-item text-[#1d1d1f]`;
   }
-  return "mb-6 whitespace-pre-wrap text-[18px] leading-[1.58] tracking-[-0.224px] text-[#1d1d1f] sm:mb-7 sm:text-[20px] sm:leading-[1.6] sm:tracking-[-0.374px]";
+  if (type === "caption") {
+    return "mb-6 mt-[-0.75rem] text-[14px] leading-6 tracking-normal text-[#6e6e73]";
+  }
+  return `${typographyStyles.body} whitespace-pre-wrap text-[#1d1d1f]`;
+}
+
+function importedBlockText(block: ImportedArticleBlock): string {
+  if (block.type !== "table") {
+    return block.text ?? "";
+  }
+  return block.text || block.table?.rows.map((row) => row.map((cell) => cell.text).join(" | ")).join("\n") || "";
+}
+
+function editableArticleBlockType(
+  element: HTMLElement,
+  originalBlock?: ImportedArticleBlock,
+): ImportedArticleBlock["type"] {
+  const declaredType = element.dataset.blockType;
+  if (
+    declaredType === "heading" ||
+    declaredType === "subheading" ||
+    declaredType === "paragraph" ||
+    declaredType === "list-item" ||
+    declaredType === "quote" ||
+    declaredType === "caption" ||
+    declaredType === "table" ||
+    declaredType === "image"
+  ) {
+    return declaredType;
+  }
+  if (originalBlock) {
+    return originalBlock.type;
+  }
+  if (element.tagName === "H1") return "heading";
+  if (element.tagName === "H2") return "subheading";
+  if (element.tagName === "BLOCKQUOTE") return "quote";
+  if (element.tagName === "LI") return "list-item";
+  if (element.tagName === "FIGCAPTION") return "caption";
+  if (element.tagName === "TABLE") return "table";
+  return "paragraph";
+}
+
+function editableInlineContent(block: ImportedArticleBlock) {
+  if (!block.text) {
+    return <br />;
+  }
+  if (!block.inline?.length || inlinePlainText(block.inline) !== block.text) {
+    return block.text;
+  }
+  return block.inline.map((item, index) => {
+    if (item.baseline === "sup") {
+      return <sup key={`${block.id}-inline-${index}`} className="align-super text-[0.68em] leading-none">{item.text}</sup>;
+    }
+    if (item.baseline === "sub") {
+      return <sub key={`${block.id}-inline-${index}`} className="align-sub text-[0.68em] leading-none">{item.text}</sub>;
+    }
+    return <span key={`${block.id}-inline-${index}`}>{item.text}</span>;
+  });
 }
 
 function inlinePlainText(inline: ImportedArticleInlineText[]): string {
@@ -367,6 +530,30 @@ function inlinePlainText(inline: ImportedArticleInlineText[]): string {
 
 function normalizeSentence(value: string): string {
   return value.trim().replace(/\s+/g, " ").toLowerCase();
+}
+
+function articleTextBlockEntries(article: ImportedArticle | null, plainArticle: string): Array<{ id: string; text: string }> {
+  if (article?.blocks?.length) {
+    return article.blocks
+      .filter((block) => block.type !== "image")
+      .map((block) => ({ id: block.id, text: importedBlockText(block) }));
+  }
+  return plainArticle.split(/\r?\n/).map((text, index) => ({ id: `paragraph-${index}`, text }));
+}
+
+function initialInteractiveBlockIds(
+  article: ImportedArticle | null,
+  plainArticle: string,
+  sourceSentence = "",
+): Set<string> {
+  const entries = articleTextBlockEntries(article, plainArticle);
+  const ids = entries.slice(0, INITIAL_INTERACTIVE_BLOCK_LIMIT).map((entry) => entry.id);
+  const normalizedSource = normalizeForSourceMatch(sourceSentence);
+  if (normalizedSource) {
+    const sourceBlock = entries.find((entry) => normalizeForSourceMatch(entry.text).includes(normalizedSource));
+    if (sourceBlock) ids.push(sourceBlock.id);
+  }
+  return new Set(ids);
 }
 
 function groupTokensByInline(tokens: ReaderToken[], inline: ImportedArticleInlineText[]): RenderableTokenGroup[] {
@@ -390,6 +577,19 @@ function groupTokensByInline(tokens: ReaderToken[], inline: ImportedArticleInlin
   return groups;
 }
 
+function ReaderRailIcon({ kind }: { kind: "import" | "dictionary" | "vocabulary" | "articles" }) {
+  if (kind === "import") {
+    return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v9m0-9L6.5 6.5M10 3l3.5 3.5M4 11.5v3A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-3" /></svg>;
+  }
+  if (kind === "dictionary") {
+    return <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.2" cy="8.2" r="4.7" /><path d="m11.7 11.7 4 4M6.5 8.2h3.4M8.2 6.5v3.4" /></svg>;
+  }
+  if (kind === "vocabulary") {
+    return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4.2h8.7A2.3 2.3 0 0 1 15 6.5v9.3H6.3A2.3 2.3 0 0 1 4 13.5V4.2Z" /><path d="M6.3 15.8A2.3 2.3 0 0 1 4 13.5c0-1.3 1-2.3 2.3-2.3H15M7 7.2h5" /></svg>;
+  }
+  return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4.5h5l1.4 1.6H16v9.4H4V4.5Z" /><path d="M7 9h6M7 12h4" /></svg>;
+}
+
 export function ReaderView({
   article,
   importedArticle,
@@ -406,6 +606,12 @@ export function ReaderView({
   onImportedArticleChange,
   onJumpToVocabularySourceOutsideArticle,
   canJumpToVocabularySourceOutsideArticle,
+  desktopViewportInsetLeft = 0,
+  initialViewportAnchor = null,
+  onViewportAnchorChange,
+  savedArticles = [],
+  onOpenSavedArticle,
+  onOpenImportedArticle,
 }: ReaderViewProps) {
   const {
     account,
@@ -418,6 +624,18 @@ export function ReaderView({
   } = useAccount();
   const [currentArticle, setCurrentArticle] = useState(article);
   const [currentImportedArticle, setCurrentImportedArticle] = useState<ImportedArticle | null>(importedArticle ?? null);
+  const [progressiveReaderReady] = useState(
+    () => !sourceSentenceToHighlight && articleTextBlockEntries(importedArticle ?? null, article).length > INITIAL_INTERACTIVE_BLOCK_LIMIT * 2,
+  );
+  const [visibleBlockIds, setVisibleBlockIds] = useState<Set<string>>(
+    () => initialInteractiveBlockIds(importedArticle ?? null, article, sourceSentenceToHighlight),
+  );
+  const interactiveBlockIds = useMemo(
+    () => progressiveReaderReady
+      ? visibleBlockIds
+      : new Set(articleTextBlockEntries(currentImportedArticle, currentArticle).map((block) => block.id)),
+    [currentArticle, currentImportedArticle, progressiveReaderReady, visibleBlockIds],
+  );
   const [editingArticle, setEditingArticle] = useState(false);
   const [draftPlainArticle, setDraftPlainArticle] = useState("");
   const [draftBlocks, setDraftBlocks] = useState<ImportedArticleBlock[]>([]);
@@ -433,10 +651,21 @@ export function ReaderView({
   const [activeImageBlockId, setActiveImageBlockId] = useState<string | null>(null);
   const [activeImageZoom, setActiveImageZoom] = useState(1);
   const [activeImageZoomOrigin, setActiveImageZoomOrigin] = useState({ x: 50, y: 50 });
-  const paragraphs = useMemo(
-    () => (currentImportedArticle?.blocks?.length
-      ? []
-      : tokenizeArticle(currentArticle)),
+  const articleImageSources = useMemo(
+    () => getArticleImageSources(currentImportedArticle),
+    [currentImportedArticle],
+  );
+  const articleImageGateSources = useMemo(
+    () => articleImageSources.slice(0, 1),
+    [articleImageSources],
+  );
+  const articleImageSourceKey = articleImageSources.join("\n");
+  const [readyArticleImageSourceKey, setReadyArticleImageSourceKey] = useState(
+    () => getArticleImageSources(importedArticle ?? null).length === 0 ? "" : "__pending__",
+  );
+  const articleMediaReady = readyArticleImageSourceKey === articleImageSourceKey;
+  const plainArticleParagraphs = useMemo(
+    () => currentImportedArticle?.blocks?.length ? [] : currentArticle.split(/\r?\n/),
     [currentArticle, currentImportedArticle?.blocks?.length],
   );
   const effectiveImportedArticle = useMemo<ImportedArticle | null>(() => {
@@ -460,11 +689,18 @@ export function ReaderView({
   }, [imageOcr, currentImportedArticle]);
   const renderableBlocks = useMemo<RenderableArticleBlock[]>(() => {
     if (!effectiveImportedArticle?.blocks?.length) {
-      return paragraphs.map((paragraph) => ({
-        id: paragraph.id,
-        type: "paragraph",
-        tokens: paragraph.tokens,
-      }));
+      return plainArticleParagraphs.map((text, paragraphIndex) => {
+        const id = `paragraph-${paragraphIndex}`;
+        const tokens = interactiveBlockIds.has(id)
+          ? (tokenizeArticle(text)[0]?.tokens ?? []).map((token) => ({ ...token, paragraphIndex }))
+          : undefined;
+        return {
+          id,
+          type: "paragraph",
+          tokens,
+          plainText: text,
+        };
+      });
     }
 
     let textBlockIndex = 0;
@@ -499,7 +735,29 @@ export function ReaderView({
           };
         }
 
-        const text = block.text ?? "";
+        if (block.type === "table" && block.table) {
+          const interactive = interactiveBlockIds.has(block.id);
+          const tableTokens: ReaderToken[] = [];
+          const tableRows = block.table.rows.map((row, rowIndex) => row.map((cell, cellIndex) => {
+            const tokens = (interactive ? tokenizeArticle(cell.text)[0]?.tokens ?? [] : []).map((token) => ({
+              ...token,
+              id: `${block.id}-cell-${rowIndex}-${cellIndex}-${token.id}`,
+              paragraphIndex: textBlockIndex,
+            }));
+            textBlockIndex += 1;
+            tableTokens.push(...tokens);
+            return { cell, tokens };
+          }));
+          return {
+            id: block.id,
+            type: "table",
+            tokens: tableTokens,
+            table: block.table,
+            tableRows,
+          };
+        }
+
+        const text = importedBlockText(block);
         if (!text.trim()) {
           textBlockIndex += 1;
           return {
@@ -509,12 +767,14 @@ export function ReaderView({
           };
         }
 
-        const tokenized = tokenizeArticle(text)[0];
-        const tokens = tokenized.tokens.map((token) => ({
-          ...token,
-          id: `${block.id}-${token.id}`,
-          paragraphIndex: textBlockIndex,
-        }));
+        const interactive = interactiveBlockIds.has(block.id);
+        const tokens = interactive
+          ? tokenizeArticle(text)[0].tokens.map((token) => ({
+              ...token,
+              id: `${block.id}-${token.id}`,
+              paragraphIndex: textBlockIndex,
+            }))
+          : undefined;
         const inline = block.inline?.length && inlinePlainText(block.inline) === text ? block.inline : null;
         textBlockIndex += 1;
 
@@ -522,11 +782,16 @@ export function ReaderView({
           id: block.id,
           type: block.type,
           tokens,
-          ...(inline ? { tokenGroups: groupTokensByInline(tokens, inline) } : {}),
+          plainText: text,
+          ...(inline && tokens ? { tokenGroups: groupTokensByInline(tokens, inline) } : {}),
+          listStyle: block.listStyle,
+          listLevel: block.listLevel,
+          listOrdinal: block.listOrdinal,
+          table: block.table,
         };
       })
       .filter((block): block is RenderableArticleBlock => Boolean(block));
-  }, [effectiveImportedArticle, imageOcr, paragraphs]);
+  }, [effectiveImportedArticle, imageOcr, interactiveBlockIds, plainArticleParagraphs]);
   const wordTokens = useMemo(
     () => renderableBlocks.flatMap((block) => block.tokens?.filter((token) => token.type === "word") ?? []),
     [renderableBlocks],
@@ -592,12 +857,25 @@ export function ReaderView({
   const [mobileExplanationOpen, setMobileExplanationOpen] = useState(false);
   const [mobileExplanationHeight, setMobileExplanationHeight] = useState(72);
   const [rightPanelMode, setRightPanelMode] = useState<RightPanelMode>("explanation");
+  const [readerWorkLayer, setReaderWorkLayer] = useState<ReaderWorkLayer>(null);
+  const [readerImportMode, setReaderImportMode] = useState<"text" | "url">("text");
+  const [readerImportText, setReaderImportText] = useState("");
+  const [readerImportUrl, setReaderImportUrl] = useState("");
+  const [readerImportPreview, setReaderImportPreview] = useState<ImportedArticle | null>(null);
+  const [readerImportStatus, setReaderImportStatus] = useState("");
+  const [readerImportBusy, setReaderImportBusy] = useState(false);
+  const [dictionaryMounted, setDictionaryMounted] = useState(false);
+  const [dictionaryClosing, setDictionaryClosing] = useState(false);
   const [articleTranslations, setArticleTranslations] = useState<ArticleTranslationItem[]>([]);
   const [translationLoading, setTranslationLoading] = useState(false);
   const [translationError, setTranslationError] = useState("");
   const [translationRequested, setTranslationRequested] = useState(false);
   const [translationEstimatedSecondsRemaining, setTranslationEstimatedSecondsRemaining] = useState<number | null>(null);
   const [translationRetryAfterSeconds, setTranslationRetryAfterSeconds] = useState<number | null>(null);
+  const [translationRetryReason, setTranslationRetryReason] = useState<string | null>(null);
+  const [translationRegenerating, setTranslationRegenerating] = useState(false);
+  const [translationCompletedTargetBlocks, setTranslationCompletedTargetBlocks] = useState(0);
+  const [translationTotalTargetBlocks, setTranslationTotalTargetBlocks] = useState(0);
   const [staleTranslationBlockIds, setStaleTranslationBlockIds] = useState<string[]>([]);
   const [removedTranslationCount, setRemovedTranslationCount] = useState(0);
   const abortRef = useRef<AbortController | null>(null);
@@ -609,12 +887,94 @@ export function ReaderView({
   const propagatedImportedArticleRef = useRef("");
   const plainArticleEditRef = useRef<HTMLDivElement | null>(null);
   const importedArticleEditRef = useRef<HTMLDivElement | null>(null);
+  const articleShellRef = useRef<HTMLDivElement | null>(null);
+  const editingArticleBaselineRef = useRef<ArticleEditSnapshot | null>(null);
+  const pendingArticleViewportAnchorRef = useRef<ReaderViewportAnchor | null>(null);
+  const initialViewportRestoredRef = useRef(false);
   const activeImageScrollRef = useRef<HTMLDivElement | null>(null);
   const sourceAlignmentTargetIdRef = useRef("");
   const sourceAlignmentLockUntilRef = useRef(0);
+  const sourceJumpAttemptIdRef = useRef(0);
   const blockEditRefs = useRef<Record<string, HTMLElement | null>>({});
+  const dictionaryWindowRef = useRef<HTMLElement | null>(null);
+  const dictionaryCloseTimerRef = useRef<number | null>(null);
+
+  useEffect(() => () => {
+    if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
+  }, []);
 
   useEffect(() => {
+    if (!dictionaryMounted) return;
+    const element = dictionaryWindowRef.current;
+    if (!element) return;
+    try {
+      const saved = JSON.parse(window.localStorage.getItem("context-reader-dictionary-window-v1") || "null") as {
+        left?: number;
+        top?: number;
+        width?: number;
+        height?: number;
+      } | null;
+      const width = Math.min(Math.max(saved?.width ?? 340, 300), window.innerWidth - 28);
+      const height = Math.min(Math.max(saved?.height ?? 560, 380), window.innerHeight - 28);
+      const left = Math.min(Math.max(saved?.left ?? 132, 14), window.innerWidth - width - 14);
+      const top = Math.min(Math.max(saved?.top ?? 92, 14), window.innerHeight - 58);
+      Object.assign(element.style, { left: `${left}px`, top: `${top}px`, width: `${width}px`, height: `${height}px` });
+    } catch {
+      // A stale window preference must never prevent dictionary access.
+    }
+  }, [dictionaryMounted]);
+
+  useEffect(() => {
+    if (!readerWorkLayer) return;
+    const previousOverflow = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    return () => {
+      document.documentElement.style.overflow = previousOverflow;
+    };
+  }, [readerWorkLayer]);
+
+  useEffect(() => {
+    if (!readerWorkLayer && !dictionaryMounted) return;
+    const onKeyDown = (event: globalThis.KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      if (readerWorkLayer) setReaderWorkLayer(null);
+      else closeDictionaryWindow();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [dictionaryMounted, readerWorkLayer]);
+
+  useEffect(() => {
+    const root = articleShellRef.current;
+    if (!root || !articleMediaReady || editingArticle || !progressiveReaderReady) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      const enteredIds = entries
+        .filter((entry) => entry.isIntersecting)
+        .map((entry) => (entry.target as HTMLElement).dataset.readerBlock)
+        .filter((id): id is string => Boolean(id));
+      if (enteredIds.length === 0) return;
+      setVisibleBlockIds((current) => {
+        if (enteredIds.every((id) => current.has(id))) return current;
+        const next = new Set(current);
+        enteredIds.forEach((id) => next.add(id));
+        return next;
+      });
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "100% 0px 100% 0px" });
+
+    root.querySelectorAll<HTMLElement>("[data-reader-block]").forEach((block) => {
+      if (!interactiveBlockIds.has(block.dataset.readerBlock ?? "")) observer.observe(block);
+    });
+    return () => observer.disconnect();
+  }, [articleMediaReady, editingArticle, interactiveBlockIds, progressiveReaderReady]);
+
+  useEffect(() => {
+    if (editingArticle) {
+      return;
+    }
     setCurrentArticle(article);
     setCurrentImportedArticle(importedArticle ?? null);
     if (articleHistoryRef.current.length === 0) {
@@ -630,7 +990,83 @@ export function ReaderView({
       setArticleUndoStack([]);
       setArticleRedoStack([]);
     }
-  }, [article, importedArticle]);
+  }, [article, importedArticle, editingArticle]);
+
+  useLayoutEffect(() => {
+    const anchor = pendingArticleViewportAnchorRef.current;
+    const root = articleShellRef.current;
+    if (!anchor || !root) {
+      return;
+    }
+    pendingArticleViewportAnchorRef.current = null;
+    const frameId = restoreReaderViewport(root, anchor);
+    return () => {
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+    };
+  }, [editingArticle]);
+
+  useLayoutEffect(() => {
+    if (initialViewportRestoredRef.current || !initialViewportAnchor || !articleMediaReady) return;
+    const root = articleShellRef.current;
+    if (!root || !root.querySelector("[data-reader-block]")) return;
+    initialViewportRestoredRef.current = true;
+    const frameId = restoreReaderViewport(root, initialViewportAnchor);
+    return () => {
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+    };
+  }, [articleMediaReady, initialViewportAnchor]);
+
+  useEffect(() => {
+    if (!onViewportAnchorChange || editingArticle) return;
+    let frameId = 0;
+    const report = () => {
+      frameId = 0;
+      const anchor = captureArticleViewportAnchor();
+      if (anchor) onViewportAnchorChange(anchor);
+    };
+    const scheduleReport = () => {
+      if (!frameId) frameId = window.requestAnimationFrame(report);
+    };
+    const reportImmediately = () => {
+      if (frameId) window.cancelAnimationFrame(frameId);
+      report();
+    };
+    window.addEventListener("scroll", scheduleReport, { passive: true });
+    window.addEventListener("pagehide", reportImmediately);
+    frameId = window.requestAnimationFrame(report);
+    return () => {
+      window.removeEventListener("scroll", scheduleReport);
+      window.removeEventListener("pagehide", reportImmediately);
+      if (frameId) window.cancelAnimationFrame(frameId);
+      const anchor = captureArticleViewportAnchor();
+      if (anchor) onViewportAnchorChange(anchor);
+    };
+  }, [currentArticle, currentImportedArticle, editingArticle, onViewportAnchorChange]);
+
+  useEffect(() => {
+    if (articleImageGateSources.length === 0) {
+      setReadyArticleImageSourceKey(articleImageSourceKey);
+      return;
+    }
+
+    let cancelled = false;
+    let frameId = 0;
+    void Promise.all(articleImageGateSources.map(primeArticleImage)).then(() => {
+      if (cancelled) {
+        return;
+      }
+      frameId = window.requestAnimationFrame(() => {
+        setReadyArticleImageSourceKey(articleImageSourceKey);
+      });
+    });
+
+    return () => {
+      cancelled = true;
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+    };
+  }, [articleImageGateSources, articleImageSourceKey]);
 
   useEffect(() => {
     const refreshVocabularyEntries = () => setVocabularyEntries(getVocabularyEntries());
@@ -656,6 +1092,10 @@ export function ReaderView({
       requested: boolean;
       estimatedSecondsRemaining: number | null;
       retryAfterSeconds: number | null;
+      retryReason: string | null;
+      regenerating: boolean;
+      completedTargetBlocks: number;
+      totalTargetBlocks: number;
     }) {
       setArticleTranslations(snapshot.translations);
       setTranslationLoading(snapshot.loading);
@@ -663,6 +1103,10 @@ export function ReaderView({
       setTranslationRequested(snapshot.requested);
       setTranslationEstimatedSecondsRemaining(snapshot.estimatedSecondsRemaining);
       setTranslationRetryAfterSeconds(snapshot.retryAfterSeconds);
+      setTranslationRetryReason(snapshot.retryReason);
+      setTranslationRegenerating(snapshot.regenerating);
+      setTranslationCompletedTargetBlocks(snapshot.completedTargetBlocks);
+      setTranslationTotalTargetBlocks(snapshot.totalTargetBlocks);
       if (!snapshot.loading && !snapshot.error) {
         setStaleTranslationBlockIds([]);
         setRemovedTranslationCount(0);
@@ -675,8 +1119,10 @@ export function ReaderView({
       setStaleTranslationBlockIds([]);
       setRemovedTranslationCount(0);
     } else {
-      const exactArticleTranslations = getCachedArticleTranslation(translationSourceKey);
-      const exactBlockTranslations = exactArticleTranslations ?? getCachedArticleTranslationForBlocks(translationBlocks);
+      const exactBlockTranslations = getCombinedCachedArticleTranslation(
+        translationSourceKey,
+        translationBlocks,
+      );
       const exactTranslationIds = new Set(exactBlockTranslations.map((item) => item.id));
       const currentById = new Map(articleTranslations.map((item) => [item.id, item.translation]));
       const currentBlockIds = new Set(translationBlocks.map((block) => block.id));
@@ -699,6 +1145,10 @@ export function ReaderView({
       setTranslationRequested(Boolean(cached));
       setTranslationEstimatedSecondsRemaining(null);
       setTranslationRetryAfterSeconds(null);
+      setTranslationRetryReason(null);
+      setTranslationRegenerating(false);
+      setTranslationCompletedTargetBlocks(0);
+      setTranslationTotalTargetBlocks(0);
     }
 
     return subscribeArticleTranslationJob(translationSourceKey, applyTranslationSnapshot);
@@ -709,8 +1159,8 @@ export function ReaderView({
       return;
     }
 
-    const persisted = getCachedArticleTranslation(translationSourceKey);
-    if (!persisted || persisted.length === 0) {
+    const persisted = getCombinedCachedArticleTranslation(translationSourceKey, translationBlocks);
+    if (persisted.length === 0) {
       return;
     }
 
@@ -761,7 +1211,7 @@ export function ReaderView({
   }
 
   function alignSourceToken(tokenId: string) {
-    if (typeof document === "undefined") {
+    if (typeof document === "undefined" || isDocumentScrollLocked()) {
       return false;
     }
 
@@ -857,27 +1307,34 @@ export function ReaderView({
   }
 
   useLayoutEffect(() => {
-    if (!sourceSentenceToHighlight) {
+    if (!sourceSentenceToHighlight || !articleMediaReady) {
       return;
     }
     let cancelled = false;
-    let attempts = 0;
+    let frameId = 0;
+    const startedAt = performance.now();
 
     function performPendingJump() {
-      if (cancelled || scrollToBestSourceSentence(sourceSentenceToHighlight, sourceWordToHighlight)) {
+      if (cancelled) {
         return;
       }
-      attempts += 1;
-      if (attempts < 12) {
-        window.requestAnimationFrame(performPendingJump);
+
+      if (!isDocumentScrollLocked() && scrollToBestSourceSentence(sourceSentenceToHighlight, sourceWordToHighlight)) {
+        return;
+      }
+      if (performance.now() - startedAt < SOURCE_JUMP_UNLOCK_TIMEOUT_MS) {
+        frameId = window.requestAnimationFrame(performPendingJump);
       }
     }
 
-    performPendingJump();
+    frameId = window.requestAnimationFrame(performPendingJump);
     return () => {
       cancelled = true;
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
     };
-  }, [sourceSentenceToHighlight, sourceWordToHighlight, sourceJumpRequestId, wordTokens]);
+  }, [articleMediaReady, sourceSentenceToHighlight, sourceWordToHighlight, sourceJumpRequestId, wordTokens]);
 
   useEffect(() => {
     if (!IMAGE_OCR_ENABLED || !effectiveImportedArticle?.blocks?.length || !onImportedArticleChange) {
@@ -1052,7 +1509,7 @@ export function ReaderView({
     setSelectedContext(context);
     setError("");
     setMobileExplanationOpen(true);
-    setMobileExplanationHeight(56);
+    setMobileExplanationHeight(82);
     setRightPanelMode("explanation");
 
     if (!options.force && loading && activeExplanationKeyRef.current === cacheKey) {
@@ -1098,17 +1555,62 @@ export function ReaderView({
     setExplanationStreamText("");
     setExplanationStreaming(true);
 
-    const streamPromise = requestExplanationStream(context, controller.signal, (chunk) => {
-      if (!controller.signal.aborted) {
-        setExplanationStreamText((current) => `${current}${chunk}`);
+    const structuredPromise = requestExplanation(context, controller.signal, actionId).then(
+      (value) => ({ value, error: null }),
+      (error: unknown) => ({ value: null, error }),
+    );
+    let streamedExplanation: WordExplanation | null = null;
+
+    function acceptCompletedStream(completedText: string) {
+      if (controller.signal.aborted || streamedExplanation) {
+        return;
       }
-    }, actionId).catch(() => "");
+      const completedExplanation = explanationFromCompletedStream(completedText, context);
+      if (!completedExplanation) {
+        return;
+      }
+
+      streamedExplanation = completedExplanation;
+      setCachedExplanation(cacheKey, completedExplanation);
+      setExplanation(completedExplanation);
+      setExplanationStreamText(completedText);
+      setExplanationStreaming(false);
+      if (options.syncVocabulary && account.authenticated) {
+        setVocabularyEntries(replaceMatchingVocabularyEntry(completedExplanation, context, articleSource));
+      }
+    }
+
+    const streamPromise = requestExplanationStream(
+      context,
+      controller.signal,
+      (chunk) => {
+        if (!controller.signal.aborted) {
+          setExplanationStreamText((current) => `${current}${chunk}`);
+        }
+      },
+      acceptCompletedStream,
+      actionId,
+    ).catch(() => "");
 
     try {
-      const [structuredExplanation, completedStreamText] = await Promise.all([
-        requestExplanation(context, controller.signal, actionId),
-        streamPromise,
-      ]);
+      const completedStreamText = await streamPromise;
+      if (completedStreamText) {
+        acceptCompletedStream(completedStreamText);
+      }
+
+      const structuredResult = await structuredPromise;
+      if (structuredResult.error) {
+        if (streamedExplanation) {
+          void refreshAccount();
+          return;
+        }
+        throw structuredResult.error;
+      }
+
+      const structuredExplanation = structuredResult.value;
+      if (!structuredExplanation) {
+        throw new Error("解释结果为空，请重新点击该词。");
+      }
       const nextExplanation = completedStreamText
         ? mergeStreamDisplayIntoExplanation(structuredExplanation, completedStreamText)
         : structuredExplanation;
@@ -1150,10 +1652,9 @@ export function ReaderView({
     }
     const cacheKey = translationSourceKey;
     setRightPanelMode("translation");
-    const cached = force
-      ? []
-      : (getCachedArticleTranslation(cacheKey) ?? getCachedArticleTranslationForBlocks(translationBlocks));
-    const cachedById = new Map(cached.map((item) => [item.id, item]));
+    const cached = getCombinedCachedArticleTranslation(cacheKey, translationBlocks);
+    const visibleTranslations = force ? [...cached, ...articleTranslations] : cached;
+    const cachedById = new Map(visibleTranslations.map((item) => [item.id, item]));
     const initialTranslations = translationBlocks
       .map((block) => cachedById.get(block.id))
       .filter((item): item is ArticleTranslationItem => Boolean(item?.translation.trim()));
@@ -1390,8 +1891,11 @@ export function ReaderView({
       return;
     }
 
-    if (token) {
-      handleTokenPointerUp(token);
+    const finalToken = token ?? dragCurrentToken;
+    if (dragStartToken && finalToken) {
+      // Whitespace between or after words has no token element of its own.
+      // Finish at the last word crossed so releasing there still submits the selection.
+      handleTokenPointerUp(finalToken);
     }
   }
 
@@ -1453,7 +1957,7 @@ export function ReaderView({
 
   function isStandaloneDictionaryInVocabulary(result: DictionaryResult) {
     const identity = vocabularyIdentity({
-      word: result.query,
+      word: result.direction === "cn_to_en" ? result.lemma : result.query,
       sourceSentence: "",
     });
     return vocabularyEntries.some((entry) => vocabularyIdentity(entry) === identity);
@@ -1470,15 +1974,136 @@ export function ReaderView({
 
   function handleOpenVocabulary() {
     if (!requireLocalAccount("登录后才能使用生词本。")) return;
-    setVocabularyEntries(getVocabularyEntries());
+    const entries = getVocabularyEntries();
+    setVocabularyEntries(entries);
     setImportError("");
     setAnkiStatus("");
     setVocabularyOpen(true);
+    if (entries.some((entry) => !entry.anki.ankiNoteId)) {
+      void reconcileAnkiImportReceipts(entries);
+    }
+  }
+
+  async function reconcileAnkiImportReceipts(entries: VocabularyEntry[]) {
+    setImportingId("__reconcile__");
+    try {
+      const noteIdsByEntryId = await findImportedVocabularyNoteIds(
+        entries,
+        ankiSettings.deckName,
+        ankiSettings.endpoint,
+      );
+      if (noteIdsByEntryId.size === 0) return;
+      setVocabularyEntries(markVocabularyEntriesImported(noteIdsByEntryId));
+      setAnkiStatus(`已与 Anki 核对，补回 ${noteIdsByEntryId.size} 条已导入记录。`);
+    } catch {
+      // Anki can be offline when the notebook opens. Keep the local status and
+      // let the usual import controls report a connection problem if used.
+    } finally {
+      setImportingId((current) => current === "__reconcile__" ? "" : current);
+    }
+  }
+
+  function openDictionaryWindow() {
+    if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
+    setDictionaryClosing(false);
+    setDictionaryMounted(true);
+  }
+
+  function persistDictionaryWindow() {
+    const element = dictionaryWindowRef.current;
+    if (!element) return;
+    const rect = element.getBoundingClientRect();
+    window.localStorage.setItem("context-reader-dictionary-window-v1", JSON.stringify({
+      left: Math.round(rect.left),
+      top: Math.round(rect.top),
+      width: Math.round(rect.width),
+      height: Math.round(rect.height),
+    }));
+  }
+
+  function closeDictionaryWindow() {
+    setDictionaryClosing(true);
+    dictionaryCloseTimerRef.current = window.setTimeout(() => {
+      dictionaryCloseTimerRef.current = null;
+      setDictionaryMounted(false);
+      setDictionaryClosing(false);
+    }, 220);
+  }
+
+  function startDictionaryDrag(event: ReactPointerEvent<HTMLElement>) {
+    if (event.button !== 0 || (event.target as HTMLElement).closest("button")) return;
+    const element = dictionaryWindowRef.current;
+    if (!element) return;
+    event.preventDefault();
+    const rect = element.getBoundingClientRect();
+    const startX = event.clientX;
+    const startY = event.clientY;
+    const move = (moveEvent: globalThis.PointerEvent) => {
+      const left = Math.min(Math.max(rect.left + moveEvent.clientX - startX, 12), window.innerWidth - rect.width - 12);
+      const top = Math.min(Math.max(rect.top + moveEvent.clientY - startY, 12), window.innerHeight - 58);
+      element.style.left = `${left}px`;
+      element.style.top = `${top}px`;
+    };
+    const finish = () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", finish);
+      window.removeEventListener("pointercancel", finish);
+      persistDictionaryWindow();
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", finish, { once: true });
+    window.addEventListener("pointercancel", finish, { once: true });
+  }
+
+  async function submitReaderImport() {
+    if (!onOpenImportedArticle || readerImportBusy) return;
+    if (readerImportMode === "text") {
+      const text = readerImportText.trim();
+      if (!text) {
+        setReaderImportStatus("先粘贴一篇英文文章。");
+        return;
+      }
+      const opened = await onOpenImportedArticle(text, null, "text");
+      if (opened) setReaderWorkLayer(null);
+      return;
+    }
+
+    if (readerImportPreview) {
+      const opened = await onOpenImportedArticle(readerImportPreview.text, readerImportPreview, "url");
+      if (opened) setReaderWorkLayer(null);
+      return;
+    }
+
+    const url = readerImportUrl.trim();
+    if (!url) {
+      setReaderImportStatus("先输入文章网址。");
+      return;
+    }
+    setReaderImportBusy(true);
+    setReaderImportStatus("正在读取文章…");
+    try {
+      const response = await fetch("/api/import-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url }),
+      });
+      const data = await response.json() as { article?: ImportedArticle; error?: string };
+      if (!response.ok || !data.article?.text?.trim()) {
+        throw new Error(data.error || "这个网址暂时无法读取。");
+      }
+      setReaderImportPreview(data.article);
+      setReaderImportStatus("已读取，确认后进入新文章。");
+    } catch (importError) {
+      const message = importError instanceof Error ? importError.message : "这个网址暂时无法读取。";
+      setReaderImportStatus(`${message} 你仍可以切换到“粘贴文章”，直接带入正文。`);
+    } finally {
+      setReaderImportBusy(false);
+    }
   }
 
   function openMobileTool(mode: RightPanelMode) {
     setRightPanelMode(mode);
-    setMobileExplanationHeight(mode === "explanation" ? 56 : 76);
+    setMobileExplanationHeight(82);
     setMobileExplanationOpen(true);
   }
 
@@ -1494,15 +2119,30 @@ export function ReaderView({
     setImportError("");
     setImportingId("");
     setAnkiStatus("");
-    window.setTimeout(async () => {
-      if (!scrollToVocabularyEntrySource(entry)) {
-        const jumpedOutside = await onJumpToVocabularySourceOutsideArticle?.(entry) ?? false;
-        if (!jumpedOutside) {
-          setImportError("当前文章、本地保存文章和推荐文章里都没有找到这个词条的原句。");
-          setVocabularyOpen(true);
-        }
+    const attemptId = sourceJumpAttemptIdRef.current + 1;
+    sourceJumpAttemptIdRef.current = attemptId;
+    const startedAt = performance.now();
+
+    async function jumpAfterOverlayUnlock() {
+      if (sourceJumpAttemptIdRef.current !== attemptId) {
+        return;
       }
-    }, 80);
+      if (isDocumentScrollLocked() && performance.now() - startedAt < SOURCE_JUMP_UNLOCK_TIMEOUT_MS) {
+        window.requestAnimationFrame(() => void jumpAfterOverlayUnlock());
+        return;
+      }
+      if (scrollToVocabularyEntrySource(entry)) {
+        return;
+      }
+
+      const jumpedOutside = await onJumpToVocabularySourceOutsideArticle?.(entry) ?? false;
+      if (sourceJumpAttemptIdRef.current === attemptId && !jumpedOutside) {
+        setImportError("当前文章、本地保存文章和推荐文章里都没有找到这个词条的原句。");
+        setVocabularyOpen(true);
+      }
+    }
+
+    window.requestAnimationFrame(() => void jumpAfterOverlayUnlock());
   }
 
   function handleClearVocabulary() {
@@ -1533,7 +2173,40 @@ export function ReaderView({
     }
   }
 
+  function captureArticleViewportAnchor(): ReaderViewportAnchor | null {
+    const root = articleShellRef.current;
+    if (!root) {
+      return null;
+    }
+    const blocks = Array.from(root.querySelectorAll<HTMLElement>("[data-reader-block]"));
+    if (blocks.length === 0) {
+      return null;
+    }
+    const referenceTop = Math.min(112, Math.max(72, window.innerHeight * 0.12));
+    const visibleBlock = blocks.find((block) => block.getBoundingClientRect().bottom >= referenceTop)
+      ?? blocks[blocks.length - 1];
+    const blockIndex = blocks.indexOf(visibleBlock);
+    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    return {
+      blockId: visibleBlock.dataset.readerBlock ?? "",
+      blockIndex,
+      blockText: (visibleBlock.textContent ?? "").replace(/\s+/g, " ").trim().slice(0, 120),
+      top: visibleBlock.getBoundingClientRect().top,
+      scrollY: window.scrollY,
+      scrollRatio: maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0,
+    };
+  }
+
+  function preserveArticleViewportAcrossModeChange(anchor = captureArticleViewportAnchor()) {
+    pendingArticleViewportAnchorRef.current = anchor;
+  }
+
   function beginArticleEditing() {
+    preserveArticleViewportAcrossModeChange();
+    editingArticleBaselineRef.current = {
+      article: currentArticle,
+      importedArticle: cloneImportedArticle(currentImportedArticle),
+    };
     setDraftPlainArticle(currentArticle);
     setDraftBlocks(
       currentImportedArticle?.blocks?.length
@@ -1554,10 +2227,12 @@ export function ReaderView({
 
   function cancelArticleEditing() {
     if (window.confirm("放弃本次文章编辑吗？")) {
+      preserveArticleViewportAcrossModeChange();
       setEditingArticle(false);
       setDraftPlainArticle("");
       setDraftBlocks([]);
       setEditStatus("");
+      editingArticleBaselineRef.current = null;
     }
   }
 
@@ -1621,13 +2296,14 @@ export function ReaderView({
       return draftBlocks;
     }
 
+    const baselineBlocks = editingArticleBaselineRef.current?.importedArticle?.blocks ?? draftBlocks;
     return Array.from(root.children)
       .map((child, index): ImportedArticleBlock | null => {
         const element = child as HTMLElement;
         const blockId = element.dataset.blockId || `edited-block-${Date.now()}-${index}`;
-        const blockType = element.dataset.blockType as ImportedArticleBlock["type"] | undefined;
-        const originalBlock = draftBlocks.find((block) => block.id === blockId);
-        const type = blockType ?? originalBlock?.type ?? "paragraph";
+        const originalBlock = baselineBlocks.find((block) => block.id === blockId)
+          ?? draftBlocks.find((block) => block.id === blockId);
+        const type = editableArticleBlockType(element, originalBlock);
 
         if (type === "image") {
           const src = element.dataset.src || originalBlock?.src || "";
@@ -1641,6 +2317,10 @@ export function ReaderView({
             src,
             alt: element.dataset.alt ?? originalBlock?.alt ?? "",
           };
+        }
+
+        if (type === "table") {
+          return originalBlock?.type === "table" ? originalBlock : null;
         }
 
         const text = editableText(element);
@@ -1850,6 +2530,8 @@ export function ReaderView({
   }
 
   async function saveArticleEditing(): Promise<boolean> {
+    const viewportAnchor = captureArticleViewportAnchor();
+    const editingBaseline = editingArticleBaselineRef.current;
     if (!currentImportedArticle?.blocks?.length) {
       const nextArticle = plainDraftTextFromDom();
       if (!nextArticle.trim()) {
@@ -1857,10 +2539,12 @@ export function ReaderView({
         return false;
       }
       if (nextArticle.replace(/\r\n/g, "\n") === currentArticle.replace(/\r\n/g, "\n")) {
+        preserveArticleViewportAcrossModeChange(viewportAnchor);
         setEditingArticle(false);
         setDraftPlainArticle("");
         setDraftBlocks([]);
         setEditStatus("");
+        editingArticleBaselineRef.current = null;
         return true;
       }
       if (!(await commitExternalArticleEdit({ article: nextArticle, importedArticle: null }))) {
@@ -1872,10 +2556,12 @@ export function ReaderView({
       setCurrentImportedArticle(null);
       onArticleChange?.(nextArticle, null);
       onArticleSaved();
+      preserveArticleViewportAcrossModeChange(viewportAnchor);
       setEditingArticle(false);
       setDraftPlainArticle("");
       setDraftBlocks([]);
       setEditStatus("");
+      editingArticleBaselineRef.current = null;
       return true;
     }
 
@@ -1888,13 +2574,16 @@ export function ReaderView({
     const blocksUnchanged = JSON.stringify(
       normalizedBlocks.map((block) => [block.id, block.type, block.text ?? "", block.src ?? "", block.alt ?? ""]),
     ) === JSON.stringify(
-      currentImportedArticle.blocks.map((block) => [block.id, block.type, block.text ?? "", block.src ?? "", block.alt ?? ""]),
+      (editingBaseline?.importedArticle?.blocks ?? currentImportedArticle.blocks)
+        .map((block) => [block.id, block.type, block.text ?? "", block.src ?? "", block.alt ?? ""]),
     );
     if (blocksUnchanged) {
+      preserveArticleViewportAcrossModeChange(viewportAnchor);
       setEditingArticle(false);
       setDraftPlainArticle("");
       setDraftBlocks([]);
       setEditStatus("");
+      editingArticleBaselineRef.current = null;
       return true;
     }
 
@@ -1914,10 +2603,12 @@ export function ReaderView({
     onArticleChange?.(nextImportedArticle.text, nextImportedArticle);
     onImportedArticleChange?.(nextImportedArticle);
     onArticleSaved();
+    preserveArticleViewportAcrossModeChange(viewportAnchor);
     setEditingArticle(false);
     setDraftPlainArticle("");
     setDraftBlocks([]);
     setEditStatus("");
+    editingArticleBaselineRef.current = null;
     return true;
   }
 
@@ -1960,6 +2651,7 @@ export function ReaderView({
   }
 
   async function handleImportAnki(entry: VocabularyEntry) {
+    if (importingId) return;
     if (entry.anki.ankiNoteId) {
       setImportError("这个词条已经导入过 Anki，不会重复导入。");
       return;
@@ -1978,6 +2670,7 @@ export function ReaderView({
   }
 
   async function handleImportAllAnki() {
+    if (importingId) return;
     const unimportedEntries = vocabularyEntries.filter((entry) => !entry.anki.ankiNoteId);
     if (unimportedEntries.length === 0) {
       setImportError("没有未导入的词条。");
@@ -2040,7 +2733,7 @@ export function ReaderView({
       : "保存文章";
   const toolbarStatus = [editStatus, saveStatus].filter(Boolean).join(" · ");
   const hasExplanationPanelContent = Boolean(selectedContext || loading || explanation || error);
-  const activeArticleStyle = DEFAULT_ARTICLE_STYLE;
+  const activeArticleStyle = normalizeArticleStyle(currentImportedArticle?.style);
   const articleShellClassName = [
     "mx-auto overflow-x-hidden break-words [overflow-wrap:anywhere]",
     editingArticle ? "select-text" : "select-none touch-pan-y",
@@ -2048,11 +2741,21 @@ export function ReaderView({
     activeArticleStyle.fontFamily === "serif" ? "font-serif" : activeArticleStyle.fontFamily === "mono" ? "font-mono" : "font-sans",
   ].join(" ");
   const paragraphStyle = {
-    "--reader-body-size": activeArticleStyle.fontSize === "small" ? "17px" : activeArticleStyle.fontSize === "large" ? "21px" : activeArticleStyle.fontSize === "xlarge" ? "23px" : "20px",
+    "--reader-body-size": activeArticleStyle.fontSize === "small" ? "18px" : activeArticleStyle.fontSize === "large" ? "22px" : activeArticleStyle.fontSize === "xlarge" ? "24px" : "21px",
+    "--reader-body-size-mobile": activeArticleStyle.fontSize === "small" ? "17px" : activeArticleStyle.fontSize === "large" ? "21px" : activeArticleStyle.fontSize === "xlarge" ? "23px" : "19px",
+    "--reader-list-size": activeArticleStyle.fontSize === "small" ? "17px" : activeArticleStyle.fontSize === "large" ? "19px" : activeArticleStyle.fontSize === "xlarge" ? "21px" : "18px",
+    "--reader-body-weight": "450",
     "--reader-body-line": activeArticleStyle.lineHeight === "compact" ? "1.45" : activeArticleStyle.lineHeight === "relaxed" ? "1.78" : "1.6",
+    "--reader-body-line-mobile": activeArticleStyle.lineHeight === "compact" ? "1.45" : activeArticleStyle.lineHeight === "relaxed" ? "1.78" : "1.58",
+    "--reader-list-line": activeArticleStyle.lineHeight === "compact" ? "1.4" : activeArticleStyle.lineHeight === "relaxed" ? "1.65" : "1.47",
     "--reader-paragraph-space": activeArticleStyle.paragraphSpacing === "compact" ? "1rem" : activeArticleStyle.paragraphSpacing === "relaxed" ? "2rem" : "1.75rem",
+    "--reader-paragraph-space-mobile": activeArticleStyle.paragraphSpacing === "compact" ? "1rem" : activeArticleStyle.paragraphSpacing === "relaxed" ? "1.75rem" : "1.5rem",
   } as CSSProperties;
   const imageWidthClassName = activeArticleStyle.imageWidth === "small" ? "mx-auto max-w-md" : activeArticleStyle.imageWidth === "full" ? "max-w-none" : "mx-auto max-w-3xl";
+  const leadingImageBlockId = useMemo(
+    () => renderableBlocks.find((block) => block.type === "image" && block.src)?.id ?? "",
+    [renderableBlocks],
+  );
   const activeImageBlock = useMemo(
     () => renderableBlocks.find((block) => block.type === "image" && block.id === activeImageBlockId) ?? null,
     [activeImageBlockId, renderableBlocks],
@@ -2190,10 +2893,35 @@ export function ReaderView({
   }
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#1d1d1f]">
+    <main
+      className="min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#1d1d1f]"
+      style={{ "--reader-desktop-inset-left": `${desktopViewportInsetLeft}px` } as CSSProperties}
+    >
+      <aside className={toolbarStyles.desktopRail} aria-label="阅读快捷入口">
+        <PillNavAction
+          className={`${toolbarStyles.action} ${toolbarStyles.backAction} ${toolbarStyles.railBackAction}`}
+          label={backLabel}
+          onClick={() => void handleBackToHome()}
+          disabled={savingArticleEdit}
+        />
+        <div className={toolbarStyles.railActions}>
+          <button type="button" onClick={() => setReaderWorkLayer("import")}>
+            <ReaderRailIcon kind="import" /><span>导入</span><small>导入新的文章或网址</small>
+          </button>
+          <button type="button" onClick={openDictionaryWindow}>
+            <ReaderRailIcon kind="dictionary" /><span>查词</span><small>打开可移动查词窗口</small>
+          </button>
+          <button type="button" onClick={handleOpenVocabulary}>
+            <ReaderRailIcon kind="vocabulary" /><span>生词本</span><small>查看保存的词与原句</small>
+          </button>
+          <button type="button" onClick={() => setReaderWorkLayer("articles")}>
+            <ReaderRailIcon kind="articles" /><span>我的文章</span><small>打开保存文章</small>
+          </button>
+        </div>
+      </aside>
       <header className={toolbarStyles.toolbar} aria-label="文章工具">
         <PillNavAction
-          className={`${toolbarStyles.action} ${toolbarStyles.backAction}`}
+          className={`${toolbarStyles.action} ${toolbarStyles.backAction} ${toolbarStyles.mobileBackAction}`}
           label={backLabel}
           onClick={() => void handleBackToHome()}
           disabled={savingArticleEdit}
@@ -2265,17 +2993,43 @@ export function ReaderView({
       )}
 
       <div
-        className={`mx-auto grid max-w-7xl gap-5 overflow-x-hidden px-0 pt-20 sm:px-5 lg:grid-cols-[minmax(0,1fr)_360px] ${
+        className={`${toolbarStyles.readerLayout} mx-auto grid max-w-7xl gap-5 overflow-x-hidden px-0 pt-20 sm:px-5 lg:grid-cols-[minmax(0,1fr)_360px] ${
           mobileExplanationOpen ? "pb-[calc(var(--mobile-sheet-height,72dvh)+5.5rem)] lg:pb-6" : "pb-24 lg:pb-6"
         }`}
         style={{ "--mobile-sheet-height": `${mobileExplanationHeight}dvh` } as CSSProperties}
       >
         <article className="min-w-0 overflow-x-hidden rounded-[24px] bg-white px-4 py-7 sm:min-h-[70vh] sm:px-10 sm:py-8 lg:px-16 lg:py-14">
+          {!articleMediaReady ? (
+            <div
+              className={loadingStyles.stage}
+              role="status"
+              aria-live="polite"
+            >
+              <div className={loadingStyles.document} aria-hidden="true">
+                <span className={`${loadingStyles.line} ${loadingStyles.lineTitle}`} />
+                <div className={loadingStyles.content}>
+                  <span className={loadingStyles.image} />
+                  <span className={loadingStyles.copy}>
+                    <span className={`${loadingStyles.line} ${loadingStyles.lineLong}`} />
+                    <span className={`${loadingStyles.line} ${loadingStyles.lineMedium}`} />
+                    <span className={`${loadingStyles.line} ${loadingStyles.lineShort}`} />
+                  </span>
+                </div>
+              </div>
+              <span className={loadingStyles.progress} aria-hidden="true">
+                <span />
+              </span>
+              <p>正在排好文章与图片</p>
+            </div>
+          ) : (
+          <>
           {currentImportedArticle && (
             <header className="mx-auto mb-10 max-w-3xl border-b border-[#e0e0e0] pb-6">
-              <p className="text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-                {currentImportedArticle.siteName}
-              </p>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm leading-5 tracking-[-0.1px] text-[#6e6e73]">
+                <span>{currentImportedArticle.siteName}</span>
+                {currentImportedArticle.byline && <span>作者：{currentImportedArticle.byline}</span>}
+                {currentImportedArticle.publishedTime && <time>{currentImportedArticle.publishedTime}</time>}
+              </div>
               {currentImportedArticle.url && (
                 <a
                   className="mt-2 block break-all text-sm leading-5 tracking-[-0.224px] text-[#0066cc]"
@@ -2289,6 +3043,7 @@ export function ReaderView({
             </header>
           )}
           <div
+            ref={articleShellRef}
             className={articleShellClassName}
             style={paragraphStyle}
             onPointerDown={handleArticlePointerDown}
@@ -2308,12 +3063,13 @@ export function ReaderView({
                   spellCheck={false}
                   onInput={handleArticleEditInput}
                 >
-                  {paragraphs.map((paragraph) => (
+                  {draftPlainArticle.split(/\r?\n/).map((text, paragraphIndex) => (
                     <p
-                      key={paragraph.id}
+                      key={`paragraph-${paragraphIndex}`}
+                      data-reader-block={`paragraph-${paragraphIndex}`}
                       className={`${textBlockClassName("paragraph")} min-w-0`}
                     >
-                      {paragraph.tokens.map((token) => token.value).join("") || <br />}
+                      {text || <br />}
                     </p>
                   ))}
                 </div>
@@ -2341,6 +3097,7 @@ export function ReaderView({
                       <figure
                         key={block.id}
                         {...dataProps}
+                        data-reader-block={block.id}
                         className={`group relative my-8 min-w-0 overflow-hidden lg:my-10 ${imageWidthClassName}`}
                         contentEditable={false}
                       >
@@ -2361,10 +3118,62 @@ export function ReaderView({
                           <img
                             alt={block.alt || ""}
                             className="h-auto max-h-[65vh] w-full max-w-full rounded-[14px] object-contain sm:max-h-[70vh]"
+                            decoding="async"
+                            height={block.height}
                             src={block.src}
+                            width={block.width}
                           />
                         )}
                         {block.alt && <figcaption className="mt-3 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">{block.alt}</figcaption>}
+                      </figure>
+                    );
+                  }
+
+                  if (block.type === "table" && block.table) {
+                    return (
+                      <figure
+                        key={block.id}
+                        {...dataProps}
+                        className="group relative my-8 min-w-0"
+                        contentEditable={false}
+                      >
+                        <button
+                          type="button"
+                          className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-xl leading-none text-[#1d1d1f] shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066cc] active:scale-95"
+                          aria-label="删除表格"
+                          title="删除表格"
+                          onClick={(event) => {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            deleteDraftBlock(block.id);
+                          }}
+                        >
+                          ×
+                        </button>
+                        {block.table.caption && <figcaption className="mb-3 pr-12 text-[15px] font-semibold leading-6 text-[#333333]">{block.table.caption}</figcaption>}
+                        <div className="overflow-x-auto rounded-[10px] border border-[#d8d8dc]">
+                          <table className="w-max min-w-full border-collapse bg-white text-left text-[15px] leading-6 text-[#1d1d1f]">
+                            <tbody>
+                              {block.table.rows.map((row, rowIndex) => (
+                                <tr key={`${block.id}-edit-row-${rowIndex}`} className={rowIndex % 2 ? "bg-[#fafafa]" : "bg-white"}>
+                                  {row.map((cell, cellIndex) => {
+                                    const CellTag = cell.header ? "th" : "td";
+                                    return (
+                                      <CellTag
+                                        key={`${block.id}-edit-cell-${rowIndex}-${cellIndex}`}
+                                        className={`border-b border-r border-[#e3e3e6] px-3.5 py-2.5 align-top last:border-r-0 ${cell.header ? "bg-[#f3f4f5] font-semibold" : "font-normal"}`}
+                                        colSpan={cell.colSpan}
+                                        rowSpan={cell.rowSpan}
+                                      >
+                                        {cell.text || " "}
+                                      </CellTag>
+                                    );
+                                  })}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       </figure>
                     );
                   }
@@ -2374,10 +3183,11 @@ export function ReaderView({
                     <Tag
                       key={block.id}
                       {...dataProps}
+                      data-reader-block={block.id}
                       className={`${textBlockClassName(block.type)} min-w-0 outline-none`}
                       suppressContentEditableWarning
                     >
-                      {block.text ? block.text : <br />}
+                      {editableInlineContent(block)}
                     </Tag>
                   );
                 })}
@@ -2392,7 +3202,7 @@ export function ReaderView({
                   <figure
                     key={block.id}
                     data-reader-block={block.id}
-                    className={`my-8 min-w-0 overflow-hidden lg:my-10 lg:[content-visibility:auto] lg:[contain-intrinsic-size:auto_720px] ${imageWidthClassName}`}
+                    className={`my-8 min-w-0 overflow-hidden lg:my-10 ${imageWidthClassName}`}
                   >
                     <div className="group relative overflow-hidden rounded-[14px] bg-[#f5f5f7]">
                       <img
@@ -2401,7 +3211,8 @@ export function ReaderView({
                         decoding="async"
                         data-reader-image={block.id}
                         height={block.height}
-                        loading="lazy"
+                        fetchPriority={block.id === leadingImageBlockId ? "high" : "low"}
+                        loading={block.id === leadingImageBlockId ? "eager" : "lazy"}
                         onError={(event) => preserveSourceAlignmentAfterImageLayout(event.currentTarget)}
                         onLoad={(event) => preserveSourceAlignmentAfterImageLayout(event.currentTarget)}
                         referrerPolicy="no-referrer"
@@ -2448,12 +3259,74 @@ export function ReaderView({
                 );
               }
 
-              const Tag = block.type === "heading" ? "h1" : block.type === "subheading" ? "h2" : "p";
+              if (block.type === "table" && block.table && block.tableRows) {
+                return (
+                  <figure key={block.id} data-reader-block={block.id} className="my-8 min-w-0 lg:my-10">
+                    {block.table.caption && (
+                      <figcaption className="mb-3 text-[15px] font-semibold leading-6 text-[#333333]">
+                        {block.table.caption}
+                      </figcaption>
+                    )}
+                    <div
+                      className="overflow-x-auto overscroll-x-contain rounded-[10px] border border-[#d8d8dc] [scrollbar-gutter:stable]"
+                      data-native-selection="blue"
+                      tabIndex={0}
+                      role="region"
+                      aria-label={block.table.caption ? `表格：${block.table.caption}` : "文章表格，可横向滚动"}
+                    >
+                      <table className="w-max min-w-full border-collapse bg-white text-left text-[15px] leading-6 text-[#1d1d1f] sm:text-[16px]">
+                        <tbody>
+                          {block.tableRows.map((row, rowIndex) => (
+                            <tr key={`${block.id}-row-${rowIndex}`} className={rowIndex % 2 ? "bg-[#fafafa]" : "bg-white"}>
+                              {row.map(({ cell, tokens }, cellIndex) => {
+                                const CellTag = cell.header ? "th" : "td";
+                                return (
+                                  <CellTag
+                                    key={`${block.id}-cell-${rowIndex}-${cellIndex}`}
+                                    className={`max-w-[34rem] whitespace-pre-wrap border-b border-r border-[#e3e3e6] px-3.5 py-2.5 align-top last:border-r-0 ${cell.header ? "bg-[#f3f4f5] font-semibold text-[#252525]" : "font-normal"}`}
+                                    colSpan={cell.colSpan}
+                                    rowSpan={cell.rowSpan}
+                                    scope={cell.header ? cell.scope : undefined}
+                                  >
+                                    {tokens.length
+                                      ? tokens.map((token) => (
+                                          <WordToken
+                                            key={token.id}
+                                            token={token}
+                                            selected={selectedTokenIdSet.has(token.id)}
+                                            highlighted={highlightedSentenceTokenIdSet.has(token.id)}
+                                            targeted={highlightedTargetTokenIdSet.has(token.id)}
+                                          />
+                                        ))
+                                      : cell.text || <span aria-label="空单元格">&nbsp;</span>}
+                                  </CellTag>
+                                );
+                              })}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </figure>
+                );
+              }
+
+              const Tag = block.type === "heading"
+                ? "h1"
+                : block.type === "subheading"
+                  ? "h2"
+                  : block.type === "quote"
+                    ? "blockquote"
+                    : block.type === "list-item"
+                      ? "li"
+                      : "p";
               return (
                 <Tag
                   key={block.id}
                   data-reader-block={block.id}
-                  className={`${textBlockClassName(block.type)} min-w-0 lg:[content-visibility:auto] lg:[contain-intrinsic-size:auto_120px]`}
+                  className={`${textBlockClassName(block.type)} min-w-0 ${block.type === "list-item" ? block.listStyle === "ordered" ? "list-decimal" : "list-disc" : ""}`}
+                  style={block.type === "list-item" ? { marginLeft: `${1.5 + Math.min(4, block.listLevel ?? 0) * 1.25}rem` } : undefined}
+                  value={block.type === "list-item" && block.listStyle === "ordered" ? block.listOrdinal : undefined}
                 >
                   {block.tokenGroups?.length
                     ? block.tokenGroups.map((group) => {
@@ -2492,17 +3365,22 @@ export function ReaderView({
                           targeted={highlightedTargetTokenIdSet.has(token.id)}
                         />
                       ))
-                      : <br />}
+                      : block.plainText || <br />}
                 </Tag>
               );
             })}
           </div>
+          </>
+          )}
         </article>
 
         <div className="hidden lg:block" aria-hidden="true" />
-        <div className="hidden lg:fixed lg:bottom-6 lg:right-[max(1.25rem,calc((100vw-80rem)/2+1.25rem))] lg:top-20 lg:z-20 lg:block lg:w-[360px]">
+        <div
+          className={`${toolbarStyles.readerSidePanel} hidden lg:fixed lg:bottom-6 lg:right-[max(1.25rem,calc((100vw-var(--reader-desktop-inset-left)-80rem)/2+1.25rem))] lg:top-20 lg:z-20 lg:block lg:w-[360px]`}
+          data-native-selection="blue"
+        >
           <div className="flex h-full min-h-0 flex-col gap-3">
-            <div className="grid h-10 shrink-0 grid-cols-3 rounded-full border border-[#d2d2d7] bg-white p-1">
+            <div className="grid h-10 shrink-0 grid-cols-2 rounded-full border border-[#d2d2d7] bg-white p-1">
               <button
                 type="button"
                 className={`rounded-full text-sm leading-none tracking-[-0.224px] transition ${
@@ -2521,15 +3399,6 @@ export function ReaderView({
               >
                 全文翻译
               </button>
-              <button
-                type="button"
-                className={`rounded-full text-sm leading-none tracking-[-0.224px] transition ${
-                  rightPanelMode === "dictionary" ? "bg-[#1d1d1f] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
-                }`}
-                onClick={() => setRightPanelMode("dictionary")}
-              >
-                单独查词
-              </button>
             </div>
             <div className="min-h-0 flex-1">
               <div className={rightPanelMode === "translation" ? "h-full min-h-0" : "hidden h-full min-h-0"}>
@@ -2541,6 +3410,10 @@ export function ReaderView({
                   requested={translationRequested}
                   estimatedSecondsRemaining={translationEstimatedSecondsRemaining}
                   retryAfterSeconds={translationRetryAfterSeconds}
+                  retryReason={translationRetryReason}
+                  regenerating={translationRegenerating}
+                  completedTargetBlocks={translationCompletedTargetBlocks}
+                  totalTargetBlocks={translationTotalTargetBlocks}
                   staleBlockIds={staleTranslationBlockIds}
                   removedTranslationCount={removedTranslationCount}
                   onGenerate={() => generateArticleTranslation(false)}
@@ -2561,24 +3434,123 @@ export function ReaderView({
                   onRegenerate={handleRegenerateExplanation}
                 />
               </div>
-              <div
-                className={rightPanelMode === "dictionary"
-                  ? "h-full min-h-0 overflow-y-auto rounded-[18px] border border-[#d2d2d7] bg-white p-4 [scrollbar-gutter:stable]"
-                  : "hidden h-full min-h-0"}
-                data-local-scroll-surface
-              >
-                <BookDictionary
-                  compact
-                  panel
-                  offline={isOffline}
-                  onAddToVocabulary={handleAddStandaloneDictionaryToVocabulary}
-                  isInVocabulary={isStandaloneDictionaryInVocabulary}
-                />
-              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {dictionaryMounted && (
+        <aside
+          ref={dictionaryWindowRef}
+          className={`${toolbarStyles.dictionaryWindow} ${dictionaryClosing ? toolbarStyles.dictionaryWindowClosing : ""}`}
+          aria-label="单独查词窗口"
+          onPointerUp={persistDictionaryWindow}
+        >
+          <header onPointerDown={startDictionaryDrag}>
+            <span><ReaderRailIcon kind="dictionary" />单独查词</span>
+            <button type="button" aria-label="隐藏单独查词窗口" onClick={closeDictionaryWindow}>×</button>
+          </header>
+          <div className={toolbarStyles.dictionaryWindowBody} data-local-scroll-surface>
+            <BookDictionary
+              embedded
+              panel
+              offline={isOffline}
+              onAddToVocabulary={handleAddStandaloneDictionaryToVocabulary}
+              isInVocabulary={isStandaloneDictionaryInVocabulary}
+            />
+          </div>
+        </aside>
+      )}
+
+      {readerWorkLayer && (
+        <div
+          className={toolbarStyles.workLayerBackdrop}
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setReaderWorkLayer(null);
+          }}
+        >
+          <section className={toolbarStyles.workLayer} role="dialog" aria-modal="true" aria-label={readerWorkLayer === "import" ? "导入新文章" : "我的文章"}>
+            <header>
+              <div>
+                <small>{readerWorkLayer === "import" ? "NEW READING" : "SAVED READING"}</small>
+                <h2>{readerWorkLayer === "import" ? "换一篇文章继续读" : "我的文章"}</h2>
+              </div>
+              <button type="button" aria-label="关闭工作层" onClick={() => setReaderWorkLayer(null)}>×</button>
+            </header>
+            {readerWorkLayer === "import" ? (
+              <div className={toolbarStyles.importWorkspace}>
+                <div className={toolbarStyles.importTabs} role="tablist" aria-label="导入方式">
+                  <button type="button" role="tab" aria-selected={readerImportMode === "text"} onClick={() => { setReaderImportMode("text"); setReaderImportStatus(""); }}>粘贴文章</button>
+                  <button type="button" role="tab" aria-selected={readerImportMode === "url"} onClick={() => { setReaderImportMode("url"); setReaderImportStatus(""); }}>输入网址</button>
+                </div>
+                {readerImportMode === "text" ? (
+                  <textarea
+                    value={readerImportText}
+                    onChange={(event) => { setReaderImportText(event.target.value); setReaderImportStatus(""); }}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+                        event.preventDefault();
+                        void submitReaderImport();
+                      }
+                    }}
+                    placeholder="粘贴英文正文。段落与空行会被保留。"
+                    data-native-selection="blue"
+                  />
+                ) : (
+                  <div className={toolbarStyles.urlWorkspace}>
+                    <input
+                      type="url"
+                      value={readerImportUrl}
+                      onChange={(event) => { setReaderImportUrl(event.target.value); setReaderImportPreview(null); setReaderImportStatus(""); }}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter") {
+                          event.preventDefault();
+                          void submitReaderImport();
+                        }
+                      }}
+                      placeholder="https://example.com/article"
+                      data-native-selection="blue"
+                    />
+                    {readerImportPreview && (
+                      <article>
+                        <small>{readerImportPreview.siteName || "文章预览"}</small>
+                        <strong>{readerImportPreview.title || "未命名文章"}</strong>
+                        <p>{readerImportPreview.text.slice(0, 180)}{readerImportPreview.text.length > 180 ? "…" : ""}</p>
+                      </article>
+                    )}
+                  </div>
+                )}
+                <div className={toolbarStyles.importActionRow}>
+                  <p role="status">{readerImportStatus || (readerImportMode === "text" ? "Ctrl / Cmd + Enter 也可以开始。" : "部分网站限制读取；失败时可以直接粘贴正文。")}</p>
+                  <button type="button" disabled={readerImportBusy || !onOpenImportedArticle} onClick={() => void submitReaderImport()}>
+                    {readerImportBusy ? "读取中…" : readerImportMode === "url" && !readerImportPreview ? "读取文章" : "开始阅读"}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className={toolbarStyles.savedWorkspace} data-local-scroll-surface>
+                {savedArticles.length ? savedArticles.map((savedArticle) => (
+                  <button
+                    key={savedArticle.id}
+                    type="button"
+                    onClick={() => {
+                      onOpenSavedArticle?.(savedArticle);
+                      setReaderWorkLayer(null);
+                    }}
+                  >
+                    <span>
+                      <strong>{savedArticle.title || savedArticle.importedArticle?.title || "未命名文章"}</strong>
+                      <small>{savedArticle.summary || savedArticle.body.slice(0, 96)}</small>
+                    </span>
+                    <em>{Math.round((savedArticle.readingProgress?.scrollRatio ?? 0) * 100)}%</em>
+                  </button>
+                )) : <p className={toolbarStyles.emptyWorkspace}>还没有保存文章。读到想留下的内容时，点击“保存文章”即可。</p>}
+              </div>
+            )}
+          </section>
+        </div>
+      )}
 
       {activeImageBlock?.src && (
         <div
@@ -2598,21 +3570,21 @@ export function ReaderView({
             }`}
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="absolute right-3 top-3 z-10 flex items-center justify-end gap-2">
+            <div className="absolute inset-x-3 bottom-[max(12px,env(safe-area-inset-bottom))] z-10 flex items-center gap-2 overflow-x-auto pb-1 sm:inset-x-auto sm:bottom-auto sm:right-3 sm:top-3 sm:justify-end sm:overflow-visible sm:pb-0">
               <button
                 type="button"
-                className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b]"
+                className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b] sm:h-8 sm:px-3"
                 onClick={() => changeActiveImageZoom(-0.1)}
                 disabled={activeImageZoom <= ACTIVE_IMAGE_MIN_ZOOM}
               >
                 缩小
               </button>
-              <span className="min-w-14 rounded-full bg-white/95 px-3 py-1.5 text-center text-sm leading-none text-[#1d1d1f]">
+              <span className="flex h-11 min-w-14 shrink-0 items-center justify-center rounded-full bg-white/95 px-3 text-center text-sm leading-none text-[#1d1d1f] sm:h-auto sm:py-1.5">
                 {activeImageZoomPercent}%
               </span>
               <button
                 type="button"
-                className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b]"
+                className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b] sm:h-8 sm:px-3"
                 onClick={() => changeActiveImageZoom(0.1)}
                 disabled={activeImageZoom >= ACTIVE_IMAGE_MAX_ZOOM}
               >
@@ -2620,7 +3592,7 @@ export function ReaderView({
               </button>
               <button
                 type="button"
-                className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b]"
+                className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b] sm:h-8 sm:px-3"
                 onClick={() => {
                   setActiveImageZoom(1);
                   setActiveImageZoomOrigin({ x: 50, y: 50 });
@@ -2631,7 +3603,7 @@ export function ReaderView({
               </button>
               <button
                 type="button"
-                className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95"
+                className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 sm:h-8 sm:px-3"
                 onClick={() => downloadImage(activeImageBlock)}
               >
                 下载
@@ -2639,7 +3611,7 @@ export function ReaderView({
               {!IMAGE_OCR_ENABLED && (
                 <button
                   type="button"
-                  className="h-8 rounded-full bg-white/95 px-3 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95"
+                  className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 sm:h-8 sm:px-3"
                   onClick={() => setActiveImageBlockId(null)}
                 >
                   关闭
@@ -2648,7 +3620,7 @@ export function ReaderView({
             </div>
             <div
               ref={activeImageScrollRef}
-              className="flex min-h-0 items-center justify-center overflow-hidden bg-[#111111] p-2 pt-14 sm:p-4 sm:pt-14"
+              className="flex min-h-0 items-center justify-center overflow-hidden bg-[#111111] p-2 pb-20 sm:p-4 sm:pt-14"
               onWheel={handleActiveImageWheel}
             >
               <div
@@ -2793,6 +3765,10 @@ export function ReaderView({
                 requested={translationRequested}
                 estimatedSecondsRemaining={translationEstimatedSecondsRemaining}
                 retryAfterSeconds={translationRetryAfterSeconds}
+                retryReason={translationRetryReason}
+                regenerating={translationRegenerating}
+                completedTargetBlocks={translationCompletedTargetBlocks}
+                totalTargetBlocks={translationTotalTargetBlocks}
                 staleBlockIds={staleTranslationBlockIds}
                 removedTranslationCount={removedTranslationCount}
                 onGenerate={() => generateArticleTranslation(false)}
@@ -2854,8 +3830,8 @@ export function ReaderView({
         onJumpToSource={handleJumpToVocabularySource}
         canJumpToSource={(entry) =>
           canJumpToSourceSentence(entry.sourceSentence) ||
-          Boolean(findBestSourceSentenceMatch(entry.sourceSentence, entry.word, wordTokens)) ||
-          Boolean(canJumpToVocabularySourceOutsideArticle?.(entry))
+          Boolean(canJumpToVocabularySourceOutsideArticle?.(entry)) ||
+          Boolean(findBestSourceSentenceMatch(entry.sourceSentence, entry.word, wordTokens))
         }
         onImportAnki={handleImportAnki}
         onImportAllAnki={handleImportAllAnki}

@@ -1,0 +1,11 @@
+[Unit]
+Description=Context Reader PostgreSQL backup
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/context-reader-current/ops/mainland/backup-postgres.sh
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7

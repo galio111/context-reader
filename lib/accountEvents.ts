@@ -2,7 +2,7 @@ export const ACCOUNT_DATA_CHANGED_EVENT = "context-reader:account-data-changed";
 export const ACCOUNT_DATA_MERGED_EVENT = "context-reader:account-data-merged";
 export const ACCOUNT_SYNC_TOMBSTONES_KEY = "context-reader:sync-tombstones:v1";
 
-export type AccountDeletedObjectKind = "article" | "vocabulary";
+export type AccountDeletedObjectKind = "article" | "vocabulary" | "preferences";
 
 export function notifyAccountDataChanged(): void {
   if (typeof window !== "undefined") {
