@@ -582,7 +582,6 @@ export function BookDictionary({
                     onClick={() => selectHistory(item.query)}
                   >
                     <span>{item.query}</span>
-                    <small>查询</small>
                   </button>
                   <button
                     type="button"

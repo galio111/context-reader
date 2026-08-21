@@ -464,7 +464,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           delete card.dataset.visible;
         }
       });
-    }, { rootMargin: "2% 0px 2%", threshold: 0.001 });
+    }, { rootMargin: "0px 0px 4% 0px", threshold: 0.001 });
     cards.forEach((card) => observer.observe(card));
     window.addEventListener("scroll", trackDirection, { passive: true });
     return () => {
@@ -745,14 +745,16 @@ export function HomeRedesign(props: HomeRedesignProps) {
     const fullDistance = Math.max(1, recommendationsTop - stageTop);
     const ratio = Math.min(1, Math.abs(targetY - startY) / fullDistance);
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const duration = reduced ? 260 : 620 + 1_280 * ratio;
+    // Keep one spatial velocity from either direction and from any interrupted
+    // point in the handoff. A non-linear easing curve made the page visibly
+    // accelerate and brake while the balls followed a different rhythm.
+    const duration = reduced ? 260 : Math.max(220, 1_900 * ratio);
     const startedAt = performance.now();
     coverScrollTargetRef.current = target;
 
     const tick = (time: number) => {
       const progress = Math.min(1, (time - startedAt) / duration);
-      const eased = progress * progress * progress * (progress * (progress * 6 - 15) + 10);
-      window.scrollTo({ top: startY + (targetY - startY) * eased, left: 0, behavior: "auto" });
+      window.scrollTo({ top: startY + (targetY - startY) * progress, left: 0, behavior: "auto" });
       if (progress < 1) {
         coverScrollFrameRef.current = window.requestAnimationFrame(tick);
       } else {
@@ -1094,8 +1096,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
             collectiveCenterY={-0.08}
             collectiveHalfWidth={0.69}
             collectiveHalfHeight={0.81}
-            collectiveStrength={0.000032}
-            thermalMotion={0.000052}
+            collectiveStrength={0.00012}
+            thermalMotion={0.000068}
             followCursor={!compactViewport}
             showCursorBall={false}
             initialLayout="right"

@@ -239,6 +239,36 @@ class BallPhysics {
       this.velocity.fromArray(velocityData, offset);
       this.velocity.x += collectiveForceX;
       this.velocity.y += collectiveForceY;
+
+      // A center-of-mass correction alone can leave a balanced cloud with many
+      // balls outside the intended composition. Add a soft statistical pressure
+      // only near and beyond the group's envelope. Each ball follows a different
+      // moving target and tangent, so the cloud returns visibly without looking
+      // like a set of particles marching toward fixed slots.
+      const visibleX = this.position.x + layoutBiasX;
+      const localX = visibleX - config.collectiveCenterX * config.maxX;
+      const localY = this.position.y - config.collectiveCenterY * config.maxY;
+      const pressureZoneX = zoneX * 0.86;
+      const pressureZoneY = zoneY * 0.86;
+      const overflowX = Math.max(0, Math.abs(localX) - pressureZoneX) / pressureZoneX;
+      const overflowY = Math.max(0, Math.abs(localY) - pressureZoneY) / pressureZoneY;
+      const overflow = Math.hypot(overflowX, overflowY);
+      if (overflow > 0 && config.collectiveStrength > 0) {
+        const returnPhase = this.thermalTime * (0.31 + (index % 5) * 0.037) + index * 2.173;
+        const wanderingX = Math.sin(returnPhase) * zoneX * 0.2;
+        const wanderingY = Math.cos(returnPhase * 1.17) * zoneY * 0.18;
+        const returnX = wanderingX - localX;
+        const returnY = wanderingY - localY;
+        const returnLength = Math.max(0.001, Math.hypot(returnX, returnY));
+        const edgeGain = MathUtils.smoothstep(overflow, 0, 0.38);
+        const pressure = config.collectiveStrength
+          * (4 + Math.min(1.5, overflow) * 10)
+          * edgeGain
+          * stepScale;
+        const tangent = Math.sin(returnPhase * 1.43) * 0.34;
+        this.velocity.x += (returnX / returnLength - returnY / returnLength * tangent) * pressure;
+        this.velocity.y += (returnY / returnLength + returnX / returnLength * tangent) * pressure;
+      }
       if (config.thermalMotion > 0) {
         const phase = this.thermalTime * (0.74 + (index % 7) * 0.11) + index * 2.399;
         this.velocity.x += Math.sin(phase) * config.thermalMotion * stepScale;
