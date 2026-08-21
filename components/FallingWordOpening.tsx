@@ -53,26 +53,26 @@ function createTargets(width: number, height: number): Array<{ x: number; y: num
   const context = guide.getContext("2d", { willReadFrequently: true });
   if (!context) return [];
   const compact = width < 720;
-  const fontSize = Math.min(compact ? width * 0.16 : width * 0.075, compact ? 72 : 110);
+  const fontSize = Math.min(compact ? width * 0.18 : width * 0.09, compact ? 74 : 132);
   context.fillStyle = "#000";
   context.textAlign = "center";
   context.textBaseline = "middle";
-  context.font = `800 ${fontSize}px Arial, sans-serif`;
+  context.font = `700 ${fontSize}px Arial, "PingFang SC", sans-serif`;
   if (compact) {
-    context.fillText("CONTEXT", width / 2, height / 2 - fontSize * 0.55);
-    context.fillText("READER", width / 2, height / 2 + fontSize * 0.55);
+    context.fillText("Context", width / 2, height / 2 - fontSize * 0.58);
+    context.fillText("Reader", width / 2, height / 2 + fontSize * 0.58);
   } else {
-    context.fillText("CONTEXT READER", width / 2, height / 2);
+    context.fillText("Context Reader", width / 2, height / 2);
   }
   const data = context.getImageData(0, 0, guide.width, guide.height).data;
-  const step = compact ? 9 : 11;
+  const step = compact ? 7 : 8;
   const targets: Array<{ x: number; y: number }> = [];
   for (let y = 0; y < guide.height; y += step) {
     for (let x = 0; x < guide.width; x += step) {
       if (data[(y * guide.width + x) * 4 + 3] > 120) targets.push({ x, y });
     }
   }
-  const maxParticles = compact ? 118 : 176;
+  const maxParticles = compact ? 360 : 620;
   if (targets.length <= maxParticles) return targets;
   const stride = targets.length / maxParticles;
   return Array.from({ length: maxParticles }, (_, index) => targets[Math.floor(index * stride)]);
@@ -104,6 +104,7 @@ export function FallingWordOpening({ className = "", onReady, onComplete }: Fall
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
+      const compact = rect.width < 720;
       const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.25);
       canvas.width = Math.max(1, Math.round(rect.width * pixelRatio));
       canvas.height = Math.max(1, Math.round(rect.height * pixelRatio));
@@ -113,8 +114,8 @@ export function FallingWordOpening({ className = "", onReady, onComplete }: Fall
         y: target.y,
         startX: target.x + (seeded(index, 1) - 0.5) * rect.width * 0.42,
         startY: -70 - seeded(index, 2) * rect.height * 0.72,
-        delay: seeded(index, 3) * 360,
-        radius: 6.4 + seeded(index, 4) * 3.6,
+        delay: seeded(index, 3) * 420,
+        radius: (compact ? 3.4 : 3.8) + seeded(index, 4) * (compact ? 1.8 : 2.2),
         color: index % COLORS.length,
       }));
     };
@@ -136,17 +137,17 @@ export function FallingWordOpening({ className = "", onReady, onComplete }: Fall
       let allSettled = true;
       for (let index = 0; index < particles.length; index += 1) {
         const particle = particles[index];
-        const local = Math.max(0, Math.min(1, (naturalElapsed - particle.delay) / 930));
+        const local = Math.max(0, Math.min(1, (naturalElapsed - particle.delay) / 1_060));
         const progress = Math.max(local, quick);
         if (progress < 1) allSettled = false;
         const eased = 1 - Math.pow(1 - progress, 3);
-        const bounce = Math.sin(progress * Math.PI * 3.2) * (1 - progress) * 42;
+        const bounce = Math.sin(progress * Math.PI * 3.1) * (1 - progress) * 28;
         const x = particle.startX + (particle.x - particle.startX) * eased;
         const y = particle.startY + (particle.y - particle.startY) * eased - bounce;
         const diameter = particle.radius * 2;
         context.drawImage(sprites[particle.color], x - particle.radius, y - particle.radius, diameter, diameter);
       }
-      if (!allSettled || naturalElapsed < 1_520) {
+      if (!allSettled || naturalElapsed < 2_080) {
         frame = window.requestAnimationFrame(draw);
       } else if (!completed) {
         completed = true;

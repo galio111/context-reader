@@ -47,6 +47,12 @@ export interface BallpitProps {
   maxY?: number;
   maxZ?: number;
   driftSpeed?: number;
+  collectiveCenterX?: number;
+  collectiveCenterY?: number;
+  collectiveHalfWidth?: number;
+  collectiveHalfHeight?: number;
+  collectiveStrength?: number;
+  thermalMotion?: number;
   followCursor?: boolean;
   showCursorBall?: boolean;
   departureProgress?: number;
@@ -78,6 +84,12 @@ interface BallpitConfig {
   maxY: number;
   maxZ: number;
   driftSpeed: number;
+  collectiveCenterX: number;
+  collectiveCenterY: number;
+  collectiveHalfWidth: number;
+  collectiveHalfHeight: number;
+  collectiveStrength: number;
+  thermalMotion: number;
   controlSphere0: boolean;
   followCursor: boolean;
   showCursorBall: boolean;
@@ -107,6 +119,12 @@ const DEFAULT_CONFIG: BallpitConfig = {
   maxY: 5,
   maxZ: 2,
   driftSpeed: 0,
+  collectiveCenterX: 0,
+  collectiveCenterY: 0,
+  collectiveHalfWidth: 1,
+  collectiveHalfHeight: 1,
+  collectiveStrength: 0,
+  thermalMotion: 0,
   controlSphere0: false,
   followCursor: true,
   showCursorBall: true,
@@ -132,6 +150,7 @@ class BallPhysics {
   private readonly difference = new Vector3();
   private readonly correction = new Vector3();
   private readonly velocityCorrection = new Vector3();
+  private thermalTime = 0;
 
   constructor(readonly config: BallpitConfig) {
     this.positionData = new Float32Array(3 * config.count);
@@ -180,6 +199,31 @@ class BallPhysics {
   update(delta: number) {
     const { config, positionData, sizeData, velocityData } = this;
     const startIndex = config.followCursor ? 1 : 0;
+    const movingCount = Math.max(1, config.count - startIndex);
+    let centerX = 0;
+    let centerY = 0;
+
+    for (let index = startIndex; index < config.count; index += 1) {
+      centerX += positionData[index * 3];
+      centerY += positionData[index * 3 + 1];
+    }
+
+    // This is a center-of-mass force, not a per-ball destination. It gives the
+    // cloud a weak macroscopic home region while collisions, cursor impulses,
+    // and thermal motion keep every individual trajectory irregular.
+    const layoutBiasX = config.initialLayout === "right" ? config.maxX * 0.34 : 0;
+    const visibleCenterX = centerX / movingCount + layoutBiasX;
+    const visibleCenterY = centerY / movingCount;
+    const centerErrorX = config.collectiveCenterX * config.maxX - visibleCenterX;
+    const centerErrorY = config.collectiveCenterY * config.maxY - visibleCenterY;
+    const zoneX = Math.max(0.001, config.collectiveHalfWidth * config.maxX);
+    const zoneY = Math.max(0.001, config.collectiveHalfHeight * config.maxY);
+    const xGain = 0.18 + 0.82 * MathUtils.smoothstep(Math.abs(centerErrorX), zoneX * 0.12, zoneX);
+    const yGain = 0.18 + 0.82 * MathUtils.smoothstep(Math.abs(centerErrorY), zoneY * 0.12, zoneY);
+    const stepScale = Math.min(2, Math.max(0.35, delta * 60));
+    const collectiveForceX = centerErrorX * config.collectiveStrength * xGain * stepScale;
+    const collectiveForceY = centerErrorY * config.collectiveStrength * yGain * stepScale;
+    this.thermalTime += delta;
 
     if (config.controlSphere0) {
       this.position
@@ -193,6 +237,14 @@ class BallPhysics {
       const offset = index * 3;
       this.position.fromArray(positionData, offset);
       this.velocity.fromArray(velocityData, offset);
+      this.velocity.x += collectiveForceX;
+      this.velocity.y += collectiveForceY;
+      if (config.thermalMotion > 0) {
+        const phase = this.thermalTime * (0.74 + (index % 7) * 0.11) + index * 2.399;
+        this.velocity.x += Math.sin(phase) * config.thermalMotion * stepScale;
+        this.velocity.y += Math.cos(phase * 1.31) * config.thermalMotion * stepScale;
+        this.velocity.z += Math.sin(phase * 0.83 + index) * config.thermalMotion * 0.45 * stepScale;
+      }
       this.velocity.y -= delta * config.gravity * sizeData[index];
       this.velocity.multiplyScalar(config.friction);
       this.velocity.clampLength(0, config.maxVelocity);
@@ -849,6 +901,12 @@ export default function Ballpit({
   maxY = DEFAULT_CONFIG.maxY,
   maxZ = DEFAULT_CONFIG.maxZ,
   driftSpeed = DEFAULT_CONFIG.driftSpeed,
+  collectiveCenterX = DEFAULT_CONFIG.collectiveCenterX,
+  collectiveCenterY = DEFAULT_CONFIG.collectiveCenterY,
+  collectiveHalfWidth = DEFAULT_CONFIG.collectiveHalfWidth,
+  collectiveHalfHeight = DEFAULT_CONFIG.collectiveHalfHeight,
+  collectiveStrength = DEFAULT_CONFIG.collectiveStrength,
+  thermalMotion = DEFAULT_CONFIG.thermalMotion,
   followCursor = DEFAULT_CONFIG.followCursor,
   showCursorBall = DEFAULT_CONFIG.showCursorBall,
   departureProgress = 0,
@@ -893,6 +951,12 @@ export default function Ballpit({
           maxY,
           maxZ,
           driftSpeed,
+          collectiveCenterX,
+          collectiveCenterY,
+          collectiveHalfWidth,
+          collectiveHalfHeight,
+          collectiveStrength,
+          thermalMotion,
           controlSphere0: false,
           followCursor,
           showCursorBall,
@@ -939,6 +1003,12 @@ export default function Ballpit({
     colors,
     count,
     driftSpeed,
+    collectiveCenterX,
+    collectiveCenterY,
+    collectiveHalfWidth,
+    collectiveHalfHeight,
+    collectiveStrength,
+    thermalMotion,
     followCursor,
     friction,
     gravity,

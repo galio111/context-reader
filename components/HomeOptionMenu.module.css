@@ -179,11 +179,26 @@
 }
 
 .accountIdentity {
+  position: relative;
   display: grid;
+  width: 100%;
+  margin: 0;
   padding-top: 15px;
   gap: 3px;
   border-top: 1px solid rgb(23 39 53 / 12%);
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
+.accountIdentity i { position: absolute; right: 2px; bottom: 2px; color: #347ca7; font-size: 17px; font-style: normal; transition: transform 220ms cubic-bezier(.22, 1, .36, 1); }
+.accountIdentity:hover i,
+.accountIdentity:focus-visible i { transform: translateX(4px); }
+.accountIdentity:focus-visible { outline: 2px solid #347ca7; outline-offset: 5px; }
 
 .accountIdentity span {
   color: #687b86;
@@ -322,6 +337,20 @@
   width: var(--menu-feedback-preview-width);
 }
 
+.settingsPanel { display: grid; min-height: 0; padding: 18px 4px 12px 2px; gap: 0; overflow-y: auto; }
+.settingsPanel section { display: flex; min-height: 96px; padding: 18px 6px; align-items: center; justify-content: space-between; gap: 28px; border-bottom: 1px solid rgb(23 39 53 / 10%); }
+.settingsPanel section:last-child { border-bottom: 0; }
+.settingsPanel section > div:first-child { min-width: 0; }
+.settingsPanel strong { color: #203542; font-size: 14px; font-weight: 650; }
+.settingsPanel p { max-width: 34ch; margin: 6px 0 0; color: #657985; font-size: 12px; line-height: 1.55; }
+.toggle { position: relative; width: 46px; height: 26px; padding: 0; flex: 0 0 auto; border: 0; border-radius: 999px; background: #bdcbd1; cursor: pointer; transition: background 180ms ease; }
+.toggle i { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 2px 5px rgb(13 32 43 / 22%); transition: transform 220ms cubic-bezier(.22, 1, .36, 1); }
+.toggle[aria-checked="true"] { background: #2d7187; }
+.toggle[aria-checked="true"] i { transform: translateX(20px); }
+.themeChoices { display: inline-flex; padding: 3px; flex: 0 0 auto; border-radius: 999px; background: #e5edf0; }
+.themeChoices button { min-width: 58px; min-height: 34px; padding: 0 12px; border: 0; border-radius: 999px; color: #60747f; background: transparent; font: inherit; font-size: 12px; cursor: pointer; }
+.themeChoices button[aria-pressed="true"] { color: #fff; background: #245f75; }
+
 .pageContent {
   width: 100%;
   height: 100%;
@@ -335,6 +364,31 @@
   visibility: visible;
   transform: translateX(0);
 }
+
+.overlay[data-theme="night"] { color: #e6eff1; }
+.overlay[data-theme="night"] .backdrop { background: rgb(0 10 14 / 42%); }
+.overlay[data-theme="night"] .panel,
+.overlay[data-theme="night"] .savedPreview,
+.overlay[data-theme="night"] .vocabularyDetail { border-color: rgb(191 221 227 / 14%); color: #e3edef; background: rgb(18 34 41 / 98%); box-shadow: 0 22px 70px rgb(0 0 0 / 34%); }
+.overlay[data-theme="night"] .prelayer { filter: brightness(.48) saturate(.72); }
+.overlay[data-theme="night"] .panelHeader div > span,
+.overlay[data-theme="night"] .accountIdentity span,
+.overlay[data-theme="night"] .savedHeader p,
+.overlay[data-theme="night"] .settingsPanel p { color: #aebfc4; }
+.overlay[data-theme="night"] .panelHeader h2,
+.overlay[data-theme="night"] .close,
+.overlay[data-theme="night"] .menuItem,
+.overlay[data-theme="night"] .accountIdentity strong,
+.overlay[data-theme="night"] .savedHeader h3,
+.overlay[data-theme="night"] .settingsPanel strong { color: #e3edef; }
+.overlay[data-theme="night"] .accountIdentity,
+.overlay[data-theme="night"] .savedHeader,
+.overlay[data-theme="night"] .settingsPanel section { border-color: rgb(191 221 227 / 13%); }
+.overlay[data-theme="night"] .themeChoices { background: #253b43; }
+.overlay[data-theme="night"] .themeChoices button { color: #b8c9cd; }
+.overlay[data-theme="night"] .themeChoices button[aria-pressed="true"] { color: #102027; background: #a7d3dc; }
+.overlay[data-theme="night"] .toggle { background: #455c64; }
+.overlay[data-theme="night"] .toggle[aria-checked="true"] { background: #78b7c4; }
 
 .savedHeader {
   display: flex;
@@ -1167,6 +1221,8 @@
     font-size: 1.3rem;
     touch-action: manipulation;
   }
+
+  .settingsPanel section { align-items: flex-start; flex-direction: column; gap: 16px; }
 
   .itemWrap[data-quick] .menuItem { padding: 12px 11px; font-size: 14px; font-weight: 650; text-align: center; }
   .itemWrap[data-quick] .menuItem::after { display: none; }

@@ -679,6 +679,53 @@
 .streamTail i { width: 7px; height: 7px; border-radius: 50%; background: #2868ad; animation: streamPulse .8s ease-in-out infinite alternate; }
 @keyframes blockReveal { from { opacity: .25; transform: translateY(5px); } }
 
+.embedded.panel {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+.embedded.panel::after { display: none; }
+.embedded.panel .headingPage {
+  min-height: 0;
+  padding: 12px 14px 13px;
+  flex: 0 0 auto;
+  background: transparent;
+}
+.embedded.panel .pageTopline { display: none; }
+.embedded.panel .headingPage h2,
+.embedded.panel .panelIntro { display: none; }
+.embedded.panel .search { margin-top: 0; }
+.embedded.panel .search label { color: #506874; font-size: 11px; }
+.embedded.panel .examples,
+.embedded.panel .historyBlock { margin-top: 9px; }
+.embedded.panel .resultPage {
+  min-height: 0;
+  margin: 0;
+  padding: 15px 14px 20px;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  border-top: 1px solid #dbe2e7;
+  background: #f5f8fa;
+}
+.embedded.panel .empty {
+  min-height: 100%;
+  padding: 28px 14px;
+  place-content: center;
+}
+.embedded.panel .empty > span { font-size: 34px; }
+.embedded.panel .empty h3 { max-width: 22ch; font-size: 15px; line-height: 1.45; }
+.embedded.panel .empty p { max-width: 34ch; font-size: 12px; line-height: 1.65; }
+
+:global(html[data-context-theme="night"]) .embedded.panel { color: #e5eef0; background: transparent; }
+:global(html[data-context-theme="night"]) .embedded.panel .headingPage { background: transparent; }
+:global(html[data-context-theme="night"]) .embedded.panel .search label { color: #b5c6ca; }
+:global(html[data-context-theme="night"]) .embedded.panel .search input { border-color: rgb(190 220 227 / 20%); color: #edf4f5; background: #102229; }
+:global(html[data-context-theme="night"]) .embedded.panel .resultPage { border-color: rgb(190 220 227 / 15%); color: #dfeaec; background: #14282f; }
+:global(html[data-context-theme="night"]) .embedded.panel .empty h3 { color: #dce8ea; }
+:global(html[data-context-theme="night"]) .embedded.panel .empty p { color: #afc1c6; }
+
 @media (max-width: 900px) {
   .dictionary { width: calc(100% - 20px); min-height: 0; margin: 8vh 10px 12vh; grid-template-columns: 1fr; }
   .dictionary::after { display: none; }

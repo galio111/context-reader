@@ -50,9 +50,13 @@ interface HomeOptionMenuProps {
   initialPreview?: PreviewKind | null;
   onOpenImport?: () => void;
   onOpenDictionary?: () => void;
+  theme?: "day" | "night";
+  letterMotionEnabled?: boolean;
+  onThemeChange?: (theme: "day" | "night") => void;
+  onLetterMotionChange?: (enabled: boolean) => void;
 }
 
-export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "feedback";
+export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "feedback" | "settings";
 type MenuAction = "import" | "dictionary";
 interface MenuItem {
   label: string;
@@ -69,6 +73,7 @@ const MAX_FEEDBACK_IMAGE_BYTES = 5 * 1024 * 1024;
 const menuItems: MenuItem[] = [
   { label: "账号与用量", preview: "account" },
   { label: "使用说明", preview: "guide" },
+  { label: "设置", preview: "settings" },
   { label: "意见反馈", preview: "feedback" },
   { label: "admin后台", adminOnly: true },
 ];
@@ -113,6 +118,10 @@ export function HomeOptionMenu({
   initialPreview = null,
   onOpenImport,
   onOpenDictionary,
+  theme = "day",
+  letterMotionEnabled = true,
+  onThemeChange,
+  onLetterMotionChange,
 }: HomeOptionMenuProps) {
   const router = useRouter();
   const dialogRef = useRef<HTMLElement | null>(null);
@@ -298,6 +307,7 @@ export function HomeOptionMenu({
       className={styles.overlay}
       role="presentation"
       data-open={open || undefined}
+      data-theme={theme}
       data-local-scroll-surface
       onPointerDown={(event) => {
         if (event.target === event.currentTarget) onClose();
@@ -365,16 +375,25 @@ export function HomeOptionMenu({
           </ul>
         </div>
 
-        <footer className={styles.accountIdentity}>
+        <button
+          type="button"
+          className={styles.accountIdentity}
+          aria-label={account.authenticated ? "打开当前账号与用量" : "打开登录与账号入口"}
+          onClick={(event) => {
+            anchorPreview(event.currentTarget);
+            setPinnedPreview("account");
+          }}
+        >
           <span>{isOffline ? "离线身份" : account.authenticated ? "当前账号" : "账号状态"}</span>
           <strong>
             {isOffline
               ? (localAccount?.nickname || (localAccount ? "上次登录账号" : "未确认账号"))
               : account.authenticated
                 ? (account.profile?.nickname || "已登录")
-                : "未登录"}
+                : "未登录，点击登录"}
           </strong>
-        </footer>
+          <i aria-hidden="true">→</i>
+        </button>
       </section>
 
       {visiblePreview && (
@@ -559,6 +578,40 @@ export function HomeOptionMenu({
       >
         <div className={styles.pageContent} data-local-scroll-surface>
           <AccountUsagePageContent embedded />
+        </div>
+      </MenuPreview>
+
+      <MenuPreview
+        kind="settings"
+        visiblePreview={visiblePreview}
+        previewAnchorY={previewAnchorY}
+        title="设置"
+        subtitle="只改变这台设备上的首页显示"
+      >
+        <div className={styles.settingsPanel} data-local-scroll-surface>
+          <section>
+            <div>
+              <strong>鼠标字母轨迹</strong>
+              <p>关闭后，鼠标移动时不再飘出彩色字母。</p>
+            </div>
+            <button
+              type="button"
+              className={styles.toggle}
+              role="switch"
+              aria-checked={letterMotionEnabled}
+              onClick={() => onLetterMotionChange?.(!letterMotionEnabled)}
+            ><i /></button>
+          </section>
+          <section>
+            <div>
+              <strong>界面外观</strong>
+              <p>在明亮和深色阅读环境之间切换。</p>
+            </div>
+            <div className={styles.themeChoices} aria-label="选择界面外观">
+              <button type="button" aria-pressed={theme === "day"} onClick={() => onThemeChange?.("day")}>日间</button>
+              <button type="button" aria-pressed={theme === "night"} onClick={() => onThemeChange?.("night")}>夜间</button>
+            </div>
+          </section>
         </div>
       </MenuPreview>
 

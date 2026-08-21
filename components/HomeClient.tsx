@@ -920,6 +920,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       <HomeRedesign
         forceGuestPreview={forceGuestPreview}
         forceMemberPreview={forceMemberPreview}
+        skipMemberOpening={homeDemoCompleted}
         article={article}
         articleUrl={articleUrl}
         urlPreview={urlPreview}

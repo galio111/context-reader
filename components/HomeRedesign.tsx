@@ -42,6 +42,19 @@ const BALL_COLORS = [
   0xf43f5e,
 ];
 
+const BALL_MATERIAL = {
+  metalness: 0.22,
+  roughness: 0.34,
+  clearcoat: 1,
+  clearcoatRoughness: 0.12,
+  transparent: true,
+  opacity: 0.84,
+  depthWrite: false,
+};
+
+const HOME_PREFERENCES_KEY = "context-reader-home-ui-v1";
+type HomeTheme = "day" | "night";
+
 const CATEGORY_FILTERS = [
   { label: "推荐", test: () => true },
   { label: "时事", test: (article: PublicArticle) => article.recommendation?.topics.some((topic) => /社会/.test(topic)) ?? false },
@@ -107,6 +120,7 @@ function FeatureOrbitVisual({ kind }: { kind: (typeof FEATURE_ORBIT)[number]["ke
 interface HomeRedesignProps {
   forceGuestPreview?: boolean;
   forceMemberPreview?: boolean;
+  skipMemberOpening?: boolean;
   article: string;
   articleUrl: string;
   urlPreview: ImportedArticle | null;
@@ -262,9 +276,11 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [featureDragging, setFeatureDragging] = useState(false);
   const [continueVariant, setContinueVariant] = useState<"editorial" | "cover">("cover");
   const [navMotion, setNavMotion] = useState<"slide" | "fill" | "icon">("icon");
-  const [memberOpeningVariant, setMemberOpeningVariant] = useState<"spiral" | "wordfall">("spiral");
+  const [memberOpeningVariant, setMemberOpeningVariant] = useState<"spiral" | "wordfall">("wordfall");
   const [heroSubtitleVariant, setHeroSubtitleVariant] = useState<keyof typeof HERO_SUBTITLES>("a");
-  const [memberOpeningVisible, setMemberOpeningVisible] = useState(memberHome);
+  const [memberOpeningVisible, setMemberOpeningVisible] = useState(memberHome && !props.skipMemberOpening);
+  const [letterMotionEnabled, setLetterMotionEnabled] = useState(true);
+  const [homeTheme, setHomeTheme] = useState<HomeTheme>("day");
   const [memberBallpitReady, setMemberBallpitReady] = useState(false);
   const [openingArticle, setOpeningArticle] = useState<OpeningArticle | null>(null);
   const [feedbackOpen, setFeedbackOpen] = useState(false);
@@ -291,6 +307,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const dictionaryWindowRef = useRef<HTMLElement | null>(null);
   const dictionaryCloseTimerRef = useRef<number | null>(null);
   const categorySwitchTimerRef = useRef<number | null>(null);
+  const coverScrollFrameRef = useRef(0);
+  const coverScrollTargetRef = useRef<"cover" | "recommendations" | null>(null);
   const orbitDragRef = useRef({ pointerId: -1, startX: 0, lastX: 0, lastTime: 0, velocity: 0, startPosition: 0 });
   const orbitSuppressClickRef = useRef(false);
 
@@ -349,7 +367,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     setContinueVariant(params.get("continue") === "editorial" ? "editorial" : "cover");
     const requestedNavMotion = params.get("navmotion");
     setNavMotion(requestedNavMotion === "fill" || requestedNavMotion === "slide" ? requestedNavMotion : "icon");
-    setMemberOpeningVariant(params.get("opening") === "wordfall" ? "wordfall" : "spiral");
+    setMemberOpeningVariant(params.get("opening") === "spiral" ? "spiral" : "wordfall");
     const requestedSubtitle = params.get("subtitle");
     setHeroSubtitleVariant(requestedSubtitle === "b" || requestedSubtitle === "c" ? requestedSubtitle : "a");
   }, [props.forceGuestPreview, props.forceMemberPreview]);
@@ -367,6 +385,28 @@ export function HomeRedesign(props: HomeRedesignProps) {
     setRecommendationPreferences(stored);
     setPreferenceDraft(stored);
   }, []);
+
+  useEffect(() => {
+    try {
+      const stored = JSON.parse(window.localStorage.getItem(HOME_PREFERENCES_KEY) || "null") as {
+        theme?: HomeTheme;
+        letterMotionEnabled?: boolean;
+      } | null;
+      if (stored?.theme === "night" || stored?.theme === "day") setHomeTheme(stored.theme);
+      if (typeof stored?.letterMotionEnabled === "boolean") setLetterMotionEnabled(stored.letterMotionEnabled);
+    } catch {
+      // Corrupt display preferences fall back to the calm daytime defaults.
+    }
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.dataset.contextTheme = homeTheme;
+    document.documentElement.style.colorScheme = homeTheme === "night" ? "dark" : "light";
+    return () => {
+      delete document.documentElement.dataset.contextTheme;
+      document.documentElement.style.colorScheme = "light";
+    };
+  }, [homeTheme]);
 
   useEffect(() => {
     if (!preferenceOpen) return;
@@ -407,16 +447,48 @@ export function HomeRedesign(props: HomeRedesignProps) {
       cards.forEach((card) => { card.dataset.visible = "true"; });
       return;
     }
+    cards.forEach((card) => { card.dataset.motionReady = "true"; });
+    let lastY = window.scrollY;
+    let direction: "up" | "down" = "down";
+    const trackDirection = () => {
+      direction = window.scrollY < lastY ? "up" : "down";
+      lastY = window.scrollY;
+    };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        (entry.target as HTMLElement).dataset.visible = "true";
-        observer.unobserve(entry.target);
+        const card = entry.target as HTMLElement;
+        if (entry.isIntersecting) {
+          card.dataset.enterDirection = direction;
+          card.dataset.visible = "true";
+        } else {
+          delete card.dataset.visible;
+        }
       });
-    }, { rootMargin: "5% 0px -8%", threshold: 0.12 });
+    }, { rootMargin: "2% 0px 2%", threshold: 0.001 });
     cards.forEach((card) => observer.observe(card));
-    return () => observer.disconnect();
+    window.addEventListener("scroll", trackDirection, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", trackDirection);
+    };
   }, [activeCategory, displayArticles.length]);
+
+  useEffect(() => {
+    if (memberHome) return;
+    const section = importRef.current;
+    if (!section) return;
+    if (!("IntersectionObserver" in window)) {
+      section.dataset.visible = "true";
+      return;
+    }
+    section.dataset.motionReady = "true";
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry?.isIntersecting) section.dataset.visible = "true";
+      else delete section.dataset.visible;
+    }, { rootMargin: "4% 0px 4%", threshold: 0.08 });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [memberHome]);
 
   useEffect(() => {
     const grid = articleGridRef.current;
@@ -527,21 +599,31 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
   useEffect(() => {
     if (memberHome) return;
-    const root = document.documentElement;
-    const body = document.body;
-    const previousRootSnap = root.style.scrollSnapType;
-    const previousBodySnap = body.style.scrollSnapType;
-    const stage = coverStageRef.current;
-    const recommendations = recommendationsRef.current;
-    root.style.scrollSnapType = "y proximity";
-    body.style.scrollSnapType = "y proximity";
-    if (stage) stage.style.scrollSnapAlign = "start";
-    if (recommendations) recommendations.style.scrollSnapAlign = "start";
+    const handleWheel = (event: WheelEvent) => {
+      if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      if ((event.target as Element | null)?.closest?.("[data-local-scroll-surface]")) return;
+      const stage = coverStageRef.current;
+      const recommendations = recommendationsRef.current;
+      if (!stage || !recommendations) return;
+      const stageTop = stage.getBoundingClientRect().top + window.scrollY;
+      const recommendationsTop = recommendations.getBoundingClientRect().top + window.scrollY;
+      const current = window.scrollY;
+      const insideHandoff = current >= stageTop - 2 && current < recommendationsTop - 2;
+      const atRecommendationStart = current >= recommendationsTop - 3 && current <= recommendationsTop + 56;
+      if (event.deltaY > 0 && insideHandoff) {
+        event.preventDefault();
+        animateCoverSnap("recommendations");
+      } else if (event.deltaY < 0 && (insideHandoff || atRecommendationStart)) {
+        event.preventDefault();
+        animateCoverSnap("cover");
+      }
+    };
+    window.addEventListener("wheel", handleWheel, { passive: false });
     return () => {
-      root.style.scrollSnapType = previousRootSnap;
-      body.style.scrollSnapType = previousBodySnap;
-      if (stage) stage.style.scrollSnapAlign = "";
-      if (recommendations) recommendations.style.scrollSnapAlign = "";
+      window.removeEventListener("wheel", handleWheel);
+      if (coverScrollFrameRef.current) window.cancelAnimationFrame(coverScrollFrameRef.current);
+      coverScrollFrameRef.current = 0;
+      coverScrollTargetRef.current = null;
     };
   }, [memberHome]);
 
@@ -549,6 +631,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
     if (!memberHome) {
       setMemberOpeningVisible(false);
       setMemberBallpitReady(false);
+      return;
+    }
+    if (props.skipMemberOpening) {
+      setMemberOpeningVisible(false);
       return;
     }
     setMemberOpeningVisible(true);
@@ -593,7 +679,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       window.removeEventListener("keydown", finishQuickly);
       if (memberOpeningFrameRef.current) window.cancelAnimationFrame(memberOpeningFrameRef.current);
     };
-  }, [memberBallpitReady, memberHome, memberOpeningVariant]);
+  }, [memberBallpitReady, memberHome, memberOpeningVariant, props.skipMemberOpening]);
 
   function beginArticleTransition(article: PublicArticle, event: ReactMouseEvent<HTMLButtonElement>) {
     if (openingArticle || props.openingPublicArticleId) return;
@@ -622,6 +708,59 @@ export function HomeRedesign(props: HomeRedesignProps) {
       else void props.onPrepareUrlImport();
     }
     else void props.onStartReading();
+  }
+
+  function persistHomePreferences(nextTheme: HomeTheme, nextLetterMotionEnabled: boolean) {
+    try {
+      window.localStorage.setItem(HOME_PREFERENCES_KEY, JSON.stringify({
+        theme: nextTheme,
+        letterMotionEnabled: nextLetterMotionEnabled,
+      }));
+    } catch {
+      // The controls still apply for this visit when browser storage is blocked.
+    }
+  }
+
+  function changeHomeTheme(nextTheme: HomeTheme) {
+    setHomeTheme(nextTheme);
+    persistHomePreferences(nextTheme, letterMotionEnabled);
+  }
+
+  function changeLetterMotion(nextEnabled: boolean) {
+    setLetterMotionEnabled(nextEnabled);
+    persistHomePreferences(homeTheme, nextEnabled);
+  }
+
+  function animateCoverSnap(target: "cover" | "recommendations") {
+    const stage = coverStageRef.current;
+    const recommendations = recommendationsRef.current;
+    if (!stage || !recommendations) return;
+    if (coverScrollFrameRef.current && coverScrollTargetRef.current === target) return;
+    if (coverScrollFrameRef.current) window.cancelAnimationFrame(coverScrollFrameRef.current);
+
+    const stageTop = stage.getBoundingClientRect().top + window.scrollY;
+    const recommendationsTop = recommendations.getBoundingClientRect().top + window.scrollY;
+    const targetY = target === "cover" ? stageTop : recommendationsTop;
+    const startY = window.scrollY;
+    const fullDistance = Math.max(1, recommendationsTop - stageTop);
+    const ratio = Math.min(1, Math.abs(targetY - startY) / fullDistance);
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const duration = reduced ? 260 : 620 + 1_280 * ratio;
+    const startedAt = performance.now();
+    coverScrollTargetRef.current = target;
+
+    const tick = (time: number) => {
+      const progress = Math.min(1, (time - startedAt) / duration);
+      const eased = progress * progress * progress * (progress * (progress * 6 - 15) + 10);
+      window.scrollTo({ top: startY + (targetY - startY) * eased, left: 0, behavior: "auto" });
+      if (progress < 1) {
+        coverScrollFrameRef.current = window.requestAnimationFrame(tick);
+      } else {
+        coverScrollFrameRef.current = 0;
+        coverScrollTargetRef.current = null;
+      }
+    };
+    coverScrollFrameRef.current = window.requestAnimationFrame(tick);
   }
 
   function scrollToImport() {
@@ -866,9 +1005,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
   ].filter(Boolean).join(" · ") || "设置阅读水平与兴趣";
 
   return (
-    <main className={styles.root} data-home-mode={memberHome ? "member" : "guest"} data-nav-motion={navMotion} data-guest-preview={guestPreviewAllowed || undefined} data-member-preview={memberPreviewAllowed || undefined}>
+    <main className={styles.root} data-theme={homeTheme} data-home-mode={memberHome ? "member" : "guest"} data-nav-motion={navMotion} data-guest-preview={guestPreviewAllowed || undefined} data-member-preview={memberPreviewAllowed || undefined}>
       {journeyPending && <div className={styles.accountResolving} role="status" aria-label="正在打开阅读空间"><span /><span /><span /></div>}
-      <BookLetterField paused={memberOpeningVisible} />
+      <BookLetterField paused={memberOpeningVisible || !letterMotionEnabled} />
       <header className={styles.topbar}>
         <div className={`${styles.brandCluster} ${memberHome ? styles.brandClusterFixed : ""}`}>
           <PillNavAction className={styles.brand} href="/" label="Context Reader" ariaLabel="Context Reader 首页" />
@@ -934,7 +1073,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
             <p>CONTEXT READER</p>
             <h1 id="home-redesign-title">在语境里，<br />读懂英文。</h1>
             <p className={styles.heroSubtitle}>{HERO_SUBTITLES[heroSubtitleVariant]}</p>
-            <button type="button" className={styles.coverAction} onClick={() => recommendationsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}>
+            <button type="button" className={styles.coverAction} onClick={() => animateCoverSnap("recommendations")}>
               <span>精选外刊</span><i aria-hidden="true">↓</i>
             </button>
           </div>
@@ -950,6 +1089,13 @@ export function HomeRedesign(props: HomeRedesignProps) {
             friction={0.983}
             wallBounce={0.95}
             colors={BALL_COLORS}
+            materialParams={BALL_MATERIAL}
+            collectiveCenterX={0.23}
+            collectiveCenterY={-0.08}
+            collectiveHalfWidth={0.69}
+            collectiveHalfHeight={0.81}
+            collectiveStrength={0.000032}
+            thermalMotion={0.000052}
             followCursor={!compactViewport}
             showCursorBall={false}
             initialLayout="right"
@@ -1010,7 +1156,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
             <p>SELECTED READING</p>
             <h2 id="selected-reading-title">精选外刊</h2>
             <div className={styles.preferenceBar}>
-              <div ref={preferenceControlRef} className={styles.preferenceControl}>
+              <div ref={preferenceControlRef} className={styles.preferenceControl} data-open={preferenceOpen || undefined}>
                 <span className={styles.updateCadence}><i aria-hidden="true" />外刊会定期更新</span>
                 <button
                   type="button"
@@ -1136,6 +1282,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
         {!memberHome && renderImportSection()}
 
         {!memberHome && <section className={styles.featureOrbit} aria-labelledby="feature-orbit-heading">
+          <span className={styles.featureZoneLabel}>功能展示区</span>
           <header>
             <div>
               <p>HOW IT STAYS WITH YOU</p>
@@ -1289,6 +1436,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
         savedArticles={hasLocalAccountAccess ? props.savedArticles : []}
         vocabularyEntries={hasLocalAccountAccess ? vocabularyEntries : []}
         initialPreview={menuInitialPreview}
+        theme={homeTheme}
+        letterMotionEnabled={letterMotionEnabled}
+        onThemeChange={changeHomeTheme}
+        onLetterMotionChange={changeLetterMotion}
         onOpenImport={scrollToImport}
         onOpenDictionary={openDictionary}
         onClose={() => {
