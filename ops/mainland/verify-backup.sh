@@ -37,6 +37,33 @@ cat "$BACKUP_FILE" | compose exec -T postgres pg_restore \
   --exit-on-error \
   --no-owner \
   --no-privileges \
+  --section=pre-data \
+  --username "$VERIFY_USER" \
+  --dbname "$VERIFY_DB"
+
+# The Vault extension creates its encrypted table with deliberately narrow
+# privileges. Restore schema first, then grant the disposable verifier role
+# access before COPY runs. This keeps the full Vault data in the restore test
+# instead of hiding a broken backup behind an excluded schema.
+compose exec -T postgres psql \
+  --username "$VERIFY_USER" \
+  --dbname "$VERIFY_DB" \
+  --set ON_ERROR_STOP=1 \
+  --command "grant all on table vault.secrets to $VERIFY_USER;"
+
+cat "$BACKUP_FILE" | compose exec -T postgres pg_restore \
+  --exit-on-error \
+  --no-owner \
+  --no-privileges \
+  --section=data \
+  --username "$VERIFY_USER" \
+  --dbname "$VERIFY_DB"
+
+cat "$BACKUP_FILE" | compose exec -T postgres pg_restore \
+  --exit-on-error \
+  --no-owner \
+  --no-privileges \
+  --section=post-data \
   --username "$VERIFY_USER" \
   --dbname "$VERIFY_DB"
 

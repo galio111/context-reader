@@ -6,7 +6,7 @@ This stack keeps the mainland environment self-contained and reversible:
 - `compose.shadow.yml`: binds HTTP only to server loopback port `8080`.
 - `compose.production.yml`: opens public HTTP/HTTPS only after ICP filing.
 - `backup-postgres.sh`: daily custom-format dumps, SHA-256 sidecars, 7 daily / 5 weekly / 12 monthly retention and optional rclone off-site copy.
-- `verify-backup.sh`: restores into the fixed disposable database `context_reader_restore_check`; it never overwrites the production database.
+- `verify-backup.sh`: restores pre-data, data, and post-data into the fixed disposable database `context_reader_restore_check`; it grants the disposable verifier role access to the Vault extension table between schema and data phases, and never overwrites the production database.
 - `healthcheck.sh`: checks all seven services, the active shadow or production URL, disk pressure, and backup freshness every five minutes.
 - `rollback-shadow.sh`: retags a previously accepted application image and restarts only the private shadow stack.
 - `cutover-production.sh`: refuses to run until both DNS names resolve to the expected server, switches Caddy to HTTPS, opens only 80/443, and automatically restores shadow mode if acceptance fails.
