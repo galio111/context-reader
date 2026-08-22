@@ -27,6 +27,16 @@ const plans = [
   ["Max", "¥30 / 月", "每天 600 次查词 · 每月 2,000 点深度阅读"],
 ] as const;
 
+const entitlementExpiryFormatter = new Intl.DateTimeFormat("zh-CN", {
+  timeZone: "Asia/Shanghai",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+});
+
 export function AccountUsagePageContent({ embedded = false }: { embedded?: boolean }) {
   const { account, loading, isOffline, localAccount, openLogin, refreshAccount, syncNow, logout } = useAccount();
   const [loggingOut, setLoggingOut] = useState(false);
@@ -50,6 +60,10 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
   const accountIdentifier = account.profile?.phone
     ? `手机号 ${account.profile.phone}`
     : account.profile?.email || "";
+  const activeInvite = account.entitlement?.source === "invite"
+    && Boolean(account.entitlement.endsAt)
+    && Date.parse(account.entitlement.endsAt || "") > Date.now();
+  const showUsageDetails = PUBLIC_USAGE_DETAILS_ENABLED || activeInvite;
   useEffect(() => { void refreshAccount(); }, [refreshAccount]);
   useEffect(() => {
     setProfileLevel(account.profile?.englishLevel || "");
@@ -224,7 +238,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
               <div className="flex flex-wrap items-start justify-between gap-5">
                 <div><p className="text-sm text-[#5f6d79]">当前账号</p><h2 className="mt-1 text-2xl font-semibold">{account.profile?.nickname || accountIdentifier}</h2><p className="mt-2 text-sm text-[#5f6d79]">{accountIdentifier}</p>{account.profile?.loginMethod === "phone_pin" && <p className="mt-1 text-xs text-[#738391]">手机号尚未验证 · 密码登录</p>}{!account.localOnly && <button className="mt-3 text-xs font-medium text-[#567080] underline decoration-[#9aadb7] underline-offset-4" type="button" onClick={() => { setAccountDetailsEditing((value) => !value); setAccountDetailsMessage(""); }}>{accountDetailsEditing ? "收起账号资料" : "修改账号资料"}</button>}</div>
                 <span className="rounded-full bg-[#dce9f3] px-4 py-2 text-sm font-semibold text-[#285a7c]">
-                  {PUBLIC_COMMERCIAL_UI_ENABLED ? account.plan?.displayName || "免费用户" : "公开测试中"}
+                  {activeInvite ? `${account.plan?.displayName || "内测"} 内测` : PUBLIC_COMMERCIAL_UI_ENABLED ? account.plan?.displayName || "免费用户" : "公开测试中"}
                 </span>
               </div>
               {accountDetailsEditing && !account.localOnly && (
@@ -243,12 +257,13 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
                 </div>
               )}
               {accountDetailsMessage && <p className="mt-4 text-sm text-[#315e66]" role="status">{accountDetailsMessage}</p>}
+              {activeInvite && account.entitlement?.endsAt && <p className="mt-5 rounded-xl bg-[#edf5fb] px-4 py-3 text-sm leading-6 text-[#174d73]">邀请码权益有效期至 {entitlementExpiryFormatter.format(new Date(account.entitlement.endsAt))}，到期后自动恢复免费档位；届时可以继续兑换新的邀请码。</p>}
               {account.localOnly ? (
                 <p className="mt-7 max-w-2xl text-sm leading-6 text-[#526b5a]">这是仅限 <code>127.0.0.1 / localhost</code> 的本机开发者身份。保存文章、生词本、阅读进度与缓存会持续保存在当前浏览器；它不会访问 Vercel 或云端账号服务，也不会自动同步到其他设备。</p>
               ) : (
                 <>
                   {account.localDirect && <p className="mt-7 max-w-2xl text-sm leading-6 text-[#526b5a]">当前 localhost 已固定连接到真实的 galio 开发者账号。保存文章、生词本、阅读进度和缓存会继续与 Supabase 云端同步；本地开发不会访问或部署到 Vercel。</p>}
-                  {PUBLIC_USAGE_DETAILS_ENABLED && <div className="mt-8 grid gap-5 sm:grid-cols-2">{account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}</div>}
+                  {showUsageDetails && <div className="mt-8 grid gap-5 sm:grid-cols-2">{account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}</div>}
                   <div className="mt-8 flex flex-wrap items-center gap-3">
                     <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold transition-[transform,background-color,opacity] hover:bg-[#edf5fb] active:scale-[.97] disabled:cursor-wait disabled:opacity-55" type="button" onClick={() => void handleSync()} disabled={syncStatus === "working"} aria-busy={syncStatus === "working"}>{syncButtonLabel}</button>
                     <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold transition-[transform,background-color,opacity] hover:bg-[#edf5fb] active:scale-[.97] disabled:cursor-wait disabled:opacity-55" type="button" onClick={() => void exportData()} disabled={exportStatus === "working"} aria-busy={exportStatus === "working"}>{exportStatus === "working" ? "正在准备数据…" : exportStatus === "success" ? "已开始下载" : "导出个人数据"}</button>

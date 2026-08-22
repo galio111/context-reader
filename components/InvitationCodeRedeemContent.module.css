@@ -1,0 +1,184 @@
+.root {
+  display: grid;
+  min-height: 0;
+  padding: 18px 4px 10px 2px;
+  gap: 18px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: #203542;
+}
+
+.summary {
+  display: grid;
+  padding-bottom: 16px;
+  gap: 5px;
+  border-bottom: 1px solid rgb(23 39 53 / 12%);
+}
+
+.summary > span,
+.field > span {
+  color: #5d727f;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.summary strong {
+  font-size: 22px;
+  letter-spacing: -.02em;
+}
+
+.summary p,
+.explanation,
+.signedOut p {
+  margin: 2px 0 0;
+  color: #526975;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.balances {
+  display: grid;
+  margin: 7px 0 0;
+  gap: 7px;
+}
+
+.balances div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.balances dt {
+  color: #526975;
+  font-size: 12px;
+}
+
+.balances dd {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.form,
+.signedOut {
+  display: grid;
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.field input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid rgb(32 71 91 / 22%);
+  border-radius: 10px;
+  background: rgb(255 255 255 / 82%);
+  padding: 0 12px;
+  color: #163447;
+  font: 650 15px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .04em;
+  outline: none;
+}
+
+.field input::placeholder {
+  color: #5f7480;
+  font-family: "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.field input:focus-visible {
+  border-color: #347ca7;
+  outline: 2px solid rgb(52 124 167 / 22%);
+  outline-offset: 1px;
+}
+
+.primary,
+.secondary {
+  width: fit-content;
+  min-height: 40px;
+  border-radius: 999px;
+  padding: 0 16px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.primary {
+  border: 0;
+  background: #245f82;
+  color: #fff;
+}
+
+.secondary {
+  border: 1px solid #347ca7;
+  background: transparent;
+  color: #245f82;
+}
+
+.primary:disabled,
+.secondary:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.primary:focus-visible,
+.secondary:focus-visible {
+  outline: 2px solid #347ca7;
+  outline-offset: 4px;
+}
+
+.success,
+.error,
+.notice {
+  margin: 0;
+  border-radius: 10px;
+  padding: 11px 12px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.success {
+  background: #e9f5ee;
+  color: #17613b;
+}
+
+.error {
+  background: #fff0ee;
+  color: #943b31;
+}
+
+.notice {
+  background: #edf5fb;
+  color: #174d73;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover { background: #194d6b; }
+  .secondary:hover { background: rgb(52 124 167 / 10%); }
+}
+
+:global([data-theme="night"]) .root { color: #e3edef; }
+:global([data-theme="night"]) .summary { border-color: rgb(191 221 227 / 13%); }
+:global([data-theme="night"]) .summary > span,
+:global([data-theme="night"]) .field > span,
+:global([data-theme="night"]) .summary p,
+:global([data-theme="night"]) .explanation,
+:global([data-theme="night"]) .signedOut p,
+:global([data-theme="night"]) .balances dt { color: #aebfc4; }
+:global([data-theme="night"]) .field input {
+  border-color: rgb(191 221 227 / 20%);
+  background: #253b43;
+  color: #e3edef;
+}
+:global([data-theme="night"]) .field input::placeholder { color: #aebfc4; }
+:global([data-theme="night"]) .notice { background: #223f4f; color: #c9e3ef; }
+:global([data-theme="night"]) .success { background: #1f4536; color: #c8edda; }
+:global([data-theme="night"]) .error { background: #512f2d; color: #ffd5d0; }
+:global([data-theme="night"]) .secondary { border-color: #79b6d6; color: #b9dff1; }

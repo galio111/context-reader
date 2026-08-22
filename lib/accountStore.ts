@@ -2,6 +2,7 @@ import type { User } from "@supabase/supabase-js";
 import type {
   AccountPlan,
   AccountPlanId,
+  AccountEntitlement,
   AccountProfile,
   AccountSessionState,
   AccountSyncObject,
@@ -26,6 +27,8 @@ interface ProfileRow {
 
 interface EntitlementRow {
   plan_id: AccountPlanId;
+  source: AccountEntitlement["source"];
+  starts_at: string;
   ends_at: string | null;
 }
 
@@ -158,15 +161,24 @@ export async function getAccountPlan(planId: AccountPlanId): Promise<AccountPlan
   };
 }
 
-export async function getUserPlanId(userId: string): Promise<AccountPlanId> {
+export async function getUserEntitlement(userId: string): Promise<AccountEntitlement | null> {
   const rows = await accountFetch<EntitlementRow[]>(
-    `user_entitlements?user_id=eq.${encodeURIComponent(userId)}&select=plan_id,ends_at&limit=1`,
+    `user_entitlements?user_id=eq.${encodeURIComponent(userId)}&select=plan_id,source,starts_at,ends_at&limit=1`,
   );
   const entitlement = rows[0];
   if (!entitlement || (entitlement.ends_at && Date.parse(entitlement.ends_at) <= Date.now())) {
-    return "free";
+    return null;
   }
-  return entitlement.plan_id;
+  return {
+    planId: entitlement.plan_id,
+    source: entitlement.source,
+    startsAt: entitlement.starts_at,
+    endsAt: entitlement.ends_at,
+  };
+}
+
+export async function getUserPlanId(userId: string): Promise<AccountPlanId> {
+  return (await getUserEntitlement(userId))?.planId ?? "free";
 }
 
 export async function isActiveDeveloperAccount(userId: string): Promise<boolean> {
@@ -225,23 +237,24 @@ export async function getUsageBalances(ownerKey: string, plan: AccountPlan): Pro
 
 export async function getAccountSessionState(user: User): Promise<AccountSessionState> {
   await ensureAccountRows(user);
-  const [profiles, planId] = await Promise.all([
+  const [profiles, entitlement] = await Promise.all([
     accountFetch<ProfileRow[]>(
       `account_profiles?user_id=eq.${encodeURIComponent(user.id)}&select=user_id,nickname,avatar_url,english_level,learning_goal,reading_interests,birth_year,gender,status&limit=1`,
     ),
-    getUserPlanId(user.id),
+    getUserEntitlement(user.id),
   ]);
   const profile = profiles[0];
   if (!profile) {
     throw new Error("Account profile was not created.");
   }
-  const plan = await getAccountPlan(planId);
+  const plan = await getAccountPlan(entitlement?.planId ?? "free");
   const usage = await getUsageBalances(`user:${user.id}`, plan);
   return {
     configured: true,
     authenticated: true,
     profile: profileFromRow(profile, user),
     plan,
+    entitlement,
     usage,
   };
 }

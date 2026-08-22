@@ -33,6 +33,7 @@ The reader is the product center. Article text remains visually primary while lo
 
 - Public beta registration uses nickname + mainland-China phone identifier + six-digit numeric password without SMS or phone-ownership verification.
 - Guest trials use separate Shanghai-day pools: 10 article lookups, 5 standalone dictionary lookups, 2 pasted-text imports and 2 URL imports. Cache hits, failures and timely cancellations do not consume them; Admin can change all four allowances.
+- Admin can generate a unique single-use Basic, Plus, or Max invitation code with a redemption deadline, post-redemption duration and private note. A signed-in user redeems it from Menu; the account then shows the granted limits and expiry, returns to Free at expiry, and can redeem a new code.
 - Registration may continue to a skippable reading-profile step. English level and interests personalize only the default recommendation order; birth year and gender are optional demographic fields and can be cleared.
 - Protocol-2 sync uses a bounded bootstrap, opaque change cursor, compare-and-swap versions and tombstones instead of downloading full history repeatedly.
 - Offline mode reopens only the last verified account's browser-local articles, vocabulary and caches. It never restores Admin, plan, quota or server authorization.
@@ -46,7 +47,7 @@ The reader is the product center. Article text remains visually primary while lo
 - Admin publication and homepage placement are separate: a category-slot editor controls the visitor showcase and its featured first recommendation.
 - Candidate and published articles open in the real `ReaderView`, including lookup, translation, saving and in-place body editing.
 - Publication requires a reviewed first-party WebP cover stored in the active `public-article-covers` bucket.
-- Server-authorized Admin also manages accounts, quotas, password resets, private feedback and detailed product/site error records.
+- Server-authorized Admin also manages accounts, quotas, invitation codes, password resets, private feedback and detailed product/site error records.
 
 ### OCR
 

@@ -39,6 +39,13 @@ export interface AccountPlan {
   limits: AccountPlanLimit[];
 }
 
+export interface AccountEntitlement {
+  planId: AccountPlanId;
+  source: "signup" | "admin" | "payment" | "promotion" | "invite";
+  startsAt: string;
+  endsAt: string | null;
+}
+
 export interface UsageBalance {
   metricKey: UsageMetricKey;
   used: number;
@@ -56,6 +63,8 @@ export interface AccountSessionState {
   localDirect?: boolean;
   profile: AccountProfile | null;
   plan: AccountPlan | null;
+  /** Present for signed-in cloud accounts. Expired grants are omitted and resolve to Free. */
+  entitlement?: AccountEntitlement | null;
   usage: UsageBalance[];
 }
 

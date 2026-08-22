@@ -112,5 +112,20 @@ requireSource("ops/mainland/deploy-release.sh", [
   "parent release mismatch",
 ]);
 requireSource("scripts/new-task-worktree.ps1", ["git worktree add", 'codex/$TaskName']);
+requireSource("ops/mainland/migrate-invitation-codes.sql", [
+  "code_hash text not null unique",
+  "for update",
+  "active_invitation_entitlement",
+  "grant execute on function public.redeem_invitation_code(uuid, text) to service_role",
+]);
+requireSource("app/api/admin/invitation-codes/route.ts", [
+  "invitationCodeHash(code)",
+  "return=representation",
+  "revoke_invitation_code",
+]);
+requireSource("app/api/account/invitation-code/route.ts", [
+  "rpc/redeem_invitation_code",
+  "当前邀请码权益仍在有效期内",
+]);
 
-console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1");
+console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, invitation-entitlement-v1");

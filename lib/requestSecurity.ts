@@ -37,6 +37,7 @@ const COSTLY_ROUTE_RULES: Array<[RegExp, RateRule[]]> = [
   [/^\/api\/auth\/verify-otp$/, [{ bucket: "auth-verify", limit: 10, windowMs: 15 * MINUTE }]],
   [/^\/api\/auth\/phone-register$/, [{ bucket: "auth-phone-register", limit: 3, windowMs: 15 * MINUTE }]],
   [/^\/api\/auth\/phone-login$/, [{ bucket: "auth-phone-login", limit: 5, windowMs: 15 * MINUTE }]],
+  [/^\/api\/account\/invitation-code$/, [{ bucket: "invitation-redeem", limit: 10, windowMs: 15 * MINUTE }]],
   [/^\/api\/explain-word(?:-stream)?$/, [{ bucket: "ai-explain", limit: 20, windowMs: MINUTE }]],
   [/^\/api\/ask-sentence$/, [{ bucket: "ai-question", limit: 10, windowMs: MINUTE }]],
   [/^\/api\/summarize-article$/, [{ bucket: "ai-summary", limit: 6, windowMs: MINUTE }]],

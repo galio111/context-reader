@@ -21,6 +21,7 @@ import { useRouter } from "next/navigation";
 import { AccountUsagePageContent } from "@/components/AccountUsagePageContent";
 import ClearableField from "@/components/ClearableField";
 import { GuidePageContent } from "@/components/GuidePageContent";
+import InvitationCodeRedeemContent from "@/components/InvitationCodeRedeemContent";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
@@ -58,7 +59,7 @@ interface HomeOptionMenuProps {
   onRecommendationMotionChange?: (enabled: boolean) => void;
 }
 
-export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "feedback" | "settings";
+export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "invite" | "feedback" | "settings";
 type MenuAction = "import" | "dictionary";
 interface MenuItem {
   label: string;
@@ -74,6 +75,7 @@ const MAX_FEEDBACK_IMAGE_BYTES = 5 * 1024 * 1024;
 
 const menuItems: MenuItem[] = [
   { label: "账号与用量", preview: "account" },
+  { label: "兑换邀请码", preview: "invite" },
   { label: "使用说明", preview: "guide" },
   { label: "设置", preview: "settings" },
   { label: "意见反馈", preview: "feedback" },
@@ -587,6 +589,16 @@ export function HomeOptionMenu({
         <div className={styles.pageContent} data-local-scroll-surface>
           <AccountUsagePageContent embedded />
         </div>
+      </MenuPreview>
+
+      <MenuPreview
+        kind="invite"
+        visiblePreview={visiblePreview}
+        previewAnchorY={previewAnchorY}
+        title="兑换邀请码"
+        subtitle="兑换后绑定当前账号"
+      >
+        <InvitationCodeRedeemContent active={visiblePreview === "invite"} />
       </MenuPreview>
 
       <MenuPreview

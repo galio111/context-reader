@@ -3,6 +3,7 @@
 import ClearableField from "@/components/ClearableField";
 
 import { useEffect, useMemo, useState } from "react";
+import AdminInvitationCodesPanel from "@/components/AdminInvitationCodesPanel";
 
 type ManagedPlanId = "guest" | "free" | "basic" | "plus" | "max";
 type UserPlanId = "free" | "basic" | "plus" | "max" | "admin";
@@ -221,6 +222,8 @@ export default function AdminAccountsPanel() {
               <SummaryItem label="失败执行" value={`${totals.failed} 次（${(totals.failureRate * 100).toFixed(1)}%）`} />
             </dl>
           </section>
+
+          <AdminInvitationCodesPanel profiles={data.profiles} />
 
           <section className="mt-6 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-5">
