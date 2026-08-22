@@ -642,7 +642,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
               {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="alert">{message}</p>}
               <button className="mt-6 w-full rounded-full bg-[#174f82] px-5 py-3.5 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2868ad] disabled:cursor-not-allowed disabled:opacity-50" disabled={!account.configured || submitting || phone.trim().length < 11 || !pinIsValid || (loginMode === "register" && (!nickname.trim() || !confirmPinIsValid))} type="submit">{syncingLogin ? "正在同步账号数据…" : submitting ? (loginMode === "login" ? "正在登录…" : "正在创建账号…") : loginMode === "login" ? "登录并同步" : "创建账号并登录"}</button>
             </form>
-            {loginMode === "login" && <button className="mt-4 text-xs font-medium text-[#536f80] underline decoration-[#8aa3b1] underline-offset-4" type="button" onClick={() => setMessage("手机号目前尚未验证，不能只凭手机号和昵称安全地自动重置。公开测试阶段请通过意见反馈联系管理员核验处理。")}>忘记密码</button>}
+            {loginMode === "login" && <button className="mt-4 text-xs font-medium text-[#536f80] underline decoration-[#8aa3b1] underline-offset-4" type="button" onClick={() => setMessage("当前手机号尚未经过短信验证，因此暂不开放密码找回。待合规短信验证上线后，核验手机号并设置新密码，再回到登录框由你主动登录。")}>忘记密码</button>}
             <p className="mt-4 text-xs leading-5 text-[#738078]">手机号目前只作为登录账号，不发送验证码，也尚未验证归属。新账号使用字母与数字组合密码；原六位数字密码仍可登录。</p>
           </section>
         </div>

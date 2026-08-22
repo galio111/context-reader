@@ -311,7 +311,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const recommendationsRef = useRef<HTMLElement | null>(null);
   const articleGridRef = useRef<HTMLDivElement | null>(null);
   const preferenceControlRef = useRef<HTMLDivElement | null>(null);
+  const publicationBridgeRef = useRef<HTMLDivElement | null>(null);
   const importRef = useRef<HTMLElement | null>(null);
+  const featureOrbitRef = useRef<HTMLElement | null>(null);
+  const closingRef = useRef<HTMLElement | null>(null);
   const coverProgressRef = useRef(0);
   const memberOpeningFrameRef = useRef(0);
   const memberOpeningStartRef = useRef(0);
@@ -493,20 +496,43 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [activeCategory, displayArticles.length]);
 
   useEffect(() => {
-    if (memberHome) return;
-    const section = importRef.current;
-    if (!section) return;
+    const sections = [publicationBridgeRef.current, importRef.current, featureOrbitRef.current, closingRef.current]
+      .filter((section): section is HTMLElement => Boolean(section));
+    const featureSection = featureOrbitRef.current;
+    const closingSection = closingRef.current;
+    if (sections.length === 0) return;
     if (!("IntersectionObserver" in window)) {
-      section.dataset.visible = "true";
+      sections.forEach((section) => { section.dataset.visible = "true"; });
       return;
     }
-    section.dataset.motionReady = "true";
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry?.isIntersecting) section.dataset.visible = "true";
-      else delete section.dataset.visible;
-    }, { rootMargin: "4% 0px 4%", threshold: 0.08 });
-    observer.observe(section);
-    return () => observer.disconnect();
+    sections.forEach((section) => { section.dataset.motionReady = "true"; });
+    let previousY = window.scrollY;
+    let direction: "up" | "down" = "down";
+    const trackDirection = () => {
+      direction = window.scrollY < previousY ? "up" : "down";
+      previousY = window.scrollY;
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const section = entry.target as HTMLElement;
+        if (entry.isIntersecting) {
+          section.dataset.enterDirection = direction;
+          section.dataset.visible = "true";
+        } else {
+          delete section.dataset.visible;
+        }
+        if (section === closingSection && featureSection) {
+          if (entry.isIntersecting) featureSection.dataset.exiting = "true";
+          else delete featureSection.dataset.exiting;
+        }
+      });
+    }, { rootMargin: "-5% 0px -8%", threshold: 0.04 });
+    sections.forEach((section) => observer.observe(section));
+    window.addEventListener("scroll", trackDirection, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", trackDirection);
+    };
   }, [memberHome]);
 
   useEffect(() => {
@@ -591,16 +617,14 @@ export function HomeRedesign(props: HomeRedesignProps) {
     const updateCoverProgress = () => {
       frame = 0;
       const raw = Math.min(1, Math.max(0, (window.scrollY - stageTop) / distance));
-      const eased = raw * raw * (3 - 2 * raw);
       coverProgressRef.current = raw;
-      flowRef.current?.style.setProperty("--cover-progress", eased.toFixed(4));
-      flowRef.current?.style.setProperty("--hero-opacity", Math.max(0, 1 - eased * 2.7).toFixed(4));
-      flowRef.current?.style.setProperty("--hero-shift", `${(eased * -34).toFixed(2)}px`);
+      flowRef.current?.style.setProperty("--cover-progress", raw.toFixed(4));
+      flowRef.current?.style.setProperty("--hero-opacity", Math.max(0, 1 - raw * 2.7).toFixed(4));
+      flowRef.current?.style.setProperty("--hero-shift", `${(raw * -34).toFixed(2)}px`);
       flowRef.current?.style.setProperty("--cover-surface-opacity", Math.min(1, Math.max(0, (1 - raw) / 0.18)).toFixed(4));
       flowRef.current?.style.setProperty("--hero-pointer", raw > 0.94 ? "none" : "auto");
       const departureInput = Math.min(1, Math.max(0, (raw - 0.04) / 0.96));
-      const departure = departureInput * departureInput * (3 - 2 * departureInput);
-      ballpitControllerRef.current?.setDepartureProgress(departure);
+      ballpitControllerRef.current?.setDepartureProgress(departureInput);
     };
     const requestUpdate = () => {
       if (!frame) frame = window.requestAnimationFrame(updateCoverProgress);
@@ -775,7 +799,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     // Keep one spatial velocity from either direction and from any interrupted
     // point in the handoff. A non-linear easing curve made the page visibly
     // accelerate and brake while the balls followed a different rhythm.
-    const duration = reduced ? 220 : Math.max(200, 1_420 * ratio);
+    const duration = reduced ? 180 : Math.max(180, 960 * ratio);
     const startedAt = performance.now();
     coverScrollTargetRef.current = target;
 
@@ -1132,7 +1156,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
             collectiveCenterY={-0.08}
             collectiveHalfWidth={0.69}
             collectiveHalfHeight={0.81}
-            collectiveStrength={0.00025}
+            collectiveStrength={0.0005}
             thermalMotion={0.000076}
             followCursor={!compactViewport}
             showCursorBall={false}
@@ -1140,9 +1164,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
             controllerRef={ballpitControllerRef}
             onReady={() => {
               const departureInput = Math.min(1, Math.max(0, (coverProgressRef.current - 0.04) / 0.96));
-              ballpitControllerRef.current?.setDepartureProgress(
-                departureInput * departureInput * (3 - 2 * departureInput),
-              );
+              ballpitControllerRef.current?.setDepartureProgress(departureInput);
             }}
           />
         </div>}
@@ -1314,12 +1336,19 @@ export function HomeRedesign(props: HomeRedesignProps) {
               <span>{memberLibraryOpen ? `当前显示 ${displayArticles.length} 篇` : `还有 ${personalizedAllCategoryArticles.length - showcaseArticleCount} 篇`}</span>
             </div>
           )}
+          {!memberHome && (
+            <div ref={publicationBridgeRef} className={styles.publicationBridge} aria-hidden="true">
+              <span>FROM THEIR PAGES TO YOURS</span>
+              <p>读到这里，下一篇由你决定。</p>
+              <i />
+            </div>
+          )}
         </section>
         </section>
 
         {!memberHome && renderImportSection()}
 
-        {!memberHome && <section className={styles.featureOrbit} aria-labelledby="feature-orbit-heading">
+        {!memberHome && <section ref={featureOrbitRef} className={styles.featureOrbit} aria-labelledby="feature-orbit-heading">
           <header>
             <div className={styles.orbitHeading}>
               <p>HOW IT STAYS WITH YOU</p>
@@ -1383,7 +1412,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           </div>
         </section>}
 
-        <section className={styles.closingSection} aria-labelledby="closing-heading">
+        <section ref={closingRef} className={styles.closingSection} aria-labelledby="closing-heading">
           <div className={styles.closingCopy}>
             <p>STAY IN TOUCH</p>
             <h2 id="closing-heading"><span>如果哪里还不够好，</span><span>告诉我。</span></h2>

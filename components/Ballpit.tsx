@@ -131,10 +131,12 @@ const DEFAULT_CONFIG: BallpitConfig = {
   initialLayout: "full",
 };
 
-// High-refresh displays do not need the physics scene to follow 144/165 Hz.
-// A 90 Hz ceiling still lands at the native 60 Hz cadence on ordinary screens,
-// while 120/144/165 Hz screens naturally settle near 60/72/82 Hz.
-const TARGET_FRAME_INTERVAL = 1000 / 90;
+// Keep pointer/scroll responses fluid, then lower the idle WebGL cadence. The
+// balls still move continuously, but a motionless cover no longer consumes the
+// same GPU budget as an actively manipulated one.
+const ACTIVE_FRAME_INTERVAL = 1000 / 60;
+const IDLE_FRAME_INTERVAL = 1000 / 36;
+const ACTIVE_AFTER_INTERACTION_MS = 1_200;
 const MAX_RENDER_PIXELS = 1_300_000;
 
 class BallPhysics {
@@ -662,6 +664,7 @@ class BallpitScene {
   private animationFrame = 0;
   private resizeFrame = 0;
   private lastRenderedAt = 0;
+  private lastInteractionAt = performance.now();
   private isIntersecting = true;
   private isAnimating = false;
   private disposed = false;
@@ -775,6 +778,7 @@ class BallpitScene {
     this.camera.getWorldDirection(this.pointerPlane.normal);
 
     if (this.raycaster.ray.intersectPlane(this.pointerPlane, this.intersectionPoint)) {
+      this.lastInteractionAt = performance.now();
       this.spheres.physics.center.copy(this.intersectionPoint);
       this.spheres.config.controlSphere0 = true;
     }
@@ -823,7 +827,10 @@ class BallpitScene {
     const animate = (time: number) => {
       if (!this.isAnimating || this.disposed) return;
       this.animationFrame = window.requestAnimationFrame(animate);
-      if (this.lastRenderedAt && time - this.lastRenderedAt < TARGET_FRAME_INTERVAL - 0.75) {
+      const targetFrameInterval = time - this.lastInteractionAt < ACTIVE_AFTER_INTERACTION_MS
+        ? ACTIVE_FRAME_INTERVAL
+        : IDLE_FRAME_INTERVAL;
+      if (this.lastRenderedAt && time - this.lastRenderedAt < targetFrameInterval - 0.75) {
         return;
       }
       this.lastRenderedAt = time;
@@ -873,6 +880,7 @@ class BallpitScene {
     const next = Math.min(1, Math.max(0, progress));
     const previous = this.spheres.departureProgress;
     if (Math.abs(next - previous) < 0.0005) return;
+    this.lastInteractionAt = performance.now();
     this.spheres.departureProgress = next;
     this.canvas.style.visibility = next >= 0.985 ? "hidden" : "visible";
     if (next >= 0.985) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { startTransition, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
 import { AnkiSettingsPanel, defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { ArticleTranslationPanel } from "@/components/ArticleTranslationPanel";
@@ -423,25 +423,6 @@ function buildEntryText(entry: VocabularyEntry): string {
   ]
     .filter(Boolean)
     .join("\n");
-}
-
-async function requestArticleSummary(article: string): Promise<string> {
-  const { response, data } = await fetchJson<{ summary?: string; error?: string }>("/api/summarize-article", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ article }),
-  }, "文章摘要生成失败，请稍后重试。", {
-    operation: "article_summary",
-    metadata: { articleCharacters: article.length },
-  });
-
-  if (!response.ok || !data?.summary?.trim()) {
-    throw new Error(data?.error || "文章摘要生成失败，请稍后重试。");
-  }
-
-  return data.summary.trim();
 }
 
 async function requestImageOcr(src: string): Promise<string> {
@@ -967,27 +948,60 @@ export function ReaderView({
     const root = articleShellRef.current;
     if (!root || !articleMediaReady || editingArticle || !progressiveReaderReady) return;
 
+    const pendingIds = new Set<string>();
+    let idleHandle = 0;
+    let timeoutHandle = 0;
+    const idleWindow = window as unknown as {
+      requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+
+    const flushEnteredBlocks = () => {
+      idleHandle = 0;
+      timeoutHandle = 0;
+      if (pendingIds.size === 0) return;
+      const enteredIds = [...pendingIds];
+      pendingIds.clear();
+      startTransition(() => {
+        setVisibleBlockIds((current) => {
+          if (enteredIds.every((id) => current.has(id))) return current;
+          const next = new Set(current);
+          enteredIds.forEach((id) => next.add(id));
+          return next;
+        });
+      });
+    };
+
+    const scheduleFlush = () => {
+      if (idleHandle || timeoutHandle) return;
+      if (idleWindow.requestIdleCallback) {
+        idleHandle = idleWindow.requestIdleCallback(flushEnteredBlocks, { timeout: 220 });
+      } else {
+        timeoutHandle = window.setTimeout(flushEnteredBlocks, 72);
+      }
+    };
+
     const observer = new IntersectionObserver((entries) => {
       const enteredIds = entries
         .filter((entry) => entry.isIntersecting)
         .map((entry) => (entry.target as HTMLElement).dataset.readerBlock)
         .filter((id): id is string => Boolean(id));
       if (enteredIds.length === 0) return;
-      setVisibleBlockIds((current) => {
-        if (enteredIds.every((id) => current.has(id))) return current;
-        const next = new Set(current);
-        enteredIds.forEach((id) => next.add(id));
-        return next;
-      });
+      enteredIds.forEach((id) => pendingIds.add(id));
+      scheduleFlush();
       entries.forEach((entry) => {
         if (entry.isIntersecting) observer.unobserve(entry.target);
       });
-    }, { rootMargin: "100% 0px 100% 0px" });
+    }, { rootMargin: "65% 0px 80% 0px" });
 
     root.querySelectorAll<HTMLElement>("[data-reader-block]").forEach((block) => {
       if (!interactiveBlockIds.has(block.dataset.readerBlock ?? "")) observer.observe(block);
     });
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (idleHandle) idleWindow.cancelIdleCallback?.(idleHandle);
+      if (timeoutHandle) window.clearTimeout(timeoutHandle);
+    };
   }, [articleMediaReady, editingArticle, interactiveBlockIds, progressiveReaderReady]);
 
   useEffect(() => {
@@ -2738,24 +2752,12 @@ export function ReaderView({
     if (!requireLocalAccount("登录后才能保存文章；登录时会先合并本机已有数据。")) return;
     setSavingArticle(true);
     setSaveStatus("正在保存文章...");
-    let articleStored = false;
     try {
       saveArticle(currentArticle, "", effectiveImportedArticle);
-      articleStored = true;
       onArticleSaved();
-      if (isOffline) {
-        setSaveStatus("文章已保存到本机；联网后会自动同步");
-        return;
-      }
-      setSaveStatus("文章已保存，正在生成中文摘要...");
-
-      const summary = await requestArticleSummary(currentArticle);
-      saveArticle(currentArticle, summary, effectiveImportedArticle);
-      onArticleSaved();
-      setSaveStatus("文章已保存");
-    } catch (summaryError) {
-      const message = summaryError instanceof Error ? summaryError.message : "文章摘要生成失败，请稍后重试。";
-      setSaveStatus(articleStored ? `文章已保存；${message}` : message);
+      setSaveStatus(isOffline ? "文章已保存到本机；联网后会自动同步" : "文章已保存");
+    } catch (saveError) {
+      setSaveStatus(saveError instanceof Error ? saveError.message : "文章保存失败，请稍后重试。");
     } finally {
       setSavingArticle(false);
       window.setTimeout(() => setSaveStatus(""), 2600);
@@ -2773,7 +2775,7 @@ export function ReaderView({
   const articleShellClassName = [
     "mx-auto overflow-x-hidden break-words [overflow-wrap:anywhere]",
     editingArticle ? "select-text" : "select-none touch-pan-y",
-    activeArticleStyle.contentWidth === "narrow" ? "max-w-2xl" : activeArticleStyle.contentWidth === "wide" ? "max-w-4xl" : "max-w-3xl",
+    activeArticleStyle.contentWidth === "narrow" ? "max-w-2xl" : activeArticleStyle.contentWidth === "wide" ? "max-w-4xl" : "max-w-[52rem]",
     activeArticleStyle.fontFamily === "serif" ? "font-serif" : activeArticleStyle.fontFamily === "mono" ? "font-mono" : "font-sans",
   ].join(" ");
   const paragraphStyle = {
@@ -2787,7 +2789,7 @@ export function ReaderView({
     "--reader-paragraph-space": activeArticleStyle.paragraphSpacing === "compact" ? "1rem" : activeArticleStyle.paragraphSpacing === "relaxed" ? "2rem" : "1.75rem",
     "--reader-paragraph-space-mobile": activeArticleStyle.paragraphSpacing === "compact" ? "1rem" : activeArticleStyle.paragraphSpacing === "relaxed" ? "1.75rem" : "1.5rem",
   } as CSSProperties;
-  const imageWidthClassName = activeArticleStyle.imageWidth === "small" ? "mx-auto max-w-md" : activeArticleStyle.imageWidth === "full" ? "max-w-none" : "mx-auto max-w-3xl";
+  const imageWidthClassName = activeArticleStyle.imageWidth === "small" ? "mx-auto max-w-md" : activeArticleStyle.imageWidth === "full" ? "max-w-none" : "mx-auto max-w-[52rem]";
   const leadingImageBlockId = useMemo(
     () => renderableBlocks.find((block) => block.type === "image" && block.src)?.id ?? "",
     [renderableBlocks],
@@ -3034,7 +3036,7 @@ export function ReaderView({
         }`}
         style={{ "--mobile-sheet-height": `${mobileExplanationHeight}dvh` } as CSSProperties}
       >
-        <article className="cr-reader-article min-w-0 overflow-x-hidden rounded-[16px] bg-white px-4 py-7 sm:min-h-[70vh] sm:px-10 sm:py-8 lg:px-16 lg:py-14">
+        <article className="cr-reader-article min-w-0 overflow-x-hidden rounded-[16px] bg-white px-4 py-7 sm:min-h-[70vh] sm:px-10 sm:py-8 lg:px-12 lg:py-14">
           {!articleMediaReady ? (
             <div
               className={loadingStyles.stage}
@@ -3060,7 +3062,7 @@ export function ReaderView({
           ) : (
           <>
           {currentImportedArticle && (
-            <header className="mx-auto mb-10 max-w-3xl border-b border-[#e0e0e0] pb-6">
+            <header className="mx-auto mb-10 max-w-[52rem] border-b border-[#e0e0e0] pb-6">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm leading-5 tracking-[-0.1px] text-[#6e6e73]">
                 <span>{currentImportedArticle.siteName}</span>
                 {currentImportedArticle.byline && <span>作者：{currentImportedArticle.byline}</span>}

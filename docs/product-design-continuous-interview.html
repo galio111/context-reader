@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Context Reader 持续设计问卷 · 安全找回密码 24</title>
+  <title>Context Reader 持续设计问卷 · 安全找回密码 24 · 已归档</title>
   <style>
     :root { color-scheme:light; --ink:#153746; --muted:#66808b; --paper:#f7fbfb; --card:#fff; --line:#ccdcdf; --accent:#14677d; --soft:#e7f3f5; }
     * { box-sizing:border-box; }
@@ -29,33 +29,33 @@
 </head>
 <body>
 <main>
-  <div class="eyebrow">CONTEXT READER · ROUND 24</div>
-  <h1>安全找回密码</h1>
-  <p class="lead">第 23 轮其余答案已经冻结并进入实现。这里只追问一个无法安全猜测的决定：手机号目前不发短信、也未验证归属，因此“昵称 + 手机号”只能帮助定位账号，不能证明来操作的人就是账号主人。</p>
-  <div class="warning">如果仅凭昵称和手机号就允许重设密码，知道这两项信息的人都可能接管账号。所以下列方案都保留账号所有权证明，不会把安全责任推给普通用户。</div>
+  <div class="eyebrow">CONTEXT READER · ROUND 24 · ARCHIVED</div>
+  <h1>安全找回密码 · 已提交</h1>
+  <p class="lead">第 24 轮答案已于 2026-08-22 冻结并归档。当前 Beta 暂不开放找回；未来只有在合规短信真实验证手机号归属后才提供自助重置。</p>
+  <div class="warning">本页保留已提交回执，不再作为活问卷。后续设置新密码后回到登录框，由用户明确登录；旧六位数字密码兼容到用户主动改密。</div>
   <form id="survey">
     <fieldset>
       <legend>341. 当前 Beta 的忘记密码路径采用哪一种？</legend>
       <label class="option"><input type="radio" name="q341" value="A. 管理员辅助找回（推荐）：用户提交昵称、手机号与必要的历史信息，管理员核对后发一次性临时密码；登录后必须立即改密。">A. 管理员辅助找回（推荐）：提交账号信息，核对后签发一次性临时密码</label>
-      <label class="option"><input type="radio" name="q341" value="B. 暂不开放找回：等短信验证码具备合规资质并真实验证手机号后，再提供自助找回。">B. 暂不开放找回：等待短信归属验证上线</label>
+      <label class="option"><input type="radio" name="q341" value="B. 暂不开放找回：等短信验证码具备合规资质并真实验证手机号后，再提供自助找回。" checked>B. 暂不开放找回：等待短信归属验证上线</label>
       <label class="option"><input type="radio" name="q341" value="C. 预生成恢复码：用户登录后可主动生成并离线保存一组恢复码，忘记密码时凭恢复码重设。">C. 预生成恢复码：登录时由用户提前保存</label>
     </fieldset>
     <fieldset>
       <legend>342. 完成所有权核验后，恢复流程怎样结束？</legend>
-      <label class="option"><input type="radio" name="q342" value="A. 设置新密码后回到登录框，由用户明确登录（推荐）。">A. 设置新密码后回到登录框，由用户明确登录（推荐）</label>
+      <label class="option"><input type="radio" name="q342" value="A. 设置新密码后回到登录框，由用户明确登录（推荐）。" checked>A. 设置新密码后回到登录框，由用户明确登录（推荐）</label>
       <label class="option"><input type="radio" name="q342" value="B. 设置新密码后自动登录当前设备。">B. 设置新密码后自动登录当前设备</label>
     </fieldset>
     <fieldset>
       <legend>343. 现有六位数字密码用户如何迁移？</legend>
-      <label class="option"><input type="radio" name="q343" value="A. 旧密码继续可登录；用户下次主动改密时执行新规则（推荐）。">A. 继续兼容旧密码，主动改密时升级（推荐）</label>
+      <label class="option"><input type="radio" name="q343" value="A. 旧密码继续可登录；用户下次主动改密时执行新规则（推荐）。" checked>A. 继续兼容旧密码，主动改密时升级（推荐）</label>
       <label class="option"><input type="radio" name="q343" value="B. 下次登录成功后必须立即改为字母加数字的新密码。">B. 下次登录成功后强制改密</label>
       <textarea name="note343" placeholder="如果你还关心找回时需要核对哪些历史信息，可以补充；不填也没关系。"></textarea>
     </fieldset>
   </form>
   <div class="actions">
-    <button class="primary" type="button" id="generate">一键生成答案</button>
+    <button class="primary" type="button" id="generate">生成已归档答案</button>
     <button class="secondary" type="button" id="copy">复制答案</button>
-    <span class="status" id="status">选择会自动保存在这台浏览器</span>
+    <span class="status" id="status">本轮已归档</span>
   </div>
   <textarea id="output" readonly placeholder="生成后的答案会出现在这里"></textarea>
 </main>
@@ -64,12 +64,17 @@
   const form = document.querySelector('#survey');
   const output = document.querySelector('#output');
   const status = document.querySelector('#status');
-  const saved = JSON.parse(localStorage.getItem(key) || '{}');
+  const saved = {
+    q341: 'B. 暂不开放找回：等短信验证码具备合规资质并真实验证手机号后，再提供自助找回。',
+    q342: 'A. 设置新密码后回到登录框，由用户明确登录（推荐）。',
+    q343: 'A. 旧密码继续可登录；用户下次主动改密时执行新规则（推荐）。'
+  };
   for (const el of form.elements) {
     if (!el.name || saved[el.name] == null) continue;
     if (el.type === 'radio') el.checked = saved[el.name] === el.value;
     else el.value = saved[el.name];
   }
+  form.querySelectorAll('input, textarea').forEach((el) => { el.disabled = true; });
   function snapshot() {
     const data = {};
     for (const el of form.elements) {

@@ -30,6 +30,15 @@
   display: none;
 }
 
+.readerLayout :global(.cr-reader-article [data-reader-block]) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 180px;
+}
+
+.readerLayout :global(.cr-reader-article figure[data-reader-block]) {
+  contain-intrinsic-size: auto 520px;
+}
+
 .action {
   height: 42px;
   flex: 0 0 auto;
@@ -324,28 +333,29 @@
   .desktopRail { display: grid; }
 
   .toolbar {
-    inset: 14px auto auto 148px;
-    width: calc(100vw - 164px);
+    inset: 14px 20px auto auto;
+    width: auto;
+    max-width: calc(100vw - 168px);
     height: 44px;
     margin: 0;
     padding: 0;
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 
   .actions {
-    width: 100%;
-    max-width: 100%;
-    justify-content: flex-start;
+    width: auto;
+    max-width: calc(100vw - 168px);
+    justify-content: flex-end;
   }
 
   .readerLayout {
-    width: calc(100% - 168px);
-    max-width: 1720px !important;
+    width: min(calc(100% - 168px), 1380px);
+    max-width: none !important;
     margin-right: 0 !important;
-    margin-left: 148px !important;
-    padding-right: 20px !important;
-    grid-template-columns: minmax(0, 1fr) clamp(340px, 22vw, 400px) !important;
-    gap: clamp(16px, 1.4vw, 26px) !important;
+    margin-left: max(148px, calc(148px + (100vw - 168px - 1380px) / 2)) !important;
+    padding-right: 0 !important;
+    grid-template-columns: minmax(0, 1fr) 360px !important;
+    gap: 24px !important;
   }
 
   .readerLayout > article {
@@ -353,8 +363,8 @@
   }
 
   .readerSidePanel {
-    right: 20px !important;
-    width: clamp(340px, 22vw, 400px) !important;
+    right: max(20px, calc(20px + (100vw - 168px - 1380px) / 2)) !important;
+    width: 360px !important;
   }
 }
 
