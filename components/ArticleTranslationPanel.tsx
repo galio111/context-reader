@@ -49,7 +49,7 @@ export function ArticleTranslationPanel({
     : `已生成 ${translations.length}/${blocks.length} 段，剩余内容正在后台翻译。${estimateText}`;
 
   return (
-    <aside className="h-full min-h-0 overflow-y-auto rounded-[18px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [-webkit-overflow-scrolling:touch]" data-native-selection="blue">
+    <aside className="cr-reader-panel h-full min-h-0 overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [-webkit-overflow-scrolling:touch]" data-native-selection="blue">
       <header className="flex items-start justify-between gap-3 border-b border-[#e0e0e0] pb-4">
         <div className="min-w-0">
           <h2 className="text-base font-semibold leading-6 tracking-[-0.224px] text-[#1d1d1f]">全文翻译</h2>

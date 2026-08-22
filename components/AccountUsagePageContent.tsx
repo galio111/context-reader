@@ -6,6 +6,7 @@ import { useAccount } from "@/components/AccountProvider";
 import { SiteBackdrop } from "@/components/SiteBackdrop";
 import type { AccountSyncProgress, AccountSyncResult } from "@/lib/accountSyncClient";
 import { PUBLIC_COMMERCIAL_UI_ENABLED, PUBLIC_USAGE_DETAILS_ENABLED } from "@/lib/commercialUi";
+import { accountPasswordRequirement, isStrongAccountPassword } from "@/lib/passwordPolicy";
 import { RECOMMENDATION_INTERESTS, RECOMMENDATION_READING_LEVELS } from "@/lib/recommendationPreferences";
 import type { UsageMetricKey } from "@/types/account";
 
@@ -39,6 +40,13 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
   const [profileMessage, setProfileMessage] = useState("");
   const [profileLevel, setProfileLevel] = useState("");
   const [profileInterests, setProfileInterests] = useState<string[]>([]);
+  const [accountDetailsEditing, setAccountDetailsEditing] = useState(false);
+  const [accountDetailsSaving, setAccountDetailsSaving] = useState(false);
+  const [nicknameDraft, setNicknameDraft] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [accountDetailsMessage, setAccountDetailsMessage] = useState("");
   const accountIdentifier = account.profile?.phone
     ? `手机号 ${account.profile.phone}`
     : account.profile?.email || "";
@@ -47,6 +55,53 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
     setProfileLevel(account.profile?.englishLevel || "");
     setProfileInterests(account.profile?.readingInterests || []);
   }, [account.profile?.englishLevel, account.profile?.readingInterests]);
+  useEffect(() => { setNicknameDraft(account.profile?.nickname || ""); }, [account.profile?.nickname]);
+
+  async function saveAccountDetails() {
+    if (accountDetailsSaving) return;
+    const nicknameChanged = nicknameDraft.trim() !== (account.profile?.nickname || "");
+    const passwordChanged = Boolean(currentPassword || newPassword || confirmPassword);
+    if (!nicknameChanged && !passwordChanged) {
+      setAccountDetailsEditing(false);
+      return;
+    }
+    if (passwordChanged && (!isStrongAccountPassword(newPassword) || newPassword !== confirmPassword || !currentPassword)) {
+      setAccountDetailsMessage(!currentPassword
+        ? "请输入当前密码。"
+        : newPassword !== confirmPassword ? "两次输入的新密码不一致。" : accountPasswordRequirement());
+      return;
+    }
+    setAccountDetailsSaving(true);
+    setAccountDetailsMessage("");
+    try {
+      if (nicknameChanged) {
+        const response = await fetch("/api/account/profile", {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nickname: nicknameDraft }),
+        });
+        const data = await response.json().catch(() => null) as { error?: string } | null;
+        if (!response.ok) throw new Error(data?.error || "昵称暂时无法修改。");
+      }
+      if (passwordChanged) {
+        const response = await fetch("/api/account/password", {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ currentPassword, newPassword }),
+        });
+        const data = await response.json().catch(() => null) as { error?: string } | null;
+        if (!response.ok) throw new Error(data?.error || "密码暂时无法修改。");
+      }
+      await refreshAccount();
+      setCurrentPassword(""); setNewPassword(""); setConfirmPassword("");
+      setAccountDetailsEditing(false);
+      setAccountDetailsMessage(passwordChanged ? "账号资料与密码已保存。" : "昵称已保存。");
+    } catch (error) {
+      setAccountDetailsMessage(error instanceof Error ? error.message : "账号资料暂时无法保存。");
+    } finally {
+      setAccountDetailsSaving(false);
+    }
+  }
 
   async function saveProfile(patch: Record<string, unknown>) {
     if (profileSaving) return;
@@ -167,11 +222,27 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
           <>
             <section className="mt-12 rounded-[16px] bg-[#fbfcfe] p-7 shadow-[0_4px_8px_rgb(43_61_77_/_10%)] sm:p-9">
               <div className="flex flex-wrap items-start justify-between gap-5">
-                <div><p className="text-sm text-[#5f6d79]">当前账号</p><h2 className="mt-1 text-2xl font-semibold">{account.profile?.nickname || accountIdentifier}</h2><p className="mt-2 text-sm text-[#5f6d79]">{accountIdentifier}</p>{account.profile?.loginMethod === "phone_pin" && <p className="mt-1 text-xs text-[#738391]">手机号尚未验证 · 6 位数字密码登录</p>}</div>
+                <div><p className="text-sm text-[#5f6d79]">当前账号</p><h2 className="mt-1 text-2xl font-semibold">{account.profile?.nickname || accountIdentifier}</h2><p className="mt-2 text-sm text-[#5f6d79]">{accountIdentifier}</p>{account.profile?.loginMethod === "phone_pin" && <p className="mt-1 text-xs text-[#738391]">手机号尚未验证 · 密码登录</p>}{!account.localOnly && <button className="mt-3 text-xs font-medium text-[#567080] underline decoration-[#9aadb7] underline-offset-4" type="button" onClick={() => { setAccountDetailsEditing((value) => !value); setAccountDetailsMessage(""); }}>{accountDetailsEditing ? "收起账号资料" : "修改账号资料"}</button>}</div>
                 <span className="rounded-full bg-[#dce9f3] px-4 py-2 text-sm font-semibold text-[#285a7c]">
                   {PUBLIC_COMMERCIAL_UI_ENABLED ? account.plan?.displayName || "免费用户" : "公开测试中"}
                 </span>
               </div>
+              {accountDetailsEditing && !account.localOnly && (
+                <div className="mt-7 max-w-2xl border-t border-black/10 pt-6">
+                  <label className="block text-sm font-medium">昵称<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad]" value={nicknameDraft} maxLength={40} onChange={(event) => setNicknameDraft(event.target.value)} /></label>
+                  <details className="mt-5">
+                    <summary className="w-fit cursor-pointer text-sm font-medium text-[#536f80]">修改密码</summary>
+                    <p className="mt-2 text-xs leading-5 text-[#738391]">{accountPasswordRequirement()}</p>
+                    <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                      <input className="rounded-xl border border-black/15 bg-white px-4 py-3 text-sm outline-none focus:border-[#2868ad]" type="password" autoComplete="current-password" placeholder="当前密码" value={currentPassword} maxLength={72} onChange={(event) => setCurrentPassword(event.target.value)} />
+                      <input className="rounded-xl border border-black/15 bg-white px-4 py-3 text-sm outline-none focus:border-[#2868ad]" type="password" autoComplete="new-password" placeholder="新密码" value={newPassword} maxLength={72} onChange={(event) => setNewPassword(event.target.value)} />
+                      <input className="rounded-xl border border-black/15 bg-white px-4 py-3 text-sm outline-none focus:border-[#2868ad]" type="password" autoComplete="new-password" placeholder="确认新密码" value={confirmPassword} maxLength={72} onChange={(event) => setConfirmPassword(event.target.value)} />
+                    </div>
+                  </details>
+                  <div className="mt-5 flex items-center gap-3"><button className="rounded-full bg-[#174f82] px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50" type="button" disabled={accountDetailsSaving || !nicknameDraft.trim()} onClick={() => void saveAccountDetails()}>{accountDetailsSaving ? "保存中…" : "保存账号资料"}</button><span className="text-xs text-[#738391]">手机号不可在这里修改</span></div>
+                </div>
+              )}
+              {accountDetailsMessage && <p className="mt-4 text-sm text-[#315e66]" role="status">{accountDetailsMessage}</p>}
               {account.localOnly ? (
                 <p className="mt-7 max-w-2xl text-sm leading-6 text-[#526b5a]">这是仅限 <code>127.0.0.1 / localhost</code> 的本机开发者身份。保存文章、生词本、阅读进度与缓存会持续保存在当前浏览器；它不会访问 Vercel 或云端账号服务，也不会自动同步到其他设备。</p>
               ) : (
@@ -198,8 +269,6 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
               {!profileEditing ? <dl className="mt-6 grid gap-4 sm:grid-cols-2">
                 <div><dt className="text-xs text-[#738391]">英语水平</dt><dd className="mt-1 font-medium">{account.profile?.englishLevel || "未填写"}</dd></div>
                 <div><dt className="text-xs text-[#738391]">阅读偏好</dt><dd className="mt-1 font-medium">{account.profile?.readingInterests?.length ? account.profile.readingInterests.map((id) => RECOMMENDATION_INTERESTS.find((item) => item.id === id)?.label || id).join("、") : "未填写"}</dd></div>
-                <div><dt className="text-xs text-[#738391]">出生年份（选填）</dt><dd className="mt-1 flex items-center gap-3 font-medium">{account.profile?.birthYear || "未填写"}{account.profile?.birthYear && !account.localOnly ? <button className="text-xs text-[#8a4c45] underline underline-offset-4" type="button" onClick={() => void saveProfile({ birthYear: null })}>清除</button> : null}</dd></div>
-                <div><dt className="text-xs text-[#738391]">性别（选填）</dt><dd className="mt-1 flex items-center gap-3 font-medium">{account.profile?.gender === "male" ? "男" : account.profile?.gender === "female" ? "女" : "未填写"}{account.profile?.gender && !account.localOnly ? <button className="text-xs text-[#8a4c45] underline underline-offset-4" type="button" onClick={() => void saveProfile({ gender: null })}>清除</button> : null}</dd></div>
               </dl> : <div className="mt-6">
                 <fieldset><legend className="text-sm font-semibold">当前最接近的英语阅读水平</legend><div className="mt-3 flex flex-wrap gap-2">{RECOMMENDATION_READING_LEVELS.map((level) => <button key={level} className={`rounded-full border px-4 py-2 text-sm ${profileLevel === level ? "border-[#236f91] bg-[#e6f1f5] text-[#174f69]" : "border-black/10 bg-white"}`} type="button" aria-pressed={profileLevel === level} onClick={() => setProfileLevel(level)}>{level}</button>)}</div></fieldset>
                 <fieldset className="mt-6"><legend className="text-sm font-semibold">感兴趣的内容（可多选）</legend><div className="mt-3 flex flex-wrap gap-2">{RECOMMENDATION_INTERESTS.map((interest) => <button key={interest.id} className={`rounded-full border px-4 py-2 text-sm ${profileInterests.includes(interest.id) ? "border-[#236f91] bg-[#e6f1f5] text-[#174f69]" : "border-black/10 bg-white"}`} type="button" aria-pressed={profileInterests.includes(interest.id)} onClick={() => setProfileInterests((current) => current.includes(interest.id) ? current.filter((id) => id !== interest.id) : [...current, interest.id])}>{interest.label}</button>)}</div></fieldset>

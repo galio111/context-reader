@@ -22,6 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "try{const p=JSON.parse(localStorage.getItem('context-reader-home-ui-v1')||'null');if(p?.theme==='night'){document.documentElement.dataset.contextTheme='night';document.documentElement.style.colorScheme='dark'}}catch{}",
+          }}
+        />
+      </head>
       <body>
         <AccountProvider>{children}</AccountProvider>
         <PwaRegistration />

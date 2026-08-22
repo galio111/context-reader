@@ -671,26 +671,13 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   }, [loadPublicArticle]);
 
   function applyPublicArticle(publicArticle: PublicArticleDetails, fallbackId: string) {
-    const publicSummary = initialPublicArticles.find((item) => item.id === fallbackId);
-    const coverImageUrl = publicSummary?.recommendation?.coverImageUrl?.trim() ?? "";
-    const importedWithCover = publicArticle.importedArticle && coverImageUrl
-      && !publicArticle.importedArticle.blocks.some((block) => block.type === "image" && block.src === coverImageUrl)
-      ? {
-          ...publicArticle.importedArticle,
-          blocks: [
-            {
-              id: `public-cover-${publicArticle.id || fallbackId}`,
-              type: "image" as const,
-              src: coverImageUrl,
-              alt: publicSummary?.recommendation?.coverImageAlt || publicArticle.title,
-            },
-            ...publicArticle.importedArticle.blocks,
-          ],
-        }
-      : publicArticle.importedArticle ?? null;
-    void primeLeadingArticleImage(importedWithCover);
+    // The recommendation cover belongs to the shared opening transition, not
+    // the article body. Keep the source article's own image sequence untouched
+    // so the first editorial image is never rendered twice.
+    const sourceArticle = publicArticle.importedArticle ?? null;
+    void primeLeadingArticleImage(sourceArticle);
     setArticle(publicArticle.body);
-    setImportedArticle(importedWithCover);
+    setImportedArticle(sourceArticle);
     setPreloadedExplanations(publicArticle.explanations ?? []);
     setActiveArticleSource({
       kind: "public",

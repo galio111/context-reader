@@ -2,6 +2,11 @@ import { createClient, type Session, type User } from "@supabase/supabase-js";
 import { randomInt } from "node:crypto";
 import { cookies } from "next/headers";
 import { getLocalDeveloperUser, isLocalDeveloperEnvironment } from "@/lib/localDeveloper";
+import {
+  accountPasswordRequirement,
+  isAcceptedAccountLoginPassword,
+  isStrongAccountPassword,
+} from "@/lib/passwordPolicy";
 
 const ACCESS_COOKIE = "context_reader_access";
 const REFRESH_COOKIE = "context_reader_refresh";
@@ -65,10 +70,6 @@ export function normalizeNickname(value: string): string {
   return value.trim().replace(/\s+/g, " ").slice(0, 40);
 }
 
-export function isValidPin(value: string): boolean {
-  return /^\d{6}$/.test(value.trim());
-}
-
 export function phoneAccountEmail(phone: string): string {
   return `p${normalizeMainlandPhone(phone)}@${PHONE_ACCOUNT_DOMAIN}`;
 }
@@ -86,15 +87,15 @@ export function phoneFromUser(user: Pick<User, "email" | "user_metadata">): stri
 export async function registerPhonePinAccount(phone: string, nickname: string, pin: string): Promise<Session> {
   const normalizedPhone = normalizeMainlandPhone(phone);
   const normalizedNickname = normalizeNickname(nickname);
-  const normalizedPin = pin.trim();
+  const normalizedPin = pin;
   if (!isValidMainlandPhone(normalizedPhone)) {
     throw new Error("请输入有效的中国大陆手机号。");
   }
   if (normalizedNickname.length < 1) {
     throw new Error("请输入昵称，方便你和管理员识别账号。");
   }
-  if (!isValidPin(normalizedPin)) {
-    throw new Error("密码必须是 6 位数字。");
+  if (!isStrongAccountPassword(normalizedPin)) {
+    throw new Error(accountPasswordRequirement());
   }
 
   const client = authClient();
@@ -122,8 +123,8 @@ export async function registerPhonePinAccount(phone: string, nickname: string, p
 
 export async function loginPhonePinAccount(phone: string, pin: string): Promise<Session> {
   const normalizedPhone = normalizeMainlandPhone(phone);
-  const normalizedPin = pin.trim();
-  if (!isValidMainlandPhone(normalizedPhone) || !isValidPin(normalizedPin)) {
+  const normalizedPin = pin;
+  if (!isValidMainlandPhone(normalizedPhone) || !isAcceptedAccountLoginPassword(normalizedPin)) {
     throw new Error("手机号或密码不正确。");
   }
 
@@ -135,6 +136,21 @@ export async function loginPhonePinAccount(phone: string, pin: string): Promise<
     throw new Error("手机号或密码不正确。");
   }
   return data.session;
+}
+
+export async function changePhoneAccountPassword(userId: string, currentPassword: string, newPassword: string): Promise<void> {
+  if (!isStrongAccountPassword(newPassword)) {
+    throw new Error(accountPasswordRequirement());
+  }
+  const client = authClient();
+  const { data, error } = await client.auth.admin.getUserById(userId);
+  if (error || !data.user) throw new Error("未找到当前账号。");
+  const phone = phoneFromUser(data.user);
+  if (!phone) throw new Error("当前账号不支持在这里修改密码。");
+  const verified = await loginPhonePinAccount(phone, currentPassword).catch(() => null);
+  if (!verified?.user || verified.user.id !== userId) throw new Error("当前密码不正确。");
+  const { error: updateError } = await client.auth.admin.updateUserById(userId, { password: newPassword });
+  if (updateError) throw new Error("密码暂时无法修改，请稍后重试。");
 }
 
 export async function resetPhoneAccountPin(userId: string): Promise<string> {

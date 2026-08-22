@@ -52,8 +52,10 @@ interface HomeOptionMenuProps {
   onOpenDictionary?: () => void;
   theme?: "day" | "night";
   letterMotionEnabled?: boolean;
+  recommendationMotionEnabled?: boolean;
   onThemeChange?: (theme: "day" | "night") => void;
   onLetterMotionChange?: (enabled: boolean) => void;
+  onRecommendationMotionChange?: (enabled: boolean) => void;
 }
 
 export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "feedback" | "settings";
@@ -120,8 +122,10 @@ export function HomeOptionMenu({
   onOpenDictionary,
   theme = "day",
   letterMotionEnabled = true,
+  recommendationMotionEnabled = true,
   onThemeChange,
   onLetterMotionChange,
+  onRecommendationMotionChange,
 }: HomeOptionMenuProps) {
   const router = useRouter();
   const dialogRef = useRef<HTMLElement | null>(null);
@@ -484,6 +488,10 @@ export function HomeOptionMenu({
                           if (event.pointerType !== "mouse") return;
                           if (!vocabularyVirtualizer.isScrolling) setHoveredVocabularyId(entry.id);
                         }}
+                        onPointerUp={(event) => {
+                          if (event.pointerType === "mouse" || vocabularyVirtualizer.isScrolling) return;
+                          setHoveredVocabularyId(entry.id);
+                        }}
                         onFocus={() => setHoveredVocabularyId(entry.id)}
                         onClick={() => setHoveredVocabularyId(entry.id)}
                         aria-expanded={hoveredVocabularyId === entry.id}
@@ -611,6 +619,19 @@ export function HomeOptionMenu({
               <button type="button" aria-pressed={theme === "day"} onClick={() => onThemeChange?.("day")}>日间</button>
               <button type="button" aria-pressed={theme === "night"} onClick={() => onThemeChange?.("night")}>夜间</button>
             </div>
+          </section>
+          <section>
+            <div>
+              <strong>外刊图片 3D</strong>
+              <p>关闭后保留图片入场，但不再跟随鼠标倾斜。</p>
+            </div>
+            <button
+              type="button"
+              className={styles.toggle}
+              role="switch"
+              aria-checked={recommendationMotionEnabled}
+              onClick={() => onRecommendationMotionChange?.(!recommendationMotionEnabled)}
+            ><i /></button>
           </section>
         </div>
       </MenuPreview>

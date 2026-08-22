@@ -53,6 +53,7 @@ const BALL_MATERIAL = {
 };
 
 const HOME_PREFERENCES_KEY = "context-reader-home-ui-v1";
+const HOME_VIEW_STATE_KEY = "context-reader-home-view-v1";
 type HomeTheme = "day" | "night";
 
 const CATEGORY_FILTERS = [
@@ -181,7 +182,7 @@ function personalizeRecommendationOrder(
     .map(({ article }) => article);
 }
 
-function ArticleCover({ article, featured = false }: { article: PublicArticle; featured?: boolean }) {
+function ArticleCover({ article, featured = false, motion3dEnabled = true }: { article: PublicArticle; featured?: boolean; motion3dEnabled?: boolean }) {
   const surfaceRef = useRef<HTMLSpanElement | null>(null);
   const pointerFrameRef = useRef(0);
   const pointerTargetRef = useRef({ x: 0.5, y: 0.5 });
@@ -190,6 +191,17 @@ function ArticleCover({ article, featured = false }: { article: PublicArticle; f
   useEffect(() => () => {
     if (pointerFrameRef.current) window.cancelAnimationFrame(pointerFrameRef.current);
   }, []);
+
+  useEffect(() => {
+    if (motion3dEnabled) return;
+    pointerTargetRef.current = { x: 0.5, y: 0.5 };
+    pointerCurrentRef.current = { x: 0.5, y: 0.5 };
+    const surface = surfaceRef.current;
+    surface?.style.setProperty("--pointer-x", ".5");
+    surface?.style.setProperty("--pointer-y", ".5");
+    surface?.style.setProperty("--rotate-x", "0deg");
+    surface?.style.setProperty("--rotate-y", "0deg");
+  }, [motion3dEnabled]);
 
   function animatePointer() {
     const surface = surfaceRef.current;
@@ -217,6 +229,7 @@ function ArticleCover({ article, featured = false }: { article: PublicArticle; f
   }
 
   function updatePointer(event: PointerEvent<HTMLSpanElement>) {
+    if (!motion3dEnabled) return;
     const bounds = event.currentTarget.getBoundingClientRect();
     const x = (event.clientX - bounds.left) / Math.max(1, bounds.width);
     const y = (event.clientY - bounds.top) / Math.max(1, bounds.height);
@@ -234,6 +247,7 @@ function ArticleCover({ article, featured = false }: { article: PublicArticle; f
     <span
       ref={surfaceRef}
       className={`${styles.coverSurface} ${featured ? styles.coverFeatured : ""}`}
+      data-tilt-disabled={!motion3dEnabled || undefined}
       onPointerMove={updatePointer}
       onPointerLeave={resetPointer}
     >
@@ -278,8 +292,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [navMotion, setNavMotion] = useState<"slide" | "fill" | "icon">("icon");
   const [memberOpeningVariant, setMemberOpeningVariant] = useState<"spiral" | "wordfall">("wordfall");
   const [heroSubtitleVariant, setHeroSubtitleVariant] = useState<keyof typeof HERO_SUBTITLES>("a");
-  const [memberOpeningVisible, setMemberOpeningVisible] = useState(memberHome && !props.skipMemberOpening);
+  const [memberOpeningVisible, setMemberOpeningVisible] = useState(false);
   const [letterMotionEnabled, setLetterMotionEnabled] = useState(true);
+  const [recommendationMotionEnabled, setRecommendationMotionEnabled] = useState(true);
   const [homeTheme, setHomeTheme] = useState<HomeTheme>("day");
   const [memberBallpitReady, setMemberBallpitReady] = useState(false);
   const [openingArticle, setOpeningArticle] = useState<OpeningArticle | null>(null);
@@ -384,6 +399,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
     const stored = readRecommendationPreferences();
     setRecommendationPreferences(stored);
     setPreferenceDraft(stored);
+    try {
+      const view = JSON.parse(window.sessionStorage.getItem(HOME_VIEW_STATE_KEY) || "null") as { category?: string } | null;
+      if (CATEGORY_FILTERS.some((item) => item.label === view?.category)) setActiveCategory(view?.category ?? "推荐");
+    } catch {
+      // A stale view snapshot falls back to the recommendation category.
+    }
   }, []);
 
   useEffect(() => {
@@ -391,9 +412,11 @@ export function HomeRedesign(props: HomeRedesignProps) {
       const stored = JSON.parse(window.localStorage.getItem(HOME_PREFERENCES_KEY) || "null") as {
         theme?: HomeTheme;
         letterMotionEnabled?: boolean;
+        recommendationMotionEnabled?: boolean;
       } | null;
       if (stored?.theme === "night" || stored?.theme === "day") setHomeTheme(stored.theme);
       if (typeof stored?.letterMotionEnabled === "boolean") setLetterMotionEnabled(stored.letterMotionEnabled);
+      if (typeof stored?.recommendationMotionEnabled === "boolean") setRecommendationMotionEnabled(stored.recommendationMotionEnabled);
     } catch {
       // Corrupt display preferences fall back to the calm daytime defaults.
     }
@@ -402,10 +425,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
   useEffect(() => {
     document.documentElement.dataset.contextTheme = homeTheme;
     document.documentElement.style.colorScheme = homeTheme === "night" ? "dark" : "light";
-    return () => {
-      delete document.documentElement.dataset.contextTheme;
-      document.documentElement.style.colorScheme = "light";
-    };
   }, [homeTheme]);
 
   useEffect(() => {
@@ -544,7 +563,11 @@ export function HomeRedesign(props: HomeRedesignProps) {
       if (!saved) return;
       const width = Math.min(Math.max(saved.width ?? 370, 320), window.innerWidth - 32);
       const height = Math.min(Math.max(saved.height ?? 560, 380), window.innerHeight - 32);
-      const left = Math.min(Math.max(saved.left ?? 128, 16), window.innerWidth - width - 16);
+      const visibleGrip = Math.min(104, width);
+      const left = Math.min(
+        Math.max(saved.left ?? 128, visibleGrip - width),
+        window.innerWidth - visibleGrip,
+      );
       const top = Math.min(Math.max(saved.top ?? 92, 16), window.innerHeight - 68);
       Object.assign(element.style, { left: `${left}px`, top: `${top}px`, width: `${width}px`, height: `${height}px` });
     } catch {
@@ -628,17 +651,15 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [memberHome]);
 
   useEffect(() => {
-    if (!memberHome) {
+    if (journeyPending || props.skipMemberOpening) {
       setMemberOpeningVisible(false);
       setMemberBallpitReady(false);
       return;
     }
-    if (props.skipMemberOpening) {
-      setMemberOpeningVisible(false);
-      return;
-    }
     setMemberOpeningVisible(true);
-    if (memberOpeningVariant === "wordfall") return;
+    // Guests use the same readable word-fall opening. The alternate Ballpit
+    // gathering path remains a member-only visual preview.
+    if (!memberHome || memberOpeningVariant === "wordfall") return;
     if (!memberBallpitReady) return;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     memberOpeningStartRef.current = 0;
@@ -679,7 +700,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       window.removeEventListener("keydown", finishQuickly);
       if (memberOpeningFrameRef.current) window.cancelAnimationFrame(memberOpeningFrameRef.current);
     };
-  }, [memberBallpitReady, memberHome, memberOpeningVariant, props.skipMemberOpening]);
+  }, [journeyPending, memberBallpitReady, memberHome, memberOpeningVariant, props.skipMemberOpening]);
 
   function beginArticleTransition(article: PublicArticle, event: ReactMouseEvent<HTMLButtonElement>) {
     if (openingArticle || props.openingPublicArticleId) return;
@@ -710,11 +731,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
     else void props.onStartReading();
   }
 
-  function persistHomePreferences(nextTheme: HomeTheme, nextLetterMotionEnabled: boolean) {
+  function persistHomePreferences(nextTheme: HomeTheme, nextLetterMotionEnabled: boolean, nextRecommendationMotionEnabled: boolean) {
     try {
       window.localStorage.setItem(HOME_PREFERENCES_KEY, JSON.stringify({
         theme: nextTheme,
         letterMotionEnabled: nextLetterMotionEnabled,
+        recommendationMotionEnabled: nextRecommendationMotionEnabled,
       }));
     } catch {
       // The controls still apply for this visit when browser storage is blocked.
@@ -723,12 +745,17 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
   function changeHomeTheme(nextTheme: HomeTheme) {
     setHomeTheme(nextTheme);
-    persistHomePreferences(nextTheme, letterMotionEnabled);
+    persistHomePreferences(nextTheme, letterMotionEnabled, recommendationMotionEnabled);
   }
 
   function changeLetterMotion(nextEnabled: boolean) {
     setLetterMotionEnabled(nextEnabled);
-    persistHomePreferences(homeTheme, nextEnabled);
+    persistHomePreferences(homeTheme, nextEnabled, recommendationMotionEnabled);
+  }
+
+  function changeRecommendationMotion(nextEnabled: boolean) {
+    setRecommendationMotionEnabled(nextEnabled);
+    persistHomePreferences(homeTheme, letterMotionEnabled, nextEnabled);
   }
 
   function animateCoverSnap(target: "cover" | "recommendations") {
@@ -748,7 +775,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     // Keep one spatial velocity from either direction and from any interrupted
     // point in the handoff. A non-linear easing curve made the page visibly
     // accelerate and brake while the balls followed a different rhythm.
-    const duration = reduced ? 260 : Math.max(220, 1_900 * ratio);
+    const duration = reduced ? 220 : Math.max(200, 1_420 * ratio);
     const startedAt = performance.now();
     coverScrollTargetRef.current = target;
 
@@ -805,7 +832,11 @@ export function HomeRedesign(props: HomeRedesignProps) {
     const startX = event.clientX;
     const startY = event.clientY;
     const move = (moveEvent: globalThis.PointerEvent) => {
-      const left = Math.min(Math.max(rect.left + moveEvent.clientX - startX, 12), window.innerWidth - rect.width - 12);
+      const visibleGrip = Math.min(104, rect.width);
+      const left = Math.min(
+        Math.max(rect.left + moveEvent.clientX - startX, visibleGrip - rect.width),
+        window.innerWidth - visibleGrip,
+      );
       const top = Math.min(Math.max(rect.top + moveEvent.clientY - startY, 12), window.innerHeight - 58);
       element.style.left = `${left}px`;
       element.style.top = `${top}px`;
@@ -861,6 +892,11 @@ export function HomeRedesign(props: HomeRedesignProps) {
     categorySwitchTimerRef.current = window.setTimeout(() => {
       categorySwitchTimerRef.current = null;
       setActiveCategory(nextCategory);
+      try {
+        window.sessionStorage.setItem(HOME_VIEW_STATE_KEY, JSON.stringify({ category: nextCategory }));
+      } catch {
+        // The current in-memory category still survives while this page is mounted.
+      }
       window.requestAnimationFrame(() => setCategorySwitching(false));
     }, 190);
   }
@@ -1039,10 +1075,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
         />
       </header>
 
-      {memberHome && memberOpeningVisible && (
+      {memberOpeningVisible && (
         <div className={styles.memberOpening} data-ready={memberOpeningVariant === "wordfall" || memberBallpitReady || undefined} aria-hidden="true">
           <div className={styles.memberOpeningBalls}>
-            {memberOpeningVariant === "wordfall" ? (
+            {!memberHome || memberOpeningVariant === "wordfall" ? (
               <FallingWordOpening
                 className={styles.wordFallCanvas}
                 onComplete={() => setMemberOpeningVisible(false)}
@@ -1096,8 +1132,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
             collectiveCenterY={-0.08}
             collectiveHalfWidth={0.69}
             collectiveHalfHeight={0.81}
-            collectiveStrength={0.00012}
-            thermalMotion={0.000068}
+            collectiveStrength={0.00025}
+            thermalMotion={0.000076}
             followCursor={!compactViewport}
             showCursorBall={false}
             initialLayout="right"
@@ -1253,7 +1289,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                     onClick={(event) => beginArticleTransition(item, event)}
                     disabled={Boolean(props.openingPublicArticleId || openingArticle)}
                   >
-                    <ArticleCover article={item} featured={featured} />
+                  <ArticleCover article={item} featured={featured} motion3dEnabled={recommendationMotionEnabled} />
                     <span className={styles.cardCopy}>
                       <small>{item.sourceName || "Context Reader"}</small>
                       <strong>{item.title}</strong>
@@ -1284,15 +1320,17 @@ export function HomeRedesign(props: HomeRedesignProps) {
         {!memberHome && renderImportSection()}
 
         {!memberHome && <section className={styles.featureOrbit} aria-labelledby="feature-orbit-heading">
-          <span className={styles.featureZoneLabel}>功能展示区</span>
           <header>
-            <div>
+            <div className={styles.orbitHeading}>
               <p>HOW IT STAYS WITH YOU</p>
               <h2 id="feature-orbit-heading">让一篇文章，真正读下去。</h2>
             </div>
-            <div className={styles.orbitControls} aria-label="切换功能介绍">
-              <button type="button" aria-label="上一个功能" onClick={() => setFeaturePosition((current) => current - 1)}>←</button>
-              <button type="button" aria-label="下一个功能" onClick={() => setFeaturePosition((current) => current + 1)}>→</button>
+            <div className={styles.orbitControlGroup}>
+              <span className={styles.featureZoneLabel}>功能展示区</span>
+              <div className={styles.orbitControls} aria-label="切换功能介绍">
+                <button type="button" aria-label="上一个功能" onClick={() => setFeaturePosition((current) => current - 1)}>←</button>
+                <button type="button" aria-label="下一个功能" onClick={() => setFeaturePosition((current) => current + 1)}>→</button>
+              </div>
             </div>
           </header>
           <div
@@ -1304,10 +1342,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
             onPointerCancel={finishOrbitDrag}
           >
             {FEATURE_ORBIT.map((feature, index) => {
-              let offset = index - featurePosition;
-              const half = Math.floor(FEATURE_ORBIT.length / 2);
-              if (offset > half) offset -= FEATURE_ORBIT.length;
-              if (offset < -half) offset += FEATURE_ORBIT.length;
+              const count = FEATURE_ORBIT.length;
+              const half = count / 2;
+              const offset = ((((index - featurePosition) + half) % count) + count) % count - half;
               const distance = Math.abs(offset);
               return (
                 <button
@@ -1340,6 +1377,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
                 </button>
               );
             })}
+          </div>
+          <div className={styles.orbitDragHint} aria-hidden="true">
+            <span>←</span><i><b /></i><strong>拖动浏览</strong><span>→</span>
           </div>
         </section>}
 
@@ -1440,8 +1480,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
         initialPreview={menuInitialPreview}
         theme={homeTheme}
         letterMotionEnabled={letterMotionEnabled}
+        recommendationMotionEnabled={recommendationMotionEnabled}
         onThemeChange={changeHomeTheme}
         onLetterMotionChange={changeLetterMotion}
+        onRecommendationMotionChange={changeRecommendationMotion}
         onOpenImport={scrollToImport}
         onOpenDictionary={openDictionary}
         onClose={() => {

@@ -174,7 +174,7 @@ export function ExplanationPanel({
   }
 
   return (
-    <aside ref={panelRef} className="relative h-full min-h-0 flex-1 overflow-y-auto rounded-[18px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [scrollbar-gutter:stable] [-webkit-overflow-scrolling:touch] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:w-[360px]">
+    <aside ref={panelRef} className="cr-reader-panel relative h-full min-h-0 flex-1 overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [scrollbar-gutter:stable] [-webkit-overflow-scrolling:touch] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:w-[360px]">
       <div className="sticky top-0 z-10 h-0 lg:hidden">
         <button
           type="button"

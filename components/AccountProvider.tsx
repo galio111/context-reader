@@ -19,7 +19,11 @@ import {
   type LocalAccountSession,
 } from "@/lib/localAccountSession";
 import type { AccountSessionState } from "@/types/account";
-import { RECOMMENDATION_INTERESTS, RECOMMENDATION_READING_LEVELS, writeRecommendationPreferences } from "@/lib/recommendationPreferences";
+import {
+  accountPasswordRequirement,
+  isAcceptedAccountLoginPassword,
+  isStrongAccountPassword,
+} from "@/lib/passwordPolicy";
 
 const emptyAccount: AccountSessionState = { configured: true, authenticated: false, profile: null, plan: null, usage: [] };
 
@@ -108,12 +112,6 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [submitting, setSubmitting] = useState(false);
   const [syncingLogin, setSyncingLogin] = useState(false);
   const [usageNotice, setUsageNotice] = useState("");
-  const [registrationProfileStep, setRegistrationProfileStep] = useState(false);
-  const [registrationProfileSaving, setRegistrationProfileSaving] = useState(false);
-  const [registrationLevel, setRegistrationLevel] = useState("");
-  const [registrationInterests, setRegistrationInterests] = useState<string[]>([]);
-  const [registrationBirthYear, setRegistrationBirthYear] = useState("");
-  const [registrationGender, setRegistrationGender] = useState<"" | "male" | "female">("");
   const syncTimer = useRef<number | null>(null);
   const connectivityCheckingRef = useRef(false);
   const connectivityToastTimer = useRef<number | null>(null);
@@ -352,7 +350,6 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     setConfirmPasswordInputReady(false);
     setMessage("");
     setSyncingLogin(false);
-    setRegistrationProfileStep(false);
     setLoginOpen(true);
   }, []);
   const closeLogin = useCallback(() => {
@@ -369,12 +366,6 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     setConfirmPasswordInputReady(false);
     setMessage("");
     setSyncingLogin(false);
-    setRegistrationProfileStep(false);
-    setRegistrationProfileSaving(false);
-    setRegistrationLevel("");
-    setRegistrationInterests([]);
-    setRegistrationBirthYear("");
-    setRegistrationGender("");
   }, [submitting]);
   const requireAccount = useCallback((reason = "此操作需要登录") => {
     if (account.authenticated) return true;
@@ -398,13 +389,16 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   async function submitPhoneAccount() {
     setPinTouched(true);
-    if (!/^\d{6}$/.test(pin)) {
-      setMessage("密码必须是完整的 6 位数字。");
+    const credentialValid = loginMode === "login"
+      ? isAcceptedAccountLoginPassword(pin)
+      : isStrongAccountPassword(pin);
+    if (!credentialValid) {
+      setMessage(loginMode === "login" ? "请输入注册时设置的密码。" : accountPasswordRequirement());
       return;
     }
-    if (loginMode === "register" && !/^\d{6}$/.test(confirmPin)) {
+    if (loginMode === "register" && !isStrongAccountPassword(confirmPin)) {
       setConfirmPinTouched(true);
-      setMessage("确认密码也必须是完整的 6 位数字。");
+      setMessage(accountPasswordRequirement());
       return;
     }
     if (loginMode === "register" && pin !== confirmPin) {
@@ -437,11 +431,6 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       setSyncingLogin(true);
       await syncAccountData();
       await refreshAccount();
-      if (loginMode === "register") {
-        setRegistrationProfileStep(true);
-        setMessage("");
-        return;
-      }
       setLoginOpen(false);
       setPhone("");
       setNickname("");
@@ -461,38 +450,6 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       setMessage(signedIn ? `账号已登录，但数据同步没有完成：${detail} 请检查网络后重试。` : detail);
     }
     finally { setSyncingLogin(false); setSubmitting(false); }
-  }
-
-  async function finishRegistrationProfile(save: boolean) {
-    if (registrationProfileSaving) return;
-    setRegistrationProfileSaving(true);
-    setMessage("");
-    try {
-      if (save) {
-        const response = await fetch("/api/account/profile", {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            englishLevel: registrationLevel,
-            readingInterests: registrationInterests,
-            birthYear: registrationBirthYear || null,
-            gender: registrationGender || null,
-          }),
-        });
-        const data = await response.json().catch(() => null) as { error?: string } | null;
-        if (!response.ok) throw new Error(data?.error || "阅读资料保存失败。");
-        writeRecommendationPreferences({ readingLevel: registrationLevel as typeof RECOMMENDATION_READING_LEVELS[number] | "", interests: registrationInterests as Array<typeof RECOMMENDATION_INTERESTS[number]["id"]> }, { authenticated: true });
-        await refreshAccount();
-      }
-      setRegistrationProfileStep(false);
-      setLoginOpen(false);
-      setPhone(""); setNickname(""); setPin(""); setConfirmPin("");
-      setRegistrationLevel(""); setRegistrationInterests([]); setRegistrationBirthYear(""); setRegistrationGender("");
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : "阅读资料保存失败。");
-    } finally {
-      setRegistrationProfileSaving(false);
-    }
   }
 
   const logout = useCallback(async () => {
@@ -534,15 +491,17 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     requireAccount, requireLocalAccount, refreshAccount, logout, syncNow,
   ]);
 
-  const pinIsValid = /^\d{6}$/.test(pin);
+  const pinIsValid = loginMode === "login"
+    ? isAcceptedAccountLoginPassword(pin)
+    : isStrongAccountPassword(pin);
   const pinFeedback = !pinTouched
-    ? "请输入完整的 6 位数字；不足 6 位时不能登录。"
+    ? loginMode === "login" ? "请输入密码；原六位数字密码仍可继续登录。" : accountPasswordRequirement()
     : pinIsValid
-      ? "已输入 6 位数字。"
+      ? "密码格式正确。"
       : pin.length === 0
-        ? "请输入 6 位数字密码。"
-        : `还需输入 ${6 - pin.length} 位数字。`;
-  const confirmPinIsValid = /^\d{6}$/.test(confirmPin) && confirmPin === pin;
+        ? "请输入密码。"
+        : loginMode === "login" ? "请输入注册时设置的密码。" : accountPasswordRequirement();
+  const confirmPinIsValid = isStrongAccountPassword(confirmPin) && confirmPin === pin;
 
   return (
     <AccountContext.Provider value={value}>
@@ -611,29 +570,20 @@ export function AccountProvider({ children }: { children: ReactNode }) {
             </div>
             {loginReason && <p className="mt-5 rounded-xl bg-[#e3edf4] px-4 py-3 text-sm leading-6 text-[#405d70]">{loginReason}</p>}
             {!account.configured && <p className="mt-4 rounded-2xl bg-[#fff4df] px-4 py-3 text-sm leading-6 text-[#76531f]">账号数据库尚未连接。站点仍可阅读并使用本机游客试用；完成 Supabase 环境变量与数据库迁移后即可登录。</p>}
-            {registrationProfileStep && <div className="mt-6">
-              <p className="text-sm leading-6 text-[#526675]">账号已经创建。下面都是选填项，用来让“推荐”更贴近你的阅读阶段；以后也可以在账号详情里修改或清除。</p>
-              <fieldset className="mt-6"><legend className="text-sm font-semibold">当前最接近的英语阅读水平</legend><div className="mt-3 flex flex-wrap gap-2">{RECOMMENDATION_READING_LEVELS.map((level) => <button key={level} className={`rounded-full border px-3 py-2 text-sm ${registrationLevel === level ? "border-[#2868ad] bg-[#e3edf4]" : "border-black/15 bg-white"}`} type="button" aria-pressed={registrationLevel === level} onClick={() => setRegistrationLevel(level)}>{level}</button>)}</div></fieldset>
-              <fieldset className="mt-6"><legend className="text-sm font-semibold">感兴趣的内容（可多选）</legend><div className="mt-3 flex flex-wrap gap-2">{RECOMMENDATION_INTERESTS.map((interest) => <button key={interest.id} className={`rounded-full border px-3 py-2 text-sm ${registrationInterests.includes(interest.id) ? "border-[#2868ad] bg-[#e3edf4]" : "border-black/15 bg-white"}`} type="button" aria-pressed={registrationInterests.includes(interest.id)} onClick={() => setRegistrationInterests((current) => current.includes(interest.id) ? current.filter((id) => id !== interest.id) : [...current, interest.id])}>{interest.label}</button>)}</div></fieldset>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2"><label className="text-sm font-medium">出生年份（选填）<input className="mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad]" inputMode="numeric" value={registrationBirthYear} onChange={(event) => setRegistrationBirthYear(event.target.value.replace(/\D/g, "").slice(0, 4))} placeholder="例如 2003" /></label><fieldset><legend className="text-sm font-medium">性别（选填）</legend><div className="mt-2 flex gap-2">{[["male", "男"], ["female", "女"]].map(([value, label]) => <button key={value} className={`flex-1 rounded-xl border px-3 py-3 text-sm ${registrationGender === value ? "border-[#2868ad] bg-[#e3edf4]" : "border-black/15 bg-white"}`} type="button" aria-pressed={registrationGender === value} onClick={() => setRegistrationGender((current) => current === value ? "" : value as "male" | "female")}>{label}</button>)}</div></fieldset></div>
-              {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="alert">{message}</p>}
-              <div className="mt-7 grid gap-3"><button className="w-full rounded-full bg-[#174f82] px-5 py-3.5 font-semibold text-white disabled:opacity-50" type="button" disabled={registrationProfileSaving} onClick={() => void finishRegistrationProfile(true)}>{registrationProfileSaving ? "保存中…" : "保存并开始阅读"}</button><button className="w-full rounded-full px-5 py-3 text-sm text-[#526675]" type="button" disabled={registrationProfileSaving} onClick={() => void finishRegistrationProfile(false)}>以后再填</button></div>
-            </div>}
-            <div className={`${registrationProfileStep ? "hidden" : "grid"} mt-6 grid-cols-2 rounded-xl bg-[#e4ebf1] p-1`} aria-label="登录或注册">
+            <div className="mt-6 grid grid-cols-2 rounded-xl bg-[#e4ebf1] p-1" aria-label="登录或注册">
               <button className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors disabled:cursor-wait ${loginMode === "login" ? "bg-white text-[#17212b] shadow-sm" : "text-[#5f6d79]"}`} type="button" disabled={submitting} aria-pressed={loginMode === "login"} onClick={() => { setLoginMode("login"); setNickname(""); setConfirmPin(""); setPin(""); setPinTouched(false); setConfirmPinTouched(false); setPasswordInputReady(false); setConfirmPasswordInputReady(false); setMessage(""); }}>登录</button>
               <button className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors disabled:cursor-wait ${loginMode === "register" ? "bg-white text-[#17212b] shadow-sm" : "text-[#5f6d79]"}`} type="button" disabled={submitting} aria-pressed={loginMode === "register"} onClick={() => { setLoginMode("register"); setPin(""); setConfirmPin(""); setPinTouched(false); setConfirmPinTouched(false); setPasswordInputReady(false); setConfirmPasswordInputReady(false); setMessage(""); }}>注册</button>
             </div>
-            <form className={registrationProfileStep ? "hidden" : "block"} autoComplete="off" onSubmit={(event) => { event.preventDefault(); void submitPhoneAccount(); }}>
+            <form autoComplete="off" onSubmit={(event) => { event.preventDefault(); void submitPhoneAccount(); }}>
               {loginMode === "register" && <label className="mt-5 block text-sm font-medium">昵称<ClearableField className="mt-2" value={nickname} onClear={() => setNickname("")} label="清空昵称"><input className="w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="text" autoComplete="nickname" maxLength={40} value={nickname} onChange={(event) => setNickname(event.target.value)} placeholder="例如：小林" /></ClearableField></label>}
               <label className="mt-5 block text-sm font-medium">手机号<ClearableField className="mt-2" value={phone} onClear={() => setPhone("")} label="清空手机号"><input className="w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={(event) => setPhone(event.target.value.replace(/[^\d+\s()-]/g, "").slice(0, 24))} placeholder="中国大陆手机号" /></ClearableField></label>
-              <label className="mt-5 block text-sm font-medium">6 位数字密码
+              <label className="mt-5 block text-sm font-medium">密码
                 <ClearableField className="mt-2" value={pin} onClear={() => { setPin(""); setPinTouched(false); setPasswordInputReady(true); }} label="清空密码" clearButtonInset="4.4rem" inputPaddingRight="7rem">
                   <input
-                    className={`w-full rounded-xl border bg-white px-4 py-3 pr-16 text-lg tracking-[.22em] outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15 ${pinTouched && !pinIsValid ? "border-[#b85a4c]" : "border-black/15"}`}
+                    className={`w-full rounded-xl border bg-white px-4 py-3 pr-16 text-base outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15 ${pinTouched && !pinIsValid ? "border-[#b85a4c]" : "border-black/15"}`}
                     type={showPin ? "text" : "password"}
                     name={`context-reader-${loginMode}-credential`}
-                    inputMode="numeric"
-                    autoComplete="off"
+                    autoComplete={loginMode === "login" ? "current-password" : "new-password"}
                     data-1p-ignore="true"
                     data-lpignore="true"
                     readOnly={!passwordInputReady}
@@ -650,9 +600,9 @@ export function AccountProvider({ children }: { children: ReactNode }) {
                     onBlur={() => setPinTouched(true)}
                     onChange={(event) => {
                       setPinTouched(true);
-                      setPin(event.target.value.replace(/\D/g, "").slice(0, 6));
+                      setPin(event.target.value.slice(0, 72));
                     }}
-                    placeholder="请输入 6 位数字"
+                    placeholder={loginMode === "login" ? "输入密码" : "至少 8 位，包含字母和数字"}
                   />
                   <button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg px-2 py-1.5 text-xs text-[#526158] hover:bg-black/5" type="button" onClick={() => { if (!passwordInputReady) { setPin(""); setPasswordInputReady(true); } setShowPin((value) => !value); }} aria-label={showPin ? "隐藏密码" : "显示密码"}>{showPin ? "隐藏" : "显示"}</button>
                 </ClearableField>
@@ -661,11 +611,10 @@ export function AccountProvider({ children }: { children: ReactNode }) {
               {loginMode === "register" && <label className="mt-5 block text-sm font-medium">确认密码
                 <ClearableField className="mt-2" value={confirmPin} onClear={() => { setConfirmPin(""); setConfirmPinTouched(false); setConfirmPasswordInputReady(true); }} label="清空确认密码">
                 <input
-                  className={`w-full rounded-xl border bg-white px-4 py-3 text-lg tracking-[.22em] outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15 ${confirmPinTouched && !confirmPinIsValid ? "border-[#b85a4c]" : "border-black/15"}`}
+                  className={`w-full rounded-xl border bg-white px-4 py-3 text-base outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15 ${confirmPinTouched && !confirmPinIsValid ? "border-[#b85a4c]" : "border-black/15"}`}
                   type={showPin ? "text" : "password"}
                   name="context-reader-confirm-credential"
-                  inputMode="numeric"
-                  autoComplete="off"
+                  autoComplete="new-password"
                   data-1p-ignore="true"
                   data-lpignore="true"
                   readOnly={!confirmPasswordInputReady}
@@ -682,18 +631,19 @@ export function AccountProvider({ children }: { children: ReactNode }) {
                   onBlur={() => setConfirmPinTouched(true)}
                   onChange={(event) => {
                     setConfirmPinTouched(true);
-                    setConfirmPin(event.target.value.replace(/\D/g, "").slice(0, 6));
+                    setConfirmPin(event.target.value.slice(0, 72));
                   }}
-                  placeholder="再次输入 6 位数字"
+                  placeholder="再次输入密码"
                 />
                 </ClearableField>
-                <span id="account-confirm-password-help" className={`mt-2 block text-xs leading-5 ${confirmPinTouched && !confirmPinIsValid ? "text-[#a1473b]" : "text-[#738078]"}`} aria-live="polite">{confirmPinTouched && !confirmPinIsValid ? (confirmPin.length < 6 ? `确认密码还需输入 ${6 - confirmPin.length} 位数字。` : "两次输入的密码不一致。") : "请再次输入同一组 6 位数字。"}</span>
+                <span id="account-confirm-password-help" className={`mt-2 block text-xs leading-5 ${confirmPinTouched && !confirmPinIsValid ? "text-[#a1473b]" : "text-[#738078]"}`} aria-live="polite">{confirmPinTouched && !confirmPinIsValid ? (confirmPin !== pin ? "两次输入的密码不一致。" : accountPasswordRequirement()) : "请再次输入同一密码。"}</span>
               </label>}
               {syncingLogin && <p className="mt-4 rounded-xl bg-[#e3edf4] px-3 py-2 text-sm leading-6 text-[#405d70]" role="status">登录成功，正在同步当前账号的生词本、文章和缓存，请稍候…</p>}
               {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="alert">{message}</p>}
               <button className="mt-6 w-full rounded-full bg-[#174f82] px-5 py-3.5 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2868ad] disabled:cursor-not-allowed disabled:opacity-50" disabled={!account.configured || submitting || phone.trim().length < 11 || !pinIsValid || (loginMode === "register" && (!nickname.trim() || !confirmPinIsValid))} type="submit">{syncingLogin ? "正在同步账号数据…" : submitting ? (loginMode === "login" ? "正在登录…" : "正在创建账号…") : loginMode === "login" ? "登录并同步" : "创建账号并登录"}</button>
             </form>
-            {!registrationProfileStep && <p className="mt-5 text-xs leading-5 text-[#738078]">手机号目前只作为登录账号，不发送验证码，也尚未验证归属。请记住密码；忘记后需联系管理员重置。阅读只会在触发受限操作时提示登录。</p>}
+            {loginMode === "login" && <button className="mt-4 text-xs font-medium text-[#536f80] underline decoration-[#8aa3b1] underline-offset-4" type="button" onClick={() => setMessage("手机号目前尚未验证，不能只凭手机号和昵称安全地自动重置。公开测试阶段请通过意见反馈联系管理员核验处理。")}>忘记密码</button>}
+            <p className="mt-4 text-xs leading-5 text-[#738078]">手机号目前只作为登录账号，不发送验证码，也尚未验证归属。新账号使用字母与数字组合密码；原六位数字密码仍可登录。</p>
           </section>
         </div>
       )}

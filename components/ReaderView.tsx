@@ -18,7 +18,7 @@ import {
   findImportedVocabularyNoteIds,
 } from "@/lib/ankiConnect";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
-import { findSavedArticle, isValidArticleSummary, saveArticle, saveEditedArticle } from "@/lib/articles";
+import { findSavedArticle, saveArticle, saveEditedArticle } from "@/lib/articles";
 import {
   createArticleTranslationBlockCacheKey,
   createArticleTranslationCacheKey,
@@ -287,7 +287,7 @@ async function requestExplanation(
   signal: AbortSignal,
   actionId: string,
 ): Promise<WordExplanation> {
-  const { response, data } = await fetchJson<{ explanation?: WordExplanation; error?: string }>("/api/explain-word", {
+  const { response, data } = await fetchJson<{ explanation?: WordExplanation; error?: string; code?: string }>("/api/explain-word", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -309,6 +309,9 @@ async function requestExplanation(
   });
 
   if (!response.ok) {
+    if (data?.code === "quota_exhausted") {
+      throw new GuestLookupQuotaError();
+    }
     throw new Error(data?.error || "解释失败，请稍后重试。");
   }
 
@@ -317,6 +320,13 @@ async function requestExplanation(
   }
 
   return data.explanation;
+}
+
+class GuestLookupQuotaError extends Error {
+  constructor() {
+    super("今天的游客查词次数已用完，登录后可继续。");
+    this.name = "GuestLookupQuotaError";
+  }
 }
 
 async function requestExplanationStream(
@@ -866,6 +876,7 @@ export function ReaderView({
   const [readerImportBusy, setReaderImportBusy] = useState(false);
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
   const [dictionaryClosing, setDictionaryClosing] = useState(false);
+  const [guestLookupLocked, setGuestLookupLocked] = useState(false);
   const [articleTranslations, setArticleTranslations] = useState<ArticleTranslationItem[]>([]);
   const [translationLoading, setTranslationLoading] = useState(false);
   const [translationError, setTranslationError] = useState("");
@@ -916,13 +927,21 @@ export function ReaderView({
       } | null;
       const width = Math.min(Math.max(saved?.width ?? 340, 300), window.innerWidth - 28);
       const height = Math.min(Math.max(saved?.height ?? 560, 380), window.innerHeight - 28);
-      const left = Math.min(Math.max(saved?.left ?? 132, 14), window.innerWidth - width - 14);
+      const visibleGrip = Math.min(104, width);
+      const left = Math.min(
+        Math.max(saved?.left ?? 132, visibleGrip - width),
+        window.innerWidth - visibleGrip,
+      );
       const top = Math.min(Math.max(saved?.top ?? 92, 14), window.innerHeight - 58);
       Object.assign(element.style, { left: `${left}px`, top: `${top}px`, width: `${width}px`, height: `${height}px` });
     } catch {
       // A stale window preference must never prevent dictionary access.
     }
   }, [dictionaryMounted]);
+
+  useEffect(() => {
+    if (account.authenticated) setGuestLookupLocked(false);
+  }, [account.authenticated]);
 
   useEffect(() => {
     if (!readerWorkLayer) return;
@@ -1438,9 +1457,6 @@ export function ReaderView({
 
   const savedCurrentArticle = findSavedArticle(currentArticle);
   const articleSaved = Boolean(savedCurrentArticle);
-  const articleSummaryReady = Boolean(
-    savedCurrentArticle?.summary?.trim() && isValidArticleSummary(savedCurrentArticle.summary),
-  );
 
   function getTokenRange(startToken: ReaderToken, endToken: ReaderToken): ReaderToken[] {
     if (startToken.paragraphIndex !== endToken.paragraphIndex) {
@@ -1498,7 +1514,12 @@ export function ReaderView({
     tokenIds: string[],
     options: { force?: boolean; syncVocabulary?: boolean } = {},
   ) {
+    if (!account.authenticated && guestLookupLocked) {
+      openLogin("今天的游客查词次数已用完，登录后可继续查词并同步学习数据。");
+      return;
+    }
     if (!account.authenticated && !account.configured && !consumeFallbackGuestLookup()) {
+      setGuestLookupLocked(true);
       setError("今天的 10 次游客试用已用完；账号服务配置完成后即可登录继续。 ");
       openLogin("游客每天可试用 10 次划词解释；登录后可继续查词并同步学习数据。");
       return;
@@ -1526,9 +1547,12 @@ export function ReaderView({
           method: "POST",
           headers: { "x-context-action-id": crypto.randomUUID() },
         });
-        const cachedUsage = await cachedUsageResponse.json().catch(() => null) as { error?: string } | null;
+        const cachedUsage = await cachedUsageResponse.json().catch(() => null) as { error?: string; code?: string } | null;
         if (!cachedUsageResponse.ok) {
-          setError(cachedUsage?.error || "游客试用额度记录失败，请登录后继续。");
+          if (cachedUsage?.code === "quota_exhausted") setGuestLookupLocked(true);
+          setError(cachedUsage?.code === "quota_exhausted"
+            ? "今天的游客查词次数已用完，登录后可继续。"
+            : cachedUsage?.error || "游客试用额度记录失败，请登录后继续。");
           openLogin("游客每天可试用 10 次划词解释；登录后可继续阅读并同步学习数据。");
           return;
         }
@@ -1630,8 +1654,12 @@ export function ReaderView({
       if (controller.signal.aborted) {
         return;
       }
-      setError(requestError instanceof Error ? requestError.message : "解释失败，请稍后重试。");
-      if (!account.authenticated && requestError instanceof Error && /登录|游客|额度/.test(requestError.message)) {
+      const quotaExhausted = requestError instanceof GuestLookupQuotaError;
+      if (quotaExhausted) setGuestLookupLocked(true);
+      setError(quotaExhausted
+        ? "今天的游客查词次数已用完，登录后可继续。"
+        : requestError instanceof Error ? requestError.message : "解释失败，请稍后重试。");
+      if (!account.authenticated && requestError instanceof Error && (quotaExhausted || /登录|游客|额度/.test(requestError.message))) {
         openLogin("游客试用额度已用完，登录后可继续查词并跨设备同步学习数据。");
       }
     } finally {
@@ -1678,6 +1706,10 @@ export function ReaderView({
   }
 
   function handleRegenerateExplanation() {
+    if (!account.authenticated && guestLookupLocked) {
+      openLogin("今天的游客查词次数已用完，登录后可继续查词并同步学习数据。");
+      return;
+    }
     if (!selectedContext || selectedTokenIds.length === 0) {
       return;
     }
@@ -2039,7 +2071,11 @@ export function ReaderView({
     const startX = event.clientX;
     const startY = event.clientY;
     const move = (moveEvent: globalThis.PointerEvent) => {
-      const left = Math.min(Math.max(rect.left + moveEvent.clientX - startX, 12), window.innerWidth - rect.width - 12);
+      const visibleGrip = Math.min(104, rect.width);
+      const left = Math.min(
+        Math.max(rect.left + moveEvent.clientX - startX, visibleGrip - rect.width),
+        window.innerWidth - visibleGrip,
+      );
       const top = Math.min(Math.max(rect.top + moveEvent.clientY - startY, 12), window.innerHeight - 58);
       element.style.left = `${left}px`;
       element.style.top = `${top}px`;
@@ -2729,7 +2765,7 @@ export function ReaderView({
   const saveButtonText = savingArticle
     ? "保存中"
     : articleSaved
-      ? articleSummaryReady ? "重新生成首页摘要" : "生成首页摘要"
+      ? "已保存"
       : "保存文章";
   const toolbarStatus = [editStatus, saveStatus].filter(Boolean).join(" · ");
   const hasExplanationPanelContent = Boolean(selectedContext || loading || explanation || error);
@@ -2894,7 +2930,7 @@ export function ReaderView({
 
   return (
     <main
-      className="min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#1d1d1f]"
+      className="cr-reader-root min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#1d1d1f]"
       style={{ "--reader-desktop-inset-left": `${desktopViewportInsetLeft}px` } as CSSProperties}
     >
       <aside className={toolbarStyles.desktopRail} aria-label="阅读快捷入口">
@@ -2976,7 +3012,7 @@ export function ReaderView({
             className={toolbarStyles.action}
             label={saveButtonText}
             onClick={handleSaveArticle}
-            disabled={savingArticle || savingArticleEdit || editingArticle}
+            disabled={articleSaved || savingArticle || savingArticleEdit || editingArticle}
           />
           <PillNavAction
             className={`${toolbarStyles.action} ${toolbarStyles.primaryAction}`}
@@ -2998,7 +3034,7 @@ export function ReaderView({
         }`}
         style={{ "--mobile-sheet-height": `${mobileExplanationHeight}dvh` } as CSSProperties}
       >
-        <article className="min-w-0 overflow-x-hidden rounded-[24px] bg-white px-4 py-7 sm:min-h-[70vh] sm:px-10 sm:py-8 lg:px-16 lg:py-14">
+        <article className="cr-reader-article min-w-0 overflow-x-hidden rounded-[16px] bg-white px-4 py-7 sm:min-h-[70vh] sm:px-10 sm:py-8 lg:px-16 lg:py-14">
           {!articleMediaReady ? (
             <div
               className={loadingStyles.stage}
@@ -3380,7 +3416,7 @@ export function ReaderView({
           data-native-selection="blue"
         >
           <div className="flex h-full min-h-0 flex-col gap-3">
-            <div className="grid h-10 shrink-0 grid-cols-2 rounded-full border border-[#d2d2d7] bg-white p-1">
+            <div data-reader-panel-tabs className="grid h-10 shrink-0 grid-cols-2 rounded-full border border-[#d2d2d7] bg-white p-1">
               <button
                 type="button"
                 className={`rounded-full text-sm leading-none tracking-[-0.224px] transition ${
@@ -3801,7 +3837,7 @@ export function ReaderView({
                     <button type="button" onClick={() => { beginArticleEditing(); setMobileExplanationOpen(false); }}>编辑文章</button>
                   )}
                   <button type="button" onClick={handleCopyArticle} disabled={editingArticle}>复制文章内容</button>
-                  <button type="button" onClick={handleSaveArticle} disabled={savingArticle || savingArticleEdit || editingArticle}>{saveButtonText}</button>
+                  <button type="button" onClick={handleSaveArticle} disabled={articleSaved || savingArticle || savingArticleEdit || editingArticle}>{saveButtonText}</button>
                 </div>
               </div>
             )}

@@ -190,6 +190,34 @@ img {
   }
 }
 
+html[data-context-theme="night"] body {
+  background: #101a1f;
+  color: #e5eef0;
+}
+
+html[data-context-theme="night"] .cr-reader-root {
+  background: #101a1f !important;
+  color: #e5eef0 !important;
+}
+
+html[data-context-theme="night"] .cr-reader-article,
+html[data-context-theme="night"] .cr-reader-panel {
+  border-color: rgb(190 220 227 / 15%) !important;
+  background: #17272e !important;
+  color: #e5eef0 !important;
+}
+
+html[data-context-theme="night"] .cr-reader-article :is(h1, h2, h3, h4, p, span, strong, small, em, li, td, th),
+html[data-context-theme="night"] .cr-reader-panel :is(h1, h2, h3, h4, p, span, strong, small, em, li, dt, dd) {
+  color: #dfeaec !important;
+}
+
+html[data-context-theme="night"] .cr-reader-panel :is(input, textarea) {
+  border-color: rgb(190 220 227 / 18%) !important;
+  background: #102229 !important;
+  color: #edf4f5 !important;
+}
+
 /* Immersive homepage */
 html:has(.cr-home),
 body:has(.cr-home) {

@@ -322,23 +322,39 @@
 
 @media (min-width: 1024px) {
   .desktopRail { display: grid; }
-}
 
-@media (min-width: 1024px) {
-  .readerLayout {
-    width: min(calc(100% - 148px), 1280px);
-    margin-right: 0 !important;
-    margin-left: max(148px, calc((100vw - 1280px) / 2 + 74px)) !important;
-    padding-right: 20px !important;
+  .toolbar {
+    inset: 14px auto auto 148px;
+    width: calc(100vw - 164px);
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
   }
 
-  .readerSidePanel { right: 20px !important; }
-}
+  .actions {
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+  }
 
-@media (min-width: 1500px) {
   .readerLayout {
-    width: min(calc(100% - 520px), 1280px);
-    margin-left: 500px !important;
+    width: calc(100% - 168px);
+    max-width: 1720px !important;
+    margin-right: 0 !important;
+    margin-left: 148px !important;
+    padding-right: 20px !important;
+    grid-template-columns: minmax(0, 1fr) clamp(340px, 22vw, 400px) !important;
+    gap: clamp(16px, 1.4vw, 26px) !important;
+  }
+
+  .readerLayout > article {
+    width: 100%;
+  }
+
+  .readerSidePanel {
+    right: 20px !important;
+    width: clamp(340px, 22vw, 400px) !important;
   }
 }
 
@@ -565,17 +581,6 @@
   .mobileBackAction { display: inline-flex; }
 }
 
-@media (min-width: 1400px) {
-  .actions {
-    position: absolute;
-    right: 12px;
-    left: min(calc(100vw - 380px), calc(50% + 260px));
-    max-width: none;
-    justify-content: flex-start;
-    transform: translateX(-8px);
-  }
-}
-
 @media (min-width: 1400px) and (max-width: 1699px) {
   .actions {
     gap: 4px;
@@ -591,14 +596,6 @@
     width: 38px;
     padding: 0;
     font-size: 17px;
-  }
-}
-
-@media (min-width: 1700px) {
-  .actions {
-    right: auto;
-    width: max-content;
-    overflow-x: visible;
   }
 }
 
@@ -634,6 +631,40 @@
     top: 60px;
     font-size: 12px;
   }
+}
+
+:global(html[data-context-theme="night"]) .action,
+:global(html[data-context-theme="night"]) .railActions > button,
+:global(html[data-context-theme="night"]) .railBackAction {
+  border-color: rgb(190 220 227 / 18%);
+  color: #dcebed;
+  background: rgb(28 51 60 / 96%);
+  box-shadow: 0 5px 16px rgb(0 0 0 / 18%);
+}
+
+:global(html[data-context-theme="night"]) .readerSidePanel [data-reader-panel-tabs] {
+  border-color: rgb(190 220 227 / 18%) !important;
+  background: #17272e !important;
+}
+
+:global(html[data-context-theme="night"]) .readerSidePanel [data-reader-panel-tabs] button:not([class*="bg-[#1d1d1f]"]) {
+  color: #c9dadd !important;
+}
+
+:global(html[data-context-theme="night"]) .dictionaryWindow,
+:global(html[data-context-theme="night"]) .workLayer,
+:global(html[data-context-theme="night"]) .mobileToolSheet,
+:global(html[data-context-theme="night"]) .mobileDictionary,
+:global(html[data-context-theme="night"]) .mobileToolEmpty,
+:global(html[data-context-theme="night"]) .mobileToolDock {
+  border-color: rgb(190 220 227 / 16%);
+  color: #dfeaec;
+  background: #17272e;
+}
+
+:global(html[data-context-theme="night"]) .mobileToolDock button,
+:global(html[data-context-theme="night"]) .mobileSheetHeader button {
+  color: #d6e7ea;
 }
 
 @media (prefers-reduced-motion: reduce) {
