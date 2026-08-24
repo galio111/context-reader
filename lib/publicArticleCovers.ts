@@ -95,6 +95,50 @@ function sourceImageUrl(value: string): string {
   return url.toString();
 }
 
+interface RemoteImageFetchCandidate {
+  url: string;
+  timeoutMs: number;
+}
+
+export function remotePublicImageFetchCandidates(value: string): RemoteImageFetchCandidate[] {
+  const source = sourceImageUrl(value);
+  const sourceUrl = new URL(source);
+  if (sourceUrl.hostname.toLowerCase() !== "static.time.com") {
+    return [{ url: source, timeoutMs: 240_000 }];
+  }
+
+  // TIME's static CDN is not consistently reachable from the mainland server.
+  // The proxy is only an ingestion transport: returned bytes are still validated,
+  // normalized and written to first-party Storage before a public row is updated.
+  const proxyUrl = new URL("https://images.weserv.nl/");
+  proxyUrl.searchParams.set("url", source);
+  proxyUrl.searchParams.set("output", "webp");
+  proxyUrl.searchParams.set("w", "1600");
+  proxyUrl.searchParams.set("q", "82");
+  return [
+    { url: proxyUrl.toString(), timeoutMs: 90_000 },
+    { url: source, timeoutMs: 45_000 },
+  ];
+}
+
+async function fetchRemotePublicImage(value: string, headers: HeadersInit): Promise<Response> {
+  let lastFailure = "远程图片读取失败。";
+  for (const candidate of remotePublicImageFetchCandidates(value)) {
+    try {
+      const response = await safeRemoteFetch(candidate.url, {
+        headers,
+        signal: AbortSignal.timeout(candidate.timeoutMs),
+      }, { maxRedirects: 4 });
+      if (response.ok) return response;
+      lastFailure = `远程图片读取失败（HTTP ${response.status}）。`;
+      await response.body?.cancel().catch(() => undefined);
+    } catch {
+      lastFailure = "远程图片读取超时或连接失败。";
+    }
+  }
+  throw new Error(lastFailure);
+}
+
 function safeReferer(value: string): string | undefined {
   try {
     const url = new URL(value);
@@ -108,18 +152,11 @@ export async function storeRemotePublicCover(value: string, sourceUrl = ""): Pro
   if (isStoredPublicCoverUrl(value)) return value;
 
   const referer = safeReferer(sourceUrl);
-  const response = await safeRemoteFetch(sourceImageUrl(value), {
-    headers: {
-      Accept: "image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8",
-      "User-Agent": "Mozilla/5.0 (compatible; ContextReaderCoverImporter/1.0)",
-      ...(referer ? { Referer: referer } : {}),
-    },
-    signal: AbortSignal.timeout(240_000),
-  }, { maxRedirects: 4 });
-  if (!response.ok) {
-    await response.body?.cancel().catch(() => undefined);
-    throw new Error(`远程封面读取失败（HTTP ${response.status}）。`);
-  }
+  const response = await fetchRemotePublicImage(value, {
+    Accept: "image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8",
+    "User-Agent": "Mozilla/5.0 (compatible; ContextReaderCoverImporter/1.0)",
+    ...(referer ? { Referer: referer } : {}),
+  });
   const contentType = response.headers.get("content-type")?.split(";")[0].trim().toLowerCase() || "";
   if (!contentType.startsWith("image/")) {
     await response.body?.cancel().catch(() => undefined);
@@ -143,18 +180,11 @@ export async function storeRemotePublicArticleImage(value: string, sourceUrl = "
   if (isStoredPublicCoverUrl(value)) return value;
 
   const referer = safeReferer(sourceUrl);
-  const response = await safeRemoteFetch(sourceImageUrl(value), {
-    headers: {
-      Accept: "image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8",
-      "User-Agent": "Mozilla/5.0 (compatible; ContextReaderArticleImporter/1.0)",
-      ...(referer ? { Referer: referer } : {}),
-    },
-    signal: AbortSignal.timeout(240_000),
-  }, { maxRedirects: 4 });
-  if (!response.ok) {
-    await response.body?.cancel().catch(() => undefined);
-    throw new Error(`远程正文图片读取失败（HTTP ${response.status}）。`);
-  }
+  const response = await fetchRemotePublicImage(value, {
+    Accept: "image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8",
+    "User-Agent": "Mozilla/5.0 (compatible; ContextReaderArticleImporter/1.0)",
+    ...(referer ? { Referer: referer } : {}),
+  });
   const contentType = response.headers.get("content-type")?.split(";")[0].trim().toLowerCase() || "";
   if (!contentType.startsWith("image/")) {
     await response.body?.cancel().catch(() => undefined);
