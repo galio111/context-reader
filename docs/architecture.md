@@ -9,7 +9,7 @@ Context Reader is a Next.js app with a client-side reading workspace and server-
 
 Legacy image-import and OCR code remains available but has no root-homepage entry. Automatic OCR for images embedded in URL imports also remains disabled in the reader.
 
-Primary production runs at `https://context-reader.com` on a Tencent Lighthouse instance. Caddy terminates HTTPS and proxies the unchanged Next.js application to a private Docker network containing PostgreSQL 17, GoTrue Auth, PostgREST, Storage API, and the internal Supabase-compatible gateway. The browser still receives no database or service-role key. The former Vercel deployment and managed Supabase project remain intact as rollback sources.
+Primary production runs at `https://context-reader.com` on a Tencent Lighthouse instance. Caddy terminates HTTPS and proxies the unchanged Next.js application to a private Docker network containing PostgreSQL 17, GoTrue Auth, PostgREST, Storage API, and the internal Supabase-compatible gateway. The browser still receives no database or service-role key. The former Vercel deployment and managed Supabase project are frozen rollback evidence only; production never reads or writes them.
 
 ## Reading Flow
 
@@ -68,6 +68,8 @@ Touch word selection separates reading scroll from lookup gestures. Vertical mov
 Each new explanation resets the bottom sheet to its default half-height and scrolls the explanation content to the top. Collapsing the explanation panel should preserve the article reading position, but temporary panel state should not leak into the next lookup.
 
 ## Account, usage, and sync
+
+In mainland production, the server-side `SUPABASE_*` names are compatibility variables for the self-hosted adapters and always resolve to the private `supabase-api` gateway. Supabase Cloud is not an active data path. The mainland image refuses to start when the runtime mode is missing or `SUPABASE_URL` is external, while `/api/connectivity` exposes only the safe `mainland_internal` marker for release acceptance.
 
 Account sync transport uses byte-bounded response pages. A protocol-2 bootstrap captures one latest-server cursor, transfers active payloads and a lightweight tombstone index through that fixed snapshot, and persists an opaque keyset cursor plus version/hash/deletion manifest. Every later pull reads only rows newer than `(updated_at, kind, object_key)`; it does not scan the complete account history. The `preferences/homepage-recommendation-preferences` object carries the account-scoped reading level and interests; guest-scoped browser preferences never silently overwrite an existing cloud account preference during login. Automatic learning-data sync remains active on `/admin` only for the developer account so vocabulary and locally saved articles created inside the real ReaderView are durable; password-only Admin sessions have no account sync. Normal pages serialize writes both within one tab and across tabs with the Web Locks API.
 

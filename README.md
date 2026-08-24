@@ -6,6 +6,7 @@ Context Reader is a Next.js reading tool for importing real English articles and
 - Primary route: `/`; legacy `/home-v2` links permanently redirect to the root and preserve query parameters
 - Rollback/reference: `https://context-reader-ten.vercel.app`
 - Stack: Next.js 15, React 19, TypeScript, DeepSeek, local-first browser data and a mainland self-hosted Supabase-compatible PostgreSQL/Auth/REST/Storage backend
+- Production data boundary: all account, sync, recommendation and object-storage traffic stays inside the mainland Docker network; Supabase Cloud is a frozen rollback copy only and is never a live request target
 
 The reader is the product center. Article text remains visually primary while lookup, translation, vocabulary, saving, recommendations and account tools support the reading flow.
 

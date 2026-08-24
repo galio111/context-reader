@@ -26,6 +26,12 @@ require_text() {
 require_text "ops/mainland/deploy-release.sh" "RELEASE_GUARD_VERSION=1"
 require_text "ops/mainland/deploy-release.sh" "context-reader-deploy.lock"
 require_text "ops/mainland/deploy-release.sh" "parent release mismatch"
+require_text "ops/mainland/deploy-release.sh" 'data.get("backendMode") != "mainland_internal"'
+require_text "ops/mainland/start-mainland-app.mjs" 'process.env.CONTEXT_READER_RUNTIME_MODE !== "mainland"'
+require_text "ops/mainland/start-mainland-app.mjs" 'process.env.SUPABASE_URL !== EXPECTED_INTERNAL_API'
+require_text "ops/mainland/compose.yml" "CONTEXT_READER_RUNTIME_MODE: mainland"
+require_text "ops/mainland/compose.yml" "SUPABASE_URL: http://supabase-api:8000"
+require_text "app/api/connectivity/route.ts" "mainland_internal"
 require_text "scripts/new-task-worktree.ps1" "git worktree add"
 require_text "scripts/new-task-worktree.ps1" 'codex/$TaskName'
 require_text "package.json" "verify:release-contracts"

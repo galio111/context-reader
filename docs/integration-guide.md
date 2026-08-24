@@ -10,7 +10,7 @@ https://context-reader.com
 
 Do not treat Vercel deployment snapshot URLs as user-facing URLs. `https://context-reader-ten.vercel.app` is retained only as a rollback/reference origin.
 
-Production uses the versioned Docker workflow under `ops/mainland/`: Caddy fronts the Next.js app and the private Supabase-compatible PostgreSQL/Auth/REST/Storage services. The managed Supabase project and Vercel site remain unchanged for rollback; they are not the normal request path. Keep real credentials only in the server-side ignored environment files.
+Production uses the versioned Docker workflow under `ops/mainland/`: Caddy fronts the Next.js app and the private Supabase-compatible PostgreSQL/Auth/REST/Storage services. Supabase Cloud is a frozen rollback copy and is never a production request path. The compatibility variable names remain, but production Compose must set `SUPABASE_URL=http://supabase-api:8000`, take the service-role credential from the self-hosted stack, and expose `backendMode: "mainland_internal"`. Keep real credentials only in the server-side ignored environment files.
 
 ## Environment Variables
 
@@ -33,8 +33,9 @@ ADMIN_PASSWORD=...
 ADMIN_SESSION_SECRET=...
 ADMIN_SESSION_VERSION=1
 CRON_SECRET=...
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=...
+SUPABASE_URL=http://supabase-api:8000
+SUPABASE_PUBLIC_URL=https://context-reader.com
+SUPABASE_SERVICE_ROLE_KEY=... # self-hosted service role; Compose supplies this from SERVICE_ROLE_KEY
 ACCOUNT_COOKIE_SECRET=...
 VOLCENGINE_TTS_APP_ID=...
 VOLCENGINE_TTS_ACCESS_TOKEN=...
@@ -48,7 +49,7 @@ OCR routes and the dormant legacy image-import path can use either `OCR_PROVIDER
 
 `DEEPSEEK_TRANSLATION_MODEL` overrides only full-article translation. `DEEPSEEK_FALLBACK_MODELS` is a comma-separated model list used for supported retries on the primary provider. Structured word explanations can also use `DEEPSEEK_FALLBACK_BASE_URL` with optional `DEEPSEEK_FALLBACK_API_KEY` and `DEEPSEEK_FALLBACK_MODEL`. Empty fallback values disable the secondary-provider path.
 
-`ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, `SUPABASE_URL`, and `SUPABASE_SERVICE_ROLE_KEY` are needed for `/admin`, public recommendations, preloaded word explanations, and preloaded full-article translations. `CRON_SECRET` is required for the scheduled recommendation crawler. `SITE_SMTP_HOST`, `SITE_SMTP_PORT`, `SITE_SMTP_USER`, `SITE_SMTP_PASSWORD`, `SITE_SMTP_FROM`, and `SITE_NOTIFICATION_EMAIL_TO` configure its successful-completion email; these values remain server-only and the SMTP authorization code must never enter Git, logs, or command arguments. Use a long unique admin password; only the independent session secret has an enforced minimum of 32 characters. Increment `ADMIN_SESSION_VERSION` to revoke every existing admin cookie. Run the complete `docs/public-articles-supabase.sql` in Supabase before publishing and after security/schema updates; it creates the three tables, enables RLS, and revokes direct access from browser roles and `PUBLIC`.
+`ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, the internal compatibility `SUPABASE_URL`, and the self-hosted `SUPABASE_SERVICE_ROLE_KEY` are needed for `/admin`, public recommendations, preloaded word explanations, and preloaded full-article translations. `CRON_SECRET` is required for the scheduled recommendation crawler. `SITE_SMTP_HOST`, `SITE_SMTP_PORT`, `SITE_SMTP_USER`, `SITE_SMTP_PASSWORD`, `SITE_SMTP_FROM`, and `SITE_NOTIFICATION_EMAIL_TO` configure its successful-completion email; these values remain server-only and the SMTP authorization code must never enter Git, logs, or command arguments. Use a long unique admin password; only the independent session secret has an enforced minimum of 32 characters. Increment `ADMIN_SESSION_VERSION` to revoke every existing admin cookie. Run the complete `docs/public-articles-supabase.sql` against the active mainland PostgreSQL database before publishing and after security/schema updates; it creates the three tables, enables RLS, and revokes direct access from browser roles and `PUBLIC`.
 
 For accounts and usage, also set an independent `ACCOUNT_COOKIE_SECRET` and run `docs/account-usage-supabase.sql`. The visible beta flow uses `/api/auth/phone-register` and `/api/auth/phone-login`: the server maps a mainland-China phone identifier to a reserved internal Auth email, marks it unverified, and uses a six-digit numeric password as the Supabase Auth password. It sends no SMS and the internal email must never be displayed. Legacy email OTP remains available in code; if exposed publicly later, configure custom SMTP and make the template include `{{ .Token }}`. The service-role key is server-only. Do not create a `NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY`. Optional cost-rate overrides are `DEEPSEEK_CACHE_HIT_USD_PER_MILLION`, `DEEPSEEK_CACHE_MISS_USD_PER_MILLION`, and `DEEPSEEK_OUTPUT_USD_PER_MILLION`.
 

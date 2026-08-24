@@ -264,6 +264,7 @@ docker run -d \
   --network context-reader_private \
   --env-file "$release_dir/ops/mainland/.env.runtime" \
   --env NODE_ENV=production \
+  --env CONTEXT_READER_RUNTIME_MODE=mainland \
   --env HOSTNAME=0.0.0.0 \
   --env PORT=3000 \
   --env "DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}" \
@@ -283,7 +284,12 @@ import sys
 
 release_id, parent_id, payload = sys.argv[1:]
 data = json.loads(payload)
-if data.get("ok") is not True or data.get("releaseId") != release_id or data.get("parentReleaseId") != parent_id:
+if (
+    data.get("ok") is not True
+    or data.get("releaseId") != release_id
+    or data.get("parentReleaseId") != parent_id
+    or data.get("backendMode") != "mainland_internal"
+):
     raise SystemExit(1)
 PY
     then

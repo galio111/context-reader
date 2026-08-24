@@ -110,7 +110,19 @@ requireSource("ops/mainland/deploy-release.sh", [
   "RELEASE_GUARD_VERSION=1",
   "context-reader-deploy.lock",
   "parent release mismatch",
+  'data.get("backendMode") != "mainland_internal"',
 ]);
+requireSource("ops/mainland/start-mainland-app.mjs", [
+  'process.env.CONTEXT_READER_RUNTIME_MODE !== "mainland"',
+  'process.env.SUPABASE_URL !== EXPECTED_INTERNAL_API',
+  'await import("./server.js")',
+]);
+requireSource("ops/mainland/compose.yml", [
+  "CONTEXT_READER_RUNTIME_MODE: mainland",
+  "SUPABASE_URL: http://supabase-api:8000",
+  "SUPABASE_SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}",
+]);
+requireSource("app/api/connectivity/route.ts", ["mainland_internal", "backendMode"]);
 requireSource("scripts/new-task-worktree.ps1", ["git worktree add", 'codex/$TaskName']);
 requireSource("ops/mainland/migrate-invitation-codes.sql", [
   "code_hash text not null unique",

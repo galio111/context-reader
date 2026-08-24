@@ -184,6 +184,7 @@ services:
       - .env.runtime
     environment:
       NODE_ENV: production
+      CONTEXT_READER_RUNTIME_MODE: mainland
       HOSTNAME: 0.0.0.0
       PORT: 3000
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}

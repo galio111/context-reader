@@ -18,8 +18,10 @@ A local edit can remain present while production uses a later package that omitt
 4. Run `npm ci`, `npm run verify:release-contracts`, the production build and affected tests. Commit the complete result. The worktree must be clean.
 5. Review the exact parent-to-candidate file delta and store it as a JSON array. Run `ops/mainland/package-release.py`; it refuses a dirty checkout, a mismatched Git SHA, undeclared changes and false changed-file entries.
 6. Upload the archive and invoke the stable server command `/opt/context-reader/bin/deploy-release RELEASE_ID ARCHIVE_PATH`. Do not execute `deploy-release.sh` from the candidate directory as the authority for that candidate.
-7. The server takes `/var/lock/context-reader-deploy.lock`, validates the manifest and protected contracts, compares the archive byte inventory to its declared delta, builds a candidate image, checks its release identity, rechecks the parent immediately before cutover, then recreates only `app` and `caddy`.
-8. Verify the public `/api/connectivity` reports the exact release and parent ids. Then verify the affected UI/API behavior, account/sync/Admin boundaries, full-stack health, latest backup restore and rollback image. Only after those checks may the task say “production deployed”.
+7. The server takes `/var/lock/context-reader-deploy.lock`, validates the manifest and protected contracts, compares the archive byte inventory to its declared delta, builds a candidate image, checks its release identity and `backendMode: "mainland_internal"`, rechecks the parent immediately before cutover, then recreates only `app` and `caddy`.
+8. Verify the public `/api/connectivity` reports the exact release and parent ids plus `backendMode: "mainland_internal"`. Then verify the affected UI/API behavior, account/sync/Admin boundaries, full-stack health, latest backup restore and rollback image. Only after those checks may the task say “production deployed”.
+
+The mutable bootstrap checkout at `/opt/context-reader/ops/mainland` is not a release source. It may retain core-service maintenance material, but it must never be used to recreate `app`; doing so can bypass cumulative release files and environment overrides. Production app recovery must use the accepted snapshot resolved by `/opt/context-reader-current` or the stable release entrypoint.
 
 ## Parallel-session behavior
 

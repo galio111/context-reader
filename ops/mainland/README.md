@@ -2,6 +2,8 @@
 
 This stack keeps the mainland environment self-contained and reversible:
 
+Production never uses Supabase Cloud. The application keeps `SUPABASE_*` compatibility variable names because the server adapters speak Supabase-compatible Auth/REST/Storage protocols, but Compose must bind them to the private `supabase-api` gateway. `start-mainland-app.mjs` refuses to start if the runtime mode or gateway points elsewhere, and public acceptance requires `/api/connectivity` to report `backendMode: "mainland_internal"`.
+
 - `compose.yml`: Next.js standalone app, Supabase-compatible PostgreSQL 17, GoTrue Auth, PostgREST, Storage API, an internal API gateway, and Caddy.
 - `compose.shadow.yml`: binds HTTP only to server loopback port `8080`.
 - `compose.production.yml`: opens public HTTP/HTTPS only after ICP filing.
@@ -18,7 +20,7 @@ This stack keeps the mainland environment self-contained and reversible:
 - `context-reader-recommendations.timer`: wakes the protected crawler every five minutes; the application reads the Admin-controlled enabled/time/count settings, runs once on the due Shanghai date, emails a success summary, and never publishes automatically.
 - `install-site-email-config.py`: accepts only the whitelisted `SITE_*` SMTP values over standard input and installs them in the private runtime environment with mode `0600`.
 
-Production must call `/opt/context-reader/bin/deploy-release`, not the copy inside the candidate archive. A successful edit, build or candidate health check is not an accepted deployment. The public `/api/connectivity` response must report the exact new release and parent ids before reporting production success. See `docs/release-governance.md` for the cumulative multi-session workflow and rejection recovery.
+Production must call `/opt/context-reader/bin/deploy-release`, not the copy inside the candidate archive, and must never recreate `app` from the legacy mutable `/opt/context-reader/ops/mainland` directory. A successful edit, build or candidate health check is not an accepted deployment. The public `/api/connectivity` response must report the exact new release and parent ids plus `backendMode: "mainland_internal"` before reporting production success. See `docs/release-governance.md` for the cumulative multi-session workflow and rejection recovery.
 
 Recommendation discovery, backup, restore verification, and health checks run on server-side timers even when the developer computer is off. The optional Windows pull task only copies an additional archive after the computer starts; it is not the primary backup job.
 
