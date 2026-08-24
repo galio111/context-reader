@@ -30,15 +30,6 @@
   display: none;
 }
 
-.readerLayout :global(.cr-reader-article [data-reader-block]) {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 180px;
-}
-
-.readerLayout :global(.cr-reader-article figure[data-reader-block]) {
-  contain-intrinsic-size: auto 520px;
-}
-
 .action {
   height: 42px;
   flex: 0 0 auto;

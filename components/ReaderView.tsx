@@ -182,6 +182,10 @@ type ReaderWorkLayer = "import" | "articles" | null;
 const IMAGE_OCR_ENABLED = false;
 const INITIAL_INTERACTIVE_BLOCK_LIMIT = 8;
 const SOURCE_JUMP_UNLOCK_TIMEOUT_MS = 2_000;
+const READER_PROGRESS_SCROLL_SETTLE_MS = 180;
+const READER_TOKEN_SCROLL_SETTLE_MS = 360;
+const FALLBACK_READER_IMAGE_WIDTH = 1_600;
+const FALLBACK_READER_IMAGE_HEIGHT = 1_200;
 const DEFAULT_ARTICLE_STYLE: Required<ArticleReadingStyle> = {
   fontFamily: "system",
   fontSize: "default",
@@ -210,6 +214,51 @@ function restoreReaderViewport(root: HTMLElement, anchor: ReaderViewportAnchor):
   };
   restoreTop();
   return window.requestAnimationFrame(restoreTop);
+}
+
+function captureReaderViewportAnchor(root: HTMLElement): ReaderViewportAnchor | null {
+  const blocks = Array.from(root.querySelectorAll<HTMLElement>("[data-reader-block]"));
+  if (blocks.length === 0) {
+    return null;
+  }
+
+  const referenceTop = Math.min(112, Math.max(72, window.innerHeight * 0.12));
+  const rootRect = root.getBoundingClientRect();
+  const referenceLeft = Math.min(
+    Math.max(rootRect.left + rootRect.width / 2, 1),
+    Math.max(1, window.innerWidth - 2),
+  );
+  const hitBlock = document.elementsFromPoint(referenceLeft, referenceTop)
+    .map((element) => element.closest<HTMLElement>("[data-reader-block]"))
+    .find((element): element is HTMLElement => Boolean(element && root.contains(element)));
+
+  let visibleBlock = hitBlock;
+  if (!visibleBlock) {
+    let low = 0;
+    let high = blocks.length - 1;
+    visibleBlock = blocks[blocks.length - 1];
+    while (low <= high) {
+      const middle = Math.floor((low + high) / 2);
+      const candidate = blocks[middle];
+      if (candidate.getBoundingClientRect().bottom >= referenceTop) {
+        visibleBlock = candidate;
+        high = middle - 1;
+      } else {
+        low = middle + 1;
+      }
+    }
+  }
+
+  const blockIndex = blocks.indexOf(visibleBlock);
+  const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  return {
+    blockId: visibleBlock.dataset.readerBlock ?? "",
+    blockIndex,
+    blockText: (visibleBlock.textContent ?? "").replace(/\s+/g, " ").trim().slice(0, 120),
+    top: visibleBlock.getBoundingClientRect().top,
+    scrollY: window.scrollY,
+    scrollRatio: maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0,
+  };
 }
 
 interface ImageOcrState {
@@ -961,20 +1010,37 @@ export function ReaderView({
     const root = articleShellRef.current;
     if (!root || !articleMediaReady || editingArticle || !progressiveReaderReady) return;
 
-    const pendingIds = new Set<string>();
+    const pendingBlocks = new Map<string, HTMLElement>();
     let idleHandle = 0;
     let timeoutHandle = 0;
+    let scrollSettleHandle = 0;
+    let scrolling = false;
     const idleWindow = window as unknown as {
       requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
       cancelIdleCallback?: (handle: number) => void;
     };
 
+    const cancelScheduledFlush = () => {
+      if (idleHandle) idleWindow.cancelIdleCallback?.(idleHandle);
+      if (timeoutHandle) window.clearTimeout(timeoutHandle);
+      idleHandle = 0;
+      timeoutHandle = 0;
+    };
+
     const flushEnteredBlocks = () => {
       idleHandle = 0;
       timeoutHandle = 0;
-      if (pendingIds.size === 0) return;
-      const enteredIds = [...pendingIds];
-      pendingIds.clear();
+      if (scrolling || pendingBlocks.size === 0) return;
+      const viewportTop = -window.innerHeight * 0.3;
+      const viewportBottom = window.innerHeight * 1.45;
+      const enteredBlocks = [...pendingBlocks.entries()].filter(([, block]) => {
+        const rect = block.getBoundingClientRect();
+        return rect.bottom >= viewportTop && rect.top <= viewportBottom;
+      });
+      pendingBlocks.clear();
+      if (enteredBlocks.length === 0) return;
+      enteredBlocks.forEach(([, block]) => observer.unobserve(block));
+      const enteredIds = enteredBlocks.map(([id]) => id);
       startTransition(() => {
         setVisibleBlockIds((current) => {
           if (enteredIds.every((id) => current.has(id))) return current;
@@ -986,34 +1052,47 @@ export function ReaderView({
     };
 
     const scheduleFlush = () => {
-      if (idleHandle || timeoutHandle) return;
+      if (scrolling || pendingBlocks.size === 0 || idleHandle || timeoutHandle) return;
       if (idleWindow.requestIdleCallback) {
-        idleHandle = idleWindow.requestIdleCallback(flushEnteredBlocks, { timeout: 220 });
+        idleHandle = idleWindow.requestIdleCallback(flushEnteredBlocks, { timeout: 800 });
       } else {
-        timeoutHandle = window.setTimeout(flushEnteredBlocks, 72);
+        timeoutHandle = window.setTimeout(flushEnteredBlocks, 96);
       }
     };
 
     const observer = new IntersectionObserver((entries) => {
-      const enteredIds = entries
-        .filter((entry) => entry.isIntersecting)
-        .map((entry) => (entry.target as HTMLElement).dataset.readerBlock)
-        .filter((id): id is string => Boolean(id));
-      if (enteredIds.length === 0) return;
-      enteredIds.forEach((id) => pendingIds.add(id));
-      scheduleFlush();
       entries.forEach((entry) => {
-        if (entry.isIntersecting) observer.unobserve(entry.target);
+        const block = entry.target as HTMLElement;
+        const id = block.dataset.readerBlock;
+        if (!id) return;
+        if (entry.isIntersecting) pendingBlocks.set(id, block);
+        else pendingBlocks.delete(id);
       });
-    }, { rootMargin: "65% 0px 80% 0px" });
+      scheduleFlush();
+    }, { rootMargin: "30% 0px 45% 0px" });
+
+    const finishScrolling = () => {
+      scrolling = false;
+      if (scrollSettleHandle) window.clearTimeout(scrollSettleHandle);
+      scrollSettleHandle = 0;
+      scheduleFlush();
+    };
+    const markScrolling = () => {
+      scrolling = true;
+      cancelScheduledFlush();
+      if (scrollSettleHandle) window.clearTimeout(scrollSettleHandle);
+      scrollSettleHandle = window.setTimeout(finishScrolling, READER_TOKEN_SCROLL_SETTLE_MS);
+    };
 
     root.querySelectorAll<HTMLElement>("[data-reader-block]").forEach((block) => {
       if (!interactiveBlockIds.has(block.dataset.readerBlock ?? "")) observer.observe(block);
     });
+    window.addEventListener("scroll", markScrolling, { passive: true });
     return () => {
       observer.disconnect();
-      if (idleHandle) idleWindow.cancelIdleCallback?.(idleHandle);
-      if (timeoutHandle) window.clearTimeout(timeoutHandle);
+      window.removeEventListener("scroll", markScrolling);
+      cancelScheduledFlush();
+      if (scrollSettleHandle) window.clearTimeout(scrollSettleHandle);
     };
   }, [articleMediaReady, editingArticle, interactiveBlockIds, progressiveReaderReady]);
 
@@ -1065,24 +1144,41 @@ export function ReaderView({
   useEffect(() => {
     if (!onViewportAnchorChange || editingArticle) return;
     let frameId = 0;
+    let settleHandle = 0;
     const report = () => {
       frameId = 0;
+      if (settleHandle) window.clearTimeout(settleHandle);
+      settleHandle = 0;
       const anchor = captureArticleViewportAnchor();
       if (anchor) onViewportAnchorChange(anchor);
     };
     const scheduleReport = () => {
+      if (settleHandle) window.clearTimeout(settleHandle);
+      settleHandle = window.setTimeout(() => {
+        settleHandle = 0;
+        if (!frameId) frameId = window.requestAnimationFrame(report);
+      }, READER_PROGRESS_SCROLL_SETTLE_MS);
+    };
+    const reportAfterScrollEnd = () => {
+      if (settleHandle) window.clearTimeout(settleHandle);
+      settleHandle = 0;
       if (!frameId) frameId = window.requestAnimationFrame(report);
     };
     const reportImmediately = () => {
+      if (settleHandle) window.clearTimeout(settleHandle);
+      settleHandle = 0;
       if (frameId) window.cancelAnimationFrame(frameId);
       report();
     };
     window.addEventListener("scroll", scheduleReport, { passive: true });
+    window.addEventListener("scrollend", reportAfterScrollEnd);
     window.addEventListener("pagehide", reportImmediately);
     frameId = window.requestAnimationFrame(report);
     return () => {
       window.removeEventListener("scroll", scheduleReport);
+      window.removeEventListener("scrollend", reportAfterScrollEnd);
       window.removeEventListener("pagehide", reportImmediately);
+      if (settleHandle) window.clearTimeout(settleHandle);
       if (frameId) window.cancelAnimationFrame(frameId);
       const anchor = captureArticleViewportAnchor();
       if (anchor) onViewportAnchorChange(anchor);
@@ -2273,23 +2369,7 @@ export function ReaderView({
     if (!root) {
       return null;
     }
-    const blocks = Array.from(root.querySelectorAll<HTMLElement>("[data-reader-block]"));
-    if (blocks.length === 0) {
-      return null;
-    }
-    const referenceTop = Math.min(112, Math.max(72, window.innerHeight * 0.12));
-    const visibleBlock = blocks.find((block) => block.getBoundingClientRect().bottom >= referenceTop)
-      ?? blocks[blocks.length - 1];
-    const blockIndex = blocks.indexOf(visibleBlock);
-    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-    return {
-      blockId: visibleBlock.dataset.readerBlock ?? "",
-      blockIndex,
-      blockText: (visibleBlock.textContent ?? "").replace(/\s+/g, " ").trim().slice(0, 120),
-      top: visibleBlock.getBoundingClientRect().top,
-      scrollY: window.scrollY,
-      scrollRatio: maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0,
-    };
+    return captureReaderViewportAnchor(root);
   }
 
   function preserveArticleViewportAcrossModeChange(anchor = captureArticleViewportAnchor()) {
@@ -3204,9 +3284,9 @@ export function ReaderView({
                             alt={block.alt || ""}
                             className="h-auto max-h-[65vh] w-full max-w-full rounded-[14px] object-contain sm:max-h-[70vh]"
                             decoding="async"
-                            height={block.height}
+                            height={block.height ?? FALLBACK_READER_IMAGE_HEIGHT}
                             src={block.src}
-                            width={block.width}
+                            width={block.width ?? FALLBACK_READER_IMAGE_WIDTH}
                           />
                         )}
                         {block.alt && <figcaption className="mt-3 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">{block.alt}</figcaption>}
@@ -3304,7 +3384,7 @@ export function ReaderView({
                         className="h-auto max-h-[65vh] w-full max-w-full object-contain sm:max-h-[70vh]"
                         decoding="async"
                         data-reader-image={block.id}
-                        height={block.height}
+                        height={block.height ?? FALLBACK_READER_IMAGE_HEIGHT}
                         fetchPriority={block.id === leadingImageBlockId ? "high" : "low"}
                         loading={block.id === leadingImageBlockId ? "eager" : "lazy"}
                         onError={(event) => {
@@ -3315,7 +3395,7 @@ export function ReaderView({
                         referrerPolicy="no-referrer"
                         sizes="(min-width: 1024px) 768px, calc(100vw - 40px)"
                         src={block.src}
-                        width={block.width}
+                        width={block.width ?? FALLBACK_READER_IMAGE_WIDTH}
                       />
                       <button
                         type="button"
@@ -3732,8 +3812,10 @@ export function ReaderView({
                   alt={activeImageBlock.alt || ""}
                   className="max-h-full max-w-full object-contain"
                   decoding="async"
+                  height={activeImageBlock.height ?? FALLBACK_READER_IMAGE_HEIGHT}
                   referrerPolicy="no-referrer"
                   src={activeImageBlock.src}
+                  width={activeImageBlock.width ?? FALLBACK_READER_IMAGE_WIDTH}
                 />
                 {activeImageLayout.status === "ready" && (
                   <div className="absolute inset-0">
