@@ -3,7 +3,7 @@ import path from "node:path";
 
 const root = process.cwd();
 const sourcePath = path.join(root, "lib", "publicArticles.ts");
-const source = fs.readFileSync(sourcePath, "utf8");
+const source = fs.readFileSync(sourcePath, "utf8").replace(/\r\n/g, "\n");
 const summaryFunction = source.match(/export async function listPublicArticleSummaries[\s\S]*?\n}\n/)?.[0] ?? "";
 
 if (!summaryFunction) {
