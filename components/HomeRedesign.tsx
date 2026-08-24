@@ -485,7 +485,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           delete card.dataset.visible;
         }
       });
-    }, { rootMargin: "0px 0px 4% 0px", threshold: 0.001 });
+    }, { rootMargin: "0px 0px -2% 0px", threshold: 0.001 });
     cards.forEach((card) => observer.observe(card));
     window.addEventListener("scroll", trackDirection, { passive: true });
     return () => {
@@ -555,7 +555,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
       grid.style.setProperty("--scroll-drift", (normalized * 12).toFixed(2));
       grid.style.setProperty("--scroll-skew", (normalized * -0.9).toFixed(2));
       grid.style.setProperty("--scroll-stretch", (1 + Math.abs(normalized) * 0.018).toFixed(4));
-      grid.style.setProperty("--scroll-blur", `${(Math.abs(normalized) * 1.15).toFixed(2)}px`);
       if (Math.abs(velocity) > 0.008) frame = window.requestAnimationFrame(renderVelocity);
       else frame = 0;
     };

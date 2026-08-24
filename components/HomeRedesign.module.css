@@ -417,7 +417,6 @@
   --scroll-drift: 0;
   --scroll-skew: 0;
   --scroll-stretch: 1;
-  --scroll-blur: 0px;
   display: grid;
   position: relative;
   z-index: 2;
@@ -469,30 +468,28 @@
   background: #dfe8eb;
   perspective: 900px;
   --entry-image-scale: 1.035;
-  --entry-blur: var(--scroll-blur);
   opacity: 1;
   transform: translateZ(0) scale(1);
   transform-origin: 50% 50%;
-  transition: opacity 360ms ease, transform 500ms cubic-bezier(.22, .76, .25, 1);
+  transition: transform 520ms cubic-bezier(.22, .76, .25, 1);
   transition-delay: calc(var(--article-index, 0) * 18ms);
 }
-.articleCard[data-motion-ready]:not([data-visible]) .coverSurface { --entry-image-scale: 1.09; --entry-blur: 6px; opacity: .24; transform: translateZ(0) scale(.94); }
-.articleCard[data-motion-ready][data-enter-direction="up"]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.94); transform-origin: 50% 50%; }
-.articleCard[data-visible="true"] .coverSurface { --entry-image-scale: 1.035; --entry-blur: var(--scroll-blur); opacity: 1; transform: translateZ(0) scale(1); }
+.articleCard[data-motion-ready]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); }
+.articleCard[data-motion-ready][data-enter-direction="up"]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); transform-origin: 50% 50%; }
+.articleCard[data-visible="true"] .coverSurface { transform: translateZ(0) scale(1); }
 
 .coverSurface > img {
   width: 106%;
   height: 106%;
   margin: -3%;
   object-fit: cover;
-  filter: blur(var(--entry-blur));
   transform: perspective(900px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) skewY(calc(var(--scroll-skew) * 1deg)) scaleY(var(--scroll-stretch)) scale(var(--entry-image-scale)) translate3d(calc((.5 - var(--pointer-x)) * 2.4%), calc((.5 - var(--pointer-y)) * 2.4% + var(--scroll-drift) * 1px), 0);
-  transition: filter 500ms cubic-bezier(.22, .76, .25, 1), transform 500ms cubic-bezier(.22, .76, .25, 1);
+  transition: filter 220ms ease, transform 500ms cubic-bezier(.22, .76, .25, 1);
   will-change: transform;
 }
 
 .articleCard:hover .coverSurface > img,
-.articleCard:focus-visible .coverSurface > img { filter: blur(var(--entry-blur)) saturate(1.06) contrast(1.02); }
+.articleCard:focus-visible .coverSurface > img { filter: saturate(1.06) contrast(1.02); }
 
 .coverFallback {
   position: absolute;
@@ -928,10 +925,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .coverSurface,
   .coverSurface > img,
   .openingImage,
   .openingWash,
   .openingTitle { transition-duration: .18s !important; transition-delay: 0s !important; }
+  .coverSurface,
   .coverSurface > img { transform: none !important; }
   .articleCard { opacity: 1; transform: none; transition: none; }
   .publicationBridge > *,
