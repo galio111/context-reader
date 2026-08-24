@@ -6,7 +6,7 @@ import { HomeRedesign } from "@/components/HomeRedesign";
 import { ReaderView } from "@/components/ReaderView";
 import { fetchJson } from "@/lib/apiClient";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
-import { deleteSavedArticle, getSavedArticles, saveArticleReadingProgress, touchSavedArticle } from "@/lib/articles";
+import { deleteSavedArticle, getSavedArticles, saveArticleReadingProgress } from "@/lib/articles";
 import { getCachedArticleTranslation, setCachedArticleTranslation } from "@/lib/cache";
 import { findBestSourceSentenceMatch, normalizeForSourceMatch } from "@/lib/sourceMatching";
 import { hasClickableWords, tokenizeArticle } from "@/lib/tokenizer";
@@ -46,6 +46,19 @@ interface ReaderOriginSnapshot {
   scrollY: number;
   capturedAt: number;
 }
+
+interface ReadingProgressSession {
+  startedAt: number;
+  baselineAnchor: ReaderViewportAnchor | null;
+  lastAnchor: ReaderViewportAnchor | null;
+  cumulativeTravel: number;
+}
+
+const PROGRESS_INITIAL_SETTLE_MS = 3_000;
+const PROGRESS_MIN_SESSION_MS = 20_000;
+const PROGRESS_STABLE_DWELL_MS = 8_000;
+const PROGRESS_MIN_TRAVEL_VIEWPORT_RATIO = 0.65;
+const PROGRESS_MIN_FORWARD_VIEWPORT_RATIO = 0.35;
 
 interface ReaderSessionSnapshot {
   article: string;
@@ -156,6 +169,12 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   const activeSavedArticleIdRef = useRef<string | null>(null);
   const activeTemporaryUserIdRef = useRef<string | null>(null);
   const progressSaveTimerRef = useRef<number | null>(null);
+  const progressSessionRef = useRef<ReadingProgressSession>({
+    startedAt: 0,
+    baselineAnchor: null,
+    lastAnchor: null,
+    cumulativeTravel: 0,
+  });
   const pendingHomeScrollRef = useRef<number | null>(null);
   const initialHomePositionedRef = useRef(false);
   const readerHistoryDepthRef = useRef(0);
@@ -210,23 +229,27 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     }
   }, [sourceSentenceToHighlight]);
 
-  const flushReadingProgress = useCallback(() => {
+  const cancelPendingReadingProgress = useCallback(() => {
     if (progressSaveTimerRef.current !== null) {
       window.clearTimeout(progressSaveTimerRef.current);
       progressSaveTimerRef.current = null;
     }
-    const savedArticleId = activeSavedArticleIdRef.current;
-    const anchor = readerViewportAnchorRef.current;
-    if (savedArticleId && anchor) {
-      saveArticleReadingProgress(savedArticleId, anchor);
-    } else if (activeTemporaryUserIdRef.current && anchor) {
-      setTemporaryReading(updateTemporaryReadingProgress(activeTemporaryUserIdRef.current, anchor));
-    }
   }, []);
 
-  useEffect(() => () => flushReadingProgress(), [flushReadingProgress]);
+  const beginReadingProgressSession = useCallback((initialAnchor: ReaderViewportAnchor | null) => {
+    cancelPendingReadingProgress();
+    progressSessionRef.current = {
+      startedAt: Date.now(),
+      baselineAnchor: initialAnchor,
+      lastAnchor: initialAnchor,
+      cumulativeTravel: 0,
+    };
+  }, [cancelPendingReadingProgress]);
+
+  useEffect(() => () => cancelPendingReadingProgress(), [cancelPendingReadingProgress]);
 
   const enterReader = useCallback((originKind: ReaderOriginKind) => {
+    beginReadingProgressSession(readerViewportAnchorRef.current);
     if (!readingRef.current) {
       readerOriginRef.current = {
         kind: originKind,
@@ -242,7 +265,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       );
     }
     setReading(true);
-  }, []);
+  }, [beginReadingProgressSession]);
 
   const captureCurrentReaderSession = useCallback((): ReaderSessionSnapshot => ({
     article,
@@ -267,7 +290,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
 
   const pushCurrentReaderSession = useCallback(() => {
     if (!readingRef.current) return;
-    flushReadingProgress();
+    cancelPendingReadingProgress();
     readerSessionStackRef.current = [
       ...readerSessionStackRef.current,
       captureCurrentReaderSession(),
@@ -278,7 +301,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       "",
       window.location.href,
     );
-  }, [captureCurrentReaderSession, flushReadingProgress]);
+  }, [cancelPendingReadingProgress, captureCurrentReaderSession]);
 
   const restoreReaderSession = useCallback((snapshot: ReaderSessionSnapshot) => {
     setArticle(snapshot.article);
@@ -292,12 +315,13 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     readerViewportAnchorRef.current = snapshot.viewportAnchor;
     activeSavedArticleIdRef.current = snapshot.savedArticleId;
     activeTemporaryUserIdRef.current = snapshot.temporaryUserId;
+    beginReadingProgressSession(snapshot.viewportAnchor);
     setReaderSessionId((sessionId) => sessionId + 1);
     setError("");
-  }, []);
+  }, [beginReadingProgressSession]);
 
   const leaveOrRestoreReader = useCallback(() => {
-    flushReadingProgress();
+    cancelPendingReadingProgress();
     const previousSession = readerSessionStackRef.current.pop();
     if (previousSession) {
       restoreReaderSession(previousSession);
@@ -320,7 +344,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setSourceWordToHighlight("");
     setError("");
     setReading(false);
-  }, [flushReadingProgress, restoreReaderSession]);
+  }, [cancelPendingReadingProgress, restoreReaderSession]);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -343,17 +367,47 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   const handleReaderViewportAnchorChange = useCallback((anchor: ReaderViewportAnchor) => {
     readerViewportAnchorRef.current = anchor;
     if (!activeSavedArticleIdRef.current && !activeTemporaryUserIdRef.current) return;
+    const session = progressSessionRef.current;
+    const now = Date.now();
+    if (!session.startedAt) {
+      beginReadingProgressSession(anchor);
+      return;
+    }
+    if (!session.baselineAnchor || now - session.startedAt < PROGRESS_INITIAL_SETTLE_MS) {
+      session.baselineAnchor = anchor;
+      session.lastAnchor = anchor;
+      return;
+    }
+
+    const lastScrollY = session.lastAnchor?.scrollY ?? anchor.scrollY;
+    session.cumulativeTravel += Math.abs(anchor.scrollY - lastScrollY);
+    session.lastAnchor = anchor;
     if (progressSaveTimerRef.current !== null) window.clearTimeout(progressSaveTimerRef.current);
+    progressSaveTimerRef.current = null;
+
+    const enoughTime = now - session.startedAt >= PROGRESS_MIN_SESSION_MS;
+    const enoughTravel = session.cumulativeTravel >= window.innerHeight * PROGRESS_MIN_TRAVEL_VIEWPORT_RATIO;
+    const enoughForwardProgress = anchor.scrollY - session.baselineAnchor.scrollY
+      >= window.innerHeight * PROGRESS_MIN_FORWARD_VIEWPORT_RATIO;
+    if (!enoughTime || !enoughTravel || !enoughForwardProgress) return;
+
     progressSaveTimerRef.current = window.setTimeout(() => {
       progressSaveTimerRef.current = null;
+      if (document.visibilityState !== "visible" || progressSessionRef.current.lastAnchor !== anchor) return;
       const savedArticleId = activeSavedArticleIdRef.current;
       if (savedArticleId) {
-        saveArticleReadingProgress(savedArticleId, anchor);
+        setSavedArticles(saveArticleReadingProgress(savedArticleId, anchor));
       } else if (activeTemporaryUserIdRef.current) {
         setTemporaryReading(updateTemporaryReadingProgress(activeTemporaryUserIdRef.current, anchor));
       }
-    }, 1_200);
-  }, []);
+      progressSessionRef.current = {
+        startedAt: Date.now(),
+        baselineAnchor: anchor,
+        lastAnchor: anchor,
+        cumulativeTravel: 0,
+      };
+    }, PROGRESS_STABLE_DWELL_MS);
+  }, [beginReadingProgressSession]);
 
   async function consumeGuestImport(kind: "text" | "url"): Promise<boolean> {
     if (account.authenticated) return true;
@@ -434,7 +488,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       return null;
     }
     if (isOffline) {
-      setUrlError("当前离线，URL 导入需要联网。你仍可粘贴文章或打开本机保存的文章。");
+      setUrlError("当前离线，网址导入需要联网。你仍可粘贴文章或打开本机保存的文章。");
       return null;
     }
 
@@ -448,13 +502,13 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ url }),
-      }, "URL 导入失败，请稍后重试。", {
+      }, "网址导入失败，请稍后重试。", {
         operation: "url_import",
         metadata: { hostname: (() => { try { return new URL(url).hostname; } catch { return ""; } })() },
       });
 
       if (!response.ok || !data?.article?.text?.trim()) {
-        throw new Error(data?.error || "URL 导入失败，请稍后重试。");
+        throw new Error(data?.error || "网址导入失败，请稍后重试。");
       }
 
       if (!hasClickableWords(data.article.text)) {
@@ -464,7 +518,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       setUrlError("");
       return data.article;
     } catch (importError) {
-      setUrlError(importError instanceof Error ? importError.message : "URL 导入失败，请稍后重试。");
+      setUrlError(importError instanceof Error ? importError.message : "网址导入失败，请稍后重试。");
       return null;
     } finally {
       setImportingUrl(false);
@@ -566,20 +620,17 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   }
 
   function handleOpenSavedArticle(savedArticle: SavedArticle) {
-    const nextSavedArticles = touchSavedArticle(savedArticle.id);
-    const touchedArticle = nextSavedArticles.find((articleItem) => articleItem.id === savedArticle.id) ?? savedArticle;
-    setSavedArticles(nextSavedArticles);
-    setArticle(touchedArticle.body);
-    setImportedArticle(touchedArticle.importedArticle ?? null);
-    void primeLeadingArticleImage(touchedArticle.importedArticle ?? null);
+    setArticle(savedArticle.body);
+    setImportedArticle(savedArticle.importedArticle ?? null);
+    void primeLeadingArticleImage(savedArticle.importedArticle ?? null);
     setPreloadedExplanations([]);
     setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setError("");
-    activeSavedArticleIdRef.current = touchedArticle.id;
+    activeSavedArticleIdRef.current = savedArticle.id;
     activeTemporaryUserIdRef.current = null;
-    readerViewportAnchorRef.current = touchedArticle.readingProgress ?? null;
-    setReaderInitialViewportAnchor(touchedArticle.readingProgress ?? null);
+    readerViewportAnchorRef.current = savedArticle.readingProgress ?? null;
+    setReaderInitialViewportAnchor(savedArticle.readingProgress ?? null);
     enterReader("saved-article");
   }
 
@@ -800,25 +851,23 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     const savedArticle = findArticleForVocabularyEntry(entry);
     if (savedArticle) {
       pushCurrentReaderSession();
-      const nextSavedArticles = touchSavedArticle(savedArticle.id);
-      const touchedArticle = nextSavedArticles.find((articleItem) => articleItem.id === savedArticle.id) ?? savedArticle;
-      setSavedArticles(nextSavedArticles);
-      setArticle(touchedArticle.body);
-      setImportedArticle(touchedArticle.importedArticle ?? null);
+      setArticle(savedArticle.body);
+      setImportedArticle(savedArticle.importedArticle ?? null);
       setPreloadedExplanations([]);
       setActiveArticleSource(undefined);
       setSourceSentenceToHighlight(
-        containsSourceSentence(touchedArticle.body, entry.sourceSentence)
+        containsSourceSentence(savedArticle.body, entry.sourceSentence)
           ? entry.sourceSentence
-          : findSimilarSourceSentence(touchedArticle.body, entry),
+          : findSimilarSourceSentence(savedArticle.body, entry),
       );
       setSourceWordToHighlight(entry.word);
       setSourceJumpRequestId((requestId) => requestId + 1);
       setReaderSessionId((sessionId) => sessionId + 1);
       setError("");
-      activeSavedArticleIdRef.current = touchedArticle.id;
-      readerViewportAnchorRef.current = touchedArticle.readingProgress ?? null;
-      setReaderInitialViewportAnchor(touchedArticle.readingProgress ?? null);
+      activeSavedArticleIdRef.current = savedArticle.id;
+      activeTemporaryUserIdRef.current = null;
+      readerViewportAnchorRef.current = savedArticle.readingProgress ?? null;
+      setReaderInitialViewportAnchor(savedArticle.readingProgress ?? null);
       enterReader("vocabulary");
       return true;
     }

@@ -561,7 +561,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
         error?: string;
       } | null;
       if (!response.ok || !data?.article?.text?.trim()) {
-        throw new Error(data?.error || "URL 导入失败。");
+        throw new Error(data?.error || "网址导入失败。");
       }
       const coverImageUrl = data.metadata?.coverCandidates?.[0] ?? "";
       const importedDraft: DraftState = {
@@ -588,7 +588,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
       );
       editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     } catch (importError) {
-      setError(importError instanceof Error ? importError.message : "URL 导入失败。");
+      setError(importError instanceof Error ? importError.message : "网址导入失败。");
     } finally {
       setWorking("");
     }

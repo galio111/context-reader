@@ -142,7 +142,7 @@ Lusion/共享图片首次评审必须把参考录屏和实现录屏并排，并�
 - 推荐摘要必须 server render，不能只在 client mount 后 fetch。
 - 候选来源为浏览器保存文章、粘贴、URL 和代码白名单 RSS/Atom。URL 与 crawler 共用 `/api/import-url` 和正文边界清理；crawler 永不自动发布。
 - 候选和已发布文章都打开真实 `ReaderView`；正文编辑回写当前 row，标题、摘要、分类和封面由 Admin 管理。
-- 推荐封面是发布必需项。外部候选封面在发布前经固定 DNS 安全抓取、类型/大小校验、Sharp 裁切为 WebP，并存到 `public-article-covers`。
+- 推荐封面是发布必需项。外部候选封面与正文图片在发布前经固定 DNS 安全抓取、类型/大小校验、Sharp 转为有界 WebP，并存到 `public-article-covers`；公开 Reader 不依赖访客直连来源 CDN。旧公开文章可通过受保护的图片修复动作补齐。
 - 只有服务端验证的 `admin` entitlement 是正常入口和权限边界；旧密码 Admin 只是恢复入口。
 - Admin 还管理账号/额度、私有反馈和详细错误记录。普通用户不看到 raw metric、内部安全额度或未启用价格实验。
 - 文章、缓存、翻译、import 或 schema 变化必须同时检查 Admin 发布与公开缓存回放。

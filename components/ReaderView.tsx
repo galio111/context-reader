@@ -2,12 +2,12 @@
 
 import { startTransition, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
-import { AnkiSettingsPanel, defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
+import { defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { ArticleTranslationPanel } from "@/components/ArticleTranslationPanel";
 import { BookDictionary } from "@/components/BookDictionary";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
+import { HomeOptionMenu, type PreviewKind } from "@/components/HomeOptionMenu";
 import { PillNavAction } from "@/components/PillNavAction";
-import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { WordToken } from "@/components/WordToken";
 import toolbarStyles from "@/components/ReaderToolbar.module.css";
 import loadingStyles from "@/components/ReaderLoading.module.css";
@@ -608,6 +608,7 @@ export function ReaderView({
     account,
     hasLocalAccountAccess,
     isOffline,
+    localAccount,
     openLogin,
     requireAccount,
     requireLocalAccount,
@@ -836,7 +837,10 @@ export function ReaderView({
   const [explanationStreaming, setExplanationStreaming] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [vocabularyOpen, setVocabularyOpen] = useState(false);
+  const [readerMenuOpen, setReaderMenuOpen] = useState(false);
+  const [readerMenuInitialPreview, setReaderMenuInitialPreview] = useState<PreviewKind | null>(null);
+  const [readerMenuPlacement, setReaderMenuPlacement] = useState<"left" | "right">("right");
+  const [readerTheme, setReaderTheme] = useState<"day" | "night">("day");
   const [vocabularyEntries, setVocabularyEntries] = useState<VocabularyEntry[]>([]);
   const [ankiSettings, setAnkiSettings] = useState<AnkiSettings>(defaultAnkiSettings());
   const [ankiStatus, setAnkiStatus] = useState("");
@@ -855,6 +859,7 @@ export function ReaderView({
   const [readerImportPreview, setReaderImportPreview] = useState<ImportedArticle | null>(null);
   const [readerImportStatus, setReaderImportStatus] = useState("");
   const [readerImportBusy, setReaderImportBusy] = useState(false);
+  const [failedImageBlockIds, setFailedImageBlockIds] = useState<Set<string>>(() => new Set());
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
   const [dictionaryClosing, setDictionaryClosing] = useState(false);
   const [guestLookupLocked, setGuestLookupLocked] = useState(false);
@@ -890,6 +895,14 @@ export function ReaderView({
   const blockEditRefs = useRef<Record<string, HTMLElement | null>>({});
   const dictionaryWindowRef = useRef<HTMLElement | null>(null);
   const dictionaryCloseTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    setReaderTheme(document.documentElement.dataset.contextTheme === "night" ? "night" : "day");
+  }, []);
+
+  useEffect(() => {
+    setFailedImageBlockIds(new Set());
+  }, [currentArticle, currentImportedArticle]);
 
   useEffect(() => () => {
     if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
@@ -2024,9 +2037,41 @@ export function ReaderView({
     setVocabularyEntries(entries);
     setImportError("");
     setAnkiStatus("");
-    setVocabularyOpen(true);
+    setReaderMenuPlacement("left");
+    setReaderMenuInitialPreview("vocabulary");
+    setReaderMenuOpen(true);
     if (entries.some((entry) => !entry.anki.ankiNoteId)) {
       void reconcileAnkiImportReceipts(entries);
+    }
+  }
+
+  function handleOpenSavedArticlesMenu() {
+    if (!requireLocalAccount("登录后才能查看我的文章。")) return;
+    setReaderMenuPlacement("left");
+    setReaderMenuInitialPreview("saved");
+    setReaderMenuOpen(true);
+  }
+
+  function handleOpenReaderMenu() {
+    setReaderMenuPlacement("right");
+    setReaderMenuInitialPreview(null);
+    setReaderMenuOpen(true);
+  }
+
+  function handleReaderThemeChange(nextTheme: "day" | "night") {
+    setReaderTheme(nextTheme);
+    if (nextTheme === "night") {
+      document.documentElement.dataset.contextTheme = "night";
+      document.documentElement.style.colorScheme = "dark";
+    } else {
+      delete document.documentElement.dataset.contextTheme;
+      document.documentElement.style.colorScheme = "light";
+    }
+    try {
+      const current = JSON.parse(window.localStorage.getItem("context-reader-home-ui-v1") || "null") as Record<string, unknown> | null;
+      window.localStorage.setItem("context-reader-home-ui-v1", JSON.stringify({ ...(current ?? {}), theme: nextTheme }));
+    } catch {
+      // Theme still applies for the current visit when browser storage is unavailable.
     }
   }
 
@@ -2158,16 +2203,14 @@ export function ReaderView({
   }
 
   function handleCloseVocabulary() {
-    setVocabularyOpen(false);
-    setImportError("");
-    setImportingId("");
-    setAnkiStatus("");
+    setReaderMenuOpen(false);
+    setReaderMenuInitialPreview(null);
   }
 
   function handleJumpToVocabularySource(entry: VocabularyEntry) {
-    setVocabularyOpen(false);
+    setReaderMenuOpen(false);
+    setReaderMenuInitialPreview(null);
     setImportError("");
-    setImportingId("");
     setAnkiStatus("");
     const attemptId = sourceJumpAttemptIdRef.current + 1;
     sourceJumpAttemptIdRef.current = attemptId;
@@ -2188,7 +2231,9 @@ export function ReaderView({
       const jumpedOutside = await onJumpToVocabularySourceOutsideArticle?.(entry) ?? false;
       if (sourceJumpAttemptIdRef.current === attemptId && !jumpedOutside) {
         setImportError("当前文章、本地保存文章和推荐文章里都没有找到这个词条的原句。");
-        setVocabularyOpen(true);
+        setReaderMenuPlacement("left");
+        setReaderMenuInitialPreview("vocabulary");
+        setReaderMenuOpen(true);
       }
     }
 
@@ -2952,7 +2997,7 @@ export function ReaderView({
           <button type="button" onClick={handleOpenVocabulary}>
             <ReaderRailIcon kind="vocabulary" /><span>生词本</span><small>查看保存的词与原句</small>
           </button>
-          <button type="button" onClick={() => setReaderWorkLayer("articles")}>
+          <button type="button" onClick={handleOpenSavedArticlesMenu}>
             <ReaderRailIcon kind="articles" /><span>我的文章</span><small>打开保存文章</small>
           </button>
         </div>
@@ -2965,24 +3010,24 @@ export function ReaderView({
           disabled={savingArticleEdit}
         />
         <div className={toolbarStyles.actions}>
-          <PillNavAction
-            className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
-            label="←"
-            onClick={() => void undoSavedArticleEdit()}
-            disabled={savingArticleEdit || (!editingArticle && articleUndoStack.length === 0)}
-            ariaLabel="后退"
-            title="后退"
-          />
-          <PillNavAction
-            className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
-            label="→"
-            onClick={() => void redoSavedArticleEdit()}
-            disabled={savingArticleEdit || (!editingArticle && articleRedoStack.length === 0)}
-            ariaLabel="前进"
-            title="前进"
-          />
           {editingArticle ? (
             <>
+              <PillNavAction
+                className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
+                label="←"
+                onClick={() => void undoSavedArticleEdit()}
+                disabled={savingArticleEdit || articleUndoStack.length === 0}
+                ariaLabel="撤销文章编辑"
+                title="撤销文章编辑"
+              />
+              <PillNavAction
+                className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
+                label="→"
+                onClick={() => void redoSavedArticleEdit()}
+                disabled={savingArticleEdit || articleRedoStack.length === 0}
+                ariaLabel="重做文章编辑"
+                title="重做文章编辑"
+              />
               <PillNavAction
                 className={toolbarStyles.action}
                 label="取消编辑"
@@ -3019,8 +3064,10 @@ export function ReaderView({
           <PillNavAction
             className={`${toolbarStyles.action} ${toolbarStyles.primaryAction}`}
             tone="dark"
-            label="生词本"
-            onClick={handleOpenVocabulary}
+            label="Menu"
+            onClick={handleOpenReaderMenu}
+            ariaExpanded={readerMenuOpen}
+            ariaControls="home-option-menu"
           />
         </div>
       </header>
@@ -3236,6 +3283,15 @@ export function ReaderView({
                 if (!block.src) {
                   return null;
                 }
+                if (failedImageBlockIds.has(block.id)) {
+                  return (
+                    <figure key={block.id} data-reader-block={block.id} className={`my-8 min-w-0 lg:my-10 ${imageWidthClassName}`}>
+                      <div className="grid min-h-32 place-items-center rounded-[14px] bg-[#eef2f4] px-6 py-10 text-center text-sm leading-6 text-[#526873]">
+                        <p>{currentImportedArticle?.siteName || "原文来源"} 的这张图片暂时无法显示，正文阅读不受影响。</p>
+                      </div>
+                    </figure>
+                  );
+                }
                 return (
                   <figure
                     key={block.id}
@@ -3251,7 +3307,10 @@ export function ReaderView({
                         height={block.height}
                         fetchPriority={block.id === leadingImageBlockId ? "high" : "low"}
                         loading={block.id === leadingImageBlockId ? "eager" : "lazy"}
-                        onError={(event) => preserveSourceAlignmentAfterImageLayout(event.currentTarget)}
+                        onError={(event) => {
+                          preserveSourceAlignmentAfterImageLayout(event.currentTarget);
+                          setFailedImageBlockIds((current) => new Set(current).add(block.id));
+                        }}
                         onLoad={(event) => preserveSourceAlignmentAfterImageLayout(event.currentTarget)}
                         referrerPolicy="no-referrer"
                         sizes="(min-width: 1024px) 768px, calc(100vw - 40px)"
@@ -3581,7 +3640,6 @@ export function ReaderView({
                       <strong>{savedArticle.title || savedArticle.importedArticle?.title || "未命名文章"}</strong>
                       <small>{savedArticle.summary || savedArticle.body.slice(0, 96)}</small>
                     </span>
-                    <em>{Math.round((savedArticle.readingProgress?.scrollRatio ?? 0) * 100)}%</em>
                   </button>
                 )) : <p className={toolbarStyles.emptyWorkspace}>还没有保存文章。读到想留下的内容时，点击“保存文章”即可。</p>}
               </div>
@@ -3855,37 +3913,49 @@ export function ReaderView({
         <button type="button" aria-pressed={mobileExplanationOpen && rightPanelMode === "article"} onClick={() => openMobileTool("article")}>更多</button>
       </nav>
 
-      <VocabularyPanel
-        entries={vocabularyEntries}
-        open={vocabularyOpen}
-        importingId={importingId}
-        importError={importError}
+      <HomeOptionMenu
+        open={readerMenuOpen}
+        placement={readerMenuPlacement}
+        initialPreview={readerMenuInitialPreview}
+        isAdmin={account.plan?.id === "admin"}
+        account={account}
+        isOffline={isOffline}
+        localAccount={localAccount}
+        theme={readerTheme}
+        onThemeChange={handleReaderThemeChange}
+        savedArticles={hasLocalAccountAccess ? savedArticles : []}
+        vocabularyEntries={hasLocalAccountAccess ? vocabularyEntries : []}
+        onVocabularyEntriesChange={setVocabularyEntries}
         onClose={handleCloseVocabulary}
-        onDelete={handleDeleteVocabulary}
-        onClear={handleClearVocabulary}
-        onExportCsv={handleExportCsv}
-        onCopy={handleCopyEntry}
-        onJumpToSource={handleJumpToVocabularySource}
-        canJumpToSource={(entry) =>
+        onOpenSavedArticle={(savedArticle) => onOpenSavedArticle?.(savedArticle)}
+        onJumpToVocabularySource={handleJumpToVocabularySource}
+        canJumpToVocabularySource={(entry) =>
           canJumpToSourceSentence(entry.sourceSentence) ||
           Boolean(canJumpToVocabularySourceOutsideArticle?.(entry)) ||
           Boolean(findBestSourceSentenceMatch(entry.sourceSentence, entry.word, wordTokens))
         }
-        onImportAnki={handleImportAnki}
-        onImportAllAnki={handleImportAllAnki}
+        onOpenImport={() => setReaderWorkLayer("import")}
+        onOpenDictionary={openDictionaryWindow}
+        ankiTools={{
+          settings: ankiSettings,
+          status: ankiStatus,
+          checking: checkingAnki,
+          importingId,
+          importError,
+          onSettingsChange: setAnkiSettings,
+          onCheck: () => void handleCheckAnki(),
+          onImport: (entry) => void handleImportAnki(entry),
+          onImportAll: () => void handleImportAllAnki(),
+        }}
+        vocabularyTools={{
+          onDelete: (id) => {
+            if (window.confirm("确定删除这个生词吗？")) handleDeleteVocabulary(id);
+          },
+          onClear: handleClearVocabulary,
+          onExportCsv: handleExportCsv,
+          onCopy: (entry) => void handleCopyEntry(entry),
+        }}
       />
-
-      {vocabularyOpen && (
-        <div className="fixed left-4 top-20 z-50 hidden w-[min(360px,calc(100vw-2rem))] lg:block">
-          <AnkiSettingsPanel
-            settings={ankiSettings}
-            status={ankiStatus}
-            checking={checkingAnki}
-            onChange={setAnkiSettings}
-            onCheck={handleCheckAnki}
-          />
-        </div>
-      )}
     </main>
   );
 }

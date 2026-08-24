@@ -16,6 +16,8 @@ export const PUBLIC_COVER_ALLOWED_TYPES = new Map([
 ]);
 
 const MAX_REMOTE_COVER_BYTES = 25 * 1024 * 1024;
+const MAX_REMOTE_ARTICLE_IMAGE_BYTES = 25 * 1024 * 1024;
+const MAX_LOCALIZED_ARTICLE_IMAGES = 64;
 const STORED_COVER_PATH = `/storage/v1/object/public/${PUBLIC_COVER_BUCKET}/`;
 
 function supabaseAdmin() {
@@ -137,21 +139,108 @@ export async function storeRemotePublicCover(value: string, sourceUrl = ""): Pro
   return uploadCoverBytes(output, "image/webp", "webp", `external/${hash.slice(0, 2)}/${hash}.webp`);
 }
 
+export async function storeRemotePublicArticleImage(value: string, sourceUrl = ""): Promise<string> {
+  if (isStoredPublicCoverUrl(value)) return value;
+
+  const referer = safeReferer(sourceUrl);
+  const response = await safeRemoteFetch(sourceImageUrl(value), {
+    headers: {
+      Accept: "image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8",
+      "User-Agent": "Mozilla/5.0 (compatible; ContextReaderArticleImporter/1.0)",
+      ...(referer ? { Referer: referer } : {}),
+    },
+    signal: AbortSignal.timeout(240_000),
+  }, { maxRedirects: 4 });
+  if (!response.ok) {
+    await response.body?.cancel().catch(() => undefined);
+    throw new Error(`远程正文图片读取失败（HTTP ${response.status}）。`);
+  }
+  const contentType = response.headers.get("content-type")?.split(";")[0].trim().toLowerCase() || "";
+  if (!contentType.startsWith("image/")) {
+    await response.body?.cancel().catch(() => undefined);
+    throw new Error("远程正文图片返回的不是图片。");
+  }
+
+  const input = await readResponseBytes(response, MAX_REMOTE_ARTICLE_IMAGE_BYTES);
+  const output = await sharp(input, { failOn: "error", limitInputPixels: 50_000_000 })
+    .rotate()
+    .resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true })
+    .webp({ quality: 82, effort: 4 })
+    .toBuffer();
+  if (!output.length || output.length > PUBLIC_COVER_MAX_UPLOAD_BYTES) {
+    throw new Error("正文图片压缩后仍超过 5MB。");
+  }
+  const hash = createHash("sha256").update(output).digest("hex");
+  return uploadCoverBytes(output, "image/webp", "webp", `article-images/${hash.slice(0, 2)}/${hash}.webp`);
+}
+
+interface LocalizedArticleImages {
+  article: ImportedArticle;
+  localized: number;
+  failures: Array<{ src: string; error: string }>;
+}
+
+export async function localizeImportedArticleImages(
+  article: ImportedArticle,
+  sourceUrl = "",
+): Promise<LocalizedArticleImages> {
+  const remoteSources = Array.from(new Set(
+    article.blocks
+      .filter((block) => block.type === "image" && block.src && !isStoredPublicCoverUrl(block.src))
+      .map((block) => block.src as string),
+  ));
+  if (remoteSources.length > MAX_LOCALIZED_ARTICLE_IMAGES) {
+    throw new Error(`正文包含 ${remoteSources.length} 张外部图片，超过单篇 ${MAX_LOCALIZED_ARTICLE_IMAGES} 张的安全上限。`);
+  }
+
+  const storedBySource = new Map<string, string>();
+  const failures: LocalizedArticleImages["failures"] = [];
+  for (const src of remoteSources) {
+    try {
+      storedBySource.set(src, await storeRemotePublicArticleImage(src, sourceUrl || article.url));
+    } catch (error) {
+      failures.push({ src, error: error instanceof Error ? error.message : "正文图片本地化失败。" });
+    }
+  }
+  if (!storedBySource.size) return { article, localized: 0, failures };
+  return {
+    article: {
+      ...article,
+      blocks: article.blocks.map((block) => block.type === "image" && block.src && storedBySource.has(block.src)
+        ? { ...block, src: storedBySource.get(block.src) as string }
+        : block),
+    },
+    localized: storedBySource.size,
+    failures,
+  };
+}
+
 export async function localizePublicArticleInputCover<T extends PublicArticleInput>(input: T): Promise<T> {
   const recommendation = input.recommendation ?? input.importedArticle?.recommendation;
   const coverImageUrl = recommendation?.coverImageUrl?.trim() || "";
-  if (!recommendation || !coverImageUrl || isStoredPublicCoverUrl(coverImageUrl)) return input;
-  const storedUrl = await storeRemotePublicCover(
-    coverImageUrl,
-    recommendation.coverImageSourceUrl || input.sourceUrl || input.importedArticle?.url || "",
-  );
-  const storedRecommendation = { ...recommendation, coverImageUrl: storedUrl };
+  let storedRecommendation = recommendation;
+  if (recommendation && coverImageUrl && !isStoredPublicCoverUrl(coverImageUrl)) {
+    const storedUrl = await storeRemotePublicCover(
+      coverImageUrl,
+      recommendation.coverImageSourceUrl || input.sourceUrl || input.importedArticle?.url || "",
+    );
+    storedRecommendation = { ...recommendation, coverImageUrl: storedUrl };
+  }
+
+  let importedArticle = input.importedArticle
+    ? { ...input.importedArticle, ...(storedRecommendation ? { recommendation: storedRecommendation } : {}) }
+    : undefined;
+  if (importedArticle) {
+    const localized = await localizeImportedArticleImages(importedArticle, input.sourceUrl || importedArticle.url);
+    if (localized.failures.length) {
+      throw new Error(`有 ${localized.failures.length} 张正文图片无法保存到本站：${localized.failures[0].error}`);
+    }
+    importedArticle = localized.article;
+  }
   return {
     ...input,
-    recommendation: storedRecommendation,
-    ...(input.importedArticle
-      ? { importedArticle: { ...input.importedArticle, recommendation: storedRecommendation } }
-      : {}),
+    ...(storedRecommendation ? { recommendation: storedRecommendation } : {}),
+    ...(importedArticle ? { importedArticle } : {}),
   };
 }
 
@@ -193,37 +282,56 @@ export async function repairExternalPublicArticleCovers(ids?: string[]) {
   );
   const result = {
     scanned: rows.length,
-    updated: [] as Array<{ id: string; title: string; url: string }>,
+    updated: [] as Array<{ id: string; title: string; coverUrl: string; localizedImages: number }>,
     skipped: 0,
     failed: [] as Array<{ id: string; title: string; error: string }>,
   };
   for (const row of rows) {
-    const recommendation = row.imported_article?.recommendation;
-    const coverImageUrl = recommendation?.coverImageUrl?.trim() || "";
-    if (!row.imported_article || !recommendation || !coverImageUrl || isStoredPublicCoverUrl(coverImageUrl)) {
+    if (!row.imported_article) {
       result.skipped += 1;
       continue;
     }
+    const recommendation = row.imported_article?.recommendation;
+    const coverImageUrl = recommendation?.coverImageUrl?.trim() || "";
+    let importedArticle = row.imported_article;
+    let coverUrl = coverImageUrl;
+    let changed = false;
     try {
-      const storedUrl = await storeRemotePublicCover(
-        coverImageUrl,
-        recommendation.coverImageSourceUrl || row.source_url || row.imported_article.url,
+      if (recommendation && coverImageUrl && !isStoredPublicCoverUrl(coverImageUrl)) {
+        coverUrl = await storeRemotePublicCover(
+          coverImageUrl,
+          recommendation.coverImageSourceUrl || row.source_url || row.imported_article.url,
+        );
+        importedArticle = {
+          ...importedArticle,
+          recommendation: { ...recommendation, coverImageUrl: coverUrl },
+        };
+        changed = true;
+      }
+      const localized = await localizeImportedArticleImages(
+        importedArticle,
+        row.source_url || importedArticle.url,
       );
-      const importedArticle = {
-        ...row.imported_article,
-        recommendation: { ...recommendation, coverImageUrl: storedUrl },
-      };
+      importedArticle = localized.article;
+      changed = changed || localized.localized > 0;
+      for (const failure of localized.failures) {
+        result.failed.push({ id: row.id, title: row.title, error: `${failure.error} (${failure.src})` });
+      }
+      if (!changed) {
+        result.skipped += 1;
+        continue;
+      }
       await restRequest(`public_articles?id=eq.${encodeURIComponent(row.id)}&published=eq.true`, {
         method: "PATCH",
         headers: { Prefer: "return=minimal" },
         body: JSON.stringify({ imported_article: importedArticle }),
       });
-      result.updated.push({ id: row.id, title: row.title, url: storedUrl });
+      result.updated.push({ id: row.id, title: row.title, coverUrl, localizedImages: localized.localized });
     } catch (error) {
       result.failed.push({
         id: row.id,
         title: row.title,
-        error: error instanceof Error ? error.message : "封面修复失败。",
+        error: error instanceof Error ? error.message : "公开文章图片修复失败。",
       });
     }
   }

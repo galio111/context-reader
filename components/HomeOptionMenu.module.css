@@ -90,6 +90,12 @@
   animation: panelIn .65s .15s cubic-bezier(.22, 1, .36, 1) both;
 }
 
+.overlay[data-placement="left"] .prelayers,
+.overlay[data-placement="left"] .panel {
+  right: auto;
+  left: 20px;
+}
+
 .panelHeader {
   position: relative;
   z-index: 3;
@@ -365,6 +371,22 @@
   transform: translateX(0);
 }
 
+.overlay[data-placement="left"] .savedPreview {
+  right: auto;
+  left: calc(var(--menu-panel-width) + 34px);
+  padding: 20px 20px 12px 28px;
+  border-radius: 0 22px 22px 0;
+  transform: translateX(-14px);
+}
+
+.overlay[data-placement="left"] .savedPreviewVisible {
+  transform: translateX(0);
+}
+
+.overlay[data-placement="left"] .pagePreview {
+  border-radius: 0 12px 12px 0;
+}
+
 .overlay[data-theme="night"] { color: #e6eff1; }
 .overlay[data-theme="night"] .backdrop { background: rgb(0 10 14 / 42%); }
 .overlay[data-theme="night"] .panel,
@@ -389,6 +411,15 @@
 .overlay[data-theme="night"] .themeChoices button[aria-pressed="true"] { color: #102027; background: #a7d3dc; }
 .overlay[data-theme="night"] .toggle { background: #455c64; }
 .overlay[data-theme="night"] .toggle[aria-checked="true"] { background: #78b7c4; }
+.overlay[data-theme="night"] .ankiToolbar button,
+.overlay[data-theme="night"] .vocabularyManageBar button,
+.overlay[data-theme="night"] .secondaryDetailAction,
+.overlay[data-theme="night"] .dangerDetailAction { border-color: rgb(190 220 227 / 24%); color: #cfe1e5; }
+.overlay[data-theme="night"] .ankiToolbar .ankiPrimaryAction,
+.overlay[data-theme="night"] .importAnkiAction { border-color: #9ed2dc; color: #102027; background: #9ed2dc; }
+.overlay[data-theme="night"] .ankiSettings > section { border-color: rgb(190 220 227 / 18%); color: #dcebed; background: #14282f; }
+.overlay[data-theme="night"] .ankiSettings :is(h2, span, p) { color: #dcebed !important; }
+.overlay[data-theme="night"] .ankiSettings input { border-color: rgb(190 220 227 / 20%); color: #eef5f6; background: #102229; }
 
 .savedHeader {
   display: flex;
@@ -442,6 +473,85 @@
   background: #dfe9ed;
   color: #536b79;
 }
+
+.ankiToolbar {
+  display: flex;
+  margin: 12px 8px 0 0;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.ankiToolbar button,
+.importAnkiAction,
+.secondaryDetailAction,
+.dangerDetailAction,
+.vocabularyManageBar button {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid #9db4c0;
+  border-radius: 999px;
+  color: #24566f;
+  background: transparent;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.vocabularyManageBar {
+  display: flex;
+  margin: 8px 8px 0 0;
+  gap: 12px;
+}
+
+.vocabularyManageBar button {
+  min-height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: #536b79;
+  background: transparent;
+}
+
+.ankiToolbar .ankiPrimaryAction,
+.importAnkiAction {
+  border-color: #245f82;
+  color: #fff;
+  background: #245f82;
+}
+
+.dangerDetailAction {
+  border-color: #b77970;
+  color: #91453c;
+}
+
+.ankiToolbar button:disabled,
+.importAnkiAction:disabled {
+  border-color: #cad5da;
+  color: #7f9098;
+  background: #e9eef0;
+}
+
+.ankiSettings {
+  min-height: 0;
+  margin: 10px 8px 2px 0;
+  overflow-y: auto;
+}
+
+.ankiSettings > section {
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.ankiStatus,
+.ankiError {
+  margin: 9px 8px 0 0;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.ankiStatus { color: #28634d; }
+.ankiError { color: #9b3f35; }
 
 .vocabularySearch svg {
   width: 16px;
@@ -561,7 +671,7 @@
   overflow: hidden;
   contain: strict;
   content-visibility: auto;
-  contain-intrinsic-size: auto 118px;
+  contain-intrinsic-size: auto 84px;
 }
 
 .savedList[data-scrolling="true"] .vocabularyEntry {
@@ -601,6 +711,16 @@
 .vocabularyDetailVisible {
   opacity: 1;
   visibility: visible;
+  transform: translateX(0);
+}
+
+.overlay[data-placement="left"] .vocabularyDetail {
+  right: auto;
+  left: calc(var(--menu-panel-width) + var(--menu-preview-width) + 36px);
+  transform: translateX(-14px);
+}
+
+.overlay[data-placement="left"] .vocabularyDetailVisible {
   transform: translateX(0);
 }
 
@@ -659,6 +779,17 @@
   font: inherit;
   font-size: 12px;
   cursor: pointer;
+}
+
+.vocabularyDetailActions {
+  display: flex;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.vocabularyDetailActions .jumpToSource {
+  margin-top: 0;
 }
 
 .jumpToSource:disabled {
@@ -1260,6 +1391,28 @@
   }
 
   .vocabularyDetailVisible {
+    transform: translateY(0);
+  }
+
+  .overlay[data-placement="left"] .prelayers,
+  .overlay[data-placement="left"] .panel {
+    right: 0;
+    left: 0;
+  }
+
+  .overlay[data-placement="left"] .savedPreview,
+  .overlay[data-placement="left"] .vocabularyDetail {
+    right: 0;
+    left: 0;
+    border-radius: 22px 22px 0 0;
+    transform: translateY(10px);
+  }
+
+  .overlay[data-placement="left"] .savedPreview { padding: 70px 18px 18px; }
+  .overlay[data-placement="left"] .vocabularyDetail { padding: 0; }
+
+  .overlay[data-placement="left"] .savedPreviewVisible,
+  .overlay[data-placement="left"] .vocabularyDetailVisible {
     transform: translateY(0);
   }
 

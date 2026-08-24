@@ -110,7 +110,7 @@ function FeatureOrbitVisual({ kind }: { kind: (typeof FEATURE_ORBIT)[number]["ke
     return <div className={styles.orbitImport}><span><b>粘贴文章</b><i>输入网址</i></span><p>Paste the article you want to finish reading…</p><em>开始阅读</em></div>;
   }
   if (kind === "progress") {
-    return <div className={styles.orbitProgress}><span>CONTINUE READING</span><strong>The article you left yesterday</strong><i><b /></i><small>63% · 从上次位置继续</small></div>;
+    return <div className={styles.orbitProgress}><span>CONTINUE READING</span><strong>The article you left yesterday</strong><small>从上次稳定停留处继续</small></div>;
   }
   if (kind === "vocabulary") {
     return <div className={styles.orbitVocabulary}><span><strong>retain</strong><i>/rɪˈteɪn/</i></span><p>to keep something or continue to have it</p><small>保留原句与语境</small></div>;
@@ -187,6 +187,7 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
   const pointerFrameRef = useRef(0);
   const pointerTargetRef = useRef({ x: 0.5, y: 0.5 });
   const pointerCurrentRef = useRef({ x: 0.5, y: 0.5 });
+  const [coverFailed, setCoverFailed] = useState(false);
 
   useEffect(() => () => {
     if (pointerFrameRef.current) window.cancelAnimationFrame(pointerFrameRef.current);
@@ -243,6 +244,7 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
   }
 
   const coverUrl = article.recommendation?.coverImageUrl?.trim();
+  useEffect(() => setCoverFailed(false), [coverUrl]);
   return (
     <span
       ref={surfaceRef}
@@ -251,11 +253,11 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
       onPointerMove={updatePointer}
       onPointerLeave={resetPointer}
     >
-      {coverUrl ? (
+      {coverUrl && !coverFailed ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} draggable={false} />
+        <img src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} draggable={false} onError={() => setCoverFailed(true)} />
       ) : (
-        <span className={styles.coverFallback} aria-hidden="true"><i /><i /></span>
+        <span className={styles.coverFallback} role="img" aria-label={`${article.sourceName} 图片暂不可用`}><i /><i /><small>{article.sourceName || "原文来源"} · 图片暂不可用</small></span>
       )}
     </span>
   );
@@ -373,9 +375,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
     props.temporaryReading
     && (!latestSavedArticle || Date.parse(props.temporaryReading.updatedAt) >= Date.parse(latestSavedArticle.lastOpenedAt || latestSavedArticle.updatedAt)),
   );
-  const continueProgress = temporaryIsLatest
-    ? props.temporaryReading?.readingProgress?.scrollRatio ?? 0
-    : latestSavedArticle?.readingProgress?.scrollRatio ?? 0;
   const continueCover = latestSavedArticle?.importedArticle?.blocks.find((block) => block.type === "image");
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -1194,10 +1193,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                   <p>{temporaryIsLatest
                     ? props.temporaryReading?.body.slice(0, 150)
                     : latestSavedArticle?.summary || latestSavedArticle?.body.slice(0, 150)}</p>
-                  <span className={styles.progressTrack} aria-label={`阅读进度 ${Math.round(continueProgress * 100)}%`}>
-                    <i style={{ width: `${Math.max(3, Math.round(continueProgress * 100))}%` }} />
-                  </span>
-                  <span className={styles.continueReadingMeta}>{Math.round(continueProgress * 100)}% · 从上次位置继续 <i aria-hidden="true">→</i></span>
+                  <span className={styles.continueReadingMeta}>从上次稳定停留处继续 <i aria-hidden="true">→</i></span>
                 </button>
               )}
               <div className={styles.memberImport}>
@@ -1506,6 +1502,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
         localAccount={localAccount}
         savedArticles={hasLocalAccountAccess ? props.savedArticles : []}
         vocabularyEntries={hasLocalAccountAccess ? vocabularyEntries : []}
+        onVocabularyEntriesChange={setVocabularyEntries}
         initialPreview={menuInitialPreview}
         theme={homeTheme}
         letterMotionEnabled={letterMotionEnabled}

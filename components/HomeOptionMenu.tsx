@@ -18,6 +18,7 @@ import {
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
+import { AnkiSettingsPanel, defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { AccountUsagePageContent } from "@/components/AccountUsagePageContent";
 import ClearableField from "@/components/ClearableField";
 import { GuidePageContent } from "@/components/GuidePageContent";
@@ -25,13 +26,17 @@ import InvitationCodeRedeemContent from "@/components/InvitationCodeRedeemConten
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
+import { addVocabularyNote, checkAnki } from "@/lib/ankiConnect";
+import { downloadVocabularyCsv } from "@/lib/csv";
 import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
 import { currentFormPhonetic } from "@/lib/pronunciation";
 import type { LocalAccountSession } from "@/lib/localAccountSession";
 import { savedArticleOpenTimestamp } from "@/lib/savedArticleMerge";
 import { sortVocabularyEntriesByCreatedAt } from "@/lib/vocabularyMerge";
+import { clearVocabularyEntries, deleteVocabularyEntry, markVocabularyEntryImported } from "@/lib/vocabulary";
 import { createVocabularySearchIndex, searchVocabularyIndex } from "@/lib/vocabularySearch";
 import type { AccountSessionState } from "@/types/account";
+import type { AnkiSettings } from "@/types/anki";
 import type { SavedArticle } from "@/types/article";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import styles from "./HomeOptionMenu.module.css";
@@ -57,6 +62,29 @@ interface HomeOptionMenuProps {
   onThemeChange?: (theme: "day" | "night") => void;
   onLetterMotionChange?: (enabled: boolean) => void;
   onRecommendationMotionChange?: (enabled: boolean) => void;
+  placement?: "left" | "right";
+  onVocabularyEntriesChange?: (entries: VocabularyEntry[]) => void;
+  ankiTools?: HomeMenuAnkiTools;
+  vocabularyTools?: HomeMenuVocabularyTools;
+}
+
+export interface HomeMenuAnkiTools {
+  settings: AnkiSettings;
+  status: string;
+  checking: boolean;
+  importingId: string;
+  importError: string;
+  onSettingsChange: (settings: AnkiSettings) => void;
+  onCheck: () => void;
+  onImport: (entry: VocabularyEntry) => void;
+  onImportAll: () => void;
+}
+
+export interface HomeMenuVocabularyTools {
+  onDelete: (id: string) => void;
+  onClear: () => void;
+  onExportCsv: () => void;
+  onCopy: (entry: VocabularyEntry) => void;
 }
 
 export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "invite" | "feedback" | "settings";
@@ -107,6 +135,15 @@ function formatSavedArticleDate(article: SavedArticle): string {
   return timestamp ? savedArticleDateFormatter.format(new Date(timestamp)) : "时间未知";
 }
 
+function vocabularyEntryClipboardText(entry: VocabularyEntry): string {
+  return [
+    entry.word,
+    entry.contextMeaning || entry.basicMeaning,
+    entry.sourceSentence,
+    entry.sentenceTranslation,
+  ].filter(Boolean).join("\n");
+}
+
 export function HomeOptionMenu({
   open,
   isAdmin,
@@ -128,6 +165,10 @@ export function HomeOptionMenu({
   onThemeChange,
   onLetterMotionChange,
   onRecommendationMotionChange,
+  placement = "right",
+  onVocabularyEntriesChange,
+  ankiTools,
+  vocabularyTools,
 }: HomeOptionMenuProps) {
   const router = useRouter();
   const dialogRef = useRef<HTMLElement | null>(null);
@@ -140,6 +181,12 @@ export function HomeOptionMenu({
   const [pinnedPreview, setPinnedPreview] = useState<PreviewKind | null>(null);
   const [previewAnchorY, setPreviewAnchorY] = useState<number | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [internalAnkiSettings, setInternalAnkiSettings] = useState<AnkiSettings>(() => defaultAnkiSettings());
+  const [internalAnkiStatus, setInternalAnkiStatus] = useState("");
+  const [internalAnkiChecking, setInternalAnkiChecking] = useState(false);
+  const [internalImportingId, setInternalImportingId] = useState("");
+  const [internalImportError, setInternalImportError] = useState("");
+  const [ankiSettingsOpen, setAnkiSettingsOpen] = useState(false);
   const items = useMemo(
     () => [
       ...(mobileMenu ? mobileQuickItems : []),
@@ -177,7 +224,7 @@ export function HomeOptionMenu({
   const vocabularyVirtualizer = useVirtualizer({
     count: filteredVocabularyEntries.length,
     getScrollElement: () => vocabularyListRef.current,
-    estimateSize: () => 118,
+    estimateSize: () => 84,
     getItemKey: getVocabularyEntryKey,
     gap: 0,
     overscan: 4,
@@ -191,6 +238,12 @@ export function HomeOptionMenu({
     [hoveredVocabularyId, vocabularyEntriesById],
   );
   const visiblePreview = pinnedPreview;
+  const effectiveAnkiSettings = ankiTools?.settings ?? internalAnkiSettings;
+  const effectiveAnkiStatus = ankiTools?.status ?? internalAnkiStatus;
+  const effectiveAnkiChecking = ankiTools?.checking ?? internalAnkiChecking;
+  const effectiveImportingId = ankiTools?.importingId ?? internalImportingId;
+  const effectiveImportError = ankiTools?.importError ?? internalImportError;
+  const unimportedVocabularyCount = vocabularyEntries.filter((entry) => !entry.anki.ankiNoteId).length;
 
   useEffect(() => {
     if (open) setMounted(true);
@@ -257,6 +310,83 @@ export function HomeOptionMenu({
     router.push(href);
   }
 
+  async function checkInternalAnki() {
+    setInternalAnkiChecking(true);
+    setInternalAnkiStatus("");
+    try {
+      const version = await checkAnki(internalAnkiSettings.endpoint);
+      setInternalAnkiStatus(`连接成功，AnkiConnect version: ${version}`);
+    } catch (error) {
+      setInternalAnkiStatus(error instanceof Error ? error.message : "AnkiConnect 检测失败。");
+    } finally {
+      setInternalAnkiChecking(false);
+    }
+  }
+
+  async function importInternalAnki(entry: VocabularyEntry) {
+    if (internalImportingId) return;
+    if (entry.anki.ankiNoteId) {
+      setInternalImportError("这个词条已经导入过 Anki，不会重复导入。");
+      return;
+    }
+    setInternalImportingId(entry.id);
+    setInternalImportError("");
+    try {
+      const noteId = await addVocabularyNote(entry, internalAnkiSettings.deckName, internalAnkiSettings.endpoint);
+      onVocabularyEntriesChange?.(markVocabularyEntryImported(entry.id, noteId));
+    } catch (error) {
+      setInternalImportError(error instanceof Error ? error.message : "导入 Anki 失败，请稍后重试。");
+    } finally {
+      setInternalImportingId("");
+    }
+  }
+
+  async function importAllInternalAnki() {
+    if (internalImportingId) return;
+    const pending = vocabularyEntries.filter((entry) => !entry.anki.ankiNoteId);
+    if (!pending.length) {
+      setInternalImportError("没有未导入的词条。");
+      return;
+    }
+    setInternalImportingId("__all__");
+    setInternalImportError("");
+    let completed = 0;
+    try {
+      for (const entry of pending) {
+        const noteId = await addVocabularyNote(entry, internalAnkiSettings.deckName, internalAnkiSettings.endpoint);
+        onVocabularyEntriesChange?.(markVocabularyEntryImported(entry.id, noteId));
+        completed += 1;
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "批量导入 Anki 失败，请稍后重试。";
+      setInternalImportError(completed ? `已导入 ${completed} 个词条，随后失败：${message}` : message);
+    } finally {
+      setInternalImportingId("");
+    }
+  }
+
+  const checkAnkiConnection = ankiTools?.onCheck ?? (() => void checkInternalAnki());
+  const importOneToAnki = ankiTools?.onImport ?? ((entry: VocabularyEntry) => void importInternalAnki(entry));
+  const importAllToAnki = ankiTools?.onImportAll ?? (() => void importAllInternalAnki());
+  const updateAnkiSettings = ankiTools?.onSettingsChange ?? setInternalAnkiSettings;
+  const deleteVocabulary = vocabularyTools?.onDelete ?? ((id: string) => {
+    if (!window.confirm("确定删除这个生词吗？")) return;
+    onVocabularyEntriesChange?.(deleteVocabularyEntry(id));
+    setHoveredVocabularyId(null);
+  });
+  const clearVocabulary = vocabularyTools?.onClear ?? (() => {
+    if (!window.confirm(`将删除生词本中的 ${vocabularyEntries.length} 条词条，此操作无法撤销。`)) return;
+    clearVocabularyEntries();
+    onVocabularyEntriesChange?.([]);
+    setHoveredVocabularyId(null);
+  });
+  const exportVocabulary = vocabularyTools?.onExportCsv ?? (() => downloadVocabularyCsv(vocabularyEntries));
+  const copyVocabulary = vocabularyTools?.onCopy ?? ((entry: VocabularyEntry) => {
+    void navigator.clipboard.writeText(vocabularyEntryClipboardText(entry)).catch(() => {
+      window.alert("复制失败，请检查浏览器剪贴板权限。");
+    });
+  });
+
   function anchorPreview(trigger: HTMLElement) {
     const rect = trigger.getBoundingClientRect();
     setPreviewAnchorY(Math.max(PREVIEW_ANCHOR_MIN, rect.top));
@@ -314,6 +444,7 @@ export function HomeOptionMenu({
       role="presentation"
       data-open={open || undefined}
       data-theme={theme}
+      data-placement={placement}
       data-local-scroll-surface
       onPointerDown={(event) => {
         if (event.target === event.currentTarget) onClose();
@@ -448,6 +579,50 @@ export function HomeOptionMenu({
         </header>
         {orderedVocabularyEntries.length ? (
           <>
+            <div className={styles.ankiToolbar}>
+              <button
+                type="button"
+                onClick={checkAnkiConnection}
+                disabled={effectiveAnkiChecking || Boolean(effectiveImportingId)}
+              >
+                {effectiveAnkiChecking ? "检测中…" : "检测 Anki 连接"}
+              </button>
+              <button
+                type="button"
+                className={styles.ankiPrimaryAction}
+                onClick={importAllToAnki}
+                disabled={Boolean(effectiveImportingId) || unimportedVocabularyCount === 0}
+              >
+                {effectiveImportingId === "__all__" ? "批量导入中…" : `批量导入 ${unimportedVocabularyCount}`}
+              </button>
+              <button
+                type="button"
+                aria-expanded={ankiSettingsOpen}
+                onClick={() => setAnkiSettingsOpen((current) => !current)}
+              >
+                {ankiSettingsOpen ? "收起设置" : "Anki 设置"}
+              </button>
+            </div>
+            <div className={styles.vocabularyManageBar}>
+              <button type="button" onClick={exportVocabulary}>导出 CSV</button>
+              <button type="button" onClick={clearVocabulary}>清空生词本</button>
+            </div>
+            {ankiSettingsOpen && (
+              <div className={styles.ankiSettings}>
+                <AnkiSettingsPanel
+                  settings={effectiveAnkiSettings}
+                  status={effectiveAnkiStatus}
+                  checking={effectiveAnkiChecking}
+                  onChange={updateAnkiSettings}
+                  onCheck={checkAnkiConnection}
+                />
+              </div>
+            )}
+            {(effectiveAnkiStatus || effectiveImportError) && !ankiSettingsOpen && (
+              <p className={effectiveImportError ? styles.ankiError : styles.ankiStatus} role="status">
+                {effectiveImportError || effectiveAnkiStatus}
+              </p>
+            )}
             <label className={styles.vocabularySearch}>
               <span className={styles.srOnly}>检索生词本</span>
               <svg viewBox="0 0 20 20" aria-hidden="true">
@@ -475,7 +650,6 @@ export function HomeOptionMenu({
                   {vocabularyVirtualizer.getVirtualItems().map((virtualRow) => {
                     const entry = filteredVocabularyEntries[virtualRow.index];
                     if (!entry) return null;
-                    const entryPhonetic = currentFormPhonetic(entry);
                     return (
                       <button
                         data-index={virtualRow.index}
@@ -499,11 +673,7 @@ export function HomeOptionMenu({
                         aria-expanded={hoveredVocabularyId === entry.id}
                       >
                         <strong>{entry.word}</strong>
-                        {(entryPhonetic || entry.partOfSpeech) && (
-                          <small>{[entryPhonetic, normalizePartOfSpeechLabel(entry.partOfSpeech)].filter(Boolean).join(" · ")}</small>
-                        )}
                         <span>{entry.contextMeaning || entry.basicMeaning || "暂无释义"}</span>
-                        {entry.sourceSentence && <em>{entry.sourceSentence}</em>}
                       </button>
                     );
                   })}
@@ -536,6 +706,10 @@ export function HomeOptionMenu({
               onClose();
               onJumpToVocabularySource?.(hoveredVocabularyEntry);
             }}
+            importing={effectiveImportingId === hoveredVocabularyEntry.id || effectiveImportingId === "__all__"}
+            onImportAnki={() => importOneToAnki(hoveredVocabularyEntry)}
+            onCopy={() => copyVocabulary(hoveredVocabularyEntry)}
+            onDelete={() => deleteVocabulary(hoveredVocabularyEntry.id)}
           />
         )}
       </section>
@@ -606,10 +780,10 @@ export function HomeOptionMenu({
         visiblePreview={visiblePreview}
         previewAnchorY={previewAnchorY}
         title="设置"
-        subtitle="只改变这台设备上的首页显示"
+        subtitle="只改变这台设备上的显示"
       >
         <div className={styles.settingsPanel} data-local-scroll-surface>
-          <section>
+          {onLetterMotionChange && <section>
             <div>
               <strong>鼠标字母轨迹</strong>
               <p>关闭后，鼠标移动时不再飘出彩色字母。</p>
@@ -621,8 +795,8 @@ export function HomeOptionMenu({
               aria-checked={letterMotionEnabled}
               onClick={() => onLetterMotionChange?.(!letterMotionEnabled)}
             ><i /></button>
-          </section>
-          <section>
+          </section>}
+          {onThemeChange && <section>
             <div>
               <strong>界面外观</strong>
               <p>在明亮和深色阅读环境之间切换。</p>
@@ -631,8 +805,8 @@ export function HomeOptionMenu({
               <button type="button" aria-pressed={theme === "day"} onClick={() => onThemeChange?.("day")}>日间</button>
               <button type="button" aria-pressed={theme === "night"} onClick={() => onThemeChange?.("night")}>夜间</button>
             </div>
-          </section>
-          <section>
+          </section>}
+          {onRecommendationMotionChange && <section>
             <div>
               <strong>外刊图片 3D</strong>
               <p>关闭后保留图片入场，但不再跟随鼠标倾斜。</p>
@@ -644,7 +818,7 @@ export function HomeOptionMenu({
               aria-checked={recommendationMotionEnabled}
               onClick={() => onRecommendationMotionChange?.(!recommendationMotionEnabled)}
             ><i /></button>
-          </section>
+          </section>}
         </div>
       </MenuPreview>
 
@@ -891,11 +1065,19 @@ function VocabularyHoverDetail({
   canJumpToSource,
   showJumpToSource,
   onJumpToSource,
+  importing,
+  onImportAnki,
+  onCopy,
+  onDelete,
 }: {
   entry: VocabularyEntry;
   canJumpToSource: boolean;
   showJumpToSource: boolean;
   onJumpToSource: () => void;
+  importing: boolean;
+  onImportAnki: () => void;
+  onCopy: () => void;
+  onDelete: () => void;
 }) {
   const isStandalone = !entry.sourceSentence.trim();
   const entryPhonetic = currentFormPhonetic(entry);
@@ -923,17 +1105,29 @@ function VocabularyHoverDetail({
         <PronunciationButtons text={entry.word} preload />
       </header>
 
-      {showJumpToSource && (
+      <div className={styles.vocabularyDetailActions}>
+        {showJumpToSource && (
+          <button
+            className={styles.jumpToSource}
+            type="button"
+            onClick={onJumpToSource}
+            disabled={!canJumpToSource}
+            title={canJumpToSource ? "跳转到原文句子" : "当前文章和已保存文章里没有找到这句话"}
+          >
+            定位原句
+          </button>
+        )}
         <button
-          className={styles.jumpToSource}
+          className={styles.importAnkiAction}
           type="button"
-          onClick={onJumpToSource}
-          disabled={!canJumpToSource}
-          title={canJumpToSource ? "跳转到原文句子" : "当前文章和已保存文章里没有找到这句话"}
+          onClick={onImportAnki}
+          disabled={Boolean(entry.anki.ankiNoteId) || importing}
         >
-          定位原句
+          {entry.anki.ankiNoteId ? "已导入 Anki" : importing ? "导入中…" : "导入 Anki"}
         </button>
-      )}
+        <button className={styles.secondaryDetailAction} type="button" onClick={onCopy}>复制词条</button>
+        <button className={styles.dangerDetailAction} type="button" onClick={onDelete}>删除</button>
+      </div>
 
       <dl className={styles.vocabularyDetails}>
         {detailSections.map(([label, value]) => (

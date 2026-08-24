@@ -455,6 +455,12 @@ export function saveArticleReadingProgress(id: string, anchor: ReaderViewportAnc
     return articles;
   }
 
+  const normalizedScrollRatio = Math.min(1, Math.max(0, anchor.scrollRatio));
+  const existingScrollRatio = existing.readingProgress?.scrollRatio ?? -1;
+  if (normalizedScrollRatio + 0.01 < existingScrollRatio) {
+    return articles;
+  }
+
   const capturedAt = new Date().toISOString();
   const nextArticles = articles.map((article) => article.id === id
     ? {
@@ -464,9 +470,10 @@ export function saveArticleReadingProgress(id: string, anchor: ReaderViewportAnc
           blockIndex: Math.max(0, Math.floor(anchor.blockIndex)),
           blockText: anchor.blockText.slice(0, 120),
           scrollY: Math.max(0, anchor.scrollY),
-          scrollRatio: Math.min(1, Math.max(0, anchor.scrollRatio)),
+          scrollRatio: normalizedScrollRatio,
           capturedAt,
         },
+        lastOpenedAt: capturedAt,
         updatedAt: capturedAt,
       }
     : article);

@@ -42,7 +42,7 @@ export async function PATCH(request: Request) {
   try {
     body = await readJsonBody(request, 16 * 1024);
   } catch {
-    return NextResponse.json({ error: "封面修复请求不是合法 JSON。" }, { status: 400 });
+    return NextResponse.json({ error: "公开文章图片修复请求不是合法 JSON。" }, { status: 400 });
   }
   const ids = Array.isArray(body?.ids)
     ? body.ids.filter((id): id is string => typeof id === "string").slice(0, 100)
@@ -50,9 +50,9 @@ export async function PATCH(request: Request) {
   try {
     return NextResponse.json({ result: await repairExternalPublicArticleCovers(ids) });
   } catch (error) {
-    console.error("Public cover repair failed", error);
+    console.error("Public article image repair failed", error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : "公开封面修复失败。" },
+      { error: error instanceof Error ? error.message : "公开文章图片修复失败。" },
       { status: 500 },
     );
   }

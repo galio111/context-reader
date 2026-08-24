@@ -677,6 +677,38 @@
   color: #d6e7ea;
 }
 
+:global(html[data-context-theme="night"]) .workLayer > header {
+  border-color: rgb(190 220 227 / 16%);
+}
+
+:global(html[data-context-theme="night"]) .workLayer > header small,
+:global(html[data-context-theme="night"]) .workLayer > header h2,
+:global(html[data-context-theme="night"]) .importTabs button,
+:global(html[data-context-theme="night"]) .importActionRow p,
+:global(html[data-context-theme="night"]) .savedWorkspace strong,
+:global(html[data-context-theme="night"]) .savedWorkspace small,
+:global(html[data-context-theme="night"]) .emptyWorkspace {
+  color: #dcebed;
+}
+
+:global(html[data-context-theme="night"]) .importTabs button[aria-selected="true"] {
+  color: #9ed2dc;
+}
+
+:global(html[data-context-theme="night"]) .importWorkspace textarea,
+:global(html[data-context-theme="night"]) .urlWorkspace input,
+:global(html[data-context-theme="night"]) .urlWorkspace article {
+  border-color: rgb(190 220 227 / 20%);
+  color: #eef5f6;
+  background: #102229;
+}
+
+:global(html[data-context-theme="night"]) .importWorkspace textarea::placeholder,
+:global(html[data-context-theme="night"]) .urlWorkspace input::placeholder,
+:global(html[data-context-theme="night"]) .urlWorkspace article :is(small, p) {
+  color: #b8cacf;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .action,
   .status {

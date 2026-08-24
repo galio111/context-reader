@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ask the protected Admin API to localize published recommendation covers."""
+"""Ask the protected Admin API to localize published covers and article images."""
 
 from __future__ import annotations
 
