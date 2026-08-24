@@ -746,3 +746,17 @@ Menu 未登录状态改成可直接打开登录的按钮，并新增“鼠标字
 用户 Menu 新增“兑换邀请码”，未登录先进入现有登录流程，登录账号核销后立即刷新档位、剩余额度和到期时间。一个码只能绑定一个账号；有效中的邀请码权益不叠加，到期后账号解析为 Free，文章、生词和同步数据不受影响，随后可以兑换新的邀请码。
 
 数据库以 SHA-256 哈希识别邀请码；`redeem_invitation_code` 在同一事务中锁定码、检查停用/兑换截止/重复兑换/账号状态和已有权益，再更新码记录与 `user_entitlements`，避免并发重复发放。兑换路由另有按 IP 的十五分钟尝试限制。当前记录不表示已经上线，只有生产迁移、受保护发布器接受、公网版本身份与真实账号/Admin 回归全部通过后才更新为已部署。
+
+## 2026-08-24：生产后端回退事故修复与大陆内部数据源硬锁
+
+**状态：已部署大陆生产；数据已对账补齐；Supabase Cloud 已冻结为非生产回滚证据**
+
+**类型：账号登录 / 数据迁移收口 / 发布安全 / 生产事故复盘**
+
+**证据：** release `20260824T170100`、parent `20260822T130523`、source `ca37d0d7f4596088eb61fc0e85bf159e17fc721a`、公网 `/api/connectivity`、galio 登录/协议 2 同步/Admin 双入口、PostgreSQL 备份 `context-reader-20260824T082857Z.dump`
+
+修改 Admin 恢复密码时误从遗留 `/opt/context-reader/ops/mainland` 目录执行了 Compose app 重建。旧 Compose 没有内部网关覆盖，因此其 `.env.runtime` 中冻结的托管 Supabase 地址重新成为活动数据源；galio 的密码认证成功后，托管库又因缺少 `account_profiles.reading_interests` 等新版资料字段而表现为无法登录。该回退由本轮错误运维命令造成，并非大陆数据库或迁移数据丢失。
+
+生产应用先用当前接受版本的 Compose 恢复为 Docker 内部 `supabase-api` 网关。对账确认大陆 Auth 用户 UUID 与 galio 数据保留完整且总体更新：托管库 15,863 个学习对象、64 篇公开/候选文章，大陆库修复前 15,885 个学习对象、84 篇文章；随后在新备份之后只补入 5 个托管独有学习对象、2 个确实更高版本的文章对象，以及误回退窗口内生成的 2 条未发布候选。大陆库较新的 translation block 与其余数据未被旧库覆盖。galio 的大陆 entitlement 恢复为长期 `admin`，手机号密码登录、协议 2 同步、正式 developer Admin 与 `#Ouyang2006` 恢复入口均通过公网验证。
+
+防复发不再依赖人工记忆：大陆镜像通过 `start-mainland-app.mjs` 强制 `CONTEXT_READER_RUNTIME_MODE=mainland` 且 `SUPABASE_URL=http://supabase-api:8000`，否则以配置错误拒绝启动；Compose、候选启动、稳定发布器和两层契约验证都固定内部地址；`/api/connectivity` 新增脱敏 `backendMode`，候选与公网验收必须精确返回 `mainland_internal`。旧托管项目链接临时文件移出接受快照，活动运行时环境去除托管地址和服务密钥，遗留 bootstrap Compose 被禁用。Vercel/Supabase Cloud 只保留冻结回滚证据，生产不再读取或写入。
