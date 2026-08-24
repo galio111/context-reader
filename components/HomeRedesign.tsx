@@ -277,6 +277,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const memberHome = memberPreviewAllowed || (!guestPreviewAllowed && journeyHomeMode === "member");
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuInitialPreview, setMenuInitialPreview] = useState<PreviewKind | null>(null);
+  const [menuStandalonePreview, setMenuStandalonePreview] = useState(false);
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
   const [dictionaryClosing, setDictionaryClosing] = useState(false);
   const [inputMode, setInputMode] = useState<InputMode>("paste");
@@ -883,7 +884,14 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }
 
   function openMenuPreview(preview: PreviewKind) {
+    setMenuStandalonePreview(true);
     setMenuInitialPreview(preview);
+    setMenuOpen(true);
+  }
+
+  function openMenu() {
+    setMenuStandalonePreview(false);
+    setMenuInitialPreview(null);
     setMenuOpen(true);
   }
 
@@ -1100,7 +1108,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           label="Menu"
           ariaExpanded={menuOpen}
           ariaControls="home-option-menu"
-          onClick={() => setMenuOpen(true)}
+          onClick={openMenu}
           renderIcon={() => <span className={styles.menuGlyph} aria-hidden="true"><i /><i /></span>}
         />
       </header>
@@ -1511,6 +1519,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
         vocabularyEntries={hasLocalAccountAccess ? vocabularyEntries : []}
         onVocabularyEntriesChange={setVocabularyEntries}
         initialPreview={menuInitialPreview}
+        standalonePreview={menuStandalonePreview}
         theme={homeTheme}
         letterMotionEnabled={letterMotionEnabled}
         recommendationMotionEnabled={recommendationMotionEnabled}
@@ -1522,6 +1531,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
         onClose={() => {
           setMenuOpen(false);
           setMenuInitialPreview(null);
+          setMenuStandalonePreview(false);
         }}
         onOpenSavedArticle={props.onOpenSavedArticle}
         onJumpToVocabularySource={props.onJumpToVocabularySource}

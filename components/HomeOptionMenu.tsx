@@ -63,6 +63,7 @@ interface HomeOptionMenuProps {
   onLetterMotionChange?: (enabled: boolean) => void;
   onRecommendationMotionChange?: (enabled: boolean) => void;
   placement?: "left" | "right";
+  standalonePreview?: boolean;
   onVocabularyEntriesChange?: (entries: VocabularyEntry[]) => void;
   ankiTools?: HomeMenuAnkiTools;
   vocabularyTools?: HomeMenuVocabularyTools;
@@ -166,6 +167,7 @@ export function HomeOptionMenu({
   onLetterMotionChange,
   onRecommendationMotionChange,
   placement = "right",
+  standalonePreview = false,
   onVocabularyEntriesChange,
   ankiTools,
   vocabularyTools,
@@ -259,9 +261,9 @@ export function HomeOptionMenu({
 
   useEffect(() => {
     if (!open || !initialPreview) return;
-    setPreviewAnchorY(PREVIEW_ANCHOR_MIN + 54);
+    setPreviewAnchorY(standalonePreview ? PREVIEW_ANCHOR_MIN + 12 : PREVIEW_ANCHOR_MIN + 54);
     setPinnedPreview(initialPreview);
-  }, [initialPreview, open]);
+  }, [initialPreview, open, standalonePreview]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -279,9 +281,14 @@ export function HomeOptionMenu({
     setVocabularySearchQuery("");
     setPinnedPreview(null);
     setPreviewAnchorY(null);
+    setAnkiSettingsOpen(false);
     if (mounted && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setMounted(false);
+      return;
     }
+    if (!mounted) return;
+    const unmountTimer = window.setTimeout(() => setMounted(false), 360);
+    return () => window.clearTimeout(unmountTimer);
   }, [mounted, open]);
 
   useEffect(() => {
@@ -445,31 +452,33 @@ export function HomeOptionMenu({
       data-open={open || undefined}
       data-theme={theme}
       data-placement={placement}
+      data-standalone={standalonePreview || undefined}
       data-local-scroll-surface
+      onKeyDown={handleDialogKeyDown}
       onPointerDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
     >
       <div className={styles.backdrop} aria-hidden="true" />
-      <div className={styles.prelayers} aria-hidden="true">
-        <div className={styles.prelayer} style={{ "--layer-color": "#dfecef" } as CSSProperties} />
-        <div className={styles.prelayer} style={{ "--layer-color": "#d8e2f0" } as CSSProperties} />
-        <div className={styles.prelayer} style={{ "--layer-color": "#eadfd8" } as CSSProperties} />
-      </div>
+      {!standalonePreview && <>
+        <div className={styles.prelayers} aria-hidden="true">
+          <div className={styles.prelayer} style={{ "--layer-color": "#dfecef" } as CSSProperties} />
+          <div className={styles.prelayer} style={{ "--layer-color": "#d8e2f0" } as CSSProperties} />
+          <div className={styles.prelayer} style={{ "--layer-color": "#eadfd8" } as CSSProperties} />
+        </div>
 
-      <section
-        id="home-option-menu"
-        ref={dialogRef}
-        className={styles.panel}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="home-option-menu-title"
-        onPointerDown={(event) => event.stopPropagation()}
-        onKeyDown={handleDialogKeyDown}
-        onAnimationEnd={(event) => {
-          if (event.target === event.currentTarget && !open) setMounted(false);
-        }}
-      >
+        <section
+          id="home-option-menu"
+          ref={dialogRef}
+          className={styles.panel}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="home-option-menu-title"
+          onPointerDown={(event) => event.stopPropagation()}
+          onAnimationEnd={(event) => {
+            if (event.target === event.currentTarget && !open) setMounted(false);
+          }}
+        >
         <header className={styles.panelHeader}>
           <div>
             <span>Context Reader</span>
@@ -531,7 +540,8 @@ export function HomeOptionMenu({
           </strong>
           <i aria-hidden="true">→</i>
         </button>
-      </section>
+        </section>
+      </>}
 
       {visiblePreview && (
         <button
@@ -542,10 +552,14 @@ export function HomeOptionMenu({
               setHoveredVocabularyId(null);
               return;
             }
+            if (standalonePreview) {
+              onClose();
+              return;
+            }
             setPinnedPreview(null);
           }}
         >
-          {hoveredVocabularyId ? "返回生词列表" : "返回菜单"}
+          {hoveredVocabularyId ? "返回生词列表" : standalonePreview ? "关闭" : "返回菜单"}
         </button>
       )}
 
@@ -562,8 +576,11 @@ export function HomeOptionMenu({
       </MenuPreview>
 
       <section
+        ref={standalonePreview && visiblePreview === "vocabulary" ? dialogRef : undefined}
         className={`${styles.savedPreview} ${orderedVocabularyEntries.length ? "" : styles.previewCompact} ${visiblePreview === "vocabulary" ? styles.savedPreviewVisible : ""}`}
         style={{ "--preview-anchor-y": `${previewAnchorY ?? window.innerHeight / 2}px` } as CSSProperties}
+        role={standalonePreview ? "dialog" : undefined}
+        aria-modal={standalonePreview ? "true" : undefined}
         aria-label="生词本"
         aria-hidden={visiblePreview !== "vocabulary"}
         inert={visiblePreview !== "vocabulary"}
@@ -575,10 +592,46 @@ export function HomeOptionMenu({
             <h3>生词本</h3>
             <p>最近收录的词语与语境</p>
           </div>
-          <span>{vocabularyEntries.length} 条</span>
+          <div className={styles.savedHeaderActions}>
+            <span>{vocabularyEntries.length} 条</span>
+            {standalonePreview && visiblePreview === "vocabulary" && (
+              <button
+                ref={closeButtonRef}
+                className={`${styles.close} ${styles.previewClose}`}
+                type="button"
+                aria-label="关闭生词本"
+                onClick={onClose}
+                autoFocus
+              >
+                <span>Close</span>
+                <i aria-hidden="true"><b /><b /></i>
+              </button>
+            )}
+          </div>
         </header>
         {orderedVocabularyEntries.length ? (
-          <>
+          ankiSettingsOpen ? (
+            <div className={styles.ankiSettingsView} data-local-scroll-surface>
+              <button
+                className={styles.ankiSettingsBack}
+                type="button"
+                onClick={() => setAnkiSettingsOpen(false)}
+              >
+                ← 返回生词本
+              </button>
+              <div className={styles.ankiSettings}>
+                <AnkiSettingsPanel
+                  settings={effectiveAnkiSettings}
+                  status={effectiveAnkiStatus}
+                  checking={effectiveAnkiChecking}
+                  onChange={updateAnkiSettings}
+                  onCheck={checkAnkiConnection}
+                />
+                {effectiveImportError && <p className={styles.ankiError} role="status">{effectiveImportError}</p>}
+              </div>
+            </div>
+          ) : (
+            <>
             <div className={styles.ankiToolbar}>
               <button
                 type="button"
@@ -597,28 +650,20 @@ export function HomeOptionMenu({
               </button>
               <button
                 type="button"
-                aria-expanded={ankiSettingsOpen}
-                onClick={() => setAnkiSettingsOpen((current) => !current)}
+                aria-expanded="false"
+                onClick={() => {
+                  setHoveredVocabularyId(null);
+                  setAnkiSettingsOpen(true);
+                }}
               >
-                {ankiSettingsOpen ? "收起设置" : "Anki 设置"}
+                Anki 设置
               </button>
             </div>
             <div className={styles.vocabularyManageBar}>
               <button type="button" onClick={exportVocabulary}>导出 CSV</button>
               <button type="button" onClick={clearVocabulary}>清空生词本</button>
             </div>
-            {ankiSettingsOpen && (
-              <div className={styles.ankiSettings}>
-                <AnkiSettingsPanel
-                  settings={effectiveAnkiSettings}
-                  status={effectiveAnkiStatus}
-                  checking={effectiveAnkiChecking}
-                  onChange={updateAnkiSettings}
-                  onCheck={checkAnkiConnection}
-                />
-              </div>
-            )}
-            {(effectiveAnkiStatus || effectiveImportError) && !ankiSettingsOpen && (
+            {(effectiveAnkiStatus || effectiveImportError) && (
               <p className={effectiveImportError ? styles.ankiError : styles.ankiStatus} role="status">
                 {effectiveImportError || effectiveAnkiStatus}
               </p>
@@ -682,7 +727,8 @@ export function HomeOptionMenu({
             ) : (
               <p className={styles.empty}>没有匹配的生词。</p>
             )}
-          </>
+            </>
+          )
         ) : (
           <p className={styles.empty}>还没有收录生词。阅读时加入的词语会出现在这里。</p>
         )}
@@ -715,8 +761,11 @@ export function HomeOptionMenu({
       </section>
 
       <section
+        ref={standalonePreview && visiblePreview === "saved" ? dialogRef : undefined}
         className={`${styles.savedPreview} ${sortedSavedArticles.length ? "" : styles.previewCompact} ${visiblePreview === "saved" ? styles.savedPreviewVisible : ""}`}
         style={{ "--preview-anchor-y": `${previewAnchorY ?? window.innerHeight / 2}px` } as CSSProperties}
+        role={standalonePreview ? "dialog" : undefined}
+        aria-modal={standalonePreview ? "true" : undefined}
         aria-label="保存文章"
         aria-hidden={visiblePreview !== "saved"}
         inert={visiblePreview !== "saved"}
@@ -728,7 +777,22 @@ export function HomeOptionMenu({
             <h3>保存文章</h3>
             <p>按最近打开排序</p>
           </div>
-          <span>{sortedSavedArticles.length} 篇</span>
+          <div className={styles.savedHeaderActions}>
+            <span>{sortedSavedArticles.length} 篇</span>
+            {standalonePreview && visiblePreview === "saved" && (
+              <button
+                ref={closeButtonRef}
+                className={`${styles.close} ${styles.previewClose}`}
+                type="button"
+                aria-label="关闭保存文章"
+                onClick={onClose}
+                autoFocus
+              >
+                <span>Close</span>
+                <i aria-hidden="true"><b /><b /></i>
+              </button>
+            )}
+          </div>
         </header>
         {sortedSavedArticles.length ? (
           <div className={styles.savedList} data-local-scroll-surface>

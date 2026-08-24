@@ -11,6 +11,10 @@
   color: #122430;
 }
 
+.overlay[data-standalone] {
+  --menu-preview-width: min(390px, calc(100vw - 40px));
+}
+
 .overlay button:not(:disabled):active {
   opacity: .72;
 }
@@ -387,6 +391,31 @@
   border-radius: 0 12px 12px 0;
 }
 
+.overlay[data-standalone] .savedPreview {
+  right: auto;
+  left: 20px;
+  padding: 20px 20px 12px;
+  border-radius: 16px;
+  transform: translateX(-18px);
+}
+
+.overlay[data-standalone] .savedPreviewVisible {
+  transform: translateX(0);
+}
+
+.overlay[data-standalone] .vocabularyDetail {
+  top: 88px;
+  right: auto;
+  left: calc(var(--menu-preview-width) + 36px);
+  width: min(460px, calc(100vw - var(--menu-preview-width) - 56px));
+  max-height: min(720px, calc(100svh - 108px));
+  transform: translateX(-12px);
+}
+
+.overlay[data-standalone] .vocabularyDetailVisible {
+  transform: translateX(0);
+}
+
 .overlay[data-theme="night"] { color: #e6eff1; }
 .overlay[data-theme="night"] .backdrop { background: rgb(0 10 14 / 42%); }
 .overlay[data-theme="night"] .panel,
@@ -432,6 +461,17 @@
 
 .savedHeader div {
   min-width: 0;
+}
+
+.savedHeaderActions {
+  display: flex;
+  min-width: auto !important;
+  align-items: center;
+  gap: 12px;
+}
+
+.previewClose {
+  margin: -7px -1px -7px 0;
 }
 
 .savedHeader h3,
@@ -536,6 +576,35 @@
   min-height: 0;
   margin: 10px 8px 2px 0;
   overflow-y: auto;
+}
+
+.ankiSettingsView {
+  display: flex;
+  min-height: 0;
+  padding: 12px 8px 0 0;
+  flex: 1;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.ankiSettingsBack {
+  min-height: 36px;
+  margin: 0 0 10px;
+  padding: 0;
+  align-self: flex-start;
+  border: 0;
+  background: transparent;
+  color: #245f82;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.ankiSettingsView .ankiSettings {
+  margin: 0;
+  overflow: visible;
 }
 
 .ankiSettings > section {
@@ -721,6 +790,19 @@
 }
 
 .overlay[data-placement="left"] .vocabularyDetailVisible {
+  transform: translateX(0);
+}
+
+.overlay[data-standalone][data-placement="left"] .vocabularyDetail {
+  top: 88px;
+  right: auto;
+  left: calc(var(--menu-preview-width) + 36px);
+  width: min(460px, calc(100vw - var(--menu-preview-width) - 56px));
+  max-height: min(720px, calc(100svh - 108px));
+  transform: translateX(-12px);
+}
+
+.overlay[data-standalone][data-placement="left"] .vocabularyDetailVisible {
   transform: translateX(0);
 }
 
@@ -1413,6 +1495,35 @@
 
   .overlay[data-placement="left"] .savedPreviewVisible,
   .overlay[data-placement="left"] .vocabularyDetailVisible {
+    transform: translateY(0);
+  }
+
+  .overlay[data-standalone] .mobilePreviewBack {
+    display: none;
+  }
+
+  .overlay[data-standalone] .savedPreview {
+    right: 0;
+    left: 0;
+    padding: 20px 18px 18px;
+    border-radius: 22px 22px 0 0;
+    transform: translateY(10px);
+  }
+
+  .overlay[data-standalone] .savedPreviewVisible {
+    transform: translateY(0);
+  }
+
+  .overlay[data-standalone] .vocabularyDetail {
+    top: auto;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-height: min(65svh, 620px);
+    transform: translateY(10px);
+  }
+
+  .overlay[data-standalone] .vocabularyDetailVisible {
     transform: translateY(0);
   }
 

@@ -889,6 +889,7 @@ export function ReaderView({
   const [readerMenuOpen, setReaderMenuOpen] = useState(false);
   const [readerMenuInitialPreview, setReaderMenuInitialPreview] = useState<PreviewKind | null>(null);
   const [readerMenuPlacement, setReaderMenuPlacement] = useState<"left" | "right">("right");
+  const [readerMenuStandalonePreview, setReaderMenuStandalonePreview] = useState(false);
   const [readerTheme, setReaderTheme] = useState<"day" | "night">("day");
   const [vocabularyEntries, setVocabularyEntries] = useState<VocabularyEntry[]>([]);
   const [ankiSettings, setAnkiSettings] = useState<AnkiSettings>(defaultAnkiSettings());
@@ -2134,6 +2135,7 @@ export function ReaderView({
     setImportError("");
     setAnkiStatus("");
     setReaderMenuPlacement("left");
+    setReaderMenuStandalonePreview(true);
     setReaderMenuInitialPreview("vocabulary");
     setReaderMenuOpen(true);
     if (entries.some((entry) => !entry.anki.ankiNoteId)) {
@@ -2144,12 +2146,14 @@ export function ReaderView({
   function handleOpenSavedArticlesMenu() {
     if (!requireLocalAccount("登录后才能查看我的文章。")) return;
     setReaderMenuPlacement("left");
+    setReaderMenuStandalonePreview(true);
     setReaderMenuInitialPreview("saved");
     setReaderMenuOpen(true);
   }
 
   function handleOpenReaderMenu() {
     setReaderMenuPlacement("right");
+    setReaderMenuStandalonePreview(false);
     setReaderMenuInitialPreview(null);
     setReaderMenuOpen(true);
   }
@@ -2301,11 +2305,13 @@ export function ReaderView({
   function handleCloseVocabulary() {
     setReaderMenuOpen(false);
     setReaderMenuInitialPreview(null);
+    setReaderMenuStandalonePreview(false);
   }
 
   function handleJumpToVocabularySource(entry: VocabularyEntry) {
     setReaderMenuOpen(false);
     setReaderMenuInitialPreview(null);
+    setReaderMenuStandalonePreview(false);
     setImportError("");
     setAnkiStatus("");
     const attemptId = sourceJumpAttemptIdRef.current + 1;
@@ -3999,6 +4005,7 @@ export function ReaderView({
         open={readerMenuOpen}
         placement={readerMenuPlacement}
         initialPreview={readerMenuInitialPreview}
+        standalonePreview={readerMenuStandalonePreview}
         isAdmin={account.plan?.id === "admin"}
         account={account}
         isOffline={isOffline}
