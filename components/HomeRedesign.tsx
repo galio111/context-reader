@@ -497,8 +497,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
   useEffect(() => {
     const sections = [publicationBridgeRef.current, importRef.current, featureOrbitRef.current, closingRef.current]
       .filter((section): section is HTMLElement => Boolean(section));
-    const featureSection = featureOrbitRef.current;
-    const closingSection = closingRef.current;
     if (sections.length === 0) return;
     if (!("IntersectionObserver" in window)) {
       sections.forEach((section) => { section.dataset.visible = "true"; });
@@ -520,16 +518,26 @@ export function HomeRedesign(props: HomeRedesignProps) {
         } else {
           delete section.dataset.visible;
         }
-        if (section === closingSection && featureSection) {
-          if (entry.isIntersecting) featureSection.dataset.exiting = "true";
-          else delete featureSection.dataset.exiting;
-        }
       });
     }, { rootMargin: "-5% 0px -8%", threshold: 0.04 });
     sections.forEach((section) => observer.observe(section));
+
+    const featureSection = featureOrbitRef.current;
+    const closingSection = closingRef.current;
+    const featureExitObserver = featureSection && closingSection
+      ? new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) featureSection.dataset.exiting = "true";
+          else delete featureSection.dataset.exiting;
+        });
+      }, { rootMargin: "0px 0px -50%", threshold: 0 })
+      : null;
+    if (closingSection) featureExitObserver?.observe(closingSection);
+
     window.addEventListener("scroll", trackDirection, { passive: true });
     return () => {
       observer.disconnect();
+      featureExitObserver?.disconnect();
       window.removeEventListener("scroll", trackDirection);
     };
   }, [memberHome]);
