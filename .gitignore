@@ -16,7 +16,9 @@ next-dev*.log
 tsconfig.tsbuildinfo
 .DS_Store
 __pycache__/
-artifacts/task-worktrees/
+artifacts/
+.next-corrupt-*/
+.*.log
 
 .vercel
 .codex/

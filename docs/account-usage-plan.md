@@ -1,6 +1,6 @@
 # Account, Sync, and Usage Plan
 
-Status: application code, production environment variables, and Auth are configured on the mainland self-hosted Supabase-compatible backend. The managed Supabase project remains intact for rollback. The visible beta flow uses an unverified mainland-China phone identifier plus nickname and a six-digit numeric password, with no SMS or email required. Email OTP remains hidden and still requires custom SMTP before it can be offered publicly.
+Status: application code, production environment variables, and Auth are configured on the mainland self-hosted Supabase-compatible backend. The managed Supabase project remains intact for rollback. The visible beta flow uses an unverified mainland-China phone identifier plus nickname and password, with no SMS or email required. New registration and voluntary password changes require 8–72 printable ASCII characters with at least one letter and one digit; existing six-digit numeric passwords remain accepted for legacy login. Email OTP remains hidden and still requires custom SMTP before it can be offered publicly.
 
 ## Product principles
 
@@ -46,7 +46,7 @@ Status: application code, production environment variables, and Auth are configu
 
 ## Key interactions
 
-- Registration uses nickname + mainland-China phone identifier + six-digit numeric password; later login uses phone + password. No SMS is sent and the phone is not proof of ownership. Access and refresh cookies are HttpOnly, Secure in production and SameSite=Lax; the refresh cookie lasts 7 days.
+- Registration uses nickname + mainland-China phone identifier + a strong password; later login uses phone + password, including legacy six-digit numeric credentials until voluntarily changed. No SMS is sent, the phone is not proof of ownership, and password recovery stays disabled. Access and refresh cookies are HttpOnly, Secure in production and SameSite=Lax; the refresh cookie lasts 7 days.
 - A browser's first sync captures one server snapshot, downloads active payloads plus lightweight tombstone metadata, supplements them with local data, and uploads with expected versions. Later syncs use an opaque `(updated_at, kind, object_key)` cursor and a local version/hash manifest, so unchanged objects and old deletion payloads are not transferred again. Version conflicts refresh the cursor/manifest and retry up to three times.
 - Durable local changes schedule an upload after about 800 ms. While a signed-in page is visible, remote changes are checked about every 15 seconds and immediately on focus or visibility return; a suspended or offline browser catches up when it becomes active again.
 - Vocabulary sync keeps one canonical entry per normalized word and source sentence, merges the most complete generated fields and Anki import record, and sends tombstones for redundant cloud recovery ids.

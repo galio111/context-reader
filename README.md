@@ -32,10 +32,10 @@ The reader is the product center. Article text remains visually primary while lo
 
 ### Accounts And Offline
 
-- Public beta registration uses nickname + mainland-China phone identifier + six-digit numeric password without SMS or phone-ownership verification.
+- Public beta registration uses nickname + mainland-China phone identifier + an 8–72 character password containing at least one letter and one digit, without SMS or phone-ownership verification. Existing six-digit numeric passwords remain login-compatible until voluntarily changed.
 - Guest trials use separate Shanghai-day pools: 10 article lookups, 5 standalone dictionary lookups, 2 pasted-text imports and 2 URL imports. Cache hits, failures and timely cancellations do not consume them; Admin can change all four allowances.
 - Admin can generate a unique single-use Basic, Plus, or Max invitation code with a redemption deadline, post-redemption duration and private note. A signed-in user redeems it from Menu; the account then shows the granted limits and expiry, returns to Free at expiry, and can redeem a new code.
-- Registration may continue to a skippable reading-profile step. English level and interests personalize only the default recommendation order; birth year and gender are optional demographic fields and can be cleared.
+- Registration no longer collects a reading profile. English level and interests are configured from publication personalization; legacy birth-year and gender fields remain clearable from the account where present.
 - Protocol-2 sync uses a bounded bootstrap, opaque change cursor, compare-and-swap versions and tombstones instead of downloading full history repeatedly.
 - Offline mode reopens only the last verified account's browser-local articles, vocabulary and caches. It never restores Admin, plan, quota or server authorization.
 - Online payment is not connected. Commercial labels and detailed usage counters remain hidden unless their explicit build-time flags are enabled.

@@ -8,7 +8,7 @@ Primary production is `https://context-reader.com` on the mainland-China stack. 
 
 Production account, Auth, sync, REST and Storage traffic must use the Docker-internal `http://supabase-api:8000` gateway. The `SUPABASE_*` variable names remain compatibility names for the self-hosted adapters; they do not authorize Supabase Cloud as a production backend. A production container with any external `SUPABASE_URL` must refuse to start, and `/api/connectivity` must report `backendMode: "mainland_internal"`. Never rebuild `app` from the legacy mutable `/opt/context-reader/ops/mainland` directory; use the accepted release under `/opt/context-reader-current` or the stable versioned release entrypoint.
 
-The public beta uses an unverified mainland-China phone identifier, nickname and six-digit numeric password. It sends no SMS. The internal synthetic email is never user-visible. Email OTP remains legacy/future code and is not launch-ready until custom SMTP and a `{{ .Token }}` template are configured.
+The public beta uses an unverified mainland-China phone identifier, nickname and password. New registration and voluntary password changes require 8–72 printable ASCII characters with at least one letter and one digit; existing six-digit numeric passwords remain accepted only for legacy login until the user changes them. It sends no SMS and offers no password recovery until phone ownership can be verified. The internal synthetic email is never user-visible. Email OTP remains legacy/future code and is not launch-ready until custom SMTP and a `{{ .Token }}` template are configured.
 
 ## Commands And Release
 
@@ -19,6 +19,8 @@ npm.cmd run build
 ```
 
 Pure documentation changes require no build or deployment. For user-visible code, run the production build, deploy through the versioned `ops/mainland/` workflow, and verify the public site plus affected account, sync, Admin, health, backup and rollback paths. Routine cutover may recreate only `app` and `caddy` with Compose dependencies disabled; never restart PostgreSQL, Auth, REST, Storage or the internal gateway for an app-only release. Do not routinely redeploy Vercel.
+
+After a code or functional update is complete and validated, commit it from its dedicated `codex/*` worktree and push the reviewed result to `galio111/context-reader` automatically so GitHub-backed Chat context stays current. Never include credentials, logs, caches, release archives, worktrees or unrelated dirty-root changes. GitHub synchronization does not by itself mean production deployment; mainland release acceptance still requires the separate evidence below.
 
 Production releases are cumulative and single-writer even when development sessions run in parallel. Never package the shared dirty workspace or an independent copy of an older release. Start from the currently accepted production release in a dedicated Git worktree, merge and commit every intended change, then use `ops/mainland/package-release.py` with an explicit reviewed changed-file list. The manifest parent must equal the active production release, `sourceRevision` must be the clean worktree's exact commit, and the archive delta must exactly equal `changedFiles`. Run the stable server entrypoint `/opt/context-reader/bin/deploy-release`; never trust a deploy script supplied only by the candidate archive. Its global lock, parent recheck, internal-backend check and protected contracts must stay enabled. If the parent changed, rebuild from the new accepted release instead of editing the manifest or retrying a stale package.
 
