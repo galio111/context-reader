@@ -6,11 +6,17 @@ import { HomeRedesign } from "@/components/HomeRedesign";
 import { ReaderView } from "@/components/ReaderView";
 import { fetchJson } from "@/lib/apiClient";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
-import { deleteSavedArticle, getSavedArticles, saveArticleReadingProgress } from "@/lib/articles";
+import {
+  deleteSavedArticle,
+  getSavedArticles,
+  replaceSavedArticleImportedArticle,
+  saveArticleReadingProgress,
+} from "@/lib/articles";
 import { getCachedArticleTranslation, setCachedArticleTranslation } from "@/lib/cache";
 import { findBestSourceSentenceMatch, normalizeForSourceMatch } from "@/lib/sourceMatching";
 import { hasClickableWords, tokenizeArticle } from "@/lib/tokenizer";
 import { primeLeadingArticleImage } from "@/lib/articleImagePreload";
+import { hasExternalImportedArticleImages } from "@/lib/articleImageUrls";
 import type { ImportedArticle, ImportedImageLayoutWord, SavedArticle } from "@/types/article";
 import type { PublicArticle, PublicExplanation } from "@/types/publicArticle";
 import type { ReaderViewportAnchor } from "@/types/reader";
@@ -162,6 +168,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   const [savedArticles, setSavedArticles] = useState<SavedArticle[]>([]);
   const [temporaryReading, setTemporaryReading] = useState<TemporaryReading | null>(null);
   const publicArticleRequestsRef = useRef(new Map<string, Promise<PublicArticleDetails>>());
+  const savedArticleImageRequestsRef = useRef(new Map<string, Promise<SavedArticle>>());
   const readingRef = useRef(false);
   const readerOriginRef = useRef<ReaderOriginSnapshot | null>(null);
   const readerSessionStackRef = useRef<ReaderSessionSnapshot[]>([]);
@@ -619,6 +626,37 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     }
   }
 
+  async function localizeSavedArticleImages(savedArticle: SavedArticle): Promise<SavedArticle> {
+    if (isOffline || !hasExternalImportedArticleImages(savedArticle.importedArticle)) return savedArticle;
+    const pending = savedArticleImageRequestsRef.current.get(savedArticle.id);
+    if (pending) return pending;
+
+    const request = (async () => {
+      try {
+        const response = await fetch("/api/article-images/localize", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ article: savedArticle.importedArticle }),
+        });
+        const data = await response.json().catch(() => null) as {
+          article?: ImportedArticle;
+          localized?: number;
+          failures?: Array<{ src: string; error: string }>;
+        } | null;
+        if (!response.ok || !data?.article || !data.localized) return savedArticle;
+        const nextArticles = replaceSavedArticleImportedArticle(savedArticle.id, data.article);
+        setSavedArticles(nextArticles);
+        return nextArticles.find((article) => article.id === savedArticle.id) ?? savedArticle;
+      } catch {
+        return savedArticle;
+      } finally {
+        savedArticleImageRequestsRef.current.delete(savedArticle.id);
+      }
+    })();
+    savedArticleImageRequestsRef.current.set(savedArticle.id, request);
+    return request;
+  }
+
   function handleOpenSavedArticle(savedArticle: SavedArticle) {
     setArticle(savedArticle.body);
     setImportedArticle(savedArticle.importedArticle ?? null);
@@ -632,6 +670,20 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     readerViewportAnchorRef.current = savedArticle.readingProgress ?? null;
     setReaderInitialViewportAnchor(savedArticle.readingProgress ?? null);
     enterReader("saved-article");
+
+    // Opening a saved article must never wait on a historical media migration.
+    // Production data is repaired in bulk; a browser-only legacy copy repairs
+    // quietly after Reader is already interactive and then follows normal sync.
+    void localizeSavedArticleImages(savedArticle).then((localizedArticle) => {
+      if (
+        localizedArticle.importedArticle
+        && localizedArticle !== savedArticle
+        && activeSavedArticleIdRef.current === savedArticle.id
+      ) {
+        setImportedArticle(localizedArticle.importedArticle);
+        void primeLeadingArticleImage(localizedArticle.importedArticle);
+      }
+    });
   }
 
   function handleOpenSavedArticleFromReader(savedArticle: SavedArticle) {

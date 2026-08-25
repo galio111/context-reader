@@ -139,5 +139,20 @@ requireSource("app/api/account/invitation-code/route.ts", [
   "rpc/redeem_invitation_code",
   "当前邀请码权益仍在有效期内",
 ]);
+requireSource("app/api/import-url/route.ts", [
+  "localizeImportedArticleImages",
+  "失败导入不会消耗游客次数",
+]);
+requireSource("lib/publicArticleCovers.ts", [
+  "images.weserv.nl",
+  "isExternalArticleImageUrl",
+  "article-images/",
+  "withArticleImageDownloadSlot",
+]);
+requireSource("app/api/admin/saved-article-images/route.ts", ["repairExternalSavedArticleImages"]);
+requireSource("components/HomeClient.tsx", [
+  "/api/article-images/localize",
+  "replaceSavedArticleImportedArticle",
+]);
 
-console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, invitation-entitlement-v1");
+console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, invitation-entitlement-v1, article-image-localization-v1");

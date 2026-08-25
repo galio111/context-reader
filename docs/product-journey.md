@@ -812,3 +812,17 @@ Reader 顶部“生词本”改为 Menu，撤销/重做箭头仅在编辑态出�
 最后 8 张正文图集中在两篇 TIME 文章；本机与中国大陆服务器直连 `static.time.com` 都超时，而大陆服务器通过 `images.weserv.nl` 读取同一原图可稳定返回图片。新增兜底严格限定 TIME 静态域名，并且只参与服务端导入：代理响应仍经过 pinned-DNS、安全重定向、类型、字节、像素和 Sharp 校验，最终公开记录只保存本站内容寻址 URL，不把代理变成新的前端依赖。发布后再次运行受保护修复，两篇文章均成功更新；最终生产库统计为外链正文图片 `0`、外链封面 `0`、本站正文图片 `39`、本站封面 `13`。游客接口检查确认两篇 TIME 文章没有外站 URL，全部 52 个唯一封面和正文资源均从 `context-reader.com/storage/v1/object/public/public-article-covers/` 返回 HTTP 200 与图片类型。
 
 完整 59 路由生产构建、类型检查、受保护 release contracts 与静态 egress guard 均通过。公网 `/api/connectivity` 返回 release `20260825T071645`、parent `20260825T000435` 与 `mainland_internal`；根路由、`/home-v2` 查询参数重定向、匿名同步和 Admin 权限边界通过。服务器当前链接、release manifest 与源码提交一致，健康检查、四个定时器、修复前备份的实际恢复验证及当前/上一版回滚镜像均通过，根分区占用为 `54%`。
+
+## 2026-08-25：保存文章与普通网址导入图片统一迁回本站
+
+**状态：独立生产基线 worktree 已实现；类型检查、发布契约与静态外联审计通过，生产构建、发布、历史账号数据迁移和公网逐图验收待完成**
+
+**类型：网址导入 / 保存文章 / 账号同步 / 正文图片 / 中国大陆网络 / 第一方 Storage**
+
+**证据：** 用户提供的 TIME 保存文章现场截图、生产库只读盘点、`app/api/import-url/route.ts`、`lib/publicArticleCovers.ts`、`lib/savedArticleImages.ts`、`app/api/article-images/localize/route.ts`、`ops/mainland/repair-saved-article-images.py`
+
+上一轮修复覆盖的是公开推荐发布链路与 13 篇历史公开文章，并没有改变普通网址导入返回给 Reader 的正文图片地址。用户把网址文章保存后，`SavedArticle.importedArticle.blocks` 仍会把 TIME、NASA、BBC、FINRA 等外站 URL 写入本地与账号同步对象，因此公开推荐已经正常，同一篇内容在“我的文章”里仍可能因中国大陆直连、外站防盗链或 CDN 超时显示占位。生产库发布前只读盘点确认有 10 篇 active 保存文章仍含 37 张外链正文图。
+
+新链路把图片站内化前移到每一次 `/api/import-url`：正文抽取完成后，只对最终保留的意义图片做 pinned-DNS 抓取、字节/像素限制、Sharp WebP 转换和内容寻址存储，Reader 与随后保存/同步拿到的从一开始就是本站 URL。普通来源先直连，失败后才允许 `images.weserv.nl` 作为服务端摄取通道；已知在大陆直连超时的 TIME 静态域名先走摄取通道。原始 URL 在构造代理前也必须通过私网/特殊地址检查，浏览器和持久数据永远不会收到代理地址。任一新导入图片未能保存时，导入失败且不进入游客次数确认，不把新的破图外链持久化。
+
+历史数据采用两层修复：受保护 Admin 迁移扫描 active `user_data_objects/article`，逐篇内容寻址转存，并通过现有 compare-and-swap RPC 提升版本；文章 id、正文、创建/修改时间与阅读进度不变，在线客户端通过 protocol 2 收到新图片地址。仍只存在于某个浏览器的旧文章点击后立即进入 Reader，登录态懒修复只在阅读已经可交互后低并发后台执行，成功替换再走正常账号同步，绝不把媒体迁移放在打开文章的阻塞路径。站内 WebP 限制在 1600px 内，保留图片尺寸占位、Reader 首图短上限门、后续懒加载、三路服务端摄取上限和一年不可变缓存，避免转存换来首屏、滚动或整站响应卡顿。`article-image-localization-v1` 加入累计发布契约，防止后续改动再次让普通导入或保存文章退回外站热链。只有生产新版本身份、37 张历史图片迁移结果、外链计数清零、逐个第一方资源 HTTP 图片响应及 Reader 打开/滚动性能全部验证后，本段才可更新为已上线。

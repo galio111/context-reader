@@ -45,7 +45,7 @@ const COSTLY_ROUTE_RULES: Array<[RegExp, RateRule[]]> = [
   // Keep abuse protection without treating a normal multi-paragraph article as a burst.
   [/^\/api\/translate-article$/, [{ bucket: "ai-translation", limit: 60, windowMs: MINUTE }]],
   [/^\/api\/ocr-image(?:-layout|-url)?$/, [{ bucket: "ocr", limit: 4, windowMs: MINUTE }]],
-  [/^\/api\/(?:import-url|download-image)$/, [{ bucket: "remote-fetch", limit: 15, windowMs: MINUTE }]],
+  [/^\/api\/(?:import-url|download-image|article-images\/localize)$/, [{ bucket: "remote-fetch", limit: 15, windowMs: MINUTE }]],
   [/^\/api\/pronunciation$/, [
     { bucket: "pronunciation", limit: 120, windowMs: MINUTE },
     { bucket: "pronunciation-daily", limit: 2_000, windowMs: DAY },

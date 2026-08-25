@@ -122,7 +122,7 @@ Without usable backend credentials, loopback development falls back to browser-l
 | `/guide` | New-user and AnkiConnect setup guide |
 | `/account/usage` | Account status and usage |
 | `/admin` | Server-authorized recommendations, accounts, feedback and error console |
-| `/api/import-url` | Safe public webpage import with conservative body extraction, tables, lists and meaningful images |
+| `/api/import-url` | Safe public webpage import with conservative body extraction; meaningful images are converted to bounded first-party WebP assets before Reader receives them |
 | `/api/explain-word*` | Context explanation, structured and streaming |
 | `/api/dictionary*` | Standalone bidirectional dictionary |
 | `/api/translate-article` | Block-based full-article translation |

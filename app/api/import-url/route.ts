@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { readResponseText, safeRemoteFetch, UnsafeRemoteUrlError } from "@/lib/safeRemoteFetch";
+import { localizeImportedArticleImages } from "@/lib/publicArticleCovers";
 import { extractImportedArticleFromHtml } from "@/lib/urlArticleExtractor";
 
 const MAX_HTML_CHARS = 1_200_000;
@@ -64,7 +65,17 @@ export async function POST(request: Request) {
       );
     }
 
-    return NextResponse.json(extracted);
+    const localized = await localizeImportedArticleImages(extracted.article, response.url || url.toString());
+    if (localized.failures.length) {
+      return NextResponse.json(
+        {
+          error: `正文已读取，但有 ${localized.failures.length} 张图片未能保存到本站。请稍后重试，失败导入不会消耗游客次数。`,
+        },
+        { status: 502 },
+      );
+    }
+
+    return NextResponse.json({ ...extracted, article: localized.article });
   } catch (error) {
     if (error instanceof UnsafeRemoteUrlError) {
       return NextResponse.json({ error: "该网址指向受保护的内部地址，无法导入。" }, { status: 400 });

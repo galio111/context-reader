@@ -122,7 +122,7 @@ if any(not isinstance(item, str) or not item for item in changed):
     raise SystemExit("changedFiles must contain non-empty strings")
 if len(set(contracts)) != len(contracts) or len(set(changed)) != len(changed):
     raise SystemExit("release manifest arrays may not contain duplicates")
-required_contracts = {"release-lineage-v1", "phonetic-current-form-v1"}
+required_contracts = {"release-lineage-v1", "phonetic-current-form-v1", "article-image-localization-v1"}
 missing_contracts = sorted(required_contracts - set(contracts))
 if missing_contracts:
     raise SystemExit("candidate is missing required protected contract: " + ", ".join(missing_contracts))

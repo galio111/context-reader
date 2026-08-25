@@ -427,6 +427,24 @@ export function saveEditedArticle(
   return nextArticles;
 }
 
+export function replaceSavedArticleImportedArticle(
+  id: string,
+  importedArticle: ImportedArticle,
+): SavedArticle[] {
+  const articles = getSavedArticles();
+  const existing = articles.find((article) => article.id === id);
+  if (!existing) return articles;
+
+  const normalizedImportedArticle = normalizeImportedArticle(importedArticle, existing.body);
+  if (!normalizedImportedArticle) return articles;
+  const updatedAt = new Date().toISOString();
+  const nextArticles = articles.map((article) => article.id === id
+    ? { ...article, importedArticle: normalizedImportedArticle, updatedAt }
+    : article);
+  saveArticles(nextArticles);
+  return nextArticles;
+}
+
 export function touchSavedArticle(id: string): SavedArticle[] {
   const articles = getSavedArticles();
   const existing = articles.find((article) => article.id === id);

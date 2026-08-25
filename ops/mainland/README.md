@@ -17,6 +17,7 @@ Production never uses Supabase Cloud. The application keeps `SUPABASE_*` compati
 - `verify-release-contracts.sh`: stable verifier installed outside candidate releases at `/opt/context-reader/bin/verify-release-contracts`; a candidate may add contracts but cannot remove the server's existing protected checks.
 - `acceptance-admin.py`: verifies the recovery Admin surface and recommendation controls without printing its password; `--test-recommendation-email` sends one explicit SMTP test.
 - `repair-public-covers.py`: uses the protected Admin API to download, resize, and localize existing external recommendation covers without printing credentials.
+- `repair-saved-article-images.py`: uses the protected Admin API to localize external image URLs inside active synced saved-article objects while preserving ids and using compare-and-swap versions.
 - `context-reader-recommendations.timer`: wakes the protected crawler every five minutes; the application reads the Admin-controlled enabled/time/count settings, runs once on the due Shanghai date, emails a success summary, and never publishes automatically.
 - `install-site-email-config.py`: accepts only the whitelisted `SITE_*` SMTP values over standard input and installs them in the private runtime environment with mode `0600`.
 
@@ -24,7 +25,7 @@ Production must call `/opt/context-reader/bin/deploy-release`, not the copy insi
 
 Recommendation discovery, backup, restore verification, and health checks run on server-side timers even when the developer computer is off. The optional Windows pull task only copies an additional archive after the computer starts; it is not the primary backup job.
 
-Newly published recommendation covers are first-party assets. Candidate creation may keep a reviewed external URL, but publication fetches it through the pinned-DNS safe path, converts it to a bounded 1280×800 WebP, and stores it in `public-article-covers`. Use `repair-public-covers.py --id ARTICLE_ID` only for legacy published rows that still point at a failing external host; a legacy source that remains reachable but exceeds the bounded mainland download window may stay external until a reviewed manual upload is available.
+New URL imports and newly published recommendation media are first-party assets. Candidate creation may keep a reviewed external cover URL, but publication and ordinary URL intake fetch selected images through the pinned-DNS safe path, convert them to bounded WebP and store them in `public-article-covers`. Use `repair-public-covers.py --id ARTICLE_ID` for legacy public rows and `repair-saved-article-images.py` for active synced saved articles. Both maintenance paths are idempotent; rerun after a transient or compare-and-swap failure.
 
 ## First private deployment
 

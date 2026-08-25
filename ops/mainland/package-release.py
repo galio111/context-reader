@@ -33,7 +33,7 @@ IGNORED_ROOTS = {
     "node_modules",
     "__pycache__",
 }
-REQUIRED_CONTRACTS = ["release-lineage-v1", "phonetic-current-form-v1"]
+REQUIRED_CONTRACTS = ["release-lineage-v1", "phonetic-current-form-v1", "article-image-localization-v1"]
 
 
 def parse_args() -> argparse.Namespace:

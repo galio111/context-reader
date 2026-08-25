@@ -162,7 +162,7 @@ async function importArticleThroughApi(origin: string, url: string): Promise<Imp
     },
     body: JSON.stringify({ url }),
     cache: "no-store",
-    signal: AbortSignal.timeout(20_000),
+    signal: AbortSignal.timeout(240_000),
   });
   const payload = await response.json().catch(() => null) as ImportApiResponse | null;
   if (!response.ok || !payload?.article) {

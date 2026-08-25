@@ -2,7 +2,8 @@ import { createHash } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
 import { revalidateTag } from "next/cache";
 import sharp from "sharp";
-import { readResponseBytes, safeRemoteFetch } from "@/lib/safeRemoteFetch";
+import { isExternalArticleImageUrl, isFirstPartyArticleImageUrl } from "@/lib/articleImageUrls";
+import { assertSafeRemoteUrl, readResponseBytes, safeRemoteFetch } from "@/lib/safeRemoteFetch";
 import type { ImportedArticle } from "@/types/article";
 import type { PublicArticleInput } from "@/types/publicArticle";
 
@@ -18,7 +19,24 @@ export const PUBLIC_COVER_ALLOWED_TYPES = new Map([
 const MAX_REMOTE_COVER_BYTES = 25 * 1024 * 1024;
 const MAX_REMOTE_ARTICLE_IMAGE_BYTES = 25 * 1024 * 1024;
 const MAX_LOCALIZED_ARTICLE_IMAGES = 64;
-const STORED_COVER_PATH = `/storage/v1/object/public/${PUBLIC_COVER_BUCKET}/`;
+const ARTICLE_IMAGE_DOWNLOAD_CONCURRENCY = 3;
+let activeArticleImageDownloads = 0;
+const articleImageDownloadWaiters: Array<() => void> = [];
+
+async function withArticleImageDownloadSlot<T>(task: () => Promise<T>): Promise<T> {
+  if (activeArticleImageDownloads < ARTICLE_IMAGE_DOWNLOAD_CONCURRENCY) {
+    activeArticleImageDownloads += 1;
+  } else {
+    await new Promise<void>((resolve) => articleImageDownloadWaiters.push(resolve));
+  }
+  try {
+    return await task();
+  } finally {
+    const next = articleImageDownloadWaiters.shift();
+    if (next) next();
+    else activeArticleImageDownloads -= 1;
+  }
+}
 
 function supabaseAdmin() {
   const url = process.env.SUPABASE_URL?.trim() || "";
@@ -74,12 +92,7 @@ export async function storeUploadedPublicCover(file: File): Promise<string> {
 }
 
 export function isStoredPublicCoverUrl(value: string): boolean {
-  if (!value.trim()) return false;
-  try {
-    return new URL(value).pathname.startsWith(STORED_COVER_PATH);
-  } catch {
-    return false;
-  }
+  return isFirstPartyArticleImageUrl(value);
 }
 
 function sourceImageUrl(value: string): string {
@@ -103,25 +116,26 @@ interface RemoteImageFetchCandidate {
 export function remotePublicImageFetchCandidates(value: string): RemoteImageFetchCandidate[] {
   const source = sourceImageUrl(value);
   const sourceUrl = new URL(source);
-  if (sourceUrl.hostname.toLowerCase() !== "static.time.com") {
-    return [{ url: source, timeoutMs: 240_000 }];
-  }
-
-  // TIME's static CDN is not consistently reachable from the mainland server.
-  // The proxy is only an ingestion transport: returned bytes are still validated,
-  // normalized and written to first-party Storage before a public row is updated.
   const proxyUrl = new URL("https://images.weserv.nl/");
   proxyUrl.searchParams.set("url", source);
   proxyUrl.searchParams.set("output", "webp");
   proxyUrl.searchParams.set("w", "1600");
   proxyUrl.searchParams.set("q", "82");
-  return [
-    { url: proxyUrl.toString(), timeoutMs: 90_000 },
-    { url: source, timeoutMs: 45_000 },
-  ];
+  const direct = { url: source, timeoutMs: 25_000 };
+  const ingestionFallback = { url: proxyUrl.toString(), timeoutMs: 90_000 };
+
+  // TIME's static CDN is not consistently reachable from the mainland server,
+  // so use the ingestion fallback first there. Other public sources are fetched
+  // directly first and use the same fallback only when mainland egress or
+  // anti-hotlink behavior prevents a direct download. Visitors never receive a
+  // proxy URL: every response is validated, normalized and stored first-party.
+  return sourceUrl.hostname.toLowerCase() === "static.time.com"
+    ? [ingestionFallback, direct]
+    : [direct, ingestionFallback];
 }
 
 async function fetchRemotePublicImage(value: string, headers: HeadersInit): Promise<Response> {
+  await assertSafeRemoteUrl(sourceImageUrl(value));
   let lastFailure = "远程图片读取失败。";
   for (const candidate of remotePublicImageFetchCandidates(value)) {
     try {
@@ -158,7 +172,7 @@ export async function storeRemotePublicCover(value: string, sourceUrl = ""): Pro
     ...(referer ? { Referer: referer } : {}),
   });
   const contentType = response.headers.get("content-type")?.split(";")[0].trim().toLowerCase() || "";
-  if (!contentType.startsWith("image/")) {
+  if (contentType.startsWith("text/") || contentType === "application/json") {
     await response.body?.cancel().catch(() => undefined);
     throw new Error("远程封面返回的不是图片。");
   }
@@ -186,7 +200,7 @@ export async function storeRemotePublicArticleImage(value: string, sourceUrl = "
     ...(referer ? { Referer: referer } : {}),
   });
   const contentType = response.headers.get("content-type")?.split(";")[0].trim().toLowerCase() || "";
-  if (!contentType.startsWith("image/")) {
+  if (contentType.startsWith("text/") || contentType === "application/json") {
     await response.body?.cancel().catch(() => undefined);
     throw new Error("远程正文图片返回的不是图片。");
   }
@@ -216,7 +230,7 @@ export async function localizeImportedArticleImages(
 ): Promise<LocalizedArticleImages> {
   const remoteSources = Array.from(new Set(
     article.blocks
-      .filter((block) => block.type === "image" && block.src && !isStoredPublicCoverUrl(block.src))
+      .filter((block) => block.type === "image" && block.src && isExternalArticleImageUrl(block.src))
       .map((block) => block.src as string),
   ));
   if (remoteSources.length > MAX_LOCALIZED_ARTICLE_IMAGES) {
@@ -225,13 +239,24 @@ export async function localizeImportedArticleImages(
 
   const storedBySource = new Map<string, string>();
   const failures: LocalizedArticleImages["failures"] = [];
-  for (const src of remoteSources) {
-    try {
-      storedBySource.set(src, await storeRemotePublicArticleImage(src, sourceUrl || article.url));
-    } catch (error) {
-      failures.push({ src, error: error instanceof Error ? error.message : "正文图片本地化失败。" });
+  let nextSourceIndex = 0;
+  async function localizeNextSource(): Promise<void> {
+    while (nextSourceIndex < remoteSources.length) {
+      const src = remoteSources[nextSourceIndex];
+      nextSourceIndex += 1;
+      try {
+        storedBySource.set(src, await withArticleImageDownloadSlot(
+          () => storeRemotePublicArticleImage(src, sourceUrl || article.url),
+        ));
+      } catch (error) {
+        failures.push({ src, error: error instanceof Error ? error.message : "正文图片本地化失败。" });
+      }
     }
   }
+  await Promise.all(Array.from(
+    { length: Math.min(ARTICLE_IMAGE_DOWNLOAD_CONCURRENCY, remoteSources.length) },
+    () => localizeNextSource(),
+  ));
   if (!storedBySource.size) return { article, localized: 0, failures };
   return {
     article: {
