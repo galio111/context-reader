@@ -829,12 +829,12 @@ Reader 顶部“生词本”改为 Menu，撤销/重做箭头仅在编辑态出�
 
 ## 2026-08-25：夜间阅读与全部工具窗口完成系统性对比度修复
 
-**状态：独立任务 worktree 已实现；59 路由生产构建、桌面/移动浏览器复核与颜色对比度测量通过，待大陆生产发布**
+**状态：已通过累计受保护发布上线中国大陆生产环境；桌面/移动浏览器、生产身份、权限边界、健康、备份与回滚检查通过**
 
 **类型：夜间模式 / Reader / Menu 预览 / 单独查词 / 生词本 / 账号与用量 / 可访问性**
 
-**证据：** 用户提交的账号、查词、生词本、文章列表、划词 hover 现场截图，`app/globals.css`、`components/HomeOptionMenu.module.css`、`components/BookDictionary.module.css`、`components/ReaderToolbar.module.css`、`components/WordToken.tsx`、`components/PronunciationButtons.tsx`，桌面与 390×844 本地生产浏览器
+**证据：** 用户提交的账号、查词、生词本、文章列表、划词 hover 现场截图，`app/globals.css`、`components/HomeOptionMenu.module.css`、`components/BookDictionary.module.css`、`components/ReaderToolbar.module.css`、`components/WordToken.tsx`、`components/PronunciationButtons.tsx`，桌面与 390×844 浏览器，生产 release `20260826T001100`（parent `20260826T000551`，实现提交 `a1704ec561ee140a0fe85fb90a0feb409b509042`；精确累计 source revision 由 release state 留档）
 
 问题不是单个灰色太暗，而是夜间规则只反转了外层背景和大部分文本，内部白色卡片、白色按钮、浅色高亮与紧凑移动面板仍使用日间颜色；Menu 夜间规则还早于后续日间规则，导致保存文章、生词详情等被级联覆盖。修复建立统一的夜间画布、面板、抬升面、弱文字、强调与边界色阶，同时补齐正文 hover/选中/定位高亮、发音按钮、输入与占位符、禁用/错误/提示、表格、账号卡片、指南、反馈、独立词典完整结果和移动工具 Sheet。账号与用量页的“返回阅读”按钮已删除。
 
-浏览器逐项复核了夜间设置、账号与用量、使用说明、意见反馈、桌面单独查词、阅读正文、划词 hover、右侧解释空状态以及移动阅读、解释、查词和生词入口；移动复核继续发现并修复了说明文字与紧凑词典未进入夜间作用域的问题。核心颜色组合的测量范围为 5.36:1 至 13.40:1，正文、弱文字、placeholder、hover、selected、highlight、错误与禁用态均达到普通文字 WCAG AA；当前阅读页可见文本自动扫描未发现低于对应阈值的条目。登录态真实生词数据因独立测试浏览器没有账号服务配置，仍需在生产账号回归中确认内容覆盖，但对应列表、详情、Anki、搜索、禁用态和学习详情选择器已经纳入夜间规则。
+浏览器逐项复核了夜间设置、账号与用量、使用说明、意见反馈、桌面单独查词、阅读正文、划词 hover、右侧解释空状态以及移动阅读、解释、查词和生词入口；移动复核继续发现并修复了说明文字与紧凑词典未进入夜间作用域的问题。核心颜色组合的测量范围为 5.36:1 至 13.40:1，正文、弱文字、placeholder、hover、selected、highlight、错误与禁用态均达到普通文字 WCAG AA；当前阅读页可见文本自动扫描未发现低于对应阈值的条目。完整生产构建与累计 release contracts 通过；公网 `/api/connectivity` 返回精确 release、parent 与 `mainland_internal`，根路由、`/home-v2` 查询参数重定向、匿名同步和 Admin 权限边界通过，服务器健康、定时备份及当前/上一版回滚路径均复核。登录态真实生词数据因独立测试浏览器未持有账号会话，内容态仍由用户生产账号做最终视觉确认，但对应列表、详情、Anki、搜索、禁用态和学习详情选择器已经纳入夜间规则。
