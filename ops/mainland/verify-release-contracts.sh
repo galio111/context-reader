@@ -72,5 +72,6 @@ require_text "lib/publicArticleCovers.ts" "article-images/"
 require_text "lib/publicArticleCovers.ts" "withArticleImageDownloadSlot"
 require_text "app/api/admin/saved-article-images/route.ts" "repairExternalSavedArticleImages"
 require_text "components/HomeClient.tsx" "/api/article-images/localize"
+require_text "lib/safeRemoteFetch.ts" "a === 192 && b === 0 && (c === 0 || c === 2)"
 
 echo "protected release contracts present"

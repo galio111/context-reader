@@ -150,6 +150,11 @@ requireSource("lib/publicArticleCovers.ts", [
   "withArticleImageDownloadSlot",
 ]);
 requireSource("app/api/admin/saved-article-images/route.ts", ["repairExternalSavedArticleImages"]);
+requireSource("lib/safeRemoteFetch.ts", [
+  "a === 192 && b === 0 && (c === 0 || c === 2)",
+  "a === 198 && b === 51 && c === 100",
+  "a === 203 && b === 0 && c === 113",
+]);
 requireSource("components/HomeClient.tsx", [
   "/api/article-images/localize",
   "replaceSavedArticleImportedArticle",
