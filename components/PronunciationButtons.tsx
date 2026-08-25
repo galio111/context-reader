@@ -232,7 +232,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
     }
   }
 
-  const buttonClassName = "inline-flex h-11 items-center gap-1.5 rounded-full border border-[#d2d2d7] bg-white px-3.5 text-sm font-medium text-[#1d1d1f] transition hover:border-[#0066cc] hover:text-[#0066cc] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 lg:h-8 lg:gap-1 lg:px-2.5 lg:text-xs";
+  const buttonClassName = "cr-pronunciation-control inline-flex h-11 items-center gap-1.5 rounded-full border border-[#d2d2d7] bg-white px-3.5 text-sm font-medium text-[#1d1d1f] transition hover:border-[#0066cc] hover:text-[#0066cc] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 lg:h-8 lg:gap-1 lg:px-2.5 lg:text-xs";
   return (
     <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="发音选项">
       <button

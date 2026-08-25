@@ -24,6 +24,9 @@ function WordTokenComponent({
     <span
       role="button"
       tabIndex={0}
+      data-reader-token
+      data-selected={selected ? "true" : undefined}
+      data-highlighted={highlighted ? "true" : undefined}
       data-token-id={token.id}
       data-source-target={targeted ? "true" : undefined}
       aria-current={targeted ? "location" : undefined}

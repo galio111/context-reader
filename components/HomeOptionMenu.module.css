@@ -1339,6 +1339,116 @@
   overflow: hidden;
 }
 
+/* Keep this block after the default preview rules. Earlier night declarations
+   were being overwritten by later day colors in the saved, vocabulary,
+   account, guide, and feedback surfaces. */
+.overlay[data-theme="night"] .savedHeader span,
+.overlay[data-theme="night"] .savedArticle span,
+.overlay[data-theme="night"] .savedArticle time,
+.overlay[data-theme="night"] .vocabularyDetailHeader p,
+.overlay[data-theme="night"] .vocabularyDetailHeader p strong,
+.overlay[data-theme="night"] .vocabularyDetailMeta,
+.overlay[data-theme="night"] .vocabularyEntry em,
+.overlay[data-theme="night"] .guideLead,
+.overlay[data-theme="night"] .guidePreview li p,
+.overlay[data-theme="night"] .accountSummary span,
+.overlay[data-theme="night"] .accountSummary p,
+.overlay[data-theme="night"] .accountNote,
+.overlay[data-theme="night"] .usageItem > div strong,
+.overlay[data-theme="night"] .feedbackImages > div:first-child span,
+.overlay[data-theme="night"] .feedbackFooter span,
+.overlay[data-theme="night"] .feedbackSuccess p {
+  color: #b3c4c9 !important;
+}
+
+.overlay[data-theme="night"] .vocabularySearch,
+.overlay[data-theme="night"] .usageItem > i,
+.overlay[data-theme="night"] .feedbackImages li {
+  background: #253b43;
+  color: #c6d7db !important;
+}
+
+.overlay[data-theme="night"] .vocabularySearch input,
+.overlay[data-theme="night"] .vocabularySearch button {
+  color: #edf5f6 !important;
+}
+
+.overlay[data-theme="night"] .vocabularySearch input::placeholder,
+.overlay[data-theme="night"] .feedbackForm input::placeholder,
+.overlay[data-theme="night"] .feedbackForm textarea::placeholder {
+  color: #aebfc4 !important;
+  opacity: 1;
+}
+
+.overlay[data-theme="night"] .savedArticle {
+  border-color: rgb(191 221 227 / 14%);
+  color: #e8f1f3 !important;
+}
+
+.overlay[data-theme="night"] .savedArticle:hover,
+.overlay[data-theme="night"] .savedArticle:focus-visible,
+.overlay[data-theme="night"] .vocabularyEntry[aria-expanded="true"] {
+  background: #223b44;
+  color: #f2f8f9 !important;
+}
+
+.overlay[data-theme="night"] .vocabularyEntry small,
+.overlay[data-theme="night"] .vocabularyDetails dt,
+.overlay[data-theme="night"] .guidePreview li > span,
+.overlay[data-theme="night"] .usageItem > div span {
+  color: #9ed2dc !important;
+}
+
+.overlay[data-theme="night"] .vocabularyDetails dd,
+.overlay[data-theme="night"] .empty,
+.overlay[data-theme="night"] .guidePreview li strong,
+.overlay[data-theme="night"] .accountSummary strong,
+.overlay[data-theme="night"] .feedbackForm label,
+.overlay[data-theme="night"] .feedbackImages strong,
+.overlay[data-theme="night"] .feedbackSuccess strong {
+  color: #e4eef0 !important;
+}
+
+.overlay[data-theme="night"] .vocabularyDetailMeta,
+.overlay[data-theme="night"] .guidePreview li {
+  border-color: rgb(191 221 227 / 14%);
+}
+
+.overlay[data-theme="night"] .jumpToSource,
+.overlay[data-theme="night"] .previewSecondaryAction,
+.overlay[data-theme="night"] .feedbackImagePicker,
+.overlay[data-theme="night"] .ankiSettingsBack {
+  border-color: #79b8c5;
+  color: #bde2e9 !important;
+}
+
+.overlay[data-theme="night"] .ankiToolbar button:disabled,
+.overlay[data-theme="night"] .importAnkiAction:disabled,
+.overlay[data-theme="night"] .jumpToSource:disabled {
+  border-color: rgb(190 220 227 / 14%);
+  background: #243840;
+  color: #94a8ad;
+  opacity: 1;
+}
+
+.overlay[data-theme="night"] .feedbackForm input,
+.overlay[data-theme="night"] .feedbackForm select,
+.overlay[data-theme="night"] .feedbackForm textarea {
+  outline-color: rgb(190 220 227 / 30%);
+  background: #102229;
+  color: #eef5f6;
+}
+
+.overlay[data-theme="night"] .feedbackError,
+.overlay[data-theme="night"] .ankiError {
+  color: #ffb9b1;
+}
+
+.overlay[data-theme="night"] .feedbackSuccess i {
+  background: #1f4938;
+  color: #c7efda;
+}
+
 @keyframes layerIn {
   from { transform: translateX(100%); }
   to { transform: translateX(0); }

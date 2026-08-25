@@ -725,6 +725,94 @@
 :global(html[data-context-theme="night"]) .embedded.panel .empty h3 { color: #dce8ea; }
 :global(html[data-context-theme="night"]) .embedded.panel .empty p { color: #afc1c6; }
 
+:global(html[data-context-theme="night"]) .embedded.panel :is(.result, .correction, .translationUsage, .choiceGuide p, .translationMistakes p, .usage p) {
+  color: #dce8ea;
+}
+:global(html[data-context-theme="night"]) .embedded.panel :is(.result h3, .result h4, .correction h3, .translationHead h4, .details li strong, .twoColumns strong) {
+  color: #eaf3f4;
+}
+:global(html[data-context-theme="night"]) .embedded.panel :is(.result header p, .pronunciation > span small, .senses small, .translationGroup > header span, .translationHead > div:first-child > p, .details li em, .twoColumns p, .result footer p, .streamStarting, .streamTail, .correction p) {
+  color: #b3c4c9;
+}
+:global(html[data-context-theme="night"]) .embedded.panel :is(.pronunciation > span, .senses strong, .translationGroup > header h4, .verbForms dd, .details li strong, .twoColumns strong) {
+  color: #9ed2dc;
+}
+:global(html[data-context-theme="night"]) .embedded.panel :is(.senses p, .senses blockquote span, .translations blockquote span, .translationUsage, .choiceGuide p, .translationMistakes p, .vocabularyDetails dd) {
+  color: #dce8ea;
+}
+:global(html[data-context-theme="night"]) .embedded.panel :is(.senses blockquote em, .translations blockquote em, .verbForms dt) {
+  color: #afc1c6;
+}
+:global(html[data-context-theme="night"]) .embedded.panel :is(.senses blockquote, .translations blockquote, .verbForms dl > div, .result footer) {
+  background: #203740;
+}
+:global(html[data-context-theme="night"]) .embedded.panel :is(.result > header, .translationGroup > header, .translations > li, .choiceGuide, .usage, .verbForms, .twoColumns section, .compact .resultPage) {
+  border-color: rgb(190 220 227 / 18%);
+}
+:global(html[data-context-theme="night"]) .embedded.panel .resultToolbar {
+  border-color: rgb(190 220 227 / 18%);
+  color: #b3c4c9;
+}
+:global(html[data-context-theme="night"]) .embedded.panel .resultToolbar button:disabled,
+:global(html[data-context-theme="night"]) .embedded.panel .resultToolbar .regenerateButton:disabled {
+  border-color: rgb(190 220 227 / 16%);
+  background: #243840;
+  color: #9bafb4;
+  opacity: 1;
+}
+:global(html[data-context-theme="night"]) .embedded.panel :is(.examples button, .historyRecent button, .historyMore, .historyListItem) {
+  border-color: rgb(190 220 227 / 16%);
+  background: #253b43;
+  color: #c8dde1;
+}
+:global(html[data-context-theme="night"]) .embedded.panel :is(.historyRecent button:hover, .historyRecent button[aria-current="true"], .historyQuery:hover, .historyQuery[aria-current="true"]) {
+  background: #315f70;
+  color: #f4fafb;
+}
+:global(html[data-context-theme="night"]) .embedded.panel :is(.history, .historyQuery, .historyDelete, .examples) {
+  color: #b3c4c9;
+}
+:global(html[data-context-theme="night"]) .embedded.panel .skeleton i {
+  background: linear-gradient(90deg, #20343c, #2b4650, #20343c);
+  background-size: 220% 100%;
+}
+:global(html[data-context-theme="night"]) .embedded.panel .error { color: #ffb9b1; }
+
+/* Mobile uses compact + panel without the embedded class. Keep it on the same
+   semantic ramp as the desktop dictionary window. */
+:global(html[data-context-theme="night"]) .compact.panel {
+  color: #dce8ea;
+}
+:global(html[data-context-theme="night"]) .compact.panel :is(h2, h3, h4, strong, p, span, small, em, li, dt, dd, label) {
+  color: #dce8ea;
+}
+:global(html[data-context-theme="night"]) .compact.panel :is(.panelIntro, .intro, .examples, .history, .resultToolbar, .result header p, .pronunciation > span small, .senses small, .translationGroup > header span, .translationHead > div:first-child > p, .details li em, .twoColumns p, .result footer p, .streamStarting, .streamTail, .empty p) {
+  color: #b3c4c9;
+}
+:global(html[data-context-theme="night"]) .compact.panel :is(.pronunciation > span, .senses strong, .translationGroup > header h4, .verbForms dd, .details li strong, .twoColumns strong) {
+  color: #9ed2dc;
+}
+:global(html[data-context-theme="night"]) .compact.panel :is(.senses blockquote, .translations blockquote, .verbForms dl > div, .result footer, .examples button, .historyRecent button, .historyMore, .historyListItem) {
+  border-color: rgb(190 220 227 / 16%);
+  background: #203740;
+  color: #dce8ea;
+}
+:global(html[data-context-theme="night"]) .compact.panel :is(.result > header, .translationGroup > header, .translations > li, .choiceGuide, .usage, .verbForms, .twoColumns section, .resultPage) {
+  border-color: rgb(190 220 227 / 18%);
+}
+:global(html[data-context-theme="night"]) .compact.panel .resultToolbar button:disabled,
+:global(html[data-context-theme="night"]) .compact.panel .resultToolbar .regenerateButton:disabled {
+  border-color: rgb(190 220 227 / 16%);
+  background: #243840;
+  color: #9bafb4;
+  opacity: 1;
+}
+:global(html[data-context-theme="night"]) .compact.panel .skeleton i {
+  background: linear-gradient(90deg, #20343c, #2b4650, #20343c);
+  background-size: 220% 100%;
+}
+:global(html[data-context-theme="night"]) .compact.panel .error { color: #ffb9b1; }
+
 @media (max-width: 900px) {
   .dictionary { width: calc(100% - 20px); min-height: 0; margin: 8vh 10px 12vh; grid-template-columns: 1fr; }
   .dictionary::after { display: none; }

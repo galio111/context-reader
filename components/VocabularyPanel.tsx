@@ -192,8 +192,8 @@ export function VocabularyPanel({
   const reconcilingAnki = importingId === "__reconcile__";
   const panelClassName =
     placement === "dialog"
-      ? "mx-auto mt-8 flex h-[calc(100dvh-4rem)] min-h-0 w-[min(920px,calc(100vw-2rem))] flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_22px_60px_rgba(15,23,42,0.22)] sm:mt-10"
-      : "ml-auto flex h-full min-h-0 w-full max-w-3xl flex-col bg-white";
+      ? "cr-reader-panel cr-vocabulary-panel mx-auto mt-8 flex h-[calc(100dvh-4rem)] min-h-0 w-[min(920px,calc(100vw-2rem))] flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_22px_60px_rgba(15,23,42,0.22)] sm:mt-10"
+      : "cr-reader-panel cr-vocabulary-panel ml-auto flex h-full min-h-0 w-full max-w-3xl flex-col bg-white";
 
   useEffect(() => {
     if (open) {

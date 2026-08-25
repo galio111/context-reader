@@ -673,6 +673,25 @@
   color: #d6e7ea;
 }
 
+:global(html[data-context-theme="night"]) .mobileSheetHeader {
+  border-color: rgb(190 220 227 / 18%);
+}
+
+:global(html[data-context-theme="night"]) .mobileSheetHeader button {
+  background: #203740;
+}
+
+:global(html[data-context-theme="night"]) .mobileSheetHeader button:disabled {
+  background: #243840;
+  color: #9bafb4;
+  opacity: 1;
+}
+
+:global(html[data-context-theme="night"]) .mobileToolEmpty p,
+:global(html[data-context-theme="night"]) .mobileArticleActions > p {
+  color: #b3c4c9;
+}
+
 :global(html[data-context-theme="night"]) .workLayer > header {
   border-color: rgb(190 220 227 / 16%);
 }

@@ -111,3 +111,15 @@
 .anki {
   font-size: 14px;
 }
+
+:global(html[data-context-theme="night"]) .details { color: #d6e5e8; }
+:global(html[data-context-theme="night"]) .section + .section { border-color: rgb(190 220 227 / 18%); }
+:global(html[data-context-theme="night"]) .section h4,
+:global(html[data-context-theme="night"]) .synonyms strong { color: #9ed2dc; }
+:global(html[data-context-theme="night"]) .points li::before { background: #79b8c5; }
+:global(html[data-context-theme="night"]) .mistakes { background: #472927; }
+:global(html[data-context-theme="night"]) .mistakes h4 { color: #ffc4bd; }
+:global(html[data-context-theme="night"]) .mistakes .points li::before { background: #e08b81; }
+:global(html[data-context-theme="night"]) .example { background: #203740; }
+:global(html[data-context-theme="night"]) .example p:first-child { color: #e7f0f2; }
+:global(html[data-context-theme="night"]) .example p + p { color: #b3c4c9; }
