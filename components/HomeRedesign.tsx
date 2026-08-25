@@ -1081,7 +1081,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   ].filter(Boolean).join(" · ") || "设置阅读水平与兴趣";
 
   return (
-    <main className={styles.root} data-theme={homeTheme} data-home-mode={memberHome ? "member" : "guest"} data-nav-motion={navMotion} data-guest-preview={guestPreviewAllowed || undefined} data-member-preview={memberPreviewAllowed || undefined}>
+    <main className={styles.root} data-theme={homeTheme} data-home-mode={memberHome ? "member" : "guest"} data-nav-motion={navMotion} data-guest-preview={guestPreviewAllowed || undefined} data-member-preview={memberPreviewAllowed || undefined} data-standalone-tool-open={menuOpen && menuStandalonePreview || undefined}>
       {journeyPending && <div className={styles.accountResolving} role="status" aria-label="正在打开阅读空间"><span /><span /><span /></div>}
       <BookLetterField paused={memberOpeningVisible || !letterMotionEnabled} />
       <header className={styles.topbar}>
@@ -1520,6 +1520,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
         onVocabularyEntriesChange={setVocabularyEntries}
         initialPreview={menuInitialPreview}
         standalonePreview={menuStandalonePreview}
+        avoidHomeQuickNav
         theme={homeTheme}
         letterMotionEnabled={letterMotionEnabled}
         recommendationMotionEnabled={recommendationMotionEnabled}

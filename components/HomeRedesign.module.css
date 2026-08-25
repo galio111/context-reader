@@ -127,6 +127,7 @@
   transition: opacity 150ms ease, transform 180ms ease;
 }
 .quickItem:hover::after, .quickItem:focus-within::after { opacity: 1; transform: translate(0, -50%); }
+.root[data-standalone-tool-open] .quickItem::after { visibility: hidden; opacity: 0; }
 
 .quickButton {
   --pill-action-gap: 8px;

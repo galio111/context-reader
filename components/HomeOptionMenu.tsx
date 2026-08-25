@@ -64,6 +64,7 @@ interface HomeOptionMenuProps {
   onRecommendationMotionChange?: (enabled: boolean) => void;
   placement?: "left" | "right";
   standalonePreview?: boolean;
+  avoidHomeQuickNav?: boolean;
   onVocabularyEntriesChange?: (entries: VocabularyEntry[]) => void;
   ankiTools?: HomeMenuAnkiTools;
   vocabularyTools?: HomeMenuVocabularyTools;
@@ -168,6 +169,7 @@ export function HomeOptionMenu({
   onRecommendationMotionChange,
   placement = "right",
   standalonePreview = false,
+  avoidHomeQuickNav = false,
   onVocabularyEntriesChange,
   ankiTools,
   vocabularyTools,
@@ -453,6 +455,7 @@ export function HomeOptionMenu({
       data-theme={theme}
       data-placement={placement}
       data-standalone={standalonePreview || undefined}
+      data-home-quick-nav-offset={avoidHomeQuickNav || undefined}
       data-local-scroll-surface
       onKeyDown={handleDialogKeyDown}
       onPointerDown={(event) => {

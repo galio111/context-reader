@@ -12,7 +12,15 @@
 }
 
 .overlay[data-standalone] {
+  --standalone-preview-left: 20px;
   --menu-preview-width: min(390px, calc(100vw - 40px));
+}
+
+@media (min-width: 901px) {
+  .overlay[data-standalone][data-home-quick-nav-offset] {
+    --standalone-preview-left: 128px;
+    --menu-preview-width: min(390px, calc(100vw - 148px));
+  }
 }
 
 .overlay button:not(:disabled):active {
@@ -393,7 +401,7 @@
 
 .overlay[data-standalone] .savedPreview {
   right: auto;
-  left: 20px;
+  left: var(--standalone-preview-left);
   padding: 20px 20px 12px;
   border-radius: 16px;
   transform: translateX(-18px);
@@ -406,8 +414,8 @@
 .overlay[data-standalone] .vocabularyDetail {
   top: 88px;
   right: auto;
-  left: calc(var(--menu-preview-width) + 36px);
-  width: min(460px, calc(100vw - var(--menu-preview-width) - 56px));
+  left: calc(var(--standalone-preview-left) + var(--menu-preview-width) + 16px);
+  width: min(460px, calc(100vw - var(--standalone-preview-left) - var(--menu-preview-width) - 36px));
   max-height: min(720px, calc(100svh - 108px));
   transform: translateX(-12px);
 }
