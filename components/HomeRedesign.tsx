@@ -1366,7 +1366,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
               <h2 id="feature-orbit-heading">让一篇文章，真正读下去。</h2>
             </div>
             <div className={styles.orbitControlGroup}>
-              <span className={styles.featureZoneLabel}>功能展示区</span>
+              <div className={styles.featureGuideRow}>
+                <span className={styles.featureZoneLabel}>功能展示区</span>
+                <button type="button" className={styles.featureGuideButton} onClick={() => openMenuPreview("guide")}>查看使用说明 →</button>
+              </div>
               <div className={styles.orbitControls} aria-label="切换功能介绍">
                 <button type="button" aria-label="上一个功能" onClick={() => setFeaturePosition((current) => current - 1)}>←</button>
                 <button type="button" aria-label="下一个功能" onClick={() => setFeaturePosition((current) => current + 1)}>→</button>
@@ -1529,10 +1532,14 @@ export function HomeRedesign(props: HomeRedesignProps) {
         onRecommendationMotionChange={changeRecommendationMotion}
         onOpenImport={scrollToImport}
         onOpenDictionary={openDictionary}
+        onOpenGuide={() => {
+          setMenuStandalonePreview(false);
+          setMenuInitialPreview("guide");
+          setMenuOpen(true);
+        }}
         onClose={() => {
           setMenuOpen(false);
           setMenuInitialPreview(null);
-          setMenuStandalonePreview(false);
         }}
         onOpenSavedArticle={props.onOpenSavedArticle}
         onJumpToVocabularySource={props.onJumpToVocabularySource}

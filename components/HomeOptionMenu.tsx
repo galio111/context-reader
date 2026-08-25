@@ -56,6 +56,7 @@ interface HomeOptionMenuProps {
   initialPreview?: PreviewKind | null;
   onOpenImport?: () => void;
   onOpenDictionary?: () => void;
+  onOpenGuide?: (section?: "anki") => void;
   theme?: "day" | "night";
   letterMotionEnabled?: boolean;
   recommendationMotionEnabled?: boolean;
@@ -161,6 +162,7 @@ export function HomeOptionMenu({
   initialPreview = null,
   onOpenImport,
   onOpenDictionary,
+  onOpenGuide,
   theme = "day",
   letterMotionEnabled = true,
   recommendationMotionEnabled = true,
@@ -179,6 +181,7 @@ export function HomeOptionMenu({
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const vocabularyListRef = useRef<HTMLDivElement | null>(null);
+  const ankiHelpCloseTimerRef = useRef<number | null>(null);
   const [mounted, setMounted] = useState(open);
   const [hoveredVocabularyId, setHoveredVocabularyId] = useState<string | null>(null);
   const [vocabularySearchQuery, setVocabularySearchQuery] = useState("");
@@ -191,6 +194,8 @@ export function HomeOptionMenu({
   const [internalImportingId, setInternalImportingId] = useState("");
   const [internalImportError, setInternalImportError] = useState("");
   const [ankiSettingsOpen, setAnkiSettingsOpen] = useState(false);
+  const [ankiHelpOpen, setAnkiHelpOpen] = useState(false);
+  const [scrollGuideToAnki, setScrollGuideToAnki] = useState(false);
   const items = useMemo(
     () => [
       ...(mobileMenu ? mobileQuickItems : []),
@@ -262,10 +267,33 @@ export function HomeOptionMenu({
   }, []);
 
   useEffect(() => {
-    if (!open || !initialPreview) return;
-    setPreviewAnchorY(standalonePreview ? PREVIEW_ANCHOR_MIN + 12 : PREVIEW_ANCHOR_MIN + 54);
-    setPinnedPreview(initialPreview);
+    if (!open) return;
+    if (initialPreview) {
+      setPreviewAnchorY(standalonePreview ? PREVIEW_ANCHOR_MIN + 12 : PREVIEW_ANCHOR_MIN + 54);
+      setPinnedPreview(initialPreview);
+      return;
+    }
+    if (!standalonePreview) {
+      setPinnedPreview(null);
+      setPreviewAnchorY(null);
+    }
   }, [initialPreview, open, standalonePreview]);
+
+  useEffect(() => {
+    if (!scrollGuideToAnki || visiblePreview !== "guide") return;
+    const frame = window.requestAnimationFrame(() => {
+      const target = document.querySelector<HTMLElement>("[data-home-menu-preview] #anki");
+      const scroller = target?.closest<HTMLElement>("[data-local-scroll-surface]");
+      if (target && scroller) {
+        scroller.scrollTo({
+          top: Math.max(0, target.offsetTop - 82),
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        });
+      }
+      setScrollGuideToAnki(false);
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [scrollGuideToAnki, visiblePreview]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -279,11 +307,16 @@ export function HomeOptionMenu({
 
   useEffect(() => {
     if (open) return;
+    if (ankiHelpCloseTimerRef.current !== null) {
+      window.clearTimeout(ankiHelpCloseTimerRef.current);
+      ankiHelpCloseTimerRef.current = null;
+    }
     setHoveredVocabularyId(null);
     setVocabularySearchQuery("");
     setPinnedPreview(null);
     setPreviewAnchorY(null);
     setAnkiSettingsOpen(false);
+    setAnkiHelpOpen(false);
     if (mounted && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setMounted(false);
       return;
@@ -423,6 +456,35 @@ export function HomeOptionMenu({
     if (item.preview) anchorPreview(event.currentTarget);
   }
 
+  function openDetailedAnkiGuide() {
+    setAnkiHelpOpen(false);
+    setAnkiSettingsOpen(false);
+    setHoveredVocabularyId(null);
+    setScrollGuideToAnki(true);
+    if (onOpenGuide) {
+      onOpenGuide("anki");
+      return;
+    }
+    setPreviewAnchorY(PREVIEW_ANCHOR_MIN);
+    setPinnedPreview("guide");
+  }
+
+  function keepAnkiHelpOpen() {
+    if (ankiHelpCloseTimerRef.current !== null) {
+      window.clearTimeout(ankiHelpCloseTimerRef.current);
+      ankiHelpCloseTimerRef.current = null;
+    }
+    setAnkiHelpOpen(true);
+  }
+
+  function scheduleAnkiHelpClose() {
+    if (ankiHelpCloseTimerRef.current !== null) window.clearTimeout(ankiHelpCloseTimerRef.current);
+    ankiHelpCloseTimerRef.current = window.setTimeout(() => {
+      setAnkiHelpOpen(false);
+      ankiHelpCloseTimerRef.current = null;
+    }, 700);
+  }
+
   function handleDialogKeyDown(event: KeyboardEvent<HTMLElement>) {
     if (event.key === "Escape") {
       event.preventDefault();
@@ -548,7 +610,7 @@ export function HomeOptionMenu({
 
       {visiblePreview && (
         <button
-          className={styles.mobilePreviewBack}
+          className={`${styles.mobilePreviewBack} ${visiblePreview === "guide" ? styles.mobileGuideBack : ""}`}
           type="button"
           onClick={() => {
             if (hoveredVocabularyId) {
@@ -638,29 +700,60 @@ export function HomeOptionMenu({
             <div className={styles.ankiToolbar}>
               <button
                 type="button"
-                onClick={checkAnkiConnection}
-                disabled={effectiveAnkiChecking || Boolean(effectiveImportingId)}
-              >
-                {effectiveAnkiChecking ? "检测中…" : "检测 Anki 连接"}
-              </button>
-              <button
-                type="button"
-                className={styles.ankiPrimaryAction}
                 onClick={importAllToAnki}
                 disabled={Boolean(effectiveImportingId) || unimportedVocabularyCount === 0}
               >
                 {effectiveImportingId === "__all__" ? "批量导入中…" : `批量导入 ${unimportedVocabularyCount}`}
               </button>
-              <button
-                type="button"
-                aria-expanded="false"
-                onClick={() => {
-                  setHoveredVocabularyId(null);
-                  setAnkiSettingsOpen(true);
-                }}
+              <div
+                className={styles.ankiSettingsHelpGroup}
+                onPointerEnter={(event) => { if (event.pointerType === "mouse") keepAnkiHelpOpen(); }}
+                onPointerLeave={(event) => { if (event.pointerType === "mouse") scheduleAnkiHelpClose(); }}
+                onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setAnkiHelpOpen(false); }}
               >
-                Anki 设置
-              </button>
+                <button
+                  type="button"
+                  aria-expanded={ankiSettingsOpen}
+                  onClick={() => {
+                    setHoveredVocabularyId(null);
+                    setAnkiHelpOpen(false);
+                    setAnkiSettingsOpen(true);
+                  }}
+                >
+                  Anki 设置
+                </button>
+                <button
+                  type="button"
+                  className={styles.ankiHelpTrigger}
+                  aria-label="Anki 是什么"
+                  aria-expanded={ankiHelpOpen}
+                  onFocus={() => setAnkiHelpOpen(true)}
+                  onClick={keepAnkiHelpOpen}
+                >
+                  ?
+                </button>
+                {ankiHelpOpen && (
+                  <div
+                    className={styles.ankiHelpPopover}
+                    role="tooltip"
+                    onPointerEnter={keepAnkiHelpOpen}
+                    onPointerDown={(event) => event.stopPropagation()}
+                  >
+                    <strong>Anki 是什么？</strong>
+                    <p>Anki 是一款间隔重复记忆软件。Context Reader 把阅读中保存的词和原句做成卡片，Anki 再安排它们何时复习。</p>
+                    <button
+                      type="button"
+                      onPointerDown={(event) => {
+                        event.stopPropagation();
+                        openDetailedAnkiGuide();
+                      }}
+                      onClick={openDetailedAnkiGuide}
+                    >
+                      查看安装与详细用法 →
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
             <div className={styles.vocabularyManageBar}>
               <button type="button" onClick={exportVocabulary}>导出 CSV</button>

@@ -667,6 +667,9 @@
 .featureOrbit > header { display: flex; width: min(1320px, 100%); margin: 0 auto 28px; align-items: end; justify-content: space-between; gap: 32px; }
 .orbitHeading { min-width: 0; }
 .orbitControlGroup { display: grid; justify-items: start; gap: 11px; }
+.featureGuideRow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.featureGuideButton { min-height: 32px; padding: 0 4px; border: 0; color: #315f6d; background: transparent; font: inherit; font-size: 12px; font-weight: 700; text-decoration: underline; text-decoration-color: rgb(49 95 109 / 28%); text-underline-offset: 4px; cursor: pointer; }
+.featureGuideButton:hover, .featureGuideButton:focus-visible { color: #173f4d; text-decoration-color: currentColor; }
 .featureOrbit > header p { margin: 0 0 10px; color: #607b84; font-size: 10px; font-weight: 700; letter-spacing: .15em; }
 .featureOrbit h2 { max-width: 650px; margin: 0; font-family: "Songti SC", "STSong", ui-serif, serif; font-size: clamp(2.25rem, 3.8vw, 4.2rem); font-weight: 500; letter-spacing: -.035em; line-height: 1.1; }
 .orbitControls { display: flex; align-items: center; gap: 13px; color: #53707b; }
@@ -848,6 +851,7 @@
 .root[data-theme="night"] .importPanel input::placeholder { color: #a7b9be; }
 .root[data-theme="night"] .featureOrbit { background: radial-gradient(circle at 50% 42%, #20363b 0%, #1b3035 54%, #192b30 100%); }
 .root[data-theme="night"] .featureZoneLabel { border-color: rgb(184 222 228 / 22%); color: #c8e2e6; background: rgb(20 42 49 / 82%); }
+.root[data-theme="night"] .featureGuideButton { color: #c8e2e6; }
 .root[data-theme="night"] .orbitCard { border-color: rgb(190 222 228 / 15%); color: #e1edef; background: rgb(24 42 48 / 98%); box-shadow: 0 7px 8px rgb(0 0 0 / 24%); }
 .root[data-theme="night"] .closingSection { background: linear-gradient(180deg, #1b2d31 0%, #202f31 18%, #202f31 100%); }
 .root[data-theme="night"] .closingActions > button,

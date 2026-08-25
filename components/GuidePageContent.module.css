@@ -1,0 +1,133 @@
+.guide { min-height: 100%; color: #172b35; background: #f2f6f6; font-family: "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", system-ui, sans-serif; scroll-behavior: smooth; }
+.topbar { position: sticky; z-index: 30; top: 0; display: flex; min-height: 68px; padding: 0 clamp(18px, 3vw, 42px); align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid rgb(25 61 72 / 11%); background: rgb(247 250 250 / 97%); }
+.brand { display: flex; min-width: 0; align-items: baseline; gap: 12px; color: inherit; text-decoration: none; }
+.brand strong { font-size: 15px; }
+.brand span { color: #60757d; font-size: 12px; }
+.startButton, .introActions a:first-child, .guideFooter > a { display: inline-flex; min-height: 40px; padding: 0 17px; align-items: center; gap: 8px; border-radius: 999px; color: #fff; background: #1a6074; font-size: 13px; font-weight: 700; text-decoration: none; }
+.startButton svg, .introActions svg, .guideFooter svg, .ankiAfterImport svg { width: 17px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
+.shell { display: grid; width: min(1280px, 100%); margin: 0 auto; padding: 34px clamp(18px, 3vw, 42px) 86px; grid-template-columns: 222px minmax(0, 1fr); gap: clamp(42px, 5vw, 74px); }
+.directory nav { position: sticky; top: 102px; display: grid; max-height: calc(100svh - 126px); padding-top: 15px; overflow-y: auto; border-top: 1px solid rgb(24 62 73 / 18%); }
+.directory nav > p { margin: 0 0 10px; color: #71838a; font-size: 11px; font-weight: 700; }
+.directory nav > a { padding: 9px 10px; border-radius: 8px; color: #4e6670; font-size: 13px; font-weight: 600; text-decoration: none; }
+.directory nav > a:hover, .directory nav > a:focus-visible { color: #174f62; background: #e2edef; outline: none; }
+.directoryNote { margin-top: 18px; padding: 14px; border-radius: 12px; color: #4d6771; background: #e3edef; font-size: 12px; line-height: 1.65; }
+.directoryNote strong { display: block; margin-bottom: 3px; color: #214b5a; }
+.mobileDirectory { display: none; }
+.content { min-width: 0; }
+.intro { display: grid; min-height: 420px; padding: clamp(38px, 5vw, 58px); grid-template-columns: 1fr; align-content: center; gap: 30px; border-radius: 16px; background: #e4eeee; }
+.introLabel { margin: 0 0 20px; color: #356573; font-size: 12px; font-weight: 700; }
+.intro h1 { max-width: 14ch; margin: 0; color: #173d49; font-size: clamp(2.45rem, 4vw, 3.8rem); font-weight: 650; letter-spacing: -.038em; line-height: 1.08; text-wrap: balance; }
+.intro > div > p:last-of-type { max-width: 65ch; margin: 28px 0 0; color: #47646e; font-size: 16px; line-height: 1.8; }
+.introActions { display: flex; margin-top: 30px; align-items: center; flex-wrap: wrap; gap: 14px; }
+.introActions a:last-child { padding: 11px 4px; color: #245c6d; font-size: 13px; font-weight: 700; text-underline-offset: 4px; }
+.introAside { width: min(650px, 100%); padding: 18px 20px; border-radius: 14px; background: rgb(250 252 252 / 77%); }
+.introAside > span { color: #6a7f87; font-size: 11px; font-weight: 700; }
+.introAside ol { display: grid; margin: 14px 0; padding: 0; grid-template-columns: repeat(3, 1fr); gap: 12px; list-style: none; counter-reset: path; }
+.introAside li { display: flex; padding: 4px 0; align-items: center; gap: 9px; font-size: 12px; font-weight: 650; counter-increment: path; }
+.introAside li::before { content: counter(path); display: grid; width: 24px; height: 24px; place-items: center; border-radius: 50%; color: #245c6d; background: #d8e8ea; font-size: 10px; }
+.introAside p { margin: 0; color: #62757d; font-size: 11px; }
+.section { padding: 82px 0; border-bottom: 1px solid rgb(24 60 72 / 12%); scroll-margin-top: 86px; }
+.sectionHeading { max-width: 740px; }
+.sectionHeading h2 { margin: 0; color: #183d49; font-size: clamp(2rem, 3.4vw, 3.2rem); font-weight: 650; letter-spacing: -.035em; line-height: 1.12; text-wrap: balance; }
+.sectionHeading p { max-width: 70ch; margin: 18px 0 0; color: #566d76; font-size: 15px; line-height: 1.8; text-wrap: pretty; }
+.quickSteps { margin: 38px 0 0; padding: 0; border-block: 1px solid rgb(26 65 77 / 14%); list-style: none; }
+.quickSteps li { display: grid; padding: 25px 0; grid-template-columns: 42px minmax(0, 1fr); gap: 18px; border-bottom: 1px solid rgb(26 65 77 / 11%); }
+.quickSteps li:last-child { border: 0; }
+.quickSteps li > span { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 50%; color: #245d6d; background: #dcebed; font-size: 11px; font-weight: 800; }
+.quickSteps h3, .quickSteps p { margin: 0; }
+.quickSteps h3 { font-size: 17px; }
+.quickSteps p { max-width: 69ch; margin-top: 7px; color: #5a7078; font-size: 14px; line-height: 1.7; }
+.softNote { display: flex; width: fit-content; margin-top: 24px; padding: 12px 15px; align-items: baseline; flex-wrap: wrap; gap: 7px 12px; border-radius: 11px; color: #4b6670; background: #e4edef; font-size: 12px; line-height: 1.55; }
+.softNote strong { color: #255364; }
+.featureList { margin-top: 40px; }
+.featureList > section { display: grid; padding: 30px 0; grid-template-columns: 52px minmax(0, 1fr) minmax(190px, .46fr); gap: 18px 26px; border-top: 1px solid rgb(26 65 77 / 14%); }
+.featureList > section > span { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 10px; color: #285c6b; background: #d9e9e9; font-size: 10px; font-weight: 800; }
+.featureList > section[data-tone="blue"] > span { color: #3e5f80; background: #dfe7f0; }
+.featureList > section[data-tone="violet"] > span { color: #615c80; background: #e8e3ef; }
+.featureList > section[data-tone="peach"] > span { color: #815c45; background: #eee1d8; }
+.featureList h3, .featureList p { margin: 0; }
+.featureList h3 { color: #233f49; font-size: 20px; }
+.featureList p { max-width: 62ch; margin-top: 9px; color: #5a7078; font-size: 14px; line-height: 1.75; }
+.featureList ul { display: flex; margin: 0; padding: 0; align-content: start; flex-wrap: wrap; gap: 8px; list-style: none; }
+.featureList li, .ankiAfterImport li { padding: 7px 10px; border-radius: 999px; color: #4f6871; background: #e5edef; font-size: 11px; font-weight: 650; }
+.toolList { margin-top: 38px; border-top: 1px solid rgb(26 65 77 / 14%); }
+.toolList details, .faqGroups details { border-bottom: 1px solid rgb(26 65 77 / 12%); }
+.toolList summary, .faqGroups summary { display: flex; padding: 20px 0; align-items: center; justify-content: space-between; gap: 24px; color: #294650; font-size: 15px; font-weight: 700; cursor: pointer; list-style: none; }
+.toolList summary::-webkit-details-marker, .faqGroups summary::-webkit-details-marker { display: none; }
+.toolList summary i, .faqGroups summary i { display: grid; width: 28px; height: 28px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #3b6875; background: #e1ecee; font-style: normal; font-weight: 500; transition: transform 180ms ease; }
+.toolList details[open] summary i, .faqGroups details[open] summary i { transform: rotate(45deg); }
+.toolList details > p, .faqGroups details > p { max-width: 70ch; margin: -4px 0 22px; color: #5a7078; font-size: 14px; line-height: 1.75; }
+.readingRhythm { margin-top: 34px; padding: 22px; border-radius: 13px; background: #e5eeee; }
+.readingRhythm > strong { color: #254d59; font-size: 13px; }
+.readingRhythm ol { display: grid; margin: 18px 0 0; padding: 0; grid-template-columns: repeat(4, 1fr); gap: 12px; list-style: none; }
+.readingRhythm li { display: grid; gap: 5px; }
+.readingRhythm b { color: #1e5667; font-size: 18px; }
+.readingRhythm span { color: #60737a; font-size: 11px; }
+.ankiRoles { display: grid; margin-top: 40px; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 18px; }
+.ankiRoles > div { min-height: 172px; padding: 24px; border-radius: 13px; background: #e1edef; }
+.ankiRoles > div:last-child { background: #e9ecef; }
+.ankiRoles > i { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; color: #fff; background: #2c6979; font-style: normal; }
+.ankiRoles span { color: #58757f; font-size: 11px; font-weight: 700; }
+.ankiRoles strong { display: block; margin-top: 12px; color: #234a57; font-size: 18px; }
+.ankiRoles p { margin: 8px 0 0; color: #5a7078; font-size: 13px; line-height: 1.7; }
+.ankiTerms { display: grid; margin-top: 16px; grid-template-columns: repeat(3, 1fr); gap: 1px; overflow: hidden; border-radius: 12px; background: #cad8dc; }
+.ankiTerms div { padding: 18px; background: #f8fafa; }
+.ankiTerms strong, .ankiTerms span { display: block; }
+.ankiTerms strong { color: #295364; }
+.ankiTerms span { margin-top: 7px; color: #62757d; font-size: 12px; line-height: 1.6; }
+.ankiSetup { margin-top: 28px; }
+.ankiAfterImport { margin-top: 24px; padding: 25px; border-radius: 13px; background: #f9fbfb; }
+.ankiAfterImport h3, .ankiAfterImport p { margin: 0; }
+.ankiAfterImport p { margin-top: 6px; color: #60747c; font-size: 13px; line-height: 1.65; }
+.ankiAfterImport ul { display: flex; margin: 18px 0; padding: 0; flex-wrap: wrap; gap: 8px; list-style: none; }
+.ankiAfterImport a { display: inline-flex; align-items: center; gap: 7px; color: #1b6074; font-size: 12px; font-weight: 700; text-underline-offset: 3px; }
+.dataRows { margin-top: 38px; border-block: 1px solid rgb(26 65 77 / 14%); }
+.dataRows > div { display: grid; padding: 23px 0; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; border-bottom: 1px solid rgb(26 65 77 / 11%); }
+.dataRows > div:last-child { border: 0; }
+.dataRows strong { color: #2b5360; }
+.dataRows p { max-width: 68ch; margin: 0; color: #5b7179; font-size: 13px; line-height: 1.75; }
+.faqGroups { display: grid; margin-top: 38px; gap: 34px; }
+.faqGroups h3 { margin: 0 0 8px; color: #355762; font-size: 16px; }
+.releaseNotes { margin: 38px 0 0; padding: 0; border-block: 1px solid rgb(26 65 77 / 14%); list-style: none; }
+.releaseNotes li { display: grid; padding: 23px 0; grid-template-columns: 110px minmax(0, 1fr); gap: 24px; border-bottom: 1px solid rgb(26 65 77 / 11%); }
+.releaseNotes time { color: #326579; font-size: 11px; font-weight: 750; }
+.releaseNotes h3, .releaseNotes p { margin: 0; }
+.releaseNotes h3 { font-size: 16px; }
+.releaseNotes p { margin-top: 7px; color: #5b7179; font-size: 13px; line-height: 1.7; }
+.guideFooter { display: grid; margin-top: 64px; padding: 34px; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 30px; border-radius: 14px; background: #dfeaec; }
+.guideFooter h2, .guideFooter p { margin: 0; }
+.guideFooter h2 { color: #214955; font-size: 24px; }
+.guideFooter p { max-width: 66ch; margin-top: 9px; color: #587078; font-size: 13px; line-height: 1.7; }
+.guideFooter span { display: block; margin-top: 13px; color: #45646e; font-size: 12px; }
+@media (max-width: 900px) {
+  .shell { display: block; padding-top: 22px; }
+  .directory { display: none; }
+  .mobileDirectory { position: sticky; z-index: 25; top: 68px; display: block; padding: 10px 0; border-bottom: 1px solid rgb(25 61 72 / 10%); background: rgb(242 246 246 / 97%); }
+  .mobileDirectory nav { display: flex; padding: 0 18px; gap: 8px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+  .mobileDirectory nav::-webkit-scrollbar { display: none; }
+  .mobileDirectory a { flex: 0 0 auto; padding: 9px 12px; border-radius: 999px; color: #506a73; background: #e3edef; font-size: 12px; font-weight: 650; text-decoration: none; }
+  .section { scroll-margin-top: 128px; }
+}
+@media (max-width: 680px) {
+  .topbar { padding-inline: 18px; }
+  .brand span { display: none; }
+  .startButton { min-height: 38px; padding-inline: 14px; }
+  .shell { padding: 14px 14px 54px; }
+  .intro { min-height: 0; padding: 36px 24px 26px; grid-template-columns: 1fr; border-radius: 13px; }
+  .intro h1 { font-size: clamp(2.35rem, 12vw, 3.7rem); }
+  .intro > div > p:last-of-type { margin-top: 22px; font-size: 14px; }
+  .introAside { padding: 18px; }
+  .introAside ol { grid-template-columns: 1fr; }
+  .section { padding: 66px 6px; }
+  .sectionHeading h2 { font-size: 2rem; }
+  .featureList > section { grid-template-columns: 42px minmax(0, 1fr); }
+  .featureList ul { grid-column: 2; }
+  .readingRhythm ol { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .ankiRoles { grid-template-columns: 1fr; }
+  .ankiRoles > i { transform: rotate(90deg); justify-self: center; }
+  .ankiTerms { grid-template-columns: 1fr; }
+  .dataRows > div, .releaseNotes li { grid-template-columns: 1fr; gap: 8px; }
+  .guideFooter { padding: 26px 22px; grid-template-columns: 1fr; }
+  .guideFooter > a { width: fit-content; }
+}
+@media (prefers-reduced-motion: reduce) { .guide { scroll-behavior: auto; } .toolList summary i, .faqGroups summary i { transition: none; } }

@@ -5,7 +5,7 @@
   --menu-feedback-preview-width: min(620px, calc(100vw - var(--menu-panel-width) - 48px));
 
   position: fixed;
-  z-index: 90;
+  z-index: 140;
   inset: 0;
   overflow: hidden;
   color: #122430;
@@ -340,14 +340,14 @@
 }
 
 .pagePreview {
-  top: 76px;
-  bottom: auto;
-  width: var(--menu-page-preview-width);
-  height: min(620px, calc(100svh - 96px));
-  max-height: min(620px, calc(100svh - 96px));
+  top: 16px;
+  bottom: 16px;
+  width: min(1080px, calc(100vw - var(--menu-panel-width) - 54px));
+  height: auto;
+  max-height: none;
   padding: 0;
-  border-radius: 12px 0 0 12px;
-  background: transparent;
+  border-radius: 14px;
+  background: #f2f6f6;
   text-shadow: none;
 }
 
@@ -528,6 +528,42 @@
   flex-wrap: wrap;
   gap: 7px;
 }
+
+.ankiSettingsHelpGroup {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ankiToolbar .ankiHelpTrigger {
+  width: 26px;
+  min-height: 26px;
+  padding: 0;
+  justify-content: center;
+  border-color: #9db4c0;
+  font-size: 12px;
+  cursor: help;
+}
+
+.ankiHelpPopover {
+  position: absolute;
+  z-index: 9;
+  top: calc(100% + 9px);
+  left: 0;
+  width: min(250px, calc(100vw - 72px));
+  padding: 15px;
+  border-radius: 12px;
+  color: #29434f;
+  background: #f8fbfb;
+  box-shadow: 0 7px 8px rgb(22 58 71 / 16%);
+}
+
+.ankiHelpPopover strong,
+.ankiHelpPopover p { display: block; margin: 0; }
+.ankiHelpPopover strong { font-size: 13px; }
+.ankiHelpPopover p { margin-top: 7px; color: #536c77; font-size: 11px; font-weight: 500; line-height: 1.65; }
+.ankiToolbar .ankiHelpPopover button { min-height: 30px; margin-top: 11px; padding: 0; border: 0; border-radius: 0; color: #245f82; background: transparent; font-size: 11px; }
 
 .ankiToolbar button,
 .importAnkiAction,
@@ -1575,6 +1611,29 @@
 
   .savedPreviewVisible {
     transform: translateY(0);
+  }
+
+  .savedPreview.pagePreview {
+    inset: 0 !important;
+    width: 100dvw;
+    height: 100svh;
+    max-height: 100svh;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: #f2f6f6;
+    transform: translateY(10px);
+  }
+
+  .savedPreview.pagePreview.savedPreviewVisible { transform: translateY(0); }
+
+  .mobileGuideBack {
+    z-index: 40;
+    top: auto;
+    right: 14px;
+    bottom: 16px;
+    left: auto;
+    box-shadow: 0 3px 7px rgb(24 53 71 / 18%);
   }
 
   .vocabularyDetail {
