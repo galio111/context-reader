@@ -2275,7 +2275,7 @@ export function ReaderView({
       return;
     }
     setReaderImportBusy(true);
-    setReaderImportStatus("正在读取文章…");
+    setReaderImportStatus("正在读取文章并把图片保存到本站…");
     try {
       const response = await fetch("/api/import-url", {
         method: "POST",

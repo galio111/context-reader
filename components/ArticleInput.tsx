@@ -334,7 +334,7 @@ export function ArticleInput({
                   <ClearableField className="min-w-0 flex-1" value={articleUrl} onClear={() => onArticleUrlChange("")} label="清空文章网址">
                     <input id="article-url" className="h-12 w-full min-w-0 rounded-full border border-[#cfd7d2] bg-[#f8faf8] px-5 text-base text-[#18211d] outline-none placeholder:text-[#69766f] focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15" value={articleUrl} onChange={(event) => onArticleUrlChange(event.target.value)} placeholder="https://example.com/article" type="url" onKeyDown={(event) => { if (event.key === "Enter") onImportUrl(); }} />
                   </ClearableField>
-                  <button className="h-12 rounded-full bg-[#1769aa] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#125b94] disabled:bg-[#9ba7a1]" type="button" onClick={onImportUrl} disabled={importingUrl}>{importingUrl ? "正在导入..." : "导入并阅读"}</button>
+                  <button className="h-12 rounded-full bg-[#1769aa] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#125b94] disabled:bg-[#9ba7a1]" type="button" onClick={onImportUrl} disabled={importingUrl}>{importingUrl ? "正在读取并保存图片…" : "导入并阅读"}</button>
                 </div>
                 <p className="mt-3 min-h-5 text-center text-sm text-red-700" role="alert">{urlError}</p>
               </div>

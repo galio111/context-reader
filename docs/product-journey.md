@@ -815,17 +815,19 @@ Reader 顶部“生词本”改为 Menu，撤销/重做箭头仅在编辑态出�
 
 ## 2026-08-25：保存文章与普通网址导入图片统一迁回本站
 
-**状态：独立生产基线 worktree 已实现；类型检查、发布契约与静态外联审计通过，生产构建、发布、历史账号数据迁移和公网逐图验收待完成**
+**状态：已完成并上线；10 篇历史保存文章的 37/37 张外链正文图已迁回本站，新网址导入不再持久化外站图片地址**
 
 **类型：网址导入 / 保存文章 / 账号同步 / 正文图片 / 中国大陆网络 / 第一方 Storage**
 
-**证据：** 用户提供的 TIME 保存文章现场截图、生产库只读盘点、`app/api/import-url/route.ts`、`lib/publicArticleCovers.ts`、`lib/savedArticleImages.ts`、`app/api/article-images/localize/route.ts`、`ops/mainland/repair-saved-article-images.py`
+**证据：** 用户提供的 TIME 保存文章现场截图、生产库迁移前后盘点、`app/api/import-url/route.ts`、`lib/publicArticleCovers.ts`、`lib/savedArticleImages.ts`、`app/api/article-images/localize/route.ts`、`ops/mainland/repair-saved-article-images.py`、生产 release `20260825T234440` 与安全边界修正 release `20260825T235702`
 
 上一轮修复覆盖的是公开推荐发布链路与 13 篇历史公开文章，并没有改变普通网址导入返回给 Reader 的正文图片地址。用户把网址文章保存后，`SavedArticle.importedArticle.blocks` 仍会把 TIME、NASA、BBC、FINRA 等外站 URL 写入本地与账号同步对象，因此公开推荐已经正常，同一篇内容在“我的文章”里仍可能因中国大陆直连、外站防盗链或 CDN 超时显示占位。生产库发布前只读盘点确认有 10 篇 active 保存文章仍含 37 张外链正文图。
 
 新链路把图片站内化前移到每一次 `/api/import-url`：正文抽取完成后，只对最终保留的意义图片做 pinned-DNS 抓取、字节/像素限制、Sharp WebP 转换和内容寻址存储，Reader 与随后保存/同步拿到的从一开始就是本站 URL。普通来源先直连，失败后才允许 `images.weserv.nl` 作为服务端摄取通道；已知在大陆直连超时的 TIME 静态域名先走摄取通道。原始 URL 在构造代理前也必须通过私网/特殊地址检查，浏览器和持久数据永远不会收到代理地址。任一新导入图片未能保存时，导入失败且不进入游客次数确认，不把新的破图外链持久化。
 
 历史数据采用两层修复：受保护 Admin 迁移扫描 active `user_data_objects/article`，逐篇内容寻址转存，并通过现有 compare-and-swap RPC 提升版本；文章 id、正文、创建/修改时间与阅读进度不变，在线客户端通过 protocol 2 收到新图片地址。仍只存在于某个浏览器的旧文章点击后立即进入 Reader，登录态懒修复只在阅读已经可交互后低并发后台执行，成功替换再走正常账号同步，绝不把媒体迁移放在打开文章的阻塞路径。站内 WebP 限制在 1600px 内，保留图片尺寸占位、Reader 首图短上限门、后续懒加载、全进程三路服务端摄取上限和一年不可变缓存，避免转存换来首屏、滚动或整站响应卡顿。首次生产迁移还暴露出安全抓取器把整个 `192.0.0.0/16` 误判为特殊地址，连带拒绝 `science.nasa.gov` 使用的公开 WordPress VIP `192.0.66.108`；修复改为只拦截精确特殊网段，私网/保留地址保护不放宽。`article-image-localization-v1` 加入累计发布契约，防止后续改动再次让普通导入或保存文章退回外站热链。只有生产新版本身份、37 张历史图片迁移结果、外链计数清零、逐个第一方资源 HTTP 图片响应及 Reader 打开/滚动性能全部验证后，本段才可更新为已上线。
+
+最终生产库为保存文章外链正文图 `0`、本站正文图 `37`；37 个唯一资源全部返回 HTTP 200 `image/webp`，总计 3,526,094 bytes，最大单图 407,984 bytes，全部带一年缓存。使用真实 `https://science.nasa.gov/exoplanets/` 再导入一次，20 张正文图在 21.8 秒内全部返回本站地址且外链为 0；转存同时连续 26 次探测公网连接接口全部 HTTP 200，平均 354ms、最慢 1.416s，证明重型摄取没有冻结整站。迁移前备份 `context-reader-20260825T154801Z.dump` 已生成并实际恢复验证 15 张 public 表；完整 61 路由生产构建、类型检查、静态外联审计、根首页、旧路由重定向、匿名同步/Admin 边界、全栈健康、四个 timer 与多版本回滚镜像均通过。Chrome 自动化能打开生产首页和“我的文章”面板，但在读取长动画页面状态时扩展多次超时，因此不把它写成一次完整的用户设备视觉验收；功能与性能结论来自生产数据、逐图响应、并发探测和既有 Reader 懒加载/占位契约。
 
 ## 2026-08-25：夜间阅读与全部工具窗口完成系统性对比度修复
 
