@@ -324,8 +324,8 @@
   .desktopRail { display: grid; }
 
   .toolbar {
-    inset: 14px 20px auto auto;
-    width: auto;
+    inset: 14px max(20px, calc(20px + (100vw - 168px - 1380px) / 2)) auto auto;
+    width: 360px;
     max-width: calc(100vw - 168px);
     height: 44px;
     margin: 0;
@@ -334,9 +334,14 @@
   }
 
   .actions {
-    width: auto;
-    max-width: calc(100vw - 168px);
-    justify-content: flex-end;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .action {
+    padding-inline: 12px;
   }
 
   .readerLayout {
