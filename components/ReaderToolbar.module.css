@@ -30,6 +30,10 @@
   display: none;
 }
 
+.historyActions {
+  display: none;
+}
+
 .action {
   height: 42px;
   flex: 0 0 auto;
@@ -338,6 +342,14 @@
     max-width: 100%;
     justify-content: space-between;
     gap: 6px;
+  }
+
+  .historyActions {
+    position: absolute;
+    right: calc(100% + 8px);
+    display: flex;
+    gap: 6px;
+    pointer-events: auto;
   }
 
   .action {

@@ -3095,39 +3095,34 @@ export function ReaderView({
           onClick={() => void handleBackToHome()}
           disabled={savingArticleEdit}
         />
+        {editingArticle && (
+          <div className={toolbarStyles.historyActions} aria-label="文章编辑历史">
+            <PillNavAction
+              className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
+              label="←"
+              onClick={() => void undoSavedArticleEdit()}
+              disabled={savingArticleEdit || articleUndoStack.length === 0}
+              ariaLabel="撤销文章编辑"
+              title="撤销文章编辑"
+            />
+            <PillNavAction
+              className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
+              label="→"
+              onClick={() => void redoSavedArticleEdit()}
+              disabled={savingArticleEdit || articleRedoStack.length === 0}
+              ariaLabel="重做文章编辑"
+              title="重做文章编辑"
+            />
+          </div>
+        )}
         <div className={toolbarStyles.actions}>
           {editingArticle ? (
-            <>
-              <PillNavAction
-                className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
-                label="←"
-                onClick={() => void undoSavedArticleEdit()}
-                disabled={savingArticleEdit || articleUndoStack.length === 0}
-                ariaLabel="撤销文章编辑"
-                title="撤销文章编辑"
-              />
-              <PillNavAction
-                className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
-                label="→"
-                onClick={() => void redoSavedArticleEdit()}
-                disabled={savingArticleEdit || articleRedoStack.length === 0}
-                ariaLabel="重做文章编辑"
-                title="重做文章编辑"
-              />
-              <PillNavAction
-                className={toolbarStyles.action}
-                label="取消编辑"
-                onClick={cancelArticleEditing}
-                disabled={savingArticleEdit}
-              />
-              <PillNavAction
-                className={`${toolbarStyles.action} ${toolbarStyles.primaryAction}`}
-                tone="dark"
-                label={savingArticleEdit ? "保存中..." : "保存编辑"}
-                onClick={() => void saveArticleEditing()}
-                disabled={savingArticleEdit}
-              />
-            </>
+            <PillNavAction
+              className={toolbarStyles.action}
+              label="取消编辑"
+              onClick={cancelArticleEditing}
+              disabled={savingArticleEdit}
+            />
           ) : (
             <PillNavAction
               className={toolbarStyles.action}
@@ -3141,12 +3136,22 @@ export function ReaderView({
             onClick={handleCopyArticle}
             disabled={editingArticle}
           />
-          <PillNavAction
-            className={toolbarStyles.action}
-            label={saveButtonText}
-            onClick={handleSaveArticle}
-            disabled={articleSaved || savingArticle || savingArticleEdit || editingArticle}
-          />
+          {editingArticle ? (
+            <PillNavAction
+              className={`${toolbarStyles.action} ${toolbarStyles.primaryAction}`}
+              tone="dark"
+              label={savingArticleEdit ? "保存中..." : "保存编辑"}
+              onClick={() => void saveArticleEditing()}
+              disabled={savingArticleEdit}
+            />
+          ) : (
+            <PillNavAction
+              className={toolbarStyles.action}
+              label={saveButtonText}
+              onClick={handleSaveArticle}
+              disabled={articleSaved || savingArticle || savingArticleEdit}
+            />
+          )}
           <PillNavAction
             className={`${toolbarStyles.action} ${toolbarStyles.primaryAction}`}
             tone="dark"
@@ -4048,4 +4053,3 @@ export function ReaderView({
     </main>
   );
 }
-
