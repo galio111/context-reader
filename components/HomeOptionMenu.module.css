@@ -558,7 +558,7 @@
 .ankiHelpPopover {
   position: absolute;
   z-index: 9;
-  top: calc(100% + 9px);
+  top: 100%;
   left: 0;
   width: min(250px, calc(100vw - 72px));
   padding: 15px;

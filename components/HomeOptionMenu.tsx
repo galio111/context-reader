@@ -181,7 +181,6 @@ export function HomeOptionMenu({
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const vocabularyListRef = useRef<HTMLDivElement | null>(null);
-  const ankiHelpCloseTimerRef = useRef<number | null>(null);
   const [mounted, setMounted] = useState(open);
   const [hoveredVocabularyId, setHoveredVocabularyId] = useState<string | null>(null);
   const [vocabularySearchQuery, setVocabularySearchQuery] = useState("");
@@ -307,10 +306,6 @@ export function HomeOptionMenu({
 
   useEffect(() => {
     if (open) return;
-    if (ankiHelpCloseTimerRef.current !== null) {
-      window.clearTimeout(ankiHelpCloseTimerRef.current);
-      ankiHelpCloseTimerRef.current = null;
-    }
     setHoveredVocabularyId(null);
     setVocabularySearchQuery("");
     setPinnedPreview(null);
@@ -470,19 +465,7 @@ export function HomeOptionMenu({
   }
 
   function keepAnkiHelpOpen() {
-    if (ankiHelpCloseTimerRef.current !== null) {
-      window.clearTimeout(ankiHelpCloseTimerRef.current);
-      ankiHelpCloseTimerRef.current = null;
-    }
     setAnkiHelpOpen(true);
-  }
-
-  function scheduleAnkiHelpClose() {
-    if (ankiHelpCloseTimerRef.current !== null) window.clearTimeout(ankiHelpCloseTimerRef.current);
-    ankiHelpCloseTimerRef.current = window.setTimeout(() => {
-      setAnkiHelpOpen(false);
-      ankiHelpCloseTimerRef.current = null;
-    }, 700);
   }
 
   function handleDialogKeyDown(event: KeyboardEvent<HTMLElement>) {
@@ -636,7 +619,13 @@ export function HomeOptionMenu({
         subtitle="完整使用说明"
       >
         <div className={styles.pageContent} data-local-scroll-surface>
-          <GuidePageContent embedded />
+          <GuidePageContent
+            embedded
+            onOpenFeedback={() => {
+              setPreviewAnchorY(PREVIEW_ANCHOR_MIN);
+              setPinnedPreview("feedback");
+            }}
+          />
         </div>
       </MenuPreview>
 
@@ -708,7 +697,7 @@ export function HomeOptionMenu({
               <div
                 className={styles.ankiSettingsHelpGroup}
                 onPointerEnter={(event) => { if (event.pointerType === "mouse") keepAnkiHelpOpen(); }}
-                onPointerLeave={(event) => { if (event.pointerType === "mouse") scheduleAnkiHelpClose(); }}
+                onPointerLeave={(event) => { if (event.pointerType === "mouse") setAnkiHelpOpen(false); }}
                 onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setAnkiHelpOpen(false); }}
               >
                 <button

@@ -76,7 +76,7 @@ export async function invokeAnkiConnect<T>(
     });
   } catch {
     throw new AnkiConnectError(
-      `无法连接 AnkiConnect。请确认 Anki 已打开、AnkiConnect 插件已安装，并且地址 ${safeEndpoint} 可以访问。如果你正在使用线上网站，请在 AnkiConnect 配置的 webCorsOriginList 中允许 https://context-reader-ten.vercel.app。`,
+      `无法连接 AnkiConnect。请确认 Anki 已打开、AnkiConnect 插件已安装，并且地址 ${safeEndpoint} 可以访问。如果你正在使用线上网站，请在 AnkiConnect 配置的 webCorsOriginList 中允许 https://context-reader.com。`,
     );
   }
 

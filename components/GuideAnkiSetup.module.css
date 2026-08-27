@@ -1,0 +1,85 @@
+.assistant { overflow: hidden; border-radius: 14px; color: #213a45; background: #f8fbfb; }
+.assistantHeader { display: grid; padding: 26px; grid-template-columns: minmax(0, 1fr) minmax(220px, .55fr); align-items: end; gap: 28px; border-bottom: 1px solid rgb(26 65 77 / 12%); background: #e5eff0; }
+.assistantHeader span { color: #56727c; font-size: 11px; font-weight: 700; }
+.assistantHeader h3 { margin: 7px 0 0; color: #214955; font-size: 24px; letter-spacing: -.02em; }
+.assistantHeader p { max-width: 60ch; margin: 8px 0 0; color: #506872; font-size: 13px; line-height: 1.7; }
+.assistantHeader ul { display: grid; margin: 0; padding: 0; gap: 7px; list-style: none; }
+.assistantHeader li { display: flex; align-items: center; gap: 8px; color: #42616b; font-size: 12px; font-weight: 650; }
+.assistantHeader li::before { content: "✓"; display: grid; width: 20px; height: 20px; place-items: center; border-radius: 50%; color: #1c6675; background: #d2e6e8; font-size: 10px; }
+.steps { margin: 0; padding: 0 26px; list-style: none; }
+.steps > li { display: grid; padding: 28px 0; grid-template-columns: 38px minmax(0, 1fr); gap: 18px; border-bottom: 1px solid rgb(26 65 77 / 11%); }
+.steps > li:last-child { border: 0; }
+.stepNumber { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; color: #245d6d; background: #dcebed; font-size: 11px; font-weight: 800; }
+.stepBody { min-width: 0; }
+.stepTitle { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; }
+.stepTitle h4 { margin: 0; color: #213f4a; font-size: 16px; }
+.stepBody > p { max-width: 65ch; margin: 8px 0 0; color: #546b74; font-size: 13px; line-height: 1.7; }
+.stepStatus { width: fit-content; padding: 5px 9px; border-radius: 999px; color: #60717a; background: #e9eff0; font-size: 10px; font-weight: 700; }
+.stepStatus[data-active], .stepStatus[data-complete] { color: #245d6d; background: #dcebed; }
+.primaryAction { display: inline-flex; width: fit-content; min-height: 40px; margin-top: 17px; padding: 0 16px; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 999px; color: #fff; background: #216b7b; font: inherit; font-size: 12px; font-weight: 700; text-decoration: none; cursor: pointer; }
+.primaryAction:hover { background: #195e6d; }
+.primaryAction:focus-visible, .addonCode button:focus-visible, .textLink:focus-visible, .advanced summary:focus-visible, .configHeader button:focus-visible { outline: 2px solid #347b89; outline-offset: 3px; }
+.primaryAction:disabled { color: #e8eff0; background: #84979e; cursor: wait; }
+.addonCode { display: flex; width: min(510px, 100%); margin-top: 17px; padding: 9px 10px 9px 15px; align-items: center; justify-content: space-between; gap: 14px; border-radius: 11px; background: #e8eff0; }
+.addonCode code { color: #245a6a; font: 700 14px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; }
+.addonCode button, .configHeader button { min-height: 34px; padding: 0 13px; border: 0; border-radius: 999px; color: #285b6b; background: #fff; font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
+.textLink { display: inline-flex; margin-top: 12px; align-items: center; gap: 6px; color: #1d6273; font-size: 12px; font-weight: 700; text-underline-offset: 3px; }
+.status { max-width: 650px; margin-top: 14px; padding: 12px 14px; border-radius: 10px; color: #4b6570; background: #e8eff0; font-size: 12px; line-height: 1.65; }
+.status[data-tone="success"] { color: #245b58; background: #deeeea; }
+.status[data-tone="error"] { color: #7d4038; background: #f4e5e1; }
+.troubleshoot { max-width: 650px; margin-top: 14px; padding: 15px; border-radius: 11px; color: #70443e; background: #f7eae7; font-size: 12px; }
+.troubleshoot ol { margin: 8px 0 0; padding-left: 20px; line-height: 1.7; }
+.advanced { max-width: 690px; margin-top: 16px; border-radius: 11px; background: #e9eff0; }
+.advanced summary { padding: 14px 16px; color: #385863; font-size: 12px; font-weight: 700; cursor: pointer; }
+.advancedBody { padding: 0 16px 16px; }
+.advancedBody > label { display: block; color: #34545f; font-size: 12px; font-weight: 700; }
+.endpointField { margin-top: 8px; }
+.endpointField input { width: 100%; min-height: 42px; padding: 0 12px; border: 1px solid #bdcdd1; border-radius: 9px; color: #203a45; background: #fff; font: inherit; font-size: 12px; outline: none; }
+.endpointField input:focus { border-color: #3b7b89; box-shadow: 0 0 0 3px rgb(59 123 137 / 13%); }
+.advancedBody > p, .configHeader p { margin: 7px 0 0; color: #586f77; font-size: 11px; line-height: 1.6; }
+.configHeader { display: flex; margin-top: 18px; align-items: start; justify-content: space-between; gap: 18px; }
+.configHeader strong { color: #34545f; font-size: 12px; }
+.configHeader button { flex: 0 0 auto; }
+.advanced pre { max-height: 220px; margin: 13px 0 0; padding: 14px; overflow: auto; border-radius: 9px; color: #36535d; background: #f8fbfb; font: 11px/1.65 ui-monospace, SFMono-Regular, Consolas, monospace; }
+@media (max-width: 700px) {
+  .assistantHeader { grid-template-columns: 1fr; }
+  .steps { padding-inline: 18px; }
+  .steps > li { grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
+  .configHeader { align-items: stretch; flex-direction: column; }
+  .configHeader button { width: fit-content; }
+}
+@media (prefers-reduced-motion: reduce) { .primaryAction { transition: none; } }
+
+:global(html[data-context-theme="night"]) .assistant {
+  border: 1px solid rgb(190 220 227 / 20%);
+  color: #e8f1f3;
+  background: #17272e;
+}
+:global(html[data-context-theme="night"]) .assistantHeader {
+  border-color: rgb(190 220 227 / 20%);
+  background: #1d323a;
+}
+:global(html[data-context-theme="night"]) :is(.assistantHeader h3, .stepTitle h4, .advancedBody > label, .configHeader strong) { color: #e8f1f3; }
+:global(html[data-context-theme="night"]) :is(.assistantHeader span, .assistantHeader p, .assistantHeader li, .stepBody > p, .advancedBody > p, .configHeader p) { color: #b3c4c9; }
+:global(html[data-context-theme="night"]) .assistantHeader li::before,
+:global(html[data-context-theme="night"]) .stepNumber,
+:global(html[data-context-theme="night"]) .stepStatus,
+:global(html[data-context-theme="night"]) .stepStatus[data-active],
+:global(html[data-context-theme="night"]) .stepStatus[data-complete] { color: #9ed2dc; background: #223942; }
+:global(html[data-context-theme="night"]) .steps > li { border-color: rgb(190 220 227 / 20%); }
+:global(html[data-context-theme="night"]) .primaryAction { color: #102027; background: #9ed2dc; }
+:global(html[data-context-theme="night"]) .primaryAction:hover { background: #b5e1e8; }
+:global(html[data-context-theme="night"]) .primaryAction:disabled { color: #c8d5d8; background: #536970; }
+:global(html[data-context-theme="night"]) :is(.addonCode, .status, .advanced) { color: #dcebed; background: #223942; }
+:global(html[data-context-theme="night"]) .status[data-tone="success"] { color: #c8eee3; background: #214039; }
+:global(html[data-context-theme="night"]) .status[data-tone="error"],
+:global(html[data-context-theme="night"]) .troubleshoot { color: #ffd1cc; background: #472927; }
+:global(html[data-context-theme="night"]) :is(.addonCode button, .configHeader button, .endpointField input, .advanced pre) {
+  border-color: rgb(190 220 227 / 20%);
+  color: #e8f1f3;
+  background: #102229;
+}
+:global(html[data-context-theme="night"]) .addonCode code,
+:global(html[data-context-theme="night"]) .textLink,
+:global(html[data-context-theme="night"]) .advanced summary { color: #9ed2dc; }
+:global(html[data-context-theme="night"]) .endpointField input::placeholder { color: #b3c4c9; opacity: 1; }
