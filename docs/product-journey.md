@@ -856,11 +856,11 @@ Menu 与独立生词本/我的文章改为互斥打开：直接点 Menu 会清�
 
 ## 2026-08-27：新增 UI 夜间配色补齐并固化双主题验收契约
 
-**状态：当前生产父版本的独立 worktree 已实现；生产构建、浏览器双主题复核与大陆发布待完成**
+**状态：已随累计 release `20260827T104819` 上线中国大陆生产环境；父版本 `20260827T102926`，源码提交 `a79562d76c3076ef81c577753d19b66f35e57cd1`**
 
 **类型：夜间模式 / 使用说明 / 全文翻译 / 继续阅读 / Anki 帮助 / UI 验收契约**
 
-**证据：** 用户提交的五张夜间现场截图、`components/GuidePageContent.module.css`、`components/ArticleTranslationPanel.tsx`、`components/ReaderToolbar.module.css`、`components/HomeRedesign.module.css`、`components/HomeOptionMenu.module.css`、根 `AGENTS.md`
+**证据：** 用户提交的五张夜间现场截图；独立生产构建（61 routes）与 release contracts 通过；桌面、390×844 手机、Menu 内嵌说明和 Reader 全文翻译的真实浏览器夜间复核通过；公网 `/api/connectivity` 精确返回 release `20260827T104819`、parent `20260827T102926`、`backendMode: mainland_internal`；`/` 与 `/guide` 为 200，`/home-v2?source=night-r36` 为保留查询串的 308，匿名 protocol-2 sync 为 `401 login_required`，Admin session 为未授权 200；服务器健康检查和最新备份恢复验证通过，数据库、Auth、REST、Storage 与内部网关未因应用发布重启；`components/GuidePageContent.module.css`、`components/ArticleTranslationPanel.tsx`、`components/ReaderToolbar.module.css`、`components/HomeRedesign.module.css`、`components/HomeOptionMenu.module.css`、根 `AGENTS.md`
 
 后续会话新增的全屏使用说明沿用浅色局部背景，而既有 Menu 夜间规则已把其中的文字提亮，最终形成浅底浅字；同一问题出现在 Anki 问号帮助浮层。继续阅读封面卡的主标题可读，但摘要、状态和继续提示仍沿用日间弱灰。全文翻译标签与圆形重新生成按钮还依赖工具类字符串和局部白底，交互状态容易被后续 UI 重构破坏。
 
