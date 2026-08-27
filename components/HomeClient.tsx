@@ -403,7 +403,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       if (document.visibilityState !== "visible" || progressSessionRef.current.lastAnchor !== anchor) return;
       const savedArticleId = activeSavedArticleIdRef.current;
       if (savedArticleId) {
-        setSavedArticles(saveArticleReadingProgress(savedArticleId, anchor));
+        saveArticleReadingProgress(savedArticleId, anchor);
       } else if (activeTemporaryUserIdRef.current) {
         setTemporaryReading(updateTemporaryReadingProgress(activeTemporaryUserIdRef.current, anchor));
       }

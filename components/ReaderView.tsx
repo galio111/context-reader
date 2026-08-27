@@ -87,6 +87,7 @@ interface ReaderViewProps {
   onJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean | Promise<boolean>;
   canJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean;
   desktopViewportInsetLeft?: number;
+  editorialWorkbench?: boolean;
   initialViewportAnchor?: ReaderViewportAnchor | null;
   onViewportAnchorChange?: (anchor: ReaderViewportAnchor) => void;
   savedArticles?: SavedArticle[];
@@ -647,6 +648,7 @@ export function ReaderView({
   onJumpToVocabularySourceOutsideArticle,
   canJumpToVocabularySourceOutsideArticle,
   desktopViewportInsetLeft = 0,
+  editorialWorkbench = false,
   initialViewportAnchor = null,
   onViewportAnchorChange,
   savedArticles = [],
@@ -671,6 +673,11 @@ export function ReaderView({
   const [visibleBlockIds, setVisibleBlockIds] = useState<Set<string>>(
     () => initialInteractiveBlockIds(importedArticle ?? null, article, sourceSentenceToHighlight),
   );
+  const articleTokenCacheRef = useRef(new Map<string, {
+    text: string;
+    paragraphIndex: number;
+    tokens: ReaderToken[];
+  }>());
   const interactiveBlockIds = useMemo(
     () => progressiveReaderReady
       ? visibleBlockIds
@@ -729,11 +736,29 @@ export function ReaderView({
     };
   }, [imageOcr, currentImportedArticle]);
   const renderableBlocks = useMemo<RenderableArticleBlock[]>(() => {
+    const tokenCache = articleTokenCacheRef.current;
+    if (tokenCache.size > 400) tokenCache.clear();
+    const cachedBlockTokens = (
+      cacheId: string,
+      text: string,
+      paragraphIndex: number,
+      idPrefix = "",
+    ) => {
+      const cached = tokenCache.get(cacheId);
+      if (cached?.text === text && cached.paragraphIndex === paragraphIndex) return cached.tokens;
+      const tokens = (tokenizeArticle(text)[0]?.tokens ?? []).map((token) => ({
+        ...token,
+        ...(idPrefix ? { id: `${idPrefix}${token.id}` } : {}),
+        paragraphIndex,
+      }));
+      tokenCache.set(cacheId, { text, paragraphIndex, tokens });
+      return tokens;
+    };
     if (!effectiveImportedArticle?.blocks?.length) {
       return plainArticleParagraphs.map((text, paragraphIndex) => {
         const id = `paragraph-${paragraphIndex}`;
         const tokens = interactiveBlockIds.has(id)
-          ? (tokenizeArticle(text)[0]?.tokens ?? []).map((token) => ({ ...token, paragraphIndex }))
+          ? cachedBlockTokens(`plain:${id}`, text, paragraphIndex)
           : undefined;
         return {
           id,
@@ -780,11 +805,14 @@ export function ReaderView({
           const interactive = interactiveBlockIds.has(block.id);
           const tableTokens: ReaderToken[] = [];
           const tableRows = block.table.rows.map((row, rowIndex) => row.map((cell, cellIndex) => {
-            const tokens = (interactive ? tokenizeArticle(cell.text)[0]?.tokens ?? [] : []).map((token) => ({
-              ...token,
-              id: `${block.id}-cell-${rowIndex}-${cellIndex}-${token.id}`,
-              paragraphIndex: textBlockIndex,
-            }));
+            const tokens = interactive
+              ? cachedBlockTokens(
+                  `table:${block.id}:${rowIndex}:${cellIndex}`,
+                  cell.text,
+                  textBlockIndex,
+                  `${block.id}-cell-${rowIndex}-${cellIndex}-`,
+                )
+              : [];
             textBlockIndex += 1;
             tableTokens.push(...tokens);
             return { cell, tokens };
@@ -810,11 +838,7 @@ export function ReaderView({
 
         const interactive = interactiveBlockIds.has(block.id);
         const tokens = interactive
-          ? tokenizeArticle(text)[0].tokens.map((token) => ({
-              ...token,
-              id: `${block.id}-${token.id}`,
-              paragraphIndex: textBlockIndex,
-            }))
+          ? cachedBlockTokens(`block:${block.id}`, text, textBlockIndex, `${block.id}-`)
           : undefined;
         const inline = block.inline?.length && inlinePlainText(block.inline) === text ? block.inline : null;
         textBlockIndex += 1;
@@ -3064,7 +3088,7 @@ export function ReaderView({
   return (
     <main
       className="cr-reader-root min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#1d1d1f]"
-      data-editorial-workbench={desktopViewportInsetLeft > 0 || undefined}
+      data-editorial-workbench={editorialWorkbench || undefined}
       style={{ "--reader-desktop-inset-left": `${desktopViewportInsetLeft}px` } as CSSProperties}
     >
       <aside className={toolbarStyles.desktopRail} aria-label="阅读快捷入口">

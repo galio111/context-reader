@@ -80,6 +80,7 @@ export default function AdminPage() {
   const [publishedArticle, setPublishedArticle] = useState<PublicArticle | null>(null);
   const [publicArticles, setPublicArticles] = useState<PublicArticle[]>([]);
   const [readerState, setReaderState] = useState<AdminReaderState | null>(null);
+  const pendingSavedReaderArticleRef = useRef<PublicArticle | null>(null);
   const [candidateArticles, setCandidateArticles] = useState<PublicArticle[]>([]);
   const [rejectedArticles, setRejectedArticles] = useState<PublicArticle[]>([]);
   const [editorialDrawer, setEditorialDrawer] = useState<"candidates" | "published" | null>(null);
@@ -241,7 +242,7 @@ export default function AdminPage() {
     if (!response.ok || !data?.article) {
       throw new Error(data?.error || "文章修改保存失败，请重试。");
     }
-    setReaderState({ kind: active.kind, article: data.article });
+    pendingSavedReaderArticleRef.current = data.article;
     if (active.kind === "candidate") {
       setCandidateArticles((items) => items.map((item) => item.id === data.article?.id ? data.article : item));
     }
@@ -649,6 +650,7 @@ export default function AdminPage() {
             key={`${readerState.kind}:${readerState.article.id}`}
             article={readerState.article.body}
             desktopViewportInsetLeft={330}
+            editorialWorkbench
             importedArticle={readerState.article.importedArticle ?? null}
             preloadedExplanations={readerState.article.explanations ?? []}
             backLabel="返回后台"
@@ -656,11 +658,13 @@ export default function AdminPage() {
             onArticleSaved={() => setArticles(getSavedArticles())}
             onArticleEditCommit={persistReaderArticleEdit}
             onArticleChange={(body, importedArticle) => {
+              const savedArticle = pendingSavedReaderArticleRef.current;
+              pendingSavedReaderArticleRef.current = null;
               setReaderState((current) => current
                 ? {
                     ...current,
                     article: {
-                      ...current.article,
+                      ...(savedArticle?.id === current.article.id ? savedArticle : current.article),
                       body,
                       ...(importedArticle ? { importedArticle } : { importedArticle: undefined }),
                     },
