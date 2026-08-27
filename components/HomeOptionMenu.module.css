@@ -457,6 +457,15 @@
 .overlay[data-theme="night"] .ankiSettings > section { border-color: rgb(190 220 227 / 18%); color: #dcebed; background: #14282f; }
 .overlay[data-theme="night"] .ankiSettings :is(h2, span, p) { color: #dcebed !important; }
 .overlay[data-theme="night"] .ankiSettings input { border-color: rgb(190 220 227 / 20%); color: #eef5f6; background: #102229; }
+.overlay[data-theme="night"] .ankiHelpPopover {
+  border: 1px solid rgb(190 220 227 / 18%);
+  color: #e8f1f3;
+  background: #17272e;
+  box-shadow: 0 7px 8px rgb(0 0 0 / 28%);
+}
+.overlay[data-theme="night"] .ankiHelpPopover strong { color: #edf5f6 !important; }
+.overlay[data-theme="night"] .ankiHelpPopover p { color: #b3c4c9 !important; }
+.overlay[data-theme="night"] .ankiToolbar .ankiHelpPopover button { color: #9ed2dc; }
 
 .savedHeader {
   display: flex;

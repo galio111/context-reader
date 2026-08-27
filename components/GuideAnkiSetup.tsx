@@ -131,7 +131,7 @@ export function GuideAnkiSetup() {
   const currentPlatform = platformCopy[platform];
 
   return (
-    <section className="overflow-hidden rounded-[16px] bg-[#1f4966] text-white" aria-labelledby="anki-assistant-title">
+    <section className="cr-guide-anki-setup overflow-hidden rounded-[16px] bg-[#1f4966] text-white" aria-labelledby="anki-assistant-title">
       <div className="grid lg:grid-cols-[0.72fr_1.28fr]">
         <div className="border-b border-white/12 px-6 py-7 sm:px-8 sm:py-9 lg:border-b-0 lg:border-r">
           <p className="text-sm font-semibold text-[#b9d5ea]">Anki（背单词的软件）安装与连接助手</p>
@@ -149,7 +149,7 @@ export function GuideAnkiSetup() {
           </div>
         </div>
 
-        <div className="bg-[#f8fafc] text-[#17212b]">
+        <div className="cr-guide-anki-steps bg-[#f8fafc] text-[#17212b]">
           <ol className="divide-y divide-[#17212b]/10">
             <li className="grid gap-4 px-5 py-6 sm:grid-cols-[2.25rem_minmax(0,1fr)_auto] sm:items-center sm:px-7">
               <span className="grid h-9 w-9 place-items-center rounded-full bg-[#dcebf5] font-mono text-xs font-semibold text-[#285a7c]">1</span>
@@ -181,12 +181,12 @@ export function GuideAnkiSetup() {
                 </div>
                 <p className="mt-2 text-sm leading-6 text-[#5d6e7b]">在 Anki（背单词的软件）中打开“工具 → 插件 → 获取插件”，粘贴代码，完成后重启软件。</p>
                 <div className="mt-4 flex max-w-[520px] flex-col gap-3 rounded-[12px] bg-[#edf2f6] p-3 sm:flex-row sm:items-center sm:justify-between">
-                  <code className="px-2 font-mono text-[15px] font-semibold tracking-[0.08em] text-[#174f82]">{ANKI_CONNECT_CODE}</code>
+                  <code className="cr-guide-anki-code px-2 font-mono text-[15px] font-semibold tracking-[0.08em] text-[#174f82]">{ANKI_CONNECT_CODE}</code>
                   <button className="h-10 rounded-full bg-white px-4 text-sm font-semibold text-[#285a7c] transition-colors hover:bg-[#f8fafc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1769aa]" type="button" onClick={() => void handleCopyAddonCode()}>
                     {copyTarget === "addon" ? "插件代码已复制" : "复制插件代码"}
                   </button>
                 </div>
-                <a className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#1769aa] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1769aa]" href={ANKI_CONNECT_URL} target="_blank" rel="noreferrer">
+                <a className="cr-guide-anki-link mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#1769aa] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1769aa]" href={ANKI_CONNECT_URL} target="_blank" rel="noreferrer">
                   查看 AnkiConnect 插件页
                   <span aria-hidden="true">↗</span>
                 </a>

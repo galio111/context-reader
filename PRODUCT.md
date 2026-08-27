@@ -52,4 +52,6 @@ Avoid playful language-learning gamification unless explicitly requested. The pr
 
 Target practical WCAG AA readability for body text and controls. Maintain strong contrast for article text, explanations, buttons, and status messages. Do not rely on color alone for important states.
 
+Day and night are equal product states. Every new or redesigned interface must define both palettes together, including embedded and standalone forms plus hover, focus, selected, disabled, loading, warning and error states. A light-only component is not finished even when the surrounding page already supports night mode.
+
 Support reduced-motion expectations by avoiding unnecessary animation in the reading workflow. On mobile, keep scroll behavior predictable and avoid gestures that accidentally block reading. The homepage must never reinterpret ordinary vertical wheel/touch movement as a different action without an explicit, user-understood interaction boundary.

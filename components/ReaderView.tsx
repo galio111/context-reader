@@ -3571,6 +3571,7 @@ export function ReaderView({
             <div data-reader-panel-tabs className="grid h-10 shrink-0 grid-cols-2 rounded-full border border-[#d2d2d7] bg-white p-1">
               <button
                 type="button"
+                data-active={rightPanelMode === "explanation" || undefined}
                 className={`rounded-full text-sm leading-none tracking-[-0.224px] transition ${
                   rightPanelMode === "explanation" ? "bg-[#1d1d1f] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
                 }`}
@@ -3580,6 +3581,7 @@ export function ReaderView({
               </button>
               <button
                 type="button"
+                data-active={rightPanelMode === "translation" || undefined}
                 className={`rounded-full text-sm leading-none tracking-[-0.224px] transition ${
                   rightPanelMode === "translation" ? "bg-[#1d1d1f] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
                 }`}

@@ -131,3 +131,150 @@
   .guideFooter > a { width: fit-content; }
 }
 @media (prefers-reduced-motion: reduce) { .guide { scroll-behavior: auto; } .toolList summary i, .faqGroups summary i { transition: none; } }
+
+:global(html[data-context-theme="night"]) .guide {
+  --guide-night-canvas: #101a1f;
+  --guide-night-surface: #17272e;
+  --guide-night-raised: #1d323a;
+  --guide-night-soft: #223942;
+  --guide-night-ink: #e8f1f3;
+  --guide-night-muted: #b3c4c9;
+  --guide-night-accent: #9ed2dc;
+  --guide-night-line: rgb(190 220 227 / 20%);
+  color: var(--guide-night-ink) !important;
+  background: var(--guide-night-canvas) !important;
+}
+
+:global(html[data-context-theme="night"]) .topbar,
+:global(html[data-context-theme="night"]) .mobileDirectory {
+  border-color: var(--guide-night-line) !important;
+  background: rgb(19 36 42 / 97%) !important;
+}
+
+:global(html[data-context-theme="night"]) .brand,
+:global(html[data-context-theme="night"]) .brand strong,
+:global(html[data-context-theme="night"]) .intro h1,
+:global(html[data-context-theme="night"]) .sectionHeading h2,
+:global(html[data-context-theme="night"]) :is(.quickSteps, .featureList, .toolList, .readingRhythm, .ankiRoles, .ankiTerms, .ankiAfterImport, .dataRows, .faqGroups, .releaseNotes, .guideFooter) :is(h2, h3, h4, strong, summary) {
+  color: var(--guide-night-ink) !important;
+}
+
+:global(html[data-context-theme="night"]) :is(.brand span, .directory nav > p, .intro > div > p:last-of-type, .introAside > span, .introAside p, .sectionHeading p, .quickSteps p, .featureList p, .toolList details > p, .faqGroups details > p, .readingRhythm span, .ankiRoles span, .ankiRoles p, .ankiTerms span, .ankiAfterImport p, .dataRows p, .releaseNotes p, .guideFooter p, .guideFooter span) {
+  color: var(--guide-night-muted) !important;
+}
+
+:global(html[data-context-theme="night"]) .directory nav,
+:global(html[data-context-theme="night"]) :is(.section, .quickSteps, .quickSteps li, .featureList > section, .toolList, .toolList details, .faqGroups details, .dataRows, .dataRows > div, .releaseNotes, .releaseNotes li) {
+  border-color: var(--guide-night-line) !important;
+}
+
+:global(html[data-context-theme="night"]) .directory nav > a {
+  color: #c9dadd !important;
+}
+
+:global(html[data-context-theme="night"]) .directory nav > a:hover,
+:global(html[data-context-theme="night"]) .directory nav > a:focus-visible {
+  color: #f1f8f9 !important;
+  background: var(--guide-night-raised) !important;
+}
+
+:global(html[data-context-theme="night"]) :is(.directoryNote, .intro, .softNote, .readingRhythm, .ankiRoles > div, .guideFooter) {
+  color: var(--guide-night-ink) !important;
+  background: var(--guide-night-surface) !important;
+}
+
+:global(html[data-context-theme="night"]) .ankiRoles > div:last-child {
+  background: var(--guide-night-raised) !important;
+}
+
+:global(html[data-context-theme="night"]) :is(.directoryNote strong, .softNote strong, .readingRhythm > strong, .readingRhythm b, .ankiRoles strong, .ankiTerms strong, .dataRows strong, .faqGroups h3, .releaseNotes time) {
+  color: var(--guide-night-accent) !important;
+}
+
+:global(html[data-context-theme="night"]) :is(.introLabel, .introActions a:last-child, .ankiAfterImport a) {
+  color: var(--guide-night-accent) !important;
+}
+
+:global(html[data-context-theme="night"]) :is(.startButton, .introActions a:first-child, .guideFooter > a) {
+  color: #102027 !important;
+  background: var(--guide-night-accent) !important;
+}
+
+:global(html[data-context-theme="night"]) .introAside,
+:global(html[data-context-theme="night"]) .ankiAfterImport,
+:global(html[data-context-theme="night"]) .ankiTerms div {
+  color: var(--guide-night-ink) !important;
+  background: var(--guide-night-raised) !important;
+}
+
+:global(html[data-context-theme="night"]) .introAside li::before,
+:global(html[data-context-theme="night"]) .quickSteps li > span,
+:global(html[data-context-theme="night"]) .featureList > section > span,
+:global(html[data-context-theme="night"]) .featureList > section[data-tone] > span,
+:global(html[data-context-theme="night"]) :is(.toolList, .faqGroups) summary i,
+:global(html[data-context-theme="night"]) .mobileDirectory a,
+:global(html[data-context-theme="night"]) :is(.featureList, .ankiAfterImport) li {
+  color: #dcebed !important;
+  background: var(--guide-night-soft) !important;
+}
+
+:global(html[data-context-theme="night"]) .ankiRoles > i {
+  color: #102027 !important;
+  background: var(--guide-night-accent) !important;
+}
+
+:global(html[data-context-theme="night"]) .ankiTerms {
+  background: var(--guide-night-line) !important;
+}
+
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-setup) {
+  border: 1px solid var(--guide-night-line);
+  background: #18313a !important;
+}
+
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-steps) {
+  color: var(--guide-night-ink) !important;
+  background: var(--guide-night-surface) !important;
+}
+
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-steps) > ol {
+  border-color: var(--guide-night-line) !important;
+}
+
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-steps) li {
+  border-color: var(--guide-night-line) !important;
+}
+
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-steps) :is(h4, label, summary) {
+  color: var(--guide-night-ink) !important;
+}
+
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-steps) :is(p, span) {
+  color: var(--guide-night-muted) !important;
+}
+
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-steps) :is([class~="bg-[#edf2f6]"], [class~="bg-[#dcebf5]"], [class~="bg-[#e5eef8]"]) {
+  color: #dcebed !important;
+  background: var(--guide-night-soft) !important;
+}
+
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-steps) :is([class~="bg-white"], input) {
+  border-color: var(--guide-night-line) !important;
+  color: var(--guide-night-ink) !important;
+  background: #102229 !important;
+}
+
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-steps) input::placeholder {
+  color: var(--guide-night-muted) !important;
+  opacity: 1;
+}
+
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-steps) [class~="bg-[#fff2ef]"] {
+  color: #ffd1cc !important;
+  background: #472927 !important;
+}
+
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-code),
+:global(html[data-context-theme="night"]) .guide :global(.cr-guide-anki-link) {
+  color: var(--guide-night-accent) !important;
+}

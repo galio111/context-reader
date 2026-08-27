@@ -843,6 +843,14 @@
 .root[data-theme="night"] .continueReadingCard,
 .root[data-theme="night"] .memberImportPanel,
 .root[data-theme="night"] .importPanel { border-color: rgb(192 222 228 / 14%); color: #e2edef; background: rgb(22 39 46 / 92%); box-shadow: 0 7px 8px rgb(0 0 0 / 22%); }
+.root[data-theme="night"] .continueReadingCard:hover,
+.root[data-theme="night"] .continueReadingCard:focus-visible { border-color: rgb(158 210 220 / 42%); background: #1b3037; }
+.root[data-theme="night"] .continueReadingEyebrow { color: #9ed2dc; }
+.root[data-theme="night"] .continueReadingCard > p,
+.root[data-theme="night"] .continueReadingMeta { color: #bfd0d4; }
+.root[data-theme="night"] .continueReadingCover { opacity: .42; }
+.root[data-theme="night"] .continueReadingCover::after { background: linear-gradient(180deg, rgb(12 25 31 / 18%), rgb(18 34 41 / 96%) 72%); }
+.root[data-theme="night"] .continueReadingCover img { filter: saturate(.68) contrast(1.02) brightness(.72); }
 .root[data-theme="night"] .importSection { background: linear-gradient(180deg, #16282d 0%, #172a30 18%, #1a3035 100%); }
 .root[data-theme="night"] .publicationBridge { background: linear-gradient(180deg, rgb(22 40 45 / 0%), #16282d 78%); }
 .root[data-theme="night"] .importPanel textarea,

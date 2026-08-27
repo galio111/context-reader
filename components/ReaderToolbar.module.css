@@ -665,8 +665,21 @@
   background: #17272e !important;
 }
 
-:global(html[data-context-theme="night"]) .readerSidePanel [data-reader-panel-tabs] button:not([class*="bg-[#1d1d1f]"]) {
+:global(html[data-context-theme="night"]) .readerSidePanel [data-reader-panel-tabs] button {
+  background: transparent !important;
   color: #c9dadd !important;
+}
+
+:global(html[data-context-theme="night"]) .readerSidePanel [data-reader-panel-tabs] button:hover,
+:global(html[data-context-theme="night"]) .readerSidePanel [data-reader-panel-tabs] button:focus-visible {
+  background: #203740 !important;
+  color: #edf5f6 !important;
+}
+
+:global(html[data-context-theme="night"]) .readerSidePanel [data-reader-panel-tabs] button[data-active="true"] {
+  background: #9ed2dc !important;
+  color: #102027 !important;
+  font-weight: 700;
 }
 
 :global(html[data-context-theme="night"]) .dictionaryWindow,

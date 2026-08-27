@@ -340,6 +340,71 @@ html[data-context-theme="night"] .cr-reader-article :is(table, thead, tbody, tr,
   color: var(--cr-night-ink) !important;
 }
 
+html[data-context-theme="night"] .cr-translation-panel {
+  --cr-translation-accent: #9ed2dc;
+  --cr-translation-accent-ink: #102027;
+}
+
+html[data-context-theme="night"] .cr-translation-regenerate {
+  border-color: rgb(158 210 220 / 58%) !important;
+  background: #203740 !important;
+  color: #dff2f5 !important;
+}
+
+html[data-context-theme="night"] .cr-translation-regenerate:hover,
+html[data-context-theme="night"] .cr-translation-regenerate:focus-visible {
+  border-color: var(--cr-translation-accent) !important;
+  background: #294b56 !important;
+  color: #f4fbfc !important;
+}
+
+html[data-context-theme="night"] .cr-translation-regenerate:disabled {
+  border-color: rgb(190 220 227 / 18%) !important;
+  background: #243840 !important;
+  color: #9bafb4 !important;
+  opacity: 1;
+}
+
+html[data-context-theme="night"] .cr-translation-primary {
+  background: var(--cr-translation-accent) !important;
+  color: var(--cr-translation-accent-ink) !important;
+  font-weight: 700;
+}
+
+html[data-context-theme="night"] .cr-translation-primary:disabled {
+  background: #32474e !important;
+  color: #aebfc4 !important;
+  opacity: 1;
+}
+
+html[data-context-theme="night"] .cr-translation-retry {
+  border-color: #a46560 !important;
+  background: #5a302d !important;
+  color: #ffd7d2 !important;
+}
+
+html[data-context-theme="night"] .cr-translation-status {
+  background: #203740 !important;
+  color: #dcebed !important;
+}
+
+html[data-context-theme="night"] .cr-translation-warning {
+  background: #3d321d !important;
+  color: #f5dda0 !important;
+}
+
+html[data-context-theme="night"] .cr-translation-skeleton > div {
+  background: #2b4149 !important;
+}
+
+html[data-context-theme="night"] .cr-translation-source {
+  color: #b3c4c9 !important;
+}
+
+html[data-context-theme="night"] .cr-translation-target {
+  color: #edf5f6 !important;
+}
+
 /* Immersive homepage */
 html:has(.cr-home),
 body:has(.cr-home) {

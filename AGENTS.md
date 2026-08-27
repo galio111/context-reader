@@ -75,6 +75,14 @@ Do not say a release is live because code was edited, committed, built, uploaded
 
 ## Motion And UI Verification
 
+### Day And Night Theme Contract
+
+- Every user-visible UI change must design and implement its day and night colors in the same change. A new surface, card, control, overlay, empty state or interaction state is incomplete if only its daytime colors exist.
+- Use semantic component hooks or explicit state attributes for night styling. Do not infer active, selected, loading, error or regenerate states from utility-class substrings; later UI refactors may change those classes without updating the theme.
+- Foreground and background colors must change as a pair. Cover default, hover, focus-visible, active, selected, disabled, loading, warning, error and placeholder states, including surfaces embedded inside Menu previews as well as their standalone page form.
+- Validate both themes on desktop and at 390×844 mobile after every UI change. Normal text and placeholders must reach at least 4.5:1 contrast; large text and non-text controls must reach at least 3:1. Browser screenshots or computed contrast evidence must include every changed surface before release.
+- Keep the shared night ramp in `app/globals.css` and the final-state contract in `docs/architecture.md` current when a new palette role or independently themed CSS-module surface is introduced.
+
 - For a complex effect, accept a URL, 5–15 second recording, screenshots or public source as the specification. Before coding, summarize the start/end state, trigger, layers, timing, uncertain technology and smallest reviewable slice.
 - Technical correctness, visual fidelity and repeated-use product experience are separate gates. Build success, HTTP 200, correct state transitions or one implementation-side browser pass do not prove reference fidelity or product suitability.
 - Compare actual browser keyframes at start, 25%, 50%, 75% and end when possible. If the browser/reference cannot be inspected, mark visual verification incomplete. Static bundle inference is not observed behavior.
