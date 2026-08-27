@@ -16,6 +16,7 @@ const MANUAL_FIELDS: ArticleManualField[] = [
   "cefr",
   "audienceStages",
   "topics",
+  "homepageCategory",
   "timeliness",
   "reviewNotes",
 ];
@@ -52,6 +53,7 @@ function isRecommendation(value: unknown): value is ArticleRecommendationMetadat
     item.audienceStages.every((stage) => typeof stage === "string" && ARTICLE_AUDIENCE_STAGES.includes(stage)) &&
     Array.isArray(item.topics) && item.topics.length >= 1 && item.topics.length <= 3 &&
     item.topics.every((topic) => typeof topic === "string" && ARTICLE_TOPICS.includes(topic)) &&
+    (item.homepageCategory === undefined || ["时事", "科技", "文化", "商业"].includes(item.homepageCategory)) &&
     typeof item.wordCount === "number" && Number.isInteger(item.wordCount) && item.wordCount >= 1 && item.wordCount <= 200_000 &&
     (item.readingMinutes === undefined || (
       typeof item.readingMinutes === "number" && Number.isFinite(item.readingMinutes) && item.readingMinutes >= 1 && item.readingMinutes <= 240
@@ -61,6 +63,7 @@ function isRecommendation(value: unknown): value is ArticleRecommendationMetadat
     (item.classificationSource === "model" || item.classificationSource === "heuristic" || item.classificationSource === "manual") &&
     (item.classifiedAt === undefined || isBoundedString(item.classifiedAt, 80)) &&
     (item.reviewNotes === undefined || isBoundedString(item.reviewNotes, 500)) &&
+    (item.rejectedAt === undefined || isBoundedString(item.rejectedAt, 80)) &&
     (item.manualFields === undefined || (
       Array.isArray(item.manualFields) &&
       item.manualFields.length <= MANUAL_FIELDS.length &&

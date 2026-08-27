@@ -61,7 +61,7 @@ const CATEGORY_FILTERS = [
   { label: "时事", test: (article: PublicArticle) => article.recommendation?.topics.some((topic) => /社会/.test(topic)) ?? false },
   { label: "科技", test: (article: PublicArticle) => article.recommendation?.topics.some((topic) => /科技/.test(topic)) ?? false },
   { label: "文化", test: (article: PublicArticle) => article.recommendation?.topics.some((topic) => /文化|故事/.test(topic)) ?? false },
-  { label: "商业", test: (article: PublicArticle) => /business|econom|finance|商业|经济/i.test(`${article.sourceName} ${article.title}`) },
+  { label: "商业", test: (article: PublicArticle) => article.recommendation?.topics.includes("商业经济") ?? /business|econom|finance|商业|经济/i.test(`${article.sourceName} ${article.title}`) },
 ] as const;
 
 const FEATURE_ORBIT = [
@@ -1345,6 +1345,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
                 {memberLibraryOpen ? "收起更多外刊" : "显示更多"}
               </button>
               <span>{memberLibraryOpen ? `当前显示 ${displayArticles.length} 篇` : `还有 ${personalizedAllCategoryArticles.length - showcaseArticleCount} 篇`}</span>
+            </div>
+          )}
+          {!memberHome && (
+            <div className={styles.guestLibraryAction}>
+              <span>{personalizedAllCategoryArticles.length > showcaseArticleCount ? `登录后可继续查看这一栏目的其余 ${personalizedAllCategoryArticles.length - showcaseArticleCount} 篇外刊` : "登录后可进入完整外刊库，并保存自己的阅读进度"}</span>
+              <button type="button" onClick={() => openMenuPreview("account")}>登录查看更多</button>
             </div>
           )}
           {!memberHome && (

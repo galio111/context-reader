@@ -3064,6 +3064,7 @@ export function ReaderView({
   return (
     <main
       className="cr-reader-root min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#1d1d1f]"
+      data-editorial-workbench={desktopViewportInsetLeft > 0 || undefined}
       style={{ "--reader-desktop-inset-left": `${desktopViewportInsetLeft}px` } as CSSProperties}
     >
       <aside className={toolbarStyles.desktopRail} aria-label="阅读快捷入口">

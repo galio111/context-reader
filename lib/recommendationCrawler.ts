@@ -41,6 +41,7 @@ const TOPIC_PATTERNS: Record<RecommendationCrawlerRunInput["topic"], RegExp> = {
   自然环境: /\b(?:nature|climate|environment|ocean|forest|animal|wildlife|earth|weather|ecology|species|conservation)\b/i,
   文化历史: /\b(?:culture|history|ancient|museum|art|heritage|tradition|language|century|archaeology|civilization)\b/i,
   社会生活: /\b(?:society|community|city|work|education|health|family|economy|media|public|daily life|policy)\b/i,
+  商业经济: /\b(?:business|economy|economic|finance|financial|market|trade|company|industry|startup|employment|investment|banking|retail)\b/i,
   人物成长: /\b(?:life|career|learn|growth|mind|psychology|habit|interview|biography|people|person|identity)\b/i,
   故事文学: /\b(?:story|novel|fiction|poem|poetry|literature|writer|memoir|book|narrative|character)\b/i,
 };
@@ -250,8 +251,13 @@ export async function runRecommendationCrawler(
   const startedMs = Date.now();
   const maxNewArticles = Math.max(1, Math.min(MAX_NEW_ARTICLES_PER_RUN, input.maxNewArticles ?? DEFAULT_MAX_NEW_ARTICLES));
   const latestNextAttemptMs = 42_000 + Math.max(0, maxNewArticles - DEFAULT_MAX_NEW_ARTICLES) * 55_000;
-  const [published, candidates] = await Promise.all([listPublicArticles(), listArticleCandidates()]);
-  const allArticles = [...published, ...candidates];
+  const [published, activeCandidates, allCandidates] = await Promise.all([
+    listPublicArticles(),
+    listArticleCandidates(),
+    listArticleCandidates({ includeRejected: true }),
+  ]);
+  const allArticles = [...published, ...allCandidates];
+  const candidates = activeCandidates;
   const inventoryArticles = input.inventoryScope === "candidates" ? candidates : allArticles;
   const inventoryBefore = inventoryArticles.filter((article) => inventoryMatches(article, input)).length;
   const resultBase = {

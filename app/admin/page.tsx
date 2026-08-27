@@ -22,6 +22,7 @@ import {
 } from "@/lib/cache";
 import type { ImportedArticle, SavedArticle } from "@/types/article";
 import type { ArticleRecommendationMetadata, PublicArticle, PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
+import { editorialCategoryForRecommendation, type EditorialCategory } from "@/lib/editorialCuration";
 
 type AdminAccessMode = "developer" | "password" | null;
 type AdminReaderState = { kind: "candidate" | "published"; article: PublicArticle };
@@ -79,8 +80,35 @@ export default function AdminPage() {
   const [publishedArticle, setPublishedArticle] = useState<PublicArticle | null>(null);
   const [publicArticles, setPublicArticles] = useState<PublicArticle[]>([]);
   const [readerState, setReaderState] = useState<AdminReaderState | null>(null);
+  const [candidateArticles, setCandidateArticles] = useState<PublicArticle[]>([]);
+  const [rejectedArticles, setRejectedArticles] = useState<PublicArticle[]>([]);
+  const [editorialDrawer, setEditorialDrawer] = useState<"candidates" | "published" | null>(null);
+  const [editorialSearch, setEditorialSearch] = useState("");
+  const [editorialDifficulty, setEditorialDifficulty] = useState("");
+  const [editorialCategory, setEditorialCategory] = useState("");
+  const [quickUrl, setQuickUrl] = useState("");
+  const [quickAdding, setQuickAdding] = useState(false);
   const [openingArticleId, setOpeningArticleId] = useState("");
   const publicArticlesRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const previousTheme = root.getAttribute("data-context-theme");
+    const previousColorScheme = root.style.colorScheme;
+    const keepAdminLight = () => {
+      if (root.getAttribute("data-context-theme") !== "day") root.setAttribute("data-context-theme", "day");
+      if (root.style.colorScheme !== "light") root.style.colorScheme = "light";
+    };
+    keepAdminLight();
+    const observer = new MutationObserver(keepAdminLight);
+    observer.observe(root, { attributes: true, attributeFilter: ["data-context-theme"] });
+    return () => {
+      observer.disconnect();
+      if (previousTheme) root.setAttribute("data-context-theme", previousTheme);
+      else root.removeAttribute("data-context-theme");
+      root.style.colorScheme = previousColorScheme;
+    };
+  }, []);
 
   useEffect(() => {
     const section = new URLSearchParams(window.location.search).get("section");
@@ -113,7 +141,7 @@ export default function AdminPage() {
   useEffect(() => {
     if (authenticated) {
       setArticles(getSavedArticles());
-      void loadPublicArticles({ silent: true });
+      void Promise.all([loadPublicArticles({ silent: true }), loadCandidateArticles({ silent: true })]);
     }
   }, [authenticated]);
 
@@ -129,8 +157,23 @@ export default function AdminPage() {
     setPublicArticles(data?.articles ?? []);
   }
 
+  async function loadCandidateArticles(options?: { silent?: boolean }): Promise<PublicArticle[]> {
+    const response = await fetch("/api/admin/article-candidates", { cache: "no-store" });
+    const data = await response.json().catch(() => null) as { articles?: PublicArticle[]; rejectedArticles?: PublicArticle[]; error?: string } | null;
+    if (!response.ok) {
+      if (!options?.silent) setStatus(data?.error || "候选文章列表读取失败。");
+      return [];
+    }
+    const next = data?.articles ?? [];
+    setCandidateArticles(next);
+    setRejectedArticles(data?.rejectedArticles ?? []);
+    return next;
+  }
+
   function openCandidateArticle(article: PublicArticle) {
     setStatus("");
+    setEditorialDrawer(null);
+    setCandidateArticles((items) => items.some((item) => item.id === article.id) ? items : [article, ...items]);
     setReaderState({ kind: "candidate", article });
   }
 
@@ -148,6 +191,7 @@ export default function AdminPage() {
         setCachedArticleTranslation(translation.cacheKey, translation.translations);
       }
       setReaderState({ kind: "published", article: data.article });
+      setEditorialDrawer(null);
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "公开文章读取失败，请稍后重试。");
     } finally {
@@ -198,6 +242,9 @@ export default function AdminPage() {
       throw new Error(data?.error || "文章修改保存失败，请重试。");
     }
     setReaderState({ kind: active.kind, article: data.article });
+    if (active.kind === "candidate") {
+      setCandidateArticles((items) => items.map((item) => item.id === data.article?.id ? data.article : item));
+    }
     if (active.kind === "published") {
       setPublicArticles((items) => items.map((item) => item.id === data.article?.id ? data.article : item));
     }
@@ -237,8 +284,148 @@ export default function AdminPage() {
       throw new Error(data?.error || "文章资料保存失败，请重试。");
     }
     setReaderState({ kind: active.kind, article: data.article });
+    if (active.kind === "candidate") {
+      setCandidateArticles((items) => items.map((item) => item.id === data.article?.id ? data.article : item));
+    }
     if (active.kind === "published") {
       setPublicArticles((items) => items.map((item) => item.id === data.article?.id ? data.article : item));
+    }
+  }
+
+  function adjacentArticle(direction: -1 | 1): PublicArticle | null {
+    if (!readerState) return null;
+    const queue = readerState.kind === "candidate" ? candidateArticles : publicArticles;
+    const index = queue.findIndex((item) => item.id === readerState.article.id);
+    return index >= 0 ? queue[index + direction] ?? null : null;
+  }
+
+  async function openAdjacentArticle(direction: -1 | 1) {
+    const article = adjacentArticle(direction);
+    if (!article || !readerState) return;
+    if (readerState.kind === "candidate") openCandidateArticle(article);
+    else await openPublishedArticle(article);
+  }
+
+  function continueCandidateQueue(completedId: string, nextQueue: PublicArticle[]) {
+    const previousIndex = candidateArticles.findIndex((item) => item.id === completedId);
+    const next = nextQueue[Math.min(Math.max(0, previousIndex), Math.max(0, nextQueue.length - 1))];
+    if (next) setReaderState({ kind: "candidate", article: next });
+    else setReaderState(null);
+  }
+
+  async function selectCurrentCandidate(category: EditorialCategory, featured: boolean) {
+    const active = readerState;
+    if (!active || active.kind !== "candidate") return;
+    const response = await fetch("/api/admin/article-candidates", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "publish", id: active.article.id, category, featured }),
+    });
+    const data = await response.json().catch(() => null) as { articles?: PublicArticle[]; error?: string } | null;
+    if (!data?.articles?.[0]) throw new Error(data?.error || "精选失败。");
+    const published = data.articles[0];
+    const nextQueue = candidateArticles.filter((item) => item.id !== active.article.id);
+    setCandidateArticles(nextQueue);
+    setPublicArticles((items) => [published, ...items.filter((item) => item.id !== published.id)]);
+    setStatus(response.ok
+      ? `已精选《${published.title}》，并加入“推荐”最前方${featured ? `及“${category}”主推` : `和“${category}”栏目`}。`
+      : `《${published.title}》已经公开，但首页编排更新失败：${data.error || "请在栏目微调中补充"}`);
+    continueCandidateQueue(active.article.id, nextQueue);
+  }
+
+  async function rejectCurrentCandidate() {
+    const active = readerState;
+    if (!active || active.kind !== "candidate") return;
+    const response = await fetch("/api/admin/article-candidates", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "reject", id: active.article.id }),
+    });
+    const data = await response.json().catch(() => null) as { article?: PublicArticle; error?: string } | null;
+    if (!response.ok || !data?.article) throw new Error(data?.error || "移出候选失败。");
+    const nextQueue = candidateArticles.filter((item) => item.id !== active.article.id);
+    setCandidateArticles(nextQueue);
+    setRejectedArticles((items) => [data.article!, ...items.filter((item) => item.id !== data.article?.id)]);
+    setStatus(`《${active.article.title}》已移出候选，可在候选列表的“不精选记录”中撤销。`);
+    continueCandidateQueue(active.article.id, nextQueue);
+  }
+
+  async function restoreRejectedArticle(article: PublicArticle) {
+    const response = await fetch("/api/admin/article-candidates", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "restore", id: article.id }),
+    });
+    const data = await response.json().catch(() => null) as { article?: PublicArticle; error?: string } | null;
+    if (!response.ok || !data?.article) {
+      setStatus(data?.error || "恢复候选失败。");
+      return;
+    }
+    setRejectedArticles((items) => items.filter((item) => item.id !== article.id));
+    setCandidateArticles((items) => [data.article!, ...items.filter((item) => item.id !== article.id)]);
+  }
+
+  async function handleQuickAddUrl(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!quickUrl.trim() || quickAdding) return;
+    setQuickAdding(true);
+    setStatus("");
+    try {
+      const importResponse = await fetch("/api/import-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: quickUrl.trim() }),
+      });
+      const imported = await importResponse.json().catch(() => null) as { article?: ImportedArticle; metadata?: { description?: string; coverCandidates?: string[] }; error?: string } | null;
+      if (!importResponse.ok || !imported?.article?.text?.trim()) throw new Error(imported?.error || "网址文章读取失败。");
+      const classificationResponse = await fetch("/api/admin/article-classification", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: imported.article.title, text: imported.article.text, sourceUrl: imported.article.url, sourceName: imported.article.siteName }),
+      });
+      const classificationData = await classificationResponse.json().catch(() => null) as { classification?: Omit<ArticleRecommendationMetadata, "coverImageUrl" | "sourceKind"> & { summary?: string }; error?: string } | null;
+      if (!classificationResponse.ok || !classificationData?.classification) throw new Error(classificationData?.error || "文章分类失败。");
+      const classification = classificationData.classification;
+      const recommendation: ArticleRecommendationMetadata = {
+        coverImageUrl: imported.metadata?.coverCandidates?.[0] ?? "",
+        coverImageAlt: imported.article.title,
+        coverImageSourceUrl: imported.article.url,
+        difficulty: classification.difficulty,
+        cefr: classification.cefr,
+        audienceStages: classification.audienceStages,
+        topics: classification.topics,
+        homepageCategory: classification.homepageCategory ?? editorialCategoryForRecommendation(classification as ArticleRecommendationMetadata),
+        wordCount: classification.wordCount,
+        timeliness: classification.timeliness,
+        sourceKind: "manual-url",
+        classificationSource: classification.classificationSource,
+        classifiedAt: classification.classifiedAt,
+        reviewNotes: classification.reviewNotes,
+        difficultyEvidence: classification.difficultyEvidence,
+      };
+      const saveResponse = await fetch("/api/admin/article-candidates", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: imported.article.title,
+          summary: classification.summary || imported.metadata?.description || "",
+          body: imported.article.text,
+          sourceUrl: imported.article.url,
+          sourceName: imported.article.siteName,
+          importedArticle: { ...imported.article, recommendation },
+          recommendation,
+        }),
+      });
+      const saved = await saveResponse.json().catch(() => null) as { article?: PublicArticle; error?: string } | null;
+      if (!saveResponse.ok || !saved?.article) throw new Error(saved?.error || "候选文章保存失败。");
+      setCandidateArticles((items) => [saved.article!, ...items.filter((item) => item.id !== saved.article?.id)]);
+      setQuickUrl("");
+      setStatus(`已自动提取并分类《${saved.article.title}》，现在进入审稿。`);
+      openCandidateArticle(saved.article);
+    } catch (quickError) {
+      setStatus(quickError instanceof Error ? quickError.message : "增加候选失败。");
+    } finally {
+      setQuickAdding(false);
     }
   }
 
@@ -434,18 +621,34 @@ export default function AdminPage() {
   }
 
   if (readerState) {
+    const queue = readerState.kind === "candidate" ? candidateArticles : publicArticles;
+    const queueIndex = queue.findIndex((item) => item.id === readerState.article.id);
+    const drawerSource = editorialDrawer === "candidates" ? candidateArticles : publicArticles;
+    const normalizedSearch = editorialSearch.trim().toLocaleLowerCase("zh-CN");
+    const drawerItems = drawerSource.filter((article) => {
+      const recommendation = article.recommendation ?? article.importedArticle?.recommendation;
+      if (editorialDifficulty && recommendation?.difficulty !== editorialDifficulty) return false;
+      if (editorialCategory && editorialCategoryForRecommendation(recommendation) !== editorialCategory) return false;
+      return !normalizedSearch || `${article.title} ${article.sourceName} ${article.summary}`.toLocaleLowerCase("zh-CN").includes(normalizedSearch);
+    });
     return (
-      <div className="flex min-h-screen bg-[#f5f5f7]">
+      <div className="min-h-screen bg-[#f5f5f7] text-[#17212b]" style={{ colorScheme: "light" }}>
         <AdminArticleMetadataInspector
           article={readerState.article}
           articleKind={readerState.kind}
+          queuePosition={queueIndex >= 0 ? { index: queueIndex, total: queue.length } : undefined}
           onSave={persistReaderMetadata}
+          onPrevious={adjacentArticle(-1) ? () => void openAdjacentArticle(-1) : undefined}
+          onNext={adjacentArticle(1) ? () => void openAdjacentArticle(1) : undefined}
+          onClose={() => setReaderState(null)}
+          onSelect={readerState.kind === "candidate" ? selectCurrentCandidate : undefined}
+          onReject={readerState.kind === "candidate" ? rejectCurrentCandidate : undefined}
         />
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0">
           <ReaderView
             key={`${readerState.kind}:${readerState.article.id}`}
             article={readerState.article.body}
-            desktopViewportInsetLeft={350}
+            desktopViewportInsetLeft={330}
             importedArticle={readerState.article.importedArticle ?? null}
             preloadedExplanations={readerState.article.explanations ?? []}
             backLabel="返回后台"
@@ -466,6 +669,29 @@ export default function AdminPage() {
             }}
           />
         </div>
+        <div className="fixed right-3 top-28 z-[55] grid gap-2" aria-label="文章队列">
+          <button className="min-h-10 rounded-full border border-[#1769aa] bg-white px-4 text-sm font-semibold text-[#1769aa] shadow-sm" type="button" aria-expanded={editorialDrawer === "candidates"} onClick={() => setEditorialDrawer((current) => current === "candidates" ? null : "candidates")}>候选 {candidateArticles.length}</button>
+          <button className="min-h-10 rounded-full border border-[#1769aa] bg-white px-4 text-sm font-semibold text-[#1769aa] shadow-sm" type="button" aria-expanded={editorialDrawer === "published"} onClick={() => setEditorialDrawer((current) => current === "published" ? null : "published")}>精选 {publicArticles.length}</button>
+        </div>
+        {editorialDrawer && (
+          <aside className="fixed inset-y-0 right-0 z-[70] flex w-[min(430px,calc(100vw-24px))] flex-col border-l border-[#d7dde2] bg-white shadow-xl" aria-label={editorialDrawer === "candidates" ? "候选文章列表" : "精选文章列表"}>
+            <header className="shrink-0 border-b border-[#d7dde2] px-4 py-4">
+              <div className="flex items-center justify-between gap-3"><div><p className="text-xs font-semibold text-[#1769aa]">{editorialDrawer === "candidates" ? "待审核队列" : "已精选外刊"}</p><h2 className="mt-1 text-xl font-semibold">{editorialDrawer === "candidates" ? "候选文章" : "精选文章"}</h2></div><button className="h-9 w-9 rounded-full bg-[#f1f4f6] text-xl" type="button" aria-label="关闭文章列表" onClick={() => setEditorialDrawer(null)}>×</button></div>
+              <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                <input className="h-10 rounded-lg border border-[#c9ced6] px-3 text-sm" type="search" value={editorialSearch} onChange={(event) => setEditorialSearch(event.target.value)} placeholder="搜索标题或来源" />
+                <select className="h-10 rounded-lg border border-[#c9ced6] px-3 text-sm" value={editorialDifficulty} onChange={(event) => setEditorialDifficulty(event.target.value)}><option value="">全部难度</option>{[...new Set(drawerSource.map((item) => item.recommendation?.difficulty).filter(Boolean))].map((difficulty) => <option key={difficulty} value={difficulty}>{difficulty}</option>)}</select>
+                <select className="h-10 rounded-lg border border-[#c9ced6] px-3 text-sm sm:col-span-2" value={editorialCategory} onChange={(event) => setEditorialCategory(event.target.value)}><option value="">全部栏目</option><option>时事</option><option>科技</option><option>文化</option><option>商业</option></select>
+              </div>
+            </header>
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-3">
+              {drawerItems.length ? <ul className="divide-y divide-[#e1e5e9]">{drawerItems.map((article) => {
+                const recommendation = article.recommendation ?? article.importedArticle?.recommendation;
+                return <li key={article.id}><button className={`w-full px-2 py-4 text-left hover:bg-[#f2f7fa] focus-visible:bg-[#f2f7fa] ${readerState.article.id === article.id ? "bg-[#eaf4fa]" : ""}`} type="button" onClick={() => readerState.kind === "published" && editorialDrawer === "published" ? void openPublishedArticle(article) : editorialDrawer === "candidates" ? openCandidateArticle(article) : void openPublishedArticle(article)}><strong className="block text-sm leading-5">{article.title}</strong><span className="mt-1 block text-xs leading-5 text-[#68737c]">{article.sourceName || "来源待确认"} · {editorialCategoryForRecommendation(recommendation)} · {recommendation?.difficulty || "难度待定"} · {new Date(article.createdAt).toLocaleDateString("zh-CN")}</span></button></li>;
+              })}</ul> : <p className="px-3 py-10 text-center text-sm text-[#68737c]">没有符合当前筛选的文章。</p>}
+              {editorialDrawer === "candidates" && rejectedArticles.length > 0 && <details className="mt-4 border-t border-[#d7dde2] pt-4"><summary className="cursor-pointer text-sm font-semibold">不精选记录（{rejectedArticles.length}）</summary><ul className="mt-2 divide-y divide-[#e1e5e9]">{rejectedArticles.map((article) => <li key={article.id} className="flex items-start justify-between gap-3 py-3"><div className="min-w-0"><strong className="block text-sm leading-5">{article.title}</strong><span className="text-xs text-[#68737c]">{article.sourceName || "来源待确认"}</span></div><button className="shrink-0 rounded-full border border-[#1769aa] px-3 py-1.5 text-xs text-[#1769aa]" type="button" onClick={() => void restoreRejectedArticle(article)}>撤销</button></li>)}</ul></details>}
+            </div>
+          </aside>
+        )}
       </div>
     );
   }
@@ -557,7 +783,28 @@ export default function AdminPage() {
           </p>
         )}
 
-        <div className="mt-6">
+        <section className="mt-6 rounded-2xl bg-white p-5 sm:p-6" aria-labelledby="editorial-desk-title">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold text-[#1769aa]">每日内容工作台</p>
+              <h2 id="editorial-desk-title" className="mt-1 text-[24px] font-semibold">阅读、判断、继续下一篇</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#4d535a]">候选按最新内容优先排列。左侧修改会自动保存；精选或不精选后自动进入下一篇。</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <button className="min-h-11 rounded-full bg-[#1769aa] px-5 text-sm font-semibold text-white disabled:bg-[#aeb8c2]" type="button" disabled={!candidateArticles.length} onClick={() => candidateArticles[0] && openCandidateArticle(candidateArticles[0])}>开始今日精选（{candidateArticles.length}）</button>
+              <button className="min-h-11 rounded-full border border-[#1769aa] px-5 text-sm font-semibold text-[#1769aa] disabled:opacity-45" type="button" disabled={!publicArticles.length} onClick={() => publicArticles[0] && void openPublishedArticle(publicArticles[0])}>查看精选列表（{publicArticles.length}）</button>
+            </div>
+          </div>
+          <form className="mt-5 flex flex-col gap-2 border-t border-[#e1e5e9] pt-5 sm:flex-row" onSubmit={handleQuickAddUrl}>
+            <label className="min-w-0 flex-1"><span className="sr-only">外刊网址</span><input className="h-11 w-full rounded-lg border border-[#c9ced6] px-4 text-sm outline-none focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15" type="url" value={quickUrl} onChange={(event) => setQuickUrl(event.target.value)} placeholder="粘贴外刊网址，自动提取、分类并加入候选" required /></label>
+            <button className="h-11 rounded-lg bg-[#17212b] px-5 text-sm font-semibold text-white disabled:opacity-45" type="submit" disabled={quickAdding}>{quickAdding ? "正在提取并分类…" : "一键加入候选"}</button>
+          </form>
+          {rejectedArticles.length > 0 && <p className="mt-3 text-xs text-[#68737c]">另有 {rejectedArticles.length} 篇不精选记录，可在候选工作台右侧列表中撤销。</p>}
+        </section>
+
+        <details className="mt-6 rounded-2xl bg-white p-5">
+          <summary className="cursor-pointer text-lg font-semibold">批量导入、封面与自动抓取</summary>
+        <div className="mt-5">
           <AdminArticleIntakePanel
             savedArticles={articles}
             publicArticleCount={publicArticles.length}
@@ -566,10 +813,16 @@ export default function AdminPage() {
             onShowPublished={() => publicArticlesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
           />
         </div>
+        </details>
 
-        <AdminHomepageCurationPanel articles={publicArticles} />
+        <details className="mt-6 rounded-2xl bg-white p-5">
+          <summary className="cursor-pointer text-lg font-semibold">栏目主推与顺序微调</summary>
+          <AdminHomepageCurationPanel articles={publicArticles} />
+        </details>
 
-        <section ref={publicArticlesRef} className="mt-6 scroll-mt-5 rounded-2xl bg-white p-5">
+        <details className="mt-6 rounded-2xl bg-white p-5">
+          <summary className="cursor-pointer text-lg font-semibold">公开文章维护与删除</summary>
+        <section ref={publicArticlesRef} className="mt-5 scroll-mt-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="text-[21px] font-semibold">已公开推荐</h2>
@@ -647,6 +900,7 @@ export default function AdminPage() {
             </ul>
           )}
         </section>
+        </details>
           </>
         )}
       </section>

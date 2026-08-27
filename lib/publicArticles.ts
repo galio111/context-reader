@@ -330,11 +330,21 @@ export async function getPublicArticle(id: string): Promise<PublicArticle | null
   return mapArticle(article, explanationRows.map(mapExplanation), articleTranslations);
 }
 
-export async function listArticleCandidates(): Promise<PublicArticle[]> {
+export async function listArticleCandidates(options: { includeRejected?: boolean } = {}): Promise<PublicArticle[]> {
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
     "public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&published=eq.false&order=updated_at.desc",
   );
-  return rows.map((row) => mapArticle(row));
+  const articles = rows.map((row) => mapArticle(row));
+  const visible = options.includeRejected ? articles : articles.filter((article) => !article.recommendation?.rejectedAt);
+  return visible.sort((left, right) => {
+    const timeliness = Number(right.recommendation?.timeliness === "time-sensitive") - Number(left.recommendation?.timeliness === "time-sensitive");
+    return timeliness || Date.parse(right.createdAt) - Date.parse(left.createdAt);
+  });
+}
+
+export async function listRejectedArticleCandidates(): Promise<PublicArticle[]> {
+  const articles = await listArticleCandidates({ includeRejected: true });
+  return articles.filter((article) => Boolean(article.recommendation?.rejectedAt));
 }
 
 export async function saveArticleCandidate(input: PublicArticleCandidateInput): Promise<PublicArticle> {
@@ -438,6 +448,30 @@ export async function deleteArticleCandidate(id: string): Promise<void> {
   await supabaseFetch(`public_articles?id=eq.${encodeURIComponent(id)}&published=eq.false`, {
     method: "DELETE",
     headers: { Prefer: "return=minimal" },
+  });
+}
+
+export async function setArticleCandidateRejected(id: string, rejected: boolean): Promise<PublicArticle> {
+  const rows = await supabaseFetch<SupabaseArticleRow[]>(
+    `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&id=eq.${encodeURIComponent(id)}&published=eq.false&limit=1`,
+  );
+  const row = rows[0];
+  if (!row) throw new Error("候选文章不存在或已经发布。");
+  const article = mapArticle(row);
+  const recommendation = article.recommendation ?? article.importedArticle?.recommendation;
+  if (!recommendation) throw new Error("候选文章缺少推荐资料。");
+  return saveArticleCandidate({
+    id: article.id,
+    title: article.title,
+    summary: article.summary,
+    body: article.body,
+    sourceUrl: article.sourceUrl,
+    sourceName: article.sourceName,
+    importedArticle: article.importedArticle ?? null,
+    recommendation: {
+      ...recommendation,
+      ...(rejected ? { rejectedAt: new Date().toISOString() } : { rejectedAt: undefined }),
+    },
   });
 }
 

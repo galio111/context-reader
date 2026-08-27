@@ -43,9 +43,9 @@ The reader is the product center. Article text remains visually primary while lo
 ### Recommendations And Admin
 
 - `/` receives recommendation summaries during server rendering; article bodies load only on intent/open.
-- The homepage external-publication header includes a persistent personalization control for guests and members. Signed-in users may expand the remaining library in place with category, difficulty and search filters.
-- `/admin` accepts saved, pasted, URL-imported and crawler-discovered candidates. The crawler uses reviewed RSS/Atom sources and never auto-publishes.
-- Admin publication and homepage placement are separate: a category-slot editor controls the visitor showcase and its featured first recommendation.
+- The homepage external-publication header includes a persistent personalization control for guests and members. Guests reach a bottom “登录查看更多” action without losing the following homepage sections; signed-in users may expand the remaining library in place with category, difficulty and search filters.
+- `/admin` accepts saved, pasted, URL-imported and crawler-discovered candidates. Its daily editorial workbench combines the real Reader, sticky review controls, autosaved metadata, previous/next navigation, expandable candidate/published drawers and one-step URL intake. The crawler uses reviewed RSS/Atom sources, including business/economy feeds, and never auto-publishes.
+- Selecting a candidate publishes it, prepends it to the global `推荐` order and inserts it into its automatic or manually corrected category. Each of `推荐`, `时事`, `科技`, `文化` and `商业` maintains its own first featured article; rejected candidates remain undoable records and are excluded from rediscovery.
 - Candidate and published articles open in the real `ReaderView`, including lookup, translation, saving and in-place body editing.
 - Publication requires a reviewed first-party WebP cover stored in the active `public-article-covers` bucket.
 - Server-authorized Admin also manages accounts, quotas, invitation codes, password resets, private feedback and detailed product/site error records.

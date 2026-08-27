@@ -413,6 +413,11 @@
 .libraryAction button:hover,
 .libraryAction button:focus-visible { color: #fff; background: #1e6075; }
 .libraryAction span { color: #708288; font-size: 11px; }
+.guestLibraryAction { display: flex; width: min(1420px, 100%); margin: 58px auto 0; align-items: center; justify-content: center; gap: 16px; }
+.guestLibraryAction span { color: #61777e; font-size: 13px; line-height: 1.6; }
+.guestLibraryAction button { min-height: 44px; padding: 10px 20px; border: 1px solid #1e6075; border-radius: 999px; color: #fff; background: #1e6075; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.guestLibraryAction button:hover,
+.guestLibraryAction button:focus-visible { color: #1e6075; background: transparent; }
 
 .articleGrid {
   --scroll-drift: 0;
@@ -828,6 +833,8 @@
 .root[data-theme="night"] .cardCopy small,
 .root[data-theme="night"] .cardMeta,
 .root[data-theme="night"] .libraryAction span { color: #a8bbc1; }
+.root[data-theme="night"] .guestLibraryAction span { color: #b6c8cd; }
+.root[data-theme="night"] .guestLibraryAction button { border-color: #a7d8df; color: #163039; background: #a7d8df; }
 .root[data-theme="night"] .preferenceTrigger { border-color: rgb(170 213 222 / 30%); color: #d8ebee; background: rgb(24 47 55 / 84%); }
 .root[data-theme="night"] .preferenceTrigger:hover,
 .root[data-theme="night"] .preferenceTrigger:focus-visible { background: #1b343d; }
@@ -881,6 +888,7 @@
   .preferencePanel { position: absolute; top: calc(100% + 10px); right: auto; bottom: auto; left: 0; width: min(350px, calc(100vw - 40px)); max-height: min(72svh, 620px); overflow-y: auto; }
   .preferenceTrigger { max-width: 100%; align-items: flex-start; flex-direction: column; gap: 2px; border-radius: 15px; }
   .libraryAction { align-items: flex-start; flex-direction: column; }
+  .guestLibraryAction { align-items: flex-start; flex-direction: column; }
   .memberWorkbench { padding: 94px 20px 74px; }
   .memberWorkbenchGrid { min-height: auto; grid-template-columns: 1fr; gap: 26px; }
   .continueReadingCard { min-height: 300px; padding: 24px 22px; border-radius: 20px; }

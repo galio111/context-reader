@@ -23,7 +23,7 @@ export const ARTICLE_AUDIENCE_STAGES = [
   "TOEFL",
 ] as const;
 
-export const ARTICLE_TOPICS = ["科技科学", "自然环境", "文化历史", "社会生活", "人物成长", "故事文学"] as const;
+export const ARTICLE_TOPICS = ["科技科学", "自然环境", "文化历史", "社会生活", "商业经济", "人物成长", "故事文学"] as const;
 
 export type ArticleDifficulty = (typeof ARTICLE_DIFFICULTIES)[number];
 export type ArticleCefrLevel = (typeof ARTICLE_CEFR_LEVELS)[number];
@@ -39,6 +39,7 @@ export type ArticleManualField =
   | "cefr"
   | "audienceStages"
   | "topics"
+  | "homepageCategory"
   | "timeliness"
   | "reviewNotes";
 
@@ -75,6 +76,7 @@ export interface ArticleRecommendationMetadata {
   cefr: ArticleCefrLevel;
   audienceStages: ArticleAudienceStage[];
   topics: ArticleTopic[];
+  homepageCategory?: "时事" | "科技" | "文化" | "商业";
   wordCount: number;
   /** Kept only so older recommendation JSON can be read during migration. */
   readingMinutes?: number;
@@ -85,6 +87,7 @@ export interface ArticleRecommendationMetadata {
   reviewNotes?: string;
   difficultyEvidence?: ArticleDifficultyEvidence;
   manualFields?: ArticleManualField[];
+  rejectedAt?: string;
 }
 
 export interface PublicExplanation {

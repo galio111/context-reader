@@ -34,7 +34,7 @@ export default function AdminHomepageCurationPanel({ articles }: { articles: Pub
 
   function addArticle(id: string) {
     if (!id || selectedIds.includes(id)) return;
-    updateCategory([...selectedIds, id]);
+    updateCategory(selectedIds.length ? [selectedIds[0], id, ...selectedIds.slice(1)] : [id]);
   }
 
   function moveArticle(id: string, direction: -1 | 1) {
@@ -76,11 +76,11 @@ export default function AdminHomepageCurationPanel({ articles }: { articles: Pub
   }
 
   return (
-    <section className="mt-6 rounded-2xl bg-white p-5" aria-labelledby="homepage-curation-title">
+    <section className="mt-5" aria-labelledby="homepage-curation-title">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h2 id="homepage-curation-title" className="text-[21px] font-semibold">首页外刊编排</h2>
-          <p className="mt-1 max-w-3xl text-sm leading-6 text-[#4d535a]">发布只会进入外刊库。这里单独决定游客首页和登录用户橱窗出现哪些文章；“推荐”的第一个槽位就是主推。</p>
+          <p className="mt-1 max-w-3xl text-sm leading-6 text-[#4d535a]">每个栏目的第一篇都是该栏主推；“推荐”同时是游客首先看到的全局精选顺序。日常精选会自动更新，这里只用于微调。</p>
         </div>
         <button className="min-h-10 rounded-full bg-[#1769aa] px-4 text-sm font-medium text-white disabled:bg-[#aeb8c2]" type="button" onClick={() => void save()} disabled={saving}>{saving ? "保存中..." : "保存编排"}</button>
       </div>
@@ -94,7 +94,7 @@ export default function AdminHomepageCurationPanel({ articles }: { articles: Pub
             const article = articleById.get(id);
             return <li key={id} draggable onDragStart={() => setDraggedId(id)} onDragOver={(event) => event.preventDefault()} onDrop={(event) => dropBefore(id, event)} className="grid min-h-14 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl bg-[#f3f5f7] px-3 py-2">
               <span className="grid h-8 w-8 place-items-center rounded-full bg-white text-xs font-semibold text-[#1769aa]">{index + 1}</span>
-              <div className="min-w-0"><strong className="block truncate text-sm">{article?.title || "文章已下架"}</strong><span className="text-xs text-[#68717a]">{index === 0 && category === "推荐" ? "主推槽 · " : ""}{article?.sourceName || id}</span></div>
+              <div className="min-w-0"><strong className="block truncate text-sm">{article?.title || "文章已下架"}</strong><span className="text-xs text-[#68717a]">{index === 0 ? "本栏主推 · " : ""}{article?.sourceName || id}</span></div>
               <div className="flex gap-1"><button className="h-8 w-8 rounded-full bg-white disabled:opacity-30" type="button" aria-label={`上移 ${article?.title || id}`} disabled={index === 0} onClick={() => moveArticle(id, -1)}>↑</button><button className="h-8 w-8 rounded-full bg-white disabled:opacity-30" type="button" aria-label={`下移 ${article?.title || id}`} disabled={index === selectedIds.length - 1} onClick={() => moveArticle(id, 1)}>↓</button><button className="h-8 rounded-full bg-white px-3 text-xs text-red-600" type="button" onClick={() => updateCategory(selectedIds.filter((item) => item !== id))}>移除</button></div>
             </li>;
           })}</ol> : <p className="rounded-xl bg-[#f3f5f7] px-4 py-8 text-center text-sm text-[#68717a]">尚未编排。保存前首页会继续使用公开文章的默认顺序。</p>}

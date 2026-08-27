@@ -56,6 +56,14 @@ export const RECOMMENDATION_CRAWLER_SOURCES: RecommendationCrawlerSource[] = [
     levelHint: "advanced",
   },
   {
+    id: "npr-business",
+    name: "NPR Business",
+    feedUrl: "https://feeds.npr.org/1006/rss.xml",
+    articleHosts: ["npr.org"],
+    topics: ["商业经济", "社会生活"],
+    levelHint: "advanced",
+  },
+  {
     id: "science-news-explores",
     name: "Science News Explores",
     feedUrl: "https://www.snexplores.org/feed/",
@@ -149,6 +157,14 @@ export const RECOMMENDATION_CRAWLER_SOURCES: RecommendationCrawlerSource[] = [
     feedUrl: "https://theconversation.com/us/technology/articles.atom",
     articleHosts: ["theconversation.com"],
     topics: ["科技科学", "社会生活"],
+    levelHint: "advanced",
+  },
+  {
+    id: "the-conversation-business",
+    name: "The Conversation · Business + Economy",
+    feedUrl: "https://theconversation.com/us/business/articles.atom",
+    articleHosts: ["theconversation.com"],
+    topics: ["商业经济", "社会生活"],
     levelHint: "advanced",
   },
 ];

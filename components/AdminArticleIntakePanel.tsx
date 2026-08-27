@@ -691,21 +691,22 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
   }
 
   async function handleDeleteCandidate(article: PublicArticle) {
-    if (!window.confirm(`删除候选《${article.title}》吗？`)) {
-      return;
-    }
     setError("");
-    const response = await fetch(`/api/admin/article-candidates?id=${encodeURIComponent(article.id)}`, { method: "DELETE" });
+    const response = await fetch("/api/admin/article-candidates", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "reject", id: article.id }),
+    });
     const data = await response.json().catch(() => null) as { error?: string } | null;
     if (!response.ok) {
-      setError(data?.error || "候选文章删除失败。");
+      setError(data?.error || "候选文章移出失败。");
       return;
     }
     if (draft.id === article.id) {
       resetDraft(mode);
     }
     await loadCandidates();
-    setMessage(`已删除候选《${article.title}》。`);
+    setMessage(`《${article.title}》已移出候选并保留拒绝记录。`);
   }
 
   async function handleCoverUpload(file: File | null) {
@@ -1044,7 +1045,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
                 <input className="h-5 w-5 accent-[#1769aa]" type="checkbox" checked={selected} disabled={!hasCover || busy} aria-label={`选择 ${article.title}`} onChange={() => setSelectedIds((ids) => selected ? ids.filter((id) => id !== article.id) : [...ids, article.id])} />
                 <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#e8edf1]">{hasCover ? <img className="h-full w-full object-cover" src={recommendation?.coverImageUrl} alt="" /> : <div className="flex h-full items-center justify-center px-2 text-center text-xs text-[#6a4a43]">缺少封面</div>}</div>
                 <div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold leading-6 text-[#17191c]">{article.title}</h3>{isRecent && <span className="rounded-full bg-[#1769aa] px-2.5 py-1 text-xs font-medium text-white">本次新增</span>}<span className={`rounded-full px-2.5 py-1 text-xs font-medium ${hasCover ? "bg-[#e9f5ee] text-[#17613b]" : "bg-[#fff0ed] text-[#9b3524]"}`}>{hasCover ? "可发布" : "待补封面"}</span>{recommendation?.sourceKind === "crawler" && <span className="rounded-full bg-[#edf5fb] px-2.5 py-1 text-xs font-medium text-[#174d73]">自动发现</span>}{recommendation?.sourceKind === "local-saved" && <span className="rounded-full bg-[#eef1f4] px-2.5 py-1 text-xs font-medium text-[#4d535a]">本地文章</span>}</div><p className="mt-1 line-clamp-2 text-sm leading-6 text-[#4d535a]">{article.summary || "暂无摘要"}</p><p className="mt-1 text-xs leading-5 text-[#68717a]">{recommendation?.difficulty || "待判断"} · CEFR {recommendation?.cefr || "待判断"} · {recommendation?.topics.join("、") || "待分类"} · {(recommendation?.wordCount ?? countArticleEnglishWords(article.body)).toLocaleString("zh-CN")} 词</p><p className="mt-0.5 text-xs leading-5 text-[#7b848c]">适合：{recommendation?.audienceStages.join("、") || "待判断"} · {recommendation?.timeliness === "time-sensitive" ? "需检查时效" : "长期有效"} · {article.sourceName || "来源待确认"}</p></div>
-                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => onOpenArticle(article)} disabled={busy}>打开并编辑正文</button><button className={secondaryButtonClass} type="button" onClick={() => { setDraft(draftFromCandidate(article)); setMode(article.recommendation?.sourceKind === "local-saved" ? "local" : article.recommendation?.sourceKind === "manual-paste" ? "paste" : "url"); setSelectedLocalArticleId(""); setError(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }} disabled={busy}>编辑资料与封面</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => void handleDeleteCandidate(article)} disabled={busy}>删除</button></div>
+                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => onOpenArticle(article)} disabled={busy}>打开并编辑正文</button><button className={secondaryButtonClass} type="button" onClick={() => { setDraft(draftFromCandidate(article)); setMode(article.recommendation?.sourceKind === "local-saved" ? "local" : article.recommendation?.sourceKind === "manual-paste" ? "paste" : "url"); setSelectedLocalArticleId(""); setError(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }} disabled={busy}>编辑资料与封面</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => void handleDeleteCandidate(article)} disabled={busy}>不精选</button></div>
               </li>;
             })}
           </ul>

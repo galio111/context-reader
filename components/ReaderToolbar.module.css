@@ -374,6 +374,27 @@
     right: max(20px, calc(20px + (100vw - 168px - 1380px) / 2)) !important;
     width: 360px !important;
   }
+
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .desktopRail {
+    display: none;
+  }
+
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .toolbar {
+    right: max(20px, calc((100vw - var(--reader-desktop-inset-left) - 1320px) / 2));
+    max-width: calc(100vw - var(--reader-desktop-inset-left) - 40px);
+  }
+
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .readerLayout {
+    width: min(calc(100vw - var(--reader-desktop-inset-left) - 40px), 1320px);
+    margin-right: 0 !important;
+    margin-left: calc(var(--reader-desktop-inset-left) + max(20px, (100vw - var(--reader-desktop-inset-left) - 1320px) / 2)) !important;
+    grid-template-columns: minmax(0, 1fr) 360px !important;
+    gap: 24px !important;
+  }
+
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .readerSidePanel {
+    right: max(20px, calc((100vw - var(--reader-desktop-inset-left) - 1320px) / 2)) !important;
+  }
 }
 
 .mobileToolDock,
