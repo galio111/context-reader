@@ -95,7 +95,7 @@ export function FeedbackPanel({ open, onClose, embedded = false }: { open: boole
             </label>
             <label>联系方式（可不填）
               <ClearableField value={contact} onClear={() => setContact("")} label="清空联系方式">
-                <input value={contact} onChange={(event) => setContact(event.target.value)} maxLength={160} placeholder="邮箱、微信或其他联系方式" />
+                <input value={contact} onChange={(event) => setContact(event.target.value)} maxLength={160} placeholder="留下邮箱、微信或其他联系方式，我可以回信联系你" />
               </ClearableField>
             </label>
             <label className={styles.honeypot} aria-hidden="true">Website<input value={website} onChange={(event) => setWebsite(event.target.value)} tabIndex={-1} autoComplete="off" /></label>
