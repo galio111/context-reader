@@ -114,6 +114,10 @@ function canonicalArticleUrl(rawUrl: string): string {
   }
 }
 
+function normalizedFeedTitle(value: string): string {
+  return value.normalize("NFKC").toLocaleLowerCase("en-US").replace(/[^\p{L}\p{N}]+/gu, "");
+}
+
 function parseFeed(xml: string, source: RecommendationCrawlerSource, topic: RecommendationCrawlerRunInput["topic"]): FeedItem[] {
   const fragments = [
     ...xml.matchAll(/<item\b[^>]*>([\s\S]*?)<\/item>/gi),
@@ -292,9 +296,11 @@ export async function runRecommendationCrawler(
   });
 
   const knownUrls = new Set(allArticles.map((article) => canonicalArticleUrl(article.sourceUrl)).filter(Boolean));
+  const knownTitles = new Set(allArticles.map((article) => normalizedFeedTitle(article.title)).filter(Boolean));
+  const knownArticleIds = new Set(allArticles.map((article) => article.id));
   const uniqueItems = interleaveSources(
-    [...new Map(discoveredItems.map((item) => [item.url, item])).values()]
-      .filter((item) => !knownUrls.has(item.url)),
+    [...new Map(discoveredItems.map((item) => [canonicalArticleUrl(item.url), item])).values()]
+      .filter((item) => !knownUrls.has(canonicalArticleUrl(item.url)) && !knownTitles.has(normalizedFeedTitle(item.title))),
   );
   resultBase.discovered = uniqueItems.length;
 
@@ -324,8 +330,16 @@ export async function runRecommendationCrawler(
         continue;
       }
       const candidate = await saveArticleCandidate(crawlerCandidateInput(item, imported, classification, input.topic));
+      if (knownArticleIds.has(candidate.id)) {
+        resultBase.skipped.push({ title: item.title, url: item.url, reason: "与候选库中已有文章内容重复" });
+        knownUrls.add(canonicalArticleUrl(item.url));
+        knownTitles.add(normalizedFeedTitle(item.title));
+        continue;
+      }
       resultBase.created.push(candidate);
-      knownUrls.add(item.url);
+      knownArticleIds.add(candidate.id);
+      knownUrls.add(canonicalArticleUrl(item.url));
+      knownTitles.add(normalizedFeedTitle(candidate.title));
     } catch (error) {
       resultBase.skipped.push({
         title: item.title,

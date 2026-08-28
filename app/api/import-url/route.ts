@@ -65,17 +65,16 @@ export async function POST(request: Request) {
       );
     }
 
-    const localized = await localizeImportedArticleImages(extracted.article, response.url || url.toString());
-    if (localized.failures.length) {
-      return NextResponse.json(
-        {
-          error: `正文已读取，但有 ${localized.failures.length} 张图片未能保存到本站。请稍后重试，失败导入不会消耗游客次数。`,
-        },
-        { status: 502 },
-      );
-    }
-
-    return NextResponse.json({ ...extracted, article: localized.article });
+    const localized = await localizeImportedArticleImages(
+      extracted.article,
+      response.url || url.toString(),
+      { removeFailed: true },
+    );
+    return NextResponse.json({
+      ...extracted,
+      article: localized.article,
+      ...(localized.removed ? { mediaNotice: `${localized.removed} 张无法可靠保存的原站图片已移除，正文已完整保留。` } : {}),
+    });
   } catch (error) {
     if (error instanceof UnsafeRemoteUrlError) {
       return NextResponse.json({ error: "该网址指向受保护的内部地址，无法导入。" }, { status: 400 });

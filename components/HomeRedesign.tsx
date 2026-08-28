@@ -56,6 +56,22 @@ const HOME_PREFERENCES_KEY = "context-reader-home-ui-v1";
 const HOME_VIEW_STATE_KEY = "context-reader-home-view-v1";
 type HomeTheme = "day" | "night";
 
+interface HomeViewState {
+  category?: string;
+  memberLibraryOpen?: boolean;
+  librarySearch?: string;
+  libraryDifficulty?: ArticleDifficulty | "";
+}
+
+function persistHomeViewState(patch: HomeViewState): void {
+  try {
+    const current = JSON.parse(window.sessionStorage.getItem(HOME_VIEW_STATE_KEY) || "null") as HomeViewState | null;
+    window.sessionStorage.setItem(HOME_VIEW_STATE_KEY, JSON.stringify({ ...(current ?? {}), ...patch }));
+  } catch {
+    // The mounted homepage still retains the current view if storage is unavailable.
+  }
+}
+
 const CATEGORY_FILTERS = [
   { label: "推荐", test: () => true },
   { label: "时事", test: (article: PublicArticle) => article.recommendation?.topics.some((topic) => /社会/.test(topic)) ?? false },
@@ -257,7 +273,11 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
         // eslint-disable-next-line @next/next/no-img-element
         <img src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} draggable={false} onError={() => setCoverFailed(true)} />
       ) : (
-        <span className={styles.coverFallback} role="img" aria-label={`${article.sourceName} 图片暂不可用`}><i /><i /><small>{article.sourceName || "原文来源"} · 图片暂不可用</small></span>
+        <span className={styles.coverFallback} aria-label="纯文本外刊封面">
+          <i>TEXT EDITION</i>
+          <strong>{(article.sourceName || "Context Reader").slice(0, 28)}</strong>
+          <small>{article.summary || "一篇值得慢慢读完的英文文章"}</small>
+        </span>
       )}
     </span>
   );
@@ -403,8 +423,13 @@ export function HomeRedesign(props: HomeRedesignProps) {
     setRecommendationPreferences(stored);
     setPreferenceDraft(stored);
     try {
-      const view = JSON.parse(window.sessionStorage.getItem(HOME_VIEW_STATE_KEY) || "null") as { category?: string } | null;
+      const view = JSON.parse(window.sessionStorage.getItem(HOME_VIEW_STATE_KEY) || "null") as HomeViewState | null;
       if (CATEGORY_FILTERS.some((item) => item.label === view?.category)) setActiveCategory(view?.category ?? "推荐");
+      if (typeof view?.memberLibraryOpen === "boolean") setMemberLibraryOpen(view.memberLibraryOpen);
+      if (typeof view?.librarySearch === "string") setLibrarySearch(view.librarySearch.slice(0, 120));
+      if (view?.libraryDifficulty === "" || ARTICLE_DIFFICULTIES.includes(view?.libraryDifficulty as ArticleDifficulty)) {
+        setLibraryDifficulty(view?.libraryDifficulty ?? "");
+      }
     } catch {
       // A stale view snapshot falls back to the recommendation category.
     }
@@ -542,38 +567,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
       window.removeEventListener("scroll", trackDirection);
     };
   }, [memberHome]);
-
-  useEffect(() => {
-    const grid = articleGridRef.current;
-    if (!grid) return;
-    let lastY = window.scrollY;
-    let lastTime = performance.now();
-    let velocity = 0;
-    let frame = 0;
-    const renderVelocity = () => {
-      velocity *= 0.86;
-      const normalized = Math.max(-1, Math.min(1, velocity));
-      grid.style.setProperty("--scroll-drift", (normalized * 12).toFixed(2));
-      grid.style.setProperty("--scroll-skew", (normalized * -0.9).toFixed(2));
-      grid.style.setProperty("--scroll-stretch", (1 + Math.abs(normalized) * 0.018).toFixed(4));
-      if (Math.abs(velocity) > 0.008) frame = window.requestAnimationFrame(renderVelocity);
-      else frame = 0;
-    };
-    const onScroll = () => {
-      const now = performance.now();
-      const deltaTime = Math.max(12, now - lastTime);
-      const raw = (window.scrollY - lastY) / deltaTime;
-      velocity = Math.max(-1, Math.min(1, velocity * 0.55 + raw * 0.45));
-      lastY = window.scrollY;
-      lastTime = now;
-      if (!frame) frame = window.requestAnimationFrame(renderVelocity);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, []);
 
   useEffect(() => () => {
     if (memberOpeningFrameRef.current) window.cancelAnimationFrame(memberOpeningFrameRef.current);
@@ -930,11 +923,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     categorySwitchTimerRef.current = window.setTimeout(() => {
       categorySwitchTimerRef.current = null;
       setActiveCategory(nextCategory);
-      try {
-        window.sessionStorage.setItem(HOME_VIEW_STATE_KEY, JSON.stringify({ category: nextCategory }));
-      } catch {
-        // The current in-memory category still survives while this page is mounted.
-      }
+      persistHomeViewState({ category: nextCategory });
       window.requestAnimationFrame(() => setCategorySwitching(false));
     }, 190);
   }
@@ -1293,11 +1282,11 @@ export function HomeRedesign(props: HomeRedesignProps) {
               <div className={styles.libraryFilters} aria-label="筛选外刊">
                 <label>
                   <span>搜索</span>
-                  <input type="search" value={librarySearch} onChange={(event) => setLibrarySearch(event.target.value)} placeholder="标题、来源或内容" />
+                  <input type="search" value={librarySearch} onChange={(event) => { setLibrarySearch(event.target.value); persistHomeViewState({ librarySearch: event.target.value }); }} placeholder="标题、来源或内容" />
                 </label>
                 <label>
                   <span>难度</span>
-                  <select value={libraryDifficulty} onChange={(event) => setLibraryDifficulty(event.target.value as ArticleDifficulty | "")}>
+                  <select value={libraryDifficulty} onChange={(event) => { const value = event.target.value as ArticleDifficulty | ""; setLibraryDifficulty(value); persistHomeViewState({ libraryDifficulty: value }); }}>
                     <option value="">全部难度</option>
                     {ARTICLE_DIFFICULTIES.map((difficulty) => <option key={difficulty} value={difficulty}>{difficulty}</option>)}
                   </select>
@@ -1341,7 +1330,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           )}
           {memberHome && personalizedAllCategoryArticles.length > showcaseArticleCount && (
             <div className={styles.libraryAction}>
-              <button type="button" onClick={() => setMemberLibraryOpen((current) => !current)} aria-expanded={memberLibraryOpen}>
+              <button type="button" onClick={() => setMemberLibraryOpen((current) => { const next = !current; persistHomeViewState({ memberLibraryOpen: next }); return next; })} aria-expanded={memberLibraryOpen}>
                 {memberLibraryOpen ? "收起更多外刊" : "显示更多"}
               </button>
               <span>{memberLibraryOpen ? `当前显示 ${displayArticles.length} 篇` : `还有 ${personalizedAllCategoryArticles.length - showcaseArticleCount} 篇`}</span>

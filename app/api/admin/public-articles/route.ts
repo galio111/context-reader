@@ -3,6 +3,8 @@ import { isAdminRequest } from "@/lib/adminAuth";
 import { createPublicArticle, deletePublicArticle, listPublicArticles, updatePublicArticle } from "@/lib/publicArticles";
 import { isSafePublicArticleInput, UUID_PATTERN } from "@/lib/publicArticleInput";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
+import { getHomepageCuration, saveHomepageCuration } from "@/lib/homepageCuration";
+import { removePublishedArticle } from "@/lib/editorialCuration";
 
 export async function GET() {
   if (!(await isAdminRequest())) {
@@ -80,6 +82,12 @@ export async function DELETE(request: Request) {
   }
   try {
     await deletePublicArticle(id);
+    try {
+      const curation = await getHomepageCuration();
+      await saveHomepageCuration(removePublishedArticle(curation, id));
+    } catch (curationError) {
+      console.error("Deleted public article but failed to prune homepage curation", curationError);
+    }
     return NextResponse.json({ ok: true });
   } catch (error) {
     return NextResponse.json(

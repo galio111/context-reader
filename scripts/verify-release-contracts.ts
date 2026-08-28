@@ -141,7 +141,9 @@ requireSource("app/api/account/invitation-code/route.ts", [
 ]);
 requireSource("app/api/import-url/route.ts", [
   "localizeImportedArticleImages",
-  "失败导入不会消耗游客次数",
+  "{ removeFailed: true }",
+  "mediaNotice",
+  "正文已完整保留",
 ]);
 requireSource("lib/publicArticleCovers.ts", [
   "images.weserv.nl",
@@ -160,4 +162,4 @@ requireSource("components/HomeClient.tsx", [
   "replaceSavedArticleImportedArticle",
 ]);
 
-console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, invitation-entitlement-v1, article-image-localization-v1");
+console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, invitation-entitlement-v1, article-image-localization-v2");

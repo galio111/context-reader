@@ -736,7 +736,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
   }
 
   async function handleRepairPublicImages() {
-    if (!window.confirm("把所有已公开文章仍在使用的外部封面和正文图片转存到本站？文章内容不会删除。")) return;
+    if (!window.confirm("把候选与已精选文章中的外部图片转存到本站？无法可靠保存的图片会移除，英文正文会完整保留。")) return;
     setWorking("repair-images");
     setError("");
     setMessage("");
@@ -751,13 +751,14 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
           scanned: number;
           updated: Array<{ id: string; title: string; localizedImages: number }>;
           skipped: number;
+          omitted: Array<{ id: string; title: string; error: string }>;
           failed: Array<{ id: string; title: string; error: string }>;
         };
         error?: string;
       } | null;
       if (!response.ok || !data?.result) throw new Error(data?.error || "公开文章图片修复失败。");
       const localizedImages = data.result.updated.reduce((total, article) => total + article.localizedImages, 0);
-      setMessage(`已扫描 ${data.result.scanned} 篇公开文章，更新 ${data.result.updated.length} 篇，转存 ${localizedImages} 张正文图片。`);
+      setMessage(`已扫描 ${data.result.scanned} 篇候选与精选文章，更新 ${data.result.updated.length} 篇，转存 ${localizedImages} 张正文图片，干净移除 ${data.result.omitted.length} 项无法保存的图片。`);
       if (data.result.failed.length) {
         setError(`仍有 ${data.result.failed.length} 项图片未能转存：${data.result.failed[0].title} · ${data.result.failed[0].error}`);
       }
@@ -820,7 +821,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
             <div className="flex flex-wrap gap-2">
               <button className={secondaryButtonClass} type="button" onClick={() => showCandidates()}>查看候选（{candidates.length}）</button>
               <button className={secondaryButtonClass} type="button" onClick={onShowPublished}>查看已公开（{publicArticleCount}）</button>
-              <button className={secondaryButtonClass} type="button" onClick={() => void handleRepairPublicImages()} disabled={busy}>{working === "repair-images" ? "正在转存公开图片…" : "修复公开图片"}</button>
+              <button className={secondaryButtonClass} type="button" onClick={() => void handleRepairPublicImages()} disabled={busy}>{working === "repair-images" ? "正在转存文章图片…" : "修复候选与精选图片"}</button>
             </div>
           </div>
 

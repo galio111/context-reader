@@ -298,32 +298,63 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       (window.location.pathname.startsWith("/admin") && account.plan?.id !== "admin") ||
       window.location.pathname === "/account/repair-vocabulary"
     ) return;
-    void syncNow().catch(() => undefined);
-    const scheduleLocalPush = () => {
+    let idleHandle = 0;
+    let lastInteractionAt = performance.now();
+    const idleWindow = window as typeof window & {
+      requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+    const cancelScheduledSync = () => {
       if (syncTimer.current !== null) window.clearTimeout(syncTimer.current);
+      syncTimer.current = null;
+      if (idleHandle) idleWindow.cancelIdleCallback?.(idleHandle);
+      idleHandle = 0;
+    };
+    const scheduleSync = (delayMs: number) => {
+      cancelScheduledSync();
       syncTimer.current = window.setTimeout(() => {
-        void syncNow().catch(() => undefined);
-      }, LOCAL_SYNC_DEBOUNCE_MS);
+        syncTimer.current = null;
+        const run = () => {
+          idleHandle = 0;
+          const quietFor = performance.now() - lastInteractionAt;
+          if (quietFor < 700) {
+            scheduleSync(Math.ceil(700 - quietFor));
+            return;
+          }
+          void syncNow().catch(() => undefined);
+        };
+        if (idleWindow.requestIdleCallback) idleHandle = idleWindow.requestIdleCallback(run, { timeout: 5_000 });
+        else syncTimer.current = window.setTimeout(run, 32);
+      }, delayMs);
     };
+    const scheduleLocalPush = () => scheduleSync(LOCAL_SYNC_DEBOUNCE_MS);
     const pullRemoteChanges = () => {
-      if (document.visibilityState === "visible") void syncNow().catch(() => undefined);
+      if (document.visibilityState === "visible") scheduleSync(0);
     };
+    const markInteraction = () => { lastInteractionAt = performance.now(); };
     const handleStorage = (event: StorageEvent) => {
       if (event.key === "context-reader:sync-state:v2" || event.key === "context-reader:last-sync:v1") return;
       scheduleLocalPush();
     };
+    scheduleSync(0);
     const intervalId = window.setInterval(pullRemoteChanges, REMOTE_SYNC_INTERVAL_MS);
     window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, scheduleLocalPush);
     window.addEventListener("storage", handleStorage);
     window.addEventListener("focus", pullRemoteChanges);
+    window.addEventListener("scroll", markInteraction, { passive: true });
+    window.addEventListener("pointermove", markInteraction, { passive: true });
+    window.addEventListener("keydown", markInteraction);
     document.addEventListener("visibilitychange", pullRemoteChanges);
     return () => {
       window.clearInterval(intervalId);
       window.removeEventListener(ACCOUNT_DATA_CHANGED_EVENT, scheduleLocalPush);
       window.removeEventListener("storage", handleStorage);
       window.removeEventListener("focus", pullRemoteChanges);
+      window.removeEventListener("scroll", markInteraction);
+      window.removeEventListener("pointermove", markInteraction);
+      window.removeEventListener("keydown", markInteraction);
       document.removeEventListener("visibilitychange", pullRemoteChanges);
-      if (syncTimer.current !== null) window.clearTimeout(syncTimer.current);
+      cancelScheduledSync();
     };
   }, [account.authenticated, account.localOnly, account.plan?.id, syncNow]);
 

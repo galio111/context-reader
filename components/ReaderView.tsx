@@ -1,6 +1,6 @@
 "use client";
 
-import { startTransition, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
 import { defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { ArticleTranslationPanel } from "@/components/ArticleTranslationPanel";
@@ -181,10 +181,8 @@ type RightPanelMode = "explanation" | "translation" | "dictionary" | "article";
 type ReaderWorkLayer = "import" | "articles" | null;
 
 const IMAGE_OCR_ENABLED = false;
-const INITIAL_INTERACTIVE_BLOCK_LIMIT = 8;
 const SOURCE_JUMP_UNLOCK_TIMEOUT_MS = 2_000;
 const READER_PROGRESS_SCROLL_SETTLE_MS = 180;
-const READER_TOKEN_SCROLL_SETTLE_MS = 360;
 const FALLBACK_READER_IMAGE_WIDTH = 1_600;
 const FALLBACK_READER_IMAGE_HEIGHT = 1_200;
 const DEFAULT_ARTICLE_STYLE: Required<ArticleReadingStyle> = {
@@ -315,6 +313,19 @@ function createImportedArticleFromBlocks(
 
 function cloneImportedArticle(article: ImportedArticle | null): ImportedArticle | null {
   return article ? JSON.parse(JSON.stringify(article)) as ImportedArticle : null;
+}
+
+function sameImportedArticleReadingContent(left: ImportedArticle | null, right: ImportedArticle | null): boolean {
+  if (left === right) return true;
+  if (!left || !right) return false;
+  return left.title === right.title
+    && left.url === right.url
+    && left.siteName === right.siteName
+    && left.byline === right.byline
+    && left.publishedTime === right.publishedTime
+    && left.text === right.text
+    && JSON.stringify(left.blocks) === JSON.stringify(right.blocks)
+    && JSON.stringify(left.style ?? null) === JSON.stringify(right.style ?? null);
 }
 
 function consumeFallbackGuestLookup(): boolean {
@@ -573,30 +584,6 @@ function normalizeSentence(value: string): string {
   return value.trim().replace(/\s+/g, " ").toLowerCase();
 }
 
-function articleTextBlockEntries(article: ImportedArticle | null, plainArticle: string): Array<{ id: string; text: string }> {
-  if (article?.blocks?.length) {
-    return article.blocks
-      .filter((block) => block.type !== "image")
-      .map((block) => ({ id: block.id, text: importedBlockText(block) }));
-  }
-  return plainArticle.split(/\r?\n/).map((text, index) => ({ id: `paragraph-${index}`, text }));
-}
-
-function initialInteractiveBlockIds(
-  article: ImportedArticle | null,
-  plainArticle: string,
-  sourceSentence = "",
-): Set<string> {
-  const entries = articleTextBlockEntries(article, plainArticle);
-  const ids = entries.slice(0, INITIAL_INTERACTIVE_BLOCK_LIMIT).map((entry) => entry.id);
-  const normalizedSource = normalizeForSourceMatch(sourceSentence);
-  if (normalizedSource) {
-    const sourceBlock = entries.find((entry) => normalizeForSourceMatch(entry.text).includes(normalizedSource));
-    if (sourceBlock) ids.push(sourceBlock.id);
-  }
-  return new Set(ids);
-}
-
 function groupTokensByInline(tokens: ReaderToken[], inline: ImportedArticleInlineText[]): RenderableTokenGroup[] {
   const groups: RenderableTokenGroup[] = [];
   let cursor = 0;
@@ -667,23 +654,11 @@ export function ReaderView({
   } = useAccount();
   const [currentArticle, setCurrentArticle] = useState(article);
   const [currentImportedArticle, setCurrentImportedArticle] = useState<ImportedArticle | null>(importedArticle ?? null);
-  const [progressiveReaderReady] = useState(
-    () => !sourceSentenceToHighlight && articleTextBlockEntries(importedArticle ?? null, article).length > INITIAL_INTERACTIVE_BLOCK_LIMIT * 2,
-  );
-  const [visibleBlockIds, setVisibleBlockIds] = useState<Set<string>>(
-    () => initialInteractiveBlockIds(importedArticle ?? null, article, sourceSentenceToHighlight),
-  );
   const articleTokenCacheRef = useRef(new Map<string, {
     text: string;
     paragraphIndex: number;
     tokens: ReaderToken[];
   }>());
-  const interactiveBlockIds = useMemo(
-    () => progressiveReaderReady
-      ? visibleBlockIds
-      : new Set(articleTextBlockEntries(currentImportedArticle, currentArticle).map((block) => block.id)),
-    [currentArticle, currentImportedArticle, progressiveReaderReady, visibleBlockIds],
-  );
   const [editingArticle, setEditingArticle] = useState(false);
   const [draftPlainArticle, setDraftPlainArticle] = useState("");
   const [draftBlocks, setDraftBlocks] = useState<ImportedArticleBlock[]>([]);
@@ -757,9 +732,7 @@ export function ReaderView({
     if (!effectiveImportedArticle?.blocks?.length) {
       return plainArticleParagraphs.map((text, paragraphIndex) => {
         const id = `paragraph-${paragraphIndex}`;
-        const tokens = interactiveBlockIds.has(id)
-          ? cachedBlockTokens(`plain:${id}`, text, paragraphIndex)
-          : undefined;
+        const tokens = cachedBlockTokens(`plain:${id}`, text, paragraphIndex);
         return {
           id,
           type: "paragraph",
@@ -802,17 +775,14 @@ export function ReaderView({
         }
 
         if (block.type === "table" && block.table) {
-          const interactive = interactiveBlockIds.has(block.id);
           const tableTokens: ReaderToken[] = [];
           const tableRows = block.table.rows.map((row, rowIndex) => row.map((cell, cellIndex) => {
-            const tokens = interactive
-              ? cachedBlockTokens(
-                  `table:${block.id}:${rowIndex}:${cellIndex}`,
-                  cell.text,
-                  textBlockIndex,
-                  `${block.id}-cell-${rowIndex}-${cellIndex}-`,
-                )
-              : [];
+            const tokens = cachedBlockTokens(
+              `table:${block.id}:${rowIndex}:${cellIndex}`,
+              cell.text,
+              textBlockIndex,
+              `${block.id}-cell-${rowIndex}-${cellIndex}-`,
+            );
             textBlockIndex += 1;
             tableTokens.push(...tokens);
             return { cell, tokens };
@@ -836,10 +806,7 @@ export function ReaderView({
           };
         }
 
-        const interactive = interactiveBlockIds.has(block.id);
-        const tokens = interactive
-          ? cachedBlockTokens(`block:${block.id}`, text, textBlockIndex, `${block.id}-`)
-          : undefined;
+        const tokens = cachedBlockTokens(`block:${block.id}`, text, textBlockIndex, `${block.id}-`);
         const inline = block.inline?.length && inlinePlainText(block.inline) === text ? block.inline : null;
         textBlockIndex += 1;
 
@@ -856,7 +823,7 @@ export function ReaderView({
         };
       })
       .filter((block): block is RenderableArticleBlock => Boolean(block));
-  }, [effectiveImportedArticle, imageOcr, interactiveBlockIds, plainArticleParagraphs]);
+  }, [effectiveImportedArticle, imageOcr, plainArticleParagraphs]);
   const wordTokens = useMemo(
     () => renderableBlocks.flatMap((block) => block.tokens?.filter((token) => token.type === "word") ?? []),
     [renderableBlocks],
@@ -1032,101 +999,13 @@ export function ReaderView({
   }, [dictionaryMounted, readerWorkLayer]);
 
   useEffect(() => {
-    const root = articleShellRef.current;
-    if (!root || !articleMediaReady || editingArticle || !progressiveReaderReady) return;
-
-    const pendingBlocks = new Map<string, HTMLElement>();
-    let idleHandle = 0;
-    let timeoutHandle = 0;
-    let scrollSettleHandle = 0;
-    let scrolling = false;
-    const idleWindow = window as unknown as {
-      requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
-      cancelIdleCallback?: (handle: number) => void;
-    };
-
-    const cancelScheduledFlush = () => {
-      if (idleHandle) idleWindow.cancelIdleCallback?.(idleHandle);
-      if (timeoutHandle) window.clearTimeout(timeoutHandle);
-      idleHandle = 0;
-      timeoutHandle = 0;
-    };
-
-    const flushEnteredBlocks = () => {
-      idleHandle = 0;
-      timeoutHandle = 0;
-      if (scrolling || pendingBlocks.size === 0) return;
-      const viewportTop = -window.innerHeight * 0.3;
-      const viewportBottom = window.innerHeight * 1.45;
-      const enteredBlocks = [...pendingBlocks.entries()].filter(([, block]) => {
-        const rect = block.getBoundingClientRect();
-        return rect.bottom >= viewportTop && rect.top <= viewportBottom;
-      });
-      pendingBlocks.clear();
-      if (enteredBlocks.length === 0) return;
-      enteredBlocks.forEach(([, block]) => observer.unobserve(block));
-      const enteredIds = enteredBlocks.map(([id]) => id);
-      startTransition(() => {
-        setVisibleBlockIds((current) => {
-          if (enteredIds.every((id) => current.has(id))) return current;
-          const next = new Set(current);
-          enteredIds.forEach((id) => next.add(id));
-          return next;
-        });
-      });
-    };
-
-    const scheduleFlush = () => {
-      if (scrolling || pendingBlocks.size === 0 || idleHandle || timeoutHandle) return;
-      if (idleWindow.requestIdleCallback) {
-        idleHandle = idleWindow.requestIdleCallback(flushEnteredBlocks, { timeout: 800 });
-      } else {
-        timeoutHandle = window.setTimeout(flushEnteredBlocks, 96);
-      }
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const block = entry.target as HTMLElement;
-        const id = block.dataset.readerBlock;
-        if (!id) return;
-        if (entry.isIntersecting) pendingBlocks.set(id, block);
-        else pendingBlocks.delete(id);
-      });
-      scheduleFlush();
-    }, { rootMargin: "30% 0px 45% 0px" });
-
-    const finishScrolling = () => {
-      scrolling = false;
-      if (scrollSettleHandle) window.clearTimeout(scrollSettleHandle);
-      scrollSettleHandle = 0;
-      scheduleFlush();
-    };
-    const markScrolling = () => {
-      scrolling = true;
-      cancelScheduledFlush();
-      if (scrollSettleHandle) window.clearTimeout(scrollSettleHandle);
-      scrollSettleHandle = window.setTimeout(finishScrolling, READER_TOKEN_SCROLL_SETTLE_MS);
-    };
-
-    root.querySelectorAll<HTMLElement>("[data-reader-block]").forEach((block) => {
-      if (!interactiveBlockIds.has(block.dataset.readerBlock ?? "")) observer.observe(block);
-    });
-    window.addEventListener("scroll", markScrolling, { passive: true });
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", markScrolling);
-      cancelScheduledFlush();
-      if (scrollSettleHandle) window.clearTimeout(scrollSettleHandle);
-    };
-  }, [articleMediaReady, editingArticle, interactiveBlockIds, progressiveReaderReady]);
-
-  useEffect(() => {
     if (editingArticle) {
       return;
     }
-    setCurrentArticle(article);
-    setCurrentImportedArticle(importedArticle ?? null);
+    setCurrentArticle((current) => current === article ? current : article);
+    setCurrentImportedArticle((current) => sameImportedArticleReadingContent(current, importedArticle ?? null)
+      ? current
+      : importedArticle ?? null);
     if (articleHistoryRef.current.length === 0) {
       articleHistoryRef.current = [
         {
@@ -1153,7 +1032,7 @@ export function ReaderView({
     return () => {
       if (frameId !== null) window.cancelAnimationFrame(frameId);
     };
-  }, [editingArticle]);
+  }, [currentArticle, currentImportedArticle, editingArticle]);
 
   useLayoutEffect(() => {
     if (initialViewportRestoredRef.current || !initialViewportAnchor || !articleMediaReady) return;
@@ -2678,7 +2557,9 @@ export function ReaderView({
   }
 
   async function applyArticleSnapshot(snapshot: ArticleEditSnapshot): Promise<boolean> {
+    preserveArticleViewportAcrossModeChange();
     if (!(await commitExternalArticleEdit(snapshot))) {
+      pendingArticleViewportAnchorRef.current = null;
       return false;
     }
     saveEditedArticle(currentArticle, snapshot.article, snapshot.importedArticle);
@@ -3353,7 +3234,7 @@ export function ReaderView({
                         </button>
                         {block.table.caption && <figcaption className="mb-3 pr-12 text-[15px] font-semibold leading-6 text-[#333333]">{block.table.caption}</figcaption>}
                         <div className="overflow-x-auto rounded-[10px] border border-[#d8d8dc]">
-                          <table className="w-max min-w-full border-collapse bg-white text-left text-[15px] leading-6 text-[#1d1d1f]">
+                          <table className="w-max min-w-full border-collapse bg-white text-left text-[15px] leading-6 text-[#1d1d1f] sm:text-[16px]">
                             <tbody>
                               {block.table.rows.map((row, rowIndex) => (
                                 <tr key={`${block.id}-edit-row-${rowIndex}`} className={rowIndex % 2 ? "bg-[#fafafa]" : "bg-white"}>
@@ -3379,13 +3260,23 @@ export function ReaderView({
                     );
                   }
 
-                  const Tag = block.type === "heading" ? "h1" : block.type === "subheading" ? "h2" : block.type === "quote" ? "blockquote" : "p";
+                  const Tag = block.type === "heading"
+                    ? "h1"
+                    : block.type === "subheading"
+                      ? "h2"
+                      : block.type === "quote"
+                        ? "blockquote"
+                        : block.type === "list-item"
+                          ? "li"
+                          : "p";
                   return (
                     <Tag
                       key={block.id}
                       {...dataProps}
                       data-reader-block={block.id}
-                      className={`${textBlockClassName(block.type)} min-w-0 outline-none`}
+                      className={`${textBlockClassName(block.type)} min-w-0 outline-none ${block.type === "list-item" ? block.listStyle === "ordered" ? "list-decimal" : "list-disc" : ""}`}
+                      style={block.type === "list-item" ? { marginLeft: `${1.5 + Math.min(4, block.listLevel ?? 0) * 1.25}rem` } : undefined}
+                      value={block.type === "list-item" && block.listStyle === "ordered" ? block.listOrdinal : undefined}
                       suppressContentEditableWarning
                     >
                       {editableInlineContent(block)}

@@ -500,12 +500,24 @@
 .coverFallback {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #d6e8ee, #b9d1d9 48%, #f2e5d9);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: clamp(20px, 4vw, 42px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 86% 14%, rgb(255 255 255 / 72%) 0 7%, transparent 7.5%),
+    linear-gradient(145deg, #dcecef 0%, #bed4d8 52%, #eee0d1 100%);
+  color: #173744;
 }
-.coverFallback i { position: absolute; border-radius: 50%; filter: blur(2px); }
-.coverFallback i:first-child { width: 40%; aspect-ratio: 1; left: 14%; top: 18%; background: rgb(255 255 255 / 56%); }
-.coverFallback i:last-child { width: 30%; aspect-ratio: 1; right: 12%; bottom: 12%; background: rgb(29 99 121 / 24%); }
-.coverFallback small { position: absolute; right: 14px; bottom: 12px; left: 14px; color: #355160; font-size: 11px; font-weight: 650; text-align: center; }
+.coverFallback::before { content: ""; position: absolute; inset: 11% 10%; border: 1px solid rgb(23 55 68 / 20%); border-radius: 999px 999px 18px 18px; transform: rotate(-5deg); }
+.coverFallback i,
+.coverFallback strong,
+.coverFallback small { position: relative; z-index: 1; }
+.coverFallback i { align-self: flex-start; border: 1px solid rgb(23 55 68 / 32%); border-radius: 999px; padding: 5px 9px; font-size: 10px; font-style: normal; font-weight: 750; letter-spacing: .13em; }
+.coverFallback strong { max-width: 88%; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.45rem, 3vw, 3rem); font-weight: 500; line-height: 1; }
+.coverFallback small { display: -webkit-box; max-width: 78%; overflow: hidden; color: #355160; font-size: 11px; font-weight: 600; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 
 .cardCopy { position: relative; display: block; padding-top: 16px; opacity: 1; transform: none; transition: opacity 360ms ease, transform 460ms cubic-bezier(.22, .76, .25, 1); transition-delay: calc(70ms + var(--article-index, 0) * 16ms); }
 .articleCard[data-motion-ready]:not([data-visible]) .cardCopy { opacity: .12; transform: translate3d(0, 9px, 0) scale(.992); }

@@ -47,7 +47,7 @@ The reader is the product center. Article text remains visually primary while lo
 - `/admin` accepts saved, pasted, URL-imported and crawler-discovered candidates. Its daily editorial workbench combines the real Reader, sticky review controls, autosaved metadata, previous/next navigation, expandable candidate/published drawers and one-step URL intake. The crawler uses reviewed RSS/Atom sources, including business/economy feeds, and never auto-publishes.
 - Selecting a candidate publishes it, prepends it to the global `推荐` order and inserts it into its automatic or manually corrected category. Each of `推荐`, `时事`, `科技`, `文化` and `商业` maintains its own first featured article; rejected candidates remain undoable records and are excluded from rediscovery.
 - Candidate and published articles open in the real `ReaderView`, including lookup, translation, saving and in-place body editing.
-- Publication requires a reviewed first-party WebP cover stored in the active `public-article-covers` bucket.
+- Candidate media is localized to first-party WebP during intake. If a remote image cannot be stored it is omitted instead of hotlinked; genuinely no-image articles remain publishable and use an intentional text-edition card.
 - Server-authorized Admin also manages accounts, quotas, invitation codes, password resets, private feedback and detailed product/site error records.
 
 ### OCR

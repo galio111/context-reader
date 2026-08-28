@@ -11,6 +11,7 @@ import {
   getSavedArticles,
   replaceSavedArticleImportedArticle,
   saveArticleReadingProgress,
+  touchSavedArticle,
 } from "@/lib/articles";
 import { getCachedArticleTranslation, setCachedArticleTranslation } from "@/lib/cache";
 import { findBestSourceSentenceMatch, normalizeForSourceMatch } from "@/lib/sourceMatching";
@@ -658,26 +659,29 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   }
 
   function handleOpenSavedArticle(savedArticle: SavedArticle) {
-    setArticle(savedArticle.body);
-    setImportedArticle(savedArticle.importedArticle ?? null);
-    void primeLeadingArticleImage(savedArticle.importedArticle ?? null);
+    const touchedArticles = touchSavedArticle(savedArticle.id);
+    const openedArticle = touchedArticles.find((item) => item.id === savedArticle.id) ?? savedArticle;
+    setSavedArticles(touchedArticles);
+    setArticle(openedArticle.body);
+    setImportedArticle(openedArticle.importedArticle ?? null);
+    void primeLeadingArticleImage(openedArticle.importedArticle ?? null);
     setPreloadedExplanations([]);
     setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setError("");
     activeSavedArticleIdRef.current = savedArticle.id;
     activeTemporaryUserIdRef.current = null;
-    readerViewportAnchorRef.current = savedArticle.readingProgress ?? null;
-    setReaderInitialViewportAnchor(savedArticle.readingProgress ?? null);
+    readerViewportAnchorRef.current = openedArticle.readingProgress ?? null;
+    setReaderInitialViewportAnchor(openedArticle.readingProgress ?? null);
     enterReader("saved-article");
 
     // Opening a saved article must never wait on a historical media migration.
     // Production data is repaired in bulk; a browser-only legacy copy repairs
     // quietly after Reader is already interactive and then follows normal sync.
-    void localizeSavedArticleImages(savedArticle).then((localizedArticle) => {
+    void localizeSavedArticleImages(openedArticle).then((localizedArticle) => {
       if (
         localizedArticle.importedArticle
-        && localizedArticle !== savedArticle
+        && localizedArticle !== openedArticle
         && activeSavedArticleIdRef.current === savedArticle.id
       ) {
         setImportedArticle(localizedArticle.importedArticle);

@@ -1,4 +1,5 @@
 import { accountFetch } from "@/lib/accountStore";
+import { revalidatePath } from "next/cache";
 import { normalizeHomepageCuration, type HomepageCuration } from "@/lib/homepageCurationShared";
 
 const SETTING_KEY = "homepage_publication_curation";
@@ -18,5 +19,6 @@ export async function saveHomepageCuration(value: unknown): Promise<HomepageCura
     headers: { Prefer: "resolution=merge-duplicates,return=minimal" },
     body: JSON.stringify([{ key: SETTING_KEY, value: next, updated_at: next.updatedAt }]),
   });
+  revalidatePath("/");
   return next;
 }

@@ -1,4 +1,5 @@
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
+import { revalidatePath, revalidateTag } from "next/cache";
 import {
   isRemoteImportedArticle,
   sanitizeImportedArticleContent,
@@ -162,6 +163,39 @@ function encodeFilter(value: string): string {
   return encodeURIComponent(value.trim());
 }
 
+function canonicalArticleIdentityUrl(value: string): string {
+  try {
+    const url = new URL(value.trim());
+    url.hash = "";
+    for (const key of [...url.searchParams.keys()]) {
+      if (/^(utm_|fbclid$|gclid$|mc_|ref$|referrer$)/i.test(key)) url.searchParams.delete(key);
+    }
+    url.pathname = url.pathname.replace(/\/+$/, "") || "/";
+    return url.toString();
+  } catch {
+    return value.trim().toLowerCase();
+  }
+}
+
+function normalizedArticleIdentityText(value: string): string {
+  return value
+    .normalize("NFKC")
+    .toLocaleLowerCase("en-US")
+    .replace(/[^\p{L}\p{N}]+/gu, "")
+    .trim();
+}
+
+function articleBodyIdentity(value: string): string {
+  const normalized = normalizedArticleIdentityText(value);
+  if (normalized.length < 240) return "";
+  return `${normalized.length}:${normalized.slice(0, 1200)}:${normalized.slice(-400)}`;
+}
+
+function invalidatePublicRecommendations(): void {
+  revalidateTag("public-article-summaries");
+  revalidatePath("/");
+}
+
 function plainTextBlocks(title: string, body: string): ImportedArticleBlock[] {
   const blocks: ImportedArticleBlock[] = [{ id: "block-0", type: "heading", text: title.trim() }];
   for (const line of body.replace(/\r\n?/g, "\n").split("\n")) {
@@ -283,13 +317,24 @@ async function listPublicExplanations(articleId: string): Promise<PublicExplanat
 
 async function findDuplicateArticleRow(input: PublicArticleInput, published: boolean): Promise<SupabaseArticleRow | null> {
   const sourceUrl = input.sourceUrl?.trim() || input.importedArticle?.url || "";
-  const identityFilter = sourceUrl
-    ? `source_url=eq.${encodeFilter(sourceUrl)}`
-    : `title=eq.${encodeFilter(input.title)}&summary=eq.${encodeFilter(input.summary)}`;
+  const identityFilter = sourceUrl ? `source_url=eq.${encodeFilter(sourceUrl)}` : `title=eq.${encodeFilter(input.title)}`;
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
     `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&published=eq.${published}&${identityFilter}&limit=1`,
   );
-  return rows[0] ?? null;
+  if (rows[0]) return rows[0];
+
+  const candidates = await supabaseFetch<SupabaseArticleRow[]>(
+    `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&published=eq.${published}&order=updated_at.desc&limit=250`,
+  );
+  const canonicalUrl = canonicalArticleIdentityUrl(sourceUrl);
+  const titleIdentity = normalizedArticleIdentityText(input.title);
+  const bodyIdentity = articleBodyIdentity(input.body || input.importedArticle?.text || "");
+  return candidates.find((candidate) => {
+    const candidateUrl = canonicalArticleIdentityUrl(candidate.source_url || candidate.imported_article?.url || "");
+    if (canonicalUrl && candidateUrl && canonicalUrl === candidateUrl) return true;
+    if (titleIdentity && titleIdentity === normalizedArticleIdentityText(candidate.title)) return true;
+    return Boolean(bodyIdentity && bodyIdentity === articleBodyIdentity(candidate.body || candidate.imported_article?.text || ""));
+  }) ?? null;
 }
 
 export async function listPublicArticles(): Promise<PublicArticle[]> {
@@ -348,14 +393,15 @@ export async function listRejectedArticleCandidates(): Promise<PublicArticle[]> 
 }
 
 export async function saveArticleCandidate(input: PublicArticleCandidateInput): Promise<PublicArticle> {
+  const storedInput = await localizePublicArticleInputCover(input);
   let existing: SupabaseArticleRow | null = null;
-  if (input.id) {
+  if (storedInput.id) {
     const rows = await supabaseFetch<SupabaseArticleRow[]>(
-      `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&id=eq.${encodeURIComponent(input.id)}&published=eq.false&limit=1`,
+      `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&id=eq.${encodeURIComponent(storedInput.id)}&published=eq.false&limit=1`,
     );
     existing = rows[0] ?? null;
   } else {
-    existing = await findDuplicateArticleRow(input, false);
+    existing = await findDuplicateArticleRow(storedInput, false);
   }
 
   let row: SupabaseArticleRow | undefined;
@@ -365,7 +411,7 @@ export async function saveArticleCandidate(input: PublicArticleCandidateInput): 
       {
         method: "PATCH",
         headers: { Prefer: "return=representation" },
-        body: JSON.stringify(articleRowPayload(input, false)),
+        body: JSON.stringify(articleRowPayload(storedInput, false)),
       },
     );
     row = rows[0];
@@ -373,14 +419,14 @@ export async function saveArticleCandidate(input: PublicArticleCandidateInput): 
     const rows = await supabaseFetch<SupabaseArticleRow[]>("public_articles", {
       method: "POST",
       headers: { Prefer: "return=representation" },
-      body: JSON.stringify(articleRowPayload(input, false)),
+      body: JSON.stringify(articleRowPayload(storedInput, false)),
     });
     row = rows[0];
   }
   if (!row) {
     throw new Error("Supabase did not return the saved article candidate.");
   }
-  await mergeArticleCaches(row.id, input);
+  await mergeArticleCaches(row.id, storedInput);
   return mapArticle(row);
 }
 
@@ -392,10 +438,6 @@ export async function publishArticleCandidate(id: string): Promise<PublicArticle
   if (!candidate) {
     throw new Error("Article candidate was not found.");
   }
-  if (!candidate.imported_article?.recommendation?.coverImageUrl?.trim()) {
-    throw new Error("推荐封面缺失，补充封面后才能发布。");
-  }
-
   const importedArticle = isRemoteImportedArticle(candidate.imported_article)
     ? sanitizeImportedArticleContent(candidate.imported_article)
     : candidate.imported_article;
@@ -441,6 +483,7 @@ export async function publishArticleCandidate(id: string): Promise<PublicArticle
   if (!article) {
     throw new Error("Candidate was published but could not be reloaded.");
   }
+  invalidatePublicRecommendations();
   return article;
 }
 
@@ -476,9 +519,6 @@ export async function setArticleCandidateRejected(id: string, rejected: boolean)
 }
 
 export async function updatePublicArticle(id: string, input: PublicArticleInput): Promise<PublicArticle> {
-  if (!(input.recommendation?.coverImageUrl || input.importedArticle?.recommendation?.coverImageUrl || "").trim()) {
-    throw new Error("推荐封面缺失，补充封面后才能更新公开文章。");
-  }
   const storedInput = await localizePublicArticleInputCover(input);
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
     `public_articles?id=eq.${encodeURIComponent(id)}&published=eq.true`,
@@ -493,6 +533,7 @@ export async function updatePublicArticle(id: string, input: PublicArticleInput)
     throw new Error("Published article was not found.");
   }
   await mergeArticleCaches(row.id, storedInput);
+  invalidatePublicRecommendations();
   return getPublicArticle(row.id).then((article) => article ?? mapArticle(row));
 }
 
@@ -501,9 +542,6 @@ export async function createPublicArticle(input: PublicArticleInput): Promise<Pu
   const duplicate = await findDuplicateArticleRow(storedInput, true);
   if (duplicate) {
     return updatePublicArticle(duplicate.id, storedInput);
-  }
-  if (!(input.recommendation?.coverImageUrl || input.importedArticle?.recommendation?.coverImageUrl || "").trim()) {
-    throw new Error("推荐封面缺失，补充封面后才能发布。");
   }
   const rows = await supabaseFetch<SupabaseArticleRow[]>("public_articles", {
     method: "POST",
@@ -515,6 +553,7 @@ export async function createPublicArticle(input: PublicArticleInput): Promise<Pu
     throw new Error("Supabase did not return the created article.");
   }
   await mergeArticleCaches(article.id, storedInput);
+  invalidatePublicRecommendations();
   return getPublicArticle(article.id).then((created) => created ?? mapArticle(article));
 }
 
@@ -523,4 +562,5 @@ export async function deletePublicArticle(id: string): Promise<void> {
     method: "DELETE",
     headers: { Prefer: "return=minimal" },
   });
+  invalidatePublicRecommendations();
 }

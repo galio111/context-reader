@@ -42,3 +42,15 @@ export function placePublishedArticle(
       : [articleId];
   return { ...curation, categories };
 }
+
+export function removePublishedArticle(
+  curation: HomepageCuration,
+  articleId: string,
+): HomepageCuration {
+  return {
+    ...curation,
+    categories: Object.fromEntries(
+      Object.entries(curation.categories).map(([category, ids]) => [category, withoutId(ids, articleId)]),
+    ) as HomepageCuration["categories"],
+  };
+}

@@ -60,6 +60,7 @@ def main() -> None:
         "scanned": result.get("scanned", 0),
         "updated": len(result.get("updated", [])),
         "skipped": result.get("skipped", 0),
+        "omitted": result.get("omitted", []),
         "failed": result.get("failed", []),
     }, ensure_ascii=False))
     if result.get("failed"):

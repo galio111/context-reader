@@ -27,6 +27,7 @@ interface InspectorProps {
   onClose: () => void;
   onSelect?: (category: EditorialCategory, featured: boolean) => Promise<void>;
   onReject?: () => Promise<void>;
+  onDelete?: () => Promise<void>;
 }
 
 interface InspectorDraft {
@@ -73,10 +74,10 @@ function draftSignature(draft: InspectorDraft): string {
 }
 
 export default function AdminArticleMetadataInspector(props: InspectorProps) {
-  const { article, articleKind, queuePosition, onSave, onPrevious, onNext, onClose, onSelect, onReject } = props;
+  const { article, articleKind, queuePosition, onSave, onPrevious, onNext, onClose, onSelect, onReject, onDelete } = props;
   const [draft, setDraft] = useState(() => initialDraft(article));
   const [baseline, setBaseline] = useState(() => initialDraft(article));
-  const [working, setWorking] = useState<"" | "save" | "classify" | "select" | "reject">("");
+  const [working, setWorking] = useState<"" | "save" | "classify" | "select" | "reject" | "delete">("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [featured, setFeatured] = useState(false);
@@ -180,14 +181,22 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
     catch (actionError) { setError(actionError instanceof Error ? actionError.message : "移出候选失败。"); setWorking(""); }
   }
 
+  async function handleDelete() {
+    if (!onDelete) return;
+    setWorking("delete"); setError("");
+    try { await saveDraft(); setWorking("delete"); await onDelete(); }
+    catch (actionError) { setError(actionError instanceof Error ? actionError.message : "删除精选失败。"); setWorking(""); }
+  }
+
   const busy = Boolean(working);
   return (
     <aside className="fixed inset-y-0 left-0 z-50 flex w-[330px] flex-col border-r border-[#d7dde2] bg-[#f7f9fa] text-[#17212b]">
       <div className="shrink-0 border-b border-[#d7dde2] bg-[#f7f9fa] px-4 pb-3 pt-4">
         <div className="flex items-center justify-between gap-2"><button className="text-sm font-semibold text-[#1769aa]" type="button" onClick={onClose}>返回后台</button><span className="text-xs text-[#68737c]">{working === "save" ? "正在保存…" : dirty ? "等待自动保存" : "已保存"}</span></div>
         <div className="mt-3 flex items-center justify-between gap-2"><button className="h-9 rounded-full bg-white px-3 text-sm disabled:opacity-35" type="button" onClick={onPrevious} disabled={!onPrevious || busy}>← 上一篇</button><span className="text-xs font-medium text-[#4d5963]">{queuePosition ? `${queuePosition.index + 1} / ${queuePosition.total}` : articleKind === "candidate" ? "候选" : "已精选"}</span><button className="h-9 rounded-full bg-white px-3 text-sm disabled:opacity-35" type="button" onClick={onNext} disabled={!onNext || busy}>下一篇 →</button></div>
-        {articleKind === "candidate" && <div className="mt-3 grid grid-cols-2 gap-2"><button className="min-h-11 rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleSelect()} disabled={busy || !article.recommendation?.coverImageUrl?.trim()}>{working === "select" ? "正在精选…" : "精选并继续"}</button><button className="min-h-11 rounded-lg border border-[#d5a7a7] bg-white px-3 text-sm font-semibold text-[#9a3030] disabled:opacity-45" type="button" onClick={() => void handleReject()} disabled={busy}>{working === "reject" ? "正在移出…" : "不精选"}</button></div>}
-        {articleKind === "candidate" && !article.recommendation?.coverImageUrl?.trim() && <p className="mt-2 text-xs leading-5 text-[#9a5b16]">缺少封面，补齐后才能精选。</p>}
+        {articleKind === "candidate" && <div className="mt-3 grid grid-cols-2 gap-2"><button className="min-h-11 rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleSelect()} disabled={busy}>{working === "select" ? "正在精选…" : "精选并继续"}</button><button className="min-h-11 rounded-lg border border-[#d5a7a7] bg-white px-3 text-sm font-semibold text-[#9a3030] disabled:opacity-45" type="button" onClick={() => void handleReject()} disabled={busy}>{working === "reject" ? "正在移出…" : "不精选"}</button></div>}
+        {articleKind === "candidate" && !article.recommendation?.coverImageUrl?.trim() && <p className="mt-2 text-xs leading-5 text-[#526873]">无图候选：仍可精选，首页会使用纯文本外刊卡片。</p>}
+        {articleKind === "published" && onDelete && <button className="mt-3 min-h-11 w-full rounded-lg border border-[#d5a7a7] bg-white px-3 text-sm font-semibold text-[#9a3030] disabled:opacity-45" type="button" onClick={() => void handleDelete()} disabled={busy}>{working === "delete" ? "正在删除…" : "删除这篇精选"}</button>}
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4">

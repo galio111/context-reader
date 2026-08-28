@@ -551,9 +551,9 @@ export default function AdminPage() {
     setPublishingId("");
   }
 
-  async function handleDeletePublicArticle(article: PublicArticle) {
+  async function handleDeletePublicArticle(article: PublicArticle): Promise<boolean> {
     if (!window.confirm(`确定要删除公开推荐《${article.title}》吗？`)) {
-      return;
+      return false;
     }
 
     setDeletingId(article.id);
@@ -565,12 +565,24 @@ export default function AdminPage() {
     if (!response.ok) {
       setStatus(data?.error || "删除失败。");
       setDeletingId("");
-      return;
+      return false;
     }
 
     setStatus(`已删除公开推荐《${article.title}》。`);
     setPublicArticles((items) => items.filter((item) => item.id !== article.id));
     setDeletingId("");
+    return true;
+  }
+
+  async function deleteCurrentPublishedArticle() {
+    const active = readerState;
+    if (!active || active.kind !== "published") return;
+    const currentIndex = publicArticles.findIndex((item) => item.id === active.article.id);
+    if (!(await handleDeletePublicArticle(active.article))) return;
+    const nextQueue = publicArticles.filter((item) => item.id !== active.article.id);
+    const next = nextQueue[Math.min(Math.max(0, currentIndex), Math.max(0, nextQueue.length - 1))];
+    if (next) await openPublishedArticle(next);
+    else setReaderState(null);
   }
 
   if (checkingSession) {
@@ -644,6 +656,7 @@ export default function AdminPage() {
           onClose={() => setReaderState(null)}
           onSelect={readerState.kind === "candidate" ? selectCurrentCandidate : undefined}
           onReject={readerState.kind === "candidate" ? rejectCurrentCandidate : undefined}
+          onDelete={readerState.kind === "published" ? deleteCurrentPublishedArticle : undefined}
         />
         <div className="min-w-0">
           <ReaderView

@@ -221,12 +221,14 @@ export async function storeRemotePublicArticleImage(value: string, sourceUrl = "
 interface LocalizedArticleImages {
   article: ImportedArticle;
   localized: number;
+  removed: number;
   failures: Array<{ src: string; error: string }>;
 }
 
 export async function localizeImportedArticleImages(
   article: ImportedArticle,
   sourceUrl = "",
+  options: { removeFailed?: boolean } = {},
 ): Promise<LocalizedArticleImages> {
   const remoteSources = Array.from(new Set(
     article.blocks
@@ -257,15 +259,23 @@ export async function localizeImportedArticleImages(
     { length: Math.min(ARTICLE_IMAGE_DOWNLOAD_CONCURRENCY, remoteSources.length) },
     () => localizeNextSource(),
   ));
-  if (!storedBySource.size) return { article, localized: 0, failures };
+  const failedSources = new Set(failures.map((failure) => failure.src));
+  const removeFailed = options.removeFailed === true;
+  const removed = removeFailed
+    ? article.blocks.filter((block) => block.type === "image" && block.src && failedSources.has(block.src)).length
+    : 0;
+  if (!storedBySource.size && !removed) return { article, localized: 0, removed: 0, failures };
   return {
     article: {
       ...article,
-      blocks: article.blocks.map((block) => block.type === "image" && block.src && storedBySource.has(block.src)
-        ? { ...block, src: storedBySource.get(block.src) as string }
-        : block),
+      blocks: article.blocks
+        .filter((block) => !(removeFailed && block.type === "image" && block.src && failedSources.has(block.src)))
+        .map((block) => block.type === "image" && block.src && storedBySource.has(block.src)
+          ? { ...block, src: storedBySource.get(block.src) as string }
+          : block),
     },
     localized: storedBySource.size,
+    removed,
     failures,
   };
 }
@@ -275,21 +285,29 @@ export async function localizePublicArticleInputCover<T extends PublicArticleInp
   const coverImageUrl = recommendation?.coverImageUrl?.trim() || "";
   let storedRecommendation = recommendation;
   if (recommendation && coverImageUrl && !isStoredPublicCoverUrl(coverImageUrl)) {
-    const storedUrl = await storeRemotePublicCover(
-      coverImageUrl,
-      recommendation.coverImageSourceUrl || input.sourceUrl || input.importedArticle?.url || "",
-    );
-    storedRecommendation = { ...recommendation, coverImageUrl: storedUrl };
+    try {
+      const storedUrl = await storeRemotePublicCover(
+        coverImageUrl,
+        recommendation.coverImageSourceUrl || input.sourceUrl || input.importedArticle?.url || "",
+      );
+      storedRecommendation = { ...recommendation, coverImageUrl: storedUrl };
+    } catch {
+      // A missing cover must not discard a valuable text article. Clear the
+      // unreachable browser URL so both Admin and public cards render the
+      // deliberate text-only treatment instead of broken media.
+      storedRecommendation = { ...recommendation, coverImageUrl: "" };
+    }
   }
 
   let importedArticle = input.importedArticle
     ? { ...input.importedArticle, ...(storedRecommendation ? { recommendation: storedRecommendation } : {}) }
     : undefined;
   if (importedArticle) {
-    const localized = await localizeImportedArticleImages(importedArticle, input.sourceUrl || importedArticle.url);
-    if (localized.failures.length) {
-      throw new Error(`有 ${localized.failures.length} 张正文图片无法保存到本站：${localized.failures[0].error}`);
-    }
+    const localized = await localizeImportedArticleImages(
+      importedArticle,
+      input.sourceUrl || importedArticle.url,
+      { removeFailed: true },
+    );
     importedArticle = localized.article;
   }
   return {
@@ -333,12 +351,13 @@ async function restRequest<T>(path: string, init: RequestInit = {}): Promise<T> 
 export async function repairExternalPublicArticleCovers(ids?: string[]) {
   const idFilter = ids?.length ? `&id=in.(${ids.map((id) => encodeURIComponent(id)).join(",")})` : "";
   const rows = await restRequest<RepairableArticleRow[]>(
-    `public_articles?select=id,title,source_url,imported_article&published=eq.true${idFilter}&order=updated_at.desc&limit=100`,
+    `public_articles?select=id,title,source_url,imported_article${idFilter}&order=updated_at.desc&limit=200`,
   );
   const result = {
     scanned: rows.length,
     updated: [] as Array<{ id: string; title: string; coverUrl: string; localizedImages: number }>,
     skipped: 0,
+    omitted: [] as Array<{ id: string; title: string; error: string }>,
     failed: [] as Array<{ id: string; title: string; error: string }>,
   };
   for (const row of rows) {
@@ -353,10 +372,19 @@ export async function repairExternalPublicArticleCovers(ids?: string[]) {
     let changed = false;
     try {
       if (recommendation && coverImageUrl && !isStoredPublicCoverUrl(coverImageUrl)) {
-        coverUrl = await storeRemotePublicCover(
-          coverImageUrl,
-          recommendation.coverImageSourceUrl || row.source_url || row.imported_article.url,
-        );
+        try {
+          coverUrl = await storeRemotePublicCover(
+            coverImageUrl,
+            recommendation.coverImageSourceUrl || row.source_url || row.imported_article.url,
+          );
+        } catch (error) {
+          coverUrl = "";
+          result.omitted.push({
+            id: row.id,
+            title: row.title,
+            error: `${error instanceof Error ? error.message : "封面本地化失败。"}（已改为无图卡片）`,
+          });
+        }
         importedArticle = {
           ...importedArticle,
           recommendation: { ...recommendation, coverImageUrl: coverUrl },
@@ -366,17 +394,18 @@ export async function repairExternalPublicArticleCovers(ids?: string[]) {
       const localized = await localizeImportedArticleImages(
         importedArticle,
         row.source_url || importedArticle.url,
+        { removeFailed: true },
       );
       importedArticle = localized.article;
-      changed = changed || localized.localized > 0;
+      changed = changed || localized.localized > 0 || localized.removed > 0;
       for (const failure of localized.failures) {
-        result.failed.push({ id: row.id, title: row.title, error: `${failure.error} (${failure.src})` });
+        result.omitted.push({ id: row.id, title: row.title, error: `${failure.error} (${failure.src})` });
       }
       if (!changed) {
         result.skipped += 1;
         continue;
       }
-      await restRequest(`public_articles?id=eq.${encodeURIComponent(row.id)}&published=eq.true`, {
+      await restRequest(`public_articles?id=eq.${encodeURIComponent(row.id)}`, {
         method: "PATCH",
         headers: { Prefer: "return=minimal" },
         body: JSON.stringify({ imported_article: importedArticle }),
