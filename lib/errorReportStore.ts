@@ -95,12 +95,14 @@ function reportText(report: StoredErrorReport): string {
 }
 
 async function sendViaSmtp(subject: string, text: string): Promise<boolean> {
-  const host = process.env.ERROR_ALERT_SMTP_HOST?.trim() || "";
-  const user = process.env.ERROR_ALERT_SMTP_USER?.trim() || "";
-  const pass = process.env.ERROR_ALERT_SMTP_PASSWORD?.trim() || "";
+  // The mainland .env.runtime only provisions the shared SITE_SMTP_* account;
+  // dedicated ERROR_ALERT_* values override it when present.
+  const host = process.env.ERROR_ALERT_SMTP_HOST?.trim() || process.env.SITE_SMTP_HOST?.trim() || "";
+  const user = process.env.ERROR_ALERT_SMTP_USER?.trim() || process.env.SITE_SMTP_USER?.trim() || "";
+  const pass = process.env.ERROR_ALERT_SMTP_PASSWORD?.trim() || process.env.SITE_SMTP_PASSWORD?.trim() || "";
   if (!host || !user || !pass) return false;
 
-  const port = Number(process.env.ERROR_ALERT_SMTP_PORT || "465");
+  const port = Number(process.env.ERROR_ALERT_SMTP_PORT || process.env.SITE_SMTP_PORT || "465");
   const transporter = nodemailer.createTransport({
     host,
     port: Number.isFinite(port) ? port : 465,
@@ -111,7 +113,7 @@ async function sendViaSmtp(subject: string, text: string): Promise<boolean> {
     socketTimeout: 12_000,
   });
   await transporter.sendMail({
-    from: process.env.ERROR_ALERT_FROM?.trim() || user,
+    from: process.env.ERROR_ALERT_FROM?.trim() || process.env.SITE_SMTP_FROM?.trim() || user,
     to: ALERT_TO,
     subject,
     text,
