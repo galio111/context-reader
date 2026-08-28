@@ -78,7 +78,7 @@ export function writeRecommendationPreferences(
   });
   window.localStorage.setItem(RECOMMENDATION_PREFERENCES_STORAGE_KEY, JSON.stringify(next));
   window.dispatchEvent(new CustomEvent(RECOMMENDATION_PREFERENCES_CHANGED_EVENT, { detail: next }));
-  if (options.authenticated) notifyAccountDataChanged();
+  if (options.authenticated) notifyAccountDataChanged(["preferences"]);
   return next;
 }
 

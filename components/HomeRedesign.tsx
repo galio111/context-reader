@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
-import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
+import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { getVocabularyEntries } from "@/lib/vocabulary";
 import { useAccount } from "@/components/AccountProvider";
 import { BookLetterField } from "@/components/BookLetterField";
@@ -472,7 +472,11 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [preferenceOpen]);
 
   useEffect(() => {
-    const refreshVocabulary = () => setVocabularyEntries(getVocabularyEntries());
+    const refreshVocabulary = (event?: Event) => {
+      const kinds = event ? accountDataEventKinds(event) : [];
+      if (kinds.length > 0 && !kinds.includes("vocabulary")) return;
+      setVocabularyEntries(getVocabularyEntries());
+    };
     refreshVocabulary();
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabulary);
     return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabulary);

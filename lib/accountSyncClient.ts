@@ -23,6 +23,12 @@ import {
 } from "@/lib/standaloneDictionaryHistory";
 import { normalizeVocabularyEntries } from "@/lib/vocabulary";
 import {
+  normalizeArticleReadingState,
+  readArticleReadingStates,
+  READING_STATES_KEY,
+  writeArticleReadingStates,
+} from "@/lib/readingState";
+import {
   readRecommendationPreferences,
   RECOMMENDATION_PREFERENCES_OBJECT_KEY,
   RECOMMENDATION_PREFERENCES_STORAGE_KEY,
@@ -43,6 +49,7 @@ const KEYS = {
   explanations: "context-reader:explanations:v5",
   translations: "context-reader:article-translations:v1",
   translationBlocks: "context-reader:article-translation-blocks:v1",
+  readingStates: READING_STATES_KEY,
   dictionaryHistory: STANDALONE_DICTIONARY_HISTORY_KEY,
   dictionaryCache: STANDALONE_DICTIONARY_CACHE_KEY,
   recommendationPreferences: RECOMMENDATION_PREFERENCES_STORAGE_KEY,
@@ -92,6 +99,70 @@ export interface AccountSyncResult {
 
 export interface AccountSyncOptions {
   onProgress?: (progress: AccountSyncProgress) => void;
+  mode?: "full" | "pull-only";
+  dirtyKinds?: SyncObjectKind[];
+  deferLocalWork?: boolean;
+}
+
+async function waitForBrowserProcessingWindow(
+  maxWaitMs = 30_000,
+  interactionQuietMs = 1_500,
+): Promise<boolean> {
+  if (typeof window === "undefined") return true;
+  const idleWindow = window as typeof window & {
+    requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
+  };
+  const startedAt = performance.now();
+  return new Promise((resolve) => {
+    let lastInteractionAt = startedAt;
+    const markInteraction = () => { lastInteractionAt = performance.now(); };
+    const interactionEvents = ["scroll", "pointermove", "keydown", "touchmove", "wheel"] as const;
+    for (const eventName of interactionEvents) {
+      window.addEventListener(eventName, markInteraction, { passive: true });
+    }
+    const finish = (result: boolean) => {
+      for (const eventName of interactionEvents) window.removeEventListener(eventName, markInteraction);
+      resolve(result);
+    };
+    const tryIdle = () => {
+      const inspectWindow = (timeRemaining: number) => {
+        const scheduling = navigator as Navigator & {
+          scheduling?: { isInputPending?: (options?: { includeContinuous?: boolean }) => boolean };
+        };
+        const hasPendingInput = scheduling.scheduling?.isInputPending?.({ includeContinuous: true }) ?? false;
+        const quietFor = performance.now() - lastInteractionAt;
+        if (!hasPendingInput && quietFor >= interactionQuietMs && timeRemaining >= 8) {
+          finish(true);
+          return;
+        }
+        if (performance.now() - startedAt >= maxWaitMs) {
+          finish(false);
+          return;
+        }
+        window.setTimeout(tryIdle, 120);
+      };
+      if (idleWindow.requestIdleCallback) {
+        idleWindow.requestIdleCallback((deadline) => inspectWindow(deadline.timeRemaining()), { timeout: 1_000 });
+      } else {
+        window.setTimeout(() => inspectWindow(16), 32);
+      }
+    };
+    tryIdle();
+  });
+}
+
+export function accountSyncKindsForStorageKey(key: string | null): SyncObjectKind[] {
+  if (!key) return [];
+  if (key === KEYS.articles) return ["article"];
+  if (key === KEYS.vocabulary) return ["vocabulary"];
+  if (key === KEYS.explanations) return ["explanation"];
+  if (key === KEYS.translations) return ["article_translation"];
+  if (key === KEYS.translationBlocks) return ["translation_block"];
+  if (key === KEYS.readingStates) return ["reading_state"];
+  if (key === KEYS.dictionaryHistory || key === KEYS.dictionaryCache || key === KEYS.recommendationPreferences) {
+    return ["preferences"];
+  }
+  return [];
 }
 
 export function prepareLocalAccountForUser(userId: string, options?: { preserveExistingData?: boolean }): boolean {
@@ -187,8 +258,13 @@ function emptySyncState(): StoredSyncState {
   return { protocol: 2, initialized: false, cursor: "", manifest: {} };
 }
 
+let cachedSyncStateRaw: string | null | undefined;
+let cachedSyncState: StoredSyncState | null = null;
+
 function readSyncState(): StoredSyncState {
-  const parsed = parseJson<Partial<StoredSyncState> | null>(window.localStorage.getItem(SYNC_STATE_KEY), null);
+  const raw = window.localStorage.getItem(SYNC_STATE_KEY);
+  if (raw === cachedSyncStateRaw && cachedSyncState) return cachedSyncState;
+  const parsed = parseJson<Partial<StoredSyncState> | null>(raw, null);
   if (
     !parsed
     || parsed.protocol !== 2
@@ -197,19 +273,27 @@ function readSyncState(): StoredSyncState {
     || !parsed.manifest
     || typeof parsed.manifest !== "object"
   ) {
-    return emptySyncState();
+    cachedSyncStateRaw = raw;
+    cachedSyncState = emptySyncState();
+    return cachedSyncState;
   }
-  return parsed as StoredSyncState;
+  cachedSyncStateRaw = raw;
+  cachedSyncState = parsed as StoredSyncState;
+  return cachedSyncState;
 }
 
 function writeSyncState(state: StoredSyncState): void {
-  window.localStorage.setItem(SYNC_STATE_KEY, JSON.stringify(state));
+  const raw = JSON.stringify(state);
+  cachedSyncStateRaw = raw;
+  cachedSyncState = state;
+  window.localStorage.setItem(SYNC_STATE_KEY, raw);
 }
 
 function mergeManifest(
   current: Record<string, SyncManifestEntry>,
   objects: AccountSyncObject[],
 ): Record<string, SyncManifestEntry> {
+  if (objects.length === 0) return current;
   const next = { ...current };
   for (const object of objects) {
     next[`${object.kind}:${object.objectKey}`] = {
@@ -237,46 +321,70 @@ function mergeCloudIntoLocal(
   objects: AccountSyncObject[],
   manifest: Record<string, SyncManifestEntry>,
 ): void {
+  if (objects.length === 0) return;
   const storage = window.localStorage;
   const tombstones = readTombstones(storage);
-  const localArticleMerge = mergeDuplicateSavedArticles(
-    parseJson<SavedArticle[]>(storage.getItem(KEYS.articles), []),
-  );
-  const localArticles = localArticleMerge.articles;
-  const articleDeduplicatedAt = new Date().toISOString();
-  for (const removedId of localArticleMerge.removedIds) {
-    tombstones[`article:${removedId}`] ||= articleDeduplicatedAt;
-  }
-  const localVocabulary = deduplicateVocabularyEntries(
-    normalizeVocabularyEntries(readVocabulary(storage)),
-  ).entries;
-  const localArticleById = new Map(localArticles.map((item) => [item.id, item]));
-  const localVocabularyById = new Map(localVocabulary.map((item) => [item.id, item]));
-  const localDictionaryHistoryByQuery = new Map(
-    readStandaloneDictionaryHistory(storage).map((item) => [item.normalizedQuery, item]),
-  );
-  const localDictionaryCacheByQuery = new Map(
-    readStandaloneDictionaryCache(storage).map((item) => [item.normalizedQuery, item]),
-  );
-  let localRecommendationPreferences = readRecommendationPreferences(storage);
-  const activeCloudVocabularyIds = new Set(
-    Object.entries(manifest)
-      .filter(([identity, entry]) => identity.startsWith("vocabulary:") && !entry.deleted)
-      .map(([identity]) => identity.slice("vocabulary:".length)),
-  );
+  const incomingKinds = new Set(objects.map((object) => object.kind));
+  const needsArticles = incomingKinds.has("article");
+  const needsVocabulary = incomingKinds.has("vocabulary");
+  const needsReadingStates = incomingKinds.has("reading_state")
+    || objects.some((object) => object.kind === "article" && Boolean(object.deletedAt));
+  const needsDictionaryHistory = objects.some((object) => (
+    object.kind === "preferences" && isStandaloneDictionaryHistoryObjectKey(object.objectKey)
+  ));
+  const needsDictionaryCache = objects.some((object) => (
+    object.kind === "preferences" && isStandaloneDictionaryCacheObjectKey(object.objectKey)
+  ));
+  const needsRecommendationPreferences = objects.some((object) => (
+    object.kind === "preferences" && object.objectKey === RECOMMENDATION_PREFERENCES_OBJECT_KEY
+  ));
 
-  const maps: Record<string, Record<string, unknown>> = {
-    explanation: parseJson(storage.getItem(KEYS.explanations), {}),
-    article_translation: parseJson(storage.getItem(KEYS.translations), {}),
-    translation_block: parseJson(storage.getItem(KEYS.translationBlocks), {}),
-  };
+  const localArticleMerge = needsArticles
+    ? mergeDuplicateSavedArticles(parseJson<SavedArticle[]>(storage.getItem(KEYS.articles), []))
+    : null;
+  const localArticleById = new Map((localArticleMerge?.articles ?? []).map((item) => [item.id, item]));
+  if (localArticleMerge) {
+    const articleDeduplicatedAt = new Date().toISOString();
+    for (const removedId of localArticleMerge.removedIds) {
+      tombstones[`article:${removedId}`] ||= articleDeduplicatedAt;
+    }
+  }
+  const localVocabularyById = new Map((needsVocabulary
+    ? deduplicateVocabularyEntries(normalizeVocabularyEntries(readVocabulary(storage))).entries
+    : []).map((item) => [item.id, item]));
+  const localReadingStates = needsReadingStates ? readArticleReadingStates(storage) : {};
+  const localDictionaryHistoryByQuery = new Map((needsDictionaryHistory
+    ? readStandaloneDictionaryHistory(storage)
+    : []).map((item) => [item.normalizedQuery, item]));
+  const localDictionaryCacheByQuery = new Map((needsDictionaryCache
+    ? readStandaloneDictionaryCache(storage)
+    : []).map((item) => [item.normalizedQuery, item]));
+  let localRecommendationPreferences = needsRecommendationPreferences
+    ? readRecommendationPreferences(storage)
+    : null;
+  const activeCloudVocabularyIds = needsVocabulary
+    ? new Set(
+        Object.entries(manifest)
+          .filter(([identity, entry]) => identity.startsWith("vocabulary:") && !entry.deleted)
+          .map(([identity]) => identity.slice("vocabulary:".length)),
+      )
+    : new Set<string>();
+
+  const maps: Partial<Record<SyncObjectKind, Record<string, unknown>>> = {};
+  if (incomingKinds.has("explanation")) maps.explanation = parseJson(storage.getItem(KEYS.explanations), {});
+  if (incomingKinds.has("article_translation")) maps.article_translation = parseJson(storage.getItem(KEYS.translations), {});
+  if (incomingKinds.has("translation_block")) maps.translation_block = parseJson(storage.getItem(KEYS.translationBlocks), {});
 
   for (const object of objects) {
     const objectIdentity = `${object.kind}:${object.objectKey}`;
     const localDeletedAt = tombstones[objectIdentity];
     if (object.deletedAt) {
-      if (object.kind === "article") localArticleById.delete(object.objectKey);
+      if (object.kind === "article") {
+        localArticleById.delete(object.objectKey);
+        delete localReadingStates[object.objectKey];
+      }
       else if (object.kind === "vocabulary") localVocabularyById.delete(object.objectKey);
+      else if (object.kind === "reading_state") delete localReadingStates[object.objectKey];
       else if (object.kind === "preferences" && isStandaloneDictionaryHistoryObjectKey(object.objectKey)) {
         const historyItem = normalizeStandaloneDictionaryHistoryItem(object.payload);
         let normalizedQuery = historyItem?.normalizedQuery ?? "";
@@ -290,7 +398,7 @@ function mergeCloudIntoLocal(
           }
         }
         if (normalizedQuery) localDictionaryHistoryByQuery.delete(normalizedQuery);
-      } else if (object.kind in maps) delete maps[object.kind][object.objectKey];
+      } else if (maps[object.kind]) delete maps[object.kind]![object.objectKey];
       delete tombstones[objectIdentity];
       continue;
     }
@@ -341,7 +449,21 @@ function mergeCloudIntoLocal(
         preserveVocabularyConflict(storage, local);
         localVocabularyById.set(cloud.id, cloud);
       }
-    } else if (object.kind === "preferences" && object.objectKey === RECOMMENDATION_PREFERENCES_OBJECT_KEY) {
+    } else if (object.kind === "reading_state") {
+      const cloud = normalizeArticleReadingState({
+        ...(object.payload && typeof object.payload === "object" ? object.payload : {}),
+        articleId: object.objectKey,
+      });
+      if (!cloud) continue;
+      const local = localReadingStates[object.objectKey];
+      if (!local || timestamp(object.clientUpdatedAt) >= timestamp(local.updatedAt)) {
+        localReadingStates[object.objectKey] = { ...cloud, updatedAt: object.clientUpdatedAt };
+      }
+    } else if (
+      object.kind === "preferences"
+      && object.objectKey === RECOMMENDATION_PREFERENCES_OBJECT_KEY
+      && localRecommendationPreferences
+    ) {
       const cloud = writeRecommendationPreferencesFromSync(
         storage,
         localRecommendationPreferences.scope === "guest"
@@ -364,38 +486,48 @@ function mergeCloudIntoLocal(
       if (!local || timestamp(cloud.updatedAt) > timestamp(local.updatedAt)) {
         localDictionaryCacheByQuery.set(cloud.normalizedQuery, cloud);
       }
-    } else if (object.kind in maps) {
-      maps[object.kind][object.objectKey] = object.payload;
+    } else if (maps[object.kind]) {
+      maps[object.kind]![object.objectKey] = object.payload;
     }
   }
 
-  const mergedArticles = mergeDuplicateSavedArticles(Array.from(localArticleById.values()));
-  const mergedAt = new Date().toISOString();
-  for (const removedId of mergedArticles.removedIds) {
-    tombstones[`article:${removedId}`] ||= mergedAt;
-  }
-  storage.setItem(KEYS.articles, JSON.stringify(mergedArticles.articles));
-  const deduplicatedVocabulary = deduplicateVocabularyEntries(Array.from(localVocabularyById.values()));
-  const deduplicatedAt = new Date().toISOString();
-  for (const removedId of deduplicatedVocabulary.removedIds) {
-    if (activeCloudVocabularyIds.has(removedId)) {
-      tombstones[`vocabulary:${removedId}`] = deduplicatedAt;
+  if (needsArticles) {
+    const mergedArticles = mergeDuplicateSavedArticles(Array.from(localArticleById.values()));
+    const mergedAt = new Date().toISOString();
+    for (const removedId of mergedArticles.removedIds) {
+      tombstones[`article:${removedId}`] ||= mergedAt;
     }
+    storage.setItem(KEYS.articles, JSON.stringify(mergedArticles.articles));
   }
-  writeVocabulary(storage, deduplicatedVocabulary.entries);
-  storage.setItem(KEYS.explanations, JSON.stringify(maps.explanation));
-  storage.setItem(KEYS.translations, JSON.stringify(maps.article_translation));
-  storage.setItem(KEYS.translationBlocks, JSON.stringify(maps.translation_block));
-  writeStandaloneDictionaryHistory(storage, Array.from(localDictionaryHistoryByQuery.values()));
-  writeStandaloneDictionaryCache(storage, Array.from(localDictionaryCacheByQuery.values()));
+  if (needsVocabulary) {
+    const deduplicatedVocabulary = deduplicateVocabularyEntries(Array.from(localVocabularyById.values()));
+    const deduplicatedAt = new Date().toISOString();
+    for (const removedId of deduplicatedVocabulary.removedIds) {
+      if (activeCloudVocabularyIds.has(removedId)) {
+        tombstones[`vocabulary:${removedId}`] = deduplicatedAt;
+      }
+    }
+    writeVocabulary(storage, deduplicatedVocabulary.entries);
+  }
+  if (needsReadingStates) writeArticleReadingStates(storage, localReadingStates, { notify: false });
+  if (maps.explanation) storage.setItem(KEYS.explanations, JSON.stringify(maps.explanation));
+  if (maps.article_translation) storage.setItem(KEYS.translations, JSON.stringify(maps.article_translation));
+  if (maps.translation_block) storage.setItem(KEYS.translationBlocks, JSON.stringify(maps.translation_block));
+  if (needsDictionaryHistory) writeStandaloneDictionaryHistory(storage, Array.from(localDictionaryHistoryByQuery.values()));
+  if (needsDictionaryCache) writeStandaloneDictionaryCache(storage, Array.from(localDictionaryCacheByQuery.values()));
   writeTombstones(storage, tombstones);
 }
 
-function collectLocalObjects(manifest: Record<string, SyncManifestEntry>): AccountSyncObject[] {
+function collectLocalObjects(
+  manifest: Record<string, SyncManifestEntry>,
+  dirtyKinds?: SyncObjectKind[],
+): AccountSyncObject[] {
   const storage = window.localStorage;
   const now = new Date().toISOString();
   const tombstones = readTombstones(storage);
   const result = new Map<string, AccountSyncObject>();
+  const requestedKinds = dirtyKinds?.length ? new Set(dirtyKinds) : null;
+  const wants = (kind: SyncObjectKind) => !requestedKinds || requestedKinds.has(kind);
   const add = (kind: SyncObjectKind, objectKey: string, payload: unknown, updatedAt = now) => {
     const identity = `${kind}:${objectKey}`;
     const server = manifest[identity];
@@ -412,38 +544,49 @@ function collectLocalObjects(manifest: Record<string, SyncManifestEntry>): Accou
     });
   };
 
-  const localArticleMerge = mergeDuplicateSavedArticles(
-    parseJson<SavedArticle[]>(storage.getItem(KEYS.articles), []),
-  );
-  if (localArticleMerge.removedIds.length) {
-    storage.setItem(KEYS.articles, JSON.stringify(localArticleMerge.articles));
-    for (const removedId of localArticleMerge.removedIds) {
-      tombstones[`article:${removedId}`] ||= now;
+  if (wants("article")) {
+    const localArticleMerge = mergeDuplicateSavedArticles(
+      parseJson<SavedArticle[]>(storage.getItem(KEYS.articles), []),
+    );
+    if (localArticleMerge.removedIds.length) {
+      storage.setItem(KEYS.articles, JSON.stringify(localArticleMerge.articles));
+      for (const removedId of localArticleMerge.removedIds) {
+        tombstones[`article:${removedId}`] ||= now;
+      }
+    }
+    for (const item of localArticleMerge.articles) {
+      add("article", item.id, item, item.updatedAt || now);
     }
   }
-  for (const item of localArticleMerge.articles) {
-    add("article", item.id, item, item.updatedAt || now);
+  if (wants("vocabulary")) {
+    const localVocabulary = deduplicateVocabularyEntries(
+      normalizeVocabularyEntries(readVocabulary(storage)),
+    ).entries;
+    for (const item of localVocabulary) {
+      add("vocabulary", item.id, item, item.updatedAt || item.createdAt || now);
+    }
   }
-  const localVocabulary = deduplicateVocabularyEntries(
-    normalizeVocabularyEntries(readVocabulary(storage)),
-  ).entries;
-  for (const item of localVocabulary) {
-    add("vocabulary", item.id, item, item.updatedAt || item.createdAt || now);
+  if (wants("reading_state")) {
+    for (const item of Object.values(readArticleReadingStates(storage))) {
+      add("reading_state", item.articleId, item, item.updatedAt);
+    }
   }
-  for (const item of readStandaloneDictionaryHistory(storage)) {
-    add("preferences", standaloneDictionaryHistoryObjectKey(item), item, item.lastLookedUpAt);
-  }
-  for (const item of readStandaloneDictionaryCache(storage)) {
-    add("preferences", standaloneDictionaryCacheObjectKey(item), item, item.updatedAt);
-  }
-  const recommendationPreferences = readRecommendationPreferences(storage);
-  if (recommendationPreferences.scope === "account") {
-    add(
-      "preferences",
-      RECOMMENDATION_PREFERENCES_OBJECT_KEY,
-      recommendationPreferences,
-      recommendationPreferences.updatedAt || now,
-    );
+  if (wants("preferences")) {
+    for (const item of readStandaloneDictionaryHistory(storage)) {
+      add("preferences", standaloneDictionaryHistoryObjectKey(item), item, item.lastLookedUpAt);
+    }
+    for (const item of readStandaloneDictionaryCache(storage)) {
+      add("preferences", standaloneDictionaryCacheObjectKey(item), item, item.updatedAt);
+    }
+    const recommendationPreferences = readRecommendationPreferences(storage);
+    if (recommendationPreferences.scope === "account") {
+      add(
+        "preferences",
+        RECOMMENDATION_PREFERENCES_OBJECT_KEY,
+        recommendationPreferences,
+        recommendationPreferences.updatedAt || now,
+      );
+    }
   }
 
   const cacheSpecs: Array<[SyncObjectKind, string]> = [
@@ -452,6 +595,7 @@ function collectLocalObjects(manifest: Record<string, SyncManifestEntry>): Accou
     ["translation_block", KEYS.translationBlocks],
   ];
   for (const [kind, key] of cacheSpecs) {
+    if (!wants(kind)) continue;
     const values = parseJson<Record<string, unknown>>(storage.getItem(key), {});
     for (const [objectKey, payload] of Object.entries(values)) add(kind, objectKey, payload);
   }
@@ -460,8 +604,10 @@ function collectLocalObjects(manifest: Record<string, SyncManifestEntry>): Accou
     const separator = identity.indexOf(":");
     const kind = identity.slice(0, separator) as SyncObjectKind;
     const objectKey = identity.slice(separator + 1);
+    if (!wants(kind)) continue;
     const deletable = kind === "article"
       || kind === "vocabulary"
+      || kind === "reading_state"
       || (kind === "preferences" && isStandaloneDictionaryHistoryObjectKey(objectKey));
     if (!deletable || !objectKey) continue;
     const server = manifest[identity];
@@ -567,15 +713,26 @@ async function performAccountSync(
   retriesRemaining: number,
   report: (progress: AccountSyncProgress) => void,
   startedAt: number,
+  mode: "full" | "pull-only",
+  dirtyKinds?: SyncObjectKind[],
+  deferLocalWork = false,
 ): Promise<AccountSyncResult> {
   const state = readSyncState();
   const initial = !state.initialized;
   const cloud = await readCloudChanges(state, report);
+  if (deferLocalWork && (mode === "full" || cloud.objects.length > 0)) {
+    const canProcess = await waitForBrowserProcessingWindow();
+    if (!canProcess) throw new Error("账号同步等待浏览器空闲超时，将在下次空闲时重试。");
+  }
   let manifest = mergeManifest(state.manifest, cloud.objects);
   report({ phase: "merging", initial, pulledCount: cloud.objects.length, pushedCount: 0 });
-  mergeCloudIntoLocal(cloud.objects, manifest);
-  notifyAccountDataMerged();
-  const local = collectLocalObjects(manifest);
+  if (cloud.objects.length > 0) {
+    mergeCloudIntoLocal(cloud.objects, manifest);
+    notifyAccountDataMerged(Array.from(new Set(cloud.objects.map((object) => object.kind))));
+  }
+  const local = mode === "full"
+    ? collectLocalObjects(manifest, initial || cloud.objects.length > 0 ? undefined : dirtyKinds)
+    : [];
   let writeResults: AccountSyncWriteResult[] = [];
 
   if (local.length > 0) {
@@ -591,12 +748,14 @@ async function performAccountSync(
     manifest = mergeManifest(manifest, writeResults);
     if (response.status === 409 && retriesRemaining > 0) {
       writeSyncState({ protocol: 2, initialized: true, cursor: cloud.cursor, manifest });
-      return performAccountSync(retriesRemaining - 1, report, startedAt);
+      return performAccountSync(retriesRemaining - 1, report, startedAt, mode, dirtyKinds, deferLocalWork);
     }
     if (!response.ok) throw new Error(data.error || "同步失败，请稍后重试。");
   }
 
-  writeSyncState({ protocol: 2, initialized: true, cursor: cloud.cursor, manifest });
+  if (!state.initialized || cloud.cursor !== state.cursor || manifest !== state.manifest) {
+    writeSyncState({ protocol: 2, initialized: true, cursor: cloud.cursor, manifest });
+  }
   const syncedAt = new Date().toISOString();
   window.localStorage.setItem(LAST_SYNC_KEY, syncedAt);
   const result: AccountSyncResult = {
@@ -615,7 +774,12 @@ async function performAccountSync(
   return result;
 }
 
-let activeSync: Promise<AccountSyncResult> | null = null;
+interface ActiveSync {
+  mode: "full" | "pull-only";
+  promise: Promise<AccountSyncResult>;
+}
+
+let activeSync: ActiveSync | null = null;
 const progressListeners = new Set<(progress: AccountSyncProgress) => void>();
 
 function reportProgress(progress: AccountSyncProgress): void {
@@ -624,20 +788,43 @@ function reportProgress(progress: AccountSyncProgress): void {
 
 export function syncAccountData(options: AccountSyncOptions = {}): Promise<AccountSyncResult> {
   if (options.onProgress) progressListeners.add(options.onProgress);
-  if (!activeSync) {
-    const startedAt = Date.now();
-    reportProgress({ phase: "waiting", initial: !readSyncState().initialized, pulledCount: 0, pushedCount: 0 });
-    const run = () => performAccountSync(3, reportProgress, startedAt);
-    const lockedSync = typeof navigator !== "undefined" && navigator.locks
-      ? navigator.locks.request("context-reader:account-sync", { mode: "exclusive" }, run)
-      : run();
-    const sync = lockedSync.finally(() => {
-      if (activeSync === sync) activeSync = null;
+  const mode = options.mode ?? "full";
+
+  if (activeSync) {
+    const current = activeSync;
+    const needsFollowUp = mode === "full"
+      && (current.mode === "pull-only" || Boolean(options.dirtyKinds?.length));
+    const pending = needsFollowUp
+      ? current.promise.catch(() => undefined).then(() => syncAccountData({
+          ...options,
+          onProgress: undefined,
+          dirtyKinds: current.mode === "pull-only" ? undefined : options.dirtyKinds,
+        }))
+      : current.promise;
+    return pending.finally(() => {
+      if (options.onProgress) progressListeners.delete(options.onProgress);
     });
-    activeSync = sync;
   }
-  const current = activeSync;
-  return current.finally(() => {
+
+  const startedAt = Date.now();
+  reportProgress({ phase: "waiting", initial: !readSyncState().initialized, pulledCount: 0, pushedCount: 0 });
+  const run = () => performAccountSync(
+    3,
+    reportProgress,
+    startedAt,
+    mode,
+    options.dirtyKinds,
+    options.deferLocalWork,
+  );
+  const lockedSync = typeof navigator !== "undefined" && navigator.locks
+    ? navigator.locks.request("context-reader:account-sync", { mode: "exclusive" }, run)
+    : run();
+  const record: ActiveSync = { mode, promise: Promise.resolve(null as never) };
+  record.promise = lockedSync.finally(() => {
+    if (activeSync === record) activeSync = null;
+  });
+  activeSync = record;
+  return record.promise.finally(() => {
     if (options.onProgress) progressListeners.delete(options.onProgress);
   });
 }

@@ -5,7 +5,7 @@ import { ArticleInput } from "@/components/ArticleInput";
 import { HomeRedesign } from "@/components/HomeRedesign";
 import { ReaderView } from "@/components/ReaderView";
 import { fetchJson } from "@/lib/apiClient";
-import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
+import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import {
   deleteSavedArticle,
   findSavedArticle,
@@ -248,7 +248,11 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   }, [reading]);
 
   useEffect(() => {
-    const refreshSavedArticles = () => setSavedArticles(getSavedArticles());
+    const refreshSavedArticles = (event?: Event) => {
+      const kinds = event ? accountDataEventKinds(event) : [];
+      if (kinds.length > 0 && !kinds.includes("article") && !kinds.includes("reading_state")) return;
+      setSavedArticles(getSavedArticles());
+    };
     refreshSavedArticles();
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshSavedArticles);
     return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshSavedArticles);

@@ -33,6 +33,13 @@ export interface ReaderReadingProgress extends ReaderViewportAnchor {
   capturedAt: string;
 }
 
+export interface ArticleReadingState {
+  articleId: string;
+  lastOpenedAt: string;
+  updatedAt: string;
+  readingProgress?: ReaderReadingProgress;
+}
+
 export interface WordContext {
   word: string;
   paragraphIndex: number;

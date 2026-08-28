@@ -11,10 +11,17 @@ import type {
 import type { ReaderViewportAnchor } from "@/types/reader";
 import { notifyAccountDataChanged, notifyAccountObjectsDeleted } from "@/lib/accountEvents";
 import { mergeDuplicateSavedArticles, savedArticleBodyIdentity } from "@/lib/savedArticleMerge";
+import {
+  applyArticleReadingStates,
+  deleteArticleReadingState,
+  updateArticleReadingState,
+} from "@/lib/readingState";
 
 const ARTICLES_KEY = "context-reader:articles:v1";
 const GENERIC_SUMMARY = "这是一篇已保存的英文阅读文章。";
 const MIN_SUMMARY_CHINESE_CHARS = 8;
+let cachedArticlesRaw: string | null | undefined;
+let cachedArticles: SavedArticle[] | null = null;
 
 function safeLocalStorage(): Storage | null {
   if (typeof window === "undefined") {
@@ -308,20 +315,31 @@ export function getSavedArticles(): SavedArticle[] {
   try {
     const raw = storage.getItem(ARTICLES_KEY);
     if (!raw) {
+      cachedArticlesRaw = raw;
+      cachedArticles = [];
       return [];
     }
-    const normalized = (JSON.parse(raw) as unknown[])
+    if (raw === cachedArticlesRaw && cachedArticles) {
+      return applyArticleReadingStates(cachedArticles, storage);
+    }
+    const parsed = JSON.parse(raw) as unknown[];
+    const normalized = parsed
       .map(normalizeArticle)
       .filter((article): article is SavedArticle => Boolean(article));
     const merged = mergeDuplicateSavedArticles(normalized);
-    const serialized = JSON.stringify(merged.articles);
-    if (serialized !== JSON.stringify(normalized)) {
-      storage.setItem(ARTICLES_KEY, serialized);
+    if (merged.removedIds.length || normalized.length !== parsed.length) {
+      cachedArticlesRaw = JSON.stringify(merged.articles);
+      storage.setItem(ARTICLES_KEY, cachedArticlesRaw);
       if (merged.removedIds.length) notifyAccountObjectsDeleted("article", merged.removedIds);
-      else notifyAccountDataChanged();
+      else notifyAccountDataChanged(["article"]);
+    } else {
+      cachedArticlesRaw = raw;
     }
-    return merged.articles;
+    cachedArticles = merged.articles;
+    return applyArticleReadingStates(cachedArticles, storage);
   } catch {
+    cachedArticlesRaw = undefined;
+    cachedArticles = null;
     return [];
   }
 }
@@ -332,9 +350,11 @@ export function saveArticles(articles: SavedArticle[]): void {
     return;
   }
   const merged = mergeDuplicateSavedArticles(articles);
-  storage.setItem(ARTICLES_KEY, JSON.stringify(merged.articles));
+  cachedArticles = merged.articles;
+  cachedArticlesRaw = JSON.stringify(merged.articles);
+  storage.setItem(ARTICLES_KEY, cachedArticlesRaw);
   if (merged.removedIds.length) notifyAccountObjectsDeleted("article", merged.removedIds);
-  else notifyAccountDataChanged();
+  else notifyAccountDataChanged(["article"]);
 }
 
 export function articleIdentity(article: string): string {
@@ -453,17 +473,15 @@ export function touchSavedArticle(id: string): SavedArticle[] {
   }
 
   const openedAt = new Date().toISOString();
+  updateArticleReadingState(id, { lastOpenedAt: openedAt });
   const touchedArticle = {
     ...existing,
-    updatedAt: openedAt,
     lastOpenedAt: openedAt,
   };
-  const nextArticles = [
+  return [
     touchedArticle,
     ...articles.filter((article) => article.id !== id),
   ];
-  saveArticles(nextArticles);
-  return nextArticles;
 }
 
 export function saveArticleReadingProgress(id: string, anchor: ReaderViewportAnchor): SavedArticle[] {
@@ -479,30 +497,18 @@ export function saveArticleReadingProgress(id: string, anchor: ReaderViewportAnc
     return articles;
   }
 
-  const capturedAt = new Date().toISOString();
-  const nextArticles = articles.map((article) => article.id === id
-    ? {
-        ...article,
-        readingProgress: {
-          ...anchor,
-          blockIndex: Math.max(0, Math.floor(anchor.blockIndex)),
-          blockText: anchor.blockText.slice(0, 120),
-          scrollY: Math.max(0, anchor.scrollY),
-          scrollRatio: normalizedScrollRatio,
-          capturedAt,
-        },
-        lastOpenedAt: capturedAt,
-        updatedAt: capturedAt,
-      }
+  const state = updateArticleReadingState(id, { readingProgress: { ...anchor, scrollRatio: normalizedScrollRatio } });
+  if (!state?.readingProgress) return articles;
+  return articles.map((article) => article.id === id
+    ? { ...article, readingProgress: state.readingProgress, lastOpenedAt: state.lastOpenedAt }
     : article);
-  saveArticles(nextArticles);
-  return nextArticles;
 }
 
 export function deleteSavedArticle(id: string): SavedArticle[] {
   const articles = getSavedArticles();
   const nextArticles = articles.filter((article) => article.id !== id);
   if (nextArticles.length !== articles.length) {
+    deleteArticleReadingState(id);
     notifyAccountObjectsDeleted("article", [id]);
   }
   saveArticles(nextArticles);

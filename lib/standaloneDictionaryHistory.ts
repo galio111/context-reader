@@ -106,7 +106,7 @@ export function recordStandaloneDictionaryHistory(query: string): StandaloneDict
   ]);
   try {
     writeStandaloneDictionaryHistory(window.localStorage, next);
-    notifyAccountDataChanged();
+    notifyAccountDataChanged(["preferences"]);
   } catch {
     // History persistence must never block a successful dictionary lookup.
   }
@@ -136,7 +136,7 @@ export function migrateStandaloneDictionarySessionHistory(
   const next = sortAndDeduplicateStandaloneDictionaryHistory([...missing, ...existing]);
   try {
     writeStandaloneDictionaryHistory(window.localStorage, next);
-    notifyAccountDataChanged();
+    notifyAccountDataChanged(["preferences"]);
   } catch {
     // Legacy session migration is best effort.
   }

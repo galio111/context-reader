@@ -148,7 +148,7 @@ export function recordStandaloneDictionaryCache(
     ...readStandaloneDictionaryCache(),
   ]);
   writeStandaloneDictionaryCache(window.localStorage, next);
-  notifyAccountDataChanged();
+  notifyAccountDataChanged(["preferences"]);
   return next;
 }
 
@@ -184,7 +184,7 @@ export function migrateStandaloneDictionarySessionCache(
   if (missing.length === 0) return existing;
   const next = sortAndDeduplicate([...missing, ...existing]);
   writeStandaloneDictionaryCache(window.localStorage, next);
-  notifyAccountDataChanged();
+  notifyAccountDataChanged(["preferences"]);
   return next;
 }
 

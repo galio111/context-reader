@@ -6,7 +6,7 @@ import { HomeReadingDemo } from "@/components/HomeReadingDemo";
 import ClearableField from "@/components/ClearableField";
 import { ImmersiveHome } from "@/components/ImmersiveHome";
 import { VocabularyPanel } from "@/components/VocabularyPanel";
-import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
+import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { isValidArticleSummary } from "@/lib/articles";
 import { currentFormPhonetic } from "@/lib/pronunciation";
 import { downloadVocabularyCsv } from "@/lib/csv";
@@ -105,7 +105,11 @@ export function ArticleInput({
   const workbenchRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const refreshVocabularyEntries = () => setVocabularyEntries(getVocabularyEntries());
+    const refreshVocabularyEntries = (event?: Event) => {
+      const kinds = event ? accountDataEventKinds(event) : [];
+      if (kinds.length > 0 && !kinds.includes("vocabulary")) return;
+      setVocabularyEntries(getVocabularyEntries());
+    };
     refreshVocabularyEntries();
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
     return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);

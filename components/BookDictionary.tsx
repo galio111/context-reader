@@ -3,7 +3,7 @@
 import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import ClearableField from "@/components/ClearableField";
-import { ACCOUNT_DATA_CHANGED_EVENT, ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
+import { ACCOUNT_DATA_CHANGED_EVENT, ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import {
   describeApiFailure,
   describeCaughtRequestError,
@@ -16,12 +16,14 @@ import {
   migrateStandaloneDictionarySessionCache,
   readStandaloneDictionaryCache,
   recordStandaloneDictionaryCache,
+  STANDALONE_DICTIONARY_CACHE_KEY,
 } from "@/lib/standaloneDictionaryCache";
 import {
   migrateStandaloneDictionarySessionHistory,
   readStandaloneDictionaryHistory,
   recordStandaloneDictionaryHistory,
   removeStandaloneDictionaryHistory,
+  STANDALONE_DICTIONARY_HISTORY_KEY,
   type StandaloneDictionaryHistoryItem,
 } from "@/lib/standaloneDictionaryHistory";
 import type { DictionaryResult } from "@/types/dictionary";
@@ -351,7 +353,15 @@ export function BookDictionary({
   }, [history.length, panel]);
 
   useEffect(() => {
-    const refreshAccountDictionaryData = () => {
+    const refreshAccountDictionaryData = (event: Event) => {
+      const kinds = accountDataEventKinds(event);
+      if (kinds.length > 0 && !kinds.includes("preferences")) return;
+      if (
+        event instanceof StorageEvent
+        && event.key
+        && event.key !== STANDALONE_DICTIONARY_HISTORY_KEY
+        && event.key !== STANDALONE_DICTIONARY_CACHE_KEY
+      ) return;
       setHistory(readStandaloneDictionaryHistory());
       cacheRef.current = {
         ...cacheRef.current,

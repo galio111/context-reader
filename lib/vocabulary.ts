@@ -140,7 +140,7 @@ export function saveVocabularyEntries(entries: VocabularyEntry[]): void {
     VOCABULARY_KEY,
     `${COMPRESSED_VOCABULARY_PREFIX}${LZString.compressToUTF16(serialized)}`,
   );
-  notifyAccountDataChanged();
+  notifyAccountDataChanged(["vocabulary"]);
 }
 
 export function createVocabularyEntry(

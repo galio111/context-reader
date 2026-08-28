@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import ClearableField from "@/components/ClearableField";
-import { ACCOUNT_DATA_CHANGED_EVENT } from "@/lib/accountEvents";
+import { ACCOUNT_DATA_CHANGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
 import {
   clearLocalAccountData,
+  accountSyncKindsForStorageKey,
   prepareLocalAccountForUser,
   syncAccountData,
   type AccountSyncOptions,
@@ -19,6 +20,7 @@ import {
   type LocalAccountSession,
 } from "@/lib/localAccountSession";
 import type { AccountSessionState } from "@/types/account";
+import type { SyncObjectKind } from "@/types/account";
 import {
   accountPasswordRequirement,
   isAcceptedAccountLoginPassword,
@@ -51,6 +53,7 @@ const CONNECTIVITY_TIMEOUT_MS = 5_000;
 const OFFLINE_RECHECK_INTERVAL_MS = 12_000;
 const REMOTE_SYNC_INTERVAL_MS = 15_000;
 const LOCAL_SYNC_DEBOUNCE_MS = 800;
+const SYNC_INTERACTION_QUIET_MS = 2_000;
 
 type ConnectionResult = "online" | "network" | "service";
 
@@ -300,43 +303,83 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     ) return;
     let idleHandle = 0;
     let lastInteractionAt = performance.now();
+    let scheduledMode: "full" | "pull-only" | null = null;
+    let pendingFullScan = false;
+    const pendingKinds = new Set<SyncObjectKind>();
     const idleWindow = window as typeof window & {
       requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
       cancelIdleCallback?: (handle: number) => void;
     };
-    const cancelScheduledSync = () => {
+    const clearScheduledWork = () => {
       if (syncTimer.current !== null) window.clearTimeout(syncTimer.current);
       syncTimer.current = null;
       if (idleHandle) idleWindow.cancelIdleCallback?.(idleHandle);
       idleHandle = 0;
     };
-    const scheduleSync = (delayMs: number) => {
-      cancelScheduledSync();
+    const scheduleSync = (
+      delayMs: number,
+      mode: "full" | "pull-only",
+      kinds?: SyncObjectKind[],
+    ) => {
+      if (mode === "full") {
+        if (kinds === undefined) pendingFullScan = true;
+        else for (const kind of kinds) pendingKinds.add(kind);
+      } else if (scheduledMode === "full") {
+        return;
+      }
+      clearScheduledWork();
+      scheduledMode = mode;
       syncTimer.current = window.setTimeout(() => {
         syncTimer.current = null;
         const run = () => {
           idleHandle = 0;
+          const runMode = scheduledMode ?? mode;
           const quietFor = performance.now() - lastInteractionAt;
-          if (quietFor < 700) {
-            scheduleSync(Math.ceil(700 - quietFor));
+          const scheduling = navigator as Navigator & {
+            scheduling?: { isInputPending?: (options?: { includeContinuous?: boolean }) => boolean };
+          };
+          if (
+            runMode === "full"
+            && (quietFor < SYNC_INTERACTION_QUIET_MS || scheduling.scheduling?.isInputPending?.({ includeContinuous: true }))
+          ) {
+            scheduleSync(Math.max(120, Math.ceil(SYNC_INTERACTION_QUIET_MS - quietFor)), "full", []);
             return;
           }
-          void syncNow().catch(() => undefined);
+          scheduledMode = null;
+          const dirtyKinds = pendingFullScan ? undefined : Array.from(pendingKinds);
+          if (runMode === "full") {
+            pendingFullScan = false;
+            pendingKinds.clear();
+          }
+          void syncNow({
+            mode: runMode,
+            deferLocalWork: true,
+            ...(runMode === "full" ? { dirtyKinds } : {}),
+          }).catch(() => {
+            if (runMode === "full") {
+              if (!dirtyKinds?.length) pendingFullScan = true;
+              else for (const kind of dirtyKinds) pendingKinds.add(kind);
+            }
+          });
         };
-        if (idleWindow.requestIdleCallback) idleHandle = idleWindow.requestIdleCallback(run, { timeout: 5_000 });
+        if (idleWindow.requestIdleCallback) idleHandle = idleWindow.requestIdleCallback(run, { timeout: 30_000 });
         else syncTimer.current = window.setTimeout(run, 32);
       }, delayMs);
     };
-    const scheduleLocalPush = () => scheduleSync(LOCAL_SYNC_DEBOUNCE_MS);
+    const scheduleLocalPush = (event?: Event) => {
+      const kinds = event ? accountDataEventKinds(event) : [];
+      scheduleSync(LOCAL_SYNC_DEBOUNCE_MS, "full", kinds.length ? kinds : undefined);
+    };
     const pullRemoteChanges = () => {
-      if (document.visibilityState === "visible") scheduleSync(0);
+      if (document.visibilityState === "visible") scheduleSync(0, "pull-only");
     };
     const markInteraction = () => { lastInteractionAt = performance.now(); };
     const handleStorage = (event: StorageEvent) => {
       if (event.key === "context-reader:sync-state:v2" || event.key === "context-reader:last-sync:v1") return;
-      scheduleLocalPush();
+      const kinds = accountSyncKindsForStorageKey(event.key);
+      scheduleSync(LOCAL_SYNC_DEBOUNCE_MS, "full", kinds.length ? kinds : undefined);
     };
-    scheduleSync(0);
+    scheduleSync(0, "full");
     const intervalId = window.setInterval(pullRemoteChanges, REMOTE_SYNC_INTERVAL_MS);
     window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, scheduleLocalPush);
     window.addEventListener("storage", handleStorage);
@@ -354,7 +397,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       window.removeEventListener("pointermove", markInteraction);
       window.removeEventListener("keydown", markInteraction);
       document.removeEventListener("visibilitychange", pullRemoteChanges);
-      cancelScheduledSync();
+      clearScheduledWork();
     };
   }, [account.authenticated, account.localOnly, account.plan?.id, syncNow]);
 
