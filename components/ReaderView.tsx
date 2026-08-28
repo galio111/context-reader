@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
 import { defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { ArticleTranslationPanel } from "@/components/ArticleTranslationPanel";
@@ -178,6 +178,41 @@ interface ResizeInteraction {
 interface ArticleEditSnapshot {
   article: string;
   importedArticle: ImportedArticle | null;
+}
+
+interface ArticleHistoryAvailability {
+  canUndo: boolean;
+  canRedo: boolean;
+}
+
+interface ArticleHistoryAvailabilityStore {
+  getSnapshot: () => ArticleHistoryAvailability;
+  subscribe: (listener: () => void) => () => void;
+  update: (availability: ArticleHistoryAvailability) => void;
+}
+
+const MAX_ARTICLE_EDIT_HISTORY = 100;
+
+function createArticleHistoryAvailabilityStore(): ArticleHistoryAvailabilityStore {
+  let snapshot: ArticleHistoryAvailability = { canUndo: false, canRedo: false };
+  const listeners = new Set<() => void>();
+  return {
+    getSnapshot: () => snapshot,
+    subscribe: (listener) => {
+      listeners.add(listener);
+      return () => listeners.delete(listener);
+    },
+    update: (availability) => {
+      if (
+        availability.canUndo === snapshot.canUndo &&
+        availability.canRedo === snapshot.canRedo
+      ) {
+        return;
+      }
+      snapshot = availability;
+      listeners.forEach((listener) => listener());
+    },
+  };
 }
 
 type ImageOcrStatus = "idle" | "loading" | "ready" | "error";
@@ -622,6 +657,70 @@ function ReaderRailIcon({ kind }: { kind: "import" | "dictionary" | "vocabulary"
   return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4.5h5l1.4 1.6H16v9.4H4V4.5Z" /><path d="M7 9h6M7 12h4" /></svg>;
 }
 
+function DesktopArticleHistoryActions({
+  store,
+  saving,
+  onUndo,
+  onRedo,
+}: {
+  store: ArticleHistoryAvailabilityStore;
+  saving: boolean;
+  onUndo: () => void;
+  onRedo: () => void;
+}) {
+  const { canUndo, canRedo } = useSyncExternalStore(
+    store.subscribe,
+    store.getSnapshot,
+    store.getSnapshot,
+  );
+  return (
+    <div className={toolbarStyles.historyActions} aria-label="文章编辑历史">
+      <PillNavAction
+        className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
+        label="←"
+        onClick={onUndo}
+        disabled={saving || !canUndo}
+        ariaLabel="撤销文章编辑"
+        title="撤销文章编辑"
+      />
+      <PillNavAction
+        className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
+        label="→"
+        onClick={onRedo}
+        disabled={saving || !canRedo}
+        ariaLabel="重做文章编辑"
+        title="重做文章编辑"
+      />
+    </div>
+  );
+}
+
+function MobileArticleHistoryActions({
+  store,
+  editing,
+  saving,
+  onUndo,
+  onRedo,
+}: {
+  store: ArticleHistoryAvailabilityStore;
+  editing: boolean;
+  saving: boolean;
+  onUndo: () => void;
+  onRedo: () => void;
+}) {
+  const { canUndo, canRedo } = useSyncExternalStore(
+    store.subscribe,
+    store.getSnapshot,
+    store.getSnapshot,
+  );
+  return (
+    <>
+      <button type="button" onClick={onUndo} disabled={saving || !editing || !canUndo}>后退一步</button>
+      <button type="button" onClick={onRedo} disabled={saving || !editing || !canRedo}>前进一步</button>
+    </>
+  );
+}
+
 export function ReaderView({
   article,
   importedArticle,
@@ -668,14 +767,16 @@ export function ReaderView({
   const [editingArticle, setEditingArticle] = useState(false);
   const [draftPlainArticle, setDraftPlainArticle] = useState("");
   const [draftBlocks, setDraftBlocks] = useState<ImportedArticleBlock[]>([]);
+  const [articleEditRevision, setArticleEditRevision] = useState(0);
   const [editStatus, setEditStatus] = useState("");
   const [savingArticleEdit, setSavingArticleEdit] = useState(false);
-  const [articleUndoStack, setArticleUndoStack] = useState<ArticleEditSnapshot[]>([]);
-  const [articleRedoStack, setArticleRedoStack] = useState<ArticleEditSnapshot[]>([]);
-  const articleUndoStackRef = useRef<ArticleEditSnapshot[]>([]);
-  const articleRedoStackRef = useRef<ArticleEditSnapshot[]>([]);
   const articleHistoryRef = useRef<ArticleEditSnapshot[]>([]);
   const articleHistoryIndexRef = useRef(0);
+  const articleHistoryAvailabilityStoreRef = useRef<ArticleHistoryAvailabilityStore | null>(null);
+  if (!articleHistoryAvailabilityStoreRef.current) {
+    articleHistoryAvailabilityStoreRef.current = createArticleHistoryAvailabilityStore();
+  }
+  const articleHistoryAvailabilityStore = articleHistoryAvailabilityStoreRef.current;
   const [imageOcr, setImageOcr] = useState<Record<string, ImageOcrState>>({});
   const [activeImageBlockId, setActiveImageBlockId] = useState<string | null>(null);
   const [activeImageZoom, setActiveImageZoom] = useState(1);
@@ -1033,12 +1134,9 @@ export function ReaderView({
         },
       ];
       articleHistoryIndexRef.current = 0;
-      articleUndoStackRef.current = [];
-      articleRedoStackRef.current = [];
-      setArticleUndoStack([]);
-      setArticleRedoStack([]);
+      articleHistoryAvailabilityStore.update({ canUndo: false, canRedo: false });
     }
-  }, [article, importedArticle, editingArticle]);
+  }, [article, importedArticle, editingArticle, articleHistoryAvailabilityStore]);
 
   useLayoutEffect(() => {
     const anchor = pendingArticleViewportAnchorRef.current;
@@ -1051,7 +1149,7 @@ export function ReaderView({
     return () => {
       if (frameId !== null) window.cancelAnimationFrame(frameId);
     };
-  }, [currentArticle, currentImportedArticle, editingArticle]);
+  }, [currentArticle, currentImportedArticle, editingArticle, articleEditRevision]);
 
   useLayoutEffect(() => {
     if (initialViewportRestoredRef.current || !initialViewportAnchor || !articleMediaReady) return;
@@ -2340,9 +2438,32 @@ export function ReaderView({
     setEditStatus("");
   }
 
+  function restoreArticleHistoryToSavedContent() {
+    const savedSnapshot: ArticleEditSnapshot = {
+      article: currentArticle,
+      importedArticle: cloneImportedArticle(currentImportedArticle),
+    };
+    let savedIndex = -1;
+    for (let index = articleHistoryRef.current.length - 1; index >= 0; index -= 1) {
+      if (sameArticleSnapshot(articleHistoryRef.current[index], savedSnapshot)) {
+        savedIndex = index;
+        break;
+      }
+    }
+    if (savedIndex < 0) {
+      articleHistoryRef.current = [savedSnapshot];
+      articleHistoryIndexRef.current = 0;
+    } else {
+      articleHistoryRef.current = articleHistoryRef.current.slice(0, savedIndex + 1);
+      articleHistoryIndexRef.current = savedIndex;
+    }
+    syncArticleHistoryButtons();
+  }
+
   function cancelArticleEditing() {
     if (window.confirm("放弃本次文章编辑吗？")) {
       preserveArticleViewportAcrossModeChange();
+      restoreArticleHistoryToSavedContent();
       setEditingArticle(false);
       setDraftPlainArticle("");
       setDraftBlocks([]);
@@ -2384,9 +2505,11 @@ export function ReaderView({
   }
 
   function deleteDraftBlock(id: string) {
+    preserveArticleViewportAcrossModeChange();
     const currentBlocks = importedDraftBlocksFromDom();
     const nextBlocks = currentBlocks.filter((block) => block.id !== id);
     setDraftBlocks(nextBlocks);
+    setArticleEditRevision((revision) => revision + 1);
     pushArticleHistorySnapshot(articleFromDraftBlocks(nextBlocks));
   }
 
@@ -2465,7 +2588,7 @@ export function ReaderView({
   function sameArticleSnapshot(left: ArticleEditSnapshot, right: ArticleEditSnapshot): boolean {
     return (
       normalizeArticleText(left.article) === normalizeArticleText(right.article) &&
-      JSON.stringify(left.importedArticle ?? null) === JSON.stringify(right.importedArticle ?? null)
+      JSON.stringify(left.importedArticle?.blocks ?? null) === JSON.stringify(right.importedArticle?.blocks ?? null)
     );
   }
 
@@ -2511,17 +2634,18 @@ export function ReaderView({
     );
   }
 
-  function syncArticleHistoryButtons(updateRenderedState = true) {
+  function syncArticleHistoryButtons() {
     const index = articleHistoryIndexRef.current;
-    articleUndoStackRef.current = articleHistoryRef.current.slice(0, index);
-    articleRedoStackRef.current = articleHistoryRef.current.slice(index + 1);
-    if (updateRenderedState) {
-      setArticleUndoStack([...articleUndoStackRef.current]);
-      setArticleRedoStack([...articleRedoStackRef.current]);
-    }
+    // The small toolbar subscribers update independently. ReaderView itself
+    // must not rerender on input because React reconciliation can overwrite the
+    // browser-owned contentEditable DOM and move the caret.
+    articleHistoryAvailabilityStore.update({
+      canUndo: index > 0,
+      canRedo: index < articleHistoryRef.current.length - 1,
+    });
   }
 
-  function pushArticleHistorySnapshot(snapshot: ArticleEditSnapshot, updateRenderedState = true) {
+  function pushArticleHistorySnapshot(snapshot: ArticleEditSnapshot) {
     const history = articleHistoryRef.current;
     const index = articleHistoryIndexRef.current;
     const currentSnapshot = history[index];
@@ -2530,24 +2654,28 @@ export function ReaderView({
       return;
     }
 
-    articleHistoryRef.current = [
+    let nextHistory = [
       ...history.slice(0, index + 1),
       {
         article: snapshot.article,
         importedArticle: cloneImportedArticle(snapshot.importedArticle),
       },
     ];
-    articleHistoryIndexRef.current = articleHistoryRef.current.length - 1;
-    syncArticleHistoryButtons(updateRenderedState);
+    if (nextHistory.length > MAX_ARTICLE_EDIT_HISTORY) {
+      nextHistory = nextHistory.slice(nextHistory.length - MAX_ARTICLE_EDIT_HISTORY);
+    }
+    articleHistoryRef.current = nextHistory;
+    articleHistoryIndexRef.current = nextHistory.length - 1;
+    syncArticleHistoryButtons();
   }
 
   function handleArticleEditInput() {
     // The browser owns the live contentEditable DOM. Updating React state for
     // every keystroke can make React reconcile that DOM while the selection is
     // changing, which occasionally moves the caret or the edited paragraph.
-    // Keep history in refs while typing and render button state only at an
-    // explicit editing boundary (undo, redo, save, or block deletion).
-    pushArticleHistorySnapshot(snapshotFromEditingSurface(), false);
+    // History snapshots stay in refs. Only the isolated toolbar subscribers
+    // receive capability changes, so editing text never rerenders the article.
+    pushArticleHistorySnapshot(snapshotFromEditingSurface());
   }
 
   function handleImportedArticleEditKeyDown(event: ReactKeyboardEvent<HTMLDivElement>) {
@@ -2587,30 +2715,22 @@ export function ReaderView({
     }
   }
 
-  async function applyArticleSnapshot(snapshot: ArticleEditSnapshot): Promise<boolean> {
+  function applyArticleDraftSnapshot(snapshot: ArticleEditSnapshot) {
     preserveArticleViewportAcrossModeChange();
-    if (!(await commitExternalArticleEdit(snapshot))) {
-      pendingArticleViewportAnchorRef.current = null;
-      return false;
-    }
-    saveEditedArticle(currentArticle, snapshot.article, snapshot.importedArticle);
-    setCurrentArticle(snapshot.article);
-    setCurrentImportedArticle(snapshot.importedArticle);
-    if (editingArticle) {
-      setDraftPlainArticle(snapshot.article);
-      setDraftBlocks(snapshot.importedArticle?.blocks?.length
-        ? snapshot.importedArticle.blocks.map((block) => ({ ...block }))
-        : []);
-    }
-    onArticleChange?.(snapshot.article, snapshot.importedArticle);
-    if (snapshot.importedArticle) {
-      onImportedArticleChange?.(snapshot.importedArticle);
-    }
-    onArticleSaved();
-    return true;
+    setDraftPlainArticle(snapshot.article);
+    setDraftBlocks(snapshot.importedArticle?.blocks?.length
+      ? snapshot.importedArticle.blocks.map((block) => ({ ...block }))
+      : []);
+    // contentEditable children are mutated by the browser, outside React's
+    // virtual tree. A fresh key makes Undo/Redo rebuild the exact snapshot
+    // instead of merely moving the history index behind unchanged live DOM.
+    setArticleEditRevision((revision) => revision + 1);
   }
 
-  async function undoSavedArticleEdit() {
+  function undoSavedArticleEdit() {
+    if (!editingArticle) {
+      return;
+    }
     const currentSnapshot = snapshotFromEditingSurface();
     const currentHistorySnapshot = articleHistoryRef.current[articleHistoryIndexRef.current];
     if (currentHistorySnapshot && !sameArticleSnapshot(currentHistorySnapshot, currentSnapshot)) {
@@ -2622,28 +2742,23 @@ export function ReaderView({
     if (!previous) {
       return;
     }
-    if (!(await applyArticleSnapshot(previous))) {
-      return;
-    }
     articleHistoryIndexRef.current = previousIndex;
     syncArticleHistoryButtons();
+    applyArticleDraftSnapshot(previous);
   }
 
-  async function redoSavedArticleEdit() {
+  function redoSavedArticleEdit() {
+    if (!editingArticle) {
+      return;
+    }
     const nextIndex = articleHistoryIndexRef.current + 1;
     const next = articleHistoryRef.current[nextIndex];
     if (!next) {
       return;
     }
-    if (!(await applyArticleSnapshot(next))) {
-      return;
-    }
     articleHistoryIndexRef.current = nextIndex;
     syncArticleHistoryButtons();
-  }
-
-  function recordSavedArticleEditUndo() {
-    pushArticleHistorySnapshot(snapshotFromEditingSurface());
+    applyArticleDraftSnapshot(next);
   }
 
   async function saveArticleEditing(): Promise<boolean> {
@@ -2667,7 +2782,7 @@ export function ReaderView({
       if (!(await commitExternalArticleEdit({ article: nextArticle, importedArticle: null }))) {
         return false;
       }
-      recordSavedArticleEditUndo();
+      pushArticleHistorySnapshot({ article: nextArticle, importedArticle: null });
       saveEditedArticle(currentArticle, nextArticle, null);
       setCurrentArticle(nextArticle);
       setCurrentImportedArticle(null);
@@ -2713,7 +2828,7 @@ export function ReaderView({
     if (!(await commitExternalArticleEdit({ article: nextImportedArticle.text, importedArticle: nextImportedArticle }))) {
       return false;
     }
-    recordSavedArticleEditUndo();
+    pushArticleHistorySnapshot({ article: nextImportedArticle.text, importedArticle: nextImportedArticle });
     saveEditedArticle(currentArticle, nextImportedArticle.text, nextImportedArticle);
     setCurrentArticle(nextImportedArticle.text);
     setCurrentImportedArticle(nextImportedArticle);
@@ -3033,24 +3148,12 @@ export function ReaderView({
           disabled={savingArticleEdit}
         />
         {editingArticle && (
-          <div className={toolbarStyles.historyActions} aria-label="文章编辑历史">
-            <PillNavAction
-              className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
-              label="←"
-              onClick={() => void undoSavedArticleEdit()}
-              disabled={savingArticleEdit || articleUndoStack.length === 0}
-              ariaLabel="撤销文章编辑"
-              title="撤销文章编辑"
-            />
-            <PillNavAction
-              className={`${toolbarStyles.action} ${toolbarStyles.historyAction}`}
-              label="→"
-              onClick={() => void redoSavedArticleEdit()}
-              disabled={savingArticleEdit || articleRedoStack.length === 0}
-              ariaLabel="重做文章编辑"
-              title="重做文章编辑"
-            />
-          </div>
+          <DesktopArticleHistoryActions
+            store={articleHistoryAvailabilityStore}
+            saving={savingArticleEdit}
+            onUndo={undoSavedArticleEdit}
+            onRedo={redoSavedArticleEdit}
+          />
         )}
         <div className={toolbarStyles.actions}>
           {editingArticle ? (
@@ -3168,6 +3271,7 @@ export function ReaderView({
             {editingArticle ? (
               !currentImportedArticle?.blocks?.length ? (
                 <div
+                  key={`plain-article-editor-${articleEditRevision}`}
                   ref={plainArticleEditRef}
                   className="min-h-[65vh] outline-none"
                   data-native-selection="blue"
@@ -3188,6 +3292,7 @@ export function ReaderView({
                 </div>
               ) : (
               <div
+                key={`imported-article-editor-${articleEditRevision}`}
                 ref={importedArticleEditRef}
                 className="min-h-[65vh] outline-none"
                 data-native-selection="blue"
@@ -3943,8 +4048,13 @@ export function ReaderView({
               <div className={toolbarStyles.mobileArticleActions}>
                 <p>低频操作收在这里，正文仍保持完整宽度。</p>
                 <div>
-                  <button type="button" onClick={() => void undoSavedArticleEdit()} disabled={savingArticleEdit || (!editingArticle && articleUndoStack.length === 0)}>后退一步</button>
-                  <button type="button" onClick={() => void redoSavedArticleEdit()} disabled={savingArticleEdit || (!editingArticle && articleRedoStack.length === 0)}>前进一步</button>
+                  <MobileArticleHistoryActions
+                    store={articleHistoryAvailabilityStore}
+                    editing={editingArticle}
+                    saving={savingArticleEdit}
+                    onUndo={undoSavedArticleEdit}
+                    onRedo={redoSavedArticleEdit}
+                  />
                   {editingArticle ? (
                     <>
                       <button type="button" onClick={cancelArticleEditing} disabled={savingArticleEdit}>取消编辑</button>
