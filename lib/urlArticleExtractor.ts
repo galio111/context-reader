@@ -18,10 +18,12 @@ const MAX_TABLE_ROWS = 500;
 const MAX_TABLE_COLUMNS = 40;
 const MAX_TABLE_CELL_CHARS = 2_000;
 
-const NOISE_IDENTITY_PATTERN = /(?:^|[\s_-])(?:ad(?:s|vert|verts|server|slot|wrapper)?|advert(?:isement|ising)?|sponsored|promo(?:tion)?|outbrain|taboola|newsletter|comments?|disqus|share(?:[\s_-]?(?:buttons?|links?|tools?|icons?))?|social(?:[\s_-]?(?:share|sharing|buttons?|links?|tools?|icons?))?|cookie|consent|paywall|subscription|breadcrumb|sidebar|site[\s_-]?(?:header|footer)|global[\s_-]?(?:header|footer|nav)|related(?:[\s_-]?(?:stories|articles|content|links))?|recommend(?:ed|ation|ations)?)(?:$|[\s_-])/i;
+const NOISE_IDENTITY_PATTERN = /(?:^|[\s_-])(?:ad(?:s|vert|verts|server|slot|wrapper)?|advert(?:isement|ising)?|sponsored|promo(?:tion)?|outbrain|taboola|newsletter|comments?|disqus|share(?:[\s_-]?(?:buttons?|links?|tools?|icons?))?|social(?:[\s_-]?(?:share|sharing|buttons?|links?|tools?|icons?))?|cookie|consent|paywall|subscription|breadcrumb|sidebar|site[\s_-]?(?:header|footer)|global[\s_-]?(?:header|footer|nav)|related(?:[\s_-]?(?:stories|articles|content|links))?|recommend(?:ed|ation|ations)?|story[\s_-]?meta|byline|author[\s_-]?(?:bio|card|info|meta|photo|profile)|contributor[\s_-]?(?:bio|card|info|meta|photo|profile)|audio[\s_-]?(?:embed|module|player|tool|tools|controls?)|podcast[\s_-]?(?:embed|module|player|tool|tools|controls?)|media[\s_-]?(?:embed|player|controls?)|embed[\s_-]?overlay)(?:$|[\s_-])/i;
 const HIDDEN_IDENTITY_PATTERN = /(?:^|[\s_-])(?:hidden|is-hidden|visually-hidden|sr-only|screen-reader-text|u-hidden)(?:$|[\s_-])/i;
-const UI_TEXT_PATTERN = /^(?:advertisement|sponsored(?: content)?|paid content|read more|learn more|sign up|subscribe|accept(?: all)? cookies|manage cookies|share(?: this article)?|open menu|close menu|previous article|next article)\.?$/i;
+const UI_TEXT_PATTERN = /^(?:advertisement|sponsored(?: content)?|paid content|read more|learn more|sign up|subscribe|accept(?: all)? cookies|manage cookies|share(?: this article)?|open menu|close menu|previous article|next article|download|embed|transcript|toggle more options|toggle caption|hide caption|show caption)\.?$/i;
 const CREDIT_LABEL_PATTERN = /^(?:©\s*)?(?:photo|image|picture)?\s*credits?:?$/i;
+const IMAGE_CREDIT_ATTRIBUTION_PATTERN = /^(?:(?:photo|image|picture)\s+(?:by|courtesy\s+of)\s+)?\p{Lu}[\p{L}\p{M}.'’]*(?:[ -]+\p{Lu}[\p{L}\p{M}.'’]*){0,5}(?:\s*\/\s*|,?\s+via\s+)(?:NPR|AP|AFP|Reuters|Getty(?:\s+Images)?|Shutterstock|Bloomberg|EPA|Alamy|Unsplash|Associated\s+Press)$/u;
+const IMAGE_CREDIT_SUFFIX_PATTERN = /\s+(?:(?:photo|image|picture)\s+(?:by|courtesy\s+of)\s+)?\p{Lu}[\p{L}\p{M}.'’]*(?:[ -]+\p{Lu}[\p{L}\p{M}.'’]*){0,5}(?:\s*\/\s*|,?\s+via\s+)(?:NPR|AP|AFP|Reuters|Getty(?:\s+Images)?|Shutterstock|Bloomberg|EPA|Alamy|Unsplash|Associated\s+Press)$/u;
 const AD_TOPIC_PATTERN = /\b(?:advertis(?:e|ed|er|ers|es|ing|ement|ements)|advertorials?|ad\s+(?:agency|agencies|campaign|campaigns|industry|market|markets|revenue|revenues|spend|spending))\b/i;
 const EMBEDDED_UI_NOISE_PATTERNS = [
   /personalized\s+content/i,
@@ -32,6 +34,10 @@ const EMBEDDED_UI_NOISE_PATTERNS = [
   /custom\s+feed:\s*see\s+the\s+stories/i,
   /smart\s+alerts?:\s*get\s+notified/i,
   /update\s+your\s+preferences\s+in\s+account\s+settings/i,
+  /<iframe\b[^>]*\bsrc\s*=/i,
+  /embedded\s+(?:audio|video)\s+player/i,
+  /does\s+not\s+offer\s+or\s+accept\s+money\s+for\s+coverage\s+or\s+interviews/i,
+  /\bedited\s+the\s+(?:broadcast|digital|audio|print|web)(?:\s+and\s+(?:broadcast|digital|audio|print|web))*\s+versions?\s+of\s+this\s+(?:story|article)/i,
 ];
 
 interface ExtractionMetadata {
@@ -121,7 +127,7 @@ function hasNoiseIdentity(element: Element): boolean {
 
 function removeHighConfidenceNoise(document: Document): void {
   const fixedNoise = document.querySelectorAll(
-    "script, style, noscript, template, nav, footer, form, button, input, select, textarea, iframe, canvas, svg, dialog, [role='navigation'], [role='contentinfo'], [role='dialog'], [role='alert'], [role='complementary']",
+    "script, style, noscript, template, nav, footer, form, button, input, select, textarea, iframe, canvas, svg, dialog, .toggle-caption, .hide-caption, [class*='caption-toggle'], [role='navigation'], [role='contentinfo'], [role='dialog'], [role='alert'], [role='complementary']",
   );
   fixedNoise.forEach((element) => element.remove());
 
@@ -243,7 +249,10 @@ function addTextBlock(
   extra: Pick<ImportedArticleBlock, "listStyle" | "listLevel" | "listOrdinal"> = {},
 ): void {
   if (context.blocks.length >= MAX_BLOCKS) return;
-  const text = normalizeText(element.textContent ?? "");
+  const normalizedText = normalizeText(element.textContent ?? "");
+  const text = (IMAGE_CREDIT_ATTRIBUTION_PATTERN.test(normalizedText)
+    ? normalizedText
+    : normalizedText.replace(IMAGE_CREDIT_SUFFIX_PATTERN, "")).trim();
   if (text.length < 2 || UI_TEXT_PATTERN.test(text) || EMBEDDED_UI_NOISE_PATTERNS.some((pattern) => pattern.test(text))) return;
   if (isLinkCluster(element, text)) return;
   const normalized = text.replace(/\s+/g, " ").toLowerCase();
@@ -268,6 +277,8 @@ function addImageBlock(context: ExtractContext, element: Element): void {
   if ((width && width < 180) || (height && height < 120) || (width && height && width * height < 36_000)) return;
   if (isLinkedCardImage(element, src, context.baseUrl)) return;
   const alt = singleLineText(element.getAttribute("alt") ?? "");
+  const auxiliaryIdentity = `${element.parentElement?.className || ""} ${element.closest("[rel='author'], [class*='byline'], [class*='author-'], [class*='author_']")?.className || ""}`;
+  if (/\b(?:headshot|author|contributor|profile)\b/i.test(auxiliaryIdentity) && /\b(?:headshot|portrait|profile|author)\b/i.test(alt)) return;
   const inFigure = Boolean(element.closest("figure"));
   if (!inFigure && !alt && !width && !height) return;
   context.seenImages.add(src);
@@ -374,7 +385,8 @@ function walkContent(context: ExtractContext, parent: Element): void {
     if (tag === "figure") {
       const images = Array.from(element.querySelectorAll("img")).filter((image) => image.closest("figure") === element);
       images.forEach((image) => addImageBlock(context, image));
-      const caption = Array.from(element.children).find((child) => child.tagName.toLowerCase() === "figcaption");
+      const caption = Array.from(element.querySelectorAll("figcaption, [aria-label='Image caption'], .caption"))
+        .find((child) => child.closest("figure") === element);
       if (caption) addTextBlock(context, "caption", caption);
       continue;
     }
@@ -408,7 +420,7 @@ function cleanBlocks(blocks: ImportedArticleBlock[], title: string): ImportedArt
     const text = singleLineText(block.text ?? "");
     const nextText = singleLineText(bounded[index + 1]?.text ?? "");
     const imageCreditAttribution = text.length <= 120 && CREDIT_LABEL_PATTERN.test(nextText);
-    return !CREDIT_LABEL_PATTERN.test(text) && !imageCreditAttribution && !EMBEDDED_UI_NOISE_PATTERNS.some((pattern) => pattern.test(text)) && (preserveAdLabels || !UI_TEXT_PATTERN.test(text));
+    return !CREDIT_LABEL_PATTERN.test(text) && !IMAGE_CREDIT_ATTRIBUTION_PATTERN.test(text) && !imageCreditAttribution && !EMBEDDED_UI_NOISE_PATTERNS.some((pattern) => pattern.test(text)) && (preserveAdLabels || !UI_TEXT_PATTERN.test(text));
   });
   if (!cleaned.some((block) => block.type === "heading") && title) {
     cleaned.unshift({ id: "block-title", type: "heading", text: title });

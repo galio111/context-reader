@@ -8,6 +8,7 @@ import { fetchJson } from "@/lib/apiClient";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
 import {
   deleteSavedArticle,
+  findSavedArticle,
   getSavedArticles,
   replaceSavedArticleImportedArticle,
   saveArticleReadingProgress,
@@ -17,7 +18,7 @@ import { getCachedArticleTranslation, setCachedArticleTranslation } from "@/lib/
 import { findBestSourceSentenceMatch, normalizeForSourceMatch } from "@/lib/sourceMatching";
 import { hasClickableWords, tokenizeArticle } from "@/lib/tokenizer";
 import { primeLeadingArticleImage } from "@/lib/articleImagePreload";
-import { hasExternalImportedArticleImages } from "@/lib/articleImageUrls";
+import { hasExternalImportedArticleImages, isExternalArticleImageUrl } from "@/lib/articleImageUrls";
 import type { ImportedArticle, ImportedImageLayoutWord, SavedArticle } from "@/types/article";
 import type { PublicArticle, PublicExplanation } from "@/types/publicArticle";
 import type { ReaderViewportAnchor } from "@/types/reader";
@@ -150,10 +151,13 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   const [article, setArticle] = useState("");
   const [articleUrl, setArticleUrl] = useState("");
   const [urlPreview, setUrlPreview] = useState<ImportedArticle | null>(null);
+  const [urlPreviewImageToken, setUrlPreviewImageToken] = useState("");
   const [importedArticle, setImportedArticle] = useState<ImportedArticle | null>(null);
   const [preloadedExplanations, setPreloadedExplanations] = useState<PublicExplanation[]>([]);
   const [activeArticleSource, setActiveArticleSource] = useState<VocabularySourceArticle | undefined>();
   const [importingUrl, setImportingUrl] = useState(false);
+  const [articleImagesLocalizing, setArticleImagesLocalizing] = useState(false);
+  const [articleImageStatus, setArticleImageStatus] = useState("");
   const [ocrLoading, setOcrLoading] = useState(false);
   const [openingPublicArticleId, setOpeningPublicArticleId] = useState("");
   const [reading, setReading] = useState(false);
@@ -170,6 +174,10 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   const [temporaryReading, setTemporaryReading] = useState<TemporaryReading | null>(null);
   const publicArticleRequestsRef = useRef(new Map<string, Promise<PublicArticleDetails>>());
   const savedArticleImageRequestsRef = useRef(new Map<string, Promise<SavedArticle>>());
+  const importedArticleRef = useRef<ImportedArticle | null>(null);
+  const freshImageLocalizationSourceRef = useRef<ImportedArticle | null>(null);
+  const freshImageLocalizationRequestRef = useRef(0);
+  const imageStatusTimerRef = useRef<number | null>(null);
   const readingRef = useRef(false);
   const readerOriginRef = useRef<ReaderOriginSnapshot | null>(null);
   const readerSessionStackRef = useRef<ReaderSessionSnapshot[]>([]);
@@ -183,6 +191,26 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     lastAnchor: null,
     cumulativeTravel: 0,
   });
+
+  useEffect(() => {
+    importedArticleRef.current = importedArticle;
+  }, [importedArticle]);
+
+  useEffect(() => {
+    if (
+      articleImagesLocalizing
+      && importedArticle !== freshImageLocalizationSourceRef.current
+    ) {
+      freshImageLocalizationRequestRef.current += 1;
+      freshImageLocalizationSourceRef.current = null;
+      setArticleImagesLocalizing(false);
+      setArticleImageStatus("");
+    }
+  }, [articleImagesLocalizing, importedArticle]);
+
+  useEffect(() => () => {
+    if (imageStatusTimerRef.current !== null) window.clearTimeout(imageStatusTimerRef.current);
+  }, []);
   const pendingHomeScrollRef = useRef<number | null>(null);
   const initialHomePositionedRef = useRef(false);
   const readerHistoryDepthRef = useRef(0);
@@ -488,7 +516,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     enterReader("demo");
   }
 
-  async function fetchUrlImport(): Promise<ImportedArticle | null> {
+  async function fetchUrlImport(): Promise<{ article: ImportedArticle; imageLocalizationToken: string } | null> {
     const url = articleUrl.trim();
 
     if (!url) {
@@ -504,7 +532,11 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setUrlError("");
 
     try {
-      const { response, data } = await fetchJson<{ article?: ImportedArticle; error?: string }>("/api/import-url", {
+      const { response, data } = await fetchJson<{
+        article?: ImportedArticle;
+        imageLocalizationToken?: string;
+        error?: string;
+      }>("/api/import-url", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -524,7 +556,10 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       }
 
       setUrlError("");
-      return data.article;
+      return {
+        article: data.article,
+        imageLocalizationToken: data.imageLocalizationToken ?? "",
+      };
     } catch (importError) {
       setUrlError(importError instanceof Error ? importError.message : "网址导入失败，请稍后重试。");
       return null;
@@ -533,7 +568,92 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     }
   }
 
-  function openImportedUrlArticle(nextArticle: ImportedArticle) {
+  function settleImageStatus(message: string) {
+    setArticleImageStatus(message);
+    if (imageStatusTimerRef.current !== null) window.clearTimeout(imageStatusTimerRef.current);
+    imageStatusTimerRef.current = window.setTimeout(() => {
+      imageStatusTimerRef.current = null;
+      setArticleImageStatus("");
+    }, 4_800);
+  }
+
+  function startFreshImportedArticleImageLocalization(sourceArticle: ImportedArticle, imageLocalizationToken: string) {
+    const requestId = freshImageLocalizationRequestRef.current + 1;
+    freshImageLocalizationRequestRef.current = requestId;
+    if (isOffline || !hasExternalImportedArticleImages(sourceArticle)) {
+      setArticleImagesLocalizing(false);
+      setArticleImageStatus("");
+      return;
+    }
+
+    setArticleImagesLocalizing(true);
+    freshImageLocalizationSourceRef.current = sourceArticle;
+    setArticleImageStatus("正在后台保存配图，正文已经可以阅读。");
+    void (async () => {
+      let nextArticle: ImportedArticle | null = null;
+      let localized = 0;
+      let removed = 0;
+      try {
+        const response = await fetch("/api/article-images/localize", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ article: sourceArticle, freshImport: true, imageLocalizationToken }),
+        });
+        const data = await response.json().catch(() => null) as {
+          article?: ImportedArticle;
+          localized?: number;
+          removed?: number;
+          failures?: Array<{ src: string; error: string }>;
+        } | null;
+        if (!response.ok || !data?.article) throw new Error("图片保存请求失败");
+        nextArticle = data.article;
+        localized = data.localized ?? 0;
+        removed = data.removed ?? data.failures?.length ?? 0;
+      } catch {
+        nextArticle = {
+          ...sourceArticle,
+          blocks: sourceArticle.blocks.filter(
+            (block) => !(block.type === "image" && block.src && isExternalArticleImageUrl(block.src)),
+          ),
+        };
+        removed = sourceArticle.blocks.length - nextArticle.blocks.length;
+      }
+
+      if (freshImageLocalizationRequestRef.current !== requestId || !nextArticle) return;
+      const stillReadingSource = importedArticleRef.current === sourceArticle;
+      if (stillReadingSource) {
+        importedArticleRef.current = nextArticle;
+        setImportedArticle(nextArticle);
+        void primeLeadingArticleImage(nextArticle);
+        const temporaryUserId = activeTemporaryUserIdRef.current;
+        if (temporaryUserId) {
+          setTemporaryReading(writeTemporaryReading(
+            temporaryUserId,
+            nextArticle.text,
+            nextArticle,
+            readerViewportAnchorRef.current,
+          ));
+        }
+      }
+
+      const savedCopy = findSavedArticle(sourceArticle.text);
+      if (savedCopy) {
+        setSavedArticles(replaceSavedArticleImportedArticle(savedCopy.id, nextArticle));
+      }
+      setArticleImagesLocalizing(false);
+      freshImageLocalizationSourceRef.current = null;
+      if (removed > 0) {
+        settleImageStatus(`已保存 ${localized} 张配图，${removed} 张未能保留；正文不受影响。`);
+      } else if (localized > 0) {
+        settleImageStatus(`已保存 ${localized} 张配图到本站。`);
+      } else {
+        setArticleImageStatus("");
+      }
+    })();
+  }
+
+  function openImportedUrlArticle(nextArticle: ImportedArticle, imageLocalizationToken: string) {
+    importedArticleRef.current = nextArticle;
     setArticle(nextArticle.text);
     setImportedArticle(nextArticle);
     void primeLeadingArticleImage(nextArticle);
@@ -549,22 +669,26 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     readerViewportAnchorRef.current = null;
     setReaderInitialViewportAnchor(null);
     enterReader("url-import");
+    startFreshImportedArticleImageLocalization(nextArticle, imageLocalizationToken);
   }
 
   async function handlePrepareUrlImport() {
-    const nextArticle = await fetchUrlImport();
-    if (nextArticle) setUrlPreview(nextArticle);
+    const imported = await fetchUrlImport();
+    if (imported) {
+      setUrlPreview(imported.article);
+      setUrlPreviewImageToken(imported.imageLocalizationToken);
+    }
   }
 
   async function handleConfirmUrlImport() {
     if (!urlPreview) return;
     if (!(await consumeGuestImport("url"))) return;
-    openImportedUrlArticle(urlPreview);
+    openImportedUrlArticle(urlPreview, urlPreviewImageToken);
   }
 
   async function handleImportUrl() {
-    const nextArticle = await fetchUrlImport();
-    if (nextArticle) openImportedUrlArticle(nextArticle);
+    const imported = await fetchUrlImport();
+    if (imported) openImportedUrlArticle(imported.article, imported.imageLocalizationToken);
   }
 
   async function handleOcrImage(file: File | null) {
@@ -699,6 +823,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     nextText: string,
     nextImportedArticle: ImportedArticle | null,
     kind: "text" | "url",
+    imageLocalizationToken = "",
   ): Promise<boolean> {
     const trimmedArticle = nextText.trim();
     if (!trimmedArticle || !hasClickableWords(trimmedArticle)) {
@@ -709,6 +834,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
 
     pushCurrentReaderSession();
     setArticle(trimmedArticle);
+    importedArticleRef.current = nextImportedArticle;
     setImportedArticle(nextImportedArticle);
     if (nextImportedArticle) void primeLeadingArticleImage(nextImportedArticle);
     setPreloadedExplanations([]);
@@ -724,10 +850,14 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     readerViewportAnchorRef.current = null;
     setReaderInitialViewportAnchor(null);
     enterReader(kind === "url" ? "url-import" : "pasted-text");
+    if (kind === "url" && nextImportedArticle) {
+      startFreshImportedArticleImageLocalization(nextImportedArticle, imageLocalizationToken);
+    }
     return true;
   }
 
   function handleOpenTemporaryReading(record: TemporaryReading) {
+    importedArticleRef.current = record.importedArticle;
     setArticle(record.body);
     setImportedArticle(record.importedArticle);
     void primeLeadingArticleImage(record.importedArticle);
@@ -833,6 +963,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   }
 
   const handleImportedArticleChange = useCallback((nextImportedArticle: ImportedArticle) => {
+    importedArticleRef.current = nextImportedArticle;
     setImportedArticle(nextImportedArticle);
   }, []);
 
@@ -970,6 +1101,8 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         sourceSentenceToHighlight={sourceSentenceToHighlight}
         sourceWordToHighlight={sourceWordToHighlight}
         sourceJumpRequestId={sourceJumpRequestId}
+        articleImagesLocalizing={articleImagesLocalizing}
+        articleImageStatus={articleImageStatus}
         desktopViewportInsetLeft={132}
         initialViewportAnchor={readerInitialViewportAnchor}
         onViewportAnchorChange={handleReaderViewportAnchorChange}
@@ -1034,6 +1167,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         onArticleUrlChange={(value) => {
           setArticleUrl(value);
           setUrlPreview(null);
+          setUrlPreviewImageToken("");
           if (urlError) setUrlError("");
         }}
         onStartReading={handleStartReading}

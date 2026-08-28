@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { extractImportedArticleFromHtml } from "../lib/urlArticleExtractor";
+import { createUrlImportImageToken, verifyUrlImportImageToken } from "../lib/urlImportImageToken";
 
 const result = extractImportedArticleFromHtml(`<!doctype html>
 <html lang="en">
@@ -85,7 +86,8 @@ const commaSrcset = extractImportedArticleFromHtml(`<!doctype html><html><head><
 assert(commaSrcset);
 assert.equal(
   commaSrcset.article.blocks.find((block) => block.type === "image")?.src,
-  "https://images.example.com/photo.jpg?resize=2000,1693",
+  "https://images.example.com/photo.jpg?resize=1200,1016",
+  "prefer the bounded reader-sized source instead of downloading a needlessly large image",
 );
 
 const longTableRows = Array.from(
@@ -98,3 +100,68 @@ const longTableResult = extractImportedArticleFromHtml(
 );
 const longTable = longTableResult?.article.blocks.find((block) => block.type === "table");
 assert.equal(longTable?.table?.rows.length, 221, "long but bounded tables should not be truncated at the former 150-row limit");
+
+const mediaChromeResult = extractImportedArticleFromHtml(`<!doctype html><html><head>
+  <title>Dance training in virtual reality</title><meta property="og:site_name" content="Example Radio">
+</head><body><article data-article-body>
+  <h1>Dance training in virtual reality</h1>
+  <div class="story-meta has-byline">
+    <div class="byline byline--block" aria-label="Byline">
+      <a rel="author" href="/people/reporter"><img src="/headshot.jpg" alt="Headshot of Chloe Veltman">Chloe Veltman</a>
+    </div>
+  </div>
+  <div class="audio-module">
+    <ul class="audio-module-more-tools">
+      <li class="audio-tool audio-tool-download">Download</li>
+      <li class="audio-tool audio-tool-embed">Embed &lt;iframe src="https://example.com/player" width="100%" title="embedded audio player"&gt;</li>
+      <li class="audio-tool audio-tool-transcript">Transcript</li>
+    </ul>
+  </div>
+  <p>The opening paragraph explains how virtual reality lets hesitant dancers practise timing with a patient virtual partner.</p>
+  <figure>
+    <img src="/dance-floor.jpg" width="1200" height="800" alt="A participant practising on a dance floor">
+    <div class="caption-wrap"><div class="caption" aria-label="Image caption"><p>A participant rehearses a sequence before the public demonstration. Chloe Veltman/NPR <b class="hide-caption">hide caption</b></p></div><b class="toggle-caption">toggle caption</b></div>
+  </figure>
+  <p>Chloe Veltman/NPR</p>
+  <p>The final paragraph reports that repeated practice helped participants feel more willing to join other people on a real dance floor.</p>
+  <p>Jennifer Example edited the broadcast and digital versions of this story.</p>
+  <p>Example Radio does not offer or accept money for coverage or interviews.</p>
+</article></body></html>`, "https://example.com/dance-story");
+
+assert(mediaChromeResult, "media-heavy article should still retain its prose");
+assert(mediaChromeResult.article.text.includes("virtual reality lets hesitant dancers"));
+assert(mediaChromeResult.article.text.includes("real dance floor"));
+for (const unwanted of [
+  "Headshot of Chloe Veltman",
+  "Chloe Veltman",
+  "Download",
+  "<iframe",
+  "Transcript",
+  "toggle caption",
+  "hide caption",
+  "Chloe Veltman/NPR",
+  "edited the broadcast",
+  "does not offer or accept money",
+]) {
+  assert(!mediaChromeResult.article.text.includes(unwanted), `article text should exclude ${unwanted}`);
+}
+assert.equal(mediaChromeResult.article.blocks.filter((block) => block.type === "image").length, 1);
+assert.equal(
+  mediaChromeResult.article.blocks.find((block) => block.type === "caption")?.text,
+  "A participant rehearses a sequence before the public demonstration.",
+);
+
+process.env.URL_IMPORT_TOKEN_SECRET = "test-only-url-import-token-secret-1234567890";
+const imageLocalizationToken = createUrlImportImageToken(mediaChromeResult.article);
+assert(imageLocalizationToken, "an image-bearing URL import should receive a short-lived image token");
+assert(verifyUrlImportImageToken(mediaChromeResult.article, imageLocalizationToken));
+assert(!verifyUrlImportImageToken(
+  {
+    ...mediaChromeResult.article,
+    blocks: mediaChromeResult.article.blocks.map((block) => block.type === "image"
+      ? { ...block, src: "https://example.com/unapproved-image.jpg" }
+      : block),
+  },
+  imageLocalizationToken,
+), "the token must not authorize a different image source");
+assert(!verifyUrlImportImageToken(mediaChromeResult.article, `${imageLocalizationToken}x`));

@@ -50,6 +50,7 @@ import {
 } from "@/lib/sourceMatching";
 import { tokenizeArticle, tokenToWordContext } from "@/lib/tokenizer";
 import { getArticleImageSources, primeArticleImage } from "@/lib/articleImagePreload";
+import { isExternalArticleImageUrl } from "@/lib/articleImageUrls";
 import {
   addVocabularyEntry,
   clearVocabularyEntries,
@@ -78,6 +79,8 @@ interface ReaderViewProps {
   sourceSentenceToHighlight?: string;
   sourceWordToHighlight?: string;
   sourceJumpRequestId?: number;
+  articleImagesLocalizing?: boolean;
+  articleImageStatus?: string;
   onBack: () => void;
   backLabel?: string;
   onArticleSaved: () => void;
@@ -96,6 +99,7 @@ interface ReaderViewProps {
     article: string,
     importedArticle: ImportedArticle | null,
     kind: "text" | "url",
+    imageLocalizationToken?: string,
   ) => Promise<boolean> | boolean;
 }
 
@@ -626,6 +630,8 @@ export function ReaderView({
   sourceSentenceToHighlight = "",
   sourceWordToHighlight = "",
   sourceJumpRequestId = 0,
+  articleImagesLocalizing = false,
+  articleImageStatus = "",
   onBack,
   backLabel = "返回首页",
   onArticleSaved,
@@ -679,12 +685,22 @@ export function ReaderView({
     [currentImportedArticle],
   );
   const articleImageGateSources = useMemo(
-    () => articleImageSources.slice(0, 1),
+    () => articleImageSources.filter((src) => !isExternalArticleImageUrl(src)).slice(0, 1),
     [articleImageSources],
   );
   const articleImageSourceKey = articleImageSources.join("\n");
+  const articleMediaIdentity = `${currentImportedArticle?.url ?? ""}\n${currentImportedArticle?.text ?? currentArticle}`;
+  const articleMediaIdentityRef = useRef(articleMediaIdentity);
+  const articleMediaRevealedRef = useRef(articleImageGateSources.length === 0);
+  if (articleMediaIdentityRef.current !== articleMediaIdentity) {
+    articleMediaIdentityRef.current = articleMediaIdentity;
+    articleMediaRevealedRef.current = articleImageGateSources.length === 0;
+  }
   const [readyArticleImageSourceKey, setReadyArticleImageSourceKey] = useState(
-    () => getArticleImageSources(importedArticle ?? null).length === 0 ? "" : "__pending__",
+    () => {
+      const initialSources = getArticleImageSources(importedArticle ?? null);
+      return initialSources.every((src) => isExternalArticleImageUrl(src)) ? initialSources.join("\n") : "__pending__";
+    },
   );
   const articleMediaReady = readyArticleImageSourceKey === articleImageSourceKey;
   const plainArticleParagraphs = useMemo(
@@ -898,9 +914,11 @@ export function ReaderView({
   const [readerImportText, setReaderImportText] = useState("");
   const [readerImportUrl, setReaderImportUrl] = useState("");
   const [readerImportPreview, setReaderImportPreview] = useState<ImportedArticle | null>(null);
+  const [readerImportImageToken, setReaderImportImageToken] = useState("");
   const [readerImportStatus, setReaderImportStatus] = useState("");
   const [readerImportBusy, setReaderImportBusy] = useState(false);
   const [failedImageBlockIds, setFailedImageBlockIds] = useState<Set<string>>(() => new Set());
+  const [loadedImageBlockIds, setLoadedImageBlockIds] = useState<Set<string>>(() => new Set());
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
   const [dictionaryClosing, setDictionaryClosing] = useState(false);
   const [guestLookupLocked, setGuestLookupLocked] = useState(false);
@@ -943,6 +961,7 @@ export function ReaderView({
 
   useEffect(() => {
     setFailedImageBlockIds(new Set());
+    setLoadedImageBlockIds(new Set());
   }, [currentArticle, currentImportedArticle]);
 
   useEffect(() => () => {
@@ -1090,7 +1109,8 @@ export function ReaderView({
   }, [currentArticle, currentImportedArticle, editingArticle, onViewportAnchorChange]);
 
   useEffect(() => {
-    if (articleImageGateSources.length === 0) {
+    if (articleMediaRevealedRef.current || articleImageGateSources.length === 0) {
+      articleMediaRevealedRef.current = true;
       setReadyArticleImageSourceKey(articleImageSourceKey);
       return;
     }
@@ -1102,6 +1122,7 @@ export function ReaderView({
         return;
       }
       frameId = window.requestAnimationFrame(() => {
+        articleMediaRevealedRef.current = true;
         setReadyArticleImageSourceKey(articleImageSourceKey);
       });
     });
@@ -2167,7 +2188,12 @@ export function ReaderView({
     }
 
     if (readerImportPreview) {
-      const opened = await onOpenImportedArticle(readerImportPreview.text, readerImportPreview, "url");
+      const opened = await onOpenImportedArticle(
+        readerImportPreview.text,
+        readerImportPreview,
+        "url",
+        readerImportImageToken,
+      );
       if (opened) setReaderWorkLayer(null);
       return;
     }
@@ -2178,19 +2204,24 @@ export function ReaderView({
       return;
     }
     setReaderImportBusy(true);
-    setReaderImportStatus("正在读取文章并把图片保存到本站…");
+    setReaderImportStatus("正在提取正文结构…");
     try {
       const response = await fetch("/api/import-url", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),
       });
-      const data = await response.json() as { article?: ImportedArticle; error?: string };
+      const data = await response.json() as {
+        article?: ImportedArticle;
+        imageLocalizationToken?: string;
+        error?: string;
+      };
       if (!response.ok || !data.article?.text?.trim()) {
         throw new Error(data.error || "这个网址暂时无法读取。");
       }
       setReaderImportPreview(data.article);
-      setReaderImportStatus("已读取，确认后进入新文章。");
+      setReaderImportImageToken(data.imageLocalizationToken ?? "");
+      setReaderImportStatus("正文已读取，确认后立即进入；配图会在后台保存。");
     } catch (importError) {
       const message = importError instanceof Error ? importError.message : "这个网址暂时无法读取。";
       setReaderImportStatus(`${message} 你仍可以切换到“粘贴文章”，直接带入正文。`);
@@ -2805,7 +2836,7 @@ export function ReaderView({
     : articleSaved
       ? "已保存"
       : "保存文章";
-  const toolbarStatus = [editStatus, saveStatus].filter(Boolean).join(" · ");
+  const toolbarStatus = [editStatus, saveStatus, articleImageStatus].filter(Boolean).join(" · ");
   const hasExplanationPanelContent = Boolean(selectedContext || loading || explanation || error);
   const activeArticleStyle = normalizeArticleStyle(currentImportedArticle?.style);
   const articleShellClassName = [
@@ -3299,6 +3330,8 @@ export function ReaderView({
                     </figure>
                   );
                 }
+                const imageLoaded = loadedImageBlockIds.has(block.id);
+                const externalImagePending = articleImagesLocalizing && isExternalArticleImageUrl(block.src);
                 return (
                   <figure
                     key={block.id}
@@ -3306,6 +3339,11 @@ export function ReaderView({
                     className={`my-8 min-w-0 overflow-hidden lg:my-10 ${imageWidthClassName}`}
                   >
                     <div className="group relative overflow-hidden rounded-[14px] bg-[#f5f5f7]">
+                      {!imageLoaded && (
+                        <div className="pointer-events-none absolute inset-0 grid place-items-center px-6 text-center text-sm leading-6 text-[#526873]">
+                          <span>{externalImagePending ? "配图正在保存，正文可先阅读" : "图片加载中"}</span>
+                        </div>
+                      )}
                       <img
                         alt={block.alt || ""}
                         className="h-auto max-h-[65vh] w-full max-w-full object-contain sm:max-h-[70vh]"
@@ -3318,7 +3356,10 @@ export function ReaderView({
                           preserveSourceAlignmentAfterImageLayout(event.currentTarget);
                           setFailedImageBlockIds((current) => new Set(current).add(block.id));
                         }}
-                        onLoad={(event) => preserveSourceAlignmentAfterImageLayout(event.currentTarget)}
+                        onLoad={(event) => {
+                          preserveSourceAlignmentAfterImageLayout(event.currentTarget);
+                          setLoadedImageBlockIds((current) => new Set(current).add(block.id));
+                        }}
                         referrerPolicy="no-referrer"
                         sizes="(min-width: 1024px) 768px, calc(100vw - 40px)"
                         src={block.src}
@@ -3608,7 +3649,12 @@ export function ReaderView({
                     <input
                       type="url"
                       value={readerImportUrl}
-                      onChange={(event) => { setReaderImportUrl(event.target.value); setReaderImportPreview(null); setReaderImportStatus(""); }}
+                      onChange={(event) => {
+                        setReaderImportUrl(event.target.value);
+                        setReaderImportPreview(null);
+                        setReaderImportImageToken("");
+                        setReaderImportStatus("");
+                      }}
                       onKeyDown={(event) => {
                         if (event.key === "Enter") {
                           event.preventDefault();

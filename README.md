@@ -15,7 +15,8 @@ The reader is the product center. Article text remains visually primary while lo
 ### Reading
 
 - Paste English text or import a public article URL.
-- Preserve headings, paragraphs, lists, quotes, meaningful images and supported inline annotations while filtering navigation, related stories, comments and other site chrome.
+- Preserve headings, paragraphs, lists, quotes, meaningful images and supported inline annotations while filtering navigation, related stories, author cards, media controls, credits, comments and other site chrome.
+- Enter Reader as soon as text extraction succeeds; meaningful images keep stable reserved space while they are localized in the background, and a failed image never fails the text import.
 - Click a word or deliberately select a phrase to receive a context-aware Chinese explanation.
 - Run a standalone Chinese↔English dictionary for short inputs.
 - Start full-article translation from the reader sidebar; completed blocks persist and resume without discarding prior work.
@@ -122,7 +123,7 @@ Without usable backend credentials, loopback development falls back to browser-l
 | `/guide` | New-user and AnkiConnect setup guide |
 | `/account/usage` | Account status and usage |
 | `/admin` | Server-authorized recommendations, accounts, feedback and error console |
-| `/api/import-url` | Safe public webpage import with conservative body extraction; meaningful images are converted to bounded first-party WebP assets before Reader receives them |
+| `/api/import-url` | Safe, conservative text-first webpage extraction; selected images are localized to bounded first-party WebP assets after Reader opens |
 | `/api/explain-word*` | Context explanation, structured and streaming |
 | `/api/dictionary*` | Standalone bidirectional dictionary |
 | `/api/translate-article` | Block-based full-article translation |

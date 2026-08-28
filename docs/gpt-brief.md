@@ -143,7 +143,7 @@ Lusion/共享图片首次评审必须把参考录屏和实现录屏并排，并�
 ## 10. 推荐文章与 Admin
 
 - 推荐摘要必须 server render，不能只在 client mount 后 fetch。
-- 候选来源为浏览器保存文章、粘贴、URL 和代码白名单 RSS/Atom。URL 与 crawler 共用 `/api/import-url` 和正文边界清理；crawler 永不自动发布。
+- 候选来源为浏览器保存文章、粘贴、URL 和代码白名单 RSS/Atom。URL 与 crawler 共用 `/api/import-url` 和正文边界清理；作者卡片、音频/iframe 控件、Download/Transcript、图片署名及尾部编辑/法律信息不进入正文。正文结构先返回，候选提取不等待图片保存；crawler 永不自动发布。
 - Admin 的每日精选工作台以真实 `ReaderView` 为中心：左侧固定判断、上一篇/下一篇、类型和难度，摘要/依据/证据折叠；右侧候选与精选抽屉可搜索筛选并点击任意文章打开。元数据自动保存，精选、不精选或切换前必须完成写入；URL 可一键导入、分类、存为候选并打开。
 - 精选会发布文章、把它加入自动判断或人工修正的时事/科技/文化/商业栏目，并放到整个“推荐”顺序最前；“设为本栏主推”决定是否同时成为该栏目第一篇。拒绝项保留可撤销记录并继续阻止抓取器重复加入。候选按时效优先、其余最新优先。
 - 候选和已发布文章都打开真实 `ReaderView`；正文编辑回写当前 row，标题、摘要、分类和封面由 Admin 管理。阅读右栏持续可见，正文宽度按左审稿栏与右工具栏的实际余量计算。Admin 无论账号日夜主题都固定为浅色。
@@ -170,7 +170,7 @@ DeepSeek 路由默认 `deepseek-v4-pro` 且关闭 thinking。`DEEPSEEK_MODEL` �
 - `/api/explain-word*`：文章语境解释
 - `/api/dictionary*`：独立双向词典
 - `/api/translate-article`：全文翻译
-- `/api/import-url`：安全 URL 导入
+- `/api/import-url`：正文优先的安全 URL 导入；Reader 先打开，图片后台转为第一方，单图失败只移除图片
 - `/api/pronunciation`：统一云端发音
 - `/api/public-articles*`：公开推荐
 - `/api/auth/*`、`/api/account/*`、`/api/usage/*`：账号、同步、用量

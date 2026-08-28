@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { readResponseText, safeRemoteFetch, UnsafeRemoteUrlError } from "@/lib/safeRemoteFetch";
-import { localizeImportedArticleImages } from "@/lib/publicArticleCovers";
 import { extractImportedArticleFromHtml } from "@/lib/urlArticleExtractor";
+import { createUrlImportImageToken } from "@/lib/urlImportImageToken";
 
 const MAX_HTML_CHARS = 1_200_000;
 
@@ -65,15 +65,11 @@ export async function POST(request: Request) {
       );
     }
 
-    const localized = await localizeImportedArticleImages(
-      extracted.article,
-      response.url || url.toString(),
-      { removeFailed: true },
-    );
     return NextResponse.json({
       ...extracted,
-      article: localized.article,
-      ...(localized.removed ? { mediaNotice: `${localized.removed} 张无法可靠保存的原站图片已移除，正文已完整保留。` } : {}),
+      imageLocalizationToken: createUrlImportImageToken(extracted.article),
+    }, {
+      headers: { "Cache-Control": "no-store" },
     });
   } catch (error) {
     if (error instanceof UnsafeRemoteUrlError) {

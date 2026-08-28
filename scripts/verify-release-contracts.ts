@@ -140,17 +140,27 @@ requireSource("app/api/account/invitation-code/route.ts", [
   "当前邀请码权益仍在有效期内",
 ]);
 requireSource("app/api/import-url/route.ts", [
-  "localizeImportedArticleImages",
-  "{ removeFailed: true }",
-  "mediaNotice",
-  "正文已完整保留",
+  "extractImportedArticleFromHtml",
+  "createUrlImportImageToken",
+  '"Cache-Control": "no-store"',
 ]);
+assert.ok(
+  !source("app/api/import-url/route.ts").includes("localizeImportedArticleImages"),
+  "URL import must return readable text before background image localization",
+);
 requireSource("lib/publicArticleCovers.ts", [
   "images.weserv.nl",
   "isExternalArticleImageUrl",
   "article-images/",
   "withArticleImageDownloadSlot",
+  "removeFailed",
 ]);
+requireSource("app/api/article-images/localize/route.ts", [
+  "freshImport",
+  "removeFailed: freshImport",
+  "verifyUrlImportImageToken",
+]);
+requireSource("lib/urlImportImageToken.ts", ["timingSafeEqual", "TOKEN_TTL_MS"]);
 requireSource("app/api/admin/saved-article-images/route.ts", ["repairExternalSavedArticleImages"]);
 requireSource("lib/safeRemoteFetch.ts", [
   "a === 192 && b === 0 && (c === 0 || c === 2)",
@@ -160,6 +170,13 @@ requireSource("lib/safeRemoteFetch.ts", [
 requireSource("components/HomeClient.tsx", [
   "/api/article-images/localize",
   "replaceSavedArticleImportedArticle",
+  "正在后台保存配图，正文已经可以阅读。",
+  "freshImport: true",
+  "imageLocalizationToken",
+]);
+requireSource("components/ReaderView.tsx", [
+  "配图正在保存，正文可先阅读",
+  "!isExternalArticleImageUrl(src)",
 ]);
 
-console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, invitation-entitlement-v1, article-image-localization-v2");
+console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, invitation-entitlement-v1, progressive-article-image-localization-v2");

@@ -1043,7 +1043,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           )}
         </div>
         <button type="button" className={styles.importSubmit} onClick={submitImport} disabled={props.importingUrl}>
-          {inputMode === "url" && props.importingUrl ? "正在读取并保存图片…" : inputMode === "url" && props.urlPreview ? "确认并开始阅读" : "开始阅读"}
+          {inputMode === "url" && props.importingUrl ? "正在提取正文…" : inputMode === "url" && props.urlPreview ? "确认并开始阅读" : "开始阅读"}
         </button>
         <p className={styles.importError} role="alert">{inputMode === "url" ? props.urlError : props.error}</p>
         {inputMode === "url" && props.urlError && (
