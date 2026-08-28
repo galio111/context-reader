@@ -2,9 +2,91 @@ import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 
 const TRAILING_SECTION_PATTERN = /^(?:related\s+(?:topics?|terms?|stories|articles|content)|story\s+source|journal\s+references?|cite\s+this\s+page|explore\s+more|recommended(?:\s+for\s+you)?|you\s+(?:may|might)\s+also\s+like|read\s+next|more\s+(?:stories|articles|from)|most\s+popular|trending|about\s+the\s+author|sign\s+up\s+for\b|advertisement)\b/i;
 const EXPLICIT_END_MARKER_PATTERN = /^[-–—]?\s*end\s*[-–—]?\.?$/i;
+const AUTHOR_IMAGE_NAMESPACE_PATTERN = /(?:^|[/_.-])(?:accounts?|authors?|contributors?|people|profiles?|staff)(?:[/_.-][^/?#]*){0,4}[/_.-](?:headshots?|avatars?|author[-_ ]?(?:images?|photos?|portraits?)|profile[-_ ]?(?:images?|photos?|portraits?))(?:[/_.?#&=-]|$)/i;
+const AUTHOR_IMAGE_KEYWORD_PATTERN = /(?:^|[/_.-])(?:headshots?|avatars?|author[-_ ]?(?:images?|photos?|portraits?)|profile[-_ ]?(?:images?|photos?|portraits?))(?:[/_.?#&=-]|$)/i;
+const BYLINE_ROLE_PATTERN = /\b(?:author|byline|columnist|contributor|correspondent|editor|journalist|photographer|producer|reporter|staff\s+writer|writer)\b/i;
 
 function normalizedBlockText(block: ImportedArticleBlock): string {
   return block.text?.replace(/\s+/g, " ").trim() ?? "";
+}
+
+function normalizedImageIdentity(block: ImportedArticleBlock): string {
+  const raw = `${block.src ?? ""} ${block.alt ?? ""}`;
+  try {
+    return decodeURIComponent(raw).replace(/\s+/g, " ");
+  } catch {
+    return raw.replace(/\s+/g, " ");
+  }
+}
+
+function probablePersonName(value: string): string {
+  const normalized = value
+    .replace(/^(?:headshot|photo|portrait|profile(?: photo)?|image)\s+(?:of\s+)?/i, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!normalized || normalized.length > 80 || /[.!?;:|]/.test(normalized)) return "";
+  const words = normalized.split(/\s+/);
+  if (words.length < 2 || words.length > 6) return "";
+  return words.every((word) => /^[\p{L}\p{M}.'’\-]+$/u.test(word)) ? normalized : "";
+}
+
+function isSmallAuthorThumbnail(block: ImportedArticleBlock, identity: string): boolean {
+  if (block.width && block.height && block.width <= 480 && block.height <= 480) return true;
+  const transformedSize = identity.match(/(?:fit-in|resize|fill|crop)[/=_-](\d{2,4})x(\d{2,4})/i);
+  return Boolean(transformedSize && Number(transformedSize[1]) <= 480 && Number(transformedSize[2]) <= 480);
+}
+
+function isProbableAuthorImage(block: ImportedArticleBlock, adjacentTexts: string[]): boolean {
+  if (block.type !== "image" || !block.src) return false;
+  const identity = normalizedImageIdentity(block);
+  if (AUTHOR_IMAGE_NAMESPACE_PATTERN.test(identity)) return true;
+
+  const personName = probablePersonName(block.alt ?? "");
+  if (!personName) return false;
+  const hasMatchingMetadata = adjacentTexts.some((text) => isMatchingAuthorMetadata(text, personName));
+  if (hasMatchingMetadata && isSmallAuthorThumbnail(block, identity)) return true;
+  return AUTHOR_IMAGE_KEYWORD_PATTERN.test(identity)
+    && (isSmallAuthorThumbnail(block, identity) || hasMatchingMetadata);
+}
+
+function isMatchingAuthorMetadata(text: string, personName: string): boolean {
+  if (!text) return false;
+  const normalized = text.replace(/\s+/g, " ").trim();
+  const lowerText = normalized.toLocaleLowerCase();
+  const lowerName = personName.toLocaleLowerCase();
+  if (lowerName && lowerText === lowerName) return true;
+  if (lowerName && lowerText.startsWith(lowerName) && normalized.length <= personName.length + 60 && BYLINE_ROLE_PATTERN.test(normalized)) return true;
+  if (lowerName && lowerText.startsWith(`by ${lowerName}`) && normalized.length <= personName.length + 60) return true;
+  return false;
+}
+
+export function removeAuthorIdentityBlocks(blocks: ImportedArticleBlock[]): ImportedArticleBlock[] {
+  const removeIndexes = new Set<number>();
+
+  blocks.forEach((block, index) => {
+    if (block.type !== "image") return;
+    const previousText = normalizedBlockText(blocks[index - 1] ?? block);
+    const nextText = normalizedBlockText(blocks[index + 1] ?? block);
+    if (!isProbableAuthorImage(block, [previousText, nextText])) return;
+
+    removeIndexes.add(index);
+    const personName = probablePersonName(block.alt ?? "");
+    if (isMatchingAuthorMetadata(previousText, personName)) removeIndexes.add(index - 1);
+    if (isMatchingAuthorMetadata(nextText, personName)) removeIndexes.add(index + 1);
+  });
+
+  return blocks
+    .filter((_, index) => !removeIndexes.has(index))
+    .map((block, index) => ({ ...block, id: `block-${index}` }));
+}
+
+function blocksToText(blocks: ImportedArticleBlock[]): string {
+  return blocks
+    .filter((block) => block.type !== "image")
+    .map((block) => block.text?.trim())
+    .filter(Boolean)
+    .join("\n\n")
+    .trim();
 }
 
 function hasEnoughArticleContent(substantiveBlocks: number, substantiveCharacters: number): boolean {
@@ -61,10 +143,14 @@ export function trimTrailingWebsiteText(value: string): string {
 }
 
 export function sanitizeImportedArticleContent(article: ImportedArticle): ImportedArticle {
+  const boundedBlocks = trimTrailingWebsiteBlocks(article.blocks);
+  const blocks = removeAuthorIdentityBlocks(boundedBlocks);
   return {
     ...article,
-    text: trimTrailingWebsiteText(article.text),
-    blocks: trimTrailingWebsiteBlocks(article.blocks),
+    text: blocks.length < boundedBlocks.length
+      ? blocksToText(blocks) || trimTrailingWebsiteText(article.text)
+      : trimTrailingWebsiteText(article.text),
+    blocks,
   };
 }
 

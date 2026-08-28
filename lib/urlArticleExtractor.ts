@@ -1,6 +1,6 @@
 import { Readability } from "@mozilla/readability";
 import { JSDOM } from "jsdom";
-import { trimTrailingWebsiteBlocks } from "@/lib/articleContentSanitizer";
+import { removeAuthorIdentityBlocks, trimTrailingWebsiteBlocks } from "@/lib/articleContentSanitizer";
 import type {
   ImportedArticle,
   ImportedArticleBlock,
@@ -414,7 +414,7 @@ function articleIsAboutAdvertising(blocks: ImportedArticleBlock[], title: string
 
 function cleanBlocks(blocks: ImportedArticleBlock[], title: string): ImportedArticleBlock[] {
   const preserveAdLabels = articleIsAboutAdvertising(blocks, title);
-  const bounded = trimTrailingWebsiteBlocks(blocks);
+  const bounded = removeAuthorIdentityBlocks(trimTrailingWebsiteBlocks(blocks));
   const cleaned = bounded.filter((block, index) => {
     if (block.type === "image" || block.type === "table") return true;
     const text = singleLineText(block.text ?? "");

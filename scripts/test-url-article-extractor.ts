@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { sanitizeImportedArticleContent } from "../lib/articleContentSanitizer";
 import { extractImportedArticleFromHtml } from "../lib/urlArticleExtractor";
 import { createUrlImportImageToken, verifyUrlImportImageToken } from "../lib/urlImportImageToken";
 
@@ -150,6 +151,55 @@ assert.equal(
   mediaChromeResult.article.blocks.find((block) => block.type === "caption")?.text,
   "A participant rehearses a sequence before the public demonstration.",
 );
+
+const smithsonianAuthorCardResult = extractImportedArticleFromHtml(`<!doctype html><html><head>
+  <title>Jackie the Bald Eagle Has Died</title><meta property="og:site_name" content="Smithsonian Magazine">
+</head><body><article data-article-body>
+  <h1>Jackie the Bald Eagle Has Died</h1>
+  <p>A raptor center in California had been caring for the animal since mid-July, but she had probably been sick long before then.</p>
+  <img src="https://th-thumbnailer.cdn-si-edu.com/example=/fit-in/160x80/filters:no_upscale()/https://media.example.com/accounts/headshot/Sara_-_Headshot_thumbnail.png" alt="Sara Hashemi">
+  <p>Sara Hashemi | Daily Correspondent</p>
+  <figure><img src="https://media.example.com/photos/jackie-photo.jpeg" width="1026" height="684" alt="a bald eagle perched atop a dead tree"></figure>
+  <p>The bald eagle became popular with viewers who watched her nest through a public livestream over many years.</p>
+  <p>Caregivers said that the bird received treatment after an altercation, while tests revealed a serious underlying illness.</p>
+  <img src="https://th-thumbnailer.cdn-si-edu.com/example=/fit-in/200x200/https://media.example.com/accounts/headshot/Sara_-_Headshot_thumbnail.png" width="200" height="200" alt="Sara Hashemi">
+  <p>Sara Hashemi</p>
+</article></body></html>`, "https://www.smithsonianmag.com/smart-news/jackie");
+
+assert(smithsonianAuthorCardResult, "Smithsonian-style article should remain importable");
+assert.deepEqual(
+  smithsonianAuthorCardResult.article.blocks.filter((block) => block.type === "image").map((block) => block.src),
+  ["https://media.example.com/photos/jackie-photo.jpeg"],
+  "author thumbnails should be removed while the actual article image remains",
+);
+assert(!smithsonianAuthorCardResult.article.text.includes("Sara Hashemi"));
+assert(!smithsonianAuthorCardResult.article.text.includes("Daily Correspondent"));
+
+const legacySmithsonianCandidate = sanitizeImportedArticleContent({
+  ...smithsonianAuthorCardResult.article,
+  text: `${smithsonianAuthorCardResult.article.text}\n\nSara Hashemi | Daily Correspondent\n\nSara Hashemi`,
+  blocks: [
+    { id: "old-0", type: "heading", text: "Jackie the Bald Eagle Has Died" },
+    { id: "old-1", type: "image", src: "https://context-reader.com/storage/v1/object/public/public-article-covers/article-images/author.webp", alt: "Sara Hashemi", width: 160, height: 80 },
+    { id: "old-2", type: "paragraph", text: "Sara Hashemi | Daily Correspondent" },
+    { id: "old-3", type: "image", src: "https://media.example.com/photos/jackie-photo.jpeg", alt: "a bald eagle perched atop a dead tree", width: 1026, height: 684 },
+    { id: "old-4", type: "paragraph", text: "The actual article body remains available to readers after legacy cleanup." },
+    { id: "old-5", type: "image", src: "https://media.example.com/accounts/headshot/Sara_Headshot.png", alt: "Sara Hashemi", width: 200, height: 200 },
+    { id: "old-6", type: "paragraph", text: "Sara Hashemi" },
+  ],
+});
+assert.equal(legacySmithsonianCandidate.blocks.filter((block) => block.type === "image").length, 1);
+assert(!legacySmithsonianCandidate.text.includes("Sara Hashemi"), "stored candidates should be cleaned when reopened");
+
+const legitimateSubjectPortraitResult = extractImportedArticleFromHtml(`<!doctype html><html><head><title>Artist retrospective</title></head><body><article>
+  <h1>Artist retrospective</h1>
+  <figure><img src="https://media.example.com/exhibitions/artist-in-studio.jpg" width="1200" height="800" alt="The artist standing beside her latest sculpture"></figure>
+  <p>The retrospective brings together five decades of sculpture, drawing and installation work from collections around the world.</p>
+  <p>Visitors can follow how the artist changed materials as her ideas about public space developed over time.</p>
+  <p>The large studio portrait is part of the article itself and must remain visible alongside the reported text.</p>
+</article></body></html>`, "https://example.com/artist-retrospective");
+assert(legitimateSubjectPortraitResult);
+assert.equal(legitimateSubjectPortraitResult.article.blocks.filter((block) => block.type === "image").length, 1);
 
 process.env.URL_IMPORT_TOKEN_SECRET = "test-only-url-import-token-secret-1234567890";
 const imageLocalizationToken = createUrlImportImageToken(mediaChromeResult.article);
