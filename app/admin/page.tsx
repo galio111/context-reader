@@ -314,13 +314,24 @@ export default function AdminPage() {
     else setReaderState(null);
   }
 
-  async function selectCurrentCandidate(category: EditorialCategory, featured: boolean) {
+  async function selectCurrentCandidate(category: EditorialCategory, options: {
+    categoryFeatured: boolean;
+    includeInRecommendation: boolean;
+    recommendationFeatured: boolean;
+  }) {
     const active = readerState;
     if (!active || active.kind !== "candidate") return;
     const response = await fetch("/api/admin/article-candidates", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "publish", id: active.article.id, category, featured }),
+      body: JSON.stringify({
+        action: "publish",
+        id: active.article.id,
+        category,
+        featured: options.categoryFeatured,
+        includeInRecommendation: options.includeInRecommendation,
+        recommendationFeatured: options.recommendationFeatured,
+      }),
     });
     const data = await response.json().catch(() => null) as { articles?: PublicArticle[]; error?: string } | null;
     if (!data?.articles?.[0]) throw new Error(data?.error || "精选失败。");
@@ -329,7 +340,7 @@ export default function AdminPage() {
     setCandidateArticles(nextQueue);
     setPublicArticles((items) => [published, ...items.filter((item) => item.id !== published.id)]);
     setStatus(response.ok
-      ? `已精选《${published.title}》，并加入“推荐”最前方${featured ? `及“${category}”主推` : `和“${category}”栏目`}。`
+      ? `已精选《${published.title}》并加入“${category}”${options.categoryFeatured ? "主推" : "栏目"}${options.includeInRecommendation ? "，同时进入推荐候选池" : ""}${options.recommendationFeatured ? "并设为推荐主推" : ""}。`
       : `《${published.title}》已经公开，但首页编排更新失败：${data.error || "请在栏目微调中补充"}`);
     continueCandidateQueue(active.article.id, nextQueue);
   }

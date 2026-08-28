@@ -30,17 +30,31 @@ export function placePublishedArticle(
   curation: HomepageCuration,
   articleId: string,
   category: EditorialCategory,
-  featured: boolean,
+  options: {
+    categoryFeatured: boolean;
+    includeInRecommendation: boolean;
+    recommendationFeatured: boolean;
+  },
 ): HomepageCuration {
   const categories = { ...curation.categories };
-  categories.推荐 = [articleId, ...withoutId(categories.推荐, articleId)];
+  const recommendationIds = withoutId(categories.推荐, articleId);
+  const currentRecommendationFeatured = curation.recommendationFeaturedId;
+  if (options.includeInRecommendation || options.recommendationFeatured) {
+    categories.推荐 = currentRecommendationFeatured && currentRecommendationFeatured !== articleId
+      ? [currentRecommendationFeatured, articleId, ...withoutId(recommendationIds, currentRecommendationFeatured)]
+      : [articleId, ...recommendationIds];
+  }
   const categoryIds = withoutId(categories[category], articleId);
-  categories[category] = featured
+  categories[category] = options.categoryFeatured
     ? [articleId, ...categoryIds]
     : categoryIds.length
       ? [categoryIds[0], articleId, ...categoryIds.slice(1)]
       : [articleId];
-  return { ...curation, categories };
+  return {
+    ...curation,
+    categories,
+    recommendationFeaturedId: options.recommendationFeatured ? articleId : currentRecommendationFeatured,
+  };
 }
 
 export function removePublishedArticle(
@@ -49,6 +63,7 @@ export function removePublishedArticle(
 ): HomepageCuration {
   return {
     ...curation,
+    recommendationFeaturedId: curation.recommendationFeaturedId === articleId ? "" : curation.recommendationFeaturedId,
     categories: Object.fromEntries(
       Object.entries(curation.categories).map(([category, ids]) => [category, withoutId(ids, articleId)]),
     ) as HomepageCuration["categories"],

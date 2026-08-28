@@ -25,7 +25,11 @@ interface InspectorProps {
   onPrevious?: () => void;
   onNext?: () => void;
   onClose: () => void;
-  onSelect?: (category: EditorialCategory, featured: boolean) => Promise<void>;
+  onSelect?: (category: EditorialCategory, options: {
+    categoryFeatured: boolean;
+    includeInRecommendation: boolean;
+    recommendationFeatured: boolean;
+  }) => Promise<void>;
   onReject?: () => Promise<void>;
   onDelete?: () => Promise<void>;
 }
@@ -81,11 +85,13 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [featured, setFeatured] = useState(false);
+  const [includeInRecommendation, setIncludeInRecommendation] = useState(true);
+  const [recommendationFeatured, setRecommendationFeatured] = useState(false);
   const savePromiseRef = useRef<Promise<void> | null>(null);
 
   useEffect(() => {
     const next = initialDraft(article);
-    setDraft(next); setBaseline(next); setFeatured(false); setMessage(""); setError("");
+    setDraft(next); setBaseline(next); setFeatured(false); setIncludeInRecommendation(true); setRecommendationFeatured(false); setMessage(""); setError("");
   }, [article]);
 
   const wordCount = useMemo(() => countArticleEnglishWords(article.body), [article.body]);
@@ -170,7 +176,15 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
   async function handleSelect() {
     if (!onSelect) return;
     setWorking("select"); setError("");
-    try { await saveDraft(); setWorking("select"); await onSelect(draft.homepageCategory, featured); }
+    try {
+      await saveDraft();
+      setWorking("select");
+      await onSelect(draft.homepageCategory, {
+        categoryFeatured: featured,
+        includeInRecommendation: includeInRecommendation || recommendationFeatured,
+        recommendationFeatured,
+      });
+    }
     catch (actionError) { setError(actionError instanceof Error ? actionError.message : "精选失败。"); setWorking(""); }
   }
 
@@ -204,6 +218,8 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
         <div className="mt-4 grid gap-3">
           <label className={labelClass}>首页栏目<select className={inputClass} value={draft.homepageCategory} onChange={(event) => setDraft((current) => ({ ...current, homepageCategory: event.target.value as EditorialCategory }))} disabled={busy}>{EDITORIAL_CATEGORIES.map((item) => <option key={item}>{item}</option>)}</select></label>
           {articleKind === "candidate" && <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={featured} onChange={(event) => setFeatured(event.target.checked)} disabled={busy} /><span><strong className="block text-[#17212b]">设为本栏主推</strong>精选后放到“{draft.homepageCategory}”第一篇；不勾选则排在当前主推之后。</span></label>}
+          {articleKind === "candidate" && <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={includeInRecommendation} onChange={(event) => { setIncludeInRecommendation(event.target.checked); if (!event.target.checked) setRecommendationFeatured(false); }} disabled={busy} /><span><strong className="block text-[#17212b]">加入“推荐”候选池</strong>系统仍会检查用户的兴趣和难度；不匹配时不会展示。</span></label>}
+          {articleKind === "candidate" && <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={recommendationFeatured} onChange={(event) => { setRecommendationFeatured(event.target.checked); if (event.target.checked) setIncludeInRecommendation(true); }} disabled={busy} /><span><strong className="block text-[#17212b]">设为“推荐”主推</strong>仅用于未填写偏好的默认首页；有偏好时仍按匹配结果决定是否出现。</span></label>}
           <label className={labelClass}>难度档位<select className={inputClass} value={draft.difficulty} onChange={(event) => setDraft((current) => ({ ...current, difficulty: event.target.value as ArticleDifficulty }))} disabled={busy}>{ARTICLE_DIFFICULTIES.map((item) => <option key={item}>{item}</option>)}</select></label>
           <label className={labelClass}>CEFR 辅助等级<select className={inputClass} value={draft.cefr} onChange={(event) => setDraft((current) => ({ ...current, cefr: event.target.value as ArticleCefrLevel }))} disabled={busy}>{ARTICLE_CEFR_LEVELS.map((item) => <option key={item}>{item}</option>)}</select></label>
           <fieldset><legend className={labelClass}>文章类型</legend><div className="mt-2 flex flex-wrap gap-1.5">{ARTICLE_TOPICS.map((topic) => <button key={topic} className={`rounded-full px-2.5 py-1.5 text-xs ${draft.topics.includes(topic) ? "bg-[#1769aa] text-white" : "bg-white text-[#46525c]"}`} type="button" aria-pressed={draft.topics.includes(topic)} onClick={() => toggleTopic(topic)} disabled={busy}>{topic}</button>)}</div></fieldset>

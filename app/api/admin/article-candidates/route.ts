@@ -58,7 +58,7 @@ export async function PATCH(request: Request) {
   if (!(await isAdminRequest())) {
     return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
   }
-  let body: { id?: unknown; ids?: unknown; action?: unknown; category?: unknown; featured?: unknown } | null;
+  let body: { id?: unknown; ids?: unknown; action?: unknown; category?: unknown; featured?: unknown; includeInRecommendation?: unknown; recommendationFeatured?: unknown } | null;
   try {
     body = await readJsonBody(request, 32 * 1024);
   } catch {
@@ -89,7 +89,11 @@ export async function PATCH(request: Request) {
       published.push(article);
       const articleCategory = category ?? editorialCategoryForArticle(article);
       const current = await getHomepageCuration();
-      await saveHomepageCuration(placePublishedArticle(current, article.id, articleCategory, body.featured === true));
+      await saveHomepageCuration(placePublishedArticle(current, article.id, articleCategory, {
+        categoryFeatured: body.featured === true,
+        includeInRecommendation: body.includeInRecommendation !== false,
+        recommendationFeatured: body.recommendationFeatured === true,
+      }));
     } catch (error) {
       return NextResponse.json(
         {

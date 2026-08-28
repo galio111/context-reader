@@ -80,6 +80,8 @@ const CATEGORY_FILTERS = [
   { label: "商业", test: (article: PublicArticle) => article.recommendation?.topics.includes("商业经济") ?? /business|econom|finance|商业|经济/i.test(`${article.sourceName} ${article.title}`) },
 ] as const;
 
+const EDITORIAL_FEATURED_CATEGORIES = ["时事", "科技", "文化", "商业"] as const;
+
 const FEATURE_ORBIT = [
   { key: "context", index: "01", title: "语境划词", copy: "词义留在句子里，理解不必离开正在读的这一段。", meta: "解释 · 翻译" },
   { key: "translation", index: "02", title: "全文翻译", copy: "读到真正困难的地方，再展开整篇文章的另一层。", meta: "全文翻译 · 摘要" },
@@ -180,22 +182,72 @@ function visibleArticleCount(length: number): number {
   return 1 + Math.floor((Math.min(length, 10) - 1) / 3) * 3;
 }
 
-function personalizeRecommendationOrder(
-  articles: PublicArticle[],
-  activeCategory: string,
-  preferences: RecommendationPreferences,
-): PublicArticle[] {
-  if (activeCategory !== "推荐" || (!preferences.readingLevel && !preferences.interests.length)) return articles;
+function stableRecommendationRank(value: string): number {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function recommendationPreferenceScore(article: PublicArticle, preferences: RecommendationPreferences): number {
   const preferredStages = audienceStagesForReadingLevel(preferences.readingLevel);
-  return articles
-    .map((article, index) => {
-      const metadata = article.recommendation;
-      const levelScore = preferredStages.some((stage) => metadata?.audienceStages.includes(stage)) ? 4 : 0;
-      const interestScore = preferences.interests.filter((interest) => articleMatchesRecommendationInterest(article, interest)).length * 2;
-      return { article, index, score: levelScore + interestScore };
-    })
-    .sort((left, right) => right.score - left.score || left.index - right.index)
-    .map(({ article }) => article);
+  const levelScore = preferredStages.some((stage) => article.recommendation?.audienceStages.includes(stage)) ? 4 : 0;
+  const interestScore = preferences.interests.filter((interest) => articleMatchesRecommendationInterest(article, interest)).length * 2;
+  return levelScore + interestScore;
+}
+
+function matchesRecommendationPreferences(article: PublicArticle, preferences: RecommendationPreferences): boolean {
+  return !preferences.interests.length
+    || preferences.interests.some((interest) => articleMatchesRecommendationInterest(article, interest));
+}
+
+function orderRecommendationArticles(
+  articles: PublicArticle[],
+  curation: HomepageCuration | undefined,
+  preferences: RecommendationPreferences,
+  dayKey: string,
+): PublicArticle[] {
+  const byId = new Map(articles.map((article) => [article.id, article]));
+  const unique = (items: Array<PublicArticle | undefined>) => [...new Map(
+    items.filter((article): article is PublicArticle => Boolean(article)).map((article) => [article.id, article]),
+  ).values()];
+  const recommendationIds = curation?.categories.推荐 ?? [];
+  const recommendationPool = recommendationIds.length
+    ? recommendationIds.map((id) => byId.get(id)).filter((article): article is PublicArticle => Boolean(article))
+    : articles;
+  const categoryFeatured = EDITORIAL_FEATURED_CATEGORIES.map((label) => {
+    const curatedId = curation?.categories[label]?.[0];
+    return (curatedId ? byId.get(curatedId) : undefined)
+      ?? articles.find((article) => CATEGORY_FILTERS.find((filter) => filter.label === label)?.test(article));
+  }).filter((article): article is PublicArticle => Boolean(article));
+  const recommendationFeatured = curation?.recommendationFeaturedId
+    ? byId.get(curation.recommendationFeaturedId)
+    : undefined;
+  const hasPreferences = Boolean(preferences.readingLevel || preferences.interests.length);
+  const stableSort = (items: PublicArticle[]) => [...items].sort((left, right) => (
+    stableRecommendationRank(`${dayKey}:${left.id}`) - stableRecommendationRank(`${dayKey}:${right.id}`)
+  ));
+
+  if (!hasPreferences) {
+    const leaders = unique([recommendationFeatured, ...categoryFeatured]);
+    const leaderIds = new Set(leaders.map((article) => article.id));
+    return [...leaders, ...stableSort(recommendationPool.filter((article) => !leaderIds.has(article.id)))];
+  }
+
+  const eligible = unique([...categoryFeatured, recommendationFeatured, ...recommendationPool])
+    .filter((article) => matchesRecommendationPreferences(article, preferences));
+  const eligibleFeatured = categoryFeatured.filter((article) => matchesRecommendationPreferences(article, preferences));
+  const primary = [...eligibleFeatured].sort((left, right) => (
+    recommendationPreferenceScore(right, preferences) - recommendationPreferenceScore(left, preferences)
+    || stableRecommendationRank(`${dayKey}:featured:${left.id}`) - stableRecommendationRank(`${dayKey}:featured:${right.id}`)
+  ))[0] ?? eligible[0];
+  const rest = eligible.filter((article) => article.id !== primary?.id).sort((left, right) => (
+    recommendationPreferenceScore(right, preferences) - recommendationPreferenceScore(left, preferences)
+    || stableRecommendationRank(`${dayKey}:${left.id}`) - stableRecommendationRank(`${dayKey}:${right.id}`)
+  ));
+  return primary ? [primary, ...rest] : [];
 }
 
 function ArticleCover({ article, featured = false, motion3dEnabled = true }: { article: PublicArticle; featured?: boolean; motion3dEnabled?: boolean }) {
@@ -354,6 +406,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const orbitSuppressClickRef = useRef(false);
 
   const category = CATEGORY_FILTERS.find((item) => item.label === activeCategory) ?? CATEGORY_FILTERS[0];
+  const recommendationDayKey = useMemo(() => new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date()), []);
   const allCategoryArticles = useMemo(
     () => props.publicArticles.filter(category.test),
     [category, props.publicArticles],
@@ -361,6 +419,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const categoryArticles = useMemo(
     () => {
       const filtered = allCategoryArticles;
+      if (category.label === "推荐") return filtered;
       const curatedIds = props.homepageCuration?.categories[category.label] ?? [];
       if (!curatedIds.length) return filtered;
       const byId = new Map(filtered.map((article) => [article.id, article]));
@@ -369,11 +428,15 @@ export function HomeRedesign(props: HomeRedesignProps) {
     [allCategoryArticles, category, props.homepageCuration],
   );
   const personalizedCategoryArticles = useMemo(() => {
-    return personalizeRecommendationOrder(categoryArticles, activeCategory, recommendationPreferences);
-  }, [activeCategory, categoryArticles, recommendationPreferences]);
+    return activeCategory === "推荐"
+      ? orderRecommendationArticles(categoryArticles, props.homepageCuration, recommendationPreferences, recommendationDayKey)
+      : categoryArticles;
+  }, [activeCategory, categoryArticles, props.homepageCuration, recommendationDayKey, recommendationPreferences]);
   const personalizedAllCategoryArticles = useMemo(
-    () => personalizeRecommendationOrder(allCategoryArticles, activeCategory, recommendationPreferences),
-    [activeCategory, allCategoryArticles, recommendationPreferences],
+    () => activeCategory === "推荐"
+      ? orderRecommendationArticles(allCategoryArticles, props.homepageCuration, recommendationPreferences, recommendationDayKey)
+      : allCategoryArticles,
+    [activeCategory, allCategoryArticles, props.homepageCuration, recommendationDayKey, recommendationPreferences],
   );
   const showcaseArticleCount = visibleArticleCount(personalizedCategoryArticles.length);
   const libraryArticles = useMemo(() => {

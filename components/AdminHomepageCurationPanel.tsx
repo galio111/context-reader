@@ -5,7 +5,7 @@ import { HOME_CURATION_CATEGORIES, type HomeCurationCategory, type HomepageCurat
 import type { PublicArticle } from "@/types/publicArticle";
 
 function emptyCuration(): HomepageCuration {
-  return { version: 1, categories: { 推荐: [], 时事: [], 科技: [], 文化: [], 商业: [] }, updatedAt: "" };
+  return { version: 2, categories: { 推荐: [], 时事: [], 科技: [], 文化: [], 商业: [] }, recommendationFeaturedId: "", updatedAt: "" };
 }
 
 export default function AdminHomepageCurationPanel({ articles }: { articles: PublicArticle[] }) {
@@ -29,7 +29,13 @@ export default function AdminHomepageCurationPanel({ articles }: { articles: Pub
   }, []);
 
   function updateCategory(ids: string[]) {
-    setCuration((current) => ({ ...current, categories: { ...current.categories, [category]: ids } }));
+    setCuration((current) => ({
+      ...current,
+      categories: { ...current.categories, [category]: ids },
+      recommendationFeaturedId: category === "推荐" && !ids.includes(current.recommendationFeaturedId)
+        ? ""
+        : current.recommendationFeaturedId,
+    }));
   }
 
   function addArticle(id: string) {
@@ -80,7 +86,7 @@ export default function AdminHomepageCurationPanel({ articles }: { articles: Pub
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h2 id="homepage-curation-title" className="text-[21px] font-semibold">首页外刊编排</h2>
-          <p className="mt-1 max-w-3xl text-sm leading-6 text-[#4d535a]">每个栏目的第一篇都是该栏主推；“推荐”同时是游客首先看到的全局精选顺序。日常精选会自动更新，这里只用于微调。</p>
+          <p className="mt-1 max-w-3xl text-sm leading-6 text-[#4d535a]">时事、科技、文化、商业的第一篇分别是本栏主推。“推荐”是算法可选池，可另外指定一篇默认推荐主推；用户有偏好时仍须匹配兴趣与难度。</p>
         </div>
         <button className="min-h-10 rounded-full bg-[#1769aa] px-4 text-sm font-medium text-white disabled:bg-[#aeb8c2]" type="button" onClick={() => void save()} disabled={saving}>{saving ? "保存中..." : "保存编排"}</button>
       </div>
@@ -94,10 +100,10 @@ export default function AdminHomepageCurationPanel({ articles }: { articles: Pub
             const article = articleById.get(id);
             return <li key={id} draggable onDragStart={() => setDraggedId(id)} onDragOver={(event) => event.preventDefault()} onDrop={(event) => dropBefore(id, event)} className="grid min-h-14 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl bg-[#f3f5f7] px-3 py-2">
               <span className="grid h-8 w-8 place-items-center rounded-full bg-white text-xs font-semibold text-[#1769aa]">{index + 1}</span>
-              <div className="min-w-0"><strong className="block truncate text-sm">{article?.title || "文章已下架"}</strong><span className="text-xs text-[#68717a]">{index === 0 ? "本栏主推 · " : ""}{article?.sourceName || id}</span></div>
-              <div className="flex gap-1"><button className="h-8 w-8 rounded-full bg-white disabled:opacity-30" type="button" aria-label={`上移 ${article?.title || id}`} disabled={index === 0} onClick={() => moveArticle(id, -1)}>↑</button><button className="h-8 w-8 rounded-full bg-white disabled:opacity-30" type="button" aria-label={`下移 ${article?.title || id}`} disabled={index === selectedIds.length - 1} onClick={() => moveArticle(id, 1)}>↓</button><button className="h-8 rounded-full bg-white px-3 text-xs text-red-600" type="button" onClick={() => updateCategory(selectedIds.filter((item) => item !== id))}>移除</button></div>
+              <div className="min-w-0"><strong className="block truncate text-sm">{article?.title || "文章已下架"}</strong><span className="text-xs text-[#68717a]">{category === "推荐" ? (curation.recommendationFeaturedId === id ? "推荐主推 · " : "推荐候选 · ") : (index === 0 ? "本栏主推 · " : "")}{article?.sourceName || id}</span></div>
+              <div className="flex flex-wrap justify-end gap-1">{category === "推荐" && <button className={`h-8 rounded-full px-3 text-xs ${curation.recommendationFeaturedId === id ? "bg-[#1769aa] text-white" : "bg-white text-[#1769aa]"}`} type="button" onClick={() => setCuration((current) => ({ ...current, recommendationFeaturedId: current.recommendationFeaturedId === id ? "" : id }))}>{curation.recommendationFeaturedId === id ? "已设主推" : "设为主推"}</button>}<button className="h-8 w-8 rounded-full bg-white disabled:opacity-30" type="button" aria-label={`上移 ${article?.title || id}`} disabled={index === 0} onClick={() => moveArticle(id, -1)}>↑</button><button className="h-8 w-8 rounded-full bg-white disabled:opacity-30" type="button" aria-label={`下移 ${article?.title || id}`} disabled={index === selectedIds.length - 1} onClick={() => moveArticle(id, 1)}>↓</button><button className="h-8 rounded-full bg-white px-3 text-xs text-red-600" type="button" onClick={() => updateCategory(selectedIds.filter((item) => item !== id))}>移除</button></div>
             </li>;
-          })}</ol> : <p className="rounded-xl bg-[#f3f5f7] px-4 py-8 text-center text-sm text-[#68717a]">尚未编排。保存前首页会继续使用公开文章的默认顺序。</p>}
+          })}</ol> : <p className="rounded-xl bg-[#f3f5f7] px-4 py-8 text-center text-sm text-[#68717a]">尚未编排。推荐池为空时会从全部公开文章中匹配；栏目为空时会临时采用该栏目第一篇公开文章。</p>}
         </div>
         <div>
           <h3 className="mb-3 font-semibold">从已发布文章加入</h3>

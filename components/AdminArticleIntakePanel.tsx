@@ -670,13 +670,8 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
     setError("");
     setMessage("");
     const selected = candidates.filter((article) => selectedIds.includes(article.id));
-    const missing = selected.filter((article) => !article.recommendation?.coverImageUrl?.trim());
     if (selected.length === 0) {
       setError("请先选择要发布的候选文章。");
-      return;
-    }
-    if (missing.length > 0) {
-      setError(`有 ${missing.length} 篇缺少推荐封面，请逐篇补充后再批量发布。`);
       return;
     }
     try {
@@ -980,7 +975,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
             </div>
 
             <div className="mt-4 aspect-[16/9] overflow-hidden rounded-xl bg-[#e8edf1]">
-              {draft.coverImageUrl ? <img className="h-full w-full object-cover" src={draft.coverImageUrl} alt={draft.coverImageAlt || draft.title || "推荐封面预览"} /> : <div className="flex h-full items-center justify-center px-6 text-center text-sm leading-6 text-[#59636c]">没有抓到合适封面时，可以上传你准备的图片。缺封面的文章只能保存为候选。</div>}
+              {draft.coverImageUrl ? <img className="h-full w-full object-cover" src={draft.coverImageUrl} alt={draft.coverImageAlt || draft.title || "推荐封面预览"} /> : <div className="flex h-full items-center justify-center px-6 text-center text-sm leading-6 text-[#59636c]">没有合适图片也可以精选。首页会显示来源、标题与摘要组成的纯文本外刊封面，正文不会补造无关图片。</div>}
             </div>
             {draft.coverCandidates.length > 1 && (
               <div className="mt-4">
