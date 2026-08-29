@@ -123,7 +123,22 @@ requireSource("ops/mainland/compose.yml", [
   "SUPABASE_SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}",
 ]);
 requireSource("app/api/connectivity/route.ts", ["mainland_internal", "backendMode"]);
-requireSource("scripts/new-task-worktree.ps1", ["git worktree add", 'codex/$TaskName']);
+requireSource("scripts/new-task-worktree.ps1", [
+  "git worktree add",
+  'codex/$TaskName',
+  "cleanup-task-worktrees.ps1",
+  "--git-common-dir",
+  "MinimumFreeGB = 20",
+  "MaximumTaskWorktrees = 32",
+]);
+requireSource("scripts/cleanup-task-worktrees.ps1", [
+  "status --porcelain=v1",
+  "merge-base --is-ancestor",
+  "--git-common-dir",
+  "current worktree",
+  "core.longpaths=true",
+  "worktree prune --expire now",
+]);
 requireSource("ops/mainland/migrate-invitation-codes.sql", [
   "code_hash text not null unique",
   "for update",
