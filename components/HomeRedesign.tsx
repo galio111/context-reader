@@ -9,6 +9,7 @@ import ClearableField from "@/components/ClearableField";
 import { BookDictionary } from "@/components/BookDictionary";
 import { HomeOptionMenu, type PreviewKind } from "@/components/HomeOptionMenu";
 import { PillNavAction } from "@/components/PillNavAction";
+import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
 import { PUBLIC_CONTACT } from "@/lib/publicContact";
 import type { ImportedArticle, SavedArticle } from "@/types/article";
@@ -349,6 +350,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [menuInitialPreview, setMenuInitialPreview] = useState<PreviewKind | null>(null);
   const [menuStandalonePreview, setMenuStandalonePreview] = useState(false);
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
+  const mobileDictionarySheet = useMobileBottomSheet(dictionaryMounted);
   const [dictionaryClosing, setDictionaryClosing] = useState(false);
   const [inputMode, setInputMode] = useState<InputMode>("paste");
   const [activeCategory, setActiveCategory] = useState("推荐");
@@ -900,6 +902,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }
 
   function persistDictionaryWindow() {
+    if (window.matchMedia("(max-width: 900px)").matches) return;
     const element = dictionaryWindowRef.current;
     if (!element) return;
     const rect = element.getBoundingClientRect();
@@ -1540,12 +1543,24 @@ export function HomeRedesign(props: HomeRedesignProps) {
         <aside
           ref={dictionaryWindowRef}
           className={`${styles.dictionaryWindow} ${dictionaryClosing ? styles.dictionaryWindowClosing : ""}`}
+          style={{ "--mobile-dictionary-height": `${mobileDictionarySheet.height}dvh` } as CSSProperties}
           aria-label="单独查词窗口"
           onPointerUp={persistDictionaryWindow}
         >
+          <div
+            className={styles.dictionarySheetHandle}
+            aria-label="拖动调整面板高度"
+            onPointerDown={mobileDictionarySheet.onResizeStart}
+            onPointerMove={mobileDictionarySheet.onResizeMove}
+            onPointerUp={mobileDictionarySheet.onResizeEnd}
+            onPointerCancel={mobileDictionarySheet.onResizeEnd}
+          ><span /></div>
           <header onPointerDown={startDictionaryDrag}>
             <span><QuickActionIcon kind="dictionary" />单独查词</span>
-            <button type="button" aria-label="隐藏单独查词窗口" onClick={closeDictionary}>×</button>
+            <button type="button" aria-label="返回菜单" onClick={closeDictionary}>
+              <i className={styles.dictionaryCloseDesktop} aria-hidden="true">×</i>
+              <i className={styles.dictionaryCloseMobile}>返回菜单</i>
+            </button>
           </header>
           <div className={styles.dictionaryWindowBody} data-local-scroll-surface>
             <BookDictionary embedded panel offline={isOffline} />

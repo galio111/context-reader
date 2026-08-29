@@ -49,6 +49,8 @@
   display: none;
 }
 
+.mobileSheetHandle { display: none; }
+
 .prelayers {
   position: absolute;
   z-index: 1;
@@ -1534,7 +1536,7 @@
     right: 0;
     bottom: 0;
     width: 100%;
-    height: min(65svh, 620px);
+    height: var(--mobile-sheet-height, 56dvh);
   }
 
   .prelayer { border-radius: 22px 22px 0 0; }
@@ -1549,8 +1551,9 @@
     width: 100%;
     height: auto;
     min-height: 0;
-    max-height: min(65svh, 620px);
-    padding: 22px 20px;
+    height: var(--mobile-sheet-height, 56dvh);
+    max-height: 82dvh;
+    padding: 24px 16px 12px;
     border-radius: 22px 22px 0 0;
     box-shadow: 0 -18px 58px rgb(3 14 22 / 16%);
   }
@@ -1559,7 +1562,7 @@
     position: fixed;
     z-index: 8;
     top: auto;
-    bottom: calc(min(65svh, 620px) - 58px);
+    bottom: calc(var(--mobile-sheet-height, 56dvh) - 56px);
     left: 14px;
     display: inline-flex;
     min-height: 44px;
@@ -1576,11 +1579,27 @@
     touch-action: manipulation;
   }
 
+  .mobileSheetHandle {
+    position: fixed;
+    z-index: 52;
+    right: 0;
+    bottom: calc(var(--mobile-sheet-height, 56dvh) - 22px);
+    left: 0;
+    display: flex;
+    height: 22px;
+    align-items: center;
+    justify-content: center;
+    cursor: ns-resize;
+    touch-action: none;
+  }
+
+  .mobileSheetHandle span { width: 34px; height: 5px; border-radius: 999px; background: rgb(70 96 108 / 28%); }
+
   .panelHeader h2 {
     font-size: 1.3rem;
   }
 
-  .panelInner { padding-block: 34px 20px; }
+  .panelInner { padding-block: 12px 8px; overflow-y: auto; overscroll-behavior: contain; }
 
   .menuList {
     display: grid;
@@ -1592,7 +1611,7 @@
   .itemWrap[data-quick] { border: 1px solid rgb(38 83 105 / 14%); border-radius: 13px; background: rgb(255 255 255 / 54%); }
 
   .menuItem {
-    min-height: 48px;
+    min-height: 38px;
     padding: 0 2rem 0 0;
     font-size: 1.3rem;
     touch-action: manipulation;
@@ -1600,7 +1619,7 @@
 
   .settingsPanel section { align-items: flex-start; flex-direction: column; gap: 16px; }
 
-  .itemWrap[data-quick] .menuItem { padding: 12px 11px; font-size: 14px; font-weight: 650; text-align: center; }
+  .itemWrap[data-quick] .menuItem { min-height: 44px; padding: 8px 11px; font-size: 14px; font-weight: 650; text-align: center; }
   .itemWrap[data-quick] .menuItem::after { display: none; }
 
   .savedPreview {
@@ -1608,8 +1627,8 @@
     inset: auto 0 0;
     top: auto !important;
     width: 100%;
-    height: min(65svh, 620px);
-    max-height: min(65svh, 620px);
+    height: var(--mobile-sheet-height, 56dvh);
+    max-height: 82dvh;
     min-height: 0;
     padding: 70px 18px 18px;
     border-radius: 22px 22px 0 0;
@@ -1623,13 +1642,12 @@
   }
 
   .savedPreview.pagePreview {
-    inset: 0 !important;
+    inset: auto 0 0 !important;
     width: 100dvw;
-    height: 100svh;
-    max-height: 100svh;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
+    height: var(--mobile-sheet-height, 56dvh);
+    max-height: 82dvh;
+    padding: 56px 0 0;
+    border-radius: 22px 22px 0 0;
     background: #f2f6f6;
     transform: translateY(10px);
   }
@@ -1640,7 +1658,7 @@
     z-index: 40;
     top: auto;
     right: 14px;
-    bottom: 16px;
+    bottom: calc(var(--mobile-sheet-height, 56dvh) - 56px);
     left: auto;
     box-shadow: 0 3px 7px rgb(24 53 71 / 18%);
   }
@@ -1649,8 +1667,8 @@
     z-index: 6;
     inset: auto 0 0;
     width: 100%;
-    height: min(65svh, 620px);
-    max-height: min(65svh, 620px);
+    height: var(--mobile-sheet-height, 56dvh);
+    max-height: 82dvh;
     min-height: 0;
     border-radius: 22px 22px 0 0;
     background: rgb(247 249 250 / 97%);
@@ -1684,10 +1702,6 @@
     transform: translateY(0);
   }
 
-  .overlay[data-standalone] .mobilePreviewBack {
-    display: none;
-  }
-
   .overlay[data-standalone] .savedPreview {
     right: 0;
     left: 0;
@@ -1705,7 +1719,8 @@
     right: 0;
     left: 0;
     width: 100%;
-    max-height: min(65svh, 620px);
+    height: var(--mobile-sheet-height, 56dvh);
+    max-height: 82dvh;
     transform: translateY(10px);
   }
 

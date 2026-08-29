@@ -179,12 +179,15 @@
   animation: dictionaryWindowIn 230ms var(--ease) both;
 }
 .dictionaryWindowClosing { pointer-events: none; animation: dictionaryWindowOut 220ms cubic-bezier(.55,0,1,.45) both; }
+.dictionarySheetHandle { display: none; }
 .dictionaryWindow > header { display: flex; padding: 0 10px 0 16px; align-items: center; justify-content: space-between; border-bottom: 1px solid rgb(24 65 81 / 11%); cursor: grab; touch-action: none; }
 .dictionaryWindow > header:active { cursor: grabbing; }
 .dictionaryWindow > header span { display: inline-flex; align-items: center; gap: 8px; color: #294e5e; font-size: 12px; font-weight: 700; }
 .dictionaryWindow > header svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.45; }
 .dictionaryWindow > header button { display: grid; width: 30px; height: 30px; padding: 0; place-items: center; border: 0; border-radius: 50%; color: #4e6974; background: transparent; font: inherit; font-size: 20px; cursor: pointer; }
 .dictionaryWindow > header button:hover { background: rgb(27 85 105 / 8%); }
+.dictionaryWindow > header button i { font-style: normal; }
+.dictionaryCloseMobile { display: none; }
 .dictionaryWindowBody { min-height: 0; padding: 17px; overflow: auto; overscroll-behavior: contain; }
 @keyframes dictionaryWindowIn { from { opacity: 0; transform: translate(-34px, 8px) scale(.84); } to { opacity: 1; transform: none; } }
 @keyframes dictionaryWindowOut { from { opacity: 1; transform: none; } to { opacity: 0; transform: translate(-92px, -8px) scale(.28); } }
@@ -891,7 +894,12 @@
 
 @media (max-width: 900px) {
   .quickNav { display: none; }
-  .dictionaryWindow { inset: auto 0 0; width: 100% !important; height: min(88svh, 760px) !important; min-width: 0; min-height: 0; resize: none; border-radius: 22px 22px 0 0; }
+  .dictionaryWindow { inset: auto 0 0; width: 100% !important; height: var(--mobile-dictionary-height, 56dvh) !important; max-height: 82dvh; min-width: 0; min-height: 0; grid-template-rows: 22px 46px minmax(0, 1fr); resize: none; border-radius: 22px 22px 0 0; }
+  .dictionarySheetHandle { display: flex; align-items: center; justify-content: center; cursor: ns-resize; touch-action: none; }
+  .dictionarySheetHandle span { width: 34px; height: 5px; border-radius: 999px; background: rgb(70 96 108 / 28%); }
+  .dictionaryWindow > header button { display: inline-flex; width: auto; min-width: 76px; padding: 0 13px; align-items: center; border-radius: 999px; font-size: 12px; font-weight: 700; }
+  .dictionaryCloseDesktop { display: none; }
+  .dictionaryCloseMobile { display: inline; }
   .hero { min-height: 600px; padding: 100px 22px 46px; align-items: start; }
   .heroCopy { width: 100%; margin-top: 6vh; }
   .heroCopy h1 { font-size: clamp(2.75rem, 12vw, 4.15rem); line-height: 1.12; }

@@ -25,6 +25,7 @@ import { GuidePageContent } from "@/components/GuidePageContent";
 import InvitationCodeRedeemContent from "@/components/InvitationCodeRedeemContent";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
+import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
 import { addVocabularyNote, checkAnki } from "@/lib/ankiConnect";
 import { downloadVocabularyCsv } from "@/lib/csv";
@@ -187,6 +188,7 @@ export function HomeOptionMenu({
   const [pinnedPreview, setPinnedPreview] = useState<PreviewKind | null>(null);
   const [previewAnchorY, setPreviewAnchorY] = useState<number | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const mobileSheet = useMobileBottomSheet(open);
   const [internalAnkiSettings, setInternalAnkiSettings] = useState<AnkiSettings>(() => defaultAnkiSettings());
   const [internalAnkiStatus, setInternalAnkiStatus] = useState("");
   const [internalAnkiChecking, setInternalAnkiChecking] = useState(false);
@@ -495,6 +497,7 @@ export function HomeOptionMenu({
   return createPortal(
     <div
       className={styles.overlay}
+      style={{ "--mobile-sheet-height": `${mobileSheet.height}dvh` } as CSSProperties}
       role="presentation"
       data-open={open || undefined}
       data-theme={theme}
@@ -508,6 +511,14 @@ export function HomeOptionMenu({
       }}
     >
       <div className={styles.backdrop} aria-hidden="true" />
+      <div
+        className={styles.mobileSheetHandle}
+        aria-label="拖动调整面板高度"
+        onPointerDown={mobileSheet.onResizeStart}
+        onPointerMove={mobileSheet.onResizeMove}
+        onPointerUp={mobileSheet.onResizeEnd}
+        onPointerCancel={mobileSheet.onResizeEnd}
+      ><span /></div>
       {!standalonePreview && <>
         <div className={styles.prelayers} aria-hidden="true">
           <div className={styles.prelayer} style={{ "--layer-color": "#dfecef" } as CSSProperties} />
@@ -607,7 +618,7 @@ export function HomeOptionMenu({
             setPinnedPreview(null);
           }}
         >
-          {hoveredVocabularyId ? "返回生词列表" : standalonePreview ? "关闭" : "返回菜单"}
+          {hoveredVocabularyId ? "返回生词列表" : "返回菜单"}
         </button>
       )}
 

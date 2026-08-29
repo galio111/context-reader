@@ -236,6 +236,8 @@
   animation: work-layer-in 260ms cubic-bezier(.22,1,.36,1) both;
 }
 
+.workLayerHandle { display: none; }
+
 .workLayer > header {
   display: flex;
   min-height: 98px;
@@ -249,6 +251,7 @@
 .workLayer > header small { color: oklch(50% 0.045 220); font-size: 10px; font-weight: 700; letter-spacing: .16em; }
 .workLayer > header h2 { margin: 5px 0 0; color: oklch(28% 0.045 220); font-family: "Songti SC", "Noto Serif CJK SC", serif; font-size: 28px; font-weight: 500; line-height: 1.2; letter-spacing: -.03em; }
 .workLayer > header > button { display: grid; width: 36px; height: 36px; padding: 0; place-items: center; border: 1px solid oklch(88% 0.016 220); border-radius: 50%; color: oklch(40% 0.035 220); background: white; font: inherit; font-size: 22px; cursor: pointer; }
+.workLayerCloseMobile { display: none; }
 
 .importWorkspace { display: grid; min-height: 0; padding: 24px 26px 26px; grid-template-rows: auto minmax(220px, 1fr) auto; gap: 18px; }
 .importTabs { display: flex; align-items: center; gap: 22px; }
@@ -424,13 +427,37 @@
 
   .workLayer {
     width: 100%;
-    max-height: 90svh;
+    height: var(--mobile-work-sheet-height, 56dvh);
+    max-height: 82dvh;
+    grid-template-rows: auto auto minmax(0, 1fr);
     border-radius: 22px 22px 0 0;
   }
 
-  .workLayer > header { min-height: 84px; padding: 20px 18px 16px; }
+  .workLayerHandle {
+    display: flex;
+    height: 22px;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    cursor: ns-resize;
+    touch-action: none;
+  }
+
+  .workLayerHandle span {
+    width: 34px;
+    height: 5px;
+    border-radius: 999px;
+    background: oklch(82% 0.012 220);
+  }
+
+  .workLayer > header { min-height: 62px; padding: 8px 18px 12px; }
   .workLayer > header h2 { font-size: 24px; }
-  .importWorkspace { padding: 18px; }
+  .workLayer > header > button { display: inline-flex; width: auto; min-width: 76px; padding: 0 13px; border: 0; border-radius: 999px; font-size: 12px; font-weight: 700; }
+  .workLayerCloseDesktop { display: none; }
+  .workLayerCloseMobile { display: inline; }
+  .importWorkspace { padding: 12px 18px 18px; grid-template-rows: auto minmax(92px, 1fr) auto; gap: 12px; overflow: hidden; }
+  .importWorkspace textarea { min-height: 92px; }
+  .urlWorkspace { min-height: 92px; overflow-y: auto; }
   .savedWorkspace { padding-inline: 18px; }
   .importActionRow { align-items: stretch; flex-direction: column; gap: 12px; }
   .importActionRow button { width: 100%; }

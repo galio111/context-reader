@@ -7,6 +7,11 @@ import { parseDictionaryStream } from "../lib/dictionaryStream";
 import { scopeReaderTokenId } from "../lib/readerTokenIdentity";
 import { classifyStreamTermination } from "../lib/requestCancellation";
 import { USER_SESSION_MAX_AGE_SECONDS } from "../lib/sessionPolicy";
+import {
+  clampMobileSheetHeight,
+  MOBILE_SHEET_DEFAULT_HEIGHT,
+  MOBILE_SHEET_MAX_HEIGHT,
+} from "../components/useMobileBottomSheet";
 
 test("reader token ids stay unique across article blocks", () => {
   assert.notEqual(scopeReaderTokenId("paragraph-0-", "word-4"), scopeReaderTokenId("paragraph-1-", "word-4"));
@@ -60,4 +65,19 @@ test("admin curation remounts and releases per-article working state", () => {
   const inspector = readFileSync(new URL("../components/AdminArticleMetadataInspector.tsx", import.meta.url), "utf8");
   assert.match(page, /<AdminArticleMetadataInspector\s+key=\{`\$\{readerState\.kind\}:\$\{readerState\.article\.id\}`\}/);
   assert.match(inspector, /finally \{ setWorking\(""\); \}/);
+});
+
+test("mobile tools reopen at 56 percent and never expand beyond 82 percent", () => {
+  assert.equal(MOBILE_SHEET_DEFAULT_HEIGHT, 56);
+  assert.equal(MOBILE_SHEET_MAX_HEIGHT, 82);
+  assert.equal(clampMobileSheetHeight(96), 82);
+  assert.equal(clampMobileSheetHeight(68), 68);
+
+  const menuStyles = readFileSync(new URL("../components/HomeOptionMenu.module.css", import.meta.url), "utf8");
+  const readerStyles = readFileSync(new URL("../components/ReaderToolbar.module.css", import.meta.url), "utf8");
+  const explanationPanel = readFileSync(new URL("../components/ExplanationPanel.tsx", import.meta.url), "utf8");
+  assert.match(menuStyles, /height: var\(--mobile-sheet-height, 56dvh\)/);
+  assert.match(readerStyles, /height: var\(--mobile-work-sheet-height, 56dvh\)/);
+  assert.doesNotMatch(menuStyles.slice(menuStyles.indexOf("@media (max-width: 760px)")), /height: 100svh/);
+  assert.doesNotMatch(explanationPanel, />\s*收起\s*</);
 });

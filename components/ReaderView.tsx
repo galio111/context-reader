@@ -8,6 +8,7 @@ import { BookDictionary } from "@/components/BookDictionary";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { HomeOptionMenu, type PreviewKind } from "@/components/HomeOptionMenu";
 import { PillNavAction } from "@/components/PillNavAction";
+import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { WordToken } from "@/components/WordToken";
 import toolbarStyles from "@/components/ReaderToolbar.module.css";
 import loadingStyles from "@/components/ReaderLoading.module.css";
@@ -170,11 +171,6 @@ interface TouchInteraction {
   moved: boolean;
   cancelled: boolean;
   selecting: boolean;
-}
-
-interface ResizeInteraction {
-  startY: number;
-  startHeight: number;
 }
 
 interface ArticleEditSnapshot {
@@ -1011,9 +1007,10 @@ export function ReaderView({
   const [saveStatus, setSaveStatus] = useState("");
   const [savingArticle, setSavingArticle] = useState(false);
   const [mobileExplanationOpen, setMobileExplanationOpen] = useState(false);
-  const [mobileExplanationHeight, setMobileExplanationHeight] = useState(72);
+  const mobileToolSheet = useMobileBottomSheet(mobileExplanationOpen);
   const [rightPanelMode, setRightPanelMode] = useState<RightPanelMode>("explanation");
   const [readerWorkLayer, setReaderWorkLayer] = useState<ReaderWorkLayer>(null);
+  const mobileWorkSheet = useMobileBottomSheet(Boolean(readerWorkLayer));
   const [readerImportMode, setReaderImportMode] = useState<"text" | "url">("text");
   const [readerImportText, setReaderImportText] = useState("");
   const [readerImportUrl, setReaderImportUrl] = useState("");
@@ -1043,7 +1040,6 @@ export function ReaderView({
   const suppressNextClickRef = useRef(false);
   const touchInteractionRef = useRef<TouchInteraction | null>(null);
   const touchSelectTimerRef = useRef<number | null>(null);
-  const resizeInteractionRef = useRef<ResizeInteraction | null>(null);
   const propagatedImportedArticleRef = useRef("");
   const plainArticleEditRef = useRef<HTMLDivElement | null>(null);
   const importedArticleEditRef = useRef<HTMLDivElement | null>(null);
@@ -1687,7 +1683,6 @@ export function ReaderView({
     setSelectedContext(context);
     setError("");
     setMobileExplanationOpen(true);
-    setMobileExplanationHeight(82);
     setRightPanelMode("explanation");
 
     if (!options.force && loading && activeExplanationKeyRef.current === cacheKey) {
@@ -2108,32 +2103,6 @@ export function ReaderView({
     setDragCurrentToken(null);
   }
 
-  function handleResizePointerDown(event: React.PointerEvent<HTMLDivElement>) {
-    resizeInteractionRef.current = {
-      startY: event.clientY,
-      startHeight: mobileExplanationHeight,
-    };
-    event.currentTarget.setPointerCapture(event.pointerId);
-  }
-
-  function handleResizePointerMove(event: React.PointerEvent<HTMLDivElement>) {
-    const interaction = resizeInteractionRef.current;
-    if (!interaction || typeof window === "undefined") {
-      return;
-    }
-    const deltaY = interaction.startY - event.clientY;
-    const deltaHeight = (deltaY / window.innerHeight) * 100;
-    const nextHeight = Math.min(82, Math.max(32, interaction.startHeight + deltaHeight));
-    setMobileExplanationHeight(nextHeight);
-  }
-
-  function handleResizePointerEnd(event: React.PointerEvent<HTMLDivElement>) {
-    resizeInteractionRef.current = null;
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
-  }
-
   function handleAddToVocabulary() {
     if (!requireLocalAccount("登录后才能把词条加入生词本并跨设备同步。")) return;
     if (!explanation || !selectedContext) {
@@ -2341,7 +2310,6 @@ export function ReaderView({
 
   function openMobileTool(mode: RightPanelMode) {
     setRightPanelMode(mode);
-    setMobileExplanationHeight(82);
     setMobileExplanationOpen(true);
   }
 
@@ -3221,9 +3189,9 @@ export function ReaderView({
 
       <div
         className={`${toolbarStyles.readerLayout} mx-auto grid max-w-7xl gap-5 overflow-x-hidden px-0 pt-20 sm:px-5 lg:grid-cols-[minmax(0,1fr)_360px] ${
-          mobileExplanationOpen ? "pb-[calc(var(--mobile-sheet-height,72dvh)+5.5rem)] lg:pb-6" : "pb-24 lg:pb-6"
+          mobileExplanationOpen ? "pb-[calc(var(--mobile-sheet-height,56dvh)+5.5rem)] lg:pb-6" : "pb-24 lg:pb-6"
         }`}
-        style={{ "--mobile-sheet-height": `${mobileExplanationHeight}dvh` } as CSSProperties}
+        style={{ "--mobile-sheet-height": `${mobileToolSheet.height}dvh` } as CSSProperties}
       >
         <article className="cr-reader-article min-w-0 overflow-x-hidden rounded-[16px] bg-white px-4 py-7 sm:min-h-[70vh] sm:px-10 sm:py-8 lg:px-12 lg:py-14">
           {!articleMediaReady ? (
@@ -3733,13 +3701,30 @@ export function ReaderView({
             if (event.target === event.currentTarget) setReaderWorkLayer(null);
           }}
         >
-          <section className={toolbarStyles.workLayer} role="dialog" aria-modal="true" aria-label={readerWorkLayer === "import" ? "导入新文章" : "我的文章"}>
+          <section
+            className={toolbarStyles.workLayer}
+            style={{ "--mobile-work-sheet-height": `${mobileWorkSheet.height}dvh` } as CSSProperties}
+            role="dialog"
+            aria-modal="true"
+            aria-label={readerWorkLayer === "import" ? "导入新文章" : "我的文章"}
+          >
+            <div
+              className={toolbarStyles.workLayerHandle}
+              aria-label="拖动调整面板高度"
+              onPointerDown={mobileWorkSheet.onResizeStart}
+              onPointerMove={mobileWorkSheet.onResizeMove}
+              onPointerUp={mobileWorkSheet.onResizeEnd}
+              onPointerCancel={mobileWorkSheet.onResizeEnd}
+            ><span /></div>
             <header>
               <div>
                 <small>{readerWorkLayer === "import" ? "NEW READING" : "SAVED READING"}</small>
                 <h2>{readerWorkLayer === "import" ? "换一篇文章继续读" : "我的文章"}</h2>
               </div>
-              <button type="button" aria-label="关闭工作层" onClick={() => setReaderWorkLayer(null)}>×</button>
+              <button type="button" aria-label="返回原文" onClick={() => setReaderWorkLayer(null)}>
+                <span className={toolbarStyles.workLayerCloseDesktop} aria-hidden="true">×</span>
+                <span className={toolbarStyles.workLayerCloseMobile}>返回原文</span>
+              </button>
             </header>
             {readerWorkLayer === "import" ? (
               <div className={toolbarStyles.importWorkspace}>
@@ -3977,16 +3962,17 @@ export function ReaderView({
       {mobileExplanationOpen && (
         <div
           className={toolbarStyles.mobileToolSheet}
-          style={{ height: `${mobileExplanationHeight}dvh` }}
+          style={{ height: `${mobileToolSheet.height}dvh` }}
           onWheel={(event) => event.stopPropagation()}
           onTouchMove={(event) => event.stopPropagation()}
         >
           <div
             className={toolbarStyles.mobileSheetHandle}
-            onPointerDown={handleResizePointerDown}
-            onPointerMove={handleResizePointerMove}
-            onPointerUp={handleResizePointerEnd}
-            onPointerCancel={handleResizePointerEnd}
+            aria-label="拖动调整面板高度"
+            onPointerDown={mobileToolSheet.onResizeStart}
+            onPointerMove={mobileToolSheet.onResizeMove}
+            onPointerUp={mobileToolSheet.onResizeEnd}
+            onPointerCancel={mobileToolSheet.onResizeEnd}
           >
             <span className="h-1.5 w-8 rounded-full bg-[#d2d2d7]" />
           </div>
@@ -4016,7 +4002,6 @@ export function ReaderView({
                   vocabularyMatchNotice={vocabularyMatchNotice}
                   onAddToVocabulary={handleAddToVocabulary}
                   onRegenerate={handleRegenerateExplanation}
-                  onCollapse={() => setMobileExplanationOpen(false)}
                 />
               ) : (
                 <div className={toolbarStyles.mobileToolEmpty}>
@@ -4113,8 +4098,15 @@ export function ReaderView({
           Boolean(canJumpToVocabularySourceOutsideArticle?.(entry)) ||
           Boolean(findBestSourceSentenceMatch(entry.sourceSentence, entry.word, wordTokens))
         }
-        onOpenImport={() => setReaderWorkLayer("import")}
-        onOpenDictionary={openDictionaryWindow}
+        onOpenImport={() => { setMobileExplanationOpen(false); setReaderWorkLayer("import"); }}
+        onOpenDictionary={() => {
+          if (window.matchMedia("(max-width: 1023px)").matches) {
+            setReaderMenuOpen(false);
+            openMobileTool("dictionary");
+            return;
+          }
+          openDictionaryWindow();
+        }}
         ankiTools={{
           settings: ankiSettings,
           status: ankiStatus,

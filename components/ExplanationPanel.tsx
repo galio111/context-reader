@@ -21,7 +21,6 @@ interface ExplanationPanelProps {
   showLearningActions?: boolean;
   onAddToVocabulary: () => void;
   onRegenerate?: () => void;
-  onCollapse?: () => void;
 }
 
 function buildExplanationText(explanation: WordExplanation, context: WordContext | null): string {
@@ -69,7 +68,6 @@ export function ExplanationPanel({
   showLearningActions = true,
   onAddToVocabulary,
   onRegenerate,
-  onCollapse,
 }: ExplanationPanelProps) {
   const [sentenceQuestion, setSentenceQuestion] = useState("");
   const [sentenceAnswer, setSentenceAnswer] = useState("");
@@ -175,17 +173,6 @@ export function ExplanationPanel({
 
   return (
     <aside ref={panelRef} className="cr-reader-panel relative h-full min-h-0 w-full flex-1 overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [scrollbar-gutter:stable] [-webkit-overflow-scrolling:touch] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)]">
-      <div className="sticky top-0 z-10 h-0 lg:hidden">
-        <button
-          type="button"
-          className="float-right h-10 rounded-full border border-[#0066cc] bg-white px-4 text-sm tracking-[-0.224px] text-[#0066cc] shadow-[0_2px_12px_rgba(0,0,0,0.08)]"
-          onClick={onCollapse}
-        >
-          收起
-        </button>
-      </div>
-      <div className="h-8 lg:hidden" />
-
       {!selectedContext && !loading && !explanation && (
         <p className="text-sm leading-6 tracking-[-0.224px] text-[#7a7a7a]">点击文章中的任意英文单词查看语境解释。</p>
       )}
