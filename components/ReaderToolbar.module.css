@@ -99,6 +99,26 @@
   gap: 8px;
 }
 
+.editorialRailActions {
+  display: grid;
+  gap: 8px;
+}
+
+.editorialRailActions > button {
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid oklch(78% 0.055 220);
+  border-radius: 999px;
+  color: oklch(38% 0.065 220);
+  background: white;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.editorialMobileActions { display: none; }
+
 .railActions > button {
   position: relative;
   display: grid;
@@ -379,25 +399,61 @@
   }
 
   :global(.cr-reader-root[data-editorial-workbench="true"]) .desktopRail {
-    display: none;
+    top: 74px;
+    right: 14px;
+    left: auto;
+    display: grid;
+  }
+
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .railActions small {
+    right: calc(100% + 10px);
+    left: auto;
+    transform: translate(-5px, -50%);
+  }
+
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .railActions > button:hover small {
+    transform: translate(0, -50%);
   }
 
   :global(.cr-reader-root[data-editorial-workbench="true"]) .toolbar {
-    right: max(20px, calc((100vw - var(--reader-desktop-inset-left) - 1320px) / 2));
-    max-width: calc(100vw - var(--reader-desktop-inset-left) - 40px);
+    right: 142px;
+    max-width: calc(100vw - var(--reader-desktop-inset-left) - 162px);
   }
 
   :global(.cr-reader-root[data-editorial-workbench="true"]) .readerLayout {
-    width: min(calc(100vw - var(--reader-desktop-inset-left) - 40px), 1320px);
-    margin-right: 0 !important;
+    width: min(calc(100vw - var(--reader-desktop-inset-left) - 162px), 1320px);
+    margin-right: 142px !important;
     margin-left: calc(var(--reader-desktop-inset-left) + max(20px, (100vw - var(--reader-desktop-inset-left) - 1320px) / 2)) !important;
     grid-template-columns: minmax(0, 1fr) 360px !important;
     gap: 24px !important;
   }
 
   :global(.cr-reader-root[data-editorial-workbench="true"]) .readerSidePanel {
-    right: max(20px, calc((100vw - var(--reader-desktop-inset-left) - 1320px) / 2)) !important;
+    right: 142px !important;
   }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .desktopRail {
+    top: 14px;
+    right: 380px;
+    left: calc(var(--reader-desktop-inset-left) + 16px);
+    display: flex;
+    width: auto;
+    gap: 6px;
+    overflow-x: auto;
+  }
+
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .railActions,
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .editorialRailActions { display: flex; gap: 6px; }
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .railActions > button { width: auto; min-width: 40px; }
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .railActions small { display: none; }
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .toolbar { right: 16px; max-width: 360px; }
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .readerLayout {
+    width: min(calc(100vw - var(--reader-desktop-inset-left) - 40px), 1320px);
+    margin-right: 0 !important;
+  }
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .readerSidePanel { right: 20px !important; }
 }
 
 .mobileToolDock,
@@ -409,6 +465,36 @@
   .actions {
     display: none;
   }
+
+  .editorialMobileActions {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    pointer-events: auto;
+  }
+
+  .editorialMobileActions::-webkit-scrollbar { display: none; }
+
+  .editorialMobileActions > button {
+    min-height: 38px;
+    flex: 0 0 auto;
+    padding: 0 12px;
+    border: 1px solid oklch(84% 0.025 220);
+    border-radius: 999px;
+    color: oklch(38% 0.065 220);
+    background: white;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 720;
+  }
+
+  .editorialMobileActions > button[data-primary="true"],
+  .editorialMobileActions > button[data-menu="true"] { border-color: transparent; color: white; background: oklch(42% 0.075 220); }
+  .editorialMobileActions > button[data-danger="true"] { color: #922f2f; }
 
   .dictionaryWindow {
     inset: auto 0 0 !important;

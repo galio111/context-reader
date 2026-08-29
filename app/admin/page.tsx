@@ -22,10 +22,33 @@ import {
 } from "@/lib/cache";
 import type { ImportedArticle, SavedArticle } from "@/types/article";
 import type { ArticleRecommendationMetadata, PublicArticle, PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
-import { editorialCategoryForRecommendation, type EditorialCategory } from "@/lib/editorialCuration";
+import {
+  editorialCategoryForArticle,
+  editorialCategoryForRecommendation,
+  setPublishedArticlePlacement,
+  type EditorialCategory,
+  type PublishedArticlePlacement,
+} from "@/lib/editorialCuration";
+import { normalizeHomepageCuration, type HomepageCuration } from "@/lib/homepageCurationShared";
 
 type AdminAccessMode = "developer" | "password" | null;
 type AdminReaderState = { kind: "candidate" | "published"; article: PublicArticle };
+
+const DEFAULT_CANDIDATE_PLACEMENT: PublishedArticlePlacement = {
+  categoryFeatured: false,
+  includeInRecommendation: true,
+  recommendationFeatured: false,
+};
+
+function placementForPublishedArticle(article: PublicArticle, curation: HomepageCuration): PublishedArticlePlacement {
+  const category = editorialCategoryForArticle(article);
+  return {
+    categoryFeatured: curation.categories[category][0] === article.id,
+    includeInRecommendation: curation.categories.推荐.includes(article.id),
+    recommendationFeatured: curation.recommendationFeaturedId === article.id,
+    preferLater: !article.recommendation?.coverImageUrl?.trim(),
+  };
+}
 
 function explanationWordFromKey(cacheKey: string): string {
   return cacheKey.split("::")[0] || "";
@@ -80,6 +103,9 @@ export default function AdminPage() {
   const [publishedArticle, setPublishedArticle] = useState<PublicArticle | null>(null);
   const [publicArticles, setPublicArticles] = useState<PublicArticle[]>([]);
   const [readerState, setReaderState] = useState<AdminReaderState | null>(null);
+  const [inspectorOpen, setInspectorOpen] = useState(false);
+  const [articlePlacement, setArticlePlacement] = useState<PublishedArticlePlacement>(DEFAULT_CANDIDATE_PLACEMENT);
+  const [homepageCuration, setHomepageCuration] = useState<HomepageCuration>(() => normalizeHomepageCuration(null));
   const pendingSavedReaderArticleRef = useRef<PublicArticle | null>(null);
   const [candidateArticles, setCandidateArticles] = useState<PublicArticle[]>([]);
   const [rejectedArticles, setRejectedArticles] = useState<PublicArticle[]>([]);
@@ -142,7 +168,7 @@ export default function AdminPage() {
   useEffect(() => {
     if (authenticated) {
       setArticles(getSavedArticles());
-      void Promise.all([loadPublicArticles({ silent: true }), loadCandidateArticles({ silent: true })]);
+      void Promise.all([loadPublicArticles({ silent: true }), loadCandidateArticles({ silent: true }), loadHomepageCuration()]);
     }
   }, [authenticated]);
 
@@ -171,10 +197,20 @@ export default function AdminPage() {
     return next;
   }
 
+  async function loadHomepageCuration(): Promise<HomepageCuration> {
+    const response = await fetch("/api/admin/homepage-curation", { cache: "no-store" });
+    const data = await response.json().catch(() => null) as { curation?: HomepageCuration; error?: string } | null;
+    if (!response.ok || !data?.curation) throw new Error(data?.error || "首页编排读取失败。");
+    setHomepageCuration(data.curation);
+    return data.curation;
+  }
+
   function openCandidateArticle(article: PublicArticle) {
     setStatus("");
     setEditorialDrawer(null);
     setCandidateArticles((items) => items.some((item) => item.id === article.id) ? items : [article, ...items]);
+    setArticlePlacement({ ...DEFAULT_CANDIDATE_PLACEMENT, preferLater: !article.recommendation?.coverImageUrl?.trim() });
+    setInspectorOpen(false);
     setReaderState({ kind: "candidate", article });
   }
 
@@ -191,6 +227,9 @@ export default function AdminPage() {
       for (const translation of data.article.articleTranslations ?? []) {
         setCachedArticleTranslation(translation.cacheKey, translation.translations);
       }
+      const curation = await loadHomepageCuration();
+      setArticlePlacement(placementForPublishedArticle(data.article, curation));
+      setInspectorOpen(false);
       setReaderState({ kind: "published", article: data.article });
       setEditorialDrawer(null);
     } catch (error) {
@@ -310,7 +349,11 @@ export default function AdminPage() {
   function continueCandidateQueue(completedId: string, nextQueue: PublicArticle[]) {
     const previousIndex = candidateArticles.findIndex((item) => item.id === completedId);
     const next = nextQueue[Math.min(Math.max(0, previousIndex), Math.max(0, nextQueue.length - 1))];
-    if (next) setReaderState({ kind: "candidate", article: next });
+    if (next) {
+      setArticlePlacement({ ...DEFAULT_CANDIDATE_PLACEMENT, preferLater: !next.recommendation?.coverImageUrl?.trim() });
+      setInspectorOpen(false);
+      setReaderState({ kind: "candidate", article: next });
+    }
     else setReaderState(null);
   }
 
@@ -339,10 +382,29 @@ export default function AdminPage() {
     const nextQueue = candidateArticles.filter((item) => item.id !== active.article.id);
     setCandidateArticles(nextQueue);
     setPublicArticles((items) => [published, ...items.filter((item) => item.id !== published.id)]);
+    void loadHomepageCuration().catch(() => undefined);
     setStatus(response.ok
       ? `已精选《${published.title}》并加入“${category}”${options.categoryFeatured ? "主推" : "栏目"}${options.includeInRecommendation ? "，同时进入推荐候选池" : ""}${options.recommendationFeatured ? "并设为推荐主推" : ""}。`
       : `《${published.title}》已经公开，但首页编排更新失败：${data.error || "请在栏目微调中补充"}`);
     continueCandidateQueue(active.article.id, nextQueue);
+  }
+
+  async function savePublishedPlacement(category: EditorialCategory, placement: PublishedArticlePlacement) {
+    const active = readerState;
+    if (!active || active.kind !== "published") return;
+    const next = setPublishedArticlePlacement(homepageCuration, active.article.id, category, {
+      ...placement,
+      preferLater: !active.article.recommendation?.coverImageUrl?.trim(),
+    });
+    const response = await fetch("/api/admin/homepage-curation", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ curation: next }),
+    });
+    const data = await response.json().catch(() => null) as { curation?: HomepageCuration; error?: string } | null;
+    if (!response.ok || !data?.curation) throw new Error(data?.error || "首页位置保存失败。");
+    setHomepageCuration(data.curation);
+    setArticlePlacement(placementForPublishedArticle(active.article, data.curation));
   }
 
   async function rejectCurrentCandidate() {
@@ -666,6 +728,11 @@ export default function AdminPage() {
           onPrevious={adjacentArticle(-1) ? () => void openAdjacentArticle(-1) : undefined}
           onNext={adjacentArticle(1) ? () => void openAdjacentArticle(1) : undefined}
           onClose={() => setReaderState(null)}
+          mobileOpen={inspectorOpen}
+          onMobileClose={() => setInspectorOpen(false)}
+          placement={articlePlacement}
+          onPlacementChange={setArticlePlacement}
+          onPlacementSave={readerState.kind === "published" ? savePublishedPlacement : undefined}
           onSelect={readerState.kind === "candidate" ? selectCurrentCandidate : undefined}
           onReject={readerState.kind === "candidate" ? rejectCurrentCandidate : undefined}
           onDelete={readerState.kind === "published" ? deleteCurrentPublishedArticle : undefined}
@@ -676,6 +743,15 @@ export default function AdminPage() {
             article={readerState.article.body}
             desktopViewportInsetLeft={330}
             editorialWorkbench
+            editorialMobileActions={<>
+              <button type="button" onClick={() => setInspectorOpen(true)}>文章设置</button>
+              {readerState.kind === "candidate" && <button type="button" data-primary="true" onClick={() => void selectCurrentCandidate(editorialCategoryForArticle(readerState.article), articlePlacement)}>精选</button>}
+              {readerState.kind === "candidate" && <button type="button" data-danger="true" onClick={() => void rejectCurrentCandidate()}>不精选</button>}
+            </>}
+            editorialRailActions={<>
+              <button type="button" aria-expanded={editorialDrawer === "candidates"} onClick={() => setEditorialDrawer((current) => current === "candidates" ? null : "candidates")}>候选 {candidateArticles.length}</button>
+              <button type="button" aria-expanded={editorialDrawer === "published"} onClick={() => setEditorialDrawer((current) => current === "published" ? null : "published")}>精选 {publicArticles.length}</button>
+            </>}
             importedArticle={readerState.article.importedArticle ?? null}
             preloadedExplanations={readerState.article.explanations ?? []}
             backLabel="返回后台"
@@ -697,10 +773,6 @@ export default function AdminPage() {
                 : null);
             }}
           />
-        </div>
-        <div className="fixed right-3 top-28 z-[55] grid gap-2" aria-label="文章队列">
-          <button className="min-h-10 rounded-full border border-[#1769aa] bg-white px-4 text-sm font-semibold text-[#1769aa] shadow-sm" type="button" aria-expanded={editorialDrawer === "candidates"} onClick={() => setEditorialDrawer((current) => current === "candidates" ? null : "candidates")}>候选 {candidateArticles.length}</button>
-          <button className="min-h-10 rounded-full border border-[#1769aa] bg-white px-4 text-sm font-semibold text-[#1769aa] shadow-sm" type="button" aria-expanded={editorialDrawer === "published"} onClick={() => setEditorialDrawer((current) => current === "published" ? null : "published")}>精选 {publicArticles.length}</button>
         </div>
         {editorialDrawer && (
           <aside className="fixed inset-y-0 right-0 z-[70] flex w-[min(430px,calc(100vw-24px))] flex-col border-l border-[#d7dde2] bg-white shadow-xl" aria-label={editorialDrawer === "candidates" ? "候选文章列表" : "精选文章列表"}>
@@ -846,7 +918,7 @@ export default function AdminPage() {
 
         <details className="mt-6 rounded-2xl bg-white p-5">
           <summary className="cursor-pointer text-lg font-semibold">栏目主推与顺序微调</summary>
-          <AdminHomepageCurationPanel articles={publicArticles} />
+          <AdminHomepageCurationPanel key={homepageCuration.updatedAt || "initial"} articles={publicArticles} onSaved={setHomepageCuration} />
         </details>
 
         <details className="mt-6 rounded-2xl bg-white p-5">

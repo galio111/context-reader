@@ -12,7 +12,7 @@ import type {
 const CONFIG_KEY = "recommendation_automation_config";
 const STATE_KEY = "recommendation_automation_state";
 const TIME_ZONE = "Asia/Shanghai";
-const MAX_CANDIDATES_PER_RUN = 6;
+const MAX_CANDIDATES_PER_RUN = 10;
 
 const DEFAULT_CONFIG: RecommendationAutomationConfig = {
   enabled: true,
@@ -24,6 +24,8 @@ const DEFAULT_STATE: RecommendationAutomationState = {
   status: "never_run",
   lastTrigger: "",
   lastScheduledDate: "",
+  pendingScheduledDate: "",
+  pendingScheduledCreatedCount: 0,
   lastTopic: "",
   lastStartedAt: "",
   lastFinishedAt: "",
@@ -111,6 +113,7 @@ function normalizeState(value: unknown): RecommendationAutomationState {
     status,
     lastTrigger,
     lastEmailStatus: emailStatus,
+    pendingScheduledCreatedCount: Math.max(0, Number(input.pendingScheduledCreatedCount) || 0),
     lastCreatedCount: Number(input.lastCreatedCount) || 0,
     lastAttemptedCount: Number(input.lastAttemptedCount) || 0,
     lastSkippedCount: Number(input.lastSkippedCount) || 0,
@@ -156,7 +159,10 @@ function nextRunAt(
   const [hour, minute] = config.runTime.split(":").map(Number);
   const alreadyRanToday = state.lastScheduledDate === parts.dateKey;
   const passedToday = parts.hour * 60 + parts.minute >= scheduledMinute(config);
-  const dayOffset = alreadyRanToday || passedToday ? 1 : 0;
+  if (passedToday && !alreadyRanToday) {
+    return new Date(now.getTime() + 5 * 60 * 1000).toISOString();
+  }
+  const dayOffset = alreadyRanToday ? 1 : 0;
   return new Date(Date.UTC(parts.year, parts.month - 1, parts.day + dayOffset, hour - 8, minute)).toISOString();
 }
 
@@ -187,7 +193,7 @@ export async function updateRecommendationAutomationConfig(
     throw new Error("执行时间必须是 5 分钟的整数刻度。");
   }
   if (!Number.isInteger(input.maxNewArticles) || input.maxNewArticles < 1 || input.maxNewArticles > MAX_CANDIDATES_PER_RUN) {
-    throw new Error("每次最多加入的候选文章必须是 1 至 6 篇。");
+    throw new Error("每次目标新增的候选文章必须是 1 至 10 篇。");
   }
   await writeSetting(CONFIG_KEY, config);
   return getRecommendationAutomationStatus();
@@ -201,12 +207,12 @@ function completionEmailText(result: RecommendationCrawlerRunResult, state: Reco
     `主题：${result.topic}`,
     `开始时间：${new Date(result.startedAt).toLocaleString("zh-CN", { timeZone: TIME_ZONE })}`,
     `完成时间：${new Date(result.finishedAt).toLocaleString("zh-CN", { timeZone: TIME_ZONE })}`,
-    `实际新增：${result.created.length} 篇`,
+    `本日累计新增：${state.lastCreatedCount} 篇`,
     `尝试处理：${result.attempted} 篇`,
     `去重或未通过检查：${result.skipped.length} 篇`,
     `暂时读取失败的来源：${result.sourceErrors.length} 个`,
     "",
-    "新增候选：",
+    "最近一次尝试新增候选：",
     createdTitles,
     "",
     "这些文章只进入 Admin 候选区，不会自动公开。",
@@ -237,11 +243,18 @@ export async function runConfiguredRecommendationAutomation(
 
   const topic = scheduledTopic(now);
   const startedAt = now.toISOString();
+  const pendingScheduledCount = trigger === "scheduled" && initial.state.pendingScheduledDate === parts.dateKey
+    ? Math.min(initial.config.maxNewArticles, initial.state.pendingScheduledCreatedCount)
+    : 0;
+  const targetForAttempt = trigger === "scheduled"
+    ? Math.max(1, initial.config.maxNewArticles - pendingScheduledCount)
+    : initial.config.maxNewArticles;
   const runningState: RecommendationAutomationState = {
     ...initial.state,
     status: "running",
     lastTrigger: trigger,
-    lastScheduledDate: trigger === "scheduled" ? parts.dateKey : initial.state.lastScheduledDate,
+    pendingScheduledDate: trigger === "scheduled" ? parts.dateKey : initial.state.pendingScheduledDate,
+    pendingScheduledCreatedCount: trigger === "scheduled" ? pendingScheduledCount : initial.state.pendingScheduledCreatedCount,
     lastTopic: topic,
     lastStartedAt: startedAt,
     lastFinishedAt: "",
@@ -256,25 +269,37 @@ export async function runConfiguredRecommendationAutomation(
       topic,
       difficulty: "any",
       targetInventory: 30,
-      maxNewArticles: initial.config.maxNewArticles,
+      maxNewArticles: targetForAttempt,
       inventoryScope: "candidates",
-      ignoreInventoryTarget: trigger === "manual",
+      ignoreInventoryTarget: true,
     }, origin);
+    const accumulatedScheduledCount = trigger === "scheduled"
+      ? pendingScheduledCount + result.created.length
+      : 0;
+    const scheduledTargetAchieved = trigger !== "scheduled"
+      || accumulatedScheduledCount >= initial.config.maxNewArticles;
     const completedState: RecommendationAutomationState = {
       ...runningState,
-      status: "succeeded",
+      status: result.targetAchieved && scheduledTargetAchieved ? "succeeded" : "failed",
+      lastScheduledDate: trigger === "scheduled" && scheduledTargetAchieved ? parts.dateKey : initial.state.lastScheduledDate,
+      pendingScheduledDate: trigger === "scheduled" && scheduledTargetAchieved ? "" : runningState.pendingScheduledDate,
+      pendingScheduledCreatedCount: trigger === "scheduled" && scheduledTargetAchieved ? 0 : accumulatedScheduledCount,
       lastFinishedAt: result.finishedAt,
-      lastCreatedCount: result.created.length,
+      lastCreatedCount: trigger === "scheduled" ? accumulatedScheduledCount : result.created.length,
       lastAttemptedCount: result.attempted,
       lastSkippedCount: result.skipped.length,
       lastSourceErrorCount: result.sourceErrors.length,
-      lastError: result.sourceErrors.length ? `${result.sourceErrors.length} 个来源暂时读取失败，其余来源已继续。` : "",
+      lastError: result.shortfall
+        ? `已尝试全部 ${result.attempted} 篇可用新文章，仍缺 ${result.shortfall} 篇；本次未按目标记为成功。`
+        : result.sourceErrors.length ? `${result.sourceErrors.length} 个来源暂时读取失败，其余来源已继续。` : "",
     };
     let emailStatus: SiteEmailStatus | "not_requested" = "not_requested";
     let emailError = "";
-    if (trigger === "scheduled") {
+    if (trigger === "scheduled" && (scheduledTargetAchieved || pendingScheduledCount === 0)) {
       const emailResult = await sendSiteNotificationEmail(
-        `[Context Reader] 自动推荐完成，新增 ${result.created.length} 篇`,
+        scheduledTargetAchieved
+          ? `[Context Reader] 自动推荐完成，新增 ${accumulatedScheduledCount} 篇`
+          : `[Context Reader] 自动推荐未达目标，还缺 ${Math.max(0, initial.config.maxNewArticles - accumulatedScheduledCount)} 篇，将自动重试`,
         completionEmailText(result, completedState),
       );
       emailStatus = emailResult.status;

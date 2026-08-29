@@ -27,6 +27,8 @@ export interface RecommendationAutomationState {
   status: "never_run" | "running" | "succeeded" | "failed";
   lastTrigger: "" | "scheduled" | "manual";
   lastScheduledDate: string;
+  pendingScheduledDate: string;
+  pendingScheduledCreatedCount: number;
   lastTopic: "" | ArticleTopic;
   lastStartedAt: string;
   lastFinishedAt: string;
@@ -77,6 +79,9 @@ export interface RecommendationCrawlerRunResult {
   inventoryAfter: number;
   discovered: number;
   attempted: number;
+  targetNewArticles: number;
+  targetAchieved: boolean;
+  shortfall: number;
   created: PublicArticle[];
   skipped: RecommendationCrawlerSkippedItem[];
   sourceErrors: RecommendationCrawlerSourceError[];

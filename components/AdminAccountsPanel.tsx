@@ -15,6 +15,19 @@ interface DashboardData {
   limits: Array<Record<string, unknown>>;
   actions: Array<Record<string, unknown>>;
   executions: Array<Record<string, unknown>>;
+  usageSummary: {
+    windowDays: number;
+    windowStart: string;
+    windowEnd: string;
+    executions: number;
+    failed: number;
+    failureRate: number;
+    promptTokens: number;
+    completionTokens: number;
+    estimatedCostMicrousd: number;
+    truncated: boolean;
+    pricingBasis: string;
+  };
 }
 
 interface PlanRule {
@@ -168,13 +181,14 @@ export default function AdminAccountsPanel() {
   );
 
   const totals = useMemo(() => {
-    const executions = data?.executions ?? [];
-    const failed = executions.filter((item) => item.status === "failed").length;
+    const summary = data?.usageSummary;
     return {
-      executions: executions.length,
-      cost: executions.reduce((sum, item) => sum + Number(item.estimated_cost_microusd || 0), 0),
-      failed,
-      failureRate: executions.length ? failed / executions.length : 0,
+      executions: summary?.executions ?? 0,
+      cost: summary?.estimatedCostMicrousd ?? 0,
+      failed: summary?.failed ?? 0,
+      failureRate: summary?.failureRate ?? 0,
+      promptTokens: summary?.promptTokens ?? 0,
+      completionTokens: summary?.completionTokens ?? 0,
     };
   }, [data]);
 
@@ -213,14 +227,15 @@ export default function AdminAccountsPanel() {
           <section className="mt-6 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-4">
               <h3 className="text-lg font-semibold">近期运行情况</h3>
-              <p className="mt-1 text-xs leading-5 text-[#68717a]">以下是后台最近载入的最多 5,000 条 AI 执行记录，成本为估算值，不是账单。</p>
+              <p className="mt-1 text-xs leading-5 text-[#68717a]">过去 {data.usageSummary.windowDays} 天的服务端实时记录。成本按每次调用发生时的 DeepSeek 模型、缓存命中/未命中 token，以及北京时间峰谷费率重算；仍是估算值，不是账单。</p>
             </div>
             <dl className="grid divide-y divide-[#e1e5e9] sm:grid-cols-4 sm:divide-x sm:divide-y-0">
               <SummaryItem label="注册账号" value={data.profiles.length.toLocaleString("zh-CN")} />
-              <SummaryItem label="AI 执行" value={totals.executions.toLocaleString("zh-CN")} />
-              <SummaryItem label="估算成本" value={`$${(totals.cost / 1_000_000).toFixed(4)}`} />
+              <SummaryItem label="AI 执行" value={totals.executions.toLocaleString("zh-CN")} detail={`输入 ${totals.promptTokens.toLocaleString("zh-CN")} · 输出 ${totals.completionTokens.toLocaleString("zh-CN")} tokens`} />
+              <SummaryItem label="估算成本" value={`$${(totals.cost / 1_000_000).toFixed(4)}`} detail="按调用时间与缓存类型逐条重算" />
               <SummaryItem label="失败执行" value={`${totals.failed} 次（${(totals.failureRate * 100).toFixed(1)}%）`} />
             </dl>
+            {data.usageSummary.truncated && <p className="border-t border-[#e1e5e9] px-5 py-3 text-xs text-[#8d3224]">过去 30 天记录超过 50,000 条，当前统计已达到安全读取上限，需要增加数据库聚合后才能显示完整总数。</p>}
           </section>
 
           <AdminInvitationCodesPanel profiles={data.profiles} />
@@ -340,11 +355,12 @@ function BonusControl({
   );
 }
 
-function SummaryItem({ label, value }: { label: string; value: string }) {
+function SummaryItem({ label, value, detail }: { label: string; value: string; detail?: string }) {
   return (
     <div className="px-5 py-4">
       <dt className="text-xs text-[#68717a]">{label}</dt>
       <dd className="mt-1 text-lg font-semibold text-[#17191c]">{value}</dd>
+      {detail && <dd className="mt-1 text-[11px] leading-4 text-[#68717a]">{detail}</dd>}
     </div>
   );
 }

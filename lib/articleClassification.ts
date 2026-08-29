@@ -13,6 +13,9 @@ import {
   type ArticleVocabularyProfile,
 } from "@/types/publicArticle";
 import { articleEnglishWords, countArticleEnglishWords } from "@/lib/articleWordCount";
+import { audienceForDifficulty } from "@/lib/articleAudience";
+import { recordSystemUsageExecution } from "@/lib/accountStore";
+import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const MAX_MODEL_TEXT_CHARS = 18_000;
@@ -20,6 +23,7 @@ const MAX_MODEL_TEXT_CHARS = 18_000;
 interface DeepSeekClassificationResponse {
   choices?: Array<{ message?: { content?: string } }>;
   error?: { message?: string };
+  usage?: ProviderTokenUsage;
 }
 
 export interface ArticleClassificationResult {
@@ -40,6 +44,7 @@ export interface ArticleClassificationResult {
 export interface ArticleClassificationContext {
   sourceUrl?: string;
   sourceName?: string;
+  usageRoute?: string;
 }
 
 interface ArticleTextMetrics {
@@ -136,18 +141,6 @@ function heuristicDifficulty(
     return { difficulty: "雅思 / 托福基础", cefr: "C1" };
   }
   return { difficulty: "雅思 / 托福进阶", cefr: "C2" };
-}
-
-function audienceForDifficulty(difficulty: ArticleDifficulty): ArticleAudienceStage[] {
-  const mapping: Record<ArticleDifficulty, ArticleAudienceStage[]> = {
-    小学高年级: ["小学"],
-    初中: ["初中"],
-    "高中 / CET-4": ["高中", "CET-4"],
-    "CET-6 / 考研": ["CET-6", "考研"],
-    "雅思 / 托福基础": ["IELTS", "TOEFL"],
-    "雅思 / 托福进阶": ["IELTS", "TOEFL"],
-  };
-  return mapping[difficulty];
 }
 
 function cefrForDifficulty(difficulty: ArticleDifficulty): ArticleCefrLevel {
@@ -343,7 +336,7 @@ timeliness 只能是 evergreen 或 time-sensitive。旧文章不等于过时，�
 
 只返回 JSON，字段：
 - summary：45到100个中文字符，具体说明文章讲什么
-- difficulty、cefr、audienceStages（1到3项）、topics（1到3项）、timeliness
+- difficulty、cefr、audienceStages（1到4项，可同时覆盖 CET-6、考研、IELTS、TOEFL）、topics（1到3项）、timeliness
 - vocabularyProfile：对象，含 a2OrBelow、b1、b2、c1OrAbove 四个整数百分比
 - abstractness：1到5
 - backgroundKnowledge：1到5
@@ -386,7 +379,10 @@ timeliness 只能是 evergreen 或 time-sensitive。旧文章不等于过时，�
       difficulty = "高中 / CET-4";
     }
     const cefr = cefrForDifficulty(difficulty);
-    const audienceStages = allowedValues(parsed.audienceStages, ARTICLE_AUDIENCE_STAGES, audienceForDifficulty(difficulty));
+    const audienceStages = [...new Set([
+      ...allowedValues(parsed.audienceStages, ARTICLE_AUDIENCE_STAGES, audienceForDifficulty(difficulty)),
+      ...audienceForDifficulty(difficulty),
+    ])].slice(0, 4);
     const topics = allowedValues(parsed.topics, ARTICLE_TOPICS, fallback.topics).slice(0, 3);
     const timeliness = parsed.timeliness === "time-sensitive" ? "time-sensitive" : "evergreen";
     const summary = typeof parsed.summary === "string" && parsed.summary.trim().length >= 12
@@ -410,11 +406,24 @@ timeliness 只能是 evergreen 或 time-sensitive。旧文章不等于过时，�
       rationale,
     };
 
+    await recordSystemUsageExecution({
+      feature: "article_classification",
+      route: context.usageRoute || "/api/admin/article-classification",
+      provider: "deepseek",
+      model,
+      promptTokens: payload?.usage?.prompt_tokens,
+      promptCacheHitTokens: payload?.usage?.prompt_cache_hit_tokens,
+      promptCacheMissTokens: payload?.usage?.prompt_cache_miss_tokens,
+      completionTokens: payload?.usage?.completion_tokens,
+      estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, payload?.usage ?? {}),
+      status: "succeeded",
+    }).catch(() => undefined);
+
     return {
       summary,
       difficulty,
       cefr,
-      audienceStages: audienceStages.slice(0, 3),
+      audienceStages,
       topics,
       wordCount: countArticleEnglishWords(text),
       timeliness,
@@ -425,6 +434,14 @@ timeliness 只能是 evergreen 或 time-sensitive。旧文章不等于过时，�
     };
   } catch (error) {
     console.warn("Article classification fell back to local rules", error);
+    await recordSystemUsageExecution({
+      feature: "article_classification",
+      route: context.usageRoute || "/api/admin/article-classification",
+      provider: "deepseek",
+      model,
+      status: "failed",
+      errorCode: "classification_fallback",
+    }).catch(() => undefined);
     return heuristicResult(title, text, context, "DeepSeek 判断失败，已自动改用本地多证据规则，请在发布前复核。");
   }
 }

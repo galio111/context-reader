@@ -17,9 +17,8 @@ import type {
 
 const MAX_FEED_BYTES = 700_000;
 const MAX_FEED_ITEMS = 50;
-const MAX_ATTEMPTS_PER_RUN = 18;
 const DEFAULT_MAX_NEW_ARTICLES = 2;
-const MAX_NEW_ARTICLES_PER_RUN = 6;
+const MAX_NEW_ARTICLES_PER_RUN = 10;
 
 interface FeedItem {
   title: string;
@@ -252,9 +251,7 @@ export async function runRecommendationCrawler(
   origin: string,
 ): Promise<RecommendationCrawlerRunResult> {
   const startedAt = new Date().toISOString();
-  const startedMs = Date.now();
   const maxNewArticles = Math.max(1, Math.min(MAX_NEW_ARTICLES_PER_RUN, input.maxNewArticles ?? DEFAULT_MAX_NEW_ARTICLES));
-  const latestNextAttemptMs = 42_000 + Math.max(0, maxNewArticles - DEFAULT_MAX_NEW_ARTICLES) * 55_000;
   const [published, activeCandidates, allCandidates] = await Promise.all([
     listPublicArticles(),
     listArticleCandidates(),
@@ -271,6 +268,9 @@ export async function runRecommendationCrawler(
     inventoryBefore,
     discovered: 0,
     attempted: 0,
+    targetNewArticles: 0,
+    targetAchieved: true,
+    shortfall: 0,
     created: [] as PublicArticle[],
     skipped: [] as RecommendationCrawlerSkippedItem[],
     sourceErrors: [] as RecommendationCrawlerSourceError[],
@@ -307,13 +307,9 @@ export async function runRecommendationCrawler(
   const needed = input.ignoreInventoryTarget
     ? maxNewArticles
     : Math.min(maxNewArticles, input.targetInventory - inventoryBefore);
-  for (const item of uniqueItems.slice(0, MAX_ATTEMPTS_PER_RUN)) {
-    if (
-      resultBase.created.length >= needed ||
-      (resultBase.attempted > 0 && Date.now() - startedMs > latestNextAttemptMs)
-    ) {
-      break;
-    }
+  resultBase.targetNewArticles = needed;
+  for (const item of uniqueItems) {
+    if (resultBase.created.length >= needed) break;
     resultBase.attempted += 1;
     try {
       const imported = await importArticleThroughApi(origin, item.url);
@@ -323,6 +319,7 @@ export async function runRecommendationCrawler(
         {
           sourceUrl: item.url,
           sourceName: imported.article?.siteName || item.source.name,
+          usageRoute: "/api/admin/article-crawler",
         },
       );
       if (input.difficulty !== "any" && classification.difficulty !== input.difficulty) {
@@ -349,8 +346,11 @@ export async function runRecommendationCrawler(
     }
   }
 
+  const shortfall = Math.max(0, needed - resultBase.created.length);
   return {
     ...resultBase,
+    targetAchieved: shortfall === 0,
+    shortfall,
     inventoryAfter: inventoryBefore + resultBase.created.length,
     finishedAt: new Date().toISOString(),
   };

@@ -8,7 +8,7 @@ function emptyCuration(): HomepageCuration {
   return { version: 2, categories: { 推荐: [], 时事: [], 科技: [], 文化: [], 商业: [] }, recommendationFeaturedId: "", updatedAt: "" };
 }
 
-export default function AdminHomepageCurationPanel({ articles }: { articles: PublicArticle[] }) {
+export default function AdminHomepageCurationPanel({ articles, onSaved }: { articles: PublicArticle[]; onSaved?: (curation: HomepageCuration) => void }) {
   const [curation, setCuration] = useState<HomepageCuration>(emptyCuration);
   const [category, setCategory] = useState<HomeCurationCategory>("推荐");
   const [draggedId, setDraggedId] = useState("");
@@ -73,6 +73,7 @@ export default function AdminHomepageCurationPanel({ articles }: { articles: Pub
       const data = await response.json().catch(() => null) as { curation?: HomepageCuration; error?: string } | null;
       if (!response.ok || !data?.curation) throw new Error(data?.error || "保存失败。");
       setCuration(data.curation);
+      onSaved?.(data.curation);
       setMessage("首页外刊编排已保存，新请求会按此顺序读取。 ");
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "保存失败。");

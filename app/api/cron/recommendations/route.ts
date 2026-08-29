@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { runConfiguredRecommendationAutomation } from "@/lib/recommendationAutomation";
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 
-export const maxDuration = 360;
+export const maxDuration = 900;
 export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {

@@ -45,7 +45,7 @@ def main() -> None:
         method="GET",
     )
     try:
-        with urllib.request.urlopen(request, timeout=380) as response:
+        with urllib.request.urlopen(request, timeout=880) as response:
             payload = json.loads(response.read().decode("utf-8"))
             if response.status != 200 or not payload.get("ok"):
                 raise SystemExit(f"recommendation crawler returned {response.status}")
@@ -55,6 +55,10 @@ def main() -> None:
     if payload.get("skipped"):
         return
     result = payload.get("result", {})
+    if result.get("targetAchieved") is False:
+        raise SystemExit(
+            f"recommendation crawler exhausted candidates with shortfall={result.get('shortfall', 0)}"
+        )
     print(
         json.dumps(
             {
