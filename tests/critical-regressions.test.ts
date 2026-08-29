@@ -86,6 +86,25 @@ test("mobile tools reopen at 56 percent and never expand beyond 82 percent", () 
   assert.doesNotMatch(explanationPanel, />\s*收起\s*</);
 });
 
+test("mobile Menu keeps theme controls tappable and vocabulary rows selectable", () => {
+  const menu = readFileSync(new URL("../components/HomeOptionMenu.tsx", import.meta.url), "utf8");
+  const menuStyles = readFileSync(new URL("../components/HomeOptionMenu.module.css", import.meta.url), "utf8");
+  const globals = readFileSync(new URL("../app/globals.css", import.meta.url), "utf8");
+  const account = readFileSync(new URL("../components/AccountUsagePageContent.tsx", import.meta.url), "utf8");
+
+  assert.match(menu, /<section data-mobile-theme>/);
+  assert.equal((menu.match(/<section data-mobile-hidden>/g) ?? []).length, 2);
+  assert.match(menuStyles, /\.settingsPanel section\[data-mobile-hidden\] \{ display: none; \}/);
+  assert.match(menuStyles, /\.themeChoices button \{[^}]*touch-action: manipulation/);
+  assert.doesNotMatch(
+    menuStyles.slice(0, menuStyles.indexOf("@media (hover: hover) and (pointer: fine)")),
+    /\.savedList\[data-scrolling="true"\] \.vocabularyEntry \{[^}]*pointer-events: none/,
+  );
+  assert.match(menuStyles, /@media \(hover: hover\) and \(pointer: fine\) \{\s*\.savedList\[data-scrolling="true"\] \.vocabularyEntry \{\s*pointer-events: none;/);
+  assert.match(account, /data-embedded=\{embedded \|\| undefined\}/);
+  assert.match(globals, /\.cr-account-usage\[data-embedded\] \.cr-account-login/);
+});
+
 test("homepage feature cards reserve vertical gestures for page scrolling", () => {
   assert.equal(FEATURE_ORBIT_AUTOPLAY_MS, 6_000);
   assert.equal(classifyFeatureOrbitGesture(4, 7), "pending");

@@ -368,7 +368,7 @@
 .toggle[aria-checked="true"] { background: #2d7187; }
 .toggle[aria-checked="true"] i { transform: translateX(20px); }
 .themeChoices { display: inline-flex; padding: 3px; flex: 0 0 auto; border-radius: 999px; background: #e5edf0; }
-.themeChoices button { min-width: 58px; min-height: 34px; padding: 0 12px; border: 0; border-radius: 999px; color: #60747f; background: transparent; font: inherit; font-size: 12px; cursor: pointer; }
+.themeChoices button { min-width: 58px; min-height: 34px; padding: 0 12px; border: 0; border-radius: 999px; color: #60747f; background: transparent; font: inherit; font-size: 12px; cursor: pointer; touch-action: manipulation; }
 .themeChoices button[aria-pressed="true"] { color: #fff; background: #245f75; }
 
 .pageContent {
@@ -798,10 +798,7 @@
   contain-intrinsic-size: auto 84px;
 }
 
-.savedList[data-scrolling="true"] .vocabularyEntry {
-  pointer-events: none;
-  transition: none;
-}
+.savedList[data-scrolling="true"] .vocabularyEntry { transition: none; }
 
 .vocabularyEntry[aria-expanded="true"] {
   background: transparent;
@@ -1617,7 +1614,28 @@
     touch-action: manipulation;
   }
 
-  .settingsPanel section { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .settingsPanel {
+    padding: 72px 0 0;
+    place-items: start center;
+  }
+
+  .settingsPanel section[data-mobile-hidden] { display: none; }
+
+  .settingsPanel section[data-mobile-theme] {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .settingsPanel section[data-mobile-theme] > div:first-child { display: none; }
+
+  .settingsPanel .themeChoices { padding: 4px; }
+
+  .settingsPanel .themeChoices button {
+    min-width: 74px;
+    min-height: 42px;
+    font-size: 14px;
+  }
 
   .itemWrap[data-quick] .menuItem { min-height: 44px; padding: 8px 11px; font-size: 14px; font-weight: 650; text-align: center; }
   .itemWrap[data-quick] .menuItem::after { display: none; }
@@ -1738,6 +1756,10 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .savedList[data-scrolling="true"] .vocabularyEntry {
+    pointer-events: none;
+  }
+
   .close:hover i {
     transform: rotate(135deg);
   }

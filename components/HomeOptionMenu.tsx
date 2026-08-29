@@ -947,7 +947,7 @@ export function HomeOptionMenu({
         subtitle="只改变这台设备上的显示"
       >
         <div className={styles.settingsPanel} data-local-scroll-surface>
-          {onLetterMotionChange && <section>
+          {onLetterMotionChange && <section data-mobile-hidden>
             <div>
               <strong>鼠标字母轨迹</strong>
               <p>关闭后，鼠标移动时不再飘出彩色字母。</p>
@@ -960,7 +960,7 @@ export function HomeOptionMenu({
               onClick={() => onLetterMotionChange?.(!letterMotionEnabled)}
             ><i /></button>
           </section>}
-          {onThemeChange && <section>
+          {onThemeChange && <section data-mobile-theme>
             <div>
               <strong>界面外观</strong>
               <p>在明亮和深色阅读环境之间切换。</p>
@@ -970,7 +970,7 @@ export function HomeOptionMenu({
               <button type="button" aria-pressed={theme === "night"} onClick={() => onThemeChange?.("night")}>夜间</button>
             </div>
           </section>}
-          {onRecommendationMotionChange && <section>
+          {onRecommendationMotionChange && <section data-mobile-hidden>
             <div>
               <strong>外刊图片 3D</strong>
               <p>关闭后保留图片入场，但不再跟随鼠标倾斜。</p>

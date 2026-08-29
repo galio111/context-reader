@@ -172,20 +172,23 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
   }
 
   return (
-    <main className={`${embedded ? "min-h-full" : "cr-site-background"} cr-account-usage px-4 py-8 text-[#17212b] sm:px-6 sm:py-12`}>
+    <main
+      className={`${embedded ? "min-h-full" : "cr-site-background"} cr-account-usage px-4 py-8 text-[#17212b] sm:px-6 sm:py-12`}
+      data-embedded={embedded || undefined}
+    >
       {!embedded && <SiteBackdrop />}
       <div className="mx-auto max-w-5xl">
         <header className="flex items-center gap-4">
           <Link className="text-lg font-semibold" href="/">Context Reader</Link>
         </header>
 
-        <section className="mt-14 max-w-2xl">
-          <h1 className="text-4xl font-semibold tracking-[-.04em] sm:text-5xl">账号与数据</h1>
+        <section className="cr-account-intro mt-14 max-w-2xl">
+          <h1 className="cr-account-title text-4xl font-semibold tracking-[-.04em] sm:text-5xl">账号与数据</h1>
           {PUBLIC_USAGE_DETAILS_ENABLED && <p className="mt-5 text-base leading-7 text-[#536675]">查词与深度阅读功能分开计算。缓存命中、失败、超时和及时取消不扣注册账号额度；1 个深度阅读点约对应 1,000 个待处理字符，摘要至少 2 点。</p>}
         </section>
 
-        {loading ? <p className="mt-12 text-[#657582]">正在读取账号…</p> : isOffline ? (
-          <section className="mt-12 rounded-[16px] bg-[#fff7df] p-7 text-[#533d17] shadow-[0_4px_8px_rgb(69_48_12_/_12%)] sm:p-9">
+        {loading ? <p className="cr-account-state mt-12 text-[#657582]">正在读取账号…</p> : isOffline ? (
+          <section className="cr-account-state mt-12 rounded-[16px] bg-[#fff7df] p-7 text-[#533d17] shadow-[0_4px_8px_rgb(69_48_12_/_12%)] sm:p-9">
             <h2 className="text-2xl font-semibold">当前为离线访问</h2>
             <p className="mt-3 leading-7">
               {localAccount?.nickname ? `${localAccount.nickname} 的本机文章、生词和已有缓存仍可使用。` : "当前页面与已缓存内容仍可使用。"}
@@ -193,15 +196,15 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
             </p>
           </section>
         ) : !account.authenticated ? (
-          <section className="mt-12 rounded-[16px] bg-[#fbfcfe] p-7 shadow-[0_4px_8px_rgb(43_61_77_/_10%)] sm:p-9">
+          <section className="cr-account-state mt-12 rounded-[16px] bg-[#fbfcfe] p-7 shadow-[0_4px_8px_rgb(43_61_77_/_10%)] sm:p-9">
             <h2 className="text-2xl font-semibold">当前为游客</h2>
             <p className="mt-3 text-[#5f6d79]">保存文章、生词本和私有全文翻译需要登录。</p>
             {PUBLIC_USAGE_DETAILS_ENABLED && account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}
-            <button className="mt-7 rounded-full bg-[#174f82] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#123f68]" type="button" onClick={() => openLogin("登录后会合并本机试用中产生的解释缓存，并开启跨设备同步。")}>手机号登录</button>
+            <button className="cr-account-login mt-7 rounded-full bg-[#174f82] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#123f68]" type="button" onClick={() => openLogin("登录后会合并本机试用中产生的解释缓存，并开启跨设备同步。")}>手机号登录</button>
           </section>
         ) : (
           <>
-            <section className="mt-12 rounded-[16px] bg-[#fbfcfe] p-7 shadow-[0_4px_8px_rgb(43_61_77_/_10%)] sm:p-9">
+            <section className="cr-account-state mt-12 rounded-[16px] bg-[#fbfcfe] p-7 shadow-[0_4px_8px_rgb(43_61_77_/_10%)] sm:p-9">
               <div className="flex flex-wrap items-start justify-between gap-5">
                 <div><p className="text-sm text-[#5f6d79]">当前账号</p><h2 className="mt-1 text-2xl font-semibold">{account.profile?.nickname || accountIdentifier}</h2><p className="mt-2 text-sm text-[#5f6d79]">{accountIdentifier}</p>{!account.localOnly && <button className="mt-3 text-xs font-medium text-[#567080] underline decoration-[#9aadb7] underline-offset-4" type="button" onClick={() => { setAccountDetailsEditing((value) => !value); setAccountDetailsMessage(""); }}>{accountDetailsEditing ? "收起账号资料" : "修改账号资料"}</button>}</div>
                 <span className="rounded-full bg-[#dce9f3] px-4 py-2 text-sm font-semibold text-[#285a7c]">
