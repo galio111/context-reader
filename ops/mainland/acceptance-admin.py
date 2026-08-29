@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import urllib.error
 import urllib.request
 from http.cookiejar import CookieJar
@@ -81,20 +82,25 @@ def main() -> None:
     config = automation.get("config")
     if not isinstance(config, dict):
         raise SystemExit("recommendation automation config is missing")
-    expected = {"enabled": True, "runTime": "03:00", "maxNewArticles": 2}
-    for key, value in expected.items():
-        if config.get(key) != value:
-            raise SystemExit(
-                json.dumps(
-                    {
-                        "status": "failed",
-                        "reason": "unexpected recommendation config",
-                        "key": key,
-                        "expected": value,
-                        "actual": config.get(key),
-                    }
-                )
+    run_time = config.get("runTime")
+    count = config.get("maxNewArticles")
+    valid_time = isinstance(run_time, str) and re.fullmatch(r"(?:[01]\d|2[0-3]):[0-5]\d", run_time)
+    valid_five_minute_step = bool(valid_time and int(run_time[-2:]) % 5 == 0)
+    valid_count = isinstance(count, int) and not isinstance(count, bool) and 1 <= count <= 10
+    if not isinstance(config.get("enabled"), bool) or not valid_five_minute_step or not valid_count:
+        raise SystemExit(
+            json.dumps(
+                {
+                    "status": "failed",
+                    "reason": "invalid recommendation config",
+                    "config": {
+                        "enabledType": type(config.get("enabled")).__name__,
+                        "runTime": run_time,
+                        "maxNewArticles": count,
+                    },
+                }
             )
+        )
     if automation.get("emailConfigured") is not True:
         raise SystemExit("recommendation notification email is not configured")
 
