@@ -7,7 +7,7 @@ import { useAccount } from "@/components/AccountProvider";
 import { BookLetterField } from "@/components/BookLetterField";
 import ClearableField from "@/components/ClearableField";
 import { BookDictionary } from "@/components/BookDictionary";
-import { HomeOptionMenu, type PreviewKind } from "@/components/HomeOptionMenu";
+import { HomeOptionMenu, type GuideSection, type PreviewKind } from "@/components/HomeOptionMenu";
 import { PillNavAction } from "@/components/PillNavAction";
 import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
@@ -30,6 +30,7 @@ import {
 } from "@/lib/recommendationPreferences";
 import { ARTICLE_DIFFICULTIES, type ArticleDifficulty } from "@/types/publicArticle";
 import type { HomepageCuration } from "@/lib/homepageCurationShared";
+import { classifyFeatureOrbitGesture, FEATURE_ORBIT_AUTOPLAY_MS, type FeatureOrbitGestureIntent } from "@/lib/featureOrbitMotion";
 import styles from "./HomeRedesign.module.css";
 
 const BALL_COLORS = [
@@ -348,6 +349,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const memberHome = memberPreviewAllowed || (!guestPreviewAllowed && journeyHomeMode === "member");
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuInitialPreview, setMenuInitialPreview] = useState<PreviewKind | null>(null);
+  const [menuGuideSection, setMenuGuideSection] = useState<GuideSection | null>(null);
   const [menuStandalonePreview, setMenuStandalonePreview] = useState(false);
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
   const mobileDictionarySheet = useMobileBottomSheet(dictionaryMounted);
@@ -363,6 +365,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [libraryDifficulty, setLibraryDifficulty] = useState<ArticleDifficulty | "">("");
   const [featurePosition, setFeaturePosition] = useState(0);
   const [featureDragging, setFeatureDragging] = useState(false);
+  const [featureInView, setFeatureInView] = useState(false);
+  const [featureAutoplayStopped, setFeatureAutoplayStopped] = useState(false);
   const [continueVariant, setContinueVariant] = useState<"editorial" | "cover">("cover");
   const [navMotion, setNavMotion] = useState<"slide" | "fill" | "icon">("icon");
   const [memberOpeningVariant, setMemberOpeningVariant] = useState<"spiral" | "wordfall">("wordfall");
@@ -402,7 +406,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const categorySwitchTimerRef = useRef<number | null>(null);
   const coverScrollFrameRef = useRef(0);
   const coverScrollTargetRef = useRef<"cover" | "recommendations" | null>(null);
-  const orbitDragRef = useRef({ pointerId: -1, startX: 0, lastX: 0, lastTime: 0, velocity: 0, startPosition: 0 });
+  const orbitDragRef = useRef<{ pointerId: number; startX: number; startY: number; lastX: number; lastTime: number; velocity: number; startPosition: number; intent: FeatureOrbitGestureIntent }>({ pointerId: -1, startX: 0, startY: 0, lastX: 0, lastTime: 0, velocity: 0, startPosition: 0, intent: "pending" });
   const orbitSuppressClickRef = useRef(false);
 
   const category = CATEGORY_FILTERS.find((item) => item.label === activeCategory) ?? CATEGORY_FILTERS[0];
@@ -588,7 +592,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [activeCategory, displayArticles.length]);
 
   useEffect(() => {
-    const sections = [publicationBridgeRef.current, importRef.current, featureOrbitRef.current, closingRef.current]
+    const sections = [publicationBridgeRef.current, importRef.current, closingRef.current]
       .filter((section): section is HTMLElement => Boolean(section));
     if (sections.length === 0) return;
     if (!("IntersectionObserver" in window)) {
@@ -635,6 +639,37 @@ export function HomeRedesign(props: HomeRedesignProps) {
     };
   }, [memberHome]);
 
+  useEffect(() => {
+    const section = featureOrbitRef.current;
+    if (!section || memberHome) {
+      setFeatureInView(false);
+      return;
+    }
+    section.dataset.motionReady = "true";
+    if (!("IntersectionObserver" in window)) {
+      section.dataset.visible = "true";
+      setFeatureInView(true);
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      const visible = Boolean(entry?.isIntersecting);
+      setFeatureInView(visible);
+      if (visible) section.dataset.visible = "true";
+      else delete section.dataset.visible;
+    }, { rootMargin: "0px 0px -12%", threshold: 0.24 });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [memberHome]);
+
+  useEffect(() => {
+    if (memberHome || !featureInView || featureAutoplayStopped || !recommendationMotionEnabled) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => {
+      setFeaturePosition((current) => Math.round(current) + 1);
+    }, FEATURE_ORBIT_AUTOPLAY_MS);
+    return () => window.clearInterval(timer);
+  }, [featureAutoplayStopped, featureInView, memberHome, recommendationMotionEnabled]);
+
   useEffect(() => () => {
     if (memberOpeningFrameRef.current) window.cancelAnimationFrame(memberOpeningFrameRef.current);
     if (openingTimerRef.current !== null) window.clearTimeout(openingTimerRef.current);
@@ -669,7 +704,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [dictionaryMounted]);
 
   useEffect(() => {
-    if (memberHome) return;
+    if (memberHome || compactViewport) return;
     let frame = 0;
     let stageTop = 0;
     let distance = 1;
@@ -709,10 +744,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
       window.removeEventListener("resize", requestMeasure);
       if (frame) window.cancelAnimationFrame(frame);
     };
-  }, [memberHome]);
+  }, [compactViewport, memberHome]);
 
   useEffect(() => {
-    if (memberHome) return;
+    if (memberHome || compactViewport) return;
     const handleWheel = (event: WheelEvent) => {
       if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
       if ((event.target as Element | null)?.closest?.("[data-local-scroll-surface]")) return;
@@ -739,7 +774,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       coverScrollFrameRef.current = 0;
       coverScrollTargetRef.current = null;
     };
-  }, [memberHome]);
+  }, [compactViewport, memberHome]);
 
   useEffect(() => {
     if (journeyPending || props.skipMemberOpening) {
@@ -811,7 +846,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       void props.onOpenPublicArticle(article.id).finally(() => {
         setOpeningArticle(null);
       });
-    }, 1_720);
+    }, 1_380);
   }
 
   function submitImport() {
@@ -946,12 +981,21 @@ export function HomeRedesign(props: HomeRedesignProps) {
   function openMenuPreview(preview: PreviewKind) {
     setMenuStandalonePreview(true);
     setMenuInitialPreview(preview);
+    setMenuGuideSection(null);
     setMenuOpen(true);
   }
 
   function openMenu() {
     setMenuStandalonePreview(false);
     setMenuInitialPreview(null);
+    setMenuGuideSection(null);
+    setMenuOpen(true);
+  }
+
+  function openGuideUpdates() {
+    setMenuStandalonePreview(false);
+    setMenuInitialPreview("guide");
+    setMenuGuideSection("updates");
     setMenuOpen(true);
   }
 
@@ -997,22 +1041,34 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
   function startOrbitDrag(event: PointerEvent<HTMLDivElement>) {
     if (event.button !== 0) return;
-    event.currentTarget.setPointerCapture(event.pointerId);
     orbitDragRef.current = {
       pointerId: event.pointerId,
       startX: event.clientX,
+      startY: event.clientY,
       lastX: event.clientX,
       lastTime: performance.now(),
       velocity: 0,
       startPosition: featurePosition,
+      intent: "pending",
     };
     orbitSuppressClickRef.current = false;
-    setFeatureDragging(true);
   }
 
   function moveOrbitDrag(event: PointerEvent<HTMLDivElement>) {
     const drag = orbitDragRef.current;
     if (drag.pointerId !== event.pointerId) return;
+    if (drag.intent === "pending") {
+      drag.intent = classifyFeatureOrbitGesture(event.clientX - drag.startX, event.clientY - drag.startY);
+      if (drag.intent === "vertical") return;
+      if (drag.intent === "horizontal") {
+        event.currentTarget.setPointerCapture(event.pointerId);
+        setFeatureDragging(true);
+        setFeatureAutoplayStopped(true);
+        orbitSuppressClickRef.current = true;
+      }
+    }
+    if (drag.intent !== "horizontal") return;
+    event.preventDefault();
     const now = performance.now();
     const elapsed = Math.max(8, now - drag.lastTime);
     drag.velocity = (event.clientX - drag.lastX) / elapsed;
@@ -1020,13 +1076,16 @@ export function HomeRedesign(props: HomeRedesignProps) {
     drag.lastTime = now;
     const step = Math.min(330, Math.max(230, window.innerWidth * 0.22));
     const nextDrag = (event.clientX - drag.startX) / step;
-    if (Math.abs(event.clientX - drag.startX) > 6) orbitSuppressClickRef.current = true;
     setFeaturePosition(drag.startPosition - nextDrag);
   }
 
   function finishOrbitDrag(event: PointerEvent<HTMLDivElement>) {
     const drag = orbitDragRef.current;
     if (drag.pointerId !== event.pointerId) return;
+    if (drag.intent !== "horizontal") {
+      orbitDragRef.current.pointerId = -1;
+      return;
+    }
     if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
     const step = Math.min(330, Math.max(230, window.innerWidth * 0.22));
     const projected = (event.clientX - drag.startX) / step + drag.velocity * 170 / step;
@@ -1103,7 +1162,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
   const renderImportSection = () => (
     <section ref={importRef} className={styles.importSection} aria-labelledby="import-heading">
-      <div>
+      <div className={styles.importIntro}>
         <p>YOUR ARTICLE</p>
         <h2 id="import-heading">读完这些，也别忘了那篇一直没有读下去的文章。</h2>
       </div>
@@ -1187,14 +1246,16 @@ export function HomeRedesign(props: HomeRedesignProps) {
             <p>CONTEXT READER</p>
             <h1 id="home-redesign-title">在语境里，<br />读懂英文。</h1>
             <p className={styles.heroSubtitle}>{HERO_SUBTITLES[heroSubtitleVariant]}</p>
-            <button type="button" className={styles.coverAction} onClick={() => animateCoverSnap("recommendations")}>
+            <button type="button" className={styles.coverAction} onClick={() => compactViewport
+              ? recommendationsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+              : animateCoverSnap("recommendations")}>
               <span>精选外刊</span><i aria-hidden="true">↓</i>
             </button>
           </div>
           <div className={styles.heroEdge} aria-hidden="true"><span>SELECTED READING</span><i /></div>
         </section>}
 
-        {!memberHome && <div className={styles.ballField} aria-hidden="true">
+        {!memberHome && !compactViewport && <div className={styles.ballField} aria-hidden="true">
           <Ballpit
             className={styles.ballCanvas}
             count={compactViewport ? 32 : 56}
@@ -1474,12 +1535,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
           <div className={styles.closingCopy}>
             <p>STAY IN TOUCH</p>
             <h2 id="closing-heading"><span>如果哪里还不够好，</span><span>告诉我。</span></h2>
-            <div><span>Context Reader 仍在持续完善。</span><a href="/guide#updates">查看更新记录</a></div>
+            <div><span>Context Reader 仍在持续完善。</span><button type="button" onClick={openGuideUpdates}>查看更新记录</button></div>
           </div>
           <div className={styles.closingActions}>
             <div className={styles.wechatContact}>
               <button type="button" onClick={() => void copyWechat()}>
-                <small>微信</small><strong onPointerEnter={() => setWechatQrOpen(true)} onPointerLeave={() => setWechatQrOpen(false)}>{PUBLIC_CONTACT.wechat}</strong><span>{contactCopied ? "已复制" : "复制微信号"}</span>
+                <small>微信</small><strong>{PUBLIC_CONTACT.wechat}</strong><span>{contactCopied ? "已复制" : "复制微信号"}</span>
               </button>
               <button
                 type="button"
@@ -1578,6 +1639,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
         vocabularyEntries={hasLocalAccountAccess ? vocabularyEntries : []}
         onVocabularyEntriesChange={setVocabularyEntries}
         initialPreview={menuInitialPreview}
+        initialGuideSection={menuGuideSection}
         standalonePreview={menuStandalonePreview}
         avoidHomeQuickNav
         theme={homeTheme}
@@ -1588,14 +1650,16 @@ export function HomeRedesign(props: HomeRedesignProps) {
         onRecommendationMotionChange={changeRecommendationMotion}
         onOpenImport={scrollToImport}
         onOpenDictionary={openDictionary}
-        onOpenGuide={() => {
+        onOpenGuide={(section) => {
           setMenuStandalonePreview(false);
           setMenuInitialPreview("guide");
+          setMenuGuideSection(section ?? null);
           setMenuOpen(true);
         }}
         onClose={() => {
           setMenuOpen(false);
           setMenuInitialPreview(null);
+          setMenuGuideSection(null);
         }}
         onOpenSavedArticle={props.onOpenSavedArticle}
         onJumpToVocabularySource={props.onJumpToVocabularySource}

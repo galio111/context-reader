@@ -57,7 +57,8 @@ interface HomeOptionMenuProps {
   initialPreview?: PreviewKind | null;
   onOpenImport?: () => void;
   onOpenDictionary?: () => void;
-  onOpenGuide?: (section?: "anki") => void;
+  onOpenGuide?: (section?: GuideSection) => void;
+  initialGuideSection?: GuideSection | null;
   theme?: "day" | "night";
   letterMotionEnabled?: boolean;
   recommendationMotionEnabled?: boolean;
@@ -92,6 +93,7 @@ export interface HomeMenuVocabularyTools {
 }
 
 export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "invite" | "feedback" | "settings";
+export type GuideSection = "anki" | "updates";
 type MenuAction = "import" | "dictionary";
 interface MenuItem {
   label: string;
@@ -164,6 +166,7 @@ export function HomeOptionMenu({
   onOpenImport,
   onOpenDictionary,
   onOpenGuide,
+  initialGuideSection = null,
   theme = "day",
   letterMotionEnabled = true,
   recommendationMotionEnabled = true,
@@ -196,7 +199,7 @@ export function HomeOptionMenu({
   const [internalImportError, setInternalImportError] = useState("");
   const [ankiSettingsOpen, setAnkiSettingsOpen] = useState(false);
   const [ankiHelpOpen, setAnkiHelpOpen] = useState(false);
-  const [scrollGuideToAnki, setScrollGuideToAnki] = useState(false);
+  const [guideScrollTarget, setGuideScrollTarget] = useState<GuideSection | null>(null);
   const items = useMemo(
     () => [
       ...(mobileMenu ? mobileQuickItems : []),
@@ -272,18 +275,19 @@ export function HomeOptionMenu({
     if (initialPreview) {
       setPreviewAnchorY(standalonePreview ? PREVIEW_ANCHOR_MIN + 12 : PREVIEW_ANCHOR_MIN + 54);
       setPinnedPreview(initialPreview);
+      setGuideScrollTarget(initialPreview === "guide" ? initialGuideSection : null);
       return;
     }
     if (!standalonePreview) {
       setPinnedPreview(null);
       setPreviewAnchorY(null);
     }
-  }, [initialPreview, open, standalonePreview]);
+  }, [initialGuideSection, initialPreview, open, standalonePreview]);
 
   useEffect(() => {
-    if (!scrollGuideToAnki || visiblePreview !== "guide") return;
+    if (!guideScrollTarget || visiblePreview !== "guide") return;
     const frame = window.requestAnimationFrame(() => {
-      const target = document.querySelector<HTMLElement>("[data-home-menu-preview] #anki");
+      const target = document.querySelector<HTMLElement>(`[data-home-menu-preview] #${guideScrollTarget}`);
       const scroller = target?.closest<HTMLElement>("[data-local-scroll-surface]");
       if (target && scroller) {
         scroller.scrollTo({
@@ -291,10 +295,10 @@ export function HomeOptionMenu({
           behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
         });
       }
-      setScrollGuideToAnki(false);
+      setGuideScrollTarget(null);
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [scrollGuideToAnki, visiblePreview]);
+  }, [guideScrollTarget, visiblePreview]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -457,7 +461,7 @@ export function HomeOptionMenu({
     setAnkiHelpOpen(false);
     setAnkiSettingsOpen(false);
     setHoveredVocabularyId(null);
-    setScrollGuideToAnki(true);
+    setGuideScrollTarget("anki");
     if (onOpenGuide) {
       onOpenGuide("anki");
       return;
