@@ -8,6 +8,10 @@ import { scopeReaderTokenId } from "../lib/readerTokenIdentity";
 import { classifyStreamTermination } from "../lib/requestCancellation";
 import { USER_SESSION_MAX_AGE_SECONDS } from "../lib/sessionPolicy";
 import {
+  classifyFeatureOrbitGesture,
+  FEATURE_ORBIT_AUTOPLAY_MS,
+} from "../lib/featureOrbitMotion";
+import {
   clampMobileSheetHeight,
   MOBILE_SHEET_DEFAULT_HEIGHT,
   MOBILE_SHEET_MAX_HEIGHT,
@@ -80,4 +84,19 @@ test("mobile tools reopen at 56 percent and never expand beyond 82 percent", () 
   assert.match(readerStyles, /height: var\(--mobile-work-sheet-height, 56dvh\)/);
   assert.doesNotMatch(menuStyles.slice(menuStyles.indexOf("@media (max-width: 760px)")), /height: 100svh/);
   assert.doesNotMatch(explanationPanel, />\s*收起\s*</);
+});
+
+test("homepage feature cards reserve vertical gestures for page scrolling", () => {
+  assert.equal(FEATURE_ORBIT_AUTOPLAY_MS, 6_000);
+  assert.equal(classifyFeatureOrbitGesture(4, 7), "pending");
+  assert.equal(classifyFeatureOrbitGesture(13, 5), "horizontal");
+  assert.equal(classifyFeatureOrbitGesture(7, 15), "vertical");
+
+  const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
+  const styles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
+  assert.match(component, /!memberHome && !compactViewport && <div className=\{styles\.ballField\}/);
+  assert.match(component, /setFeatureAutoplayStopped\(true\)/);
+  assert.match(styles, /\.ballField, \.coverBreath \{ display: none; \}/);
+  assert.match(styles, /\.closingActions \{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+  assert.match(styles, /\.qrToggle, \.wechatQr \{ display: none !important; \}/);
 });

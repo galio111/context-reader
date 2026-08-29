@@ -114,7 +114,7 @@ export function FallingWordOpening({ className = "", onReady, onComplete }: Fall
         y: target.y,
         startX: target.x + (seeded(index, 1) - 0.5) * rect.width * 0.42,
         startY: -70 - seeded(index, 2) * rect.height * 0.72,
-        delay: seeded(index, 3) * 420,
+        delay: seeded(index, 3) * 300,
         radius: (compact ? 3.4 : 3.8) + seeded(index, 4) * (compact ? 1.8 : 2.2),
         color: index % COLORS.length,
       }));
@@ -137,7 +137,7 @@ export function FallingWordOpening({ className = "", onReady, onComplete }: Fall
       let allSettled = true;
       for (let index = 0; index < particles.length; index += 1) {
         const particle = particles[index];
-        const local = Math.max(0, Math.min(1, (naturalElapsed - particle.delay) / 1_060));
+        const local = Math.max(0, Math.min(1, (naturalElapsed - particle.delay) / 820));
         const progress = Math.max(local, quick);
         if (progress < 1) allSettled = false;
         const eased = 1 - Math.pow(1 - progress, 3);
@@ -147,7 +147,7 @@ export function FallingWordOpening({ className = "", onReady, onComplete }: Fall
         const diameter = particle.radius * 2;
         context.drawImage(sprites[particle.color], x - particle.radius, y - particle.radius, diameter, diameter);
       }
-      if (!allSettled || naturalElapsed < 2_080) {
+      if (!allSettled || naturalElapsed < 1_650) {
         frame = window.requestAnimationFrame(draw);
       } else if (!completed) {
         completed = true;

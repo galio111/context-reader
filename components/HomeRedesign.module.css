@@ -775,7 +775,7 @@
 .closingCopy h2 { max-width: 1120px; margin: 12px 0 24px; font-family: "Songti SC", "STSong", ui-serif, serif; font-size: clamp(3rem, 4.8vw, 5rem); font-weight: 500; letter-spacing: -.035em; line-height: 1.08; text-wrap: balance; }
 .closingCopy h2 span { display: inline-block; }
 .closingCopy > div { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 22px; color: #6f7b79; }
-.closingCopy > div a { padding-bottom: 3px; border-bottom: 1px solid currentColor; color: #315e66; font-size: 12px; text-decoration: none; }
+.closingCopy > div button { padding: 0 0 3px; border: 0; border-bottom: 1px solid currentColor; color: #315e66; background: transparent; font: inherit; font-size: 12px; cursor: pointer; }
 .closingActions { display: grid; margin-top: clamp(64px, 9vw, 112px); padding-top: 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: clamp(32px, 8vw, 120px); border-top: 1px solid rgb(40 69 75 / 18%); }
 .closingActions > button, .wechatContact { min-height: 126px; border: 0; border-radius: 0; color: #21434b; background: transparent; }
 .closingActions > button, .wechatContact > button:first-child { display: grid; width: 100%; padding: 18px 0; gap: 7px; text-align: left; cursor: pointer; }
@@ -809,7 +809,7 @@
 .siteFooter span { margin-left: auto; }
 
 .openingLayer { position: fixed; inset: 0; z-index: 120; pointer-events: none; }
-.openingWash { position: absolute; inset: 0; opacity: 0; background: #d7e4e6; transition: opacity .78s ease .55s; }
+.openingWash { position: absolute; inset: 0; opacity: 0; background: #d7e4e6; transition: opacity .54s ease .38s; }
 .openingImage {
   position: absolute;
   left: var(--source-left);
@@ -819,10 +819,10 @@
   overflow: hidden;
   border-radius: 14px;
   transform-origin: center;
-  transition: left .64s cubic-bezier(.2,.75,.2,1), top .64s cubic-bezier(.2,.75,.2,1), width .64s cubic-bezier(.2,.75,.2,1), height .64s cubic-bezier(.2,.75,.2,1), border-radius .64s ease, transform .64s cubic-bezier(.2,.75,.2,1), filter .72s ease .28s, opacity .38s ease 1.32s;
+  transition: left .56s cubic-bezier(.2,.75,.2,1), top .56s cubic-bezier(.2,.75,.2,1), width .56s cubic-bezier(.2,.75,.2,1), height .56s cubic-bezier(.2,.75,.2,1), border-radius .56s ease, transform .56s cubic-bezier(.2,.75,.2,1), filter .45s ease .2s, opacity .28s ease 1.02s;
 }
 .openingImage img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); }
-.openingTitle { position: absolute; left: 8vw; bottom: 10vh; max-width: 760px; opacity: 0; transform: translateY(26px); transition: opacity .4s ease 1.18s, transform .55s var(--ease) 1.12s; }
+.openingTitle { position: absolute; left: 8vw; bottom: 10vh; max-width: 760px; opacity: 0; transform: translateY(26px); transition: opacity .32s ease .9s, transform .42s var(--ease) .86s; }
 .openingTitle small { display: block; margin-bottom: 12px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
 .openingTitle strong { display: block; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.6rem, 5vw, 6rem); font-weight: 500; line-height: .98; }
 .openingLayerActive .openingWash { opacity: 1; }
@@ -900,21 +900,25 @@
   .dictionaryWindow > header button { display: inline-flex; width: auto; min-width: 76px; padding: 0 13px; align-items: center; border-radius: 999px; font-size: 12px; font-weight: 700; }
   .dictionaryCloseDesktop { display: none; }
   .dictionaryCloseMobile { display: inline; }
+  .coverStage:not(.memberStage) { padding-top: 0; }
+  .coverStage:not(.memberStage) .hero { position: relative; inset: auto; opacity: 1; pointer-events: auto; }
+  .coverStage:not(.memberStage) .heroCopy { pointer-events: auto; }
   .hero { min-height: 600px; padding: 100px 22px 46px; align-items: start; }
   .heroCopy { width: 100%; margin-top: 6vh; }
   .heroCopy h1 { font-size: clamp(2.75rem, 12vw, 4.15rem); line-height: 1.12; }
-  .ballField { inset: 0; opacity: .9; }
+  .ballField, .coverBreath { display: none; }
   .articleGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 42px 14px; }
   .preferencePanel { position: absolute; top: calc(100% + 10px); right: auto; bottom: auto; left: 0; width: min(350px, calc(100vw - 40px)); max-height: min(72svh, 620px); overflow-y: auto; }
   .preferenceTrigger { max-width: 100%; align-items: flex-start; flex-direction: column; gap: 2px; border-radius: 15px; }
   .libraryAction { align-items: flex-start; flex-direction: column; }
   .guestLibraryAction { align-items: flex-start; flex-direction: column; }
-  .memberWorkbench { padding: 94px 20px 74px; }
-  .memberWorkbenchGrid { min-height: auto; grid-template-columns: 1fr; gap: 26px; }
-  .continueReadingCard { min-height: 300px; padding: 24px 22px; border-radius: 20px; }
-  .continueReadingCard > strong { margin-top: 58px; font-size: clamp(1.75rem, 8.5vw, 2.65rem); }
+  .memberWorkbench { padding: 82px 16px 56px; }
+  .memberWorkbenchGrid { min-height: auto; grid-template-columns: 1fr; gap: 16px; }
+  .continueReadingCard { min-height: 212px; max-height: 34svh; padding: 20px 18px; border-radius: 18px; }
+  .continueReadingCard > strong { display: -webkit-box; margin-top: 28px; overflow: hidden; font-size: clamp(1.45rem, 7vw, 2.15rem); -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+  .continueReadingCard > p { margin: 10px 0 14px; -webkit-line-clamp: 1; }
   .memberImport > header h1 { font-size: 1.6rem; }
-  .memberImportPanel { min-height: 340px; padding: 22px 18px; }
+  .memberImportPanel { min-height: 312px; padding: 20px 16px; }
   .featuredCard { display: block; grid-column: 1 / -1; margin-bottom: 10px; }
   .featuredCard .cardCopy strong { font-size: clamp(2rem, 9vw, 3.6rem); }
   .featuredCard .cardCopy strong {
@@ -929,9 +933,10 @@
   .cardCopy strong { max-width: 100%; font-size: 1rem; }
   .cardCopy b { display: none; }
   .cardMeta { flex-wrap: wrap; }
-  .importSection { display: block; padding: 100px 20px; }
+  .importSection { display: block; min-height: auto; padding: 38px 20px 90px; }
+  .importIntro { display: none; }
   .importSection h2 { font-size: clamp(2rem, 8.1vw, 2.8rem); }
-  .importPanel { margin-top: 48px; }
+  .importPanel { margin-top: 0; }
   .temporaryReading { grid-template-columns: minmax(0, 1fr) auto; padding: 16px; gap: 12px; }
   .temporaryReading time { display: none; }
   .urlPreview { grid-template-columns: 82px minmax(0, 1fr); gap: 12px; padding: 10px; }
@@ -950,16 +955,22 @@
   .memoryVisual { padding: 20px 16px; }
   .memoryVisual > span { padding: 14px; grid-template-columns: auto minmax(0, 1fr); gap: 13px; }
   .memoryVisual > span i { display: none; }
-  .featureOrbit { min-height: 760px; padding: 90px 20px 72px; }
+  .featureOrbit { min-height: 610px; padding: 74px 20px 54px; }
   .featureOrbit > header { align-items: flex-start; flex-direction: column; gap: 20px; }
   .orbitControlGroup { order: -1; }
   .featureOrbit h2 { font-size: clamp(2.15rem, 10vw, 3.35rem); }
-  .orbitStage { width: calc(100% + 40px); height: 500px; margin-left: -20px; }
-  .orbitCard { width: min(82vw, 350px); height: 440px; }
+  .orbitStage { width: calc(100% + 40px); height: 404px; margin-left: -20px; }
+  .orbitCard { width: min(74vw, 300px); height: 354px; padding: 14px; }
+  .orbitVisual { margin-bottom: 12px; }
+  .orbitCopy p { min-height: 0; margin-bottom: 8px; }
   .orbitDragHint { margin-top: -4px; }
   .closingSection { padding: 110px 20px 26px; }
   .closingCopy h2 { font-size: clamp(2.5rem, 10.8vw, 3.85rem); line-height: 1.12; }
-  .closingActions { grid-template-columns: 1fr; }
+  .closingActions { margin-top: 48px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .closingActions > button, .wechatContact { min-width: 0; min-height: 106px; }
+  .closingActions > button, .wechatContact > button:first-child { width: 100%; min-width: 0; padding: 14px 0; }
+  .closingActions strong { overflow-wrap: anywhere; font-size: clamp(1.05rem, 4.8vw, 1.35rem); }
+  .qrToggle, .wechatQr { display: none !important; }
   .siteFooter { align-items: flex-start; flex-direction: column; }
   .siteFooter span { margin-left: 0; }
   .openingTitle { right: 24px; left: 24px; bottom: 12vh; }
