@@ -414,6 +414,7 @@ Supabase Auth 的密码哈希不能假设可直接导出。推荐使用“登录
 - 磁盘 70%/85% 两级告警；
 - 数据库连接池设硬上限；
 - AI 并发继续受成本闸门保护。
+- 应用镜像每天在部署锁内做窄范围回收：保留当前接受版本和直接父版本的 `latest`、accepted、candidate 标签，只删除更老的 `context-reader-app` 标签与无引用 dangling 层；不触碰容器、volume、数据库、备份或不可变 release 目录。
 
 ### 安全
 

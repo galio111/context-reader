@@ -19,7 +19,7 @@ import {
 import { audienceForDifficulty } from "../lib/articleAudience";
 import { orderHomepageRecommendations } from "../lib/homepageRecommendations";
 import { setPublishedArticlePlacement } from "../lib/editorialCuration";
-import { estimateDeepSeekCostMicrousd } from "../lib/usageCost";
+import { DEFAULT_DEEPSEEK_USD_TO_CNY_RATE, estimateDeepSeekCostMicrousd, microusdToCny } from "../lib/usageCost";
 import { normalizeHomepageCuration } from "../lib/homepageCurationShared";
 import type { PublicArticle } from "../types/publicArticle";
 
@@ -146,6 +146,8 @@ test("DeepSeek estimates use historical and peak/off-peak prices at execution ti
   assert.equal(estimateDeepSeekCostMicrousd("deepseek-v4-pro", usage, new Date("2026-08-15T00:00:00Z")), 522);
   assert.equal(estimateDeepSeekCostMicrousd("deepseek-v4-pro", usage, new Date("2026-08-20T00:00:00Z")), 858);
   assert.equal(estimateDeepSeekCostMicrousd("deepseek-v4-pro", usage, new Date("2026-08-20T02:00:00Z")), 1_716);
+  assert.equal(DEFAULT_DEEPSEEK_USD_TO_CNY_RATE, 7.2);
+  assert.equal(microusdToCny(1_000_000, 7.2), 7.2);
 });
 
 test("mobile tools reopen at 56 percent and never expand beyond 82 percent", () => {
@@ -180,6 +182,37 @@ test("mobile Menu keeps theme controls tappable and vocabulary rows selectable",
   assert.match(menuStyles, /@media \(hover: hover\) and \(pointer: fine\) \{\s*\.savedList\[data-scrolling="true"\] \.vocabularyEntry \{\s*pointer-events: none;/);
   assert.match(account, /data-embedded=\{embedded \|\| undefined\}/);
   assert.match(globals, /\.cr-account-usage\[data-embedded\] \.cr-account-login/);
+});
+
+test("mobile overlays lock background scroll and adapt across viewport changes", () => {
+  const menu = readFileSync(new URL("../components/HomeOptionMenu.tsx", import.meta.url), "utf8");
+  const vocabulary = readFileSync(new URL("../components/VocabularyPanel.tsx", import.meta.url), "utf8");
+  const scrollLock = readFileSync(new URL("../components/useDocumentScrollLock.ts", import.meta.url), "utf8");
+  const sheet = readFileSync(new URL("../components/useMobileBottomSheet.ts", import.meta.url), "utf8");
+  const menuStyles = readFileSync(new URL("../components/HomeOptionMenu.module.css", import.meta.url), "utf8");
+
+  assert.match(menu, /useDocumentScrollLock\(mounted\)/);
+  assert.match(vocabulary, /useDocumentScrollLock\(open\)/);
+  assert.match(scrollLock, /activeLocks \+= 1/);
+  assert.match(scrollLock, /body\.style\.position = "fixed"/);
+  assert.match(scrollLock, /window\.scrollTo\(previous\.scrollX, previous\.scrollY\)/);
+  assert.match(menu, /useMobileBottomSheet\(open, mobileMenu\)/);
+  assert.match(sheet, /\[open, resetKey\]/);
+  assert.match(vocabulary, /matchMedia\("\(max-width: 639px\)"\)/);
+  assert.match(vocabulary, /rowVirtualizer\.measure\(\)/);
+  assert.match(menuStyles, /@media \(hover: none\), \(pointer: coarse\)/);
+  assert.match(menuStyles, /\.mobileSheetHandle \{[\s\S]*?height: 44px/);
+  assert.match(menuStyles, /\.menuItem \{[\s\S]*?min-height: 44px/);
+  assert.doesNotMatch(menuStyles, /color: #657985|color: #687b86|color: #607581/);
+});
+
+test("release image retention preserves current and direct-parent rollback images", () => {
+  const script = readFileSync(new URL("../ops/mainland/prune-release-images.sh", import.meta.url), "utf8");
+  assert.match(script, /flock -n 9/);
+  assert.match(script, /accepted-\$current_id/);
+  assert.match(script, /accepted-\$parent_id/);
+  assert.match(script, /docker image prune -f/);
+  assert.doesNotMatch(script, /docker (?:system|volume) prune|rm -rf/);
 });
 
 test("homepage feature cards reserve vertical gestures for page scrolling", () => {

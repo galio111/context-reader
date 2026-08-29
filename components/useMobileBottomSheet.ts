@@ -16,13 +16,13 @@ interface ResizeInteraction {
   startHeight: number;
 }
 
-export function useMobileBottomSheet(open: boolean) {
+export function useMobileBottomSheet(open: boolean, resetKey?: unknown) {
   const [height, setHeight] = useState(MOBILE_SHEET_DEFAULT_HEIGHT);
   const resizeRef = useRef<ResizeInteraction | null>(null);
 
   useEffect(() => {
     if (open) setHeight(MOBILE_SHEET_DEFAULT_HEIGHT);
-  }, [open]);
+  }, [open, resetKey]);
 
   const onResizeStart = useCallback((event: PointerEvent<HTMLElement>) => {
     resizeRef.current = { pointerId: event.pointerId, startY: event.clientY, startHeight: height };

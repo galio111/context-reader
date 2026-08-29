@@ -5,6 +5,7 @@ import { useVirtualizer } from "@tanstack/react-virtual";
 import { AnkiPreviewModal } from "@/components/AnkiPreviewModal";
 import ClearableField from "@/components/ClearableField";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
+import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
 import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
 import { currentFormPhonetic } from "@/lib/pronunciation";
@@ -25,8 +26,8 @@ function estimatedVocabularyRowHeight(
   entry: VocabularyEntry,
   expanded: boolean,
   showAnkiActions: boolean,
+  narrow: boolean,
 ): number {
-  const narrow = typeof window !== "undefined" && window.innerWidth < 640;
   const proseWidth = narrow ? 28 : 72;
   const translationWidth = narrow ? 24 : 48;
   const isStandalone = !entry.sourceSentence.trim();
@@ -105,6 +106,7 @@ export function VocabularyPanel({
   const [previewEntry, setPreviewEntry] = useState<VocabularyEntry | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedEntryIds, setExpandedEntryIds] = useState<Set<string>>(() => new Set());
+  const [narrowViewport, setNarrowViewport] = useState(false);
   const listRef = useRef<HTMLDivElement | null>(null);
   const sourceJumpAvailabilityRef = useRef<{
     entries: VocabularyEntry[];
@@ -175,7 +177,7 @@ export function VocabularyPanel({
     estimateSize: (index) => {
       const entry = filteredEntries[index];
       return entry
-        ? estimatedVocabularyRowHeight(entry, expandedEntryIds.has(entry.id), showAnkiActions)
+        ? estimatedVocabularyRowHeight(entry, expandedEntryIds.has(entry.id), showAnkiActions, narrowViewport)
         : 400;
     },
     getItemKey: getVocabularyEntryKey,
@@ -184,6 +186,19 @@ export function VocabularyPanel({
     useAnimationFrameWithResizeObserver: true,
   });
   rowVirtualizer.shouldAdjustScrollPositionOnItemSizeChange = keepScrollOffsetStable;
+  useDocumentScrollLock(open);
+
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 639px)");
+    const update = () => setNarrowViewport(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    rowVirtualizer.measure();
+  }, [narrowViewport, rowVirtualizer]);
   const unimportedCount = useMemo(
     () => entries.filter((entry) => !entry.anki.ankiNoteId).length,
     [entries],
@@ -200,44 +215,6 @@ export function VocabularyPanel({
       rowVirtualizer.scrollToOffset(0);
     }
   }, [deferredSearchQuery, filteredEntries.length, open, rowVirtualizer]);
-
-  useEffect(() => {
-    if (!open) {
-      return;
-    }
-
-    const body = document.body;
-    const documentElement = document.documentElement;
-    const scrollY = window.scrollY;
-    const scrollbarWidth = Math.max(0, window.innerWidth - documentElement.clientWidth);
-    const previousBodyStyles = {
-      overflow: body.style.overflow,
-      position: body.style.position,
-      top: body.style.top,
-      width: body.style.width,
-      paddingRight: body.style.paddingRight,
-    };
-    const previousDocumentOverflow = documentElement.style.overflow;
-
-    documentElement.style.overflow = "hidden";
-    body.style.overflow = "hidden";
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.width = "100%";
-    if (scrollbarWidth > 0) {
-      body.style.paddingRight = `${scrollbarWidth}px`;
-    }
-
-    return () => {
-      documentElement.style.overflow = previousDocumentOverflow;
-      body.style.overflow = previousBodyStyles.overflow;
-      body.style.position = previousBodyStyles.position;
-      body.style.top = previousBodyStyles.top;
-      body.style.width = previousBodyStyles.width;
-      body.style.paddingRight = previousBodyStyles.paddingRight;
-      window.scrollTo(0, scrollY);
-    };
-  }, [open]);
 
   if (!open) {
     return null;

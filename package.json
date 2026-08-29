@@ -8,7 +8,7 @@
     "verify:release-contracts": "tsx scripts/verify-release-contracts.ts",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "audit:egress": "node scripts/audit-public-article-egress.mjs"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
     "three": "^0.180.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.6",
     "@types/jsdom": "^30.0.0",
     "@types/node": "22.15.21",
     "@types/nodemailer": "8.0.1",

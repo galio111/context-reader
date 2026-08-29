@@ -26,6 +26,7 @@ import InvitationCodeRedeemContent from "@/components/InvitationCodeRedeemConten
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
 import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
+import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
 import { addVocabularyNote, checkAnki } from "@/lib/ankiConnect";
 import { downloadVocabularyCsv } from "@/lib/csv";
@@ -191,7 +192,7 @@ export function HomeOptionMenu({
   const [pinnedPreview, setPinnedPreview] = useState<PreviewKind | null>(null);
   const [previewAnchorY, setPreviewAnchorY] = useState<number | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const mobileSheet = useMobileBottomSheet(open);
+  const mobileSheet = useMobileBottomSheet(open, mobileMenu);
   const [internalAnkiSettings, setInternalAnkiSettings] = useState<AnkiSettings>(() => defaultAnkiSettings());
   const [internalAnkiStatus, setInternalAnkiStatus] = useState("");
   const [internalAnkiChecking, setInternalAnkiChecking] = useState(false);
@@ -262,13 +263,27 @@ export function HomeOptionMenu({
     if (open) setMounted(true);
   }, [open]);
 
+  useDocumentScrollLock(mounted);
+
   useEffect(() => {
     const query = window.matchMedia("(max-width: 760px)");
-    const update = () => setMobileMenu(query.matches);
+    const update = (event?: MediaQueryListEvent) => {
+      setMobileMenu(query.matches);
+      if (!event) return;
+      setHoveredVocabularyId(null);
+      setAnkiHelpOpen(false);
+      setPreviewAnchorY((current) => current === null
+        ? null
+        : query.matches
+          ? PREVIEW_ANCHOR_MIN
+          : standalonePreview
+            ? PREVIEW_ANCHOR_MIN + 12
+            : PREVIEW_ANCHOR_MIN + 54);
+    };
     update();
     query.addEventListener("change", update);
     return () => query.removeEventListener("change", update);
-  }, []);
+  }, [standalonePreview]);
 
   useEffect(() => {
     if (!open) return;

@@ -59,3 +59,7 @@ If production behavior does not match the expected release:
 3. Locate the missing change by its task commit or historical accepted release.
 4. Create a cumulative candidate from the current accepted production source, merge the missing commit and repeat the full guarded workflow.
 5. Roll back only to a known accepted image when the current version is unsafe; a rollback also becomes the next explicit production parent.
+
+## Application-image retention
+
+The production host keeps `latest`, accepted and candidate tags for both the active release and its direct parent. `ops/mainland/prune-release-images.sh` takes the same global deployment lock, resolves those two releases from the current symlink and release-state file, refuses to run if a protected tag is missing, removes only older `context-reader-app` tags, and then prunes unused dangling layers. Its daily systemd timer does not remove containers, volumes, databases, backups, immutable release directories or images used by the core services. Any broader Docker cleanup requires a separate inventory and explicit approval.

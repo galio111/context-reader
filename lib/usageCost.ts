@@ -12,6 +12,7 @@ interface DeepSeekRates {
 }
 
 const PEAK_PRICING_EFFECTIVE_AT = Date.parse("2026-08-16T16:00:00Z");
+export const DEFAULT_DEEPSEEK_USD_TO_CNY_RATE = 7.2;
 
 function configuredRate(name: string): number | null {
   const value = process.env[name]?.trim();
@@ -58,4 +59,12 @@ export function estimateDeepSeekCostMicrousd(model: string, usage: ProviderToken
   const miss = Math.max(0, Number(usage.prompt_cache_miss_tokens ?? Math.max(0, prompt - hit)));
   const output = Math.max(0, Number(usage.completion_tokens ?? 0));
   return Math.max(0, Math.round(hit * rates.hit + miss * rates.miss + output * rates.output));
+}
+
+export function deepSeekUsdToCnyRate(): number {
+  return configuredRate("DEEPSEEK_USD_TO_CNY_RATE") ?? DEFAULT_DEEPSEEK_USD_TO_CNY_RATE;
+}
+
+export function microusdToCny(microusd: number, rate = deepSeekUsdToCnyRate()): number {
+  return Math.max(0, Number(microusd) || 0) * rate / 1_000_000;
 }

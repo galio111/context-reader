@@ -1,0 +1,10 @@
+[Unit]
+Description=Prune superseded Context Reader release images
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/context-reader-current/ops/mainland/prune-release-images.sh
+Nice=10
+IOSchedulingClass=idle

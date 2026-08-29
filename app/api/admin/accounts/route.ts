@@ -3,7 +3,7 @@ import { accountFetch } from "@/lib/accountStore";
 import { isAdminRequest } from "@/lib/adminAuth";
 import { readJsonBody } from "@/lib/limitedBody";
 import { phoneFromAccountEmail, resetPhoneAccountPin } from "@/lib/userAuth";
-import { estimateDeepSeekCostMicrousd } from "@/lib/usageCost";
+import { deepSeekUsdToCnyRate, estimateDeepSeekCostMicrousd, microusdToCny } from "@/lib/usageCost";
 import type { AccountPlanId, UsageMetricKey } from "@/types/account";
 
 const PLANS = new Set<AccountPlanId>(["guest", "free", "basic", "plus", "max", "admin"]);
@@ -56,6 +56,17 @@ export async function GET() {
   ]);
   const executions = executionPage.rows;
   const failed = executions.filter((execution) => execution.status === "failed").length;
+  const estimatedCostMicrousd = executions.reduce((sum, execution) => sum + estimateDeepSeekCostMicrousd(
+    String(execution.model || "deepseek-v4-pro"),
+    {
+      prompt_tokens: Number(execution.prompt_tokens || 0),
+      prompt_cache_hit_tokens: Number(execution.prompt_cache_hit_tokens || 0),
+      prompt_cache_miss_tokens: Number(execution.prompt_cache_miss_tokens || 0),
+      completion_tokens: Number(execution.completion_tokens || 0),
+    },
+    new Date(String(execution.created_at || windowEnd.toISOString())),
+  ), 0);
+  const usdToCnyRate = deepSeekUsdToCnyRate();
   const usageSummary = {
     windowDays: USAGE_WINDOW_DAYS,
     windowStart,
@@ -65,18 +76,11 @@ export async function GET() {
     failureRate: executions.length ? failed / executions.length : 0,
     promptTokens: executions.reduce((sum, execution) => sum + Number(execution.prompt_tokens || 0), 0),
     completionTokens: executions.reduce((sum, execution) => sum + Number(execution.completion_tokens || 0), 0),
-    estimatedCostMicrousd: executions.reduce((sum, execution) => sum + estimateDeepSeekCostMicrousd(
-      String(execution.model || "deepseek-v4-pro"),
-      {
-        prompt_tokens: Number(execution.prompt_tokens || 0),
-        prompt_cache_hit_tokens: Number(execution.prompt_cache_hit_tokens || 0),
-        prompt_cache_miss_tokens: Number(execution.prompt_cache_miss_tokens || 0),
-        completion_tokens: Number(execution.completion_tokens || 0),
-      },
-      new Date(String(execution.created_at || windowEnd.toISOString())),
-    ), 0),
+    estimatedCostMicrousd,
+    estimatedCostCny: microusdToCny(estimatedCostMicrousd, usdToCnyRate),
+    usdToCnyRate,
     truncated: executionPage.truncated,
-    pricingBasis: "DeepSeek 2026-08-16 peak/off-peak rates, calculated per execution timestamp and cache usage",
+    pricingBasis: "DeepSeek 2026-08-16 peak/off-peak USD rates, calculated per execution timestamp and cache usage, then converted to CNY",
   };
   const safeProfiles = profiles.map((profile) => {
     const email = String(profile.email ?? "");

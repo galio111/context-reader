@@ -1,0 +1,11 @@
+[Unit]
+Description=Prune superseded Context Reader release images daily
+
+[Timer]
+OnCalendar=*-*-* 04:20:00 Asia/Shanghai
+RandomizedDelaySec=10m
+Persistent=true
+Unit=context-reader-image-prune.service
+
+[Install]
+WantedBy=timers.target

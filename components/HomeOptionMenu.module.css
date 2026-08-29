@@ -125,7 +125,7 @@
 }
 
 .panelHeader div > span {
-  color: #657985;
+  color: #536b78;
   font-size: 11px;
   font-weight: 650;
 }
@@ -221,7 +221,7 @@
 .accountIdentity:focus-visible { outline: 2px solid #347ca7; outline-offset: 5px; }
 
 .accountIdentity span {
-  color: #687b86;
+  color: #536b78;
   font-size: 10px;
 }
 
@@ -362,13 +362,13 @@
 .settingsPanel section:last-child { border-bottom: 0; }
 .settingsPanel section > div:first-child { min-width: 0; }
 .settingsPanel strong { color: #203542; font-size: 14px; font-weight: 650; }
-.settingsPanel p { max-width: 34ch; margin: 6px 0 0; color: #657985; font-size: 12px; line-height: 1.55; }
+.settingsPanel p { max-width: 34ch; margin: 6px 0 0; color: #536b78; font-size: 12px; line-height: 1.55; }
 .toggle { position: relative; width: 46px; height: 26px; padding: 0; flex: 0 0 auto; border: 0; border-radius: 999px; background: #bdcbd1; cursor: pointer; transition: background 180ms ease; }
 .toggle i { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 2px 5px rgb(13 32 43 / 22%); transition: transform 220ms cubic-bezier(.22, 1, .36, 1); }
 .toggle[aria-checked="true"] { background: #2d7187; }
 .toggle[aria-checked="true"] i { transform: translateX(20px); }
 .themeChoices { display: inline-flex; padding: 3px; flex: 0 0 auto; border-radius: 999px; background: #e5edf0; }
-.themeChoices button { min-width: 58px; min-height: 34px; padding: 0 12px; border: 0; border-radius: 999px; color: #60747f; background: transparent; font: inherit; font-size: 12px; cursor: pointer; touch-action: manipulation; }
+.themeChoices button { min-width: 58px; min-height: 34px; padding: 0 12px; border: 0; border-radius: 999px; color: #506875; background: transparent; font: inherit; font-size: 12px; cursor: pointer; touch-action: manipulation; }
 .themeChoices button[aria-pressed="true"] { color: #fff; background: #245f75; }
 
 .pageContent {
@@ -699,7 +699,7 @@
 }
 
 .vocabularySearch input::placeholder {
-  color: #607581;
+  color: #506875;
   opacity: 1;
 }
 
@@ -898,7 +898,7 @@
 }
 
 .vocabularyDetailHeader p strong {
-  color: #657985;
+  color: #536b78;
   font-weight: 650;
 }
 
@@ -1580,10 +1580,10 @@
     position: fixed;
     z-index: 52;
     right: 0;
-    bottom: calc(var(--mobile-sheet-height, 56dvh) - 22px);
+    bottom: calc(var(--mobile-sheet-height, 56dvh) - 44px);
     left: 0;
     display: flex;
-    height: 22px;
+    height: 44px;
     align-items: center;
     justify-content: center;
     cursor: ns-resize;
@@ -1594,6 +1594,13 @@
 
   .panelHeader h2 {
     font-size: 1.3rem;
+  }
+
+  .close {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+    justify-content: center;
   }
 
   .panelInner { padding-block: 12px 8px; overflow-y: auto; overscroll-behavior: contain; }
@@ -1608,7 +1615,7 @@
   .itemWrap[data-quick] { border: 1px solid rgb(38 83 105 / 14%); border-radius: 13px; background: rgb(255 255 255 / 54%); }
 
   .menuItem {
-    min-height: 38px;
+    min-height: 44px;
     padding: 0 2rem 0 0;
     font-size: 1.3rem;
     touch-action: manipulation;
@@ -1633,7 +1640,7 @@
 
   .settingsPanel .themeChoices button {
     min-width: 74px;
-    min-height: 42px;
+    min-height: 44px;
     font-size: 14px;
   }
 
@@ -1752,6 +1759,46 @@
 
   .ankiMeta {
     display: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .close {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .accountIdentity,
+  .ankiToolbar button,
+  .ankiToolbar .ankiHelpTrigger,
+  .ankiToolbar .ankiHelpPopover button,
+  .vocabularyManageBar button,
+  .importAnkiAction,
+  .secondaryDetailAction,
+  .dangerDetailAction,
+  .ankiSettingsBack,
+  .jumpToSource,
+  .previewPrimaryAction,
+  .previewSecondaryAction,
+  .feedbackImagePicker,
+  .feedbackFooter button {
+    min-height: 44px;
+  }
+
+  .vocabularySearch button,
+  .feedbackImages li button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .toggle {
+    height: 44px;
+  }
+
+  .toggle i {
+    top: 12px;
   }
 }
 

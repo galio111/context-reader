@@ -25,6 +25,8 @@ interface DashboardData {
     promptTokens: number;
     completionTokens: number;
     estimatedCostMicrousd: number;
+    estimatedCostCny: number;
+    usdToCnyRate: number;
     truncated: boolean;
     pricingBasis: string;
   };
@@ -184,7 +186,7 @@ export default function AdminAccountsPanel() {
     const summary = data?.usageSummary;
     return {
       executions: summary?.executions ?? 0,
-      cost: summary?.estimatedCostMicrousd ?? 0,
+      costCny: summary?.estimatedCostCny ?? 0,
       failed: summary?.failed ?? 0,
       failureRate: summary?.failureRate ?? 0,
       promptTokens: summary?.promptTokens ?? 0,
@@ -232,7 +234,7 @@ export default function AdminAccountsPanel() {
             <dl className="grid divide-y divide-[#e1e5e9] sm:grid-cols-4 sm:divide-x sm:divide-y-0">
               <SummaryItem label="注册账号" value={data.profiles.length.toLocaleString("zh-CN")} />
               <SummaryItem label="AI 执行" value={totals.executions.toLocaleString("zh-CN")} detail={`输入 ${totals.promptTokens.toLocaleString("zh-CN")} · 输出 ${totals.completionTokens.toLocaleString("zh-CN")} tokens`} />
-              <SummaryItem label="估算成本" value={`$${(totals.cost / 1_000_000).toFixed(4)}`} detail="按调用时间与缓存类型逐条重算" />
+              <SummaryItem label="估算成本" value={`￥${totals.costCny.toFixed(4)}`} detail={`按调用时间与缓存类型逐条重算，估算汇率 1 美元约 ${data.usageSummary.usdToCnyRate.toFixed(2)} 元`} />
               <SummaryItem label="失败执行" value={`${totals.failed} 次（${(totals.failureRate * 100).toFixed(1)}%）`} />
             </dl>
             {data.usageSummary.truncated && <p className="border-t border-[#e1e5e9] px-5 py-3 text-xs text-[#8d3224]">过去 30 天记录超过 50,000 条，当前统计已达到安全读取上限，需要增加数据库聚合后才能显示完整总数。</p>}
