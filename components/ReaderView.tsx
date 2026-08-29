@@ -49,6 +49,7 @@ import {
   normalizeForSourceMatch,
 } from "@/lib/sourceMatching";
 import { tokenizeArticle, tokenToWordContext } from "@/lib/tokenizer";
+import { scopeReaderTokenId } from "@/lib/readerTokenIdentity";
 import { getArticleImageSources, primeArticleImage } from "@/lib/articleImagePreload";
 import { isExternalArticleImageUrl } from "@/lib/articleImageUrls";
 import {
@@ -93,6 +94,7 @@ interface ReaderViewProps {
   editorialWorkbench?: boolean;
   initialViewportAnchor?: ReaderViewportAnchor | null;
   onViewportAnchorChange?: (anchor: ReaderViewportAnchor) => void;
+  onSourceJumpAligned?: () => void;
   savedArticles?: SavedArticle[];
   onOpenSavedArticle?: (article: SavedArticle) => void;
   onOpenImportedArticle?: (
@@ -743,6 +745,7 @@ export function ReaderView({
   editorialWorkbench = false,
   initialViewportAnchor = null,
   onViewportAnchorChange,
+  onSourceJumpAligned,
   savedArticles = [],
   onOpenSavedArticle,
   onOpenImportedArticle,
@@ -840,7 +843,7 @@ export function ReaderView({
       if (cached?.text === text && cached.paragraphIndex === paragraphIndex) return cached.tokens;
       const tokens = (tokenizeArticle(text)[0]?.tokens ?? []).map((token) => ({
         ...token,
-        ...(idPrefix ? { id: `${idPrefix}${token.id}` } : {}),
+        id: scopeReaderTokenId(idPrefix, token.id),
         paragraphIndex,
       }));
       tokenCache.set(cacheId, { text, paragraphIndex, tokens });
@@ -849,7 +852,7 @@ export function ReaderView({
     if (!effectiveImportedArticle?.blocks?.length) {
       return plainArticleParagraphs.map((text, paragraphIndex) => {
         const id = `paragraph-${paragraphIndex}`;
-        const tokens = cachedBlockTokens(`plain:${id}`, text, paragraphIndex);
+        const tokens = cachedBlockTokens(`plain:${id}`, text, paragraphIndex, `${id}-`);
         return {
           id,
           type: "paragraph",
@@ -1448,7 +1451,9 @@ export function ReaderView({
     setHighlightedSourceSentence(sourceSentence);
     const targetTokenIds = targetTokenIdsInSentence(firstToken.sentence, selectedText);
     setHighlightedTargetTokenIds(targetTokenIds);
-    return alignSourceToken(targetTokenIds[0] ?? firstToken.id);
+    const aligned = alignSourceToken(targetTokenIds[0] ?? firstToken.id);
+    if (aligned) onSourceJumpAligned?.();
+    return aligned;
   }
 
   function scrollToBestSourceSentence(sourceSentence: string, selectedText: string): boolean {
@@ -1464,7 +1469,9 @@ export function ReaderView({
     setHighlightedSourceSentence(similarMatch.sentence);
     const targetTokenIds = targetTokenIdsInSentence(similarMatch.sentence, selectedText);
     setHighlightedTargetTokenIds(targetTokenIds);
-    return alignSourceToken(targetTokenIds[0] ?? similarMatch.token.id);
+    const aligned = alignSourceToken(targetTokenIds[0] ?? similarMatch.token.id);
+    if (aligned) onSourceJumpAligned?.();
+    return aligned;
   }
 
   function scrollToVocabularyEntrySource(entry: VocabularyEntry): boolean {

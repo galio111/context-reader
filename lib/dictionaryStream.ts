@@ -10,10 +10,10 @@ type DictionaryStreamEvent =
     phonetic?: string;
     phoneticFor?: string;
     direction?: "en_to_cn" | "cn_to_en";
-    inputStatus?: "valid" | "inflection" | "misspelled";
+    inputStatus?: "valid" | "inflection" | "ambiguous" | "misspelled";
     suggestedQuery?: string;
   }
-  | { type: "sense"; partOfSpeech?: string; meaning?: string; phonetic?: string; register?: string; usageNote?: string; exampleEnglish?: string; exampleChinese?: string }
+  | { type: "sense"; headword?: string; headwordNote?: string; partOfSpeech?: string; meaning?: string; phonetic?: string; register?: string; usageNote?: string; exampleEnglish?: string; exampleChinese?: string }
   | { type: "verbForms"; pastTense?: string; pastParticiple?: string; presentParticiple?: string }
   | { type: "usage"; value?: string }
   | { type: "collocation"; phrase?: string; meaning?: string; exampleEnglish?: string; value?: string }
@@ -81,15 +81,17 @@ export function parseDictionaryStream(text: string, fallbackQuery: string): Pars
           ? "cn_to_en"
           : "en_to_cn";
         result.inputStatus =
-          event.inputStatus === "inflection" || event.inputStatus === "misspelled"
+          event.inputStatus === "inflection" || event.inputStatus === "ambiguous" || event.inputStatus === "misspelled"
             ? event.inputStatus
             : "valid";
         result.suggestedQuery = clean(event.suggestedQuery);
         break;
       case "sense": {
         const meaning = clean(event.meaning);
-        if (!meaning || result.senses.length >= 4) break;
+        if (!meaning || result.senses.length >= 8) break;
         result.senses.push({
+          headword: clean(event.headword),
+          headwordNote: clean(event.headwordNote),
           partOfSpeech: clean(event.partOfSpeech) || "词性待确认",
           meaning,
           phonetic: clean(event.phonetic),

@@ -1,0 +1,1 @@
+export const USER_SESSION_MAX_AGE_SECONDS = 400 * 24 * 60 * 60;

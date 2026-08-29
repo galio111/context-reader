@@ -207,7 +207,9 @@ function DictionaryResultContent({
       <header>
         <div>
           <h3>{result.query}</h3>
-          {result.lemma !== result.query && <p>原型：{result.lemma}</p>}
+          {result.inputStatus === "ambiguous"
+            ? <p>这个拼写对应多个词头，以下义项会同时保留。</p>
+            : result.lemma !== result.query && <p>原型：{result.lemma}</p>}
         </div>
         <div className={styles.pronunciation}>
           {result.phonetic && (
@@ -221,6 +223,12 @@ function DictionaryResultContent({
         <ol className={styles.senses}>
           {result.senses.map((sense, index) => (
             <li key={`${sense.partOfSpeech}-${sense.meaning}-${index}`}>
+              {(sense.headword || sense.headwordNote) && (
+                <div className={styles.senseOrigin}>
+                  {sense.headword && <b>{sense.headword}</b>}
+                  {sense.headwordNote && <span>{sense.headwordNote}</span>}
+                </div>
+              )}
               <div><strong>{sense.partOfSpeech}</strong><small>{sense.register}</small></div>
               <p>{sense.meaning}</p>
               {sense.exampleEnglish && <blockquote><span>{sense.exampleEnglish}</span><em>{sense.exampleChinese}</em></blockquote>}

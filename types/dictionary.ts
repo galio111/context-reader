@@ -1,4 +1,6 @@
 export interface DictionarySense {
+  headword?: string;
+  headwordNote?: string;
   partOfSpeech: string;
   meaning: string;
   phonetic: string;
@@ -31,7 +33,7 @@ export interface DictionaryVerbForms {
   presentParticiple: string;
 }
 
-export type DictionaryInputStatus = "valid" | "inflection" | "misspelled";
+export type DictionaryInputStatus = "valid" | "inflection" | "ambiguous" | "misspelled";
 export type DictionaryDirection = "en_to_cn" | "cn_to_en";
 
 export interface DictionaryResult {

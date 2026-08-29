@@ -18,6 +18,7 @@ import { getCachedArticleTranslation, setCachedArticleTranslation } from "@/lib/
 import { findBestSourceSentenceMatch, normalizeForSourceMatch } from "@/lib/sourceMatching";
 import { hasClickableWords, tokenizeArticle } from "@/lib/tokenizer";
 import { primeLeadingArticleImage } from "@/lib/articleImagePreload";
+import { waitForFastImageLocalization } from "@/lib/articleImageLocalizationPolicy";
 import { hasExternalImportedArticleImages, isExternalArticleImageUrl } from "@/lib/articleImageUrls";
 import type { ImportedArticle, ImportedImageLayoutWord, SavedArticle } from "@/types/article";
 import type { PublicArticle, PublicExplanation } from "@/types/publicArticle";
@@ -60,6 +61,22 @@ interface ReadingProgressSession {
   baselineAnchor: ReaderViewportAnchor | null;
   lastAnchor: ReaderViewportAnchor | null;
   cumulativeTravel: number;
+}
+
+interface ImageLocalizationResult {
+  article: ImportedArticle;
+  localized: number;
+  removed: number;
+}
+
+interface PreparedImportedArticle {
+  article: ImportedArticle;
+  completed?: ImageLocalizationResult;
+  background?: {
+    requestId: number;
+    sourceArticle: ImportedArticle;
+    pending: Promise<ImageLocalizationResult>;
+  };
 }
 
 const PROGRESS_INITIAL_SETTLE_MS = 3_000;
@@ -150,8 +167,6 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   const { account, isOffline, requireAccount } = useAccount();
   const [article, setArticle] = useState("");
   const [articleUrl, setArticleUrl] = useState("");
-  const [urlPreview, setUrlPreview] = useState<ImportedArticle | null>(null);
-  const [urlPreviewImageToken, setUrlPreviewImageToken] = useState("");
   const [importedArticle, setImportedArticle] = useState<ImportedArticle | null>(null);
   const [preloadedExplanations, setPreloadedExplanations] = useState<PublicExplanation[]>([]);
   const [activeArticleSource, setActiveArticleSource] = useState<VocabularySourceArticle | undefined>();
@@ -183,6 +198,8 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   const readerSessionStackRef = useRef<ReaderSessionSnapshot[]>([]);
   const readerViewportAnchorRef = useRef<ReaderViewportAnchor | null>(null);
   const activeSavedArticleIdRef = useRef<string | null>(null);
+  const forceProgressSaveForArticleRef = useRef<string | null>(null);
+  const pendingSourceJumpSavedArticleIdRef = useRef<string | null>(null);
   const activeTemporaryUserIdRef = useRef<string | null>(null);
   const progressSaveTimerRef = useRef<number | null>(null);
   const progressSessionRef = useRef<ReadingProgressSession>({
@@ -406,6 +423,13 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
 
   const handleReaderViewportAnchorChange = useCallback((anchor: ReaderViewportAnchor) => {
     readerViewportAnchorRef.current = anchor;
+    const forcedSavedArticleId = forceProgressSaveForArticleRef.current;
+    if (forcedSavedArticleId) {
+      forceProgressSaveForArticleRef.current = null;
+      setSavedArticles(saveArticleReadingProgress(forcedSavedArticleId, anchor));
+      beginReadingProgressSession(anchor);
+      return;
+    }
     if (!activeSavedArticleIdRef.current && !activeTemporaryUserIdRef.current) return;
     const session = progressSessionRef.current;
     const now = Date.now();
@@ -532,7 +556,6 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       return null;
     }
 
-    setImportingUrl(true);
     setUrlError("");
 
     try {
@@ -567,8 +590,6 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     } catch (importError) {
       setUrlError(importError instanceof Error ? importError.message : "网址导入失败，请稍后重试。");
       return null;
-    } finally {
-      setImportingUrl(false);
     }
   }
 
@@ -581,51 +602,83 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     }, 4_800);
   }
 
-  function startFreshImportedArticleImageLocalization(sourceArticle: ImportedArticle, imageLocalizationToken: string) {
+  async function requestFreshImportedArticleImageLocalization(
+    sourceArticle: ImportedArticle,
+    imageLocalizationToken: string,
+  ): Promise<ImageLocalizationResult> {
+    try {
+      const response = await fetch("/api/article-images/localize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ article: sourceArticle, freshImport: true, imageLocalizationToken }),
+      });
+      const data = await response.json().catch(() => null) as {
+        article?: ImportedArticle;
+        localized?: number;
+        removed?: number;
+        failures?: Array<{ src: string; error: string }>;
+      } | null;
+      if (!response.ok || !data?.article) throw new Error("图片保存请求失败");
+      return {
+        article: data.article,
+        localized: data.localized ?? 0,
+        removed: data.removed ?? data.failures?.length ?? 0,
+      };
+    } catch {
+      const articleWithoutExternalImages: ImportedArticle = {
+        ...sourceArticle,
+        blocks: sourceArticle.blocks.filter(
+          (block) => !(block.type === "image" && block.src && isExternalArticleImageUrl(block.src)),
+        ),
+      };
+      return {
+        article: articleWithoutExternalImages,
+        localized: 0,
+        removed: sourceArticle.blocks.length - articleWithoutExternalImages.blocks.length,
+      };
+    }
+  }
+
+  async function prepareFreshImportedArticle(
+    sourceArticle: ImportedArticle,
+    imageLocalizationToken: string,
+  ): Promise<PreparedImportedArticle> {
     const requestId = freshImageLocalizationRequestRef.current + 1;
     freshImageLocalizationRequestRef.current = requestId;
-    if (isOffline || !hasExternalImportedArticleImages(sourceArticle)) {
-      setArticleImagesLocalizing(false);
-      setArticleImageStatus("");
-      return;
+    freshImageLocalizationSourceRef.current = null;
+    setArticleImagesLocalizing(false);
+    setArticleImageStatus("");
+    if (isOffline || !hasExternalImportedArticleImages(sourceArticle)) return { article: sourceArticle };
+
+    const pending = requestFreshImportedArticleImageLocalization(sourceArticle, imageLocalizationToken);
+    const prepared = await waitForFastImageLocalization(pending);
+    if (prepared.mode === "fast") {
+      return { article: prepared.value.article, completed: prepared.value };
     }
+    return {
+      article: sourceArticle,
+      background: { requestId, sourceArticle, pending: prepared.pending },
+    };
+  }
 
-    setArticleImagesLocalizing(true);
+  function settleImageLocalizationResult(result: ImageLocalizationResult) {
+    if (result.removed > 0) {
+      settleImageStatus(`已保存 ${result.localized} 张配图，${result.removed} 张未能保留；正文不受影响。`);
+    } else {
+      setArticleImageStatus("");
+    }
+  }
+
+  function watchBackgroundImageLocalization(background: NonNullable<PreparedImportedArticle["background"]>) {
+    const { requestId, sourceArticle, pending } = background;
+    if (freshImageLocalizationRequestRef.current !== requestId) return;
     freshImageLocalizationSourceRef.current = sourceArticle;
-    setArticleImageStatus("正在后台保存配图，正文已经可以阅读。");
-    void (async () => {
-      let nextArticle: ImportedArticle | null = null;
-      let localized = 0;
-      let removed = 0;
-      try {
-        const response = await fetch("/api/article-images/localize", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ article: sourceArticle, freshImport: true, imageLocalizationToken }),
-        });
-        const data = await response.json().catch(() => null) as {
-          article?: ImportedArticle;
-          localized?: number;
-          removed?: number;
-          failures?: Array<{ src: string; error: string }>;
-        } | null;
-        if (!response.ok || !data?.article) throw new Error("图片保存请求失败");
-        nextArticle = data.article;
-        localized = data.localized ?? 0;
-        removed = data.removed ?? data.failures?.length ?? 0;
-      } catch {
-        nextArticle = {
-          ...sourceArticle,
-          blocks: sourceArticle.blocks.filter(
-            (block) => !(block.type === "image" && block.src && isExternalArticleImageUrl(block.src)),
-          ),
-        };
-        removed = sourceArticle.blocks.length - nextArticle.blocks.length;
-      }
-
-      if (freshImageLocalizationRequestRef.current !== requestId || !nextArticle) return;
-      const stillReadingSource = importedArticleRef.current === sourceArticle;
-      if (stillReadingSource) {
+    setArticleImagesLocalizing(true);
+    setArticleImageStatus("图片正在保存中。受原网址稳定性影响，部分图片可能保存失败；不影响正文阅读。");
+    void pending.then((result) => {
+      if (freshImageLocalizationRequestRef.current !== requestId) return;
+      const nextArticle = result.article;
+      if (importedArticleRef.current === sourceArticle) {
         importedArticleRef.current = nextArticle;
         setImportedArticle(nextArticle);
         void primeLeadingArticleImage(nextArticle);
@@ -641,22 +694,14 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       }
 
       const savedCopy = findSavedArticle(sourceArticle.text);
-      if (savedCopy) {
-        setSavedArticles(replaceSavedArticleImportedArticle(savedCopy.id, nextArticle));
-      }
+      if (savedCopy) setSavedArticles(replaceSavedArticleImportedArticle(savedCopy.id, nextArticle));
       setArticleImagesLocalizing(false);
       freshImageLocalizationSourceRef.current = null;
-      if (removed > 0) {
-        settleImageStatus(`已保存 ${localized} 张配图，${removed} 张未能保留；正文不受影响。`);
-      } else if (localized > 0) {
-        settleImageStatus(`已保存 ${localized} 张配图到本站。`);
-      } else {
-        setArticleImageStatus("");
-      }
-    })();
+      settleImageLocalizationResult(result);
+    });
   }
 
-  function openImportedUrlArticle(nextArticle: ImportedArticle, imageLocalizationToken: string) {
+  function openImportedUrlArticle(nextArticle: ImportedArticle, prepared?: PreparedImportedArticle) {
     importedArticleRef.current = nextArticle;
     setArticle(nextArticle.text);
     setImportedArticle(nextArticle);
@@ -673,26 +718,21 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     readerViewportAnchorRef.current = null;
     setReaderInitialViewportAnchor(null);
     enterReader("url-import");
-    startFreshImportedArticleImageLocalization(nextArticle, imageLocalizationToken);
-  }
-
-  async function handlePrepareUrlImport() {
-    const imported = await fetchUrlImport();
-    if (imported) {
-      setUrlPreview(imported.article);
-      setUrlPreviewImageToken(imported.imageLocalizationToken);
-    }
-  }
-
-  async function handleConfirmUrlImport() {
-    if (!urlPreview) return;
-    if (!(await consumeGuestImport("url"))) return;
-    openImportedUrlArticle(urlPreview, urlPreviewImageToken);
+    if (prepared?.completed) settleImageLocalizationResult(prepared.completed);
+    if (prepared?.background) watchBackgroundImageLocalization(prepared.background);
   }
 
   async function handleImportUrl() {
-    const imported = await fetchUrlImport();
-    if (imported) openImportedUrlArticle(imported.article, imported.imageLocalizationToken);
+    if (importingUrl) return;
+    setImportingUrl(true);
+    try {
+      const imported = await fetchUrlImport();
+      if (!imported || !(await consumeGuestImport("url"))) return;
+      const prepared = await prepareFreshImportedArticle(imported.article, imported.imageLocalizationToken);
+      openImportedUrlArticle(prepared.article, prepared);
+    } finally {
+      setImportingUrl(false);
+    }
   }
 
   async function handleOcrImage(file: File | null) {
@@ -836,6 +876,11 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     }
     if (!(await consumeGuestImport(kind))) return false;
 
+    const prepared = kind === "url" && nextImportedArticle
+      ? await prepareFreshImportedArticle(nextImportedArticle, imageLocalizationToken)
+      : undefined;
+    if (prepared) nextImportedArticle = prepared.article;
+
     pushCurrentReaderSession();
     setArticle(trimmedArticle);
     importedArticleRef.current = nextImportedArticle;
@@ -854,9 +899,8 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     readerViewportAnchorRef.current = null;
     setReaderInitialViewportAnchor(null);
     enterReader(kind === "url" ? "url-import" : "pasted-text");
-    if (kind === "url" && nextImportedArticle) {
-      startFreshImportedArticleImageLocalization(nextImportedArticle, imageLocalizationToken);
-    }
+    if (prepared?.completed) settleImageLocalizationResult(prepared.completed);
+    if (prepared?.background) watchBackgroundImageLocalization(prepared.background);
     return true;
   }
 
@@ -1030,6 +1074,11 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       ? entry.sourceSentence
       : findSimilarSourceSentence(article, entry);
     if (currentArticleMatchedSentence) {
+      const activeSavedArticleId = activeSavedArticleIdRef.current;
+      if (activeSavedArticleId) {
+        setSavedArticles(touchSavedArticle(activeSavedArticleId));
+        pendingSourceJumpSavedArticleIdRef.current = activeSavedArticleId;
+      }
       setSourceSentenceToHighlight(currentArticleMatchedSentence);
       setSourceWordToHighlight(entry.word);
       setSourceJumpRequestId((requestId) => requestId + 1);
@@ -1042,23 +1091,27 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     const savedArticle = findArticleForVocabularyEntry(entry);
     if (savedArticle) {
       pushCurrentReaderSession();
-      setArticle(savedArticle.body);
-      setImportedArticle(savedArticle.importedArticle ?? null);
+      const touchedArticles = touchSavedArticle(savedArticle.id);
+      const touchedArticle = touchedArticles.find((item) => item.id === savedArticle.id) ?? savedArticle;
+      setSavedArticles(touchedArticles);
+      setArticle(touchedArticle.body);
+      setImportedArticle(touchedArticle.importedArticle ?? null);
       setPreloadedExplanations([]);
       setActiveArticleSource(undefined);
       setSourceSentenceToHighlight(
-        containsSourceSentence(savedArticle.body, entry.sourceSentence)
+        containsSourceSentence(touchedArticle.body, entry.sourceSentence)
           ? entry.sourceSentence
-          : findSimilarSourceSentence(savedArticle.body, entry),
+          : findSimilarSourceSentence(touchedArticle.body, entry),
       );
       setSourceWordToHighlight(entry.word);
       setSourceJumpRequestId((requestId) => requestId + 1);
       setReaderSessionId((sessionId) => sessionId + 1);
       setError("");
-      activeSavedArticleIdRef.current = savedArticle.id;
+      activeSavedArticleIdRef.current = touchedArticle.id;
+      pendingSourceJumpSavedArticleIdRef.current = touchedArticle.id;
       activeTemporaryUserIdRef.current = null;
-      readerViewportAnchorRef.current = savedArticle.readingProgress ?? null;
-      setReaderInitialViewportAnchor(savedArticle.readingProgress ?? null);
+      readerViewportAnchorRef.current = touchedArticle.readingProgress ?? null;
+      setReaderInitialViewportAnchor(touchedArticle.readingProgress ?? null);
       enterReader("vocabulary");
       return true;
     }
@@ -1110,6 +1163,13 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         desktopViewportInsetLeft={132}
         initialViewportAnchor={readerInitialViewportAnchor}
         onViewportAnchorChange={handleReaderViewportAnchorChange}
+        onSourceJumpAligned={() => {
+          const savedArticleId = pendingSourceJumpSavedArticleIdRef.current ?? activeSavedArticleIdRef.current;
+          pendingSourceJumpSavedArticleIdRef.current = null;
+          if (!savedArticleId) return;
+          setSavedArticles(touchSavedArticle(savedArticleId));
+          forceProgressSaveForArticleRef.current = savedArticleId;
+        }}
         savedArticles={savedArticles}
         onOpenSavedArticle={handleOpenSavedArticleFromReader}
         onOpenImportedArticle={handleOpenImportedArticleFromReader}
@@ -1152,7 +1212,6 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         skipMemberOpening={homeDemoCompleted}
         article={article}
         articleUrl={articleUrl}
-        urlPreview={urlPreview}
         error={error}
         urlError={urlError}
         importingUrl={importingUrl}
@@ -1170,13 +1229,10 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         }}
         onArticleUrlChange={(value) => {
           setArticleUrl(value);
-          setUrlPreview(null);
-          setUrlPreviewImageToken("");
           if (urlError) setUrlError("");
         }}
         onStartReading={handleStartReading}
-        onPrepareUrlImport={handlePrepareUrlImport}
-        onConfirmUrlImport={handleConfirmUrlImport}
+        onImportUrl={handleImportUrl}
         onOpenDemoArticle={handleOpenDemoArticle}
         onOpenSavedArticle={handleOpenSavedArticle}
         onOpenTemporaryReading={handleOpenTemporaryReading}

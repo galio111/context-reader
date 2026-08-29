@@ -658,6 +658,7 @@ export default function AdminPage() {
     return (
       <div className="min-h-screen bg-[#f5f5f7] text-[#17212b]" style={{ colorScheme: "light" }}>
         <AdminArticleMetadataInspector
+          key={`${readerState.kind}:${readerState.article.id}`}
           article={readerState.article}
           articleKind={readerState.kind}
           queuePosition={queueIndex >= 0 ? { index: queueIndex, total: queue.length } : undefined}

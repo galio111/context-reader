@@ -146,7 +146,7 @@ requireSource("app/api/import-url/route.ts", [
 ]);
 assert.ok(
   !source("app/api/import-url/route.ts").includes("localizeImportedArticleImages"),
-  "URL import must return readable text before background image localization",
+  "URL extraction must stay separate from bounded client-side image localization",
 );
 requireSource("lib/publicArticleCovers.ts", [
   "images.weserv.nl",
@@ -170,13 +170,17 @@ requireSource("lib/safeRemoteFetch.ts", [
 requireSource("components/HomeClient.tsx", [
   "/api/article-images/localize",
   "replaceSavedArticleImportedArticle",
-  "正在后台保存配图，正文已经可以阅读。",
+  "waitForFastImageLocalization",
+  "图片正在保存中。受原网址稳定性影响，部分图片可能保存失败；不影响正文阅读。",
   "freshImport: true",
   "imageLocalizationToken",
 ]);
+requireSource("components/ReaderView.tsx", ["scopeReaderTokenId", "`${id}-`"]);
+requireSource("components/AdminArticleMetadataInspector.tsx", ["finally { setWorking(\"\"); }"]);
+requireSource("lib/userAuth.ts", ["USER_SESSION_MAX_AGE_SECONDS"]);
 requireSource("components/ReaderView.tsx", [
   "配图正在保存，正文可先阅读",
   "!isExternalArticleImageUrl(src)",
 ]);
 
-console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, invitation-entitlement-v1, progressive-article-image-localization-v2");
+console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, invitation-entitlement-v1, adaptive-article-image-localization-v3, reader-token-identity-v1, admin-curation-transition-v1, rolling-session-v1");

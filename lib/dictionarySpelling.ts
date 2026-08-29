@@ -71,7 +71,7 @@ export function normalizeDictionarySpelling(
   }
   const rawStatus = result.inputStatus;
   const explicitStatus: DictionaryInputStatus | null =
-    rawStatus === "valid" || rawStatus === "inflection" || rawStatus === "misspelled"
+    rawStatus === "valid" || rawStatus === "inflection" || rawStatus === "ambiguous" || rawStatus === "misspelled"
       ? rawStatus
       : null;
   const inferredMisspelling = inferredRepeatedLetterCorrection(query, lemma);

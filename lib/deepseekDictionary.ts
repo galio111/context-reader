@@ -20,14 +20,14 @@ const dictionaryPrompt = `你是给中文母语英语学习者使用的双向深
 1. 只返回严格 JSON，不要 Markdown，不要额外文字。
 2. 内容要比普通简明词典更有学习价值，但避免冗长堆砌。所有解释字段使用自然、准确的中文。
 3. 英文输入使用 direction="en_to_cn"；中文输入使用 direction="cn_to_en"。query 必须原样保留用户输入。
-4. 英译中时，lemma 是英文原形；phonetic 必须是用户实际输入 query 的 IPA，绝不能改成 lemma 的 IPA；phoneticFor 必须原样返回 query，用来明确音标归属，无法确认当前词形的音标时二者都留空。senses.meaning 是准确中文释义。先判断英文输入：真实表达用 inputStatus="valid"；正常词形变化用 "inflection"；明显拼写错误用 "misspelled" 并填写 suggestedQuery。拼错时不得编造内容，其他学习字段全部返回空值。
+4. 英译中时，lemma 是英文原形；phonetic 必须是用户实际输入 query 的 IPA，绝不能改成 lemma 的 IPA；phoneticFor 必须原样返回 query，用来明确音标归属，无法确认当前词形的音标时二者都留空。senses.meaning 是准确中文释义。先判断英文输入：真实表达用 inputStatus="valid"；正常词形变化用 "inflection"；如果同一拼写既是某词的词形变化、又是另一个独立词头（例如 fell 同时是 fall 的过去式，也是独立动词 fell 和名词 fell），必须用 "ambiguous"，并把两组常用义项都返回；明显拼写错误用 "misspelled" 并填写 suggestedQuery。拼错时不得编造内容，其他学习字段全部返回空值。
 5. 中译英时，中文 query 才是词头。lemma 仅保存第一候选英文，phonetic 保存第一候选的 IPA，phoneticFor 保存第一候选英文，inputStatus 固定为 "valid"，suggestedQuery 为空。senses 按实际需要返回 1-4 个自然英文候选，不得默认只有一种，也不得为了凑数制造生硬近义词。中文词语能表示多种词性时（如“绑架”可作动词和名词），必须先按词性归类，再在各词性内给候选；同词性的候选必须相邻。每个候选的 meaning 是英文表达，phonetic 是该表达的 IPA，partOfSpeech 是准确英文词性，register 用中文写语域，usageNote 用一两句中文说明什么场景下选它，并提供一组自然英中例句。
-6. 英译中必须保持深度词典的完整度：义项按常用中文含义区分，每个义项带自然英中例句；usageGuide 解释核心用法、语气和易混点；常见搭配返回 3-6 项；有合理内容时返回词族 2-5 项和近义词辨析 2-5 项；确有易错点时返回；memoryTip 返回可信且不牵强的记忆提示。不要因为流式界面而省略这些板块。
+6. 英译中必须保持深度词典的完整度：义项按常用中文含义区分，每个义项带自然英中例句。每个 sense 都填写 headword；歧义词还要用 headwordNote 标明“fall 的过去式”或“独立词头 fell”等关系，同一 headword 的义项连续排列。usageGuide 解释核心用法、语气和易混点；常见搭配返回 3-6 项；有合理内容时返回词族 2-5 项和近义词辨析 2-5 项；确有易错点时返回；memoryTip 返回可信且不牵强的记忆提示。不要因为流式界面而省略这些板块。
 7. 英译中若词头或常见义项可作动词，verbForms 返回过去式、过去分词、现在分词；不是动词则为 null。中译英始终为 null。
 8. 中译英的 usageGuide 只需简短比较各候选之间的选择差别，不重复逐项说明；collocations、wordFamily、synonyms 和 memoryTip 返回空数组或空字符串。
 9. commonMistakes 仅在确有常见中式英语或选词误区时返回 0-3 条。
 返回结构：
-{"query":"","lemma":"","phonetic":"","phoneticFor":"","direction":"en_to_cn","inputStatus":"valid","suggestedQuery":"","senses":[{"partOfSpeech":"","meaning":"","phonetic":"","register":"","usageNote":"","exampleEnglish":"","exampleChinese":""}],"verbForms":{"pastTense":"","pastParticiple":"","presentParticiple":""},"usageGuide":"","collocations":[{"phrase":"","meaning":"","exampleEnglish":""}],"wordFamily":[{"word":"","partOfSpeech":"","meaning":""}],"synonyms":[{"word":"","difference":""}],"commonMistakes":[""],"memoryTip":""}`;
+{"query":"","lemma":"","phonetic":"","phoneticFor":"","direction":"en_to_cn","inputStatus":"valid","suggestedQuery":"","senses":[{"headword":"","headwordNote":"","partOfSpeech":"","meaning":"","phonetic":"","register":"","usageNote":"","exampleEnglish":"","exampleChinese":""}],"verbForms":{"pastTense":"","pastParticiple":"","presentParticiple":""},"usageGuide":"","collocations":[{"phrase":"","meaning":"","exampleEnglish":""}],"wordFamily":[{"word":"","partOfSpeech":"","meaning":""}],"synonyms":[{"word":"","difference":""}],"commonMistakes":[""],"memoryTip":""}`;
 
 interface ProviderProfile {
   apiKey: string;
@@ -101,6 +101,8 @@ function normalizeDictionary(value: unknown, query: string): DictionaryResult {
     const meaning = text(item.meaning);
     if (!meaning) return null;
     return {
+      headword: text(item.headword),
+      headwordNote: text(item.headwordNote),
       partOfSpeech: text(item.partOfSpeech, "词性待确认"),
       meaning,
       phonetic: text(item.phonetic),
@@ -109,7 +111,7 @@ function normalizeDictionary(value: unknown, query: string): DictionaryResult {
       exampleEnglish: text(item.exampleEnglish),
       exampleChinese: text(item.exampleChinese),
     };
-  }, 4);
+  }, 8);
   const normalized = normalizeDictionarySpelling({
     query,
     lemma: isChineseQuery ? senses[0]?.meaning || text(data.lemma, query) : text(data.lemma, query),
@@ -121,8 +123,8 @@ function normalizeDictionary(value: unknown, query: string): DictionaryResult {
       : pronunciationTargetMatches(text(data.phoneticFor), query) ? query : "",
     direction: isChineseQuery ? "cn_to_en" : "en_to_cn",
     inputStatus:
-      data.inputStatus === "inflection" || data.inputStatus === "misspelled"
-        ? data.inputStatus
+      data.inputStatus === "inflection" || data.inputStatus === "ambiguous" || data.inputStatus === "misspelled"
+      ? data.inputStatus
         : "valid",
     suggestedQuery: text(data.suggestedQuery),
     senses,

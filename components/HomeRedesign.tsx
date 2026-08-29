@@ -142,7 +142,6 @@ interface HomeRedesignProps {
   skipMemberOpening?: boolean;
   article: string;
   articleUrl: string;
-  urlPreview: ImportedArticle | null;
   error: string;
   urlError: string;
   importingUrl: boolean;
@@ -154,8 +153,7 @@ interface HomeRedesignProps {
   onArticleChange: (value: string) => void;
   onArticleUrlChange: (value: string) => void;
   onStartReading: () => Promise<void> | void;
-  onPrepareUrlImport: () => Promise<void> | void;
-  onConfirmUrlImport: () => Promise<void> | void;
+  onImportUrl: () => Promise<void> | void;
   onOpenDemoArticle: (article: ImportedArticle) => void;
   onOpenSavedArticle: (article: SavedArticle) => void;
   onOpenTemporaryReading: (article: TemporaryReading) => void;
@@ -816,8 +814,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
   function submitImport() {
     if (inputMode === "url") {
-      if (props.urlPreview) void props.onConfirmUrlImport();
-      else void props.onPrepareUrlImport();
+      void props.onImportUrl();
     }
     else void props.onStartReading();
   }
@@ -1048,9 +1045,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
     });
   }
 
-  const previewCover = props.urlPreview?.blocks.find((block) => block.type === "image");
-  const previewExcerpt = props.urlPreview?.text.replace(/\s+/g, " ").trim().slice(0, 210) ?? "";
-  const previewWordCount = props.urlPreview?.text.match(/[A-Za-z]+(?:['’-][A-Za-z]+)*/g)?.length ?? 0;
   async function copyWechat() {
     try {
       await navigator.clipboard.writeText(PUBLIC_CONTACT.wechat);
@@ -1083,34 +1077,19 @@ export function HomeRedesign(props: HomeRedesignProps) {
               />
             </ClearableField>
           ) : (
-            <>
-              <div className={styles.urlFieldRow}>
-                <ClearableField value={props.articleUrl} onClear={() => props.onArticleUrlChange("")} label="清空文章网址">
-                  <input value={props.articleUrl} onChange={(event) => props.onArticleUrlChange(event.target.value)} placeholder="https://example.com/article" />
-                </ClearableField>
-                <span className={styles.urlHelp}>
-                  <button type="button" aria-label="了解网址抓取范围" aria-describedby="url-import-help">?</button>
-                  <span id="url-import-help" role="tooltip">多数公开文章可以直接读取。登录、订阅或限制访问的页面可能无法导入；遇到这种情况，复制正文会更可靠。</span>
-                </span>
-              </div>
-              {props.urlPreview && (
-                <article className={styles.urlPreview} aria-label="网址文章预览">
-                  {previewCover?.type === "image" && previewCover.src && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={previewCover.src} alt={previewCover.alt || ""} />
-                  )}
-                  <div>
-                    <small>{props.urlPreview.siteName || "来源网站"} · 约 {previewWordCount.toLocaleString("zh-CN")} 词</small>
-                    <h3>{props.urlPreview.title || "未命名文章"}</h3>
-                    <p>{previewExcerpt}{props.urlPreview.text.length > previewExcerpt.length ? "…" : ""}</p>
-                  </div>
-                </article>
-              )}
-            </>
+            <div className={styles.urlFieldRow}>
+              <ClearableField value={props.articleUrl} onClear={() => props.onArticleUrlChange("")} label="清空文章网址">
+                <input value={props.articleUrl} onChange={(event) => props.onArticleUrlChange(event.target.value)} placeholder="https://example.com/article" />
+              </ClearableField>
+              <span className={styles.urlHelp}>
+                <button type="button" aria-label="了解网址抓取范围" aria-describedby="url-import-help">?</button>
+                <span id="url-import-help" role="tooltip">多数公开文章可以直接读取。登录、订阅或限制访问的页面可能无法导入；遇到这种情况，复制正文会更可靠。</span>
+              </span>
+            </div>
           )}
         </div>
         <button type="button" className={styles.importSubmit} onClick={submitImport} disabled={props.importingUrl}>
-          {inputMode === "url" && props.importingUrl ? "正在提取正文…" : inputMode === "url" && props.urlPreview ? "确认并开始阅读" : "开始阅读"}
+          {inputMode === "url" && props.importingUrl ? "正在准备文章…" : "开始阅读"}
         </button>
         <p className={styles.importError} role="alert">{inputMode === "url" ? props.urlError : props.error}</p>
         {inputMode === "url" && props.urlError && (

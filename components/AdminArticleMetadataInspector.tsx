@@ -91,7 +91,8 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
 
   useEffect(() => {
     const next = initialDraft(article);
-    setDraft(next); setBaseline(next); setFeatured(false); setIncludeInRecommendation(true); setRecommendationFeatured(false); setMessage(""); setError("");
+    savePromiseRef.current = null;
+    setDraft(next); setBaseline(next); setFeatured(false); setIncludeInRecommendation(true); setRecommendationFeatured(false); setWorking(""); setMessage(""); setError("");
   }, [article]);
 
   const wordCount = useMemo(() => countArticleEnglishWords(article.body), [article.body]);
@@ -185,21 +186,24 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
         recommendationFeatured,
       });
     }
-    catch (actionError) { setError(actionError instanceof Error ? actionError.message : "精选失败。"); setWorking(""); }
+    catch (actionError) { setError(actionError instanceof Error ? actionError.message : "精选失败。"); }
+    finally { setWorking(""); }
   }
 
   async function handleReject() {
     if (!onReject) return;
     setWorking("reject"); setError("");
     try { await saveDraft(); setWorking("reject"); await onReject(); }
-    catch (actionError) { setError(actionError instanceof Error ? actionError.message : "移出候选失败。"); setWorking(""); }
+    catch (actionError) { setError(actionError instanceof Error ? actionError.message : "移出候选失败。"); }
+    finally { setWorking(""); }
   }
 
   async function handleDelete() {
     if (!onDelete) return;
     setWorking("delete"); setError("");
     try { await saveDraft(); setWorking("delete"); await onDelete(); }
-    catch (actionError) { setError(actionError instanceof Error ? actionError.message : "删除精选失败。"); setWorking(""); }
+    catch (actionError) { setError(actionError instanceof Error ? actionError.message : "删除精选失败。"); }
+    finally { setWorking(""); }
   }
 
   const busy = Boolean(working);

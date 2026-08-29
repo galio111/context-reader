@@ -476,12 +476,6 @@ export function VocabularyPanel({
                       </div>
                     )}
 
-                    {showAnkiActions && entry.anki.cardMode === "basic_cn_to_en" && (
-                      <p className="mt-3 hidden rounded-[18px] bg-[#f5f5f7] px-3 py-2 text-sm tracking-[-0.224px] text-[#333333] lg:block">
-                        原句中无法可靠定位并挖空该词，导入时将使用“基础释义中译英卡”。
-                      </p>
-                    )}
-
                     <div className="mt-4 flex flex-wrap gap-2">
                       {showAnkiActions && (
                         <>

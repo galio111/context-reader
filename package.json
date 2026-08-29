@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "test:critical": "tsx --test tests/critical-regressions.test.ts",
     "verify:release-contracts": "tsx scripts/verify-release-contracts.ts",
     "build": "next build",
     "start": "next start",

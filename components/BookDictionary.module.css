@@ -565,6 +565,9 @@
 .senses li { position: relative; padding: 0 0 22px 36px; counter-increment: sense; }
 .senses li::before { position: absolute; top: 0; left: 0; color: #8da6b8; content: counter(sense); font: 500 20px Georgia, serif; }
 .senses li > div { display: flex; align-items: center; gap: 8px; }
+.senses .senseOrigin { margin: 0 0 7px; align-items: baseline; flex-wrap: wrap; }
+.senseOrigin b { color: #173f4d; font-family: Georgia, serif; font-size: 17px; font-weight: 600; }
+.senseOrigin span { color: #657682; font-size: 12px; }
 .senses strong { color: #245f8c; font-size: 12px; }
 .senses small { color: #70818d; }
 .senses p { margin: 4px 0 8px; color: #1f2f39; font-size: 16px; }

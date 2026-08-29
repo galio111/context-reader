@@ -7,10 +7,10 @@ import {
   isAcceptedAccountLoginPassword,
   isStrongAccountPassword,
 } from "@/lib/passwordPolicy";
+import { USER_SESSION_MAX_AGE_SECONDS } from "@/lib/sessionPolicy";
 
 const ACCESS_COOKIE = "context_reader_access";
 const REFRESH_COOKIE = "context_reader_refresh";
-const SESSION_MAX_AGE_SECONDS = 7 * 24 * 60 * 60;
 const PHONE_ACCOUNT_DOMAIN = "phone.context-reader.invalid";
 
 function authConfig(): { url: string; key: string } | null {
@@ -237,7 +237,7 @@ async function writeSessionCookies(session: Session): Promise<void> {
   });
   cookieStore.set(REFRESH_COOKIE, session.refresh_token, {
     ...base,
-    maxAge: SESSION_MAX_AGE_SECONDS,
+    maxAge: USER_SESSION_MAX_AGE_SECONDS,
   });
 }
 

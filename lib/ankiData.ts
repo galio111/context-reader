@@ -15,12 +15,17 @@ function buildChineseCue(data: Partial<WordExplanation>): string {
   return String(data.contextMeaning ?? "").trim();
 }
 
-function buildLocalCloze(sentence: string, word: string): string {
-  const escaped = word.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  if (!sentence.trim() || !escaped) {
+export function buildContextCloze(sentence: string, word: string): string {
+  const terms = word.match(/[A-Za-z0-9]+/g) ?? [];
+  if (!sentence.trim() || terms.length === 0) {
     return "";
   }
-  const clozeSentence = sentence.replace(new RegExp(`\\b${escaped}\\b`, "i"), "________");
+  const joiner = "[\\s'’\\-‐‑–—]+";
+  const phrase = terms
+    .map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+    .join(joiner);
+  const pattern = new RegExp(`(^|[^A-Za-z0-9])${phrase}(?=$|[^A-Za-z0-9])`, "i");
+  const clozeSentence = sentence.replace(pattern, (_match, leading: string) => `${leading}________`);
   const remainingContext = clozeSentence
     .replace("________", "")
     .replace(/[^A-Za-z0-9]+/g, "");
@@ -50,10 +55,10 @@ export function normalizeAnkiInfo(
 ): AnkiCardInfo {
   const rawAnki = (data.anki ?? {}) as Partial<AnkiCardInfo>;
   const word = String(data.word ?? "");
-  const localCloze = buildLocalCloze(sourceSentence, word);
+  const localCloze = buildContextCloze(sourceSentence, word);
   const suppliedCloze = String(rawAnki.clozeSentence ?? "").trim();
   const clozeSentence = sourceSentence.trim()
-    ? localCloze
+    ? localCloze || (suppliedCloze.includes("________") ? suppliedCloze : "")
     : suppliedCloze.includes("________")
       ? suppliedCloze
       : "";
