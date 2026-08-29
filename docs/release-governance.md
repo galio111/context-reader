@@ -28,9 +28,9 @@ The mutable bootstrap checkout at `/opt/context-reader/ops/mainland` is not a re
 Development may run in parallel in separate branches/worktrees. Production integration is deliberately serialized:
 
 - Start each code task with `powershell -File scripts/new-task-worktree.ps1 -TaskName <short-name> -BaseRef <reviewed-base>`. The helper creates only a `codex/*` branch below `artifacts/task-worktrees/` and refuses an existing branch or directory.
+- Keep task worktrees bounded: 8 is the normal retained target and 12 is the hard cap. On creation, clean worktrees older than 24 hours are removed oldest-first when needed, including unmerged task directories at the hard cap; their branches and commits remain available. Current, dirty, locked, recent, detached, and orphan directories are never auto-removed, and creation stops if those protections prevent convergence below 12.
 - Commit each task before handoff. Production integration merges or cherry-picks those commits; it never copies one worktree wholesale over another.
-- The helper runs the conservative task-worktree reaper before creating anything: only clean, unlocked worktrees at least 48 hours old whose exact commits are already contained by `origin/main` are removed. The caller's current worktree is never eligible. It then blocks new worktrees below 20 GB free space or above 32 task-worktree directories. Use `powershell -File scripts/cleanup-task-worktrees.ps1` to audit; add `-Apply` to remove only the reported safe candidates. Orphan directories and dirty, unmerged, locked or recent worktrees are always retained for manual review.
-- After a task commit is accepted into `origin/main` and no session uses the worktree, remove it promptly rather than retaining its `node_modules` and `.next` outputs as an informal backup. Git branches and commits are the durable history.
+- After handoff, remove the task worktree promptly rather than retaining its `node_modules` and `.next` outputs as an informal backup. Git branches and commits are the durable history.
 
 - If two tasks package from the same parent, the first accepted release advances production. The second package is rejected with `parent release mismatch` and must be integrated again on top of the new parent.
 - If two deploy commands overlap, the second is rejected by the global deployment lock.

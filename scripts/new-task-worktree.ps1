@@ -9,13 +9,16 @@ param(
   [string]$Destination = '',
 
   [ValidateRange(1, 8760)]
-  [int]$CleanupMinAgeHours = 48,
+  [int]$CleanupMinAgeHours = 24,
 
   [ValidateRange(1, 1024)]
   [int]$MinimumFreeGB = 20,
 
   [ValidateRange(1, 500)]
-  [int]$MaximumTaskWorktrees = 32,
+  [int]$MaximumTaskWorktrees = 12,
+
+  [ValidateRange(0, 499)]
+  [int]$CleanupTargetWorktrees = 8,
 
   [switch]$BypassRetentionGuard
 )
@@ -67,7 +70,24 @@ if (-not $BypassRetentionGuard) {
   if (-not (Test-Path -LiteralPath $cleanupScript -PathType Leaf)) {
     throw "Missing task-worktree cleanup script: $cleanupScript"
   }
-  $cleanupJson = (& $cleanupScript -Apply -MinAgeHours $CleanupMinAgeHours -MergedInto 'origin/main' | Out-String).Trim()
+  if ($CleanupTargetWorktrees -ge $MaximumTaskWorktrees) {
+    throw 'CleanupTargetWorktrees must be lower than MaximumTaskWorktrees.'
+  }
+  $taskWorktreeCountBefore = if (Test-Path -LiteralPath $worktreeRoot -PathType Container) {
+    @(Get-ChildItem -LiteralPath $worktreeRoot -Directory -Force).Count
+  } else {
+    0
+  }
+  $cleanupArguments = @{
+    Apply = $true
+    MinAgeHours = $CleanupMinAgeHours
+    MergedInto = 'origin/main'
+  }
+  if ($taskWorktreeCountBefore -ge $MaximumTaskWorktrees) {
+    $cleanupArguments.IncludeUnmerged = $true
+    $cleanupArguments.TargetCount = $CleanupTargetWorktrees
+  }
+  $cleanupJson = (& $cleanupScript @cleanupArguments | Out-String).Trim()
   if ($LASTEXITCODE -ne 0) {
     throw 'Safe task-worktree cleanup failed; no new worktree was created.'
   }
@@ -87,12 +107,13 @@ if (-not $BypassRetentionGuard) {
     freeGB = $freeGB
     minimumFreeGB = $MinimumFreeGB
     maximumTaskWorktrees = $MaximumTaskWorktrees
+    cleanupTargetWorktrees = $CleanupTargetWorktrees
   }
   if ($freeGB -lt $MinimumFreeGB) {
     throw "Only $freeGB GB is free on $driveRoot after safe cleanup; at least $MinimumFreeGB GB is required before creating another task worktree."
   }
   if ($taskWorktreeCount -ge $MaximumTaskWorktrees) {
-    throw "There are already $taskWorktreeCount task-worktree directories; the limit is $MaximumTaskWorktrees. Audit unmerged/dirty worktrees before creating another."
+    throw "There are still $taskWorktreeCount task-worktree directories after safe cleanup; the hard limit is $MaximumTaskWorktrees. Recent, dirty, locked, current, or orphan directories require review before creating another."
   }
 }
 
@@ -111,5 +132,5 @@ if ($LASTEXITCODE -ne 0) {
   baseRevision = $baseCommit
   worktree = $destinationPath
   retention = $retention
-  nextRule = 'Commit before handoff. After the commit is accepted into origin/main, remove this worktree; safe merged worktrees are also reaped before future task creation.'
+  nextRule = 'Commit before handoff. New task creation keeps at most 12 task directories and, when the cap is reached, removes the oldest clean worktrees older than 24 hours until 8 remain. Branches and commits are retained.'
 } | ConvertTo-Json

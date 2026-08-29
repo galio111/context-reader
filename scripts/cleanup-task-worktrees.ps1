@@ -1,9 +1,14 @@
 [CmdletBinding()]
 param(
   [ValidateRange(1, 8760)]
-  [int]$MinAgeHours = 48,
+  [int]$MinAgeHours = 24,
 
   [string]$MergedInto = 'origin/main',
+
+  [switch]$IncludeUnmerged,
+
+  [ValidateRange(0, 500)]
+  [int]$TargetCount = 0,
 
   [switch]$Apply
 )
@@ -124,7 +129,8 @@ foreach ($directory in Get-ChildItem -LiteralPath $worktreeRoot -Directory -Forc
   if ($isCurrent) { $reasons += 'current worktree' }
   if ($record.locked) { $reasons += 'locked' }
   if ($dirty) { $reasons += 'dirty' }
-  if (-not $merged) { $reasons += "not merged into $MergedInto" }
+  if ($branch -eq '(detached)') { $reasons += 'detached HEAD has no durable branch' }
+  if (-not $merged -and -not $IncludeUnmerged) { $reasons += "not merged into $MergedInto" }
   if ($tooRecent) { $reasons += "younger than $MinAgeHours hours" }
 
   $item = [pscustomobject]@{
@@ -146,9 +152,17 @@ foreach ($directory in Get-ChildItem -LiteralPath $worktreeRoot -Directory -Forc
   }
 }
 
+$candidates = @($candidates | Sort-Object ageHours -Descending)
+$selectedCandidates = $candidates
+if ($TargetCount -gt 0) {
+  $registeredCount = $candidates.Count + $retained.Count
+  $removalCount = [math]::Max(0, $registeredCount - $TargetCount)
+  $selectedCandidates = @($candidates | Select-Object -First $removalCount)
+}
+
 $removed = @()
 if ($Apply) {
-  foreach ($item in $candidates) {
+  foreach ($item in $selectedCandidates) {
     $path = [IO.Path]::GetFullPath($item.path)
     if (-not $path.StartsWith($allowedPrefix, [StringComparison]::OrdinalIgnoreCase)) {
       throw "Refusing removal outside the task-worktree root: $path"
@@ -157,13 +171,15 @@ if ($Apply) {
     if ($LASTEXITCODE -ne 0 -or @($status | Where-Object { $_ }).Count -gt 0) {
       throw "Worktree changed after audit and is no longer clean: $path"
     }
-    $head = (& git -C $path rev-parse HEAD).Trim()
-    & git -C $repoRoot merge-base --is-ancestor $head $mergedCommit
-    if ($LASTEXITCODE -ne 0) {
-      throw "Worktree changed after audit and is no longer merged into ${MergedInto}: $path"
+    if (-not $IncludeUnmerged) {
+      $head = (& git -C $path rev-parse HEAD).Trim()
+      & git -C $repoRoot merge-base --is-ancestor $head $mergedCommit
+      if ($LASTEXITCODE -ne 0) {
+        throw "Worktree changed after audit and is no longer merged into ${MergedInto}: $path"
+      }
     }
 
-    Write-Host "Removing clean merged worktree: $($item.name)"
+    Write-Host "Removing old clean worktree (branch retained): $($item.name)"
     & git -C $repoRoot -c core.longpaths=true worktree remove $path
     if ($LASTEXITCODE -ne 0) {
       throw "Git could not remove task worktree: $path"
@@ -181,9 +197,12 @@ if ($Apply) {
   mergedInto = $MergedInto
   mergedRevision = $mergedCommit
   minAgeHours = $MinAgeHours
+  includeUnmerged = [bool]$IncludeUnmerged
+  targetCount = $TargetCount
   summary = [pscustomobject]@{
     registered = $candidates.Count + $retained.Count
     candidates = $candidates.Count
+    selected = $selectedCandidates.Count
     removed = $removed.Count
     dirty = @($retained | Where-Object { -not $_.clean }).Count
     unmerged = @($retained | Where-Object { -not $_.merged }).Count
@@ -192,6 +211,7 @@ if ($Apply) {
     orphanDirectories = $orphans.Count
   }
   candidates = $candidates
+  selectedCandidates = $selectedCandidates
   removed = $removed
   retained = $retained
   orphanDirectories = $orphans
