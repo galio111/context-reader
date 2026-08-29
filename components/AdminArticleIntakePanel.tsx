@@ -295,7 +295,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
       }
       await loadCrawlerStatus();
       setMessage(automationEnabled
-        ? `已保存：每天约 ${automationRunTime} 自动补充，单次最多加入 ${automationMaxArticles} 篇候选。`
+        ? `已保存：每天约 ${automationRunTime} 自动补充，单次以新增 ${automationMaxArticles} 篇候选为成功目标。`
         : "已关闭定时自动补充，网站和手动扫描不受影响。");
     } catch (saveError) {
       setError(saveError instanceof Error ? saveError.message : "定时设置保存失败。");
@@ -397,7 +397,9 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
       await loadCandidates();
       const createdCount = data.result.created.length;
       setMessage(createdCount
-        ? `扫描完成，已新增 ${createdCount} 篇${crawlerTopic}候选文章。它们已标记为“本次新增”。`
+        ? data.result.targetAchieved
+          ? `扫描完成，已按目标新增 ${createdCount} 篇${crawlerTopic}候选文章。它们已标记为“本次新增”。`
+          : `已扫描完当前来源并新增 ${createdCount} 篇，但距离目标仍缺 ${data.result.shortfall} 篇，本次不会记为成功。`
         : `扫描完成，本次没有找到可加入的文章。可能是链接已经入库，或新内容没有通过读取、难度与质量检查。`);
     } catch (runError) {
       setError(runError instanceof Error ? runError.message : "自动抓取任务失败。");
@@ -832,11 +834,11 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <label className={labelClass}>文章主题<select className={inputClass} value={crawlerTopic} onChange={(event) => setCrawlerTopic(event.target.value as ArticleTopic)} disabled={busy}>{ARTICLE_TOPICS.map((topic) => <option key={topic}>{topic}</option>)}</select></label>
                 <label className={labelClass}>文章难度<select className={inputClass} value={crawlerDifficulty} onChange={(event) => setCrawlerDifficulty(event.target.value as CrawlerDifficulty)} disabled={busy}><option value="any">自动判断，不限难度</option>{ARTICLE_DIFFICULTIES.map((difficulty) => <option key={difficulty}>{difficulty}</option>)}</select></label>
-                <label className={labelClass}>本次最多新增<input className={inputClass} type="number" min={1} max={6} value={crawlerMaxArticles} onChange={(event) => setCrawlerMaxArticles(Math.max(1, Math.min(6, Number(event.target.value) || 1)))} disabled={busy} /></label>
+                <label className={labelClass}>本次目标新增<input className={inputClass} type="number" min={1} max={10} value={crawlerMaxArticles} onChange={(event) => setCrawlerMaxArticles(Math.max(1, Math.min(10, Number(event.target.value) || 1)))} disabled={busy} /></label>
               </div>
-              <p className="mt-3 text-xs leading-5 text-[#5c6872]">这是本次新增上限，不是库存上限。即使已有很多候选，系统也会继续寻找；重复或不合格文章不会为了凑数而加入。</p>
+              <p className="mt-3 text-xs leading-5 text-[#5c6872]">可设置 1 至 10 篇。即使已有很多候选，系统仍会继续寻找；重复链接会继续跳过并尝试下一篇，直到达到目标或穷尽当前来源。</p>
               <details className="mt-3 text-xs text-[#59636c]"><summary className="cursor-pointer font-medium text-[#4d5963]">查看本主题来源</summary><div className="mt-2 flex flex-wrap gap-2">{activeCrawlerSources.map((source) => <span key={source.id} className="rounded-full bg-[#eef1f4] px-2.5 py-1 text-[#3f4850]">{source.name}</span>)}</div></details>
-              <button className={`${primaryButtonClass} mt-4`} type="button" onClick={() => void handleRunCrawler()} disabled={busy}>{working === "crawl" ? "正在扫描，请稍候..." : `开始扫描，最多新增 ${crawlerMaxArticles} 篇`}</button>
+              <button className={`${primaryButtonClass} mt-4`} type="button" onClick={() => void handleRunCrawler()} disabled={busy}>{working === "crawl" ? "正在扫描，请稍候..." : `开始扫描，目标新增 ${crawlerMaxArticles} 篇`}</button>
             </section>
 
             <section className="border-t border-[#e1e5e9] px-5 py-5 sm:px-6 xl:border-t-0" aria-labelledby="recommendation-automation-title">
@@ -844,7 +846,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
                 <div>
                   <h3 id="recommendation-automation-title" className="text-base font-semibold text-[#17191c]">每天自动补充</h3>
                   <p className="mt-1 max-w-xl text-sm leading-6 text-[#4d5963]">服务器每 5 分钟检查一次是否到点，电脑关机也会运行，同一天只自动执行一次。</p>
-                  <p className="mt-1 max-w-xl text-xs leading-5 text-[#5c6872]">为避免候选无限堆积，自动任务只补充候选少于 30 篇的当天主题。这是自动维护目标，不是网站容量上限；手动扫描不受影响。</p>
+                  <p className="mt-1 max-w-xl text-xs leading-5 text-[#5c6872]">设置几篇就以新增几篇为成功条件。系统会继续尝试本主题全部可用新链接；若来源确实耗尽，会明确标记未达目标，不会把少加几篇写成成功。</p>
                 </div>
                 <label className="inline-flex min-h-10 shrink-0 cursor-pointer items-center gap-2 self-start whitespace-nowrap rounded-full bg-[#f2f5f7] px-3.5 text-sm font-medium text-[#343a40]">
                   <input className="h-5 w-5 accent-[#1769aa]" type="checkbox" checked={automationEnabled} onChange={(event) => setAutomationEnabled(event.target.checked)} disabled={busy} />
@@ -853,7 +855,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
               </div>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <label className={labelClass}>每天执行时间（北京时间）<input className={inputClass} type="time" step={300} value={automationRunTime} onChange={(event) => setAutomationRunTime(event.target.value)} disabled={busy || !automationEnabled} /></label>
-                <label className={labelClass}>每次最多新增<input className={inputClass} type="number" min={1} max={6} value={automationMaxArticles} onChange={(event) => setAutomationMaxArticles(Math.max(1, Math.min(6, Number(event.target.value) || 1)))} disabled={busy || !automationEnabled} /></label>
+                <label className={labelClass}>每次目标新增<input className={inputClass} type="number" min={1} max={10} value={automationMaxArticles} onChange={(event) => setAutomationMaxArticles(Math.max(1, Math.min(10, Number(event.target.value) || 1)))} disabled={busy || !automationEnabled} /></label>
               </div>
               <dl className="mt-4 grid gap-x-6 gap-y-2 text-sm text-[#46515a] sm:grid-cols-2">
                 <div><dt className="text-xs text-[#6b747c]">下次执行</dt><dd className="mt-0.5 font-medium text-[#29323a]">{nextRunLabel}</dd></div>
@@ -882,8 +884,9 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
             <div className="border-t border-[#c9ddeb] bg-[#f5f9fc] px-5 py-4 sm:px-6" role="status" aria-live="polite">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div className="text-sm leading-6 text-[#3f4850]">
-                  <strong className="text-[#173f5f]">扫描完成</strong>
-                  <span className="ml-2">发现 {crawlerResult.discovered} 个未入库链接，尝试分析 {crawlerResult.attempted} 篇，新增 {crawlerResult.created.length} 篇。</span>
+                  <strong className={crawlerResult.targetAchieved ? "text-[#173f5f]" : "text-[#8d3224]"}>{crawlerResult.targetAchieved ? "扫描完成" : "未达到新增目标"}</strong>
+                  <span className="ml-2">目标新增 {crawlerResult.targetNewArticles} 篇，发现 {crawlerResult.discovered} 个未入库链接，尝试分析 {crawlerResult.attempted} 篇，实际新增 {crawlerResult.created.length} 篇。</span>
+                  {crawlerResult.shortfall > 0 && <p className="mt-1 text-[#8d3224]">当前来源已尝试完，仍缺 {crawlerResult.shortfall} 篇；本次不会记为成功。</p>}
                   {crawlerResult.created.length === 0 && <p className="mt-1 text-[#59636c]">没有达到新增条件：链接可能已经入库，或文章没有通过读取、难度与质量检查。这不是容量上限。</p>}
                 </div>
                 {crawlerResult.created.length > 0 && <button className={primaryButtonClass} type="button" onClick={() => showCandidates(recentCandidateIds)}>查看本次新增（{crawlerResult.created.length}）</button>}

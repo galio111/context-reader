@@ -16,6 +16,37 @@ import {
   MOBILE_SHEET_DEFAULT_HEIGHT,
   MOBILE_SHEET_MAX_HEIGHT,
 } from "../components/useMobileBottomSheet";
+import { audienceForDifficulty } from "../lib/articleAudience";
+import { orderHomepageRecommendations } from "../lib/homepageRecommendations";
+import { setPublishedArticlePlacement } from "../lib/editorialCuration";
+import { estimateDeepSeekCostMicrousd } from "../lib/usageCost";
+import { normalizeHomepageCuration } from "../lib/homepageCurationShared";
+import type { PublicArticle } from "../types/publicArticle";
+
+function recommendationArticle(id: string, options?: { cover?: boolean }): PublicArticle {
+  return {
+    id,
+    title: `Article ${id}`,
+    summary: "Summary",
+    body: "Body text for a published article.",
+    sourceUrl: `https://example.com/${id}`,
+    sourceName: "Example",
+    published: true,
+    createdAt: "2026-08-29T00:00:00.000Z",
+    updatedAt: "2026-08-29T00:00:00.000Z",
+    recommendation: {
+      coverImageUrl: options?.cover === false ? "" : `https://example.com/${id}.webp`,
+      difficulty: "CET-6 / 考研",
+      cefr: "C1",
+      audienceStages: ["CET-6", "考研", "IELTS", "TOEFL"],
+      topics: ["科技科学"],
+      wordCount: 600,
+      timeliness: "evergreen",
+      sourceKind: "manual-url",
+      classificationSource: "manual",
+    },
+  };
+}
 
 test("reader token ids stay unique across article blocks", () => {
   assert.notEqual(scopeReaderTokenId("paragraph-0-", "word-4"), scopeReaderTokenId("paragraph-1-", "word-4"));
@@ -69,6 +100,52 @@ test("admin curation remounts and releases per-article working state", () => {
   const inspector = readFileSync(new URL("../components/AdminArticleMetadataInspector.tsx", import.meta.url), "utf8");
   assert.match(page, /<AdminArticleMetadataInspector\s+key=\{`\$\{readerState\.kind\}:\$\{readerState\.article\.id\}`\}/);
   assert.match(inspector, /finally \{ setWorking\(""\); \}/);
+});
+
+test("recommendations keep Admin choices first and fill a full three-row showcase", () => {
+  const articles = Array.from({ length: 12 }, (_, index) => recommendationArticle(String(index + 1), { cover: index !== 4 }));
+  const curation = normalizeHomepageCuration({
+    version: 2,
+    categories: { 推荐: ["2", "1"], 时事: [], 科技: [], 文化: [], 商业: [] },
+    recommendationFeaturedId: "2",
+  });
+  const ordered = orderHomepageRecommendations(articles, curation, {
+    version: 1, readingLevel: "", interests: [], updatedAt: "", scope: "guest",
+  }, "2026-08-29");
+  assert.equal(ordered[0].id, "2");
+  assert.equal(ordered[1].id, "1");
+  assert.equal(ordered.length, 12);
+  assert.equal(ordered.slice(0, 10).length, 10);
+  assert.ok(ordered.findIndex((article) => article.id === "5") > ordered.findIndex((article) => article.id === "6"));
+});
+
+test("C1 exam bands overlap CET-6, postgraduate, IELTS and TOEFL audiences", () => {
+  assert.deepEqual(audienceForDifficulty("CET-6 / 考研"), ["CET-6", "考研", "IELTS", "TOEFL"]);
+  assert.deepEqual(audienceForDifficulty("雅思 / 托福基础"), ["CET-6", "考研", "IELTS", "TOEFL"]);
+});
+
+test("published placement can remove recommendation membership and move category atomically", () => {
+  const current = normalizeHomepageCuration({
+    version: 2,
+    categories: { 推荐: ["a", "b"], 时事: ["a"], 科技: ["b"], 文化: [], 商业: [] },
+    recommendationFeaturedId: "a",
+  });
+  const next = setPublishedArticlePlacement(current, "a", "文化", {
+    categoryFeatured: false,
+    includeInRecommendation: false,
+    recommendationFeatured: false,
+  });
+  assert.equal(next.recommendationFeaturedId, "");
+  assert.ok(!next.categories.推荐.includes("a"));
+  assert.ok(!next.categories.时事.includes("a"));
+  assert.deepEqual(next.categories.文化, ["a"]);
+});
+
+test("DeepSeek estimates use historical and peak/off-peak prices at execution time", () => {
+  const usage = { prompt_tokens: 1_000, prompt_cache_miss_tokens: 1_000, completion_tokens: 100 };
+  assert.equal(estimateDeepSeekCostMicrousd("deepseek-v4-pro", usage, new Date("2026-08-15T00:00:00Z")), 522);
+  assert.equal(estimateDeepSeekCostMicrousd("deepseek-v4-pro", usage, new Date("2026-08-20T00:00:00Z")), 858);
+  assert.equal(estimateDeepSeekCostMicrousd("deepseek-v4-pro", usage, new Date("2026-08-20T02:00:00Z")), 1_716);
 });
 
 test("mobile tools reopen at 56 percent and never expand beyond 82 percent", () => {

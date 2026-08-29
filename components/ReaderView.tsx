@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
-import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
+import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent, ReactNode } from "react";
 import { defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { ArticleTranslationPanel } from "@/components/ArticleTranslationPanel";
 import { BookDictionary } from "@/components/BookDictionary";
@@ -93,6 +93,8 @@ interface ReaderViewProps {
   canJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean;
   desktopViewportInsetLeft?: number;
   editorialWorkbench?: boolean;
+  editorialMobileActions?: ReactNode;
+  editorialRailActions?: ReactNode;
   initialViewportAnchor?: ReaderViewportAnchor | null;
   onViewportAnchorChange?: (anchor: ReaderViewportAnchor) => void;
   onSourceJumpAligned?: () => void;
@@ -739,6 +741,8 @@ export function ReaderView({
   canJumpToVocabularySourceOutsideArticle,
   desktopViewportInsetLeft = 0,
   editorialWorkbench = false,
+  editorialMobileActions,
+  editorialRailActions,
   initialViewportAnchor = null,
   onViewportAnchorChange,
   onSourceJumpAligned,
@@ -3098,16 +3102,16 @@ export function ReaderView({
       style={{ "--reader-desktop-inset-left": `${desktopViewportInsetLeft}px` } as CSSProperties}
     >
       <aside className={toolbarStyles.desktopRail} aria-label="阅读快捷入口">
-        <PillNavAction
+        {!editorialWorkbench && <PillNavAction
           className={`${toolbarStyles.action} ${toolbarStyles.backAction} ${toolbarStyles.railBackAction}`}
           label={backLabel}
           onClick={() => void handleBackToHome()}
           disabled={savingArticleEdit}
-        />
+        />}
         <div className={toolbarStyles.railActions}>
-          <button type="button" onClick={() => setReaderWorkLayer("import")}>
+          {!editorialWorkbench && <button type="button" onClick={() => setReaderWorkLayer("import")}>
             <ReaderRailIcon kind="import" /><span>导入</span><small>导入新的文章或网址</small>
-          </button>
+          </button>}
           <button type="button" onClick={openDictionaryWindow}>
             <ReaderRailIcon kind="dictionary" /><span>查词</span><small>打开可移动查词窗口</small>
           </button>
@@ -3118,6 +3122,7 @@ export function ReaderView({
             <ReaderRailIcon kind="articles" /><span>我的文章</span><small>打开保存文章</small>
           </button>
         </div>
+        {editorialWorkbench && editorialRailActions && <div className={toolbarStyles.editorialRailActions} aria-label="文章队列">{editorialRailActions}</div>}
       </aside>
       <header className={toolbarStyles.toolbar} aria-label="文章工具">
         <PillNavAction
@@ -3180,6 +3185,10 @@ export function ReaderView({
             ariaControls="home-option-menu"
           />
         </div>
+        {editorialWorkbench && <div className={toolbarStyles.editorialMobileActions}>
+          {editorialMobileActions}
+          <button type="button" data-menu="true" onClick={handleOpenReaderMenu} aria-expanded={readerMenuOpen} aria-controls="home-option-menu">Menu</button>
+        </div>}
       </header>
       {toolbarStatus && (
         <div className={toolbarStyles.status} role="status" aria-live="polite">

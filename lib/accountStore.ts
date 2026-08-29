@@ -347,6 +347,34 @@ export async function recordUsageExecution(args: {
   });
 }
 
+export async function recordSystemUsageExecution(args: Omit<Parameters<typeof recordUsageExecution>[0], "actionId"> & {
+  feature: string;
+}): Promise<void> {
+  const actionId = crypto.randomUUID();
+  const now = new Date().toISOString();
+  await accountFetch("usage_actions", {
+    method: "POST",
+    headers: { Prefer: "return=minimal" },
+    body: JSON.stringify([{
+      id: actionId,
+      owner_key: `system:${args.feature}`,
+      user_id: null,
+      guest_id: null,
+      plan_id: "admin",
+      feature: args.feature,
+      metric_key: "system_ai",
+      quota_units: 0,
+      counter_window_start: null,
+      status: args.status,
+      cache_hit: false,
+      error_code: (args.errorCode ?? "").slice(0, 120),
+      created_at: now,
+      completed_at: now,
+    }]),
+  });
+  await recordUsageExecution({ ...args, actionId });
+}
+
 export async function listSyncObjects(
   userId: string,
   page?: { offset: number; limit: number },

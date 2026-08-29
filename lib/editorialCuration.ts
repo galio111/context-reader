@@ -5,6 +5,13 @@ export type EditorialCategory = Exclude<HomeCurationCategory, "推荐">;
 
 export const EDITORIAL_CATEGORIES: EditorialCategory[] = ["时事", "科技", "文化", "商业"];
 
+export interface PublishedArticlePlacement {
+  categoryFeatured: boolean;
+  includeInRecommendation: boolean;
+  recommendationFeatured: boolean;
+  preferLater?: boolean;
+}
+
 export function editorialCategoryForRecommendation(
   recommendation: ArticleRecommendationMetadata | undefined,
 ): EditorialCategory {
@@ -30,30 +37,51 @@ export function placePublishedArticle(
   curation: HomepageCuration,
   articleId: string,
   category: EditorialCategory,
-  options: {
-    categoryFeatured: boolean;
-    includeInRecommendation: boolean;
-    recommendationFeatured: boolean;
-  },
+  options: PublishedArticlePlacement,
 ): HomepageCuration {
-  const categories = { ...curation.categories };
-  const recommendationIds = withoutId(categories.推荐, articleId);
-  const currentRecommendationFeatured = curation.recommendationFeaturedId;
+  return setPublishedArticlePlacement(curation, articleId, category, options);
+}
+
+export function setPublishedArticlePlacement(
+  curation: HomepageCuration,
+  articleId: string,
+  category: EditorialCategory,
+  options: PublishedArticlePlacement,
+): HomepageCuration {
+  const categories = Object.fromEntries(
+    Object.entries(curation.categories).map(([label, ids]) => [label, withoutId(ids, articleId)]),
+  ) as HomepageCuration["categories"];
+  const nextRecommendationFeaturedId = options.recommendationFeatured
+    ? articleId
+    : curation.recommendationFeaturedId === articleId ? "" : curation.recommendationFeaturedId;
+
   if (options.includeInRecommendation || options.recommendationFeatured) {
-    categories.推荐 = currentRecommendationFeatured && currentRecommendationFeatured !== articleId
-      ? [currentRecommendationFeatured, articleId, ...withoutId(recommendationIds, currentRecommendationFeatured)]
-      : [articleId, ...recommendationIds];
+    const recommendationIds = withoutId(categories.推荐, nextRecommendationFeaturedId);
+    if (options.recommendationFeatured) {
+      categories.推荐 = [articleId, ...withoutId(recommendationIds, articleId)];
+    } else if (options.preferLater) {
+      categories.推荐 = nextRecommendationFeaturedId
+        ? [nextRecommendationFeaturedId, ...recommendationIds, articleId]
+        : [...recommendationIds, articleId];
+    } else {
+      categories.推荐 = nextRecommendationFeaturedId
+        ? [nextRecommendationFeaturedId, articleId, ...recommendationIds]
+        : [articleId, ...recommendationIds];
+    }
   }
-  const categoryIds = withoutId(categories[category], articleId);
+
+  const categoryIds = categories[category];
   categories[category] = options.categoryFeatured
     ? [articleId, ...categoryIds]
-    : categoryIds.length
-      ? [categoryIds[0], articleId, ...categoryIds.slice(1)]
-      : [articleId];
+    : options.preferLater
+      ? [...categoryIds, articleId]
+      : categoryIds.length
+        ? [categoryIds[0], articleId, ...categoryIds.slice(1)]
+        : [articleId];
   return {
     ...curation,
     categories,
-    recommendationFeaturedId: options.recommendationFeatured ? articleId : currentRecommendationFeatured,
+    recommendationFeaturedId: nextRecommendationFeaturedId,
   };
 }
 

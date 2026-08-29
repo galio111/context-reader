@@ -93,6 +93,7 @@ export async function PATCH(request: Request) {
         categoryFeatured: body.featured === true,
         includeInRecommendation: body.includeInRecommendation !== false,
         recommendationFeatured: body.recommendationFeatured === true,
+        preferLater: !article.recommendation?.coverImageUrl?.trim(),
       }));
     } catch (error) {
       return NextResponse.json(

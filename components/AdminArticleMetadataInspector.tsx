@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import ClearableField from "@/components/ClearableField";
 import { countArticleEnglishWords } from "@/lib/articleWordCount";
-import { EDITORIAL_CATEGORIES, editorialCategoryForArticle, type EditorialCategory } from "@/lib/editorialCuration";
+import { EDITORIAL_CATEGORIES, editorialCategoryForArticle, type EditorialCategory, type PublishedArticlePlacement } from "@/lib/editorialCuration";
+import styles from "@/components/AdminArticleMetadataInspector.module.css";
 import {
   ARTICLE_AUDIENCE_STAGES, ARTICLE_CEFR_LEVELS, ARTICLE_DIFFICULTIES, ARTICLE_TOPICS,
   type ArticleAudienceStage, type ArticleCefrLevel, type ArticleDifficulty, type ArticleManualField,
@@ -25,11 +26,12 @@ interface InspectorProps {
   onPrevious?: () => void;
   onNext?: () => void;
   onClose: () => void;
-  onSelect?: (category: EditorialCategory, options: {
-    categoryFeatured: boolean;
-    includeInRecommendation: boolean;
-    recommendationFeatured: boolean;
-  }) => Promise<void>;
+  mobileOpen: boolean;
+  onMobileClose: () => void;
+  placement: PublishedArticlePlacement;
+  onPlacementChange: (placement: PublishedArticlePlacement) => void;
+  onPlacementSave?: (category: EditorialCategory, placement: PublishedArticlePlacement) => Promise<void>;
+  onSelect?: (category: EditorialCategory, options: PublishedArticlePlacement) => Promise<void>;
   onReject?: () => Promise<void>;
   onDelete?: () => Promise<void>;
 }
@@ -78,21 +80,19 @@ function draftSignature(draft: InspectorDraft): string {
 }
 
 export default function AdminArticleMetadataInspector(props: InspectorProps) {
-  const { article, articleKind, queuePosition, onSave, onPrevious, onNext, onClose, onSelect, onReject, onDelete } = props;
+  const { article, articleKind, queuePosition, onSave, onPrevious, onNext, onClose, onSelect, onReject, onDelete,
+    mobileOpen, onMobileClose, placement, onPlacementChange, onPlacementSave } = props;
   const [draft, setDraft] = useState(() => initialDraft(article));
   const [baseline, setBaseline] = useState(() => initialDraft(article));
-  const [working, setWorking] = useState<"" | "save" | "classify" | "select" | "reject" | "delete">("");
+  const [working, setWorking] = useState<"" | "save" | "classify" | "select" | "reject" | "delete" | "placement">("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const [featured, setFeatured] = useState(false);
-  const [includeInRecommendation, setIncludeInRecommendation] = useState(true);
-  const [recommendationFeatured, setRecommendationFeatured] = useState(false);
   const savePromiseRef = useRef<Promise<void> | null>(null);
 
   useEffect(() => {
     const next = initialDraft(article);
     savePromiseRef.current = null;
-    setDraft(next); setBaseline(next); setFeatured(false); setIncludeInRecommendation(true); setRecommendationFeatured(false); setWorking(""); setMessage(""); setError("");
+    setDraft(next); setBaseline(next); setWorking(""); setMessage(""); setError("");
   }, [article]);
 
   const wordCount = useMemo(() => countArticleEnglishWords(article.body), [article.body]);
@@ -181,9 +181,8 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
       await saveDraft();
       setWorking("select");
       await onSelect(draft.homepageCategory, {
-        categoryFeatured: featured,
-        includeInRecommendation: includeInRecommendation || recommendationFeatured,
-        recommendationFeatured,
+        ...placement,
+        includeInRecommendation: placement.includeInRecommendation || placement.recommendationFeatured,
       });
     }
     catch (actionError) { setError(actionError instanceof Error ? actionError.message : "精选失败。"); }
@@ -206,11 +205,28 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
     finally { setWorking(""); }
   }
 
+  async function handlePlacementSave() {
+    if (!onPlacementSave) return;
+    setWorking("placement"); setError(""); setMessage("");
+    try {
+      await saveDraft();
+      setWorking("placement");
+      await onPlacementSave(draft.homepageCategory, placement);
+      setMessage("首页栏目与推荐位置已保存。");
+    } catch (actionError) {
+      setError(actionError instanceof Error ? actionError.message : "首页位置保存失败。");
+    } finally {
+      setWorking("");
+    }
+  }
+
   const busy = Boolean(working);
   return (
-    <aside className="fixed inset-y-0 left-0 z-50 flex w-[330px] flex-col border-r border-[#d7dde2] bg-[#f7f9fa] text-[#17212b]">
+    <>
+    <button className={styles.backdrop} data-open={mobileOpen || undefined} type="button" aria-label="关闭文章设置" onClick={onMobileClose} />
+    <aside className={styles.inspector} data-open={mobileOpen || undefined} aria-label="文章设置">
       <div className="shrink-0 border-b border-[#d7dde2] bg-[#f7f9fa] px-4 pb-3 pt-4">
-        <div className="flex items-center justify-between gap-2"><button className="text-sm font-semibold text-[#1769aa]" type="button" onClick={onClose}>返回后台</button><span className="text-xs text-[#68737c]">{working === "save" ? "正在保存…" : dirty ? "等待自动保存" : "已保存"}</span></div>
+        <div className="flex items-center justify-between gap-2"><button className="text-sm font-semibold text-[#1769aa]" type="button" onClick={onClose}>返回后台</button><button className={styles.mobileClose} type="button" onClick={onMobileClose}>收起设置</button><span className="text-xs text-[#68737c]">{working === "save" ? "正在保存…" : dirty ? "等待自动保存" : "已保存"}</span></div>
         <div className="mt-3 flex items-center justify-between gap-2"><button className="h-9 rounded-full bg-white px-3 text-sm disabled:opacity-35" type="button" onClick={onPrevious} disabled={!onPrevious || busy}>← 上一篇</button><span className="text-xs font-medium text-[#4d5963]">{queuePosition ? `${queuePosition.index + 1} / ${queuePosition.total}` : articleKind === "candidate" ? "候选" : "已精选"}</span><button className="h-9 rounded-full bg-white px-3 text-sm disabled:opacity-35" type="button" onClick={onNext} disabled={!onNext || busy}>下一篇 →</button></div>
         {articleKind === "candidate" && <div className="mt-3 grid grid-cols-2 gap-2"><button className="min-h-11 rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleSelect()} disabled={busy}>{working === "select" ? "正在精选…" : "精选并继续"}</button><button className="min-h-11 rounded-lg border border-[#d5a7a7] bg-white px-3 text-sm font-semibold text-[#9a3030] disabled:opacity-45" type="button" onClick={() => void handleReject()} disabled={busy}>{working === "reject" ? "正在移出…" : "不精选"}</button></div>}
         {articleKind === "candidate" && !article.recommendation?.coverImageUrl?.trim() && <p className="mt-2 text-xs leading-5 text-[#526873]">无图候选：仍可精选，首页会使用纯文本外刊卡片。</p>}
@@ -221,9 +237,10 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
         <p className="text-xs font-semibold text-[#1769aa]">{articleKind === "candidate" ? "候选文章" : "已公开推荐"}</p><h1 className="mt-1 text-base font-semibold leading-6">{article.title}</h1><p className="mt-1 text-xs leading-5 text-[#68737c]">{article.sourceName || "来源待确认"} · {wordCount.toLocaleString("zh-CN")} 词</p>
         <div className="mt-4 grid gap-3">
           <label className={labelClass}>首页栏目<select className={inputClass} value={draft.homepageCategory} onChange={(event) => setDraft((current) => ({ ...current, homepageCategory: event.target.value as EditorialCategory }))} disabled={busy}>{EDITORIAL_CATEGORIES.map((item) => <option key={item}>{item}</option>)}</select></label>
-          {articleKind === "candidate" && <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={featured} onChange={(event) => setFeatured(event.target.checked)} disabled={busy} /><span><strong className="block text-[#17212b]">设为本栏主推</strong>精选后放到“{draft.homepageCategory}”第一篇；不勾选则排在当前主推之后。</span></label>}
-          {articleKind === "candidate" && <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={includeInRecommendation} onChange={(event) => { setIncludeInRecommendation(event.target.checked); if (!event.target.checked) setRecommendationFeatured(false); }} disabled={busy} /><span><strong className="block text-[#17212b]">加入“推荐”候选池</strong>系统仍会检查用户的兴趣和难度；不匹配时不会展示。</span></label>}
-          {articleKind === "candidate" && <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={recommendationFeatured} onChange={(event) => { setRecommendationFeatured(event.target.checked); if (event.target.checked) setIncludeInRecommendation(true); }} disabled={busy} /><span><strong className="block text-[#17212b]">设为“推荐”主推</strong>仅用于未填写偏好的默认首页；有偏好时仍按匹配结果决定是否出现。</span></label>}
+          <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={placement.categoryFeatured} onChange={(event) => onPlacementChange({ ...placement, categoryFeatured: event.target.checked })} disabled={busy} /><span><strong className="block text-[#17212b]">设为本栏主推</strong>放到“{draft.homepageCategory}”第一篇；不勾选则排在当前主推之后。</span></label>
+          <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={placement.includeInRecommendation} onChange={(event) => onPlacementChange({ ...placement, includeInRecommendation: event.target.checked, recommendationFeatured: event.target.checked ? placement.recommendationFeatured : false })} disabled={busy} /><span><strong className="block text-[#17212b]">加入“推荐”候选池</strong>人工推荐优先；不足 10 篇时系统再按偏好从已发布文章补足。</span></label>
+          <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={placement.recommendationFeatured} onChange={(event) => onPlacementChange({ ...placement, recommendationFeatured: event.target.checked, includeInRecommendation: event.target.checked ? true : placement.includeInRecommendation })} disabled={busy} /><span><strong className="block text-[#17212b]">设为“推荐”主推</strong>无偏好时固定为第一篇；有偏好时优先采用匹配文章。</span></label>
+          {articleKind === "published" && <button className="w-full rounded-full bg-[#1769aa] px-4 py-2.5 text-sm font-semibold text-white disabled:bg-[#aeb8c2]" type="button" onClick={() => void handlePlacementSave()} disabled={busy}>{working === "placement" ? "正在保存位置…" : "保存首页位置"}</button>}
           <label className={labelClass}>难度档位<select className={inputClass} value={draft.difficulty} onChange={(event) => setDraft((current) => ({ ...current, difficulty: event.target.value as ArticleDifficulty }))} disabled={busy}>{ARTICLE_DIFFICULTIES.map((item) => <option key={item}>{item}</option>)}</select></label>
           <label className={labelClass}>CEFR 辅助等级<select className={inputClass} value={draft.cefr} onChange={(event) => setDraft((current) => ({ ...current, cefr: event.target.value as ArticleCefrLevel }))} disabled={busy}>{ARTICLE_CEFR_LEVELS.map((item) => <option key={item}>{item}</option>)}</select></label>
           <fieldset><legend className={labelClass}>文章类型</legend><div className="mt-2 flex flex-wrap gap-1.5">{ARTICLE_TOPICS.map((topic) => <button key={topic} className={`rounded-full px-2.5 py-1.5 text-xs ${draft.topics.includes(topic) ? "bg-[#1769aa] text-white" : "bg-white text-[#46525c]"}`} type="button" aria-pressed={draft.topics.includes(topic)} onClick={() => toggleTopic(topic)} disabled={busy}>{topic}</button>)}</div></fieldset>
@@ -236,5 +253,6 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
         <button className="mt-4 w-full rounded-full border border-[#1769aa] bg-white px-4 py-2.5 text-sm font-semibold text-[#1769aa] disabled:opacity-45" type="button" onClick={() => void saveDraft(true)} disabled={busy || !dirty}>{working === "save" ? "正在保存…" : dirty ? "立即保存" : "已经自动保存"}</button>
       </div>
     </aside>
+    </>
   );
 }

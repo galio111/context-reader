@@ -19,8 +19,6 @@ import type { TemporaryReading } from "@/lib/temporaryReading";
 import Ballpit, { type BallpitHandle } from "@/components/Ballpit";
 import { FallingWordOpening } from "@/components/FallingWordOpening";
 import {
-  audienceStagesForReadingLevel,
-  articleMatchesRecommendationInterest,
   emptyRecommendationPreferences,
   readRecommendationPreferences,
   RECOMMENDATION_INTERESTS,
@@ -28,8 +26,8 @@ import {
   type RecommendationPreferences,
   writeRecommendationPreferences,
 } from "@/lib/recommendationPreferences";
-import { ARTICLE_DIFFICULTIES, type ArticleDifficulty } from "@/types/publicArticle";
 import type { HomepageCuration } from "@/lib/homepageCurationShared";
+import { orderHomepageRecommendations } from "@/lib/homepageRecommendations";
 import { classifyFeatureOrbitGesture, FEATURE_ORBIT_AUTOPLAY_MS, type FeatureOrbitGestureIntent } from "@/lib/featureOrbitMotion";
 import styles from "./HomeRedesign.module.css";
 
@@ -62,7 +60,6 @@ interface HomeViewState {
   category?: string;
   memberLibraryOpen?: boolean;
   librarySearch?: string;
-  libraryDifficulty?: ArticleDifficulty | "";
 }
 
 function persistHomeViewState(patch: HomeViewState): void {
@@ -81,8 +78,6 @@ const CATEGORY_FILTERS = [
   { label: "文化", test: (article: PublicArticle) => article.recommendation?.topics.some((topic) => /文化|故事/.test(topic)) ?? false },
   { label: "商业", test: (article: PublicArticle) => article.recommendation?.topics.includes("商业经济") ?? /business|econom|finance|商业|经济/i.test(`${article.sourceName} ${article.title}`) },
 ] as const;
-
-const EDITORIAL_FEATURED_CATEGORIES = ["时事", "科技", "文化", "商业"] as const;
 
 const FEATURE_ORBIT = [
   { key: "context", index: "01", title: "语境划词", copy: "词义留在句子里，理解不必离开正在读的这一段。", meta: "解释 · 翻译" },
@@ -178,29 +173,7 @@ function readingMinutes(article: PublicArticle): number {
 }
 
 function visibleArticleCount(length: number): number {
-  if (length <= 1) return length;
-  return 1 + Math.floor((Math.min(length, 10) - 1) / 3) * 3;
-}
-
-function stableRecommendationRank(value: string): number {
-  let hash = 2166136261;
-  for (let index = 0; index < value.length; index += 1) {
-    hash ^= value.charCodeAt(index);
-    hash = Math.imul(hash, 16777619);
-  }
-  return hash >>> 0;
-}
-
-function recommendationPreferenceScore(article: PublicArticle, preferences: RecommendationPreferences): number {
-  const preferredStages = audienceStagesForReadingLevel(preferences.readingLevel);
-  const levelScore = preferredStages.some((stage) => article.recommendation?.audienceStages.includes(stage)) ? 4 : 0;
-  const interestScore = preferences.interests.filter((interest) => articleMatchesRecommendationInterest(article, interest)).length * 2;
-  return levelScore + interestScore;
-}
-
-function matchesRecommendationPreferences(article: PublicArticle, preferences: RecommendationPreferences): boolean {
-  return !preferences.interests.length
-    || preferences.interests.some((interest) => articleMatchesRecommendationInterest(article, interest));
+  return Math.min(length, 10);
 }
 
 function orderRecommendationArticles(
@@ -209,45 +182,7 @@ function orderRecommendationArticles(
   preferences: RecommendationPreferences,
   dayKey: string,
 ): PublicArticle[] {
-  const byId = new Map(articles.map((article) => [article.id, article]));
-  const unique = (items: Array<PublicArticle | undefined>) => [...new Map(
-    items.filter((article): article is PublicArticle => Boolean(article)).map((article) => [article.id, article]),
-  ).values()];
-  const recommendationIds = curation?.categories.推荐 ?? [];
-  const recommendationPool = recommendationIds.length
-    ? recommendationIds.map((id) => byId.get(id)).filter((article): article is PublicArticle => Boolean(article))
-    : articles;
-  const categoryFeatured = EDITORIAL_FEATURED_CATEGORIES.map((label) => {
-    const curatedId = curation?.categories[label]?.[0];
-    return (curatedId ? byId.get(curatedId) : undefined)
-      ?? articles.find((article) => CATEGORY_FILTERS.find((filter) => filter.label === label)?.test(article));
-  }).filter((article): article is PublicArticle => Boolean(article));
-  const recommendationFeatured = curation?.recommendationFeaturedId
-    ? byId.get(curation.recommendationFeaturedId)
-    : undefined;
-  const hasPreferences = Boolean(preferences.readingLevel || preferences.interests.length);
-  const stableSort = (items: PublicArticle[]) => [...items].sort((left, right) => (
-    stableRecommendationRank(`${dayKey}:${left.id}`) - stableRecommendationRank(`${dayKey}:${right.id}`)
-  ));
-
-  if (!hasPreferences) {
-    const leaders = unique([recommendationFeatured, ...categoryFeatured]);
-    const leaderIds = new Set(leaders.map((article) => article.id));
-    return [...leaders, ...stableSort(recommendationPool.filter((article) => !leaderIds.has(article.id)))];
-  }
-
-  const eligible = unique([...categoryFeatured, recommendationFeatured, ...recommendationPool])
-    .filter((article) => matchesRecommendationPreferences(article, preferences));
-  const eligibleFeatured = categoryFeatured.filter((article) => matchesRecommendationPreferences(article, preferences));
-  const primary = [...eligibleFeatured].sort((left, right) => (
-    recommendationPreferenceScore(right, preferences) - recommendationPreferenceScore(left, preferences)
-    || stableRecommendationRank(`${dayKey}:featured:${left.id}`) - stableRecommendationRank(`${dayKey}:featured:${right.id}`)
-  ))[0] ?? eligible[0];
-  const rest = eligible.filter((article) => article.id !== primary?.id).sort((left, right) => (
-    recommendationPreferenceScore(right, preferences) - recommendationPreferenceScore(left, preferences)
-    || stableRecommendationRank(`${dayKey}:${left.id}`) - stableRecommendationRank(`${dayKey}:${right.id}`)
-  ));
-  return primary ? [primary, ...rest] : [];
+  return orderHomepageRecommendations(articles, curation, preferences, dayKey);
 }
 
 function ArticleCover({ article, featured = false, motion3dEnabled = true }: { article: PublicArticle; featured?: boolean; motion3dEnabled?: boolean }) {
@@ -362,7 +297,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [preferenceOpen, setPreferenceOpen] = useState(false);
   const [memberLibraryOpen, setMemberLibraryOpen] = useState(false);
   const [librarySearch, setLibrarySearch] = useState("");
-  const [libraryDifficulty, setLibraryDifficulty] = useState<ArticleDifficulty | "">("");
   const [featurePosition, setFeaturePosition] = useState(0);
   const [featureDragging, setFeatureDragging] = useState(false);
   const [featureInView, setFeatureInView] = useState(false);
@@ -446,10 +380,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const libraryArticles = useMemo(() => {
     const term = librarySearch.trim().toLocaleLowerCase("zh-CN");
     return personalizedAllCategoryArticles.filter((article) => {
-      if (libraryDifficulty && article.recommendation?.difficulty !== libraryDifficulty) return false;
       return !term || `${article.title} ${article.sourceName} ${article.summary}`.toLocaleLowerCase("zh-CN").includes(term);
     });
-  }, [libraryDifficulty, librarySearch, personalizedAllCategoryArticles]);
+  }, [librarySearch, personalizedAllCategoryArticles]);
   const displayArticles = memberHome && memberLibraryOpen
     ? libraryArticles
     : personalizedCategoryArticles.slice(0, showcaseArticleCount);
@@ -494,9 +427,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
       if (CATEGORY_FILTERS.some((item) => item.label === view?.category)) setActiveCategory(view?.category ?? "推荐");
       if (typeof view?.memberLibraryOpen === "boolean") setMemberLibraryOpen(view.memberLibraryOpen);
       if (typeof view?.librarySearch === "string") setLibrarySearch(view.librarySearch.slice(0, 120));
-      if (view?.libraryDifficulty === "" || ARTICLE_DIFFICULTIES.includes(view?.libraryDifficulty as ArticleDifficulty)) {
-        setLibraryDifficulty(view?.libraryDifficulty ?? "");
-      }
     } catch {
       // A stale view snapshot falls back to the recommendation category.
     }
@@ -1389,17 +1319,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
               ))}
             </nav>
             {memberHome && memberLibraryOpen && (
-              <div className={styles.libraryFilters} aria-label="筛选外刊">
+              <div className={styles.libraryFilters} aria-label="搜索外刊">
                 <label>
                   <span>搜索</span>
                   <input type="search" value={librarySearch} onChange={(event) => { setLibrarySearch(event.target.value); persistHomeViewState({ librarySearch: event.target.value }); }} placeholder="标题、来源或内容" />
-                </label>
-                <label>
-                  <span>难度</span>
-                  <select value={libraryDifficulty} onChange={(event) => { const value = event.target.value as ArticleDifficulty | ""; setLibraryDifficulty(value); persistHomeViewState({ libraryDifficulty: value }); }}>
-                    <option value="">全部难度</option>
-                    {ARTICLE_DIFFICULTIES.map((difficulty) => <option key={difficulty} value={difficulty}>{difficulty}</option>)}
-                  </select>
                 </label>
               </div>
             )}

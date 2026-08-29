@@ -14,7 +14,7 @@ import { sendSiteNotificationEmail } from "@/lib/siteNotificationEmail";
 import { ARTICLE_DIFFICULTIES, ARTICLE_TOPICS } from "@/types/publicArticle";
 import type { RecommendationCrawlerRunInput } from "@/types/recommendationCrawler";
 
-export const maxDuration = 360;
+export const maxDuration = 900;
 
 export async function GET() {
   if (!(await isAdminRequest())) {
@@ -24,7 +24,7 @@ export async function GET() {
   return NextResponse.json({
     scheduled: Boolean(process.env.CRON_SECRET?.trim()) && automation.config.enabled,
     scheduleLabel: automation.config.enabled
-      ? `每天约 ${automation.config.runTime}（北京时间），每次最多 ${automation.config.maxNewArticles} 篇`
+      ? `每天约 ${automation.config.runTime}（北京时间），每次目标新增 ${automation.config.maxNewArticles} 篇`
       : "定时自动补充已关闭",
     maxNewArticlesPerRun: automation.config.maxNewArticles,
     automation,
@@ -112,8 +112,8 @@ export async function POST(request: Request) {
   const maxNewArticles = typeof body?.maxNewArticles === "number" && Number.isInteger(body.maxNewArticles)
     ? body.maxNewArticles
     : 0;
-  if (!topic || !difficulty || maxNewArticles < 1 || maxNewArticles > 6) {
-    return NextResponse.json({ error: "请选择有效主题、难度和本次最多新增 1 至 6 篇。" }, { status: 400 });
+  if (!topic || !difficulty || maxNewArticles < 1 || maxNewArticles > 10) {
+    return NextResponse.json({ error: "请选择有效主题、难度和本次目标新增 1 至 10 篇。" }, { status: 400 });
   }
   try {
     const result = await runRecommendationCrawler(

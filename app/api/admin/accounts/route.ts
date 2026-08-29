@@ -3,6 +3,7 @@ import { accountFetch } from "@/lib/accountStore";
 import { isAdminRequest } from "@/lib/adminAuth";
 import { readJsonBody } from "@/lib/limitedBody";
 import { phoneFromAccountEmail, resetPhoneAccountPin } from "@/lib/userAuth";
+import { estimateDeepSeekCostMicrousd } from "@/lib/usageCost";
 import type { AccountPlanId, UsageMetricKey } from "@/types/account";
 
 const PLANS = new Set<AccountPlanId>(["guest", "free", "basic", "plus", "max", "admin"]);
@@ -15,16 +16,68 @@ const MANAGED_PLAN_METRICS: Partial<Record<AccountPlanId, UsageMetricKey[]>> = {
   max: ["lookup_generation", "deep_reading"],
 };
 
+interface UsageExecutionRow extends Record<string, unknown> {
+  model?: string;
+  prompt_tokens?: number;
+  prompt_cache_hit_tokens?: number;
+  prompt_cache_miss_tokens?: number;
+  completion_tokens?: number;
+  status?: string;
+  created_at?: string;
+}
+
+const USAGE_WINDOW_DAYS = 30;
+const EXECUTION_PAGE_SIZE = 1_000;
+const EXECUTION_SAFETY_LIMIT = 50_000;
+
+async function listRecentUsageExecutions(windowStart: string): Promise<{ rows: UsageExecutionRow[]; truncated: boolean }> {
+  const rows: UsageExecutionRow[] = [];
+  for (let offset = 0; offset < EXECUTION_SAFETY_LIMIT; offset += EXECUTION_PAGE_SIZE) {
+    const page = await accountFetch<UsageExecutionRow[]>(
+      `usage_executions?select=action_id,route,provider,model,prompt_tokens,prompt_cache_hit_tokens,prompt_cache_miss_tokens,completion_tokens,status,error_code,created_at&created_at=gte.${encodeURIComponent(windowStart)}&order=created_at.desc&limit=${EXECUTION_PAGE_SIZE}&offset=${offset}`,
+    );
+    rows.push(...page);
+    if (page.length < EXECUTION_PAGE_SIZE) return { rows, truncated: false };
+  }
+  return { rows, truncated: true };
+}
+
 export async function GET() {
   if (!(await isAdminRequest())) return NextResponse.json({ error: "未登录管理员。" }, { status: 401 });
-  const [profiles, entitlements, plans, limits, actions, executions] = await Promise.all([
+  const windowEnd = new Date();
+  const windowStart = new Date(windowEnd.getTime() - USAGE_WINDOW_DAYS * 86_400_000).toISOString();
+  const [profiles, entitlements, plans, limits, actions, executionPage] = await Promise.all([
     accountFetch<Array<Record<string, unknown>>>("account_profiles?select=user_id,email,nickname,status,english_level,learning_goal,created_at,updated_at&order=created_at.desc&limit=1000"),
     accountFetch<Array<Record<string, unknown>>>("user_entitlements?select=user_id,plan_id,source,starts_at,ends_at,bonus_limits&limit=1000"),
     accountFetch<Array<Record<string, unknown>>>("quota_plans?select=id,display_name,price_cny,active&order=sort_order.asc"),
     accountFetch<Array<Record<string, unknown>>>("quota_plan_limits?select=plan_id,metric_key,allowance,window_type&order=plan_id.asc,metric_key.asc"),
     accountFetch<Array<Record<string, unknown>>>("usage_actions?select=id,user_id,guest_id,feature,metric_key,quota_units,status,created_at&order=created_at.desc&limit=5000"),
-    accountFetch<Array<Record<string, unknown>>>("usage_executions?select=action_id,route,provider,model,prompt_tokens,prompt_cache_hit_tokens,prompt_cache_miss_tokens,completion_tokens,estimated_cost_microusd,status,error_code,created_at&order=created_at.desc&limit=5000"),
+    listRecentUsageExecutions(windowStart),
   ]);
+  const executions = executionPage.rows;
+  const failed = executions.filter((execution) => execution.status === "failed").length;
+  const usageSummary = {
+    windowDays: USAGE_WINDOW_DAYS,
+    windowStart,
+    windowEnd: windowEnd.toISOString(),
+    executions: executions.length,
+    failed,
+    failureRate: executions.length ? failed / executions.length : 0,
+    promptTokens: executions.reduce((sum, execution) => sum + Number(execution.prompt_tokens || 0), 0),
+    completionTokens: executions.reduce((sum, execution) => sum + Number(execution.completion_tokens || 0), 0),
+    estimatedCostMicrousd: executions.reduce((sum, execution) => sum + estimateDeepSeekCostMicrousd(
+      String(execution.model || "deepseek-v4-pro"),
+      {
+        prompt_tokens: Number(execution.prompt_tokens || 0),
+        prompt_cache_hit_tokens: Number(execution.prompt_cache_hit_tokens || 0),
+        prompt_cache_miss_tokens: Number(execution.prompt_cache_miss_tokens || 0),
+        completion_tokens: Number(execution.completion_tokens || 0),
+      },
+      new Date(String(execution.created_at || windowEnd.toISOString())),
+    ), 0),
+    truncated: executionPage.truncated,
+    pricingBasis: "DeepSeek 2026-08-16 peak/off-peak rates, calculated per execution timestamp and cache usage",
+  };
   const safeProfiles = profiles.map((profile) => {
     const email = String(profile.email ?? "");
     const phone = phoneFromAccountEmail(email);
@@ -36,7 +89,7 @@ export async function GET() {
       phone_verified: false,
     };
   });
-  return NextResponse.json({ profiles: safeProfiles, entitlements, plans, limits, actions, executions }, { headers: { "Cache-Control": "no-store" } });
+  return NextResponse.json({ profiles: safeProfiles, entitlements, plans, limits, actions, executions: executions.slice(0, 200), usageSummary }, { headers: { "Cache-Control": "no-store" } });
 }
 
 export async function PATCH(request: Request) {
