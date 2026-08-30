@@ -16,6 +16,7 @@ import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountSto
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
+import { ClientRequestCancelledError } from "@/lib/requestCancellation";
 
 export const maxDuration = 60;
 
@@ -85,7 +86,7 @@ export async function POST(request: Request) {
 
   try {
     const safeRequest = sanitizeExplanationRequest(body);
-    const result = await explainWordWithDeepSeek(safeRequest);
+    const result = await explainWordWithDeepSeek(safeRequest, request.signal);
     await recordUsageExecution({
       actionId,
       route: "/api/explain-word",
@@ -101,6 +102,10 @@ export async function POST(request: Request) {
     await finishUsage(actionId, "succeeded").catch(() => undefined);
     return NextResponse.json({ explanation: result.explanation });
   } catch (error) {
+    if (error instanceof ClientRequestCancelledError) {
+      await refundUsage(actionId, "cancelled", "client_cancelled").catch(() => undefined);
+      return new Response(null, { status: 499 });
+    }
     await refundUsage(actionId, "failed", error instanceof Error ? error.name : "unknown").catch(() => undefined);
     if (error instanceof MissingDeepSeekEnvError) {
       const report = await recordServerError(request, {

@@ -1080,6 +1080,8 @@ export function ReaderView({
   const dictionaryWindowRef = useRef<HTMLElement | null>(null);
   const dictionaryCloseTimerRef = useRef<number | null>(null);
 
+  useEffect(() => () => abortRef.current?.abort(), []);
+
   useEffect(() => {
     setReaderTheme(document.documentElement.dataset.contextTheme === "night" ? "night" : "day");
   }, []);
@@ -2334,8 +2336,30 @@ export function ReaderView({
   }
 
   function openMobileTool(mode: RightPanelMode) {
+    if (mode !== "explanation") {
+      cancelActiveExplanationRequest();
+    }
     setRightPanelMode(mode);
     setMobileExplanationOpen(true);
+  }
+
+  function cancelActiveExplanationRequest() {
+    if (!loading && !explanationStreaming) return;
+    const controller = abortRef.current;
+    controller?.abort();
+    if (abortRef.current === controller) abortRef.current = null;
+    activeExplanationKeyRef.current = "";
+    setLoading(false);
+    setExplanationStreaming(false);
+    setError("");
+    if (!explanation) setExplanationStreamText("");
+  }
+
+  function closeMobileToolSheet() {
+    if (rightPanelMode === "explanation") {
+      cancelActiveExplanationRequest();
+    }
+    setMobileExplanationOpen(false);
   }
 
   function handleCloseVocabulary() {
@@ -3715,6 +3739,7 @@ export function ReaderView({
             <BookDictionary
               embedded
               panel
+              active={!dictionaryClosing}
               offline={isOffline}
               onAddToVocabulary={handleAddStandaloneDictionaryToVocabulary}
               isInVocabulary={isStandaloneDictionaryInVocabulary}
@@ -4016,7 +4041,7 @@ export function ReaderView({
                     ? "单独查词"
                     : "文章操作"}
             </strong>
-            <button type="button" onClick={() => setMobileExplanationOpen(false)}>回到原文</button>
+            <button type="button" onClick={closeMobileToolSheet}>回到原文</button>
           </div>
           <div className={toolbarStyles.mobileSheetBody} data-local-scroll-surface>
             {rightPanelMode === "explanation" && (
@@ -4128,7 +4153,7 @@ export function ReaderView({
           Boolean(canJumpToVocabularySourceOutsideArticle?.(entry)) ||
           Boolean(findBestSourceSentenceMatch(entry.sourceSentence, entry.word, wordTokens))
         }
-        onOpenImport={() => { setMobileExplanationOpen(false); setReaderWorkLayer("import"); }}
+        onOpenImport={() => { cancelActiveExplanationRequest(); setMobileExplanationOpen(false); setReaderWorkLayer("import"); }}
         onOpenDictionary={() => {
           if (window.matchMedia("(max-width: 1023px)").matches) {
             setReaderMenuOpen(false);

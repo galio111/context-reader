@@ -109,11 +109,14 @@ export async function POST(request: Request) {
   let clientAborted = false;
   let timedOut = false;
   const abortFromClient = () => {
+    if (clientAborted || timedOut) return;
     clientAborted = true;
     upstreamController.abort();
   };
-  request.signal.addEventListener("abort", abortFromClient, { once: true });
+  if (request.signal.aborted) abortFromClient();
+  else request.signal.addEventListener("abort", abortFromClient, { once: true });
   const timeoutId = setTimeout(() => {
+    if (clientAborted || timedOut) return;
     timedOut = true;
     upstreamController.abort();
   }, REQUEST_TIMEOUT_MS);

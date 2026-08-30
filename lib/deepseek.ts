@@ -1,6 +1,7 @@
 import { normalizeAnkiInfo } from "@/lib/ankiData";
 import { normalizePartOfSpeechLabel } from "@/lib/displayLabels";
 import { pronunciationTargetMatches } from "@/lib/pronunciation";
+import { ClientRequestCancelledError } from "@/lib/requestCancellation";
 import type {
   Difficulty,
   ExplanationRequest,
@@ -362,9 +363,25 @@ async function requestDeepSeekCompletionOnce(args: {
   profile: ProviderProfile;
   safeRequest: ExplanationRequest;
   repairChineseFields?: string[];
+  signal?: AbortSignal;
 }): Promise<DeepSeekChatCompletionResponse> {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  let abortCause: "client" | "timeout" | null = null;
+  const abortFromClient = () => {
+    if (abortCause) return;
+    abortCause = "client";
+    controller.abort();
+  };
+  if (args.signal?.aborted) {
+    abortFromClient();
+  } else {
+    args.signal?.addEventListener("abort", abortFromClient, { once: true });
+  }
+  const timeoutId = setTimeout(() => {
+    if (abortCause) return;
+    abortCause = "timeout";
+    controller.abort();
+  }, REQUEST_TIMEOUT_MS);
 
   try {
     const response = await fetch(`${args.profile.baseURL.replace(/\/$/, "")}/chat/completions`, {
@@ -425,6 +442,13 @@ async function requestDeepSeekCompletionOnce(args: {
       throw error;
     }
 
+    if (error instanceof Error && error.name === "AbortError" && abortCause === "client") {
+      throw new ClientRequestCancelledError();
+    }
+    if (error instanceof Error && error.name === "AbortError" && abortCause === "timeout") {
+      throw new DeepSeekTimeoutError();
+    }
+
     const cause = error && typeof error === "object" && "cause" in error
       ? (error as { cause?: { name?: unknown; code?: unknown; message?: unknown } }).cause
       : undefined;
@@ -439,12 +463,10 @@ async function requestDeepSeekCompletionOnce(args: {
       causeMessage: typeof cause?.message === "string" ? cause.message.slice(0, 300) : "",
     });
 
-    if (error instanceof Error && error.name === "AbortError") {
-      throw new DeepSeekTimeoutError();
-    }
     throw new DeepSeekTransportError();
   } finally {
     clearTimeout(timeoutId);
+    args.signal?.removeEventListener("abort", abortFromClient);
   }
 }
 
@@ -452,6 +474,7 @@ async function requestDeepSeekCompletion(args: {
   profile: ProviderProfile;
   safeRequest: ExplanationRequest;
   repairChineseFields?: string[];
+  signal?: AbortSignal;
 }): Promise<DeepSeekChatCompletionResponse> {
   let lastError: DeepSeekParseError | null = null;
 
@@ -485,6 +508,7 @@ async function requestDeepSeekCompletion(args: {
 
 export async function explainWordWithDeepSeek(
   request: ExplanationRequest,
+  signal?: AbortSignal,
 ): Promise<DeepSeekExplanationResult> {
   const profiles = getProviderProfiles();
 
@@ -497,7 +521,7 @@ export async function explainWordWithDeepSeek(
 
   for (const profile of profiles) {
     try {
-      let completion = await requestDeepSeekCompletion({ profile, safeRequest });
+      let completion = await requestDeepSeekCompletion({ profile, safeRequest, signal });
       let content = completion.choices?.[0]?.message?.content?.trim();
 
       if (!content) {
@@ -508,7 +532,7 @@ export async function explainWordWithDeepSeek(
           hasReasoning: Boolean(completion.choices?.[0]?.message?.reasoning_content),
         });
         await waitForProviderRetry(1);
-        const retryCompletion = await requestDeepSeekCompletion({ profile, safeRequest });
+        const retryCompletion = await requestDeepSeekCompletion({ profile, safeRequest, signal });
         completion = {
           ...retryCompletion,
           usage: sumUsage(completion.usage, retryCompletion.usage),
@@ -526,6 +550,7 @@ export async function explainWordWithDeepSeek(
           profile,
           safeRequest,
           repairChineseFields: invalidFields,
+          signal,
         });
         const retryContent = retryCompletion.choices?.[0]?.message?.content?.trim();
         const retryParsed = retryContent ? parseJsonObject(retryContent) : null;

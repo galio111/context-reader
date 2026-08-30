@@ -107,6 +107,7 @@ interface BookDictionaryProps {
   compact?: boolean;
   panel?: boolean;
   offline?: boolean;
+  active?: boolean;
   onBack?: () => void;
   onAddToVocabulary?: (result: DictionaryResult) => void;
   isInVocabulary?: (result: DictionaryResult) => boolean;
@@ -281,6 +282,7 @@ export function BookDictionary({
   compact = false,
   panel = false,
   offline = false,
+  active = true,
   onBack,
   onAddToVocabulary,
   isInVocabulary,
@@ -329,6 +331,10 @@ export function BookDictionary({
   }, []);
 
   useEffect(() => () => abortRef.current?.abort(), []);
+
+  useEffect(() => {
+    if (!active) abortRef.current?.abort();
+  }, [active]);
 
   useEffect(() => {
     const list = historyListRef.current;

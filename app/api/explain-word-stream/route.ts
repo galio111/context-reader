@@ -2,10 +2,11 @@ import { NextResponse } from "next/server";
 import type { ExplanationRequest } from "@/types/reader";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { acquireCostSlot } from "@/lib/costConcurrency";
-import { finishUsage, recordUsageExecution } from "@/lib/accountStore";
+import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 import { EXPLANATION_STREAM_COMPLETE_MARKER } from "@/lib/explanationStreamProtocol";
+import { classifyStreamTermination } from "@/lib/requestCancellation";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
@@ -112,9 +113,20 @@ export async function POST(request: Request) {
   const baseURL = process.env.DEEPSEEK_BASE_URL ?? DEFAULT_BASE_URL;
   const model = process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL;
   const upstreamController = new AbortController();
-  const abortFromClient = () => upstreamController.abort();
-  request.signal.addEventListener("abort", abortFromClient, { once: true });
-  const timeoutId = setTimeout(() => upstreamController.abort(), REQUEST_TIMEOUT_MS);
+  let clientAborted = false;
+  let timedOut = false;
+  const abortFromClient = () => {
+    if (clientAborted || timedOut) return;
+    clientAborted = true;
+    upstreamController.abort();
+  };
+  if (request.signal.aborted) abortFromClient();
+  else request.signal.addEventListener("abort", abortFromClient, { once: true });
+  const timeoutId = setTimeout(() => {
+    if (clientAborted || timedOut) return;
+    timedOut = true;
+    upstreamController.abort();
+  }, REQUEST_TIMEOUT_MS);
 
   try {
     const response = await fetch(`${baseURL.replace(/\/$/, "")}/chat/completions`, {
@@ -163,6 +175,15 @@ export async function POST(request: Request) {
       releaseSlot();
       return NextResponse.json({ error: "DeepSeek 流式解释生成失败，请重新生成。" }, { status: 502 });
     }
+
+    let released = false;
+    const release = () => {
+      if (released) return;
+      released = true;
+      clearTimeout(timeoutId);
+      request.signal.removeEventListener("abort", abortFromClient);
+      releaseSlot();
+    };
 
     const stream = new ReadableStream<Uint8Array>({
       async start(controller) {
@@ -213,20 +234,24 @@ export async function POST(request: Request) {
           }).catch(() => undefined);
           await finishUsage(actionId, "succeeded").catch(() => undefined);
           controller.close();
-        } catch {
+        } catch (error) {
+          const termination = classifyStreamTermination({ clientAborted, timedOut, error });
+          if (termination === "cancelled") {
+            await refundUsage(actionId, "cancelled", "client_cancelled").catch(() => undefined);
+            return;
+          }
           controller.close();
         } finally {
-          clearTimeout(timeoutId);
-          request.signal.removeEventListener("abort", abortFromClient);
-          releaseSlot();
+          release();
           reader.releaseLock();
         }
       },
       cancel() {
-        clearTimeout(timeoutId);
-        request.signal.removeEventListener("abort", abortFromClient);
-        releaseSlot();
-        upstreamController.abort();
+        abortFromClient();
+        if (clientAborted) {
+          void refundUsage(actionId, "cancelled", "client_cancelled").catch(() => undefined);
+        }
+        release();
       },
     });
 
@@ -237,6 +262,14 @@ export async function POST(request: Request) {
       },
     });
   } catch (error) {
+    const termination = classifyStreamTermination({ clientAborted, timedOut, error });
+    if (termination === "cancelled") {
+      await refundUsage(actionId, "cancelled", "client_cancelled").catch(() => undefined);
+      clearTimeout(timeoutId);
+      request.signal.removeEventListener("abort", abortFromClient);
+      releaseSlot();
+      return new Response(null, { status: 499 });
+    }
     const cause = error && typeof error === "object" && "cause" in error
       ? (error as { cause?: { name?: unknown; code?: unknown; message?: unknown } }).cause
       : undefined;
@@ -252,6 +285,9 @@ export async function POST(request: Request) {
     clearTimeout(timeoutId);
     request.signal.removeEventListener("abort", abortFromClient);
     releaseSlot();
-    return NextResponse.json({ error: "DeepSeek 流式解释生成失败，请重新生成。" }, { status: 502 });
+    return NextResponse.json(
+      { error: termination === "timeout" ? "DeepSeek 流式解释生成超时，请重新生成。" : "DeepSeek 流式解释生成失败，请重新生成。" },
+      { status: termination === "timeout" ? 504 : 502 },
+    );
   }
 }

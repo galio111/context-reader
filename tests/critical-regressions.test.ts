@@ -2,10 +2,11 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { buildContextCloze } from "../lib/ankiData";
+import { DeepSeekParseError, explainWordWithDeepSeek } from "../lib/deepseek";
 import { waitForFastImageLocalization } from "../lib/articleImageLocalizationPolicy";
 import { parseDictionaryStream } from "../lib/dictionaryStream";
 import { scopeReaderTokenId } from "../lib/readerTokenIdentity";
-import { classifyStreamTermination } from "../lib/requestCancellation";
+import { ClientRequestCancelledError, classifyStreamTermination } from "../lib/requestCancellation";
 import { USER_SESSION_MAX_AGE_SECONDS } from "../lib/sessionPolicy";
 import {
   classifyFeatureOrbitGesture,
@@ -58,6 +59,76 @@ test("client cancellation is not classified as a provider failure", () => {
   assert.equal(classifyStreamTermination({ clientAborted: true, timedOut: false, error: new Error("aborted") }), "cancelled");
   assert.equal(classifyStreamTermination({ clientAborted: false, timedOut: true, error: new Error("aborted") }), "timeout");
   assert.equal(classifyStreamTermination({ clientAborted: false, timedOut: false, error: new Error("failed") }), "failed");
+  assert.equal(new ClientRequestCancelledError().name, "ClientRequestCancelledError");
+});
+
+test("closing lookup surfaces aborts active provider work without creating a provider report", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  const dictionary = readFileSync(new URL("../components/BookDictionary.tsx", import.meta.url), "utf8");
+  const explanationRoute = readFileSync(new URL("../app/api/explain-word/route.ts", import.meta.url), "utf8");
+  const deepseek = readFileSync(new URL("../lib/deepseek.ts", import.meta.url), "utf8");
+
+  assert.match(reader, /function closeMobileToolSheet\(\)[\s\S]*?cancelActiveExplanationRequest\(\)/);
+  assert.match(reader, /onClick=\{closeMobileToolSheet\}>回到原文/);
+  assert.match(reader, /<BookDictionary[\s\S]*?active=\{!dictionaryClosing\}/);
+  assert.match(dictionary, /if \(!active\) abortRef\.current\?\.abort\(\)/);
+  assert.match(explanationRoute, /explainWordWithDeepSeek\(safeRequest, request\.signal\)/);
+  assert.match(explanationRoute, /error instanceof ClientRequestCancelledError[\s\S]*?refundUsage\(actionId, "cancelled", "client_cancelled"\)[\s\S]*?status: 499/);
+  assert.match(deepseek, /abortCause === "client"[\s\S]*?throw new ClientRequestCancelledError\(\)/);
+});
+
+test("structured explanation distinguishes an aborted fetch from a completed malformed response", async (t) => {
+  const environmentKeys = [
+    "DEEPSEEK_API_KEY",
+    "DEEPSEEK_BASE_URL",
+    "DEEPSEEK_MODEL",
+    "DEEPSEEK_FALLBACK_MODELS",
+    "DEEPSEEK_FALLBACK_BASE_URL",
+    "DEEPSEEK_FALLBACK_API_KEY",
+    "DEEPSEEK_FALLBACK_MODEL",
+  ] as const;
+  const originalEnvironment = new Map(environmentKeys.map((key) => [key, process.env[key]]));
+  const originalFetch = globalThis.fetch;
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+    for (const [key, value] of originalEnvironment) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  });
+
+  process.env.DEEPSEEK_API_KEY = "test-key";
+  process.env.DEEPSEEK_BASE_URL = "https://provider.invalid";
+  process.env.DEEPSEEK_MODEL = "test-model";
+  process.env.DEEPSEEK_FALLBACK_MODELS = "";
+  process.env.DEEPSEEK_FALLBACK_BASE_URL = "";
+  process.env.DEEPSEEK_FALLBACK_API_KEY = "";
+  process.env.DEEPSEEK_FALLBACK_MODEL = "";
+
+  const request = {
+    word: "clear",
+    sentence: "The distinction is clear.",
+    previousSentence: "",
+    nextSentence: "",
+  };
+  globalThis.fetch = ((_input: RequestInfo | URL, init?: RequestInit) => new Promise<Response>((_resolve, reject) => {
+    const signal = init?.signal;
+    const rejectAbort = () => reject(new DOMException("Aborted", "AbortError"));
+    if (signal?.aborted) rejectAbort();
+    else signal?.addEventListener("abort", rejectAbort, { once: true });
+  })) as typeof fetch;
+  const controller = new AbortController();
+  const cancelled = explainWordWithDeepSeek(request, controller.signal);
+  controller.abort();
+  await assert.rejects(cancelled, ClientRequestCancelledError);
+
+  globalThis.fetch = (async () => new Response(JSON.stringify({
+    choices: [{ message: { content: "{}" } }],
+    usage: {},
+  }), { status: 200, headers: { "Content-Type": "application/json" } })) as typeof fetch;
+  await assert.rejects(explainWordWithDeepSeek(request), (error: unknown) => (
+    error instanceof DeepSeekParseError && !(error instanceof ClientRequestCancelledError)
+  ));
 });
 
 test("context cloze tolerates normalized apostrophes in saved phrases", () => {
