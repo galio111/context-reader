@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import ClearableField from "@/components/ClearableField";
 import { ACCOUNT_DATA_CHANGED_EVENT, ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
@@ -12,6 +12,7 @@ import {
 } from "@/lib/clientErrorReporting";
 import { isCompleteDictionaryResult, parseDictionaryStream } from "@/lib/dictionaryStream";
 import { normalizeDictionarySpelling } from "@/lib/dictionarySpelling";
+import { notifyLookupCancellation } from "@/lib/lookupCancellationClient";
 import {
   migrateStandaloneDictionarySessionCache,
   readStandaloneDictionaryCache,
@@ -301,12 +302,22 @@ export function BookDictionary({
   const historyListId = `${dictionaryId}-history-list`;
   const cacheRef = useRef<Record<string, DictionaryResult>>({});
   const abortRef = useRef<AbortController | null>(null);
+  const activeActionIdRef = useRef("");
   const historyRowRef = useRef<HTMLDivElement | null>(null);
   const historyListRef = useRef<HTMLDivElement | null>(null);
   const progressive = useMemo(
     () => parseDictionaryStream(streamText, query.trim().replace(/\s+/g, " ")),
     [query, streamText],
   );
+  const abortActiveDictionaryRequest = useCallback(() => {
+    const controller = abortRef.current;
+    controller?.abort();
+    notifyLookupCancellation(activeActionIdRef.current);
+    if (abortRef.current === controller) {
+      abortRef.current = null;
+      activeActionIdRef.current = "";
+    }
+  }, []);
 
   useEffect(() => {
     const session = readSession();
@@ -330,11 +341,11 @@ export function BookDictionary({
     );
   }, []);
 
-  useEffect(() => () => abortRef.current?.abort(), []);
+  useEffect(() => () => abortActiveDictionaryRequest(), [abortActiveDictionaryRequest]);
 
   useEffect(() => {
-    if (!active) abortRef.current?.abort();
-  }, [active]);
+    if (!active) abortActiveDictionaryRequest();
+  }, [active, abortActiveDictionaryRequest]);
 
   useEffect(() => {
     const list = historyListRef.current;
@@ -427,15 +438,17 @@ export function BookDictionary({
       return;
     }
 
-    abortRef.current?.abort();
+    abortActiveDictionaryRequest();
     const controller = new AbortController();
+    const actionId = crypto.randomUUID();
     abortRef.current = controller;
+    activeActionIdRef.current = actionId;
     setLoading(true);
     setResult(null);
     try {
       const response = await fetch("/api/dictionary-stream", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "x-context-action-id": crypto.randomUUID() },
+        headers: { "Content-Type": "application/json", "x-context-action-id": actionId },
         body: JSON.stringify({ query: normalized }),
         signal: controller.signal,
       });
@@ -503,6 +516,7 @@ export function BookDictionary({
     } finally {
       if (abortRef.current === controller) {
         abortRef.current = null;
+        activeActionIdRef.current = "";
         setLoading(false);
       }
     }

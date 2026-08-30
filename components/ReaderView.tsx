@@ -45,6 +45,7 @@ import {
 } from "@/lib/explanationDisplay";
 import { EXPLANATION_STREAM_COMPLETE_MARKER } from "@/lib/explanationStreamProtocol";
 import { currentFormPhonetic } from "@/lib/pronunciation";
+import { notifyLookupCancellation } from "@/lib/lookupCancellationClient";
 import {
   findBestSourceSentenceMatch,
   findSimilarVocabularyEntry,
@@ -1061,6 +1062,7 @@ export function ReaderView({
   const [staleTranslationBlockIds, setStaleTranslationBlockIds] = useState<string[]>([]);
   const [removedTranslationCount, setRemovedTranslationCount] = useState(0);
   const abortRef = useRef<AbortController | null>(null);
+  const activeExplanationActionIdRef = useRef("");
   const activeExplanationKeyRef = useRef("");
   const suppressNextClickRef = useRef(false);
   const touchInteractionRef = useRef<TouchInteraction | null>(null);
@@ -1080,7 +1082,10 @@ export function ReaderView({
   const dictionaryWindowRef = useRef<HTMLElement | null>(null);
   const dictionaryCloseTimerRef = useRef<number | null>(null);
 
-  useEffect(() => () => abortRef.current?.abort(), []);
+  useEffect(() => () => {
+    abortRef.current?.abort();
+    notifyLookupCancellation(activeExplanationActionIdRef.current);
+  }, []);
 
   useEffect(() => {
     setReaderTheme(document.documentElement.dataset.contextTheme === "night" ? "night" : "day");
@@ -1716,7 +1721,7 @@ export function ReaderView({
       return;
     }
 
-    abortRef.current?.abort();
+    abortActiveExplanationTransport();
     activeExplanationKeyRef.current = "";
 
     const cached = options.force ? null : getCachedExplanation(cacheKey);
@@ -1752,6 +1757,7 @@ export function ReaderView({
     const controller = new AbortController();
     const actionId = crypto.randomUUID();
     abortRef.current = controller;
+    activeExplanationActionIdRef.current = actionId;
     activeExplanationKeyRef.current = cacheKey;
     setLoading(true);
     setExplanation(null);
@@ -1842,6 +1848,10 @@ export function ReaderView({
         openLogin("游客试用额度已用完，登录后可继续查词并跨设备同步学习数据。");
       }
     } finally {
+      if (abortRef.current === controller) {
+        abortRef.current = null;
+        activeExplanationActionIdRef.current = "";
+      }
       if (!controller.signal.aborted) {
         setExplanationStreaming(false);
         setLoading(false);
@@ -2344,15 +2354,23 @@ export function ReaderView({
   }
 
   function cancelActiveExplanationRequest() {
-    if (!loading && !explanationStreaming) return;
-    const controller = abortRef.current;
-    controller?.abort();
-    if (abortRef.current === controller) abortRef.current = null;
-    activeExplanationKeyRef.current = "";
+    if (!loading && !explanationStreaming && !abortRef.current) return;
+    abortActiveExplanationTransport();
     setLoading(false);
     setExplanationStreaming(false);
     setError("");
     if (!explanation) setExplanationStreamText("");
+  }
+
+  function abortActiveExplanationTransport() {
+    const controller = abortRef.current;
+    controller?.abort();
+    notifyLookupCancellation(activeExplanationActionIdRef.current);
+    if (abortRef.current === controller) {
+      abortRef.current = null;
+      activeExplanationActionIdRef.current = "";
+    }
+    activeExplanationKeyRef.current = "";
   }
 
   function closeMobileToolSheet() {
@@ -2457,7 +2475,7 @@ export function ReaderView({
     setEditingArticle(true);
     setSelectedTokenIds([]);
     setSelectedContext(null);
-    abortRef.current?.abort();
+    abortActiveExplanationTransport();
     activeExplanationKeyRef.current = "";
     setExplanation(null);
     setExplanationStreamText("");

@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { buildContextCloze } from "../lib/ankiData";
 import { DeepSeekParseError, explainWordWithDeepSeek } from "../lib/deepseek";
+import { cancelActiveLookupRequests, registerActiveLookupRequest } from "../lib/activeLookupRequests";
 import { waitForFastImageLocalization } from "../lib/articleImageLocalizationPolicy";
 import { parseDictionaryStream } from "../lib/dictionaryStream";
 import { scopeReaderTokenId } from "../lib/readerTokenIdentity";
@@ -66,15 +67,37 @@ test("closing lookup surfaces aborts active provider work without creating a pro
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
   const dictionary = readFileSync(new URL("../components/BookDictionary.tsx", import.meta.url), "utf8");
   const explanationRoute = readFileSync(new URL("../app/api/explain-word/route.ts", import.meta.url), "utf8");
+  const cancellationRoute = readFileSync(new URL("../app/api/lookup-cancel/route.ts", import.meta.url), "utf8");
   const deepseek = readFileSync(new URL("../lib/deepseek.ts", import.meta.url), "utf8");
 
   assert.match(reader, /function closeMobileToolSheet\(\)[\s\S]*?cancelActiveExplanationRequest\(\)/);
   assert.match(reader, /onClick=\{closeMobileToolSheet\}>回到原文/);
   assert.match(reader, /<BookDictionary[\s\S]*?active=\{!dictionaryClosing\}/);
-  assert.match(dictionary, /if \(!active\) abortRef\.current\?\.abort\(\)/);
-  assert.match(explanationRoute, /explainWordWithDeepSeek\(safeRequest, request\.signal\)/);
+  assert.match(reader, /notifyLookupCancellation\(activeExplanationActionIdRef\.current\)/);
+  assert.match(dictionary, /if \(!active\) abortActiveDictionaryRequest\(\)/);
+  assert.match(dictionary, /notifyLookupCancellation\(activeActionIdRef\.current\)/);
+  assert.match(explanationRoute, /registerActiveLookupRequest\(actionId, lookupController\)/);
+  assert.match(explanationRoute, /explainWordWithDeepSeek\(safeRequest, lookupController\.signal\)/);
   assert.match(explanationRoute, /error instanceof ClientRequestCancelledError[\s\S]*?refundUsage\(actionId, "cancelled", "client_cancelled"\)[\s\S]*?status: 499/);
+  assert.match(cancellationRoute, /cancelActiveLookupRequests\(actionId\)/);
   assert.match(deepseek, /abortCause === "client"[\s\S]*?throw new ClientRequestCancelledError\(\)/);
+});
+
+test("explicit cancellation reaches active requests and survives an early close race", () => {
+  const earlyActionId = "11111111-1111-4111-8111-111111111111";
+  assert.equal(cancelActiveLookupRequests(earlyActionId), 0);
+  const lateController = new AbortController();
+  registerActiveLookupRequest(earlyActionId, lateController);
+  assert.equal(lateController.signal.aborted, true);
+
+  const activeActionId = "22222222-2222-4222-8222-222222222222";
+  const first = new AbortController();
+  const second = new AbortController();
+  registerActiveLookupRequest(activeActionId, first);
+  registerActiveLookupRequest(activeActionId, second);
+  assert.equal(cancelActiveLookupRequests(activeActionId), 2);
+  assert.equal(first.signal.aborted, true);
+  assert.equal(second.signal.aborted, true);
 });
 
 test("structured explanation distinguishes an aborted fetch from a completed malformed response", async (t) => {

@@ -17,6 +17,7 @@ import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 import { ClientRequestCancelledError } from "@/lib/requestCancellation";
+import { registerActiveLookupRequest } from "@/lib/activeLookupRequests";
 
 export const maxDuration = 60;
 
@@ -84,9 +85,15 @@ export async function POST(request: Request) {
     );
   }
 
+  const lookupController = new AbortController();
+  const abortFromClient = () => lookupController.abort();
+  if (request.signal.aborted) abortFromClient();
+  else request.signal.addEventListener("abort", abortFromClient, { once: true });
+  const unregisterLookup = registerActiveLookupRequest(actionId, lookupController);
+
   try {
     const safeRequest = sanitizeExplanationRequest(body);
-    const result = await explainWordWithDeepSeek(safeRequest, request.signal);
+    const result = await explainWordWithDeepSeek(safeRequest, lookupController.signal);
     await recordUsageExecution({
       actionId,
       route: "/api/explain-word",
@@ -176,6 +183,8 @@ export async function POST(request: Request) {
       { status: 502 },
     );
   } finally {
+    unregisterLookup();
+    request.signal.removeEventListener("abort", abortFromClient);
     releaseSlot();
   }
 }

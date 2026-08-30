@@ -8,6 +8,7 @@ import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 import { classifyStreamTermination } from "@/lib/requestCancellation";
+import { registerActiveLookupRequest } from "@/lib/activeLookupRequests";
 
 export const maxDuration = 60;
 
@@ -106,6 +107,7 @@ export async function POST(request: Request) {
   const baseURL = (process.env.DEEPSEEK_BASE_URL?.trim() || DEFAULT_BASE_URL).replace(/\/$/, "");
   const model = process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_MODEL;
   const upstreamController = new AbortController();
+  const explicitCancellationController = new AbortController();
   let clientAborted = false;
   let timedOut = false;
   const abortFromClient = () => {
@@ -115,11 +117,23 @@ export async function POST(request: Request) {
   };
   if (request.signal.aborted) abortFromClient();
   else request.signal.addEventListener("abort", abortFromClient, { once: true });
+  explicitCancellationController.signal.addEventListener("abort", abortFromClient, { once: true });
   const timeoutId = setTimeout(() => {
     if (clientAborted || timedOut) return;
     timedOut = true;
     upstreamController.abort();
   }, REQUEST_TIMEOUT_MS);
+  const unregisterLookup = registerActiveLookupRequest(actionId, explicitCancellationController);
+  let released = false;
+  const release = () => {
+    if (released) return;
+    released = true;
+    clearTimeout(timeoutId);
+    request.signal.removeEventListener("abort", abortFromClient);
+    explicitCancellationController.signal.removeEventListener("abort", abortFromClient);
+    unregisterLookup();
+    releaseSlot();
+  };
 
   try {
     const response = await fetch(`${baseURL}/chat/completions`, {
@@ -160,9 +174,7 @@ export async function POST(request: Request) {
 
     if (!response.ok || !response.body) {
       const upstreamDetail = !response.ok ? await response.text().catch(() => "") : "";
-      clearTimeout(timeoutId);
-      request.signal.removeEventListener("abort", abortFromClient);
-      releaseSlot();
+      release();
       await refundUsage(actionId, "failed", "upstream_rejected").catch(() => undefined);
       const report = await recordServerError(request, {
         category: "provider",
@@ -179,15 +191,6 @@ export async function POST(request: Request) {
         { status: 502 },
       );
     }
-
-    let released = false;
-    const release = () => {
-      if (released) return;
-      released = true;
-      clearTimeout(timeoutId);
-      request.signal.removeEventListener("abort", abortFromClient);
-      releaseSlot();
-    };
 
     const stream = new ReadableStream<Uint8Array>({
       async start(controller) {
@@ -276,9 +279,7 @@ export async function POST(request: Request) {
       headers: { "Cache-Control": "no-store", "Content-Type": "text/plain; charset=utf-8" },
     });
   } catch (error) {
-    releaseSlot();
-    clearTimeout(timeoutId);
-    request.signal.removeEventListener("abort", abortFromClient);
+    release();
     const termination = classifyStreamTermination({ clientAborted, timedOut, error });
     if (termination === "cancelled") {
       await refundUsage(actionId, "cancelled", "client_cancelled").catch(() => undefined);
