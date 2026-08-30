@@ -1058,3 +1058,19 @@ Admin Reader 让“本栏主推、推荐候选池、推荐主推”对候选和�
 复核确认旧估算把美元价乘 7.2，约比 DeepSeek 直接人民币价高 5%–6%，并漏掉了 2026-08-23 起周六、周日全天低谷的新规则。新算法直接使用人民币历史/现行价；生产账本 8 月 29 日按新规则重算为 ¥2.9691，与用户截图中 DeepSeek 当日 ¥2.97 一致。近 30 天已记录账本中，全文翻译 189 次、666,484 tokens、估算 ¥3.0306，占已记录成本 77.8% 和 tokens 75.6%，确认是当前最大项。DeepSeek 截图的全部 API Key 视图为 676 次、7,058,399 tokens、¥5.76，而站内同时段账本只有 383 次、881,450 tokens；因此站内必须明确标为“已记录调用估算”，不能替代供应商账户账单。
 
 日期边界回归覆盖 UTC 15:59:59 与 16:00:00 分别归入相邻上海自然日；费率回归覆盖历史价、工作日峰谷以及新规后的周末低谷。`npm.cmd run test:critical` 20/20、生产构建 61 路由通过，桌面与 390×844 浏览器确认三列日统计、功能统计和更早记录展开均无横向溢出，控制台无警告或错误。50,000 条安全上限保持不变。
+
+## 2026-08-30：未完成查词关闭改为显式用户取消
+
+**状态：已随累计 release `20260830T123321` 上线中国大陆生产环境；划词与单独查词取消、错误隔离、公网身份、权限边界、健康、备份恢复和回滚镜像通过**
+
+**类型：Reader / 手机查词 / 单独查词 / 请求取消 / 错误诊断 / 用量退款**
+
+**证据：** 用户提供的 `context_word_explanation` 后台记录截图、`components/ReaderView.tsx`、`components/BookDictionary.tsx`、`lib/activeLookupRequests.ts`、`lib/requestCancellation.ts`、`app/api/lookup-cancel/route.ts`、结构化与流式查词路由、关键回归、生产用量与错误对象只读查询
+
+手机划词结果仍在渐进显示时收起底部工具、切换工具或离开 Reader，以及单独查词仍在生成时关闭窗口，都属于用户取消，不是“DeepSeek 没有翻译完整”。浏览器现在同时中止本地请求，并用共享 action id 向同源 `/api/lookup-cancel` 发送有界 `text/plain` 通知；服务端进程级注册表会取消该 action 下的结构化和流式上游控制器，也保留短期取消墓碑来覆盖“关闭先于请求注册”的竞态。大陆 Caddy 后的同源校验使用可信转发协议与主机，不再把公开 `https://context-reader.com` Origin 与容器内部 URL 错判为跨站。
+
+更深一层竞态来自同一次划词的两条并行路线：结构化 JSON 可能先返回缺字段，而用户仍在等待流式可见结果。旧逻辑会立即写入 `provider_parse_error`，后来关闭只能取消仍在生成的流，无法撤回已经发送的告警。新版让结构化失败等待同 action 的流式 peer 定局；等待期间关闭时，整个 action 以 `cancelled/client_cancelled` 退款且不写 Admin 错误或邮件。只有用户保持窗口、流式请求正常结束，而结构化结果仍缺少必需字段时，才确认是真实 `provider_parse_error`。
+
+排查中两次验证曾污染同一个去重错误号：11:38 的直接断连测试没有被 Caddy/Next `Request.signal` 传递，12:09 的仅结构化测试又在 peer 等待修复前触发一次解析错误；两次都不是用户使用。最终验收先固定后台错误基线为 3 个对象、最近更新时间 `2026-08-30 04:09:38.46742+00`，再分别取消文章划词 action `cccccccc-cccc-4ccc-8ccc-cccccccccccc` 和单独查词 action `dddddddd-dddd-4ddd-8ddd-dddddddddddd`；两者均落库为 `cancelled/client_cancelled`，错误对象数量和最近时间完全不变，因此没有进入新的错误邮件链。
+
+累计源码提交 `b43e18a3ec801970cd93c3402734ed628f409d13` 建立在当时最新接受的 Admin 逐日用量 release `20260830T122721` 之上，显式保留同日阅读进度与 Admin 用量改动。26 项关键回归、release contracts、定向 ESLint 与 62 路由生产构建通过。公网 `/api/connectivity` 精确返回 release `20260830T123321`、parent `20260830T122721` 和 `mainland_internal`；根首页 200，`/home-v2?cancel=1` 以 308 保留查询参数回根首页，匿名同步 401、Admin session 未认证、公开文章接口 200。发布只重建 app 与 caddy；健康检查通过，最新备份校验并隔离恢复 15 张 public 表，当前与直接父版本接受镜像及五个定时器均保留。
