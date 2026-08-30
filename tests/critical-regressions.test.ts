@@ -26,6 +26,13 @@ import { buildBalancedRecommendationPlan } from "../lib/recommendationBalance";
 import { setPublishedArticlePlacement } from "../lib/editorialCuration";
 import { DEFAULT_DEEPSEEK_USD_TO_CNY_RATE, estimateDeepSeekCostMicrousd, microusdToCny } from "../lib/usageCost";
 import { normalizeHomepageCuration } from "../lib/homepageCurationShared";
+import {
+  READING_PROGRESS_STABLE_DWELL_MS,
+  isRapidReaderScroll,
+  isReaderAtBottom,
+  shouldRestartSavedArticleOnExit,
+  usesSavedArticleRestartPolicy,
+} from "../lib/readingProgressPolicy";
 import type { PublicArticle } from "../types/publicArticle";
 
 function recommendationArticle(id: string, options?: { cover?: boolean }): PublicArticle {
@@ -55,6 +62,30 @@ function recommendationArticle(id: string, options?: { cover?: boolean }): Publi
 
 test("reader token ids stay unique across article blocks", () => {
   assert.notEqual(scopeReaderTokenId("paragraph-0-", "word-4"), scopeReaderTokenId("paragraph-1-", "word-4"));
+});
+
+test("saved-article rapid scans restart at top unless the reader settles, while vocabulary jumps stay exact", () => {
+  const now = 20_000;
+  assert.equal(usesSavedArticleRestartPolicy("saved-article"), true);
+  assert.equal(usesSavedArticleRestartPolicy("vocabulary"), false);
+  assert.equal(isRapidReaderScroll(850, 1_200, 1_000), true);
+  assert.equal(isRapidReaderScroll(850, 1_201, 1_000), false);
+  assert.equal(isReaderAtBottom(5_000, 3_936, 1_000), true);
+  assert.equal(shouldRestartSavedArticleOnExit({
+    rapidScroll: true,
+    atBottom: false,
+    settledAt: now - READING_PROGRESS_STABLE_DWELL_MS + 1,
+  }, true, now), true);
+  assert.equal(shouldRestartSavedArticleOnExit({
+    rapidScroll: true,
+    atBottom: false,
+    settledAt: now - READING_PROGRESS_STABLE_DWELL_MS,
+  }, true, now), false);
+  assert.equal(shouldRestartSavedArticleOnExit({
+    rapidScroll: false,
+    atBottom: true,
+    settledAt: now - READING_PROGRESS_STABLE_DWELL_MS,
+  }, false, now), true);
 });
 
 test("client cancellation is not classified as a provider failure", () => {

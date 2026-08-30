@@ -29,6 +29,17 @@ export interface ReaderViewportAnchor {
   scrollRatio: number;
 }
 
+export interface ReaderViewportActivity {
+  rapidScroll: boolean;
+  atBottom: boolean;
+  settledAt: number;
+}
+
+export interface ReaderViewportReport {
+  anchor: ReaderViewportAnchor;
+  activity: ReaderViewportActivity;
+}
+
 export interface ReaderReadingProgress extends ReaderViewportAnchor {
   capturedAt: string;
 }

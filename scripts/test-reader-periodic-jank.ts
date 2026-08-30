@@ -64,7 +64,7 @@ for (let index = 0; index < 12; index += 1) {
 }
 
 async function main(): Promise<void> {
-  const { getSavedArticles, saveArticleReadingProgress, touchSavedArticle } = await import("../lib/articles");
+  const { getSavedArticles, resetArticleReadingProgress, saveArticleReadingProgress, touchSavedArticle } = await import("../lib/articles");
   getSavedArticles();
   storage.resetCounts();
   const newDurations: number[] = [];
@@ -80,12 +80,29 @@ async function main(): Promise<void> {
     });
     newDurations.push(performance.now() - startedAt);
   }
+  saveArticleReadingProgress("article-0", {
+    blockId: "paragraph-0",
+    blockIndex: 0,
+    blockText: "Paragraph 0",
+    top: 80,
+    scrollY: 0,
+    scrollRatio: 0,
+  });
+  let latestReadingState = JSON.parse(storage.getItem(READING_STATES_KEY) || "{}") as Record<string, { readingProgress?: { scrollY?: number } }>;
+  if (latestReadingState["article-0"]?.readingProgress?.scrollY === 0) {
+    throw new Error("Ordinary backward scrolling replaced the last stable forward position.");
+  }
+  resetArticleReadingProgress("article-0");
+  latestReadingState = JSON.parse(storage.getItem(READING_STATES_KEY) || "{}") as Record<string, { readingProgress?: { scrollY?: number } }>;
+  if (latestReadingState["article-0"]?.readingProgress?.scrollY !== 0) {
+    throw new Error("Explicit restart did not replace the older reading position with the article top.");
+  }
   touchSavedArticle("article-0");
 
   if ((storage.writes.get(ARTICLES_KEY) ?? 0) !== 0) {
     throw new Error("Reading progress rewrote the full saved-article payload.");
   }
-  if ((storage.writes.get(READING_STATES_KEY) ?? 0) < 13) {
+  if ((storage.writes.get(READING_STATES_KEY) ?? 0) < 14) {
     throw new Error("Reading progress did not persist through the lightweight reading-state store.");
   }
 

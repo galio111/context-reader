@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent, ReactNode } from "react";
 import { defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { ArticleTranslationPanel } from "@/components/ArticleTranslationPanel";
@@ -36,6 +36,10 @@ import {
   subscribeArticleTranslationJob,
 } from "@/lib/articleTranslationJobs";
 import { fetchJson } from "@/lib/apiClient";
+import {
+  isRapidReaderScroll,
+  isReaderAtBottom,
+} from "@/lib/readingProgressPolicy";
 import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { downloadVocabularyCsv } from "@/lib/csv";
 import {
@@ -70,7 +74,7 @@ import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import type { AnkiSettings } from "@/types/anki";
 import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, ImportedArticleInlineBaseline, ImportedArticleInlineText, ImportedArticleTableCell, SavedArticle } from "@/types/article";
 import type { PublicExplanation } from "@/types/publicArticle";
-import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, ReaderViewportAnchor, WordContext, WordExplanation } from "@/types/reader";
+import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, ReaderViewportAnchor, ReaderViewportReport, WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
 import type { DictionaryResult } from "@/types/dictionary";
 import { useAccount } from "@/components/AccountProvider";
@@ -98,7 +102,8 @@ interface ReaderViewProps {
   editorialMobileActions?: ReactNode;
   editorialRailActions?: ReactNode;
   initialViewportAnchor?: ReaderViewportAnchor | null;
-  onViewportAnchorChange?: (anchor: ReaderViewportAnchor) => void;
+  onViewportAnchorChange?: (report: ReaderViewportReport) => void;
+  onViewportCaptureChange?: (capture: (() => ReaderViewportReport | null) | null) => void;
   onSourceJumpAligned?: () => void;
   savedArticles?: SavedArticle[];
   onOpenSavedArticle?: (article: SavedArticle) => void;
@@ -300,6 +305,10 @@ function captureReaderViewportAnchor(root: HTMLElement): ReaderViewportAnchor | 
     scrollY: window.scrollY,
     scrollRatio: maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0,
   };
+}
+
+function isReaderViewportAtBottom(): boolean {
+  return isReaderAtBottom(document.documentElement.scrollHeight, window.scrollY, window.innerHeight);
 }
 
 interface ImageOcrState {
@@ -748,6 +757,7 @@ export function ReaderView({
   editorialRailActions,
   initialViewportAnchor = null,
   onViewportAnchorChange,
+  onViewportCaptureChange,
   onSourceJumpAligned,
   savedArticles = [],
   onOpenSavedArticle,
@@ -1071,9 +1081,16 @@ export function ReaderView({
   const plainArticleEditRef = useRef<HTMLDivElement | null>(null);
   const importedArticleEditRef = useRef<HTMLDivElement | null>(null);
   const articleShellRef = useRef<HTMLDivElement | null>(null);
+  const captureArticleViewportAnchor = useCallback((): ReaderViewportAnchor | null => {
+    const root = articleShellRef.current;
+    if (!root) return null;
+    return captureReaderViewportAnchor(root);
+  }, []);
   const editingArticleBaselineRef = useRef<ArticleEditSnapshot | null>(null);
   const pendingArticleViewportAnchorRef = useRef<ReaderViewportAnchor | null>(null);
   const initialViewportRestoredRef = useRef(false);
+  const viewportActivityRef = useRef({ rapidScroll: false, atBottom: false, settledAt: Date.now() });
+  const progressScrollSuppressedUntilRef = useRef(0);
   const activeImageScrollRef = useRef<HTMLDivElement | null>(null);
   const sourceAlignmentTargetIdRef = useRef("");
   const sourceAlignmentLockUntilRef = useRef(0);
@@ -1187,6 +1204,8 @@ export function ReaderView({
     const root = articleShellRef.current;
     if (!root || !root.querySelector("[data-reader-block]")) return;
     initialViewportRestoredRef.current = true;
+    progressScrollSuppressedUntilRef.current = performance.now() + 500;
+    viewportActivityRef.current = { rapidScroll: false, atBottom: false, settledAt: Date.now() };
     const frameId = restoreReaderViewport(root, initialViewportAnchor);
     return () => {
       if (frameId !== null) window.cancelAnimationFrame(frameId);
@@ -1197,14 +1216,67 @@ export function ReaderView({
     if (!onViewportAnchorChange || editingArticle) return;
     let frameId = 0;
     let settleHandle = 0;
+    let burstActive = false;
+    let burstStartedAt = 0;
+    let burstStartY = window.scrollY;
+    let lastObservedY = window.scrollY;
+    let rapidScroll = false;
     const report = () => {
       frameId = 0;
       if (settleHandle) window.clearTimeout(settleHandle);
       settleHandle = 0;
       const anchor = captureArticleViewportAnchor();
-      if (anchor) onViewportAnchorChange(anchor);
+      if (!anchor) return;
+      if (burstActive) {
+        const duration = Math.max(1, performance.now() - burstStartedAt);
+        const distance = Math.abs(window.scrollY - burstStartY);
+        rapidScroll = rapidScroll || isRapidReaderScroll(distance, duration, window.innerHeight);
+        viewportActivityRef.current = {
+          rapidScroll,
+          atBottom: isReaderViewportAtBottom(),
+          settledAt: Date.now(),
+        };
+        burstActive = false;
+        lastObservedY = window.scrollY;
+      } else {
+        viewportActivityRef.current = {
+          ...viewportActivityRef.current,
+          atBottom: isReaderViewportAtBottom(),
+        };
+      }
+      onViewportAnchorChange({ anchor, activity: { ...viewportActivityRef.current } });
     };
     const scheduleReport = () => {
+      const now = performance.now();
+      if (now < progressScrollSuppressedUntilRef.current) {
+        lastObservedY = window.scrollY;
+        viewportActivityRef.current = {
+          rapidScroll: false,
+          atBottom: isReaderViewportAtBottom(),
+          settledAt: Date.now(),
+        };
+        if (settleHandle) window.clearTimeout(settleHandle);
+        settleHandle = window.setTimeout(() => {
+          settleHandle = 0;
+          if (!frameId) frameId = window.requestAnimationFrame(report);
+        }, READER_PROGRESS_SCROLL_SETTLE_MS);
+        return;
+      }
+      if (!burstActive) {
+        burstActive = true;
+        burstStartedAt = now;
+        burstStartY = lastObservedY;
+        rapidScroll = false;
+      }
+      const distance = Math.abs(window.scrollY - burstStartY);
+      const duration = Math.max(1, now - burstStartedAt);
+      rapidScroll = rapidScroll || isRapidReaderScroll(distance, duration, window.innerHeight);
+      lastObservedY = window.scrollY;
+      viewportActivityRef.current = {
+        rapidScroll,
+        atBottom: isReaderViewportAtBottom(),
+        settledAt: 0,
+      };
       if (settleHandle) window.clearTimeout(settleHandle);
       settleHandle = window.setTimeout(() => {
         settleHandle = 0;
@@ -1233,9 +1305,9 @@ export function ReaderView({
       if (settleHandle) window.clearTimeout(settleHandle);
       if (frameId) window.cancelAnimationFrame(frameId);
       const anchor = captureArticleViewportAnchor();
-      if (anchor) onViewportAnchorChange(anchor);
+      if (anchor) onViewportAnchorChange({ anchor, activity: { ...viewportActivityRef.current } });
     };
-  }, [currentArticle, currentImportedArticle, editingArticle, onViewportAnchorChange]);
+  }, [captureArticleViewportAnchor, currentArticle, currentImportedArticle, editingArticle, onViewportAnchorChange]);
 
   useEffect(() => {
     if (articleMediaRevealedRef.current || articleImageGateSources.length === 0) {
@@ -2448,13 +2520,26 @@ export function ReaderView({
     }
   }
 
-  function captureArticleViewportAnchor(): ReaderViewportAnchor | null {
-    const root = articleShellRef.current;
-    if (!root) {
+  const capturePersistableViewportAnchor = useCallback((): ReaderViewportReport | null => {
+    if (initialViewportAnchor && !initialViewportRestoredRef.current) {
       return null;
     }
-    return captureReaderViewportAnchor(root);
-  }
+    const anchor = captureArticleViewportAnchor();
+    if (!anchor) return null;
+    return {
+      anchor,
+      activity: {
+        ...viewportActivityRef.current,
+        atBottom: isReaderViewportAtBottom(),
+      },
+    };
+  }, [captureArticleViewportAnchor, initialViewportAnchor]);
+
+  useLayoutEffect(() => {
+    if (!onViewportCaptureChange) return;
+    onViewportCaptureChange(capturePersistableViewportAnchor);
+    return () => onViewportCaptureChange(null);
+  }, [capturePersistableViewportAnchor, onViewportCaptureChange]);
 
   function preserveArticleViewportAcrossModeChange(anchor = captureArticleViewportAnchor()) {
     pendingArticleViewportAnchorRef.current = anchor;

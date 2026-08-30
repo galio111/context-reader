@@ -11,6 +11,7 @@ import {
   findSavedArticle,
   getSavedArticles,
   replaceSavedArticleImportedArticle,
+  resetArticleReadingProgress,
   saveArticleReadingProgress,
   touchSavedArticle,
 } from "@/lib/articles";
@@ -19,10 +20,15 @@ import { findBestSourceSentenceMatch, normalizeForSourceMatch } from "@/lib/sour
 import { hasClickableWords, tokenizeArticle } from "@/lib/tokenizer";
 import { primeLeadingArticleImage } from "@/lib/articleImagePreload";
 import { waitForFastImageLocalization } from "@/lib/articleImageLocalizationPolicy";
+import {
+  READING_PROGRESS_STABLE_DWELL_MS,
+  shouldRestartSavedArticleOnExit,
+  usesSavedArticleRestartPolicy,
+} from "@/lib/readingProgressPolicy";
 import { hasExternalImportedArticleImages, isExternalArticleImageUrl } from "@/lib/articleImageUrls";
 import type { ImportedArticle, ImportedImageLayoutWord, SavedArticle } from "@/types/article";
 import type { PublicArticle, PublicExplanation } from "@/types/publicArticle";
-import type { ReaderViewportAnchor } from "@/types/reader";
+import type { ReaderViewportAnchor, ReaderViewportReport } from "@/types/reader";
 import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
 import { updateVocabularyEntry } from "@/lib/vocabulary";
 import { useAccount } from "@/components/AccountProvider";
@@ -61,7 +67,11 @@ interface ReadingProgressSession {
   baselineAnchor: ReaderViewportAnchor | null;
   lastAnchor: ReaderViewportAnchor | null;
   cumulativeTravel: number;
+  rapidScanPending: boolean;
+  lastReport: ReaderViewportReport | null;
 }
+
+type ReadingProgressMode = "saved-entry" | "vocabulary-source" | "other";
 
 interface ImageLocalizationResult {
   article: ImportedArticle;
@@ -81,7 +91,6 @@ interface PreparedImportedArticle {
 
 const PROGRESS_INITIAL_SETTLE_MS = 3_000;
 const PROGRESS_MIN_SESSION_MS = 20_000;
-const PROGRESS_STABLE_DWELL_MS = 8_000;
 const PROGRESS_MIN_TRAVEL_VIEWPORT_RATIO = 0.65;
 const PROGRESS_MIN_FORWARD_VIEWPORT_RATIO = 0.35;
 
@@ -96,6 +105,7 @@ interface ReaderSessionSnapshot {
   viewportAnchor: ReaderViewportAnchor | null;
   savedArticleId: string | null;
   temporaryUserId: string | null;
+  progressMode: ReadingProgressMode;
 }
 
 const MAX_READER_SESSION_DEPTH = 5;
@@ -197,6 +207,8 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   const readerOriginRef = useRef<ReaderOriginSnapshot | null>(null);
   const readerSessionStackRef = useRef<ReaderSessionSnapshot[]>([]);
   const readerViewportAnchorRef = useRef<ReaderViewportAnchor | null>(null);
+  const readerViewportCaptureRef = useRef<(() => ReaderViewportReport | null) | null>(null);
+  const readingProgressModeRef = useRef<ReadingProgressMode>("other");
   const activeSavedArticleIdRef = useRef<string | null>(null);
   const forceProgressSaveForArticleRef = useRef<string | null>(null);
   const pendingSourceJumpSavedArticleIdRef = useRef<string | null>(null);
@@ -207,6 +219,8 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     baselineAnchor: null,
     lastAnchor: null,
     cumulativeTravel: 0,
+    rapidScanPending: false,
+    lastReport: null,
   });
 
   useEffect(() => {
@@ -300,12 +314,42 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       baselineAnchor: initialAnchor,
       lastAnchor: initialAnchor,
       cumulativeTravel: 0,
+      rapidScanPending: false,
+      lastReport: null,
     };
   }, [cancelPendingReadingProgress]);
 
-  useEffect(() => () => cancelPendingReadingProgress(), [cancelPendingReadingProgress]);
+  const flushReadingProgress = useCallback(() => {
+    cancelPendingReadingProgress();
+    const session = progressSessionRef.current;
+    const report = readerViewportCaptureRef.current?.() ?? session.lastReport;
+    if (!report) return;
+    readerViewportAnchorRef.current = report.anchor;
+    session.lastAnchor = report.anchor;
+    session.lastReport = report;
+    if (report.activity.rapidScroll) session.rapidScanPending = true;
+    const savedArticleId = activeSavedArticleIdRef.current;
+    if (!savedArticleId || readingProgressModeRef.current !== "saved-entry") return;
+    if (shouldRestartSavedArticleOnExit(report.activity, session.rapidScanPending)) {
+      resetArticleReadingProgress(savedArticleId);
+    }
+  }, [cancelPendingReadingProgress]);
+
+  useEffect(() => {
+    const handlePageHide = () => flushReadingProgress();
+    window.addEventListener("pagehide", handlePageHide);
+    return () => {
+      window.removeEventListener("pagehide", handlePageHide);
+      flushReadingProgress();
+    };
+  }, [flushReadingProgress]);
 
   const enterReader = useCallback((originKind: ReaderOriginKind) => {
+    readingProgressModeRef.current = usesSavedArticleRestartPolicy(originKind)
+      ? "saved-entry"
+      : originKind === "vocabulary"
+        ? "vocabulary-source"
+        : "other";
     beginReadingProgressSession(readerViewportAnchorRef.current);
     if (!readingRef.current) {
       readerOriginRef.current = {
@@ -335,6 +379,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     viewportAnchor: readerViewportAnchorRef.current,
     savedArticleId: activeSavedArticleIdRef.current,
     temporaryUserId: activeTemporaryUserIdRef.current,
+    progressMode: readingProgressModeRef.current,
   }), [
     activeArticleSource,
     article,
@@ -347,7 +392,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
 
   const pushCurrentReaderSession = useCallback(() => {
     if (!readingRef.current) return;
-    cancelPendingReadingProgress();
+    flushReadingProgress();
     readerSessionStackRef.current = [
       ...readerSessionStackRef.current,
       captureCurrentReaderSession(),
@@ -358,7 +403,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       "",
       window.location.href,
     );
-  }, [cancelPendingReadingProgress, captureCurrentReaderSession]);
+  }, [captureCurrentReaderSession, flushReadingProgress]);
 
   const restoreReaderSession = useCallback((snapshot: ReaderSessionSnapshot) => {
     setArticle(snapshot.article);
@@ -372,13 +417,14 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     readerViewportAnchorRef.current = snapshot.viewportAnchor;
     activeSavedArticleIdRef.current = snapshot.savedArticleId;
     activeTemporaryUserIdRef.current = snapshot.temporaryUserId;
+    readingProgressModeRef.current = snapshot.progressMode;
     beginReadingProgressSession(snapshot.viewportAnchor);
     setReaderSessionId((sessionId) => sessionId + 1);
     setError("");
   }, [beginReadingProgressSession]);
 
   const leaveOrRestoreReader = useCallback(() => {
-    cancelPendingReadingProgress();
+    flushReadingProgress();
     const previousSession = readerSessionStackRef.current.pop();
     if (previousSession) {
       restoreReaderSession(previousSession);
@@ -390,6 +436,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     readerViewportAnchorRef.current = null;
     activeSavedArticleIdRef.current = null;
     activeTemporaryUserIdRef.current = null;
+    readingProgressModeRef.current = "other";
     setReaderInitialViewportAnchor(null);
     setHomeDemoCompleted(true);
     setSavedArticles(getSavedArticles());
@@ -401,7 +448,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setSourceWordToHighlight("");
     setError("");
     setReading(false);
-  }, [cancelPendingReadingProgress, restoreReaderSession]);
+  }, [flushReadingProgress, restoreReaderSession]);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -421,7 +468,12 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     leaveOrRestoreReader();
   }, [leaveOrRestoreReader]);
 
-  const handleReaderViewportAnchorChange = useCallback((anchor: ReaderViewportAnchor) => {
+  const handleReaderViewportCaptureChange = useCallback((capture: (() => ReaderViewportReport | null) | null) => {
+    readerViewportCaptureRef.current = capture;
+  }, []);
+
+  const handleReaderViewportAnchorChange = useCallback((report: ReaderViewportReport) => {
+    const { anchor, activity } = report;
     readerViewportAnchorRef.current = anchor;
     const forcedSavedArticleId = forceProgressSaveForArticleRef.current;
     if (forcedSavedArticleId) {
@@ -432,6 +484,8 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     }
     if (!activeSavedArticleIdRef.current && !activeTemporaryUserIdRef.current) return;
     const session = progressSessionRef.current;
+    session.lastReport = report;
+    if (activity.rapidScroll) session.rapidScanPending = true;
     const now = Date.now();
     if (!session.startedAt) {
       beginReadingProgressSession(anchor);
@@ -453,24 +507,50 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     const enoughTravel = session.cumulativeTravel >= window.innerHeight * PROGRESS_MIN_TRAVEL_VIEWPORT_RATIO;
     const enoughForwardProgress = anchor.scrollY - session.baselineAnchor.scrollY
       >= window.innerHeight * PROGRESS_MIN_FORWARD_VIEWPORT_RATIO;
-    if (!enoughTime || !enoughTravel || !enoughForwardProgress) return;
+    const enoughNormalProgress = enoughTime && enoughTravel && enoughForwardProgress;
+    const needsSpecialDwell = readingProgressModeRef.current === "saved-entry"
+      && (session.rapidScanPending || activity.atBottom);
+    if (!enoughNormalProgress && !needsSpecialDwell) return;
 
     progressSaveTimerRef.current = window.setTimeout(() => {
       progressSaveTimerRef.current = null;
-      if (document.visibilityState !== "visible" || progressSessionRef.current.lastAnchor !== anchor) return;
+      const currentSession = progressSessionRef.current;
+      if (document.visibilityState !== "visible" || currentSession.lastReport !== report) return;
+      const liveReport = readerViewportCaptureRef.current?.() ?? report;
+      if (
+        liveReport.activity.settledAt === 0
+        || Math.abs(liveReport.anchor.scrollY - anchor.scrollY) > 1
+      ) return;
       const savedArticleId = activeSavedArticleIdRef.current;
-      if (savedArticleId) {
+      if (savedArticleId && readingProgressModeRef.current === "saved-entry" && liveReport.activity.atBottom) {
+        resetArticleReadingProgress(savedArticleId);
+        progressSessionRef.current = {
+          startedAt: Date.now(),
+          baselineAnchor: anchor,
+          lastAnchor: anchor,
+          cumulativeTravel: 0,
+          rapidScanPending: false,
+          lastReport: report,
+        };
+        return;
+      }
+      currentSession.rapidScanPending = false;
+      if (savedArticleId && enoughNormalProgress) {
         saveArticleReadingProgress(savedArticleId, anchor);
-      } else if (activeTemporaryUserIdRef.current) {
+      } else if (activeTemporaryUserIdRef.current && enoughNormalProgress) {
         setTemporaryReading(updateTemporaryReadingProgress(activeTemporaryUserIdRef.current, anchor));
       }
-      progressSessionRef.current = {
-        startedAt: Date.now(),
-        baselineAnchor: anchor,
-        lastAnchor: anchor,
-        cumulativeTravel: 0,
-      };
-    }, PROGRESS_STABLE_DWELL_MS);
+      if (enoughNormalProgress) {
+        progressSessionRef.current = {
+          startedAt: Date.now(),
+          baselineAnchor: anchor,
+          lastAnchor: anchor,
+          cumulativeTravel: 0,
+          rapidScanPending: false,
+          lastReport: report,
+        };
+      }
+    }, READING_PROGRESS_STABLE_DWELL_MS);
   }, [beginReadingProgressSession]);
 
   async function consumeGuestImport(kind: "text" | "url"): Promise<boolean> {
@@ -1163,6 +1243,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         desktopViewportInsetLeft={132}
         initialViewportAnchor={readerInitialViewportAnchor}
         onViewportAnchorChange={handleReaderViewportAnchorChange}
+        onViewportCaptureChange={handleReaderViewportCaptureChange}
         onSourceJumpAligned={() => {
           const savedArticleId = pendingSourceJumpSavedArticleIdRef.current ?? activeSavedArticleIdRef.current;
           pendingSourceJumpSavedArticleIdRef.current = null;

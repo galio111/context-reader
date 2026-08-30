@@ -20,6 +20,14 @@ import {
 const ARTICLES_KEY = "context-reader:articles:v1";
 const GENERIC_SUMMARY = "这是一篇已保存的英文阅读文章。";
 const MIN_SUMMARY_CHINESE_CHARS = 8;
+const READER_TOP_ANCHOR: ReaderViewportAnchor = {
+  blockId: "context-reader:top",
+  blockIndex: Number.MAX_SAFE_INTEGER,
+  blockText: "",
+  top: 0,
+  scrollY: 0,
+  scrollRatio: 0,
+};
 let cachedArticlesRaw: string | null | undefined;
 let cachedArticles: SavedArticle[] | null = null;
 
@@ -498,6 +506,17 @@ export function saveArticleReadingProgress(id: string, anchor: ReaderViewportAnc
   }
 
   const state = updateArticleReadingState(id, { readingProgress: { ...anchor, scrollRatio: normalizedScrollRatio } });
+  if (!state?.readingProgress) return articles;
+  return articles.map((article) => article.id === id
+    ? { ...article, readingProgress: state.readingProgress, lastOpenedAt: state.lastOpenedAt }
+    : article);
+}
+
+export function resetArticleReadingProgress(id: string): SavedArticle[] {
+  const articles = getSavedArticles();
+  const existing = articles.find((article) => article.id === id);
+  if (!existing) return articles;
+  const state = updateArticleReadingState(id, { readingProgress: READER_TOP_ANCHOR });
   if (!state?.readingProgress) return articles;
   return articles.map((article) => article.id === id
     ? { ...article, readingProgress: state.readingProgress, lastOpenedAt: state.lastOpenedAt }
