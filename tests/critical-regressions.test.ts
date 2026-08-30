@@ -24,7 +24,16 @@ import { audienceForDifficulty } from "../lib/articleAudience";
 import { orderHomepageCategoryArticles, orderHomepageRecommendations } from "../lib/homepageRecommendations";
 import { buildBalancedRecommendationPlan } from "../lib/recommendationBalance";
 import { setPublishedArticlePlacement } from "../lib/editorialCuration";
-import { DEFAULT_DEEPSEEK_USD_TO_CNY_RATE, estimateDeepSeekCostMicrousd, microusdToCny } from "../lib/usageCost";
+import {
+  DEFAULT_DEEPSEEK_USD_TO_CNY_RATE,
+  estimateDeepSeekCostMicrocny,
+  estimateDeepSeekCostMicrousd,
+  microcnyToCny,
+  microusdToCny,
+  shanghaiUsageWindow,
+  summarizeUsageExecutionsByFeature,
+  summarizeUsageExecutionsByShanghaiDay,
+} from "../lib/usageCost";
 import { normalizeHomepageCuration } from "../lib/homepageCurationShared";
 import {
   READING_PROGRESS_STABLE_DWELL_MS,
@@ -231,6 +240,33 @@ test("authenticated browser session uses the accepted 400-day rolling window", (
   assert.equal(USER_SESSION_MAX_AGE_SECONDS, 400 * 24 * 60 * 60);
 });
 
+test("admin usage groups executions by Shanghai calendar day", () => {
+  const window = shanghaiUsageWindow(new Date("2026-08-30T03:00:00Z"), 3);
+  assert.equal(window.windowStart, "2026-08-27T16:00:00.000Z");
+  assert.deepEqual(window.dayKeys, ["2026-08-30", "2026-08-29", "2026-08-28"]);
+
+  const days = summarizeUsageExecutionsByShanghaiDay([
+    { route: "/api/explain-word", created_at: "2026-08-29T15:59:59Z", model: "deepseek-v4-pro", prompt_tokens: 100, completion_tokens: 20, status: "succeeded" },
+    { route: "/api/translate-article", created_at: "2026-08-29T16:00:00Z", model: "deepseek-v4-pro", prompt_tokens: 200, completion_tokens: 40, status: "failed" },
+  ], window.dayKeys);
+
+  assert.equal(days[0].date, "2026-08-30");
+  assert.equal(days[0].executions, 1);
+  assert.equal(days[0].failed, 1);
+  assert.equal(days[0].promptTokens, 200);
+  assert.equal(days[1].executions, 1);
+  assert.equal(days[1].failed, 0);
+  assert.equal(days[2].executions, 0);
+
+  const features = summarizeUsageExecutionsByFeature([
+    { route: "/api/explain-word", created_at: "2026-08-29T15:59:59Z", model: "deepseek-v4-pro", prompt_tokens: 100, completion_tokens: 20, status: "succeeded" },
+    { route: "/api/translate-article", created_at: "2026-08-29T16:00:00Z", model: "deepseek-v4-pro", prompt_tokens: 2_000, completion_tokens: 400, status: "succeeded" },
+  ]);
+  assert.equal(features[0].key, "translation");
+  assert.equal(features[0].label, "全文翻译");
+  assert.equal(features[0].executions, 1);
+});
+
 test("ambiguous standalone lookup preserves inflection and independent headword senses", () => {
   const parsed = parseDictionaryStream([
     JSON.stringify({ type: "head", query: "fell", lemma: "fall / fell", inputStatus: "ambiguous" }),
@@ -324,8 +360,14 @@ test("DeepSeek estimates use historical and peak/off-peak prices at execution ti
   assert.equal(estimateDeepSeekCostMicrousd("deepseek-v4-pro", usage, new Date("2026-08-15T00:00:00Z")), 522);
   assert.equal(estimateDeepSeekCostMicrousd("deepseek-v4-pro", usage, new Date("2026-08-20T00:00:00Z")), 858);
   assert.equal(estimateDeepSeekCostMicrousd("deepseek-v4-pro", usage, new Date("2026-08-20T02:00:00Z")), 1_716);
+  assert.equal(estimateDeepSeekCostMicrousd("deepseek-v4-pro", usage, new Date("2026-08-23T02:00:00Z")), 858);
+  assert.equal(estimateDeepSeekCostMicrocny("deepseek-v4-pro", usage, new Date("2026-08-15T00:00:00Z")), 3_600);
+  assert.equal(estimateDeepSeekCostMicrocny("deepseek-v4-pro", usage, new Date("2026-08-20T00:00:00Z")), 5_850);
+  assert.equal(estimateDeepSeekCostMicrocny("deepseek-v4-pro", usage, new Date("2026-08-20T02:00:00Z")), 11_700);
+  assert.equal(estimateDeepSeekCostMicrocny("deepseek-v4-pro", usage, new Date("2026-08-23T02:00:00Z")), 5_850);
   assert.equal(DEFAULT_DEEPSEEK_USD_TO_CNY_RATE, 7.2);
   assert.equal(microusdToCny(1_000_000, 7.2), 7.2);
+  assert.equal(microcnyToCny(1_000_000), 1);
 });
 
 test("mobile tools reopen at 56 percent and never expand beyond 82 percent", () => {

@@ -164,7 +164,7 @@ Lusion/共享图片首次评审必须把参考录屏和实现录屏并排，并�
 
 ## 12. 模型与重要路由
 
-DeepSeek 路由默认 `deepseek-v4-pro` 且关闭 thinking。`DEEPSEEK_MODEL` 为共享覆盖，`DEEPSEEK_TRANSLATION_MODEL` 只覆盖全文翻译，`DEEPSEEK_FALLBACK_*` 配置可选回退。Admin “近期运行情况”按过去 30 天完整执行账本动态聚合，并按每次调用发生时的模型、缓存 token 与 2026-08-17 起北京时间峰谷费率逐条重算；超过 50,000 条时明确提示统计上限。
+DeepSeek 路由默认 `deepseek-v4-pro` 且关闭 thinking。`DEEPSEEK_MODEL` 为共享覆盖，`DEEPSEEK_TRANSLATION_MODEL` 只覆盖全文翻译，`DEEPSEEK_FALLBACK_*` 配置可选回退。Admin “每日运行情况”读取最近 30 个上海自然日的完整执行账本并逐日展示用量、输入/输出 token、成本估计和失败执行；另按功能汇总并单列全文翻译。可见成本使用 DeepSeek 直接人民币价逐条重算，2026-08-23 起周末全天低谷、工作日 9–12 点和 14–18 点高峰；超过 50,000 条时明确提示统计上限，实际扣费始终以 DeepSeek 控制台为准。
 
 关键路由：
 

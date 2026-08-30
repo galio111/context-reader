@@ -25,8 +25,28 @@ interface DashboardData {
     promptTokens: number;
     completionTokens: number;
     estimatedCostMicrousd: number;
+    estimatedCostMicrocny: number;
     estimatedCostCny: number;
     usdToCnyRate: number;
+    daily: Array<{
+      date: string;
+      executions: number;
+      failed: number;
+      failureRate: number;
+      promptTokens: number;
+      completionTokens: number;
+      estimatedCostCny: number;
+    }>;
+    features: Array<{
+      key: string;
+      label: string;
+      executions: number;
+      failed: number;
+      failureRate: number;
+      promptTokens: number;
+      completionTokens: number;
+      estimatedCostCny: number;
+    }>;
     truncated: boolean;
     pricingBasis: string;
   };
@@ -101,6 +121,17 @@ const USER_PLAN_LABELS: Record<UserPlanId, string> = {
   max: "Max",
   admin: "开发者账号",
 };
+
+const USAGE_DAY_FORMATTER = new Intl.DateTimeFormat("zh-CN", {
+  timeZone: "Asia/Shanghai",
+  month: "long",
+  day: "numeric",
+  weekday: "short",
+});
+
+function formatUsageDay(dayKey: string): string {
+  return USAGE_DAY_FORMATTER.format(new Date(`${dayKey}T00:00:00+08:00`)).replace(/日(?=周)/, "日 · ");
+}
 
 function limitKey(planId: string, metricKey: string): string {
   return `${planId}:${metricKey}`;
@@ -182,18 +213,6 @@ export default function AdminAccountsPanel() {
     [data],
   );
 
-  const totals = useMemo(() => {
-    const summary = data?.usageSummary;
-    return {
-      executions: summary?.executions ?? 0,
-      costCny: summary?.estimatedCostCny ?? 0,
-      failed: summary?.failed ?? 0,
-      failureRate: summary?.failureRate ?? 0,
-      promptTokens: summary?.promptTokens ?? 0,
-      completionTokens: summary?.completionTokens ?? 0,
-    };
-  }, [data]);
-
   const visibleProfiles = useMemo(() => {
     const term = search.trim().toLowerCase();
     const profiles = data?.profiles ?? [];
@@ -228,16 +247,57 @@ export default function AdminAccountsPanel() {
         <>
           <section className="mt-6 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-4">
-              <h3 className="text-lg font-semibold">近期运行情况</h3>
-              <p className="mt-1 text-xs leading-5 text-[#68717a]">过去 {data.usageSummary.windowDays} 天的服务端实时记录。成本按每次调用发生时的 DeepSeek 模型、缓存命中/未命中 token，以及北京时间峰谷费率重算；仍是估算值，不是账单。</p>
+              <h3 className="text-lg font-semibold">每日运行情况</h3>
+              <p className="mt-1 text-xs leading-5 text-[#68717a]">过去 {data.usageSummary.windowDays} 个上海自然日的站内已记录调用。成本按 DeepSeek 人民币价、模型、缓存 token 和调用时间逐条重算，周末全天按低谷价；DeepSeek 控制台实扣仍是最终依据。</p>
             </div>
-            <dl className="grid divide-y divide-[#e1e5e9] sm:grid-cols-4 sm:divide-x sm:divide-y-0">
-              <SummaryItem label="注册账号" value={data.profiles.length.toLocaleString("zh-CN")} />
-              <SummaryItem label="AI 执行" value={totals.executions.toLocaleString("zh-CN")} detail={`输入 ${totals.promptTokens.toLocaleString("zh-CN")} · 输出 ${totals.completionTokens.toLocaleString("zh-CN")} tokens`} />
-              <SummaryItem label="估算成本" value={`￥${totals.costCny.toFixed(4)}`} detail={`按调用时间与缓存类型逐条重算，估算汇率 1 美元约 ${data.usageSummary.usdToCnyRate.toFixed(2)} 元`} />
-              <SummaryItem label="失败执行" value={`${totals.failed} 次（${(totals.failureRate * 100).toFixed(1)}%）`} />
-            </dl>
+            <div className="divide-y divide-[#e1e5e9]">
+              {data.usageSummary.daily.slice(0, 7).map((day, index) => <DailyUsageRow key={day.date} day={day} today={index === 0} />)}
+              {data.usageSummary.daily.length > 7 && (
+                <details className="group">
+                  <summary className="cursor-pointer px-5 py-3 text-sm font-medium text-[#175a8d] hover:bg-[#f6f9fb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#1769aa]">
+                    <span className="group-open:hidden">查看更早的 {data.usageSummary.daily.length - 7} 天</span>
+                    <span className="hidden group-open:inline">收起更早记录</span>
+                  </summary>
+                  <div className="divide-y divide-[#e1e5e9] border-t border-[#e1e5e9]">
+                    {data.usageSummary.daily.slice(7).map((day) => <DailyUsageRow key={day.date} day={day} />)}
+                  </div>
+                </details>
+              )}
+            </div>
             {data.usageSummary.truncated && <p className="border-t border-[#e1e5e9] px-5 py-3 text-xs text-[#8d3224]">过去 30 天记录超过 50,000 条，当前统计已达到安全读取上限，需要增加数据库聚合后才能显示完整总数。</p>}
+          </section>
+
+          <section className="mt-6 overflow-hidden rounded-2xl bg-white">
+            <div className="border-b border-[#e1e5e9] px-5 py-4">
+              <h3 className="text-lg font-semibold">按功能统计</h3>
+              <p className="mt-1 text-xs leading-5 text-[#68717a]">同一项用户操作可能包含结构化与流式两次上游调用，因此这里按真实 DeepSeek 执行次数统计。全文翻译单独列出。</p>
+            </div>
+            <div className="divide-y divide-[#e1e5e9]">
+              {data.usageSummary.features.length === 0 && <p className="px-5 py-8 text-center text-sm text-[#68717a]">过去 30 天没有站内 AI 执行记录。</p>}
+              {data.usageSummary.features.map((feature) => (
+                <article key={feature.key} className="grid gap-3 px-5 py-4 sm:grid-cols-[140px_minmax(0,1fr)] sm:items-start sm:gap-5">
+                  <div>
+                    <strong className="text-sm text-[#17191c]">{feature.label}</strong>
+                    {feature.key === "translation" && <p className="mt-1 text-[11px] text-[#175a8d]">单独统计</p>}
+                  </div>
+                  <dl className="grid grid-cols-3 divide-x divide-[#e1e5e9]">
+                    <div className="pr-3">
+                      <dt className="text-[11px] text-[#68717a]">执行</dt>
+                      <dd className="mt-1 text-lg font-semibold text-[#17191c]">{feature.executions.toLocaleString("zh-CN")} 次</dd>
+                    </div>
+                    <div className="px-3">
+                      <dt className="text-[11px] text-[#68717a]">Tokens</dt>
+                      <dd className="mt-1 text-lg font-semibold text-[#17191c]">{(feature.promptTokens + feature.completionTokens).toLocaleString("zh-CN")}</dd>
+                    </div>
+                    <div className="pl-3">
+                      <dt className="text-[11px] text-[#68717a]">成本估计</dt>
+                      <dd className="mt-1 text-lg font-semibold text-[#17191c]">￥{feature.estimatedCostCny.toFixed(4)}</dd>
+                      <dd className="mt-1 text-[11px] leading-4 text-[#68717a]">占已记录成本 {data.usageSummary.estimatedCostCny ? (feature.estimatedCostCny / data.usageSummary.estimatedCostCny * 100).toFixed(1) : "0.0"}%</dd>
+                    </div>
+                  </dl>
+                </article>
+              ))}
+            </div>
           </section>
 
           <AdminInvitationCodesPanel profiles={data.profiles} />
@@ -357,12 +417,35 @@ function BonusControl({
   );
 }
 
-function SummaryItem({ label, value, detail }: { label: string; value: string; detail?: string }) {
+function DailyUsageRow({
+  day,
+  today = false,
+}: {
+  day: DashboardData["usageSummary"]["daily"][number];
+  today?: boolean;
+}) {
   return (
-    <div className="px-5 py-4">
-      <dt className="text-xs text-[#68717a]">{label}</dt>
-      <dd className="mt-1 text-lg font-semibold text-[#17191c]">{value}</dd>
-      {detail && <dd className="mt-1 text-[11px] leading-4 text-[#68717a]">{detail}</dd>}
-    </div>
+    <article className="grid gap-3 px-5 py-4 sm:grid-cols-[140px_minmax(0,1fr)] sm:items-start sm:gap-5">
+      <div className="flex items-center gap-2 sm:block">
+        <time className="text-sm font-semibold text-[#17191c]" dateTime={day.date}>{formatUsageDay(day.date)}</time>
+        {today && <span className="rounded-full bg-[#edf5fb] px-2 py-0.5 text-[11px] font-medium text-[#175a8d] sm:ml-2">今天</span>}
+      </div>
+      <dl className="grid grid-cols-3 divide-x divide-[#e1e5e9]">
+        <div className="pr-3">
+          <dt className="text-[11px] text-[#68717a]">用量</dt>
+          <dd className="mt-1 text-lg font-semibold text-[#17191c]">{day.executions.toLocaleString("zh-CN")} 次</dd>
+          <dd className="mt-1 text-[11px] leading-4 text-[#68717a]">输入 {day.promptTokens.toLocaleString("zh-CN")}<br />输出 {day.completionTokens.toLocaleString("zh-CN")} tokens</dd>
+        </div>
+        <div className="px-3">
+          <dt className="text-[11px] text-[#68717a]">成本估计</dt>
+          <dd className="mt-1 text-lg font-semibold text-[#17191c]">￥{day.estimatedCostCny.toFixed(4)}</dd>
+        </div>
+        <div className="pl-3">
+          <dt className="text-[11px] text-[#68717a]">失败执行</dt>
+          <dd className="mt-1 text-lg font-semibold text-[#17191c]">{day.failed.toLocaleString("zh-CN")} 次</dd>
+          <dd className="mt-1 text-[11px] leading-4 text-[#68717a]">失败率 {(day.failureRate * 100).toFixed(1)}%</dd>
+        </div>
+      </dl>
+    </article>
   );
 }

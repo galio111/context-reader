@@ -3,7 +3,14 @@ import { accountFetch } from "@/lib/accountStore";
 import { isAdminRequest } from "@/lib/adminAuth";
 import { readJsonBody } from "@/lib/limitedBody";
 import { phoneFromAccountEmail, resetPhoneAccountPin } from "@/lib/userAuth";
-import { deepSeekUsdToCnyRate, estimateDeepSeekCostMicrousd, microusdToCny } from "@/lib/usageCost";
+import {
+  deepSeekUsdToCnyRate,
+  microcnyToCny,
+  shanghaiUsageWindow,
+  summarizeUsageExecutionsByFeature,
+  summarizeUsageExecutionsByShanghaiDay,
+  type UsageExecutionSummaryRow,
+} from "@/lib/usageCost";
 import type { AccountPlanId, UsageMetricKey } from "@/types/account";
 
 const PLANS = new Set<AccountPlanId>(["guest", "free", "basic", "plus", "max", "admin"]);
@@ -16,15 +23,7 @@ const MANAGED_PLAN_METRICS: Partial<Record<AccountPlanId, UsageMetricKey[]>> = {
   max: ["lookup_generation", "deep_reading"],
 };
 
-interface UsageExecutionRow extends Record<string, unknown> {
-  model?: string;
-  prompt_tokens?: number;
-  prompt_cache_hit_tokens?: number;
-  prompt_cache_miss_tokens?: number;
-  completion_tokens?: number;
-  status?: string;
-  created_at?: string;
-}
+interface UsageExecutionRow extends Record<string, unknown>, UsageExecutionSummaryRow {}
 
 const USAGE_WINDOW_DAYS = 30;
 const EXECUTION_PAGE_SIZE = 1_000;
@@ -45,7 +44,8 @@ async function listRecentUsageExecutions(windowStart: string): Promise<{ rows: U
 export async function GET() {
   if (!(await isAdminRequest())) return NextResponse.json({ error: "未登录管理员。" }, { status: 401 });
   const windowEnd = new Date();
-  const windowStart = new Date(windowEnd.getTime() - USAGE_WINDOW_DAYS * 86_400_000).toISOString();
+  const usageWindow = shanghaiUsageWindow(windowEnd, USAGE_WINDOW_DAYS);
+  const windowStart = usageWindow.windowStart;
   const [profiles, entitlements, plans, limits, actions, executionPage] = await Promise.all([
     accountFetch<Array<Record<string, unknown>>>("account_profiles?select=user_id,email,nickname,status,english_level,learning_goal,created_at,updated_at&order=created_at.desc&limit=1000"),
     accountFetch<Array<Record<string, unknown>>>("user_entitlements?select=user_id,plan_id,source,starts_at,ends_at,bonus_limits&limit=1000"),
@@ -55,18 +55,12 @@ export async function GET() {
     listRecentUsageExecutions(windowStart),
   ]);
   const executions = executionPage.rows;
-  const failed = executions.filter((execution) => execution.status === "failed").length;
-  const estimatedCostMicrousd = executions.reduce((sum, execution) => sum + estimateDeepSeekCostMicrousd(
-    String(execution.model || "deepseek-v4-pro"),
-    {
-      prompt_tokens: Number(execution.prompt_tokens || 0),
-      prompt_cache_hit_tokens: Number(execution.prompt_cache_hit_tokens || 0),
-      prompt_cache_miss_tokens: Number(execution.prompt_cache_miss_tokens || 0),
-      completion_tokens: Number(execution.completion_tokens || 0),
-    },
-    new Date(String(execution.created_at || windowEnd.toISOString())),
-  ), 0);
   const usdToCnyRate = deepSeekUsdToCnyRate();
+  const daily = summarizeUsageExecutionsByShanghaiDay(executions, usageWindow.dayKeys);
+  const features = summarizeUsageExecutionsByFeature(executions);
+  const failed = daily.reduce((sum, day) => sum + day.failed, 0);
+  const estimatedCostMicrousd = daily.reduce((sum, day) => sum + day.estimatedCostMicrousd, 0);
+  const estimatedCostMicrocny = daily.reduce((sum, day) => sum + day.estimatedCostMicrocny, 0);
   const usageSummary = {
     windowDays: USAGE_WINDOW_DAYS,
     windowStart,
@@ -77,10 +71,13 @@ export async function GET() {
     promptTokens: executions.reduce((sum, execution) => sum + Number(execution.prompt_tokens || 0), 0),
     completionTokens: executions.reduce((sum, execution) => sum + Number(execution.completion_tokens || 0), 0),
     estimatedCostMicrousd,
-    estimatedCostCny: microusdToCny(estimatedCostMicrousd, usdToCnyRate),
+    estimatedCostMicrocny,
+    estimatedCostCny: microcnyToCny(estimatedCostMicrocny),
     usdToCnyRate,
+    daily,
+    features,
     truncated: executionPage.truncated,
-    pricingBasis: "DeepSeek 2026-08-16 peak/off-peak USD rates, calculated per execution timestamp and cache usage, then converted to CNY",
+    pricingBasis: "DeepSeek direct CNY rates, calculated per execution timestamp and cache usage; weekends are off-peak from 2026-08-23",
   };
   const safeProfiles = profiles.map((profile) => {
     const email = String(profile.email ?? "");
