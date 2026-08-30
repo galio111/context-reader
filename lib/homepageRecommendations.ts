@@ -7,6 +7,7 @@ import type { HomepageCuration } from "@/lib/homepageCurationShared";
 import type { PublicArticle } from "@/types/publicArticle";
 
 export const HOMEPAGE_RECOMMENDATION_TARGET = 10;
+export const HOMEPAGE_MOBILE_RECOMMENDATION_TARGET = 7;
 
 function stableRecommendationRank(value: string): number {
   let hash = 2166136261;
@@ -32,6 +33,19 @@ function uniqueArticles(items: Array<PublicArticle | undefined>): PublicArticle[
   return [...new Map(
     items.filter((article): article is PublicArticle => Boolean(article)).map((article) => [article.id, article]),
   ).values()];
+}
+
+/** Editorial placement controls order without hiding the rest of a category. */
+export function orderHomepageCategoryArticles(
+  articles: PublicArticle[],
+  curatedIds: string[],
+): PublicArticle[] {
+  const byId = new Map(articles.map((article) => [article.id, article]));
+  const curatedIdSet = new Set(curatedIds);
+  return uniqueArticles([
+    ...curatedIds.map((id) => byId.get(id)),
+    ...articles.filter((article) => !curatedIdSet.has(article.id)),
+  ]);
 }
 
 function fallbackOrder(

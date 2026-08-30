@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
+import { createPortal } from "react-dom";
 import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { getVocabularyEntries } from "@/lib/vocabulary";
 import { useAccount } from "@/components/AccountProvider";
@@ -10,6 +11,7 @@ import { BookDictionary } from "@/components/BookDictionary";
 import { HomeOptionMenu, type GuideSection, type PreviewKind } from "@/components/HomeOptionMenu";
 import { PillNavAction } from "@/components/PillNavAction";
 import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
+import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
 import { PUBLIC_CONTACT } from "@/lib/publicContact";
 import type { ImportedArticle, SavedArticle } from "@/types/article";
@@ -27,7 +29,12 @@ import {
   writeRecommendationPreferences,
 } from "@/lib/recommendationPreferences";
 import type { HomepageCuration } from "@/lib/homepageCurationShared";
-import { orderHomepageRecommendations } from "@/lib/homepageRecommendations";
+import {
+  HOMEPAGE_MOBILE_RECOMMENDATION_TARGET,
+  HOMEPAGE_RECOMMENDATION_TARGET,
+  orderHomepageCategoryArticles,
+  orderHomepageRecommendations,
+} from "@/lib/homepageRecommendations";
 import { classifyFeatureOrbitGesture, FEATURE_ORBIT_AUTOPLAY_MS, type FeatureOrbitGestureIntent } from "@/lib/featureOrbitMotion";
 import styles from "./HomeRedesign.module.css";
 
@@ -172,8 +179,11 @@ function readingMinutes(article: PublicArticle): number {
   return Math.max(1, Math.round(words / 180));
 }
 
-function visibleArticleCount(length: number): number {
-  return Math.min(length, 10);
+function visibleArticleCount(length: number, compactViewport: boolean): number {
+  return Math.min(
+    length,
+    compactViewport ? HOMEPAGE_MOBILE_RECOMMENDATION_TARGET : HOMEPAGE_RECOMMENDATION_TARGET,
+  );
 }
 
 function orderRecommendationArticles(
@@ -342,6 +352,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const coverScrollTargetRef = useRef<"cover" | "recommendations" | null>(null);
   const orbitDragRef = useRef<{ pointerId: number; startX: number; startY: number; lastX: number; lastTime: number; velocity: number; startPosition: number; intent: FeatureOrbitGestureIntent }>({ pointerId: -1, startX: 0, startY: 0, lastX: 0, lastTime: 0, velocity: 0, startPosition: 0, intent: "pending" });
   const orbitSuppressClickRef = useRef(false);
+  useDocumentScrollLock(dictionaryMounted && compactViewport);
 
   const category = CATEGORY_FILTERS.find((item) => item.label === activeCategory) ?? CATEGORY_FILTERS[0];
   const recommendationDayKey = useMemo(() => new Intl.DateTimeFormat("en-CA", {
@@ -356,12 +367,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
   );
   const categoryArticles = useMemo(
     () => {
-      const filtered = allCategoryArticles;
-      if (category.label === "推荐") return filtered;
+      if (category.label === "推荐") return allCategoryArticles;
       const curatedIds = props.homepageCuration?.categories[category.label] ?? [];
-      if (!curatedIds.length) return filtered;
-      const byId = new Map(filtered.map((article) => [article.id, article]));
-      return curatedIds.map((id) => byId.get(id)).filter((article): article is PublicArticle => Boolean(article));
+      return orderHomepageCategoryArticles(allCategoryArticles, curatedIds);
     },
     [allCategoryArticles, category, props.homepageCuration],
   );
@@ -373,10 +381,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const personalizedAllCategoryArticles = useMemo(
     () => activeCategory === "推荐"
       ? orderRecommendationArticles(allCategoryArticles, props.homepageCuration, recommendationPreferences, recommendationDayKey)
-      : allCategoryArticles,
-    [activeCategory, allCategoryArticles, props.homepageCuration, recommendationDayKey, recommendationPreferences],
+      : categoryArticles,
+    [activeCategory, allCategoryArticles, categoryArticles, props.homepageCuration, recommendationDayKey, recommendationPreferences],
   );
-  const showcaseArticleCount = visibleArticleCount(personalizedCategoryArticles.length);
+  const showcaseArticleCount = visibleArticleCount(personalizedCategoryArticles.length, compactViewport);
   const libraryArticles = useMemo(() => {
     const term = librarySearch.trim().toLocaleLowerCase("zh-CN");
     return personalizedAllCategoryArticles.filter((article) => {
@@ -1182,6 +1190,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
               <span>精选外刊</span><i aria-hidden="true">↓</i>
             </button>
           </div>
+          <div className={styles.mobileCoverDecoration} aria-hidden="true">
+            <span>READ</span><span>MEANING</span><span>CONTEXT</span><i /><b />
+          </div>
           <div className={styles.heroEdge} aria-hidden="true"><span>SELECTED READING</span><i /></div>
         </section>}
 
@@ -1523,12 +1534,13 @@ export function HomeRedesign(props: HomeRedesignProps) {
         </div>
       )}
 
-      {dictionaryMounted && (
+      {dictionaryMounted && typeof document !== "undefined" && createPortal((
         <aside
           ref={dictionaryWindowRef}
           className={`${styles.dictionaryWindow} ${dictionaryClosing ? styles.dictionaryWindowClosing : ""}`}
           style={{ "--mobile-dictionary-height": `${mobileDictionarySheet.height}dvh` } as CSSProperties}
           aria-label="单独查词窗口"
+          data-theme={homeTheme}
           onPointerUp={persistDictionaryWindow}
         >
           <div
@@ -1550,7 +1562,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
             <BookDictionary embedded panel offline={isOffline} />
           </div>
         </aside>
-      )}
+      ), document.body)}
 
       <HomeOptionMenu
         open={menuOpen}

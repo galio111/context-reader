@@ -1,4 +1,5 @@
 import type { ArticleDifficulty, ArticleTopic, PublicArticle } from "@/types/publicArticle";
+import type { EditorialCategory } from "@/lib/editorialCuration";
 
 export type CrawlerDifficulty = ArticleDifficulty | "any";
 
@@ -87,4 +88,10 @@ export interface RecommendationCrawlerRunResult {
   sourceErrors: RecommendationCrawlerSourceError[];
   startedAt: string;
   finishedAt: string;
+  balancePlan?: Array<{
+    category: EditorialCategory;
+    topic: ArticleTopic;
+    targetCount: number;
+    beforeCount: number;
+  }>;
 }

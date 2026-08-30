@@ -1,7 +1,9 @@
 import { accountFetch } from "@/lib/accountStore";
 import { runRecommendationCrawler } from "@/lib/recommendationCrawler";
+import { buildBalancedRecommendationPlan, type RecommendationBalancePlanItem } from "@/lib/recommendationBalance";
+import { listArticleCandidates, listPublicArticles } from "@/lib/publicArticles";
 import { sendSiteNotificationEmail, siteNotificationEmailStatus, type SiteEmailStatus } from "@/lib/siteNotificationEmail";
-import { ARTICLE_TOPICS, type ArticleTopic } from "@/types/publicArticle";
+import type { ArticleTopic } from "@/types/publicArticle";
 import type {
   RecommendationAutomationConfig,
   RecommendationAutomationState,
@@ -166,9 +168,45 @@ function nextRunAt(
   return new Date(Date.UTC(parts.year, parts.month - 1, parts.day + dayOffset, hour - 8, minute)).toISOString();
 }
 
-function scheduledTopic(now: Date): ArticleTopic {
-  const shanghaiDay = Math.floor((now.getTime() + 8 * 60 * 60 * 1000) / 86_400_000);
-  return ARTICLE_TOPICS[shanghaiDay % ARTICLE_TOPICS.length];
+async function runBalancedRecommendationCrawler(
+  balancePlan: RecommendationBalancePlanItem[],
+  targetCount: number,
+  origin: string,
+  now: Date,
+  candidateInventorySize: number,
+): Promise<RecommendationCrawlerRunResult> {
+  const runs: RecommendationCrawlerRunResult[] = [];
+  for (const item of balancePlan) {
+    runs.push(await runRecommendationCrawler({
+      topic: item.topic,
+      difficulty: "any",
+      targetInventory: 30,
+      maxNewArticles: item.targetCount,
+      inventoryScope: "candidates",
+      ignoreInventoryTarget: true,
+    }, origin));
+  }
+  const first = runs[0];
+  const last = runs.at(-1);
+  const created = runs.flatMap((run) => run.created);
+  return {
+    topic: first?.topic ?? balancePlan[0]?.topic ?? "社会生活",
+    difficulty: "any",
+    targetInventory: 30,
+    inventoryBefore: first?.inventoryBefore ?? candidateInventorySize,
+    inventoryAfter: last?.inventoryAfter ?? candidateInventorySize,
+    discovered: runs.reduce((total, run) => total + run.discovered, 0),
+    attempted: runs.reduce((total, run) => total + run.attempted, 0),
+    targetNewArticles: targetCount,
+    targetAchieved: created.length >= targetCount,
+    shortfall: Math.max(0, targetCount - created.length),
+    created,
+    skipped: runs.flatMap((run) => run.skipped),
+    sourceErrors: runs.flatMap((run) => run.sourceErrors),
+    startedAt: first?.startedAt ?? now.toISOString(),
+    finishedAt: last?.finishedAt ?? new Date().toISOString(),
+    balancePlan,
+  };
 }
 
 export async function getRecommendationAutomationStatus(now = new Date()): Promise<RecommendationAutomationStatus> {
@@ -201,10 +239,11 @@ export async function updateRecommendationAutomationConfig(
 
 function completionEmailText(result: RecommendationCrawlerRunResult, state: RecommendationAutomationState): string {
   const createdTitles = result.created.map((article) => `- ${article.title}`).join("\n") || "- 本次没有新增候选";
+  const balanceSummary = result.balancePlan?.map((item) => `${item.category} ${item.targetCount} 篇（执行前 ${item.beforeCount} 篇）`).join("；");
   return [
     "Context Reader 的定时推荐任务已执行完成。",
     "",
-    `主题：${result.topic}`,
+    balanceSummary ? `均衡补齐：${balanceSummary}` : `主题：${result.topic}`,
     `开始时间：${new Date(result.startedAt).toLocaleString("zh-CN", { timeZone: TIME_ZONE })}`,
     `完成时间：${new Date(result.finishedAt).toLocaleString("zh-CN", { timeZone: TIME_ZONE })}`,
     `本日累计新增：${state.lastCreatedCount} 篇`,
@@ -241,7 +280,6 @@ export async function runConfiguredRecommendationAutomation(
     }
   }
 
-  const topic = scheduledTopic(now);
   const startedAt = now.toISOString();
   const pendingScheduledCount = trigger === "scheduled" && initial.state.pendingScheduledDate === parts.dateKey
     ? Math.min(initial.config.maxNewArticles, initial.state.pendingScheduledCreatedCount)
@@ -249,6 +287,9 @@ export async function runConfiguredRecommendationAutomation(
   const targetForAttempt = trigger === "scheduled"
     ? Math.max(1, initial.config.maxNewArticles - pendingScheduledCount)
     : initial.config.maxNewArticles;
+  const [candidateInventory, publicInventory] = await Promise.all([listArticleCandidates(), listPublicArticles()]);
+  const plannedTopics = buildBalancedRecommendationPlan(candidateInventory, publicInventory, targetForAttempt, now);
+  const topic: ArticleTopic = plannedTopics[0]?.topic ?? "社会生活";
   const runningState: RecommendationAutomationState = {
     ...initial.state,
     status: "running",
@@ -265,14 +306,13 @@ export async function runConfiguredRecommendationAutomation(
   await writeSetting(STATE_KEY, runningState);
 
   try {
-    const result = await runRecommendationCrawler({
-      topic,
-      difficulty: "any",
-      targetInventory: 30,
-      maxNewArticles: targetForAttempt,
-      inventoryScope: "candidates",
-      ignoreInventoryTarget: true,
-    }, origin);
+    const result = await runBalancedRecommendationCrawler(
+      plannedTopics,
+      targetForAttempt,
+      origin,
+      now,
+      candidateInventory.length,
+    );
     const accumulatedScheduledCount = trigger === "scheduled"
       ? pendingScheduledCount + result.created.length
       : 0;

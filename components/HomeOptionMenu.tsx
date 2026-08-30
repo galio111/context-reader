@@ -25,7 +25,7 @@ import { GuidePageContent } from "@/components/GuidePageContent";
 import InvitationCodeRedeemContent from "@/components/InvitationCodeRedeemContent";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
-import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
+import { MOBILE_SHEET_TALL_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
 import { addVocabularyNote, checkAnki } from "@/lib/ankiConnect";
@@ -192,7 +192,11 @@ export function HomeOptionMenu({
   const [pinnedPreview, setPinnedPreview] = useState<PreviewKind | null>(null);
   const [previewAnchorY, setPreviewAnchorY] = useState<number | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const mobileSheet = useMobileBottomSheet(open, mobileMenu);
+  const mobileSheet = useMobileBottomSheet(
+    open,
+    mobileMenu,
+    mobileMenu && pinnedPreview === "vocabulary" ? MOBILE_SHEET_TALL_HEIGHT : undefined,
+  );
   const [internalAnkiSettings, setInternalAnkiSettings] = useState<AnkiSettings>(() => defaultAnkiSettings());
   const [internalAnkiStatus, setInternalAnkiStatus] = useState("");
   const [internalAnkiChecking, setInternalAnkiChecking] = useState(false);
@@ -272,6 +276,7 @@ export function HomeOptionMenu({
       if (!event) return;
       setHoveredVocabularyId(null);
       setAnkiHelpOpen(false);
+      if (query.matches) setAnkiSettingsOpen(false);
       setPreviewAnchorY((current) => current === null
         ? null
         : query.matches
@@ -523,7 +528,6 @@ export function HomeOptionMenu({
       data-placement={placement}
       data-standalone={standalonePreview || undefined}
       data-home-quick-nav-offset={avoidHomeQuickNav || undefined}
-      data-local-scroll-surface
       onKeyDown={handleDialogKeyDown}
       onPointerDown={(event) => {
         if (event.target === event.currentTarget) onClose();
@@ -694,7 +698,7 @@ export function HomeOptionMenu({
           </div>
         </header>
         {orderedVocabularyEntries.length ? (
-          ankiSettingsOpen ? (
+          ankiSettingsOpen && !mobileMenu ? (
             <div className={styles.ankiSettingsView} data-local-scroll-surface>
               <button
                 className={styles.ankiSettingsBack}
@@ -716,7 +720,7 @@ export function HomeOptionMenu({
             </div>
           ) : (
             <>
-            <div className={styles.ankiToolbar}>
+            {!mobileMenu && <div className={styles.ankiToolbar}>
               <button
                 type="button"
                 onClick={importAllToAnki}
@@ -773,12 +777,12 @@ export function HomeOptionMenu({
                   </div>
                 )}
               </div>
-            </div>
+            </div>}
             <div className={styles.vocabularyManageBar}>
               <button type="button" onClick={exportVocabulary}>导出 CSV</button>
               <button type="button" onClick={clearVocabulary}>清空生词本</button>
             </div>
-            {(effectiveAnkiStatus || effectiveImportError) && (
+            {!mobileMenu && (effectiveAnkiStatus || effectiveImportError) && (
               <p className={effectiveImportError ? styles.ankiError : styles.ankiStatus} role="status">
                 {effectiveImportError || effectiveAnkiStatus}
               </p>
@@ -871,6 +875,7 @@ export function HomeOptionMenu({
             onImportAnki={() => importOneToAnki(hoveredVocabularyEntry)}
             onCopy={() => copyVocabulary(hoveredVocabularyEntry)}
             onDelete={() => deleteVocabulary(hoveredVocabularyEntry.id)}
+            showAnkiActions={!mobileMenu}
           />
         )}
       </section>
@@ -1248,6 +1253,7 @@ function VocabularyHoverDetail({
   onImportAnki,
   onCopy,
   onDelete,
+  showAnkiActions,
 }: {
   entry: VocabularyEntry;
   canJumpToSource: boolean;
@@ -1257,6 +1263,7 @@ function VocabularyHoverDetail({
   onImportAnki: () => void;
   onCopy: () => void;
   onDelete: () => void;
+  showAnkiActions: boolean;
 }) {
   const isStandalone = !entry.sourceSentence.trim();
   const entryPhonetic = currentFormPhonetic(entry);
@@ -1296,14 +1303,14 @@ function VocabularyHoverDetail({
             定位原句
           </button>
         )}
-        <button
+        {showAnkiActions && <button
           className={styles.importAnkiAction}
           type="button"
           onClick={onImportAnki}
           disabled={Boolean(entry.anki.ankiNoteId) || importing}
         >
           {entry.anki.ankiNoteId ? "已导入 Anki" : importing ? "导入中…" : "导入 Anki"}
-        </button>
+        </button>}
         <button className={styles.secondaryDetailAction} type="button" onClick={onCopy}>复制词条</button>
         <button className={styles.dangerDetailAction} type="button" onClick={onDelete}>删除</button>
       </div>
@@ -1320,7 +1327,7 @@ function VocabularyHoverDetail({
 
       <footer className={styles.vocabularyDetailMeta}>
         <span>难度：{entry.difficulty === "easy" ? "基础" : entry.difficulty === "hard" ? "较难" : "适中"}</span>
-        <span className={styles.ankiMeta}>{entry.anki.ankiNoteId ? "已导入 Anki" : "未导入 Anki"}</span>
+        {showAnkiActions && <span className={styles.ankiMeta}>{entry.anki.ankiNoteId ? "已导入 Anki" : "未导入 Anki"}</span>}
       </footer>
     </div>
   );

@@ -15,9 +15,11 @@ import {
   clampMobileSheetHeight,
   MOBILE_SHEET_DEFAULT_HEIGHT,
   MOBILE_SHEET_MAX_HEIGHT,
+  MOBILE_SHEET_TALL_HEIGHT,
 } from "../components/useMobileBottomSheet";
 import { audienceForDifficulty } from "../lib/articleAudience";
-import { orderHomepageRecommendations } from "../lib/homepageRecommendations";
+import { orderHomepageCategoryArticles, orderHomepageRecommendations } from "../lib/homepageRecommendations";
+import { buildBalancedRecommendationPlan } from "../lib/recommendationBalance";
 import { setPublishedArticlePlacement } from "../lib/editorialCuration";
 import { DEFAULT_DEEPSEEK_USD_TO_CNY_RATE, estimateDeepSeekCostMicrousd, microusdToCny } from "../lib/usageCost";
 import { normalizeHomepageCuration } from "../lib/homepageCurationShared";
@@ -100,6 +102,10 @@ test("admin curation remounts and releases per-article working state", () => {
   const inspector = readFileSync(new URL("../components/AdminArticleMetadataInspector.tsx", import.meta.url), "utf8");
   assert.match(page, /<AdminArticleMetadataInspector\s+key=\{`\$\{readerState\.kind\}:\$\{readerState\.article\.id\}`\}/);
   assert.match(inspector, /finally \{ setWorking\(""\); \}/);
+  assert.match(page, /editorialMobileActions=\{<>[\s\S]*?候选 \{candidateArticles\.length\}[\s\S]*?精选 \{publicArticles\.length\}/);
+  assert.match(page, /function resetEditorialReaderViewport\(\)/);
+  assert.match(page, /window\.scrollTo\(\{ top: 0, left: 0, behavior: "auto" \}\)/);
+  assert.match(inspector, /适合人群（可多选）/);
 });
 
 test("recommendations keep Admin choices first and fill a full three-row showcase", () => {
@@ -119,9 +125,36 @@ test("recommendations keep Admin choices first and fill a full three-row showcas
   assert.ok(ordered.findIndex((article) => article.id === "5") > ordered.findIndex((article) => article.id === "6"));
 });
 
-test("C1 exam bands overlap CET-6, postgraduate, IELTS and TOEFL audiences", () => {
+test("category curation keeps the lead order without hiding the remaining published articles", () => {
+  const articles = Array.from({ length: 12 }, (_, index) => recommendationArticle(String(index + 1)));
+  const ordered = orderHomepageCategoryArticles(articles, ["3", "1"]);
+  assert.deepEqual(ordered.slice(0, 2).map((article) => article.id), ["3", "1"]);
+  assert.equal(ordered.length, 12);
+  assert.equal(new Set(ordered.map((article) => article.id)).size, 12);
+});
+
+test("temporary reading bands expose the two overlapping audience groups", () => {
+  assert.deepEqual(audienceForDifficulty("高中 / CET-4"), ["高中", "CET-4", "IELTS", "TOEFL"]);
+  assert.deepEqual(audienceForDifficulty("雅思 / 托福基础"), ["高中", "CET-4", "IELTS", "TOEFL"]);
   assert.deepEqual(audienceForDifficulty("CET-6 / 考研"), ["CET-6", "考研", "IELTS", "TOEFL"]);
-  assert.deepEqual(audienceForDifficulty("雅思 / 托福基础"), ["CET-6", "考研", "IELTS", "TOEFL"]);
+  assert.deepEqual(audienceForDifficulty("雅思 / 托福进阶"), ["CET-6", "考研", "IELTS", "TOEFL"]);
+});
+
+test("daily crawler plan fills the most underrepresented editorial categories first", () => {
+  const published = Array.from({ length: 5 }, (_, index) => ({
+    ...recommendationArticle(`tech-${index}`),
+    recommendation: { ...recommendationArticle(`tech-${index}`).recommendation!, homepageCategory: "科技" as const },
+  }));
+  const candidates = [{
+    ...recommendationArticle("business-1"),
+    recommendation: { ...recommendationArticle("business-1").recommendation!, homepageCategory: "商业" as const },
+  }];
+  const plan = buildBalancedRecommendationPlan(candidates, published, 3, new Date("2026-08-30T00:00:00.000Z"));
+  const targets = new Map(plan.map((item) => [item.category, item.targetCount]));
+  assert.equal(targets.get("商业"), 1);
+  assert.equal(targets.get("时事"), 1);
+  assert.equal(targets.get("文化"), 1);
+  assert.equal(targets.get("科技"), undefined);
 });
 
 test("published placement can remove recommendation membership and move category atomically", () => {
@@ -153,6 +186,7 @@ test("DeepSeek estimates use historical and peak/off-peak prices at execution ti
 test("mobile tools reopen at 56 percent and never expand beyond 82 percent", () => {
   assert.equal(MOBILE_SHEET_DEFAULT_HEIGHT, 56);
   assert.equal(MOBILE_SHEET_MAX_HEIGHT, 82);
+  assert.equal(MOBILE_SHEET_TALL_HEIGHT, 76);
   assert.equal(clampMobileSheetHeight(96), 82);
   assert.equal(clampMobileSheetHeight(68), 68);
 
@@ -196,14 +230,23 @@ test("mobile overlays lock background scroll and adapt across viewport changes",
   assert.match(scrollLock, /activeLocks \+= 1/);
   assert.match(scrollLock, /body\.style\.position = "fixed"/);
   assert.match(scrollLock, /window\.scrollTo\(previous\.scrollX, previous\.scrollY\)/);
-  assert.match(menu, /useMobileBottomSheet\(open, mobileMenu\)/);
-  assert.match(sheet, /\[open, resetKey\]/);
+  assert.match(menu, /pinnedPreview === "vocabulary" \? MOBILE_SHEET_TALL_HEIGHT/);
+  assert.match(sheet, /\[initialHeight, open, resetKey\]/);
   assert.match(vocabulary, /matchMedia\("\(max-width: 639px\)"\)/);
   assert.match(vocabulary, /rowVirtualizer\.measure\(\)/);
   assert.match(menuStyles, /@media \(hover: none\), \(pointer: coarse\)/);
   assert.match(menuStyles, /\.mobileSheetHandle \{[\s\S]*?height: 44px/);
   assert.match(menuStyles, /\.menuItem \{[\s\S]*?min-height: 44px/);
   assert.doesNotMatch(menuStyles, /color: #657985|color: #687b86|color: #607581/);
+});
+
+test("mobile vocabulary hides Anki actions and image captions use reader tokens", () => {
+  const menu = readFileSync(new URL("../components/HomeOptionMenu.tsx", import.meta.url), "utf8");
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  assert.match(menu, /showAnkiActions=\{!mobileMenu\}/);
+  assert.match(menu, /\{!mobileMenu && <div className=\{styles\.ankiToolbar\}>/);
+  assert.match(reader, /image-caption:\$\{block\.id\}/);
+  assert.match(reader, /renderTokenList\(block\.captionTokens\)/);
 });
 
 test("release image retention preserves current and direct-parent rollback images", () => {

@@ -9,6 +9,7 @@ import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { HomeOptionMenu, type PreviewKind } from "@/components/HomeOptionMenu";
 import { PillNavAction } from "@/components/PillNavAction";
 import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
+import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { WordToken } from "@/components/WordToken";
 import toolbarStyles from "@/components/ReaderToolbar.module.css";
 import loadingStyles from "@/components/ReaderLoading.module.css";
@@ -127,6 +128,7 @@ interface RenderableArticleBlock {
   id: string;
   type: ImportedArticleBlock["type"];
   tokens?: ReaderToken[];
+  captionTokens?: ReaderToken[];
   tokenGroups?: RenderableTokenGroup[];
   src?: string;
   alt?: string;
@@ -866,6 +868,11 @@ export function ReaderView({
     return effectiveImportedArticle.blocks
       .map((block): RenderableArticleBlock | null => {
         if (block.type === "image") {
+          const captionText = block.alt?.trim() || "";
+          const captionTokens = captionText
+            ? cachedBlockTokens(`image-caption:${block.id}`, captionText, textBlockIndex, `${block.id}-caption-`)
+            : undefined;
+          if (captionTokens) textBlockIndex += 1;
           const ocrState = imageOcr[block.id];
           const ocrText = IMAGE_OCR_ENABLED ? ocrState?.text || block.ocrText?.trim() || "" : "";
           const tokenized = ocrText ? tokenizeArticle(ocrText)[0] : null;
@@ -887,6 +894,7 @@ export function ReaderView({
             width: block.width,
             height: block.height,
             tokens,
+            captionTokens,
             ocrStatus: ocrText ? "ready" : ocrState?.status ?? "idle",
             ocrError: ocrState?.error,
             layoutWords: block.layoutWords,
@@ -945,7 +953,10 @@ export function ReaderView({
       .filter((block): block is RenderableArticleBlock => Boolean(block));
   }, [effectiveImportedArticle, imageOcr, plainArticleParagraphs]);
   const wordTokens = useMemo(
-    () => renderableBlocks.flatMap((block) => block.tokens?.filter((token) => token.type === "word") ?? []),
+    () => renderableBlocks.flatMap((block) => [
+      ...(block.tokens?.filter((token) => token.type === "word") ?? []),
+      ...(block.captionTokens?.filter((token) => token.type === "word") ?? []),
+    ]),
     [renderableBlocks],
   );
   const translationBlocks = useMemo<ArticleTranslationBlock[]>(
@@ -1015,6 +1026,7 @@ export function ReaderView({
   const [rightPanelMode, setRightPanelMode] = useState<RightPanelMode>("explanation");
   const [readerWorkLayer, setReaderWorkLayer] = useState<ReaderWorkLayer>(null);
   const mobileWorkSheet = useMobileBottomSheet(Boolean(readerWorkLayer));
+  const [mobileViewport, setMobileViewport] = useState(false);
   const [readerImportMode, setReaderImportMode] = useState<"text" | "url">("text");
   const [readerImportText, setReaderImportText] = useState("");
   const [readerImportUrl, setReaderImportUrl] = useState("");
@@ -1033,6 +1045,15 @@ export function ReaderView({
   const [translationRequested, setTranslationRequested] = useState(false);
   const [translationEstimatedSecondsRemaining, setTranslationEstimatedSecondsRemaining] = useState<number | null>(null);
   const [translationRetryAfterSeconds, setTranslationRetryAfterSeconds] = useState<number | null>(null);
+  useDocumentScrollLock(mobileViewport && (mobileExplanationOpen || Boolean(readerWorkLayer) || dictionaryMounted));
+
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 1023px)");
+    const update = () => setMobileViewport(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
   const [translationRetryReason, setTranslationRetryReason] = useState<string | null>(null);
   const [translationRegenerating, setTranslationRegenerating] = useState(false);
   const [translationCompletedTargetBlocks, setTranslationCompletedTargetBlocks] = useState(0);
@@ -3469,9 +3490,9 @@ export function ReaderView({
                         点击放大
                       </button>
                     </div>
-                    {block.alt && (
+                    {block.alt && block.captionTokens && (
                       <figcaption className="mt-3 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-                        {block.alt}
+                        {renderTokenList(block.captionTokens)}
                       </figcaption>
                     )}
                     {IMAGE_OCR_ENABLED && (

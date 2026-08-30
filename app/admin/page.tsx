@@ -205,6 +205,11 @@ export default function AdminPage() {
     return data.curation;
   }
 
+  function resetEditorialReaderViewport() {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+  }
+
   function openCandidateArticle(article: PublicArticle) {
     setStatus("");
     setEditorialDrawer(null);
@@ -212,6 +217,7 @@ export default function AdminPage() {
     setArticlePlacement({ ...DEFAULT_CANDIDATE_PLACEMENT, preferLater: !article.recommendation?.coverImageUrl?.trim() });
     setInspectorOpen(false);
     setReaderState({ kind: "candidate", article });
+    resetEditorialReaderViewport();
   }
 
   async function openPublishedArticle(article: PublicArticle) {
@@ -232,6 +238,7 @@ export default function AdminPage() {
       setInspectorOpen(false);
       setReaderState({ kind: "published", article: data.article });
       setEditorialDrawer(null);
+      resetEditorialReaderViewport();
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "公开文章读取失败，请稍后重试。");
     } finally {
@@ -353,6 +360,7 @@ export default function AdminPage() {
       setArticlePlacement({ ...DEFAULT_CANDIDATE_PLACEMENT, preferLater: !next.recommendation?.coverImageUrl?.trim() });
       setInspectorOpen(false);
       setReaderState({ kind: "candidate", article: next });
+      resetEditorialReaderViewport();
     }
     else setReaderState(null);
   }
@@ -744,6 +752,8 @@ export default function AdminPage() {
             desktopViewportInsetLeft={330}
             editorialWorkbench
             editorialMobileActions={<>
+              <button type="button" aria-expanded={editorialDrawer === "candidates"} onClick={() => setEditorialDrawer((current) => current === "candidates" ? null : "candidates")}>候选 {candidateArticles.length}</button>
+              <button type="button" aria-expanded={editorialDrawer === "published"} onClick={() => setEditorialDrawer((current) => current === "published" ? null : "published")}>精选 {publicArticles.length}</button>
               <button type="button" onClick={() => setInspectorOpen(true)}>文章设置</button>
               {readerState.kind === "candidate" && <button type="button" data-primary="true" onClick={() => void selectCurrentCandidate(editorialCategoryForArticle(readerState.article), articlePlacement)}>精选</button>}
               {readerState.kind === "candidate" && <button type="button" data-danger="true" onClick={() => void rejectCurrentCandidate()}>不精选</button>}

@@ -301,6 +301,7 @@
 }
 
 .heroEdge i { display: block; height: 1px; flex: 1; background: var(--line); }
+.mobileCoverDecoration { display: none; }
 
 .recommendations {
   position: relative;
@@ -891,6 +892,9 @@
 .root[data-theme="night"] .dictionaryWindow { border-color: rgb(186 220 227 / 17%); color: #e4eff1; background: rgb(18 34 41 / 98%); box-shadow: 0 22px 64px rgb(0 0 0 / 34%); }
 .root[data-theme="night"] .dictionaryWindow > header span,
 .root[data-theme="night"] .dictionaryWindow > header button { color: #c5dadd; }
+.dictionaryWindow[data-theme="night"] { border-color: rgb(186 220 227 / 17%); color: #e4eff1; background: rgb(18 34 41 / 98%); box-shadow: 0 22px 64px rgb(0 0 0 / 34%); }
+.dictionaryWindow[data-theme="night"] > header span,
+.dictionaryWindow[data-theme="night"] > header button { color: #c5dadd; }
 
 @media (max-width: 900px) {
   .quickNav { display: none; }
@@ -906,6 +910,15 @@
   .hero { min-height: 600px; padding: 100px 22px 46px; align-items: start; }
   .heroCopy { width: 100%; margin-top: 6vh; }
   .heroCopy h1 { font-size: clamp(2.75rem, 12vw, 4.15rem); line-height: 1.12; }
+  .mobileCoverDecoration { position: absolute; z-index: 2; inset: 96px 12px 34px 32%; display: block; overflow: hidden; pointer-events: none; opacity: .72; mask-image: linear-gradient(90deg, transparent 0, #000 25%, #000 100%); }
+  .mobileCoverDecoration::before { content: ""; position: absolute; width: 230px; height: 230px; right: -58px; top: 54px; border: 1px solid rgb(24 104 126 / 16%); border-radius: 50%; box-shadow: 0 0 0 34px rgb(62 136 151 / 4%), 0 0 0 78px rgb(62 136 151 / 3%); }
+  .mobileCoverDecoration span { position: absolute; color: rgb(31 106 126 / 20%); font-family: var(--font-mono, monospace); font-size: 10px; font-weight: 700; letter-spacing: .18em; }
+  .mobileCoverDecoration span:nth-child(1) { top: 8%; right: 11%; }
+  .mobileCoverDecoration span:nth-child(2) { right: 22%; bottom: 23%; transform: rotate(90deg); }
+  .mobileCoverDecoration span:nth-child(3) { right: 2%; bottom: 4%; }
+  .mobileCoverDecoration i, .mobileCoverDecoration b { position: absolute; display: block; border-radius: 50%; background: rgb(89 164 175 / 16%); }
+  .mobileCoverDecoration i { width: 12px; height: 12px; right: 38%; top: 27%; }
+  .mobileCoverDecoration b { width: 6px; height: 6px; right: 8%; top: 52%; }
   .ballField, .coverBreath { display: none; }
   .articleGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 42px 14px; }
   .preferencePanel { position: absolute; top: calc(100% + 10px); right: auto; bottom: auto; left: 0; width: min(350px, calc(100vw - 40px)); max-height: min(72svh, 620px); overflow-y: auto; }
@@ -928,7 +941,6 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 6;
   }
-  .articleCard:nth-child(n + 8) { display: none; }
   .publicationBridge { width: calc(100% + 40px); min-height: 38svh; margin-right: -20px; margin-left: -20px; padding-inline: 20px; }
   .cardCopy strong { max-width: 100%; font-size: 1rem; }
   .cardCopy b { display: none; }

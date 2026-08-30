@@ -114,6 +114,10 @@
   .releaseNotes li { grid-template-columns: 1fr; gap: 8px; }
   .guideFooter { padding: 26px 22px; grid-template-columns: 1fr; }
   .guideFooter > a, .guideFooter > button { width: fit-content; }
+  .guide [data-mobile-hide-anki],
+  .section[id="anki"],
+  .section[id="faq"] .sectionHeading p,
+  .section[id="faq"] .faqGroups > section:nth-child(2) { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .guide { scroll-behavior: auto; } .toolList summary i, .faqGroups summary i { transition: none; } }
 

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState, type PointerEvent } from "react";
 
 export const MOBILE_SHEET_DEFAULT_HEIGHT = 56;
+export const MOBILE_SHEET_TALL_HEIGHT = 76;
 export const MOBILE_SHEET_MAX_HEIGHT = 82;
 export const MOBILE_SHEET_MIN_HEIGHT = 40;
 
@@ -16,13 +17,13 @@ interface ResizeInteraction {
   startHeight: number;
 }
 
-export function useMobileBottomSheet(open: boolean, resetKey?: unknown) {
-  const [height, setHeight] = useState(MOBILE_SHEET_DEFAULT_HEIGHT);
+export function useMobileBottomSheet(open: boolean, resetKey?: unknown, initialHeight = MOBILE_SHEET_DEFAULT_HEIGHT) {
+  const [height, setHeight] = useState(() => clampMobileSheetHeight(initialHeight));
   const resizeRef = useRef<ResizeInteraction | null>(null);
 
   useEffect(() => {
-    if (open) setHeight(MOBILE_SHEET_DEFAULT_HEIGHT);
-  }, [open, resetKey]);
+    if (open) setHeight(clampMobileSheetHeight(initialHeight));
+  }, [initialHeight, open, resetKey]);
 
   const onResizeStart = useCallback((event: PointerEvent<HTMLElement>) => {
     resizeRef.current = { pointerId: event.pointerId, startY: event.clientY, startHeight: height };

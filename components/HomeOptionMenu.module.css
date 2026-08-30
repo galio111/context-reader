@@ -8,6 +8,7 @@
   z-index: 140;
   inset: 0;
   overflow: hidden;
+  overscroll-behavior: none;
   color: #122430;
 }
 
@@ -1755,6 +1756,14 @@
 
   .vocabularyDetailInner {
     max-height: 100%;
+    padding: 68px 18px 22px;
+    overscroll-behavior: contain;
+  }
+
+  .vocabularyDetailHeader {
+    padding-right: 0;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .ankiMeta {
