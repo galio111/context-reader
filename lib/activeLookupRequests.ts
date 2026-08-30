@@ -65,3 +65,36 @@ export function cancelActiveLookupRequests(actionId: string): number {
   for (const controller of controllers) controller.abort();
   return controllers.size;
 }
+
+export async function waitForLookupPeersOrCancellation(
+  actionId: string,
+  ownController: AbortController,
+  options: { peerJoinGraceMs?: number; maxWaitMs?: number; pollMs?: number } = {},
+): Promise<"cancelled" | "settled"> {
+  if (!isLookupActionId(actionId)) return "settled";
+  const peerJoinGraceMs = options.peerJoinGraceMs ?? 300;
+  const maxWaitMs = options.maxWaitMs ?? 35_000;
+  const pollMs = options.pollMs ?? 40;
+  const startedAt = Date.now();
+  let sawPeer = false;
+
+  while (true) {
+    const active = registry();
+    const now = Date.now();
+    pruneCancellations(active, now);
+    if (ownController.signal.aborted || (active.cancelledUntil.get(actionId) ?? 0) > now) {
+      return "cancelled";
+    }
+
+    const controllers = active.active.get(actionId);
+    const hasPeer = Boolean(controllers && Array.from(controllers).some((controller) => controller !== ownController));
+    if (hasPeer) sawPeer = true;
+    if (sawPeer && !hasPeer) return "settled";
+
+    const elapsedMs = now - startedAt;
+    if ((!sawPeer && elapsedMs >= peerJoinGraceMs) || elapsedMs >= maxWaitMs) {
+      return "settled";
+    }
+    await new Promise((resolve) => setTimeout(resolve, Math.min(pollMs, maxWaitMs - elapsedMs)));
+  }
+}

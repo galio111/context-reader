@@ -3,7 +3,11 @@ import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { buildContextCloze } from "../lib/ankiData";
 import { DeepSeekParseError, explainWordWithDeepSeek } from "../lib/deepseek";
-import { cancelActiveLookupRequests, registerActiveLookupRequest } from "../lib/activeLookupRequests";
+import {
+  cancelActiveLookupRequests,
+  registerActiveLookupRequest,
+  waitForLookupPeersOrCancellation,
+} from "../lib/activeLookupRequests";
 import { POST as cancelLookupRequest } from "../app/api/lookup-cancel/route";
 import { waitForFastImageLocalization } from "../lib/articleImageLocalizationPolicy";
 import { parseDictionaryStream } from "../lib/dictionaryStream";
@@ -119,9 +123,44 @@ test("closing lookup surfaces aborts active provider work without creating a pro
   assert.match(dictionary, /notifyLookupCancellation\(activeActionIdRef\.current\)/);
   assert.match(explanationRoute, /registerActiveLookupRequest\(actionId, lookupController\)/);
   assert.match(explanationRoute, /explainWordWithDeepSeek\(safeRequest, lookupController\.signal\)/);
+  assert.match(explanationRoute, /waitForLookupPeersOrCancellation\(actionId, lookupController\)/);
   assert.match(explanationRoute, /error instanceof ClientRequestCancelledError[\s\S]*?refundUsage\(actionId, "cancelled", "client_cancelled"\)[\s\S]*?status: 499/);
   assert.match(cancellationRoute, /cancelActiveLookupRequests\(actionId\)/);
   assert.match(deepseek, /abortCause === "client"[\s\S]*?throw new ClientRequestCancelledError\(\)/);
+});
+
+test("structured lookup defers provider reporting while its stream peer can still be cancelled", async () => {
+  const cancelledActionId = "33333333-3333-4333-8333-333333333333";
+  const structuredController = new AbortController();
+  const unregisterStructured = registerActiveLookupRequest(cancelledActionId, structuredController);
+  const cancellationDecision = waitForLookupPeersOrCancellation(cancelledActionId, structuredController, {
+    peerJoinGraceMs: 100,
+    maxWaitMs: 500,
+    pollMs: 5,
+  });
+  await new Promise((resolve) => setTimeout(resolve, 10));
+  const streamController = new AbortController();
+  registerActiveLookupRequest(cancelledActionId, streamController);
+  await new Promise((resolve) => setTimeout(resolve, 10));
+  cancelActiveLookupRequests(cancelledActionId);
+  assert.equal(await cancellationDecision, "cancelled");
+  unregisterStructured();
+
+  const completedActionId = "44444444-4444-4444-8444-444444444444";
+  const completedStructuredController = new AbortController();
+  const unregisterCompletedStructured = registerActiveLookupRequest(completedActionId, completedStructuredController);
+  const completedDecision = waitForLookupPeersOrCancellation(completedActionId, completedStructuredController, {
+    peerJoinGraceMs: 100,
+    maxWaitMs: 500,
+    pollMs: 5,
+  });
+  await new Promise((resolve) => setTimeout(resolve, 10));
+  const completedStreamController = new AbortController();
+  const unregisterCompletedStream = registerActiveLookupRequest(completedActionId, completedStreamController);
+  await new Promise((resolve) => setTimeout(resolve, 10));
+  unregisterCompletedStream();
+  assert.equal(await completedDecision, "settled");
+  unregisterCompletedStructured();
 });
 
 test("explicit cancellation reaches active requests and survives an early close race", () => {

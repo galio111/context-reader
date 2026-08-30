@@ -17,7 +17,7 @@ import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 import { ClientRequestCancelledError } from "@/lib/requestCancellation";
-import { registerActiveLookupRequest } from "@/lib/activeLookupRequests";
+import { registerActiveLookupRequest, waitForLookupPeersOrCancellation } from "@/lib/activeLookupRequests";
 
 export const maxDuration = 60;
 
@@ -109,7 +109,10 @@ export async function POST(request: Request) {
     await finishUsage(actionId, "succeeded").catch(() => undefined);
     return NextResponse.json({ explanation: result.explanation });
   } catch (error) {
-    if (error instanceof ClientRequestCancelledError) {
+    const cancellationOutcome = error instanceof ClientRequestCancelledError
+      ? "cancelled"
+      : await waitForLookupPeersOrCancellation(actionId, lookupController);
+    if (cancellationOutcome === "cancelled") {
       await refundUsage(actionId, "cancelled", "client_cancelled").catch(() => undefined);
       return new Response(null, { status: 499 });
     }
