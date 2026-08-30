@@ -20,9 +20,8 @@ import {
   findImportedVocabularyNoteIds,
 } from "@/lib/ankiConnect";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
-import { findSavedArticle, saveArticle, saveEditedArticle } from "@/lib/articles";
+import { findSavedArticle, isValidArticleSummary, saveArticle, saveEditedArticle } from "@/lib/articles";
 import {
-  createArticleTranslationBlockCacheKey,
   createArticleTranslationCacheKey,
   createExplanationCacheKey,
   getCachedArticleTranslation,
@@ -73,7 +72,7 @@ import {
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import type { AnkiSettings } from "@/types/anki";
 import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, ImportedArticleInlineBaseline, ImportedArticleInlineText, ImportedArticleTableCell, SavedArticle } from "@/types/article";
-import type { PublicExplanation } from "@/types/publicArticle";
+import type { PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
 import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, ReaderViewportAnchor, ReaderViewportReport, WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
 import type { DictionaryResult } from "@/types/dictionary";
@@ -83,6 +82,7 @@ interface ReaderViewProps {
   article: string;
   importedArticle?: ImportedArticle | null;
   preloadedExplanations?: PublicExplanation[];
+  preloadedArticleTranslations?: PublicArticleTranslation[];
   articleSource?: VocabularySourceArticle;
   sourceSentenceToHighlight?: string;
   sourceWordToHighlight?: string;
@@ -737,6 +737,7 @@ export function ReaderView({
   article,
   importedArticle,
   preloadedExplanations = [],
+  preloadedArticleTranslations = [],
   articleSource,
   sourceSentenceToHighlight = "",
   sourceWordToHighlight = "",
@@ -1427,32 +1428,6 @@ export function ReaderView({
   }, [translationSourceKey, translationBlocks]);
 
   useEffect(() => {
-    if (!account.authenticated || translationBlocks.length === 0 || getArticleTranslationJobSnapshot(translationSourceKey)) {
-      return;
-    }
-
-    const persisted = getCombinedCachedArticleTranslation(translationSourceKey, translationBlocks);
-    if (persisted.length === 0) {
-      return;
-    }
-
-    const persistedById = new Map(persisted.map((item) => [item.id, item]));
-    const initialTranslations = translationBlocks
-      .map((block) => persistedById.get(block.id))
-      .filter((item): item is ArticleTranslationItem => Boolean(item?.translation.trim()));
-    const completedIds = new Set(initialTranslations.map((item) => item.id));
-    const missingBlocks = translationBlocks.filter((block) => !completedIds.has(block.id));
-    if (missingBlocks.length === 0) {
-      return;
-    }
-
-    void startArticleTranslationJob(translationSourceKey, missingBlocks, {
-      initialTranslations,
-      allBlocks: translationBlocks,
-    });
-  }, [account.authenticated, translationSourceKey, translationBlocks]);
-
-  useEffect(() => {
     for (const item of preloadedExplanations) {
       if (!getCachedExplanation(item.cacheKey)) {
         setCachedExplanation(item.cacheKey, item.explanation);
@@ -1948,6 +1923,14 @@ export function ReaderView({
       .map((block) => cachedById.get(block.id))
       .filter((item): item is ArticleTranslationItem => Boolean(item?.translation.trim()));
     const translatedIds = new Set(initialTranslations.map((item) => item.id));
+    const preloadedTranslation = preloadedArticleTranslations.find((item) => item.cacheKey === cacheKey);
+    const preloadedIds = new Set(preloadedTranslation?.translations.map((item) => item.id) ?? []);
+    const hasCompletePublicCache = Boolean(
+      !force
+      && articleSource?.kind === "public"
+      && preloadedTranslation
+      && translationBlocks.every((block) => preloadedIds.has(block.id)),
+    );
     const blocksToTranslate = force
       ? translationBlocks
       : translationBlocks.filter((block) => !translatedIds.has(block.id));
@@ -1963,6 +1946,10 @@ export function ReaderView({
       force,
       initialTranslations,
       allBlocks: translationBlocks,
+      publicArticleId: articleSource?.kind === "public" ? articleSource.id : undefined,
+      ...(hasCompletePublicCache && articleSource?.kind === "public"
+        ? { publicCache: { articleId: articleSource.id } }
+        : {}),
     });
   }
 
@@ -3066,14 +3053,52 @@ export function ReaderView({
     setSavingArticle(true);
     setSaveStatus("正在保存文章...");
     try {
-      saveArticle(currentArticle, "", effectiveImportedArticle);
+      const existing = findSavedArticle(currentArticle);
+      saveArticle(currentArticle, existing?.summary ?? "", effectiveImportedArticle);
       onArticleSaved();
-      setSaveStatus(isOffline ? "文章已保存到本机；联网后会自动同步" : "文章已保存");
+      if (isOffline) {
+        setSaveStatus("文章已保存到本机；联网后会自动同步，摘要需联网生成");
+      } else if (isValidArticleSummary(existing?.summary ?? "")) {
+        setSaveStatus("文章已保存，已复用现有摘要");
+      } else {
+        setSaveStatus("文章已保存，正在生成摘要...");
+        const { response, data } = await fetchJson<{ summary?: string; error?: string }>("/api/summarize-article", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ article: currentArticle, regenerate: false }),
+        }, "文章已保存，但摘要暂时没有生成成功。", { operation: "article_summary" });
+        if (!response.ok || !data?.summary) throw new Error(data?.error || "文章已保存，但摘要暂时没有生成成功。");
+        saveArticle(currentArticle, data.summary, effectiveImportedArticle);
+        onArticleSaved();
+        setSaveStatus("文章已保存并生成摘要");
+      }
     } catch (saveError) {
       setSaveStatus(saveError instanceof Error ? saveError.message : "文章保存失败，请稍后重试。");
     } finally {
       setSavingArticle(false);
       window.setTimeout(() => setSaveStatus(""), 2600);
+    }
+  }
+
+  async function handleRegenerateSummary() {
+    if (!requireLocalAccount("登录后才能重新生成文章摘要。") || isOffline || savingArticle) return;
+    setSavingArticle(true);
+    setSaveStatus("正在重新生成摘要...");
+    try {
+      const { response, data } = await fetchJson<{ summary?: string; error?: string }>("/api/summarize-article", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ article: currentArticle, regenerate: true }),
+      }, "摘要重新生成失败，请稍后重试。", { operation: "article_summary_regenerate" });
+      if (!response.ok || !data?.summary) throw new Error(data?.error || "摘要重新生成失败，请稍后重试。");
+      saveArticle(currentArticle, data.summary, effectiveImportedArticle);
+      onArticleSaved();
+      setSaveStatus("摘要已重新生成，本月摘要额度扣除 1 次");
+    } catch (summaryError) {
+      setSaveStatus(summaryError instanceof Error ? summaryError.message : "摘要重新生成失败，请稍后重试。");
+    } finally {
+      setSavingArticle(false);
+      window.setTimeout(() => setSaveStatus(""), 3000);
     }
   }
 
@@ -3300,6 +3325,14 @@ export function ReaderView({
               className={toolbarStyles.action}
               label="编辑文章"
               onClick={beginArticleEditing}
+            />
+          )}
+          {articleSaved && !editingArticle && (
+            <PillNavAction
+              className={toolbarStyles.action}
+              label="重写摘要"
+              onClick={() => void handleRegenerateSummary()}
+              disabled={savingArticle || savingArticleEdit || isOffline}
             />
           )}
           <PillNavAction
@@ -4219,6 +4252,7 @@ export function ReaderView({
                   )}
                   <button type="button" onClick={handleCopyArticle} disabled={editingArticle}>复制文章内容</button>
                   <button type="button" onClick={handleSaveArticle} disabled={articleSaved || savingArticle || savingArticleEdit || editingArticle}>{saveButtonText}</button>
+                  {articleSaved && <button type="button" onClick={() => void handleRegenerateSummary()} disabled={savingArticle || savingArticleEdit || editingArticle || isOffline}>重新生成摘要</button>}
                 </div>
               </div>
             )}

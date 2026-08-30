@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAccountPlan, getAccountSessionState, getUsageBalances } from "@/lib/accountStore";
+import { getAccountPlan, getAccountSessionState, getUsageBalances, recordDailyActivity } from "@/lib/accountStore";
 import {
   getLocalDeveloperAccountState,
   isCloudBackedLocalDeveloperUser,
@@ -30,6 +30,7 @@ export async function GET(request: Request) {
     if (!user) {
       const identity = await resolveUsageIdentity(request);
       const plan = await getAccountPlan("guest");
+      await recordDailyActivity(identity).catch(() => undefined);
       return NextResponse.json({
         account: {
           ...anonymousState,
@@ -39,6 +40,7 @@ export async function GET(request: Request) {
       });
     }
     const account = await getAccountSessionState(user);
+    await recordDailyActivity({ ownerKey: `user:${user.id}`, userId: user.id }).catch(() => undefined);
     return NextResponse.json({
       account: isCloudBackedLocalDeveloperUser(user)
         ? { ...account, localDirect: true }

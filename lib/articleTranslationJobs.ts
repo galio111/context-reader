@@ -6,9 +6,8 @@ import {
 } from "@/lib/cache";
 import { fetchJson } from "@/lib/apiClient";
 import type { ArticleTranslationBlock, ArticleTranslationItem } from "@/types/reader";
+import { createArticleTranslationBatches } from "@/lib/articleTranslationBatching";
 
-const TRANSLATION_BATCH_MAX_BLOCKS = 1;
-const TRANSLATION_BATCH_MAX_CHARS = 1800;
 const MAX_RETRY_ATTEMPTS = 8;
 const RETRY_BASE_DELAY_MS = 2_000;
 const RETRY_MAX_DELAY_MS = 30_000;
@@ -18,6 +17,12 @@ interface TranslationApiResponse {
   translations?: ArticleTranslationItem[];
   error?: string;
   code?: string;
+}
+
+interface TranslationStartResponse extends TranslationApiResponse {
+  actionId?: string;
+  source?: "generated" | "public_cache";
+  translations?: ArticleTranslationItem[];
 }
 
 export interface ArticleTranslationJobSnapshot {
@@ -37,6 +42,7 @@ type ArticleTranslationJobListener = (snapshot: ArticleTranslationJobSnapshot) =
 
 interface ArticleTranslationJob extends ArticleTranslationJobSnapshot {
   controller: AbortController;
+  actionId: string;
   startedAt: number;
   totalBlocks: number;
 }
@@ -84,27 +90,26 @@ async function requestArticleTranslation(
   blocks: ArticleTranslationBlock[],
   signal: AbortSignal,
   contextBlocks: ArticleTranslationBlock[],
+  actionId: string,
   onRetry: (delaySeconds: number, reason: string) => void,
+  onTranslation: (translation: ArticleTranslationItem) => void,
 ): Promise<ArticleTranslationItem[]> {
+  const collected = new Map<string, ArticleTranslationItem>();
   for (let attempt = 0; attempt <= MAX_RETRY_ATTEMPTS; attempt += 1) {
+    const pendingBlocks = blocks.filter((block) => !collected.has(block.id));
+    if (!pendingBlocks.length) return blocks.map((block) => collected.get(block.id)!).filter(Boolean);
     let response: Response;
-    let data: TranslationApiResponse | null;
     try {
-      const result = await fetchJson<TranslationApiResponse>("/api/translate-article", {
+      response = await fetch("/api/translate-article", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ blocks, contextBlocks }),
-        signal,
-      }, FALLBACK_ERROR, {
-        operation: "article_translation",
-        metadata: {
-          blockCount: blocks.length,
-          contextBlockCount: contextBlocks.length,
-          characters: blocks.reduce((sum, block) => sum + block.text.length, 0),
+        headers: {
+          "Content-Type": "application/json",
+          "x-context-translation-action-id": actionId,
+          Accept: "application/x-ndjson",
         },
+        body: JSON.stringify({ blocks: pendingBlocks, contextBlocks }),
+        signal,
       });
-      response = result.response;
-      data = result.data;
     } catch (error) {
       if (signal.aborted || attempt === MAX_RETRY_ATTEMPTS) {
         throw error;
@@ -118,7 +123,44 @@ async function requestArticleTranslation(
       continue;
     }
 
-    if (response.ok && Array.isArray(data?.translations)) return data.translations;
+    if (response.ok && response.body) {
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let streamError: TranslationApiResponse | null = null;
+      while (true) {
+        const { done, value } = await reader.read();
+        buffer += decoder.decode(value, { stream: !done });
+        const lines = buffer.split(/\r?\n/);
+        buffer = done ? "" : lines.pop() ?? "";
+        for (const line of lines) {
+          if (!line.trim()) continue;
+          const event = JSON.parse(line) as { type?: string; translation?: ArticleTranslationItem; error?: string; code?: string };
+          if (event.type === "translation" && event.translation?.id && event.translation.translation?.trim()) {
+            if (!collected.has(event.translation.id)) {
+              collected.set(event.translation.id, event.translation);
+              onTranslation(event.translation);
+            }
+          } else if (event.type === "error") {
+            streamError = { error: event.error, code: event.code };
+          }
+        }
+        if (done) break;
+      }
+      if (!streamError && blocks.every((block) => collected.has(block.id))) {
+        return blocks.map((block) => collected.get(block.id)!).filter(Boolean);
+      }
+      streamError ??= { error: "AI 服务没有返回完整译文。", code: "provider_temporary" };
+      if (streamError) {
+        if (attempt === MAX_RETRY_ATTEMPTS) throw new Error(streamError.error || FALLBACK_ERROR);
+        const delayMs = Math.min(RETRY_MAX_DELAY_MS, RETRY_BASE_DELAY_MS * 2 ** attempt);
+        onRetry(Math.ceil(delayMs / 1_000), "AI 翻译流短暂中断，正在续传未完成段落。");
+        await waitForRetry(signal, delayMs);
+        continue;
+      }
+    }
+
+    const data = await response.json().catch(() => null) as TranslationApiResponse | null;
 
     const message = data?.error || FALLBACK_ERROR;
     const canRetry =
@@ -151,23 +193,36 @@ async function requestArticleTranslation(
   throw new Error(FALLBACK_ERROR);
 }
 
-function createTranslationBatches(blocks: ArticleTranslationBlock[]): ArticleTranslationBlock[][] {
-  const batches: ArticleTranslationBlock[][] = [];
-  let currentBatch: ArticleTranslationBlock[] = [];
-  let currentChars = 0;
-  for (const block of blocks) {
-    const shouldStartNextBatch = currentBatch.length > 0 &&
-      (currentBatch.length >= TRANSLATION_BATCH_MAX_BLOCKS || currentChars + block.text.length > TRANSLATION_BATCH_MAX_CHARS);
-    if (shouldStartNextBatch) {
-      batches.push(currentBatch);
-      currentBatch = [];
-      currentChars = 0;
-    }
-    currentBatch.push(block);
-    currentChars += block.text.length;
-  }
-  if (currentBatch.length > 0) batches.push(currentBatch);
-  return batches;
+async function startTranslationUsage(
+  actionId: string,
+  cacheKey: string,
+  blocks: ArticleTranslationBlock[],
+  source: "generated" | "public_cache",
+  publicArticleId?: string,
+): Promise<TranslationStartResponse> {
+  const { response, data } = await fetchJson<TranslationStartResponse>("/api/translate-article/start", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      actionId,
+      cacheKey,
+      source,
+      publicArticleId,
+      articleCharacters: blocks.reduce((sum, block) => sum + block.text.length, 0),
+      blockCount: blocks.length,
+    }),
+  }, "全文翻译次数校验失败，请稍后重试。", { operation: "article_translation_start" });
+  if (!response.ok || !data?.actionId) throw new Error(data?.error || "全文翻译次数校验失败，请稍后重试。");
+  return data;
+}
+
+async function finishTranslationUsage(actionId: string, status: "succeeded" | "failed" | "cancelled"): Promise<void> {
+  await fetch("/api/translate-article/finish", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ actionId, status }),
+    keepalive: status !== "succeeded",
+  }).catch(() => undefined);
 }
 
 export function getArticleTranslationJobSnapshot(key: string): ArticleTranslationJobSnapshot | null {
@@ -188,17 +243,28 @@ export function subscribeArticleTranslationJob(key: string, listener: ArticleTra
 export async function startArticleTranslationJob(
   key: string,
   blocks: ArticleTranslationBlock[],
-  options: { force?: boolean; initialTranslations?: ArticleTranslationItem[]; allBlocks?: ArticleTranslationBlock[] } = {},
+  options: {
+    force?: boolean;
+    initialTranslations?: ArticleTranslationItem[];
+    allBlocks?: ArticleTranslationBlock[];
+    publicCache?: { articleId: string };
+    publicArticleId?: string;
+  } = {},
 ): Promise<void> {
   const existingJob = jobs.get(key);
   if (existingJob?.loading && !options.force) return;
   if (existingJob && !existingJob.loading && !existingJob.error && existingJob.translations.length > 0 && !options.force) return;
-  if (existingJob?.loading) existingJob.controller.abort();
+  if (existingJob?.loading) {
+    existingJob.controller.abort();
+    void finishTranslationUsage(existingJob.actionId, "cancelled");
+  }
 
   const controller = new AbortController();
+  let actionId = crypto.randomUUID();
   const initialTranslations = options.initialTranslations ?? [];
   const job: ArticleTranslationJob = {
     controller,
+    actionId,
     translations: initialTranslations,
     loading: true,
     error: "",
@@ -216,40 +282,78 @@ export async function startArticleTranslationJob(
   notifyJob(key);
 
   try {
+    const allBlocks = options.allBlocks ?? blocks;
+    const start = await startTranslationUsage(
+      actionId,
+      key,
+      allBlocks,
+      options.publicCache ? "public_cache" : "generated",
+      options.publicCache?.articleId ?? options.publicArticleId,
+    );
+    actionId = start.actionId ?? actionId;
+    job.actionId = actionId;
+
+    if (options.publicCache) {
+      const available = new Map((start.translations ?? []).map((item) => [item.id, item]));
+      const ordered = allBlocks.map((block) => available.get(block.id)).filter((item): item is ArticleTranslationItem => Boolean(item?.translation.trim()));
+      if (ordered.length !== allBlocks.length) throw new Error("精选文章的预发布译文不完整，请联系管理员更新。");
+      const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      const revealed: ArticleTranslationItem[] = [];
+      for (const translation of ordered) {
+        if (controller.signal.aborted) throw new DOMException("Aborted", "AbortError");
+        revealed.push(translation);
+        job.translations = [...revealed];
+        job.completedTargetBlocks = revealed.length;
+        job.estimatedSecondsRemaining = 0;
+        notifyJob(key);
+        if (!reduceMotion) await new Promise((resolve) => window.setTimeout(resolve, 45));
+      }
+      job.loading = false;
+      job.error = "";
+      setCachedArticleTranslation(key, ordered);
+      setCachedArticleTranslationForBlocks(allBlocks, ordered);
+      notifyJob(key);
+      return;
+    }
+
     const mergedTranslations: ArticleTranslationItem[] = [...initialTranslations];
-    for (const batch of createTranslationBatches(blocks)) {
-      const translations = await requestArticleTranslation(batch, controller.signal, options.allBlocks ?? blocks, (delaySeconds, reason) => {
+    const completedTargetIds = new Set<string>();
+    for (const batch of createArticleTranslationBatches(blocks)) {
+      await requestArticleTranslation(batch, controller.signal, allBlocks, actionId, (delaySeconds, reason) => {
         job.retryAfterSeconds = delaySeconds;
         job.retryReason = reason;
         notifyJob(key);
+      }, (translation) => {
+        job.retryAfterSeconds = null;
+        job.retryReason = null;
+        const existingIndex = mergedTranslations.findIndex((item) => item.id === translation.id);
+        if (existingIndex >= 0) mergedTranslations.splice(existingIndex, 1);
+        mergedTranslations.push(translation);
+        completedTargetIds.add(translation.id);
+        const mergedById = new Map(mergedTranslations.map((item) => [item.id, item]));
+        job.translations = allBlocks.map((block) => mergedById.get(block.id)).filter((item): item is ArticleTranslationItem => Boolean(item));
+        job.completedTargetBlocks = completedTargetIds.size;
+        setCachedArticleTranslation(key, job.translations);
+        setCachedArticleTranslationForBlocks(allBlocks, [translation]);
+        const completedBlocks = Math.max(1, job.completedTargetBlocks);
+        const remainingBlocks = Math.max(0, job.totalBlocks - job.completedTargetBlocks);
+        const elapsedSeconds = Math.max(1, (Date.now() - job.startedAt) / 1_000);
+        job.estimatedSecondsRemaining = remainingBlocks > 0 ? Math.ceil((elapsedSeconds / completedBlocks) * remainingBlocks) : 0;
+        notifyJob(key);
       });
-      job.retryAfterSeconds = null;
-      job.retryReason = null;
-      const translatedIds = new Set(translations.map((item) => item.id));
-      for (let index = mergedTranslations.length - 1; index >= 0; index -= 1) {
-        if (translatedIds.has(mergedTranslations[index].id)) mergedTranslations.splice(index, 1);
-      }
-      mergedTranslations.push(...translations);
-      job.translations = [...mergedTranslations];
-      job.completedTargetBlocks += translations.length;
-      setCachedArticleTranslation(key, job.translations);
-      setCachedArticleTranslationForBlocks(options.allBlocks ?? blocks, translations);
-      const completedBlocks = Math.max(1, job.completedTargetBlocks);
-      const remainingBlocks = Math.max(0, job.totalBlocks - job.completedTargetBlocks);
-      const elapsedSeconds = Math.max(1, (Date.now() - job.startedAt) / 1_000);
-      job.estimatedSecondsRemaining = remainingBlocks > 0 ? Math.ceil((elapsedSeconds / completedBlocks) * remainingBlocks) : 0;
-      notifyJob(key);
     }
     job.loading = false;
     job.error = "";
     job.estimatedSecondsRemaining = 0;
     job.retryAfterSeconds = null;
     job.retryReason = null;
-    setCachedArticleTranslation(key, mergedTranslations);
-    setCachedArticleTranslationForBlocks(options.allBlocks ?? blocks, mergedTranslations);
+    setCachedArticleTranslation(key, job.translations);
+    setCachedArticleTranslationForBlocks(allBlocks, job.translations);
+    await finishTranslationUsage(actionId, "succeeded");
     notifyJob(key);
   } catch (translationRequestError) {
     if (controller.signal.aborted) return;
+    await finishTranslationUsage(actionId, "failed");
     job.loading = false;
     job.retryAfterSeconds = null;
     job.retryReason = null;

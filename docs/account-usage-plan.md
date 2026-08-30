@@ -7,7 +7,7 @@ Status: application code, production environment variables, and Auth are configu
 1. Reading comes first. Opening the homepage, entering an article, switching articles, editing, and an in-progress stream are never interrupted by account prompts.
 2. Ask at the restricted action. Login appears only when a guest exhausts lookup trial or tries to save, use vocabulary/Anki, request private full translation, or generate a summary.
 3. One user action is one visible charge. Parallel structured and streaming lookup requests share an idempotent action id; backend executions still record their real token usage separately.
-4. Never charge guests or registered users for cache hits, failures, timeouts, or timely cancellations. Guest article lookup, standalone dictionary, pasted-text import and URL import use separate server-managed pools.
+4. Never charge guests or registered users for ordinary cache hits, failures, timeouts, or timely cancellations. The deliberate exception is a published curated full-translation cache: the member's first click for that exact article body version consumes one full-translation action while recording zero DeepSeek cost; later replay is free. Guest article lookup, standalone dictionary, pasted-text import and URL import use separate server-managed pools.
 5. The cloud is authoritative after login, but migration never silently discards local data. Version conflicts are refetched and merged. Article conflicts collapse into one canonical article and discarded ids become tombstones, so visible recovery copies must not remain; vocabulary is normalized and deduplicated by word plus source sentence, while a genuinely ambiguous same-id vocabulary conflict is retained in a separate local recovery store instead of appearing as another notebook entry.
 6. Quotas are product configuration, not UI constants. Ordinary-user allowances are editable from the “账号与用量” section of `/admin`; raw metric keys, fixed period internals, developer safety allowances, and unconnected price experiments are hidden from the daily management UI. Payment is deliberately not connected. The public account page replaces plan names with “公开测试中” and hides every price/purchase/upgrade surface unless the owner later enables `NEXT_PUBLIC_COMMERCIAL_UI=enabled` and rebuilds. Remaining counts, point totals, progress bars, and reset times stay hidden behind the separate `NEXT_PUBLIC_USAGE_DETAILS_UI` switch while enforcement continues on the server. An active invitation grant is the exception: its real plan, allowances and expiry are always shown so the tester knows what was redeemed.
 7. Collect the minimum. Analytics stores identity, entitlement, quota actions, route/model, provider tokens, estimated cost, status and error code—not full private article text.
@@ -20,16 +20,18 @@ Status: application code, production environment variables, and Auth are configu
 | Word/phrase explanation | 10/day | 30/day | Plan allowance | High safety allowance |
 | Cached word explanation | Counts | Free | Free | Free |
 | Save article / vocabulary / Anki | Login prompt | Synced | Synced | Synced |
-| Private translation / summary / OCR | Login prompt | Deep points | Deep points | High allowance |
-| Admin-prepublished translation | Yes | Yes | Yes | Yes |
+| Private translation / summary / OCR | Login prompt | Separate monthly actions | Separate monthly actions | High allowance |
+| Admin-prepublished translation | Login prompt | First click counts once | First click counts once | High allowance |
 | Cross-device sync | No | Yes | Yes | Yes |
 
 ## Quota model
 
 - `guest_lookup`: one cached or generated lookup, including regenerate.
 - `lookup_generation`: one generated lookup or sentence follow-up. A parallel structured + stream pair is one quota action and two provider execution records.
-- `deep_reading`: about one point per 1,000 requested characters; summary has a two-point minimum; OCR is five points per image.
-- Defaults: guest 10/day; free 30 lookups/day + 20 deep points/month; Basic ¥5 80/day + 150/month; Plus ¥10 200/day + 500/month; Max ¥30 600/day + 2,000/month.
+- `article_summary`: one monthly action when the first save generates a summary. Re-saving the same article version reuses the saved summary; explicit regeneration creates and charges a new action.
+- `full_article_translation`: one monthly action for each user-started whole-article translation job, independent of the number of streaming provider batches. Reopening the same account's cached result is free; explicit regeneration charges a new action. A first curated-cache click charges one action but creates no provider execution. Normal articles use one upstream streaming batch with the article context sent once; only oversized articles need a small number of bounded batches.
+- Defaults: guest pools remain 10 article lookups, 5 dictionary lookups, 2 text imports and 2 URL imports per Shanghai day. Registered defaults are Free 30 lookups/day + 10 summaries/month + 1 full translation/month; Basic 80 + 75 + 5; Plus 200 + 250 + 20; Max 600 + 1,000 + 60. Every allowance may be set to zero in Admin.
+- `deep_reading` remains only as a legacy compatibility metric for old clients and dormant OCR code; new summary and full-translation work never consumes it.
 - Prices are internal hypotheses. Online payment and refunds are not active; admins may assign quota levels during testing, but public users do not see price cards or paid-plan names.
 
 ## Data model
@@ -39,8 +41,9 @@ Status: application code, production environment variables, and Auth are configu
 - `invitation_codes`: SHA-256 code hash, non-secret hint, granted plan, post-redemption duration, optional redemption deadline, private note, redemption owner/time and grant expiry. Plaintext is returned only in the Admin creation response.
 - `quota_plans`, `quota_plan_limits`, `account_settings`: editable global configuration.
 - `guest_identities`: signed anonymous cookie identity, hashed last IP and status.
-- `usage_actions`, `usage_counters`: idempotent visible charge and atomic counter.
+- `usage_actions`, `usage_counters`: idempotent visible charge, body-version metadata and atomic counter.
 - `usage_executions`: every upstream call, tokens, estimated micro-USD and outcome.
+- `account_activity_days`: one service-only Shanghai-day presence row per account or guest identity, used for real DAU, seven-day WAU and rolling 30-day MAU.
 - `user_data_objects`: versioned article, vocabulary and cache objects.
 - `admin_audit_logs`: plan, status and quota administration history.
 
@@ -51,7 +54,7 @@ Status: application code, production environment variables, and Auth are configu
 - Durable local changes schedule an upload after about 800 ms. While a signed-in page is visible, remote changes are checked about every 15 seconds and immediately on focus or visibility return; a suspended or offline browser catches up when it becomes active again.
 - Vocabulary sync keeps one canonical entry per normalized word and source sentence, merges the most complete generated fields and Anki import record, and sends tombstones for redundant cloud recovery ids.
 - Explicit logout first requires a successful sync, then clears account-associated local caches. A sync failure stops logout instead of risking data loss.
-- `/account/usage` shows simple remaining allowances. The Menu also exposes invitation redemption. The “账号与用量” section of `/admin` explains and edits guest/free/Basic/Plus/Max limits in Chinese, creates and revokes single-use invitation codes, and groups the latest 30 Shanghai calendar days of the execution ledger by day. Each day shows execution count plus input/output tokens, estimated CNY cost, and failed count/rate; the latest seven days are visible immediately and the older 23 use native progressive disclosure. A second breakdown groups the same ledger by product function and keeps full-article translation separate from article lookup, standalone dictionary, summary, sentence questions, and recommendation analysis. Estimates use DeepSeek's direct CNY rates, including all-weekend off-peak billing from 2026-08-23, while the provider console remains the authority for actual account deductions. The same Admin surface assigns user plans, handles suspension, hides rarely used per-user bonuses under progressive disclosure, and can issue a one-time displayed temporary password for phone accounts. Admin-plan limits and payment price controls stay out of the main UI.
+- `/account/usage` shows simple remaining allowances. The Menu also exposes invitation redemption. The “账号与用量” section of `/admin` has a sticky section directory, true DAU/WAU/30-day MAU, editable guest/free/Basic/Plus/Max limits, invitation codes, account controls and per-user/per-article action details. Its cost view deliberately separates summary actions, full-translation actions and curated-cache hits: user charges and generated articles are action counts, while DeepSeek requests, tokens, failures and estimated CNY cost come from the execution ledger. Curated cache reports hit count, distinct articles, avoided calls and actual model cost zero. Estimates use DeepSeek's direct CNY rates, including all-weekend off-peak billing from 2026-08-23, while the provider console remains the authority for actual account deductions.
 - Invitation redemption is login-only and transactionally locks the hashed code before updating `user_entitlements`. A code can be redeemed once. An account with a still-active invitation or another active non-Free entitlement cannot replace it; after expiry the entitlement resolves to Free and a new code may be redeemed.
 
 ## Risks and phased release

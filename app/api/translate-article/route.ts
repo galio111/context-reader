@@ -3,22 +3,27 @@ import { createHash } from "crypto";
 import type { ArticleTranslationBlock, ArticleTranslationResult } from "@/types/reader";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { acquireCostSlotWithWait } from "@/lib/costConcurrency";
-import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
+import { finishUsage, getUsageAction, recordUsageExecution, refundUsage } from "@/lib/accountStore";
 import { deepReadingUnits, gateUsage, usageErrorResponse } from "@/lib/usageGate";
+import { resolveUsageIdentity } from "@/lib/usageIdentity";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 
-const DEFAULT_MODEL = "deepseek-v4-pro";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
-const MAX_BLOCKS = 80;
+const MAX_TARGET_BLOCKS = 80;
+const MAX_CONTEXT_BLOCKS = 240;
 const MAX_BLOCK_CHARS = 900;
-const MAX_TOTAL_CHARS = 16000;
-const REQUEST_TIMEOUT_MS = 45000;
+const MAX_TARGET_TOTAL_CHARS = 32_000;
+const MAX_CONTEXT_TOTAL_CHARS = 64_000;
+const REQUEST_TIMEOUT_MS = 120000;
 
 const TRANSLATION_SYSTEM_PROMPT =
   'You are a rigorous English-to-Chinese long-form contextual translation assistant. The input "target" is the set of article blocks that must be translated now, and "context" is the full current article context. Read the full context first, keep names, terms, pronouns, tense, and logical connections consistent, then translate only target. Preserve target order and ids. Do not omit information, add explanations, or output Markdown. Return strict JSON only: {"translations":[{"id":"original id","translation":"Chinese translation"}]}.';
 
-export const maxDuration = 60;
+const STREAMING_TRANSLATION_SYSTEM_PROMPT =
+  'You are a rigorous English-to-Chinese long-form contextual translation assistant. Translate every target block in its original order. If context is empty, target itself is the complete article context; otherwise read the supplied full context before translating target. Keep names, terms, pronouns, tense, and logical connections consistent. Do not omit information or add explanations. Stream one complete JSON object per line as soon as each block is translated, with exactly this shape: {"id":"original id","translation":"Chinese translation"}. Use one physical line per object, escape any newline inside a JSON string, and output no array, Markdown fence, commentary, blank line, or extra key.';
+
+export const maxDuration = 180;
 
 interface DeepSeekTranslationResponse {
   choices?: Array<{
@@ -30,6 +35,11 @@ interface DeepSeekTranslationResponse {
     message?: string;
   };
   usage?: ProviderTokenUsage;
+}
+
+interface DeepSeekTranslationStreamChunk {
+  choices?: Array<{ delta?: { content?: string | null }; finish_reason?: string | null }>;
+  usage?: ProviderTokenUsage | null;
 }
 
 interface TranslationRequestBody {
@@ -45,9 +55,9 @@ function isTranslationBlock(value: unknown): value is ArticleTranslationBlock {
   return typeof candidate.id === "string" && typeof candidate.type === "string" && typeof candidate.text === "string";
 }
 
-function sanitizeBlocks(blocks: ArticleTranslationBlock[]): ArticleTranslationBlock[] {
+function sanitizeBlocks(blocks: ArticleTranslationBlock[], maxBlocks: number, maxTotalChars: number): ArticleTranslationBlock[] {
   let totalChars = 0;
-  return blocks.slice(0, MAX_BLOCKS).map((block) => {
+  return blocks.slice(0, maxBlocks).map((block) => {
     const text = block.text.trim().slice(0, MAX_BLOCK_CHARS);
     totalChars += text.length;
     return {
@@ -59,7 +69,7 @@ function sanitizeBlocks(blocks: ArticleTranslationBlock[]): ArticleTranslationBl
     if (!block.text) {
       return false;
     }
-    if (totalChars > MAX_TOTAL_CHARS) {
+    if (totalChars > maxTotalChars) {
       totalChars -= block.text.length;
       return false;
     }
@@ -109,6 +119,8 @@ export async function POST(request: Request) {
   let actionId = "";
   let usageSucceeded = false;
   let providerUserId = "";
+  let managedTranslationAction = false;
+  let localOnlyAction = false;
   let input: TranslationRequestBody;
   try {
     input = await readJsonBody<TranslationRequestBody>(request, 512 * 1024);
@@ -123,33 +135,69 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Missing article blocks." }, { status: 400 });
   }
 
-  const blocks = sanitizeBlocks(input.blocks);
+  const blocks = sanitizeBlocks(input.blocks, MAX_TARGET_BLOCKS, MAX_TARGET_TOTAL_CHARS);
   const contextBlocks =
     Array.isArray(input.contextBlocks) && input.contextBlocks.every(isTranslationBlock)
-      ? sanitizeBlocks(input.contextBlocks)
+      ? sanitizeBlocks(input.contextBlocks, MAX_CONTEXT_BLOCKS, MAX_CONTEXT_TOTAL_CHARS)
       : blocks;
 
   if (!blocks.length) {
     return NextResponse.json({ error: "No translatable article text found." }, { status: 400 });
   }
 
+  const contextMatchesTarget = blocks.length === contextBlocks.length && blocks.every((block, index) => (
+    block.id === contextBlocks[index]?.id
+    && block.type === contextBlocks[index]?.type
+    && block.text === contextBlocks[index]?.text
+  ));
+  const providerContextBlocks = contextMatchesTarget ? [] : contextBlocks;
 
-  try {
-    const usageGate = await gateUsage(request, {
-      feature: "full_article_translation",
-      metricKey: "deep_reading",
-      units: deepReadingUnits(blocks.reduce((sum, block) => sum + block.text.length, 0)),
-      loginRequired: true,
-    });
-    actionId = usageGate.actionId;
-    providerUserId = createHash("sha256").update(usageGate.identity.ownerKey).digest("hex").slice(0, 32);
-  } catch (error) {
-    return usageErrorResponse(error) ?? NextResponse.json({ error: "Usage validation failed." }, { status: 500 });
+
+  const managedActionId = request.headers.get("x-context-translation-action-id")?.trim() ?? "";
+  if (managedActionId) {
+    try {
+      const identity = await resolveUsageIdentity(request);
+      if (!identity.authenticated || identity.suspended) {
+        return NextResponse.json({ error: "全文翻译任务未获得账号授权。" }, { status: 403 });
+      }
+      localOnlyAction = Boolean(identity.localOnly);
+      if (!localOnlyAction) {
+        const action = await getUsageAction(managedActionId);
+        if (
+          !action
+          || action.ownerKey !== identity.ownerKey
+          || action.feature !== "full_article_translation"
+          || action.metricKey !== "full_article_translation"
+          || action.status !== "reserved"
+        ) {
+          return NextResponse.json({ error: "全文翻译任务已失效，请重新开始。" }, { status: 409 });
+        }
+      }
+      actionId = managedActionId;
+      managedTranslationAction = true;
+      providerUserId = createHash("sha256").update(identity.ownerKey).digest("hex").slice(0, 32);
+    } catch {
+      return NextResponse.json({ error: "全文翻译任务校验失败，请稍后重试。" }, { status: 503 });
+    }
+  } else {
+    try {
+      const usageGate = await gateUsage(request, {
+        feature: "full_article_translation",
+        metricKey: "deep_reading",
+        units: deepReadingUnits(blocks.reduce((sum, block) => sum + block.text.length, 0)),
+        loginRequired: true,
+      });
+      actionId = usageGate.actionId;
+      localOnlyAction = Boolean(usageGate.identity.localOnly);
+      providerUserId = createHash("sha256").update(usageGate.identity.ownerKey).digest("hex").slice(0, 32);
+    } catch (error) {
+      return usageErrorResponse(error) ?? NextResponse.json({ error: "Usage validation failed." }, { status: 500 });
+    }
   }
 
   const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey) {
-    await refundUsage(actionId, "failed", "missing_api_key").catch(() => undefined);
+    if (!managedTranslationAction) await refundUsage(actionId, "failed", "missing_api_key").catch(() => undefined);
     const report = await recordServerError(request, {
       category: "configuration",
       severity: "critical",
@@ -171,7 +219,7 @@ export async function POST(request: Request) {
     timeoutMs: 8_000,
   });
   if (!releaseSlot) {
-    await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
+    if (!managedTranslationAction) await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
     const report = await recordServerError(request, {
       category: "service",
       severity: "warning",
@@ -190,11 +238,200 @@ export async function POST(request: Request) {
   }
 
   const baseUrl = (process.env.DEEPSEEK_BASE_URL || DEFAULT_BASE_URL).replace(/\/$/, "");
-  const model = process.env.DEEPSEEK_TRANSLATION_MODEL || process.env.DEEPSEEK_MODEL || DEFAULT_MODEL;
+  const model = process.env.DEEPSEEK_TRANSLATION_MODEL || "deepseek-v4-flash";
   const controller = new AbortController();
   const abortFromClient = () => controller.abort();
   request.signal.addEventListener("abort", abortFromClient, { once: true });
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  const recordFailedProviderExecution = async (errorCode: string, usage: ProviderTokenUsage = {}) => {
+    if (localOnlyAction) return;
+    await recordUsageExecution({
+      actionId,
+      route: "/api/translate-article",
+      provider: "deepseek",
+      model,
+      promptTokens: usage.prompt_tokens,
+      promptCacheHitTokens: usage.prompt_cache_hit_tokens,
+      promptCacheMissTokens: usage.prompt_cache_miss_tokens,
+      completionTokens: usage.completion_tokens,
+      estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, usage),
+      status: "failed",
+      errorCode,
+    }).catch(() => undefined);
+  };
+
+  if (request.headers.get("Accept")?.includes("application/x-ndjson")) {
+    let providerResponse: Response;
+    try {
+      providerResponse = await fetch(`${baseUrl}/chat/completions`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model,
+          user_id: providerUserId,
+          temperature: 0,
+          max_tokens: Math.min(12_000, Math.max(3_600, Math.ceil(blocks.reduce((sum, block) => sum + block.text.length, 0) * 0.8))),
+          thinking: { type: "disabled" },
+          stream: true,
+          stream_options: { include_usage: true },
+          messages: [
+            { role: "system", content: STREAMING_TRANSLATION_SYSTEM_PROMPT },
+            {
+              role: "user",
+              content: JSON.stringify({
+                target: blocks.map((block) => [block.id, block.type, block.text]),
+                context: providerContextBlocks.map((block) => [block.id, block.type, block.text]),
+              }),
+            },
+          ],
+        }),
+        signal: controller.signal,
+      });
+    } catch (error) {
+      const timedOut = error instanceof Error && error.name === "AbortError";
+      await recordFailedProviderExecution(timedOut ? "provider_timeout" : "provider_connection_failed");
+      clearTimeout(timeout);
+      request.signal.removeEventListener("abort", abortFromClient);
+      releaseSlot();
+      return NextResponse.json(
+        { error: timedOut ? "AI 服务响应较慢，全文翻译会自动继续。" : "AI 服务连接短暂中断，全文翻译会自动继续。", code: "provider_temporary" },
+        { status: 503, headers: { "Retry-After": "5" } },
+      );
+    }
+
+    if (!providerResponse.ok || !providerResponse.body) {
+      const data = (await providerResponse.json().catch(() => ({}))) as DeepSeekTranslationResponse;
+      const classified = providerError(data.error?.message || providerResponse.statusText, providerResponse.status);
+      await recordFailedProviderExecution(classified.code, data.usage);
+      clearTimeout(timeout);
+      request.signal.removeEventListener("abort", abortFromClient);
+      releaseSlot();
+      return NextResponse.json(
+        { error: classified.error, code: classified.code },
+        { status: classified.status, headers: { "Retry-After": "5" } },
+      );
+    }
+
+    const requestedIds = new Set(blocks.map((block) => block.id));
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream<Uint8Array>({
+      async start(output) {
+        const providerReader = providerResponse.body!.getReader();
+        const decoder = new TextDecoder();
+        let providerBuffer = "";
+        let contentBuffer = "";
+        let fullContent = "";
+        let usage: ProviderTokenUsage = {};
+        const completedIds = new Set<string>();
+        let streamErrorCode = "";
+
+        const emitTranslation = (item: { id?: unknown; translation?: unknown }) => {
+          const id = typeof item.id === "string" ? item.id : "";
+          const translation = typeof item.translation === "string" ? item.translation.trim() : "";
+          if (!requestedIds.has(id) || !translation || completedIds.has(id)) return;
+          completedIds.add(id);
+          output.enqueue(encoder.encode(`${JSON.stringify({ type: "translation", translation: { id, translation } })}\n`));
+        };
+
+        const emitContentLines = (flush = false) => {
+          const lines = contentBuffer.split(/\r?\n/);
+          if (flush) contentBuffer = "";
+          else contentBuffer = lines.pop() ?? "";
+          for (const rawLine of lines) {
+            const line = rawLine.trim().replace(/^```(?:jsonl?|ndjson)?\s*/i, "").replace(/```$/, "").trim();
+            if (!line) continue;
+            try {
+              emitTranslation(JSON.parse(line) as { id?: unknown; translation?: unknown });
+            } catch {
+              if (flush) streamErrorCode = "provider_parse_error";
+              else contentBuffer = `${rawLine}\n${contentBuffer}`;
+            }
+          }
+        };
+
+        const emitFallbackDocument = () => {
+          const unfenced = fullContent.trim().replace(/^```(?:jsonl?|ndjson)?\s*/i, "").replace(/```$/, "").trim();
+          try {
+            const parsed = JSON.parse(unfenced) as unknown;
+            const items = Array.isArray(parsed)
+              ? parsed
+              : parsed && typeof parsed === "object" && Array.isArray((parsed as { translations?: unknown }).translations)
+                ? (parsed as { translations: unknown[] }).translations
+                : [];
+            for (const item of items) {
+              if (item && typeof item === "object") emitTranslation(item as { id?: unknown; translation?: unknown });
+            }
+          } catch {
+            // The primary JSONL parser remains authoritative when the provider returned partial or malformed data.
+          }
+        };
+
+        try {
+          while (true) {
+            const { done, value } = await providerReader.read();
+            providerBuffer += decoder.decode(value, { stream: !done });
+            const events = providerBuffer.split(/\r?\n\r?\n/);
+            providerBuffer = done ? "" : events.pop() ?? "";
+            for (const event of events) {
+              for (const line of event.split(/\r?\n/)) {
+                if (!line.startsWith("data:")) continue;
+                const payload = line.slice(5).trim();
+                if (!payload || payload === "[DONE]") continue;
+                const chunk = JSON.parse(payload) as DeepSeekTranslationStreamChunk;
+                if (chunk.usage) usage = chunk.usage;
+                const delta = chunk.choices?.[0]?.delta?.content;
+                if (delta) {
+                  fullContent += delta;
+                  contentBuffer += delta;
+                  emitContentLines(false);
+                }
+              }
+            }
+            if (done) break;
+          }
+          emitContentLines(true);
+          if (completedIds.size < blocks.length) emitFallbackDocument();
+          if (completedIds.size === blocks.length) streamErrorCode = "";
+          const missing = blocks.filter((block) => !completedIds.has(block.id));
+          if (missing.length || streamErrorCode) {
+            streamErrorCode ||= "provider_incomplete";
+            await recordFailedProviderExecution(streamErrorCode, usage);
+            output.enqueue(encoder.encode(`${JSON.stringify({ type: "error", error: "AI 服务没有返回完整译文，正在保留已完成段落。", code: "provider_temporary" })}\n`));
+          } else {
+            usageSucceeded = true;
+            if (!localOnlyAction) {
+              await recordUsageExecution({ actionId, route: "/api/translate-article", provider: "deepseek", model, promptTokens: usage.prompt_tokens, promptCacheHitTokens: usage.prompt_cache_hit_tokens, promptCacheMissTokens: usage.prompt_cache_miss_tokens, completionTokens: usage.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, usage), status: "succeeded" }).catch(() => undefined);
+            }
+            if (!managedTranslationAction) await finishUsage(actionId, "succeeded").catch(() => undefined);
+            output.enqueue(encoder.encode(`${JSON.stringify({ type: "done" })}\n`));
+          }
+        } catch (error) {
+          const timedOut = error instanceof Error && error.name === "AbortError";
+          await recordFailedProviderExecution(timedOut ? "provider_timeout" : "provider_stream_failed", usage);
+          output.enqueue(encoder.encode(`${JSON.stringify({ type: "error", error: timedOut ? "AI 服务响应较慢，正在保留已完成段落。" : "AI 服务连接短暂中断，正在保留已完成段落。", code: "provider_temporary" })}\n`));
+        } finally {
+          if (!usageSucceeded && !managedTranslationAction) await refundUsage(actionId, "failed", streamErrorCode || "translation_failed").catch(() => undefined);
+          clearTimeout(timeout);
+          request.signal.removeEventListener("abort", abortFromClient);
+          releaseSlot();
+          output.close();
+        }
+      },
+      cancel() {
+        controller.abort();
+      },
+    });
+    return new NextResponse(stream, {
+      headers: {
+        "Content-Type": "application/x-ndjson; charset=utf-8",
+        "Cache-Control": "no-store, no-transform",
+        "X-Accel-Buffering": "no",
+      },
+    });
+  }
 
   try {
     const response = await fetch(`${baseUrl}/chat/completions`, {
@@ -219,7 +456,7 @@ export async function POST(request: Request) {
             role: "user",
             content: JSON.stringify({
               target: blocks.map((block) => [block.id, block.type, block.text]),
-              context: contextBlocks.map((block) => [block.id, block.type, block.text]),
+              context: providerContextBlocks.map((block) => [block.id, block.type, block.text]),
             }),
           },
         ],
@@ -232,6 +469,7 @@ export async function POST(request: Request) {
       const errorMessage = data.error?.message || response.statusText || "DeepSeek request failed.";
       const classified = providerError(errorMessage, response.status);
       const retryAfter = response.headers.get("Retry-After");
+      await recordFailedProviderExecution(classified.code, data.usage);
       const report = await recordServerError(request, {
         category: classified.code === "provider_config" ? "configuration" : "provider",
         severity: classified.code === "provider_config" || classified.code === "provider_balance" ? "critical" : "error",
@@ -256,6 +494,7 @@ export async function POST(request: Request) {
 
     const content = data.choices?.[0]?.message?.content;
     if (!content) {
+      await recordFailedProviderExecution("provider_empty", data.usage);
       const report = await recordServerError(request, {
         category: "provider",
         operation: "article_translation",
@@ -276,6 +515,7 @@ export async function POST(request: Request) {
     try {
       result = parseJsonObject(content);
     } catch (parseError) {
+      await recordFailedProviderExecution("provider_parse_error", data.usage);
       const report = await recordServerError(request, {
         category: "provider",
         operation: "article_translation",
@@ -297,6 +537,7 @@ export async function POST(request: Request) {
     };
     const translatedIds = new Set(result.translations.map((translation) => translation.id));
     if (!result.translations.length || blocks.some((block) => !translatedIds.has(block.id))) {
+      await recordFailedProviderExecution("provider_incomplete", data.usage);
       const report = await recordServerError(request, {
         category: "provider",
         operation: "article_translation",
@@ -314,11 +555,14 @@ export async function POST(request: Request) {
     }
 
     usageSucceeded = true;
-    await recordUsageExecution({ actionId, route: "/api/translate-article", provider: "deepseek", model, promptTokens: data.usage?.prompt_tokens, promptCacheHitTokens: data.usage?.prompt_cache_hit_tokens, promptCacheMissTokens: data.usage?.prompt_cache_miss_tokens, completionTokens: data.usage?.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, data.usage ?? {}), status: "succeeded" }).catch(() => undefined);
-    await finishUsage(actionId, "succeeded").catch(() => undefined);
+    if (!localOnlyAction) {
+      await recordUsageExecution({ actionId, route: "/api/translate-article", provider: "deepseek", model, promptTokens: data.usage?.prompt_tokens, promptCacheHitTokens: data.usage?.prompt_cache_hit_tokens, promptCacheMissTokens: data.usage?.prompt_cache_miss_tokens, completionTokens: data.usage?.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, data.usage ?? {}), status: "succeeded" }).catch(() => undefined);
+    }
+    if (!managedTranslationAction) await finishUsage(actionId, "succeeded").catch(() => undefined);
     return NextResponse.json(result);
   } catch (error) {
     const timedOut = error instanceof Error && error.name === "AbortError";
+    await recordFailedProviderExecution(timedOut ? "provider_timeout" : "provider_connection_failed");
     const report = await recordServerError(request, {
       category: "provider",
       operation: "article_translation",
@@ -337,7 +581,7 @@ export async function POST(request: Request) {
       { status: 503, headers: { "Retry-After": "5" } },
     );
   } finally {
-    if (!usageSucceeded) {
+    if (!usageSucceeded && !managedTranslationAction) {
       await refundUsage(actionId, "failed", "translation_failed").catch(() => undefined);
     }
     clearTimeout(timeout);

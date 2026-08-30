@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
+import { createHash } from "crypto";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { acquireCostSlot } from "@/lib/costConcurrency";
-import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
-import { deepReadingUnits, gateUsage, usageErrorResponse } from "@/lib/usageGate";
+import { finishUsage, recordUsageExecution, refundUsage, setUsageActionMetadata } from "@/lib/accountStore";
+import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 
@@ -59,7 +60,7 @@ function userFriendlyDeepSeekError(message = ""): string {
 export async function POST(request: Request) {
   let actionId = "";
   let usageSucceeded = false;
-  let body: { article?: unknown } | null;
+  let body: { article?: unknown; regenerate?: unknown } | null;
   try {
     body = await readJsonBody(request, 128 * 1024);
   } catch (error) {
@@ -78,10 +79,16 @@ export async function POST(request: Request) {
   try {
     actionId = (await gateUsage(request, {
       feature: "article_summary",
-      metricKey: "deep_reading",
-      units: deepReadingUnits(article.length, 2),
+      metricKey: "article_summary",
+      units: 1,
       loginRequired: true,
     })).actionId;
+    await setUsageActionMetadata(actionId, {
+      source: body?.regenerate === true ? "regenerated" : "generated",
+      articleKey: createHash("sha256").update(article).digest("hex").slice(0, 16),
+      articleLabel: `用户文章 · ${createHash("sha256").update(article).digest("hex").slice(0, 6)}`,
+      articleCharacters: article.length,
+    }).catch(() => undefined);
   } catch (error) {
     return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
   }
@@ -118,6 +125,21 @@ export async function POST(request: Request) {
   const abortFromClient = () => controller.abort();
   request.signal.addEventListener("abort", abortFromClient, { once: true });
   const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  const recordFailedProviderExecution = async (errorCode: string, usage: ProviderTokenUsage = {}) => {
+    await recordUsageExecution({
+      actionId,
+      route: "/api/summarize-article",
+      provider: "deepseek",
+      model,
+      promptTokens: usage.prompt_tokens,
+      promptCacheHitTokens: usage.prompt_cache_hit_tokens,
+      promptCacheMissTokens: usage.prompt_cache_miss_tokens,
+      completionTokens: usage.completion_tokens,
+      estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, usage),
+      status: "failed",
+      errorCode,
+    }).catch(() => undefined);
+  };
 
   try {
     const response = await fetch(`${baseURL.replace(/\/$/, "")}/chat/completions`, {
@@ -151,6 +173,7 @@ export async function POST(request: Request) {
     const data = (await response.json().catch(() => null)) as DeepSeekSummaryResponse | null;
     if (!response.ok) {
       const providerMessage = data?.error?.message || response.statusText;
+      await recordFailedProviderExecution("provider_rejected", data?.usage);
       const report = await recordServerError(request, {
         category: "provider",
         operation: "article_summary",
@@ -169,6 +192,7 @@ export async function POST(request: Request) {
 
     const summary = cleanSummary(data?.choices?.[0]?.message?.content ?? "");
     if (!summary || !hasEnoughChineseContent(summary)) {
+      await recordFailedProviderExecution("provider_invalid_content", data?.usage);
       const report = await recordServerError(request, {
         category: "provider",
         operation: "article_summary",
@@ -190,6 +214,7 @@ export async function POST(request: Request) {
     await finishUsage(actionId, "succeeded").catch(() => undefined);
     return NextResponse.json({ summary });
   } catch (error) {
+    await recordFailedProviderExecution(error instanceof Error && error.name === "AbortError" ? "provider_timeout" : "provider_request_failed");
     const message = error instanceof Error && error.name === "AbortError"
       ? "生成文章摘要超时，请稍后重试。"
       : "生成文章摘要失败，请检查网络和 DeepSeek 配置。";

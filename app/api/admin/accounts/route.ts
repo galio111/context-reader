@@ -5,6 +5,7 @@ import { readJsonBody } from "@/lib/limitedBody";
 import { phoneFromAccountEmail, resetPhoneAccountPin } from "@/lib/userAuth";
 import {
   deepSeekUsdToCnyRate,
+  estimateDeepSeekCostMicrocny,
   microcnyToCny,
   shanghaiUsageWindow,
   summarizeUsageExecutionsByFeature,
@@ -14,16 +15,35 @@ import {
 import type { AccountPlanId, UsageMetricKey } from "@/types/account";
 
 const PLANS = new Set<AccountPlanId>(["guest", "free", "basic", "plus", "max", "admin"]);
-const METRICS = new Set<UsageMetricKey>(["guest_lookup", "guest_article_lookup", "guest_dictionary_lookup", "guest_text_import", "guest_url_import", "lookup_generation", "deep_reading"]);
+const METRICS = new Set<UsageMetricKey>(["guest_lookup", "guest_article_lookup", "guest_dictionary_lookup", "guest_text_import", "guest_url_import", "lookup_generation", "deep_reading", "article_summary", "full_article_translation"]);
 const MANAGED_PLAN_METRICS: Partial<Record<AccountPlanId, UsageMetricKey[]>> = {
   guest: ["guest_article_lookup", "guest_dictionary_lookup", "guest_text_import", "guest_url_import"],
-  free: ["lookup_generation", "deep_reading"],
-  basic: ["lookup_generation", "deep_reading"],
-  plus: ["lookup_generation", "deep_reading"],
-  max: ["lookup_generation", "deep_reading"],
+  free: ["lookup_generation", "article_summary", "full_article_translation"],
+  basic: ["lookup_generation", "article_summary", "full_article_translation"],
+  plus: ["lookup_generation", "article_summary", "full_article_translation"],
+  max: ["lookup_generation", "article_summary", "full_article_translation"],
 };
 
 interface UsageExecutionRow extends Record<string, unknown>, UsageExecutionSummaryRow {}
+
+interface UsageActionRow extends Record<string, unknown> {
+  id: string;
+  user_id?: string | null;
+  guest_id?: string | null;
+  feature?: string;
+  metric_key?: string;
+  quota_units?: number;
+  status?: string;
+  cache_hit?: boolean;
+  metadata?: Record<string, unknown>;
+  created_at?: string;
+}
+
+interface ActivityRow extends Record<string, unknown> {
+  activity_day: string;
+  owner_key: string;
+  identity_kind: "account" | "guest";
+}
 
 const USAGE_WINDOW_DAYS = 30;
 const EXECUTION_PAGE_SIZE = 1_000;
@@ -46,18 +66,102 @@ export async function GET() {
   const windowEnd = new Date();
   const usageWindow = shanghaiUsageWindow(windowEnd, USAGE_WINDOW_DAYS);
   const windowStart = usageWindow.windowStart;
-  const [profiles, entitlements, plans, limits, actions, executionPage] = await Promise.all([
+  const [profiles, entitlements, plans, limits, actions, activities, executionPage] = await Promise.all([
     accountFetch<Array<Record<string, unknown>>>("account_profiles?select=user_id,email,nickname,status,english_level,learning_goal,created_at,updated_at&order=created_at.desc&limit=1000"),
     accountFetch<Array<Record<string, unknown>>>("user_entitlements?select=user_id,plan_id,source,starts_at,ends_at,bonus_limits&limit=1000"),
     accountFetch<Array<Record<string, unknown>>>("quota_plans?select=id,display_name,price_cny,active&order=sort_order.asc"),
     accountFetch<Array<Record<string, unknown>>>("quota_plan_limits?select=plan_id,metric_key,allowance,window_type&order=plan_id.asc,metric_key.asc"),
-    accountFetch<Array<Record<string, unknown>>>("usage_actions?select=id,user_id,guest_id,feature,metric_key,quota_units,status,created_at&order=created_at.desc&limit=5000"),
+    accountFetch<UsageActionRow[]>(`usage_actions?select=id,user_id,guest_id,feature,metric_key,quota_units,status,cache_hit,metadata,created_at&created_at=gte.${encodeURIComponent(windowStart)}&order=created_at.desc&limit=5000`),
+    accountFetch<ActivityRow[]>(`account_activity_days?select=activity_day,owner_key,identity_kind&activity_day=gte.${usageWindow.dayKeys[usageWindow.dayKeys.length - 1]}&order=activity_day.desc&limit=50000`),
     listRecentUsageExecutions(windowStart),
   ]);
   const executions = executionPage.rows;
   const usdToCnyRate = deepSeekUsdToCnyRate();
   const daily = summarizeUsageExecutionsByShanghaiDay(executions, usageWindow.dayKeys);
   const features = summarizeUsageExecutionsByFeature(executions);
+  const executionsByAction = new Map<string, UsageExecutionRow[]>();
+  for (const execution of executions) {
+    const actionId = String(execution.action_id || "");
+    if (!actionId) continue;
+    const actionExecutions = executionsByAction.get(actionId) ?? [];
+    actionExecutions.push(execution);
+    executionsByAction.set(actionId, actionExecutions);
+  }
+  const summarizeActions = (metricKey: "article_summary" | "full_article_translation") => {
+    const metricActions = actions.filter((action) => action.metric_key === metricKey);
+    const providerExecutions = metricActions.flatMap((action) => executionsByAction.get(action.id) ?? []);
+    const promptTokens = providerExecutions.reduce((sum, execution) => sum + Number(execution.prompt_tokens || 0), 0);
+    const completionTokens = providerExecutions.reduce((sum, execution) => sum + Number(execution.completion_tokens || 0), 0);
+    const estimatedCostMicrocny = providerExecutions.reduce((sum, execution) => sum + estimateDeepSeekCostMicrocny(
+      String(execution.model || "deepseek-v4-pro"),
+      execution,
+      new Date(String(execution.created_at || "")),
+    ), 0);
+    return {
+      chargedActions: metricActions.filter((action) => Number(action.quota_units || 0) > 0 && (action.status === "succeeded" || action.status === "cached")).length,
+      succeededActions: metricActions.filter((action) => action.status === "succeeded" || action.status === "cached").length,
+      failedActions: metricActions.filter((action) => action.status === "failed" || action.status === "cancelled").length,
+      generatedArticles: new Set(metricActions.filter((action) => action.status === "succeeded").map((action) => String(action.metadata?.articleKey || action.id))).size,
+      providerExecutions: providerExecutions.length,
+      promptTokens,
+      completionTokens,
+      estimatedCostCny: microcnyToCny(estimatedCostMicrocny),
+    };
+  };
+  const summaryUsage = summarizeActions("article_summary");
+  const translationUsage = summarizeActions("full_article_translation");
+  const publicCacheActions = actions.filter((action) => action.metric_key === "full_article_translation" && action.metadata?.source === "public_cache" && action.status === "cached");
+  const publicCacheUsage = {
+    hits: publicCacheActions.length,
+    articles: new Set(publicCacheActions.map((action) => String(action.metadata?.publicArticleId || action.metadata?.articleKey || "")).filter(Boolean)).size,
+    avoidedDeepSeekCalls: publicCacheActions.reduce((sum, action) => sum + Math.max(0, Number(action.metadata?.avoidedDeepSeekCalls || 0)), 0),
+    actualModelCostCny: 0,
+  };
+  const actionDetails = actions
+    .filter((action) => action.metric_key === "article_summary" || action.metric_key === "full_article_translation")
+    .slice(0, 500)
+    .map((action) => {
+      const providerExecutions = executionsByAction.get(action.id) ?? [];
+      const estimatedCostMicrocny = providerExecutions.reduce((sum, execution) => sum + estimateDeepSeekCostMicrocny(
+        String(execution.model || "deepseek-v4-pro"), execution, new Date(String(execution.created_at || "")),
+      ), 0);
+      return {
+        id: action.id,
+        userId: action.user_id || "",
+        metricKey: action.metric_key,
+        quotaUnits: Number(action.quota_units || 0),
+        status: action.status || "",
+        cacheHit: Boolean(action.cache_hit),
+        source: String(action.metadata?.source || "generated"),
+        articleKey: String(action.metadata?.articleKey || ""),
+        articleLabel: String(action.metadata?.articleLabel || "用户文章"),
+        providerExecutions: providerExecutions.length,
+        promptTokens: providerExecutions.reduce((sum, execution) => sum + Number(execution.prompt_tokens || 0), 0),
+        completionTokens: providerExecutions.reduce((sum, execution) => sum + Number(execution.completion_tokens || 0), 0),
+        estimatedCostCny: microcnyToCny(estimatedCostMicrocny),
+        createdAt: action.created_at || "",
+      };
+    });
+  const activityCounts = (days: number, identityKind?: "account" | "guest") => {
+    const selectedDays = new Set(usageWindow.dayKeys.slice(0, days));
+    return new Set(activities.filter((row) => selectedDays.has(row.activity_day) && (!identityKind || row.identity_kind === identityKind)).map((row) => row.owner_key)).size;
+  };
+  const activitySummary = {
+    dau: activityCounts(1),
+    wau: activityCounts(7),
+    mau: activityCounts(30),
+    accountDau: activityCounts(1, "account"),
+    accountWau: activityCounts(7, "account"),
+    accountMau: activityCounts(30, "account"),
+    guestDau: activityCounts(1, "guest"),
+    guestWau: activityCounts(7, "guest"),
+    guestMau: activityCounts(30, "guest"),
+    daily: usageWindow.dayKeys.map((date) => ({
+      date,
+      accounts: new Set(activities.filter((row) => row.activity_day === date && row.identity_kind === "account").map((row) => row.owner_key)).size,
+      guests: new Set(activities.filter((row) => row.activity_day === date && row.identity_kind === "guest").map((row) => row.owner_key)).size,
+    })),
+  };
   const failed = daily.reduce((sum, day) => sum + day.failed, 0);
   const estimatedCostMicrousd = daily.reduce((sum, day) => sum + day.estimatedCostMicrousd, 0);
   const estimatedCostMicrocny = daily.reduce((sum, day) => sum + day.estimatedCostMicrocny, 0);
@@ -90,7 +194,17 @@ export async function GET() {
       phone_verified: false,
     };
   });
-  return NextResponse.json({ profiles: safeProfiles, entitlements, plans, limits, actions, executions: executions.slice(0, 200), usageSummary }, { headers: { "Cache-Control": "no-store" } });
+  return NextResponse.json({
+    profiles: safeProfiles,
+    entitlements,
+    plans,
+    limits,
+    actions,
+    executions: executions.slice(0, 200),
+    activitySummary,
+    quotaUsage: { summary: summaryUsage, translation: translationUsage, publicCache: publicCacheUsage, details: actionDetails },
+    usageSummary,
+  }, { headers: { "Cache-Control": "no-store" } });
 }
 
 export async function PATCH(request: Request) {
@@ -126,7 +240,7 @@ export async function PATCH(request: Request) {
         plan_id: planId,
         metric_key: limit.metricKey,
         allowance: Number(limit.allowance),
-        window_type: limit.metricKey === "deep_reading" ? "month" : "day",
+        window_type: limit.metricKey === "article_summary" || limit.metricKey === "full_article_translation" ? "month" : "day",
         updated_at: new Date().toISOString(),
       }))),
     });

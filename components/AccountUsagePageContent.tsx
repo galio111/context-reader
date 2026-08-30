@@ -17,13 +17,15 @@ const metricLabels: Record<UsageMetricKey, string> = {
   guest_url_import: "游客网址导入",
   lookup_generation: "查词与问答",
   deep_reading: "深度阅读点数",
+  article_summary: "文章摘要",
+  full_article_translation: "全文翻译",
 };
 
 const plans = [
-  ["免费", "¥0", "每天 30 次查词 · 每月 20 点深度阅读"],
-  ["基础", "¥5 / 月", "每天 80 次查词 · 每月 150 点深度阅读"],
-  ["Plus", "¥10 / 月", "每天 200 次查词 · 每月 500 点深度阅读"],
-  ["Max", "¥30 / 月", "每天 600 次查词 · 每月 2,000 点深度阅读"],
+  ["免费", "¥0", "每天 30 次查词 · 每月 10 次摘要 · 1 次全文翻译"],
+  ["基础", "¥5 / 月", "每天 80 次查词 · 每月 75 次摘要 · 5 次全文翻译"],
+  ["Plus", "¥10 / 月", "每天 200 次查词 · 每月 250 次摘要 · 20 次全文翻译"],
+  ["Max", "¥30 / 月", "每天 600 次查词 · 每月 1,000 次摘要 · 60 次全文翻译"],
 ] as const;
 
 const entitlementExpiryFormatter = new Intl.DateTimeFormat("zh-CN", {
@@ -58,6 +60,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
     && Boolean(account.entitlement.endsAt)
     && Date.parse(account.entitlement.endsAt || "") > Date.now();
   const showUsageDetails = PUBLIC_USAGE_DETAILS_ENABLED || activeInvite;
+  const visibleUsage = account.usage.filter((usage) => usage.metricKey !== "deep_reading" && usage.metricKey !== "guest_lookup");
   useEffect(() => { void refreshAccount(); }, [refreshAccount]);
   useEffect(() => { setNicknameDraft(account.profile?.nickname || ""); }, [account.profile?.nickname]);
 
@@ -184,7 +187,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
 
         <section className="cr-account-intro mt-14 max-w-2xl">
           <h1 className="cr-account-title text-4xl font-semibold tracking-[-.04em] sm:text-5xl">账号与数据</h1>
-          {PUBLIC_USAGE_DETAILS_ENABLED && <p className="mt-5 text-base leading-7 text-[#536675]">查词与深度阅读功能分开计算。缓存命中、失败、超时和及时取消不扣注册账号额度；1 个深度阅读点约对应 1,000 个待处理字符，摘要至少 2 点。</p>}
+          {PUBLIC_USAGE_DETAILS_ENABLED && <p className="mt-5 text-base leading-7 text-[#536675]">查词、文章摘要和全文翻译分别计算。摘要首次生成扣 1 次；全文翻译每次新任务扣 1 次，重看已有结果免费，主动重新生成再扣 1 次。两项月额度都按上海自然月重置。</p>}
         </section>
 
         {loading ? <p className="cr-account-state mt-12 text-[#657582]">正在读取账号…</p> : isOffline ? (
@@ -199,7 +202,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
           <section className="cr-account-state mt-12 rounded-[16px] bg-[#fbfcfe] p-7 shadow-[0_4px_8px_rgb(43_61_77_/_10%)] sm:p-9">
             <h2 className="text-2xl font-semibold">当前为游客</h2>
             <p className="mt-3 text-[#5f6d79]">保存文章、生词本和私有全文翻译需要登录。</p>
-            {PUBLIC_USAGE_DETAILS_ENABLED && account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}
+            {PUBLIC_USAGE_DETAILS_ENABLED && visibleUsage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}
             <button className="cr-account-login mt-7 rounded-full bg-[#174f82] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#123f68]" type="button" onClick={() => openLogin("登录后会合并本机试用中产生的解释缓存，并开启跨设备同步。")}>手机号登录</button>
           </section>
         ) : (
@@ -233,7 +236,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
               ) : (
                 <>
                   {account.localDirect && <p className="mt-7 max-w-2xl text-sm leading-6 text-[#526b5a]">当前 localhost 已固定连接到真实的 galio 开发者账号。保存文章、生词本、阅读进度和缓存会继续与 Supabase 云端同步；本地开发不会访问或部署到 Vercel。</p>}
-                  {showUsageDetails && <div className="mt-8 grid gap-5 sm:grid-cols-2">{account.usage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}</div>}
+                  {showUsageDetails && <div className="mt-8 grid gap-5 sm:grid-cols-2">{visibleUsage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}</div>}
                   <div className="mt-8 flex flex-wrap items-center gap-3">
                     <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold transition-[transform,background-color,opacity] hover:bg-[#edf5fb] active:scale-[.97] disabled:cursor-wait disabled:opacity-55" type="button" onClick={() => void handleSync()} disabled={syncStatus === "working"} aria-busy={syncStatus === "working"}>{syncButtonLabel}</button>
                     <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold transition-[transform,background-color,opacity] hover:bg-[#edf5fb] active:scale-[.97] disabled:cursor-wait disabled:opacity-55" type="button" onClick={() => void exportData()} disabled={exportStatus === "working"} aria-busy={exportStatus === "working"}>{exportStatus === "working" ? "正在准备数据…" : exportStatus === "success" ? "已开始下载" : "导出个人数据"}</button>

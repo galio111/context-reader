@@ -6,6 +6,9 @@ import {
   trimTrailingWebsiteText,
 } from "@/lib/articleContentSanitizer";
 import { countArticleEnglishWords } from "@/lib/articleWordCount";
+import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
+import { createArticleTranslationBatches } from "@/lib/articleTranslationBatching";
+import { createArticleTranslationCacheKey } from "@/lib/articleTranslationIdentity";
 import { localizePublicArticleInputCover } from "@/lib/publicArticleCovers";
 import type {
   ArticleRecommendationMetadata,
@@ -306,6 +309,62 @@ async function listPublicArticleTranslations(articleId: string): Promise<PublicA
     }
     throw error;
   }
+}
+
+async function getManagedArticleRow(articleId: string, published?: boolean): Promise<SupabaseArticleRow | null> {
+  const publishedFilter = typeof published === "boolean" ? `&published=eq.${published}` : "";
+  const rows = await supabaseFetch<SupabaseArticleRow[]>(
+    `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&id=eq.${encodeURIComponent(articleId)}${publishedFilter}&limit=1`,
+  );
+  return rows[0] ?? null;
+}
+
+export async function getPublishedArticleTranslation(
+  articleId: string,
+  cacheKey: string,
+): Promise<{ article: PublicArticle; translation: PublicArticleTranslation; blockCount: number; providerBatchCount: number } | null> {
+  const row = await getManagedArticleRow(articleId, true);
+  if (!row) return null;
+  const article = mapArticle(row);
+  const blocks = createArticleTranslationBlocks(article.body, article.importedArticle ?? null);
+  const expectedCacheKey = createArticleTranslationCacheKey(blocks);
+  if (!blocks.length || cacheKey !== expectedCacheKey) return null;
+  const translations = await listPublicArticleTranslations(articleId);
+  const translation = translations.find((item) => item.cacheKey === expectedCacheKey);
+  if (!translation) return null;
+  const ids = new Set(translation.translations.map((item) => item.id));
+  if (!blocks.every((block) => ids.has(block.id))) return null;
+  return { article, translation, blockCount: blocks.length, providerBatchCount: createArticleTranslationBatches(blocks).length };
+}
+
+export async function replaceManagedArticleTranslation(
+  articleId: string,
+  input: PublicArticleTranslation,
+): Promise<{ translation: PublicArticleTranslation; blockCount: number; articleTitle: string }> {
+  const row = await getManagedArticleRow(articleId);
+  if (!row) throw new Error("文章不存在或已经被删除。");
+  const article = mapArticle(row);
+  const blocks = createArticleTranslationBlocks(article.body, article.importedArticle ?? null);
+  const expectedCacheKey = createArticleTranslationCacheKey(blocks);
+  if (!blocks.length) throw new Error("文章没有可上传翻译的正文段落。");
+  if (input.cacheKey !== expectedCacheKey) throw new Error("正文已经变化，请刷新文章后重新检查译文。");
+  const translationById = new Map(input.translations.map((item) => [item.id, item.translation.trim()]));
+  if (
+    translationById.size !== blocks.length
+    || blocks.some((block) => !translationById.get(block.id))
+  ) {
+    throw new Error(`译文必须完整对应 ${blocks.length} 个正文段落。`);
+  }
+  const translation: PublicArticleTranslation = {
+    cacheKey: expectedCacheKey,
+    translations: blocks.map((block) => ({ id: block.id, translation: translationById.get(block.id) ?? "" })),
+  };
+  await insertPublicArticleTranslations(articleId, [translation]);
+  await supabaseFetch(
+    `public_article_translations?article_id=eq.${encodeURIComponent(articleId)}&cache_key=neq.${encodeURIComponent(expectedCacheKey)}`,
+    { method: "DELETE", headers: { Prefer: "return=minimal" } },
+  );
+  return { translation, blockCount: blocks.length, articleTitle: article.title };
 }
 
 async function listPublicExplanations(articleId: string): Promise<PublicExplanation[]> {

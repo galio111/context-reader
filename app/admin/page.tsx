@@ -5,6 +5,7 @@ import AdminAccountsPanel from "@/components/AdminAccountsPanel";
 import ClearableField from "@/components/ClearableField";
 import AdminArticleIntakePanel from "@/components/AdminArticleIntakePanel";
 import AdminArticleMetadataInspector from "@/components/AdminArticleMetadataInspector";
+import AdminArticleTranslationUpload from "@/components/AdminArticleTranslationUpload";
 import AdminHomepageCurationPanel from "@/components/AdminHomepageCurationPanel";
 import AdminFeedbackPanel from "@/components/AdminFeedbackPanel";
 import AdminErrorReportsPanel from "@/components/AdminErrorReportsPanel";
@@ -61,7 +62,7 @@ function explanationSentenceFromKey(cacheKey: string): string {
 function explanationsForArticle(article: SavedArticle): PublicExplanation[] {
   const bodyKey = article.body.toLowerCase();
   return getExplanationCacheEntries()
-    .filter(({ cacheKey, explanation }) => {
+    .filter(({ cacheKey }) => {
       const sentence = explanationSentenceFromKey(cacheKey);
       return sentence && bodyKey.includes(sentence.trim().toLowerCase());
     })
@@ -103,6 +104,7 @@ export default function AdminPage() {
   const [publishedArticle, setPublishedArticle] = useState<PublicArticle | null>(null);
   const [publicArticles, setPublicArticles] = useState<PublicArticle[]>([]);
   const [readerState, setReaderState] = useState<AdminReaderState | null>(null);
+  const [translationUploadOpen, setTranslationUploadOpen] = useState(false);
   const [inspectorOpen, setInspectorOpen] = useState(false);
   const [articlePlacement, setArticlePlacement] = useState<PublishedArticlePlacement>(DEFAULT_CANDIDATE_PLACEMENT);
   const [homepageCuration, setHomepageCuration] = useState<HomepageCuration>(() => normalizeHomepageCuration(null));
@@ -666,6 +668,24 @@ export default function AdminPage() {
     else setReaderState(null);
   }
 
+  function handleUploadedArticleTranslation(translation: PublicArticleTranslation) {
+    setReaderState((current) => {
+      if (!current) return current;
+      const nextArticle = {
+        ...current.article,
+        articleTranslations: [
+          translation,
+          ...(current.article.articleTranslations ?? []).filter((item) => item.cacheKey !== translation.cacheKey),
+        ],
+      };
+      if (current.kind === "published") {
+        setPublicArticles((items) => items.map((item) => item.id === nextArticle.id ? nextArticle : item));
+      }
+      setStatus(`已上传《${nextArticle.title}》当前正文版本的全文翻译。`);
+      return { ...current, article: nextArticle };
+    });
+  }
+
   if (checkingSession) {
     return (
       <main className="cr-site-background px-4 py-8 text-[#17212b]">
@@ -727,6 +747,12 @@ export default function AdminPage() {
     });
     return (
       <div className="min-h-screen bg-[#f5f5f7] text-[#17212b]" style={{ colorScheme: "light" }}>
+        <AdminArticleTranslationUpload
+          article={readerState.article}
+          open={translationUploadOpen}
+          onClose={() => setTranslationUploadOpen(false)}
+          onUploaded={handleUploadedArticleTranslation}
+        />
         <AdminArticleMetadataInspector
           key={`${readerState.kind}:${readerState.article.id}`}
           article={readerState.article}
@@ -755,15 +781,18 @@ export default function AdminPage() {
               <button type="button" aria-expanded={editorialDrawer === "candidates"} onClick={() => setEditorialDrawer((current) => current === "candidates" ? null : "candidates")}>候选 {candidateArticles.length}</button>
               <button type="button" aria-expanded={editorialDrawer === "published"} onClick={() => setEditorialDrawer((current) => current === "published" ? null : "published")}>精选 {publicArticles.length}</button>
               <button type="button" onClick={() => setInspectorOpen(true)}>文章设置</button>
+              {readerState.kind === "published" && <button type="button" onClick={() => setTranslationUploadOpen(true)}>上传全文翻译</button>}
               {readerState.kind === "candidate" && <button type="button" data-primary="true" onClick={() => void selectCurrentCandidate(editorialCategoryForArticle(readerState.article), articlePlacement)}>精选</button>}
               {readerState.kind === "candidate" && <button type="button" data-danger="true" onClick={() => void rejectCurrentCandidate()}>不精选</button>}
             </>}
             editorialRailActions={<>
               <button type="button" aria-expanded={editorialDrawer === "candidates"} onClick={() => setEditorialDrawer((current) => current === "candidates" ? null : "candidates")}>候选 {candidateArticles.length}</button>
               <button type="button" aria-expanded={editorialDrawer === "published"} onClick={() => setEditorialDrawer((current) => current === "published" ? null : "published")}>精选 {publicArticles.length}</button>
+              {readerState.kind === "published" && <button type="button" onClick={() => setTranslationUploadOpen(true)}>上传全文翻译</button>}
             </>}
             importedArticle={readerState.article.importedArticle ?? null}
             preloadedExplanations={readerState.article.explanations ?? []}
+            preloadedArticleTranslations={readerState.article.articleTranslations ?? []}
             backLabel="返回后台"
             onBack={() => setReaderState(null)}
             onArticleSaved={() => setArticles(getSavedArticles())}

@@ -47,6 +47,7 @@ import {
   usesSavedArticleRestartPolicy,
 } from "../lib/readingProgressPolicy";
 import type { PublicArticle } from "../types/publicArticle";
+import { createArticleTranslationCacheKey } from "../lib/articleTranslationIdentity";
 
 function recommendationArticle(id: string, options?: { cover?: boolean }): PublicArticle {
   return {
@@ -497,4 +498,41 @@ test("homepage feature cards reserve vertical gestures for page scrolling", () =
   assert.match(styles, /\.ballField, \.coverBreath \{ display: none; \}/);
   assert.match(styles, /\.closingActions \{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
   assert.match(styles, /\.qrToggle, \.wechatQr \{ display: none !important; \}/);
+});
+
+test("full translation quotas bind to the exact article body version", () => {
+  const first = createArticleTranslationCacheKey([{ id: "paragraph-0", type: "paragraph", text: "Original body." }]);
+  const same = createArticleTranslationCacheKey([{ id: "paragraph-0", type: "paragraph", text: "Original body." }]);
+  const edited = createArticleTranslationCacheKey([{ id: "paragraph-0", type: "paragraph", text: "Edited body." }]);
+  assert.equal(first, same);
+  assert.notEqual(first, edited);
+});
+
+test("translation and summary quotas stay separate and curated cache keeps its charge", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  const translationStart = readFileSync(new URL("../app/api/translate-article/start/route.ts", import.meta.url), "utf8");
+  const summary = readFileSync(new URL("../app/api/summarize-article/route.ts", import.meta.url), "utf8");
+  const migration = readFileSync(new URL("../ops/mainland/migrate-translation-summary-quotas.sql", import.meta.url), "utf8");
+  assert.match(translationStart, /metricKey: "full_article_translation"/);
+  assert.match(translationStart, /finishUsage\(actionId, "cached", true, false\)/);
+  assert.match(summary, /metricKey: "article_summary"/);
+  assert.doesNotMatch(reader, /void startArticleTranslationJob\(translationSourceKey, missingBlocks/);
+  assert.match(migration, /\('plus', 'full_article_translation', 20, 'month'\)/);
+  assert.match(migration, /\('max', 'full_article_translation', 60, 'month'\)/);
+});
+
+test("full translation keeps progressive output while batching upstream context", () => {
+  const translationRoute = readFileSync(new URL("../app/api/translate-article/route.ts", import.meta.url), "utf8");
+  const translationJobs = readFileSync(new URL("../lib/articleTranslationJobs.ts", import.meta.url), "utf8");
+  const translationBatching = readFileSync(new URL("../lib/articleTranslationBatching.ts", import.meta.url), "utf8");
+  assert.match(translationRoute, /stream:\s*true/);
+  assert.match(translationRoute, /application\/x-ndjson/);
+  assert.match(translationRoute, /"deepseek-v4-flash"/);
+  assert.match(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_BLOCKS\s*=\s*80/);
+  assert.match(translationRoute, /MAX_CONTEXT_TOTAL_CHARS\s*=\s*64_000/);
+  assert.match(translationRoute, /contextMatchesTarget\s*\?/);
+  assert.match(translationRoute, /emitFallbackDocument/);
+  assert.match(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_CHARS\s*=\s*24_000/);
+  assert.match(translationJobs, /onTranslation\(event\.translation\)/);
+  assert.doesNotMatch(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_BLOCKS\s*=\s*1/);
 });

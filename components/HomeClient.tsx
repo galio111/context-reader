@@ -15,7 +15,6 @@ import {
   saveArticleReadingProgress,
   touchSavedArticle,
 } from "@/lib/articles";
-import { getCachedArticleTranslation, setCachedArticleTranslation } from "@/lib/cache";
 import { findBestSourceSentenceMatch, normalizeForSourceMatch } from "@/lib/sourceMatching";
 import { hasClickableWords, tokenizeArticle } from "@/lib/tokenizer";
 import { primeLeadingArticleImage } from "@/lib/articleImagePreload";
@@ -27,7 +26,7 @@ import {
 } from "@/lib/readingProgressPolicy";
 import { hasExternalImportedArticleImages, isExternalArticleImageUrl } from "@/lib/articleImageUrls";
 import type { ImportedArticle, ImportedImageLayoutWord, SavedArticle } from "@/types/article";
-import type { PublicArticle, PublicExplanation } from "@/types/publicArticle";
+import type { PublicArticle, PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
 import type { ReaderViewportAnchor, ReaderViewportReport } from "@/types/reader";
 import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
 import { updateVocabularyEntry } from "@/lib/vocabulary";
@@ -98,6 +97,7 @@ interface ReaderSessionSnapshot {
   article: string;
   importedArticle: ImportedArticle | null;
   preloadedExplanations: PublicExplanation[];
+  preloadedArticleTranslations: PublicArticleTranslation[];
   articleSource?: VocabularySourceArticle;
   sourceSentenceToHighlight: string;
   sourceWordToHighlight: string;
@@ -179,6 +179,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   const [articleUrl, setArticleUrl] = useState("");
   const [importedArticle, setImportedArticle] = useState<ImportedArticle | null>(null);
   const [preloadedExplanations, setPreloadedExplanations] = useState<PublicExplanation[]>([]);
+  const [preloadedArticleTranslations, setPreloadedArticleTranslations] = useState<PublicArticleTranslation[]>([]);
   const [activeArticleSource, setActiveArticleSource] = useState<VocabularySourceArticle | undefined>();
   const [importingUrl, setImportingUrl] = useState(false);
   const [articleImagesLocalizing, setArticleImagesLocalizing] = useState(false);
@@ -372,6 +373,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     article,
     importedArticle,
     preloadedExplanations,
+    preloadedArticleTranslations,
     articleSource: activeArticleSource,
     sourceSentenceToHighlight,
     sourceWordToHighlight,
@@ -385,6 +387,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     article,
     importedArticle,
     preloadedExplanations,
+    preloadedArticleTranslations,
     sourceJumpRequestId,
     sourceSentenceToHighlight,
     sourceWordToHighlight,
@@ -409,6 +412,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setArticle(snapshot.article);
     setImportedArticle(snapshot.importedArticle);
     setPreloadedExplanations(snapshot.preloadedExplanations);
+    setPreloadedArticleTranslations(snapshot.preloadedArticleTranslations);
     setActiveArticleSource(snapshot.articleSource);
     setSourceSentenceToHighlight(snapshot.sourceSentenceToHighlight);
     setSourceWordToHighlight(snapshot.sourceWordToHighlight);
@@ -443,6 +447,8 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setArticle("");
     setImportedArticle(null);
     setPreloadedExplanations([]);
+    setPreloadedArticleTranslations([]);
+    setPreloadedArticleTranslations([]);
     setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setSourceWordToHighlight("");
@@ -615,6 +621,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setArticle(demoArticle.text);
     setImportedArticle(demoArticle);
     setPreloadedExplanations([]);
+    setPreloadedArticleTranslations([]);
     setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setError("");
@@ -787,6 +794,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setImportedArticle(nextArticle);
     void primeLeadingArticleImage(nextArticle);
     setPreloadedExplanations([]);
+    setPreloadedArticleTranslations([]);
     setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setError("");
@@ -861,6 +869,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         ],
       });
       setPreloadedExplanations([]);
+      setPreloadedArticleTranslations([]);
       setActiveArticleSource(undefined);
       setSourceSentenceToHighlight("");
       setError("");
@@ -914,6 +923,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setImportedArticle(openedArticle.importedArticle ?? null);
     void primeLeadingArticleImage(openedArticle.importedArticle ?? null);
     setPreloadedExplanations([]);
+    setPreloadedArticleTranslations([]);
     setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setError("");
@@ -967,6 +977,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setImportedArticle(nextImportedArticle);
     if (nextImportedArticle) void primeLeadingArticleImage(nextImportedArticle);
     setPreloadedExplanations([]);
+    setPreloadedArticleTranslations([]);
     setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setSourceWordToHighlight("");
@@ -990,6 +1001,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setImportedArticle(record.importedArticle);
     void primeLeadingArticleImage(record.importedArticle);
     setPreloadedExplanations([]);
+    setPreloadedArticleTranslations([]);
     setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setError("");
@@ -1044,16 +1056,12 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setArticle(publicArticle.body);
     setImportedArticle(sourceArticle);
     setPreloadedExplanations(publicArticle.explanations ?? []);
+    setPreloadedArticleTranslations(publicArticle.articleTranslations ?? []);
     setActiveArticleSource({
       kind: "public",
       id: publicArticle.id || fallbackId,
       title: publicArticle.title || initialPublicArticles.find((item) => item.id === fallbackId)?.title || "",
     });
-    for (const item of publicArticle.articleTranslations ?? []) {
-      if (!getCachedArticleTranslation(item.cacheKey)) {
-        setCachedArticleTranslation(item.cacheKey, item.translations);
-      }
-    }
   }
 
   async function handleOpenPublicArticle(id: string) {
@@ -1177,6 +1185,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       setArticle(touchedArticle.body);
       setImportedArticle(touchedArticle.importedArticle ?? null);
       setPreloadedExplanations([]);
+      setPreloadedArticleTranslations([]);
       setActiveArticleSource(undefined);
       setSourceSentenceToHighlight(
         containsSourceSentence(touchedArticle.body, entry.sourceSentence)
@@ -1234,6 +1243,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         article={article}
         importedArticle={importedArticle}
         preloadedExplanations={preloadedExplanations}
+        preloadedArticleTranslations={preloadedArticleTranslations}
         articleSource={activeArticleSource}
         sourceSentenceToHighlight={sourceSentenceToHighlight}
         sourceWordToHighlight={sourceWordToHighlight}
@@ -1269,6 +1279,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
             ));
           }
           setPreloadedExplanations([]);
+          setPreloadedArticleTranslations([]);
           setActiveArticleSource(undefined);
           setSourceSentenceToHighlight("");
         }}

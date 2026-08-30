@@ -120,6 +120,23 @@ create table if not exists public.usage_actions (
   completed_at timestamptz
 );
 
+alter table public.usage_actions add column if not exists metadata jsonb not null default '{}'::jsonb;
+
+create table if not exists public.account_activity_days (
+  activity_day date not null,
+  owner_key text not null,
+  user_id uuid references auth.users(id) on delete cascade,
+  guest_id uuid references public.guest_identities(id) on delete cascade,
+  identity_kind text not null check (identity_kind in ('account', 'guest')),
+  first_seen_at timestamptz not null default now(),
+  last_seen_at timestamptz not null default now(),
+  primary key (activity_day, owner_key),
+  check ((identity_kind = 'account' and user_id is not null) or (identity_kind = 'guest' and guest_id is not null))
+);
+
+create index if not exists account_activity_days_last_seen_idx
+  on public.account_activity_days (last_seen_at desc);
+
 create index if not exists usage_actions_owner_created_idx
   on public.usage_actions (owner_key, created_at desc);
 
@@ -194,14 +211,24 @@ values
   ('guest', 'guest_url_import', 2, 'day'),
   ('free', 'lookup_generation', 30, 'day'),
   ('free', 'deep_reading', 20, 'month'),
+  ('free', 'article_summary', 10, 'month'),
+  ('free', 'full_article_translation', 1, 'month'),
   ('basic', 'lookup_generation', 80, 'day'),
   ('basic', 'deep_reading', 150, 'month'),
+  ('basic', 'article_summary', 75, 'month'),
+  ('basic', 'full_article_translation', 5, 'month'),
   ('plus', 'lookup_generation', 200, 'day'),
   ('plus', 'deep_reading', 500, 'month'),
+  ('plus', 'article_summary', 250, 'month'),
+  ('plus', 'full_article_translation', 20, 'month'),
   ('max', 'lookup_generation', 600, 'day'),
   ('max', 'deep_reading', 2000, 'month'),
+  ('max', 'article_summary', 1000, 'month'),
+  ('max', 'full_article_translation', 60, 'month'),
   ('admin', 'lookup_generation', 1000000, 'day'),
-  ('admin', 'deep_reading', 1000000, 'month')
+  ('admin', 'deep_reading', 1000000, 'month'),
+  ('admin', 'article_summary', 1000000, 'month'),
+  ('admin', 'full_article_translation', 1000000, 'month')
 on conflict (plan_id, metric_key) do nothing;
 
 insert into public.account_settings (key, value)
@@ -300,6 +327,12 @@ begin
   perform pg_advisory_xact_lock(hashtext(p_action_id::text));
   select * into v_existing from public.usage_actions where id = p_action_id;
   if found then
+    if v_existing.owner_key <> p_owner_key
+      or v_existing.feature <> p_feature
+      or v_existing.metric_key <> p_metric_key then
+      return query select false, 0::bigint, 0::bigint, now(), true;
+      return;
+    end if;
     select coalesce(uc.used_units, 0), qpl.allowance, uc.window_end
       into v_current, v_allowance, v_window_end
     from public.quota_plan_limits qpl
@@ -377,11 +410,13 @@ begin
 end;
 $$;
 
+drop function if exists public.finalize_usage(uuid, text, boolean, text);
 create or replace function public.finalize_usage(
   p_action_id uuid,
   p_status text,
   p_cache_hit boolean default false,
-  p_error_code text default ''
+  p_error_code text default '',
+  p_refund_cache_hit boolean default true
 )
 returns void
 language plpgsql
@@ -400,7 +435,7 @@ begin
     return;
   end if;
 
-  if p_cache_hit and v_action.quota_units > 0 then
+  if p_cache_hit and p_refund_cache_hit and v_action.quota_units > 0 then
     update public.usage_counters
     set used_units = greatest(0, used_units - v_action.quota_units), updated_at = now()
     where owner_key = v_action.owner_key
@@ -411,7 +446,7 @@ begin
   update public.usage_actions
   set status = case when p_status in ('succeeded', 'cached', 'failed', 'cancelled') then p_status else 'failed' end,
       cache_hit = p_cache_hit,
-      quota_units = case when p_cache_hit then 0 else quota_units end,
+      quota_units = case when p_cache_hit and p_refund_cache_hit then 0 else quota_units end,
       error_code = left(coalesce(p_error_code, ''), 120),
       completed_at = now()
   where id = p_action_id;
@@ -638,6 +673,7 @@ alter table public.invitation_codes enable row level security;
 alter table public.guest_identities enable row level security;
 alter table public.usage_counters enable row level security;
 alter table public.usage_actions enable row level security;
+alter table public.account_activity_days enable row level security;
 alter table public.usage_executions enable row level security;
 alter table public.user_data_objects enable row level security;
 alter table public.admin_audit_logs enable row level security;
@@ -682,16 +718,18 @@ revoke all on public.invitation_codes from anon, authenticated, public;
 revoke all on public.guest_identities from anon, authenticated, public;
 revoke all on public.usage_counters from anon, authenticated, public;
 revoke all on public.usage_actions from anon, public;
+revoke all on public.account_activity_days from anon, authenticated, public;
+grant all on public.account_activity_days to service_role;
 revoke all on public.usage_executions from anon, public;
 revoke all on public.user_data_objects from anon, public;
 revoke all on public.admin_audit_logs from anon, authenticated, public;
 revoke all on function public.merge_user_data_objects(uuid, jsonb) from anon, authenticated, public;
 revoke all on function public.consume_usage(uuid, text, uuid, uuid, text, text, text, bigint) from anon, authenticated, public;
-revoke all on function public.finalize_usage(uuid, text, boolean, text) from anon, authenticated, public;
+revoke all on function public.finalize_usage(uuid, text, boolean, text, boolean) from anon, authenticated, public;
 revoke all on function public.refund_usage(uuid, text, text) from anon, authenticated, public;
 revoke all on function public.redeem_invitation_code(uuid, text) from anon, authenticated, public;
 grant execute on function public.consume_usage(uuid, text, uuid, uuid, text, text, text, bigint) to service_role;
-grant execute on function public.finalize_usage(uuid, text, boolean, text) to service_role;
+grant execute on function public.finalize_usage(uuid, text, boolean, text, boolean) to service_role;
 grant execute on function public.refund_usage(uuid, text, text) to service_role;
 grant execute on function public.merge_user_data_objects(uuid, jsonb) to service_role;
 grant execute on function public.redeem_invitation_code(uuid, text) to service_role;

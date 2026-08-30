@@ -52,6 +52,20 @@ interface CounterRow {
   window_end: string;
 }
 
+export interface UsageActionRecord {
+  id: string;
+  ownerKey: string;
+  userId: string | null;
+  guestId: string | null;
+  planId: AccountPlanId;
+  feature: string;
+  metricKey: UsageMetricKey;
+  quotaUnits: number;
+  status: "reserved" | "succeeded" | "cached" | "failed" | "cancelled";
+  cacheHit: boolean;
+  metadata: Record<string, unknown>;
+}
+
 interface SyncObjectRow {
   kind: AccountSyncObject["kind"];
   object_key: string;
@@ -301,10 +315,21 @@ export async function reserveUsage(args: {
   };
 }
 
-export async function finishUsage(actionId: string, status: "succeeded" | "cached", cacheHit = false): Promise<void> {
+export async function finishUsage(
+  actionId: string,
+  status: "succeeded" | "cached",
+  cacheHit = false,
+  refundCacheHit = true,
+): Promise<void> {
   await accountFetch("rpc/finalize_usage", {
     method: "POST",
-    body: JSON.stringify({ p_action_id: actionId, p_status: status, p_cache_hit: cacheHit, p_error_code: "" }),
+    body: JSON.stringify({
+      p_action_id: actionId,
+      p_status: status,
+      p_cache_hit: cacheHit,
+      p_refund_cache_hit: refundCacheHit,
+      p_error_code: "",
+    }),
   });
 }
 
@@ -312,6 +337,74 @@ export async function refundUsage(actionId: string, status: "failed" | "cancelle
   await accountFetch("rpc/refund_usage", {
     method: "POST",
     body: JSON.stringify({ p_action_id: actionId, p_status: status, p_error_code: errorCode.slice(0, 120) }),
+  });
+}
+
+export async function getUsageAction(actionId: string): Promise<UsageActionRecord | null> {
+  const rows = await accountFetch<Array<{
+    id: string;
+    owner_key: string;
+    user_id: string | null;
+    guest_id: string | null;
+    plan_id: AccountPlanId;
+    feature: string;
+    metric_key: UsageMetricKey;
+    quota_units: number;
+    status: UsageActionRecord["status"];
+    cache_hit: boolean;
+    metadata: Record<string, unknown> | null;
+  }>>(
+    `usage_actions?id=eq.${encodeURIComponent(actionId)}&select=id,owner_key,user_id,guest_id,plan_id,feature,metric_key,quota_units,status,cache_hit,metadata&limit=1`,
+  );
+  const row = rows[0];
+  return row ? {
+    id: row.id,
+    ownerKey: row.owner_key,
+    userId: row.user_id,
+    guestId: row.guest_id,
+    planId: row.plan_id,
+    feature: row.feature,
+    metricKey: row.metric_key,
+    quotaUnits: Number(row.quota_units),
+    status: row.status,
+    cacheHit: Boolean(row.cache_hit),
+    metadata: row.metadata && typeof row.metadata === "object" ? row.metadata : {},
+  } : null;
+}
+
+export async function setUsageActionMetadata(actionId: string, metadata: Record<string, unknown>): Promise<void> {
+  await accountFetch(`usage_actions?id=eq.${encodeURIComponent(actionId)}`, {
+    method: "PATCH",
+    headers: { Prefer: "return=minimal" },
+    body: JSON.stringify({ metadata }),
+  });
+}
+
+const SHANGHAI_ACTIVITY_DAY = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Shanghai",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+
+export async function recordDailyActivity(args: {
+  ownerKey: string;
+  userId?: string;
+  guestId?: string;
+}): Promise<void> {
+  if (!args.userId && !args.guestId) return;
+  const now = new Date();
+  await accountFetch("account_activity_days?on_conflict=activity_day,owner_key", {
+    method: "POST",
+    headers: { Prefer: "resolution=merge-duplicates,return=minimal" },
+    body: JSON.stringify([{
+      activity_day: SHANGHAI_ACTIVITY_DAY.format(now),
+      owner_key: args.ownerKey,
+      user_id: args.userId ?? null,
+      guest_id: args.guestId ?? null,
+      identity_kind: args.userId ? "account" : "guest",
+      last_seen_at: now.toISOString(),
+    }]),
   });
 }
 
