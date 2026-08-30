@@ -1,11 +1,20 @@
 import { NextResponse } from "next/server";
 import { cancelActiveLookupRequests, isLookupActionId } from "@/lib/activeLookupRequests";
 import { readRequestBytes, RequestBodyTooLargeError } from "@/lib/limitedBody";
+import { requestExternalOrigin } from "@/lib/requestSecurity";
 
 export async function POST(request: Request) {
   const origin = request.headers.get("origin")?.trim() ?? "";
   const fetchSite = request.headers.get("sec-fetch-site")?.trim().toLowerCase() ?? "";
-  if ((origin && origin !== new URL(request.url).origin) || fetchSite === "cross-site") {
+  let validOrigin = true;
+  if (origin) {
+    try {
+      validOrigin = new URL(origin).origin === requestExternalOrigin(request);
+    } catch {
+      validOrigin = false;
+    }
+  }
+  if (!validOrigin || fetchSite === "cross-site") {
     return NextResponse.json({ error: "不允许跨站取消请求。" }, { status: 403 });
   }
   let actionId = "";

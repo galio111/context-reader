@@ -4,6 +4,7 @@ import { test } from "node:test";
 import { buildContextCloze } from "../lib/ankiData";
 import { DeepSeekParseError, explainWordWithDeepSeek } from "../lib/deepseek";
 import { cancelActiveLookupRequests, registerActiveLookupRequest } from "../lib/activeLookupRequests";
+import { POST as cancelLookupRequest } from "../app/api/lookup-cancel/route";
 import { waitForFastImageLocalization } from "../lib/articleImageLocalizationPolicy";
 import { parseDictionaryStream } from "../lib/dictionaryStream";
 import { scopeReaderTokenId } from "../lib/readerTokenIdentity";
@@ -98,6 +99,25 @@ test("explicit cancellation reaches active requests and survives an early close 
   assert.equal(cancelActiveLookupRequests(activeActionId), 2);
   assert.equal(first.signal.aborted, true);
   assert.equal(second.signal.aborted, true);
+});
+
+test("lookup cancellation accepts the public origin behind the mainland reverse proxy", async () => {
+  const actionId = "66666666-6666-4666-8666-666666666666";
+  const controller = new AbortController();
+  registerActiveLookupRequest(actionId, controller);
+  const response = await cancelLookupRequest(new Request("http://app:3000/api/lookup-cancel", {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain;charset=UTF-8",
+      Origin: "https://context-reader.com",
+      "X-Forwarded-Host": "context-reader.com",
+      "X-Forwarded-Proto": "https",
+    },
+    body: actionId,
+  }));
+  assert.equal(response.status, 200);
+  assert.equal(controller.signal.aborted, true);
+  assert.deepEqual(await response.json(), { ok: true, cancelled: 1 });
 });
 
 test("structured explanation distinguishes an aborted fetch from a completed malformed response", async (t) => {
