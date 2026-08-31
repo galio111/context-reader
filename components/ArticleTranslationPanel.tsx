@@ -17,7 +17,6 @@ interface ArticleTranslationPanelProps {
   staleBlockIds?: string[];
   removedTranslationCount?: number;
   adminMode?: boolean;
-  onUseExistingTranslation?: () => void;
   onGenerate: () => void;
   onRegenerate: () => void;
 }
@@ -25,7 +24,7 @@ interface ArticleTranslationPanelProps {
 export function ArticleTranslationPanel({
   blocks, translations, loading, error, requested, estimatedSecondsRemaining, retryAfterSeconds, retryReason,
   regenerating, completedTargetBlocks, totalTargetBlocks,
-  staleBlockIds = [], removedTranslationCount = 0, adminMode = false, onUseExistingTranslation, onGenerate, onRegenerate,
+  staleBlockIds = [], removedTranslationCount = 0, adminMode = false, onGenerate, onRegenerate,
 }: ArticleTranslationPanelProps) {
   const translationById = new Map(translations.map((item) => [item.id, item.translation]));
   const hasTranslations = translations.length > 0;
@@ -54,7 +53,7 @@ export function ArticleTranslationPanel({
       <header className="flex items-start justify-between gap-3 border-b border-[#e0e0e0] pb-4">
         <div className="min-w-0">
           <h2 className="text-base font-semibold leading-6 tracking-[-0.224px] text-[#1d1d1f]">全文翻译</h2>
-          <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{adminMode ? "后台生成结果可在精选时作为预发布译文，已有完整译文也可直接录入。" : "按原文段落对齐，优先保持术语、指代和上下文一致。"}</p>
+          <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{adminMode ? "候选文章已有完整译文时，精选后会自动同步给用户。" : "按原文段落对齐，优先保持术语、指代和上下文一致。"}</p>
         </div>
         {hasTranslations && (
           <button type="button" className="cr-translation-regenerate flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#0066cc] text-lg leading-none text-[#0066cc] transition hover:bg-[#f5f9ff] active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#86868b]" onClick={onRegenerate} disabled={loading || blocks.length === 0} aria-label={updateButtonLabel} title={updateButtonLabel}>↻</button>
@@ -79,7 +78,7 @@ export function ArticleTranslationPanel({
       {error && !loading && (
         <div className="mt-4 rounded-[14px] border border-red-200 bg-red-50 p-3 text-sm leading-6 text-red-700">
           <div className="flex items-start justify-between gap-3"><p className="min-w-0">{error}</p><button type="button" className="cr-translation-retry flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-red-300 bg-white text-base leading-none text-red-700 transition hover:bg-red-100 active:scale-95" onClick={onGenerate} aria-label="继续未完成的全文翻译" title="继续未完成的全文翻译">↻</button></div>
-          {adminMode && <div className="mt-3 border-t border-red-200 pt-3 text-xs leading-5"><p>这是本次 AI 生成失败，不代表文章已经有可上传译文。</p>{onUseExistingTranslation && <button type="button" className="mt-2 min-h-10 rounded-full border border-red-300 bg-white px-4 font-semibold text-red-700" onClick={onUseExistingTranslation}>录入已有全文译文</button>}</div>}
+          {adminMode && <p className="mt-3 border-t border-red-200 pt-3 text-xs leading-5">本次生成失败，请重试。</p>}
         </div>
       )}
 

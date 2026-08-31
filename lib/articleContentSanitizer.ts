@@ -10,6 +10,39 @@ function normalizedBlockText(block: ImportedArticleBlock): string {
   return block.text?.replace(/\s+/g, " ").trim() ?? "";
 }
 
+function normalizedCaptionText(value: string | undefined): string {
+  return (value ?? "")
+    .normalize("NFKC")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLocaleLowerCase("en-US");
+}
+
+/**
+ * Some publishers expose the same caption through both the image `alt` and a
+ * following figcaption/paragraph. ReaderView intentionally renders image alt
+ * text as selectable reader tokens, so retaining the adjacent copy paints the
+ * caption twice. Collapse only exact adjacent duplicates; distinct captions
+ * and ordinary prose remain untouched.
+ */
+export function removeDuplicateImageCaptionBlocks(blocks: ImportedArticleBlock[]): ImportedArticleBlock[] {
+  const removeIndexes = new Set<number>();
+
+  blocks.forEach((block, index) => {
+    if (block.type !== "image") return;
+    const imageCaption = normalizedCaptionText(block.alt || block.caption);
+    if (!imageCaption) return;
+
+    const following = blocks[index + 1];
+    if (!following || following.type === "image" || following.type === "table") return;
+    if (normalizedCaptionText(following.text) === imageCaption) removeIndexes.add(index + 1);
+  });
+
+  return blocks
+    .filter((_, index) => !removeIndexes.has(index))
+    .map((block, index) => ({ ...block, id: `block-${index}` }));
+}
+
 function normalizedImageIdentity(block: ImportedArticleBlock): string {
   const raw = `${block.src ?? ""} ${block.alt ?? ""}`;
   try {
@@ -144,7 +177,7 @@ export function trimTrailingWebsiteText(value: string): string {
 
 export function sanitizeImportedArticleContent(article: ImportedArticle): ImportedArticle {
   const boundedBlocks = trimTrailingWebsiteBlocks(article.blocks);
-  const blocks = removeAuthorIdentityBlocks(boundedBlocks);
+  const blocks = removeDuplicateImageCaptionBlocks(removeAuthorIdentityBlocks(boundedBlocks));
   return {
     ...article,
     text: blocks.length < boundedBlocks.length

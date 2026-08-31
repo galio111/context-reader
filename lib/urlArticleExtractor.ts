@@ -1,6 +1,6 @@
 import { Readability } from "@mozilla/readability";
 import { JSDOM } from "jsdom";
-import { removeAuthorIdentityBlocks, trimTrailingWebsiteBlocks } from "@/lib/articleContentSanitizer";
+import { removeAuthorIdentityBlocks, removeDuplicateImageCaptionBlocks, trimTrailingWebsiteBlocks } from "@/lib/articleContentSanitizer";
 import type {
   ImportedArticle,
   ImportedArticleBlock,
@@ -100,6 +100,49 @@ function metaContent(document: Document, key: string): string {
   return singleLineText(
     document.querySelector(`meta[property="${escaped}"], meta[name="${escaped}"]`)?.getAttribute("content") ?? "",
   );
+}
+
+function jsonLdPublishedTime(document: Document): string {
+  function findDate(value: unknown): string {
+    if (!value || typeof value !== "object") return "";
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        const date = findDate(item);
+        if (date) return date;
+      }
+      return "";
+    }
+    const record = value as Record<string, unknown>;
+    if (typeof record.datePublished === "string") return singleLineText(record.datePublished);
+    for (const nested of Object.values(record)) {
+      const date = findDate(nested);
+      if (date) return date;
+    }
+    return "";
+  }
+
+  for (const script of Array.from(document.querySelectorAll('script[type="application/ld+json"]'))) {
+    try {
+      const date = findDate(JSON.parse(script.textContent ?? ""));
+      if (date) return date;
+    } catch {
+      // Invalid publisher JSON-LD must not block article extraction.
+    }
+  }
+  return "";
+}
+
+function extractPublishedTime(document: Document, readabilityPublishedTime: string): string {
+  return singleLineText(readabilityPublishedTime)
+    || metaContent(document, "article:published_time")
+    || metaContent(document, "datePublished")
+    || metaContent(document, "date")
+    || jsonLdPublishedTime(document)
+    || singleLineText(
+      document.querySelector("time[datetime]")?.getAttribute("datetime")
+      ?? document.querySelector("time")?.textContent
+      ?? "",
+    );
 }
 
 function isHiddenElement(element: Element): boolean {
@@ -425,7 +468,7 @@ function cleanBlocks(blocks: ImportedArticleBlock[], title: string): ImportedArt
   if (!cleaned.some((block) => block.type === "heading") && title) {
     cleaned.unshift({ id: "block-title", type: "heading", text: title });
   }
-  return cleaned.map((block, index) => ({ ...block, id: `block-${index}` }));
+  return removeDuplicateImageCaptionBlocks(cleaned);
 }
 
 function extractBlocks(root: Element, baseUrl: string, title: string): ImportedArticleBlock[] {
@@ -577,6 +620,7 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
   const imageSources = selected.blocks
     .filter((block) => block.type === "image" && block.src)
     .map((block) => block.src as string);
+  const publishedTime = extractPublishedTime(document, readable?.publishedTime || "");
   return {
     article: {
       title,
@@ -585,7 +629,7 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
       text,
       blocks: selected.blocks,
       ...(singleLineText(readable?.byline || "") ? { byline: singleLineText(readable?.byline || "") } : {}),
-      ...(singleLineText(readable?.publishedTime || "") ? { publishedTime: singleLineText(readable?.publishedTime || "") } : {}),
+      ...(publishedTime ? { publishedTime } : {}),
       ...(singleLineText(readable?.lang || document.documentElement.lang || "") ? { language: singleLineText(readable?.lang || document.documentElement.lang || "") } : {}),
     },
     metadata: {

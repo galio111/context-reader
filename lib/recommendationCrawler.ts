@@ -241,7 +241,12 @@ function crawlerCandidateInput(
     body: article.text,
     sourceUrl: item.url,
     sourceName: article.siteName || item.source.name,
-    importedArticle: { ...article, url: item.url, recommendation },
+    importedArticle: {
+      ...article,
+      url: item.url,
+      ...(article.publishedTime || item.publishedAt ? { publishedTime: article.publishedTime || item.publishedAt } : {}),
+      recommendation,
+    },
     recommendation,
   };
 }

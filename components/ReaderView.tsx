@@ -9,6 +9,7 @@ import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { HomeOptionMenu, type PreviewKind } from "@/components/HomeOptionMenu";
 import { PillNavAction } from "@/components/PillNavAction";
 import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
+import { useMobileSheetScrollBoundary } from "@/components/useMobileSheetScrollBoundary";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { WordToken } from "@/components/WordToken";
 import toolbarStyles from "@/components/ReaderToolbar.module.css";
@@ -101,7 +102,6 @@ interface ReaderViewProps {
   canJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean;
   desktopViewportInsetLeft?: number;
   editorialWorkbench?: boolean;
-  onUseExistingArticleTranslation?: () => void;
   editorialMobileActions?: ReactNode;
   editorialRailActions?: ReactNode;
   initialViewportAnchor?: ReaderViewportAnchor | null;
@@ -243,6 +243,17 @@ const DEFAULT_ARTICLE_STYLE: Required<ArticleReadingStyle> = {
   contentWidth: "default",
   imageWidth: "medium",
 };
+
+function formatArticlePublishedTime(value: string): string {
+  const timestamp = Date.parse(value);
+  if (!Number.isFinite(timestamp)) return value;
+  return new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(timestamp));
+}
 
 function sourceTargetTokenIds(
   tokens: ReaderToken[],
@@ -983,7 +994,6 @@ export function ReaderView({
   canJumpToVocabularySourceOutsideArticle,
   desktopViewportInsetLeft = 0,
   editorialWorkbench = false,
-  onUseExistingArticleTranslation,
   editorialMobileActions,
   editorialRailActions,
   initialViewportAnchor = null,
@@ -1199,6 +1209,28 @@ export function ReaderView({
     ]),
     [renderableBlocks],
   );
+  const tokenBlockIdByTokenId = useMemo(() => {
+    const index = new Map<string, string>();
+    for (const block of renderableBlocks) {
+      for (const token of block.tokens ?? []) index.set(token.id, block.id);
+      for (const token of block.captionTokens ?? []) index.set(token.id, block.id);
+    }
+    return index;
+  }, [renderableBlocks]);
+  const [interactiveBlockIds, setInteractiveBlockIds] = useState<Set<string>>(() => new Set());
+  const revealInteractiveBlocks = useCallback((blockIds: string[]) => {
+    if (!blockIds.length) return;
+    setInteractiveBlockIds((current) => {
+      const next = new Set(current);
+      let changed = false;
+      for (const blockId of blockIds) {
+        if (next.has(blockId)) continue;
+        next.add(blockId);
+        changed = true;
+      }
+      return changed ? next : current;
+    });
+  }, []);
   const translationBlocks = useMemo<ArticleTranslationBlock[]>(
     () => createArticleTranslationBlocks(currentArticle, effectiveImportedArticle),
     [currentArticle, effectiveImportedArticle],
@@ -1270,6 +1302,7 @@ export function ReaderView({
   const [savingArticle, setSavingArticle] = useState(false);
   const [mobileExplanationOpen, setMobileExplanationOpen] = useState(false);
   const mobileToolSheet = useMobileBottomSheet(mobileExplanationOpen);
+  const mobileToolScrollBoundaryRef = useMobileSheetScrollBoundary();
   const [rightPanelMode, setRightPanelMode] = useState<RightPanelMode>("explanation");
   const [readerWorkLayer, setReaderWorkLayer] = useState<ReaderWorkLayer>(null);
   const mobileWorkSheet = useMobileBottomSheet(Boolean(readerWorkLayer));
@@ -1291,7 +1324,7 @@ export function ReaderView({
   const [translationRequested, setTranslationRequested] = useState(false);
   const [translationEstimatedSecondsRemaining, setTranslationEstimatedSecondsRemaining] = useState<number | null>(null);
   const [translationRetryAfterSeconds, setTranslationRetryAfterSeconds] = useState<number | null>(null);
-  useDocumentScrollLock(mobileViewport && (mobileExplanationOpen || Boolean(readerWorkLayer) || dictionaryMounted));
+  useDocumentScrollLock(mobileViewport && (Boolean(readerWorkLayer) || dictionaryMounted));
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 1023px)");
@@ -1344,7 +1377,42 @@ export function ReaderView({
 
   useEffect(() => {
     setFailedImageBlockIds(new Set());
+    setInteractiveBlockIds(new Set());
   }, [currentArticle, currentImportedArticle]);
+
+  useEffect(() => {
+    if (!articleMediaReady || editingArticle) return;
+    const root = articleShellRef.current;
+    if (!root) return;
+    const candidates = Array.from(root.querySelectorAll<HTMLElement>("[data-reader-token-surface]"));
+    if (!candidates.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      revealInteractiveBlocks(candidates.slice(0, 8).map((element) => element.dataset.readerBlock || "").filter(Boolean));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      setInteractiveBlockIds((current) => {
+        const next = new Set(current);
+        let changed = false;
+        for (const entry of entries) {
+          const blockId = (entry.target as HTMLElement).dataset.readerBlock || "";
+          if (!blockId) continue;
+          if (entry.isIntersecting) {
+            if (!next.has(blockId)) {
+              next.add(blockId);
+              changed = true;
+            }
+          } else if (next.delete(blockId)) {
+            changed = true;
+          }
+        }
+        return changed ? next : current;
+      });
+    }, { rootMargin: "900px 0px 900px 0px" });
+    candidates.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, [articleMediaReady, currentArticle, currentImportedArticle, editingArticle, revealInteractiveBlocks]);
 
   useEffect(() => () => {
     if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
@@ -1670,6 +1738,14 @@ export function ReaderView({
     const selector = `[data-token-id="${CSS.escape(tokenId)}"]`;
     const tokenElement = document.querySelector<HTMLElement>(selector);
     if (!tokenElement) {
+      const blockId = tokenBlockIdByTokenId.get(tokenId);
+      const blockElement = blockId
+        ? articleShellRef.current?.querySelector<HTMLElement>(`[data-reader-block="${CSS.escape(blockId)}"]`)
+        : null;
+      if (blockId && blockElement) {
+        revealInteractiveBlocks([blockId]);
+        blockElement.scrollIntoView({ behavior: "instant", block: "center", inline: "nearest" });
+      }
       return false;
     }
     sourceAlignmentTargetIdRef.current = tokenId;
@@ -3514,21 +3590,29 @@ export function ReaderView({
           <>
           {currentImportedArticle && (
             <header className="mx-auto mb-10 max-w-[52rem] border-b border-[#e0e0e0] pb-6">
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm leading-5 tracking-[-0.1px] text-[#6e6e73]">
-                <span>{currentImportedArticle.siteName}</span>
-                {currentImportedArticle.byline && <span>作者：{currentImportedArticle.byline}</span>}
-                {currentImportedArticle.publishedTime && <time>{currentImportedArticle.publishedTime}</time>}
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0 text-sm leading-5 tracking-[-0.1px] text-[#6e6e73]">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span>{currentImportedArticle.siteName}</span>
+                    {currentImportedArticle.byline && <span>作者：{currentImportedArticle.byline}</span>}
+                  </div>
+                  {currentImportedArticle.url && (
+                    <a
+                      className="mt-2 block break-all text-sm leading-5 tracking-[-0.224px] text-[#0066cc]"
+                      href={currentImportedArticle.url}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      {currentImportedArticle.url}
+                    </a>
+                  )}
+                </div>
+                {currentImportedArticle.publishedTime && (
+                  <time className="shrink-0 pt-0.5 text-right text-xs leading-5 text-[#6e6e73]" dateTime={currentImportedArticle.publishedTime}>
+                    发布于 {formatArticlePublishedTime(currentImportedArticle.publishedTime)}
+                  </time>
+                )}
               </div>
-              {currentImportedArticle.url && (
-                <a
-                  className="mt-2 block break-all text-sm leading-5 tracking-[-0.224px] text-[#0066cc]"
-                  href={currentImportedArticle.url}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  {currentImportedArticle.url}
-                </a>
-              )}
             </header>
           )}
           <div
@@ -3786,8 +3870,9 @@ export function ReaderView({
               }
 
               if (block.type === "table" && block.table && block.tableRows) {
+                const interactive = interactiveBlockIds.has(block.id);
                 return (
-                  <figure key={block.id} data-reader-block={block.id} className="my-8 min-w-0 lg:my-10">
+                  <figure key={block.id} data-reader-block={block.id} data-reader-token-surface className="my-8 min-w-0 lg:my-10">
                     {block.table.caption && (
                       <figcaption className="mb-3 text-[15px] font-semibold leading-6 text-[#333333]">
                         {block.table.caption}
@@ -3814,7 +3899,7 @@ export function ReaderView({
                                     rowSpan={cell.rowSpan}
                                     scope={cell.header ? cell.scope : undefined}
                                   >
-                                    {tokens.length
+                                    {interactive && tokens.length
                                       ? tokens.map((token) => (
                                           <WordToken
                                             key={token.id}
@@ -3846,15 +3931,19 @@ export function ReaderView({
                     : block.type === "list-item"
                       ? "li"
                       : "p";
+              const interactive = interactiveBlockIds.has(block.id);
               return (
                 <Tag
                   key={block.id}
                   data-reader-block={block.id}
+                  data-reader-token-surface
+                  onPointerEnter={() => revealInteractiveBlocks([block.id])}
+                  onTouchStart={() => revealInteractiveBlocks([block.id])}
                   className={`${textBlockClassName(block.type)} min-w-0 ${block.type === "list-item" ? block.listStyle === "ordered" ? "list-decimal" : "list-disc" : ""}`}
                   style={block.type === "list-item" ? { marginLeft: `${1.5 + Math.min(4, block.listLevel ?? 0) * 1.25}rem` } : undefined}
                   value={block.type === "list-item" && block.listStyle === "ordered" ? block.listOrdinal : undefined}
                 >
-                  {block.tokenGroups?.length
+                  {interactive && block.tokenGroups?.length
                     ? block.tokenGroups.map((group) => {
                         const content = group.tokens.map((token) => (
                           <WordToken
@@ -3881,7 +3970,7 @@ export function ReaderView({
                         }
                         return <span key={group.id}>{content}</span>;
                       })
-                    : block.tokens?.length
+                    : interactive && block.tokens?.length
                       ? block.tokens.map((token) => (
                         <WordToken
                           key={token.id}
@@ -3945,7 +4034,6 @@ export function ReaderView({
                   staleBlockIds={staleTranslationBlockIds}
                   removedTranslationCount={removedTranslationCount}
                   adminMode={editorialWorkbench}
-                  onUseExistingTranslation={onUseExistingArticleTranslation}
                   onGenerate={() => generateArticleTranslation(false)}
                   onRegenerate={() => generateArticleTranslation(true)}
                 />
@@ -4173,10 +4261,9 @@ export function ReaderView({
 
       {mobileExplanationOpen && (
         <div
+          ref={mobileToolScrollBoundaryRef}
           className={toolbarStyles.mobileToolSheet}
           style={{ height: `${mobileToolSheet.height}dvh` }}
-          onWheel={(event) => event.stopPropagation()}
-          onTouchMove={(event) => event.stopPropagation()}
         >
           <div
             className={toolbarStyles.mobileSheetHandle}
@@ -4238,7 +4325,6 @@ export function ReaderView({
                 staleBlockIds={staleTranslationBlockIds}
                 removedTranslationCount={removedTranslationCount}
                 adminMode={editorialWorkbench}
-                onUseExistingTranslation={onUseExistingArticleTranslation}
                 onGenerate={() => generateArticleTranslation(false)}
                 onRegenerate={() => generateArticleTranslation(true)}
               />

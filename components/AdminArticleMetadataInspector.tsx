@@ -35,6 +35,7 @@ interface InspectorProps {
   onSelect?: (category: EditorialCategory, options: PublishedArticlePlacement) => Promise<void>;
   onReject?: () => Promise<void>;
   onDelete?: () => Promise<void>;
+  onUploadTranslation?: () => Promise<"uploaded" | "already" | "missing">;
 }
 
 interface InspectorDraft {
@@ -82,10 +83,10 @@ function draftSignature(draft: InspectorDraft): string {
 
 export default function AdminArticleMetadataInspector(props: InspectorProps) {
   const { article, articleKind, queuePosition, onSave, onPrevious, onNext, onClose, onSelect, onReject, onDelete,
-    mobileOpen, onMobileClose, placement, onPlacementChange, onPlacementSave } = props;
+    onUploadTranslation, mobileOpen, onMobileClose, placement, onPlacementChange, onPlacementSave } = props;
   const [draft, setDraft] = useState(() => initialDraft(article));
   const [baseline, setBaseline] = useState(() => initialDraft(article));
-  const [working, setWorking] = useState<"" | "save" | "classify" | "select" | "reject" | "delete" | "placement">("");
+  const [working, setWorking] = useState<"" | "save" | "classify" | "select" | "reject" | "delete" | "placement" | "translation">("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const savePromiseRef = useRef<Promise<void> | null>(null);
@@ -206,16 +207,39 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
     finally { setWorking(""); }
   }
 
-  async function handlePlacementSave() {
-    if (!onPlacementSave) return;
+  async function handlePlacementChange(nextPlacement: PublishedArticlePlacement) {
+    if (articleKind !== "published" || !onPlacementSave) {
+      onPlacementChange(nextPlacement);
+      return;
+    }
+    const previousPlacement = placement;
+    onPlacementChange(nextPlacement);
     setWorking("placement"); setError(""); setMessage("");
     try {
       await saveDraft();
       setWorking("placement");
-      await onPlacementSave(draft.homepageCategory, placement);
-      setMessage("首页栏目与推荐位置已保存。");
+      await onPlacementSave(draft.homepageCategory, nextPlacement);
+      setMessage("首页推荐位置已更新。");
     } catch (actionError) {
+      onPlacementChange(previousPlacement);
       setError(actionError instanceof Error ? actionError.message : "首页位置保存失败。");
+    } finally {
+      setWorking("");
+    }
+  }
+
+  async function handleUploadTranslation() {
+    if (!onUploadTranslation) return;
+    setWorking("translation"); setError(""); setMessage("");
+    try {
+      const result = await onUploadTranslation();
+      setMessage(result === "uploaded"
+        ? "当前全文翻译已上传。"
+        : result === "already"
+          ? "当前全文翻译已经上传。"
+          : "当前文章没有完整全文翻译。");
+    } catch (actionError) {
+      setError(actionError instanceof Error ? actionError.message : "全文翻译上传失败。");
     } finally {
       setWorking("");
     }
@@ -231,6 +255,7 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
         <div className="mt-3 flex items-center justify-between gap-2"><button className="h-9 rounded-full bg-white px-3 text-sm disabled:opacity-35" type="button" onClick={onPrevious} disabled={!onPrevious || busy}>← 上一篇</button><span className="text-xs font-medium text-[#4d5963]">{queuePosition ? `${queuePosition.index + 1} / ${queuePosition.total}` : articleKind === "candidate" ? "候选" : "已精选"}</span><button className="h-9 rounded-full bg-white px-3 text-sm disabled:opacity-35" type="button" onClick={onNext} disabled={!onNext || busy}>下一篇 →</button></div>
         {articleKind === "candidate" && <div className="mt-3 grid grid-cols-2 gap-2"><button className="min-h-11 rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleSelect()} disabled={busy}>{working === "select" ? "正在精选…" : "精选并继续"}</button><button className="min-h-11 rounded-lg border border-[#d5a7a7] bg-white px-3 text-sm font-semibold text-[#9a3030] disabled:opacity-45" type="button" onClick={() => void handleReject()} disabled={busy}>{working === "reject" ? "正在移出…" : "不精选"}</button></div>}
         {articleKind === "candidate" && !article.recommendation?.coverImageUrl?.trim() && <p className="mt-2 text-xs leading-5 text-[#526873]">无图候选：仍可精选，首页会使用纯文本外刊卡片。</p>}
+        {articleKind === "published" && onUploadTranslation && <button className="mt-3 min-h-11 w-full rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleUploadTranslation()} disabled={busy}>{working === "translation" ? "正在上传…" : "上传全文翻译"}</button>}
         {articleKind === "published" && onDelete && <button className="mt-3 min-h-11 w-full rounded-lg border border-[#d5a7a7] bg-white px-3 text-sm font-semibold text-[#9a3030] disabled:opacity-45" type="button" onClick={() => void handleDelete()} disabled={busy}>{working === "delete" ? "正在删除…" : "删除这篇精选"}</button>}
       </div>
 
@@ -238,10 +263,9 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
         <p className="text-xs font-semibold text-[#1769aa]">{articleKind === "candidate" ? "候选文章" : "已公开推荐"}</p><h1 className="mt-1 text-base font-semibold leading-6">{article.title}</h1><p className="mt-1 text-xs leading-5 text-[#68737c]">{article.sourceName || "来源待确认"} · {wordCount.toLocaleString("zh-CN")} 词</p>
         <div className="mt-4 grid gap-3">
           <label className={labelClass}>首页栏目<select className={inputClass} value={draft.homepageCategory} onChange={(event) => setDraft((current) => ({ ...current, homepageCategory: event.target.value as EditorialCategory }))} disabled={busy}>{EDITORIAL_CATEGORIES.map((item) => <option key={item}>{item}</option>)}</select></label>
-          <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={placement.categoryFeatured} onChange={(event) => onPlacementChange({ ...placement, categoryFeatured: event.target.checked })} disabled={busy} /><span><strong className="block text-[#17212b]">设为本栏主推</strong>放到“{draft.homepageCategory}”第一篇；不勾选则排在当前主推之后。</span></label>
-          <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={placement.includeInRecommendation} onChange={(event) => onPlacementChange({ ...placement, includeInRecommendation: event.target.checked, recommendationFeatured: event.target.checked ? placement.recommendationFeatured : false })} disabled={busy} /><span><strong className="block text-[#17212b]">加入“推荐”候选池</strong>人工推荐优先；不足 10 篇时系统再按偏好从已发布文章补足。</span></label>
-          <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={placement.recommendationFeatured} onChange={(event) => onPlacementChange({ ...placement, recommendationFeatured: event.target.checked, includeInRecommendation: event.target.checked ? true : placement.includeInRecommendation })} disabled={busy} /><span><strong className="block text-[#17212b]">设为“推荐”主推</strong>无偏好时固定为第一篇；有偏好时优先采用匹配文章。</span></label>
-          {articleKind === "published" && <button className="w-full rounded-full bg-[#1769aa] px-4 py-2.5 text-sm font-semibold text-white disabled:bg-[#aeb8c2]" type="button" onClick={() => void handlePlacementSave()} disabled={busy}>{working === "placement" ? "正在保存位置…" : "保存首页位置"}</button>}
+          <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={placement.categoryFeatured} onChange={(event) => void handlePlacementChange({ ...placement, categoryFeatured: event.target.checked })} disabled={busy} /><span><strong className="block text-[#17212b]">设为本栏主推</strong>放到“{draft.homepageCategory}”第一篇；不勾选则排在当前主推之后。</span></label>
+          <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={placement.includeInRecommendation} onChange={(event) => void handlePlacementChange({ ...placement, includeInRecommendation: event.target.checked, recommendationFeatured: event.target.checked ? placement.recommendationFeatured : false })} disabled={busy} /><span><strong className="block text-[#17212b]">加入“推荐”候选池</strong>人工推荐优先；不足 10 篇时系统再按偏好从已发布文章补足。</span></label>
+          <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={placement.recommendationFeatured} onChange={(event) => void handlePlacementChange({ ...placement, recommendationFeatured: event.target.checked, includeInRecommendation: event.target.checked ? true : placement.includeInRecommendation })} disabled={busy} /><span><strong className="block text-[#17212b]">设为“推荐”主推</strong>无偏好时固定为第一篇；有偏好时优先采用匹配文章。</span></label>
           <label className={labelClass}>难度档位<select className={inputClass} value={draft.difficulty} onChange={(event) => { const difficulty = event.target.value as ArticleDifficulty; setDraft((current) => ({ ...current, difficulty, audienceStages: audienceForDifficulty(difficulty) })); }} disabled={busy}>{ARTICLE_DIFFICULTIES.map((item) => <option key={item}>{item}</option>)}</select></label>
           <fieldset><legend className={labelClass}>适合人群（可多选）</legend><p className="mt-1 text-xs leading-5 text-[#68737c]">难度档位会先带出同水平人群，你仍可按文章实际情况增减。</p><div className="mt-2 flex flex-wrap gap-1.5">{ARTICLE_AUDIENCE_STAGES.map((stage) => <button key={stage} className={`rounded-full px-2.5 py-1.5 text-xs ${draft.audienceStages.includes(stage) ? "bg-[#1769aa] text-white" : "bg-white text-[#46525c]"}`} type="button" aria-pressed={draft.audienceStages.includes(stage)} onClick={() => toggleAudience(stage)} disabled={busy}>{stage}</button>)}</div></fieldset>
           <label className={labelClass}>CEFR 辅助等级<select className={inputClass} value={draft.cefr} onChange={(event) => setDraft((current) => ({ ...current, cefr: event.target.value as ArticleCefrLevel }))} disabled={busy}>{ARTICLE_CEFR_LEVELS.map((item) => <option key={item}>{item}</option>)}</select></label>

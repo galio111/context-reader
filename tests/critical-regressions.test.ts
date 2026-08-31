@@ -52,6 +52,8 @@ import { cursorAnchoredImageZoom } from "../lib/imageZoom";
 import { createSourceSentenceIndex, findBestSourceSentenceMatchInIndex } from "../lib/sourceMatching";
 import { tokenizeArticle } from "../lib/tokenizer";
 import { extractArticleTranslationText, IncrementalJsonObjectParser } from "../lib/incrementalJsonObjects";
+import { removeDuplicateImageCaptionBlocks } from "../lib/articleContentSanitizer";
+import { extractImportedArticleFromHtml } from "../lib/urlArticleExtractor";
 
 test("article translation streaming parses complete objects without physical newlines", () => {
   const parser = new IncrementalJsonObjectParser();
@@ -503,6 +505,20 @@ test("mobile overlays lock background scroll and adapt across viewport changes",
   assert.doesNotMatch(menuStyles, /color: #657985|color: #687b86|color: #607581/);
 });
 
+test("reader bottom sheets own gestures without locking the exposed article", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  const boundary = readFileSync(new URL("../components/useMobileSheetScrollBoundary.ts", import.meta.url), "utf8");
+  assert.match(reader, /useDocumentScrollLock\(mobileViewport && \(Boolean\(readerWorkLayer\) \|\| dictionaryMounted\)\)/);
+  assert.doesNotMatch(reader, /useDocumentScrollLock\([^\n]*mobileExplanationOpen/);
+  assert.match(reader, /ref=\{mobileToolScrollBoundaryRef\}/);
+  assert.match(boundary, /canConsumeVerticalScroll/);
+  assert.match(boundary, /addEventListener\("touchmove", onTouchMove, \{ passive: false \}\)/);
+  assert.match(boundary, /addEventListener\("wheel", onWheel, \{ passive: false \}\)/);
+  assert.match(boundary, /useEffect\([\s\S]*?\}, \[root\]\)/);
+  assert.match(boundary, /event\.preventDefault\(\)/);
+  assert.match(boundary, /element\.scrollTop \+ element\.clientHeight < element\.scrollHeight - 1/);
+});
+
 test("mobile sheet return controls stay above drag handles with full touch targets", () => {
   const menuStyles = readFileSync(new URL("../components/HomeOptionMenu.module.css", import.meta.url), "utf8");
   const readerStyles = readFileSync(new URL("../components/ReaderToolbar.module.css", import.meta.url), "utf8");
@@ -585,6 +601,46 @@ test("reader image loading and zoom stay outside the long article render state",
   assert.match(reader, /className="absolute right-3 top-3 z-\[2\][^"]*"[\s\S]*?点击放大/);
 });
 
+test("long readers hydrate only nearby lookup tokens", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  assert.match(reader, /new IntersectionObserver/);
+  assert.match(reader, /rootMargin: "900px 0px 900px 0px"/);
+  assert.match(reader, /data-reader-token-surface/);
+  assert.match(reader, /interactive && block\.tokens\?\.length/);
+  assert.match(reader, /revealInteractiveBlocks\(\[blockId\]\)/);
+  assert.match(reader, /else if \(next\.delete\(blockId\)\)/);
+  assert.doesNotMatch(reader, /contentVisibility|containIntrinsicSize/);
+});
+
+test("duplicate image captions collapse while distinct caption text survives", () => {
+  const exact = removeDuplicateImageCaptionBlocks([
+    { id: "image", type: "image", src: "https://example.com/a.jpg", alt: "A selectable caption." },
+    { id: "caption", type: "caption", text: " A selectable caption. " },
+    { id: "body", type: "paragraph", text: "The article continues here." },
+  ]);
+  assert.equal(exact.length, 2);
+  assert.equal(exact[1]?.text, "The article continues here.");
+  const distinct = removeDuplicateImageCaptionBlocks([
+    { id: "image", type: "image", src: "https://example.com/a.jpg", alt: "Short alt text" },
+    { id: "caption", type: "caption", text: "A longer publisher caption with context." },
+  ]);
+  assert.equal(distinct.length, 2);
+});
+
+test("URL extraction keeps publication time and does not duplicate exact figure captions", () => {
+  const extracted = extractImportedArticleFromHtml(`<!doctype html><html><head>
+    <meta property="og:title" content="Publication time sample">
+    <meta property="article:published_time" content="2026-08-31T04:30:00Z">
+  </head><body><article><h1>Publication time sample</h1>
+    <figure><img src="https://example.com/photo.jpg" width="900" height="600" alt="The exact image caption"><figcaption>The exact image caption</figcaption></figure>
+    <p>This is the first substantive paragraph with enough English article content for the extraction boundary.</p>
+    <p>This is the second substantive paragraph and it continues the article with useful context for readers.</p>
+    <p>This is the final substantive paragraph and ensures the candidate is considered a complete article.</p>
+  </article></body></html>`, "https://example.com/story");
+  assert.equal(extracted?.article.publishedTime, "2026-08-31T04:30:00Z");
+  assert.equal(extracted?.article.blocks.filter((block) => block.text === "The exact image caption").length, 0);
+});
+
 test("vocabulary source jumps avoid delayed long-article rerenders and bulk image wakeups", () => {
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
   const home = readFileSync(new URL("../components/HomeClient.tsx", import.meta.url), "utf8");
@@ -663,8 +719,21 @@ test("full translation keeps progressive output while batching upstream context"
   assert.match(translationJobs, /onTranslation\(event\.translation\)/);
   assert.match(translationJobs, /setInterval\(updateCountdown, 1_000\)/);
   assert.match(translationPanel, /本次尚未生成可显示译文/);
-  assert.match(translationPanel, /录入已有全文译文/);
+  assert.match(translationPanel, /本次生成失败，请重试/);
+  assert.doesNotMatch(translationPanel, /录入已有全文译文|粘贴整篇中文/);
   assert.match(adminPage, /预发布译文上传失败/);
   assert.match(adminPage, /articleId: published\.id/);
+  assert.match(adminPage, /uploadCurrentPublishedTranslation/);
+  assert.doesNotMatch(adminPage, /AdminArticleTranslationUpload|录入译文|粘贴整篇中文/);
   assert.doesNotMatch(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_BLOCKS\s*=\s*1/);
+});
+
+test("published homepage toggles persist immediately while candidate choices remain draft", () => {
+  const inspector = readFileSync(new URL("../components/AdminArticleMetadataInspector.tsx", import.meta.url), "utf8");
+  const adminPage = readFileSync(new URL("../app/admin/page.tsx", import.meta.url), "utf8");
+  assert.match(inspector, /articleKind !== "published" \|\| !onPlacementSave/);
+  assert.match(inspector, /await onPlacementSave\(draft\.homepageCategory, nextPlacement\)/);
+  assert.doesNotMatch(inspector, /保存首页位置/);
+  assert.match(adminPage, />文章设置<\/button>[\s\S]*?>精选 \{publicArticles\.length\}<\/button>[\s\S]*?>候选 \{candidateArticles\.length\}<\/button>/);
+  assert.match(adminPage, /onUploadTranslation=\{readerState\.kind === "published"/);
 });
