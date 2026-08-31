@@ -3746,7 +3746,7 @@ export function ReaderView({
                       />
                       <button
                         type="button"
-                        className="absolute right-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-medium leading-5 text-[#1d1d1f] opacity-95 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066cc]"
+                        className="absolute right-3 top-3 z-[2] rounded-full bg-white/95 px-3 py-1 text-xs font-medium leading-5 text-[#1d1d1f] opacity-95 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066cc]"
                         onClick={(event) => {
                           event.stopPropagation();
                           setActiveImageBlockId(block.id);

@@ -549,6 +549,7 @@ test("reader image loading and zoom stay outside the long article render state",
   assert.match(reader, /function ActiveImageCanvas/);
   assert.match(reader, /cursorAnchoredImageZoom\(targetTransformRef\.current/);
   assert.match(reader, /addEventListener\("wheel", onWheel, \{ passive: false \}\)/);
+  assert.match(reader, /className="absolute right-3 top-3 z-\[2\][^"]*"[\s\S]*?点击放大/);
 });
 
 test("vocabulary source jumps avoid delayed long-article rerenders and bulk image wakeups", () => {

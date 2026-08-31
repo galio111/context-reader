@@ -92,7 +92,7 @@ Do not say a release is live because code was edited, committed, built, uploaded
 - Compare actual browser keyframes at start, 25%, 50%, 75% and end when possible. If the browser/reference cannot be inspected, mark visual verification incomplete. Static bundle inference is not observed behavior.
 - Self-inspect desktop, mobile, keyboard, reduced-motion, console and repeat flows, but treat the user's visual acceptance as the final gate. Only user-confirmed complex motion may become protected behavior.
 - Every recommendation image card, including the featured card and the last card revealed before “显示更多”, must receive the same entry animation. Paint the reset keyframe before observation so already-visible cards do not skip it.
-- Every visible mobile action must provide at least a 44px coarse-pointer target and remain above any drag-handle hit layer. A visually present button that overlaps a sheet handle is a blocking defect.
+- Every visible mobile action must provide at least a 44px coarse-pointer target and remain above any drag-handle hit layer. Across every viewport, a visually present control whose center hit lands on a decorative, media or handle layer is a blocking defect; verify the actual hit target, not only its CSS dimensions.
 - Long-article source jumps must not synchronously fuzzy-scan every saved article during render, wake all preceding lazy images, or push metadata back through the entire Reader after alignment. Cache/index matching, yield between fallback articles, keep real block heights, and persist the aligned reading-state without rerendering the long token tree.
 
 ## Documentation Discipline
