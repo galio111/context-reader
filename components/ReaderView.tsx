@@ -101,6 +101,7 @@ interface ReaderViewProps {
   canJumpToVocabularySourceOutsideArticle?: (entry: VocabularyEntry) => boolean;
   desktopViewportInsetLeft?: number;
   editorialWorkbench?: boolean;
+  onUseExistingArticleTranslation?: () => void;
   editorialMobileActions?: ReactNode;
   editorialRailActions?: ReactNode;
   initialViewportAnchor?: ReaderViewportAnchor | null;
@@ -982,6 +983,7 @@ export function ReaderView({
   canJumpToVocabularySourceOutsideArticle,
   desktopViewportInsetLeft = 0,
   editorialWorkbench = false,
+  onUseExistingArticleTranslation,
   editorialMobileActions,
   editorialRailActions,
   initialViewportAnchor = null,
@@ -3942,6 +3944,8 @@ export function ReaderView({
                   totalTargetBlocks={translationTotalTargetBlocks}
                   staleBlockIds={staleTranslationBlockIds}
                   removedTranslationCount={removedTranslationCount}
+                  adminMode={editorialWorkbench}
+                  onUseExistingTranslation={onUseExistingArticleTranslation}
                   onGenerate={() => generateArticleTranslation(false)}
                   onRegenerate={() => generateArticleTranslation(true)}
                 />
@@ -4233,6 +4237,8 @@ export function ReaderView({
                 totalTargetBlocks={translationTotalTargetBlocks}
                 staleBlockIds={staleTranslationBlockIds}
                 removedTranslationCount={removedTranslationCount}
+                adminMode={editorialWorkbench}
+                onUseExistingTranslation={onUseExistingArticleTranslation}
                 onGenerate={() => generateArticleTranslation(false)}
                 onRegenerate={() => generateArticleTranslation(true)}
               />

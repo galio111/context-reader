@@ -8,6 +8,7 @@ import { deepReadingUnits, gateUsage, usageErrorResponse } from "@/lib/usageGate
 import { resolveUsageIdentity } from "@/lib/usageIdentity";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
+import { IncrementalJsonObjectParser } from "@/lib/incrementalJsonObjects";
 
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const MAX_TARGET_BLOCKS = 80;
@@ -322,11 +323,11 @@ export async function POST(request: Request) {
         const providerReader = providerResponse.body!.getReader();
         const decoder = new TextDecoder();
         let providerBuffer = "";
-        let contentBuffer = "";
         let fullContent = "";
         let usage: ProviderTokenUsage = {};
         const completedIds = new Set<string>();
         let streamErrorCode = "";
+        const jsonObjects = new IncrementalJsonObjectParser();
 
         const emitTranslation = (item: { id?: unknown; translation?: unknown }) => {
           const id = typeof item.id === "string" ? item.id : "";
@@ -336,18 +337,13 @@ export async function POST(request: Request) {
           output.enqueue(encoder.encode(`${JSON.stringify({ type: "translation", translation: { id, translation } })}\n`));
         };
 
-        const emitContentLines = (flush = false) => {
-          const lines = contentBuffer.split(/\r?\n/);
-          if (flush) contentBuffer = "";
-          else contentBuffer = lines.pop() ?? "";
-          for (const rawLine of lines) {
-            const line = rawLine.trim().replace(/^```(?:jsonl?|ndjson)?\s*/i, "").replace(/```$/, "").trim();
-            if (!line) continue;
-            try {
-              emitTranslation(JSON.parse(line) as { id?: unknown; translation?: unknown });
-            } catch {
-              if (flush) streamErrorCode = "provider_parse_error";
-              else contentBuffer = `${rawLine}\n${contentBuffer}`;
+        const emitTranslationPayload = (value: unknown) => {
+          if (!value || typeof value !== "object") return;
+          const object = value as { id?: unknown; translation?: unknown; translations?: unknown };
+          emitTranslation(object);
+          if (Array.isArray(object.translations)) {
+            for (const item of object.translations) {
+              if (item && typeof item === "object") emitTranslation(item as { id?: unknown; translation?: unknown });
             }
           }
         };
@@ -385,21 +381,22 @@ export async function POST(request: Request) {
                 const delta = chunk.choices?.[0]?.delta?.content;
                 if (delta) {
                   fullContent += delta;
-                  contentBuffer += delta;
-                  emitContentLines(false);
+                  for (const object of jsonObjects.push(delta)) emitTranslationPayload(object);
                 }
               }
             }
             if (done) break;
           }
-          emitContentLines(true);
           if (completedIds.size < blocks.length) emitFallbackDocument();
           if (completedIds.size === blocks.length) streamErrorCode = "";
           const missing = blocks.filter((block) => !completedIds.has(block.id));
           if (missing.length || streamErrorCode) {
             streamErrorCode ||= "provider_incomplete";
             await recordFailedProviderExecution(streamErrorCode, usage);
-            output.enqueue(encoder.encode(`${JSON.stringify({ type: "error", error: "AI 服务没有返回完整译文，正在保留已完成段落。", code: "provider_temporary" })}\n`));
+            const error = completedIds.size > 0
+              ? `AI 生成中断，本次已生成 ${completedIds.size}/${blocks.length} 段。`
+              : "AI 生成中断，本次未生成可用译文。";
+            output.enqueue(encoder.encode(`${JSON.stringify({ type: "error", error, code: "provider_temporary" })}\n`));
           } else {
             usageSucceeded = true;
             if (!localOnlyAction) {
@@ -411,7 +408,10 @@ export async function POST(request: Request) {
         } catch (error) {
           const timedOut = error instanceof Error && error.name === "AbortError";
           await recordFailedProviderExecution(timedOut ? "provider_timeout" : "provider_stream_failed", usage);
-          output.enqueue(encoder.encode(`${JSON.stringify({ type: "error", error: timedOut ? "AI 服务响应较慢，正在保留已完成段落。" : "AI 服务连接短暂中断，正在保留已完成段落。", code: "provider_temporary" })}\n`));
+          const progress = completedIds.size > 0
+            ? `本次已生成 ${completedIds.size}/${blocks.length} 段。`
+            : "本次未生成可用译文。";
+          output.enqueue(encoder.encode(`${JSON.stringify({ type: "error", error: `${timedOut ? "AI 服务响应超时" : "AI 服务连接中断"}，${progress}`, code: "provider_temporary" })}\n`));
         } finally {
           if (!usageSucceeded && !managedTranslationAction) await refundUsage(actionId, "failed", streamErrorCode || "translation_failed").catch(() => undefined);
           clearTimeout(timeout);

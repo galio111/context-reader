@@ -74,7 +74,7 @@ function explanationsForArticle(article: SavedArticle): PublicExplanation[] {
     }));
 }
 
-function articleTranslationsForArticle(article: SavedArticle): PublicArticleTranslation[] {
+function articleTranslationsForArticle(article: Pick<SavedArticle, "body" | "importedArticle">): PublicArticleTranslation[] {
   const blocks = createArticleTranslationBlocks(article.body, article.importedArticle);
   const cacheKey = createArticleTranslationCacheKey(blocks);
   const cached = getArticleTranslationCacheEntries().find((item) => item.cacheKey === cacheKey);
@@ -389,12 +389,39 @@ export default function AdminPage() {
     const data = await response.json().catch(() => null) as { articles?: PublicArticle[]; error?: string } | null;
     if (!data?.articles?.[0]) throw new Error(data?.error || "精选失败。");
     const published = data.articles[0];
+    let publishedWithTranslation = published;
+    let translationStatus = "";
+    const preparedTranslation = articleTranslationsForArticle(active.article)[0];
+    if (preparedTranslation) {
+      const translationResponse = await fetch("/api/admin/public-article-translations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          articleId: published.id,
+          cacheKey: preparedTranslation.cacheKey,
+          translations: preparedTranslation.translations,
+        }),
+      });
+      const translationData = await translationResponse.json().catch(() => null) as { translation?: PublicArticleTranslation; error?: string } | null;
+      if (translationResponse.ok && translationData?.translation) {
+        publishedWithTranslation = {
+          ...published,
+          articleTranslations: [
+            translationData.translation,
+            ...(published.articleTranslations ?? []).filter((item) => item.cacheKey !== translationData.translation?.cacheKey),
+          ],
+        };
+        translationStatus = "，并已同步当前正文版本的预发布全文译文";
+      } else {
+        translationStatus = `；文章已精选，但预发布译文上传失败：${translationData?.error || "请从精选列表重新上传"}`;
+      }
+    }
     const nextQueue = candidateArticles.filter((item) => item.id !== active.article.id);
     setCandidateArticles(nextQueue);
-    setPublicArticles((items) => [published, ...items.filter((item) => item.id !== published.id)]);
+    setPublicArticles((items) => [publishedWithTranslation, ...items.filter((item) => item.id !== published.id)]);
     void loadHomepageCuration().catch(() => undefined);
     setStatus(response.ok
-      ? `已精选《${published.title}》并加入“${category}”${options.categoryFeatured ? "主推" : "栏目"}${options.includeInRecommendation ? "，同时进入推荐候选池" : ""}${options.recommendationFeatured ? "并设为推荐主推" : ""}。`
+      ? `已精选《${published.title}》并加入“${category}”${options.categoryFeatured ? "主推" : "栏目"}${options.includeInRecommendation ? "，同时进入推荐候选池" : ""}${options.recommendationFeatured ? "并设为推荐主推" : ""}${translationStatus}。`
       : `《${published.title}》已经公开，但首页编排更新失败：${data.error || "请在栏目微调中补充"}`);
     continueCandidateQueue(active.article.id, nextQueue);
   }
@@ -749,9 +776,11 @@ export default function AdminPage() {
       <div className="min-h-screen bg-[#f5f5f7] text-[#17212b]" style={{ colorScheme: "light" }}>
         <AdminArticleTranslationUpload
           article={readerState.article}
+          articleKind={readerState.kind}
           open={translationUploadOpen}
           onClose={() => setTranslationUploadOpen(false)}
           onUploaded={handleUploadedArticleTranslation}
+          onPrepared={() => setStatus(`已保存《${readerState.article.title}》当前正文版本的待发布译文；点击“精选”时会自动上传给用户使用。`)}
         />
         <AdminArticleMetadataInspector
           key={`${readerState.kind}:${readerState.article.id}`}
@@ -777,18 +806,19 @@ export default function AdminPage() {
             article={readerState.article.body}
             desktopViewportInsetLeft={330}
             editorialWorkbench
+            onUseExistingArticleTranslation={() => setTranslationUploadOpen(true)}
             editorialMobileActions={<>
               <button type="button" aria-expanded={editorialDrawer === "candidates"} onClick={() => setEditorialDrawer((current) => current === "candidates" ? null : "candidates")}>候选 {candidateArticles.length}</button>
               <button type="button" aria-expanded={editorialDrawer === "published"} onClick={() => setEditorialDrawer((current) => current === "published" ? null : "published")}>精选 {publicArticles.length}</button>
               <button type="button" onClick={() => setInspectorOpen(true)}>文章设置</button>
-              {readerState.kind === "published" && <button type="button" onClick={() => setTranslationUploadOpen(true)}>上传全文翻译</button>}
+              <button type="button" onClick={() => setTranslationUploadOpen(true)}>{readerState.kind === "candidate" ? "录入译文" : "上传全文翻译"}</button>
               {readerState.kind === "candidate" && <button type="button" data-primary="true" onClick={() => void selectCurrentCandidate(editorialCategoryForArticle(readerState.article), articlePlacement)}>精选</button>}
               {readerState.kind === "candidate" && <button type="button" data-danger="true" onClick={() => void rejectCurrentCandidate()}>不精选</button>}
             </>}
             editorialRailActions={<>
               <button type="button" aria-expanded={editorialDrawer === "candidates"} onClick={() => setEditorialDrawer((current) => current === "candidates" ? null : "candidates")}>候选 {candidateArticles.length}</button>
               <button type="button" aria-expanded={editorialDrawer === "published"} onClick={() => setEditorialDrawer((current) => current === "published" ? null : "published")}>精选 {publicArticles.length}</button>
-              {readerState.kind === "published" && <button type="button" onClick={() => setTranslationUploadOpen(true)}>上传全文翻译</button>}
+              <button type="button" onClick={() => setTranslationUploadOpen(true)}>{readerState.kind === "candidate" ? "录入译文" : "上传全文翻译"}</button>
             </>}
             importedArticle={readerState.article.importedArticle ?? null}
             preloadedExplanations={readerState.article.explanations ?? []}

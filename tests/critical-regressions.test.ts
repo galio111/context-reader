@@ -51,6 +51,20 @@ import { createArticleTranslationCacheKey } from "../lib/articleTranslationIdent
 import { cursorAnchoredImageZoom } from "../lib/imageZoom";
 import { createSourceSentenceIndex, findBestSourceSentenceMatchInIndex } from "../lib/sourceMatching";
 import { tokenizeArticle } from "../lib/tokenizer";
+import { IncrementalJsonObjectParser } from "../lib/incrementalJsonObjects";
+
+test("article translation streaming parses complete objects without physical newlines", () => {
+  const parser = new IncrementalJsonObjectParser();
+  const first = parser.push('```jsonl\n{"id":"a","translation":"甲"}{"id":"b","trans');
+  assert.deepEqual(first, [{ id: "a", translation: "甲" }]);
+  const second = parser.push('lation":"含有 \\"引号\\" 和 {括号}"}\n```');
+  assert.deepEqual(second, [{ id: "b", translation: '含有 "引号" 和 {括号}' }]);
+
+  const wrappedParser = new IncrementalJsonObjectParser();
+  const wrapped = wrappedParser.push('{"translations":[{"id":"c","translation":"丙"},{"id":"d","translation":"丁"}]}');
+  assert.ok(wrapped.some((value) => (value as { id?: string }).id === "c"));
+  assert.ok(wrapped.some((value) => (value as { id?: string }).id === "d"));
+});
 
 function recommendationArticle(id: string, options?: { cover?: boolean }): PublicArticle {
   return {
@@ -615,6 +629,8 @@ test("full translation keeps progressive output while batching upstream context"
   const translationRoute = readFileSync(new URL("../app/api/translate-article/route.ts", import.meta.url), "utf8");
   const translationJobs = readFileSync(new URL("../lib/articleTranslationJobs.ts", import.meta.url), "utf8");
   const translationBatching = readFileSync(new URL("../lib/articleTranslationBatching.ts", import.meta.url), "utf8");
+  const translationPanel = readFileSync(new URL("../components/ArticleTranslationPanel.tsx", import.meta.url), "utf8");
+  const adminPage = readFileSync(new URL("../app/admin/page.tsx", import.meta.url), "utf8");
   assert.match(translationRoute, /stream:\s*true/);
   assert.match(translationRoute, /application\/x-ndjson/);
   assert.match(translationRoute, /"deepseek-v4-flash"/);
@@ -622,7 +638,14 @@ test("full translation keeps progressive output while batching upstream context"
   assert.match(translationRoute, /MAX_CONTEXT_TOTAL_CHARS\s*=\s*64_000/);
   assert.match(translationRoute, /contextMatchesTarget\s*\?/);
   assert.match(translationRoute, /emitFallbackDocument/);
+  assert.match(translationRoute, /IncrementalJsonObjectParser/);
+  assert.doesNotMatch(translationRoute, /正在保留已完成段落/);
   assert.match(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_CHARS\s*=\s*24_000/);
   assert.match(translationJobs, /onTranslation\(event\.translation\)/);
+  assert.match(translationJobs, /setInterval\(updateCountdown, 1_000\)/);
+  assert.match(translationPanel, /本次尚未生成可显示译文/);
+  assert.match(translationPanel, /录入已有全文译文/);
+  assert.match(adminPage, /预发布译文上传失败/);
+  assert.match(adminPage, /articleId: published\.id/);
   assert.doesNotMatch(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_BLOCKS\s*=\s*1/);
 });

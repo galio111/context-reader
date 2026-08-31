@@ -14,9 +14,11 @@ import type { ArticleTranslationItem } from "@/types/reader";
 
 interface AdminArticleTranslationUploadProps {
   article: PublicArticle;
+  articleKind: "candidate" | "published";
   open: boolean;
   onClose: () => void;
   onUploaded: (translation: PublicArticleTranslation) => void;
+  onPrepared: (translation: PublicArticleTranslation) => void;
 }
 
 function completeTranslations(
@@ -30,9 +32,11 @@ function completeTranslations(
 
 export default function AdminArticleTranslationUpload({
   article,
+  articleKind,
   open,
   onClose,
   onUploaded,
+  onPrepared,
 }: AdminArticleTranslationUploadProps) {
   const blocks = useMemo(
     () => createArticleTranslationBlocks(article.body, article.importedArticle ?? null),
@@ -92,6 +96,14 @@ export default function AdminArticleTranslationUpload({
     setUploading(true);
     setError("");
     try {
+      if (articleKind === "candidate") {
+        const prepared = { cacheKey, translations: selectedTranslation };
+        setCachedArticleTranslation(cacheKey, selectedTranslation);
+        setCachedArticleTranslationForBlocks(blocks, selectedTranslation);
+        onPrepared(prepared);
+        onClose();
+        return;
+      }
       const response = await fetch("/api/admin/public-article-translations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -117,9 +129,9 @@ export default function AdminArticleTranslationUpload({
       <section className="flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-t-2xl bg-white shadow-2xl sm:rounded-2xl" role="dialog" aria-modal="true" aria-labelledby="translation-upload-title">
         <header className="flex shrink-0 items-start justify-between gap-4 border-b border-[#dfe4e8] px-5 py-4 sm:px-6">
           <div>
-            <p className="text-xs font-semibold text-[#1769aa]">精选文章 · 正文版本 {cacheKey}</p>
-            <h2 id="translation-upload-title" className="mt-1 text-xl font-semibold text-[#17212b]">上传全文翻译</h2>
-            <p className="mt-1 text-sm text-[#68737c]">《{article.title}》共 {blocks.length} 个正文段落。上传后，用户首次点击仍扣 1 次全文翻译额度，但 DeepSeek 成本为 0。</p>
+            <p className="text-xs font-semibold text-[#1769aa]">{articleKind === "candidate" ? "候选文章" : "精选文章"} · 正文版本 {cacheKey}</p>
+            <h2 id="translation-upload-title" className="mt-1 text-xl font-semibold text-[#17212b]">{articleKind === "candidate" ? "录入全文译文" : "上传全文翻译"}</h2>
+            <p className="mt-1 text-sm text-[#68737c]">《{article.title}》共 {blocks.length} 个正文段落。{articleKind === "candidate" ? "保存后，点击“精选”会把这份译文一并发布。" : "上传后，用户首次点击仍扣 1 次全文翻译额度，但 DeepSeek 成本为 0。"}</p>
           </div>
           <button className="h-9 w-9 shrink-0 rounded-full bg-[#f1f4f6] text-xl text-[#35414b]" type="button" aria-label="关闭上传全文翻译" onClick={onClose} disabled={uploading}>×</button>
         </header>
@@ -159,7 +171,7 @@ export default function AdminArticleTranslationUpload({
           <p className="hidden text-xs text-[#68737c] sm:block">确认时会再次校验正文哈希；正文已变化则拒绝上传。</p>
           <div className="ml-auto flex gap-2">
             <button className="min-h-10 rounded-full px-4 text-sm font-semibold text-[#4d5861]" type="button" onClick={onClose} disabled={uploading}>取消</button>
-            <button className="min-h-10 rounded-full bg-[#1769aa] px-5 text-sm font-semibold text-white disabled:bg-[#aeb8c2]" type="button" onClick={() => void upload()} disabled={!selectedTranslation || uploading}>{uploading ? "正在上传…" : "确认上传"}</button>
+            <button className="min-h-10 rounded-full bg-[#1769aa] px-5 text-sm font-semibold text-white disabled:bg-[#aeb8c2]" type="button" onClick={() => void upload()} disabled={!selectedTranslation || uploading}>{uploading ? (articleKind === "candidate" ? "正在保存…" : "正在上传…") : (articleKind === "candidate" ? "保存待发布译文" : "确认上传")}</button>
           </div>
         </footer>
       </section>

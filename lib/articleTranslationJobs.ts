@@ -9,6 +9,7 @@ import type { ArticleTranslationBlock, ArticleTranslationItem } from "@/types/re
 import { createArticleTranslationBatches } from "@/lib/articleTranslationBatching";
 
 const MAX_RETRY_ATTEMPTS = 8;
+const MAX_CONSECUTIVE_ZERO_PROGRESS_ATTEMPTS = 3;
 const RETRY_BASE_DELAY_MS = 2_000;
 const RETRY_MAX_DELAY_MS = 30_000;
 const FALLBACK_ERROR = "全文翻译生成失败，请稍后重试。";
@@ -72,14 +73,27 @@ function notifyJob(key: string): void {
   listeners.get(key)?.forEach((listener) => listener(snapshot));
 }
 
-function waitForRetry(signal: AbortSignal, delayMs: number): Promise<void> {
+function waitForRetry(
+  signal: AbortSignal,
+  delayMs: number,
+  onCountdown: (remainingSeconds: number) => void,
+): Promise<void> {
   return new Promise((resolve, reject) => {
+    const deadline = Date.now() + delayMs;
+    const updateCountdown = () => onCountdown(Math.max(0, Math.ceil((deadline - Date.now()) / 1_000)));
+    updateCountdown();
+    const interval = window.setInterval(updateCountdown, 1_000);
+    const cleanup = () => {
+      window.clearInterval(interval);
+      signal.removeEventListener("abort", onAbort);
+    };
     const onAbort = () => {
       window.clearTimeout(timer);
+      cleanup();
       reject(new DOMException("Aborted", "AbortError"));
     };
     const timer = window.setTimeout(() => {
-      signal.removeEventListener("abort", onAbort);
+      cleanup();
       resolve();
     }, delayMs);
     signal.addEventListener("abort", onAbort, { once: true });
@@ -95,9 +109,11 @@ async function requestArticleTranslation(
   onTranslation: (translation: ArticleTranslationItem) => void,
 ): Promise<ArticleTranslationItem[]> {
   const collected = new Map<string, ArticleTranslationItem>();
+  let consecutiveZeroProgressAttempts = 0;
   for (let attempt = 0; attempt <= MAX_RETRY_ATTEMPTS; attempt += 1) {
     const pendingBlocks = blocks.filter((block) => !collected.has(block.id));
     if (!pendingBlocks.length) return blocks.map((block) => collected.get(block.id)!).filter(Boolean);
+    const collectedBeforeAttempt = collected.size;
     let response: Response;
     try {
       response = await fetch("/api/translate-article", {
@@ -115,11 +131,8 @@ async function requestArticleTranslation(
         throw error;
       }
       const delayMs = Math.min(RETRY_MAX_DELAY_MS, RETRY_BASE_DELAY_MS * 2 ** attempt);
-      onRetry(
-        Math.ceil(delayMs / 1_000),
-        "网络连接暂时中断，正在等待恢复。",
-      );
-      await waitForRetry(signal, delayMs);
+      const retryReason = "网络连接暂时中断，正在等待恢复。";
+      await waitForRetry(signal, delayMs, (remainingSeconds) => onRetry(remainingSeconds, retryReason));
       continue;
     }
 
@@ -152,10 +165,16 @@ async function requestArticleTranslation(
       }
       streamError ??= { error: "AI 服务没有返回完整译文。", code: "provider_temporary" };
       if (streamError) {
+        consecutiveZeroProgressAttempts = collected.size > collectedBeforeAttempt
+          ? 0
+          : consecutiveZeroProgressAttempts + 1;
+        if (consecutiveZeroProgressAttempts >= MAX_CONSECUTIVE_ZERO_PROGRESS_ATTEMPTS) {
+          throw new Error("AI 服务连续未返回可显示译文，请点击重试。");
+        }
         if (attempt === MAX_RETRY_ATTEMPTS) throw new Error(streamError.error || FALLBACK_ERROR);
         const delayMs = Math.min(RETRY_MAX_DELAY_MS, RETRY_BASE_DELAY_MS * 2 ** attempt);
-        onRetry(Math.ceil(delayMs / 1_000), "AI 翻译流短暂中断，正在续传未完成段落。");
-        await waitForRetry(signal, delayMs);
+        const retryReason = "AI 翻译流短暂中断，正在续传未完成段落。";
+        await waitForRetry(signal, delayMs, (remainingSeconds) => onRetry(remainingSeconds, retryReason));
         continue;
       }
     }
@@ -187,8 +206,7 @@ async function requestArticleTranslation(
         : data?.code === "local_concurrency"
           ? "当前有其他翻译任务，正在等待处理位置。"
           : "AI 翻译服务短暂波动，正在等待恢复。";
-    onRetry(Math.ceil(delayMs / 1_000), retryReason);
-    await waitForRetry(signal, delayMs);
+    await waitForRetry(signal, delayMs, (remainingSeconds) => onRetry(remainingSeconds, retryReason));
   }
   throw new Error(FALLBACK_ERROR);
 }
