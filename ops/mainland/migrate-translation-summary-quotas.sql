@@ -123,9 +123,11 @@ begin
   values (p_owner_key, p_metric_key, v_window_start, v_window_end, 0)
   on conflict (owner_key, metric_key, window_start) do nothing;
 
-  select used_units into v_current
-  from public.usage_counters
-  where owner_key = p_owner_key and metric_key = p_metric_key and window_start = v_window_start
+  select uc.used_units into v_current
+  from public.usage_counters uc
+  where uc.owner_key = p_owner_key
+    and uc.metric_key = p_metric_key
+    and uc.window_start = v_window_start
   for update;
 
   if v_current + greatest(p_units, 0) > v_allowance then

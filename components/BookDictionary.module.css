@@ -850,6 +850,18 @@
   .historyList { width: calc(100% - 58px); }
 }
 
+@media (hover: none), (pointer: coarse) {
+  .dictionary button {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  .dictionary button[aria-label],
+  .dictionary .regenerateButton {
+    min-width: 44px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .skeleton i { animation: none; }
   .streamStarting i,

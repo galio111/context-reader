@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
 import { createPortal } from "react-dom";
 import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { getVocabularyEntries } from "@/lib/vocabulary";
@@ -10,7 +10,7 @@ import ClearableField from "@/components/ClearableField";
 import { BookDictionary } from "@/components/BookDictionary";
 import { HomeOptionMenu, type GuideSection, type PreviewKind } from "@/components/HomeOptionMenu";
 import { PillNavAction } from "@/components/PillNavAction";
-import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
+import { MOBILE_SHEET_MAX_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
 import { PUBLIC_CONTACT } from "@/lib/publicContact";
@@ -297,7 +297,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [menuGuideSection, setMenuGuideSection] = useState<GuideSection | null>(null);
   const [menuStandalonePreview, setMenuStandalonePreview] = useState(false);
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
-  const mobileDictionarySheet = useMobileBottomSheet(dictionaryMounted);
+  const mobileDictionarySheet = useMobileBottomSheet(dictionaryMounted, undefined, MOBILE_SHEET_MAX_HEIGHT);
   const [dictionaryClosing, setDictionaryClosing] = useState(false);
   const [inputMode, setInputMode] = useState<InputMode>("paste");
   const [activeCategory, setActiveCategory] = useState("推荐");
@@ -345,7 +345,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const memberOpeningFastStartRef = useRef(0);
   const memberOpeningFastProgressRef = useRef(0);
   const openingTimerRef = useRef<number | null>(null);
-  const dictionaryWindowRef = useRef<HTMLElement | null>(null);
   const dictionaryCloseTimerRef = useRef<number | null>(null);
   const categorySwitchTimerRef = useRef<number | null>(null);
   const coverScrollFrameRef = useRef(0);
@@ -503,7 +502,11 @@ export function HomeRedesign(props: HomeRedesignProps) {
       cards.forEach((card) => { card.dataset.visible = "true"; });
       return;
     }
-    cards.forEach((card) => { card.dataset.motionReady = "true"; });
+    cards.forEach((card) => {
+      card.dataset.motionReady = "true";
+      delete card.dataset.visible;
+      delete card.dataset.enterDirection;
+    });
     let lastY = window.scrollY;
     let direction: "up" | "down" = "down";
     const trackDirection = () => {
@@ -521,9 +524,19 @@ export function HomeRedesign(props: HomeRedesignProps) {
         }
       });
     }, { rootMargin: "0px 0px -2% 0px", threshold: 0.001 });
-    cards.forEach((card) => observer.observe(card));
+    // Let the hidden cover/copy keyframe paint before observing. Without this,
+    // already-visible cards (including the featured card and a newly revealed
+    // last card) can enter in the same frame and skip their transition entirely.
+    let observeFrame = 0;
+    const prepareFrame = window.requestAnimationFrame(() => {
+      observeFrame = window.requestAnimationFrame(() => {
+        cards.forEach((card) => observer.observe(card));
+      });
+    });
     window.addEventListener("scroll", trackDirection, { passive: true });
     return () => {
+      window.cancelAnimationFrame(prepareFrame);
+      if (observeFrame) window.cancelAnimationFrame(observeFrame);
       observer.disconnect();
       window.removeEventListener("scroll", trackDirection);
     };
@@ -614,32 +627,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
     if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
     if (categorySwitchTimerRef.current !== null) window.clearTimeout(categorySwitchTimerRef.current);
   }, []);
-
-  useEffect(() => {
-    if (!dictionaryMounted) return;
-    const element = dictionaryWindowRef.current;
-    if (!element) return;
-    try {
-      const saved = JSON.parse(window.localStorage.getItem("context-reader-dictionary-window-v1") || "null") as {
-        left?: number;
-        top?: number;
-        width?: number;
-        height?: number;
-      } | null;
-      if (!saved) return;
-      const width = Math.min(Math.max(saved.width ?? 370, 320), window.innerWidth - 32);
-      const height = Math.min(Math.max(saved.height ?? 560, 380), window.innerHeight - 32);
-      const visibleGrip = Math.min(104, width);
-      const left = Math.min(
-        Math.max(saved.left ?? 128, visibleGrip - width),
-        window.innerWidth - visibleGrip,
-      );
-      const top = Math.min(Math.max(saved.top ?? 92, 16), window.innerHeight - 68);
-      Object.assign(element.style, { left: `${left}px`, top: `${top}px`, width: `${width}px`, height: `${height}px` });
-    } catch {
-      // A stale local window preference must never block dictionary access.
-    }
-  }, [dictionaryMounted]);
 
   useEffect(() => {
     if (memberHome || compactViewport) return;
@@ -874,48 +861,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
     }, 220);
   }
 
-  function persistDictionaryWindow() {
-    if (window.matchMedia("(max-width: 900px)").matches) return;
-    const element = dictionaryWindowRef.current;
-    if (!element) return;
-    const rect = element.getBoundingClientRect();
-    window.localStorage.setItem("context-reader-dictionary-window-v1", JSON.stringify({
-      left: Math.round(rect.left),
-      top: Math.round(rect.top),
-      width: Math.round(rect.width),
-      height: Math.round(rect.height),
-    }));
-  }
-
-  function startDictionaryDrag(event: PointerEvent<HTMLElement>) {
-    if (event.button !== 0 || (event.target as HTMLElement).closest("button")) return;
-    const element = dictionaryWindowRef.current;
-    if (!element) return;
-    event.preventDefault();
-    const rect = element.getBoundingClientRect();
-    const startX = event.clientX;
-    const startY = event.clientY;
-    const move = (moveEvent: globalThis.PointerEvent) => {
-      const visibleGrip = Math.min(104, rect.width);
-      const left = Math.min(
-        Math.max(rect.left + moveEvent.clientX - startX, visibleGrip - rect.width),
-        window.innerWidth - visibleGrip,
-      );
-      const top = Math.min(Math.max(rect.top + moveEvent.clientY - startY, 12), window.innerHeight - 58);
-      element.style.left = `${left}px`;
-      element.style.top = `${top}px`;
-    };
-    const finish = () => {
-      window.removeEventListener("pointermove", move);
-      window.removeEventListener("pointerup", finish);
-      window.removeEventListener("pointercancel", finish);
-      persistDictionaryWindow();
-    };
-    window.addEventListener("pointermove", move);
-    window.addEventListener("pointerup", finish, { once: true });
-    window.addEventListener("pointercancel", finish, { once: true });
-  }
-
   function openMenuPreview(preview: PreviewKind) {
     setMenuStandalonePreview(true);
     setMenuInitialPreview(preview);
@@ -1126,7 +1071,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
             <span className={styles.quickItem} data-tooltip="粘贴正文或输入文章网址">
               <PillNavAction motion="none" className={styles.quickButton} label="导入" ariaLabel="导入文章" onClick={(event) => { if (event.detail > 0) event.currentTarget.blur(); scrollToImport(); }} renderIcon={() => <QuickActionIcon kind="import" />} />
             </span>
-            <span className={styles.quickItem} data-tooltip="打开可移动的单独查词窗口">
+            <span className={styles.quickItem} data-tooltip="打开固定的单独查词面板">
               <PillNavAction motion="none" className={styles.quickButton} label="查词" ariaLabel="单独查词" onClick={(event) => { if (event.detail > 0) event.currentTarget.blur(); openDictionary(); }} renderIcon={() => <QuickActionIcon kind="dictionary" />} />
             </span>
             <span className={styles.quickItem} data-tooltip="查看加入生词本的词与原句">
@@ -1535,33 +1480,34 @@ export function HomeRedesign(props: HomeRedesignProps) {
       )}
 
       {dictionaryMounted && typeof document !== "undefined" && createPortal((
-        <aside
-          ref={dictionaryWindowRef}
-          className={`${styles.dictionaryWindow} ${dictionaryClosing ? styles.dictionaryWindowClosing : ""}`}
-          style={{ "--mobile-dictionary-height": `${mobileDictionarySheet.height}dvh` } as CSSProperties}
-          aria-label="单独查词窗口"
-          data-theme={homeTheme}
-          onPointerUp={persistDictionaryWindow}
-        >
-          <div
-            className={styles.dictionarySheetHandle}
-            aria-label="拖动调整面板高度"
-            onPointerDown={mobileDictionarySheet.onResizeStart}
-            onPointerMove={mobileDictionarySheet.onResizeMove}
-            onPointerUp={mobileDictionarySheet.onResizeEnd}
-            onPointerCancel={mobileDictionarySheet.onResizeEnd}
-          ><span /></div>
-          <header onPointerDown={startDictionaryDrag}>
-            <span><QuickActionIcon kind="dictionary" />单独查词</span>
-            <button type="button" aria-label="返回菜单" onClick={closeDictionary}>
-              <i className={styles.dictionaryCloseDesktop} aria-hidden="true">×</i>
-              <i className={styles.dictionaryCloseMobile}>返回菜单</i>
-            </button>
-          </header>
-          <div className={styles.dictionaryWindowBody} data-local-scroll-surface>
-            <BookDictionary embedded panel offline={isOffline} />
-          </div>
-        </aside>
+        <div className={styles.dictionaryLayer} data-closing={dictionaryClosing || undefined}>
+          <button type="button" className={styles.dictionaryBackdrop} aria-label="关闭单独查词" onClick={closeDictionary} />
+          <aside
+            className={`${styles.dictionaryWindow} ${dictionaryClosing ? styles.dictionaryWindowClosing : ""}`}
+            style={{ "--mobile-dictionary-height": `${mobileDictionarySheet.height}dvh` } as CSSProperties}
+            aria-label="单独查词面板"
+            data-theme={homeTheme}
+          >
+            <div
+              className={styles.dictionarySheetHandle}
+              aria-label="拖动调整面板高度"
+              onPointerDown={mobileDictionarySheet.onResizeStart}
+              onPointerMove={mobileDictionarySheet.onResizeMove}
+              onPointerUp={mobileDictionarySheet.onResizeEnd}
+              onPointerCancel={mobileDictionarySheet.onResizeEnd}
+            ><span /></div>
+            <header>
+              <span><QuickActionIcon kind="dictionary" />单独查词</span>
+              <button type="button" aria-label="返回菜单" onClick={closeDictionary}>
+                <i className={styles.dictionaryCloseDesktop} aria-hidden="true">×</i>
+                <i className={styles.dictionaryCloseMobile}>返回菜单</i>
+              </button>
+            </header>
+            <div className={styles.dictionaryWindowBody} data-local-scroll-surface>
+              <BookDictionary embedded panel offline={isOffline} />
+            </div>
+          </aside>
+        </div>
       ), document.body)}
 
       <HomeOptionMenu

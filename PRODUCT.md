@@ -49,6 +49,8 @@ Avoid playful language-learning gamification unless explicitly requested. The pr
 5. Keep entry immediate even when the homepage is expressive: the bare production domain is the canonical homepage, while legacy `/home-v2` links redirect to it without losing query parameters. The accepted redesign keeps the cover/Ballpit identity, removes page turns, and lets the cover hand off to real curated publications before presenting paste/URL import to new users. Signed-in returning users enter a direct workbench with continue reading and import/lookup actions. Standalone lookup, paste, URL, saved articles and recommendations must remain real connected capabilities, although their layout may be redesigned.
 6. Reset ephemeral UI state: closing and reopening tools should feel fresh. Search terms, panel scroll offsets, temporary previews, status messages, and resized sheet positions should return to defaults unless preserving them clearly supports uninterrupted reading.
 7. Validate motion in three dimensions: technical correctness, visual fidelity to the chosen reference, and repeated-use product experience. Passing a build or state-machine check does not establish the other two.
+8. Keep long-reader work incremental: an explicit source jump may index and align the target, but it must not synchronously rescan every saved article during render, bulk-wake preceding media, or rerender the complete token tree after alignment.
+9. Do not manufacture repeat actions without a learning need. Article summary is generated once when first save lacks one; the saved state remains disabled rather than offering regeneration.
 
 ## Accessibility & Inclusion
 

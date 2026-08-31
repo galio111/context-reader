@@ -413,7 +413,7 @@ export default function AdminAccountsPanel() {
               <h3 className="text-[21px] font-semibold">套餐额度规则</h3>
               <div className="mt-3 max-w-3xl rounded-xl bg-[#edf5fb] px-4 py-3 text-sm leading-6 text-[#174d73]">
                 <p><strong>AI 查词与追问：</strong>注册用户只有新生成解释或句子追问会扣次数，缓存命中免费；游客无论缓存或新生成都计入每日试用。</p>
-                <p className="mt-1"><strong>文章摘要：</strong>首次保存生成扣 1 次，重复保存复用；主动重新生成再扣 1 次。</p>
+                <p className="mt-1"><strong>文章摘要：</strong>首次保存且没有有效摘要时生成并扣 1 次；保存后的摘要直接复用。</p>
                 <p className="mt-1"><strong>全文翻译：</strong>点击开始一次新翻译扣 1 次，重看已有结果免费；重新生成再扣 1 次。精选缓存首次点击同样扣 1 次，但不调用 DeepSeek。</p>
               </div>
             </div>

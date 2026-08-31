@@ -50,7 +50,8 @@ import { EXPLANATION_STREAM_COMPLETE_MARKER } from "@/lib/explanationStreamProto
 import { currentFormPhonetic } from "@/lib/pronunciation";
 import { notifyLookupCancellation } from "@/lib/lookupCancellationClient";
 import {
-  findBestSourceSentenceMatch,
+  createSourceSentenceIndex,
+  findBestSourceSentenceMatchInIndex,
   findSimilarVocabularyEntry,
   normalizeForSourceMatch,
 } from "@/lib/sourceMatching";
@@ -58,6 +59,7 @@ import { tokenizeArticle, tokenToWordContext } from "@/lib/tokenizer";
 import { scopeReaderTokenId } from "@/lib/readerTokenIdentity";
 import { getArticleImageSources, primeArticleImage } from "@/lib/articleImagePreload";
 import { isExternalArticleImageUrl } from "@/lib/articleImageUrls";
+import { cursorAnchoredImageZoom, interpolateImageZoom, type ImageZoomPoint, type ImageZoomTransform } from "@/lib/imageZoom";
 import {
   addVocabularyEntry,
   clearVocabularyEntries,
@@ -240,6 +242,36 @@ const DEFAULT_ARTICLE_STYLE: Required<ArticleReadingStyle> = {
   contentWidth: "default",
   imageWidth: "medium",
 };
+
+function sourceTargetTokenIds(
+  tokens: ReaderToken[],
+  sourceSentence: string,
+  selectedText: string,
+): string[] {
+  const normalizedSentence = normalizeForSourceMatch(sourceSentence);
+  const targetTerms = normalizeForSourceMatch(selectedText).match(/[a-z]+(?:['-][a-z]+)*/g) ?? [];
+  if (!normalizedSentence || targetTerms.length === 0) {
+    return [];
+  }
+
+  const sentenceTokens = tokens.filter(
+    (token) => normalizeForSourceMatch(token.sentence) === normalizedSentence,
+  );
+  const sentenceTerms = sentenceTokens.map(
+    (token) => normalizeForSourceMatch(token.value).match(/[a-z]+(?:['-][a-z]+)*/)?.[0] ?? "",
+  );
+
+  for (let index = 0; index <= sentenceTerms.length - targetTerms.length; index += 1) {
+    if (targetTerms.every((term, offset) => sentenceTerms[index + offset] === term)) {
+      return sentenceTokens.slice(index, index + targetTerms.length).map((token) => token.id);
+    }
+  }
+  return [];
+}
+
+function sameTokenIds(left: string[], right: string[]): boolean {
+  return left.length === right.length && left.every((tokenId, index) => tokenId === right[index]);
+}
 
 function restoreReaderViewport(root: HTMLElement, anchor: ReaderViewportAnchor): number | null {
   const blocks = Array.from(root.querySelectorAll<HTMLElement>("[data-reader-block]"));
@@ -733,6 +765,202 @@ function MobileArticleHistoryActions({
   );
 }
 
+const ACTIVE_IMAGE_MIN_ZOOM = 0.5;
+const ACTIVE_IMAGE_MAX_ZOOM = 3;
+const ACTIVE_IMAGE_INITIAL_TRANSFORM: ImageZoomTransform = { scale: 1, x: 0, y: 0 };
+
+function ActiveImageCanvas({
+  block,
+  layoutWords,
+  onClose,
+  onDownload,
+  onSelectLayoutWord,
+}: {
+  block: RenderableArticleBlock;
+  layoutWords: ImageLayoutWord[];
+  onClose: () => void;
+  onDownload: () => void;
+  onSelectLayoutWord: (word: ImageLayoutWord, index: number) => void;
+}) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const canvasRef = useRef<HTMLDivElement | null>(null);
+  const animationFrameRef = useRef(0);
+  const wheelHandlerRef = useRef<(event: globalThis.WheelEvent) => void>(() => undefined);
+  const currentTransformRef = useRef<ImageZoomTransform>({ ...ACTIVE_IMAGE_INITIAL_TRANSFORM });
+  const targetTransformRef = useRef<ImageZoomTransform>({ ...ACTIVE_IMAGE_INITIAL_TRANSFORM });
+  const [renderedTransform, setRenderedTransform] = useState<ImageZoomTransform>({ ...ACTIVE_IMAGE_INITIAL_TRANSFORM });
+
+  useEffect(() => () => {
+    if (animationFrameRef.current) window.cancelAnimationFrame(animationFrameRef.current);
+  }, []);
+
+  function commitTransform(next: ImageZoomTransform) {
+    currentTransformRef.current = next;
+    setRenderedTransform(next);
+  }
+
+  function animateToTarget() {
+    animationFrameRef.current = 0;
+    const current = currentTransformRef.current;
+    const target = targetTransformRef.current;
+    const next = interpolateImageZoom(current, target, 0.32);
+    const remaining = Math.abs(target.scale - next.scale) + Math.abs(target.x - next.x) + Math.abs(target.y - next.y);
+    if (remaining < 0.02) {
+      commitTransform(target);
+      return;
+    }
+    commitTransform(next);
+    animationFrameRef.current = window.requestAnimationFrame(animateToTarget);
+  }
+
+  function scheduleTransform() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (animationFrameRef.current) window.cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = 0;
+      commitTransform(targetTransformRef.current);
+      return;
+    }
+    if (!animationFrameRef.current) animationFrameRef.current = window.requestAnimationFrame(animateToTarget);
+  }
+
+  function canvasPoint(clientX?: number, clientY?: number): ImageZoomPoint {
+    const container = containerRef.current;
+    const canvas = canvasRef.current;
+    if (!container || !canvas || typeof clientX !== "number" || typeof clientY !== "number") {
+      return { x: (canvas?.clientWidth ?? 0) / 2, y: (canvas?.clientHeight ?? 0) / 2 };
+    }
+    const rect = container.getBoundingClientRect();
+    return {
+      x: clientX - rect.left - canvas.offsetLeft,
+      y: clientY - rect.top - canvas.offsetTop,
+    };
+  }
+
+  function setZoom(nextScale: number, point = canvasPoint()) {
+    const clampedScale = Math.min(ACTIVE_IMAGE_MAX_ZOOM, Math.max(ACTIVE_IMAGE_MIN_ZOOM, nextScale));
+    targetTransformRef.current = cursorAnchoredImageZoom(targetTransformRef.current, clampedScale, point);
+    scheduleTransform();
+  }
+
+  function handleWheel(event: globalThis.WheelEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+    const pageFactor = event.deltaMode === 2 ? window.innerHeight : event.deltaMode === 1 ? 16 : 1;
+    const normalizedDelta = event.deltaY * pageFactor;
+    const multiplier = Math.min(1.22, Math.max(0.82, Math.exp(-normalizedDelta * 0.0015)));
+    setZoom(targetTransformRef.current.scale * multiplier, canvasPoint(event.clientX, event.clientY));
+  }
+
+  wheelHandlerRef.current = handleWheel;
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const onWheel = (event: globalThis.WheelEvent) => wheelHandlerRef.current(event);
+    container.addEventListener("wheel", onWheel, { passive: false });
+    return () => container.removeEventListener("wheel", onWheel);
+  }, []);
+
+  function resetZoom() {
+    targetTransformRef.current = { ...ACTIVE_IMAGE_INITIAL_TRANSFORM };
+    scheduleTransform();
+  }
+
+  const zoomPercent = Math.round(renderedTransform.scale * 100);
+  return (
+    <div
+      ref={containerRef}
+      className="relative flex min-h-0 items-center justify-center overflow-hidden bg-[#111111] p-2 pb-20 sm:p-4 sm:pt-14"
+    >
+      <div className="absolute inset-x-3 bottom-[max(12px,env(safe-area-inset-bottom))] z-10 flex items-center gap-2 overflow-x-auto pb-1 sm:inset-x-auto sm:bottom-auto sm:right-3 sm:top-3 sm:justify-end sm:overflow-visible sm:pb-0">
+        <button
+          type="button"
+          className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b] sm:h-8 sm:px-3"
+          onClick={() => setZoom(targetTransformRef.current.scale - 0.1)}
+          disabled={targetTransformRef.current.scale <= ACTIVE_IMAGE_MIN_ZOOM}
+        >
+          缩小
+        </button>
+        <span className="flex h-11 min-w-14 shrink-0 items-center justify-center rounded-full bg-white/95 px-3 text-center text-sm leading-none text-[#1d1d1f] sm:h-auto sm:py-1.5">
+          {zoomPercent}%
+        </span>
+        <button
+          type="button"
+          className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b] sm:h-8 sm:px-3"
+          onClick={() => setZoom(targetTransformRef.current.scale + 0.1)}
+          disabled={targetTransformRef.current.scale >= ACTIVE_IMAGE_MAX_ZOOM}
+        >
+          放大
+        </button>
+        <button
+          type="button"
+          className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b] sm:h-8 sm:px-3"
+          onClick={resetZoom}
+          disabled={targetTransformRef.current.scale === 1 && targetTransformRef.current.x === 0 && targetTransformRef.current.y === 0}
+        >
+          适合
+        </button>
+        <button
+          type="button"
+          className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 sm:h-8 sm:px-3"
+          onClick={onDownload}
+        >
+          下载
+        </button>
+        {!IMAGE_OCR_ENABLED && (
+          <button
+            type="button"
+            className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 sm:h-8 sm:px-3"
+            onClick={onClose}
+          >
+            关闭
+          </button>
+        )}
+      </div>
+      <div
+        ref={canvasRef}
+        className="relative flex h-full w-full items-center justify-center"
+        style={{
+          transform: `translate3d(${renderedTransform.x}px, ${renderedTransform.y}px, 0) scale(${renderedTransform.scale})`,
+          transformOrigin: "0 0",
+          willChange: "transform",
+        }}
+      >
+        <img
+          alt={block.alt || ""}
+          className="max-h-full max-w-full object-contain"
+          decoding="async"
+          height={block.height ?? FALLBACK_READER_IMAGE_HEIGHT}
+          referrerPolicy="no-referrer"
+          src={block.src}
+          width={block.width ?? FALLBACK_READER_IMAGE_WIDTH}
+        />
+        {layoutWords.length > 0 && (
+          <div className="absolute inset-0">
+            {layoutWords.map((word, index) => (
+              <button
+                key={`${word.text}-${index}-${word.x}-${word.y}`}
+                type="button"
+                aria-label={`解释 ${word.text}`}
+                className="absolute rounded-[3px] border border-transparent bg-[#0066cc]/0 transition hover:border-[#0066cc]/70 hover:bg-[#0066cc]/15 focus-visible:border-[#0066cc] focus-visible:bg-[#0066cc]/18 focus-visible:outline-none"
+                style={{
+                  left: `${word.x}%`,
+                  top: `${word.y}%`,
+                  width: `${word.width}%`,
+                  height: `${word.height}%`,
+                }}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  onSelectLayoutWord(word, index);
+                }}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export function ReaderView({
   article,
   importedArticle,
@@ -796,8 +1024,6 @@ export function ReaderView({
   const articleHistoryAvailabilityStore = articleHistoryAvailabilityStoreRef.current;
   const [imageOcr, setImageOcr] = useState<Record<string, ImageOcrState>>({});
   const [activeImageBlockId, setActiveImageBlockId] = useState<string | null>(null);
-  const [activeImageZoom, setActiveImageZoom] = useState(1);
-  const [activeImageZoomOrigin, setActiveImageZoomOrigin] = useState({ x: 50, y: 50 });
   const articleImageSources = useMemo(
     () => getArticleImageSources(currentImportedArticle),
     [currentImportedArticle],
@@ -995,7 +1221,9 @@ export function ReaderView({
   const [selectedTokenIds, setSelectedTokenIds] = useState<string[]>([]);
   const selectedTokenIdSet = useMemo(() => new Set(selectedTokenIds), [selectedTokenIds]);
   const [highlightedSourceSentence, setHighlightedSourceSentence] = useState(sourceSentenceToHighlight);
-  const [highlightedTargetTokenIds, setHighlightedTargetTokenIds] = useState<string[]>([]);
+  const [highlightedTargetTokenIds, setHighlightedTargetTokenIds] = useState<string[]>(
+    () => sourceTargetTokenIds(wordTokens, sourceSentenceToHighlight ?? "", sourceWordToHighlight ?? ""),
+  );
   const highlightedTargetTokenIdSet = useMemo(() => new Set(highlightedTargetTokenIds), [highlightedTargetTokenIds]);
   const highlightedSentenceTokenIdSet = useMemo(() => {
     const normalizedSourceSentence = normalizeForSourceMatch(highlightedSourceSentence);
@@ -1010,6 +1238,11 @@ export function ReaderView({
   }, [highlightedSourceSentence, wordTokens]);
   const sourceSentenceSet = useMemo(
     () => new Set(wordTokens.map((token) => normalizeForSourceMatch(token.sentence)).filter(Boolean)),
+    [wordTokens],
+  );
+  const sourceSentenceIndex = useMemo(() => createSourceSentenceIndex(wordTokens), [wordTokens]);
+  const sourceWordSet = useMemo(
+    () => new Set(wordTokens.map((token) => normalizeForSourceMatch(token.value)).filter(Boolean)),
     [wordTokens],
   );
   const [dragStartToken, setDragStartToken] = useState<ReaderToken | null>(null);
@@ -1047,7 +1280,6 @@ export function ReaderView({
   const [readerImportStatus, setReaderImportStatus] = useState("");
   const [readerImportBusy, setReaderImportBusy] = useState(false);
   const [failedImageBlockIds, setFailedImageBlockIds] = useState<Set<string>>(() => new Set());
-  const [loadedImageBlockIds, setLoadedImageBlockIds] = useState<Set<string>>(() => new Set());
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
   const [dictionaryClosing, setDictionaryClosing] = useState(false);
   const [guestLookupLocked, setGuestLookupLocked] = useState(false);
@@ -1092,7 +1324,6 @@ export function ReaderView({
   const initialViewportRestoredRef = useRef(false);
   const viewportActivityRef = useRef({ rapidScroll: false, atBottom: false, settledAt: Date.now() });
   const progressScrollSuppressedUntilRef = useRef(0);
-  const activeImageScrollRef = useRef<HTMLDivElement | null>(null);
   const sourceAlignmentTargetIdRef = useRef("");
   const sourceAlignmentLockUntilRef = useRef(0);
   const sourceJumpAttemptIdRef = useRef(0);
@@ -1111,7 +1342,6 @@ export function ReaderView({
 
   useEffect(() => {
     setFailedImageBlockIds(new Set());
-    setLoadedImageBlockIds(new Set());
   }, [currentArticle, currentImportedArticle]);
 
   useEffect(() => () => {
@@ -1349,15 +1579,6 @@ export function ReaderView({
   }, []);
 
   useEffect(() => {
-    if (!activeImageBlockId) {
-      return;
-    }
-    setActiveImageZoom(1);
-    setActiveImageZoomOrigin({ x: 50, y: 50 });
-    activeImageScrollRef.current?.scrollTo({ top: 0, left: 0 });
-  }, [activeImageBlockId]);
-
-  useEffect(() => {
     function applyTranslationSnapshot(snapshot: {
       translations: ArticleTranslationItem[];
       loading: boolean;
@@ -1436,25 +1657,7 @@ export function ReaderView({
   }, [preloadedExplanations]);
 
   function targetTokenIdsInSentence(sourceSentence: string, selectedText: string): string[] {
-    const normalizedSentence = normalizeForSourceMatch(sourceSentence);
-    const targetTerms = normalizeForSourceMatch(selectedText).match(/[a-z]+(?:['-][a-z]+)*/g) ?? [];
-    if (!normalizedSentence || targetTerms.length === 0) {
-      return [];
-    }
-
-    const sentenceTokens = wordTokens.filter(
-      (token) => normalizeForSourceMatch(token.sentence) === normalizedSentence,
-    );
-    const sentenceTerms = sentenceTokens.map(
-      (token) => normalizeForSourceMatch(token.value).match(/[a-z]+(?:['-][a-z]+)*/)?.[0] ?? "",
-    );
-
-    for (let index = 0; index <= sentenceTerms.length - targetTerms.length; index += 1) {
-      if (targetTerms.every((term, offset) => sentenceTerms[index + offset] === term)) {
-        return sentenceTokens.slice(index, index + targetTerms.length).map((token) => token.id);
-      }
-    }
-    return [];
+    return sourceTargetTokenIds(wordTokens, sourceSentence, selectedText);
   }
 
   function alignSourceToken(tokenId: string) {
@@ -1467,17 +1670,8 @@ export function ReaderView({
     if (!tokenElement) {
       return false;
     }
-    const blockElement = tokenElement.closest<HTMLElement>("[data-reader-block]");
-    if (blockElement) {
-      blockElement.style.contentVisibility = "visible";
-    }
     sourceAlignmentTargetIdRef.current = tokenId;
     sourceAlignmentLockUntilRef.current = Date.now() + 8000;
-    for (const image of document.querySelectorAll<HTMLImageElement>("[data-reader-image]")) {
-      if (image.compareDocumentPosition(tokenElement) & Node.DOCUMENT_POSITION_FOLLOWING) {
-        image.loading = "eager";
-      }
-    }
     tokenElement.scrollIntoView({
       behavior: "instant",
       block: "center",
@@ -1525,7 +1719,7 @@ export function ReaderView({
 
     setHighlightedSourceSentence(sourceSentence);
     const targetTokenIds = targetTokenIdsInSentence(firstToken.sentence, selectedText);
-    setHighlightedTargetTokenIds(targetTokenIds);
+    setHighlightedTargetTokenIds((current) => sameTokenIds(current, targetTokenIds) ? current : targetTokenIds);
     const aligned = alignSourceToken(targetTokenIds[0] ?? firstToken.id);
     if (aligned) onSourceJumpAligned?.();
     return aligned;
@@ -1536,14 +1730,14 @@ export function ReaderView({
       return true;
     }
 
-    const similarMatch = findBestSourceSentenceMatch(sourceSentence, selectedText, wordTokens);
+    const similarMatch = findBestSourceSentenceMatchInIndex(sourceSentence, selectedText, sourceSentenceIndex);
     if (!similarMatch || typeof document === "undefined") {
       return false;
     }
 
     setHighlightedSourceSentence(similarMatch.sentence);
     const targetTokenIds = targetTokenIdsInSentence(similarMatch.sentence, selectedText);
-    setHighlightedTargetTokenIds(targetTokenIds);
+    setHighlightedTargetTokenIds((current) => sameTokenIds(current, targetTokenIds) ? current : targetTokenIds);
     const aligned = alignSourceToken(targetTokenIds[0] ?? similarMatch.token.id);
     if (aligned) onSourceJumpAligned?.();
     return aligned;
@@ -1662,7 +1856,6 @@ export function ReaderView({
       return;
     }
 
-    setActiveImageZoom(1);
     const previousOverflow = document.body.style.overflow;
     const previousOverscrollBehavior = document.body.style.overscrollBehavior;
     document.body.style.overflow = "hidden";
@@ -1675,13 +1868,8 @@ export function ReaderView({
     }
 
     window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("wheel", preventActiveImagePageWheel, { capture: true, passive: false });
-    const scrollElement = activeImageScrollRef.current;
-    scrollElement?.addEventListener("wheel", handleActiveImageNativeWheel, { passive: false });
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("wheel", preventActiveImagePageWheel, { capture: true });
-      scrollElement?.removeEventListener("wheel", handleActiveImageNativeWheel);
       document.body.style.overflow = previousOverflow;
       document.body.style.overscrollBehavior = previousOverscrollBehavior;
     };
@@ -3065,7 +3253,7 @@ export function ReaderView({
         const { response, data } = await fetchJson<{ summary?: string; error?: string }>("/api/summarize-article", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ article: currentArticle, regenerate: false }),
+          body: JSON.stringify({ article: currentArticle }),
         }, "文章已保存，但摘要暂时没有生成成功。", { operation: "article_summary" });
         if (!response.ok || !data?.summary) throw new Error(data?.error || "文章已保存，但摘要暂时没有生成成功。");
         saveArticle(currentArticle, data.summary, effectiveImportedArticle);
@@ -3077,28 +3265,6 @@ export function ReaderView({
     } finally {
       setSavingArticle(false);
       window.setTimeout(() => setSaveStatus(""), 2600);
-    }
-  }
-
-  async function handleRegenerateSummary() {
-    if (!requireLocalAccount("登录后才能重新生成文章摘要。") || isOffline || savingArticle) return;
-    setSavingArticle(true);
-    setSaveStatus("正在重新生成摘要...");
-    try {
-      const { response, data } = await fetchJson<{ summary?: string; error?: string }>("/api/summarize-article", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ article: currentArticle, regenerate: true }),
-      }, "摘要重新生成失败，请稍后重试。", { operation: "article_summary_regenerate" });
-      if (!response.ok || !data?.summary) throw new Error(data?.error || "摘要重新生成失败，请稍后重试。");
-      saveArticle(currentArticle, data.summary, effectiveImportedArticle);
-      onArticleSaved();
-      setSaveStatus("摘要已重新生成，本月摘要额度扣除 1 次");
-    } catch (summaryError) {
-      setSaveStatus(summaryError instanceof Error ? summaryError.message : "摘要重新生成失败，请稍后重试。");
-    } finally {
-      setSavingArticle(false);
-      window.setTimeout(() => setSaveStatus(""), 3000);
     }
   }
 
@@ -3148,62 +3314,6 @@ export function ReaderView({
     }
     return { status: "idle" as const, words: [], error: "" };
   }, [activeImageBlock]);
-  const ACTIVE_IMAGE_MIN_ZOOM = 0.5;
-  const ACTIVE_IMAGE_MAX_ZOOM = 3;
-  const activeImageZoomPercent = Math.round(activeImageZoom * 100);
-
-  function changeActiveImageZoom(delta: number) {
-    setActiveImageZoomOrigin({ x: 50, y: 50 });
-    setActiveImageZoom((current) => Math.min(ACTIVE_IMAGE_MAX_ZOOM, Math.max(ACTIVE_IMAGE_MIN_ZOOM, Number((current + delta).toFixed(2)))));
-  }
-
-  function zoomActiveImageAt(deltaY: number, clientX?: number, clientY?: number) {
-    const container = activeImageScrollRef.current;
-    if (container && typeof clientX === "number" && typeof clientY === "number") {
-      const rect = container.getBoundingClientRect();
-      if (rect.width > 0 && rect.height > 0) {
-        setActiveImageZoomOrigin({
-          x: Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100)),
-          y: Math.min(100, Math.max(0, ((clientY - rect.top) / rect.height) * 100)),
-        });
-      }
-    }
-
-    const multiplier = deltaY < 0 ? 1.14 : 1 / 1.14;
-
-    setActiveImageZoom((current) => {
-      const next = Math.min(ACTIVE_IMAGE_MAX_ZOOM, Math.max(ACTIVE_IMAGE_MIN_ZOOM, Number((current * multiplier).toFixed(3))));
-      if (next === current) {
-        return current;
-      }
-
-      return next;
-    });
-  }
-
-  function preventActiveImagePageWheel(event: WheelEvent) {
-    if (!activeImageBlockId) {
-      return;
-    }
-    event.preventDefault();
-  }
-
-  function handleActiveImageNativeWheel(event: WheelEvent) {
-    const container = activeImageScrollRef.current;
-    if (!container) {
-      return;
-    }
-    event.preventDefault();
-    event.stopPropagation();
-    zoomActiveImageAt(event.deltaY, event.clientX, event.clientY);
-  }
-
-  function handleActiveImageWheel(event: React.WheelEvent<HTMLDivElement>) {
-    event.preventDefault();
-    event.stopPropagation();
-    event.nativeEvent.stopImmediatePropagation();
-  }
-
   function imageDownloadName(block: RenderableArticleBlock): string {
     const altName = block.alt?.trim().replace(/[\\/:*?"<>|]+/g, "-");
     return altName || `context-reader-image-${block.id}.jpg`;
@@ -3325,14 +3435,6 @@ export function ReaderView({
               className={toolbarStyles.action}
               label="编辑文章"
               onClick={beginArticleEditing}
-            />
-          )}
-          {articleSaved && !editingArticle && (
-            <PillNavAction
-              className={toolbarStyles.action}
-              label="重写摘要"
-              onClick={() => void handleRegenerateSummary()}
-              disabled={savingArticle || savingArticleEdit || isOffline}
             />
           )}
           <PillNavAction
@@ -3604,7 +3706,6 @@ export function ReaderView({
                     </figure>
                   );
                 }
-                const imageLoaded = loadedImageBlockIds.has(block.id);
                 const externalImagePending = articleImagesLocalizing && isExternalArticleImageUrl(block.src);
                 return (
                   <figure
@@ -3613,14 +3714,15 @@ export function ReaderView({
                     className={`my-8 min-w-0 overflow-hidden lg:my-10 ${imageWidthClassName}`}
                   >
                     <div className="group relative overflow-hidden rounded-[14px] bg-[#f5f5f7]">
-                      {!imageLoaded && (
-                        <div className="pointer-events-none absolute inset-0 grid place-items-center px-6 text-center text-sm leading-6 text-[#526873]">
-                          <span>{externalImagePending ? "配图正在保存，正文可先阅读" : "图片加载中"}</span>
-                        </div>
-                      )}
+                      <div
+                        className="pointer-events-none absolute inset-0 grid place-items-center px-6 text-center text-sm leading-6 text-[#526873]"
+                        data-reader-image-placeholder={block.id}
+                      >
+                        <span>{externalImagePending ? "配图正在保存，正文可先阅读" : "图片加载中"}</span>
+                      </div>
                       <img
                         alt={block.alt || ""}
-                        className="h-auto max-h-[65vh] w-full max-w-full object-contain sm:max-h-[70vh]"
+                        className="relative z-[1] h-auto max-h-[65vh] w-full max-w-full object-contain sm:max-h-[70vh]"
                         decoding="async"
                         data-reader-image={block.id}
                         height={block.height ?? FALLBACK_READER_IMAGE_HEIGHT}
@@ -3632,7 +3734,10 @@ export function ReaderView({
                         }}
                         onLoad={(event) => {
                           preserveSourceAlignmentAfterImageLayout(event.currentTarget);
-                          setLoadedImageBlockIds((current) => new Set(current).add(block.id));
+                          const placeholder = event.currentTarget.previousElementSibling;
+                          if (placeholder instanceof HTMLElement && placeholder.dataset.readerImagePlaceholder === block.id) {
+                            placeholder.hidden = true;
+                          }
                         }}
                         referrerPolicy="no-referrer"
                         sizes="(min-width: 1024px) 768px, calc(100vw - 40px)"
@@ -4013,102 +4118,14 @@ export function ReaderView({
             }`}
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="absolute inset-x-3 bottom-[max(12px,env(safe-area-inset-bottom))] z-10 flex items-center gap-2 overflow-x-auto pb-1 sm:inset-x-auto sm:bottom-auto sm:right-3 sm:top-3 sm:justify-end sm:overflow-visible sm:pb-0">
-              <button
-                type="button"
-                className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b] sm:h-8 sm:px-3"
-                onClick={() => changeActiveImageZoom(-0.1)}
-                disabled={activeImageZoom <= ACTIVE_IMAGE_MIN_ZOOM}
-              >
-                缩小
-              </button>
-              <span className="flex h-11 min-w-14 shrink-0 items-center justify-center rounded-full bg-white/95 px-3 text-center text-sm leading-none text-[#1d1d1f] sm:h-auto sm:py-1.5">
-                {activeImageZoomPercent}%
-              </span>
-              <button
-                type="button"
-                className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b] sm:h-8 sm:px-3"
-                onClick={() => changeActiveImageZoom(0.1)}
-                disabled={activeImageZoom >= ACTIVE_IMAGE_MAX_ZOOM}
-              >
-                放大
-              </button>
-              <button
-                type="button"
-                className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:text-[#86868b] sm:h-8 sm:px-3"
-                onClick={() => {
-                  setActiveImageZoom(1);
-                  setActiveImageZoomOrigin({ x: 50, y: 50 });
-                }}
-                disabled={activeImageZoom === 1}
-              >
-                适合
-              </button>
-              <button
-                type="button"
-                className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 sm:h-8 sm:px-3"
-                onClick={() => downloadImage(activeImageBlock)}
-              >
-                下载
-              </button>
-              {!IMAGE_OCR_ENABLED && (
-                <button
-                  type="button"
-                  className="h-11 shrink-0 rounded-full bg-white/95 px-4 text-sm leading-none text-[#1d1d1f] transition hover:bg-white active:scale-95 sm:h-8 sm:px-3"
-                  onClick={() => setActiveImageBlockId(null)}
-                >
-                  关闭
-                </button>
-              )}
-            </div>
-            <div
-              ref={activeImageScrollRef}
-              className="flex min-h-0 items-center justify-center overflow-hidden bg-[#111111] p-2 pb-20 sm:p-4 sm:pt-14"
-              onWheel={handleActiveImageWheel}
-            >
-              <div
-                className="relative flex h-full w-full items-center justify-center"
-                style={{
-                  transform: `scale(${activeImageZoom})`,
-                  transformOrigin: `${activeImageZoomOrigin.x}% ${activeImageZoomOrigin.y}%`,
-                  transition: "transform 150ms ease-out",
-                  willChange: "transform",
-                }}
-              >
-                <img
-                  alt={activeImageBlock.alt || ""}
-                  className="max-h-full max-w-full object-contain"
-                  decoding="async"
-                  height={activeImageBlock.height ?? FALLBACK_READER_IMAGE_HEIGHT}
-                  referrerPolicy="no-referrer"
-                  src={activeImageBlock.src}
-                  width={activeImageBlock.width ?? FALLBACK_READER_IMAGE_WIDTH}
-                />
-                {activeImageLayout.status === "ready" && (
-                  <div className="absolute inset-0">
-                    {activeImageLayout.words.map((word, index) => (
-                      <button
-                        key={`${word.text}-${index}-${word.x}-${word.y}`}
-                        type="button"
-                        aria-label={`解释 ${word.text}`}
-                        className="absolute rounded-[3px] border border-transparent bg-[#0066cc]/0 transition hover:border-[#0066cc]/70 hover:bg-[#0066cc]/15 focus-visible:border-[#0066cc] focus-visible:bg-[#0066cc]/18 focus-visible:outline-none"
-                        style={{
-                          left: `${word.x}%`,
-                          top: `${word.y}%`,
-                          width: `${word.width}%`,
-                          height: `${word.height}%`,
-                        }}
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          handleImageLayoutWordClick(word, index);
-                        }}
-                        title={word.text}
-                      />
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
+            <ActiveImageCanvas
+              key={activeImageBlock.id}
+              block={activeImageBlock}
+              layoutWords={activeImageLayout.status === "ready" ? activeImageLayout.words : []}
+              onClose={() => setActiveImageBlockId(null)}
+              onDownload={() => downloadImage(activeImageBlock)}
+              onSelectLayoutWord={handleImageLayoutWordClick}
+            />
             {IMAGE_OCR_ENABLED && (
               <aside className="flex min-h-0 flex-col border-t border-[#e0e0e0] bg-white lg:border-l lg:border-t-0">
                 <div className="flex shrink-0 items-center justify-between gap-3 border-b border-[#e0e0e0] px-4 py-3">
@@ -4252,7 +4269,6 @@ export function ReaderView({
                   )}
                   <button type="button" onClick={handleCopyArticle} disabled={editingArticle}>复制文章内容</button>
                   <button type="button" onClick={handleSaveArticle} disabled={articleSaved || savingArticle || savingArticleEdit || editingArticle}>{saveButtonText}</button>
-                  {articleSaved && <button type="button" onClick={() => void handleRegenerateSummary()} disabled={savingArticle || savingArticleEdit || editingArticle || isOffline}>重新生成摘要</button>}
                 </div>
               </div>
             )}
@@ -4288,7 +4304,7 @@ export function ReaderView({
         canJumpToVocabularySource={(entry) =>
           canJumpToSourceSentence(entry.sourceSentence) ||
           Boolean(canJumpToVocabularySourceOutsideArticle?.(entry)) ||
-          Boolean(findBestSourceSentenceMatch(entry.sourceSentence, entry.word, wordTokens))
+          sourceWordSet.has(normalizeForSourceMatch(entry.word))
         }
         onOpenImport={() => { cancelActiveExplanationRequest(); setMobileExplanationOpen(false); setReaderWorkLayer("import"); }}
         onOpenDictionary={() => {

@@ -48,6 +48,9 @@ import {
 } from "../lib/readingProgressPolicy";
 import type { PublicArticle } from "../types/publicArticle";
 import { createArticleTranslationCacheKey } from "../lib/articleTranslationIdentity";
+import { cursorAnchoredImageZoom } from "../lib/imageZoom";
+import { createSourceSentenceIndex, findBestSourceSentenceMatchInIndex } from "../lib/sourceMatching";
+import { tokenizeArticle } from "../lib/tokenizer";
 
 function recommendationArticle(id: string, options?: { cover?: boolean }): PublicArticle {
   return {
@@ -467,6 +470,25 @@ test("mobile overlays lock background scroll and adapt across viewport changes",
   assert.doesNotMatch(menuStyles, /color: #657985|color: #687b86|color: #607581/);
 });
 
+test("mobile sheet return controls stay above drag handles with full touch targets", () => {
+  const menuStyles = readFileSync(new URL("../components/HomeOptionMenu.module.css", import.meta.url), "utf8");
+  const readerStyles = readFileSync(new URL("../components/ReaderToolbar.module.css", import.meta.url), "utf8");
+  const homeStyles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
+  assert.match(menuStyles, /\.mobilePreviewBack\s*\{[\s\S]*?z-index:\s*64[\s\S]*?min-height:\s*48px/);
+  assert.match(menuStyles, /\.mobileSheetHandle\s*\{[\s\S]*?z-index:\s*52/);
+  assert.match(readerStyles, /\.mobileSheetHeader button\s*\{[\s\S]*?min-height:\s*44px/);
+  assert.match(readerStyles, /\.workLayer > header > button\s*\{[^}]*min-height:\s*44px/);
+  assert.match(homeStyles, /\.dictionaryWindow > header button\s*\{[^}]*min-height:\s*44px/);
+});
+
+test("homepage dictionary is docked instead of restoring a draggable floating window", () => {
+  const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
+  const styles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
+  assert.doesNotMatch(component, /context-reader-dictionary-window-v1|startDictionaryDrag|persistDictionaryWindow/);
+  assert.match(component, /MOBILE_SHEET_MAX_HEIGHT/);
+  assert.match(styles, /\.dictionaryWindow\s*\{[\s\S]*?inset:\s*0 auto 0 0[\s\S]*?height:\s*100dvh/);
+});
+
 test("mobile vocabulary hides Anki actions and image captions use reader tokens", () => {
   const menu = readFileSync(new URL("../components/HomeOptionMenu.tsx", import.meta.url), "utf8");
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
@@ -500,6 +522,62 @@ test("homepage feature cards reserve vertical gestures for page scrolling", () =
   assert.match(styles, /\.qrToggle, \.wechatQr \{ display: none !important; \}/);
 });
 
+test("every recommendation card receives a painted entry keyframe before observation", () => {
+  const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
+  assert.match(component, /cards\.forEach\(\(card\) => \{[\s\S]*?delete card\.dataset\.visible/);
+  assert.match(component, /requestAnimationFrame\(\(\) => \{\s*observeFrame = window\.requestAnimationFrame/);
+  assert.match(component, /cards\.forEach\(\(card\) => observer\.observe\(card\)\)/);
+});
+
+test("image zoom keeps the source pixel under a changed cursor position", () => {
+  const firstCursor = { x: 240, y: 160 };
+  const first = cursorAnchoredImageZoom({ scale: 1, x: 0, y: 0 }, 1.5, firstCursor);
+  assert.equal(first.x + (firstCursor.x * first.scale), firstCursor.x);
+  assert.equal(first.y + (firstCursor.y * first.scale), firstCursor.y);
+
+  const secondCursor = { x: 680, y: 420 };
+  const sourceX = (secondCursor.x - first.x) / first.scale;
+  const sourceY = (secondCursor.y - first.y) / first.scale;
+  const second = cursorAnchoredImageZoom(first, 2, secondCursor);
+  assert.equal(second.x + (sourceX * second.scale), secondCursor.x);
+  assert.equal(second.y + (sourceY * second.scale), secondCursor.y);
+});
+
+test("reader image loading and zoom stay outside the long article render state", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  assert.doesNotMatch(reader, /loadedImageBlockIds|setLoadedImageBlockIds/);
+  assert.match(reader, /function ActiveImageCanvas/);
+  assert.match(reader, /cursorAnchoredImageZoom\(targetTransformRef\.current/);
+  assert.match(reader, /addEventListener\("wheel", onWheel, \{ passive: false \}\)/);
+});
+
+test("vocabulary source jumps avoid delayed long-article rerenders and bulk image wakeups", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  const home = readFileSync(new URL("../components/HomeClient.tsx", import.meta.url), "utf8");
+  const alignedHandler = home.slice(home.indexOf("onSourceJumpAligned={() => {"), home.indexOf("savedArticles={savedArticles}"));
+  assert.doesNotMatch(reader, /image\.loading = "eager"/);
+  assert.match(reader, /sourceTargetTokenIds\(wordTokens, sourceSentenceToHighlight/);
+  assert.match(home, /if \(forcedSavedArticleId\)[\s\S]*?saveArticleReadingProgress\(forcedSavedArticleId, anchor\);/);
+  assert.doesNotMatch(alignedHandler, /setSavedArticles/);
+  assert.doesNotMatch(reader, /contentVisibility|containIntrinsicSize/);
+});
+
+test("source sentence matching indexes candidates instead of rescanning every word token", () => {
+  const tokens = tokenizeArticle([
+    "A short unrelated sentence.",
+    "Mourners were given the toys at her funeral.",
+    "Another unrelated sentence about a commercial rubric.",
+  ].join("\n")).flatMap((paragraph) => paragraph.tokens.filter((token) => token.type === "word"));
+  const index = createSourceSentenceIndex(tokens);
+  const match = findBestSourceSentenceMatchInIndex(
+    "Mourners were given toys at the funeral.",
+    "Mourners",
+    index,
+  );
+  assert.equal(match?.sentence, "Mourners were given the toys at her funeral.");
+  assert.equal(index.sentenceIndexesByTerm.get("mourners")?.length, 1);
+});
+
 test("full translation quotas bind to the exact article body version", () => {
   const first = createArticleTranslationCacheKey([{ id: "paragraph-0", type: "paragraph", text: "Original body." }]);
   const same = createArticleTranslationCacheKey([{ id: "paragraph-0", type: "paragraph", text: "Original body." }]);
@@ -516,9 +594,20 @@ test("translation and summary quotas stay separate and curated cache keeps its c
   assert.match(translationStart, /metricKey: "full_article_translation"/);
   assert.match(translationStart, /finishUsage\(actionId, "cached", true, false\)/);
   assert.match(summary, /metricKey: "article_summary"/);
+  assert.doesNotMatch(reader, /重写摘要|重新生成摘要|handleRegenerateSummary/);
+  assert.doesNotMatch(summary, /regenerate|regenerated/);
   assert.doesNotMatch(reader, /void startArticleTranslationJob\(translationSourceKey, missingBlocks/);
   assert.match(migration, /\('plus', 'full_article_translation', 20, 'month'\)/);
   assert.match(migration, /\('max', 'full_article_translation', 60, 'month'\)/);
+});
+
+test("quota migration keeps consume_usage column references unambiguous", () => {
+  const migration = readFileSync(new URL("../ops/mainland/migrate-translation-summary-quotas.sql", import.meta.url), "utf8");
+  const verification = readFileSync(new URL("../ops/mainland/verify-usage-contracts.sql", import.meta.url), "utf8");
+  assert.match(migration, /select uc\.used_units into v_current[\s\S]*?from public\.usage_counters uc/);
+  assert.doesNotMatch(migration, /select used_units into v_current/);
+  assert.match(verification, /from public\.consume_usage\(/);
+  assert.match(verification, /for v_metric in[\s\S]*?quota_plan_limits/);
 });
 
 test("full translation keeps progressive output while batching upstream context", () => {

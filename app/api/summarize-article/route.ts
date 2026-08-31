@@ -60,7 +60,7 @@ function userFriendlyDeepSeekError(message = ""): string {
 export async function POST(request: Request) {
   let actionId = "";
   let usageSucceeded = false;
-  let body: { article?: unknown; regenerate?: unknown } | null;
+  let body: { article?: unknown } | null;
   try {
     body = await readJsonBody(request, 128 * 1024);
   } catch (error) {
@@ -84,7 +84,7 @@ export async function POST(request: Request) {
       loginRequired: true,
     })).actionId;
     await setUsageActionMetadata(actionId, {
-      source: body?.regenerate === true ? "regenerated" : "generated",
+      source: "generated",
       articleKey: createHash("sha256").update(article).digest("hex").slice(0, 16),
       articleLabel: `用户文章 · ${createHash("sha256").update(article).digest("hex").slice(0, 6)}`,
       articleCharacters: article.length,

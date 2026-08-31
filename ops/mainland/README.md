@@ -9,6 +9,8 @@ Production never uses Supabase Cloud. The application keeps `SUPABASE_*` compati
 - `compose.production.yml`: opens public HTTP/HTTPS only after ICP filing.
 - `backup-postgres.sh`: daily custom-format dumps, SHA-256 sidecars, 7 daily / 5 weekly / 12 monthly retention and optional rclone off-site copy.
 - `verify-backup.sh`: restores pre-data, data, and post-data into the fixed disposable database `context_reader_restore_check`; it grants the disposable verifier role access to the Vault extension table between schema and data phases, and never overwrites the production database.
+- `verify-usage-migration.sh` + `verify-usage-contracts.sql`: restore a SHA-verified backup into a disposable database, apply a quota migration, and exercise shared `consume_usage` for every existing configured metric plus idempotent replay before production use.
+- `backfill-leading-cover-images.sql` + `verify-leading-cover-backfill.sh`: restore an existing reviewed cover into published rows whose body has no valid image, prove the operation is idempotent by running it twice on an isolated restore, and verify the cover is the leading media block.
 - `healthcheck.sh`: checks all seven services, the active shadow or production URL, disk pressure, and backup freshness every five minutes.
 - `prune-release-images.sh`: holds the deployment lock, preserves the current and direct-parent application images, removes older Context Reader image tags, and prunes only unused dangling image layers. Its daily timer never touches containers, volumes, backups, databases, or versioned release directories.
 - `rollback-shadow.sh`: retags a previously accepted application image and restarts only the private shadow stack.

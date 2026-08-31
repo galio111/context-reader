@@ -5,6 +5,18 @@ const WORD_RE = /[a-z]+(?:['-][a-z]+)*/g;
 const SIMILAR_SOURCE_THRESHOLD = 0.62;
 const SIMILAR_VOCABULARY_THRESHOLD = 0.7;
 
+interface IndexedSourceSentence {
+  sentence: string;
+  token: ReaderToken;
+  terms: Set<string>;
+}
+
+export interface SourceSentenceIndex {
+  exact: Map<string, ReaderToken>;
+  sentences: IndexedSourceSentence[];
+  sentenceIndexesByTerm: Map<string, number[]>;
+}
+
 export function normalizeForSourceMatch(value: string): string {
   return value.trim().replace(/\s+/g, " ").toLowerCase();
 }
@@ -87,26 +99,62 @@ export function findBestSourceSentenceMatch(
   selectedText: string,
   tokens: ReaderToken[],
 ): { sentence: string; token: ReaderToken; score: number } | null {
-  const seen = new Set<string>();
-  let best: { sentence: string; token: ReaderToken; score: number } | null = null;
+  return findBestSourceSentenceMatchInIndex(
+    sourceSentence,
+    selectedText,
+    createSourceSentenceIndex(tokens),
+  );
+}
+
+export function createSourceSentenceIndex(tokens: ReaderToken[]): SourceSentenceIndex {
+  const exact = new Map<string, ReaderToken>();
+  const sentences: IndexedSourceSentence[] = [];
+  const sentenceIndexesByTerm = new Map<string, number[]>();
 
   for (const token of tokens) {
     const normalizedSentence = normalizeForSourceMatch(token.sentence);
-    if (!normalizedSentence || seen.has(normalizedSentence)) {
+    if (!normalizedSentence || exact.has(normalizedSentence)) {
       continue;
     }
-    seen.add(normalizedSentence);
+    exact.set(normalizedSentence, token);
+    const sentenceTerms = uniqueTerms(normalizedSentence);
+    const sentenceIndex = sentences.length;
+    sentences.push({ sentence: token.sentence, token, terms: sentenceTerms });
+    for (const term of sentenceTerms) {
+      const indexes = sentenceIndexesByTerm.get(term) ?? [];
+      indexes.push(sentenceIndex);
+      sentenceIndexesByTerm.set(term, indexes);
+    }
+  }
 
-    if (!selectedTextAppearsInSentence(selectedText, token.sentence)) {
+  return { exact, sentences, sentenceIndexesByTerm };
+}
+
+export function findBestSourceSentenceMatchInIndex(
+  sourceSentence: string,
+  selectedText: string,
+  index: SourceSentenceIndex,
+): { sentence: string; token: ReaderToken; score: number } | null {
+  const selectedTerms = terms(selectedText);
+  if (selectedTerms.length === 0) {
+    return null;
+  }
+
+  const candidateIndexes = index.sentenceIndexesByTerm.get(selectedTerms[0]) ?? [];
+  let best: { sentence: string; token: ReaderToken; score: number } | null = null;
+
+  for (const candidateIndex of candidateIndexes) {
+    const candidate = index.sentences[candidateIndex];
+    if (!candidate || !selectedTerms.every((term) => candidate.terms.has(term))) {
       continue;
     }
 
-    const score = sourceSentenceSimilarity(sourceSentence, token.sentence);
+    const score = sourceSentenceSimilarity(sourceSentence, candidate.sentence);
     if (score < SIMILAR_SOURCE_THRESHOLD) {
       continue;
     }
     if (!best || score > best.score) {
-      best = { sentence: token.sentence, token, score };
+      best = { sentence: candidate.sentence, token: candidate.token, score };
     }
   }
 

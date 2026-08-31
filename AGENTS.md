@@ -34,6 +34,7 @@ Do not say a release is live because code was edited, committed, built, uploaded
 - Mobile vertical movement is reading scroll. Phrase selection requires deliberate horizontal movement or long press.
 - Full-article translation starts only after the user clicks inside its sidebar. Opening or switching tools must not auto-start or cancel it. Translate one text block per request with full-article `contextBlocks`; retain completed blocks, reuse unchanged caches and make force-regenerate non-destructive.
 - Streamed explanation/dictionary fields are the visible authority. Merge them into the durable result so progressive, completed and replayed layouts remain the same.
+- Article summaries are first-save metadata. Save the article immediately, generate only when no valid summary exists, and then disable the saved action as `已保存`; do not expose or reintroduce summary regeneration.
 - Regenerating a saved vocabulary item preserves its id, creation time and Anki record. Vocabulary virtualization uses measured content heights; do not restore fixed oversized rows.
 - Anki cloze hints use only durable `contextMeaning`. Pronunciation is click-to-play, and note import continues if deck autoplay configuration cannot be written.
 - User-visible failures distinguish unsupported input, connectivity, account/quota and site/provider faults. Never expose raw transport messages such as `Failed to fetch`.
@@ -47,6 +48,7 @@ Do not say a release is live because code was edited, committed, built, uploaded
 - Only a server-verified active `admin` entitlement may expose the normal Admin entry or authorize `/api/admin/*`. The legacy password session is recovery-only. The browser receives no Supabase key.
 - Preserve bounded bodies, cost-aware throttling/concurrency, same-origin admin mutations, pinned-DNS remote fetches, private-network blocking, generic client errors, RLS and browser-role revocations. The in-process limiter is defense in depth; larger traffic also needs a platform/distributed limit or provider spending cap.
 - Detailed site/provider/config/client-processing faults are stored privately and visible only in server-authorized Admin. Network and input failures are not developer bugs. Email alerts are optional and never replace durable storage.
+- `consume_usage` is shared by article lookup, standalone dictionary, summary, translation and later quota metrics. Any migration that replaces it must restore a real backup into an isolated database and run `verify-usage-contracts.sql` across every configured metric before touching production; testing only the newly added feature is insufficient.
 
 ## Recommendations And Admin
 
@@ -54,6 +56,7 @@ Do not say a release is live because code was edited, committed, built, uploaded
 - New recommendations enter one `/admin` candidate workflow from saved article, pasted text, URL or reviewed RSS/Atom discovery. URL intake and crawling reuse `/api/import-url` and the shared article-boundary sanitizer. Crawler output never publishes automatically.
 - Candidate and published rows open the real `ReaderView`; body edits write back to that row, while title/summary/cover metadata stay in Admin. Publishing requires a reviewed cover.
 - Remote candidate covers must be fetched through the pinned-DNS safe path, converted to bounded content-addressed WebP and stored in the active `public-article-covers` bucket before publication. Published failures show a calm source-labelled fallback, never browser broken-image UI.
+- A genuinely text-only publication remains a text edition. If a published row already has a reviewed cover but its body has no image because duplicate-image cleanup removed the only body image, restore that same cover as the leading media block with the idempotent backfill and verification scripts; never invent a different image.
 - Feedback and up to three validated private images live in the private feedback bucket. Only Admin can list, view, update or delete them; deletion also removes attachments.
 - Exact crawler, feedback, error, classification, storage and schema behavior belongs in `docs/architecture.md` and `docs/integration-guide.md`, not duplicated here.
 
@@ -71,6 +74,7 @@ Do not say a release is live because code was edited, committed, built, uploaded
 - Continue redesign work on the real root homepage in a branch and connect each visual slice to real SSR recommendations, HomeClient callbacks, Menu/account surfaces and `ReaderView` from the first iteration. Do not finish UI first and synchronize functionality later.
 - Homepage layout, Menu presentation and visual hierarchy may be redesigned, but existing capabilities cannot disappear by implication. Any removal requires an explicit functional decision.
 - Suppress native blue selection only through scoped/shared selection rules while restoring normal selection in inputs, textareas, editable fields and the translation panel. Never apply site-wide `user-select: none`.
+- Homepage standalone dictionary is a fixed docked work surface, not a draggable/resizable floating window and not a position restored from browser storage. Mobile uses a bottom-docked sheet with an independently scrolling result.
 - Full current/target status and the implementation workflow live in `docs/home-v2-implementation-contract.md`.
 
 ## Motion And UI Verification
@@ -87,6 +91,9 @@ Do not say a release is live because code was edited, committed, built, uploaded
 - Technical correctness, visual fidelity and repeated-use product experience are separate gates. Build success, HTTP 200, correct state transitions or one implementation-side browser pass do not prove reference fidelity or product suitability.
 - Compare actual browser keyframes at start, 25%, 50%, 75% and end when possible. If the browser/reference cannot be inspected, mark visual verification incomplete. Static bundle inference is not observed behavior.
 - Self-inspect desktop, mobile, keyboard, reduced-motion, console and repeat flows, but treat the user's visual acceptance as the final gate. Only user-confirmed complex motion may become protected behavior.
+- Every recommendation image card, including the featured card and the last card revealed before “显示更多”, must receive the same entry animation. Paint the reset keyframe before observation so already-visible cards do not skip it.
+- Every visible mobile action must provide at least a 44px coarse-pointer target and remain above any drag-handle hit layer. A visually present button that overlaps a sheet handle is a blocking defect.
+- Long-article source jumps must not synchronously fuzzy-scan every saved article during render, wake all preceding lazy images, or push metadata back through the entire Reader after alignment. Cache/index matching, yield between fallback articles, keep real block heights, and persist the aligned reading-state without rerendering the long token tree.
 
 ## Documentation Discipline
 

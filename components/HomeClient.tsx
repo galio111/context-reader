@@ -15,7 +15,12 @@ import {
   saveArticleReadingProgress,
   touchSavedArticle,
 } from "@/lib/articles";
-import { findBestSourceSentenceMatch, normalizeForSourceMatch } from "@/lib/sourceMatching";
+import {
+  createSourceSentenceIndex,
+  findBestSourceSentenceMatchInIndex,
+  normalizeForSourceMatch,
+  type SourceSentenceIndex,
+} from "@/lib/sourceMatching";
 import { hasClickableWords, tokenizeArticle } from "@/lib/tokenizer";
 import { primeLeadingArticleImage } from "@/lib/articleImagePreload";
 import { waitForFastImageLocalization } from "@/lib/articleImageLocalizationPolicy";
@@ -110,6 +115,11 @@ interface ReaderSessionSnapshot {
 
 const MAX_READER_SESSION_DEPTH = 5;
 const READER_HISTORY_STATE_KEY = "contextReaderReaderDepth";
+const MAX_SOURCE_MATCH_CACHE_ENTRIES = 24;
+
+function yieldToBrowser(): Promise<void> {
+  return new Promise((resolve) => window.setTimeout(resolve, 0));
+}
 
 function readFileAsDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -223,6 +233,8 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     rapidScanPending: false,
     lastReport: null,
   });
+  const normalizedArticleBodyCacheRef = useRef(new Map<string, string>());
+  const articleSourceIndexCacheRef = useRef(new Map<string, SourceSentenceIndex>());
 
   useEffect(() => {
     importedArticleRef.current = importedArticle;
@@ -273,7 +285,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       };
     }
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [reading]);
+  }, [reading, sourceSentenceToHighlight]);
 
   useEffect(() => {
     readingRef.current = reading;
@@ -484,7 +496,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     const forcedSavedArticleId = forceProgressSaveForArticleRef.current;
     if (forcedSavedArticleId) {
       forceProgressSaveForArticleRef.current = null;
-      setSavedArticles(saveArticleReadingProgress(forcedSavedArticleId, anchor));
+      saveArticleReadingProgress(forcedSavedArticleId, anchor);
       beginReadingProgressSession(anchor);
       return;
     }
@@ -1104,21 +1116,44 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   }, []);
 
   function containsSourceSentence(body: string, sourceSentence: string): boolean {
-    const normalizedBody = normalizeForSourceMatch(body);
+    let normalizedBody = normalizedArticleBodyCacheRef.current.get(body);
+    if (normalizedBody === undefined) {
+      normalizedBody = normalizeForSourceMatch(body);
+      normalizedArticleBodyCacheRef.current.set(body, normalizedBody);
+      if (normalizedArticleBodyCacheRef.current.size > MAX_SOURCE_MATCH_CACHE_ENTRIES) {
+        const oldest = normalizedArticleBodyCacheRef.current.keys().next().value as string | undefined;
+        if (oldest !== undefined) normalizedArticleBodyCacheRef.current.delete(oldest);
+      }
+    }
     const normalizedSourceSentence = normalizeForSourceMatch(sourceSentence);
     return Boolean(normalizedSourceSentence && normalizedBody.includes(normalizedSourceSentence));
   }
 
   function findSimilarSourceSentence(body: string, entry: VocabularyEntry): string {
-    const tokens = tokenizeArticle(body).flatMap((paragraph) => paragraph.tokens.filter((token) => token.type === "word"));
-    return findBestSourceSentenceMatch(entry.sourceSentence, entry.word, tokens)?.sentence ?? "";
+    let index = articleSourceIndexCacheRef.current.get(body);
+    if (!index) {
+      const tokens = tokenizeArticle(body).flatMap((paragraph) => paragraph.tokens.filter((token) => token.type === "word"));
+      index = createSourceSentenceIndex(tokens);
+      articleSourceIndexCacheRef.current.set(body, index);
+      if (articleSourceIndexCacheRef.current.size > MAX_SOURCE_MATCH_CACHE_ENTRIES) {
+        const oldest = articleSourceIndexCacheRef.current.keys().next().value as string | undefined;
+        if (oldest !== undefined) articleSourceIndexCacheRef.current.delete(oldest);
+      }
+    }
+    return findBestSourceSentenceMatchInIndex(entry.sourceSentence, entry.word, index)?.sentence ?? "";
   }
 
-  function findArticleForVocabularyEntry(entry: VocabularyEntry): SavedArticle | null {
-    return savedArticles.find((savedArticle) =>
-      containsSourceSentence(savedArticle.body, entry.sourceSentence) ||
-      Boolean(findSimilarSourceSentence(savedArticle.body, entry)),
-    ) ?? null;
+  async function findArticleForVocabularyEntry(entry: VocabularyEntry): Promise<SavedArticle | null> {
+    const exact = savedArticles.find((savedArticle) =>
+      containsSourceSentence(savedArticle.body, entry.sourceSentence),
+    );
+    if (exact) return exact;
+
+    for (const savedArticle of savedArticles) {
+      await yieldToBrowser();
+      if (findSimilarSourceSentence(savedArticle.body, entry)) return savedArticle;
+    }
+    return null;
   }
 
   function canJumpToVocabularySource(entry: VocabularyEntry): boolean {
@@ -1126,8 +1161,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       Boolean(entry.sourceArticle?.kind === "public" && entry.sourceArticle.id) ||
       Boolean(entry.sourceSentence.trim() && initialPublicArticles.length > 0) ||
       containsSourceSentence(article, entry.sourceSentence) ||
-      Boolean(findSimilarSourceSentence(article, entry)) ||
-      Boolean(findArticleForVocabularyEntry(entry))
+      savedArticles.some((savedArticle) => containsSourceSentence(savedArticle.body, entry.sourceSentence))
     );
   }
 
@@ -1144,6 +1178,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     for (const id of candidateIds) {
       try {
         const publicArticle = await loadPublicArticle(id);
+        await yieldToBrowser();
         const matchedSentence = containsSourceSentence(publicArticle.body, entry.sourceSentence)
           ? entry.sourceSentence
           : findSimilarSourceSentence(publicArticle.body, entry);
@@ -1176,7 +1211,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       return true;
     }
 
-    const savedArticle = findArticleForVocabularyEntry(entry);
+    const savedArticle = await findArticleForVocabularyEntry(entry);
     if (savedArticle) {
       pushCurrentReaderSession();
       const touchedArticles = touchSavedArticle(savedArticle.id);
@@ -1258,7 +1293,6 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
           const savedArticleId = pendingSourceJumpSavedArticleIdRef.current ?? activeSavedArticleIdRef.current;
           pendingSourceJumpSavedArticleIdRef.current = null;
           if (!savedArticleId) return;
-          setSavedArticles(touchSavedArticle(savedArticleId));
           forceProgressSaveForArticleRef.current = savedArticleId;
         }}
         savedArticles={savedArticles}
