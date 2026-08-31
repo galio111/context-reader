@@ -8,7 +8,7 @@ import { deepReadingUnits, gateUsage, usageErrorResponse } from "@/lib/usageGate
 import { resolveUsageIdentity } from "@/lib/usageIdentity";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
-import { IncrementalJsonObjectParser } from "@/lib/incrementalJsonObjects";
+import { extractArticleTranslationText, IncrementalJsonObjectParser } from "@/lib/incrementalJsonObjects";
 
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const MAX_TARGET_BLOCKS = 80;
@@ -316,7 +316,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const requestedIds = new Set(blocks.map((block) => block.id));
+    const requestedBlocks = new Map(blocks.map((block) => [block.id, block]));
     const encoder = new TextEncoder();
     const stream = new ReadableStream<Uint8Array>({
       async start(output) {
@@ -329,21 +329,24 @@ export async function POST(request: Request) {
         let streamErrorCode = "";
         const jsonObjects = new IncrementalJsonObjectParser();
 
-        const emitTranslation = (item: { id?: unknown; translation?: unknown }) => {
+        const emitTranslation = (item: Record<string, unknown>) => {
           const id = typeof item.id === "string" ? item.id : "";
-          const translation = typeof item.translation === "string" ? item.translation.trim() : "";
-          if (!requestedIds.has(id) || !translation || completedIds.has(id)) return;
+          const requestedBlock = requestedBlocks.get(id);
+          const translation = requestedBlock
+            ? extractArticleTranslationText(item, requestedBlock.type)
+            : "";
+          if (!requestedBlock || !translation || completedIds.has(id)) return;
           completedIds.add(id);
           output.enqueue(encoder.encode(`${JSON.stringify({ type: "translation", translation: { id, translation } })}\n`));
         };
 
         const emitTranslationPayload = (value: unknown) => {
           if (!value || typeof value !== "object") return;
-          const object = value as { id?: unknown; translation?: unknown; translations?: unknown };
+          const object = value as Record<string, unknown> & { translations?: unknown };
           emitTranslation(object);
           if (Array.isArray(object.translations)) {
             for (const item of object.translations) {
-              if (item && typeof item === "object") emitTranslation(item as { id?: unknown; translation?: unknown });
+              if (item && typeof item === "object") emitTranslation(item as Record<string, unknown>);
             }
           }
         };
@@ -358,7 +361,7 @@ export async function POST(request: Request) {
                 ? (parsed as { translations: unknown[] }).translations
                 : [];
             for (const item of items) {
-              if (item && typeof item === "object") emitTranslation(item as { id?: unknown; translation?: unknown });
+              if (item && typeof item === "object") emitTranslation(item as Record<string, unknown>);
             }
           } catch {
             // The primary JSONL parser remains authoritative when the provider returned partial or malformed data.

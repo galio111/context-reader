@@ -51,7 +51,7 @@ import { createArticleTranslationCacheKey } from "../lib/articleTranslationIdent
 import { cursorAnchoredImageZoom } from "../lib/imageZoom";
 import { createSourceSentenceIndex, findBestSourceSentenceMatchInIndex } from "../lib/sourceMatching";
 import { tokenizeArticle } from "../lib/tokenizer";
-import { IncrementalJsonObjectParser } from "../lib/incrementalJsonObjects";
+import { extractArticleTranslationText, IncrementalJsonObjectParser } from "../lib/incrementalJsonObjects";
 
 test("article translation streaming parses complete objects without physical newlines", () => {
   const parser = new IncrementalJsonObjectParser();
@@ -64,6 +64,25 @@ test("article translation streaming parses complete objects without physical new
   const wrapped = wrappedParser.push('{"translations":[{"id":"c","translation":"丙"},{"id":"d","translation":"丁"}]}');
   assert.ok(wrapped.some((value) => (value as { id?: string }).id === "c"));
   assert.ok(wrapped.some((value) => (value as { id?: string }).id === "d"));
+});
+
+test("article translation streaming accepts provider block-type fields only for the requested type", () => {
+  assert.equal(
+    extractArticleTranslationText({ id: "block-0", heading: " 标题译文 " }, "heading"),
+    "标题译文",
+  );
+  assert.equal(
+    extractArticleTranslationText({ id: "block-2", paragraph: " 段落译文 " }, "paragraph"),
+    "段落译文",
+  );
+  assert.equal(
+    extractArticleTranslationText({ id: "block-2", commentary: "不能误收" }, "paragraph"),
+    "",
+  );
+  assert.equal(
+    extractArticleTranslationText({ id: "block-2", translation: "标准译文", paragraph: "备用译文" }, "paragraph"),
+    "标准译文",
+  );
 });
 
 function recommendationArticle(id: string, options?: { cover?: boolean }): PublicArticle {

@@ -43,3 +43,16 @@ export class IncrementalJsonObjectParser {
     return parsed;
   }
 }
+
+export function extractArticleTranslationText(
+  value: Record<string, unknown>,
+  expectedBlockType: string,
+): string {
+  const translation = typeof value.translation === "string" ? value.translation.trim() : "";
+  if (translation) return translation;
+
+  const typedTranslation = typeof value[expectedBlockType] === "string"
+    ? value[expectedBlockType].trim()
+    : "";
+  return typedTranslation;
+}
