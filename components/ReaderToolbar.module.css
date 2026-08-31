@@ -470,8 +470,8 @@
     display: flex;
     min-width: 0;
     flex: 1;
-    justify-content: flex-end;
-    gap: 6px;
+    justify-content: flex-start;
+    gap: 4px;
     overflow-x: auto;
     scrollbar-width: none;
     pointer-events: auto;
@@ -482,7 +482,7 @@
   .editorialMobileActions > button {
     min-height: 44px;
     flex: 0 0 auto;
-    padding: 0 12px;
+    padding: 0 8px;
     border: 1px solid oklch(84% 0.025 220);
     border-radius: 999px;
     color: oklch(38% 0.065 220);
@@ -490,6 +490,18 @@
     font: inherit;
     font-size: 12px;
     font-weight: 720;
+    white-space: nowrap;
+  }
+
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .toolbar {
+    padding-inline: 6px;
+    gap: 4px;
+  }
+
+  :global(.cr-reader-root[data-editorial-workbench="true"]) .mobileBackAction {
+    height: 44px;
+    padding-inline: 10px;
+    font-size: 12px;
   }
 
   .editorialMobileActions > button[data-primary="true"],

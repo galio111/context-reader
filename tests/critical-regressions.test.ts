@@ -731,9 +731,12 @@ test("full translation keeps progressive output while batching upstream context"
 test("published homepage toggles persist immediately while candidate choices remain draft", () => {
   const inspector = readFileSync(new URL("../components/AdminArticleMetadataInspector.tsx", import.meta.url), "utf8");
   const adminPage = readFileSync(new URL("../app/admin/page.tsx", import.meta.url), "utf8");
+  const toolbarStyles = readFileSync(new URL("../components/ReaderToolbar.module.css", import.meta.url), "utf8");
   assert.match(inspector, /articleKind !== "published" \|\| !onPlacementSave/);
   assert.match(inspector, /await onPlacementSave\(draft\.homepageCategory, nextPlacement\)/);
   assert.doesNotMatch(inspector, /保存首页位置/);
   assert.match(adminPage, />文章设置<\/button>[\s\S]*?>精选 \{publicArticles\.length\}<\/button>[\s\S]*?>候选 \{candidateArticles\.length\}<\/button>/);
   assert.match(adminPage, /onUploadTranslation=\{readerState\.kind === "published"/);
+  assert.match(toolbarStyles, /editorialMobileActions\s*\{[\s\S]*?justify-content:\s*flex-start[\s\S]*?gap:\s*4px/);
+  assert.match(toolbarStyles, /editorialMobileActions > button\s*\{[\s\S]*?padding:\s*0 8px[\s\S]*?white-space:\s*nowrap/);
 });
