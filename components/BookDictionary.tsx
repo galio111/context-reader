@@ -7,7 +7,6 @@ import { ACCOUNT_DATA_CHANGED_EVENT, ACCOUNT_DATA_MERGED_EVENT, accountDataEvent
 import {
   describeApiFailure,
   describeCaughtRequestError,
-  describeClientFailure,
   validateStandaloneDictionaryInput,
 } from "@/lib/clientErrorReporting";
 import { isCompleteDictionaryResult, parseDictionaryStream } from "@/lib/dictionaryStream";
@@ -484,12 +483,7 @@ export function BookDictionary({
       if (controller.signal.aborted) return;
       const parsed = parseDictionaryStream(current, normalized);
       if (!isCompleteDictionaryResult(parsed)) {
-        setError(await describeClientFailure("Dictionary stream ended without a complete result.", {
-          operation: "standalone_dictionary_parse",
-          endpoint: "/api/dictionary-stream",
-          fallbackMessage: "词典结果未完整生成。",
-          metadata: { query: normalized, responseCharacters: current.length },
-        }));
+        setError("词典结果没有完整生成，请重新查询。");
         return;
       }
       const dictionary = parsed.result;

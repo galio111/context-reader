@@ -32,6 +32,7 @@ import type { HomepageCuration } from "@/lib/homepageCurationShared";
 import {
   HOMEPAGE_MOBILE_RECOMMENDATION_TARGET,
   HOMEPAGE_RECOMMENDATION_TARGET,
+  homepageShowcaseArticles,
   orderHomepageCategoryArticles,
   orderHomepageRecommendations,
 } from "@/lib/homepageRecommendations";
@@ -176,7 +177,7 @@ interface OpeningArticle {
 
 function readingMinutes(article: PublicArticle): number {
   const words = article.recommendation?.wordCount ?? 0;
-  return Math.max(1, Math.round(words / 180));
+  return Math.max(2, Math.ceil(words / 120));
 }
 
 function visibleArticleCount(length: number, compactViewport: boolean): number {
@@ -392,7 +393,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [librarySearch, personalizedAllCategoryArticles]);
   const displayArticles = memberHome && memberLibraryOpen
     ? libraryArticles
-    : personalizedCategoryArticles.slice(0, showcaseArticleCount);
+    : homepageShowcaseArticles(personalizedCategoryArticles, showcaseArticleCount);
+  const displayArticleMotionKey = displayArticles.map((article) => article.id).join("\u0000");
   const orderedSavedArticles = useMemo(
     () => [...props.savedArticles].sort((a, b) => Date.parse(b.lastOpenedAt || b.updatedAt) - Date.parse(a.lastOpenedAt || a.updatedAt)),
     [props.savedArticles],
@@ -540,7 +542,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       observer.disconnect();
       window.removeEventListener("scroll", trackDirection);
     };
-  }, [activeCategory, displayArticles.length]);
+  }, [activeCategory, displayArticleMotionKey]);
 
   useEffect(() => {
     const sections = [publicationBridgeRef.current, importRef.current, closingRef.current]

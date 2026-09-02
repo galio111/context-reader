@@ -93,6 +93,7 @@ interface ReaderViewProps {
   articleImagesLocalizing?: boolean;
   articleImageStatus?: string;
   onBack: () => void;
+  confirmUnsavedExit?: boolean;
   backLabel?: string;
   onArticleSaved: () => void;
   onArticleChange?: (article: string, importedArticle: ImportedArticle | null) => void;
@@ -985,6 +986,7 @@ export function ReaderView({
   articleImagesLocalizing = false,
   articleImageStatus = "",
   onBack,
+  confirmUnsavedExit = false,
   backLabel = "返回首页",
   onArticleSaved,
   onArticleChange,
@@ -2077,10 +2079,6 @@ export function ReaderView({
     setExplanationStreamText("");
     setExplanationStreaming(true);
 
-    const structuredPromise = requestExplanation(context, controller.signal, actionId).then(
-      (value) => ({ value, error: null }),
-      (error: unknown) => ({ value: null, error }),
-    );
     let streamedExplanation: WordExplanation | null = null;
 
     function acceptCompletedStream(completedText: string) {
@@ -2120,19 +2118,15 @@ export function ReaderView({
         acceptCompletedStream(completedStreamText);
       }
 
-      const structuredResult = await structuredPromise;
-      if (structuredResult.error) {
-        if (streamedExplanation) {
-          void refreshAccount();
-          return;
-        }
-        throw structuredResult.error;
+      if (streamedExplanation) {
+        void refreshAccount();
+        return;
       }
 
-      const structuredExplanation = structuredResult.value;
-      if (!structuredExplanation) {
-        throw new Error("解释结果为空，请重新点击该词。");
-      }
+      // Only use the structured endpoint as a fallback. Starting both transports
+      // together made a successful streamed lookup still produce parse-error
+      // reports and provider mail from the losing request.
+      const structuredExplanation = await requestExplanation(context, controller.signal, actionId);
       const nextExplanation = completedStreamText
         ? mergeStreamDisplayIntoExplanation(structuredExplanation, completedStreamText)
         : structuredExplanation;
@@ -3230,6 +3224,10 @@ export function ReaderView({
 
   async function handleBackToHome() {
     if (!editingArticle) {
+      if (confirmUnsavedExit && !articleSaved) {
+        const shouldSave = window.confirm("这篇导入文章还没有保存。是否先保存再返回首页？\n\n确定：保存文章并返回\n取消：不保存，直接返回");
+        if (shouldSave && !(await handleSaveArticle())) return;
+      }
       onBack();
       return;
     }
@@ -3314,13 +3312,15 @@ export function ReaderView({
     }
   }
 
-  async function handleSaveArticle() {
-    if (!requireLocalAccount("登录后才能保存文章；登录时会先合并本机已有数据。")) return;
+  async function handleSaveArticle(): Promise<boolean> {
+    if (!requireLocalAccount("登录后才能保存文章；登录时会先合并本机已有数据。")) return false;
     setSavingArticle(true);
     setSaveStatus("正在保存文章...");
+    let saved = false;
     try {
       const existing = findSavedArticle(currentArticle);
       saveArticle(currentArticle, existing?.summary ?? "", effectiveImportedArticle);
+      saved = true;
       onArticleSaved();
       if (isOffline) {
         setSaveStatus("文章已保存到本机；联网后会自动同步，摘要需联网生成");
@@ -3331,7 +3331,10 @@ export function ReaderView({
         const { response, data } = await fetchJson<{ summary?: string; error?: string }>("/api/summarize-article", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ article: currentArticle }),
+          body: JSON.stringify({
+            article: currentArticle,
+            publicArticleId: articleSource?.kind === "public" ? articleSource.id : undefined,
+          }),
         }, "文章已保存，但摘要暂时没有生成成功。", { operation: "article_summary" });
         if (!response.ok || !data?.summary) throw new Error(data?.error || "文章已保存，但摘要暂时没有生成成功。");
         saveArticle(currentArticle, data.summary, effectiveImportedArticle);
@@ -3344,6 +3347,7 @@ export function ReaderView({
       setSavingArticle(false);
       window.setTimeout(() => setSaveStatus(""), 2600);
     }
+    return saved;
   }
 
   const saveButtonText = savingArticle

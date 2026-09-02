@@ -216,6 +216,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   const imageStatusTimerRef = useRef<number | null>(null);
   const readingRef = useRef(false);
   const readerOriginRef = useRef<ReaderOriginSnapshot | null>(null);
+  const approvedReaderBackRef = useRef(false);
   const readerSessionStackRef = useRef<ReaderSessionSnapshot[]>([]);
   const readerViewportAnchorRef = useRef<ReaderViewportAnchor | null>(null);
   const readerViewportCaptureRef = useRef<(() => ReaderViewportReport | null) | null>(null);
@@ -460,7 +461,6 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setImportedArticle(null);
     setPreloadedExplanations([]);
     setPreloadedArticleTranslations([]);
-    setPreloadedArticleTranslations([]);
     setActiveArticleSource(undefined);
     setSourceSentenceToHighlight("");
     setSourceWordToHighlight("");
@@ -471,15 +471,31 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   useEffect(() => {
     const handlePopState = () => {
       if (!readingRef.current) return;
+      const originKind = readerOriginRef.current?.kind;
+      const importedUnsaved = (originKind === "pasted-text" || originKind === "url-import")
+        && !findSavedArticle(article);
+      if (!approvedReaderBackRef.current && importedUnsaved) {
+        const leaveUnsaved = window.confirm("这篇导入文章还没有保存。确定不保存并返回首页吗？\n\n取消后可以留在文章中先保存。");
+        if (!leaveUnsaved) {
+          window.history.pushState(
+            { ...(window.history.state ?? {}), [READER_HISTORY_STATE_KEY]: readerHistoryDepthRef.current },
+            "",
+            window.location.href,
+          );
+          return;
+        }
+      }
+      approvedReaderBackRef.current = false;
       readerHistoryDepthRef.current = Math.max(0, readerHistoryDepthRef.current - 1);
       leaveOrRestoreReader();
     };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
-  }, [leaveOrRestoreReader]);
+  }, [article, leaveOrRestoreReader]);
 
   const handleReaderBack = useCallback(() => {
     if (readerHistoryDepthRef.current > 0) {
+      approvedReaderBackRef.current = true;
       window.history.back();
       return;
     }
@@ -1285,6 +1301,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         sourceJumpRequestId={sourceJumpRequestId}
         articleImagesLocalizing={articleImagesLocalizing}
         articleImageStatus={articleImageStatus}
+        confirmUnsavedExit={readerOriginRef.current?.kind === "pasted-text" || readerOriginRef.current?.kind === "url-import"}
         desktopViewportInsetLeft={132}
         initialViewportAnchor={readerInitialViewportAnchor}
         onViewportAnchorChange={handleReaderViewportAnchorChange}

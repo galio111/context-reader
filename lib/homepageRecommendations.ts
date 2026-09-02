@@ -18,8 +18,38 @@ function stableRecommendationRank(value: string): number {
   return hash >>> 0;
 }
 
-function hasCover(article: PublicArticle): boolean {
+export function hasHomepageCover(article: PublicArticle): boolean {
   return Boolean(article.recommendation?.coverImageUrl?.trim());
+}
+
+/**
+ * Preserve an explicit first article, keep the next three desktop rows image-safe,
+ * then weave text-only entries through the remaining library instead of dumping
+ * them into one solid block at the very end.
+ */
+export function deferHomepageImageFreeArticles(
+  articles: PublicArticle[],
+  preserveFeatured = true,
+): PublicArticle[] {
+  if (articles.length <= 1) return articles;
+  const featured = preserveFeatured ? articles[0] : undefined;
+  const remaining = preserveFeatured ? articles.slice(1) : [...articles];
+  const withCover = remaining.filter(hasHomepageCover);
+  const withoutCover = remaining.filter((article) => !hasHomepageCover(article));
+  const protectedRows = withCover.splice(0, HOMEPAGE_RECOMMENDATION_TARGET - (featured ? 1 : 0));
+  const tail: PublicArticle[] = [];
+  while (withCover.length || withoutCover.length) {
+    tail.push(...withCover.splice(0, 2));
+    const textOnly = withoutCover.shift();
+    if (textOnly) tail.push(textOnly);
+  }
+  return uniqueArticles([featured, ...protectedRows, ...tail]);
+}
+
+/** The collapsed surface never fills one of the three rows with a text-only card. */
+export function homepageShowcaseArticles(articles: PublicArticle[], count: number): PublicArticle[] {
+  if (!articles.length || count <= 0) return [];
+  return [articles[0], ...articles.slice(1).filter(hasHomepageCover)].slice(0, count);
 }
 
 function preferenceScore(article: PublicArticle, preferences: RecommendationPreferences): number {
@@ -42,34 +72,15 @@ export function orderHomepageCategoryArticles(
 ): PublicArticle[] {
   const byId = new Map(articles.map((article) => [article.id, article]));
   const curatedIdSet = new Set(curatedIds);
-  return uniqueArticles([
+  return deferHomepageImageFreeArticles(uniqueArticles([
     ...curatedIds.map((id) => byId.get(id)),
     ...articles.filter((article) => !curatedIdSet.has(article.id)),
-  ]);
-}
-
-function fallbackOrder(
-  articles: PublicArticle[],
-  preferences: RecommendationPreferences,
-  dayKey: string,
-): PublicArticle[] {
-  const hasPreferences = Boolean(preferences.readingLevel || preferences.interests.length);
-  return [...articles].sort((left, right) => {
-    if (hasPreferences) {
-      const scoreDifference = preferenceScore(right, preferences) - preferenceScore(left, preferences);
-      if (scoreDifference) return scoreDifference;
-    }
-    const coverDifference = Number(hasCover(right)) - Number(hasCover(left));
-    if (coverDifference) return coverDifference;
-    return stableRecommendationRank(`${dayKey}:${left.id}`) - stableRecommendationRank(`${dayKey}:${right.id}`);
-  });
+  ]), curatedIds.length > 0);
 }
 
 /**
- * The Admin-selected recommendation pool is authoritative. When it cannot fill
- * one featured article plus three complete rows, the remaining published
- * inventory supplies a daily-stable, preference-ranked fallback. This keeps a
- * sparse editorial pool from turning into an empty or single-card homepage.
+ * The Admin-selected recommendation pool is authoritative. Published articles
+ * that are not in it must never silently reappear as fallback recommendations.
  */
 export function orderHomepageRecommendations(
   articles: PublicArticle[],
@@ -78,7 +89,9 @@ export function orderHomepageRecommendations(
   dayKey: string,
 ): PublicArticle[] {
   const byId = new Map(articles.map((article) => [article.id, article]));
-  const manual = uniqueArticles((curation?.categories.推荐 ?? []).map((id) => byId.get(id)));
+  const manual = curation
+    ? uniqueArticles(curation.categories.推荐.map((id) => byId.get(id)))
+    : articles;
   const explicitFeatured = curation?.recommendationFeaturedId
     ? byId.get(curation.recommendationFeaturedId)
     : undefined;
@@ -86,27 +99,28 @@ export function orderHomepageRecommendations(
   const manualOrdered = hasPreferences
     ? [...manual].sort((left, right) => (
         preferenceScore(right, preferences) - preferenceScore(left, preferences)
-        || Number(hasCover(right)) - Number(hasCover(left))
+        || Number(hasHomepageCover(right)) - Number(hasHomepageCover(left))
         || stableRecommendationRank(`${dayKey}:manual:${left.id}`) - stableRecommendationRank(`${dayKey}:manual:${right.id}`)
       ))
     : manual;
 
   const featured = hasPreferences
     ? manualOrdered.find((article) => preferenceScore(article, preferences) > 0)
-      ?? fallbackOrder(articles, preferences, `${dayKey}:featured`)[0]
-    : explicitFeatured ?? manualOrdered[0];
+      ?? (explicitFeatured && manual.some((article) => article.id === explicitFeatured.id) ? explicitFeatured : undefined)
+      ?? manualOrdered[0]
+    : explicitFeatured && manual.some((article) => article.id === explicitFeatured.id)
+      ? explicitFeatured
+      : manualOrdered[0];
   const manualRest = manualOrdered.filter((article) => article.id !== featured?.id);
-  const claimedIds = new Set([featured?.id, ...manualRest.map((article) => article.id)].filter(Boolean));
-  const fallback = fallbackOrder(articles.filter((article) => !claimedIds.has(article.id)), preferences, dayKey);
   const manualIds = new Set(manual.map((article) => article.id));
   const rest = hasPreferences
-    ? [...manualRest, ...fallback].sort((left, right) => (
+    ? [...manualRest].sort((left, right) => (
         preferenceScore(right, preferences) - preferenceScore(left, preferences)
         || Number(manualIds.has(right.id)) - Number(manualIds.has(left.id))
-        || Number(hasCover(right)) - Number(hasCover(left))
+        || Number(hasHomepageCover(right)) - Number(hasHomepageCover(left))
         || stableRecommendationRank(`${dayKey}:personalized:${left.id}`) - stableRecommendationRank(`${dayKey}:personalized:${right.id}`)
       ))
-    : [...manualRest, ...fallback];
+    : manualRest;
   const ordered = uniqueArticles([featured, ...rest]);
-  return ordered;
+  return deferHomepageImageFreeArticles(ordered);
 }

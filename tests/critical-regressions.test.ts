@@ -25,7 +25,7 @@ import {
   MOBILE_SHEET_TALL_HEIGHT,
 } from "../components/useMobileBottomSheet";
 import { audienceForDifficulty } from "../lib/articleAudience";
-import { orderHomepageCategoryArticles, orderHomepageRecommendations } from "../lib/homepageRecommendations";
+import { homepageShowcaseArticles, orderHomepageCategoryArticles, orderHomepageRecommendations } from "../lib/homepageRecommendations";
 import { buildBalancedRecommendationPlan } from "../lib/recommendationBalance";
 import { setPublishedArticlePlacement } from "../lib/editorialCuration";
 import {
@@ -367,7 +367,7 @@ test("admin curation remounts and releases per-article working state", () => {
   assert.match(inspector, /适合人群（可多选）/);
 });
 
-test("recommendations keep Admin choices first and fill a full three-row showcase", () => {
+test("recommendations treat the Admin pool as authoritative and keep text-only entries out of the collapsed rows", () => {
   const articles = Array.from({ length: 12 }, (_, index) => recommendationArticle(String(index + 1), { cover: index !== 4 }));
   const curation = normalizeHomepageCuration({
     version: 2,
@@ -379,9 +379,8 @@ test("recommendations keep Admin choices first and fill a full three-row showcas
   }, "2026-08-29");
   assert.equal(ordered[0].id, "2");
   assert.equal(ordered[1].id, "1");
-  assert.equal(ordered.length, 12);
-  assert.equal(ordered.slice(0, 10).length, 10);
-  assert.ok(ordered.findIndex((article) => article.id === "5") > ordered.findIndex((article) => article.id === "6"));
+  assert.deepEqual(ordered.map((article) => article.id), ["2", "1"]);
+  assert.deepEqual(homepageShowcaseArticles(ordered, 10).map((article) => article.id), ["2", "1"]);
 });
 
 test("category curation keeps the lead order without hiding the remaining published articles", () => {
@@ -390,6 +389,27 @@ test("category curation keeps the lead order without hiding the remaining publis
   assert.deepEqual(ordered.slice(0, 2).map((article) => article.id), ["3", "1"]);
   assert.equal(ordered.length, 12);
   assert.equal(new Set(ordered.map((article) => article.id)).size, 12);
+});
+
+test("text-only articles stay out of the three post-feature rows and rejoin the expanded tail", () => {
+  const articles = Array.from({ length: 15 }, (_, index) => recommendationArticle(String(index + 1), {
+    cover: ![0, 4, 7, 10, 13].includes(index),
+  }));
+  const curation = normalizeHomepageCuration({
+    version: 2,
+    categories: { 推荐: articles.map((article) => article.id), 时事: [], 科技: [], 文化: [], 商业: [] },
+    recommendationFeaturedId: "1",
+  });
+  const ordered = orderHomepageRecommendations(articles, curation, {
+    version: 1, readingLevel: "", interests: [], updatedAt: "", scope: "guest",
+  }, "2026-09-02");
+  assert.equal(ordered[0].id, "1");
+  assert.ok(ordered.slice(1, 10).every((article) => Boolean(article.recommendation?.coverImageUrl)));
+  assert.equal(homepageShowcaseArticles(ordered, 10).length, 10);
+  assert.ok(ordered.slice(10).some((article) => !article.recommendation?.coverImageUrl));
+
+  const automaticCategory = orderHomepageCategoryArticles(articles, []);
+  assert.ok(automaticCategory.slice(0, 10).every((article) => Boolean(article.recommendation?.coverImageUrl)));
 });
 
 test("temporary reading bands expose the two overlapping audience groups", () => {
@@ -430,7 +450,43 @@ test("published placement can remove recommendation membership and move category
   assert.equal(next.recommendationFeaturedId, "");
   assert.ok(!next.categories.推荐.includes("a"));
   assert.ok(!next.categories.时事.includes("a"));
-  assert.deepEqual(next.categories.文化, ["a"]);
+  assert.deepEqual(next.categories.文化, []);
+});
+
+test("recommendation motion rebinds when preference ordering swaps article ids without changing length", () => {
+  const source = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
+  assert.match(source, /const displayArticleMotionKey = displayArticles\.map\(\(article\) => article\.id\)/);
+  assert.match(source, /\[activeCategory, displayArticleMotionKey\]/);
+  assert.match(source, /Math\.max\(2, Math\.ceil\(words \/ 120\)\)/);
+});
+
+test("URL extraction decodes publisher entities that were escaped twice", () => {
+  const extracted = extractImportedArticleFromHtml(`<!doctype html><html><head><title>Study</title></head><body><article><h1>Study</h1><p>Researchers at T&amp;uuml;bingen University reported a meaningful result for participants in a carefully controlled longitudinal study.</p><p>The second paragraph supplies enough substantive article text for the extractor to retain the complete reading body.</p></article></body></html>`, "https://example.com/study");
+  assert.ok(extracted);
+  assert.match(extracted.article.text, /Tübingen University/);
+  assert.doesNotMatch(extracted.article.text, /&uuml;/);
+});
+
+test("public article saves request the charged prepublished summary cache", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  const route = readFileSync(new URL("../app/api/summarize-article/route.ts", import.meta.url), "utf8");
+  assert.match(reader, /publicArticleId: articleSource\?\.kind === "public"/);
+  assert.match(route, /finishUsage\(actionId, "cached", true, false\)/);
+});
+
+test("word lookup transports run stream-first instead of racing duplicate provider requests", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  const legacyReader = readFileSync(new URL("../components/BookHome.tsx", import.meta.url), "utf8");
+  assert.doesNotMatch(reader, /const structuredPromise = requestExplanation/);
+  assert.doesNotMatch(legacyReader, /Promise\.all\(\[\s*requestContextExplanation/);
+});
+
+test("warning diagnostics stay in Admin without sending panic mail", () => {
+  const store = readFileSync(new URL("../lib/errorReportStore.ts", import.meta.url), "utf8");
+  const dictionaryRoute = readFileSync(new URL("../app/api/dictionary-stream/route.ts", import.meta.url), "utf8");
+  assert.match(store, /const emailWorthy = normalized\.severity === "error" \|\| normalized\.severity === "critical"/);
+  assert.match(dictionaryRoute, /errorCode: "provider_incomplete_content"[\s\S]*?finishUsage\(actionId, "succeeded"\)/);
+  assert.doesNotMatch(dictionaryRoute, /refundUsage\(actionId, "failed", "provider_incomplete_content"\)/);
 });
 
 test("DeepSeek estimates use historical and peak/off-peak prices at execution time", () => {
@@ -494,6 +550,8 @@ test("mobile overlays lock background scroll and adapt across viewport changes",
   assert.match(vocabulary, /useDocumentScrollLock\(open\)/);
   assert.match(scrollLock, /activeLocks \+= 1/);
   assert.match(scrollLock, /body\.style\.position = "fixed"/);
+  assert.match(scrollLock, /body\.style\.width = scrollbarWidth > 0 \? `calc\(100% - \$\{scrollbarWidth\}px\)`/);
+  assert.doesNotMatch(scrollLock, /body\.style\.paddingRight = `\$\{scrollbarWidth\}px`/);
   assert.match(scrollLock, /window\.scrollTo\(previous\.scrollX, previous\.scrollY\)/);
   assert.match(menu, /pinnedPreview === "vocabulary" \? MOBILE_SHEET_TALL_HEIGHT/);
   assert.match(sheet, /\[initialHeight, open, resetKey\]/);
@@ -503,6 +561,14 @@ test("mobile overlays lock background scroll and adapt across viewport changes",
   assert.match(menuStyles, /\.mobileSheetHandle \{[\s\S]*?height: 44px/);
   assert.match(menuStyles, /\.menuItem \{[\s\S]*?min-height: 44px/);
   assert.doesNotMatch(menuStyles, /color: #657985|color: #687b86|color: #607581/);
+});
+
+test("temporary pasted and URL articles confirm before every route back to home", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  const home = readFileSync(new URL("../components/HomeClient.tsx", import.meta.url), "utf8");
+  assert.match(reader, /confirmUnsavedExit && !articleSaved/);
+  assert.match(home, /originKind === "pasted-text" \|\| originKind === "url-import"/);
+  assert.match(home, /approvedReaderBackRef\.current = true/);
 });
 
 test("reader bottom sheets own gestures without locking the exposed article", () => {

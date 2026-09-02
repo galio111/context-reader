@@ -200,6 +200,7 @@ export async function POST(request: Request) {
         let buffer = "";
         let modelLineBuffer = "";
         let providerUsage: ProviderTokenUsage = {};
+        let sawDone = false;
         const enqueueModelContent = (content: string, flush = false) => {
           modelLineBuffer += content;
           const lines = modelLineBuffer.split(/\r?\n/);
@@ -210,7 +211,14 @@ export async function POST(request: Request) {
           }
           for (const line of lines) {
             const normalized = normalizeDictionaryStreamLine(line, query);
-            if (normalized) controller.enqueue(encoder.encode(`${normalized}\n`));
+            if (normalized) {
+              try {
+                if ((JSON.parse(normalized) as { type?: string }).type === "done") sawDone = true;
+              } catch {
+                // Normalization already rejects malformed model lines.
+              }
+              controller.enqueue(encoder.encode(`${normalized}\n`));
+            }
           }
         };
         try {
@@ -228,6 +236,37 @@ export async function POST(request: Request) {
           const tail = parseSseContent(buffer, (usage) => { providerUsage = usage; });
           if (tail) enqueueModelContent(tail);
           enqueueModelContent("", true);
+          if (!sawDone) {
+            await recordUsageExecution({
+              actionId,
+              route: "/api/dictionary-stream",
+              provider: "deepseek",
+              model,
+              promptTokens: providerUsage.prompt_tokens,
+              promptCacheHitTokens: providerUsage.prompt_cache_hit_tokens,
+              promptCacheMissTokens: providerUsage.prompt_cache_miss_tokens,
+              completionTokens: providerUsage.completion_tokens,
+              estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, providerUsage),
+              status: "failed",
+              errorCode: "provider_incomplete_content",
+            }).catch(() => undefined);
+            // The provider call already consumed real DeepSeek tokens, so this
+            // attempt remains charged even though its result is unusable.
+            await finishUsage(actionId, "succeeded").catch(() => undefined);
+            await recordServerError(request, {
+              category: "provider",
+              severity: "warning",
+              operation: "standalone_dictionary_stream",
+              endpoint: "/api/dictionary-stream",
+              userMessage: "词典结果没有完整生成，请重新查询。",
+              technicalMessage: "Dictionary stream ended without a normalized done record.",
+              code: "provider_incomplete_content",
+              httpStatus: 502,
+              metadata: { model },
+            });
+            controller.close();
+            return;
+          }
           await recordUsageExecution({
             actionId,
             route: "/api/dictionary-stream",

@@ -42,8 +42,7 @@ function acquireDocumentScrollLock(): () => void {
     body.style.position = "fixed";
     body.style.top = `-${scrollY}px`;
     body.style.left = `-${scrollX}px`;
-    body.style.width = "100%";
-    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`;
+    body.style.width = scrollbarWidth > 0 ? `calc(100% - ${scrollbarWidth}px)` : "100%";
   }
 
   activeLocks += 1;

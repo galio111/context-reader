@@ -70,14 +70,9 @@ export function setPublishedArticlePlacement(
     }
   }
 
-  const categoryIds = categories[category];
-  categories[category] = options.categoryFeatured
-    ? [articleId, ...categoryIds]
-    : options.preferLater
-      ? [...categoryIds, articleId]
-      : categoryIds.length
-        ? [categoryIds[0], articleId, ...categoryIds.slice(1)]
-        : [articleId];
+  if (options.categoryFeatured) {
+    categories[category] = [articleId, ...categories[category]];
+  }
   return {
     ...curation,
     categories,

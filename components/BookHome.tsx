@@ -28,7 +28,7 @@ import {
   requestContextExplanationStream,
 } from "@/lib/contextExplanationClient";
 import { downloadVocabularyCsv } from "@/lib/csv";
-import { explanationAsStreamText, mergeStreamDisplayIntoExplanation } from "@/lib/explanationDisplay";
+import { explanationAsStreamText, explanationFromCompletedStream } from "@/lib/explanationDisplay";
 import { savedArticleOpenTimestamp } from "@/lib/savedArticleMerge";
 import { currentFormPhonetic } from "@/lib/pronunciation";
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
@@ -1340,13 +1340,9 @@ export function BookHome({
     ).catch(() => "");
 
     try {
-      const [structuredExplanation, completedStreamText] = await Promise.all([
-        requestContextExplanation(context, controller.signal, actionId),
-        streamPromise,
-      ]);
-      const nextExplanation = completedStreamText
-        ? mergeStreamDisplayIntoExplanation(structuredExplanation, completedStreamText)
-        : structuredExplanation;
+      const completedStreamText = await streamPromise;
+      const nextExplanation = explanationFromCompletedStream(completedStreamText, context)
+        ?? await requestContextExplanation(context, controller.signal, actionId);
       setCachedExplanation(cacheKey, nextExplanation);
       setExplanation(nextExplanation);
       setExplanationStreamText(completedStreamText || explanationAsStreamText(nextExplanation));

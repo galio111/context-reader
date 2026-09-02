@@ -584,7 +584,11 @@ function titleWithoutSiteSuffix(value: string, siteName: string): string {
 }
 
 export function extractImportedArticleFromHtml(html: string, baseUrl: string): ExtractedUrlArticle | null {
-  const dom = new JSDOM(html, { url: baseUrl, contentType: "text/html" });
+  // Some publishers ship named entities double-escaped (for example
+  // T&amp;uuml;bingen). Decode exactly that wrapper before DOM parsing so the
+  // reader receives Tübingen without altering ordinary ampersands.
+  const normalizedHtml = html.replace(/&amp;((?:#\d+|#x[\da-f]+|[a-z][\da-z]+);)/gi, "&$1");
+  const dom = new JSDOM(normalizedHtml, { url: baseUrl, contentType: "text/html" });
   const document = dom.window.document;
   const metadataTitle = metaContent(document, "og:title") || metaContent(document, "twitter:title") || singleLineText(document.title);
   const metadataDescription = metaContent(document, "og:description") || metaContent(document, "description") || metaContent(document, "twitter:description");

@@ -186,6 +186,7 @@ export function HomeOptionMenu({
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const vocabularyListRef = useRef<HTMLDivElement | null>(null);
+  const vocabularyTapRef = useRef<{ pointerId: number; x: number; y: number } | null>(null);
   const [mounted, setMounted] = useState(open);
   const [hoveredVocabularyId, setHoveredVocabularyId] = useState<string | null>(null);
   const [vocabularySearchQuery, setVocabularySearchQuery] = useState("");
@@ -458,8 +459,13 @@ export function HomeOptionMenu({
   function activateItem(item: (typeof items)[number], trigger: HTMLButtonElement) {
     if (item.action) {
       onClose();
-      if (item.action === "import") onOpenImport?.();
-      else onOpenDictionary?.();
+      // The menu keeps its scroll lock through the 360ms closing transition.
+      // Run the destination action only after that lock restores the document;
+      // otherwise scrollIntoView is undone and Reader work layers stay covered.
+      window.setTimeout(() => {
+        if (item.action === "import") onOpenImport?.();
+        else onOpenDictionary?.();
+      }, 380);
       return;
     }
     if (item.preview) {
@@ -828,10 +834,21 @@ export function HomeOptionMenu({
                           if (event.pointerType !== "mouse") return;
                           if (!vocabularyVirtualizer.isScrolling) setHoveredVocabularyId(entry.id);
                         }}
-                        onPointerUp={(event) => {
-                          if (event.pointerType === "mouse" || vocabularyVirtualizer.isScrolling) return;
-                          setHoveredVocabularyId(entry.id);
+                        onPointerDown={(event) => {
+                          if (event.pointerType === "mouse") return;
+                          vocabularyTapRef.current = { pointerId: event.pointerId, x: event.clientX, y: event.clientY };
                         }}
+                        onPointerMove={(event) => {
+                          const tap = vocabularyTapRef.current;
+                          if (!tap || tap.pointerId !== event.pointerId) return;
+                          if (Math.hypot(event.clientX - tap.x, event.clientY - tap.y) > 8) vocabularyTapRef.current = null;
+                        }}
+                        onPointerUp={(event) => {
+                          const tap = vocabularyTapRef.current;
+                          vocabularyTapRef.current = null;
+                          if (event.pointerType !== "mouse" && tap?.pointerId === event.pointerId) setHoveredVocabularyId(entry.id);
+                        }}
+                        onPointerCancel={() => { vocabularyTapRef.current = null; }}
                         onFocus={() => setHoveredVocabularyId(entry.id)}
                         onClick={() => setHoveredVocabularyId(entry.id)}
                         aria-expanded={hoveredVocabularyId === entry.id}

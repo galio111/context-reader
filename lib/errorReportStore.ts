@@ -194,9 +194,12 @@ export async function storeErrorReport(
   await ensureFeedbackBucket(client);
   const existing = await readExistingReport(client, objectPath);
   const previousEmailAt = Date.parse(existing?.lastEmailAt || "");
-  const shouldEmail = !existing
+  const emailWorthy = normalized.severity === "error" || normalized.severity === "critical";
+  const shouldEmail = emailWorthy && (
+    !existing
     || !Number.isFinite(previousEmailAt)
-    || Date.now() - previousEmailAt >= EMAIL_SUPPRESSION_MS;
+    || Date.now() - previousEmailAt >= EMAIL_SUPPRESSION_MS
+  );
 
   let report: StoredErrorReport = {
     ...normalized,

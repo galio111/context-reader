@@ -6,6 +6,7 @@ import { finishUsage, recordUsageExecution, refundUsage, setUsageActionMetadata 
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
+import { getPublicArticle } from "@/lib/publicArticles";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const MAX_ARTICLE_CHARS = 6000;
@@ -60,7 +61,7 @@ function userFriendlyDeepSeekError(message = ""): string {
 export async function POST(request: Request) {
   let actionId = "";
   let usageSucceeded = false;
-  let body: { article?: unknown } | null;
+  let body: { article?: unknown; publicArticleId?: unknown } | null;
   try {
     body = await readJsonBody(request, 128 * 1024);
   } catch (error) {
@@ -70,6 +71,7 @@ export async function POST(request: Request) {
     );
   }
   const article = typeof body?.article === "string" ? body.article.trim() : "";
+  const publicArticleId = typeof body?.publicArticleId === "string" ? body.publicArticleId.trim() : "";
 
   if (!article) {
     return NextResponse.json({ error: "缺少文章内容，无法生成摘要。" }, { status: 400 });
@@ -84,13 +86,31 @@ export async function POST(request: Request) {
       loginRequired: true,
     })).actionId;
     await setUsageActionMetadata(actionId, {
-      source: "generated",
+      source: publicArticleId ? "public_cache_candidate" : "generated",
       articleKey: createHash("sha256").update(article).digest("hex").slice(0, 16),
       articleLabel: `用户文章 · ${createHash("sha256").update(article).digest("hex").slice(0, 6)}`,
       articleCharacters: article.length,
     }).catch(() => undefined);
   } catch (error) {
     return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
+  }
+
+  if (publicArticleId) {
+    const publicArticle = await getPublicArticle(publicArticleId).catch(() => null);
+    const summary = publicArticle?.summary?.trim() ?? "";
+    if (publicArticle?.body.trim() === article && hasEnoughChineseContent(summary)) {
+      await setUsageActionMetadata(actionId, {
+        source: "public_cache",
+        publicArticleId,
+        articleKey: createHash("sha256").update(article).digest("hex").slice(0, 16),
+        articleLabel: publicArticle.title.slice(0, 120),
+        articleCharacters: article.length,
+      }).catch(() => undefined);
+      // This is intentionally a charged cache hit: the user receives the plan
+      // feature, while the site avoids a duplicate DeepSeek request.
+      await finishUsage(actionId, "cached", true, false).catch(() => undefined);
+      return NextResponse.json({ summary, cacheHit: true, source: "public_article" });
+    }
   }
 
   const apiKey = process.env.DEEPSEEK_API_KEY;

@@ -1,5 +1,6 @@
 import { fetchJson } from "@/lib/apiClient";
 import type { WordContext, WordExplanation } from "@/types/reader";
+import { EXPLANATION_STREAM_COMPLETE_MARKER } from "@/lib/explanationStreamProtocol";
 
 function requestBody(context: WordContext) {
   return JSON.stringify({
@@ -82,7 +83,7 @@ export async function requestContextExplanationStream(
       const { done, value } = await reader.read();
       if (done) break;
 
-      const chunk = decoder.decode(value, { stream: true });
+      const chunk = decoder.decode(value, { stream: true }).replaceAll(EXPLANATION_STREAM_COMPLETE_MARKER, "");
       if (!chunk) continue;
       fullText += chunk;
       onChunk(chunk);
