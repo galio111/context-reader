@@ -8,6 +8,7 @@ import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usa
 import { EXPLANATION_STREAM_COMPLETE_MARKER } from "@/lib/explanationStreamProtocol";
 import { classifyStreamTermination } from "@/lib/requestCancellation";
 import { registerActiveLookupRequest } from "@/lib/activeLookupRequests";
+import { coreDeepSeekModelCandidates, fetchWithDeepSeekModelFailover } from "@/lib/deepseekModelFailover";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
@@ -112,7 +113,8 @@ export async function POST(request: Request) {
 
   const safeRequest = sanitizeExplanationRequest(body);
   const baseURL = process.env.DEEPSEEK_BASE_URL ?? DEFAULT_BASE_URL;
-  const model = process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL;
+  const modelCandidates = coreDeepSeekModelCandidates(process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL);
+  let activeModel = modelCandidates[0];
   const upstreamController = new AbortController();
   const explicitCancellationController = new AbortController();
   let clientAborted = false;
@@ -143,40 +145,48 @@ export async function POST(request: Request) {
   };
 
   try {
-    const response = await fetch(`${baseURL.replace(/\/$/, "")}/chat/completions`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model,
-        temperature: 0,
-        max_tokens: 900,
-        stream: true,
-        stream_options: { include_usage: true },
-        thinking: {
-          type: "disabled",
+    const provider = await fetchWithDeepSeekModelFailover({
+      models: modelCandidates,
+      attempt: (model) => fetch(`${baseURL.replace(/\/$/, "")}/chat/completions`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
         },
-        messages: [
-          {
-            role: "system",
-            content:
-              "你是给中文母语英语学习者使用的流式语境解释助手。只输出可直接展示的纯文本，不要 JSON，不要 Markdown 表格，不要代码块。必须按固定行顺序输出，每个标题只出现一次，每项只能占一行：原型：、当前词音标：、当前词音标归属：、词性：、难度：、基础释义：、当前语境含义：、当前句子翻译：、用法说明：、常见搭配：、英文例句：、例句中文翻译：。目标是单词时，原型只能是该单词的一个原型，不能带相邻词；当前词音标必须描述用户实际选择的词形，绝不能改成原型的音标；当前词音标归属必须原样填写用户实际选择的词形。无法确认当前词形音标时，当前词音标和当前词音标归属都留空。目标是多词短语时，原型留空，当前词音标按“单词 /音标/ · 单词 /音标/”逐个描述实际选中的词形，当前词音标归属原样填写整个所选短语。当前语境含义只能写目标词或短语在句中的中文对应含义，不能写整句翻译。目标是单个单词时，当前语境含义必须解释这个单词本身在句中的贡献，不能把相邻副词、否定词、程度词或搭配词的整体效果并入释义。例如目标是 intelligible 且原句含 barely intelligible 时，当前语境含义应写“可理解的；听得清的”，不要写“口齿不清的”；整体效果放在当前句子翻译或用法说明。目标是多词短语时，当前语境含义才解释整个短语。常见搭配给 2-4 个，每个英文搭配后必须紧跟简短中文释义，格式为“service fee（服务费）；legal fee（律师费）”。英文例句只能有一个英文句子；例句中文翻译只能有一条对应中文翻译，严禁混入常见搭配或第二条例句。词性统一使用中文，例如名词、动词、形容词、短语；难度只使用基础、进阶、高阶。中文字段必须使用中文。保持每项简洁。",
+        body: JSON.stringify({
+          model,
+          temperature: 0,
+          max_tokens: 900,
+          stream: true,
+          stream_options: { include_usage: true },
+          thinking: {
+            type: "disabled",
           },
-          {
-            role: "user",
-            content: JSON.stringify({
-              w: safeRequest.word,
-              s: safeRequest.sentence,
-              p: safeRequest.previousSentence,
-              n: safeRequest.nextSentence,
-            }),
-          },
-        ],
+          messages: [
+            {
+              role: "system",
+              content:
+                "你是给中文母语英语学习者使用的流式语境解释助手。只输出可直接展示的纯文本，不要 JSON，不要 Markdown 表格，不要代码块。必须按固定行顺序输出，每个标题只出现一次，每项只能占一行：原型：、当前词音标：、当前词音标归属：、词性：、难度：、基础释义：、当前语境含义：、当前句子翻译：、用法说明：、常见搭配：、英文例句：、例句中文翻译：。目标是单词时，原型只能是该单词的一个原型，不能带相邻词；当前词音标必须描述用户实际选择的词形，绝不能改成原型的音标；当前词音标归属必须原样填写用户实际选择的词形。无法确认当前词形音标时，当前词音标和当前词音标归属都留空。目标是多词短语时，原型留空，当前词音标按“单词 /音标/ · 单词 /音标/”逐个描述实际选中的词形，当前词音标归属原样填写整个所选短语。当前语境含义只能写目标词或短语在句中的中文对应含义，不能写整句翻译。目标是单个单词时，当前语境含义必须解释这个单词本身在句中的贡献，不能把相邻副词、否定词、程度词或搭配词的整体效果并入释义。例如目标是 intelligible 且原句含 barely intelligible 时，当前语境含义应写“可理解的；听得清的”，不要写“口齿不清的”；整体效果放在当前句子翻译或用法说明。目标是多词短语时，当前语境含义才解释整个短语。常见搭配给 2-4 个，每个英文搭配后必须紧跟简短中文释义，格式为“service fee（服务费）；legal fee（律师费）”。英文例句只能有一个英文句子；例句中文翻译只能有一条对应中文翻译，严禁混入常见搭配或第二条例句。词性统一使用中文，例如名词、动词、形容词、短语；难度只使用基础、进阶、高阶。中文字段必须使用中文。保持每项简洁。",
+            },
+            {
+              role: "user",
+              content: JSON.stringify({
+                w: safeRequest.word,
+                s: safeRequest.sentence,
+                p: safeRequest.previousSentence,
+                n: safeRequest.nextSentence,
+              }),
+            },
+          ],
+        }),
+        signal: upstreamController.signal,
       }),
-      signal: upstreamController.signal,
+      onFailover: ({ model, status }) => {
+        console.warn("[deepseek-stream] Falling back after provider rejection", { model, status });
+      },
     });
+    const { response, model } = provider;
+    activeModel = model;
 
     if (!response.ok || !response.body) {
       console.error("[deepseek-stream] Upstream rejected request", {
@@ -275,7 +285,7 @@ export async function POST(request: Request) {
       ? (error as { cause?: { name?: unknown; code?: unknown; message?: unknown } }).cause
       : undefined;
     console.error("[deepseek-stream] Upstream request failed", {
-      model,
+      model: activeModel,
       baseURL,
       errorName: error instanceof Error ? error.name : "UnknownError",
       errorMessage: error instanceof Error ? error.message.slice(0, 300) : "",

@@ -9,6 +9,7 @@ import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usa
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 import { classifyStreamTermination } from "@/lib/requestCancellation";
 import { registerActiveLookupRequest } from "@/lib/activeLookupRequests";
+import { coreDeepSeekModelCandidates, fetchWithDeepSeekModelFailover } from "@/lib/deepseekModelFailover";
 
 export const maxDuration = 60;
 
@@ -105,7 +106,8 @@ export async function POST(request: Request) {
   }
 
   const baseURL = (process.env.DEEPSEEK_BASE_URL?.trim() || DEFAULT_BASE_URL).replace(/\/$/, "");
-  const model = process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_MODEL;
+  const modelCandidates = coreDeepSeekModelCandidates(process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_MODEL);
+  let activeModel = modelCandidates[0];
   const upstreamController = new AbortController();
   const explicitCancellationController = new AbortController();
   let clientAborted = false;
@@ -136,7 +138,9 @@ export async function POST(request: Request) {
   };
 
   try {
-    const response = await fetch(`${baseURL}/chat/completions`, {
+    const provider = await fetchWithDeepSeekModelFailover({
+      models: modelCandidates,
+      attempt: (model) => fetch(`${baseURL}/chat/completions`, {
       method: "POST",
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -170,10 +174,15 @@ export async function POST(request: Request) {
         ],
       }),
       signal: upstreamController.signal,
+      }),
+      onFailover: ({ model, status }) => {
+        console.warn("[deepseek-dictionary] Falling back after provider rejection", { model, status });
+      },
     });
+    const { response, model, errorBody: upstreamDetail } = provider;
+    activeModel = model;
 
     if (!response.ok || !response.body) {
-      const upstreamDetail = !response.ok ? await response.text().catch(() => "") : "";
       release();
       await refundUsage(actionId, "failed", "upstream_rejected").catch(() => undefined);
       const report = await recordServerError(request, {
@@ -335,7 +344,7 @@ export async function POST(request: Request) {
         : "词典服务暂时不可用，开发者已收到异常并正在处理。",
       code,
       httpStatus: 502,
-      metadata: { model },
+      metadata: { model: activeModel },
     }, error);
     return NextResponse.json(
       { error: "词典服务暂时不可用，开发者已收到异常并正在处理。", ...reportReference(report) },

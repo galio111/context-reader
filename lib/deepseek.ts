@@ -2,6 +2,7 @@ import { normalizeAnkiInfo } from "@/lib/ankiData";
 import { normalizePartOfSpeechLabel } from "@/lib/displayLabels";
 import { pronunciationTargetMatches } from "@/lib/pronunciation";
 import { ClientRequestCancelledError } from "@/lib/requestCancellation";
+import { coreDeepSeekModelCandidates } from "@/lib/deepseekModelFailover";
 import type {
   Difficulty,
   ExplanationRequest,
@@ -230,10 +231,6 @@ function parseJsonObject(content: string): unknown {
   }
 }
 
-function uniqueValues(values: string[]): string[] {
-  return Array.from(new Set(values.map((value) => value.trim()).filter(Boolean)));
-}
-
 function getProviderProfiles(): ProviderProfile[] {
   const primaryApiKey = process.env.DEEPSEEK_API_KEY;
   const primaryBaseURL = process.env.DEEPSEEK_BASE_URL ?? DEFAULT_BASE_URL;
@@ -265,7 +262,8 @@ function getProviderProfiles(): ProviderProfile[] {
     });
   }
 
-  const explicitFallbackModels = uniqueValues((process.env.DEEPSEEK_FALLBACK_MODELS ?? "").split(","))
+  const explicitFallbackModels = coreDeepSeekModelCandidates(primaryModel, process.env.DEEPSEEK_FALLBACK_MODELS)
+    .slice(1)
     .filter((model) => model !== primaryModel);
   profiles.push(
     ...explicitFallbackModels.map((model) => ({
@@ -570,9 +568,6 @@ export async function explainWordWithDeepSeek(
           model: profile.model,
           message: error.message,
         });
-        if (!isRetryableProviderError(error) && !(error instanceof DeepSeekEmptyContentError) && !isDeepSeekBusy(error.message)) {
-          break;
-        }
         continue;
       }
       throw error;

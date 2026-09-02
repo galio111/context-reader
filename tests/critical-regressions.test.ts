@@ -54,6 +54,47 @@ import { tokenizeArticle } from "../lib/tokenizer";
 import { extractArticleTranslationText, IncrementalJsonObjectParser } from "../lib/incrementalJsonObjects";
 import { removeDuplicateImageCaptionBlocks } from "../lib/articleContentSanitizer";
 import { extractImportedArticleFromHtml } from "../lib/urlArticleExtractor";
+import {
+  coreDeepSeekModelCandidates,
+  fetchWithDeepSeekModelFailover,
+  isRetryableDeepSeekStatus,
+} from "../lib/deepseekModelFailover";
+
+test("core lookup routes fall back from overloaded Pro to Flash", async () => {
+  assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-pro", undefined), [
+    "deepseek-v4-pro",
+    "deepseek-v4-flash",
+  ]);
+  assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-pro", ""), ["deepseek-v4-pro"]);
+  assert.equal(isRetryableDeepSeekStatus(429), true);
+  assert.equal(isRetryableDeepSeekStatus(503), true);
+  assert.equal(isRetryableDeepSeekStatus(400), false);
+
+  const attemptedModels: string[] = [];
+  const failedOverModels: string[] = [];
+  const result = await fetchWithDeepSeekModelFailover({
+    models: ["deepseek-v4-pro", "deepseek-v4-flash"],
+    attempt: async (model) => {
+      attemptedModels.push(model);
+      return model === "deepseek-v4-pro"
+        ? new Response(JSON.stringify({ error: { message: "Server Overloaded" } }), { status: 503 })
+        : new Response("ok", { status: 200 });
+    },
+    onFailover: ({ model }) => { failedOverModels.push(model); },
+  });
+
+  assert.deepEqual(attemptedModels, ["deepseek-v4-pro", "deepseek-v4-flash"]);
+  assert.deepEqual(failedOverModels, ["deepseek-v4-pro"]);
+  assert.equal(result.model, "deepseek-v4-flash");
+  assert.equal(await result.response.text(), "ok");
+
+  const explanationStream = readFileSync(new URL("../app/api/explain-word-stream/route.ts", import.meta.url), "utf8");
+  const dictionaryStream = readFileSync(new URL("../app/api/dictionary-stream/route.ts", import.meta.url), "utf8");
+  const structuredExplanation = readFileSync(new URL("../lib/deepseek.ts", import.meta.url), "utf8");
+  assert.match(explanationStream, /fetchWithDeepSeekModelFailover/);
+  assert.match(dictionaryStream, /fetchWithDeepSeekModelFailover/);
+  assert.match(structuredExplanation, /coreDeepSeekModelCandidates/);
+});
 
 test("article translation streaming parses complete objects without physical newlines", () => {
   const parser = new IncrementalJsonObjectParser();
@@ -290,6 +331,34 @@ test("structured explanation distinguishes an aborted fetch from a completed mal
   await assert.rejects(explainWordWithDeepSeek(request), (error: unknown) => (
     error instanceof DeepSeekParseError && !(error instanceof ClientRequestCancelledError)
   ));
+
+  process.env.DEEPSEEK_MODEL = "deepseek-v4-pro";
+  delete process.env.DEEPSEEK_FALLBACK_MODELS;
+  const attemptedModels: string[] = [];
+  globalThis.fetch = (async (_input: RequestInfo | URL, init?: RequestInit) => {
+    const model = String(JSON.parse(String(init?.body)).model);
+    attemptedModels.push(model);
+    if (model === "deepseek-v4-pro") {
+      return new Response(JSON.stringify({ error: { message: "Server Overloaded" } }), {
+        status: 503,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+    return new Response(JSON.stringify({
+      choices: [{ message: { content: JSON.stringify({
+        basicMeaning: "清楚的",
+        contextMeaning: "清晰的",
+        sentenceTranslation: "这个区别很清楚。",
+        usageNote: "用于说明界限容易辨认。",
+        collocation: "clear distinction（明确区别）",
+        exampleChinese: "这个区别很清楚。",
+      }) } }],
+      usage: {},
+    }), { status: 200, headers: { "Content-Type": "application/json" } });
+  }) as typeof fetch;
+  const recovered = await explainWordWithDeepSeek(request);
+  assert.equal(recovered.model, "deepseek-v4-flash");
+  assert.deepEqual(attemptedModels, ["deepseek-v4-pro", "deepseek-v4-pro", "deepseek-v4-flash"]);
 });
 
 test("context cloze tolerates normalized apostrophes in saved phrases", () => {
