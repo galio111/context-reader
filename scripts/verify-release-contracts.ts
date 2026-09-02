@@ -102,7 +102,7 @@ for (const path of [
   requireSource(path, ["currentFormPhonetic"]);
 }
 requireSource("app/api/dictionary-stream/route.ts", [
-  "normalizeDictionaryStreamLine",
+  "DictionaryProviderStreamNormalizer",
   "phoneticFor",
   "绝不能改成 lemma",
 ]);

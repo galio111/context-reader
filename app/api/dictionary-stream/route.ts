@@ -3,7 +3,7 @@ import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountSto
 import { acquireCostSlot } from "@/lib/costConcurrency";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { isValidStandaloneDictionaryQuery, sanitizeDictionaryQuery } from "@/lib/deepseekDictionary";
-import { normalizeDictionaryStreamLine } from "@/lib/dictionaryStreamServer";
+import { DictionaryProviderStreamNormalizer } from "@/lib/dictionaryStreamServer";
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
@@ -207,27 +207,13 @@ export async function POST(request: Request) {
         const decoder = new TextDecoder();
         const encoder = new TextEncoder();
         let buffer = "";
-        let modelLineBuffer = "";
         let providerUsage: ProviderTokenUsage = {};
         let sawDone = false;
-        const enqueueModelContent = (content: string, flush = false) => {
-          modelLineBuffer += content;
-          const lines = modelLineBuffer.split(/\r?\n/);
-          if (flush) {
-            modelLineBuffer = "";
-          } else {
-            modelLineBuffer = lines.pop() ?? "";
-          }
-          for (const line of lines) {
-            const normalized = normalizeDictionaryStreamLine(line, query);
-            if (normalized) {
-              try {
-                if ((JSON.parse(normalized) as { type?: string }).type === "done") sawDone = true;
-              } catch {
-                // Normalization already rejects malformed model lines.
-              }
-              controller.enqueue(encoder.encode(`${normalized}\n`));
-            }
+        const normalizer = new DictionaryProviderStreamNormalizer(query);
+        const enqueueModelContent = (content: string) => {
+          for (const normalized of normalizer.push(content)) {
+            if ((JSON.parse(normalized) as { type?: string }).type === "done") sawDone = true;
+            controller.enqueue(encoder.encode(`${normalized}\n`));
           }
         };
         try {
@@ -244,7 +230,6 @@ export async function POST(request: Request) {
           }
           const tail = parseSseContent(buffer, (usage) => { providerUsage = usage; });
           if (tail) enqueueModelContent(tail);
-          enqueueModelContent("", true);
           if (!sawDone) {
             await recordUsageExecution({
               actionId,

@@ -59,6 +59,7 @@ import {
   fetchWithDeepSeekModelFailover,
   isRetryableDeepSeekStatus,
 } from "../lib/deepseekModelFailover";
+import { DictionaryProviderStreamNormalizer } from "../lib/dictionaryStreamServer";
 
 test("core lookup routes fall back from overloaded Pro to Flash", async () => {
   assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-pro", undefined), [
@@ -94,6 +95,21 @@ test("core lookup routes fall back from overloaded Pro to Flash", async () => {
   assert.match(explanationStream, /fetchWithDeepSeekModelFailover/);
   assert.match(dictionaryStream, /fetchWithDeepSeekModelFailover/);
   assert.match(structuredExplanation, /coreDeepSeekModelCandidates/);
+});
+
+test("standalone dictionary compacts pretty provider JSON across arbitrary chunks", () => {
+  const normalizer = new DictionaryProviderStreamNormalizer("resilient");
+  const output = [
+    ...normalizer.push('```json\n{\n  "type": "head",\n  "query": "wrong",\n  "lemma": "resilient",\n'),
+    ...normalizer.push('  "phonetic": "/rɪˈzɪliənt/",\n  "phoneticFor": "resilient",\n  "direction": "en_to_cn",\n  "inputStatus": "valid"\n}\n{\n  "type": "sense",\n'),
+    ...normalizer.push('  "partOfSpeech": "adjective",\n  "meaning": "有韧性的"\n}\n{\n  "type": "done"\n}\n```'),
+  ];
+  assert.equal(output.length, 3);
+  assert.ok(output.every((line) => !line.includes("\n")));
+  const parsed = parseDictionaryStream(`${output.join("\n")}\n`, "resilient");
+  assert.equal(parsed.complete, true);
+  assert.equal(parsed.result.query, "resilient");
+  assert.equal(parsed.result.senses[0]?.meaning, "有韧性的");
 });
 
 test("article translation streaming parses complete objects without physical newlines", () => {

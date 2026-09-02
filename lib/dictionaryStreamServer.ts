@@ -1,4 +1,5 @@
 import { pronunciationTargetMatches } from "@/lib/pronunciation";
+import { IncrementalJsonObjectParser } from "@/lib/incrementalJsonObjects";
 
 const CHINESE_QUERY_PATTERN = /[\u3400-\u9fff\uf900-\ufaff]/u;
 
@@ -16,7 +17,7 @@ export function normalizeDictionaryStreamLine(line: string, query: string): stri
   if (!trimmed) return "";
 
   const candidate = trimmed.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "");
-  if (!candidate.startsWith("{") || !candidate.endsWith("}")) return line;
+  if (!candidate.startsWith("{") || !candidate.endsWith("}")) return "";
 
   try {
     const event = JSON.parse(candidate) as Record<string, unknown>;
@@ -38,7 +39,22 @@ export function normalizeDictionaryStreamLine(line: string, query: string): stri
     }
     return JSON.stringify(event);
   } catch {
-    return line;
+    return "";
   }
 }
 
+export class DictionaryProviderStreamNormalizer {
+  private readonly parser = new IncrementalJsonObjectParser();
+
+  constructor(private readonly query: string) {}
+
+  push(chunk: string): string[] {
+    const normalized: string[] = [];
+    for (const value of this.parser.push(chunk)) {
+      if (!value || typeof value !== "object" || Array.isArray(value)) continue;
+      const line = normalizeDictionaryStreamLine(JSON.stringify(value), this.query);
+      if (line) normalized.push(line);
+    }
+    return normalized;
+  }
+}
