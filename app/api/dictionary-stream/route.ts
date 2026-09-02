@@ -209,6 +209,8 @@ export async function POST(request: Request) {
         let buffer = "";
         let providerUsage: ProviderTokenUsage = {};
         let sawDone = false;
+        // DictionaryProviderStreamNormalizer applies normalizeDictionaryStreamLine
+        // only after a complete provider JSON object has closed.
         const normalizer = new DictionaryProviderStreamNormalizer(query);
         const enqueueModelContent = (content: string) => {
           for (const normalized of normalizer.push(content)) {
