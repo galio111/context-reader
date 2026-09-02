@@ -128,7 +128,7 @@ Without usable backend credentials, loopback development falls back to browser-l
 | `/account/usage` | Account status and usage |
 | `/admin` | Server-authorized recommendations, accounts, feedback and error console |
 | `/api/import-url` | Safe, conservative text-first webpage extraction; selected images are localized to bounded first-party WebP assets after Reader opens |
-| `/api/explain-word*` | Context explanation, structured and streaming |
+| `/api/explain-word*` | Stream-first context explanation with structured fallback |
 | `/api/dictionary*` | Standalone bidirectional dictionary |
 | `/api/translate-article` | Batched streaming full-article translation with progressive block events |
 | `/api/pronunciation` | Cached cloud pronunciation audio |
