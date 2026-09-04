@@ -666,7 +666,14 @@ test("crawler keeps one headline and removes the duplicate lead created by a tit
 });
 
 test("a completed single-word explanation requires current-form IPA", () => {
-  const context = { word: "vigil", sentence: "People gathered for a vigil.", previousSentence: "", nextSentence: "" };
+  const context = {
+    word: "vigil",
+    sentence: "People gathered for a vigil.",
+    previousSentence: "",
+    nextSentence: "",
+    paragraphIndex: 0,
+    tokenIndex: 0,
+  };
   const fields = [
     "原型：vigil",
     "当前词音标：",
@@ -920,7 +927,11 @@ test("long readers hydrate only nearby lookup tokens", () => {
   assert.match(reader, /data-reader-token-surface/);
   assert.match(reader, /interactive && block\.tokens\?\.length/);
   assert.match(reader, /revealInteractiveBlocks\(\[blockId\]\)/);
-  assert.match(reader, /else if \(next\.delete\(blockId\)\)/);
+  assert.match(reader, /function createReaderBlockInteractivityStore/);
+  assert.match(reader, /store\.subscribe\(blockId, update\)/);
+  assert.match(reader, /startTransition\(\(\) => setInteractive\(next\)\)/);
+  assert.match(reader, /readerBlockInteractivityStore\.setInteractive\(blockId, entry\.isIntersecting\)/);
+  assert.doesNotMatch(reader, /setInteractiveBlockIds/);
   assert.doesNotMatch(reader, /contentVisibility|containIntrinsicSize/);
 });
 

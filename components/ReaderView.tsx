@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { memo, startTransition, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent, ReactNode } from "react";
 import { defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { ArticleTranslationPanel } from "@/components/ArticleTranslationPanel";
@@ -166,6 +166,189 @@ interface RenderableTokenGroup {
   baseline?: ImportedArticleInlineBaseline;
   tokens: ReaderToken[];
 }
+
+interface ReaderBlockInteractivityStore {
+  articleIdentity: string;
+  getSnapshot: (blockId: string) => boolean;
+  subscribe: (blockId: string, listener: (interactive: boolean, urgent: boolean) => void) => () => void;
+  setInteractive: (blockId: string, interactive: boolean, urgent?: boolean) => void;
+  reveal: (blockIds: string[]) => void;
+}
+
+function createReaderBlockInteractivityStore(articleIdentity: string): ReaderBlockInteractivityStore {
+  const interactiveIds = new Set<string>();
+  const listeners = new Map<string, Set<(interactive: boolean, urgent: boolean) => void>>();
+
+  const setInteractive = (blockId: string, interactive: boolean, urgent = false) => {
+    const changed = interactive ? !interactiveIds.has(blockId) : interactiveIds.has(blockId);
+    if (!changed) return;
+    if (interactive) interactiveIds.add(blockId);
+    else interactiveIds.delete(blockId);
+    listeners.get(blockId)?.forEach((listener) => listener(interactive, urgent));
+  };
+
+  return {
+    articleIdentity,
+    getSnapshot: (blockId) => interactiveIds.has(blockId),
+    subscribe: (blockId, listener) => {
+      const blockListeners = listeners.get(blockId) ?? new Set<(interactive: boolean, urgent: boolean) => void>();
+      blockListeners.add(listener);
+      listeners.set(blockId, blockListeners);
+      return () => {
+        blockListeners.delete(listener);
+        if (blockListeners.size === 0) listeners.delete(blockId);
+      };
+    },
+    setInteractive,
+    reveal: (blockIds) => blockIds.forEach((blockId) => setInteractive(blockId, true, true)),
+  };
+}
+
+function useReaderBlockInteractivity(store: ReaderBlockInteractivityStore, blockId: string) {
+  const [interactive, setInteractive] = useState(() => store.getSnapshot(blockId));
+  useEffect(() => {
+    const update = (next: boolean, urgent: boolean) => {
+      if (urgent) setInteractive(next);
+      else startTransition(() => setInteractive(next));
+    };
+    const unsubscribe = store.subscribe(blockId, update);
+    update(store.getSnapshot(blockId), false);
+    return unsubscribe;
+  }, [blockId, store]);
+  return interactive;
+}
+
+interface ReaderTokenSurfaceState {
+  selectedTokenIdSet: Set<string>;
+  highlightedSentenceTokenIdSet: Set<string>;
+  highlightedTargetTokenIdSet: Set<string>;
+}
+
+interface ReaderTextBlockProps extends ReaderTokenSurfaceState {
+  block: RenderableArticleBlock;
+  interactivityStore: ReaderBlockInteractivityStore;
+}
+
+const ReaderTextBlock = memo(function ReaderTextBlock({
+  block,
+  interactivityStore,
+  selectedTokenIdSet,
+  highlightedSentenceTokenIdSet,
+  highlightedTargetTokenIdSet,
+}: ReaderTextBlockProps) {
+  const interactive = useReaderBlockInteractivity(interactivityStore, block.id);
+  const Tag = block.type === "heading"
+    ? "h1"
+    : block.type === "subheading"
+      ? "h2"
+      : block.type === "quote"
+        ? "blockquote"
+        : block.type === "list-item"
+          ? "li"
+          : "p";
+  const renderToken = (token: ReaderToken) => (
+    <WordToken
+      key={token.id}
+      token={token}
+      selected={selectedTokenIdSet.has(token.id)}
+      highlighted={highlightedSentenceTokenIdSet.has(token.id)}
+      targeted={highlightedTargetTokenIdSet.has(token.id)}
+    />
+  );
+
+  return (
+    <Tag
+      data-reader-block={block.id}
+      data-reader-token-surface
+      onPointerEnter={() => interactivityStore.reveal([block.id])}
+      onTouchStart={() => interactivityStore.reveal([block.id])}
+      className={`${textBlockClassName(block.type)} min-w-0 ${block.type === "list-item" ? block.listStyle === "ordered" ? "list-decimal" : "list-disc" : ""}`}
+      style={block.type === "list-item" ? { marginLeft: `${1.5 + Math.min(4, block.listLevel ?? 0) * 1.25}rem` } : undefined}
+      value={block.type === "list-item" && block.listStyle === "ordered" ? block.listOrdinal : undefined}
+    >
+      {interactive && block.tokenGroups?.length
+        ? block.tokenGroups.map((group) => {
+            const content = group.tokens.map(renderToken);
+            if (group.baseline === "sup") {
+              return <sup key={group.id} className="align-super text-[0.68em] leading-none">{content}</sup>;
+            }
+            if (group.baseline === "sub") {
+              return <sub key={group.id} className="align-sub text-[0.68em] leading-none">{content}</sub>;
+            }
+            return <span key={group.id}>{content}</span>;
+          })
+        : interactive && block.tokens?.length
+          ? block.tokens.map(renderToken)
+          : block.plainText || <br />}
+    </Tag>
+  );
+});
+
+interface ReaderTableBlockProps extends ReaderTokenSurfaceState {
+  block: RenderableArticleBlock;
+  interactivityStore: ReaderBlockInteractivityStore;
+}
+
+const ReaderTableBlock = memo(function ReaderTableBlock({
+  block,
+  interactivityStore,
+  selectedTokenIdSet,
+  highlightedSentenceTokenIdSet,
+  highlightedTargetTokenIdSet,
+}: ReaderTableBlockProps) {
+  const interactive = useReaderBlockInteractivity(interactivityStore, block.id);
+  if (!block.table || !block.tableRows) return null;
+
+  return (
+    <figure data-reader-block={block.id} data-reader-token-surface className="my-8 min-w-0 lg:my-10">
+      {block.table.caption && (
+        <figcaption className="mb-3 text-[15px] font-semibold leading-6 text-[#333333]">
+          {block.table.caption}
+        </figcaption>
+      )}
+      <div
+        className="overflow-x-auto overscroll-x-contain rounded-[10px] border border-[#d8d8dc] [scrollbar-gutter:stable]"
+        data-native-selection="blue"
+        tabIndex={0}
+        role="region"
+        aria-label={block.table.caption ? `表格：${block.table.caption}` : "文章表格，可横向滚动"}
+      >
+        <table className="w-max min-w-full border-collapse bg-white text-left text-[15px] leading-6 text-[#1d1d1f] sm:text-[16px]">
+          <tbody>
+            {block.tableRows.map((row, rowIndex) => (
+              <tr key={`${block.id}-row-${rowIndex}`} className={rowIndex % 2 ? "bg-[#fafafa]" : "bg-white"}>
+                {row.map(({ cell, tokens }, cellIndex) => {
+                  const CellTag = cell.header ? "th" : "td";
+                  return (
+                    <CellTag
+                      key={`${block.id}-cell-${rowIndex}-${cellIndex}`}
+                      className={`max-w-[34rem] whitespace-pre-wrap border-b border-r border-[#e3e3e6] px-3.5 py-2.5 align-top last:border-r-0 ${cell.header ? "bg-[#f3f4f5] font-semibold text-[#252525]" : "font-normal"}`}
+                      colSpan={cell.colSpan}
+                      rowSpan={cell.rowSpan}
+                      scope={cell.header ? cell.scope : undefined}
+                    >
+                      {interactive && tokens.length
+                        ? tokens.map((token) => (
+                            <WordToken
+                              key={token.id}
+                              token={token}
+                              selected={selectedTokenIdSet.has(token.id)}
+                              highlighted={highlightedSentenceTokenIdSet.has(token.id)}
+                              targeted={highlightedTargetTokenIdSet.has(token.id)}
+                            />
+                          ))
+                        : cell.text || <span aria-label="空单元格">&nbsp;</span>}
+                    </CellTag>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </figure>
+  );
+});
 
 interface ImageLayoutWord {
   text: string;
@@ -1057,6 +1240,10 @@ export function ReaderView({
   );
   const articleImageSourceKey = articleImageSources.join("\n");
   const articleMediaIdentity = `${currentImportedArticle?.url ?? ""}\n${currentImportedArticle?.text ?? currentArticle}`;
+  const readerBlockInteractivityStore = useMemo(
+    () => createReaderBlockInteractivityStore(articleMediaIdentity),
+    [articleMediaIdentity],
+  );
   const articleMediaIdentityRef = useRef(articleMediaIdentity);
   const articleMediaRevealedRef = useRef(articleImageGateSources.length === 0);
   if (articleMediaIdentityRef.current !== articleMediaIdentity) {
@@ -1228,20 +1415,9 @@ export function ReaderView({
     }
     return index;
   }, [renderableBlocks]);
-  const [interactiveBlockIds, setInteractiveBlockIds] = useState<Set<string>>(() => new Set());
   const revealInteractiveBlocks = useCallback((blockIds: string[]) => {
-    if (!blockIds.length) return;
-    setInteractiveBlockIds((current) => {
-      const next = new Set(current);
-      let changed = false;
-      for (const blockId of blockIds) {
-        if (next.has(blockId)) continue;
-        next.add(blockId);
-        changed = true;
-      }
-      return changed ? next : current;
-    });
-  }, []);
+    readerBlockInteractivityStore.reveal(blockIds);
+  }, [readerBlockInteractivityStore]);
   const translationBlocks = useMemo<ArticleTranslationBlock[]>(
     () => createArticleTranslationBlocks(currentArticle, effectiveImportedArticle),
     [currentArticle, effectiveImportedArticle],
@@ -1388,7 +1564,6 @@ export function ReaderView({
 
   useEffect(() => {
     setFailedImageBlockIds(new Set());
-    setInteractiveBlockIds(new Set());
   }, [currentArticle, currentImportedArticle]);
 
   useEffect(() => {
@@ -1403,27 +1578,14 @@ export function ReaderView({
       return;
     }
     const observer = new IntersectionObserver((entries) => {
-      setInteractiveBlockIds((current) => {
-        const next = new Set(current);
-        let changed = false;
-        for (const entry of entries) {
-          const blockId = (entry.target as HTMLElement).dataset.readerBlock || "";
-          if (!blockId) continue;
-          if (entry.isIntersecting) {
-            if (!next.has(blockId)) {
-              next.add(blockId);
-              changed = true;
-            }
-          } else if (next.delete(blockId)) {
-            changed = true;
-          }
-        }
-        return changed ? next : current;
-      });
+      for (const entry of entries) {
+        const blockId = (entry.target as HTMLElement).dataset.readerBlock || "";
+        if (blockId) readerBlockInteractivityStore.setInteractive(blockId, entry.isIntersecting);
+      }
     }, { rootMargin: "900px 0px 900px 0px" });
     candidates.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
-  }, [articleMediaReady, currentArticle, currentImportedArticle, editingArticle, revealInteractiveBlocks]);
+  }, [articleMediaReady, currentArticle, currentImportedArticle, editingArticle, readerBlockInteractivityStore, revealInteractiveBlocks]);
 
   useEffect(() => () => {
     if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
@@ -3882,118 +4044,27 @@ export function ReaderView({
               }
 
               if (block.type === "table" && block.table && block.tableRows) {
-                const interactive = interactiveBlockIds.has(block.id);
                 return (
-                  <figure key={block.id} data-reader-block={block.id} data-reader-token-surface className="my-8 min-w-0 lg:my-10">
-                    {block.table.caption && (
-                      <figcaption className="mb-3 text-[15px] font-semibold leading-6 text-[#333333]">
-                        {block.table.caption}
-                      </figcaption>
-                    )}
-                    <div
-                      className="overflow-x-auto overscroll-x-contain rounded-[10px] border border-[#d8d8dc] [scrollbar-gutter:stable]"
-                      data-native-selection="blue"
-                      tabIndex={0}
-                      role="region"
-                      aria-label={block.table.caption ? `表格：${block.table.caption}` : "文章表格，可横向滚动"}
-                    >
-                      <table className="w-max min-w-full border-collapse bg-white text-left text-[15px] leading-6 text-[#1d1d1f] sm:text-[16px]">
-                        <tbody>
-                          {block.tableRows.map((row, rowIndex) => (
-                            <tr key={`${block.id}-row-${rowIndex}`} className={rowIndex % 2 ? "bg-[#fafafa]" : "bg-white"}>
-                              {row.map(({ cell, tokens }, cellIndex) => {
-                                const CellTag = cell.header ? "th" : "td";
-                                return (
-                                  <CellTag
-                                    key={`${block.id}-cell-${rowIndex}-${cellIndex}`}
-                                    className={`max-w-[34rem] whitespace-pre-wrap border-b border-r border-[#e3e3e6] px-3.5 py-2.5 align-top last:border-r-0 ${cell.header ? "bg-[#f3f4f5] font-semibold text-[#252525]" : "font-normal"}`}
-                                    colSpan={cell.colSpan}
-                                    rowSpan={cell.rowSpan}
-                                    scope={cell.header ? cell.scope : undefined}
-                                  >
-                                    {interactive && tokens.length
-                                      ? tokens.map((token) => (
-                                          <WordToken
-                                            key={token.id}
-                                            token={token}
-                                            selected={selectedTokenIdSet.has(token.id)}
-                                            highlighted={highlightedSentenceTokenIdSet.has(token.id)}
-                                            targeted={highlightedTargetTokenIdSet.has(token.id)}
-                                          />
-                                        ))
-                                      : cell.text || <span aria-label="空单元格">&nbsp;</span>}
-                                  </CellTag>
-                                );
-                              })}
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </figure>
+                  <ReaderTableBlock
+                    key={block.id}
+                    block={block}
+                    interactivityStore={readerBlockInteractivityStore}
+                    selectedTokenIdSet={selectedTokenIdSet}
+                    highlightedSentenceTokenIdSet={highlightedSentenceTokenIdSet}
+                    highlightedTargetTokenIdSet={highlightedTargetTokenIdSet}
+                  />
                 );
               }
 
-              const Tag = block.type === "heading"
-                ? "h1"
-                : block.type === "subheading"
-                  ? "h2"
-                  : block.type === "quote"
-                    ? "blockquote"
-                    : block.type === "list-item"
-                      ? "li"
-                      : "p";
-              const interactive = interactiveBlockIds.has(block.id);
               return (
-                <Tag
+                <ReaderTextBlock
                   key={block.id}
-                  data-reader-block={block.id}
-                  data-reader-token-surface
-                  onPointerEnter={() => revealInteractiveBlocks([block.id])}
-                  onTouchStart={() => revealInteractiveBlocks([block.id])}
-                  className={`${textBlockClassName(block.type)} min-w-0 ${block.type === "list-item" ? block.listStyle === "ordered" ? "list-decimal" : "list-disc" : ""}`}
-                  style={block.type === "list-item" ? { marginLeft: `${1.5 + Math.min(4, block.listLevel ?? 0) * 1.25}rem` } : undefined}
-                  value={block.type === "list-item" && block.listStyle === "ordered" ? block.listOrdinal : undefined}
-                >
-                  {interactive && block.tokenGroups?.length
-                    ? block.tokenGroups.map((group) => {
-                        const content = group.tokens.map((token) => (
-                          <WordToken
-                            key={token.id}
-                            token={token}
-                            selected={selectedTokenIdSet.has(token.id)}
-                            highlighted={highlightedSentenceTokenIdSet.has(token.id)}
-                            targeted={highlightedTargetTokenIdSet.has(token.id)}
-                          />
-                        ));
-                        if (group.baseline === "sup") {
-                          return (
-                            <sup key={group.id} className="align-super text-[0.68em] leading-none">
-                              {content}
-                            </sup>
-                          );
-                        }
-                        if (group.baseline === "sub") {
-                          return (
-                            <sub key={group.id} className="align-sub text-[0.68em] leading-none">
-                              {content}
-                            </sub>
-                          );
-                        }
-                        return <span key={group.id}>{content}</span>;
-                      })
-                    : interactive && block.tokens?.length
-                      ? block.tokens.map((token) => (
-                        <WordToken
-                          key={token.id}
-                          token={token}
-                          selected={selectedTokenIdSet.has(token.id)}
-                          highlighted={highlightedSentenceTokenIdSet.has(token.id)}
-                          targeted={highlightedTargetTokenIdSet.has(token.id)}
-                        />
-                      ))
-                      : block.plainText || <br />}
-                </Tag>
+                  block={block}
+                  interactivityStore={readerBlockInteractivityStore}
+                  selectedTokenIdSet={selectedTokenIdSet}
+                  highlightedSentenceTokenIdSet={highlightedSentenceTokenIdSet}
+                  highlightedTargetTokenIdSet={highlightedTargetTokenIdSet}
+                />
               );
             })}
           </div>
