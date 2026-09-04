@@ -70,6 +70,8 @@ import {
   isRetryableDeepSeekStatus,
 } from "../lib/deepseekModelFailover";
 import { DictionaryProviderStreamNormalizer } from "../lib/dictionaryStreamServer";
+import { explanationFromCompletedStream } from "../lib/explanationDisplay";
+import { normalizeImportedArticleStructure } from "../lib/importedArticleNormalization";
 
 test("core lookup routes fall back from overloaded Pro to Flash", async () => {
   assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-flash", undefined), [
@@ -424,6 +426,8 @@ test("structured explanation distinguishes an aborted fetch from a completed mal
     }
     return new Response(JSON.stringify({
       choices: [{ message: { content: JSON.stringify({
+        phonetic: "/klɪr/",
+        phoneticFor: "clear",
         basicMeaning: "清楚的",
         contextMeaning: "清晰的",
         sentenceTranslation: "这个区别很清楚。",
@@ -631,6 +635,59 @@ test("URL extraction decodes publisher entities that were escaped twice", () => 
   assert.doesNotMatch(extracted.article.text, /&uuml;/);
 });
 
+test("URL extraction decodes named, decimal, hexadecimal and multiply escaped letter entities", () => {
+  const extracted = extractImportedArticleFromHtml(`<!doctype html><html><head><title>Nordic names</title></head><body><article>
+    <h1>Nordic names</h1>
+    <p>K&amp;amp;auml;rr, Gr&amp;#228;nna and Malm&amp;#xF6; appear in a substantive paragraph about Swedish research locations and their scientific work.</p>
+    <p>The second paragraph supplies enough meaningful article text for the extraction boundary and verifies that ordinary prose remains intact.</p>
+    <p>The final paragraph confirms that all decoded Unicode letters remain selectable and readable in the resulting article.</p>
+  </article></body></html>`, "https://example.com/nordic");
+  assert.ok(extracted);
+  assert.match(extracted.article.text, /Kärr, Gränna and Malmö/);
+  assert.doesNotMatch(extracted.article.text, /&(?:amp;)*(?:auml|#228|#xF6);/i);
+});
+
+test("crawler keeps one headline and removes the duplicate lead created by a title prefix", () => {
+  const title = "Meta agrees to $17 billion settlement and new protections for teens";
+  const normalized = normalizeImportedArticleStructure({
+    title,
+    url: "https://example.com/meta",
+    siteName: "Example",
+    text: "",
+    blocks: [
+      { id: "old-0", type: "heading", text: title },
+      { id: "old-1", type: "paragraph", text: `${title} Meta and the attorneys general of four states have reached an agreement.` },
+      { id: "old-2", type: "paragraph", text: "Meta and the attorneys general of four states have reached an agreement." },
+      { id: "old-3", type: "paragraph", text: "The rest of the article remains visible." },
+    ],
+  });
+  assert.equal(normalized.blocks.filter((block) => block.type === "heading").length, 1);
+  assert.equal(normalized.blocks.filter((block) => block.text?.includes("attorneys general")).length, 1);
+});
+
+test("a completed single-word explanation requires current-form IPA", () => {
+  const context = { word: "vigil", sentence: "People gathered for a vigil.", previousSentence: "", nextSentence: "" };
+  const fields = [
+    "原型：vigil",
+    "当前词音标：",
+    "当前词音标归属：",
+    "词性：名词",
+    "难度：medium",
+    "基础释义：守夜；守夜活动",
+    "当前语境含义：悼念集会",
+    "当前句子翻译：人们参加了悼念集会。",
+    "用法说明：此处指公开悼念活动。",
+    "常见搭配：hold a vigil（举行守夜活动）",
+    "英文例句：They held a vigil.",
+    "例句中文翻译：他们举行了守夜活动。",
+  ].join("\n");
+  assert.equal(explanationFromCompletedStream(fields, context), null);
+  const complete = fields
+    .replace("当前词音标：", "当前词音标：/ˈvɪdʒɪl/")
+    .replace("当前词音标归属：", "当前词音标归属：vigil");
+  assert.equal(explanationFromCompletedStream(complete, context)?.phonetic, "/ˈvɪdʒɪl/");
+});
+
 test("public article saves request the charged prepublished summary cache", () => {
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
   const route = readFileSync(new URL("../app/api/summarize-article/route.ts", import.meta.url), "utf8");
@@ -760,12 +817,37 @@ test("mobile sheet return controls stay above drag handles with full touch targe
   assert.match(homeStyles, /\.dictionaryWindow > header button\s*\{[^}]*min-height:\s*44px/);
 });
 
-test("homepage dictionary is docked instead of restoring a draggable floating window", () => {
+test("homepage dictionary keeps separate desktop-window and mobile-sheet geometry", () => {
   const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
   const styles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
   assert.doesNotMatch(component, /context-reader-dictionary-window-v1|startDictionaryDrag|persistDictionaryWindow/);
   assert.match(component, /MOBILE_SHEET_MAX_HEIGHT/);
-  assert.match(styles, /\.dictionaryWindow\s*\{[\s\S]*?inset:\s*0 auto 0 0[\s\S]*?height:\s*100dvh/);
+  assert.match(styles, /\.dictionaryWindow\s*\{[\s\S]*?inset:\s*92px auto auto 132px[\s\S]*?width:\s*min\(340px[\s\S]*?height:\s*min\(560px/);
+  assert.match(styles, /@media \(max-width: 900px\)[\s\S]*?\.dictionaryWindow\s*\{[^}]*inset:\s*auto 0 0[^}]*height:\s*var\(--mobile-dictionary-height/);
+});
+
+test("return-home control skips nested Reader sessions while browser back restores one", () => {
+  const home = readFileSync(new URL("../components/HomeClient.tsx", import.meta.url), "utf8");
+  assert.match(home, /readerHomeExitPendingRef\.current = true[\s\S]*?window\.history\.go\(-readerHistoryDepthRef\.current\)/);
+  assert.match(home, /const previousSession = readerSessionStackRef\.current\.pop\(\)[\s\S]*?restoreReaderSession\(previousSession\)/);
+});
+
+test("editor mode restores exact scroll pixels instead of realigning a different paragraph", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  assert.match(reader, /function restoreReaderScrollPosition[\s\S]*?anchor\.scrollY/);
+  assert.match(reader, /pendingArticleViewportAnchorRef\.current[\s\S]*?restoreReaderScrollPosition\(anchor\)/);
+  assert.match(reader, /setDraftBlocks\(cloneImportedArticle\(currentImportedArticle\)\?\.blocks \?\? \[\]\)/);
+});
+
+test("opening a curated article immediately records the correct recent-reading owner", () => {
+  const home = readFileSync(new URL("../components/HomeClient.tsx", import.meta.url), "utf8");
+  assert.match(home, /const savedMatch = findSavedArticle\(publicArticle\.body\)/);
+  assert.match(home, /touchSavedArticle\(savedMatch\.id\)/);
+  assert.match(home, /writeTemporaryReading\([\s\S]*?publicArticle\.body[\s\S]*?\{ kind: "public", id: publicArticle\.id \|\| id, title: publicArticle\.title \}/);
+  assert.match(home, /onArticleSaved=\{\(savedArticle\)[\s\S]*?activeSavedArticleIdRef\.current = savedArticle\.id/);
+  const temporary = readFileSync(new URL("../lib/temporaryReading.ts", import.meta.url), "utf8");
+  assert.match(temporary, /sourceArticle\?: VocabularySourceArticle/);
+  assert.match(temporary, /current\.sourceArticle/);
 });
 
 test("mobile vocabulary hides Anki actions and image captions use reader tokens", () => {

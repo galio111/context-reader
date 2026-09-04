@@ -2,6 +2,7 @@
 
 import type { ImportedArticle } from "@/types/article";
 import type { ReaderReadingProgress, ReaderViewportAnchor } from "@/types/reader";
+import type { VocabularySourceArticle } from "@/types/vocabulary";
 
 const TEMPORARY_READING_PREFIX = "context-reader:temporary-reading:v1:";
 
@@ -12,6 +13,7 @@ export interface TemporaryReading {
   importedArticle: ImportedArticle | null;
   updatedAt: string;
   readingProgress: ReaderReadingProgress | null;
+  sourceArticle?: VocabularySourceArticle;
 }
 
 function storageKey(userId: string): string {
@@ -44,6 +46,9 @@ export function readTemporaryReading(userId: string): TemporaryReading | null {
       importedArticle: value.importedArticle && typeof value.importedArticle === "object" ? value.importedArticle : null,
       updatedAt: value.updatedAt,
       readingProgress: value.readingProgress && typeof value.readingProgress === "object" ? value.readingProgress : null,
+      ...(value.sourceArticle?.kind === "public" && typeof value.sourceArticle.id === "string" && typeof value.sourceArticle.title === "string"
+        ? { sourceArticle: value.sourceArticle }
+        : {}),
     };
   } catch {
     return null;
@@ -55,6 +60,7 @@ export function writeTemporaryReading(
   body: string,
   importedArticle: ImportedArticle | null,
   readingProgress: ReaderViewportAnchor | ReaderReadingProgress | null = null,
+  sourceArticle?: VocabularySourceArticle,
 ): TemporaryReading | null {
   const storage = safeStorage();
   const trimmedBody = body.trim();
@@ -73,6 +79,7 @@ export function writeTemporaryReading(
       scrollRatio: Math.min(1, Math.max(0, readingProgress.scrollRatio)),
       capturedAt: "capturedAt" in readingProgress ? readingProgress.capturedAt : new Date().toISOString(),
     } : null,
+    ...(sourceArticle ? { sourceArticle } : {}),
   };
   storage.setItem(storageKey(userId), JSON.stringify(record));
   return record;
@@ -81,7 +88,7 @@ export function writeTemporaryReading(
 export function updateTemporaryReadingProgress(userId: string, readingProgress: ReaderViewportAnchor): TemporaryReading | null {
   const current = readTemporaryReading(userId);
   if (!current) return null;
-  return writeTemporaryReading(userId, current.body, current.importedArticle, readingProgress);
+  return writeTemporaryReading(userId, current.body, current.importedArticle, readingProgress, current.sourceArticle);
 }
 
 export function clearTemporaryReading(userId: string): void {

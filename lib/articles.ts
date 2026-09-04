@@ -11,6 +11,7 @@ import type {
 import type { ReaderViewportAnchor } from "@/types/reader";
 import { notifyAccountDataChanged, notifyAccountObjectsDeleted } from "@/lib/accountEvents";
 import { mergeDuplicateSavedArticles, savedArticleBodyIdentity } from "@/lib/savedArticleMerge";
+import { normalizeImportedArticleStructure } from "@/lib/importedArticleNormalization";
 import {
   applyArticleReadingStates,
   deleteArticleReadingState,
@@ -30,6 +31,20 @@ const READER_TOP_ANCHOR: ReaderViewportAnchor = {
 };
 let cachedArticlesRaw: string | null | undefined;
 let cachedArticles: SavedArticle[] | null = null;
+const ENCODED_ENTITY_PATTERN = /&(?:amp;)*(?:#\d+|#x[\da-f]+|[a-z][\da-z]+);/i;
+
+function decodeBrowserHtmlEntities(value: string): string {
+  if (typeof document === "undefined" || !ENCODED_ENTITY_PATTERN.test(value)) return value;
+  let decoded = value;
+  for (let pass = 0; pass < 4 && ENCODED_ENTITY_PATTERN.test(decoded); pass += 1) {
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = decoded;
+    const next = textarea.value;
+    if (next === decoded) break;
+    decoded = next;
+  }
+  return decoded;
+}
 
 function safeLocalStorage(): Storage | null {
   if (typeof window === "undefined") {
@@ -63,7 +78,7 @@ function normalizeInlineText(value: unknown): ImportedArticleInlineText | null {
     return null;
   }
   return {
-    text: item.text,
+    text: decodeBrowserHtmlEntities(item.text),
     ...(item.baseline ? { baseline: item.baseline } : {}),
   };
 }
@@ -110,8 +125,8 @@ function normalizeImportedBlock(value: unknown): ImportedArticleBlock | null {
       id: block.id,
       type: "image",
       src,
-      alt: typeof block.alt === "string" ? block.alt : "",
-      ...(typeof block.caption === "string" ? { caption: block.caption } : {}),
+      alt: typeof block.alt === "string" ? decodeBrowserHtmlEntities(block.alt) : "",
+      ...(typeof block.caption === "string" ? { caption: decodeBrowserHtmlEntities(block.caption) } : {}),
       ...(typeof block.width === "number" && Number.isFinite(block.width) && block.width > 0
         ? { width: block.width }
         : {}),
@@ -138,7 +153,7 @@ function normalizeImportedBlock(value: unknown): ImportedArticleBlock | null {
     return {
       id: block.id,
       type: "table",
-      text: typeof block.text === "string" ? block.text : table.rows.map((row) => row.map((cell) => cell.text).join(" | ")).join("\n"),
+      text: typeof block.text === "string" ? decodeBrowserHtmlEntities(block.text) : table.rows.map((row) => row.map((cell) => cell.text).join(" | ")).join("\n"),
       table,
     };
   }
@@ -154,7 +169,7 @@ function normalizeImportedBlock(value: unknown): ImportedArticleBlock | null {
     return null;
   }
 
-  const text = typeof block.text === "string" ? block.text : "";
+  const text = typeof block.text === "string" ? decodeBrowserHtmlEntities(block.text) : "";
   return {
     id: block.id,
     type: block.type,
@@ -178,7 +193,7 @@ function normalizeImportedTableCell(value: unknown): ImportedArticleTableCell | 
     return null;
   }
   return {
-    text: cell.text.slice(0, 2_000),
+    text: decodeBrowserHtmlEntities(cell.text).slice(0, 2_000),
     ...(cell.header === true ? { header: true } : {}),
     ...(cell.scope === "row" || cell.scope === "col" ? { scope: cell.scope } : {}),
     ...(typeof cell.rowSpan === "number" && Number.isFinite(cell.rowSpan) && cell.rowSpan > 1
@@ -205,7 +220,7 @@ function normalizeImportedTable(value: unknown): ImportedArticleTable | null {
     return null;
   }
   return {
-    ...(typeof table.caption === "string" && table.caption.trim() ? { caption: table.caption.trim().slice(0, 1_000) } : {}),
+    ...(typeof table.caption === "string" && table.caption.trim() ? { caption: decodeBrowserHtmlEntities(table.caption.trim()).slice(0, 1_000) } : {}),
     rows,
   };
 }
@@ -255,21 +270,21 @@ function normalizeImportedArticle(value: unknown, body: string): ImportedArticle
     return undefined;
   }
 
-  return {
+  return normalizeImportedArticleStructure({
     title: typeof importedArticle.title === "string" && importedArticle.title.trim()
-      ? importedArticle.title.trim()
+      ? decodeBrowserHtmlEntities(importedArticle.title.trim())
       : titleFromArticle(body),
     url: typeof importedArticle.url === "string" ? importedArticle.url : "",
-    siteName: typeof importedArticle.siteName === "string" ? importedArticle.siteName : "",
+    siteName: typeof importedArticle.siteName === "string" ? decodeBrowserHtmlEntities(importedArticle.siteName) : "",
     text: typeof importedArticle.text === "string" && importedArticle.text.trim()
-      ? importedArticle.text
+      ? decodeBrowserHtmlEntities(importedArticle.text)
       : body,
     blocks,
-    ...(typeof importedArticle.byline === "string" ? { byline: importedArticle.byline } : {}),
+    ...(typeof importedArticle.byline === "string" ? { byline: decodeBrowserHtmlEntities(importedArticle.byline) } : {}),
     ...(typeof importedArticle.publishedTime === "string" ? { publishedTime: importedArticle.publishedTime } : {}),
     ...(typeof importedArticle.language === "string" ? { language: importedArticle.language } : {}),
     ...(normalizeArticleStyle(importedArticle.style) ? { style: normalizeArticleStyle(importedArticle.style) } : {}),
-  };
+  });
 }
 
 function normalizeArticle(value: unknown): SavedArticle | null {
@@ -305,7 +320,7 @@ function normalizeArticle(value: unknown): SavedArticle | null {
       ? article.title.trim()
       : titleFromArticle(article.body),
     summary: typeof article.summary === "string" ? article.summary : "",
-    body: article.body,
+    body: importedArticle?.text || article.body,
     ...(importedArticle ? { importedArticle } : {}),
     createdAt: typeof article.createdAt === "string" ? article.createdAt : now,
     updatedAt: typeof article.updatedAt === "string" ? article.updatedAt : now,
@@ -335,8 +350,9 @@ export function getSavedArticles(): SavedArticle[] {
       .map(normalizeArticle)
       .filter((article): article is SavedArticle => Boolean(article));
     const merged = mergeDuplicateSavedArticles(normalized);
-    if (merged.removedIds.length || normalized.length !== parsed.length) {
-      cachedArticlesRaw = JSON.stringify(merged.articles);
+    const normalizedRaw = JSON.stringify(merged.articles);
+    if (merged.removedIds.length || normalized.length !== parsed.length || normalizedRaw !== raw) {
+      cachedArticlesRaw = normalizedRaw;
       storage.setItem(ARTICLES_KEY, cachedArticlesRaw);
       if (merged.removedIds.length) notifyAccountObjectsDeleted("article", merged.removedIds);
       else notifyAccountDataChanged(["article"]);

@@ -1,6 +1,6 @@
 import { normalizeAnkiInfo } from "@/lib/ankiData";
 import { normalizePartOfSpeechLabel } from "@/lib/displayLabels";
-import { pronunciationTargetMatches } from "@/lib/pronunciation";
+import { pronunciationTargetMatches, requiresCurrentFormPhonetic } from "@/lib/pronunciation";
 import { ClientRequestCancelledError } from "@/lib/requestCancellation";
 import { coreDeepSeekModelCandidates } from "@/lib/deepseekModelFailover";
 import type {
@@ -181,13 +181,21 @@ function missingChineseFields(value: unknown): string[] {
   });
 }
 
-function missingTextFields(value: unknown): string[] {
+function missingTextFields(value: unknown, request: ExplanationRequest): string[] {
   const data = (value && typeof value === "object" ? value : {}) as Partial<Record<(typeof REQUIRED_TEXT_FIELDS)[number], unknown>>;
 
-  return REQUIRED_TEXT_FIELDS.filter((field) => {
+  const missing: string[] = REQUIRED_TEXT_FIELDS.filter((field) => {
     const fieldValue = data[field];
     return typeof fieldValue !== "string" || fieldValue.trim().length === 0;
   });
+  if (requiresCurrentFormPhonetic(request.word)) {
+    const explanation = value as Partial<WordExplanation> | null;
+    if (typeof explanation?.phonetic !== "string" || !explanation.phonetic.trim()) missing.push("phonetic");
+    if (!pronunciationTargetMatches(typeof explanation?.phoneticFor === "string" ? explanation.phoneticFor : "", request.word)) {
+      missing.push("phoneticFor");
+    }
+  }
+  return missing;
 }
 
 function isDeepSeekBusy(message = ""): boolean {
@@ -407,7 +415,7 @@ async function requestDeepSeekCompletionOnce(args: {
                     s: args.safeRequest.sentence,
                     p: args.safeRequest.previousSentence,
                     n: args.safeRequest.nextSentence,
-                    fix: `上次返回的 ${args.repairChineseFields.join(", ")} 不合格。basicMeaning、contextMeaning、sentenceTranslation、usageNote、exampleChinese 必须使用中文，不要把英文释义原样放进这些字段。collocation 必须填写常见英文搭配；没有固定搭配时写“无固定搭配”。`,
+                    fix: `上次返回的 ${args.repairChineseFields.join(", ")} 不合格。basicMeaning、contextMeaning、sentenceTranslation、usageNote、exampleChinese 必须使用中文，不要把英文释义原样放进这些字段。collocation 必须填写常见英文搭配；没有固定搭配时写“无固定搭配”。若 phonetic 或 phoneticFor 被列出，必须给用户实际选择词形 w 的 IPA，并让 phoneticFor 原样等于 w。`,
                   }
                 : {
                     w: args.safeRequest.word,
@@ -542,7 +550,7 @@ export async function explainWordWithDeepSeek(
       }
 
       const parsed = parseJsonObject(content);
-      let invalidFields = [...missingChineseFields(parsed), ...missingTextFields(parsed)];
+      let invalidFields = [...missingChineseFields(parsed), ...missingTextFields(parsed, safeRequest)];
       if (invalidFields.length > 0) {
         const retryCompletion = await requestDeepSeekCompletion({
           profile,
@@ -552,7 +560,7 @@ export async function explainWordWithDeepSeek(
         });
         const retryContent = retryCompletion.choices?.[0]?.message?.content?.trim();
         const retryParsed = retryContent ? parseJsonObject(retryContent) : null;
-        invalidFields = [...missingChineseFields(retryParsed), ...missingTextFields(retryParsed)];
+        invalidFields = [...missingChineseFields(retryParsed), ...missingTextFields(retryParsed, safeRequest)];
         if (invalidFields.length > 0) {
           throw new DeepSeekParseError("DeepSeek 返回的释义不完整，请重新生成。");
         }

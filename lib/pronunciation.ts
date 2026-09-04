@@ -45,6 +45,13 @@ export function currentFormPhonetic({
   return pronunciationTargetMatches(lemma, word) ? normalizedPhonetic : "";
 }
 
+export function requiresCurrentFormPhonetic(value: string): boolean {
+  const normalized = normalizePronunciationText(value);
+  return Boolean(normalized)
+    && !normalized.includes(" ")
+    && WORD_OR_PHRASE_PATTERN.test(normalized);
+}
+
 export function isPronunciationAccent(value: unknown): value is PronunciationAccent {
   return value === "en-US" || value === "en-GB";
 }

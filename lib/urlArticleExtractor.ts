@@ -1,6 +1,7 @@
 import { Readability } from "@mozilla/readability";
 import { JSDOM } from "jsdom";
 import { removeAuthorIdentityBlocks, removeDuplicateImageCaptionBlocks, trimTrailingWebsiteBlocks } from "@/lib/articleContentSanitizer";
+import { normalizeImportedArticleStructure } from "@/lib/importedArticleNormalization";
 import type {
   ImportedArticle,
   ImportedArticleBlock,
@@ -468,7 +469,13 @@ function cleanBlocks(blocks: ImportedArticleBlock[], title: string): ImportedArt
   if (!cleaned.some((block) => block.type === "heading") && title) {
     cleaned.unshift({ id: "block-title", type: "heading", text: title });
   }
-  return removeDuplicateImageCaptionBlocks(cleaned);
+  return normalizeImportedArticleStructure({
+    title,
+    url: "",
+    siteName: "",
+    text: importedArticleBlocksToText(cleaned),
+    blocks: removeDuplicateImageCaptionBlocks(cleaned),
+  }).blocks;
 }
 
 function extractBlocks(root: Element, baseUrl: string, title: string): ImportedArticleBlock[] {
@@ -583,11 +590,23 @@ function titleWithoutSiteSuffix(value: string, siteName: string): string {
   return title.replace(suffix, "").trim() || title;
 }
 
+function unwrapEscapedEntityAmpersands(value: string, maxPasses = 4): string {
+  let current = value;
+  for (let pass = 0; pass < maxPasses; pass += 1) {
+    const next = current.replace(/&amp;(?=(?:#\d+|#x[\da-f]+|[a-z][\w]+);)/gi, "&");
+    if (next === current) break;
+    current = next;
+  }
+  return current;
+}
+
 export function extractImportedArticleFromHtml(html: string, baseUrl: string): ExtractedUrlArticle | null {
-  // Some publishers ship named entities double-escaped (for example
-  // T&amp;uuml;bingen). Decode exactly that wrapper before DOM parsing so the
-  // reader receives Tübingen without altering ordinary ampersands.
-  const normalizedHtml = html.replace(/&amp;((?:#\d+|#x[\da-f]+|[a-z][\da-z]+);)/gi, "&$1");
+  // Publishers may nest named, decimal or hexadecimal entities behind more
+  // than one ampersand escape. Decode a small bounded number of layers before
+  // DOM parsing; JSDOM then resolves the final entity to its Unicode character.
+  // Reveal only ampersands that belong to nested entities. Decoding every
+  // entity here would turn prose such as `&lt;iframe&gt;` into live markup.
+  const normalizedHtml = unwrapEscapedEntityAmpersands(html);
   const dom = new JSDOM(normalizedHtml, { url: baseUrl, contentType: "text/html" });
   const document = dom.window.document;
   const metadataTitle = metaContent(document, "og:title") || metaContent(document, "twitter:title") || singleLineText(document.title);

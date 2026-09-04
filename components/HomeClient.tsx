@@ -217,6 +217,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   const readingRef = useRef(false);
   const readerOriginRef = useRef<ReaderOriginSnapshot | null>(null);
   const approvedReaderBackRef = useRef(false);
+  const readerHomeExitPendingRef = useRef(false);
   const readerSessionStackRef = useRef<ReaderSessionSnapshot[]>([]);
   const readerViewportAnchorRef = useRef<ReaderViewportAnchor | null>(null);
   const readerViewportCaptureRef = useRef<(() => ReaderViewportReport | null) | null>(null);
@@ -358,12 +359,12 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     };
   }, [flushReadingProgress]);
 
-  const enterReader = useCallback((originKind: ReaderOriginKind) => {
-    readingProgressModeRef.current = usesSavedArticleRestartPolicy(originKind)
+  const enterReader = useCallback((originKind: ReaderOriginKind, progressMode?: ReadingProgressMode) => {
+    readingProgressModeRef.current = progressMode ?? (usesSavedArticleRestartPolicy(originKind)
       ? "saved-entry"
       : originKind === "vocabulary"
         ? "vocabulary-source"
-        : "other";
+        : "other");
     beginReadingProgressSession(readerViewportAnchorRef.current);
     if (!readingRef.current) {
       readerOriginRef.current = {
@@ -440,16 +441,12 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setError("");
   }, [beginReadingProgressSession]);
 
-  const leaveOrRestoreReader = useCallback(() => {
+  const leaveReaderToHome = useCallback(() => {
     flushReadingProgress();
-    const previousSession = readerSessionStackRef.current.pop();
-    if (previousSession) {
-      restoreReaderSession(previousSession);
-      return;
-    }
-
     pendingHomeScrollRef.current = readerOriginRef.current?.scrollY ?? 0;
     readerOriginRef.current = null;
+    readerSessionStackRef.current = [];
+    readerHistoryDepthRef.current = 0;
     readerViewportAnchorRef.current = null;
     activeSavedArticleIdRef.current = null;
     activeTemporaryUserIdRef.current = null;
@@ -466,7 +463,17 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setSourceWordToHighlight("");
     setError("");
     setReading(false);
-  }, [flushReadingProgress, restoreReaderSession]);
+  }, [flushReadingProgress]);
+
+  const leaveOrRestoreReader = useCallback(() => {
+    flushReadingProgress();
+    const previousSession = readerSessionStackRef.current.pop();
+    if (previousSession) {
+      restoreReaderSession(previousSession);
+      return;
+    }
+    leaveReaderToHome();
+  }, [flushReadingProgress, leaveReaderToHome, restoreReaderSession]);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -475,7 +482,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
       const importedUnsaved = (originKind === "pasted-text" || originKind === "url-import")
         && !findSavedArticle(article);
       if (!approvedReaderBackRef.current && importedUnsaved) {
-        const leaveUnsaved = window.confirm("这篇导入文章还没有保存。确定不保存并返回首页吗？\n\n取消后可以留在文章中先保存。");
+        const leaveUnsaved = window.confirm("这篇导入文章还没有保存。确定不保存并离开当前文章吗？\n\n浏览器返回会回到上一篇文章；取消后可以留在当前文章中先保存。");
         if (!leaveUnsaved) {
           window.history.pushState(
             { ...(window.history.state ?? {}), [READER_HISTORY_STATE_KEY]: readerHistoryDepthRef.current },
@@ -486,21 +493,27 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         }
       }
       approvedReaderBackRef.current = false;
+      if (readerHomeExitPendingRef.current) {
+        readerHomeExitPendingRef.current = false;
+        leaveReaderToHome();
+        return;
+      }
       readerHistoryDepthRef.current = Math.max(0, readerHistoryDepthRef.current - 1);
       leaveOrRestoreReader();
     };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
-  }, [article, leaveOrRestoreReader]);
+  }, [article, leaveOrRestoreReader, leaveReaderToHome]);
 
   const handleReaderBack = useCallback(() => {
     if (readerHistoryDepthRef.current > 0) {
       approvedReaderBackRef.current = true;
-      window.history.back();
+      readerHomeExitPendingRef.current = true;
+      window.history.go(-readerHistoryDepthRef.current);
       return;
     }
-    leaveOrRestoreReader();
-  }, [leaveOrRestoreReader]);
+    leaveReaderToHome();
+  }, [leaveReaderToHome]);
 
   const handleReaderViewportCaptureChange = useCallback((capture: (() => ReaderViewportReport | null) | null) => {
     readerViewportCaptureRef.current = capture;
@@ -1030,7 +1043,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     void primeLeadingArticleImage(record.importedArticle);
     setPreloadedExplanations([]);
     setPreloadedArticleTranslations([]);
-    setActiveArticleSource(undefined);
+    setActiveArticleSource(record.sourceArticle);
     setSourceSentenceToHighlight("");
     setError("");
     activeSavedArticleIdRef.current = null;
@@ -1103,10 +1116,34 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
 
       applyPublicArticle(publicArticle, id);
       setSourceSentenceToHighlight("");
-      activeSavedArticleIdRef.current = null;
-      readerViewportAnchorRef.current = null;
-      setReaderInitialViewportAnchor(null);
-      enterReader("public-article");
+      const savedMatch = findSavedArticle(publicArticle.body);
+      if (savedMatch) {
+        const touchedArticles = touchSavedArticle(savedMatch.id);
+        const touchedArticle = touchedArticles.find((item) => item.id === savedMatch.id) ?? savedMatch;
+        setSavedArticles(touchedArticles);
+        activeSavedArticleIdRef.current = savedMatch.id;
+        activeTemporaryUserIdRef.current = null;
+        readerViewportAnchorRef.current = touchedArticle.readingProgress ?? null;
+        setReaderInitialViewportAnchor(touchedArticle.readingProgress ?? null);
+        enterReader("public-article", "saved-entry");
+      } else {
+        activeSavedArticleIdRef.current = null;
+        const userId = account.authenticated ? account.profile?.userId ?? "" : "";
+        activeTemporaryUserIdRef.current = userId || null;
+        const temporary = userId
+          ? writeTemporaryReading(
+              userId,
+              publicArticle.body,
+              publicArticle.importedArticle ?? null,
+              null,
+              { kind: "public", id: publicArticle.id || id, title: publicArticle.title },
+            )
+          : null;
+        if (temporary) setTemporaryReading(temporary);
+        readerViewportAnchorRef.current = null;
+        setReaderInitialViewportAnchor(null);
+        enterReader("public-article");
+      }
     } catch (publicArticleError) {
       setError(isOffline
         ? "当前离线，而且这篇公开文章尚未缓存在此设备上。请选择本机保存文章，或联网后再打开。"
@@ -1334,8 +1371,15 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
           setSourceSentenceToHighlight("");
         }}
         onBack={handleReaderBack}
-        onArticleSaved={() => {
-          setSavedArticles(getSavedArticles());
+        onArticleSaved={(savedArticle) => {
+          let nextArticles = getSavedArticles();
+          if (savedArticle) {
+            activeSavedArticleIdRef.current = savedArticle.id;
+            readingProgressModeRef.current = "saved-entry";
+            const report = readerViewportCaptureRef.current?.();
+            if (report) nextArticles = saveArticleReadingProgress(savedArticle.id, report.anchor);
+          }
+          setSavedArticles(nextArticles);
           if (activeTemporaryUserIdRef.current) {
             clearTemporaryReading(activeTemporaryUserIdRef.current);
             activeTemporaryUserIdRef.current = null;

@@ -95,7 +95,7 @@ interface ReaderViewProps {
   onBack: () => void;
   confirmUnsavedExit?: boolean;
   backLabel?: string;
-  onArticleSaved: () => void;
+  onArticleSaved: (article?: SavedArticle) => void;
   onArticleChange?: (article: string, importedArticle: ImportedArticle | null) => void;
   onArticleEditCommit?: (article: string, importedArticle: ImportedArticle | null) => Promise<void> | void;
   onImportedArticleChange?: (article: ImportedArticle) => void;
@@ -305,6 +305,15 @@ function restoreReaderViewport(root: HTMLElement, anchor: ReaderViewportAnchor):
   };
   restoreTop();
   return window.requestAnimationFrame(restoreTop);
+}
+
+function restoreReaderScrollPosition(anchor: ReaderViewportAnchor): number {
+  const restore = () => {
+    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    window.scrollTo({ top: Math.min(anchor.scrollY, maxScroll), left: 0, behavior: "auto" });
+  };
+  restore();
+  return window.requestAnimationFrame(restore);
 }
 
 function captureReaderViewportAnchor(root: HTMLElement): ReaderViewportAnchor | null {
@@ -1496,7 +1505,7 @@ export function ReaderView({
       return;
     }
     pendingArticleViewportAnchorRef.current = null;
-    const frameId = restoreReaderViewport(root, anchor);
+    const frameId = restoreReaderScrollPosition(anchor);
     return () => {
       if (frameId !== null) window.cancelAnimationFrame(frameId);
     };
@@ -2130,7 +2139,10 @@ export function ReaderView({
       const nextExplanation = completedStreamText
         ? mergeStreamDisplayIntoExplanation(structuredExplanation, completedStreamText)
         : structuredExplanation;
-      const durableDisplayText = completedStreamText || explanationAsStreamText(nextExplanation);
+      // Rebuild the visible text from the merged authority. An incomplete
+      // stream may omit a required field such as current-form IPA even though
+      // the structured fallback repaired it successfully.
+      const durableDisplayText = explanationAsStreamText(nextExplanation);
 
       setCachedExplanation(cacheKey, nextExplanation);
       setExplanation(nextExplanation);
@@ -2799,11 +2811,7 @@ export function ReaderView({
       importedArticle: cloneImportedArticle(currentImportedArticle),
     };
     setDraftPlainArticle(currentArticle);
-    setDraftBlocks(
-      currentImportedArticle?.blocks?.length
-        ? currentImportedArticle.blocks.map((block) => ({ ...block }))
-        : [],
-    );
+    setDraftBlocks(cloneImportedArticle(currentImportedArticle)?.blocks ?? []);
     setEditingArticle(true);
     setSelectedTokenIds([]);
     setSelectedContext(null);
@@ -3165,7 +3173,7 @@ export function ReaderView({
       setCurrentArticle(nextArticle);
       setCurrentImportedArticle(null);
       onArticleChange?.(nextArticle, null);
-      onArticleSaved();
+      onArticleSaved(findSavedArticle(nextArticle) ?? undefined);
       preserveArticleViewportAcrossModeChange(viewportAnchor);
       setEditingArticle(false);
       setDraftPlainArticle("");
@@ -3212,7 +3220,7 @@ export function ReaderView({
     setCurrentImportedArticle(nextImportedArticle);
     onArticleChange?.(nextImportedArticle.text, nextImportedArticle);
     onImportedArticleChange?.(nextImportedArticle);
-    onArticleSaved();
+    onArticleSaved(findSavedArticle(nextImportedArticle.text) ?? undefined);
     preserveArticleViewportAcrossModeChange(viewportAnchor);
     setEditingArticle(false);
     setDraftPlainArticle("");
@@ -3321,7 +3329,7 @@ export function ReaderView({
       const existing = findSavedArticle(currentArticle);
       saveArticle(currentArticle, existing?.summary ?? "", effectiveImportedArticle);
       saved = true;
-      onArticleSaved();
+      onArticleSaved(findSavedArticle(currentArticle) ?? undefined);
       if (isOffline) {
         setSaveStatus("文章已保存到本机；联网后会自动同步，摘要需联网生成");
       } else if (isValidArticleSummary(existing?.summary ?? "")) {
@@ -3338,7 +3346,7 @@ export function ReaderView({
         }, "文章已保存，但摘要暂时没有生成成功。", { operation: "article_summary" });
         if (!response.ok || !data?.summary) throw new Error(data?.error || "文章已保存，但摘要暂时没有生成成功。");
         saveArticle(currentArticle, data.summary, effectiveImportedArticle);
-        onArticleSaved();
+        onArticleSaved(findSavedArticle(currentArticle) ?? undefined);
         setSaveStatus("文章已保存并生成摘要");
       }
     } catch (saveError) {

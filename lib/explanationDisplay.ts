@@ -1,6 +1,6 @@
 import { normalizeDifficultyLabel, normalizePartOfSpeechLabel } from "@/lib/displayLabels";
 import { normalizeAnkiInfo } from "@/lib/ankiData";
-import { currentFormPhonetic } from "@/lib/pronunciation";
+import { currentFormPhonetic, requiresCurrentFormPhonetic } from "@/lib/pronunciation";
 import type { Difficulty, WordContext, WordExplanation } from "@/types/reader";
 
 export interface ExplanationDisplaySection {
@@ -160,6 +160,7 @@ export function explanationFromCompletedStream(
     || !collocation
     || !exampleEnglish
     || !exampleChinese
+    || (requiresCurrentFormPhonetic(context.word) && !phonetic)
   ) {
     return null;
   }

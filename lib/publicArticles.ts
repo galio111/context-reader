@@ -124,9 +124,8 @@ function mapArticle(
   const importedArticle = isRemoteImportedArticle(row.imported_article)
     ? sanitizeImportedArticleContent(row.imported_article)
     : row.imported_article;
-  const body = importedArticle && row.body
-    ? trimTrailingWebsiteText(row.body)
-    : row.body ?? "";
+  const body = importedArticle?.text.trim()
+    || (row.body ? trimTrailingWebsiteText(row.body) : "");
   const recommendation = recommendationWithBodyImageFallback(
     recommendationFromRow(row, body),
     importedArticle,

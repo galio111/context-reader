@@ -1,3 +1,5 @@
+import { JSDOM } from "jsdom";
+import { normalizeImportedArticleStructure } from "@/lib/importedArticleNormalization";
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 
 const TRAILING_SECTION_PATTERN = /^(?:related\s+(?:topics?|terms?|stories|articles|content)|story\s+source|journal\s+references?|cite\s+this\s+page|explore\s+more|recommended(?:\s+for\s+you)?|you\s+(?:may|might)\s+also\s+like|read\s+next|more\s+(?:stories|articles|from)|most\s+popular|trending|about\s+the\s+author|sign\s+up\s+for\b|advertisement)\b/i;
@@ -5,6 +7,37 @@ const EXPLICIT_END_MARKER_PATTERN = /^[-–—]?\s*end\s*[-–—]?\.?$/i;
 const AUTHOR_IMAGE_NAMESPACE_PATTERN = /(?:^|[/_.-])(?:accounts?|authors?|contributors?|people|profiles?|staff)(?:[/_.-][^/?#]*){0,4}[/_.-](?:headshots?|avatars?|author[-_ ]?(?:images?|photos?|portraits?)|profile[-_ ]?(?:images?|photos?|portraits?))(?:[/_.?#&=-]|$)/i;
 const AUTHOR_IMAGE_KEYWORD_PATTERN = /(?:^|[/_.-])(?:headshots?|avatars?|author[-_ ]?(?:images?|photos?|portraits?)|profile[-_ ]?(?:images?|photos?|portraits?))(?:[/_.?#&=-]|$)/i;
 const BYLINE_ROLE_PATTERN = /\b(?:author|byline|columnist|contributor|correspondent|editor|journalist|photographer|producer|reporter|staff\s+writer|writer)\b/i;
+const ENTITY_PATTERN = /&(?:amp;)*(?:#\d+|#x[\da-f]+|[a-z][\da-z]+);/i;
+const entityDocument = new JSDOM("<!doctype html><html><body></body></html>").window.document;
+
+export function decodeHtmlEntitiesRepeated(value: string, maxPasses = 4): string {
+  let decoded = value;
+  for (let pass = 0; pass < maxPasses && ENTITY_PATTERN.test(decoded); pass += 1) {
+    const textarea = entityDocument.createElement("textarea");
+    textarea.innerHTML = decoded;
+    const next = textarea.value;
+    if (next === decoded) break;
+    decoded = next;
+  }
+  return decoded;
+}
+
+function decodeBlockEntities(block: ImportedArticleBlock): ImportedArticleBlock {
+  return {
+    ...block,
+    ...(typeof block.text === "string" ? { text: decodeHtmlEntitiesRepeated(block.text) } : {}),
+    ...(typeof block.alt === "string" ? { alt: decodeHtmlEntitiesRepeated(block.alt) } : {}),
+    ...(typeof block.caption === "string" ? { caption: decodeHtmlEntitiesRepeated(block.caption) } : {}),
+    ...(block.inline ? { inline: block.inline.map((item) => ({ ...item, text: decodeHtmlEntitiesRepeated(item.text) })) } : {}),
+    ...(block.table ? {
+      table: {
+        ...block.table,
+        ...(block.table.caption ? { caption: decodeHtmlEntitiesRepeated(block.table.caption) } : {}),
+        rows: block.table.rows.map((row) => row.map((cell) => ({ ...cell, text: decodeHtmlEntitiesRepeated(cell.text) }))),
+      },
+    } : {}),
+  };
+}
 
 function normalizedBlockText(block: ImportedArticleBlock): string {
   return block.text?.replace(/\s+/g, " ").trim() ?? "";
@@ -176,15 +209,19 @@ export function trimTrailingWebsiteText(value: string): string {
 }
 
 export function sanitizeImportedArticleContent(article: ImportedArticle): ImportedArticle {
-  const boundedBlocks = trimTrailingWebsiteBlocks(article.blocks);
-  const blocks = removeDuplicateImageCaptionBlocks(removeAuthorIdentityBlocks(boundedBlocks));
-  return {
+  const decodedArticle: ImportedArticle = {
     ...article,
-    text: blocks.length < boundedBlocks.length
-      ? blocksToText(blocks) || trimTrailingWebsiteText(article.text)
-      : trimTrailingWebsiteText(article.text),
-    blocks,
+    title: decodeHtmlEntitiesRepeated(article.title),
+    text: decodeHtmlEntitiesRepeated(article.text),
+    blocks: article.blocks.map(decodeBlockEntities),
   };
+  const boundedBlocks = trimTrailingWebsiteBlocks(decodedArticle.blocks);
+  const blocks = removeDuplicateImageCaptionBlocks(removeAuthorIdentityBlocks(boundedBlocks));
+  return normalizeImportedArticleStructure({
+    ...decodedArticle,
+    text: blocksToText(blocks) || trimTrailingWebsiteText(decodedArticle.text),
+    blocks,
+  });
 }
 
 export function isRemoteImportedArticle(article: ImportedArticle | null | undefined): article is ImportedArticle {
