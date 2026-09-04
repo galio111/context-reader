@@ -9,6 +9,16 @@ import type { PublicArticle } from "@/types/publicArticle";
 export const HOMEPAGE_RECOMMENDATION_TARGET = 10;
 export const HOMEPAGE_MOBILE_RECOMMENDATION_TARGET = 7;
 
+/**
+ * Keep the accepted showcase stagger, but never let the expanded library's
+ * absolute article position add an ever-growing pause before its reveal.
+ */
+export function recommendationRevealDelayIndex(index: number, showcaseCount: number): number {
+  const safeIndex = Math.max(0, Math.floor(index));
+  const lastShowcaseIndex = Math.max(0, Math.floor(showcaseCount) - 1);
+  return Math.min(safeIndex, lastShowcaseIndex);
+}
+
 function stableRecommendationRank(value: string): number {
   let hash = 2166136261;
   for (let index = 0; index < value.length; index += 1) {

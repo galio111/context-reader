@@ -35,6 +35,7 @@ import {
   homepageShowcaseArticles,
   orderHomepageCategoryArticles,
   orderHomepageRecommendations,
+  recommendationRevealDelayIndex,
 } from "@/lib/homepageRecommendations";
 import { classifyFeatureOrbitGesture, FEATURE_ORBIT_AUTOPLAY_MS, type FeatureOrbitGestureIntent } from "@/lib/featureOrbitMotion";
 import styles from "./HomeRedesign.module.css";
@@ -1291,12 +1292,13 @@ export function HomeRedesign(props: HomeRedesignProps) {
               {displayArticles.map((item, index) => {
                 const featured = index === 0;
                 const recommendation = item.recommendation;
+                const revealDelayIndex = recommendationRevealDelayIndex(index, showcaseArticleCount);
                 return (
                   <button
                     type="button"
                     key={item.id}
                     className={`${styles.articleCard} ${featured ? styles.featuredCard : ""}`}
-                    style={{ "--article-index": index } as CSSProperties}
+                    style={{ "--article-reveal-index": revealDelayIndex } as CSSProperties}
                     onPointerEnter={() => props.onPrefetchPublicArticle(item.id)}
                     onFocus={() => props.onPrefetchPublicArticle(item.id)}
                     onClick={(event) => beginArticleTransition(item, event)}

@@ -25,7 +25,12 @@ import {
   MOBILE_SHEET_TALL_HEIGHT,
 } from "../components/useMobileBottomSheet";
 import { audienceForDifficulty } from "../lib/articleAudience";
-import { homepageShowcaseArticles, orderHomepageCategoryArticles, orderHomepageRecommendations } from "../lib/homepageRecommendations";
+import {
+  homepageShowcaseArticles,
+  orderHomepageCategoryArticles,
+  orderHomepageRecommendations,
+  recommendationRevealDelayIndex,
+} from "../lib/homepageRecommendations";
 import { buildBalancedRecommendationPlan } from "../lib/recommendationBalance";
 import { setPublishedArticlePlacement } from "../lib/editorialCuration";
 import {
@@ -543,6 +548,21 @@ test("recommendation motion rebinds when preference ordering swaps article ids w
   assert.match(source, /const displayArticleMotionKey = displayArticles\.map\(\(article\) => article\.id\)/);
   assert.match(source, /\[activeCategory, displayArticleMotionKey\]/);
   assert.match(source, /Math\.max\(2, Math\.ceil\(words \/ 120\)\)/);
+});
+
+test("expanded recommendation reveals never accumulate more delay than the accepted showcase", () => {
+  assert.equal(recommendationRevealDelayIndex(0, 10), 0);
+  assert.equal(recommendationRevealDelayIndex(9, 10), 9);
+  assert.equal(recommendationRevealDelayIndex(10, 10), 9);
+  assert.equal(recommendationRevealDelayIndex(37, 10), 9);
+  assert.equal(recommendationRevealDelayIndex(6, 7), 6);
+  assert.equal(recommendationRevealDelayIndex(28, 7), 6);
+
+  const source = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
+  const styles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
+  assert.match(source, /"--article-reveal-index": revealDelayIndex/);
+  assert.match(styles, /transition-delay: calc\(var\(--article-reveal-index, 0\) \* 18ms\)/);
+  assert.doesNotMatch(styles, /transition-delay:[^;]*--article-index/);
 });
 
 test("URL extraction decodes publisher entities that were escaped twice", () => {
