@@ -67,6 +67,9 @@ import {
 import { DictionaryProviderStreamNormalizer } from "../lib/dictionaryStreamServer";
 
 test("core lookup routes fall back from overloaded Pro to Flash", async () => {
+  assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-flash", undefined), [
+    "deepseek-v4-flash",
+  ]);
   assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-pro", undefined), [
     "deepseek-v4-pro",
     "deepseek-v4-flash",
@@ -97,6 +100,16 @@ test("core lookup routes fall back from overloaded Pro to Flash", async () => {
   const explanationStream = readFileSync(new URL("../app/api/explain-word-stream/route.ts", import.meta.url), "utf8");
   const dictionaryStream = readFileSync(new URL("../app/api/dictionary-stream/route.ts", import.meta.url), "utf8");
   const structuredExplanation = readFileSync(new URL("../lib/deepseek.ts", import.meta.url), "utf8");
+  const structuredDictionary = readFileSync(new URL("../lib/deepseekDictionary.ts", import.meta.url), "utf8");
+  const articleSummary = readFileSync(new URL("../app/api/summarize-article/route.ts", import.meta.url), "utf8");
+  const articleTranslation = readFileSync(new URL("../app/api/translate-article/route.ts", import.meta.url), "utf8");
+  for (const source of [explanationStream, dictionaryStream, structuredExplanation, structuredDictionary]) {
+    assert.match(source, /const DEFAULT_MODEL = "deepseek-v4-flash"/);
+    assert.match(source, /DEEPSEEK_LOOKUP_MODEL/);
+  }
+  assert.match(articleSummary, /const DEFAULT_MODEL = "deepseek-v4-pro"/);
+  assert.match(articleSummary, /process\.env\.DEEPSEEK_MODEL/);
+  assert.match(articleTranslation, /DEEPSEEK_TRANSLATION_MODEL \|\| "deepseek-v4-flash"/);
   assert.match(explanationStream, /fetchWithDeepSeekModelFailover/);
   assert.match(dictionaryStream, /fetchWithDeepSeekModelFailover/);
   assert.match(structuredExplanation, /coreDeepSeekModelCandidates/);
@@ -305,6 +318,7 @@ test("structured explanation distinguishes an aborted fetch from a completed mal
     "DEEPSEEK_API_KEY",
     "DEEPSEEK_BASE_URL",
     "DEEPSEEK_MODEL",
+    "DEEPSEEK_LOOKUP_MODEL",
     "DEEPSEEK_FALLBACK_MODELS",
     "DEEPSEEK_FALLBACK_BASE_URL",
     "DEEPSEEK_FALLBACK_API_KEY",
@@ -322,7 +336,7 @@ test("structured explanation distinguishes an aborted fetch from a completed mal
 
   process.env.DEEPSEEK_API_KEY = "test-key";
   process.env.DEEPSEEK_BASE_URL = "https://provider.invalid";
-  process.env.DEEPSEEK_MODEL = "test-model";
+  process.env.DEEPSEEK_LOOKUP_MODEL = "test-model";
   process.env.DEEPSEEK_FALLBACK_MODELS = "";
   process.env.DEEPSEEK_FALLBACK_BASE_URL = "";
   process.env.DEEPSEEK_FALLBACK_API_KEY = "";
@@ -353,7 +367,7 @@ test("structured explanation distinguishes an aborted fetch from a completed mal
     error instanceof DeepSeekParseError && !(error instanceof ClientRequestCancelledError)
   ));
 
-  process.env.DEEPSEEK_MODEL = "deepseek-v4-pro";
+  process.env.DEEPSEEK_LOOKUP_MODEL = "deepseek-v4-pro";
   delete process.env.DEEPSEEK_FALLBACK_MODELS;
   const attemptedModels: string[] = [];
   globalThis.fetch = (async (_input: RequestInfo | URL, init?: RequestInit) => {

@@ -18,6 +18,7 @@ Production uses the versioned Docker workflow under `ops/mainland/`: Caddy front
 DEEPSEEK_API_KEY=...
 DEEPSEEK_BASE_URL=https://api.deepseek.com
 DEEPSEEK_MODEL=deepseek-v4-pro
+DEEPSEEK_LOOKUP_MODEL=deepseek-v4-flash
 DEEPSEEK_TRANSLATION_MODEL=
 DEEPSEEK_FALLBACK_MODELS=
 DEEPSEEK_FALLBACK_BASE_URL=
@@ -47,7 +48,7 @@ VOLCENGINE_TTS_UK_VOICE=en_female_emily_mars_bigtts
 
 OCR routes and the dormant legacy image-import path can use either `OCR_PROVIDER=zhipu` with `ZHIPU_API_KEY`, or `OCR_PROVIDER=openai` with `OPENAI_API_KEY`. The shipped root homepage exposes no image upload, and automatic OCR for images embedded in URL-imported articles remains gated off in the reader.
 
-`DEEPSEEK_TRANSLATION_MODEL` overrides only full-article translation; when it is blank, full translation uses the lower-cost `deepseek-v4-flash`, while other DeepSeek features continue to use `DEEPSEEK_MODEL`. `DEEPSEEK_FALLBACK_MODELS` is a comma-separated model list used for supported retries on the primary provider. When it is unset and the shared primary is `deepseek-v4-pro`, contextual explanation and standalone dictionary automatically fall back to `deepseek-v4-flash` after retryable provider rejection; an explicitly empty value disables this model fallback. Structured word explanations can also use `DEEPSEEK_FALLBACK_BASE_URL` with optional `DEEPSEEK_FALLBACK_API_KEY` and `DEEPSEEK_FALLBACK_MODEL`.
+`DEEPSEEK_LOOKUP_MODEL` controls contextual word explanation, its sentence translation, and standalone dictionary; it defaults to the lower-cost `deepseek-v4-flash` independently of the shared `DEEPSEEK_MODEL`. `DEEPSEEK_TRANSLATION_MODEL` overrides only full-article translation; when it is blank, full translation also uses `deepseek-v4-flash`. `DEEPSEEK_FALLBACK_MODELS` is a comma-separated model list used for supported retries on the primary provider. The default Flash lookup path does not add a same-provider model fallback; explicitly configuring a Pro lookup primary with the fallback list unset retains the existing automatic `deepseek-v4-pro` to `deepseek-v4-flash` retry. An explicitly empty fallback list disables model fallback. Structured word explanations can also use `DEEPSEEK_FALLBACK_BASE_URL` with optional `DEEPSEEK_FALLBACK_API_KEY` and `DEEPSEEK_FALLBACK_MODEL`.
 
 `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, the internal compatibility `SUPABASE_URL`, and the self-hosted `SUPABASE_SERVICE_ROLE_KEY` are needed for `/admin`, public recommendations, preloaded word explanations, and preloaded full-article translations. `CRON_SECRET` is required for the scheduled recommendation crawler. `SITE_SMTP_HOST`, `SITE_SMTP_PORT`, `SITE_SMTP_USER`, `SITE_SMTP_PASSWORD`, `SITE_SMTP_FROM`, and `SITE_NOTIFICATION_EMAIL_TO` configure its successful-completion email; these values remain server-only and the SMTP authorization code must never enter Git, logs, or command arguments. Use a long unique admin password; only the independent session secret has an enforced minimum of 32 characters. Increment `ADMIN_SESSION_VERSION` to revoke every existing admin cookie. Run the complete `docs/public-articles-supabase.sql` against the active mainland PostgreSQL database before publishing and after security/schema updates; it creates the three tables, enables RLS, and revokes direct access from browser roles and `PUBLIC`.
 

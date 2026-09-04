@@ -13,7 +13,7 @@ import { coreDeepSeekModelCandidates, fetchWithDeepSeekModelFailover } from "@/l
 
 export const maxDuration = 60;
 
-const DEFAULT_MODEL = "deepseek-v4-pro";
+const DEFAULT_MODEL = "deepseek-v4-flash";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const REQUEST_TIMEOUT_MS = 35_000;
 interface DeepSeekStreamChunk {
@@ -106,7 +106,7 @@ export async function POST(request: Request) {
   }
 
   const baseURL = (process.env.DEEPSEEK_BASE_URL?.trim() || DEFAULT_BASE_URL).replace(/\/$/, "");
-  const modelCandidates = coreDeepSeekModelCandidates(process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_MODEL);
+  const modelCandidates = coreDeepSeekModelCandidates(process.env.DEEPSEEK_LOOKUP_MODEL?.trim() || DEFAULT_MODEL);
   let activeModel = modelCandidates[0];
   const upstreamController = new AbortController();
   const explicitCancellationController = new AbortController();

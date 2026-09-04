@@ -10,7 +10,7 @@ import type {
   WordExplanation,
 } from "@/types/reader";
 
-const DEFAULT_MODEL = "deepseek-v4-pro";
+const DEFAULT_MODEL = "deepseek-v4-flash";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const MAX_CONTEXT_CHARS = 1100;
 const MAX_SINGLE_FIELD_CHARS = 500;
@@ -234,7 +234,7 @@ function parseJsonObject(content: string): unknown {
 function getProviderProfiles(): ProviderProfile[] {
   const primaryApiKey = process.env.DEEPSEEK_API_KEY;
   const primaryBaseURL = process.env.DEEPSEEK_BASE_URL ?? DEFAULT_BASE_URL;
-  const primaryModel = process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL;
+  const primaryModel = process.env.DEEPSEEK_LOOKUP_MODEL?.trim() || DEFAULT_MODEL;
 
   if (!primaryApiKey) {
     return [];

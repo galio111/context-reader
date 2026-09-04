@@ -10,7 +10,7 @@ import { classifyStreamTermination } from "@/lib/requestCancellation";
 import { registerActiveLookupRequest } from "@/lib/activeLookupRequests";
 import { coreDeepSeekModelCandidates, fetchWithDeepSeekModelFailover } from "@/lib/deepseekModelFailover";
 
-const DEFAULT_MODEL = "deepseek-v4-pro";
+const DEFAULT_MODEL = "deepseek-v4-flash";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const REQUEST_TIMEOUT_MS = 30000;
 const WORD_OR_PHRASE_PATTERN = /^[A-Za-z]+(?:['-][A-Za-z]+)*(?:\s+[A-Za-z]+(?:['-][A-Za-z]+)*){0,7}$/;
@@ -113,7 +113,7 @@ export async function POST(request: Request) {
 
   const safeRequest = sanitizeExplanationRequest(body);
   const baseURL = process.env.DEEPSEEK_BASE_URL ?? DEFAULT_BASE_URL;
-  const modelCandidates = coreDeepSeekModelCandidates(process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL);
+  const modelCandidates = coreDeepSeekModelCandidates(process.env.DEEPSEEK_LOOKUP_MODEL?.trim() || DEFAULT_MODEL);
   let activeModel = modelCandidates[0];
   const upstreamController = new AbortController();
   const explicitCancellationController = new AbortController();

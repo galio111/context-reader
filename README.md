@@ -81,6 +81,7 @@ The complete environment reference lives in `.env.local.example` and `docs/integ
 DEEPSEEK_API_KEY=
 DEEPSEEK_BASE_URL=https://api.deepseek.com
 DEEPSEEK_MODEL=deepseek-v4-pro
+DEEPSEEK_LOOKUP_MODEL=deepseek-v4-flash
 DEEPSEEK_TRANSLATION_MODEL=
 DEEPSEEK_FALLBACK_MODELS=
 DEEPSEEK_FALLBACK_BASE_URL=

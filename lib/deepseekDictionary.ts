@@ -10,7 +10,7 @@ import type {
   DictionaryWordFamilyItem,
 } from "@/types/dictionary";
 
-const DEFAULT_MODEL = "deepseek-v4-pro";
+const DEFAULT_MODEL = "deepseek-v4-flash";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const REQUEST_TIMEOUT_MS = 35_000;
 const MAX_COMPLETION_TOKENS = 2_400;
@@ -69,7 +69,7 @@ function profiles(): ProviderProfile[] {
   const apiKey = process.env.DEEPSEEK_API_KEY?.trim() || "";
   if (!apiKey) return [];
   const baseURL = (process.env.DEEPSEEK_BASE_URL?.trim() || DEFAULT_BASE_URL).replace(/\/$/, "");
-  const model = process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_MODEL;
+  const model = process.env.DEEPSEEK_LOOKUP_MODEL?.trim() || DEFAULT_MODEL;
   const result: ProviderProfile[] = [{ apiKey, baseURL, model, label: "primary" }];
   const fallbackBaseURL = process.env.DEEPSEEK_FALLBACK_BASE_URL?.trim();
   if (fallbackBaseURL) {
