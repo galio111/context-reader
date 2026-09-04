@@ -11,7 +11,7 @@ export async function GET() {
     return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
   }
   try {
-    return NextResponse.json({ articles: await listPublicArticles() });
+    return NextResponse.json({ articles: await listPublicArticles({ includeImportedArticle: true }) });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "公开文章读取失败。" },

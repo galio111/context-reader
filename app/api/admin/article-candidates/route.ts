@@ -12,6 +12,7 @@ import {
 import { getHomepageCuration, saveHomepageCuration } from "@/lib/homepageCuration";
 import { EDITORIAL_CATEGORIES, editorialCategoryForArticle, placePublishedArticle, type EditorialCategory } from "@/lib/editorialCuration";
 import { isSafePublicArticleInput, UUID_PATTERN } from "@/lib/publicArticleInput";
+import { articleHasHomepageImage } from "@/lib/articleMedia";
 
 export async function GET() {
   if (!(await isAdminRequest())) {
@@ -93,7 +94,7 @@ export async function PATCH(request: Request) {
         categoryFeatured: body.featured === true,
         includeInRecommendation: body.includeInRecommendation !== false,
         recommendationFeatured: body.recommendationFeatured === true,
-        preferLater: !article.recommendation?.coverImageUrl?.trim(),
+        preferLater: !articleHasHomepageImage(article),
       }));
     } catch (error) {
       return NextResponse.json(

@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
 import { revalidateTag } from "next/cache";
 import sharp from "sharp";
+import { recommendationWithBodyImageFallback } from "@/lib/articleMedia";
 import { isExternalArticleImageUrl, isFirstPartyArticleImageUrl } from "@/lib/articleImageUrls";
 import { assertSafeRemoteUrl, readResponseBytes, safeRemoteFetch } from "@/lib/safeRemoteFetch";
 import type { ImportedArticle } from "@/types/article";
@@ -310,6 +311,14 @@ export async function localizePublicArticleInputCover<T extends PublicArticleInp
     );
     importedArticle = localized.article;
   }
+  storedRecommendation = recommendationWithBodyImageFallback(
+    storedRecommendation,
+    importedArticle,
+    { title: input.title, sourceUrl: input.sourceUrl || importedArticle?.url || "" },
+  );
+  if (importedArticle && storedRecommendation) {
+    importedArticle = { ...importedArticle, recommendation: storedRecommendation };
+  }
   return {
     ...input,
     ...(storedRecommendation ? { recommendation: storedRecommendation } : {}),
@@ -400,6 +409,16 @@ export async function repairExternalPublicArticleCovers(ids?: string[]) {
       changed = changed || localized.localized > 0 || localized.removed > 0;
       for (const failure of localized.failures) {
         result.omitted.push({ id: row.id, title: row.title, error: `${failure.error} (${failure.src})` });
+      }
+      const repairedRecommendation = recommendationWithBodyImageFallback(
+        importedArticle.recommendation,
+        importedArticle,
+        { title: row.title, sourceUrl: row.source_url || importedArticle.url },
+      );
+      if (repairedRecommendation?.coverImageUrl !== importedArticle.recommendation?.coverImageUrl) {
+        coverUrl = repairedRecommendation?.coverImageUrl || "";
+        importedArticle = { ...importedArticle, recommendation: repairedRecommendation };
+        changed = true;
       }
       if (!changed) {
         result.skipped += 1;

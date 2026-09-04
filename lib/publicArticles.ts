@@ -6,6 +6,7 @@ import {
   trimTrailingWebsiteText,
 } from "@/lib/articleContentSanitizer";
 import { countArticleEnglishWords } from "@/lib/articleWordCount";
+import { recommendationWithBodyImageFallback, withLeadCoverForImageFreeArticle } from "@/lib/articleMedia";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import { createArticleTranslationBatches } from "@/lib/articleTranslationBatching";
 import { createArticleTranslationCacheKey } from "@/lib/articleTranslationIdentity";
@@ -126,7 +127,12 @@ function mapArticle(
   const body = importedArticle && row.body
     ? trimTrailingWebsiteText(row.body)
     : row.body ?? "";
-  const recommendation = recommendationFromRow(row, body);
+  const recommendation = recommendationWithBodyImageFallback(
+    recommendationFromRow(row, body),
+    importedArticle,
+    { title: row.title, sourceUrl: row.source_url ?? importedArticle?.url ?? "" },
+  );
+  const readerArticle = withLeadCoverForImageFreeArticle(importedArticle, recommendation, row.id, row.title);
   return {
     id: row.id,
     title: row.title,
@@ -134,7 +140,7 @@ function mapArticle(
     body,
     sourceUrl: row.source_url ?? "",
     sourceName: row.source_name ?? "",
-    ...(importedArticle ? { importedArticle } : {}),
+    ...(readerArticle ? { importedArticle: readerArticle } : {}),
     ...(recommendation ? { recommendation } : {}),
     explanations,
     articleTranslations,
@@ -396,9 +402,11 @@ async function findDuplicateArticleRow(input: PublicArticleInput, published: boo
   }) ?? null;
 }
 
-export async function listPublicArticles(): Promise<PublicArticle[]> {
+export async function listPublicArticles(options: { includeImportedArticle?: boolean } = {}): Promise<PublicArticle[]> {
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
-    "public_articles?select=id,title,summary,body,source_url,source_name,recommendation:imported_article->recommendation,created_at,updated_at&published=eq.true&order=updated_at.desc",
+    options.includeImportedArticle
+      ? "public_articles?select=id,title,summary,body,source_url,source_name,imported_article,created_at,updated_at&published=eq.true&order=updated_at.desc"
+      : "public_articles?select=id,title,summary,body,source_url,source_name,recommendation:imported_article->recommendation,created_at,updated_at&published=eq.true&order=updated_at.desc",
   );
   return rows.map((row) => mapArticle(row));
 }

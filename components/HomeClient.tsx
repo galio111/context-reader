@@ -1076,9 +1076,8 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   }, [loadPublicArticle]);
 
   function applyPublicArticle(publicArticle: PublicArticleDetails, fallbackId: string) {
-    // The recommendation cover belongs to the shared opening transition, not
-    // the article body. Keep the source article's own image sequence untouched
-    // so the first editorial image is never rendered twice.
+    // The server has already resolved the shared media rule: retain editorial
+    // images, or add the homepage cover once when the article has no body image.
     const sourceArticle = publicArticle.importedArticle ?? null;
     void primeLeadingArticleImage(sourceArticle);
     setArticle(publicArticle.body);

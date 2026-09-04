@@ -58,6 +58,11 @@ import { createSourceSentenceIndex, findBestSourceSentenceMatchInIndex } from ".
 import { tokenizeArticle } from "../lib/tokenizer";
 import { extractArticleTranslationText, IncrementalJsonObjectParser } from "../lib/incrementalJsonObjects";
 import { removeDuplicateImageCaptionBlocks } from "../lib/articleContentSanitizer";
+import {
+  articleMediaState,
+  recommendationWithBodyImageFallback,
+  withLeadCoverForImageFreeArticle,
+} from "../lib/articleMedia";
 import { extractImportedArticleFromHtml } from "../lib/urlArticleExtractor";
 import {
   coreDeepSeekModelCandidates,
@@ -186,6 +191,44 @@ function recommendationArticle(id: string, options?: { cover?: boolean }): Publi
     },
   };
 }
+
+test("article media keeps Reader and homepage image states consistent without duplicating editorial images", () => {
+  const base = recommendationArticle("media");
+  const heading = { id: "block-title", type: "heading" as const, text: base.title };
+  const paragraph = { id: "block-1", type: "paragraph" as const, text: base.body };
+  const articleWithoutBodyImage = {
+    title: base.title,
+    url: base.sourceUrl,
+    siteName: base.sourceName,
+    text: base.body,
+    blocks: [heading, paragraph],
+  };
+  const withCover = withLeadCoverForImageFreeArticle(
+    articleWithoutBodyImage,
+    base.recommendation,
+    base.id,
+    base.title,
+  );
+  assert.equal(withCover?.blocks[0]?.type, "heading");
+  assert.equal(withCover?.blocks[1]?.type, "image");
+  assert.equal(withCover?.blocks[1]?.src, base.recommendation?.coverImageUrl);
+  assert.equal(articleMediaState({ ...base, importedArticle: withCover ?? undefined }), "cover-only");
+
+  const editorialImage = { id: "block-image", type: "image" as const, src: "https://example.com/editorial.webp", alt: "Editorial image" };
+  const articleWithBodyImage = { ...articleWithoutBodyImage, blocks: [heading, editorialImage, paragraph] };
+  const withoutDuplicateCover = withLeadCoverForImageFreeArticle(articleWithBodyImage, base.recommendation, base.id, base.title);
+  assert.deepEqual(withoutDuplicateCover?.blocks, articleWithBodyImage.blocks);
+  assert.equal(articleMediaState({ ...base, importedArticle: articleWithBodyImage }), "cover-and-body");
+
+  const textOnlyRecommendation = { ...base.recommendation!, coverImageUrl: "" };
+  const fallback = recommendationWithBodyImageFallback(textOnlyRecommendation, articleWithBodyImage, {
+    title: base.title,
+    sourceUrl: base.sourceUrl,
+  });
+  assert.equal(fallback?.coverImageUrl, editorialImage.src);
+  assert.equal(fallback?.coverImageAlt, editorialImage.alt);
+  assert.equal(articleMediaState({ ...base, recommendation: fallback, importedArticle: articleWithBodyImage }), "body-as-cover");
+});
 
 test("reader token ids stay unique across article blocks", () => {
   assert.notEqual(scopeReaderTokenId("paragraph-0-", "word-4"), scopeReaderTokenId("paragraph-1-", "word-4"));
@@ -463,12 +506,14 @@ test("ambiguous standalone lookup preserves inflection and independent headword 
 test("admin curation remounts and releases per-article working state", () => {
   const page = readFileSync(new URL("../app/admin/page.tsx", import.meta.url), "utf8");
   const inspector = readFileSync(new URL("../components/AdminArticleMetadataInspector.tsx", import.meta.url), "utf8");
+  const publicArticlesRoute = readFileSync(new URL("../app/api/admin/public-articles/route.ts", import.meta.url), "utf8");
   assert.match(page, /<AdminArticleMetadataInspector\s+key=\{`\$\{readerState\.kind\}:\$\{readerState\.article\.id\}`\}/);
   assert.match(inspector, /finally \{ setWorking\(""\); \}/);
   assert.match(page, /editorialMobileActions=\{<>[\s\S]*?候选 \{candidateArticles\.length\}[\s\S]*?精选 \{publicArticles\.length\}/);
   assert.match(page, /function resetEditorialReaderViewport\(\)/);
   assert.match(page, /window\.scrollTo\(\{ top: 0, left: 0, behavior: "auto" \}\)/);
   assert.match(inspector, /适合人群（可多选）/);
+  assert.match(publicArticlesRoute, /listPublicArticles\(\{ includeImportedArticle: true \}\)/);
 });
 
 test("recommendations treat the Admin pool as authoritative and keep text-only entries out of the collapsed rows", () => {

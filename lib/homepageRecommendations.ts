@@ -5,6 +5,7 @@ import {
 } from "@/lib/recommendationPreferences";
 import type { HomepageCuration } from "@/lib/homepageCurationShared";
 import type { PublicArticle } from "@/types/publicArticle";
+import { articleHasHomepageImage } from "@/lib/articleMedia";
 
 export const HOMEPAGE_RECOMMENDATION_TARGET = 10;
 export const HOMEPAGE_MOBILE_RECOMMENDATION_TARGET = 7;
@@ -29,7 +30,7 @@ function stableRecommendationRank(value: string): number {
 }
 
 export function hasHomepageCover(article: PublicArticle): boolean {
-  return Boolean(article.recommendation?.coverImageUrl?.trim());
+  return articleHasHomepageImage(article);
 }
 
 /**

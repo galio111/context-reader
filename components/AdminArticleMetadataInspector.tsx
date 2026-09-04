@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import ClearableField from "@/components/ClearableField";
 import { countArticleEnglishWords } from "@/lib/articleWordCount";
+import { articleMediaState } from "@/lib/articleMedia";
 import { EDITORIAL_CATEGORIES, editorialCategoryForArticle, type EditorialCategory, type PublishedArticlePlacement } from "@/lib/editorialCuration";
 import { audienceForDifficulty } from "@/lib/articleAudience";
 import styles from "@/components/AdminArticleMetadataInspector.module.css";
@@ -100,6 +101,14 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
   const wordCount = useMemo(() => countArticleEnglishWords(article.body), [article.body]);
   const evidence = draft.recommendation.difficultyEvidence;
   const dirty = draftSignature(draft) !== draftSignature(baseline);
+  const mediaState = articleMediaState(article);
+  const mediaSummary = mediaState === "cover-and-body"
+    ? "首页封面和正文图片都已准备"
+    : mediaState === "cover-only"
+      ? "有首页封面，正文无独立图片，阅读时会在标题后补显封面"
+      : mediaState === "body-as-cover"
+        ? "正文有图，第一张图会同时用作首页封面"
+        : "确实没有可用图片，首页仅在显示更多后提供纯文本入口";
 
   function toggleAudience(stage: ArticleAudienceStage) {
     setDraft((current) => ({ ...current, audienceStages: current.audienceStages.includes(stage)
@@ -254,7 +263,7 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
         <div className="flex items-center justify-between gap-2"><button className="text-sm font-semibold text-[#1769aa]" type="button" onClick={onClose}>返回后台</button><button className={styles.mobileClose} type="button" onClick={onMobileClose}>收起设置</button><span className="text-xs text-[#68737c]">{working === "save" ? "正在保存…" : dirty ? "等待自动保存" : "已保存"}</span></div>
         <div className="mt-3 flex items-center justify-between gap-2"><button className="h-9 rounded-full bg-white px-3 text-sm disabled:opacity-35" type="button" onClick={onPrevious} disabled={!onPrevious || busy}>← 上一篇</button><span className="text-xs font-medium text-[#4d5963]">{queuePosition ? `${queuePosition.index + 1} / ${queuePosition.total}` : articleKind === "candidate" ? "候选" : "已精选"}</span><button className="h-9 rounded-full bg-white px-3 text-sm disabled:opacity-35" type="button" onClick={onNext} disabled={!onNext || busy}>下一篇 →</button></div>
         {articleKind === "candidate" && <div className="mt-3 grid grid-cols-2 gap-2"><button className="min-h-11 rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleSelect()} disabled={busy}>{working === "select" ? "正在精选…" : "精选并继续"}</button><button className="min-h-11 rounded-lg border border-[#d5a7a7] bg-white px-3 text-sm font-semibold text-[#9a3030] disabled:opacity-45" type="button" onClick={() => void handleReject()} disabled={busy}>{working === "reject" ? "正在移出…" : "不精选"}</button></div>}
-        {articleKind === "candidate" && !article.recommendation?.coverImageUrl?.trim() && <p className="mt-2 text-xs leading-5 text-[#526873]">无图候选：仍可精选，首页会使用纯文本外刊卡片。</p>}
+        {articleKind === "candidate" && <p className="mt-2 text-xs leading-5 text-[#526873]">{mediaSummary}。</p>}
         {articleKind === "published" && onUploadTranslation && <button className="mt-3 min-h-11 w-full rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleUploadTranslation()} disabled={busy}>{working === "translation" ? "正在上传…" : "上传全文翻译"}</button>}
         {articleKind === "published" && working === "translation" && <p className="mt-2 text-xs text-[#526873]" role="status">正在检查并上传当前完整译文…</p>}
         {articleKind === "published" && working !== "translation" && message && <p className="mt-2 text-xs font-medium text-[#315e66]" role="status">{message}</p>}
@@ -263,7 +272,7 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4">
-        <p className="text-xs font-semibold text-[#1769aa]">{articleKind === "candidate" ? "候选文章" : "已公开推荐"}</p><h1 className="mt-1 text-base font-semibold leading-6">{article.title}</h1><p className="mt-1 text-xs leading-5 text-[#68737c]">{article.sourceName || "来源待确认"} · {wordCount.toLocaleString("zh-CN")} 词 · {article.recommendation?.coverImageUrl?.trim() ? "有首页图片" : "无首页图片（折叠区后置）"}</p>
+        <p className="text-xs font-semibold text-[#1769aa]">{articleKind === "candidate" ? "候选文章" : "已公开推荐"}</p><h1 className="mt-1 text-base font-semibold leading-6">{article.title}</h1><p className="mt-1 text-xs leading-5 text-[#68737c]">{article.sourceName || "来源待确认"} · {wordCount.toLocaleString("zh-CN")} 词 · {mediaSummary}</p>
         <div className="mt-4 grid gap-3">
           <label className={labelClass}>首页栏目<select className={inputClass} value={draft.homepageCategory} onChange={(event) => setDraft((current) => ({ ...current, homepageCategory: event.target.value as EditorialCategory }))} disabled={busy}>{EDITORIAL_CATEGORIES.map((item) => <option key={item}>{item}</option>)}</select></label>
           <label className="flex items-start gap-2 rounded-lg bg-white p-3 text-xs leading-5 text-[#46525c]"><input className="mt-1" type="checkbox" checked={placement.categoryFeatured} onChange={(event) => void handlePlacementChange({ ...placement, categoryFeatured: event.target.checked })} disabled={busy} /><span><strong className="block text-[#17212b]">设为本栏主推</strong>勾选才进入本栏人工主推位；取消后回到系统分类排序，不会连带其他按钮。</span></label>

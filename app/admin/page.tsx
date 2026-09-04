@@ -12,6 +12,7 @@ import { ReaderView } from "@/components/ReaderView";
 import { SiteBackdrop } from "@/components/SiteBackdrop";
 import { getSavedArticles } from "@/lib/articles";
 import { countArticleEnglishWords } from "@/lib/articleWordCount";
+import { articleHasHomepageImage, articleMediaState, type ArticleMediaState } from "@/lib/articleMedia";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import {
   createArticleTranslationCacheKey,
@@ -46,8 +47,15 @@ function placementForPublishedArticle(article: PublicArticle, curation: Homepage
     categoryFeatured: curation.categories[category][0] === article.id,
     includeInRecommendation: curation.categories.推荐.includes(article.id),
     recommendationFeatured: curation.recommendationFeaturedId === article.id,
-    preferLater: !article.recommendation?.coverImageUrl?.trim(),
+    preferLater: !articleHasHomepageImage(article),
   };
+}
+
+function compactMediaLabel(state: ArticleMediaState): string {
+  if (state === "cover-and-body") return "封面和正文都有图";
+  if (state === "cover-only") return "封面会补到正文";
+  if (state === "body-as-cover") return "正文首图作封面";
+  return "无可用图片";
 }
 
 function explanationWordFromKey(cacheKey: string): string {
@@ -214,7 +222,7 @@ export default function AdminPage() {
     setStatus("");
     setEditorialDrawer(null);
     setCandidateArticles((items) => items.some((item) => item.id === article.id) ? items : [article, ...items]);
-    setArticlePlacement({ ...DEFAULT_CANDIDATE_PLACEMENT, preferLater: !article.recommendation?.coverImageUrl?.trim() });
+    setArticlePlacement({ ...DEFAULT_CANDIDATE_PLACEMENT, preferLater: !articleHasHomepageImage(article) });
     setInspectorOpen(false);
     setReaderState({ kind: "candidate", article });
     resetEditorialReaderViewport();
@@ -357,7 +365,7 @@ export default function AdminPage() {
     const previousIndex = candidateArticles.findIndex((item) => item.id === completedId);
     const next = nextQueue[Math.min(Math.max(0, previousIndex), Math.max(0, nextQueue.length - 1))];
     if (next) {
-      setArticlePlacement({ ...DEFAULT_CANDIDATE_PLACEMENT, preferLater: !next.recommendation?.coverImageUrl?.trim() });
+      setArticlePlacement({ ...DEFAULT_CANDIDATE_PLACEMENT, preferLater: !articleHasHomepageImage(next) });
       setInspectorOpen(false);
       setReaderState({ kind: "candidate", article: next });
       resetEditorialReaderViewport();
@@ -429,7 +437,7 @@ export default function AdminPage() {
     if (!active || active.kind !== "published") return;
     const next = setPublishedArticlePlacement(homepageCuration, active.article.id, category, {
       ...placement,
-      preferLater: !active.article.recommendation?.coverImageUrl?.trim(),
+      preferLater: !articleHasHomepageImage(active.article),
     });
     const response = await fetch("/api/admin/homepage-curation", {
       method: "PUT",
@@ -869,7 +877,7 @@ export default function AdminPage() {
               {drawerItems.length ? <ul className="divide-y divide-[#e1e5e9]">{drawerItems.map((article) => {
                 const recommendation = article.recommendation ?? article.importedArticle?.recommendation;
                 const publishedTime = article.importedArticle?.publishedTime;
-                return <li key={article.id}><button className={`w-full px-2 py-4 text-left hover:bg-[#f2f7fa] focus-visible:bg-[#f2f7fa] ${readerState.article.id === article.id ? "bg-[#eaf4fa]" : ""}`} type="button" onClick={() => readerState.kind === "published" && editorialDrawer === "published" ? void openPublishedArticle(article) : editorialDrawer === "candidates" ? openCandidateArticle(article) : void openPublishedArticle(article)}><strong className="block text-sm leading-5">{article.title}</strong><span className="mt-1 block text-xs leading-5 text-[#68737c]">{article.sourceName || "来源待确认"} · {editorialCategoryForRecommendation(recommendation)} · {recommendation?.difficulty || "难度待定"} · {publishedTime ? `发布于 ${new Date(publishedTime).toLocaleDateString("zh-CN")}` : "发布日期未知"} · {recommendation?.coverImageUrl?.trim() ? "有图" : "无图"}</span></button></li>;
+                return <li key={article.id}><button className={`w-full px-2 py-4 text-left hover:bg-[#f2f7fa] focus-visible:bg-[#f2f7fa] ${readerState.article.id === article.id ? "bg-[#eaf4fa]" : ""}`} type="button" onClick={() => readerState.kind === "published" && editorialDrawer === "published" ? void openPublishedArticle(article) : editorialDrawer === "candidates" ? openCandidateArticle(article) : void openPublishedArticle(article)}><strong className="block text-sm leading-5">{article.title}</strong><span className="mt-1 block text-xs leading-5 text-[#68737c]">{article.sourceName || "来源待确认"} · {editorialCategoryForRecommendation(recommendation)} · {recommendation?.difficulty || "难度待定"} · {publishedTime ? `发布于 ${new Date(publishedTime).toLocaleDateString("zh-CN")}` : "发布日期未知"} · {compactMediaLabel(articleMediaState(article))}</span></button></li>;
               })}</ul> : <p className="px-3 py-10 text-center text-sm text-[#68737c]">没有符合当前筛选的文章。</p>}
               {editorialDrawer === "candidates" && rejectedArticles.length > 0 && <details className="mt-4 border-t border-[#d7dde2] pt-4"><summary className="cursor-pointer text-sm font-semibold">不精选记录（{rejectedArticles.length}）</summary><ul className="mt-2 divide-y divide-[#e1e5e9]">{rejectedArticles.map((article) => <li key={article.id} className="flex items-start justify-between gap-3 py-3"><div className="min-w-0"><strong className="block text-sm leading-5">{article.title}</strong><span className="text-xs text-[#68737c]">{article.sourceName || "来源待确认"}</span></div><button className="shrink-0 rounded-full border border-[#1769aa] px-3 py-1.5 text-xs text-[#1769aa]" type="button" onClick={() => void restoreRejectedArticle(article)}>撤销</button></li>)}</ul></details>}
             </div>
@@ -1033,8 +1041,8 @@ export default function AdminPage() {
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="text-base font-semibold leading-6">{article.title}</h3>
-                      <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${article.recommendation?.coverImageUrl ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>
-                        {article.recommendation?.coverImageUrl ? "封面已准备" : "缺少封面"}
+                      <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${articleHasHomepageImage(article) ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-800"}`}>
+                        {compactMediaLabel(articleMediaState(article))}
                       </span>
                     </div>
                     <p className="mt-1 text-sm leading-5 text-[#333333]">{article.summary || "暂无摘要"}</p>
