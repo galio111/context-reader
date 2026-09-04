@@ -56,6 +56,7 @@ import {
 import type { PublicArticle } from "../types/publicArticle";
 import { createArticleTranslationCacheKey } from "../lib/articleTranslationIdentity";
 import { cursorAnchoredImageZoom } from "../lib/imageZoom";
+import { createReaderBlockInteractivityStore } from "../lib/readerBlockInteractivity";
 import { createSourceSentenceIndex, findBestSourceSentenceMatchInIndex } from "../lib/sourceMatching";
 import { tokenizeArticle } from "../lib/tokenizer";
 import { extractArticleTranslationText, IncrementalJsonObjectParser } from "../lib/incrementalJsonObjects";
@@ -1073,17 +1074,44 @@ test("reader image loading and zoom stay outside the long article render state",
 
 test("long readers hydrate only nearby lookup tokens", () => {
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
-  assert.match(reader, /new IntersectionObserver/);
-  assert.match(reader, /rootMargin: "900px 0px 900px 0px"/);
+  assert.match(reader, /READER_INTERACTIVITY_WINDOW_MARGIN_PX = 320/);
+  assert.match(reader, /READER_INTERACTIVITY_RAPID_SCROLL_SETTLE_MS = 1_800/);
+  assert.match(reader, /Math\.abs\(nextScrollY - continuousScrollStartY\) >= Math\.max\(240, window\.innerHeight \* 0\.3\)/);
+  assert.match(reader, /firstBlockStartingAtOrAfter/);
+  assert.match(reader, /getBoundingClientRect\(\)\.top/);
   assert.match(reader, /data-reader-token-surface/);
   assert.match(reader, /interactive && block\.tokens\?\.length/);
   assert.match(reader, /revealInteractiveBlocks\(\[blockId\]\)/);
-  assert.match(reader, /function createReaderBlockInteractivityStore/);
+  assert.match(reader, /readerBlockInteractivityStore\.beginContinuousScroll\(\)/);
+  assert.match(reader, /readerBlockInteractivityStore\.replaceInteractive\(interactiveWindowIds\(\)\)/);
+  assert.match(reader, /readerBlockInteractivityStore\.endContinuousScroll\(\)/);
+  assert.match(reader, /window\.setTimeout\([\s\S]*?finishContinuousScroll,[\s\S]*?READER_INTERACTIVITY_SCROLL_FALLBACK_SETTLE_MS/);
+  assert.doesNotMatch(reader, /addEventListener\("scrollend", finishContinuousScroll\)/);
   assert.match(reader, /store\.subscribe\(blockId, update\)/);
   assert.match(reader, /startTransition\(\(\) => setInteractive\(next\)\)/);
-  assert.match(reader, /readerBlockInteractivityStore\.setInteractive\(blockId, entry\.isIntersecting\)/);
+  assert.doesNotMatch(reader, /new IntersectionObserver/);
   assert.doesNotMatch(reader, /setInteractiveBlockIds/);
   assert.doesNotMatch(reader, /contentVisibility|containIntrinsicSize/);
+});
+
+test("long reader defers token hydration churn until continuous scrolling ends", () => {
+  const store = createReaderBlockInteractivityStore("article");
+  const updates: string[] = [];
+  store.subscribe("first", (interactive) => updates.push(`first:${interactive}`));
+  store.subscribe("last", (interactive) => updates.push(`last:${interactive}`));
+
+  store.setInteractive("first", true);
+  assert.deepEqual(updates, ["first:true"]);
+  store.beginContinuousScroll();
+  store.replaceInteractive(["last"]);
+  assert.deepEqual(updates, ["first:true"]);
+  assert.equal(store.getSnapshot("first"), true);
+  assert.equal(store.getSnapshot("last"), false);
+
+  store.endContinuousScroll();
+  assert.deepEqual(updates, ["first:true", "first:false", "last:true"]);
+  assert.equal(store.getSnapshot("first"), false);
+  assert.equal(store.getSnapshot("last"), true);
 });
 
 test("duplicate image captions collapse while distinct caption text survives", () => {

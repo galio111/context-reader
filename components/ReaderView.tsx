@@ -61,6 +61,7 @@ import { scopeReaderTokenId } from "@/lib/readerTokenIdentity";
 import { getArticleImageSources, primeArticleImage } from "@/lib/articleImagePreload";
 import { isExternalArticleImageUrl } from "@/lib/articleImageUrls";
 import { cursorAnchoredImageZoom, interpolateImageZoom, type ImageZoomPoint, type ImageZoomTransform } from "@/lib/imageZoom";
+import { createReaderBlockInteractivityStore, type ReaderBlockInteractivityStore } from "@/lib/readerBlockInteractivity";
 import {
   addVocabularyEntry,
   clearVocabularyEntries,
@@ -165,43 +166,6 @@ interface RenderableTokenGroup {
   id: string;
   baseline?: ImportedArticleInlineBaseline;
   tokens: ReaderToken[];
-}
-
-interface ReaderBlockInteractivityStore {
-  articleIdentity: string;
-  getSnapshot: (blockId: string) => boolean;
-  subscribe: (blockId: string, listener: (interactive: boolean, urgent: boolean) => void) => () => void;
-  setInteractive: (blockId: string, interactive: boolean, urgent?: boolean) => void;
-  reveal: (blockIds: string[]) => void;
-}
-
-function createReaderBlockInteractivityStore(articleIdentity: string): ReaderBlockInteractivityStore {
-  const interactiveIds = new Set<string>();
-  const listeners = new Map<string, Set<(interactive: boolean, urgent: boolean) => void>>();
-
-  const setInteractive = (blockId: string, interactive: boolean, urgent = false) => {
-    const changed = interactive ? !interactiveIds.has(blockId) : interactiveIds.has(blockId);
-    if (!changed) return;
-    if (interactive) interactiveIds.add(blockId);
-    else interactiveIds.delete(blockId);
-    listeners.get(blockId)?.forEach((listener) => listener(interactive, urgent));
-  };
-
-  return {
-    articleIdentity,
-    getSnapshot: (blockId) => interactiveIds.has(blockId),
-    subscribe: (blockId, listener) => {
-      const blockListeners = listeners.get(blockId) ?? new Set<(interactive: boolean, urgent: boolean) => void>();
-      blockListeners.add(listener);
-      listeners.set(blockId, blockListeners);
-      return () => {
-        blockListeners.delete(listener);
-        if (blockListeners.size === 0) listeners.delete(blockId);
-      };
-    },
-    setInteractive,
-    reveal: (blockIds) => blockIds.forEach((blockId) => setInteractive(blockId, true, true)),
-  };
 }
 
 function useReaderBlockInteractivity(store: ReaderBlockInteractivityStore, blockId: string) {
@@ -417,6 +381,9 @@ type ReaderWorkLayer = "import" | "articles" | null;
 const IMAGE_OCR_ENABLED = false;
 const SOURCE_JUMP_UNLOCK_TIMEOUT_MS = 2_000;
 const READER_PROGRESS_SCROLL_SETTLE_MS = 180;
+const READER_INTERACTIVITY_SCROLL_FALLBACK_SETTLE_MS = 180;
+const READER_INTERACTIVITY_RAPID_SCROLL_SETTLE_MS = 1_800;
+const READER_INTERACTIVITY_WINDOW_MARGIN_PX = 320;
 const FALLBACK_READER_IMAGE_WIDTH = 1_600;
 const FALLBACK_READER_IMAGE_HEIGHT = 1_200;
 const DEFAULT_ARTICLE_STYLE: Required<ArticleReadingStyle> = {
@@ -1572,20 +1539,82 @@ export function ReaderView({
     if (!root) return;
     const candidates = Array.from(root.querySelectorAll<HTMLElement>("[data-reader-token-surface]"));
     if (!candidates.length) return;
+    let fallbackSettleHandle = 0;
+    let syncFrame = 0;
+    let continuousScrollActive = false;
+    let rapidContinuousScroll = false;
+    let lastScrollY = window.scrollY;
+    let continuousScrollStartY = window.scrollY;
 
-    if (!("IntersectionObserver" in window)) {
-      revealInteractiveBlocks(candidates.slice(0, 8).map((element) => element.dataset.readerBlock || "").filter(Boolean));
-      return;
-    }
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        const blockId = (entry.target as HTMLElement).dataset.readerBlock || "";
-        if (blockId) readerBlockInteractivityStore.setInteractive(blockId, entry.isIntersecting);
+    const firstBlockStartingAtOrAfter = (viewportY: number) => {
+      let low = 0;
+      let high = candidates.length;
+      while (low < high) {
+        const middle = Math.floor((low + high) / 2);
+        if (candidates[middle].getBoundingClientRect().top < viewportY) low = middle + 1;
+        else high = middle;
       }
-    }, { rootMargin: "900px 0px 900px 0px" });
-    candidates.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, [articleMediaReady, currentArticle, currentImportedArticle, editingArticle, readerBlockInteractivityStore, revealInteractiveBlocks]);
+      return low;
+    };
+    const interactiveWindowIds = () => {
+      const firstNearViewport = firstBlockStartingAtOrAfter(-READER_INTERACTIVITY_WINDOW_MARGIN_PX);
+      const firstAfterViewport = firstBlockStartingAtOrAfter(
+        window.innerHeight + READER_INTERACTIVITY_WINDOW_MARGIN_PX,
+      );
+      return candidates
+        .slice(Math.max(0, firstNearViewport - 1), Math.min(candidates.length, firstAfterViewport + 1))
+        .map((element) => element.dataset.readerBlock || "")
+        .filter(Boolean);
+    };
+    const syncInteractiveWindow = () => {
+      syncFrame = 0;
+      readerBlockInteractivityStore.replaceInteractive(interactiveWindowIds());
+    };
+    const finishContinuousScroll = () => {
+      if (fallbackSettleHandle) window.clearTimeout(fallbackSettleHandle);
+      fallbackSettleHandle = 0;
+      if (!continuousScrollActive) return;
+      readerBlockInteractivityStore.replaceInteractive(interactiveWindowIds());
+      continuousScrollActive = false;
+      rapidContinuousScroll = false;
+      lastScrollY = window.scrollY;
+      continuousScrollStartY = window.scrollY;
+      readerBlockInteractivityStore.endContinuousScroll();
+    };
+    const handleContinuousScroll = () => {
+      const nextScrollY = window.scrollY;
+      if (!continuousScrollActive) {
+        continuousScrollActive = true;
+        continuousScrollStartY = lastScrollY;
+        readerBlockInteractivityStore.beginContinuousScroll();
+      }
+      if (Math.abs(nextScrollY - continuousScrollStartY) >= Math.max(240, window.innerHeight * 0.3)) {
+        rapidContinuousScroll = true;
+      }
+      lastScrollY = nextScrollY;
+      if (fallbackSettleHandle) window.clearTimeout(fallbackSettleHandle);
+      fallbackSettleHandle = window.setTimeout(
+        finishContinuousScroll,
+        rapidContinuousScroll
+          ? READER_INTERACTIVITY_RAPID_SCROLL_SETTLE_MS
+          : READER_INTERACTIVITY_SCROLL_FALLBACK_SETTLE_MS,
+      );
+    };
+    const handleResize = () => {
+      if (continuousScrollActive || syncFrame) return;
+      syncFrame = window.requestAnimationFrame(syncInteractiveWindow);
+    };
+    syncFrame = window.requestAnimationFrame(syncInteractiveWindow);
+    window.addEventListener("scroll", handleContinuousScroll, { passive: true });
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleContinuousScroll);
+      window.removeEventListener("resize", handleResize);
+      if (fallbackSettleHandle) window.clearTimeout(fallbackSettleHandle);
+      if (syncFrame) window.cancelAnimationFrame(syncFrame);
+      readerBlockInteractivityStore.endContinuousScroll();
+    };
+  }, [articleMediaReady, currentArticle, currentImportedArticle, editingArticle, readerBlockInteractivityStore]);
 
   useEffect(() => () => {
     if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
