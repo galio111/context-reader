@@ -1,6 +1,7 @@
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 import { revalidatePath, revalidateTag } from "next/cache";
 import {
+  decodeHtmlEntitiesRepeated,
   isRemoteImportedArticle,
   sanitizeImportedArticleContent,
   trimTrailingWebsiteText,
@@ -121,24 +122,27 @@ function mapArticle(
   explanations: PublicExplanation[] = [],
   articleTranslations: PublicArticleTranslation[] = [],
 ): PublicArticle {
+  const title = decodeHtmlEntitiesRepeated(row.title);
+  const summary = decodeHtmlEntitiesRepeated(row.summary);
+  const sourceName = decodeHtmlEntitiesRepeated(row.source_name ?? "");
   const importedArticle = isRemoteImportedArticle(row.imported_article)
     ? sanitizeImportedArticleContent(row.imported_article)
     : row.imported_article;
   const body = importedArticle?.text.trim()
-    || (row.body ? trimTrailingWebsiteText(row.body) : "");
+    || (row.body ? decodeHtmlEntitiesRepeated(trimTrailingWebsiteText(row.body)) : "");
   const recommendation = recommendationWithBodyImageFallback(
     recommendationFromRow(row, body),
     importedArticle,
-    { title: row.title, sourceUrl: row.source_url ?? importedArticle?.url ?? "" },
+    { title, sourceUrl: row.source_url ?? importedArticle?.url ?? "" },
   );
-  const readerArticle = withLeadCoverForImageFreeArticle(importedArticle, recommendation, row.id, row.title);
+  const readerArticle = withLeadCoverForImageFreeArticle(importedArticle, recommendation, row.id, title);
   return {
     id: row.id,
-    title: row.title,
-    summary: row.summary,
+    title,
+    summary,
     body,
     sourceUrl: row.source_url ?? "",
-    sourceName: row.source_name ?? "",
+    sourceName,
     ...(readerArticle ? { importedArticle: readerArticle } : {}),
     ...(recommendation ? { recommendation } : {}),
     explanations,

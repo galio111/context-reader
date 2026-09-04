@@ -647,6 +647,14 @@ test("URL extraction decodes named, decimal, hexadecimal and multiply escaped le
   assert.doesNotMatch(extracted.article.text, /&(?:amp;)*(?:auml|#228|#xF6);/i);
 });
 
+test("public article metadata and plain-text fallbacks use the same entity decoder as imported blocks", () => {
+  const source = readFileSync(new URL("../lib/publicArticles.ts", import.meta.url), "utf8");
+  assert.match(source, /const title = decodeHtmlEntitiesRepeated\(row\.title\)/);
+  assert.match(source, /const summary = decodeHtmlEntitiesRepeated\(row\.summary\)/);
+  assert.match(source, /decodeHtmlEntitiesRepeated\(trimTrailingWebsiteText\(row\.body\)\)/);
+  assert.match(source, /title,\s*summary,/);
+});
+
 test("crawler keeps one headline and removes the duplicate lead created by a title prefix", () => {
   const title = "Meta agrees to $17 billion settlement and new protections for teens";
   const normalized = normalizeImportedArticleStructure({
