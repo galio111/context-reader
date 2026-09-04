@@ -2007,6 +2007,7 @@ export function BookHome({
         localAccount={localAccount}
         savedArticles={hasLocalAccountAccess ? savedArticles : []}
         vocabularyEntries={hasLocalAccountAccess ? vocabularyEntries : []}
+        onVocabularyEntriesChange={setVocabularyEntries}
         onClose={() => setMenuOpen(false)}
         onOpenSavedArticle={onOpenSavedArticle}
         onJumpToVocabularySource={onJumpToVocabularySource}

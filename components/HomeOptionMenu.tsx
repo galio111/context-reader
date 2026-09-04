@@ -28,14 +28,19 @@ import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetail
 import { MOBILE_SHEET_TALL_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
-import { addVocabularyNote, checkAnki } from "@/lib/ankiConnect";
+import { addVocabularyNote, checkAnki, findImportedVocabularyNoteIds } from "@/lib/ankiConnect";
 import { downloadVocabularyCsv } from "@/lib/csv";
 import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
 import { currentFormPhonetic } from "@/lib/pronunciation";
 import type { LocalAccountSession } from "@/lib/localAccountSession";
 import { savedArticleOpenTimestamp } from "@/lib/savedArticleMerge";
 import { sortVocabularyEntriesByCreatedAt } from "@/lib/vocabularyMerge";
-import { clearVocabularyEntries, deleteVocabularyEntry, markVocabularyEntryImported } from "@/lib/vocabulary";
+import {
+  clearVocabularyEntries,
+  deleteVocabularyEntry,
+  markVocabularyEntriesImported,
+  markVocabularyEntryImported,
+} from "@/lib/vocabulary";
 import { createVocabularySearchIndex, searchVocabularyIndex } from "@/lib/vocabularySearch";
 import type { AccountSessionState } from "@/types/account";
 import type { AnkiSettings } from "@/types/anki";
@@ -82,6 +87,7 @@ export interface HomeMenuAnkiTools {
   importError: string;
   onSettingsChange: (settings: AnkiSettings) => void;
   onCheck: () => void;
+  onReconcile?: (entries: VocabularyEntry[]) => void | Promise<void>;
   onImport: (entry: VocabularyEntry) => void;
   onImportAll: () => void;
 }
@@ -203,6 +209,7 @@ export function HomeOptionMenu({
   const [internalAnkiChecking, setInternalAnkiChecking] = useState(false);
   const [internalImportingId, setInternalImportingId] = useState("");
   const [internalImportError, setInternalImportError] = useState("");
+  const reconciliationAttemptKeyRef = useRef("");
   const [ankiSettingsOpen, setAnkiSettingsOpen] = useState(false);
   const [ankiHelpOpen, setAnkiHelpOpen] = useState(false);
   const [guideScrollTarget, setGuideScrollTarget] = useState<GuideSection | null>(null);
@@ -362,6 +369,49 @@ export function HomeOptionMenu({
   }, [deferredVocabularySearch, filteredVocabularyEntries.length, visiblePreview, vocabularyVirtualizer]);
 
   useEffect(() => {
+    if (!open) {
+      reconciliationAttemptKeyRef.current = "";
+      return;
+    }
+    if (visiblePreview !== "vocabulary" || effectiveImportingId) return;
+    const pending = vocabularyEntries.filter((entry) => !entry.anki.ankiNoteId);
+    if (pending.length === 0) return;
+    const attemptKey = pending.map((entry) => `${entry.id}\u0000${entry.createdAt}`).sort().join("\u0001");
+    if (reconciliationAttemptKeyRef.current === attemptKey) return;
+    reconciliationAttemptKeyRef.current = attemptKey;
+
+    if (ankiTools?.onReconcile) {
+      void Promise.resolve(ankiTools.onReconcile(pending)).catch(() => undefined);
+      return;
+    }
+
+    setInternalImportingId("__reconcile__");
+    void findImportedVocabularyNoteIds(
+      pending,
+      internalAnkiSettings.deckName,
+      internalAnkiSettings.endpoint,
+    ).then((recovered) => {
+      if (recovered.size === 0) return;
+      onVocabularyEntriesChange?.(markVocabularyEntriesImported(recovered));
+      setInternalAnkiStatus(`已与 Anki 核对，找回 ${recovered.size} 条导入记录。`);
+    }).catch(() => {
+      // Opening the menu must remain quiet when Anki is closed. An explicit
+      // import attempt will surface the connection guidance.
+    }).finally(() => {
+      setInternalImportingId((current) => current === "__reconcile__" ? "" : current);
+    });
+  }, [
+    ankiTools,
+    effectiveImportingId,
+    internalAnkiSettings.deckName,
+    internalAnkiSettings.endpoint,
+    onVocabularyEntriesChange,
+    open,
+    visiblePreview,
+    vocabularyEntries,
+  ]);
+
+  useEffect(() => {
     if (hoveredVocabularyId && !filteredVocabularyIds.has(hoveredVocabularyId)) {
       setHoveredVocabularyId(null);
     }
@@ -407,8 +457,8 @@ export function HomeOptionMenu({
 
   async function importAllInternalAnki() {
     if (internalImportingId) return;
-    const pending = vocabularyEntries.filter((entry) => !entry.anki.ankiNoteId);
-    if (!pending.length) {
+    const locallyPending = vocabularyEntries.filter((entry) => !entry.anki.ankiNoteId);
+    if (!locallyPending.length) {
       setInternalImportError("没有未导入的词条。");
       return;
     }
@@ -416,6 +466,16 @@ export function HomeOptionMenu({
     setInternalImportError("");
     let completed = 0;
     try {
+      const recovered = await findImportedVocabularyNoteIds(
+        locallyPending,
+        internalAnkiSettings.deckName,
+        internalAnkiSettings.endpoint,
+      );
+      if (recovered.size > 0) {
+        onVocabularyEntriesChange?.(markVocabularyEntriesImported(recovered));
+        setInternalAnkiStatus(`已先与 Anki 核对，找回 ${recovered.size} 条导入记录。`);
+      }
+      const pending = locallyPending.filter((entry) => !recovered.has(entry.id));
       for (const entry of pending) {
         const noteId = await addVocabularyNote(entry, internalAnkiSettings.deckName, internalAnkiSettings.endpoint);
         onVocabularyEntriesChange?.(markVocabularyEntryImported(entry.id, noteId));
@@ -732,7 +792,11 @@ export function HomeOptionMenu({
                 onClick={importAllToAnki}
                 disabled={Boolean(effectiveImportingId) || unimportedVocabularyCount === 0}
               >
-                {effectiveImportingId === "__all__" ? "批量导入中…" : `批量导入 ${unimportedVocabularyCount}`}
+                {effectiveImportingId === "__all__"
+                  ? "核对并导入中…"
+                  : effectiveImportingId === "__reconcile__"
+                    ? "正在核对 Anki…"
+                    : `核对并导入 ${unimportedVocabularyCount}`}
               </button>
               <div
                 className={styles.ankiSettingsHelpGroup}

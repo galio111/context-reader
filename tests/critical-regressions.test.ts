@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { buildContextCloze } from "../lib/ankiData";
+import { addVocabularyNote, findImportedVocabularyNoteIds } from "../lib/ankiConnect";
+import { basicFields, clozeFields, fieldsForEntry } from "../lib/ankiTemplates";
 import { DeepSeekParseError, explainWordWithDeepSeek } from "../lib/deepseek";
 import {
   cancelActiveLookupRequests,
@@ -73,6 +75,108 @@ import { DictionaryProviderStreamNormalizer } from "../lib/dictionaryStreamServe
 import { explanationFromCompletedStream } from "../lib/explanationDisplay";
 import { normalizeImportedArticleStructure } from "../lib/importedArticleNormalization";
 import { guestCoverTouchSnapTarget } from "../lib/guestCoverTouchSnap";
+import type { VocabularyEntry } from "../types/vocabulary";
+
+function ankiTestEntry(id: string, word: string, createdAt: string): VocabularyEntry {
+  return {
+    id,
+    word,
+    lemma: word,
+    phonetic: "",
+    partOfSpeech: "noun",
+    basicMeaning: "测试",
+    contextMeaning: "测试",
+    sentenceTranslation: "测试",
+    usageNote: "",
+    collocation: "",
+    exampleEnglish: "",
+    exampleChinese: "",
+    sourceSentence: `A ${word} appears here.`,
+    previousSentence: "",
+    nextSentence: "",
+    difficulty: "medium",
+    shouldAddToVocabulary: true,
+    createdAt,
+    updatedAt: createdAt,
+    anki: {
+      canMakeCloze: true,
+      cardMode: "cloze_context",
+      clozeSentence: "A ________ appears here.",
+      contextCue: "测试",
+      basicCue: "测试",
+      frontPreview: "",
+      backPreview: "",
+      ankiNoteId: null,
+      ankiImportedAt: null,
+    },
+  };
+}
+
+test("Anki import receipts recover stable ids and legacy CreatedAt + Word notes", async () => {
+  const originalFetch = globalThis.fetch;
+  const stable = ankiTestEntry("stable-entry-id", "resilient", "2026-09-04T01:02:03.000Z");
+  const legacy = ankiTestEntry("legacy-entry-id", "durable", "2026-09-03T01:02:03.000Z");
+  globalThis.fetch = (async (_input: RequestInfo | URL, init?: RequestInit) => {
+    const body = JSON.parse(String(init?.body)) as { action: string };
+    const result = body.action === "findNotes"
+      ? [901, 902]
+      : [
+          {
+            noteId: 901,
+            fields: {
+              ContextReaderId: { value: stable.id },
+              CreatedAt: { value: "different" },
+              Word: { value: "different" },
+            },
+          },
+          {
+            noteId: 902,
+            fields: {
+              CreatedAt: { value: legacy.createdAt },
+              Word: { value: legacy.word },
+            },
+          },
+        ];
+    return new Response(JSON.stringify({ result, error: null }), { status: 200 });
+  }) as typeof fetch;
+
+  try {
+    const recovered = await findImportedVocabularyNoteIds([stable, legacy]);
+    assert.equal(recovered.get(stable.id), 901);
+    assert.equal(recovered.get(legacy.id), 902);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("new Anki models use the stable vocabulary id as their duplicate key", () => {
+  const entry = ankiTestEntry("stable-entry-id", "resilient", "2026-09-04T01:02:03.000Z");
+  assert.equal(clozeFields[0], "ContextReaderId");
+  assert.equal(basicFields[0], "ContextReaderId");
+  assert.equal(fieldsForEntry(entry).ContextReaderId, entry.id);
+  assert.match(readFileSync(new URL("../lib/ankiConnect.ts", import.meta.url), "utf8"), /allowDuplicate: false/);
+});
+
+test("Anki add reuses an existing Context Reader note before creating another", async () => {
+  const originalFetch = globalThis.fetch;
+  const entry = ankiTestEntry("stable-entry-id", "resilient", "2026-09-04T01:02:03.000Z");
+  const actions: string[] = [];
+  globalThis.fetch = (async (_input: RequestInfo | URL, init?: RequestInit) => {
+    const body = JSON.parse(String(init?.body)) as { action: string; params?: { query?: string } };
+    actions.push(body.action);
+    const result = body.action === "findNotes"
+      ? body.params?.query?.includes("ContextReaderId:") ? [903] : []
+      : [{ noteId: 903, fields: { ContextReaderId: { value: entry.id } } }];
+    return new Response(JSON.stringify({ result, error: null }), { status: 200 });
+  }) as typeof fetch;
+
+  try {
+    assert.equal(await addVocabularyNote(entry), 903);
+    assert.deepEqual(actions, ["findNotes", "findNotes", "notesInfo"]);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
 
 test("core lookup routes fall back from overloaded Pro to Flash", async () => {
   assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-flash", undefined), [

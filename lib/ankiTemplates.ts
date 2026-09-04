@@ -11,6 +11,7 @@ export const EN_TO_CN_MODEL_NAME = "Context Reader Basic EN-CN";
 export const CN_TO_EN_DICTIONARY_MODEL_NAME = "Context Reader Dictionary CN-EN";
 
 export const clozeFields = [
+  "ContextReaderId",
   "Word",
   "Lemma",
   "Phonetic",
@@ -32,6 +33,7 @@ export const clozeFields = [
 ] as const;
 
 export const basicFields = [
+  "ContextReaderId",
   "Word",
   "Lemma",
   "Phonetic",
@@ -398,6 +400,7 @@ export function modelNameForMode(mode: AnkiCardMode): string {
 
 export function fieldsForEntry(entry: VocabularyEntry): Record<string, string> {
   const common = {
+    ContextReaderId: entry.id,
     Word: entry.word,
     Lemma: entry.lemma,
     Phonetic: currentFormPhonetic(entry),

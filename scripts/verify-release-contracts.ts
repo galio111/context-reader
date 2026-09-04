@@ -91,6 +91,20 @@ requireSource("lib/vocabulary.ts", ["phoneticFor"]);
 requireSource("lib/vocabularyMerge.ts", ["\"phoneticFor\""]);
 requireSource("lib/csv.ts", ["currentFormPhonetic"]);
 requireSource("lib/ankiTemplates.ts", ["currentFormPhonetic"]);
+requireSource("lib/ankiTemplates.ts", [
+  '"ContextReaderId",',
+  "ContextReaderId: entry.id",
+]);
+requireSource("lib/ankiConnect.ts", [
+  "findImportedVocabularyNoteId",
+  '{ query: "tag:context-reader" }',
+  "allowDuplicate: false",
+]);
+requireSource("components/HomeOptionMenu.tsx", [
+  "onReconcile",
+  "findImportedVocabularyNoteIds",
+  "正在核对 Anki",
+]);
 for (const path of [
   "components/AnkiPreviewModal.tsx",
   "components/VocabularyPanel.tsx",
@@ -183,4 +197,4 @@ requireSource("components/ReaderView.tsx", [
   "!isExternalArticleImageUrl(src)",
 ]);
 
-console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, invitation-entitlement-v1, adaptive-article-image-localization-v3, reader-token-identity-v1, admin-curation-transition-v1, rolling-session-v1");
+console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, anki-idempotency-v1, invitation-entitlement-v1, adaptive-article-image-localization-v3, reader-token-identity-v1, admin-curation-transition-v1, rolling-session-v1");

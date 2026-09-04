@@ -213,22 +213,84 @@ function escapeAnkiSearchValue(value: string): string {
   return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
 }
 
+function ankiFieldValue(note: AnkiNoteInfo, fieldName: string): string {
+  return String(note.fields?.[fieldName]?.value ?? "");
+}
+
+function noteMatchesVocabularyEntry(note: AnkiNoteInfo, entry: VocabularyEntry): boolean {
+  const contextReaderId = ankiFieldValue(note, "ContextReaderId");
+  if (contextReaderId) return contextReaderId === entry.id;
+  return (
+    ankiFieldValue(note, "CreatedAt") === entry.createdAt
+    && ankiFieldValue(note, "Word") === entry.word
+  );
+}
+
+async function notesMatchingQuery(query: string, endpoint?: string): Promise<AnkiNoteInfo[]> {
+  const noteIds = await invokeAnkiConnect<number[]>("findNotes", { query }, endpoint);
+  if (noteIds.length === 0) return [];
+  return invokeAnkiConnect<AnkiNoteInfo[]>("notesInfo", { notes: noteIds }, endpoint);
+}
+
+/**
+ * Resolves the durable Anki receipt for one vocabulary entry. New notes use the
+ * stable ContextReaderId field; older notes fall back to the historical
+ * CreatedAt + Word identity so interrupted imports from earlier releases are
+ * still recovered instead of duplicated.
+ */
+export async function findImportedVocabularyNoteId(
+  entry: VocabularyEntry,
+  endpoint?: string,
+): Promise<number | null> {
+  const taggedQuery = "tag:context-reader";
+  const legacyNotes = await notesMatchingQuery(
+    `${taggedQuery} CreatedAt:"${escapeAnkiSearchValue(entry.createdAt)}" Word:"${escapeAnkiSearchValue(entry.word)}"`,
+    endpoint,
+  );
+  const legacyMatch = legacyNotes
+    .filter((note) => noteMatchesVocabularyEntry(note, entry))
+    .map((note) => note.noteId)
+    .filter((noteId) => Number.isFinite(noteId) && noteId > 0)
+    .sort((left, right) => left - right)[0];
+  if (legacyMatch) return legacyMatch;
+
+  try {
+    const exactIdNotes = await notesMatchingQuery(
+      `${taggedQuery} ContextReaderId:"${escapeAnkiSearchValue(entry.id)}"`,
+      endpoint,
+    );
+    return exactIdNotes
+      .filter((note) => noteMatchesVocabularyEntry(note, entry))
+      .map((note) => note.noteId)
+      .filter((noteId) => Number.isFinite(noteId) && noteId > 0)
+      .sort((left, right) => left - right)[0] ?? null;
+  } catch {
+    // ContextReaderId was added after the original models shipped. Anki builds
+    // that reject searches for an as-yet unknown field can still import safely
+    // through the legacy signature; ensureModel adds the field before writing.
+    return null;
+  }
+}
+
 /**
  * Finds Context Reader notes which were successfully created in Anki but whose
  * browser-side import receipt was not persisted (for example, after an
- * interrupted browser session). The CreatedAt + Word pair is written into
- * every Context Reader card and is unique for a vocabulary entry.
+ * interrupted browser session). New cards use ContextReaderId; older cards
+ * remain recoverable through the historical CreatedAt + Word signature.
  */
 export async function findImportedVocabularyNoteIds(
   entries: VocabularyEntry[],
   deckName = DEFAULT_ANKI_DECK,
   endpoint?: string,
 ): Promise<Map<string, number>> {
+  void deckName; // Kept for backward-compatible callers; recovery is collection-wide.
   const missingEntries = entries.filter((entry) => !entry.anki.ankiNoteId);
   if (missingEntries.length === 0) return new Map();
 
   const entryIdsBySignature = new Map<string, string[]>();
+  const entryIdSet = new Set<string>();
   for (const entry of missingEntries) {
+    entryIdSet.add(entry.id);
     const signature = `${entry.createdAt}\u0000${entry.word}`;
     const ids = entryIdsBySignature.get(signature) ?? [];
     ids.push(entry.id);
@@ -237,7 +299,7 @@ export async function findImportedVocabularyNoteIds(
 
   const noteIds = await invokeAnkiConnect<number[]>(
     "findNotes",
-    { query: `deck:\"${escapeAnkiSearchValue(deckName)}\" tag:context-reader` },
+    { query: "tag:context-reader" },
     endpoint,
   );
   if (noteIds.length === 0) return new Map();
@@ -245,6 +307,17 @@ export async function findImportedVocabularyNoteIds(
   const notes = await invokeAnkiConnect<AnkiNoteInfo[]>("notesInfo", { notes: noteIds }, endpoint);
   const recovered = new Map<string, number>();
   for (const note of notes) {
+    const contextReaderId = ankiFieldValue(note, "ContextReaderId");
+    if (
+      contextReaderId
+      && entryIdSet.has(contextReaderId)
+      && Number.isFinite(note.noteId)
+      && note.noteId > 0
+      && !recovered.has(contextReaderId)
+    ) {
+      recovered.set(contextReaderId, note.noteId);
+      continue;
+    }
     const createdAt = note.fields?.CreatedAt?.value;
     const word = note.fields?.Word?.value;
     if (!createdAt || !word || !Number.isFinite(note.noteId) || note.noteId <= 0) continue;
@@ -332,25 +405,42 @@ export async function addVocabularyNote(
     throw new AnkiConnectError("这个词条已经导入过 Anki，不会重复导入。");
   }
 
+  const existingNoteId = await findImportedVocabularyNoteId(entry, endpoint);
+  if (existingNoteId) return existingNoteId;
+
   await createDeck(deckName, endpoint);
   await disableDeckAudioAutoplay(deckName, endpoint);
   const modelName = await ensureModel(entry.anki.cardMode, endpoint);
   // Production notes own both cloud MP3s. A deliberately unconfigured local
   // TTS provider falls back to the maintained Anki template's system TTS.
   const audio = await pronunciationAudioForNoteWithRetry(entry);
-  const result = await invokeAnkiConnect<number>(
-    "addNote",
-    {
-      note: {
-        deckName,
-        modelName,
-        fields: fieldsForEntry(entry),
-        audio,
-        options: { allowDuplicate: true },
-        tags: ["context-reader", entry.anki.cardMode],
+  const noteCreatedDuringPreparation = await findImportedVocabularyNoteId(entry, endpoint);
+  if (noteCreatedDuringPreparation) return noteCreatedDuringPreparation;
+
+  try {
+    const result = await invokeAnkiConnect<number>(
+      "addNote",
+      {
+        note: {
+          deckName,
+          modelName,
+          fields: fieldsForEntry(entry),
+          audio,
+          options: { allowDuplicate: false },
+          tags: ["context-reader", entry.anki.cardMode],
+        },
       },
-    },
-    endpoint,
-  );
-  return Number(result);
+      endpoint,
+    );
+    return Number(result);
+  } catch (error) {
+    try {
+      const recoveredNoteId = await findImportedVocabularyNoteId(entry, endpoint);
+      if (recoveredNoteId) return recoveredNoteId;
+    } catch {
+      // Preserve the original error. A later retry performs the same identity
+      // check before it can create another note.
+    }
+    throw error;
+  }
 }

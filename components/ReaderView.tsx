@@ -2670,9 +2670,6 @@ export function ReaderView({
     setReaderMenuStandalonePreview(true);
     setReaderMenuInitialPreview("vocabulary");
     setReaderMenuOpen(true);
-    if (entries.some((entry) => !entry.anki.ankiNoteId)) {
-      void reconcileAnkiImportReceipts(entries);
-    }
   }
 
   function handleOpenSavedArticlesMenu() {
@@ -3466,11 +3463,24 @@ export function ReaderView({
 
     let importedCount = 0;
     try {
-      for (const entry of unimportedEntries) {
+      const recovered = await findImportedVocabularyNoteIds(
+        unimportedEntries,
+        ankiSettings.deckName,
+        ankiSettings.endpoint,
+      );
+      if (recovered.size > 0) {
+        setVocabularyEntries(markVocabularyEntriesImported(recovered));
+        setAnkiStatus(`已先与 Anki 核对，找回 ${recovered.size} 条导入记录。`);
+      }
+      const genuinelyPending = unimportedEntries.filter((entry) => !recovered.has(entry.id));
+      for (const entry of genuinelyPending) {
         const ankiNoteId = await addVocabularyNote(entry, ankiSettings.deckName, ankiSettings.endpoint);
         const nextEntries = markVocabularyEntryImported(entry.id, ankiNoteId);
         setVocabularyEntries(nextEntries);
         importedCount += 1;
+      }
+      if (importedCount > 0) {
+        setAnkiStatus(`已核对 Anki，并新增导入 ${importedCount} 条。`);
       }
     } catch (ankiError) {
       const message = ankiError instanceof Error ? ankiError.message : "批量导入 Anki 失败，请稍后重试。";
@@ -4498,6 +4508,7 @@ export function ReaderView({
           importError,
           onSettingsChange: setAnkiSettings,
           onCheck: () => void handleCheckAnki(),
+          onReconcile: (entries) => reconcileAnkiImportReceipts(entries),
           onImport: (entry) => void handleImportAnki(entry),
           onImportAll: () => void handleImportAllAnki(),
         }}

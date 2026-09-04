@@ -27,7 +27,7 @@ The reader is the product center. Article text remains visually primary while lo
 ### Learning Data
 
 - Save articles and vocabulary locally, then synchronize versioned objects after login.
-- Preserve source sentence, contextual meaning, phonetics, generated study fields and Anki import state.
+- Preserve source sentence, contextual meaning, phonetics, generated study fields and Anki import state; interrupted Anki imports are reconciled by stable note identity before retrying.
 - Export CSV or import complete notes through browser-side AnkiConnect.
 - Use identical cloud-generated US/UK pronunciation audio across browsers and new Anki cards.
 - Merge duplicate/recovery article records into one logical article and keep saved articles ordered by latest open time.
