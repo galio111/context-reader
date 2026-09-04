@@ -37,6 +37,7 @@ import {
   orderHomepageRecommendations,
 } from "@/lib/homepageRecommendations";
 import { classifyFeatureOrbitGesture, FEATURE_ORBIT_AUTOPLAY_MS, type FeatureOrbitGestureIntent } from "@/lib/featureOrbitMotion";
+import { guestCoverTouchSnapTarget } from "@/lib/guestCoverTouchSnap";
 import styles from "./HomeRedesign.module.css";
 
 const BALL_COLORS = [
@@ -173,6 +174,14 @@ interface OpeningArticle {
   article: PublicArticle;
   source: DOMRect;
   started: boolean;
+}
+
+interface GuestCoverTouchGesture {
+  identifier: number;
+  startX: number;
+  startY: number;
+  startedInHandoff: boolean;
+  startedNearRecommendations: boolean;
 }
 
 function readingMinutes(article: PublicArticle): number {
@@ -350,6 +359,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const categorySwitchTimerRef = useRef<number | null>(null);
   const coverScrollFrameRef = useRef(0);
   const coverScrollTargetRef = useRef<"cover" | "recommendations" | null>(null);
+  const coverTouchGestureRef = useRef<GuestCoverTouchGesture | null>(null);
   const orbitDragRef = useRef<{ pointerId: number; startX: number; startY: number; lastX: number; lastTime: number; velocity: number; startPosition: number; intent: FeatureOrbitGestureIntent }>({ pointerId: -1, startX: 0, startY: 0, lastX: 0, lastTime: 0, velocity: 0, startPosition: 0, intent: "pending" });
   const orbitSuppressClickRef = useRef(false);
   useDocumentScrollLock(dictionaryMounted && compactViewport);
@@ -675,28 +685,74 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
   useEffect(() => {
     if (memberHome || compactViewport) return;
-    const handleWheel = (event: WheelEvent) => {
-      if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-      if ((event.target as Element | null)?.closest?.("[data-local-scroll-surface]")) return;
+    const coverBounds = () => {
       const stage = coverStageRef.current;
       const recommendations = recommendationsRef.current;
-      if (!stage || !recommendations) return;
+      if (!stage || !recommendations) return null;
       const stageTop = stage.getBoundingClientRect().top + window.scrollY;
       const recommendationsTop = recommendations.getBoundingClientRect().top + window.scrollY;
       const current = window.scrollY;
-      const insideHandoff = current >= stageTop - 2 && current < recommendationsTop - 2;
-      const atRecommendationStart = current >= recommendationsTop - 3 && current <= recommendationsTop + 56;
-      if (event.deltaY > 0 && insideHandoff) {
+      return {
+        insideHandoff: current >= stageTop - 2 && current < recommendationsTop - 2,
+        nearRecommendations: current >= recommendationsTop - 3 && current <= recommendationsTop + 56,
+      };
+    };
+    const handleWheel = (event: WheelEvent) => {
+      if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      if ((event.target as Element | null)?.closest?.("[data-local-scroll-surface]")) return;
+      const bounds = coverBounds();
+      if (!bounds) return;
+      if (event.deltaY > 0 && bounds.insideHandoff) {
         event.preventDefault();
         animateCoverSnap("recommendations");
-      } else if (event.deltaY < 0 && (insideHandoff || atRecommendationStart)) {
+      } else if (event.deltaY < 0 && (bounds.insideHandoff || bounds.nearRecommendations)) {
         event.preventDefault();
         animateCoverSnap("cover");
       }
     };
+    const handleTouchStart = (event: TouchEvent) => {
+      coverTouchGestureRef.current = null;
+      if (event.touches.length !== 1) return;
+      if ((event.target as Element | null)?.closest?.("[data-local-scroll-surface]")) return;
+      const bounds = coverBounds();
+      if (!bounds || (!bounds.insideHandoff && !bounds.nearRecommendations)) return;
+      const touch = event.touches[0];
+      coverTouchGestureRef.current = {
+        identifier: touch.identifier,
+        startX: touch.clientX,
+        startY: touch.clientY,
+        startedInHandoff: bounds.insideHandoff,
+        startedNearRecommendations: bounds.nearRecommendations,
+      };
+    };
+    const handleTouchEnd = (event: TouchEvent) => {
+      const gesture = coverTouchGestureRef.current;
+      coverTouchGestureRef.current = null;
+      if (!gesture) return;
+      const touch = Array.from(event.changedTouches).find((item) => item.identifier === gesture.identifier);
+      if (!touch) return;
+      const target = guestCoverTouchSnapTarget({
+        deltaX: touch.clientX - gesture.startX,
+        deltaY: touch.clientY - gesture.startY,
+        viewportHeight: window.innerHeight,
+        startedInHandoff: gesture.startedInHandoff,
+        startedNearRecommendations: gesture.startedNearRecommendations,
+      });
+      if (target) animateCoverSnap(target);
+    };
+    const handleTouchCancel = () => {
+      coverTouchGestureRef.current = null;
+    };
     window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    window.addEventListener("touchcancel", handleTouchCancel, { passive: true });
     return () => {
       window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+      window.removeEventListener("touchcancel", handleTouchCancel);
+      coverTouchGestureRef.current = null;
       if (coverScrollFrameRef.current) window.cancelAnimationFrame(coverScrollFrameRef.current);
       coverScrollFrameRef.current = 0;
       coverScrollTargetRef.current = null;

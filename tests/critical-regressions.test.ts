@@ -60,6 +60,7 @@ import {
   isRetryableDeepSeekStatus,
 } from "../lib/deepseekModelFailover";
 import { DictionaryProviderStreamNormalizer } from "../lib/dictionaryStreamServer";
+import { guestCoverTouchSnapTarget } from "../lib/guestCoverTouchSnap";
 
 test("core lookup routes fall back from overloaded Pro to Flash", async () => {
   assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-pro", undefined), [
@@ -720,6 +721,44 @@ test("homepage feature cards reserve vertical gestures for page scrolling", () =
   assert.match(styles, /\.ballField, \.coverBreath \{ display: none; \}/);
   assert.match(styles, /\.closingActions \{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
   assert.match(styles, /\.qrToggle, \.wechatQr \{ display: none !important; \}/);
+});
+
+test("guest cover touch gestures snap without turning horizontal drags into page navigation", () => {
+  const upward = guestCoverTouchSnapTarget({
+    deltaX: 5,
+    deltaY: -64,
+    viewportHeight: 1024,
+    startedInHandoff: true,
+    startedNearRecommendations: false,
+  });
+  const downward = guestCoverTouchSnapTarget({
+    deltaX: 3,
+    deltaY: 58,
+    viewportHeight: 1024,
+    startedInHandoff: false,
+    startedNearRecommendations: true,
+  });
+  assert.equal(upward, "recommendations");
+  assert.equal(downward, "cover");
+  assert.equal(guestCoverTouchSnapTarget({
+    deltaX: 52,
+    deltaY: -34,
+    viewportHeight: 1024,
+    startedInHandoff: true,
+    startedNearRecommendations: false,
+  }), null);
+  assert.equal(guestCoverTouchSnapTarget({
+    deltaX: 2,
+    deltaY: -18,
+    viewportHeight: 768,
+    startedInHandoff: true,
+    startedNearRecommendations: false,
+  }), null);
+
+  const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
+  assert.match(component, /addEventListener\("touchstart", handleTouchStart, \{ passive: true \}\)/);
+  assert.match(component, /addEventListener\("touchend", handleTouchEnd, \{ passive: true \}\)/);
+  assert.match(component, /closest\?\.\("\[data-local-scroll-surface\]"\)/);
 });
 
 test("every recommendation card receives a painted entry keyframe before observation", () => {
