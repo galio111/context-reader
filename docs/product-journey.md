@@ -1141,7 +1141,7 @@ Admin Reader 让“本栏主推、推荐候选池、推荐主推”对候选和�
 
 ## 2026-09-04：Anki 中断导入改为真实 Note 身份核验
 
-**状态：独立任务 worktree 已实现；关键回归、TypeScript、发布契约与 65 路由生产构建通过，大陆生产发布及真实 Anki 验收待完成**
+**状态：大陆生产已部署并通过自动与基础设施验收；真实 Anki 恢复验收待完成**
 
 **类型：Anki / 生词本 / 幂等性 / 云同步**
 
@@ -1150,3 +1150,5 @@ Admin Reader 让“本栏主推、推荐候选池、推荐主推”对候选和�
 新路径把 Anki 作为“是否真正写入”的确认来源。新卡片增加不可见的稳定 `ContextReaderId` 首字段并关闭 Anki 重复许可；旧卡片继续用精确 `CreatedAt + Word` 识别。主页 Menu 和 Reader 打开桌面生词本时都会扫描全部 `context-reader` 标签 Note 补回缺失回执；每次单条或批量导入又在新增前核验，批量先剔除已经存在的 Note。如果音频/模板准备期间另一请求已经创建，或 `addNote` 写入后网页只丢了响应，系统会再次查询并认领原 Note ID，再通过现有生词同步保存，不会自动删除或合并用户已有 Anki 卡片。
 
 回归模拟了“Context Reader 本地无回执、Anki 已有稳定 ID Note”和旧式 `CreatedAt + Word` Note，确认两类都能恢复；另一项回归确认 `addVocabularyNote` 命中现有 Note 后只执行查询，不调用创建。重新集成当前生产父版本后，干净 `npm.cmd ci`、66 项关键回归、TypeScript、`anki-idempotency-v1` 发布契约、静态出站审计与 65 路由生产构建均通过。
+
+大陆生产于 `20260904T182755` 接受发布，父版本为 `20260904T180813`，源码提交为 `aae394c65b5e1c29172b0b0e412f9c0b749c0092`。公网 `/api/connectivity` 回报同一 release/parent 且 `backendMode: mainland_internal`；根首页与公开文章接口为 200，带查询串的 `/home-v2` 永久重定向到根首页并保留查询，匿名账号会话、同步和 Admin 权限边界符合预期。七项服务健康检查通过，PostgreSQL、Auth、REST、Storage 和内部网关的容器身份与启动时间保持不变；最新备份 `context-reader-20260903T191739Z.dump` 通过 SHA-256 和隔离恢复（16 张 public 表），当前与直接父版本镜像均保留。真实 Anki 验收尚未执行：Windows 的 `127.0.0.1:8765` 当前被 `python -m http.server` 占用而非 AnkiConnect；未停止该进程，也未改动或自动合并任何既有卡片。
