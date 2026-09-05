@@ -1201,7 +1201,7 @@ test("URL extraction keeps publication time and does not duplicate exact figure 
 
 test("Reader block tokenization preserves multiline text and isolates superscript references", () => {
   const multiline = "A complete heading\nwhose second line must remain visible.";
-  const multilineTokens = tokenizeReaderBlockText(multiline, 4, "heading-");
+  const multilineTokens = tokenizeReaderBlockText(multiline, 4, (tokenId) => `heading-${tokenId}`);
   assert.equal(multilineTokens.map((token) => token.value).join(""), multiline);
   assert.ok(multilineTokens.some((token) => token.value.includes("\n")));
 
@@ -1211,7 +1211,7 @@ test("Reader block tokenization preserves multiline text and isolates superscrip
     { text: " The next sentence remains on the baseline." },
   ];
   const source = inline.map((item) => item.text).join("");
-  const groups = groupReaderTokensByInline(tokenizeReaderBlockText(source, 5, "reference-"), inline);
+  const groups = groupReaderTokensByInline(tokenizeReaderBlockText(source, 5, (tokenId) => `reference-${tokenId}`), inline);
   assert.equal(groups.flatMap((group) => group.tokens).map((token) => token.value).join(""), source);
   assert.equal(groups.find((group) => group.baseline === "sup")?.tokens.map((token) => token.value).join(""), "26");
 });

@@ -1,4 +1,3 @@
-import { scopeReaderTokenId } from "@/lib/readerTokenIdentity";
 import { tokenizeArticle } from "@/lib/tokenizer";
 import type { ImportedArticleInlineBaseline, ImportedArticleInlineText } from "@/types/article";
 import type { ReaderToken } from "@/types/reader";
@@ -12,12 +11,12 @@ export interface ReaderInlineTokenGroup {
 export function tokenizeReaderBlockText(
   text: string,
   paragraphIndex: number,
-  idPrefix = "",
+  scopeTokenId: (tokenId: string) => string = (tokenId) => tokenId,
 ): ReaderToken[] {
   const masked = text.replace(/[\r\n]/g, " ");
   return (tokenizeArticle(masked)[0]?.tokens ?? []).map((token, tokenIndex) => ({
     ...token,
-    id: scopeReaderTokenId(idPrefix, token.id),
+    id: scopeTokenId(token.id),
     value: text.slice(token.start, token.end),
     paragraphIndex,
     tokenIndex,

@@ -58,6 +58,7 @@ import {
 } from "@/lib/sourceMatching";
 import { tokenToWordContext } from "@/lib/tokenizer";
 import { groupReaderTokensByInline, tokenizeReaderBlockText, type ReaderInlineTokenGroup } from "@/lib/readerBlockTokens";
+import { scopeReaderTokenId } from "@/lib/readerTokenIdentity";
 import { getArticleImageSources, primeArticleImage } from "@/lib/articleImagePreload";
 import { isExternalArticleImageUrl } from "@/lib/articleImageUrls";
 import { cursorAnchoredImageZoom, interpolateImageZoom, type ImageZoomPoint, type ImageZoomTransform } from "@/lib/imageZoom";
@@ -1247,7 +1248,7 @@ export function ReaderView({
     ) => {
       const cached = tokenCache.get(cacheId);
       if (cached?.text === text && cached.paragraphIndex === paragraphIndex) return cached.tokens;
-      const tokens = tokenizeReaderBlockText(text, paragraphIndex, idPrefix);
+      const tokens = tokenizeReaderBlockText(text, paragraphIndex, (tokenId) => scopeReaderTokenId(idPrefix, tokenId));
       tokenCache.set(cacheId, { text, paragraphIndex, tokens });
       return tokens;
     };
@@ -1276,7 +1277,7 @@ export function ReaderView({
           const ocrState = imageOcr[block.id];
           const ocrText = IMAGE_OCR_ENABLED ? ocrState?.text || block.ocrText?.trim() || "" : "";
           const tokens = ocrText
-            ? tokenizeReaderBlockText(ocrText, textBlockIndex, `${block.id}-ocr-`)
+            ? tokenizeReaderBlockText(ocrText, textBlockIndex, (tokenId) => scopeReaderTokenId(`${block.id}-ocr-`, tokenId))
             : undefined;
           if (tokens) {
             textBlockIndex += 1;
