@@ -864,6 +864,13 @@ test("long articles and exhausted summary quotas remain saved without a summary 
   assert.match(usage, /保存文章不消耗摘要额度[\s\S]*?摘要额度用完后仍可保存文章/);
 });
 
+test("article storage recovery replays one full cloud snapshot before returning to incremental sync", () => {
+  const sync = readFileSync(new URL("../lib/accountSyncClient.ts", import.meta.url), "utf8");
+  assert.match(sync, /ARTICLE_STORAGE_RECOVERY_KEY = "context-reader:article-storage-recovery:20260905"/);
+  assert.match(sync, /recoveringArticleStorage[\s\S]*?readInitialSnapshot\(report\)[\s\S]*?readCloudChanges\(state, report\)/);
+  assert.match(sync, /if \(recoveringArticleStorage\)[\s\S]*?ARTICLE_STORAGE_RECOVERY_KEY, "complete"/);
+});
+
 test("word lookup transports run stream-first instead of racing duplicate provider requests", () => {
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
   const legacyReader = readFileSync(new URL("../components/BookHome.tsx", import.meta.url), "utf8");

@@ -60,12 +60,14 @@ const VOCABULARY_CONFLICT_RECOVERY_KEY = "context-reader:vocabulary-conflict-rec
 const ACCOUNT_LOCAL_OWNER_KEY = "context-reader:local-account-owner:v1";
 const LAST_SYNC_KEY = "context-reader:last-sync:v1";
 const SYNC_STATE_KEY = "context-reader:sync-state:v2";
+const ARTICLE_STORAGE_RECOVERY_KEY = "context-reader:article-storage-recovery:20260905";
 const ACCOUNT_LOCAL_DATA_KEYS = [
   ...Object.values(KEYS),
   ACCOUNT_SYNC_TOMBSTONES_KEY,
   VOCABULARY_CONFLICT_RECOVERY_KEY,
   LAST_SYNC_KEY,
   SYNC_STATE_KEY,
+  ARTICLE_STORAGE_RECOVERY_KEY,
 ];
 
 interface SyncManifestEntry {
@@ -719,8 +721,16 @@ async function performAccountSync(
   deferLocalWork = false,
 ): Promise<AccountSyncResult> {
   const state = readSyncState();
-  const initial = !state.initialized;
-  const cloud = await readCloudChanges(state, report);
+  // The first compressed-article rollout could leave an already-initialized
+  // browser with fewer local articles than its cloud snapshot. An incremental
+  // cursor cannot see those older objects again, so each account performs one
+  // bounded protocol-2 snapshot replay. Missing local data never becomes a
+  // deletion; explicit tombstones remain the only deletion authority.
+  const recoveringArticleStorage = window.localStorage.getItem(ARTICLE_STORAGE_RECOVERY_KEY) !== "complete";
+  const initial = !state.initialized || recoveringArticleStorage;
+  const cloud = recoveringArticleStorage
+    ? await readInitialSnapshot(report)
+    : await readCloudChanges(state, report);
   if (deferLocalWork && (mode === "full" || cloud.objects.length > 0)) {
     const canProcess = await waitForBrowserProcessingWindow();
     if (!canProcess) throw new Error("账号同步等待浏览器空闲超时，将在下次空闲时重试。");
@@ -756,6 +766,9 @@ async function performAccountSync(
 
   if (!state.initialized || cloud.cursor !== state.cursor || manifest !== state.manifest) {
     writeSyncState({ protocol: 2, initialized: true, cursor: cloud.cursor, manifest });
+  }
+  if (recoveringArticleStorage) {
+    window.localStorage.setItem(ARTICLE_STORAGE_RECOVERY_KEY, "complete");
   }
   const syncedAt = new Date().toISOString();
   window.localStorage.setItem(LAST_SYNC_KEY, syncedAt);
