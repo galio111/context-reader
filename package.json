@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "test:critical": "tsx --test tests/critical-regressions.test.ts",
+    "test:discovery": "tsx --test tests/discovery-policy.test.ts",
     "verify:release-contracts": "tsx scripts/verify-release-contracts.ts",
     "build": "next build",
     "start": "next start",
@@ -25,6 +26,7 @@
     "page-flip": "^2.0.7",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "robots-parser": "^3.0.1",
     "sharp": "0.35.3",
     "three": "^0.180.0"
   },

@@ -53,6 +53,9 @@ export interface RecommendationAutomationStatus {
 }
 
 export interface RecommendationCrawlerRunInput {
+  sourceId?: string;
+  excludedUrls?: string[];
+  maxAttempts?: number;
   topic: ArticleTopic;
   difficulty: CrawlerDifficulty;
   targetInventory: number;

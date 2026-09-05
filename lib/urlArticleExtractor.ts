@@ -1,5 +1,6 @@
 import { Readability } from "@mozilla/readability";
 import { JSDOM } from "jsdom";
+import { applyPublisherProfile, publisherIntakeWarnings } from "@/lib/publisherExtractionProfiles";
 import { removeAuthorIdentityBlocks, removeDuplicateImageCaptionBlocks, trimTrailingWebsiteBlocks } from "@/lib/articleContentSanitizer";
 import { normalizeImportedArticleStructure } from "@/lib/importedArticleNormalization";
 import type {
@@ -42,6 +43,7 @@ const EMBEDDED_UI_NOISE_PATTERNS = [
 ];
 
 interface ExtractionMetadata {
+  intakeWarnings?: string[];
   description: string;
   coverCandidates: string[];
 }
@@ -609,6 +611,7 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
   const normalizedHtml = unwrapEscapedEntityAmpersands(html);
   const dom = new JSDOM(normalizedHtml, { url: baseUrl, contentType: "text/html" });
   const document = dom.window.document;
+  const intakeWarnings = publisherIntakeWarnings(document);
   const metadataTitle = metaContent(document, "og:title") || metaContent(document, "twitter:title") || singleLineText(document.title);
   const metadataDescription = metaContent(document, "og:description") || metaContent(document, "description") || metaContent(document, "twitter:description");
   const metadataSiteName = metaContent(document, "og:site_name") || new URL(baseUrl).hostname.replace(/^www\./, "");
@@ -619,6 +622,7 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
     metaContent(document, "twitter:image:src"),
   ], baseUrl);
 
+  applyPublisherProfile(document, baseUrl);
   removeHighConfidenceNoise(document);
   const readabilityDocument = document.cloneNode(true) as Document;
   const readable = new Readability(readabilityDocument, {
@@ -626,7 +630,11 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
     maxElemsToParse: 60_000,
     nbTopCandidates: 8,
   }).parse();
-  const title = titleWithoutSiteSuffix(readable?.title || metadataTitle || "Imported Article", metadataSiteName);
+  let title = titleWithoutSiteSuffix(readable?.title || metadataTitle || "Imported Article", metadataSiteName);
+  if (new URL(baseUrl).hostname === "news.harvard.edu" && (!title || /^[-—–\s]*Harvard Gazette$/i.test(title))) {
+    title = singleLineText(document.querySelector("h1")?.textContent || metadataTitle);
+  }
+  if (new URL(baseUrl).hostname === "levelread.com") title = singleLineText(document.querySelector("h1")?.textContent || title);
   const candidates = structuralCandidates(document, baseUrl, title);
   if (readable?.content) {
     const readableDom = new JSDOM(`<main>${readable.content}</main>`, { url: baseUrl, contentType: "text/html" });
@@ -656,6 +664,7 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
       ...(singleLineText(readable?.lang || document.documentElement.lang || "") ? { language: singleLineText(readable?.lang || document.documentElement.lang || "") } : {}),
     },
     metadata: {
+      intakeWarnings,
       description: singleLineText(readable?.excerpt || metadataDescription),
       coverCandidates: uniqueUrls([...metaCoverCandidates, ...imageSources], baseUrl).slice(0, 12),
     },

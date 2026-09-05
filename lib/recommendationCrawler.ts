@@ -1,11 +1,11 @@
 import { classifyArticle } from "@/lib/articleClassification";
+import { getDiscoverySites } from "@/lib/discoveryStore";
+import { freshnessFailure, similarArticle, hasRecentPublishingCadence, minimumDiscoveryWords } from "@/lib/discoveryPolicy";
+import { localizePublicArticleInputCover } from "@/lib/publicArticleCovers";
+import { articleHasHomepageImage } from "@/lib/articleMedia";
+import { assertCrawlerAllowed } from "@/lib/crawlerRobots";
+import { discoveryImageIsReadable } from "@/lib/discoveryImages";
 import { listArticleCandidates, listPublicArticles, saveArticleCandidate } from "@/lib/publicArticles";
-import {
-  crawlerSourcesForTopic,
-  sourceAllowsArticleUrl,
-  type RecommendationCrawlerSource,
-} from "@/lib/recommendationSources";
-import { readResponseText, safeRemoteFetch } from "@/lib/safeRemoteFetch";
 import type { ImportedArticle } from "@/types/article";
 import type { ArticleRecommendationMetadata, PublicArticle, PublicArticleCandidateInput } from "@/types/publicArticle";
 import type {
@@ -15,148 +15,18 @@ import type {
   RecommendationCrawlerSourceError,
 } from "@/types/recommendationCrawler";
 
-const MAX_FEED_BYTES = 700_000;
-const MAX_FEED_ITEMS = 50;
 const DEFAULT_MAX_NEW_ARTICLES = 2;
 const MAX_NEW_ARTICLES_PER_RUN = 10;
-
-interface FeedItem {
-  title: string;
-  url: string;
-  description: string;
-  publishedAt: string;
-  source: RecommendationCrawlerSource;
-  relevance: number;
-}
-
 interface ImportApiResponse {
   article?: ImportedArticle;
-  metadata?: { description?: string; coverCandidates?: string[] };
+  metadata?: { description?: string; coverCandidates?: string[]; intakeWarnings?: string[] };
   error?: string;
 }
 
-const TOPIC_PATTERNS: Record<RecommendationCrawlerRunInput["topic"], RegExp> = {
-  科技科学: /\b(?:science|technology|research|space|planet|computer|digital|artificial intelligence|robot|energy|physics|biology|medical|engineering)\b/i,
-  自然环境: /\b(?:nature|climate|environment|ocean|forest|animal|wildlife|earth|weather|ecology|species|conservation)\b/i,
-  文化历史: /\b(?:culture|history|ancient|museum|art|heritage|tradition|language|century|archaeology|civilization)\b/i,
-  社会生活: /\b(?:society|community|city|work|education|health|family|economy|media|public|daily life|policy)\b/i,
-  商业经济: /\b(?:business|economy|economic|finance|financial|market|trade|company|industry|startup|employment|investment|banking|retail)\b/i,
-  人物成长: /\b(?:life|career|learn|growth|mind|psychology|habit|interview|biography|people|person|identity)\b/i,
-  故事文学: /\b(?:story|novel|fiction|poem|poetry|literature|writer|memoir|book|narrative|character)\b/i,
-};
+import { canonicalArticleUrl, normalizedFeedTitle, readSourceFeed, type FeedItem } from "@/lib/recommendationFeed";
 
-function decodeXml(value: string): string {
-  const entities: Record<string, string> = {
-    amp: "&",
-    lt: "<",
-    gt: ">",
-    quot: '"',
-    apos: "'",
-    nbsp: " ",
-  };
-  return value
-    .replace(/^<!\[CDATA\[([\s\S]*?)\]\]>$/i, "$1")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&#(\d+);/g, (_, code: string) => String.fromCodePoint(Number(code)))
-    .replace(/&#x([\da-f]+);/gi, (_, code: string) => String.fromCodePoint(Number.parseInt(code, 16)))
-    .replace(/&([a-z]+);/gi, (match, name: string) => entities[name.toLowerCase()] ?? match)
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function tagValue(fragment: string, names: string[]): string {
-  for (const name of names) {
-    const escaped = name.replace(":", "\\:");
-    const match = fragment.match(new RegExp(`<${escaped}\\b[^>]*>([\\s\\S]*?)<\\/${escaped}>`, "i"));
-    if (match?.[1]) {
-      return decodeXml(match[1]);
-    }
-  }
-  return "";
-}
-
-function attributeValue(tag: string, name: string): string {
-  const match = tag.match(new RegExp(`${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)')`, "i"));
-  return decodeXml(match?.[1] ?? match?.[2] ?? "");
-}
-
-function feedItemUrl(fragment: string): string {
-  const linkContent = tagValue(fragment, ["link"]);
-  if (linkContent) {
-    return linkContent;
-  }
-  for (const match of fragment.matchAll(/<link\b[^>]*>/gi)) {
-    const rel = attributeValue(match[0], "rel");
-    const href = attributeValue(match[0], "href");
-    if (href && (!rel || rel === "alternate")) {
-      return href;
-    }
-  }
-  return tagValue(fragment, ["guid", "id"]);
-}
-
-function canonicalArticleUrl(rawUrl: string): string {
-  try {
-    const url = new URL(rawUrl);
-    url.hash = "";
-    for (const key of [...url.searchParams.keys()]) {
-      if (/^(?:utm_|fbclid$|gclid$|mc_cid$|mc_eid$)/i.test(key)) {
-        url.searchParams.delete(key);
-      }
-    }
-    if (url.pathname !== "/") {
-      url.pathname = url.pathname.replace(/\/+$/, "");
-    }
-    return url.toString();
-  } catch {
-    return rawUrl.trim();
-  }
-}
-
-function normalizedFeedTitle(value: string): string {
-  return value.normalize("NFKC").toLocaleLowerCase("en-US").replace(/[^\p{L}\p{N}]+/gu, "");
-}
-
-function parseFeed(xml: string, source: RecommendationCrawlerSource, topic: RecommendationCrawlerRunInput["topic"]): FeedItem[] {
-  const fragments = [
-    ...xml.matchAll(/<item\b[^>]*>([\s\S]*?)<\/item>/gi),
-    ...xml.matchAll(/<entry\b[^>]*>([\s\S]*?)<\/entry>/gi),
-  ].slice(0, MAX_FEED_ITEMS);
-  const topicPattern = TOPIC_PATTERNS[topic];
-
-  return fragments.flatMap((match): FeedItem[] => {
-    const fragment = match[1] ?? "";
-    const title = tagValue(fragment, ["title"]);
-    const url = canonicalArticleUrl(feedItemUrl(fragment));
-    if (!title || !url || !sourceAllowsArticleUrl(source, url)) {
-      return [];
-    }
-    const description = tagValue(fragment, ["description", "summary", "content:encoded", "content"]);
-    const publishedAt = tagValue(fragment, ["pubDate", "published", "updated", "dc:date"]);
-    const titleMatch = topicPattern.test(title) ? 4 : 0;
-    const descriptionMatch = topicPattern.test(description) ? 2 : 0;
-    return [{ title, url, description, publishedAt, source, relevance: titleMatch + descriptionMatch }];
-  });
-}
-
-async function readSourceFeed(
-  source: RecommendationCrawlerSource,
-  topic: RecommendationCrawlerRunInput["topic"],
-): Promise<FeedItem[]> {
-  const response = await safeRemoteFetch(source.feedUrl, {
-    headers: {
-      Accept: "application/rss+xml,application/atom+xml,application/xml,text/xml",
-      "User-Agent": "ContextReaderRecommendationCrawler/1.0 (+https://context-reader-ten.vercel.app)",
-    },
-    signal: AbortSignal.timeout(12_000),
-  });
-  if (!response.ok) {
-    throw new Error(`Feed 返回 ${response.status}`);
-  }
-  return parseFeed(await readResponseText(response, MAX_FEED_BYTES), source, topic);
-}
-
-async function importArticleThroughApi(origin: string, url: string): Promise<ImportApiResponse> {
+export async function importArticleThroughApi(origin: string, url: string): Promise<ImportApiResponse> {
+  await assertCrawlerAllowed(url);
   const response = await fetch(new URL("/api/import-url", origin), {
     method: "POST",
     headers: {
@@ -166,7 +36,7 @@ async function importArticleThroughApi(origin: string, url: string): Promise<Imp
     },
     body: JSON.stringify({ url }),
     cache: "no-store",
-    signal: AbortSignal.timeout(240_000),
+    signal: AbortSignal.timeout(45_000),
   });
   const payload = await response.json().catch(() => null) as ImportApiResponse | null;
   if (!response.ok || !payload?.article) {
@@ -186,10 +56,6 @@ function inventoryMatches(
   );
 }
 
-function uniqueTopics(requested: RecommendationCrawlerRunInput["topic"], classified: ArticleRecommendationMetadata["topics"]): ArticleRecommendationMetadata["topics"] {
-  return [requested, ...classified.filter((topic) => topic !== requested)].slice(0, 3);
-}
-
 function interleaveSources(items: FeedItem[]): FeedItem[] {
   const groups = new Map<string, FeedItem[]>();
   for (const item of items) {
@@ -198,8 +64,7 @@ function interleaveSources(items: FeedItem[]): FeedItem[] {
     groups.set(item.source.id, group);
   }
   const orderedGroups = [...groups.values()].map((group) => group.sort((left, right) => {
-    if (right.relevance !== left.relevance) return right.relevance - left.relevance;
-    return Date.parse(right.publishedAt || "") - Date.parse(left.publishedAt || "");
+    return (Date.parse(right.publishedAt) || 0) - (Date.parse(left.publishedAt) || 0) || right.relevance - left.relevance;
   }));
   const result: FeedItem[] = [];
   for (let index = 0; orderedGroups.some((group) => index < group.length); index += 1) {
@@ -214,7 +79,6 @@ function crawlerCandidateInput(
   item: FeedItem,
   imported: ImportApiResponse,
   classification: Awaited<ReturnType<typeof classifyArticle>>,
-  requestedTopic: RecommendationCrawlerRunInput["topic"],
 ): PublicArticleCandidateInput {
   const article = imported.article as ImportedArticle;
   const coverImageUrl = imported.metadata?.coverCandidates?.[0] ?? "";
@@ -226,7 +90,8 @@ function crawlerCandidateInput(
     difficulty: classification.difficulty,
     cefr: classification.cefr,
     audienceStages: classification.audienceStages,
-    topics: uniqueTopics(requestedTopic, classification.topics),
+    topics: classification.topics,
+    discoverySourceId: item.source.id,
     wordCount: classification.wordCount,
     timeliness: classification.timeliness,
     sourceKind: "crawler",
@@ -286,7 +151,8 @@ export async function runRecommendationCrawler(
     return { ...resultBase, inventoryAfter: inventoryBefore, finishedAt: new Date().toISOString() };
   }
 
-  const sources = crawlerSourcesForTopic(input.topic);
+  const configured = (await getDiscoverySites()).filter((site) => site.enabled && (input.sourceId ? site.id === input.sourceId : site.topics.includes(input.topic)));
+  const sources = configured.flatMap((site) => site.feeds.map((feedUrl) => ({ ...site, feedUrl })));
   const feedResults = await Promise.allSettled(sources.map((source) => readSourceFeed(source, input.topic)));
   const discoveredItems: FeedItem[] = [];
   feedResults.forEach((feedResult, index) => {
@@ -299,13 +165,16 @@ export async function runRecommendationCrawler(
       });
     }
   });
+  if (input.sourceId && !hasRecentPublishingCadence(discoveredItems.map((item) => item.publishedAt))) {
+    return { ...resultBase, targetNewArticles: maxNewArticles, targetAchieved: false, shortfall: maxNewArticles, inventoryAfter: inventoryBefore, finishedAt: new Date().toISOString(), sourceErrors: [...resultBase.sourceErrors, { sourceName: configured[0]?.name || "来源", message: "未确认近期持续更新，本批不使用存档文章凑数。" }] };
+  }
 
   const knownUrls = new Set(allArticles.map((article) => canonicalArticleUrl(article.sourceUrl)).filter(Boolean));
   const knownTitles = new Set(allArticles.map((article) => normalizedFeedTitle(article.title)).filter(Boolean));
   const knownArticleIds = new Set(allArticles.map((article) => article.id));
   const uniqueItems = interleaveSources(
     [...new Map(discoveredItems.map((item) => [canonicalArticleUrl(item.url), item])).values()]
-      .filter((item) => !knownUrls.has(canonicalArticleUrl(item.url)) && !knownTitles.has(normalizedFeedTitle(item.title))),
+      .filter((item) => !knownUrls.has(canonicalArticleUrl(item.url)) && !knownTitles.has(normalizedFeedTitle(item.title)) && !input.excludedUrls?.includes(item.url)),
   );
   resultBase.discovered = uniqueItems.length;
 
@@ -314,10 +183,32 @@ export async function runRecommendationCrawler(
     : Math.min(maxNewArticles, input.targetInventory - inventoryBefore);
   resultBase.targetNewArticles = needed;
   for (const item of uniqueItems) {
-    if (resultBase.created.length >= needed) break;
+    if (resultBase.created.length >= needed || resultBase.attempted >= (input.maxAttempts ?? 3) || Date.now() - Date.parse(startedAt) > 180_000) break;
     resultBase.attempted += 1;
     try {
+      const earlyFailure = freshnessFailure([item.publishedAt], false);
+      if (earlyFailure) throw new Error(earlyFailure);
+      if (/\/image-article\/apod-/i.test(item.url)) throw new Error("天文每日图片短条目，不作为完整阅读文章");
+      if (/\b(?:sponsored|advertorial|paid content|partner content)\b/i.test(item.title + " " + item.description.slice(0, 400))) throw new Error("赞助或推广内容");
+      if (/newsinlevels\.com/.test(item.url) && !/-level-3(?:\/|$)/.test(item.url)) throw new Error("只收录 level 3 的完整阅读，避免同文多级重复");
+      if (allArticles.some((article) => similarArticle(item.title, article.title))) throw new Error("标题与已有文章高度相似");
       const imported = await importArticleThroughApi(origin, item.url);
+      const article = imported.article!;
+      if (imported.metadata?.intakeWarnings?.length) throw new Error(imported.metadata.intakeWarnings.join("；"));
+      if (article.blocks.filter((block) => block.type === "image").length > 8) throw new Error("图片过多，可能是图库或合集，留待人工导入");
+      const words = (article.text.match(/\b[a-zA-Z]+\b/g) ?? []).length;
+      if (words < minimumDiscoveryWords(item.source.levelHint)) throw new Error(`正文不足 ${minimumDiscoveryWords(item.source.levelHint)} 词，属于短讯或正文提取不完整`);
+      if (article.language && !/^en\b/i.test(article.language)) throw new Error("不是英文正文");
+      const images = article.blocks.filter((block) => block.type === "image" && block.src && !/logo|avatar|icon|banner|pixel|tracking/i.test(block.src));
+      const covers = (imported.metadata?.coverCandidates ?? []).filter((url) => !/logo|avatar|icon|banner|pixel|tracking/i.test(url));
+      if (!images.length && !covers.length) throw new Error("没有可用的文章配图");
+      let verifiedCover = "";
+      for (const url of [...new Set([...images.map((image) => image.src!), ...covers])].slice(0, 3)) {
+        if (await discoveryImageIsReadable(url)) { verifiedCover = url; break; }
+      }
+      if (!verifiedCover) throw new Error("配图不可读取或尺寸不足，不用图标、像素图凑数");
+      article.blocks = article.blocks.filter((block) => block.type !== "image" || images.includes(block));
+      imported.metadata = { ...imported.metadata, coverCandidates: [verifiedCover] };
       const classification = await classifyArticle(
         imported.article?.title || item.title,
         imported.article?.text || "",
@@ -325,13 +216,27 @@ export async function runRecommendationCrawler(
           sourceUrl: item.url,
           sourceName: imported.article?.siteName || item.source.name,
           usageRoute: "/api/admin/article-crawler",
+          discoveryReview: true,
+          imageDescriptions: images.map((image) => image.alt || "").join("; ") || "文章发布者提供的社交分享封面，无法确认内容；需人工复核",
         },
       );
+      if (!classification.qualityReview?.eligible) throw new Error(classification.qualityReview?.reason || "质量判断暂时不可用，未自动入库");
+      if (images.some((image) => image.alt?.trim()) && !classification.qualityReview.imageRelevant) throw new Error("配图说明与正文主题不相符");
+      if (classification.topics.includes("科技科学") && classification.qualityReview.specialist) throw new Error("科技内容过于专业，不符合通俗科普要求");
+      const dateFailure = freshnessFailure([article.publishedTime || "", item.publishedAt], classification.timeliness === "time-sensitive" || classification.topics.includes("商业经济"));
+      if (dateFailure) throw new Error(dateFailure);
+      const rejectedSimilar = allCandidates.some((old) => old.recommendation?.rejectedAt && old.recommendation.rejectionReason === "内容没兴趣" && similarArticle(article.title + " " + classification.summary, old.title + " " + old.summary, 0.5));
+      if (rejectedSimilar) throw new Error("与之前标为不感兴趣的文章主题高度相似");
+      const difficultFeedback = allCandidates.some((old) => old.recommendation?.rejectedAt && old.recommendation.rejectionReason === "太专业或太难" && old.recommendation.discoverySourceId === item.source.id && similarArticle(article.title, old.title, 0.45));
+      if (difficultFeedback && (classification.qualityReview.specialist || classification.difficultyEvidence.backgroundKnowledge >= 3)) throw new Error("参考不精选反馈：该网站相似主题仍要求较多专业背景");
+      if (allArticles.some((old) => similarArticle(article.text.slice(0, 1600), old.body.slice(0, 1600), 0.85))) throw new Error("正文与已有文章高度相似");
       if (input.difficulty !== "any" && classification.difficulty !== input.difficulty) {
         resultBase.skipped.push({ title: item.title, url: item.url, reason: `判断为${classification.difficulty}，与目标难度不符` });
         continue;
       }
-      const candidate = await saveArticleCandidate(crawlerCandidateInput(item, imported, classification, input.topic));
+      const prepared = await localizePublicArticleInputCover(crawlerCandidateInput(item, imported, classification));
+      if (!articleHasHomepageImage({ ...prepared, importedArticle: prepared.importedArticle || undefined })) throw new Error("图片无法安全保存，未收录无图文章");
+      const candidate = await saveArticleCandidate(prepared);
       if (knownArticleIds.has(candidate.id)) {
         resultBase.skipped.push({ title: item.title, url: item.url, reason: "与候选库中已有文章内容重复" });
         knownUrls.add(canonicalArticleUrl(item.url));
@@ -339,6 +244,7 @@ export async function runRecommendationCrawler(
         continue;
       }
       resultBase.created.push(candidate);
+      allArticles.push(candidate);
       knownArticleIds.add(candidate.id);
       knownUrls.add(canonicalArticleUrl(item.url));
       knownTitles.add(normalizedFeedTitle(candidate.title));

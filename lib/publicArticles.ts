@@ -21,6 +21,9 @@ import type {
   PublicExplanation,
 } from "@/types/publicArticle";
 import { ARTICLE_DIFFICULTIES } from "@/types/publicArticle";
+import { candidateOrder, REJECTION_REASONS } from "@/lib/discoveryPolicy";
+import { ORDER_KEY, readDiscoverySetting, writeDiscoverySetting } from "@/lib/discoveryStore";
+import { randomInt } from "node:crypto";
 
 interface SupabaseArticleRow {
   id: string;
@@ -451,10 +454,18 @@ export async function listArticleCandidates(options: { includeRejected?: boolean
   );
   const articles = rows.map((row) => mapArticle(row));
   const visible = options.includeRejected ? articles : articles.filter((article) => !article.recommendation?.rejectedAt);
-  return visible.sort((left, right) => {
-    const timeliness = Number(right.recommendation?.timeliness === "time-sensitive") - Number(left.recommendation?.timeliness === "time-sensitive");
-    return timeliness || Date.parse(right.createdAt) - Date.parse(left.createdAt);
-  });
+  return candidateOrder(visible, await readDiscoverySetting<string[]>(ORDER_KEY, []));
+}
+
+export async function shuffleArticleCandidates(): Promise<PublicArticle[]> {
+  const articles = await listArticleCandidates();
+  const ids = articles.map((article) => article.id);
+  for (let i = ids.length - 1; i > 0; i -= 1) {
+    const j = randomInt(i + 1);
+    [ids[i], ids[j]] = [ids[j], ids[i]];
+  }
+  await writeDiscoverySetting(ORDER_KEY, ids);
+  return candidateOrder(articles, ids);
 }
 
 export async function listRejectedArticleCandidates(): Promise<PublicArticle[]> {
@@ -564,7 +575,8 @@ export async function deleteArticleCandidate(id: string): Promise<void> {
   });
 }
 
-export async function setArticleCandidateRejected(id: string, rejected: boolean): Promise<PublicArticle> {
+export async function setArticleCandidateRejected(id: string, rejected: boolean, reason?: string): Promise<PublicArticle> {
+  if (reason && !REJECTION_REASONS.some((value) => value === reason)) throw new Error("请选择有效的不精选原因。");
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
     `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&id=eq.${encodeURIComponent(id)}&published=eq.false&limit=1`,
   );
@@ -583,7 +595,7 @@ export async function setArticleCandidateRejected(id: string, rejected: boolean)
     importedArticle: article.importedArticle ?? null,
     recommendation: {
       ...recommendation,
-      ...(rejected ? { rejectedAt: new Date().toISOString() } : { rejectedAt: undefined }),
+      ...(rejected ? { rejectedAt: new Date().toISOString(), rejectionReason: reason || "其他" } : { rejectedAt: undefined, rejectionReason: undefined }),
     },
   });
 }

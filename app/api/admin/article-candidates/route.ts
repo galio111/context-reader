@@ -8,6 +8,7 @@ import {
   publishArticleCandidate,
   saveArticleCandidate,
   setArticleCandidateRejected,
+  shuffleArticleCandidates,
 } from "@/lib/publicArticles";
 import { getHomepageCuration, saveHomepageCuration } from "@/lib/homepageCuration";
 import { EDITORIAL_CATEGORIES, editorialCategoryForArticle, placePublishedArticle, type EditorialCategory } from "@/lib/editorialCuration";
@@ -59,7 +60,7 @@ export async function PATCH(request: Request) {
   if (!(await isAdminRequest())) {
     return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
   }
-  let body: { id?: unknown; ids?: unknown; action?: unknown; category?: unknown; featured?: unknown; includeInRecommendation?: unknown; recommendationFeatured?: unknown } | null;
+  let body: { id?: unknown; ids?: unknown; action?: unknown; reason?: unknown; category?: unknown; featured?: unknown; includeInRecommendation?: unknown; recommendationFeatured?: unknown } | null;
   try {
     body = await readJsonBody(request, 32 * 1024);
   } catch {
@@ -68,9 +69,10 @@ export async function PATCH(request: Request) {
   const ids = Array.isArray(body?.ids)
     ? body.ids.filter((id): id is string => typeof id === "string" && UUID_PATTERN.test(id)).slice(0, 100)
     : typeof body?.id === "string" && UUID_PATTERN.test(body.id) ? [body.id] : [];
+  if (body?.action === "shuffle") return NextResponse.json({ articles: await shuffleArticleCandidates() }, { headers: { "Cache-Control": "no-store" } });
   if ((body?.action === "reject" || body?.action === "restore") && ids.length === 1) {
     try {
-      const article = await setArticleCandidateRejected(ids[0], body.action === "reject");
+      const article = await setArticleCandidateRejected(ids[0], body.action === "reject", typeof body.reason === "string" ? body.reason : undefined);
       return NextResponse.json({ article });
     } catch (error) {
       return NextResponse.json({ error: error instanceof Error ? error.message : "候选状态更新失败。" }, { status: 400 });

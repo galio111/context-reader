@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import ClearableField from "@/components/ClearableField";
+import { REJECTION_REASONS, type RejectionReason } from "@/lib/discoveryPolicy";
 import { countArticleEnglishWords } from "@/lib/articleWordCount";
 import { articleMediaState } from "@/lib/articleMedia";
 import { EDITORIAL_CATEGORIES, editorialCategoryForArticle, type EditorialCategory, type PublishedArticlePlacement } from "@/lib/editorialCuration";
@@ -34,7 +35,7 @@ interface InspectorProps {
   onPlacementChange: (placement: PublishedArticlePlacement) => void;
   onPlacementSave?: (category: EditorialCategory, placement: PublishedArticlePlacement) => Promise<void>;
   onSelect?: (category: EditorialCategory, options: PublishedArticlePlacement) => Promise<void>;
-  onReject?: () => Promise<void>;
+  onReject?: (reason: RejectionReason) => Promise<void>;
   onDelete?: () => Promise<void>;
   onUploadTranslation?: () => Promise<"uploaded" | "already" | "missing">;
 }
@@ -51,6 +52,9 @@ const labelClass = "block text-xs font-semibold leading-5 text-[#46525c]";
 function initialRecommendation(article: PublicArticle): ArticleRecommendationMetadata {
   const existing = article.recommendation ?? article.importedArticle?.recommendation;
   return {
+    discoverySourceId: existing?.discoverySourceId,
+    rejectedAt: existing?.rejectedAt,
+    rejectionReason: existing?.rejectionReason,
     coverImageUrl: existing?.coverImageUrl ?? "", coverImageAlt: existing?.coverImageAlt ?? article.title,
     coverImageSourceUrl: existing?.coverImageSourceUrl ?? article.sourceUrl, coverImageCredit: existing?.coverImageCredit ?? "",
     difficulty: existing?.difficulty ?? "高中 / CET-4", cefr: existing?.cefr ?? "B2",
@@ -90,6 +94,7 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
   const [working, setWorking] = useState<"" | "save" | "classify" | "select" | "reject" | "delete" | "placement" | "translation">("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [choosingReason, setChoosingReason] = useState(false);
   const savePromiseRef = useRef<Promise<void> | null>(null);
 
   useEffect(() => {
@@ -200,10 +205,10 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
     finally { setWorking(""); }
   }
 
-  async function handleReject() {
+  async function handleReject(reason: RejectionReason) {
     if (!onReject) return;
     setWorking("reject"); setError("");
-    try { await saveDraft(); setWorking("reject"); await onReject(); }
+    try { await saveDraft(); setWorking("reject"); await onReject(reason); setChoosingReason(false); }
     catch (actionError) { setError(actionError instanceof Error ? actionError.message : "移出候选失败。"); }
     finally { setWorking(""); }
   }
@@ -262,7 +267,7 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
       <div className="shrink-0 border-b border-[#d7dde2] bg-[#f7f9fa] px-4 pb-3 pt-4">
         <div className="flex items-center justify-between gap-2"><button className="text-sm font-semibold text-[#1769aa]" type="button" onClick={onClose}>返回后台</button><button className={styles.mobileClose} type="button" onClick={onMobileClose}>收起设置</button><span className="text-xs text-[#68737c]">{working === "save" ? "正在保存…" : dirty ? "等待自动保存" : "已保存"}</span></div>
         <div className="mt-3 flex items-center justify-between gap-2"><button className="h-9 rounded-full bg-white px-3 text-sm disabled:opacity-35" type="button" onClick={onPrevious} disabled={!onPrevious || busy}>← 上一篇</button><span className="text-xs font-medium text-[#4d5963]">{queuePosition ? `${queuePosition.index + 1} / ${queuePosition.total}` : articleKind === "candidate" ? "候选" : "已精选"}</span><button className="h-9 rounded-full bg-white px-3 text-sm disabled:opacity-35" type="button" onClick={onNext} disabled={!onNext || busy}>下一篇 →</button></div>
-        {articleKind === "candidate" && <div className="mt-3 grid grid-cols-2 gap-2"><button className="min-h-11 rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleSelect()} disabled={busy}>{working === "select" ? "正在精选…" : "精选并继续"}</button><button className="min-h-11 rounded-lg border border-[#d5a7a7] bg-white px-3 text-sm font-semibold text-[#9a3030] disabled:opacity-45" type="button" onClick={() => void handleReject()} disabled={busy}>{working === "reject" ? "正在移出…" : "不精选"}</button></div>}
+        {articleKind === "candidate" && <div className="mt-3 grid grid-cols-2 gap-2"><button className="min-h-11 rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleSelect()} disabled={busy}>{working === "select" ? "正在精选…" : "精选并继续"}</button><button className="min-h-11 rounded-lg border border-[#d5a7a7] bg-white px-3 text-sm font-semibold text-[#9a3030] disabled:opacity-45" type="button" onClick={() => setChoosingReason(true)} disabled={busy} aria-expanded={choosingReason}>{working === "reject" ? "正在移出…" : "不精选"}</button></div>}
         {articleKind === "candidate" && <p className="mt-2 text-xs leading-5 text-[#526873]">{mediaSummary}。</p>}
         {articleKind === "published" && onUploadTranslation && <button className="mt-3 min-h-11 w-full rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleUploadTranslation()} disabled={busy}>{working === "translation" ? "正在上传…" : "上传全文翻译"}</button>}
         {articleKind === "published" && working === "translation" && <p className="mt-2 text-xs text-[#526873]" role="status">正在检查并上传当前完整译文…</p>}
@@ -272,6 +277,7 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4">
+        {choosingReason && <fieldset className="mb-4 rounded-lg border border-[#d7dde2] bg-white p-3" onKeyDown={(e) => { if (e.key === "Escape") setChoosingReason(false); }}><legend className="text-sm font-semibold">为什么不精选？</legend><div className="grid gap-2">{REJECTION_REASONS.map((reason, i) => <button autoFocus={i === 0} className="min-h-11 rounded-lg border border-[#c9ced6] px-3 text-left text-sm hover:bg-[#edf5fb] disabled:opacity-45" disabled={busy} type="button" key={reason} onClick={() => void handleReject(reason)}>{reason}</button>)}<button className="min-h-11 text-sm text-[#1769aa]" disabled={busy} type="button" onClick={() => setChoosingReason(false)}>取消</button></div></fieldset>}
         <p className="text-xs font-semibold text-[#1769aa]">{articleKind === "candidate" ? "候选文章" : "已公开推荐"}</p><h1 className="mt-1 text-base font-semibold leading-6">{article.title}</h1><p className="mt-1 text-xs leading-5 text-[#68737c]">{article.sourceName || "来源待确认"} · {wordCount.toLocaleString("zh-CN")} 词 · {mediaSummary}</p>
         <div className="mt-4 grid gap-3">
           <label className={labelClass}>首页栏目<select className={inputClass} value={draft.homepageCategory} onChange={(event) => setDraft((current) => ({ ...current, homepageCategory: event.target.value as EditorialCategory }))} disabled={busy}>{EDITORIAL_CATEGORIES.map((item) => <option key={item}>{item}</option>)}</select></label>

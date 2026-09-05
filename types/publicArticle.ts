@@ -68,6 +68,8 @@ export interface ArticleDifficultyEvidence {
 }
 
 export interface ArticleRecommendationMetadata {
+  discoverySourceId?: string;
+  rejectionReason?: string;
   coverImageUrl: string;
   coverImageAlt?: string;
   coverImageSourceUrl?: string;

@@ -64,6 +64,8 @@ function isRecommendation(value: unknown): value is ArticleRecommendationMetadat
     (item.classifiedAt === undefined || isBoundedString(item.classifiedAt, 80)) &&
     (item.reviewNotes === undefined || isBoundedString(item.reviewNotes, 500)) &&
     (item.rejectedAt === undefined || isBoundedString(item.rejectedAt, 80)) &&
+    (item.rejectionReason === undefined || isBoundedString(item.rejectionReason, 80)) &&
+    (item.discoverySourceId === undefined || isBoundedString(item.discoverySourceId, 80)) &&
     (item.manualFields === undefined || (
       Array.isArray(item.manualFields) &&
       item.manualFields.length <= MANUAL_FIELDS.length &&

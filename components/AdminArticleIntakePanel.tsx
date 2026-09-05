@@ -2,11 +2,11 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import ClearableField from "@/components/ClearableField";
+import AdminDiscoveryPanel from "@/components/AdminDiscoveryPanel";
+import { REJECTION_REASONS } from "@/lib/discoveryPolicy";
 import { countArticleEnglishWords } from "@/lib/articleWordCount";
 import type { ImportedArticle, SavedArticle } from "@/types/article";
 import {
-  ARTICLE_DIFFICULTIES,
-  ARTICLE_TOPICS,
   type ArticleAudienceStage,
   type ArticleCefrLevel,
   type ArticleDifficultyEvidence,
@@ -18,11 +18,6 @@ import {
   type PublicArticle,
   type PublicArticleCandidateInput,
 } from "@/types/publicArticle";
-import type {
-  CrawlerDifficulty,
-  RecommendationCrawlerRunResult,
-  RecommendationCrawlerStatus,
-} from "@/types/recommendationCrawler";
 
 interface ClassificationResponse {
   summary: string;
@@ -227,19 +222,12 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
   const [candidates, setCandidates] = useState<PublicArticle[]>([]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [loadingCandidates, setLoadingCandidates] = useState(true);
-  const [working, setWorking] = useState<"" | "import" | "classify" | "save" | "publish" | "upload" | "crawl" | "daily-fill" | "automation-save" | "automation-run" | "automation-email" | "repair-images">("");
+  const [working, setWorking] = useState<"" | "import" | "classify" | "save" | "publish" | "upload" | "crawl" | "daily-fill" | "automation-save" | "automation-run" | "automation-email" | "repair-images" | "shuffle">("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const [crawlerTopic, setCrawlerTopic] = useState<ArticleTopic>("科技科学");
-  const [crawlerDifficulty, setCrawlerDifficulty] = useState<CrawlerDifficulty>("any");
-  const [crawlerMaxArticles, setCrawlerMaxArticles] = useState(2);
-  const [crawlerStatus, setCrawlerStatus] = useState<RecommendationCrawlerStatus | null>(null);
-  const [crawlerResult, setCrawlerResult] = useState<RecommendationCrawlerRunResult | null>(null);
-  const [automationEnabled, setAutomationEnabled] = useState(true);
-  const [automationRunTime, setAutomationRunTime] = useState("03:00");
-  const [automationMaxArticles, setAutomationMaxArticles] = useState(2);
-  const [dailyFillProgress, setDailyFillProgress] = useState({ completed: 0, created: 0, total: ARTICLE_TOPICS.length });
-  const [recentCandidateIds, setRecentCandidateIds] = useState<string[]>([]);
+  const [rejectingId, setRejectingId] = useState("");
+
+  const recentCandidateIds: string[] = [];
   const editorRef = useRef<HTMLDivElement>(null);
   const candidateSectionRef = useRef<HTMLElement>(null);
   const candidateListRef = useRef<HTMLUListElement>(null);
@@ -263,198 +251,9 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
     setSelectedIds((ids) => ids.filter((id) => next.some((article) => article.id === id)));
     setLoadingCandidates(false);
   }
+  useEffect(() => { void loadCandidates().catch(() => { setError("候选列表暂时无法读取。"); setLoadingCandidates(false); }); }, []);
 
-  async function loadCrawlerStatus() {
-    const response = await fetch("/api/admin/article-crawler", { cache: "no-store" });
-    const data = await response.json().catch(() => null) as (RecommendationCrawlerStatus & { error?: string }) | null;
-    if (response.ok && data) {
-      setCrawlerStatus(data);
-      setAutomationEnabled(data.automation.config.enabled);
-      setAutomationRunTime(data.automation.config.runTime);
-      setAutomationMaxArticles(data.automation.config.maxNewArticles);
-    }
-  }
 
-  async function handleSaveAutomation() {
-    setWorking("automation-save");
-    setError("");
-    setMessage("");
-    try {
-      const response = await fetch("/api/admin/article-crawler", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          enabled: automationEnabled,
-          runTime: automationRunTime,
-          maxNewArticles: automationMaxArticles,
-        }),
-      });
-      const data = await response.json().catch(() => null) as { automation?: RecommendationCrawlerStatus["automation"]; error?: string } | null;
-      if (!response.ok || !data?.automation) {
-        throw new Error(data?.error || "定时设置保存失败。");
-      }
-      await loadCrawlerStatus();
-      setMessage(automationEnabled
-        ? `已保存：每天约 ${automationRunTime} 自动补充，单次以新增 ${automationMaxArticles} 篇候选为成功目标。`
-        : "已关闭定时自动补充，网站和手动扫描不受影响。");
-    } catch (saveError) {
-      setError(saveError instanceof Error ? saveError.message : "定时设置保存失败。");
-    } finally {
-      setWorking("");
-    }
-  }
-
-  async function handleRunAutomationNow() {
-    setWorking("automation-run");
-    setError("");
-    setMessage("");
-    setCrawlerResult(null);
-    try {
-      const saveResponse = await fetch("/api/admin/article-crawler", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          enabled: automationEnabled,
-          runTime: automationRunTime,
-          maxNewArticles: automationMaxArticles,
-        }),
-      });
-      const saveData = await saveResponse.json().catch(() => null) as { error?: string } | null;
-      if (!saveResponse.ok) {
-        throw new Error(saveData?.error || "当前设置保存失败，尚未执行抓取。");
-      }
-      const response = await fetch("/api/admin/article-crawler", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "run_now" }),
-      });
-      const data = await response.json().catch(() => null) as { result?: RecommendationCrawlerRunResult; error?: string } | null;
-      if (!response.ok || !data?.result) {
-        throw new Error(data?.error || "立即执行失败。");
-      }
-      setCrawlerResult(data.result);
-      setRecentCandidateIds(data.result.created.map((article) => article.id));
-      await Promise.all([loadCandidates(), loadCrawlerStatus()]);
-      setMessage(data.result.created.length
-        ? `手动执行完成，已加入 ${data.result.created.length} 篇候选。手动执行不会发送定时完成邮件。`
-        : "手动执行完成，本次没有新增候选。可能是链接已经入库，或没有文章通过读取与质量检查。");
-    } catch (runError) {
-      setError(runError instanceof Error ? runError.message : "立即执行失败。");
-    } finally {
-      setWorking("");
-    }
-  }
-
-  async function handleTestAutomationEmail() {
-    setWorking("automation-email");
-    setError("");
-    setMessage("");
-    try {
-      const response = await fetch("/api/admin/article-crawler", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "test_email" }),
-      });
-      const data = await response.json().catch(() => null) as { error?: string } | null;
-      if (!response.ok) {
-        throw new Error(data?.error || "测试邮件发送失败。");
-      }
-      setMessage(`测试邮件已发送到 ${automation?.notificationEmail || "通知邮箱"}，请留意收件箱和垃圾邮件。`);
-    } catch (emailError) {
-      setError(emailError instanceof Error ? emailError.message : "测试邮件发送失败。");
-    } finally {
-      setWorking("");
-    }
-  }
-
-  useEffect(() => {
-    void loadCandidates();
-    void loadCrawlerStatus();
-  }, []);
-
-  async function handleRunCrawler() {
-    setWorking("crawl");
-    setError("");
-    setMessage("");
-    setCrawlerResult(null);
-    try {
-      const response = await fetch("/api/admin/article-crawler", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          topic: crawlerTopic,
-          difficulty: crawlerDifficulty,
-          maxNewArticles: crawlerMaxArticles,
-          inventoryScope: "candidates",
-        }),
-      });
-      const data = await response.json().catch(() => null) as { result?: RecommendationCrawlerRunResult; error?: string } | null;
-      if (!response.ok || !data?.result) {
-        throw new Error(data?.error || "自动抓取任务失败。");
-      }
-      setCrawlerResult(data.result);
-      setRecentCandidateIds(data.result.created.map((article) => article.id));
-      await loadCandidates();
-      const createdCount = data.result.created.length;
-      setMessage(createdCount
-        ? data.result.targetAchieved
-          ? `扫描完成，已按目标新增 ${createdCount} 篇${crawlerTopic}候选文章。它们已标记为“本次新增”。`
-          : `已扫描完当前来源并新增 ${createdCount} 篇，但距离目标仍缺 ${data.result.shortfall} 篇，本次不会记为成功。`
-        : `扫描完成，本次没有找到可加入的文章。可能是链接已经入库，或新内容没有通过读取、难度与质量检查。`);
-    } catch (runError) {
-      setError(runError instanceof Error ? runError.message : "自动抓取任务失败。");
-    } finally {
-      setWorking("");
-    }
-  }
-
-  async function handleDailyFill() {
-    setWorking("daily-fill");
-    setError("");
-    setMessage("");
-    setCrawlerResult(null);
-    setDailyFillProgress({ completed: 0, created: 0, total: ARTICLE_TOPICS.length });
-    let created = 0;
-    const createdIds: string[] = [];
-    const failures: string[] = [];
-
-    for (let index = 0; index < ARTICLE_TOPICS.length; index += 1) {
-      const topic = ARTICLE_TOPICS[index];
-      try {
-        const response = await fetch("/api/admin/article-crawler", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            topic,
-            difficulty: "any",
-            maxNewArticles: 2,
-            inventoryScope: "candidates",
-          }),
-        });
-        const data = await response.json().catch(() => null) as { result?: RecommendationCrawlerRunResult; error?: string } | null;
-        if (!response.ok || !data?.result) {
-          failures.push(`${topic}：${data?.error || "补充失败"}`);
-        } else {
-          created += data.result.created.length;
-          createdIds.push(...data.result.created.map((article) => article.id));
-          setCrawlerResult(data.result);
-        }
-      } catch {
-        failures.push(`${topic}：网络暂时不可用`);
-      }
-      setDailyFillProgress({ completed: index + 1, created, total: ARTICLE_TOPICS.length });
-    }
-
-    await loadCandidates();
-    setRecentCandidateIds(createdIds);
-    if (failures.length) {
-      setError(`已完成其余主题，但 ${failures.join("；")}`);
-    }
-    setMessage(created
-      ? `今日补充完成，共加入 ${created} 篇候选。系统已按六类主题轮流取材，请从候选区继续筛查。`
-      : "六个主题扫描完成，没有新增文章。链接可能已经入库，或本轮文章没有通过读取与质量检查。");
-    setWorking("");
-  }
 
   function resetDraft(nextMode: "local" | "paste" | "url" = mode) {
     setDraft({
@@ -687,12 +486,12 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
     }
   }
 
-  async function handleDeleteCandidate(article: PublicArticle) {
+  async function handleDeleteCandidate(article: PublicArticle, reason: string) {
     setError("");
     const response = await fetch("/api/admin/article-candidates", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "reject", id: article.id }),
+      body: JSON.stringify({ action: "reject", id: article.id, reason }),
     });
     const data = await response.json().catch(() => null) as { error?: string } | null;
     if (!response.ok) {
@@ -703,7 +502,20 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
       resetDraft(mode);
     }
     await loadCandidates();
+    setRejectingId("");
     setMessage(`《${article.title}》已移出候选并保留拒绝记录。`);
+  }
+
+  async function shuffleCandidates() {
+    setWorking("shuffle");
+    setError("");
+    try {
+      const response = await fetch("/api/admin/article-candidates", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "shuffle" }) });
+      if (!response.ok) throw new Error("顺序暂时无法更新，请稍后重试。");
+      await loadCandidates();
+      setMessage("旧候选已打乱，当天新加入的文章仍在最前面；按北京时间换日。");
+    } catch (e) { setError(e instanceof Error ? e.message : "顺序更新失败。"); }
+    finally { setWorking(""); }
   }
 
   async function handleCoverUpload(file: File | null) {
@@ -768,27 +580,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
   }
 
   const busy = Boolean(working);
-  const activeCrawlerSources = crawlerStatus?.sources.filter((source) => source.topics.includes(crawlerTopic)) ?? [];
-  const automation = crawlerStatus?.automation;
-  const dateTimeFormatter = new Intl.DateTimeFormat("zh-CN", {
-    timeZone: "Asia/Shanghai",
-    month: "numeric",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  });
-  const nextRunLabel = automation?.nextRunAt ? dateTimeFormatter.format(new Date(automation.nextRunAt)) : "已关闭";
-  const lastRunLabel = automation?.state.lastFinishedAt
-    ? `${dateTimeFormatter.format(new Date(automation.state.lastFinishedAt))} · ${automation.state.status === "succeeded" ? "成功" : automation.state.status === "failed" ? "失败" : "执行中"} · 新增 ${automation.state.lastCreatedCount} 篇`
-    : "尚未执行";
-  const emailStatusLabel = automation?.state.lastEmailStatus === "sent"
-    ? "上次定时邮件已发送"
-    : automation?.state.lastEmailStatus === "failed"
-      ? "上次任务成功，但邮件发送失败"
-      : automation?.state.lastEmailStatus === "not_configured"
-        ? "站点通知邮箱尚未配置"
-        : "定时任务成功后发送邮件";
+
 
   function showCandidates(ids: string[] = []) {
     candidateSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -809,99 +601,11 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
           </div>
         )}
 
-        <section className="overflow-hidden rounded-2xl bg-white" aria-labelledby="recommendation-discovery-title">
-          <div className="flex flex-col gap-4 border-b border-[#e1e5e9] px-5 py-5 sm:flex-row sm:items-start sm:justify-between sm:px-6">
-            <div>
-              <h2 id="recommendation-discovery-title" className="text-xl font-semibold text-[#17191c]">补充候选文章</h2>
-              <p className="mt-1 max-w-2xl text-sm leading-6 text-[#4d535a]">手动扫描会立刻运行，定时补充由服务器按北京时间执行。两种方式都只加入候选，不会自动发布。</p>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <button className={secondaryButtonClass} type="button" onClick={() => showCandidates()}>查看候选（{candidates.length}）</button>
-              <button className={secondaryButtonClass} type="button" onClick={onShowPublished}>查看已公开（{publicArticleCount}）</button>
-              <button className={secondaryButtonClass} type="button" onClick={() => void handleRepairPublicImages()} disabled={busy}>{working === "repair-images" ? "正在转存文章图片…" : "修复候选与精选图片"}</button>
-            </div>
-          </div>
-
-          <div className="grid xl:grid-cols-2 xl:divide-x xl:divide-[#e1e5e9]">
-            <section className="px-5 py-5 sm:px-6" aria-labelledby="manual-discovery-title">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 id="manual-discovery-title" className="text-base font-semibold text-[#17191c]">现在手动扫描</h3>
-                  <p className="mt-1 max-w-xl text-sm leading-6 text-[#4d5963]">点击后读取所选主题的可信来源，排除已入库链接，再导入和判断文章。完成后会自动刷新候选列表。</p>
-                </div>
-                <span className="shrink-0 rounded-full bg-[#edf5fb] px-3 py-1 text-xs font-medium text-[#174d73]">不会自动发布</span>
-              </div>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <label className={labelClass}>文章主题<select className={inputClass} value={crawlerTopic} onChange={(event) => setCrawlerTopic(event.target.value as ArticleTopic)} disabled={busy}>{ARTICLE_TOPICS.map((topic) => <option key={topic}>{topic}</option>)}</select></label>
-                <label className={labelClass}>文章难度<select className={inputClass} value={crawlerDifficulty} onChange={(event) => setCrawlerDifficulty(event.target.value as CrawlerDifficulty)} disabled={busy}><option value="any">自动判断，不限难度</option>{ARTICLE_DIFFICULTIES.map((difficulty) => <option key={difficulty}>{difficulty}</option>)}</select></label>
-                <label className={labelClass}>本次目标新增<input className={inputClass} type="number" min={1} max={10} value={crawlerMaxArticles} onChange={(event) => setCrawlerMaxArticles(Math.max(1, Math.min(10, Number(event.target.value) || 1)))} disabled={busy} /></label>
-              </div>
-              <p className="mt-3 text-xs leading-5 text-[#5c6872]">可设置 1 至 10 篇。即使已有很多候选，系统仍会继续寻找；重复链接会继续跳过并尝试下一篇，直到达到目标或穷尽当前来源。</p>
-              <details className="mt-3 text-xs text-[#59636c]"><summary className="cursor-pointer font-medium text-[#4d5963]">查看本主题来源</summary><div className="mt-2 flex flex-wrap gap-2">{activeCrawlerSources.map((source) => <span key={source.id} className="rounded-full bg-[#eef1f4] px-2.5 py-1 text-[#3f4850]">{source.name}</span>)}</div></details>
-              <button className={`${primaryButtonClass} mt-4`} type="button" onClick={() => void handleRunCrawler()} disabled={busy}>{working === "crawl" ? "正在扫描，请稍候..." : `开始扫描，目标新增 ${crawlerMaxArticles} 篇`}</button>
-            </section>
-
-            <section className="border-t border-[#e1e5e9] px-5 py-5 sm:px-6 xl:border-t-0" aria-labelledby="recommendation-automation-title">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <h3 id="recommendation-automation-title" className="text-base font-semibold text-[#17191c]">每天自动补充</h3>
-                  <p className="mt-1 max-w-xl text-sm leading-6 text-[#4d5963]">服务器每 5 分钟检查一次是否到点，电脑关机也会运行，同一天只自动执行一次。</p>
-                  <p className="mt-1 max-w-xl text-xs leading-5 text-[#5c6872]">设置几篇就以新增几篇为成功条件。系统会继续尝试本主题全部可用新链接；若来源确实耗尽，会明确标记未达目标，不会把少加几篇写成成功。</p>
-                </div>
-                <label className="inline-flex min-h-10 shrink-0 cursor-pointer items-center gap-2 self-start whitespace-nowrap rounded-full bg-[#f2f5f7] px-3.5 text-sm font-medium text-[#343a40]">
-                  <input className="h-5 w-5 accent-[#1769aa]" type="checkbox" checked={automationEnabled} onChange={(event) => setAutomationEnabled(event.target.checked)} disabled={busy} />
-                  {automationEnabled ? "已开启" : "已关闭"}
-                </label>
-              </div>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <label className={labelClass}>每天执行时间（北京时间）<input className={inputClass} type="time" step={300} value={automationRunTime} onChange={(event) => setAutomationRunTime(event.target.value)} disabled={busy || !automationEnabled} /></label>
-                <label className={labelClass}>每次目标新增<input className={inputClass} type="number" min={1} max={10} value={automationMaxArticles} onChange={(event) => setAutomationMaxArticles(Math.max(1, Math.min(10, Number(event.target.value) || 1)))} disabled={busy || !automationEnabled} /></label>
-              </div>
-              <dl className="mt-4 grid gap-x-6 gap-y-2 text-sm text-[#46515a] sm:grid-cols-2">
-                <div><dt className="text-xs text-[#6b747c]">下次执行</dt><dd className="mt-0.5 font-medium text-[#29323a]">{nextRunLabel}</dd></div>
-                <div><dt className="text-xs text-[#6b747c]">上次执行</dt><dd className="mt-0.5 font-medium text-[#29323a]">{lastRunLabel}</dd></div>
-                <div><dt className="text-xs text-[#6b747c]">成功通知邮箱</dt><dd className="mt-0.5 break-all font-medium text-[#29323a]">{automation?.notificationEmail || "尚未配置"}</dd></div>
-                <div><dt className="text-xs text-[#6b747c]">邮件状态</dt><dd className={`mt-0.5 font-medium ${automation?.state.lastEmailStatus === "failed" || automation?.state.lastEmailStatus === "not_configured" ? "text-[#9b3524]" : "text-[#29323a]"}`}>{emailStatusLabel}</dd></div>
-              </dl>
-              <div className="mt-4 flex flex-wrap gap-2">
-                <button className={primaryButtonClass} type="button" onClick={() => void handleSaveAutomation()} disabled={busy}>{working === "automation-save" ? "正在保存..." : "保存自动设置"}</button>
-                <button className={secondaryButtonClass} type="button" onClick={() => void handleRunAutomationNow()} disabled={busy}>{working === "automation-run" ? "正在扫描，请稍候..." : "立即按自动规则运行"}</button>
-                <button className={secondaryButtonClass} type="button" onClick={() => void handleTestAutomationEmail()} disabled={busy || !automation?.emailConfigured}>{working === "automation-email" ? "正在发送..." : "发送测试邮件"}</button>
-              </div>
-              <p className="mt-3 text-xs leading-5 text-[#5c6872]">立即运行会使用右侧的篇数设置，但不会改变下一次定时时间，也不会发送完成邮件。</p>
-              {automation?.state.lastError && <p className="mt-3 rounded-lg bg-[#fff0ed] px-3 py-2 text-xs leading-5 text-[#8d3224]">{automation.state.lastError}</p>}
-            </section>
-          </div>
-
-          {(working === "crawl" || working === "automation-run" || working === "daily-fill") && (
-            <div className="border-t border-[#c9ddeb] bg-[#edf5fb] px-5 py-4 text-sm leading-6 text-[#174d73] sm:px-6" role="status" aria-live="polite">
-              <strong>{working === "daily-fill" ? `正在扫描六个主题（${dailyFillProgress.completed}/${dailyFillProgress.total}）` : "正在读取来源、去重并分析文章"}</strong>
-              <span className="ml-2">这个过程通常需要几十秒到几分钟，完成后这里会显示结果并刷新候选列表，请不要重复点击。</span>
-            </div>
-          )}
-
-          {crawlerResult && !["crawl", "automation-run", "daily-fill"].includes(working) && (
-            <div className="border-t border-[#c9ddeb] bg-[#f5f9fc] px-5 py-4 sm:px-6" role="status" aria-live="polite">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div className="text-sm leading-6 text-[#3f4850]">
-                  <strong className={crawlerResult.targetAchieved ? "text-[#173f5f]" : "text-[#8d3224]"}>{crawlerResult.targetAchieved ? "扫描完成" : "未达到新增目标"}</strong>
-                  <span className="ml-2">目标新增 {crawlerResult.targetNewArticles} 篇，发现 {crawlerResult.discovered} 个未入库链接，尝试分析 {crawlerResult.attempted} 篇，实际新增 {crawlerResult.created.length} 篇。</span>
-                  {crawlerResult.shortfall > 0 && <p className="mt-1 text-[#8d3224]">当前来源已尝试完，仍缺 {crawlerResult.shortfall} 篇；本次不会记为成功。</p>}
-                  {crawlerResult.created.length === 0 && <p className="mt-1 text-[#59636c]">没有达到新增条件：链接可能已经入库，或文章没有通过读取、难度与质量检查。这不是容量上限。</p>}
-                </div>
-                {crawlerResult.created.length > 0 && <button className={primaryButtonClass} type="button" onClick={() => showCandidates(recentCandidateIds)}>查看本次新增（{crawlerResult.created.length}）</button>}
-              </div>
-              {crawlerResult.created.length > 0 && <ul className="mt-3 grid gap-1 text-sm text-[#174d73]">{crawlerResult.created.map((article) => <li key={article.id}>《{article.title}》</li>)}</ul>}
-              {(crawlerResult.skipped.length > 0 || crawlerResult.sourceErrors.length > 0) && <details className="mt-3 text-xs text-[#59636c]"><summary className="cursor-pointer font-medium">查看跳过与读取失败详情</summary><div className="mt-2"><p>跳过 {crawlerResult.skipped.length} 篇，来源读取失败 {crawlerResult.sourceErrors.length} 个。</p>{crawlerResult.skipped.length > 0 && <ul className="mt-2 list-disc space-y-1 pl-5">{crawlerResult.skipped.map((item) => <li key={`${item.url}-${item.reason}`}>{item.title}：{item.reason}</li>)}</ul>}</div></details>}
-            </div>
-          )}
-
-          <details className="border-t border-[#e1e5e9] px-5 py-4 sm:px-6">
-            <summary className="cursor-pointer text-sm font-medium text-[#175a8d]">高级操作：一次扫描六个主题</summary>
-            <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"><p className="max-w-2xl text-xs leading-5 text-[#4d6577]">依次扫描六类主题，每类最多新增 2 篇，一次最多新增 12 篇。适合临时集中备稿。</p><button className={secondaryButtonClass} type="button" onClick={() => void handleDailyFill()} disabled={busy}>{working === "daily-fill" ? `扫描中 ${dailyFillProgress.completed}/${dailyFillProgress.total}` : "扫描六个主题"}</button></div>
-          </details>
-        </section>
-
+        <AdminDiscoveryPanel onRefresh={loadCandidates} onCandidates={() => showCandidates()} />
+        <div className="flex flex-wrap gap-2">
+          {onShowPublished && <button className={secondaryButtonClass} onClick={onShowPublished}>查看已精选（{publicArticleCount}）</button>}
+          <button className={secondaryButtonClass} disabled={busy} onClick={() => void handleRepairPublicImages()}>{working === "repair-images" ? "正在修复…" : "修复候选与精选图片"}</button>
+        </div>
         <section className="rounded-2xl bg-white px-5 py-5 sm:px-6">
           <h2 className="text-xl font-semibold text-[#17191c]">推荐文章工作流</h2>
           <ol className="mt-4 grid grid-cols-2 gap-3 xl:grid-cols-4">
@@ -1027,7 +731,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
         <section ref={candidateSectionRef} className="scroll-mt-5 rounded-2xl bg-white px-5 py-5 sm:px-6">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h2 className="text-xl font-semibold text-[#17191c]">候选文章</h2>
+            <h2 className="text-xl font-semibold text-[#17191c]">候选文章</h2><button className={secondaryButtonClass} disabled={busy} onClick={() => void shuffleCandidates()}>打乱旧候选，当天新增保持在前</button>
             <p className="mt-1 text-sm leading-6 text-[#4d535a]">先预览，再选择发布。共 {candidates.length} 篇，其中 {missingCoverCount} 篇还需要补充封面。</p>
           </div>
           <div className="flex flex-wrap gap-2"><button className={secondaryButtonClass} type="button" onClick={() => void loadCandidates()} disabled={busy || loadingCandidates}>刷新候选</button><button className={primaryButtonClass} type="button" onClick={handleBatchPublish} disabled={busy || selectedIds.length === 0}>发布选中 ({selectedIds.length})</button></div>
@@ -1044,7 +748,8 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
                 <input className="h-5 w-5 accent-[#1769aa]" type="checkbox" checked={selected} disabled={!hasCover || busy} aria-label={`选择 ${article.title}`} onChange={() => setSelectedIds((ids) => selected ? ids.filter((id) => id !== article.id) : [...ids, article.id])} />
                 <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#e8edf1]">{hasCover ? <img className="h-full w-full object-cover" src={recommendation?.coverImageUrl} alt="" /> : <div className="flex h-full items-center justify-center px-2 text-center text-xs text-[#6a4a43]">缺少封面</div>}</div>
                 <div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold leading-6 text-[#17191c]">{article.title}</h3>{isRecent && <span className="rounded-full bg-[#1769aa] px-2.5 py-1 text-xs font-medium text-white">本次新增</span>}<span className={`rounded-full px-2.5 py-1 text-xs font-medium ${hasCover ? "bg-[#e9f5ee] text-[#17613b]" : "bg-[#fff0ed] text-[#9b3524]"}`}>{hasCover ? "可发布" : "待补封面"}</span>{recommendation?.sourceKind === "crawler" && <span className="rounded-full bg-[#edf5fb] px-2.5 py-1 text-xs font-medium text-[#174d73]">自动发现</span>}{recommendation?.sourceKind === "local-saved" && <span className="rounded-full bg-[#eef1f4] px-2.5 py-1 text-xs font-medium text-[#4d535a]">本地文章</span>}</div><p className="mt-1 line-clamp-2 text-sm leading-6 text-[#4d535a]">{article.summary || "暂无摘要"}</p><p className="mt-1 text-xs leading-5 text-[#68717a]">{recommendation?.difficulty || "待判断"} · CEFR {recommendation?.cefr || "待判断"} · {recommendation?.topics.join("、") || "待分类"} · {(recommendation?.wordCount ?? countArticleEnglishWords(article.body)).toLocaleString("zh-CN")} 词</p><p className="mt-0.5 text-xs leading-5 text-[#7b848c]">适合：{recommendation?.audienceStages.join("、") || "待判断"} · {recommendation?.timeliness === "time-sensitive" ? "需检查时效" : "长期有效"} · {article.sourceName || "来源待确认"}</p></div>
-                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => onOpenArticle(article)} disabled={busy}>打开并编辑正文</button><button className={secondaryButtonClass} type="button" onClick={() => { setDraft(draftFromCandidate(article)); setMode(article.recommendation?.sourceKind === "local-saved" ? "local" : article.recommendation?.sourceKind === "manual-paste" ? "paste" : "url"); setSelectedLocalArticleId(""); setError(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }} disabled={busy}>编辑资料与封面</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => void handleDeleteCandidate(article)} disabled={busy}>不精选</button></div>
+                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => onOpenArticle(article)} disabled={busy}>打开并编辑正文</button><button className={secondaryButtonClass} type="button" onClick={() => { setDraft(draftFromCandidate(article)); setMode(article.recommendation?.sourceKind === "local-saved" ? "local" : article.recommendation?.sourceKind === "manual-paste" ? "paste" : "url"); setSelectedLocalArticleId(""); setError(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }} disabled={busy}>编辑资料与封面</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => setRejectingId(article.id)} disabled={busy}>不精选</button></div>
+                {rejectingId === article.id && <div className="w-full py-3"><p className="mb-2 text-sm font-medium">为什么不精选这篇？</p><div className="flex flex-wrap gap-2">{REJECTION_REASONS.map((reason) => <button key={reason} className={secondaryButtonClass} disabled={busy} onClick={() => void handleDeleteCandidate(article, reason)}>{reason}</button>)}<button className={secondaryButtonClass} onClick={() => setRejectingId("")}>取消</button></div></div>}
               </li>;
             })}
           </ul>

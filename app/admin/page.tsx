@@ -12,6 +12,7 @@ import { ReaderView } from "@/components/ReaderView";
 import { SiteBackdrop } from "@/components/SiteBackdrop";
 import { getSavedArticles } from "@/lib/articles";
 import { countArticleEnglishWords } from "@/lib/articleWordCount";
+import type { RejectionReason } from "@/lib/discoveryPolicy";
 import { articleHasHomepageImage, articleMediaState, type ArticleMediaState } from "@/lib/articleMedia";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import {
@@ -123,6 +124,7 @@ export default function AdminPage() {
   const [editorialCategory, setEditorialCategory] = useState("");
   const [quickUrl, setQuickUrl] = useState("");
   const [quickAdding, setQuickAdding] = useState(false);
+  const [shuffling, setShuffling] = useState(false);
   const [openingArticleId, setOpeningArticleId] = useState("");
   const publicArticlesRef = useRef<HTMLElement>(null);
 
@@ -450,13 +452,24 @@ export default function AdminPage() {
     setArticlePlacement(placementForPublishedArticle(active.article, data.curation));
   }
 
-  async function rejectCurrentCandidate() {
+  async function shuffleCandidates() {
+    setShuffling(true);
+    try {
+      const response = await fetch("/api/admin/article-candidates", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "shuffle" }) });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "打乱失败，请稍后重试。");
+      await loadCandidateArticles();
+      setStatus("往日候选已打乱，今天加入的文章仍在最前面。");
+    } catch { setStatus("打乱暂时失败，请稍后重试。"); } finally { setShuffling(false); }
+  }
+
+  async function rejectCurrentCandidate(reason: RejectionReason) {
     const active = readerState;
     if (!active || active.kind !== "candidate") return;
     const response = await fetch("/api/admin/article-candidates", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "reject", id: active.article.id }),
+      body: JSON.stringify({ action: "reject", id: active.article.id, reason }),
     });
     const data = await response.json().catch(() => null) as { article?: PublicArticle; error?: string } | null;
     if (!response.ok || !data?.article) throw new Error(data?.error || "移出候选失败。");
@@ -979,9 +992,10 @@ export default function AdminPage() {
             <div>
               <p className="text-xs font-semibold text-[#1769aa]">每日内容工作台</p>
               <h2 id="editorial-desk-title" className="mt-1 text-[24px] font-semibold">阅读、判断、继续下一篇</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#4d535a]">候选按最新内容优先排列。左侧修改会自动保存；精选或不精选后自动进入下一篇。</p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#4d535a]">今天加入的候选优先，往日候选可随机打乱。左侧修改会自动保存；精选或选择不精选原因后自动进入下一篇。</p>
             </div>
             <div className="flex flex-wrap gap-2">
+              <button className="min-h-11 rounded-full border border-[#1769aa] px-5 text-sm font-semibold text-[#1769aa] disabled:opacity-45" type="button" disabled={shuffling || candidateArticles.length < 2} onClick={() => void shuffleCandidates()}>{shuffling ? "正在打乱…" : "打乱往日候选"}</button>
               <button className="min-h-11 rounded-full bg-[#1769aa] px-5 text-sm font-semibold text-white disabled:bg-[#aeb8c2]" type="button" disabled={!candidateArticles.length} onClick={() => candidateArticles[0] && openCandidateArticle(candidateArticles[0])}>开始今日精选（{candidateArticles.length}）</button>
               <button className="min-h-11 rounded-full border border-[#1769aa] px-5 text-sm font-semibold text-[#1769aa] disabled:opacity-45" type="button" disabled={!publicArticles.length} onClick={() => publicArticles[0] && void openPublishedArticle(publicArticles[0])}>查看精选列表（{publicArticles.length}）</button>
             </div>

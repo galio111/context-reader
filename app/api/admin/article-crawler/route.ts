@@ -7,11 +7,9 @@ import {
   runConfiguredRecommendationAutomation,
   updateRecommendationAutomationConfig,
 } from "@/lib/recommendationAutomation";
-import { runRecommendationCrawler } from "@/lib/recommendationCrawler";
-import { RECOMMENDATION_CRAWLER_SOURCES } from "@/lib/recommendationSources";
+import { getDiscoverySites } from "@/lib/discoveryStore";
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { sendSiteNotificationEmail } from "@/lib/siteNotificationEmail";
-import { ARTICLE_DIFFICULTIES, ARTICLE_TOPICS } from "@/types/publicArticle";
 import type { RecommendationCrawlerRunInput } from "@/types/recommendationCrawler";
 
 export const maxDuration = 900;
@@ -24,11 +22,11 @@ export async function GET() {
   return NextResponse.json({
     scheduled: Boolean(process.env.CRON_SECRET?.trim()) && automation.config.enabled,
     scheduleLabel: automation.config.enabled
-      ? `每天约 ${automation.config.runTime}（北京时间），每次目标新增 ${automation.config.maxNewArticles} 篇`
+      ? `每天约 ${automation.config.runTime}（北京时间）开始分批抓取，各站合计目标 ${automation.config.maxNewArticles} 篇`
       : "定时自动补充已关闭",
     maxNewArticlesPerRun: automation.config.maxNewArticles,
     automation,
-    sources: RECOMMENDATION_CRAWLER_SOURCES.map(({ id, name, topics, levelHint }) => ({ id, name, topics, levelHint })),
+    sources: (await getDiscoverySites()).map(({ id, name, topics, levelHint }) => ({ id, name, topics, levelHint })),
   }, { headers: { "Cache-Control": "no-store" } });
 }
 
@@ -105,33 +103,5 @@ export async function POST(request: Request) {
     }
     return NextResponse.json({ ok: true, emailStatus: email.status }, { headers: { "Cache-Control": "no-store" } });
   }
-  const topic = typeof body?.topic === "string" && ARTICLE_TOPICS.includes(body.topic) ? body.topic : null;
-  const difficulty = body?.difficulty === "any" || (typeof body?.difficulty === "string" && ARTICLE_DIFFICULTIES.includes(body.difficulty))
-    ? body.difficulty
-    : null;
-  const maxNewArticles = typeof body?.maxNewArticles === "number" && Number.isInteger(body.maxNewArticles)
-    ? body.maxNewArticles
-    : 0;
-  if (!topic || !difficulty || maxNewArticles < 1 || maxNewArticles > 10) {
-    return NextResponse.json({ error: "请选择有效主题、难度和本次目标新增 1 至 10 篇。" }, { status: 400 });
-  }
-  try {
-    const result = await runRecommendationCrawler(
-      {
-        topic,
-        difficulty,
-        targetInventory: 0,
-        maxNewArticles,
-        inventoryScope: body?.inventoryScope === "candidates" ? "candidates" : "all",
-        ignoreInventoryTarget: true,
-      },
-      requestExternalOrigin(request),
-    );
-    return NextResponse.json({ result });
-  } catch (error) {
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : "自动抓取任务失败。" },
-      { status: 500 },
-    );
-  }
+  return NextResponse.json({ error: "请使用网站名单中的抓取按钮，每日额度按网站分别计算。" }, { status: 400 });
 }
