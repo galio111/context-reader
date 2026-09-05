@@ -35,6 +35,7 @@ if (args.includes("--test-config")) {
 }
 if (args.includes("--configure-reviewed")) {
   const reviewed = new Set(["nasa-gov", "snexplores-org", "news-mongabay-com", "sciencealert-com", "thisiscolossal-com", "electricliterature-com", "popsci-com", "breakingnewsenglish-com", "news-harvard-edu", "blogs-lse-ac-uk", "reasonstobecheerful-world", "themarginalian-org", "openculture-com", "techcrunch-com", "levelread-com", "news-crunchbase-com"]);
+  reviewed.add("oecdecoscope-blog");
   for (const site of initial.sites.filter((s) => reviewed.has(s.id) && s.verification?.ok)) await request(path, { action: "save", site: { ...site, enabled: true, dailyTarget: 2 } });
   const sites = (await request(path)).sites.filter((s) => s.enabled);
   console.log(JSON.stringify({ enabled: sites.length, lower: sites.filter((s) => s.levelHint === "lower").length, target: sites.reduce((n, s) => n + s.dailyTarget, 0), names: sites.map((s) => s.name) }));

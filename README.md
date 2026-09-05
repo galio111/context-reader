@@ -10,6 +10,8 @@ Context Reader is a Next.js reading tool for importing real English articles and
 
 The reader is the product center. Article text remains visually primary while lookup, translation, vocabulary, saving, recommendations and account tools support the reading flow.
 
+Candidate discovery is controlled per website in Admin: daily targets, source verification, readable-image/content gates, quick rejection feedback and older-candidate shuffle. Current source evidence and rollout limits are documented in [Candidate discovery controls](docs/candidate-discovery-controls.md).
+
 ## Current Product State
 
 ### Reading
