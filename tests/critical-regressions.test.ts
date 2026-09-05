@@ -77,6 +77,13 @@ import { explanationFromCompletedStream } from "../lib/explanationDisplay";
 import { normalizeImportedArticleStructure } from "../lib/importedArticleNormalization";
 import { guestCoverTouchSnapTarget } from "../lib/guestCoverTouchSnap";
 import type { VocabularyEntry } from "../types/vocabulary";
+import {
+  readStoredArticles,
+  SAVED_ARTICLES_COMPRESSED_PREFIX,
+  SAVED_ARTICLES_STORAGE_KEY,
+  writeStoredArticles,
+} from "../lib/articleStorage";
+import type { SavedArticle } from "../types/article";
 
 function ankiTestEntry(id: string, word: string, createdAt: string): VocabularyEntry {
   return {
@@ -814,6 +821,47 @@ test("public article saves request the charged prepublished summary cache", () =
   const route = readFileSync(new URL("../app/api/summarize-article/route.ts", import.meta.url), "utf8");
   assert.match(reader, /publicArticleId: articleSource\?\.kind === "public"/);
   assert.match(route, /finishUsage\(actionId, "cached", true, false\)/);
+});
+
+test("saved articles use backward-compatible compressed browser storage", () => {
+  const values = new Map<string, string>();
+  const storage = {
+    get length() { return values.size; },
+    clear: () => values.clear(),
+    getItem: (key: string) => values.get(key) ?? null,
+    key: (index: number) => Array.from(values.keys())[index] ?? null,
+    removeItem: (key: string) => { values.delete(key); },
+    setItem: (key: string, value: string) => { values.set(key, value); },
+  } as Storage;
+  const article: SavedArticle = {
+    id: "long-article",
+    title: "Long article",
+    summary: "",
+    body: "A long but readable paragraph. ".repeat(4_000),
+    createdAt: "2026-09-05T00:00:00.000Z",
+    updatedAt: "2026-09-05T00:00:00.000Z",
+  };
+
+  writeStoredArticles(storage, [article]);
+  const compressed = storage.getItem(SAVED_ARTICLES_STORAGE_KEY) ?? "";
+  assert.match(compressed, new RegExp(`^${SAVED_ARTICLES_COMPRESSED_PREFIX}`));
+  assert.ok(compressed.length < JSON.stringify([article]).length / 4);
+  assert.deepEqual(readStoredArticles(storage), [article]);
+
+  storage.setItem(SAVED_ARTICLES_STORAGE_KEY, JSON.stringify([article]));
+  assert.deepEqual(readStoredArticles(storage), [article]);
+});
+
+test("long articles and exhausted summary quotas remain saved without a summary request failure", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  const sync = readFileSync(new URL("../lib/accountSyncClient.ts", import.meta.url), "utf8");
+  const usage = readFileSync(new URL("../components/AccountUsagePageContent.tsx", import.meta.url), "utf8");
+  assert.match(reader, /AUTO_SUMMARY_MAX_ARTICLE_CHARS = 6_000/);
+  assert.match(reader, /currentArticle\.length > AUTO_SUMMARY_MAX_ARTICLE_CHARS[\s\S]*?文章已保存；正文较长，本次不生成摘要/);
+  assert.match(reader, /data\?\.code === "quota_exhausted"[\s\S]*?文章已保存；摘要额度已用完，本次不生成摘要/);
+  assert.match(sync, /readStoredArticles\(storage\)/);
+  assert.match(sync, /writeStoredArticles\(storage, mergedArticles\.articles\)/);
+  assert.match(usage, /保存文章不消耗摘要额度[\s\S]*?摘要额度用完后仍可保存文章/);
 });
 
 test("word lookup transports run stream-first instead of racing duplicate provider requests", () => {
