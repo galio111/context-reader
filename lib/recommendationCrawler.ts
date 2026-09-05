@@ -197,7 +197,7 @@ export async function runRecommendationCrawler(
       if (imported.metadata?.intakeWarnings?.length) throw new Error(imported.metadata.intakeWarnings.join("；"));
       if (article.blocks.filter((block) => block.type === "image").length > 8) throw new Error("图片过多，可能是图库或合集，留待人工导入");
       const words = (article.text.match(/\b[a-zA-Z]+\b/g) ?? []).length;
-      if (words < minimumDiscoveryWords(item.source.levelHint)) throw new Error(`正文不足 ${minimumDiscoveryWords(item.source.levelHint)} 词，属于短讯或正文提取不完整`);
+      if (words < minimumDiscoveryWords(item.source.levelHint)) throw new Error(`正文只有 ${words} 词，自动候选必须超过 400 词`);
       if (article.language && !/^en\b/i.test(article.language)) throw new Error("不是英文正文");
       const images = article.blocks.filter((block) => block.type === "image" && block.src && !/logo|avatar|icon|banner|pixel|tracking/i.test(block.src));
       const covers = (imported.metadata?.coverCandidates ?? []).filter((url) => !/logo|avatar|icon|banner|pixel|tracking/i.test(url));

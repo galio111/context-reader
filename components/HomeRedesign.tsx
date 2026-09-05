@@ -416,7 +416,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
     props.temporaryReading
     && (!latestSavedArticle || Date.parse(props.temporaryReading.updatedAt) >= Date.parse(latestSavedArticle.lastOpenedAt || latestSavedArticle.updatedAt)),
   );
-  const continueCover = latestSavedArticle?.importedArticle?.blocks.find((block) => block.type === "image");
+  const continueArticle = temporaryIsLatest
+    ? props.temporaryReading?.importedArticle
+    : latestSavedArticle?.importedArticle;
+  const continueCoverUrl = continueArticle?.blocks.find((block) => block.type === "image" && block.src?.trim())?.src?.trim()
+    || continueArticle?.recommendation?.coverImageUrl?.trim()
+    || "";
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const preview = params.get("preview");
@@ -1236,15 +1241,15 @@ export function HomeRedesign(props: HomeRedesignProps) {
                 <button
                   type="button"
                   className={styles.continueReadingCard}
-                  data-variant={continueVariant === "cover" && continueCover?.type === "image" && continueCover.src ? "cover" : "editorial"}
+                  data-variant={continueVariant === "cover" && continueCoverUrl ? "cover" : "editorial"}
                   onClick={() => temporaryIsLatest && props.temporaryReading
                     ? props.onOpenTemporaryReading(props.temporaryReading)
                     : latestSavedArticle && props.onOpenSavedArticle(latestSavedArticle)}
                 >
-                  {continueVariant === "cover" && continueCover?.type === "image" && continueCover.src && (
+                  {continueVariant === "cover" && continueCoverUrl && (
                     <span className={styles.continueReadingCover} aria-hidden="true">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={continueCover.src} alt="" />
+                      <img src={continueCoverUrl} alt="" />
                     </span>
                   )}
                   <span className={styles.continueReadingEyebrow}>{temporaryIsLatest ? "继续阅读 · 未保存" : "继续阅读"}</span>

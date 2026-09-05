@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { candidateOrder, freshnessFailure, hasRecentPublishingCadence, shanghaiDay, similarArticle } from "../lib/discoveryPolicy";
+import { JSDOM } from "jsdom";
+import { candidateOrder, freshnessFailure, hasRecentPublishingCadence, minimumDiscoveryWords, shanghaiDay, similarArticle } from "../lib/discoveryPolicy";
 import { extractImportedArticleFromHtml } from "../lib/urlArticleExtractor";
 import { defaultDiscoverySites } from "../lib/discoveryDefaults";
+import { applyPublisherProfile } from "../lib/publisherExtractionProfiles";
 import type { PublicArticle } from "../types/publicArticle";
 const now = Date.parse("2026-09-05T04:00:00Z");
 test("Shanghai boundary and invalid timestamp", () => {
@@ -39,6 +41,10 @@ test("default quota groups multiple feeds from one website", () => {
   assert.ok(sites.find((s) => s.articleHosts[0] === "npr.org")!.feeds.length > 1);
   assert.ok(sites.every((s) => !s.enabled), "unverified defaults must never silently start collecting");
 });
+test("every automatic candidate must contain strictly more than 400 English words", () => {
+  assert.equal(minimumDiscoveryWords(), 401);
+  assert.equal(minimumDiscoveryWords("lower"), 401);
+});
 test("publisher profile preserves Mongabay taxonomy article and excludes sidebars", () => {
   const prose = "Marine conservation protects complex ecosystems. Researchers studied coastal animals and the effects of mining on the sea. ".repeat(8);
   const result = extractImportedArticleFromHtml(`<html><head><title>Marine conservation</title></head><body><article id="post-12" class="post byline-some-author"><p>${prose}</p></article><div id="series--description-container"><p>UNRELATED SIDEBAR TEXT ${prose}</p></div></body></html>`, "https://news.mongabay.com/2026/09/marine-conservation/");
@@ -65,6 +71,23 @@ test("Level Read retains reading paragraphs, not word lookup or other stories", 
   assert.equal(result?.article.title, "Trade around the world");
   assert.ok(result?.article.text.includes("Readers can learn"));
   assert.ok(!result?.article.text.includes("UNRELATED DICTIONARY"));
+});
+test("Public Domain Review keeps notes but removes its post-article catalogue and promotion", () => {
+  const dom = new JSDOM(`<html><head><title>Historical essay</title></head><body>
+    <article class="essay-view">
+      <div class="essay__footnotes essay__footer__section"><p>Notes</p><ol><li>A scholarly source retained for the reader.</li></ol></div>
+      <div class="essay__resources essay__footer__section"><p>Public Domain Works</p><ul><li>UNRELATED RESOURCE CATALOGUE</li></ul></div>
+      <div class="essay__further-reading essay__footer__section"><p>Further Reading</p><p>UNRELATED COMMISSION LINKS</p></div>
+      <div class="essay-contributors"><p>UNRELATED AUTHOR PROMOTION</p></div>
+      <div class="essay-cta"><p>UNRELATED DONATION REQUEST</p></div>
+    </article>
+  </body></html>`, { url: "https://publicdomainreview.org/essay/example" });
+  applyPublisherProfile(dom.window.document, "https://publicdomainreview.org/essay/example");
+  assert.ok(dom.window.document.body.textContent?.includes("A scholarly source retained"));
+  assert.ok(!dom.window.document.body.textContent?.includes("UNRELATED RESOURCE"));
+  assert.ok(!dom.window.document.body.textContent?.includes("UNRELATED COMMISSION"));
+  assert.ok(!dom.window.document.body.textContent?.includes("UNRELATED AUTHOR"));
+  assert.ok(!dom.window.document.body.textContent?.includes("UNRELATED DONATION"));
 });
 test("similarity does not equate unrelated short headings", () => {
   assert.equal(similarArticle("New research explains how human memory changes with sleep", "New research explains how human memory changes with sleep"), true);

@@ -44,4 +44,7 @@ export function hasRecentPublishingCadence(values: string[], now = Date.now()): 
   return gaps[Math.floor(gaps.length / 2)] <= 3;
 }
 export function discoveryVisitLimit(target: number): number { return Math.max(3, Math.ceil(target / 3) + 2); }
-export function minimumDiscoveryWords(levelHint?: string): number { return levelHint === "lower" ? 180 : 250; }
+export function minimumDiscoveryWords(levelHint?: string): number {
+  void levelHint;
+  return 401;
+}

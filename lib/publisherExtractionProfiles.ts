@@ -13,7 +13,7 @@ const SELECTORS: Record<string, string> = {
   "knowledge.wharton.upenn.edu": ".related-content, .related-articles, .podcast-subscribe",
   "aeon.co": "[data-testid='related-content'], .newsletter-signup",
   "psyche.co": "[data-testid='related-content'], .newsletter-signup",
-  "publicdomainreview.org": ".related-content, .shop-promo",
+  "publicdomainreview.org": ".related-content, .shop-promo, .essay__resources, .essay__further-reading, .essay-contributors, .note-block, .essay-cta, .essay-outbound",
   "archives.gov": ".entry-footer, .sharedaddy, .jp-relatedposts",
   "learnenglish.britishcouncil.org": ".field--name-field-embed, .field--name-field-exercises, .field--name-field-preparation, .field--name-field-worksheet, .field--name-field-discussion, .comment-wrapper",
   "newsinlevels.com": ".test-your-english, .related-posts, .app-promo",

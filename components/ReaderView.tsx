@@ -56,8 +56,8 @@ import {
   findSimilarVocabularyEntry,
   normalizeForSourceMatch,
 } from "@/lib/sourceMatching";
-import { tokenizeArticle, tokenToWordContext } from "@/lib/tokenizer";
-import { scopeReaderTokenId } from "@/lib/readerTokenIdentity";
+import { tokenToWordContext } from "@/lib/tokenizer";
+import { groupReaderTokensByInline, tokenizeReaderBlockText, type ReaderInlineTokenGroup } from "@/lib/readerBlockTokens";
 import { getArticleImageSources, primeArticleImage } from "@/lib/articleImagePreload";
 import { isExternalArticleImageUrl } from "@/lib/articleImageUrls";
 import { cursorAnchoredImageZoom, interpolateImageZoom, type ImageZoomPoint, type ImageZoomTransform } from "@/lib/imageZoom";
@@ -75,7 +75,7 @@ import {
 } from "@/lib/vocabulary";
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import type { AnkiSettings } from "@/types/anki";
-import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, ImportedArticleInlineBaseline, ImportedArticleInlineText, ImportedArticleTableCell, SavedArticle } from "@/types/article";
+import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, ImportedArticleInlineText, ImportedArticleTableCell, SavedArticle } from "@/types/article";
 import type { PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
 import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, ReaderViewportAnchor, ReaderViewportReport, WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
@@ -162,11 +162,7 @@ interface RenderableTableCell {
   tokens: ReaderToken[];
 }
 
-interface RenderableTokenGroup {
-  id: string;
-  baseline?: ImportedArticleInlineBaseline;
-  tokens: ReaderToken[];
-}
+type RenderableTokenGroup = ReaderInlineTokenGroup;
 
 function useReaderBlockInteractivity(store: ReaderBlockInteractivityStore, blockId: string) {
   const [interactive, setInteractive] = useState(() => store.getSnapshot(blockId));
@@ -219,6 +215,26 @@ const ReaderTextBlock = memo(function ReaderTextBlock({
       targeted={highlightedTargetTokenIdSet.has(token.id)}
     />
   );
+  const renderGroup = (group: RenderableTokenGroup) => {
+    const content = interactive
+      ? group.tokens.map(renderToken)
+      : group.tokens.map((token) => token.value).join("");
+    if (group.baseline === "sup") {
+      return <sup key={group.id} className="align-super text-[0.68em] leading-none">{content}</sup>;
+    }
+    if (group.baseline === "sub") {
+      return <sub key={group.id} className="align-sub text-[0.68em] leading-none">{content}</sub>;
+    }
+    return <span key={group.id}>{content}</span>;
+  };
+  const listMarker = block.type === "list-item"
+    ? block.listStyle === "ordered"
+      ? `${block.listOrdinal ?? 1}.`
+      : "•"
+    : "";
+  const listIndent = block.type === "list-item"
+    ? Math.min(4, block.listLevel ?? 0) * 1.25
+    : 0;
 
   return (
     <Tag
@@ -226,21 +242,17 @@ const ReaderTextBlock = memo(function ReaderTextBlock({
       data-reader-token-surface
       onPointerEnter={() => interactivityStore.reveal([block.id])}
       onTouchStart={() => interactivityStore.reveal([block.id])}
-      className={`${textBlockClassName(block.type)} min-w-0 ${block.type === "list-item" ? block.listStyle === "ordered" ? "list-decimal" : "list-disc" : ""}`}
-      style={block.type === "list-item" ? { marginLeft: `${1.5 + Math.min(4, block.listLevel ?? 0) * 1.25}rem` } : undefined}
+      className={`${textBlockClassName(block.type)} min-w-0 ${block.type === "list-item" ? "relative list-none pl-11" : ""}`}
+      style={block.type === "list-item" ? { marginLeft: `${listIndent}rem` } : undefined}
       value={block.type === "list-item" && block.listStyle === "ordered" ? block.listOrdinal : undefined}
     >
-      {interactive && block.tokenGroups?.length
-        ? block.tokenGroups.map((group) => {
-            const content = group.tokens.map(renderToken);
-            if (group.baseline === "sup") {
-              return <sup key={group.id} className="align-super text-[0.68em] leading-none">{content}</sup>;
-            }
-            if (group.baseline === "sub") {
-              return <sub key={group.id} className="align-sub text-[0.68em] leading-none">{content}</sub>;
-            }
-            return <span key={group.id}>{content}</span>;
-          })
+      {listMarker && (
+        <span aria-hidden="true" className="absolute left-0 top-0 w-9 select-none text-right tabular-nums">
+          {listMarker}
+        </span>
+      )}
+      {block.tokenGroups?.length
+        ? block.tokenGroups.map(renderGroup)
         : interactive && block.tokens?.length
           ? block.tokens.map(renderToken)
           : block.plainText || <br />}
@@ -837,31 +849,6 @@ function inlinePlainText(inline: ImportedArticleInlineText[]): string {
   return inline.map((item) => item.text).join("");
 }
 
-function normalizeSentence(value: string): string {
-  return value.trim().replace(/\s+/g, " ").toLowerCase();
-}
-
-function groupTokensByInline(tokens: ReaderToken[], inline: ImportedArticleInlineText[]): RenderableTokenGroup[] {
-  const groups: RenderableTokenGroup[] = [];
-  let cursor = 0;
-
-  inline.forEach((item, index) => {
-    const start = cursor;
-    const end = start + item.text.length;
-    const groupTokens = tokens.filter((token) => token.start >= start && token.start < end);
-    if (groupTokens.length > 0) {
-      groups.push({
-        id: `inline-${index}`,
-        baseline: item.baseline,
-        tokens: groupTokens,
-      });
-    }
-    cursor = end;
-  });
-
-  return groups;
-}
-
 function ReaderRailIcon({ kind }: { kind: "import" | "dictionary" | "vocabulary" | "articles" }) {
   if (kind === "import") {
     return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v9m0-9L6.5 6.5M10 3l3.5 3.5M4 11.5v3A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-3" /></svg>;
@@ -1260,11 +1247,7 @@ export function ReaderView({
     ) => {
       const cached = tokenCache.get(cacheId);
       if (cached?.text === text && cached.paragraphIndex === paragraphIndex) return cached.tokens;
-      const tokens = (tokenizeArticle(text)[0]?.tokens ?? []).map((token) => ({
-        ...token,
-        id: scopeReaderTokenId(idPrefix, token.id),
-        paragraphIndex,
-      }));
+      const tokens = tokenizeReaderBlockText(text, paragraphIndex, idPrefix);
       tokenCache.set(cacheId, { text, paragraphIndex, tokens });
       return tokens;
     };
@@ -1292,13 +1275,8 @@ export function ReaderView({
           if (captionTokens) textBlockIndex += 1;
           const ocrState = imageOcr[block.id];
           const ocrText = IMAGE_OCR_ENABLED ? ocrState?.text || block.ocrText?.trim() || "" : "";
-          const tokenized = ocrText ? tokenizeArticle(ocrText)[0] : null;
-          const tokens = tokenized
-            ? tokenized.tokens.map((token) => ({
-                ...token,
-                id: `${block.id}-ocr-${token.id}`,
-                paragraphIndex: textBlockIndex,
-              }))
+          const tokens = ocrText
+            ? tokenizeReaderBlockText(ocrText, textBlockIndex, `${block.id}-ocr-`)
             : undefined;
           if (tokens) {
             textBlockIndex += 1;
@@ -1360,7 +1338,7 @@ export function ReaderView({
           type: block.type,
           tokens,
           plainText: text,
-          ...(inline && tokens ? { tokenGroups: groupTokensByInline(tokens, inline) } : {}),
+          ...(inline && tokens ? { tokenGroups: groupReaderTokensByInline(tokens, inline) } : {}),
           listStyle: block.listStyle,
           listLevel: block.listLevel,
           listOrdinal: block.listOrdinal,
@@ -3989,11 +3967,16 @@ export function ReaderView({
                       key={block.id}
                       {...dataProps}
                       data-reader-block={block.id}
-                      className={`${textBlockClassName(block.type)} min-w-0 outline-none ${block.type === "list-item" ? block.listStyle === "ordered" ? "list-decimal" : "list-disc" : ""}`}
-                      style={block.type === "list-item" ? { marginLeft: `${1.5 + Math.min(4, block.listLevel ?? 0) * 1.25}rem` } : undefined}
+                      className={`${textBlockClassName(block.type)} min-w-0 outline-none ${block.type === "list-item" ? "relative list-none pl-11" : ""}`}
+                      style={block.type === "list-item" ? { marginLeft: `${Math.min(4, block.listLevel ?? 0) * 1.25}rem` } : undefined}
                       value={block.type === "list-item" && block.listStyle === "ordered" ? block.listOrdinal : undefined}
                       suppressContentEditableWarning
                     >
+                      {block.type === "list-item" && (
+                        <span aria-hidden="true" contentEditable={false} className="absolute left-0 top-0 w-9 select-none text-right tabular-nums">
+                          {block.listStyle === "ordered" ? `${block.listOrdinal ?? 1}.` : "•"}
+                        </span>
+                      )}
                       {editableInlineContent(block)}
                     </Tag>
                   );

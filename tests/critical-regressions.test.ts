@@ -14,6 +14,7 @@ import { POST as cancelLookupRequest } from "../app/api/lookup-cancel/route";
 import { waitForFastImageLocalization } from "../lib/articleImageLocalizationPolicy";
 import { parseDictionaryStream } from "../lib/dictionaryStream";
 import { scopeReaderTokenId } from "../lib/readerTokenIdentity";
+import { groupReaderTokensByInline, tokenizeReaderBlockText } from "../lib/readerBlockTokens";
 import { ClientRequestCancelledError, classifyStreamTermination } from "../lib/requestCancellation";
 import { USER_SESSION_MAX_AGE_SECONDS } from "../lib/sessionPolicy";
 import {
@@ -1196,6 +1197,36 @@ test("URL extraction keeps publication time and does not duplicate exact figure 
   </article></body></html>`, "https://example.com/story");
   assert.equal(extracted?.article.publishedTime, "2026-08-31T04:30:00Z");
   assert.equal(extracted?.article.blocks.filter((block) => block.text === "The exact image caption").length, 0);
+});
+
+test("Reader block tokenization preserves multiline text and isolates superscript references", () => {
+  const multiline = "A complete heading\nwhose second line must remain visible.";
+  const multilineTokens = tokenizeReaderBlockText(multiline, 4, "heading-");
+  assert.equal(multilineTokens.map((token) => token.value).join(""), multiline);
+  assert.ok(multilineTokens.some((token) => token.value.includes("\n")));
+
+  const inline = [
+    { text: "The claim ends here." },
+    { text: "26", baseline: "sup" as const },
+    { text: " The next sentence remains on the baseline." },
+  ];
+  const source = inline.map((item) => item.text).join("");
+  const groups = groupReaderTokensByInline(tokenizeReaderBlockText(source, 5, "reference-"), inline);
+  assert.equal(groups.flatMap((group) => group.tokens).map((token) => token.value).join(""), source);
+  assert.equal(groups.find((group) => group.baseline === "sup")?.tokens.map((token) => token.value).join(""), "26");
+});
+
+test("Reader keeps inline baselines in plain and interactive states and shows complete list markers", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  assert.match(reader, /block\.tokenGroups\?\.length[\s\S]*?block\.tokenGroups\.map\(renderGroup\)/);
+  assert.match(reader, /tabular-nums[\s\S]*?block\.listOrdinal/);
+  assert.doesNotMatch(reader, /tokenizeArticle\(text\)\[0\]/);
+});
+
+test("continue-reading cover follows the active temporary article before saved history", () => {
+  const home = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
+  assert.match(home, /const continueArticle = temporaryIsLatest[\s\S]*?props\.temporaryReading\?\.importedArticle[\s\S]*?latestSavedArticle\?\.importedArticle/);
+  assert.match(home, /continueArticle\?\.blocks\.find\(\(block\) => block\.type === "image"[\s\S]*?continueArticle\?\.recommendation\?\.coverImageUrl/);
 });
 
 test("vocabulary source jumps avoid delayed long-article rerenders and bulk image wakeups", () => {
