@@ -187,7 +187,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
 
         <section className="cr-account-intro mt-14 max-w-2xl">
           <h1 className="cr-account-title text-4xl font-semibold tracking-[-.04em] sm:text-5xl">账号与数据</h1>
-          {PUBLIC_USAGE_DETAILS_ENABLED && <p className="mt-5 text-base leading-7 text-[#536675]">查词、文章摘要和全文翻译分别计算。摘要仅在首次保存且没有有效摘要时生成并扣 1 次；全文翻译每次新任务扣 1 次，重看已有结果免费，主动重新生成再扣 1 次。两项月额度都按上海自然月重置。</p>}
+          {PUBLIC_USAGE_DETAILS_ENABLED && <p className="mt-5 text-base leading-7 text-[#536675]">查词、文章摘要和全文翻译分别计算。保存文章不消耗摘要额度；仅在首次保存、正文不超过 6,000 字符且没有有效摘要时，生成摘要并扣 1 次。摘要额度用完后仍可保存文章。全文翻译每次新任务扣 1 次，重看已有结果免费，主动重新生成再扣 1 次。两项月额度都按上海自然月重置。</p>}
         </section>
 
         {loading ? <p className="cr-account-state mt-12 text-[#657582]">正在读取账号…</p> : isOffline ? (
