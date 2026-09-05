@@ -42,6 +42,7 @@ import {
 import type { SavedArticle } from "@/types/article";
 import type { AccountSyncObject, AccountSyncWriteResult, SyncObjectKind } from "@/types/account";
 import type { VocabularyEntry } from "@/types/vocabulary";
+import { readStoredArticles, writeStoredArticles } from "@/lib/articleStorage";
 
 const KEYS = {
   articles: "context-reader:articles:v1",
@@ -340,7 +341,7 @@ function mergeCloudIntoLocal(
   ));
 
   const localArticleMerge = needsArticles
-    ? mergeDuplicateSavedArticles(parseJson<SavedArticle[]>(storage.getItem(KEYS.articles), []))
+    ? mergeDuplicateSavedArticles(readStoredArticles(storage))
     : null;
   const localArticleById = new Map((localArticleMerge?.articles ?? []).map((item) => [item.id, item]));
   if (localArticleMerge) {
@@ -497,7 +498,7 @@ function mergeCloudIntoLocal(
     for (const removedId of mergedArticles.removedIds) {
       tombstones[`article:${removedId}`] ||= mergedAt;
     }
-    storage.setItem(KEYS.articles, JSON.stringify(mergedArticles.articles));
+    writeStoredArticles(storage, mergedArticles.articles);
   }
   if (needsVocabulary) {
     const deduplicatedVocabulary = deduplicateVocabularyEntries(Array.from(localVocabularyById.values()));
@@ -546,10 +547,10 @@ function collectLocalObjects(
 
   if (wants("article")) {
     const localArticleMerge = mergeDuplicateSavedArticles(
-      parseJson<SavedArticle[]>(storage.getItem(KEYS.articles), []),
+      readStoredArticles(storage),
     );
     if (localArticleMerge.removedIds.length) {
-      storage.setItem(KEYS.articles, JSON.stringify(localArticleMerge.articles));
+      writeStoredArticles(storage, localArticleMerge.articles);
       for (const removedId of localArticleMerge.removedIds) {
         tombstones[`article:${removedId}`] ||= now;
       }

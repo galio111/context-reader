@@ -521,6 +521,8 @@ interface ImageOcrState {
   error: string;
 }
 
+const AUTO_SUMMARY_MAX_ARTICLE_CHARS = 6_000;
+
 function isDocumentScrollLocked(): boolean {
   if (typeof document === "undefined") {
     return true;
@@ -3535,9 +3537,11 @@ export function ReaderView({
         setSaveStatus("文章已保存到本机；联网后会自动同步，摘要需联网生成");
       } else if (isValidArticleSummary(existing?.summary ?? "")) {
         setSaveStatus("文章已保存，已复用现有摘要");
+      } else if (currentArticle.length > AUTO_SUMMARY_MAX_ARTICLE_CHARS) {
+        setSaveStatus("文章已保存；正文较长，本次不生成摘要");
       } else {
         setSaveStatus("文章已保存，正在生成摘要...");
-        const { response, data } = await fetchJson<{ summary?: string; error?: string }>("/api/summarize-article", {
+        const { response, data } = await fetchJson<{ summary?: string; error?: string; code?: string }>("/api/summarize-article", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -3545,10 +3549,15 @@ export function ReaderView({
             publicArticleId: articleSource?.kind === "public" ? articleSource.id : undefined,
           }),
         }, "文章已保存，但摘要暂时没有生成成功。", { operation: "article_summary" });
-        if (!response.ok || !data?.summary) throw new Error(data?.error || "文章已保存，但摘要暂时没有生成成功。");
-        saveArticle(currentArticle, data.summary, effectiveImportedArticle);
-        onArticleSaved(findSavedArticle(currentArticle) ?? undefined);
-        setSaveStatus("文章已保存并生成摘要");
+        if (response.ok && data?.summary) {
+          saveArticle(currentArticle, data.summary, effectiveImportedArticle);
+          onArticleSaved(findSavedArticle(currentArticle) ?? undefined);
+          setSaveStatus("文章已保存并生成摘要");
+        } else if (data?.code === "quota_exhausted") {
+          setSaveStatus("文章已保存；摘要额度已用完，本次不生成摘要");
+        } else {
+          setSaveStatus("文章已保存；摘要暂时未生成，不影响继续阅读");
+        }
       }
     } catch (saveError) {
       setSaveStatus(saveError instanceof Error ? saveError.message : "文章保存失败，请稍后重试。");

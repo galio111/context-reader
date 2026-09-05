@@ -17,8 +17,14 @@ import {
   deleteArticleReadingState,
   updateArticleReadingState,
 } from "@/lib/readingState";
+import {
+  decodeStoredArticles,
+  readStoredArticles,
+  SAVED_ARTICLES_COMPRESSED_PREFIX,
+  SAVED_ARTICLES_STORAGE_KEY,
+  writeStoredArticles,
+} from "@/lib/articleStorage";
 
-const ARTICLES_KEY = "context-reader:articles:v1";
 const GENERIC_SUMMARY = "这是一篇已保存的英文阅读文章。";
 const MIN_SUMMARY_CHINESE_CHARS = 8;
 const READER_TOP_ANCHOR: ReaderViewportAnchor = {
@@ -336,7 +342,7 @@ export function getSavedArticles(): SavedArticle[] {
   }
 
   try {
-    const raw = storage.getItem(ARTICLES_KEY);
+    const raw = storage.getItem(SAVED_ARTICLES_STORAGE_KEY);
     if (!raw) {
       cachedArticlesRaw = raw;
       cachedArticles = [];
@@ -345,15 +351,20 @@ export function getSavedArticles(): SavedArticle[] {
     if (raw === cachedArticlesRaw && cachedArticles) {
       return applyArticleReadingStates(cachedArticles, storage);
     }
-    const parsed = JSON.parse(raw) as unknown[];
+    const serialized = decodeStoredArticles(raw);
+    const parsed = readStoredArticles(storage) as unknown[];
     const normalized = parsed
       .map(normalizeArticle)
       .filter((article): article is SavedArticle => Boolean(article));
     const merged = mergeDuplicateSavedArticles(normalized);
     const normalizedRaw = JSON.stringify(merged.articles);
-    if (merged.removedIds.length || normalized.length !== parsed.length || normalizedRaw !== raw) {
-      cachedArticlesRaw = normalizedRaw;
-      storage.setItem(ARTICLES_KEY, cachedArticlesRaw);
+    if (
+      merged.removedIds.length
+      || normalized.length !== parsed.length
+      || normalizedRaw !== serialized
+      || !raw.startsWith(SAVED_ARTICLES_COMPRESSED_PREFIX)
+    ) {
+      cachedArticlesRaw = writeStoredArticles(storage, merged.articles);
       if (merged.removedIds.length) notifyAccountObjectsDeleted("article", merged.removedIds);
       else notifyAccountDataChanged(["article"]);
     } else {
@@ -371,12 +382,21 @@ export function getSavedArticles(): SavedArticle[] {
 export function saveArticles(articles: SavedArticle[]): void {
   const storage = safeLocalStorage();
   if (!storage) {
-    return;
+    throw new Error("浏览器未开放本机存储，文章无法保存。请允许本站存储后重试。");
   }
   const merged = mergeDuplicateSavedArticles(articles);
-  cachedArticles = merged.articles;
-  cachedArticlesRaw = JSON.stringify(merged.articles);
-  storage.setItem(ARTICLES_KEY, cachedArticlesRaw);
+  try {
+    cachedArticlesRaw = writeStoredArticles(storage, merged.articles);
+    cachedArticles = merged.articles;
+  } catch (error) {
+    cachedArticlesRaw = undefined;
+    cachedArticles = null;
+    const errorName = error && typeof error === "object" && "name" in error ? String(error.name) : "";
+    if (errorName === "QuotaExceededError" || errorName === "NS_ERROR_DOM_QUOTA_REACHED") {
+      throw new Error("浏览器的本机存储空间已满，文章尚未保存。请先同步或删除不需要的本机内容后重试。");
+    }
+    throw error;
+  }
   if (merged.removedIds.length) notifyAccountObjectsDeleted("article", merged.removedIds);
   else notifyAccountDataChanged(["article"]);
 }
