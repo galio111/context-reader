@@ -33,6 +33,11 @@ test("cadence distinguishes daily and 2–3 day publishers from stale or sparse 
   assert.equal(hasRecentPublishingCadence(["2026-09-04", "2026-08-28"], now), false);
   assert.equal(hasRecentPublishingCadence(["2026-08-01"], now), false);
   assert.equal(hasRecentPublishingCadence(["2026-09-07"], now), false);
+  const sunday = Date.parse("2026-09-06T09:00:00Z");
+  assert.equal(hasRecentPublishingCadence([
+    "2026-09-03T06:30:00Z", "2026-09-02T06:30:00Z", "2026-09-01T06:30:00Z",
+    "2026-08-27T06:30:00Z", "2026-08-26T06:30:00Z", "2026-08-25T06:30:00Z",
+  ], sunday), true, "weekend days do not make a weekday publisher look dormant");
 });
 test("default quota groups multiple feeds from one website", () => {
   const sites = defaultDiscoverySites();

@@ -1,15 +1,14 @@
 import { NextResponse } from "next/server";
-import sharp from "sharp";
 import { isAdminRequest } from "@/lib/adminAuth";
 import { readJsonBody } from "@/lib/limitedBody";
 import { DAY_KEY, SITE_KEY, getDiscoverySites, readDiscoverySetting, writeDiscoverySetting, validateSite, withDiscoveryLease, type DiscoverySite } from "@/lib/discoveryStore";
 import { importArticleThroughApi } from "@/lib/recommendationCrawler";
 import { listArticleCandidates } from "@/lib/publicArticles";
 import { readSourceFeed } from "@/lib/recommendationFeed";
-import { readResponseBytes, safeRemoteFetch } from "@/lib/safeRemoteFetch";
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { shanghaiDay, hasRecentPublishingCadence, minimumDiscoveryWords } from "@/lib/discoveryPolicy";
 import { runConfiguredRecommendationAutomation } from "@/lib/recommendationAutomation";
+import { discoveryImageIsReadable } from "@/lib/discoveryImages";
 export const maxDuration = 900;
 export async function GET() {
   if (!await isAdminRequest()) return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
@@ -64,14 +63,13 @@ export async function POST(request: Request) {
             const article = imported.article!;
             const words = (article.text.match(/\b[a-zA-Z]+\b/g) ?? []).length;
             if (words < minimumDiscoveryWords(site.levelHint) || imported.metadata?.intakeWarnings?.length) continue;
+            const imageCount = article.blocks.filter((block) => block.type === "image").length;
+            if (imageCount > 8) continue;
             const image = article.blocks.find((block) => block.type === "image" && block.src && !/logo|icon|avatar|banner/i.test(block.src));
             const imageUrl = image?.src || imported.metadata?.coverCandidates?.find((url) => !/logo|icon|avatar|banner/i.test(url));
             if (!imageUrl) continue;
-            const response = await safeRemoteFetch(imageUrl, { signal: AbortSignal.timeout(15_000) });
-            if (!response.ok) continue;
-            const metadata = await sharp(await readResponseBytes(response, 5_000_000), { limitInputPixels: 40_000_000 }).metadata();
-            if ((metadata.width || 0) < 300 || (metadata.height || 0) < 150) continue;
-            verification.samples.push({ url: item.url, title: article.title, words, images: article.blocks.filter((b) => b.type === "image").length || 1, preview: article.text.slice(0, 600) });
+            if (!await discoveryImageIsReadable(imageUrl, item.url)) continue;
+            verification.samples.push({ url: item.url, title: article.title, words, images: imageCount || 1, preview: article.text.slice(0, 600) });
           } catch { /* Try a different article; no access-control bypass. */ }
         }
         verification.ok = verification.samples.length >= 2 && recentCadence;

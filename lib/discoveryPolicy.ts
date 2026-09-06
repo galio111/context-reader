@@ -37,7 +37,14 @@ export function similarArticle(a: string, b: string, threshold = 0.72): boolean 
 }
 export function hasRecentPublishingCadence(values: string[], now = Date.now()): boolean {
   const dates = values.map(Date.parse).filter((time) => Number.isFinite(time) && time <= now && now - time <= 14 * 86400_000);
-  if (!dates.length || now - Math.max(...dates) > 3 * 86400_000) return false;
+  if (!dates.length) return false;
+  const latest = Math.max(...dates);
+  let businessDaysSinceLatest = 0;
+  for (let cursor = Date.parse(shanghaiDay(latest)) + 86400_000; cursor <= Date.parse(shanghaiDay(now)); cursor += 86400_000) {
+    const weekday = new Date(cursor).getUTCDay();
+    if (weekday !== 0 && weekday !== 6) businessDaysSinceLatest += 1;
+  }
+  if (businessDaysSinceLatest > 3) return false;
   const days = [...new Set(dates.map((time) => shanghaiDay(time)))].sort().reverse();
   if (days.length < 2) return new Set(dates).size >= 6 && Math.max(...dates) - Math.min(...dates) >= 6 * 3600_000;
   const gaps = days.slice(1, 6).map((day, i) => (Date.parse(days[i]) - Date.parse(day)) / 86400_000).sort((a, b) => a - b);

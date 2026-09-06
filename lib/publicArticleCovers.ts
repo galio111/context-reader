@@ -154,6 +154,23 @@ async function fetchRemotePublicImage(value: string, headers: HeadersInit): Prom
   throw new Error(lastFailure);
 }
 
+export async function remotePublicImageDimensions(
+  value: string,
+  sourceUrl = "",
+): Promise<{ width: number; height: number }> {
+  const referer = safeReferer(sourceUrl);
+  const response = await fetchRemotePublicImage(value, {
+    Accept: "image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8",
+    "User-Agent": "Mozilla/5.0 (compatible; ContextReaderDiscoveryVerifier/1.0)",
+    ...(referer ? { Referer: referer } : {}),
+  });
+  const metadata = await sharp(
+    await readResponseBytes(response, MAX_REMOTE_COVER_BYTES),
+    { failOn: "error", limitInputPixels: 50_000_000 },
+  ).metadata();
+  return { width: metadata.width || 0, height: metadata.height || 0 };
+}
+
 function safeReferer(value: string): string | undefined {
   try {
     const url = new URL(value);

@@ -204,7 +204,7 @@ export async function runRecommendationCrawler(
       if (!images.length && !covers.length) throw new Error("没有可用的文章配图");
       let verifiedCover = "";
       for (const url of [...new Set([...images.map((image) => image.src!), ...covers])].slice(0, 3)) {
-        if (await discoveryImageIsReadable(url)) { verifiedCover = url; break; }
+        if (await discoveryImageIsReadable(url, item.url)) { verifiedCover = url; break; }
       }
       if (!verifiedCover) throw new Error("配图不可读取或尺寸不足，不用图标、像素图凑数");
       article.blocks = article.blocks.filter((block) => block.type !== "image" || images.includes(block));
