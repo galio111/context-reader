@@ -86,7 +86,10 @@ def main() -> None:
     count = config.get("maxNewArticles")
     valid_time = isinstance(run_time, str) and re.fullmatch(r"(?:[01]\d|2[0-3]):[0-5]\d", run_time)
     valid_five_minute_step = bool(valid_time and int(run_time[-2:]) % 5 == 0)
-    valid_count = isinstance(count, int) and not isinstance(count, bool) and 1 <= count <= 10
+    # The API now reports the sum of per-site targets. Admin permits up to
+    # 60 sources with a target of 0-10 each, so the old global 1-10 check
+    # incorrectly rejected a healthy multi-source configuration.
+    valid_count = isinstance(count, int) and not isinstance(count, bool) and 0 <= count <= 600
     if not isinstance(config.get("enabled"), bool) or not valid_five_minute_step or not valid_count:
         raise SystemExit(
             json.dumps(
