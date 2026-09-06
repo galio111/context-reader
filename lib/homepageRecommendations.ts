@@ -103,6 +103,7 @@ export function orderHomepageRecommendations(
   const manual = curation
     ? uniqueArticles(curation.categories.推荐.map((id) => byId.get(id)))
     : articles;
+  const manualRank = new Map(manual.map((article, index) => [article.id, index]));
   const explicitFeatured = curation?.recommendationFeaturedId
     ? byId.get(curation.recommendationFeaturedId)
     : undefined;
@@ -111,17 +112,16 @@ export function orderHomepageRecommendations(
     ? [...manual].sort((left, right) => (
         preferenceScore(right, preferences) - preferenceScore(left, preferences)
         || Number(hasHomepageCover(right)) - Number(hasHomepageCover(left))
+        || (manualRank.get(left.id) ?? Number.MAX_SAFE_INTEGER) - (manualRank.get(right.id) ?? Number.MAX_SAFE_INTEGER)
         || stableRecommendationRank(`${dayKey}:manual:${left.id}`) - stableRecommendationRank(`${dayKey}:manual:${right.id}`)
       ))
     : manual;
 
-  const featured = hasPreferences
-    ? manualOrdered.find((article) => preferenceScore(article, preferences) > 0)
-      ?? (explicitFeatured && manual.some((article) => article.id === explicitFeatured.id) ? explicitFeatured : undefined)
-      ?? manualOrdered[0]
-    : explicitFeatured && manual.some((article) => article.id === explicitFeatured.id)
-      ? explicitFeatured
-      : manualOrdered[0];
+  // The Admin shuffle deliberately randomizes the recommendation lead even
+  // for personalized views. Preferences still rank the remaining library.
+  const featured = explicitFeatured && manual.some((article) => article.id === explicitFeatured.id)
+    ? explicitFeatured
+    : manualOrdered[0];
   const manualRest = manualOrdered.filter((article) => article.id !== featured?.id);
   const manualIds = new Set(manual.map((article) => article.id));
   const rest = hasPreferences
@@ -129,6 +129,7 @@ export function orderHomepageRecommendations(
         preferenceScore(right, preferences) - preferenceScore(left, preferences)
         || Number(manualIds.has(right.id)) - Number(manualIds.has(left.id))
         || Number(hasHomepageCover(right)) - Number(hasHomepageCover(left))
+        || (manualRank.get(left.id) ?? Number.MAX_SAFE_INTEGER) - (manualRank.get(right.id) ?? Number.MAX_SAFE_INTEGER)
         || stableRecommendationRank(`${dayKey}:personalized:${left.id}`) - stableRecommendationRank(`${dayKey}:personalized:${right.id}`)
       ))
     : manualRest;

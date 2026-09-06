@@ -5,6 +5,7 @@ export interface HomepageCuration {
   version: 2;
   categories: Record<HomeCurationCategory, string[]>;
   recommendationFeaturedId: string;
+  selectedAtById: Record<string, string>;
   updatedAt: string;
 }
 
@@ -20,8 +21,14 @@ export function normalizeHomepageCuration(value: unknown): HomepageCuration {
   const categories = emptyCategories();
   for (const category of HOME_CURATION_CATEGORIES) {
     const ids = Array.isArray(rawCategories[category]) ? rawCategories[category] as unknown[] : [];
-    categories[category] = [...new Set(ids.filter((id): id is string => typeof id === "string" && id.length <= 100))].slice(0, 60);
+    categories[category] = [...new Set(ids.filter((id): id is string => typeof id === "string" && id.length <= 100))].slice(0, 500);
   }
+  const rawSelectedAtById = input.selectedAtById && typeof input.selectedAtById === "object" && !Array.isArray(input.selectedAtById)
+    ? input.selectedAtById as Record<string, unknown>
+    : {};
+  const selectedAtById = Object.fromEntries(Object.entries(rawSelectedAtById)
+    .filter(([id, selectedAt]) => id.length <= 100 && typeof selectedAt === "string" && Number.isFinite(Date.parse(selectedAt)))
+    .slice(0, 1_000)) as Record<string, string>;
   const explicitRecommendationFeaturedId = typeof input.recommendationFeaturedId === "string"
     && input.recommendationFeaturedId.length <= 100
     ? input.recommendationFeaturedId
@@ -32,6 +39,7 @@ export function normalizeHomepageCuration(value: unknown): HomepageCuration {
     version: 2,
     categories,
     recommendationFeaturedId,
+    selectedAtById,
     updatedAt: typeof input.updatedAt === "string" ? input.updatedAt : "",
   };
 }

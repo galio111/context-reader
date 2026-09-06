@@ -458,9 +458,9 @@ function articleIsAboutAdvertising(blocks: ImportedArticleBlock[], title: string
   return blocks.filter((block) => (block.text?.length ?? 0) >= 40 && AD_TOPIC_PATTERN.test(block.text ?? "")).length >= 2;
 }
 
-function cleanBlocks(blocks: ImportedArticleBlock[], title: string): ImportedArticleBlock[] {
+function cleanBlocks(blocks: ImportedArticleBlock[], title: string, baseUrl: string): ImportedArticleBlock[] {
   const preserveAdLabels = articleIsAboutAdvertising(blocks, title);
-  const bounded = removeAuthorIdentityBlocks(trimTrailingWebsiteBlocks(blocks));
+  const bounded = removeAuthorIdentityBlocks(trimTrailingWebsiteBlocks(blocks, baseUrl));
   const cleaned = bounded.filter((block, index) => {
     if (block.type === "image" || block.type === "table") return true;
     const text = singleLineText(block.text ?? "");
@@ -491,7 +491,7 @@ function extractBlocks(root: Element, baseUrl: string, title: string): ImportedA
     tableCount: 0,
   };
   walkContent(context, root);
-  return cleanBlocks(context.blocks, title);
+  return cleanBlocks(context.blocks, title, baseUrl);
 }
 
 export function importedArticleBlocksToText(blocks: ImportedArticleBlock[]): string {
@@ -652,6 +652,9 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
     .filter((block) => block.type === "image" && block.src)
     .map((block) => block.src as string);
   const publishedTime = extractPublishedTime(document, readable?.publishedTime || "");
+  const language = singleLineText(readable?.lang || document.documentElement.lang || "")
+    .replace(/^["']+|["']+$/g, "")
+    .trim();
   return {
     article: {
       title,
@@ -661,7 +664,7 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
       blocks: selected.blocks,
       ...(singleLineText(readable?.byline || "") ? { byline: singleLineText(readable?.byline || "") } : {}),
       ...(publishedTime ? { publishedTime } : {}),
-      ...(singleLineText(readable?.lang || document.documentElement.lang || "") ? { language: singleLineText(readable?.lang || document.documentElement.lang || "") } : {}),
+      ...(language ? { language } : {}),
     },
     metadata: {
       intakeWarnings,

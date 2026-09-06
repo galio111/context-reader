@@ -3,6 +3,14 @@ import { normalizeImportedArticleStructure } from "@/lib/importedArticleNormaliz
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 
 const TRAILING_SECTION_PATTERN = /^(?:related\s+(?:topics?|terms?|stories|articles|content)|story\s+source|journal\s+references?|cite\s+this\s+page|explore\s+more|recommended(?:\s+for\s+you)?|you\s+(?:may|might)\s+also\s+like|read\s+next|more\s+(?:stories|articles|from)|most\s+popular|trending|about\s+the\s+author|sign\s+up\s+for\b|advertisement)\b/i;
+const PUBLISHER_TRAILING_SECTIONS: Array<{ domain: string; pattern: RegExp }> = [
+  { domain: "science.nasa.gov", pattern: /^downloads?$/i },
+  { domain: "smithsonianmag.com", pattern: /^planning\s+your\s+next\s+trip\??$/i },
+  { domain: "newsforkids.net", pattern: /^sources?$/i },
+  { domain: "npr.org", pattern: /^copyright\s*(?:©|\(c\))?.*\bnpr\b/i },
+  { domain: "aeon.co", pattern: /(?:prefer aeon on google|syndicate this essay)/i },
+  { domain: "psyche.co", pattern: /(?:prefer psyche on google|syndicate this (?:idea|guide|note))/i },
+];
 const EXPLICIT_END_MARKER_PATTERN = /^[-–—]?\s*end\s*[-–—]?\.?$/i;
 const AUTHOR_IMAGE_NAMESPACE_PATTERN = /(?:^|[/_.-])(?:accounts?|authors?|contributors?|people|profiles?|staff)(?:[/_.-][^/?#]*){0,4}[/_.-](?:headshots?|avatars?|author[-_ ]?(?:images?|photos?|portraits?)|profile[-_ ]?(?:images?|photos?|portraits?))(?:[/_.?#&=-]|$)/i;
 const AUTHOR_IMAGE_KEYWORD_PATTERN = /(?:^|[/_.-])(?:headshots?|avatars?|author[-_ ]?(?:images?|photos?|portraits?)|profile[-_ ]?(?:images?|photos?|portraits?))(?:[/_.?#&=-]|$)/i;
@@ -40,7 +48,17 @@ function decodeBlockEntities(block: ImportedArticleBlock): ImportedArticleBlock 
 }
 
 function normalizedBlockText(block: ImportedArticleBlock): string {
-  return block.text?.replace(/\s+/g, " ").trim() ?? "";
+  return block.text?.replaceAll("\u00ad", "").replace(/\s+/g, " ").trim() ?? "";
+}
+
+function publisherTrailingPattern(baseUrl: string | undefined): RegExp | undefined {
+  if (!baseUrl) return undefined;
+  try {
+    const host = new URL(baseUrl).hostname.toLocaleLowerCase("en-US");
+    return PUBLISHER_TRAILING_SECTIONS.find(({ domain }) => host === domain || host.endsWith(`.${domain}`))?.pattern;
+  } catch {
+    return undefined;
+  }
 }
 
 function normalizedCaptionText(value: string | undefined): string {
@@ -159,10 +177,11 @@ function hasEnoughArticleContent(substantiveBlocks: number, substantiveCharacter
   return substantiveBlocks >= 3 && substantiveCharacters >= 400;
 }
 
-export function trimTrailingWebsiteBlocks(blocks: ImportedArticleBlock[]): ImportedArticleBlock[] {
+export function trimTrailingWebsiteBlocks(blocks: ImportedArticleBlock[], baseUrl?: string): ImportedArticleBlock[] {
   let substantiveBlocks = 0;
   let substantiveCharacters = 0;
   let trailingBoundary = blocks.length;
+  const publisherPattern = publisherTrailingPattern(baseUrl);
 
   for (let index = 0; index < blocks.length; index += 1) {
     const block = blocks[index];
@@ -174,7 +193,10 @@ export function trimTrailingWebsiteBlocks(blocks: ImportedArticleBlock[]): Impor
       trailingBoundary = index;
       break;
     }
-    if (hasEnoughArticleContent(substantiveBlocks, substantiveCharacters) && TRAILING_SECTION_PATTERN.test(text)) {
+    if (
+      hasEnoughArticleContent(substantiveBlocks, substantiveCharacters)
+      && (TRAILING_SECTION_PATTERN.test(text) || publisherPattern?.test(text))
+    ) {
       trailingBoundary = index;
       break;
     }
@@ -187,15 +209,19 @@ export function trimTrailingWebsiteBlocks(blocks: ImportedArticleBlock[]): Impor
   return blocks.slice(0, trailingBoundary).map((block, index) => ({ ...block, id: `block-${index}` }));
 }
 
-export function trimTrailingWebsiteText(value: string): string {
+export function trimTrailingWebsiteText(value: string, baseUrl?: string): string {
   const paragraphs = value.replace(/\r\n?/g, "\n").split(/\n{2,}/);
   let substantiveBlocks = 0;
   let substantiveCharacters = 0;
   let trailingBoundary = paragraphs.length;
+  const publisherPattern = publisherTrailingPattern(baseUrl);
 
   for (let index = 0; index < paragraphs.length; index += 1) {
-    const text = paragraphs[index]?.replace(/\s+/g, " ").trim() ?? "";
-    if (hasEnoughArticleContent(substantiveBlocks, substantiveCharacters) && TRAILING_SECTION_PATTERN.test(text)) {
+    const text = paragraphs[index]?.replaceAll("\u00ad", "").replace(/\s+/g, " ").trim() ?? "";
+    if (
+      hasEnoughArticleContent(substantiveBlocks, substantiveCharacters)
+      && (TRAILING_SECTION_PATTERN.test(text) || publisherPattern?.test(text))
+    ) {
       trailingBoundary = index;
       break;
     }
@@ -215,11 +241,11 @@ export function sanitizeImportedArticleContent(article: ImportedArticle): Import
     text: decodeHtmlEntitiesRepeated(article.text),
     blocks: article.blocks.map(decodeBlockEntities),
   };
-  const boundedBlocks = trimTrailingWebsiteBlocks(decodedArticle.blocks);
+  const boundedBlocks = trimTrailingWebsiteBlocks(decodedArticle.blocks, decodedArticle.url);
   const blocks = removeDuplicateImageCaptionBlocks(removeAuthorIdentityBlocks(boundedBlocks));
   return normalizeImportedArticleStructure({
     ...decodedArticle,
-    text: blocksToText(blocks) || trimTrailingWebsiteText(decodedArticle.text),
+    text: blocksToText(blocks) || trimTrailingWebsiteText(decodedArticle.text, decodedArticle.url),
     blocks,
   });
 }

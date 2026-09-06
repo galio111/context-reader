@@ -2,95 +2,72 @@
 
 ## 当前状态
 
-2026-09-05：按网站控制功能已在大陆版本 `20260905T125348` 上线，后台实际启用 17 站，其中 3 个标记为较低难度渠道；一次真实 Level Read 抓取生成了 2 篇带本地 WebP 图片的候选，定时任务也留下了一次成功和一次数量不足记录。用户要求“文章必须超过 400 词”后，自动候选与来源验证统一改为至少 401 个英文词；这条新门槛仍待本轮生产发布与长期运行验证。
+2026-09-06 的生产审计纠正了两个容易误判的数字：当时后台实际启用的是 16 个网站，不是 17 个；2026-09-05 上海日最终自动新增 34 篇候选。第二天看到约 17 篇时，定时任务仍在按每五分钟一个网站继续运行，并不代表当天最终只有 17 篇。
 
-“约二十几个稳定日常来源”仍未达到，不能把备选网站数量冒充可用数量。网站技术可读取，也不代表每天必然有两篇满足内容筛选的新文章；新批次仍须逐篇检查。长期自动任务需要后续实际运行记录才能证明稳定性。
+本轮把日常来源收敛为 17 站，每站每日目标仍为 2 篇，因此配置目标合计 34 篇。这个数字是“最多尝试完成的目标”，不是绕过质量门槛后的保底承诺：没有 401 个英文词、没有合格图片、广告或软文、正文抓取失败、新闻过期、与已有文章重复时都必须少收。按逐站近期更新频率估算，正常工作日应落在约 30–34 篇；只有连续生产日记录才能证明长期区间，后台日账本会明确显示每站实际新增和缺口原因。
 
 ## 你可以控制什么
 
 - 在后台“批量导入、封面与自动抓取”里添加、移除或停用网站，设置每站每日目标（默认 2，范围 0–10）、订阅地址、主要主题和来源用途。移除网站不删除已收录文章。
-- 默认北京时间 06:00 开始，沿用服务器每 5 分钟处理一站的定时任务。关闭电脑不影响运行。手动“抓取本站”与自动任务共用每日额度。
-- “低难度专门来源”是找文章的渠道，不是强制分级。仍按实际词汇、句子与背景知识分类，不保证每篇就是四级。Science News Explores 的长篇科普样本可继续参与；此前 Breaking News English、Level Read 的 213–238 词样本只保留为历史核验记录，在 401 词硬门槛下不再合格，必须继续补充能稳定提供完整长文的低难度来源。
-- 在工作台点“打乱往日候选”，今天加入的文章仍排在前面，其他文章顺序会保存。按北京时间跨天后，昨天新增的文章可以参加下一次打乱。它不修改首页已精选顺序。
-- 在阅读资料栏或候选列表点“不精选”，选一个原因后继续下一篇；可以撤销。兴趣和难度反馈会收紧相似内容筛选，正文/广告/图片反馈会显示在来源记录，方便复查，不会未经确认停用整个网站。
+- 默认北京时间 06:00 开始，服务器每 5 分钟处理一站。关闭个人电脑不影响运行；手动“抓取本站”与自动任务共用每日额度。
+- “低难度专门来源”只是找文章的渠道，不强制分级。当前是 Science News Explores 与 NewsForKids.net 两站；仍按真实正文分类，且同样必须至少 401 词。
+- 工作台按钮是“打乱往日精选”，不是候选。点击后会同时重排推荐、时事、科技、文化和商业的已发布文章；今天精选保持在往日文章之前。某栏目已有今天明确设置的主推时保留它；没有今日主推时，从今天该栏目精选随机选择；今天该栏目没有精选时，全部文章连同主推一起打乱并随机产生主推。推荐栏有用户偏好时仍只在 Admin 白名单内部排序，随机主推保持第一，其余文章再结合偏好和本次顺序排列。
+- 在阅读资料栏或候选列表点“不精选”，选一个原因后继续下一篇；可以撤销。兴趣和难度反馈会收紧相似内容筛选，正文、广告和图片反馈会显示在来源记录，方便复查，不会未经确认停用整个网站。
 
 ## 抓取的具体顺序
 
-1. 从后台启用的网站的 RSS/Atom 或已适配列表读文章，合并同一网站的多个频道。同一网站仍只算一份每日额度。
-2. 看最近 14 天的发布时间，最近 3 天须有新作，近期日期间隔的中位数须不大于 3 天。单日密集更新的订阅至少需要 6 个不同时间、跨度 6 小时。未来日期不用于证明更新。
-3. 按发布时间从新到旧寻找尚未收录的文章；不是只要“当天发布”的文章。新闻和商业最多 7 天，知识、文化、故事允许长期有效文章。
-4. 复用手动 URL 导入的正文边界清理，再用来源专用规则去掉练习、推广框、推荐阅读、捐赠/订阅模块和网站尾注。保留正文叙事与相关图片。
-5. 所有自动候选都必须至少有 401 个英文词，也就是严格超过 400 词；低难度来源不例外。词数达标仍只是完整文章的底线，广告软文、付费/登录正文、低信息量榜单、八卦、无事实宣传、过于专业的科技文章不入库。
-6. 配图先实际下载验格式、大小和尺寸（至少 300×150），再经固定 DNS 安全通路转换并保存到本站图片存储。没有可用图就跳过；不会造图或拿站点标志凑数。图片内容目前结合图片说明与人工审核判断，不声称模型逐像素确认相关性。
-7. 依据真实正文判断主题、难度与时效。对既有候选、已精选和不精选记录检查 URL、标题和正文相似度。模型判断不可用时不自动放行。
-8. 只写入候选；不自动精选或发布。记录本站新增数量与每篇跳过原因。目标 2 篇时最多 3 批、每批最多尝试 3 篇，重试间隔至少 30 分钟；不够就说明缺口，不用重复或过期文章凑数。
+1. 从后台启用网站的 RSS/Atom 或已适配列表读文章；同一网站的多个频道合并计算一份额度。
+2. 检查最近 14 天发布时间：最近 3 天须有新作，近期典型间隔不大于 3 天。未来日期不能证明更新活跃。
+3. 按发布时间从新到旧寻找未收录文章。新闻和商业最多 7 天；知识、文化和故事允许长期有效文章，但仍优先新作。
+4. 复用手动 URL 导入的正文边界清理，再应用网站专用规则。Open Culture 的 `Related content`、NASA 的 `Downloads` 及之后内容、Smithsonian 的 `Planning Your Next Trip?` 及之后内容、NewsForKids 的 `Sources`、NPR 版权/转写尾注，以及 Aeon/Psyche 的站内推广尾注都不进入正文。
+5. 所有自动候选必须至少有 401 个英文词。广告软文、付费或登录正文、低信息量榜单、八卦、只有立场没有事实、过于专业的科技内容，即使词数够也不进入候选。
+6. 配图先实际下载并检查格式、大小和尺寸（至少 300×150），再经固定 DNS 安全通路转换为本站 WebP。没有可用图就跳过，不用站点标志或造图凑数。
+7. 依据正文判断主题、难度与时效，并和候选、已精选及不精选记录做 URL、标题和正文相似度检查。模型判断不可用时不自动放行。
+8. 只写入候选，不自动精选。目标 2 篇时最多 3 批、每批最多尝试 3 篇，批次间隔至少 30 分钟；最终按网站记录新增数与每篇跳过原因，不拿重复、短文或过期新闻补齐。
 
-旧问卷中的每天合计 10 篇、3/2/2/3 固定主题篇数和固定难度配额已被后续“每站单独额度、低难度单独找来源”的决定取代。主要主题用于说明来源覆盖；实际全库主题比例取决于启用网站、目标篇数和当天合格内容，不保证固定比例。当前来源分布仍偏科普/文化，商业与综合时事继续补充。
+旧问卷中的“每天合计 10 篇”、固定主题 3/2/2/3 和固定难度配额已经被“每站目标、单独补低难度来源、入库后如实分类”的决定取代。实际主题比例由启用网站和当天合格内容共同决定，不是随机抽签，也不会为了比例放宽硬规则。
 
-## 逐站核验记录
+## 本轮日常来源（17 站）
 
-以下是 2026-09-05 的大陆服务器历史技术抽样，不是永久访问保证。表内 400 词及以下样本在抽样当时可能通过旧门槛，但新规则下不会进入自动候选，也不能再作为来源验证的合格样本。受阻网站不绕过反爬、登录或付费限制；更新慢的来源不计入日常数量。正式启用状态以后台为准。
+| 网站 | 主要覆盖 | 近期节奏与本轮结论 |
+| --- | --- | --- |
+| Crunchbase News | 商业 | 日更、多篇；保留 |
+| Harvard Gazette | 时事、科技、文化 | 工作日日更或多篇；保留 |
+| LSE Business Review | 商业 | 工作日更新；修复异常引号包裹的 `lang` 被误判为非英语 |
+| NASA | 科技、自然 | 日更、多篇；短 APOD 自动跳过，正文 `Downloads` 以后删除 |
+| Open Culture | 文化、故事 | 日更、多篇；软连字符形式的 `Related content` 也能识别并删除 |
+| Popular Science | 科技、自然 | 日更、多篇；短文或无合格图时如实少收 |
+| Reasons to be Cheerful | 时事、文化 | 近期日更；保留 |
+| ScienceAlert | 科技、自然 | 日更、多篇；保留 |
+| Science News Explores | 低难度科技、自然 | 日更；修复正文容器因类名含 `sidebar` 被整块误删 |
+| TechCrunch | 商业、科技 | 日更、多篇；短讯和无图文自动跳过 |
+| The Marginalian | 文化、故事、人物 | 日更或单日多篇；保留 |
+| NPR | 综合时事、科技、商业 | 日更、多篇；两个频道按一个网站计数，版权/转写尾注删除 |
+| Smithsonian Magazine | 文化、自然 | 日更、多篇；旅行推广和联盟广告边界删除 |
+| Aeon | 文化、社会、人物 | 通常工作日 1–3 天更新；长篇完整，站内推广尾注删除 |
+| Psyche | 人物、社会、文化 | 通常工作日 1–3 天更新；短 Notes 跳过，长篇保留 |
+| JSTOR Daily | 文化、社会、故事 | 工作日约 1 篇；有正文封面且超过 400 词才收录 |
+| NewsForKids.net | 较低难度综合新闻 | 通常周二至周四更新；近期样本约 694–831 词，作为新增低难度来源 |
 
-| 网站 | 主要覆盖 | 此次检查 | 样本 |
-| --- | --- | --- | --- |
-| ScienceDaily | 科技科学、自然环境 | 官方 RSS 说明不允许转载完整正文，暂停自动收录。 | [样本 1](https://www.sciencedaily.com/releases/2026/09/260902234508.htm)（1057 词）、[样本 2](https://www.sciencedaily.com/releases/2026/09/260901070543.htm)（807 词） |
-| Smithsonian Magazine | 自然环境、文化历史 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| Literary Hub | 故事文学、文化历史 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| Aeon | 文化历史、社会生活、人物成长 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| NASA | 科技科学、自然环境 | 技术抽样通过，进入启用核验 | [样本 1](https://science.nasa.gov/image-article/apod-2026-september-4-na-uhane-mahoe-huki-pu-i-ke-ola)（295 词）、[样本 2](https://science.nasa.gov/earth/earth-observatory/a-trio-of-tropical-cyclones-in-the-pacific)（629 词） |
-| VOA Learning English | 文化历史、社会生活、人物成长、故事文学、科技科学、自然环境；低难度专门渠道 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| Science News Explores | 科技科学、自然环境、人物成长；低难度专门渠道 | 技术抽样通过，进入启用核验 | [样本 1](https://www.snexplores.org/article/sugar-artificial-sweeteners-taste)（1092 词）、[样本 2](https://www.snexplores.org/article/carbohydrates-sugar-nutrition)（2698 词） |
-| JSTOR Daily | 文化历史、社会生活、故事文学 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| Undark | 科技科学、社会生活、人物成长 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| Mongabay | 自然环境、科技科学、社会生活 | 技术抽样通过，进入启用核验 | [样本 1](https://news.mongabay.com/short-article/2026/09/comparing-green-space-for-urban-cooling-study)（473 词）、[样本 2](https://news.mongabay.com/2026/09/marine-conservation-collides-with-mining-in-indonesias-biodiversity-rich-moramo-bay)（1505 词） |
-| The Public Domain Review | 文化历史、故事文学 | 最近更新频率未达日更或每 2–3 天更新，留作备选。 | — |
-| Psyche | 人物成长、社会生活、文化历史 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| U.S. National Archives · Pieces of History | 文化历史、社会生活、人物成长 | 最近更新频率未达日更或每 2–3 天更新，留作备选。 | — |
-| The Conversation | 科技科学、社会生活、商业经济 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| ScienceAlert | 科技科学、自然环境 | 技术抽样通过，进入启用核验 | [样本 1](https://www.sciencealert.com/glp-1-drugs-could-nudge-some-men-toward-hair-loss-study-suggests)（715 词）、[样本 2](https://www.sciencealert.com/massive-analysis-finds-only-3-supplements-show-unrealistically-large-effects-on-depression)（768 词） |
-| Colossal | 文化历史 | 技术抽样通过，进入启用核验 | [样本 1](https://www.thisiscolossal.com/2026/09/ronald-jackson-portraits-an-american-fiction)（597 词）、[样本 2](https://www.thisiscolossal.com/2026/09/inploration-richelle-ellis-art-space-book)（519 词） |
-| France 24 | 社会生活、商业经济 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| NPR | 科技科学、社会生活、人物成长、商业经济 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| Electric Literature | 故事文学、文化历史 | 技术抽样通过，进入启用核验 | [样本 1](https://electricliterature.com/7-books-about-writing-the-writer)（1596 词）、[样本 2](https://electricliterature.com/what-if-there-is-no-master-plan-for-your-life)（5781 词） |
-| Level Read | 社会生活、科技科学、商业经济；低难度专门渠道 | 技术抽样通过，进入启用核验 | [样本 1](https://levelread.com/news/level-3/in-their-80s-still-running-jumping-breaking-records)（213 词）、[样本 2](https://levelread.com/news/level-3/byds-exports-lift-sales-as-chinas-market-cools)（234 词） |
-| Knowable Magazine | 科技科学、自然环境 | 最近更新频率未达日更或每 2–3 天更新，留作备选。 | — |
-| Econlib | 商业经济 | 最近更新频率未达日更或每 2–3 天更新，留作备选。 | — |
-| Harvard Working Knowledge | 商业经济 | 最近更新频率未达日更或每 2–3 天更新，留作备选。 | — |
-| Popular Science | 科技科学、自然环境 | 技术抽样通过，进入启用核验 | [样本 1](https://www.popsci.com/science/nasas-hubble-superbubble-image)（453 词）、[样本 2](https://www.popsci.com/science/extinct-american-cheetah-evolution)（506 词） |
-| Knowledge at Wharton | 商业经济 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| ARTnews | 文化历史 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| English Online | 文化历史、科技科学、社会生活；低难度专门渠道 | 最近更新频率未达日更或每 2–3 天更新，留作备选。 | — |
-| Breaking News English | 社会生活、商业经济、科技科学；低难度专门渠道 | 技术抽样通过，进入启用核验 | [样本 1](https://breakingnewsenglish.com/2609/260903-manga-theme-park.html)（237 词）、[样本 2](https://breakingnewsenglish.com/2608/260831-destroying-rare-books.html)（238 词） |
-| British Council Magazine | 文化历史、社会生活；低难度专门渠道 | 最近更新频率未达日更或每 2–3 天更新，留作备选。 | — |
-| News in Levels | 社会生活、商业经济；低难度专门渠道 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| Nieman Lab | 商业经济、社会生活 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| Michigan News | 社会生活、科技科学、商业经济 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| Harvard Gazette | 社会生活、科技科学、文化历史 | 技术抽样通过，进入启用核验 | [样本 1](https://news.harvard.edu/gazette/story/2026/09/survey-of-young-researchers-raises-concerns-over-future-of-science-in-u-s)（974 词）、[样本 2](https://news.harvard.edu/gazette/story/2026/09/a-new-diplomacy-for-21st-century-as-economic-political-tech-power-shifts)（948 词） |
-| LSE Business Review | 商业经济 | 技术抽样通过，进入启用核验 | [样本 1](https://blogs.lse.ac.uk/businessreview/2026/09/04/digital-twins-as-a-new-foundation-of-competitive-advantage)（2086 词）、[样本 2](https://blogs.lse.ac.uk/businessreview/2026/09/02/the-pope-has-a-point-ai-needs-a-referee-that-no-one-owns)（1527 词） |
-| Reasons to be Cheerful | 社会生活、文化历史 | 技术抽样通过，进入启用核验 | [样本 1](https://reasonstobecheerful.world/the-spark-laundromat-libraries)（1042 词）、[样本 2](https://reasonstobecheerful.world/former-poachers-protecting-forest-nigeria)（1210 词） |
-| Inside Climate News | 自然环境、社会生活 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| Fast Company | 商业经济、社会生活 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| The Marginalian | 故事文学、文化历史、人物成长 | 技术抽样通过，进入启用核验 | [样本 1](https://www.themarginalian.org/2026/09/04/rumi-love-gold)（784 词）、[样本 2](https://www.themarginalian.org/2026/09/04/turner-liminality-communitas)（670 词） |
-| Open Culture | 文化历史、故事文学 | 技术抽样通过，进入启用核验 | [样本 1](https://www.openculture.com/2026/09/why-inventing-color-tv-was-so-difficult.html)（763 词）、[样本 2](https://www.openculture.com/2026/09/wes-anderson-picks-nine-of-his-favorite-criterion-films.html)（639 词） |
-| TechCrunch | 商业经济、科技科学 | 技术抽样通过，进入启用核验 | [样本 1](https://techcrunch.com/2026/09/04/xdof-just-three-months-out-of-stealth-is-in-talks-for-a-series-b-at-a-1-2b-valuation)（487 词）、[样本 2](https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them)（835 词） |
-| The World of Chinese | 文化历史、社会生活 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| Euronews | 社会生活、商业经济 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| Live Science | 科技科学、自然环境 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| Crunchbase News | 商业经济 | 技术抽样通过，进入启用核验 | [样本 1](https://news.crunchbase.com/venture/biggest-funding-rounds-crusoe-fluidstack-multibillion-dollar-ai-infrastructure)（983 词）、[样本 2](https://news.crunchbase.com/venture/nontech-startup-general-counsel-built-legal-tech-gc-ai-ziniti)（1332 词） |
-| Global Voices | 社会生活、文化历史 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| ZME Science | 科技科学、自然环境 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| New Atlas | 科技科学、商业经济 | 技术可读取，但图库清洗未验收，不启用 | [样本 1](https://newatlas.com/automotive/china-jeeps-defenders-lookalikes)（942 词）、[样本 2](https://newatlas.com/technology/esphome-starter-kit-review-from-blinking-lights-to-building-a-smart-home)（1138 词） |
-| Asian Development Blog | 商业经济、社会生活 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| Economics Observatory | 商业经济 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| Inter Press Service | 社会生活、文化历史、商业经济 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| Japan Today | 社会生活、文化历史、商业经济 | 近期有更新，但未验证到两篇完整且有可读取配图的文章，暂停启用。 | — |
-| UN News | 社会生活、商业经济、自然环境 | 订阅或列表暂时无法安全读取，需要复查地址和访问规则。 | — |
-| OECD Ecoscope | 商业经济 | 技术抽样通过，进入启用核验 | [样本 1](https://oecdecoscope.blog/2026/09/04/measuring-the-macroeconomic-cost-of-climate-change-from-the-ground-up)（1097 词）、[样本 2](https://oecdecoscope.blog/2026/09/03/what-do-card-data-reveal-about-the-impact-of-energy-and-food-shocks-on-european-consumers-everyday-spending)（1040 词） |
+## 本轮停用或不启用的来源
 
-## 验收证据
+| 网站 | 生产证据 | 决定 |
+| --- | --- | --- |
+| Electric Literature | 正文请求持续 403 | 停用，不绕过反爬 |
+| Mongabay | 正文请求持续 403 | 停用，不绕过反爬 |
+| OECD Ecoscope | 正文请求持续 403 | 停用，不绕过反爬 |
+| Level Read | 近期 Level 3 样本约 220–231 词 | 停用；不为低难度放宽 401 词门槛 |
+| Colossal | 新文章经常少于 401 词或是超过图片上限的画廊 | 停用；不拿图片集凑完整阅读 |
+| Undark | 抽样正文合格，但近期约每周一篇 | 不计入日常 17 站，保留备选 |
+| TIME | 大陆生产服务器访问主页与 RSS 均超时 | 已加入后台为停用来源，连通性恢复并重新验证前不启用 |
+| New Atlas | 文章常含 11–16 张产品图库并夹杂购买导向 | 不启用，避免广告与产品推广污染 |
 
-- 本地真实 Admin：网站新增、每日目标从 2 改为 3、拒绝伪造验证后启用、删除专用临时测试网站均通过；只删除测试配置，未删除文章。
-- 来源 API 匿名请求返回 401，跨来源写请求返回 403。
-- 持久随机排序检查：15 篇原候选全部保留、当天 6 篇顺序和置顶保持，重新读取顺序一致；跨上海日界的可打乱规则有自动测试。
-- 桌面真实 Reader 及 390px 手机：原因列表、取消、既有完整移动工具栏、网站编辑表单无横向溢出已检查；未为了测试拒绝或发布现有文章。最终视觉使用感受仍待用户确认。
-- 按网站控制版本已有生产抓取、图片保存与候选写入记录；新增的 401 词硬门槛、Public Domain Review 尾部清洗和行内注释显示仍以本轮发布证据为准。
+## 2026-09-06 审计证据
+
+- 2026-09-05 自动候选最终新增 34 篇；2026-09-06 审计时当天任务尚未结束，不能用中途数字判断最终产量。
+- 当时 16 个启用站中，LSE、Electric Literature、Level Read、Mongabay、OECD、Science News Explores 和 Colossal 当日均为 0/2；其中 LSE 与 Science News Explores 是解析器缺陷，已经用真实页面复现并修复，其余按上表停用。
+- Open Culture 指定页面清理后为 576 词，末尾是正文；NASA 指定页面为 507 词、1 张正文图，末尾是图片署名；Smithsonian 指定页面的 `Planning Your Next Trip?` 边界后不再保留旅行推广。
+- Aeon 实测文章约 2883–3254 词并有 2–5 张正文图；Psyche 的短文会因 401 词门槛跳过，长篇样本约 1656–2123 词；JSTOR Daily 样本约 802–1047 词并有元数据封面；NewsForKids.net 样本约 694–831 词、1–4 张图。
+- `npm run test:discovery` 覆盖 401 词硬门槛、更新频率、三类指定尾部边界、软连字符、LSE 语言值和 Science News Explores 正文容器；`npm run test:critical` 覆盖所有栏目精选打乱、今日优先、主推和偏好推荐顺序。
+
+生产发布后还要以公网连接接口的精确版本号、Admin 来源复核、真实抓取账本和下一批日常产量作为最终运行证据；仅有本地构建不等于已经上线。

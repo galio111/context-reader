@@ -29,6 +29,7 @@ import {
   writeRecommendationPreferences,
 } from "@/lib/recommendationPreferences";
 import type { HomepageCuration } from "@/lib/homepageCurationShared";
+import { articleMatchesEditorialCategory } from "@/lib/editorialCuration";
 import {
   HOMEPAGE_MOBILE_RECOMMENDATION_TARGET,
   HOMEPAGE_RECOMMENDATION_TARGET,
@@ -83,10 +84,10 @@ function persistHomeViewState(patch: HomeViewState): void {
 
 const CATEGORY_FILTERS = [
   { label: "推荐", test: () => true },
-  { label: "时事", test: (article: PublicArticle) => article.recommendation?.topics.some((topic) => /社会/.test(topic)) ?? false },
-  { label: "科技", test: (article: PublicArticle) => article.recommendation?.topics.some((topic) => /科技/.test(topic)) ?? false },
-  { label: "文化", test: (article: PublicArticle) => article.recommendation?.topics.some((topic) => /文化|故事/.test(topic)) ?? false },
-  { label: "商业", test: (article: PublicArticle) => article.recommendation?.topics.includes("商业经济") ?? /business|econom|finance|商业|经济/i.test(`${article.sourceName} ${article.title}`) },
+  { label: "时事", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "时事") },
+  { label: "科技", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "科技") },
+  { label: "文化", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "文化") },
+  { label: "商业", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "商业") },
 ] as const;
 
 const FEATURE_ORBIT = [

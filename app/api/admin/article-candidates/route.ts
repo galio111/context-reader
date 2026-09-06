@@ -8,10 +8,9 @@ import {
   publishArticleCandidate,
   saveArticleCandidate,
   setArticleCandidateRejected,
-  shuffleArticleCandidates,
 } from "@/lib/publicArticles";
 import { getHomepageCuration, saveHomepageCuration } from "@/lib/homepageCuration";
-import { EDITORIAL_CATEGORIES, editorialCategoryForArticle, placePublishedArticle, type EditorialCategory } from "@/lib/editorialCuration";
+import { EDITORIAL_CATEGORIES, editorialCategoryForArticle, markPublishedArticleSelected, placePublishedArticle, type EditorialCategory } from "@/lib/editorialCuration";
 import { isSafePublicArticleInput, UUID_PATTERN } from "@/lib/publicArticleInput";
 import { articleHasHomepageImage } from "@/lib/articleMedia";
 
@@ -69,7 +68,6 @@ export async function PATCH(request: Request) {
   const ids = Array.isArray(body?.ids)
     ? body.ids.filter((id): id is string => typeof id === "string" && UUID_PATTERN.test(id)).slice(0, 100)
     : typeof body?.id === "string" && UUID_PATTERN.test(body.id) ? [body.id] : [];
-  if (body?.action === "shuffle") return NextResponse.json({ articles: await shuffleArticleCandidates() }, { headers: { "Cache-Control": "no-store" } });
   if ((body?.action === "reject" || body?.action === "restore") && ids.length === 1) {
     try {
       const article = await setArticleCandidateRejected(ids[0], body.action === "reject", typeof body.reason === "string" ? body.reason : undefined);
@@ -92,12 +90,12 @@ export async function PATCH(request: Request) {
       published.push(article);
       const articleCategory = category ?? editorialCategoryForArticle(article);
       const current = await getHomepageCuration();
-      await saveHomepageCuration(placePublishedArticle(current, article.id, articleCategory, {
+      await saveHomepageCuration(markPublishedArticleSelected(placePublishedArticle(current, article.id, articleCategory, {
         categoryFeatured: body.featured === true,
         includeInRecommendation: body.includeInRecommendation !== false,
         recommendationFeatured: body.recommendationFeatured === true,
         preferLater: !articleHasHomepageImage(article),
-      }));
+      }), article.id));
     } catch (error) {
       return NextResponse.json(
         {

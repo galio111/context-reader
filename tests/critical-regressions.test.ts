@@ -35,7 +35,7 @@ import {
   recommendationRevealDelayIndex,
 } from "../lib/homepageRecommendations";
 import { buildBalancedRecommendationPlan } from "../lib/recommendationBalance";
-import { setPublishedArticlePlacement } from "../lib/editorialCuration";
+import { setPublishedArticlePlacement, shufflePublishedHomepageCuration } from "../lib/editorialCuration";
 import {
   DEFAULT_DEEPSEEK_USD_TO_CNY_RATE,
   estimateDeepSeekCostMicrocny,
@@ -658,6 +658,55 @@ test("category curation keeps the lead order without hiding the remaining publis
   assert.equal(new Set(ordered.map((article) => article.id)).size, 12);
 });
 
+test("published shuffle keeps today's selections first and randomizes every homepage category", () => {
+  const article = (id: string, category: "时事" | "科技" | "文化" | "商业", updatedAt: string) => ({
+    ...recommendationArticle(id),
+    updatedAt,
+    recommendation: { ...recommendationArticle(id).recommendation!, homepageCategory: category },
+  });
+  const articles = [
+    article("old-news", "时事", "2026-09-01T00:00:00.000Z"),
+    article("today-news-a", "时事", "2026-09-05T02:00:00.000Z"),
+    article("today-news-b", "时事", "2026-09-05T03:00:00.000Z"),
+    article("old-tech", "科技", "2026-09-01T00:00:00.000Z"),
+    article("old-tech-b", "科技", "2026-09-02T00:00:00.000Z"),
+  ];
+  const current = normalizeHomepageCuration({
+    version: 2,
+    categories: { 推荐: ["old-news", "today-news-a", "today-news-b"], 时事: ["old-news"], 科技: ["old-tech", "old-tech-b"], 文化: [], 商业: [] },
+    recommendationFeaturedId: "old-news",
+    selectedAtById: {
+      "old-news": "2026-09-01T00:00:00.000Z",
+      "today-news-a": "2026-09-05T02:00:00.000Z",
+      "today-news-b": "2026-09-05T03:00:00.000Z",
+      "old-tech": "2026-09-01T00:00:00.000Z",
+      "old-tech-b": "2026-09-02T00:00:00.000Z",
+    },
+  });
+  const next = shufflePublishedHomepageCuration(current, articles, "2026-09-05T04:00:00.000Z", () => 0);
+  assert.ok(["today-news-a", "today-news-b"].includes(next.categories.时事[0]));
+  assert.ok(next.categories.时事.slice(0, 2).every((id) => id.startsWith("today-news")));
+  assert.ok(["today-news-a", "today-news-b"].includes(next.recommendationFeaturedId));
+  assert.equal(next.categories.推荐[0], next.recommendationFeaturedId);
+  assert.equal(next.categories.科技[0], "old-tech-b", "a category with no today selection reshuffles its old featured item");
+});
+
+test("published shuffle preserves an explicitly featured article selected today", () => {
+  const articles = [recommendationArticle("today-feature"), recommendationArticle("today-other")].map((article, index) => ({
+    ...article,
+    updatedAt: `2026-09-05T0${index + 1}:00:00.000Z`,
+  }));
+  const current = normalizeHomepageCuration({
+    version: 2,
+    categories: { 推荐: ["today-feature", "today-other"], 时事: [], 科技: ["today-feature", "today-other"], 文化: [], 商业: [] },
+    recommendationFeaturedId: "today-feature",
+    selectedAtById: Object.fromEntries(articles.map((article) => [article.id, article.updatedAt])),
+  });
+  const next = shufflePublishedHomepageCuration(current, articles, "2026-09-05T04:00:00.000Z", () => 0);
+  assert.equal(next.recommendationFeaturedId, "today-feature");
+  assert.equal(next.categories.科技[0], "today-feature");
+});
+
 test("text-only articles stay out of the three post-feature rows and rejoin the expanded tail", () => {
   const articles = Array.from({ length: 15 }, (_, index) => recommendationArticle(String(index + 1), {
     cover: ![0, 4, 7, 10, 13].includes(index),
@@ -765,7 +814,7 @@ test("public article metadata and plain-text fallbacks use the same entity decod
   const source = readFileSync(new URL("../lib/publicArticles.ts", import.meta.url), "utf8");
   assert.match(source, /const title = decodeHtmlEntitiesRepeated\(row\.title\)/);
   assert.match(source, /const summary = decodeHtmlEntitiesRepeated\(row\.summary\)/);
-  assert.match(source, /decodeHtmlEntitiesRepeated\(trimTrailingWebsiteText\(row\.body\)\)/);
+  assert.match(source, /decodeHtmlEntitiesRepeated\(trimTrailingWebsiteText\(row\.body, row\.source_url/);
   assert.match(source, /title,\s*summary,/);
 });
 

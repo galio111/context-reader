@@ -89,6 +89,30 @@ test("Public Domain Review keeps notes but removes its post-article catalogue an
   assert.ok(!dom.window.document.body.textContent?.includes("UNRELATED AUTHOR"));
   assert.ok(!dom.window.document.body.textContent?.includes("UNRELATED DONATION"));
 });
+test("publisher boundaries remove Open Culture, NASA and Smithsonian post-article sections", () => {
+  const prose = "This substantive article paragraph explains its subject with enough background and evidence for a complete reading experience. ".repeat(8);
+  const openCulture = extractImportedArticleFromHtml(`<html><head><title>Culture</title></head><body><article><h1>Culture</h1><p>First ${prose}</p><p>Second ${prose}</p><p>Third ${prose}</p><h2>Relat\u00aded con\u00adtent:</h2><p>UNRELATED LINKS</p></article></body></html>`, "https://www.openculture.com/2026/09/culture.html");
+  assert.ok(!openCulture?.article.text.includes("UNRELATED LINKS"));
+  assert.ok(!openCulture?.article.text.includes("Relat\u00aded"));
+  const nasa = extractImportedArticleFromHtml(`<html><head><title>Storms</title></head><body><article><h1>Storms</h1><p>First ${prose}</p><p>Second ${prose}</p><p>Third ${prose}</p><h2>Downloads</h2><p>UNRELATED DOWNLOADS</p><h2>References & Resources</h2></article></body></html>`, "https://science.nasa.gov/earth/earth-observatory/storms/");
+  assert.ok(!nasa?.article.text.includes("UNRELATED DOWNLOADS"));
+  const smithsonian = extractImportedArticleFromHtml(`<html><head><title>Travel</title></head><body><article><h1>Travel</h1><p>First ${prose}</p><p>Second ${prose}</p><p>Third ${prose}</p><h2>Planning Your Next Trip?</h2><p>UNRELATED AFFILIATE CONTENT</p></article></body></html>`, "https://www.smithsonianmag.com/travel/story-1/");
+  assert.ok(!smithsonian?.article.text.includes("UNRELATED AFFILIATE CONTENT"));
+
+  const lower = extractImportedArticleFromHtml(`<html><head><title>Lower</title></head><body><article><h1>Lower</h1><p>First ${prose}</p><p>Second ${prose}</p><p>Third ${prose}</p><h2>Sources</h2><p>UNRELATED SOURCES</p></article></body></html>`, "https://newsforkids.net/articles/lower/");
+  assert.ok(!lower?.article.text.includes("UNRELATED SOURCES"));
+
+  const aeon = extractImportedArticleFromHtml(`<html><head><title>Essay</title></head><body><article><h1>Essay</h1><p>First ${prose}</p><p>Second ${prose}</p><p>Third ${prose}</p><p>Politics 4 September 2026 PREFER AEON ON GOOGLE SYNDICATE THIS ESSAY</p></article></body></html>`, "https://aeon.co/essays/example");
+  assert.ok(!aeon?.article.text.includes("PREFER AEON"));
+});
+test("Science News Explores keeps its hashed article body and quoted language attributes normalize", () => {
+  const prose = "Young readers can understand this science story because each paragraph explains one idea in plain language and gives useful context. ".repeat(10);
+  const science = extractImportedArticleFromHtml(`<html lang="en-US"><head><title>Science story</title></head><body><article><h1>Science story</h1><div class="single__content___abc12"><p>${prose}</p><p>${prose}</p></div><footer><p>UNRELATED POWER WORDS</p></footer></article></body></html>`, "https://www.snexplores.org/article/science-story");
+  assert.ok(science?.article.text.includes("Young readers can understand"));
+  assert.ok(!science?.article.text.includes("UNRELATED POWER WORDS"));
+  const lse = extractImportedArticleFromHtml(`<html lang='"en-US"'><head><title>Business</title></head><body><article><p>${prose}</p><p>${prose}</p></article></body></html>`, "https://blogs.lse.ac.uk/businessreview/2026/09/business");
+  assert.equal(lse?.article.language, "en-US");
+});
 test("similarity does not equate unrelated short headings", () => {
   assert.equal(similarArticle("New research explains how human memory changes with sleep", "New research explains how human memory changes with sleep"), true);
   assert.equal(similarArticle("Science today", "Science today"), false);

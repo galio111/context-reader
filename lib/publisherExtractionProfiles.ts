@@ -20,6 +20,7 @@ const SELECTORS: Record<string, string> = {
   "themarginalian.org": "#donation, #newsletter, #end_print, #amazon-notice, .donate, .donation, .newsletter",
   "oecdecoscope.blog": ".wp-block-jetpack-subscriptions, .jetpack-subscribe-modal, .wp-block-post-terms",
   "news.crunchbase.com": ".post-tags, .entry-tags, .mks_author_widget, .related-posts",
+  "newsforkids.net": ".tab-content, .nocc, .nfk_social_block",
 };
 export function publisherIntakeWarnings(document: Document): string[] {
   const warnings: string[] = [];
@@ -45,6 +46,23 @@ export function applyPublisherProfile(document: Document, baseUrl: string): void
       }
       document.body.replaceChildren(article);
       return;
+    }
+  }
+  if (host === "snexplores.org") {
+    const content = document.querySelector("[class*='single__content___']");
+    if (content && (content.textContent || "").length > 400) {
+      const article = document.createElement("article");
+      const heading = document.querySelector("article h1, main h1, h1");
+      if (heading) article.append(heading.cloneNode(true));
+      const contentClone = content.cloneNode(true) as Element;
+      for (const element of [contentClone, ...contentClone.querySelectorAll("[class*='sidebar']")]) {
+        const className = element.getAttribute("class") ?? "";
+        const cleanedClassName = className.split(/\s+/).filter((name) => name && !name.includes("sidebar")).join(" ");
+        if (cleanedClassName) element.setAttribute("class", cleanedClassName);
+        else element.removeAttribute("class");
+      }
+      article.append(contentClone);
+      document.body.replaceChildren(article);
     }
   }
   if (host === "news.mongabay.com") {

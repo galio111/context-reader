@@ -5,7 +5,7 @@ import { HOME_CURATION_CATEGORIES, type HomeCurationCategory, type HomepageCurat
 import type { PublicArticle } from "@/types/publicArticle";
 
 function emptyCuration(): HomepageCuration {
-  return { version: 2, categories: { 推荐: [], 时事: [], 科技: [], 文化: [], 商业: [] }, recommendationFeaturedId: "", updatedAt: "" };
+  return { version: 2, categories: { 推荐: [], 时事: [], 科技: [], 文化: [], 商业: [] }, recommendationFeaturedId: "", selectedAtById: {}, updatedAt: "" };
 }
 
 export default function AdminHomepageCurationPanel({ articles, onSaved }: { articles: PublicArticle[]; onSaved?: (curation: HomepageCuration) => void }) {

@@ -22,8 +22,7 @@ import type {
 } from "@/types/publicArticle";
 import { ARTICLE_DIFFICULTIES } from "@/types/publicArticle";
 import { candidateOrder, REJECTION_REASONS } from "@/lib/discoveryPolicy";
-import { ORDER_KEY, readDiscoverySetting, writeDiscoverySetting } from "@/lib/discoveryStore";
-import { randomInt } from "node:crypto";
+import { ORDER_KEY, readDiscoverySetting } from "@/lib/discoveryStore";
 
 interface SupabaseArticleRow {
   id: string;
@@ -132,7 +131,7 @@ function mapArticle(
     ? sanitizeImportedArticleContent(row.imported_article)
     : row.imported_article;
   const body = importedArticle?.text.trim()
-    || (row.body ? decodeHtmlEntitiesRepeated(trimTrailingWebsiteText(row.body)) : "");
+    || (row.body ? decodeHtmlEntitiesRepeated(trimTrailingWebsiteText(row.body, row.source_url || row.imported_article?.url)) : "");
   const recommendation = recommendationWithBodyImageFallback(
     recommendationFromRow(row, body),
     importedArticle,
@@ -457,17 +456,6 @@ export async function listArticleCandidates(options: { includeRejected?: boolean
   return candidateOrder(visible, await readDiscoverySetting<string[]>(ORDER_KEY, []));
 }
 
-export async function shuffleArticleCandidates(): Promise<PublicArticle[]> {
-  const articles = await listArticleCandidates();
-  const ids = articles.map((article) => article.id);
-  for (let i = ids.length - 1; i > 0; i -= 1) {
-    const j = randomInt(i + 1);
-    [ids[i], ids[j]] = [ids[j], ids[i]];
-  }
-  await writeDiscoverySetting(ORDER_KEY, ids);
-  return candidateOrder(articles, ids);
-}
-
 export async function listRejectedArticleCandidates(): Promise<PublicArticle[]> {
   const articles = await listArticleCandidates({ includeRejected: true });
   return articles.filter((article) => Boolean(article.recommendation?.rejectedAt));
@@ -523,7 +511,7 @@ export async function publishArticleCandidate(id: string): Promise<PublicArticle
     ? sanitizeImportedArticleContent(candidate.imported_article)
     : candidate.imported_article;
   const candidateBody = importedArticle
-    ? trimTrailingWebsiteText(candidate.body ?? importedArticle.text)
+    ? trimTrailingWebsiteText(candidate.body ?? importedArticle.text, candidate.source_url || importedArticle.url)
     : candidate.body ?? "";
   const candidateInput: PublicArticleInput = {
     title: candidate.title,

@@ -452,14 +452,14 @@ export default function AdminPage() {
     setArticlePlacement(placementForPublishedArticle(active.article, data.curation));
   }
 
-  async function shuffleCandidates() {
+  async function shufflePublishedArticles() {
     setShuffling(true);
     try {
-      const response = await fetch("/api/admin/article-candidates", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "shuffle" }) });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "打乱失败，请稍后重试。");
-      await loadCandidateArticles();
-      setStatus("往日候选已打乱，今天加入的文章仍在最前面。");
+      const response = await fetch("/api/admin/homepage-curation", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "shuffle-published" }) });
+      const data = await response.json().catch(() => null) as { curation?: HomepageCuration; error?: string } | null;
+      if (!response.ok) throw new Error(data?.error || "打乱失败，请稍后重试。");
+      if (data?.curation) setHomepageCuration(data.curation);
+      setStatus("往日精选已在推荐、时事、科技、文化和商业中一起打乱；今天精选仍在前面，未设今日主推的栏目已随机选出主推。");
     } catch { setStatus("打乱暂时失败，请稍后重试。"); } finally { setShuffling(false); }
   }
 
@@ -992,10 +992,10 @@ export default function AdminPage() {
             <div>
               <p className="text-xs font-semibold text-[#1769aa]">每日内容工作台</p>
               <h2 id="editorial-desk-title" className="mt-1 text-[24px] font-semibold">阅读、判断、继续下一篇</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#4d535a]">今天加入的候选优先，往日候选可随机打乱。左侧修改会自动保存；精选或选择不精选原因后自动进入下一篇。</p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#4d535a]">候选仍按今天加入优先。打乱只作用于已精选的首页文章，并同时更新推荐、时事、科技、文化和商业；今天精选保持在前。左侧修改会自动保存，完成判断后自动进入下一篇。</p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <button className="min-h-11 rounded-full border border-[#1769aa] px-5 text-sm font-semibold text-[#1769aa] disabled:opacity-45" type="button" disabled={shuffling || candidateArticles.length < 2} onClick={() => void shuffleCandidates()}>{shuffling ? "正在打乱…" : "打乱往日候选"}</button>
+              <button className="min-h-11 rounded-full border border-[#1769aa] px-5 text-sm font-semibold text-[#1769aa] disabled:opacity-45" type="button" disabled={shuffling || publicArticles.length < 2} onClick={() => void shufflePublishedArticles()}>{shuffling ? "正在打乱…" : "打乱往日精选"}</button>
               <button className="min-h-11 rounded-full bg-[#1769aa] px-5 text-sm font-semibold text-white disabled:bg-[#aeb8c2]" type="button" disabled={!candidateArticles.length} onClick={() => candidateArticles[0] && openCandidateArticle(candidateArticles[0])}>开始今日精选（{candidateArticles.length}）</button>
               <button className="min-h-11 rounded-full border border-[#1769aa] px-5 text-sm font-semibold text-[#1769aa] disabled:opacity-45" type="button" disabled={!publicArticles.length} onClick={() => publicArticles[0] && void openPublishedArticle(publicArticles[0])}>查看精选列表（{publicArticles.length}）</button>
             </div>
