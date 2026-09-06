@@ -52,6 +52,7 @@ export async function POST(request: Request) {
       if (body.action !== "verify" || !site) throw new Error("请选择有效网站和操作。");
       const verification: NonNullable<DiscoverySite["verification"]> = { at: new Date().toISOString(), ok: false, message: "", samples: [] };
       try {
+        const sampleFailures: string[] = [];
         const feeds = await Promise.all(site.feeds.map((feedUrl) => readSourceFeed({ ...site!, feedUrl }, site!.topics[0]).catch(() => [])));
         const items = [...new Map(feeds.flat().map((item) => [item.url, item])).values()].sort((a, b) => (Date.parse(b.publishedAt) || 0) - (Date.parse(a.publishedAt) || 0));
         if (!items.length) throw new Error("没有读到文章列表，可能被拒绝访问、订阅失效或需要专门适配。");
@@ -62,19 +63,38 @@ export async function POST(request: Request) {
             const imported = await importArticleThroughApi(requestExternalOrigin(request), item.url);
             const article = imported.article!;
             const words = (article.text.match(/\b[a-zA-Z]+\b/g) ?? []).length;
-            if (words < minimumDiscoveryWords(site.levelHint) || imported.metadata?.intakeWarnings?.length) continue;
+            if (words < minimumDiscoveryWords(site.levelHint)) {
+              sampleFailures.push(`正文只有 ${words} 词`);
+              continue;
+            }
+            if (imported.metadata?.intakeWarnings?.length) {
+              sampleFailures.push(imported.metadata.intakeWarnings.join("；").slice(0, 120));
+              continue;
+            }
             const imageCount = article.blocks.filter((block) => block.type === "image").length;
-            if (imageCount > 8) continue;
+            if (imageCount > 8) {
+              sampleFailures.push(`正文含 ${imageCount} 张图片，疑似图库`);
+              continue;
+            }
             const image = article.blocks.find((block) => block.type === "image" && block.src && !/logo|icon|avatar|banner/i.test(block.src));
             const imageUrl = image?.src || imported.metadata?.coverCandidates?.find((url) => !/logo|icon|avatar|banner/i.test(url));
-            if (!imageUrl) continue;
-            if (!await discoveryImageIsReadable(imageUrl, item.url)) continue;
+            if (!imageUrl) {
+              sampleFailures.push("没有可用文章图片");
+              continue;
+            }
+            if (!await discoveryImageIsReadable(imageUrl, item.url)) {
+              sampleFailures.push("文章图片无法安全读取或尺寸不足");
+              continue;
+            }
             verification.samples.push({ url: item.url, title: article.title, words, images: imageCount || 1, preview: article.text.slice(0, 600) });
-          } catch { /* Try a different article; no access-control bypass. */ }
+          } catch (error) {
+            sampleFailures.push(error instanceof Error ? error.message.slice(0, 120) : "文章样本处理失败");
+          }
         }
         verification.ok = verification.samples.length >= 2 && recentCadence;
+        const sampleFailureSummary = [...new Set(sampleFailures)].slice(0, 2).join("；");
         verification.message = !recentCadence ? "近期更新频率未达日更或每 2–3 天更新：保留为备选，不计入日常来源。"
-          : verification.samples.length < 2 ? "近期有更新，但未找到两篇正文完整且图片可读取的样本，暂不启用。"
+          : verification.samples.length < 2 ? `近期有更新，但未找到两篇正文完整且图片可读取的样本，暂不启用。${sampleFailureSummary ? ` 抽样原因：${sampleFailureSummary}` : ""}`
           : "近期通常 1–3 天更新、最近 3 天有新作；两篇正文与图片可读取。启用前请检查下方正文样本。";
       } catch (error) { verification.message = error instanceof Error ? error.message.slice(0, 200) : "验证暂时失败。"; }
       await writeDiscoverySetting(SITE_KEY, sites.map((s) => s.id === site!.id ? { ...s, enabled: verification.ok ? s.enabled : false, verification } : s));
