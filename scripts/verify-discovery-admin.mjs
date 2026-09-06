@@ -26,11 +26,11 @@ if (args.includes("--reconcile-daily-sources")) {
   const desiredIds = new Set([
     "news-crunchbase-com", "news-harvard-edu", "blogs-lse-ac-uk", "nasa-gov",
     "openculture-com", "popsci-com", "reasonstobecheerful-world", "sciencealert-com",
-    "snexplores-org", "techcrunch-com", "themarginalian-org", "npr-org",
+    "snexplores-org", "techcrunch-com", "themarginalian-org", "insideclimatenews-org",
     "smithsonianmag-com", "aeon-co", "psyche-co", "daily-jstor-org", "newsforkids-net",
   ]);
   const additions = [
-    { id: "npr-org", name: "NPR", feeds: ["https://feeds.npr.org/1019/rss.xml", "https://feeds.npr.org/1006/rss.xml"], articleHosts: ["npr.org"], topics: ["科技科学", "社会生活", "人物成长", "商业经济"], levelHint: "advanced", note: "综合时事、科技和商业长文；必须通过正文、图片和时效筛选。" },
+    { id: "npr-org", name: "NPR", feeds: ["https://feeds.npr.org/1019/rss.xml", "https://feeds.npr.org/1006/rss.xml"], articleHosts: ["npr.org"], topics: ["科技科学", "社会生活", "人物成长", "商业经济"], levelHint: "advanced", note: "正文与图片样本合格，但大陆生产固定 DNS 访问 robots 时 Akamai 节点不稳定；保留停用，不绕过安全抓取。" },
     { id: "smithsonianmag-com", name: "Smithsonian Magazine", feeds: ["https://www.smithsonianmag.com/rss/latest_articles/"], articleHosts: ["smithsonianmag.com"], topics: ["自然环境", "文化历史"], levelHint: "advanced", note: "文化、历史和自然解释型文章；旅行推广区不进入正文。" },
     { id: "aeon-co", name: "Aeon", feeds: ["https://aeon.co/feed.rss"], articleHosts: ["aeon.co"], topics: ["文化历史", "社会生活", "人物成长"], levelHint: "advanced", note: "长篇解释和思想文章；约 1–3 天更新，按实际新作收录。" },
     { id: "psyche-co", name: "Psyche", feeds: ["https://psyche.co/feed.rss"], articleHosts: ["psyche.co"], topics: ["人物成长", "社会生活", "文化历史"], levelHint: "advanced", note: "心理、生活与文化长文；短于 401 词的 Notes 自动跳过。" },
