@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState, type RefObject, type CSSProperties } from "react";
 import styles from "./FeatureShowcase.module.css";
 
-// Replace these optional sources with reviewed, silent recordings after layout acceptance.
+// Reviewed silent recordings; remaining modules retain their placeholders.
 export const FEATURE_SHOWCASE = [
-  { id: "publications", label: "发现外刊", detail: "兴趣 × 难度", title: ["世界很大，", "从你想读的开始。"], paragraphs: ["科技的新发现，文化的新视角，商业与生活的另一面。让真实外刊成为你的日常读物。", "选好兴趣与阅读难度，找到既想读、又读得下去的内容。"], color: "#dce9f6", screens: [{ label: "外刊与个性化推荐", src: "" }] },
+  { id: "publications", label: "发现外刊", detail: "兴趣 × 难度", title: ["世界很大，", "从你想读的开始。"], paragraphs: ["科技的新发现，文化的新视角，商业与生活的另一面。让真实外刊成为你的日常读物。", "选好兴趣与阅读难度，找到既想读、又读得下去的内容。"], color: "#dce9f6", screens: [{ label: "外刊与个性化推荐", src: "/showcase/publications-v1.mp4" }] },
   { id: "context", label: "语境查词", detail: "单词 · 短语", title: ["划过不懂的，", "接着读下去。"], paragraphs: ["一个单词，一段短语，随手选中，就在原文旁理解它此刻的意思。", "从语境释义到用法、搭配与例句，把这一次读懂，变成下一次会用。"], color: "#dcece5", screens: [{ label: "划词与划短语演示", src: "" }] },
   { id: "import", label: "带来文章", detail: "粘贴 · 网址", title: ["想读的那篇，", "直接带进来。"], paragraphs: ["复制一段正文，或贴上文章链接。两种入口，都通向专注的阅读界面。", "收藏夹里没读完的长文，从这里继续。"], color: "#f3e8ca", screens: [{ label: "粘贴文章", src: "" }, { label: "输入网址", src: "" }] },
   { id: "vocabulary", label: "记住新词", detail: "生词本 × Anki", title: ["在文章里遇见，", "在复习中记住。"], paragraphs: ["把值得记住的词收入生词本，连同原句和语境释义一起留下。", "再带进 Anki 持续复习，让阅读、积累与记忆连成一个完整的过程。"], color: "#e6e0f2", screens: [{ label: "生词本与 Anki 协作", src: "" }] },
@@ -16,18 +16,28 @@ function Recording({ src, label, playing }: { src: string; label: string; playin
   const video = useRef<HTMLVideoElement>(null);
   const [failed, setFailed] = useState(false);
   const [blocked, setBlocked] = useState(false);
+  const [loadedSrc, setLoadedSrc] = useState<string>();
+  const poster = src ? src.replace(/\.mp4$/, ".webp") : undefined;
+  useEffect(() => {
+    if (playing && src && !loadedSrc) setLoadedSrc(window.matchMedia("(max-width: 700px)").matches ? src.replace(/\.mp4$/, "-mobile.mp4") : src);
+  }, [playing, src, loadedSrc]);
   useEffect(() => {
     const element = video.current;
-    if (!element || !src) return;
-    if (playing) { void element.play().then(() => setBlocked(false)).catch(() => setBlocked(true)); }
-    else element.pause();
-  }, [playing, src]);
-  return <div className={styles.recording}>
-    <div className={styles.windowBar}><span aria-hidden="true">● ● ●</span><span>{label}</span></div>
+    if (!element || !src || !loadedSrc) return;
+    let cancelled = false;
+    if (playing) {
+      void element.play().then(() => {
+        if (cancelled) element.pause();
+        else setBlocked(false);
+      }).catch(() => { if (!cancelled) setBlocked(true); });
+    } else element.pause();
+    return () => { cancelled = true; element.pause(); };
+  }, [playing, src, loadedSrc]);
+  return <div className={styles.recording} data-has-video={Boolean(src)}>
     {src && !failed ? <>
-      <video ref={video} src={src} muted loop playsInline preload="metadata" onError={() => setFailed(true)} aria-label={label} />
+      <video ref={video} src={loadedSrc} poster={poster} muted loop playsInline preload="none" onError={() => { if (loadedSrc) setFailed(true); }} aria-label={label} />
       {blocked && <button className={styles.play} onClick={() => { void video.current?.play().then(() => setBlocked(false)).catch(() => {}); }}>播放演示</button>}
-    </> : <div className={styles.placeholder}><span className={styles.frameCorners} aria-hidden="true" /><span className={styles.placeholderIcon} aria-hidden="true">▷</span><strong>{label}</strong><span>{failed ? "演示暂时无法播放" : "录屏预留画面"}</span></div>}
+    </> : <div className={styles.placeholder}><span className={styles.placeholderIcon} aria-hidden="true">▷</span><strong>{label}</strong><span>{failed ? "演示暂时无法播放" : "录屏预留画面"}</span></div>}
   </div>;
 }
 
@@ -55,7 +65,8 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled }: { sectio
     if (tab?.parentElement) tab.parentElement.scrollTo({ left: tab.offsetLeft - tab.parentElement.offsetLeft - (tab.parentElement.clientWidth - tab.clientWidth) / 2, behavior: "smooth" });
     if (focus) tab?.focus({ preventScroll: true });
   }
-  return <section ref={sectionRef} className={styles.showcase} aria-label="功能展示" data-motion={motionEnabled} data-playing={visible && !paused}>
+  return <section ref={sectionRef} className={styles.showcase} aria-label="功能展示" data-feature={feature.id} data-motion={motionEnabled} data-playing={visible && !paused}>
+    <div key={`ambience-${active}`} className={styles.ambience} aria-hidden="true" />
     <div className={styles.inner}>
       <div id="feature-showcase-panel" role="tabpanel" aria-labelledby={`feature-tab-${feature.id}`} className={styles.presentation}>
         <div className={styles.copy} key={`copy-${active}-${replay}`}>
@@ -63,9 +74,8 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled }: { sectio
           {feature.paragraphs.map(text => <p key={text}>{text}</p>)}
           <button type="button" className={styles.next} onClick={() => select(active + 1)}>下一个 <span aria-hidden="true">↗</span></button>
         </div>
-        <div key={`media-${active}-${replay}`} className={`${styles.media} ${feature.id === "import" ? styles.dual : ""}`}>
+        <div key={`media-${active}-${replay}`} className={`${styles.media} ${feature.id === "import" ? styles.dual : ""}`} style={feature.id === "publications" ? { "--poster": "url(/showcase/publications-v1.webp)" } as CSSProperties : undefined}>
           {feature.id === "explore" ? <div className={styles.finale}>
-            <div className={styles.windowBar}><span aria-hidden="true">● ● ●</span><span>Context Reader</span></div>
             <div className={styles.finaleCanvas}><span>读懂，只是开始。</span><strong><i>更多</i><i>可能，</i><i>等你发现。</i></strong><div className={styles.words}><span>全文翻译</span><span>文章摘要</span><span>独立词典</span><span>继续阅读</span></div><b aria-hidden="true">↗</b></div>
           </div> : feature.screens.map(screen => <Recording key={screen.label} src={screen.src} label={screen.label} playing={visible && !paused} />)}
         </div>
@@ -73,7 +83,7 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled }: { sectio
       <div className={styles.navigation}>
         <div className={styles.tabs} role="tablist" aria-label="选择功能演示" data-local-scroll-surface>
           {FEATURE_SHOWCASE.map((item, index) => <button type="button" key={item.id} ref={element => { tabs.current[index] = element; }} id={`feature-tab-${item.id}`} role="tab" aria-selected={index === active} aria-controls="feature-showcase-panel" tabIndex={index === active ? 0 : -1} style={{ "--tile": item.color } as CSSProperties} onClick={() => select(index)} onKeyDown={event => { const target = event.key === "ArrowRight" ? active + 1 : event.key === "ArrowLeft" ? active - 1 : event.key === "Home" ? 0 : event.key === "End" ? FEATURE_SHOWCASE.length - 1 : null; if (target !== null) { event.preventDefault(); select(target, true); } }}>
-            <span><strong>{item.label}</strong><small>{item.detail}</small></span><span className={styles.thumbnail} aria-hidden="true">{item.id === "import" ? "▥" : item.id === "explore" ? "↗" : "▷"}</span>
+            <strong>{item.label}</strong><span className={styles.pillArrow} aria-hidden="true">↗</span>
           </button>)}
         </div>
         <div className={styles.arrows}><button type="button" aria-label="上一个功能" onClick={() => select(active - 1)}>←</button><button type="button" aria-label="下一个功能" onClick={() => select(active + 1)}>→</button></div>
