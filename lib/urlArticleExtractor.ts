@@ -321,11 +321,16 @@ function addImageBlock(context: ExtractContext, element: Element): void {
   const width = numericAttribute(element, "width");
   const height = numericAttribute(element, "height");
   if ((width && width < 180) || (height && height < 120) || (width && height && width * height < 36_000)) return;
-  if (isLinkedCardImage(element, src, context.baseUrl)) return;
+  const inFigure = Boolean(element.closest("figure"));
+  // Editorial galleries frequently link a figure to its full-resolution image
+  // or source record. The old linked-card rule treated every such figure as a
+  // recommendation card and removed it, even when it had real dimensions and
+  // a caption. Keep figures; the surrounding article-root and noise filters
+  // still exclude related-content modules.
+  if (!inFigure && isLinkedCardImage(element, src, context.baseUrl)) return;
   const alt = singleLineText(element.getAttribute("alt") ?? "");
   const auxiliaryIdentity = `${element.parentElement?.className || ""} ${element.closest("[rel='author'], [class*='byline'], [class*='author-'], [class*='author_']")?.className || ""}`;
   if (/\b(?:headshot|author|contributor|profile)\b/i.test(auxiliaryIdentity) && /\b(?:headshot|portrait|profile|author)\b/i.test(alt)) return;
-  const inFigure = Boolean(element.closest("figure"));
   if (!inFigure && !alt && !width && !height) return;
   context.seenImages.add(src);
   context.imageCount += 1;
@@ -337,6 +342,51 @@ function addImageBlock(context: ExtractContext, element: Element): void {
     ...(width ? { width } : {}),
     ...(height ? { height } : {}),
   });
+}
+
+function metadataHeroImage(
+  document: Document,
+  candidates: string[],
+  baseUrl: string,
+): ImportedArticleBlock | null {
+  const src = candidates.find((candidate) => !/(?:^|[\/_-])(?:logo|icon|avatar|sprite|badge|default)(?:[\/_-]|\.|$)/i.test(candidate));
+  if (!src) return null;
+
+  const width = Number.parseInt(metaContent(document, "og:image:width"), 10);
+  const height = Number.parseInt(metaContent(document, "og:image:height"), 10);
+  const boundedWidth = Number.isFinite(width) && width > 0 ? width : undefined;
+  const boundedHeight = Number.isFinite(height) && height > 0 ? height : undefined;
+  if (
+    (boundedWidth && boundedWidth < 480)
+    || (boundedHeight && boundedHeight < 240)
+    || (boundedWidth && boundedHeight && boundedWidth * boundedHeight < 180_000)
+  ) return null;
+
+  return {
+    id: "block-metadata-hero",
+    type: "image",
+    src: absoluteUrl(src, baseUrl),
+    alt: metaContent(document, "og:image:alt") || metaContent(document, "twitter:image:alt"),
+    ...(boundedWidth ? { width: boundedWidth } : {}),
+    ...(boundedHeight ? { height: boundedHeight } : {}),
+  };
+}
+
+function retainMetadataHeroWhenBodyHasNoImage(
+  blocks: ImportedArticleBlock[],
+  hero: ImportedArticleBlock | null,
+): ImportedArticleBlock[] {
+  if (!hero?.src || blocks.some((block) => block.type === "image")) return blocks;
+  const insertionIndex = blocks.findIndex((block) => block.type === "heading");
+  const next = [...blocks];
+  next.splice(insertionIndex >= 0 ? insertionIndex + 1 : 0, 0, hero);
+  return normalizeImportedArticleStructure({
+    title: "",
+    siteName: "",
+    url: "",
+    text: importedArticleBlocksToText(next),
+    blocks: next,
+  }).blocks;
 }
 
 function boundedSpan(element: Element, name: "rowspan" | "colspan"): number | undefined {
@@ -646,9 +696,13 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
   }
   const selected = chooseCandidate(candidates);
   if (!selected) return null;
-  const text = importedArticleBlocksToText(selected.blocks);
+  const selectedBlocks = retainMetadataHeroWhenBodyHasNoImage(
+    selected.blocks,
+    metadataHeroImage(document, metaCoverCandidates, baseUrl),
+  );
+  const text = importedArticleBlocksToText(selectedBlocks);
   if (text.length < 80) return null;
-  const imageSources = selected.blocks
+  const imageSources = selectedBlocks
     .filter((block) => block.type === "image" && block.src)
     .map((block) => block.src as string);
   const publishedTime = extractPublishedTime(document, readable?.publishedTime || "");
@@ -661,7 +715,7 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
       siteName: singleLineText(readable?.siteName || metadataSiteName),
       url: baseUrl,
       text,
-      blocks: selected.blocks,
+      blocks: selectedBlocks,
       ...(singleLineText(readable?.byline || "") ? { byline: singleLineText(readable?.byline || "") } : {}),
       ...(publishedTime ? { publishedTime } : {}),
       ...(language ? { language } : {}),

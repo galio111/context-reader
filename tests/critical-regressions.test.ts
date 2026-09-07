@@ -1295,6 +1295,52 @@ test("URL extraction keeps publication time and does not duplicate exact figure 
   assert.equal(extracted?.article.blocks.filter((block) => block.text === "The exact image caption").length, 0);
 });
 
+test("URL extraction keeps linked editorial figures instead of treating them as cards", () => {
+  const extracted = extractImportedArticleFromHtml(`<!doctype html><html><head>
+    <title>Linked gallery sample</title>
+  </head><body><article><h1>Linked gallery sample</h1>
+    <p>This substantive opening paragraph explains the historical subject in enough detail for article extraction.</p>
+    <figure><a href="https://archive.example.org/item/42"><img src="https://example.com/gallery-photo.jpg" width="1050" height="1575" alt="A historical garment"></a><figcaption>A historical garment from the archive.</figcaption></figure>
+    <p>This second substantive paragraph continues the article and supplies useful context for language learners.</p>
+  </article></body></html>`, "https://example.com/story");
+  const images = extracted?.article.blocks.filter((block) => block.type === "image") ?? [];
+  assert.equal(images.length, 1);
+  assert.equal(images[0]?.src, "https://example.com/gallery-photo.jpg");
+});
+
+test("URL extraction retains a credible metadata hero when the selected body has no image", () => {
+  const extracted = extractImportedArticleFromHtml(`<!doctype html><html><head>
+    <title>Metadata hero sample</title>
+    <meta property="og:image" content="/images/story-hero.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    <meta property="og:image:alt" content="Researchers working in the field">
+  </head><body><article><h1>Metadata hero sample</h1>
+    <p>This substantive opening paragraph explains the research in enough detail for article extraction.</p>
+    <p>This second substantive paragraph continues the article and supplies useful context for language learners.</p>
+  </article></body></html>`, "https://example.com/story");
+  const images = extracted?.article.blocks.filter((block) => block.type === "image") ?? [];
+  assert.equal(images.length, 1);
+  assert.equal(images[0]?.src, "https://example.com/images/story-hero.jpg");
+  assert.equal(images[0]?.width, 1200);
+  assert.equal(images[0]?.height, 675);
+  assert.equal(images[0]?.alt, "Researchers working in the field");
+  assert.equal(extracted?.article.blocks[1]?.type, "image");
+});
+
+test("URL extraction rejects a small metadata thumbnail as an article hero", () => {
+  const extracted = extractImportedArticleFromHtml(`<!doctype html><html><head>
+    <title>Small thumbnail sample</title>
+    <meta property="og:image" content="/images/site-icon.png">
+    <meta property="og:image:width" content="128">
+    <meta property="og:image:height" content="128">
+  </head><body><article><h1>Small thumbnail sample</h1>
+    <p>This substantive opening paragraph explains the research in enough detail for article extraction.</p>
+    <p>This second substantive paragraph continues the article and supplies useful context for language learners.</p>
+  </article></body></html>`, "https://example.com/story");
+  assert.equal(extracted?.article.blocks.some((block) => block.type === "image"), false);
+});
+
 test("Reader block tokenization preserves multiline text and isolates superscript references", () => {
   const multiline = "A complete heading\nwhose second line must remain visible.";
   const multilineTokens = tokenizeReaderBlockText(multiline, 4, (tokenId) => `heading-${tokenId}`);

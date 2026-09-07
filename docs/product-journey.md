@@ -1232,3 +1232,11 @@ The Public Domain Review 的专站清洗新增资源、延伸阅读、佣金、�
 TIME 在大陆生产出口多次读取失败，而旧完整应用运行于 Vercel 时曾可读取。用户明确决定保留大陆主站与全部数据/业务，只重新启用 Vercel 免费额度承担境外网页抓取。新建的 `context-reader-overseas-fetch` 是独立项目，不部署 Context Reader 应用；它只暴露带 32 字符以上共享密钥的 `POST /api/fetch`，请求只含公开 URL 与 HTML/feed 模式。函数逐跳校验协议、端口、DNS 和私网地址并固定公网 IP，最多跟随三次重定向，12 秒超时、1.5 MB 上限，不转发 Cookie、Authorization 或任意调用方请求头。
 
 大陆端继续先走原固定 DNS 安全抓取，五秒网络失败或明确的拦截/可重试状态才调用 Vercel；不安全 URL 和用户取消绝不回退。返回后的最终 URL 再由大陆校验，正文提取、限额、错误记录、候选入库、图片本地化、账号、同步、Admin、AI、数据库与 Storage 全部留在大陆。RSS/Atom/index 与 robots 读取共用这一回退，但仍先检查 robots；图片、OCR、下载、封面与发音明确不使用 Vercel。DNSPod 仅增加 `fetch.context-reader.com` CNAME，根域名和 `www` 仍指向大陆主站；Vercel 项目也只绑定该子域名和自身默认域名。隔离节点 `dpl_GEGTf1hsYyfH9Rbg6stgaMchrTHk` 从 `iad1` 抓取 TIME 首页返回 200 和 1,223,059 字节 HTML，大陆服务器通过自定义域名再次得到相同 200/relay 标记。共享密钥经轮换后仅存在于 Vercel 与大陆 0600 runtime 文件。大陆应用随后通过版本化发布上线，公网 `/api/import-url` 对用户给定 TIME 文章完成正文提取。
+
+## 2026-09-07：网址导入尽量保留正文图与文章主图
+
+**状态：代码与真实页面提取验证完成；待大陆发布和本站图片转存验收**
+
+用户连续导入 TIME、JSTOR Daily 和 Open Culture 后都只看到文字。线上对照确认三篇正文均为 `images=0`，但都已经提取到一张文章级封面候选，因此不是系统关闭了图片，也不是 Vercel 文本抓取节点应当承担图片下载，而是图片选择规则存在两个缺口：带链接的正文 `<figure>` 被误判成推荐卡；发布者把首图放在 Readability 正文根之外时，可信的 `og:image` 只停留在候选元数据，没有进入 Reader。
+
+修复后，正文中的可点击大图和馆藏链接图仍作为编辑图片保留；当最终正文确实没有图片时，选择一张非 logo/icon、且元数据尺寸足够大的文章主图插入标题之后。它随后仍走大陆端既有的 pinned-DNS、类型/字节/像素检查、Sharp WebP 转换和本站 Storage 转存，Vercel 的用途没有扩展到图片。单图无法保存时只移除该图，正文继续可读。真实源 HTML 验证由修复前的 TIME `0`、JSTOR `0`、Open Culture `0`，变为 TIME `1`、JSTOR `5`、Open Culture `1`；81 项关键回归与 66 路由生产构建通过。
