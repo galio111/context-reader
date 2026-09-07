@@ -10,6 +10,7 @@ import {
   deleteSavedArticle,
   findSavedArticle,
   getSavedArticles,
+  renameSavedArticle,
   replaceSavedArticleImportedArticle,
   resetArticleReadingProgress,
   saveArticleReadingProgress,
@@ -1162,6 +1163,10 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     setSavedArticles(deleteSavedArticle(id));
   }
 
+  function handleRenameSavedArticle(id: string, title: string) {
+    setSavedArticles(renameSavedArticle(id, title));
+  }
+
   const handleImportedArticleChange = useCallback((nextImportedArticle: ImportedArticle) => {
     importedArticleRef.current = nextImportedArticle;
     setImportedArticle(nextImportedArticle);
@@ -1425,6 +1430,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         onOpenPublicArticle={handleOpenPublicArticle}
         onPrefetchPublicArticle={handlePrefetchPublicArticle}
         onDeleteSavedArticle={handleDeleteSavedArticle}
+        onRenameSavedArticle={handleRenameSavedArticle}
         onJumpToVocabularySource={handleJumpToVocabularySource}
         canJumpToVocabularySource={canJumpToVocabularySource}
       />

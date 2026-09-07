@@ -1472,6 +1472,21 @@ export function ReaderView({
   const [translationRegenerating, setTranslationRegenerating] = useState(false);
   const [translationCompletedTargetBlocks, setTranslationCompletedTargetBlocks] = useState(0);
   const [translationTotalTargetBlocks, setTranslationTotalTargetBlocks] = useState(0);
+  const mobileTranslationScrollRef = useRef<HTMLElement | null>(null);
+  const mobileTranslationScrollTopRef = useRef(0);
+  useEffect(() => {
+    mobileTranslationScrollTopRef.current = 0;
+    if (mobileTranslationScrollRef.current) mobileTranslationScrollRef.current.scrollTop = 0;
+  }, [translationSourceKey]);
+  useLayoutEffect(() => {
+    if (!mobileExplanationOpen || rightPanelMode !== "translation") return;
+    const frame = window.requestAnimationFrame(() => {
+      if (mobileTranslationScrollRef.current) {
+        mobileTranslationScrollRef.current.scrollTop = mobileTranslationScrollTopRef.current;
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [mobileExplanationOpen, rightPanelMode]);
   const [staleTranslationBlockIds, setStaleTranslationBlockIds] = useState<string[]>([]);
   const [removedTranslationCount, setRemovedTranslationCount] = useState(0);
   const abortRef = useRef<AbortController | null>(null);
@@ -2846,6 +2861,9 @@ export function ReaderView({
   }
 
   function openMobileTool(mode: RightPanelMode) {
+    if (rightPanelMode === "translation" && mobileTranslationScrollRef.current) {
+      mobileTranslationScrollTopRef.current = mobileTranslationScrollRef.current.scrollTop;
+    }
     if (mode !== "explanation") {
       cancelActiveExplanationRequest();
     }
@@ -2874,6 +2892,9 @@ export function ReaderView({
   }
 
   function closeMobileToolSheet() {
+    if (rightPanelMode === "translation" && mobileTranslationScrollRef.current) {
+      mobileTranslationScrollTopRef.current = mobileTranslationScrollRef.current.scrollTop;
+    }
     if (rightPanelMode === "explanation") {
       cancelActiveExplanationRequest();
     }
@@ -4424,7 +4445,7 @@ export function ReaderView({
                 </div>
               )
             )}
-            {rightPanelMode === "translation" && (
+            <div className={rightPanelMode === "translation" ? "h-full min-h-0" : "hidden h-full min-h-0"} aria-hidden={rightPanelMode !== "translation"} inert={rightPanelMode !== "translation"}>
               <ArticleTranslationPanel
                 blocks={translationBlocks}
                 translations={articleTranslations}
@@ -4442,8 +4463,9 @@ export function ReaderView({
                 adminMode={editorialWorkbench}
                 onGenerate={() => generateArticleTranslation(false)}
                 onRegenerate={() => generateArticleTranslation(true)}
+                scrollContainerRef={mobileTranslationScrollRef}
               />
-            )}
+            </div>
             {rightPanelMode === "dictionary" && (
               <div className={toolbarStyles.mobileDictionary}>
                 <BookDictionary

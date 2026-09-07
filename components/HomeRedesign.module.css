@@ -555,6 +555,7 @@
 .articleCard:focus-visible .cardCopy small { color: #285f72; }
 .cardMeta { display: flex; margin-top: 14px; gap: 8px; color: #71818a; font-size: 12px; }
 .cardMeta i { padding: 5px 8px; border: 1px solid var(--line); border-radius: 999px; font-style: normal; }
+.cardMeta .todayBadge { border-color: #2d80b7; color: #216f9f; background: transparent; font-weight: 650; }
 
 .emptyArticles { width: min(1420px, 100%); min-height: 340px; margin: 0 auto; padding-top: 80px; border-top: 1px solid var(--line); color: var(--muted); }
 
@@ -859,6 +860,7 @@
 .root[data-theme="night"] .cardCopy small,
 .root[data-theme="night"] .cardMeta,
 .root[data-theme="night"] .libraryAction span { color: #a8bbc1; }
+.root[data-theme="night"] .cardMeta .todayBadge { border-color: #74bde6; color: #9fd8f5; }
 .root[data-theme="night"] .guestLibraryAction span { color: #b6c8cd; }
 .root[data-theme="night"] .guestLibraryAction button { border-color: #a7d8df; color: #163039; background: #a7d8df; }
 .root[data-theme="night"] .preferenceTrigger { border-color: rgb(170 213 222 / 30%); color: #d8ebee; background: rgb(24 47 55 / 84%); }

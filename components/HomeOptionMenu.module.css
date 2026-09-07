@@ -785,6 +785,64 @@
   font-weight: 600;
 }
 
+.savedArticleContextMenu {
+  position: fixed;
+  z-index: 80;
+  display: grid;
+  width: 220px;
+  padding: 6px;
+  gap: 2px;
+  border: 1px solid rgb(27 64 79 / 16%);
+  border-radius: 12px;
+  background: #f8fbfc;
+  box-shadow: 0 5px 8px rgb(15 42 55 / 16%);
+  color: #203b49;
+  text-shadow: none;
+}
+
+.savedArticleContextMenu > button {
+  min-height: 40px;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.savedArticleContextMenu > button:hover,
+.savedArticleContextMenu > button:focus-visible {
+  outline: none;
+  background: #e6eff3;
+}
+
+.savedArticleContextMenu > .savedArticleDeleteAction { color: #a13b35; }
+.savedArticleContextMenu > .savedArticleDeleteAction:hover,
+.savedArticleContextMenu > .savedArticleDeleteAction:focus-visible { background: #f8e9e7; }
+
+.savedArticleContextMenu form { display: grid; padding: 8px; gap: 9px; }
+.savedArticleContextMenu label { color: #4c6673; font-size: 11px; font-weight: 650; }
+.savedArticleContextMenu input {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #9bb1bc;
+  border-radius: 8px;
+  outline: none;
+  background: white;
+  color: #20333e;
+  font: inherit;
+  font-size: 13px;
+}
+.savedArticleContextMenu input:focus { border-color: #347ca7; outline: 2px solid rgb(52 124 167 / 18%); outline-offset: 1px; }
+.savedArticleContextMenu form > div { display: flex; justify-content: flex-end; gap: 7px; }
+.savedArticleContextMenu form button { min-height: 36px; padding: 0 10px; border: 0; border-radius: 999px; background: #e5edf1; color: #36515f; font: inherit; font-size: 11px; font-weight: 650; cursor: pointer; }
+.savedArticleContextMenu form button[type="submit"] { background: #245f82; color: white; }
+.savedArticleContextMenu form button:disabled { opacity: .5; cursor: not-allowed; }
+
 .vocabularyEntry small,
 .vocabularyEntry em {
   display: block;
@@ -1437,6 +1495,21 @@
   color: #f2f8f9 !important;
 }
 
+.overlay[data-theme="night"] .savedArticleContextMenu {
+  border-color: rgb(190 220 227 / 17%);
+  background: #172a32;
+  color: #e6f0f2;
+}
+.overlay[data-theme="night"] .savedArticleContextMenu > button:hover,
+.overlay[data-theme="night"] .savedArticleContextMenu > button:focus-visible { background: #223b44; }
+.overlay[data-theme="night"] .savedArticleContextMenu > .savedArticleDeleteAction { color: #ffb7ae; }
+.overlay[data-theme="night"] .savedArticleContextMenu > .savedArticleDeleteAction:hover,
+.overlay[data-theme="night"] .savedArticleContextMenu > .savedArticleDeleteAction:focus-visible { background: #4a2b2a; }
+.overlay[data-theme="night"] .savedArticleContextMenu label { color: #b7c9ce; }
+.overlay[data-theme="night"] .savedArticleContextMenu input { border-color: #668894; background: #102229; color: #eef5f6; }
+.overlay[data-theme="night"] .savedArticleContextMenu form button { background: #29424b; color: #d9e8eb; }
+.overlay[data-theme="night"] .savedArticleContextMenu form button[type="submit"] { background: #88c6d2; color: #102229; }
+
 .overlay[data-theme="night"] .vocabularyEntry small,
 .overlay[data-theme="night"] .vocabularyDetails dt,
 .overlay[data-theme="night"] .guidePreview li > span,
@@ -1759,6 +1832,10 @@
     max-height: 100%;
     padding: 68px 18px 22px;
     overscroll-behavior: contain;
+  }
+
+  .savedArticleContextMenu {
+    width: min(260px, calc(100vw - 24px));
   }
 
   .vocabularyDetailHeader {

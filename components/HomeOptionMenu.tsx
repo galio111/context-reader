@@ -12,6 +12,7 @@ import {
   type FocusEvent,
   type FormEvent,
   type KeyboardEvent,
+  type MouseEvent as ReactMouseEvent,
   type PointerEvent,
   type ReactNode,
 } from "react";
@@ -58,6 +59,8 @@ interface HomeOptionMenuProps {
   vocabularyEntries: VocabularyEntry[];
   onClose: () => void;
   onOpenSavedArticle: (article: SavedArticle) => void;
+  onDeleteSavedArticle?: (id: string) => void;
+  onRenameSavedArticle?: (id: string, title: string) => void;
   onJumpToVocabularySource?: (entry: VocabularyEntry) => void;
   canJumpToVocabularySource?: (entry: VocabularyEntry) => boolean;
   initialPreview?: PreviewKind | null;
@@ -167,6 +170,8 @@ export function HomeOptionMenu({
   vocabularyEntries,
   onClose,
   onOpenSavedArticle,
+  onDeleteSavedArticle,
+  onRenameSavedArticle,
   onJumpToVocabularySource,
   canJumpToVocabularySource,
   initialPreview = null,
@@ -197,6 +202,14 @@ export function HomeOptionMenu({
   const [hoveredVocabularyId, setHoveredVocabularyId] = useState<string | null>(null);
   const [vocabularySearchQuery, setVocabularySearchQuery] = useState("");
   const [pinnedPreview, setPinnedPreview] = useState<PreviewKind | null>(null);
+  const [savedArticleContext, setSavedArticleContext] = useState<{
+    articleId: string;
+    x: number;
+    y: number;
+    editing: boolean;
+  } | null>(null);
+  const [savedArticleTitleDraft, setSavedArticleTitleDraft] = useState("");
+  const savedArticleRenameInputRef = useRef<HTMLInputElement | null>(null);
   const [previewAnchorY, setPreviewAnchorY] = useState<number | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
   const mobileSheet = useMobileBottomSheet(
@@ -275,6 +288,33 @@ export function HomeOptionMenu({
     if (open) setMounted(true);
   }, [open]);
 
+  useEffect(() => {
+    if (!savedArticleContext) return;
+    const dismiss = (event: globalThis.PointerEvent) => {
+      if (!(event.target as Element | null)?.closest?.("[data-saved-article-context-menu]")) {
+        setSavedArticleContext(null);
+      }
+    };
+    const dismissFromKeyboard = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape") setSavedArticleContext(null);
+    };
+    window.addEventListener("pointerdown", dismiss);
+    window.addEventListener("keydown", dismissFromKeyboard);
+    return () => {
+      window.removeEventListener("pointerdown", dismiss);
+      window.removeEventListener("keydown", dismissFromKeyboard);
+    };
+  }, [savedArticleContext]);
+
+  useEffect(() => {
+    if (!savedArticleContext?.editing) return;
+    const frame = window.requestAnimationFrame(() => {
+      savedArticleRenameInputRef.current?.focus({ preventScroll: true });
+      savedArticleRenameInputRef.current?.select();
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [savedArticleContext?.editing]);
+
   useDocumentScrollLock(mounted);
 
   useEffect(() => {
@@ -342,6 +382,7 @@ export function HomeOptionMenu({
     if (open) return;
     setHoveredVocabularyId(null);
     setVocabularySearchQuery("");
+    setSavedArticleContext(null);
     setPinnedPreview(null);
     setPreviewAnchorY(null);
     setAnkiSettingsOpen(false);
@@ -354,6 +395,30 @@ export function HomeOptionMenu({
     const unmountTimer = window.setTimeout(() => setMounted(false), 360);
     return () => window.clearTimeout(unmountTimer);
   }, [mounted, open]);
+
+  function openSavedArticleContext(article: SavedArticle, event: ReactMouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+    const rect = event.currentTarget.getBoundingClientRect();
+    const requestedX = event.clientX || rect.right - 8;
+    const requestedY = event.clientY || rect.top + 20;
+    setSavedArticleTitleDraft(article.title);
+    setSavedArticleContext({
+      articleId: article.id,
+      x: Math.max(12, Math.min(requestedX, window.innerWidth - 232)),
+      y: Math.max(12, Math.min(requestedY, window.innerHeight - 176)),
+      editing: false,
+    });
+  }
+
+  function submitSavedArticleRename(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!savedArticleContext) return;
+    const title = savedArticleTitleDraft.trim();
+    if (!title) return;
+    onRenameSavedArticle?.(savedArticleContext.articleId, title);
+    setSavedArticleContext(null);
+  }
 
   useEffect(() => {
     if (visiblePreview !== "vocabulary") {
@@ -1006,6 +1071,12 @@ export function HomeOptionMenu({
                   onClose();
                   onOpenSavedArticle(article);
                 }}
+                onContextMenu={(event) => openSavedArticleContext(article, event)}
+                onKeyDown={(event) => {
+                  if (event.shiftKey && event.key === "F10") {
+                    openSavedArticleContext(article, event as unknown as ReactMouseEvent<HTMLButtonElement>);
+                  }
+                }}
               >
                 <strong>{article.title || "未命名文章"}</strong>
                 <span>{savedArticlePreview(article)}</span>
@@ -1096,6 +1167,51 @@ export function HomeOptionMenu({
       >
         <MenuFeedbackForm isOffline={isOffline} />
       </MenuPreview>
+
+      {savedArticleContext && (
+        <div
+          className={styles.savedArticleContextMenu}
+          style={{ left: savedArticleContext.x, top: savedArticleContext.y }}
+          data-saved-article-context-menu
+          role={savedArticleContext.editing ? "dialog" : "menu"}
+          aria-label={savedArticleContext.editing ? "重命名文章" : "文章操作"}
+          onPointerDown={(event) => event.stopPropagation()}
+        >
+          {savedArticleContext.editing ? (
+            <form onSubmit={submitSavedArticleRename}>
+              <label htmlFor="saved-article-rename">重命名文章</label>
+              <input
+                ref={savedArticleRenameInputRef}
+                id="saved-article-rename"
+                value={savedArticleTitleDraft}
+                onChange={(event) => setSavedArticleTitleDraft(event.target.value)}
+                maxLength={200}
+              />
+              <div>
+                <button type="button" onClick={() => setSavedArticleContext(null)}>取消</button>
+                <button type="submit" disabled={!savedArticleTitleDraft.trim()}>保存名称</button>
+              </div>
+            </form>
+          ) : (
+            <>
+              <button
+                type="button"
+                role="menuitem"
+                onClick={() => setSavedArticleContext((current) => current ? { ...current, editing: true } : null)}
+              >重命名</button>
+              <button
+                type="button"
+                role="menuitem"
+                className={styles.savedArticleDeleteAction}
+                onClick={() => {
+                  onDeleteSavedArticle?.(savedArticleContext.articleId);
+                  setSavedArticleContext(null);
+                }}
+              >删除</button>
+            </>
+          )}
+        </div>
+      )}
     </div>,
     document.body,
   );

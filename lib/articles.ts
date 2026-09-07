@@ -528,6 +528,28 @@ export function touchSavedArticle(id: string): SavedArticle[] {
   ];
 }
 
+export function renameSavedArticle(id: string, title: string): SavedArticle[] {
+  const articles = getSavedArticles();
+  const normalizedTitle = title.trim().replace(/\s+/g, " ").slice(0, 200);
+  if (!normalizedTitle || !articles.some((article) => article.id === id)) {
+    return articles;
+  }
+
+  const updatedAt = new Date().toISOString();
+  const nextArticles = articles.map((article) => article.id === id
+    ? {
+        ...article,
+        title: normalizedTitle,
+        ...(article.importedArticle
+          ? { importedArticle: { ...article.importedArticle, title: normalizedTitle } }
+          : {}),
+        updatedAt,
+      }
+    : article);
+  saveArticles(nextArticles);
+  return getSavedArticles();
+}
+
 export function saveArticleReadingProgress(id: string, anchor: ReaderViewportAnchor): SavedArticle[] {
   const articles = getSavedArticles();
   const existing = articles.find((article) => article.id === id);
@@ -561,11 +583,17 @@ export function resetArticleReadingProgress(id: string): SavedArticle[] {
 
 export function deleteSavedArticle(id: string): SavedArticle[] {
   const articles = getSavedArticles();
-  const nextArticles = articles.filter((article) => article.id !== id);
-  if (nextArticles.length !== articles.length) {
-    deleteArticleReadingState(id);
-    notifyAccountObjectsDeleted("article", [id]);
+  const selected = articles.find((article) => article.id === id);
+  if (!selected) return articles;
+
+  const selectedIdentity = articleIdentity(selected.body);
+  const removed = articles.filter((article) => articleIdentity(article.body) === selectedIdentity);
+  const removedIds = removed.map((article) => article.id);
+  const nextArticles = articles.filter((article) => articleIdentity(article.body) !== selectedIdentity);
+  for (const removedId of removedIds) {
+    deleteArticleReadingState(removedId);
   }
+  notifyAccountObjectsDeleted("article", removedIds);
   saveArticles(nextArticles);
   return nextArticles;
 }

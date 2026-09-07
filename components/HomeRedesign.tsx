@@ -63,6 +63,13 @@ const BALL_MATERIAL = {
   depthWrite: false,
 };
 
+const SHANGHAI_DAY_FORMATTER = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Shanghai",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+
 const HOME_PREFERENCES_KEY = "context-reader-home-ui-v1";
 const HOME_VIEW_STATE_KEY = "context-reader-home-view-v1";
 type HomeTheme = "day" | "night";
@@ -137,6 +144,7 @@ interface HomeRedesignProps {
   onOpenPublicArticle: (id: string) => Promise<void>;
   onPrefetchPublicArticle: (id: string) => void;
   onDeleteSavedArticle: (id: string) => void;
+  onRenameSavedArticle: (id: string, title: string) => void;
   onJumpToVocabularySource: (entry: VocabularyEntry) => Promise<boolean>;
   canJumpToVocabularySource: (entry: VocabularyEntry) => boolean;
 }
@@ -330,12 +338,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   useDocumentScrollLock(dictionaryMounted && compactViewport);
 
   const category = CATEGORY_FILTERS.find((item) => item.label === activeCategory) ?? CATEGORY_FILTERS[0];
-  const recommendationDayKey = useMemo(() => new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Shanghai",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(new Date()), []);
+  const recommendationDayKey = useMemo(() => SHANGHAI_DAY_FORMATTER.format(new Date()), []);
   const allCategoryArticles = useMemo(
     () => props.publicArticles.filter(category.test),
     [category, props.publicArticles],
@@ -581,6 +584,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
     };
     const updateCoverProgress = () => {
       frame = 0;
+      // Document scroll locking fixes the body in place and temporarily reports
+      // window.scrollY as zero. Keep the already-rendered cover/background state
+      // while Menu, saved articles, or vocabulary are open over the current page.
+      if (document.body.style.position === "fixed") return;
       const raw = Math.min(1, Math.max(0, (window.scrollY - stageTop) / distance));
       coverProgressRef.current = raw;
       flowRef.current?.style.setProperty("--cover-progress", raw.toFixed(4));
@@ -1207,6 +1214,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
               {displayArticles.map((item, index) => {
                 const featured = index === 0;
                 const recommendation = item.recommendation;
+                const selectedToday = props.homepageCuration?.selectedAtById[item.id]
+                  ? SHANGHAI_DAY_FORMATTER.format(new Date(props.homepageCuration.selectedAtById[item.id])) === recommendationDayKey
+                  : false;
                 const revealDelayIndex = recommendationRevealDelayIndex(index, showcaseArticleCount);
                 return (
                   <button
@@ -1224,6 +1234,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                       <small>{item.sourceName || "Context Reader"}</small>
                       <strong>{item.title}</strong>
                       <span className={styles.cardMeta}>
+                        {selectedToday && <i className={styles.todayBadge}>今日更新</i>}
                         <i>{recommendation?.difficulty || "难度待定"}</i>
                         <i>{readingMinutes(item)} 分钟</i>
                       </span>
@@ -1395,6 +1406,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
           setMenuGuideSection(null);
         }}
         onOpenSavedArticle={props.onOpenSavedArticle}
+        onDeleteSavedArticle={props.onDeleteSavedArticle}
+        onRenameSavedArticle={props.onRenameSavedArticle}
         onJumpToVocabularySource={props.onJumpToVocabularySource}
         canJumpToVocabularySource={props.canJumpToVocabularySource}
       />

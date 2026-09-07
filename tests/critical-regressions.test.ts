@@ -650,6 +650,31 @@ test("recommendations treat the Admin pool as authoritative and keep text-only e
   assert.deepEqual(homepageShowcaseArticles(ordered, 10).map((article) => article.id), ["2", "1"]);
 });
 
+test("saved reading preferences replace the generic recommendation lead", () => {
+  const genericLead = recommendationArticle("generic-lead");
+  const preferredLead = {
+    ...recommendationArticle("preferred-lead"),
+    recommendation: {
+      ...recommendationArticle("preferred-lead").recommendation!,
+      audienceStages: ["高中" as const],
+      topics: ["文化历史" as const],
+    },
+  };
+  const curation = normalizeHomepageCuration({
+    version: 2,
+    categories: { 推荐: [genericLead.id, preferredLead.id], 时事: [], 科技: [], 文化: [], 商业: [] },
+    recommendationFeaturedId: genericLead.id,
+  });
+  const ordered = orderHomepageRecommendations([genericLead, preferredLead], curation, {
+    version: 1,
+    readingLevel: "高中",
+    interests: ["culture"],
+    updatedAt: "2026-09-07T00:00:00.000Z",
+    scope: "guest",
+  }, "2026-09-07");
+  assert.equal(ordered[0].id, preferredLead.id);
+});
+
 test("category curation keeps the lead order without hiding the remaining published articles", () => {
   const articles = Array.from({ length: 12 }, (_, index) => recommendationArticle(String(index + 1)));
   const ordered = orderHomepageCategoryArticles(articles, ["3", "1"]);
@@ -912,6 +937,26 @@ test("long articles and exhausted summary quotas remain saved without a summary 
   assert.match(sync, /readStoredArticles\(storage\)/);
   assert.match(sync, /writeStoredArticles\(storage, mergedArticles\.articles\)/);
   assert.match(usage, /保存文章不消耗摘要额度[\s\S]*?摘要额度用完后仍可保存文章/);
+});
+
+test("saved article menu supports prefilled rename and delete without changing the long-article summary rule", () => {
+  const menu = readFileSync(new URL("../components/HomeOptionMenu.tsx", import.meta.url), "utf8");
+  const articles = readFileSync(new URL("../lib/articles.ts", import.meta.url), "utf8");
+  assert.match(menu, /onContextMenu=\{\(event\) => openSavedArticleContext\(article, event\)\}/);
+  assert.match(menu, /setSavedArticleTitleDraft\(article\.title\)/);
+  assert.match(menu, /onRenameSavedArticle\?\.\(savedArticleContext\.articleId, title\)/);
+  assert.match(menu, /onDeleteSavedArticle\?\.\(savedArticleContext\.articleId\)/);
+  assert.match(articles, /export function renameSavedArticle[\s\S]*?title: normalizedTitle[\s\S]*?importedArticle: \{ \.\.\.article\.importedArticle, title: normalizedTitle \}/);
+  assert.match(articles, /export function deleteSavedArticle[\s\S]*?selectedIdentity = articleIdentity\(selected\.body\)[\s\S]*?notifyAccountObjectsDeleted\("article", removedIds\)/);
+});
+
+test("homepage overlays preserve their current scene and today's selections receive the blue update badge", () => {
+  const home = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
+  const styles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
+  assert.match(home, /document\.body\.style\.position === "fixed"/);
+  assert.match(home, /selectedAtById\[item\.id\][\s\S]*?=== recommendationDayKey/);
+  assert.match(home, /className=\{styles\.todayBadge\}>今日更新/);
+  assert.match(styles, /\.cardMeta \.todayBadge \{[^}]*border-color: #2d80b7/);
 });
 
 test("article storage recovery replays one full cloud snapshot before returning to incremental sync", () => {
@@ -1340,6 +1385,7 @@ test("quota migration keeps consume_usage column references unambiguous", () => 
 });
 
 test("full translation keeps progressive output while batching upstream context", () => {
+  const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
   const translationRoute = readFileSync(new URL("../app/api/translate-article/route.ts", import.meta.url), "utf8");
   const translationJobs = readFileSync(new URL("../lib/articleTranslationJobs.ts", import.meta.url), "utf8");
   const translationBatching = readFileSync(new URL("../lib/articleTranslationBatching.ts", import.meta.url), "utf8");
@@ -1357,6 +1403,9 @@ test("full translation keeps progressive output while batching upstream context"
   assert.match(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_CHARS\s*=\s*24_000/);
   assert.match(translationJobs, /onTranslation\(event\.translation\)/);
   assert.match(translationJobs, /setInterval\(updateCountdown, 1_000\)/);
+  assert.match(reader, /mobileTranslationScrollTopRef\.current = mobileTranslationScrollRef\.current\.scrollTop/);
+  assert.match(reader, /mobileTranslationScrollRef\.current\.scrollTop = mobileTranslationScrollTopRef\.current/);
+  assert.match(reader, /scrollContainerRef=\{mobileTranslationScrollRef\}/);
   assert.match(translationPanel, /本次尚未生成可显示译文/);
   assert.match(translationPanel, /本次生成失败，请重试/);
   assert.doesNotMatch(translationPanel, /录入已有全文译文|粘贴整篇中文/);

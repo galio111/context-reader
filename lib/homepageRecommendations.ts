@@ -117,9 +117,10 @@ export function orderHomepageRecommendations(
       ))
     : manual;
 
-  // The Admin shuffle deliberately randomizes the recommendation lead even
-  // for personalized views. Preferences still rank the remaining library.
-  const featured = explicitFeatured && manual.some((article) => article.id === explicitFeatured.id)
+  // With no reading preferences, preserve the Admin-selected lead. Once the
+  // reader saves preferences, the strongest personalized match becomes the
+  // visible lead instead of leaving only the secondary rows personalized.
+  const featured = !hasPreferences && explicitFeatured && manual.some((article) => article.id === explicitFeatured.id)
     ? explicitFeatured
     : manualOrdered[0];
   const manualRest = manualOrdered.filter((article) => article.id !== featured?.id);
