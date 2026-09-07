@@ -38,7 +38,7 @@ import {
   orderHomepageRecommendations,
   recommendationRevealDelayIndex,
 } from "@/lib/homepageRecommendations";
-import { classifyFeatureOrbitGesture, FEATURE_ORBIT_AUTOPLAY_MS, type FeatureOrbitGestureIntent } from "@/lib/featureOrbitMotion";
+import { FeatureShowcase } from "@/components/FeatureShowcase";
 import { guestCoverTouchSnapTarget } from "@/lib/guestCoverTouchSnap";
 import styles from "./HomeRedesign.module.css";
 
@@ -90,16 +90,6 @@ const CATEGORY_FILTERS = [
   { label: "商业", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "商业") },
 ] as const;
 
-const FEATURE_ORBIT = [
-  { key: "context", index: "01", title: "语境划词", copy: "词义留在句子里，理解不必离开正在读的这一段。", meta: "解释 · 翻译" },
-  { key: "translation", index: "02", title: "全文翻译", copy: "读到真正困难的地方，再展开整篇文章的另一层。", meta: "全文翻译 · 摘要" },
-  { key: "journals", index: "03", title: "精选外刊", copy: "从经过挑选的文章开始，不必先解决去哪里找的问题。", meta: "分类 · 难度" },
-  { key: "import", index: "04", title: "自主导入", copy: "粘贴正文或输入网址，把那篇一直没读完的文章带进来。", meta: "正文 · 网址" },
-  { key: "progress", index: "05", title: "继续阅读", copy: "保存阅读位置，下一次仍从这句话附近继续。", meta: "进度 · 跨设备" },
-  { key: "vocabulary", index: "06", title: "生词与原句", copy: "留下真正遇见过的词，也留下它当时所在的句子。", meta: "生词本 · 原句" },
-  { key: "anki", index: "07", title: "与 Anki 协作", copy: "把阅读中积累的词带进持续复习，而不是读完就散。", meta: "积累 · 复习" },
-] as const;
-
 const HERO_SUBTITLES = {
   a: "从精选外刊到你的长文，让每一处难懂，都能在语境里得到解释。",
   b: "从一篇精选外刊开始，让漫长而陌生的英文，在语境中渐渐清晰。",
@@ -122,27 +112,6 @@ function QuickActionIcon({ kind }: { kind: QuickActionKind }) {
   return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4h12v12H4zM7 7h6M7 10h6M7 13h4" /></svg>;
 }
 
-function FeatureOrbitVisual({ kind }: { kind: (typeof FEATURE_ORBIT)[number]["key"] }) {
-  if (kind === "context") {
-    return <div className={styles.orbitContext}><p>The meaning becomes clear in <mark>context</mark>.</p><aside><strong>context</strong><span>语境，上下文</span></aside></div>;
-  }
-  if (kind === "translation") {
-    return <div className={styles.orbitTranslation}><span>Original</span><p>Language carries more than a literal meaning.</p><span>译文</span><p>语言承载的，往往不止字面含义。</p></div>;
-  }
-  if (kind === "journals") {
-    return <div className={styles.orbitJournals}><i>FA</i><i>1843</i><i>TIME</i><span>每周更新</span></div>;
-  }
-  if (kind === "import") {
-    return <div className={styles.orbitImport}><span><b>粘贴文章</b><i>输入网址</i></span><p>Paste the article you want to finish reading…</p><em>开始阅读</em></div>;
-  }
-  if (kind === "progress") {
-    return <div className={styles.orbitProgress}><span>CONTINUE READING</span><strong>The article you left yesterday</strong><small>从上次稳定停留处继续</small></div>;
-  }
-  if (kind === "vocabulary") {
-    return <div className={styles.orbitVocabulary}><span><strong>retain</strong><i>/rɪˈteɪn/</i></span><p>to keep something or continue to have it</p><small>保留原句与语境</small></div>;
-  }
-  return <div className={styles.orbitAnki}><span>Context Reader</span><strong>retain</strong><p>在真实原句里再次遇见它</p><em>添加到 Anki</em></div>;
-}
 
 interface HomeRedesignProps {
   forceGuestPreview?: boolean;
@@ -319,10 +288,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [preferenceOpen, setPreferenceOpen] = useState(false);
   const [memberLibraryOpen, setMemberLibraryOpen] = useState(false);
   const [librarySearch, setLibrarySearch] = useState("");
-  const [featurePosition, setFeaturePosition] = useState(0);
-  const [featureDragging, setFeatureDragging] = useState(false);
-  const [featureInView, setFeatureInView] = useState(false);
-  const [featureAutoplayStopped, setFeatureAutoplayStopped] = useState(false);
   const [continueVariant, setContinueVariant] = useState<"editorial" | "cover">("cover");
   const [navMotion, setNavMotion] = useState<"slide" | "fill" | "icon">("icon");
   const [memberOpeningVariant, setMemberOpeningVariant] = useState<"spiral" | "wordfall">("wordfall");
@@ -348,7 +313,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const preferenceControlRef = useRef<HTMLDivElement | null>(null);
   const publicationBridgeRef = useRef<HTMLDivElement | null>(null);
   const importRef = useRef<HTMLElement | null>(null);
-  const featureOrbitRef = useRef<HTMLElement | null>(null);
+  const featureShowcaseRef = useRef<HTMLElement | null>(null);
   const closingRef = useRef<HTMLElement | null>(null);
   const coverProgressRef = useRef(0);
   const memberOpeningFrameRef = useRef(0);
@@ -362,8 +327,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const coverScrollFrameRef = useRef(0);
   const coverScrollTargetRef = useRef<"cover" | "recommendations" | null>(null);
   const coverTouchGestureRef = useRef<GuestCoverTouchGesture | null>(null);
-  const orbitDragRef = useRef<{ pointerId: number; startX: number; startY: number; lastX: number; lastTime: number; velocity: number; startPosition: number; intent: FeatureOrbitGestureIntent }>({ pointerId: -1, startX: 0, startY: 0, lastX: 0, lastTime: 0, velocity: 0, startPosition: 0, intent: "pending" });
-  const orbitSuppressClickRef = useRef(false);
   useDocumentScrollLock(dictionaryMounted && compactViewport);
 
   const category = CATEGORY_FILTERS.find((item) => item.label === activeCategory) ?? CATEGORY_FILTERS[0];
@@ -589,56 +552,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
     }, { rootMargin: "-5% 0px -8%", threshold: 0.04 });
     sections.forEach((section) => observer.observe(section));
 
-    const featureSection = featureOrbitRef.current;
-    const closingSection = closingRef.current;
-    const featureExitObserver = featureSection && closingSection
-      ? new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) featureSection.dataset.exiting = "true";
-          else delete featureSection.dataset.exiting;
-        });
-      }, { rootMargin: "0px 0px -50%", threshold: 0 })
-      : null;
-    if (closingSection) featureExitObserver?.observe(closingSection);
-
     window.addEventListener("scroll", trackDirection, { passive: true });
     return () => {
       observer.disconnect();
-      featureExitObserver?.disconnect();
       window.removeEventListener("scroll", trackDirection);
     };
   }, [memberHome]);
-
-  useEffect(() => {
-    const section = featureOrbitRef.current;
-    if (!section || memberHome) {
-      setFeatureInView(false);
-      return;
-    }
-    section.dataset.motionReady = "true";
-    if (!("IntersectionObserver" in window)) {
-      section.dataset.visible = "true";
-      setFeatureInView(true);
-      return;
-    }
-    const observer = new IntersectionObserver(([entry]) => {
-      const visible = Boolean(entry?.isIntersecting);
-      setFeatureInView(visible);
-      if (visible) section.dataset.visible = "true";
-      else delete section.dataset.visible;
-    }, { rootMargin: "0px 0px -12%", threshold: 0.24 });
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, [memberHome]);
-
-  useEffect(() => {
-    if (memberHome || !featureInView || featureAutoplayStopped || !recommendationMotionEnabled) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => {
-      setFeaturePosition((current) => Math.round(current) + 1);
-    }, FEATURE_ORBIT_AUTOPLAY_MS);
-    return () => window.clearInterval(timer);
-  }, [featureAutoplayStopped, featureInView, memberHome, recommendationMotionEnabled]);
 
   useEffect(() => () => {
     if (memberOpeningFrameRef.current) window.cancelAnimationFrame(memberOpeningFrameRef.current);
@@ -654,7 +573,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     let distance = 1;
     const measureCover = () => {
       const stage = coverStageRef.current;
-      const recommendation = recommendationsRef.current;
+      const recommendation = featureShowcaseRef.current;
       if (!stage || !recommendation) return;
       stageTop = stage.getBoundingClientRect().top + window.scrollY;
       const recommendationTop = recommendation.getBoundingClientRect().top + window.scrollY;
@@ -694,7 +613,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     if (memberHome || compactViewport) return;
     const coverBounds = () => {
       const stage = coverStageRef.current;
-      const recommendations = recommendationsRef.current;
+      const recommendations = featureShowcaseRef.current;
       if (!stage || !recommendations) return null;
       const stageTop = stage.getBoundingClientRect().top + window.scrollY;
       const recommendationsTop = recommendations.getBoundingClientRect().top + window.scrollY;
@@ -875,7 +794,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
   function animateCoverSnap(target: "cover" | "recommendations") {
     const stage = coverStageRef.current;
-    const recommendations = recommendationsRef.current;
+    const recommendations = featureShowcaseRef.current;
     if (!stage || !recommendations) return;
     if (coverScrollFrameRef.current && coverScrollTargetRef.current === target) return;
     if (coverScrollFrameRef.current) window.cancelAnimationFrame(coverScrollFrameRef.current);
@@ -985,74 +904,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
       persistHomeViewState({ category: nextCategory });
       window.requestAnimationFrame(() => setCategorySwitching(false));
     }, 190);
-  }
-
-  function startOrbitDrag(event: PointerEvent<HTMLDivElement>) {
-    if (event.button !== 0) return;
-    orbitDragRef.current = {
-      pointerId: event.pointerId,
-      startX: event.clientX,
-      startY: event.clientY,
-      lastX: event.clientX,
-      lastTime: performance.now(),
-      velocity: 0,
-      startPosition: featurePosition,
-      intent: "pending",
-    };
-    orbitSuppressClickRef.current = false;
-  }
-
-  function moveOrbitDrag(event: PointerEvent<HTMLDivElement>) {
-    const drag = orbitDragRef.current;
-    if (drag.pointerId !== event.pointerId) return;
-    if (drag.intent === "pending") {
-      drag.intent = classifyFeatureOrbitGesture(event.clientX - drag.startX, event.clientY - drag.startY);
-      if (drag.intent === "vertical") return;
-      if (drag.intent === "horizontal") {
-        event.currentTarget.setPointerCapture(event.pointerId);
-        setFeatureDragging(true);
-        setFeatureAutoplayStopped(true);
-        orbitSuppressClickRef.current = true;
-      }
-    }
-    if (drag.intent !== "horizontal") return;
-    event.preventDefault();
-    const now = performance.now();
-    const elapsed = Math.max(8, now - drag.lastTime);
-    drag.velocity = (event.clientX - drag.lastX) / elapsed;
-    drag.lastX = event.clientX;
-    drag.lastTime = now;
-    const step = Math.min(330, Math.max(230, window.innerWidth * 0.22));
-    const nextDrag = (event.clientX - drag.startX) / step;
-    setFeaturePosition(drag.startPosition - nextDrag);
-  }
-
-  function finishOrbitDrag(event: PointerEvent<HTMLDivElement>) {
-    const drag = orbitDragRef.current;
-    if (drag.pointerId !== event.pointerId) return;
-    if (drag.intent !== "horizontal") {
-      orbitDragRef.current.pointerId = -1;
-      return;
-    }
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
-    const step = Math.min(330, Math.max(230, window.innerWidth * 0.22));
-    const projected = (event.clientX - drag.startX) / step + drag.velocity * 170 / step;
-    const shift = Math.max(-2, Math.min(2, Math.round(projected)));
-    setFeaturePosition(drag.startPosition - shift);
-    setFeatureDragging(false);
-    orbitDragRef.current.pointerId = -1;
-    window.setTimeout(() => { orbitSuppressClickRef.current = false; }, 0);
-  }
-
-  function centerOrbitCard(index: number) {
-    setFeaturePosition((current) => {
-      const count = FEATURE_ORBIT.length;
-      const normalized = ((current % count) + count) % count;
-      let delta = index - normalized;
-      if (delta > count / 2) delta -= count;
-      if (delta < -count / 2) delta += count;
-      return current + delta;
-    });
   }
 
   async function copyWechat() {
@@ -1195,15 +1046,15 @@ export function HomeRedesign(props: HomeRedesignProps) {
             <h1 id="home-redesign-title">在语境里，<br />读懂英文。</h1>
             <p className={styles.heroSubtitle}>{HERO_SUBTITLES[heroSubtitleVariant]}</p>
             <button type="button" className={styles.coverAction} onClick={() => compactViewport
-              ? recommendationsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+              ? featureShowcaseRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
               : animateCoverSnap("recommendations")}>
-              <span>精选外刊</span><i aria-hidden="true">↓</i>
+              <span>看看怎么读</span><i aria-hidden="true">↓</i>
             </button>
           </div>
           <div className={styles.mobileCoverDecoration} aria-hidden="true">
             <span>READ</span><span>MEANING</span><span>CONTEXT</span><i /><b />
           </div>
-          <div className={styles.heroEdge} aria-hidden="true"><span>SELECTED READING</span><i /></div>
+          <div className={styles.heroEdge} aria-hidden="true"><span>EXPLORE CONTEXT READER</span><i /></div>
         </section>}
 
         {!memberHome && !compactViewport && <div className={styles.ballField} aria-hidden="true">
@@ -1271,6 +1122,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
             </div>
           </section>
         )}
+
+        {!memberHome && <FeatureShowcase sectionRef={featureShowcaseRef} onGuide={() => openMenuPreview("guide")} motionEnabled={recommendationMotionEnabled} />}
 
         <section ref={recommendationsRef} className={styles.recommendations} aria-labelledby="selected-reading-title">
           <div className={styles.sectionHead}>
@@ -1408,73 +1261,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
         </section>
 
         {!memberHome && renderImportSection()}
-
-        {!memberHome && <section ref={featureOrbitRef} className={styles.featureOrbit} aria-labelledby="feature-orbit-heading">
-          <header>
-            <div className={styles.orbitHeading}>
-              <p>HOW IT STAYS WITH YOU</p>
-              <h2 id="feature-orbit-heading">让一篇文章，真正读下去。</h2>
-            </div>
-            <div className={styles.orbitControlGroup}>
-              <div className={styles.featureGuideRow}>
-                <span className={styles.featureZoneLabel}>功能展示区</span>
-                <button type="button" className={styles.featureGuideButton} onClick={() => openMenuPreview("guide")}>查看使用说明 →</button>
-              </div>
-              <div className={styles.orbitControls} aria-label="切换功能介绍">
-                <button type="button" aria-label="上一个功能" onClick={() => setFeaturePosition((current) => current - 1)}>←</button>
-                <button type="button" aria-label="下一个功能" onClick={() => setFeaturePosition((current) => current + 1)}>→</button>
-              </div>
-            </div>
-          </header>
-          <div
-            className={styles.orbitStage}
-            data-dragging={featureDragging || undefined}
-            onPointerDown={startOrbitDrag}
-            onPointerMove={moveOrbitDrag}
-            onPointerUp={finishOrbitDrag}
-            onPointerCancel={finishOrbitDrag}
-          >
-            {FEATURE_ORBIT.map((feature, index) => {
-              const count = FEATURE_ORBIT.length;
-              const half = count / 2;
-              const offset = ((((index - featurePosition) + half) % count) + count) % count - half;
-              const distance = Math.abs(offset);
-              return (
-                <button
-                  type="button"
-                  key={feature.key}
-                  className={styles.orbitCard}
-                  data-active={distance < 0.001 || undefined}
-                  data-hidden={distance > 2.55 || undefined}
-                  data-offset={offset}
-                  style={{
-                    "--orbit-z": `${distance * -150}px`,
-                    "--orbit-rotate": `${offset * -11}deg`,
-                    "--orbit-x": `${(offset * (compactViewport ? 250 : 300)).toFixed(2)}px`,
-                    "--orbit-scale": Math.max(0.82, 1 - distance * 0.055),
-                    "--orbit-opacity": Math.max(0, 1 - distance * 0.2),
-                    zIndex: distance < 0.001 ? 120 : 100 - Math.round(distance * 12),
-                  } as CSSProperties}
-                  aria-label={`查看功能：${feature.title}`}
-                  tabIndex={distance > 2 ? -1 : 0}
-                  onClick={() => { if (!orbitSuppressClickRef.current) centerOrbitCard(index); }}
-                >
-                  <div className={styles.orbitVisual} data-kind={feature.key} aria-hidden="true">
-                    <FeatureOrbitVisual kind={feature.key} />
-                  </div>
-                  <div className={styles.orbitCopy}>
-                    <h3>{feature.title}</h3>
-                    <p>{feature.copy}</p>
-                    <span>{feature.meta}</span>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-          <div className={styles.orbitDragHint} aria-hidden="true">
-            <span>←</span><i><b /></i><strong>拖动浏览</strong><span>→</span>
-          </div>
-        </section>}
 
         <section ref={closingRef} className={styles.closingSection} aria-labelledby="closing-heading">
           <div className={styles.closingCopy}>

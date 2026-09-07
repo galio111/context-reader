@@ -1094,7 +1094,7 @@ test("release image retention preserves current and direct-parent rollback image
   assert.doesNotMatch(script, /docker (?:system|volume) prune|rm -rf/);
 });
 
-test("homepage feature cards reserve vertical gestures for page scrolling", () => {
+test("homepage showcase preserves mobile scrolling and replaces automatic card rotation", () => {
   assert.equal(FEATURE_ORBIT_AUTOPLAY_MS, 6_000);
   assert.equal(classifyFeatureOrbitGesture(4, 7), "pending");
   assert.equal(classifyFeatureOrbitGesture(13, 5), "horizontal");
@@ -1103,7 +1103,9 @@ test("homepage feature cards reserve vertical gestures for page scrolling", () =
   const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
   const styles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
   assert.match(component, /!memberHome && !compactViewport && <div className=\{styles\.ballField\}/);
-  assert.match(component, /setFeatureAutoplayStopped\(true\)/);
+  const showcase = readFileSync(new URL("../components/FeatureShowcase.tsx", import.meta.url), "utf8");
+  assert.doesNotMatch(showcase, /setInterval|onTouchMove|onPointerMove/);
+  assert.match(component, /!memberHome && <FeatureShowcase/);
   assert.match(styles, /\.ballField, \.coverBreath \{ display: none; \}/);
   assert.match(styles, /\.closingActions \{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
   assert.match(styles, /\.qrToggle, \.wechatQr \{ display: none !important; \}/);

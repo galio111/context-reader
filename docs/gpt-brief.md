@@ -1,10 +1,8 @@
 # Context Reader GPT 项目上下文包
 
-首页重设计继续讨论前，优先读取 `docs/home-redesign-current-decisions.md`；需要追溯用户每轮原始选择时读取 `docs/home-redesign-interview-archive.md`。历史问卷和产品历程可以保留被覆盖答案，不能反向覆盖当前决策总表。
+## 录屏功能展示首版（2026-09-07，待用户视觉验收）
 
-这是一份给无法读取仓库的对话使用的精简上下文。能连接 GitHub 时，优先读取 `galio111/context-reader` 当前分支的 `AGENTS.md` 和相关代码；GitHub 看不到本地未提交改动、浏览器数据、Codex 记忆和私有生产状态。
-
-如果本文与代码、`AGENTS.md`、`PRODUCT.md` 或 `docs/architecture.md` 冲突，先让 Codex 核对当前工作区。回答时必须区分“已经实现”“已接受但待实现”“候选想法”和“已放弃方向”。
+游客顺序改为品牌开幕 → 五模块录屏展示 → 精选外刊 → 自主导入 → 反馈，七卡功能环被覆盖。桌面左文右画面，底部模块紧贴画面；手机上下布局，双导入画面也上下排列。选择模块、“下一个”及左右按钮循环切换；最后一块为可暂停的循环文字动效。当前真实录屏未提供，显示预留框，实际媒体播放待接入后验收。手机延续无球体降级，登录工作台及现有屏间动效边界不变。详情见 `home-redesign-current-decisions.md` 和 `architecture.md`。
 
 ## 1. 项目与生产
 
