@@ -23,6 +23,8 @@ A local edit can remain present while production uses a later package that omitt
 
 The mutable bootstrap checkout at `/opt/context-reader/ops/mainland` is not a release source. It may retain core-service maintenance material, but it must never be used to recreate `app`; doing so can bypass cumulative release files and environment overrides. Production app recovery must use the accepted snapshot resolved by `/opt/context-reader-current` or the stable release entrypoint.
 
+The isolated `ops/vercel-overseas-fetcher/` project has its own Vercel deployment lifecycle and may expose only `api/fetch.mjs`. Never deploy the repository root or full Next.js app to that project. Its server-only token must be rotated independently and installed only in ignored Vercel/mainland runtime environments. Changing the mainland caller still requires this complete versioned release workflow; changing only the relay does not authorize an application, database, or legacy Vercel deployment.
+
 ## Parallel-session behavior
 
 Development may run in parallel in separate branches/worktrees. Production integration is deliberately serialized:

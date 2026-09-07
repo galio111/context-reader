@@ -1,5 +1,6 @@
 import robotsParser from "robots-parser";
-import { safeRemoteFetch, readResponseText } from "@/lib/safeRemoteFetch";
+import { readResponseText } from "@/lib/safeRemoteFetch";
+import { fetchRemoteDocument } from "@/lib/overseasFetch";
 const cache = new Map<string, { at: number; text: string }>();
 const nextAllowedAt = new Map<string, number>();
 const AGENT = "ContextReaderRecommendationCrawler";
@@ -7,7 +8,13 @@ export async function assertCrawlerAllowed(url: string): Promise<void> {
   const robotsUrl = new URL("/robots.txt", url).href;
   let entry = cache.get(robotsUrl);
   if (!entry || Date.now() - entry.at > 300_000) {
-    const response = await safeRemoteFetch(robotsUrl, { headers: { "User-Agent": AGENT + "/2.0 (+https://context-reader.com)" }, signal: AbortSignal.timeout(12_000) });
+    const { response } = await fetchRemoteDocument(robotsUrl, {
+      headers: { "User-Agent": AGENT + "/2.0 (+https://context-reader.com)" },
+    }, {
+      mode: "feed",
+      directTimeoutMs: 5_000,
+      overseasTimeoutMs: 15_000,
+    });
     if (!response.ok && response.status !== 404) throw new Error("暂时无法确认网站的自动抓取规则，未继续读取");
     entry = { at: Date.now(), text: response.status === 404 ? "" : await readResponseText(response, 256_000) };
     if (/<html|<!doctype html/i.test(entry.text)) throw new Error("网站返回验证页面，未继续自动抓取");

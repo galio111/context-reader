@@ -1,7 +1,8 @@
 import { JSDOM } from "jsdom";
 import type { DiscoverySite } from "@/lib/discoveryStore";
 import { sourceAllowsArticleUrl, type RecommendationCrawlerSource } from "@/lib/recommendationSources";
-import { readResponseText, safeRemoteFetch } from "@/lib/safeRemoteFetch";
+import { readResponseText } from "@/lib/safeRemoteFetch";
+import { fetchRemoteDocument } from "@/lib/overseasFetch";
 import { assertCrawlerAllowed } from "@/lib/crawlerRobots";
 import type { RecommendationCrawlerRunInput } from "@/types/recommendationCrawler";
 const MAX_FEED_BYTES = 1_200_000;
@@ -128,13 +129,17 @@ export async function readSourceFeed(
   topic: RecommendationCrawlerRunInput["topic"],
 ): Promise<FeedItem[]> {
   await assertCrawlerAllowed(source.feedUrl);
-  const response = await safeRemoteFetch(source.feedUrl, {
+  const remote = await fetchRemoteDocument(source.feedUrl, {
     headers: {
       Accept: "application/rss+xml,application/atom+xml,application/xml,text/xml",
       "User-Agent": "ContextReaderRecommendationCrawler/2.0 (+https://context-reader.com)",
     },
-    signal: AbortSignal.timeout(12_000),
+  }, {
+    mode: "feed",
+    directTimeoutMs: 5_000,
+    overseasTimeoutMs: 18_000,
   });
+  const response = remote.response;
   if (!response.ok) {
     throw new Error(`Feed 返回 ${response.status}`);
   }

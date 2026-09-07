@@ -8,7 +8,7 @@ Use the fixed production URL:
 https://context-reader.com
 ```
 
-Do not treat Vercel deployment snapshot URLs as user-facing URLs. `https://context-reader-ten.vercel.app` is retained only as a rollback/reference origin.
+Do not treat Vercel deployment snapshot URLs as user-facing URLs. `https://context-reader-ten.vercel.app` is retained only as a rollback/reference origin. The separate `context-reader-overseas-fetch` project exposes one authenticated server-to-server byte relay; it is not a second app deployment.
 
 Production uses the versioned Docker workflow under `ops/mainland/`: Caddy fronts the Next.js app and the private Supabase-compatible PostgreSQL/Auth/REST/Storage services. Supabase Cloud is a frozen rollback copy and is never a production request path. The compatibility variable names remain, but production Compose must set `SUPABASE_URL=http://supabase-api:8000`, take the service-role credential from the self-hosted stack, and expose `backendMode: "mainland_internal"`. Keep real credentials only in the server-side ignored environment files.
 
@@ -34,6 +34,8 @@ ADMIN_PASSWORD=...
 ADMIN_SESSION_SECRET=...
 ADMIN_SESSION_VERSION=1
 CRON_SECRET=...
+OVERSEAS_FETCH_URL=https://fetch.context-reader.com/api/fetch
+OVERSEAS_FETCH_TOKEN=... # independent random secret, at least 32 characters; server-only
 SUPABASE_URL=http://supabase-api:8000
 SUPABASE_PUBLIC_URL=https://context-reader.com
 SUPABASE_SERVICE_ROLE_KEY=... # self-hosted service role; Compose supplies this from SERVICE_ROLE_KEY
@@ -105,6 +107,10 @@ Offline remembered accounts can read and save local articles, update local vocab
 ## URL Import
 
 `POST /api/import-url`
+
+The mainland route validates and DNS-pins the target, tries a bounded direct GET first, and falls back to `OVERSEAS_FETCH_URL` only for network/reachability failures or statuses `403`, `408`, `425`, `429`, `451`, `500`, `502`, `503`, and `504`. Invalid/private URLs and caller cancellation never reach Vercel. The relay accepts only `POST /api/fetch` authenticated by `X-Context-Reader-Fetch-Token`; its request body contains only `{ url, mode }`, where mode selects a fixed HTML or feed `Accept` header. It independently validates every redirect, pins public DNS results, permits only standard HTTP(S), forwards no Cookie/Authorization/arbitrary headers, uses a 12-second upstream deadline, and returns no more than 1.5 MB. The mainland service revalidates the returned final URL and alone performs article parsing, quota, error handling, candidate creation, image localization, Storage, accounts and Admin work.
+
+RSS/Atom/index discovery and `robots.txt` reads share this direct-first fallback. Robots policy still runs before discovery and cannot be bypassed. Remote image/OCR/download/cover/pronunciation traffic never uses this Vercel project. If either environment variable is missing or invalid, the application remains direct-only. Rotate a suspected token in Vercel and the mainland ignored runtime files, redeploy the fetcher, then recreate only the mainland `app`/`caddy` through the normal versioned release. Deploy the isolated project only from `ops/vercel-overseas-fetcher/`; never link or deploy the repository root to that Vercel project.
 
 ```json
 {

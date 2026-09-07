@@ -4,9 +4,11 @@ Context Reader is a Next.js reading tool for importing real English articles and
 
 - Production: `https://context-reader.com`
 - Primary route: `/`; legacy `/home-v2` links permanently redirect to the root and preserve query parameters
-- Rollback/reference: `https://context-reader-ten.vercel.app`
+- Rollback/reference app: `https://context-reader-ten.vercel.app`
+- Overseas fetch-only service: `https://fetch.context-reader.com/api/fetch` (server-to-server only; no product UI or data)
 - Stack: Next.js 15, React 19, TypeScript, DeepSeek, local-first browser data and a mainland self-hosted Supabase-compatible PostgreSQL/Auth/REST/Storage backend
 - Production data boundary: all account, sync, recommendation and object-storage traffic stays inside the mainland Docker network; Supabase Cloud is a frozen rollback copy only and is never a live request target
+- URL/feed egress boundary: mainland direct fetch remains first; only bounded public HTML/feed/robots reads may fall back to the isolated authenticated Vercel fetcher
 
 The reader is the product center. Article text remains visually primary while lookup, translation, vocabulary, saving, recommendations and account tools support the reading flow.
 
@@ -97,6 +99,8 @@ ADMIN_PASSWORD=
 ADMIN_SESSION_SECRET=
 ADMIN_SESSION_VERSION=1
 CRON_SECRET=
+OVERSEAS_FETCH_URL=https://fetch.context-reader.com/api/fetch
+OVERSEAS_FETCH_TOKEN=
 
 VOLCENGINE_TTS_APP_ID=
 VOLCENGINE_TTS_ACCESS_TOKEN=
