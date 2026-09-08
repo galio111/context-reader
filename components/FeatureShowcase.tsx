@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type RefObject, type CSSProperties } from "react";
+import { GuideLanyard } from "./GuideLanyard";
 import styles from "./FeatureShowcase.module.css";
 
 // Reviewed silent recordings; remaining modules retain their placeholders.
@@ -41,7 +42,7 @@ function Recording({ src, label, playing }: { src: string; label: string; playin
   </div>;
 }
 
-export function FeatureShowcase({ sectionRef, onGuide, motionEnabled }: { sectionRef: RefObject<HTMLElement | null>; onGuide: () => void; motionEnabled: boolean }) {
+export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen = false }: { sectionRef: RefObject<HTMLElement | null>; onGuide: () => void; motionEnabled: boolean; guideOpen?: boolean }) {
   const [active, setActive] = useState(0);
   const [replay, setReplay] = useState(0);
   const [visible, setVisible] = useState(false);
@@ -69,14 +70,20 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled }: { sectio
     <div key={`ambience-${active}`} className={styles.ambience} aria-hidden="true" />
     <div className={styles.inner}>
       <div id="feature-showcase-panel" role="tabpanel" aria-labelledby={`feature-tab-${feature.id}`} className={styles.presentation}>
-        <div className={styles.copy} key={`copy-${active}-${replay}`}>
+        {feature.id !== "explore" && <div className={styles.copy} key={`copy-${active}-${replay}`}>
           <h2>{feature.title.map(line => <span key={line}>{line}</span>)}</h2>
           {feature.paragraphs.map(text => <p key={text}>{text}</p>)}
           <button type="button" className={styles.next} onClick={() => select(active + 1)}>下一个 <span aria-hidden="true">↗</span></button>
-        </div>
+        </div>}
         <div key={`media-${active}-${replay}`} className={`${styles.media} ${feature.id === "import" ? styles.dual : ""}`} style={feature.id === "publications" ? { "--poster": "url(/showcase/publications-v1.webp)" } as CSSProperties : undefined}>
           {feature.id === "explore" ? <div className={styles.finale}>
-            <div className={styles.finaleCanvas}><span>读懂，只是开始。</span><strong><i>更多</i><i>可能，</i><i>等你发现。</i></strong><div className={styles.words}><span>全文翻译</span><span>文章摘要</span><span>独立词典</span><span>继续阅读</span></div><b aria-hidden="true">↗</b></div>
+            <div className={styles.finaleCanvas}>
+              <h2><i>更多</i><i>可能，</i><i>等你发现。</i></h2>
+              <div className={styles.words}><span>全文翻译</span><span>文章摘要</span><span>独立词典</span><span>继续阅读</span></div>
+              <p className={styles.dragHint}>拉一下吊牌，打开使用说明。</p>
+              <button type="button" className={styles.next} onClick={() => select(0)}>再看一遍 <span aria-hidden="true">↗</span></button>
+            </div>
+            <GuideLanyard onOpen={onGuide} running={visible && !paused && !guideOpen} motionEnabled={motionEnabled} />
           </div> : feature.screens.map(screen => <Recording key={screen.label} src={screen.src} label={screen.label} playing={visible && !paused} />)}
         </div>
       </div>
@@ -88,7 +95,7 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled }: { sectio
         </div>
         <div className={styles.arrows}><button type="button" aria-label="上一个功能" onClick={() => select(active - 1)}>←</button><button type="button" aria-label="下一个功能" onClick={() => select(active + 1)}>→</button></div>
       </div>
-      <div className={styles.footer}><button type="button" onClick={onGuide}>查看使用说明 ↗</button>{(feature.id === "explore" || feature.screens.some(screen => Boolean(screen.src))) && <button type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? "继续播放" : "暂停播放"}</button>}</div>
+      <div className={styles.footer}>{(feature.id === "explore" || feature.screens.some(screen => Boolean(screen.src))) && <button type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? "继续播放" : "暂停播放"}</button>}</div>
     </div>
   </section>;
 }

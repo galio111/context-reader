@@ -1,5 +1,12 @@
 # Context Reader Architecture
 
+## 首页探索吊牌
+
+`GuideLanyard` 在探索模块可见后惰性加载 `GuideLanyardScene`，后者复用 React Bits 的 Rapier 绳索/球形关节与 GLB 网格。正反面 SVG 组合到原模型 UV 图集；网格 GLB 约 163KB，原嵌入纹理改为约 231KB 的同源 WebP，避免 blob 纹理抓取并减少传输；许可证随资源保留。松手且位移超过 8px 后延迟 1000ms 调用首页正常 Menu guide preview，离屏、卸载、再次拖拽会取消旧任务。Menu 开启后模拟暂停；减少动态效果和 WebGL/资源失败时为键盘可用的静态吊牌入口。
+
+`next.config.ts` 仅对 `/` 的 CSP 添加 `wasm-unsafe-eval` 以运行打包在本地 chunk 内的 Rapier。生产 JavaScript `unsafe-eval` 仍禁止，其他路径保持原 CSP，connect-src 未扩展。文字层不使用视频渐隐遮罩。
+
+
 ## 2026-09-07 沉浸式录屏展示（当前实现，待用户视觉验收）
 
 最新直接反馈覆盖首版小字号、窗口式录屏边框、双行方卡胶囊及深色探索底。保留左文右画面和既有游客屏间顺序；展示区扩大到 1800px 上限，标题改用外刊区域已有的宋体字形并加重，正文 17–22px。去掉网页窗口栏、边框与硬底，视频按原比例显示，四边用约 12–14% 的宽渐隐区域融入模块色场；以静态封面柔光延伸氛围，不使用第二个视频解码器。

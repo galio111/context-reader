@@ -50,6 +50,12 @@ const nextConfig: NextConfig = {
         headers: securityHeaders,
       },
       {
+        source: "/",
+        // Rapier's bundled WASM is used only by the homepage lanyard.
+        // Keep JavaScript eval prohibited in production and all other routes unchanged.
+        headers: [{ key: "Content-Security-Policy", value: contentSecurityPolicy.replace("script-src 'self'", "script-src 'self' 'wasm-unsafe-eval'") }],
+      },
+      {
         source: "/api/admin/:path*",
         headers: [
           { key: "Cache-Control", value: "private, no-store" },
