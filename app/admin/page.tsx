@@ -27,6 +27,7 @@ import type { ArticleRecommendationMetadata, PublicArticle, PublicArticleTransla
 import {
   editorialCategoryForArticle,
   editorialCategoryForRecommendation,
+  editorialCategoryLabel,
   setPublishedArticlePlacement,
   type EditorialCategory,
   type PublishedArticlePlacement,
@@ -459,7 +460,7 @@ export default function AdminPage() {
       const data = await response.json().catch(() => null) as { curation?: HomepageCuration; error?: string } | null;
       if (!response.ok) throw new Error(data?.error || "打乱失败，请稍后重试。");
       if (data?.curation) setHomepageCuration(data.curation);
-      setStatus("往日精选已在推荐、时事、科技、文化和商业中一起打乱；今天精选仍在前面，未设今日主推的栏目已随机选出主推。");
+      setStatus("往日精选已在推荐、时事、科学、文化和商业中一起打乱；今天精选仍在前面，未设今日主推的栏目已随机选出主推。");
     } catch { setStatus("打乱暂时失败，请稍后重试。"); } finally { setShuffling(false); }
   }
 
@@ -883,7 +884,7 @@ export default function AdminPage() {
               <div className="mt-4 grid gap-2 sm:grid-cols-2">
                 <input className="h-10 rounded-lg border border-[#c9ced6] px-3 text-sm" type="search" value={editorialSearch} onChange={(event) => setEditorialSearch(event.target.value)} placeholder="搜索标题或来源" />
                 <select className="h-10 rounded-lg border border-[#c9ced6] px-3 text-sm" value={editorialDifficulty} onChange={(event) => setEditorialDifficulty(event.target.value)}><option value="">全部难度</option>{[...new Set(drawerSource.map((item) => item.recommendation?.difficulty).filter(Boolean))].map((difficulty) => <option key={difficulty} value={difficulty}>{difficulty}</option>)}</select>
-                <select className="h-10 rounded-lg border border-[#c9ced6] px-3 text-sm sm:col-span-2" value={editorialCategory} onChange={(event) => setEditorialCategory(event.target.value)}><option value="">全部栏目</option><option>时事</option><option>科技</option><option>文化</option><option>商业</option></select>
+                <select className="h-10 rounded-lg border border-[#c9ced6] px-3 text-sm sm:col-span-2" value={editorialCategory} onChange={(event) => setEditorialCategory(event.target.value)}><option value="">全部栏目</option>{(["时事", "科技", "文化", "商业"] as EditorialCategory[]).map((item) => <option key={item} value={item}>{editorialCategoryLabel(item)}</option>)}</select>
               </div>
             </header>
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-3">
@@ -992,7 +993,7 @@ export default function AdminPage() {
             <div>
               <p className="text-xs font-semibold text-[#1769aa]">每日内容工作台</p>
               <h2 id="editorial-desk-title" className="mt-1 text-[24px] font-semibold">阅读、判断、继续下一篇</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#4d535a]">候选仍按今天加入优先。打乱只作用于已精选的首页文章，并同时更新推荐、时事、科技、文化和商业；今天精选保持在前。左侧修改会自动保存，完成判断后自动进入下一篇。</p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#4d535a]">候选仍按今天加入优先。打乱只作用于已精选的首页文章，并同时更新推荐、时事、科学、文化和商业；今天精选保持在前。左侧修改会自动保存，完成判断后自动进入下一篇。</p>
             </div>
             <div className="flex flex-wrap gap-2">
               <button className="min-h-11 rounded-full border border-[#1769aa] px-5 text-sm font-semibold text-[#1769aa] disabled:opacity-45" type="button" disabled={shuffling || publicArticles.length < 2} onClick={() => void shufflePublishedArticles()}>{shuffling ? "正在打乱…" : "打乱往日精选"}</button>

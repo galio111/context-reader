@@ -6,6 +6,7 @@ import {
 import type { HomepageCuration } from "@/lib/homepageCurationShared";
 import type { PublicArticle } from "@/types/publicArticle";
 import { articleHasHomepageImage } from "@/lib/articleMedia";
+import { shanghaiDay } from "@/lib/discoveryPolicy";
 
 export const HOMEPAGE_RECOMMENDATION_TARGET = 10;
 export const HOMEPAGE_MOBILE_RECOMMENDATION_TARGET = 7;
@@ -76,17 +77,36 @@ function uniqueArticles(items: Array<PublicArticle | undefined>): PublicArticle[
   ).values()];
 }
 
+function keepTodayBeforeOlder(
+  articles: PublicArticle[],
+  selectedAtById: Record<string, string> | undefined,
+  dayKey: string,
+): PublicArticle[] {
+  if (!dayKey) return articles;
+  const isToday = (article: PublicArticle) => {
+    const selectedAt = selectedAtById?.[article.id];
+    return Boolean(selectedAt) && shanghaiDay(selectedAt) === dayKey;
+  };
+  return [
+    ...articles.filter(isToday),
+    ...articles.filter((article) => !isToday(article)),
+  ];
+}
+
 /** Editorial placement controls order without hiding the rest of a category. */
 export function orderHomepageCategoryArticles(
   articles: PublicArticle[],
   curatedIds: string[],
+  selectedAtById?: Record<string, string>,
+  dayKey = "",
 ): PublicArticle[] {
   const byId = new Map(articles.map((article) => [article.id, article]));
   const curatedIdSet = new Set(curatedIds);
-  return deferHomepageImageFreeArticles(uniqueArticles([
+  const ordered = deferHomepageImageFreeArticles(uniqueArticles([
     ...curatedIds.map((id) => byId.get(id)),
     ...articles.filter((article) => !curatedIdSet.has(article.id)),
   ]), curatedIds.length > 0);
+  return keepTodayBeforeOlder(ordered, selectedAtById, dayKey);
 }
 
 /**
@@ -135,5 +155,9 @@ export function orderHomepageRecommendations(
       ))
     : manualRest;
   const ordered = uniqueArticles([featured, ...rest]);
-  return deferHomepageImageFreeArticles(ordered);
+  return keepTodayBeforeOlder(
+    deferHomepageImageFreeArticles(ordered),
+    curation?.selectedAtById,
+    dayKey,
+  );
 }

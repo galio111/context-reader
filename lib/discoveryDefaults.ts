@@ -56,7 +56,7 @@ export function defaultDiscoverySites(): DiscoverySite[] {
   for (const [name, host, url, topics, lower, articlePath] of additions) groups.set(host, {
     id: host.replaceAll(".", "-"), name, articleHosts: [host], feedUrl: url, feeds: [url], topics,
     levelHint: lower ? "lower" : "mixed", enabled: false, dailyTarget: 2, discovery: articlePath ? "index" : "feed", articlePath,
-    note: lower ? "专门补充较低难度；仍按实际语言分级，短讯不凑数。" : "待逐站验证，科技只接收面向普通读者的解释型内容。",
+    note: lower ? "专门补充较低难度；仍按实际语言分级，短讯不凑数。" : "待逐站验证，科学只接收面向普通读者的解释型内容。",
   });
   const sites = [...groups.values()];
   const pdr = sites.find((site) => site.articleHosts[0] === "publicdomainreview.org");

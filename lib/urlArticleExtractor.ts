@@ -206,6 +206,7 @@ function imageSource(element: Element, baseUrl: string): string {
       element.getAttribute("data-src") ||
       element.getAttribute("data-original") ||
       element.getAttribute("data-lazy-src") ||
+      element.getAttribute("data-lazy") ||
       element.getAttribute("src") ||
       "",
     baseUrl,
@@ -661,7 +662,7 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
   const normalizedHtml = unwrapEscapedEntityAmpersands(html);
   const dom = new JSDOM(normalizedHtml, { url: baseUrl, contentType: "text/html" });
   const document = dom.window.document;
-  const intakeWarnings = publisherIntakeWarnings(document);
+  const intakeWarnings = publisherIntakeWarnings(document, baseUrl);
   const metadataTitle = metaContent(document, "og:title") || metaContent(document, "twitter:title") || singleLineText(document.title);
   const metadataDescription = metaContent(document, "og:description") || metaContent(document, "description") || metaContent(document, "twitter:description");
   const metadataSiteName = metaContent(document, "og:site_name") || new URL(baseUrl).hostname.replace(/^www\./, "");

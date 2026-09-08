@@ -91,6 +91,7 @@ function crawlerCandidateInput(
     cefr: classification.cefr,
     audienceStages: classification.audienceStages,
     topics: classification.topics,
+    homepageCategory: classification.homepageCategory,
     discoverySourceId: item.source.id,
     wordCount: classification.wordCount,
     timeliness: classification.timeliness,
@@ -195,9 +196,12 @@ export async function runRecommendationCrawler(
       const imported = await importArticleThroughApi(origin, item.url);
       const article = imported.article!;
       if (imported.metadata?.intakeWarnings?.length) throw new Error(imported.metadata.intakeWarnings.join("；"));
-      if (article.blocks.filter((block) => block.type === "image").length > 8) throw new Error("图片过多，可能是图库或合集，留待人工导入");
       const words = (article.text.match(/\b[a-zA-Z]+\b/g) ?? []).length;
       if (words < minimumDiscoveryWords(item.source.levelHint)) throw new Error(`正文只有 ${words} 词，自动候选必须超过 400 词`);
+      const imageCount = article.blocks.filter((block) => block.type === "image").length;
+      const host = new URL(item.url).hostname.replace(/^www\./, "");
+      const isReviewedJstorGallery = host === "daily.jstor.org" && words >= 600 && imageCount <= 20;
+      if (imageCount > 8 && !isReviewedJstorGallery) throw new Error("图片过多，可能是图库或合集，留待人工导入");
       if (article.language && !/^en\b/i.test(article.language)) throw new Error("不是英文正文");
       const images = article.blocks.filter((block) => block.type === "image" && block.src && !/logo|avatar|icon|banner|pixel|tracking/i.test(block.src));
       const covers = (imported.metadata?.coverCandidates ?? []).filter((url) => !/logo|avatar|icon|banner|pixel|tracking/i.test(url));
@@ -222,7 +226,7 @@ export async function runRecommendationCrawler(
       );
       if (!classification.qualityReview?.eligible) throw new Error(classification.qualityReview?.reason || "质量判断暂时不可用，未自动入库");
       if (images.some((image) => image.alt?.trim()) && !classification.qualityReview.imageRelevant) throw new Error("配图说明与正文主题不相符");
-      if (classification.topics.includes("科技科学") && classification.qualityReview.specialist) throw new Error("科技内容过于专业，不符合通俗科普要求");
+      if (classification.topics.includes("科技科学") && classification.qualityReview.specialist) throw new Error("科学内容过于专业，不符合通俗科普要求");
       const dateFailure = freshnessFailure([article.publishedTime || "", item.publishedAt], classification.timeliness === "time-sensitive" || classification.topics.includes("商业经济"));
       if (dateFailure) throw new Error(dateFailure);
       const rejectedSimilar = allCandidates.some((old) => old.recommendation?.rejectedAt && old.recommendation.rejectionReason === "内容没兴趣" && similarArticle(article.title + " " + classification.summary, old.title + " " + old.summary, 0.5));

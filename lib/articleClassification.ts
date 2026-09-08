@@ -16,6 +16,7 @@ import { articleEnglishWords, countArticleEnglishWords } from "@/lib/articleWord
 import { audienceForDifficulty } from "@/lib/articleAudience";
 import { recordSystemUsageExecution } from "@/lib/accountStore";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
+import { EDITORIAL_CATEGORIES, editorialCategoryForTopics, type EditorialCategory } from "@/lib/editorialCuration";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
 const MAX_MODEL_TEXT_CHARS = 18_000;
@@ -33,6 +34,7 @@ export interface ArticleClassificationResult {
   cefr: ArticleCefrLevel;
   audienceStages: ArticleAudienceStage[];
   topics: ArticleTopic[];
+  homepageCategory: EditorialCategory;
   wordCount: number;
   timeliness: ArticleTimeliness;
   reviewNotes: string;
@@ -200,6 +202,7 @@ function heuristicResult(
   const metrics = textMetrics(text);
   const profile = sourceProfile(context);
   const { difficulty, cefr } = heuristicDifficulty(metrics, profile);
+  const topics = heuristicTopics(title, text);
   const evidence: ArticleDifficultyEvidence = {
     ...metrics,
     sourceProfile: profile,
@@ -215,7 +218,8 @@ function heuristicResult(
     difficulty,
     cefr,
     audienceStages: audienceForDifficulty(difficulty),
-    topics: heuristicTopics(title, text),
+    topics,
+    homepageCategory: editorialCategoryForTopics(topics),
     wordCount: metrics.wordCount,
     timeliness: heuristicTimeliness(text),
     reviewNotes: "当前为本地兜底判断，发布前请结合难度证据复核。",
@@ -334,12 +338,13 @@ export async function classifyArticle(
 可用 difficulty：${ARTICLE_DIFFICULTIES.join("、")}
 可用 cefr：${ARTICLE_CEFR_LEVELS.join("、")}
 可用 audienceStages：${ARTICLE_AUDIENCE_STAGES.join("、")}
-可用 topics：${ARTICLE_TOPICS.join("、")}
+可用 topics：${ARTICLE_TOPICS.join("、")}。topics 必须按“文章中心主题”从强到弱排序，第一项不能只是正文顺带提到的概念。
+homepageCategory 只能是：${EDITORIAL_CATEGORIES.join("、")}。它是唯一主栏目：根据标题、核心论点和正文主要篇幅选择；历史、艺术、文学、思想类优先归文化，不能只因出现 society、people、work 等泛词就归时事。
 timeliness 只能是 evergreen 或 time-sensitive。旧文章不等于过时，只有内容依赖当前日期、政策、价格、任职者或近期事件时才标为 time-sensitive。
 
 只返回 JSON，字段：
 - summary：45到100个中文字符，具体说明文章讲什么
-- difficulty、cefr、audienceStages（1到4项，可同时覆盖 CET-6、考研、IELTS、TOEFL）、topics（1到3项）、timeliness
+- difficulty、cefr、audienceStages（1到4项，可同时覆盖 CET-6、考研、IELTS、TOEFL）、topics（1到3项，中心主题在第一项）、homepageCategory、timeliness
 - vocabularyProfile：对象，含 a2OrBelow、b1、b2、c1OrAbove 四个整数百分比
 - abstractness：1到5
 - backgroundKnowledge：1到5
@@ -388,6 +393,7 @@ ${context.discoveryReview ? `- qualityReview：对象，含 eligible（布尔值
       ...audienceForDifficulty(difficulty),
     ])].slice(0, 4);
     const topics = allowedValues(parsed.topics, ARTICLE_TOPICS, fallback.topics).slice(0, 3);
+    const homepageCategory = allowedValue(parsed.homepageCategory, EDITORIAL_CATEGORIES, editorialCategoryForTopics(topics));
     const timeliness = parsed.timeliness === "time-sensitive" ? "time-sensitive" : "evergreen";
     const summary = typeof parsed.summary === "string" && parsed.summary.trim().length >= 12
       ? parsed.summary.trim().slice(0, 220)
@@ -435,6 +441,7 @@ ${context.discoveryReview ? `- qualityReview：对象，含 eligible（布尔值
       cefr,
       audienceStages,
       topics,
+      homepageCategory,
       wordCount: countArticleEnglishWords(text),
       timeliness,
       reviewNotes,

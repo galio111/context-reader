@@ -147,7 +147,7 @@ const PROFILE_LEVELS: Array<{ value: ArticleAudienceStage; label: string; group:
   { value: "TOEFL", label: "托福", group: "考试路线" },
 ];
 
-const PROFILE_INTERESTS = ["科技", "自然", "文化", "社会", "成长", "故事"];
+const PROFILE_INTERESTS = ["科学", "自然", "文化", "社会", "成长", "故事"];
 const DEMO_TITLE = "A Railway Takes Root";
 const DEMO_PARAGRAPH_ONE =
   "On the edge of Rotterdam, an abandoned railway has taken root as a ribbon of gardens.";

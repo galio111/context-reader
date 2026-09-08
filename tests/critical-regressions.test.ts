@@ -35,7 +35,7 @@ import {
   recommendationRevealDelayIndex,
 } from "../lib/homepageRecommendations";
 import { buildBalancedRecommendationPlan } from "../lib/recommendationBalance";
-import { setPublishedArticlePlacement, shufflePublishedHomepageCuration } from "../lib/editorialCuration";
+import { editorialCategoryForRecommendation, editorialCategoryLabel, setPublishedArticlePlacement, shufflePublishedHomepageCuration } from "../lib/editorialCuration";
 import {
   DEFAULT_DEEPSEEK_USD_TO_CNY_RATE,
   estimateDeepSeekCostMicrocny,
@@ -675,12 +675,67 @@ test("saved reading preferences replace the generic recommendation lead", () => 
   assert.equal(ordered[0].id, preferredLead.id);
 });
 
+test("today's recommendation selections stay ahead of older preference matches", () => {
+  const today = recommendationArticle("today");
+  const olderMatch = {
+    ...recommendationArticle("older-match"),
+    recommendation: {
+      ...recommendationArticle("older-match").recommendation!,
+      audienceStages: ["高中" as const],
+      topics: ["文化历史" as const],
+    },
+  };
+  const curation = normalizeHomepageCuration({
+    version: 2,
+    categories: { 推荐: [olderMatch.id, today.id], 时事: [], 科技: [], 文化: [], 商业: [] },
+    recommendationFeaturedId: olderMatch.id,
+    selectedAtById: {
+      [olderMatch.id]: "2026-09-06T02:00:00.000Z",
+      [today.id]: "2026-09-07T02:00:00.000Z",
+    },
+  });
+  const ordered = orderHomepageRecommendations([olderMatch, today], curation, {
+    version: 1, readingLevel: "高中", interests: ["culture"], updatedAt: "2026-09-07T03:00:00.000Z", scope: "guest",
+  }, "2026-09-07");
+  assert.deepEqual(ordered.map((article) => article.id), [today.id, olderMatch.id]);
+});
+
 test("category curation keeps the lead order without hiding the remaining published articles", () => {
   const articles = Array.from({ length: 12 }, (_, index) => recommendationArticle(String(index + 1)));
   const ordered = orderHomepageCategoryArticles(articles, ["3", "1"]);
   assert.deepEqual(ordered.slice(0, 2).map((article) => article.id), ["3", "1"]);
   assert.equal(ordered.length, 12);
   assert.equal(new Set(ordered.map((article) => article.id)).size, 12);
+});
+
+test("every category keeps today's selections before an older manually curated lead", () => {
+  const today = recommendationArticle("today-category");
+  const old = recommendationArticle("old-category");
+  const ordered = orderHomepageCategoryArticles(
+    [old, today],
+    [old.id, today.id],
+    { [old.id]: "2026-09-06T02:00:00.000Z", [today.id]: "2026-09-07T02:00:00.000Z" },
+    "2026-09-07",
+  );
+  assert.deepEqual(ordered.map((article) => article.id), [today.id, old.id]);
+});
+
+test("editing an older article today does not turn it into a current-day selection", () => {
+  const actualToday = recommendationArticle("selected-today");
+  const editedOld = { ...recommendationArticle("edited-old"), updatedAt: "2026-09-07T05:00:00.000Z" };
+  const ordered = orderHomepageCategoryArticles(
+    [editedOld, actualToday],
+    [editedOld.id, actualToday.id],
+    { [editedOld.id]: "2026-09-05T02:00:00.000Z", [actualToday.id]: "2026-09-07T02:00:00.000Z" },
+    "2026-09-07",
+  );
+  assert.deepEqual(ordered.map((article) => article.id), [actualToday.id, editedOld.id]);
+});
+
+test("the first model topic is the legacy primary category and science is the displayed label", () => {
+  assert.equal(editorialCategoryForRecommendation({ topics: ["文化历史", "社会生活"] } as PublicArticle["recommendation"]), "文化");
+  assert.equal(editorialCategoryForRecommendation({ topics: ["商业经济", "科技科学"] } as PublicArticle["recommendation"]), "商业");
+  assert.equal(editorialCategoryLabel("科技"), "科学");
 });
 
 test("published shuffle keeps today's selections first and randomizes every homepage category", () => {

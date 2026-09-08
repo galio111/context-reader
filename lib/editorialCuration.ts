@@ -6,6 +6,18 @@ export type EditorialCategory = Exclude<HomeCurationCategory, "推荐">;
 
 export const EDITORIAL_CATEGORIES: EditorialCategory[] = ["时事", "科技", "文化", "商业"];
 
+export function editorialCategoryLabel(category: HomeCurationCategory): string {
+  return category === "科技" ? "科学" : category;
+}
+
+export function editorialCategoryForTopics(topics: ArticleRecommendationMetadata["topics"] = []): EditorialCategory {
+  const primary = topics[0];
+  if (primary === "商业经济") return "商业";
+  if (primary === "社会生活") return "时事";
+  if (primary === "科技科学" || primary === "自然环境") return "科技";
+  return "文化";
+}
+
 export interface PublishedArticlePlacement {
   categoryFeatured: boolean;
   includeInRecommendation: boolean;
@@ -19,11 +31,7 @@ export function editorialCategoryForRecommendation(
   if (recommendation?.homepageCategory && EDITORIAL_CATEGORIES.includes(recommendation.homepageCategory)) {
     return recommendation.homepageCategory;
   }
-  const topics = recommendation?.topics ?? [];
-  if (topics.includes("商业经济")) return "商业";
-  if (topics.includes("社会生活")) return "时事";
-  if (topics.some((topic) => topic === "科技科学" || topic === "自然环境")) return "科技";
-  return "文化";
+  return editorialCategoryForTopics(recommendation?.topics);
 }
 
 export function editorialCategoryForArticle(article: PublicArticle): EditorialCategory {

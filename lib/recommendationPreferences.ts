@@ -11,7 +11,7 @@ export const RECOMMENDATION_READING_LEVELS = ["高中", "四级", "六级", "考
 export type RecommendationReadingLevel = (typeof RECOMMENDATION_READING_LEVELS)[number];
 
 export const RECOMMENDATION_INTERESTS = [
-  { id: "science", label: "科技与科学" },
+  { id: "science", label: "科学与科技" },
   { id: "nature", label: "自然与环境" },
   { id: "culture", label: "文化与历史" },
   { id: "current", label: "社会与时事" },

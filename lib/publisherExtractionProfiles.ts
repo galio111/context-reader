@@ -21,15 +21,38 @@ const SELECTORS: Record<string, string> = {
   "oecdecoscope.blog": ".wp-block-jetpack-subscriptions, .jetpack-subscribe-modal, .wp-block-post-terms",
   "news.crunchbase.com": ".post-tags, .entry-tags, .mks_author_widget, .related-posts",
   "newsforkids.net": ".tab-content, .nocc, .nfk_social_block",
+  "daily.jstor.org": ".j-icon, .daily_email_signup, .daily-explore, [class*='collab-incontent-banner']",
+  "reasonstobecheerful.world": ".membershipbanner, .series-intro-img",
 };
-export function publisherIntakeWarnings(document: Document): string[] {
+export function publisherIntakeWarnings(document: Document, baseUrl = ""): string[] {
   const warnings: string[] = [];
   if ([...document.querySelectorAll('script[type="application/ld+json"]')].some((s) => /"isAccessibleForFree"\s*:\s*(?:false|"false")/.test(s.textContent || ""))) warnings.push("页面标记正文需要订阅");
   if ([...document.querySelectorAll("p,span,small,div")].some((node) => node.children.length === 0 && /^(?:sponsored(?: content| post| by .{1,80})?|paid content|advertorial|partner content|brand studio)$/i.test(node.textContent?.trim() || ""))) warnings.push("页面包含赞助或付费推广标记");
+  let host = "";
+  try { host = new URL(baseUrl).hostname.replace(/^www\./, ""); } catch { /* malformed URLs are rejected earlier */ }
+  const pageTitle = document.querySelector("h1")?.textContent?.trim() || document.title;
+  const pageText = document.querySelector("article, main")?.textContent?.replace(/\s+/g, " ").trim() || "";
+  if (host === "popsci.com") {
+    const priceMentions = pageText.match(/\$\s?\d[\d,.]*(?:\s*\([^)]*(?:was|save|off)[^)]*\))?/gi)?.length ?? 0;
+    const hasAffiliateDisclosure = /earn revenue from the products available on this page|participate in affiliate programs/i.test(pageText);
+    const saleLedTitle = /\b(?:sale|deal|discount|save|\$\d+\s+off|for less)\b/i.test(pageTitle);
+    if (hasAffiliateDisclosure && saleLedTitle && priceMentions >= 2) warnings.push("商品促销或联盟营销页面，不作为候选文章");
+  }
+  if (host === "openculture.com") {
+    const entryText = document.querySelector(".entry-content, article")?.textContent || "";
+    const words = entryText.match(/\b[a-zA-Z]+\b/g)?.length ?? 0;
+    const hasVideo = Boolean(document.querySelector("iframe[src*='youtube'], iframe[src*='vimeo'], video"));
+    if (hasVideo && /^(?:watch|listen)\b/i.test(pageTitle) && words < 800) warnings.push("视频或音频是主要内容，文字不足以独立阅读");
+  }
   return warnings;
 }
 export function applyPublisherProfile(document: Document, baseUrl: string): void {
   const host = new URL(baseUrl).hostname.replace(/^www\./, "");
+  if (host === "daily.jstor.org") {
+    document.querySelectorAll(".slick-slider a").forEach((anchor) => {
+      if (anchor.querySelector("img")) anchor.replaceWith(...Array.from(anchor.childNodes));
+    });
+  }
   if (host === "levelread.com" && new URL(baseUrl).pathname.startsWith("/news/")) {
     const root = document.querySelector("article");
     const reading = root?.querySelector(".space-y-8");
@@ -63,6 +86,13 @@ export function applyPublisherProfile(document: Document, baseUrl: string): void
       }
       article.append(contentClone);
       document.body.replaceChildren(article);
+    }
+  }
+  if (host === "reasonstobecheerful.world") {
+    const content = document.querySelector(".article-content");
+    if (content && (content.textContent || "").length > 400) {
+      content.className = content.className.split(/\s+/).filter((name) => !/^social(?:-|$)/i.test(name)).join(" ");
+      content.querySelectorAll(".sidebar-social-col, .sidebar-social-box, [class*='social-share']").forEach((node) => node.remove());
     }
   }
   if (host === "news.mongabay.com") {
@@ -124,9 +154,6 @@ export function applyPublisherProfile(document: Document, baseUrl: string): void
       if (!node.children.length && (/^(?:Listen to this essay|\d+ minute listen)$/i.test(text) || (text.length < 500 && /PREFER AEON ON GOOGLE|SYNDICATE THIS ESSAY/.test(text)))) node.remove();
     });
   }
-  if (host === "daily.jstor.org") document.querySelectorAll("p,span,div").forEach((node) => {
-    if (/^The icon indicates free access to the linked research on JSTOR\.?$/i.test(node.textContent?.trim() || "")) node.remove();
-  });
   if (host === "sciencealert.com") document.querySelectorAll("p").forEach((node) => {
     if (/^This article was fact-checked by/i.test(node.textContent?.trim() || "")) node.remove();
   });

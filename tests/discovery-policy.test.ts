@@ -110,6 +110,40 @@ test("publisher boundaries remove Open Culture, NASA and Smithsonian post-articl
   const aeon = extractImportedArticleFromHtml(`<html><head><title>Essay</title></head><body><article><h1>Essay</h1><p>First ${prose}</p><p>Second ${prose}</p><p>Third ${prose}</p><p>Politics 4 September 2026 PREFER AEON ON GOOGLE SYNDICATE THIS ESSAY</p></article></body></html>`, "https://aeon.co/essays/example");
   assert.ok(!aeon?.article.text.includes("PREFER AEON"));
 });
+test("JSTOR removes inserted modules without truncating later prose and reads data-lazy gallery images", () => {
+  const prose = "This paragraph explains the historical evidence in enough detail to remain part of the complete article. ".repeat(9);
+  const result = extractImportedArticleFromHtml(`<html><head><title>Archive story</title></head><body><article><div class="entry-content">
+    <div class="j-icon">The <span class="jcitation"></span> icon indicates free access to the linked research on JSTOR.</div>
+    <p>Opening ${prose}</p>
+    <div class="daily-explore story-list more-to-explore"><h2>More to Explore</h2><p>UNRELATED STORY CARD</p></div>
+    <p>Middle ${prose}</p>
+    <div class="daily_email_signup weekly-digest"><h4>Weekly Newsletter</h4><p>"*" indicates required fields</p></div>
+    <figure><img data-lazy="/archive-image.jpg" width="1050" height="1575" alt="A historical garment"></figure>
+    <p>Final ${prose}</p>
+  </div></article></body></html>`, "https://daily.jstor.org/archive-story");
+  assert.ok(result?.article.text.includes("Opening"));
+  assert.ok(result?.article.text.includes("Middle"));
+  assert.ok(result?.article.text.includes("Final"));
+  for (const noise of ["The icon indicates", "More to Explore", "UNRELATED STORY CARD", "Weekly Newsletter", "required fields"]) {
+    assert.ok(!result?.article.text.includes(noise));
+  }
+  assert.equal(result?.article.blocks.find((block) => block.type === "image")?.src, "https://daily.jstor.org/archive-image.jpg");
+});
+test("commercial sale pages and video-led Open Culture posts carry intake warnings", () => {
+  const sale = extractImportedArticleFromHtml(`<html><head><title>Save $500 in our Labor Day sale</title></head><body><article><h1>Save $500 in our Labor Day sale</h1><p>We may earn revenue from the products available on this page and participate in affiliate programs.</p><p>Oven $349 (was $399). Premium oven $2,299 (was $2,799).</p><p>${"Buy this discounted product with our affiliate link. ".repeat(30)}</p></article></body></html>`, "https://www.popsci.com/gear/oven-sale/");
+  assert.ok(sale?.metadata.intakeWarnings?.some((warning) => warning.includes("联盟营销")));
+  const video = extractImportedArticleFromHtml(`<html><head><title>Watch the workers build a skyscraper</title></head><body><article><h1>Watch the workers build a skyscraper</h1><iframe src="https://www.youtube.com/embed/example"></iframe><p>${"A short introduction describes the clip. ".repeat(25)}</p></article></body></html>`, "https://www.openculture.com/2026/09/watch-workers.html");
+  assert.ok(video?.metadata.intakeWarnings?.some((warning) => warning.includes("主要内容")));
+});
+test("Reasons to be Cheerful keeps the article body when its wrapper also names the social rail", () => {
+  const prose = "Beavers reshape streams and create habitat while communities learn how to manage flooding with careful planning. ".repeat(45);
+  const result = extractImportedArticleFromHtml(`<html><head><title>Beavers</title></head><body><div class="article-content social-side-wrap"><div class="sidebar-social-col">SHARE LINKS</div><div class="col-md-8"><h1>Beavers</h1><div class="series-intro-img"><img src="/series-ad.jpg" alt="Series"></div><p>${prose}</p><aside class="membershipbanner"><h2>Wait, you're not a member yet?</h2><img src="/membership.jpg" alt="Membership"></aside><p>FINAL ARTICLE PARAGRAPH ${prose}</p></div></div></body></html>`, "https://reasonstobecheerful.world/beavers");
+  assert.ok(result?.article.text.includes("Beavers reshape streams"));
+  assert.ok(result?.article.text.includes("FINAL ARTICLE PARAGRAPH"));
+  assert.ok(!result?.article.text.includes("SHARE LINKS"));
+  assert.ok(!result?.article.text.includes("not a member yet"));
+  assert.equal(result?.article.blocks.filter((block) => block.type === "image").length, 0);
+});
 test("Science News Explores keeps its hashed article body and quoted language attributes normalize", () => {
   const prose = "Young readers can understand this science story because each paragraph explains one idea in plain language and gives useful context. ".repeat(10);
   const science = extractImportedArticleFromHtml(`<html lang="en-US"><head><title>Science story</title></head><body><article><h1>Science story</h1><div class="single__content___abc12"><p>${prose}</p><p>${prose}</p></div><footer><p>UNRELATED POWER WORDS</p></footer></article></body></html>`, "https://www.snexplores.org/article/science-story");

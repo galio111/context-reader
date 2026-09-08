@@ -90,11 +90,11 @@ function persistHomeViewState(patch: HomeViewState): void {
 }
 
 const CATEGORY_FILTERS = [
-  { label: "推荐", test: () => true },
-  { label: "时事", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "时事") },
-  { label: "科技", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "科技") },
-  { label: "文化", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "文化") },
-  { label: "商业", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "商业") },
+  { label: "推荐", displayLabel: "推荐", test: () => true },
+  { label: "时事", displayLabel: "时事", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "时事") },
+  { label: "科技", displayLabel: "科学", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "科技") },
+  { label: "文化", displayLabel: "文化", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "文化") },
+  { label: "商业", displayLabel: "商业", test: (article: PublicArticle) => articleMatchesEditorialCategory(article, "商业") },
 ] as const;
 
 const HERO_SUBTITLES = {
@@ -347,9 +347,14 @@ export function HomeRedesign(props: HomeRedesignProps) {
     () => {
       if (category.label === "推荐") return allCategoryArticles;
       const curatedIds = props.homepageCuration?.categories[category.label] ?? [];
-      return orderHomepageCategoryArticles(allCategoryArticles, curatedIds);
+      return orderHomepageCategoryArticles(
+        allCategoryArticles,
+        curatedIds,
+        props.homepageCuration?.selectedAtById,
+        recommendationDayKey,
+      );
     },
-    [allCategoryArticles, category, props.homepageCuration],
+    [allCategoryArticles, category, props.homepageCuration, recommendationDayKey],
   );
   const personalizedCategoryArticles = useMemo(() => {
     return activeCategory === "推荐"
@@ -1196,7 +1201,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                   key={item.label}
                   aria-pressed={activeCategory === item.label}
                   onClick={() => switchCategory(item.label)}
-                >{item.label}</button>
+                >{item.displayLabel}</button>
               ))}
             </nav>
             {memberHome && memberLibraryOpen && (

@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState, type DragEvent } from "react";
 import { HOME_CURATION_CATEGORIES, type HomeCurationCategory, type HomepageCuration } from "@/lib/homepageCurationShared";
 import type { PublicArticle } from "@/types/publicArticle";
+import { editorialCategoryLabel } from "@/lib/editorialCuration";
 
 function emptyCuration(): HomepageCuration {
   return { version: 2, categories: { 推荐: [], 时事: [], 科技: [], 文化: [], 商业: [] }, recommendationFeaturedId: "", selectedAtById: {}, updatedAt: "" };
@@ -87,12 +88,12 @@ export default function AdminHomepageCurationPanel({ articles, onSaved }: { arti
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h2 id="homepage-curation-title" className="text-[21px] font-semibold">首页外刊编排</h2>
-          <p className="mt-1 max-w-3xl text-sm leading-6 text-[#4d535a]">时事、科技、文化、商业的第一篇分别是本栏主推。“推荐”是算法可选池，可另外指定一篇默认推荐主推；用户有偏好时仍须匹配兴趣与难度。</p>
+          <p className="mt-1 max-w-3xl text-sm leading-6 text-[#4d535a]">时事、科学、文化、商业的第一篇分别是本栏主推。“推荐”是算法可选池，可另外指定一篇默认推荐主推；用户有偏好时，今天精选仍整体排在往日精选之前。</p>
         </div>
         <button className="min-h-10 rounded-full bg-[#1769aa] px-4 text-sm font-medium text-white disabled:bg-[#aeb8c2]" type="button" onClick={() => void save()} disabled={saving}>{saving ? "保存中..." : "保存编排"}</button>
       </div>
       <div className="mt-5 flex gap-2 overflow-x-auto" role="tablist" aria-label="首页外刊分类">
-        {HOME_CURATION_CATEGORIES.map((item) => <button key={item} type="button" role="tab" aria-selected={category === item} className={`min-h-10 shrink-0 rounded-full px-4 text-sm ${category === item ? "bg-[#1769aa] text-white" : "bg-[#edf3f6] text-[#335666]"}`} onClick={() => setCategory(item)}>{item}</button>)}
+        {HOME_CURATION_CATEGORIES.map((item) => <button key={item} type="button" role="tab" aria-selected={category === item} className={`min-h-10 shrink-0 rounded-full px-4 text-sm ${category === item ? "bg-[#1769aa] text-white" : "bg-[#edf3f6] text-[#335666]"}`} onClick={() => setCategory(item)}>{editorialCategoryLabel(item)}</button>)}
       </div>
       <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(260px,.75fr)]">
         <div>
