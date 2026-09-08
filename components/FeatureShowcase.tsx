@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type RefObject, type CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type RefObject, type CSSProperties } from "react";
 import { GuideLanyard } from "./GuideLanyard";
 import styles from "./FeatureShowcase.module.css";
 
@@ -8,7 +8,7 @@ import styles from "./FeatureShowcase.module.css";
 export const FEATURE_SHOWCASE = [
   { id: "publications", label: "发现外刊", detail: "兴趣 × 难度", title: ["世界很大，", "从你想读的开始。"], paragraphs: ["科学的新发现，文化的新视角，商业与生活的另一面。让真实外刊成为你的日常读物。", "选好兴趣与阅读难度，找到既想读、又读得下去的内容。"], color: "#dce9f6", screens: [{ label: "外刊与个性化推荐", src: "/showcase/publications-v1.mp4" }] },
   { id: "context", label: "语境查词", detail: "单词 · 短语", title: ["划过不懂的，", "接着读下去。"], paragraphs: ["一个单词，一段短语，随手选中，就在原文旁理解它此刻的意思。", "从语境释义到用法、搭配与例句，把这一次读懂，变成下一次会用。"], color: "#dcece5", screens: [{ label: "划词与划短语演示", src: "" }] },
-  { id: "import", label: "带来文章", detail: "粘贴 · 网址", title: ["想读的那篇，", "直接带进来。"], paragraphs: ["复制一段正文，或贴上文章链接。两种入口，都通向专注的阅读界面。", "收藏夹里没读完的长文，从这里继续。"], color: "#f3e8ca", screens: [{ label: "粘贴文章", src: "" }, { label: "输入网址", src: "" }] },
+  { id: "import", label: "带来文章", detail: "粘贴 · 网址", title: ["想读的那篇，", "直接带进来。"], paragraphs: ["复制一段正文，或贴上文章链接。两种入口，都通向专注的阅读界面。", "收藏夹里没读完的长文，从这里继续。"], color: "#f3e8ca", screens: [{ label: "粘贴正文与网址导入", src: "" }] },
   { id: "vocabulary", label: "记住新词", detail: "生词本 × Anki", title: ["在文章里遇见，", "在复习中记住。"], paragraphs: ["把值得记住的词收入生词本，连同原句和语境释义一起留下。", "再带进 Anki 持续复习，让阅读、积累与记忆连成一个完整的过程。"], color: "#e6e0f2", screens: [{ label: "生词本与 Anki 协作", src: "" }] },
   { id: "explore", label: "继续探索", detail: "还有更多", title: ["读进去之后，", "还有更多发现。"], paragraphs: ["全文翻译、文章摘要、独立词典，还有为下一次阅读保存的进度。", "更多顺手的小功能，等你在阅读中发现。"], color: "#e3eaf0", screens: [] },
 ] as const;
@@ -48,6 +48,7 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen 
   const [visible, setVisible] = useState(false);
   const [paused, setPaused] = useState(false);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+  const selectionScrollY = useRef<number | null>(null);
   const feature = FEATURE_SHOWCASE[active];
   useEffect(() => {
     const section = sectionRef.current;
@@ -58,8 +59,19 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen 
     document.addEventListener("visibilitychange", updateVisibility);
     return () => { observer.disconnect(); document.removeEventListener("visibilitychange", updateVisibility); };
   }, [sectionRef]);
+  useLayoutEffect(() => {
+    const y = selectionScrollY.current;
+    if (y === null) return;
+    window.scrollTo({ top: y, left: 0, behavior: "auto" });
+    const frame = window.requestAnimationFrame(() => {
+      window.scrollTo({ top: y, left: 0, behavior: "auto" });
+      selectionScrollY.current = null;
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [active, replay]);
   function select(index: number, focus = false) {
     const next = (index + FEATURE_SHOWCASE.length) % FEATURE_SHOWCASE.length;
+    selectionScrollY.current = window.scrollY;
     setActive(next); setReplay(value => value + 1); setPaused(false);
     const tab = tabs.current[next];
     // Scroll only the horizontal strip, never the page during module selection.
@@ -75,16 +87,16 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen 
           {feature.paragraphs.map(text => <p key={text}>{text}</p>)}
           <button type="button" className={styles.next} onClick={() => select(active + 1)}>下一个 <span aria-hidden="true">↗</span></button>
         </div>}
-        <div key={`media-${active}-${replay}`} className={`${styles.media} ${feature.id === "import" ? styles.dual : ""}`} style={feature.id === "publications" ? { "--poster": "url(/showcase/publications-v1.webp)" } as CSSProperties : undefined}>
+        <div className={styles.media} style={feature.id === "publications" ? { "--poster": "url(/showcase/publications-v1.webp)" } as CSSProperties : undefined}>
           {feature.id === "explore" ? <div className={styles.finale}>
-            <div className={styles.finaleCanvas}>
+            <div className={styles.finaleCanvas} key={`finale-${replay}`}>
               <h2><i>更多</i><i>可能，</i><i>等你发现。</i></h2>
               <div className={styles.words}><span>全文翻译</span><span>文章摘要</span><span>独立词典</span><span>继续阅读</span></div>
               <p className={styles.dragHint}>拉一下吊牌，打开使用说明。</p>
               <button type="button" className={styles.next} onClick={() => select(0)}>再看一遍 <span aria-hidden="true">↗</span></button>
             </div>
-            <GuideLanyard onOpen={onGuide} running={visible && !paused && !guideOpen} motionEnabled={motionEnabled} />
           </div> : feature.screens.map(screen => <Recording key={screen.label} src={screen.src} label={screen.label} playing={visible && !paused} />)}
+          <GuideLanyard active={feature.id === "explore"} preload={visible} onOpen={onGuide} running={feature.id === "explore" && visible && !paused && !guideOpen} motionEnabled={motionEnabled} />
         </div>
       </div>
       <div className={styles.navigation}>
