@@ -10,7 +10,7 @@ import ClearableField from "@/components/ClearableField";
 import { BookDictionary } from "@/components/BookDictionary";
 import { HomeOptionMenu, type GuideSection, type PreviewKind } from "@/components/HomeOptionMenu";
 import { PillNavAction } from "@/components/PillNavAction";
-import { MOBILE_SHEET_MAX_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
+import { MOBILE_READER_SHEET_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
 import { PUBLIC_CONTACT } from "@/lib/publicContact";
@@ -286,7 +286,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [menuGuideSection, setMenuGuideSection] = useState<GuideSection | null>(null);
   const [menuStandalonePreview, setMenuStandalonePreview] = useState(false);
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
-  const mobileDictionarySheet = useMobileBottomSheet(dictionaryMounted, undefined, MOBILE_SHEET_MAX_HEIGHT);
+  const mobileDictionarySheet = useMobileBottomSheet(
+    dictionaryMounted,
+    undefined,
+    MOBILE_READER_SHEET_HEIGHT,
+    closeDictionary,
+  );
   const [dictionaryClosing, setDictionaryClosing] = useState(false);
   const [inputMode, setInputMode] = useState<InputMode>("paste");
   const [activeCategory, setActiveCategory] = useState("推荐");
@@ -618,6 +623,41 @@ export function HomeRedesign(props: HomeRedesignProps) {
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestMeasure);
       if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [compactViewport, memberHome]);
+
+  useEffect(() => {
+    if (memberHome || !compactViewport) return;
+    let gesture: { identifier: number; x: number; y: number } | null = null;
+    const handleTouchStart = (event: TouchEvent) => {
+      gesture = null;
+      if (event.touches.length !== 1) return;
+      const target = event.target as Element | null;
+      if (!target?.closest?.(`.${styles.hero}`) || target.closest?.("[data-local-scroll-surface]")) return;
+      const touch = event.touches[0];
+      gesture = { identifier: touch.identifier, x: touch.clientX, y: touch.clientY };
+    };
+    const handleTouchEnd = (event: TouchEvent) => {
+      const started = gesture;
+      gesture = null;
+      if (!started) return;
+      const touch = Array.from(event.changedTouches).find((item) => item.identifier === started.identifier);
+      if (!touch) return;
+      const deltaX = touch.clientX - started.x;
+      const deltaY = touch.clientY - started.y;
+      const threshold = Math.max(48, window.innerHeight * .065);
+      if (deltaY <= -threshold && Math.abs(deltaY) > Math.abs(deltaX) * 1.2) {
+        featureShowcaseRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+    const reset = () => { gesture = null; };
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    window.addEventListener("touchcancel", reset, { passive: true });
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+      window.removeEventListener("touchcancel", reset);
     };
   }, [compactViewport, memberHome]);
 
@@ -1054,6 +1094,29 @@ export function HomeRedesign(props: HomeRedesignProps) {
       <div ref={flowRef} className={styles.flow}>
         <section ref={coverStageRef} className={`${styles.coverStage} ${memberHome ? styles.memberStage : ""}`}>
         {!memberHome && <section ref={heroRef} className={styles.hero} aria-labelledby="home-redesign-title">
+          {compactViewport && <div className={styles.ballField} aria-hidden="true">
+            <Ballpit
+              className={styles.ballCanvas}
+              count={18}
+              maxX={7}
+              maxY={9}
+              gravity={0}
+              driftSpeed={0.01}
+              friction={0.983}
+              wallBounce={0.95}
+              colors={BALL_COLORS}
+              materialParams={BALL_MATERIAL}
+              collectiveCenterX={0}
+              collectiveCenterY={-0.04}
+              collectiveHalfWidth={0.9}
+              collectiveHalfHeight={0.86}
+              collectiveStrength={0.00042}
+              thermalMotion={0.000064}
+              followCursor={false}
+              showCursorBall={false}
+              initialLayout="full"
+            />
+          </div>}
           <div className={styles.heroCopy}>
             <p>CONTEXT READER</p>
             <h1 id="home-redesign-title">在语境里，<br />读懂英文。</h1>
@@ -1353,9 +1416,13 @@ export function HomeRedesign(props: HomeRedesignProps) {
           <button type="button" className={styles.dictionaryBackdrop} aria-label="关闭单独查词" onClick={closeDictionary} />
           <aside
             className={`${styles.dictionaryWindow} ${dictionaryClosing ? styles.dictionaryWindowClosing : ""}`}
-            style={{ "--mobile-dictionary-height": `${mobileDictionarySheet.height}dvh` } as CSSProperties}
+            style={{
+              "--mobile-dictionary-height": `${mobileDictionarySheet.height}dvh`,
+              "--mobile-sheet-drag-offset": `${mobileDictionarySheet.dragOffset}px`,
+            } as CSSProperties}
             aria-label="单独查词面板"
             data-theme={homeTheme}
+            data-sheet-dragging={mobileDictionarySheet.dragging || undefined}
           >
             <div
               className={styles.dictionarySheetHandle}
@@ -1363,7 +1430,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
               onPointerDown={mobileDictionarySheet.onResizeStart}
               onPointerMove={mobileDictionarySheet.onResizeMove}
               onPointerUp={mobileDictionarySheet.onResizeEnd}
-              onPointerCancel={mobileDictionarySheet.onResizeEnd}
+              onPointerCancel={mobileDictionarySheet.onResizeCancel}
             ><span /></div>
             <header>
               <span><QuickActionIcon kind="dictionary" />单独查词</span>
@@ -1373,7 +1440,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
               </button>
             </header>
             <div className={styles.dictionaryWindowBody} data-local-scroll-surface>
-              <BookDictionary embedded panel offline={isOffline} />
+              <BookDictionary embedded compact panel offline={isOffline} />
             </div>
           </aside>
         </div>

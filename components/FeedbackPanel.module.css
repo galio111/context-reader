@@ -8,6 +8,8 @@
 .panel header button { width: 38px; height: 38px; border: 0; border-radius: 999px; color: #344c5d; background: #e7eef2; font-size: 24px; cursor: pointer; }
 .panel form { display: grid; margin-top: 30px; gap: 18px; }
 .panel label { display: grid; gap: 7px; color: #3d5565; font-size: 12px; font-weight: 700; }
+.contactLabel { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.contactLabel small { color: #667985; font-size: 11px; font-weight: 500; }
 .panel input,
 .panel select,
 .panel textarea { width: 100%; border: 1px solid #b7c5cf; border-radius: 9px; color: #1d2d37; background: white; font: 14px Arial, "PingFang SC", sans-serif; outline: none; }
@@ -35,4 +37,5 @@
   .overlay { padding: 10px; align-items: end; }
   .panel { width: 100%; max-height: calc(100svh - 18px); padding: 24px 18px; border-radius: 14px 14px 0 0; }
   .panel h2 { font-size: 28px; }
+  .contactLabel { align-items: flex-start; flex-direction: column; gap: 3px; }
 }

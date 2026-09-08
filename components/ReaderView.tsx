@@ -8,7 +8,7 @@ import { BookDictionary } from "@/components/BookDictionary";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { HomeOptionMenu, type PreviewKind } from "@/components/HomeOptionMenu";
 import { PillNavAction } from "@/components/PillNavAction";
-import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
+import { MOBILE_READER_SHEET_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useMobileSheetScrollBoundary } from "@/components/useMobileSheetScrollBoundary";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { WordToken } from "@/components/WordToken";
@@ -1436,11 +1436,21 @@ export function ReaderView({
   const [saveStatus, setSaveStatus] = useState("");
   const [savingArticle, setSavingArticle] = useState(false);
   const [mobileExplanationOpen, setMobileExplanationOpen] = useState(false);
-  const mobileToolSheet = useMobileBottomSheet(mobileExplanationOpen);
-  const mobileToolScrollBoundaryRef = useMobileSheetScrollBoundary();
   const [rightPanelMode, setRightPanelMode] = useState<RightPanelMode>("explanation");
+  const mobileToolSheet = useMobileBottomSheet(
+    mobileExplanationOpen,
+    rightPanelMode,
+    MOBILE_READER_SHEET_HEIGHT,
+    closeMobileToolSheet,
+  );
+  const mobileToolScrollBoundaryRef = useMobileSheetScrollBoundary();
   const [readerWorkLayer, setReaderWorkLayer] = useState<ReaderWorkLayer>(null);
-  const mobileWorkSheet = useMobileBottomSheet(Boolean(readerWorkLayer));
+  const mobileWorkSheet = useMobileBottomSheet(
+    Boolean(readerWorkLayer),
+    readerWorkLayer,
+    undefined,
+    () => setReaderWorkLayer(null),
+  );
   const [mobileViewport, setMobileViewport] = useState(false);
   const [readerImportMode, setReaderImportMode] = useState<"text" | "url">("text");
   const [readerImportText, setReaderImportText] = useState("");
@@ -4227,10 +4237,14 @@ export function ReaderView({
         >
           <section
             className={toolbarStyles.workLayer}
-            style={{ "--mobile-work-sheet-height": `${mobileWorkSheet.height}dvh` } as CSSProperties}
+            style={{
+              "--mobile-work-sheet-height": `${mobileWorkSheet.height}dvh`,
+              "--mobile-sheet-drag-offset": `${mobileWorkSheet.dragOffset}px`,
+            } as CSSProperties}
             role="dialog"
             aria-modal="true"
             aria-label={readerWorkLayer === "import" ? "导入新文章" : "我的文章"}
+            data-sheet-dragging={mobileWorkSheet.dragging || undefined}
           >
             <div
               className={toolbarStyles.workLayerHandle}
@@ -4238,7 +4252,7 @@ export function ReaderView({
               onPointerDown={mobileWorkSheet.onResizeStart}
               onPointerMove={mobileWorkSheet.onResizeMove}
               onPointerUp={mobileWorkSheet.onResizeEnd}
-              onPointerCancel={mobileWorkSheet.onResizeEnd}
+              onPointerCancel={mobileWorkSheet.onResizeCancel}
             ><span /></div>
             <header>
               <div>
@@ -4399,7 +4413,11 @@ export function ReaderView({
         <div
           ref={mobileToolScrollBoundaryRef}
           className={toolbarStyles.mobileToolSheet}
-          style={{ height: `${mobileToolSheet.height}dvh` }}
+          style={{
+            height: `${mobileToolSheet.height}dvh`,
+            "--mobile-sheet-drag-offset": `${mobileToolSheet.dragOffset}px`,
+          } as CSSProperties}
+          data-sheet-dragging={mobileToolSheet.dragging || undefined}
         >
           <div
             className={toolbarStyles.mobileSheetHandle}
@@ -4407,21 +4425,9 @@ export function ReaderView({
             onPointerDown={mobileToolSheet.onResizeStart}
             onPointerMove={mobileToolSheet.onResizeMove}
             onPointerUp={mobileToolSheet.onResizeEnd}
-            onPointerCancel={mobileToolSheet.onResizeEnd}
+            onPointerCancel={mobileToolSheet.onResizeCancel}
           >
             <span className="h-1.5 w-8 rounded-full bg-[#d2d2d7]" />
-          </div>
-          <div className={toolbarStyles.mobileSheetHeader}>
-            <strong>
-              {rightPanelMode === "explanation"
-                ? "词句解释"
-                : rightPanelMode === "translation"
-                  ? "全文翻译"
-                  : rightPanelMode === "dictionary"
-                    ? "单独查词"
-                    : "文章操作"}
-            </strong>
-            <button type="button" onClick={closeMobileToolSheet}>回到原文</button>
           </div>
           <div className={toolbarStyles.mobileSheetBody} data-local-scroll-surface>
             {rightPanelMode === "explanation" && (

@@ -26,7 +26,7 @@ import { GuidePageContent } from "@/components/GuidePageContent";
 import InvitationCodeRedeemContent from "@/components/InvitationCodeRedeemContent";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetails";
-import { MOBILE_SHEET_TALL_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
+import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
 import { addVocabularyNote, checkAnki, findImportedVocabularyNoteIds } from "@/lib/ankiConnect";
@@ -212,11 +212,7 @@ export function HomeOptionMenu({
   const savedArticleRenameInputRef = useRef<HTMLInputElement | null>(null);
   const [previewAnchorY, setPreviewAnchorY] = useState<number | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const mobileSheet = useMobileBottomSheet(
-    open,
-    mobileMenu,
-    mobileMenu && pinnedPreview === "vocabulary" ? MOBILE_SHEET_TALL_HEIGHT : undefined,
-  );
+  const mobileSheet = useMobileBottomSheet(open, mobileMenu, undefined, onClose);
   const [internalAnkiSettings, setInternalAnkiSettings] = useState<AnkiSettings>(() => defaultAnkiSettings());
   const [internalAnkiStatus, setInternalAnkiStatus] = useState("");
   const [internalAnkiChecking, setInternalAnkiChecking] = useState(false);
@@ -277,6 +273,11 @@ export function HomeOptionMenu({
     [hoveredVocabularyId, vocabularyEntriesById],
   );
   const visiblePreview = pinnedPreview;
+  const mobileAccountName = isOffline
+    ? (localAccount?.nickname || (localAccount ? "上次登录账号" : null))
+    : account.authenticated
+      ? (account.profile?.nickname || "已登录")
+      : null;
   const effectiveAnkiSettings = ankiTools?.settings ?? internalAnkiSettings;
   const effectiveAnkiStatus = ankiTools?.status ?? internalAnkiStatus;
   const effectiveAnkiChecking = ankiTools?.checking ?? internalAnkiChecking;
@@ -652,13 +653,18 @@ export function HomeOptionMenu({
   return createPortal(
     <div
       className={styles.overlay}
-      style={{ "--mobile-sheet-height": `${mobileSheet.height}dvh` } as CSSProperties}
+      style={{
+        "--mobile-sheet-height": `${mobileSheet.height}dvh`,
+        "--mobile-sheet-drag-offset": `${mobileSheet.dragOffset}px`,
+      } as CSSProperties}
       role="presentation"
       data-open={open || undefined}
       data-theme={theme}
       data-placement={placement}
       data-standalone={standalonePreview || undefined}
+      data-visible-preview={visiblePreview || undefined}
       data-home-quick-nav-offset={avoidHomeQuickNav || undefined}
+      data-sheet-dragging={mobileSheet.dragging || undefined}
       onKeyDown={handleDialogKeyDown}
       onPointerDown={(event) => {
         if (event.target === event.currentTarget) onClose();
@@ -671,7 +677,7 @@ export function HomeOptionMenu({
         onPointerDown={mobileSheet.onResizeStart}
         onPointerMove={mobileSheet.onResizeMove}
         onPointerUp={mobileSheet.onResizeEnd}
-        onPointerCancel={mobileSheet.onResizeEnd}
+        onPointerCancel={mobileSheet.onResizeCancel}
       ><span /></div>
       {!standalonePreview && <>
         <div className={styles.prelayers} aria-hidden="true">
@@ -694,7 +700,10 @@ export function HomeOptionMenu({
         >
         <header className={styles.panelHeader}>
           <div>
-            <span>Context Reader</span>
+            <span className={styles.mobileAccountLine}>
+              Context Reader
+              {mobileAccountName && <><i aria-hidden="true">·</i><b>{mobileAccountName}</b></>}
+            </span>
             <h2 id="home-option-menu-title">Menu</h2>
           </div>
           <button
@@ -737,6 +746,7 @@ export function HomeOptionMenu({
         <button
           type="button"
           className={styles.accountIdentity}
+          data-mobile-account-entry={mobileAccountName ? "hidden" : "guest"}
           aria-label={account.authenticated ? "打开当前账号与用量" : "打开登录与账号入口"}
           onClick={(event) => {
             anchorPreview(event.currentTarget);
@@ -966,6 +976,7 @@ export function HomeOptionMenu({
                         onPointerDown={(event) => {
                           if (event.pointerType === "mouse") return;
                           vocabularyTapRef.current = { pointerId: event.pointerId, x: event.clientX, y: event.clientY };
+                          event.currentTarget.setPointerCapture(event.pointerId);
                         }}
                         onPointerMove={(event) => {
                           const tap = vocabularyTapRef.current;
@@ -975,9 +986,16 @@ export function HomeOptionMenu({
                         onPointerUp={(event) => {
                           const tap = vocabularyTapRef.current;
                           vocabularyTapRef.current = null;
-                          if (event.pointerType !== "mouse" && tap?.pointerId === event.pointerId) setHoveredVocabularyId(entry.id);
+                          if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+                          if (event.pointerType !== "mouse" && tap?.pointerId === event.pointerId) {
+                            event.preventDefault();
+                            setHoveredVocabularyId(entry.id);
+                          }
                         }}
-                        onPointerCancel={() => { vocabularyTapRef.current = null; }}
+                        onPointerCancel={(event) => {
+                          vocabularyTapRef.current = null;
+                          if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+                        }}
                         onFocus={() => setHoveredVocabularyId(entry.id)}
                         onClick={() => setHoveredVocabularyId(entry.id)}
                         aria-expanded={hoveredVocabularyId === entry.id}

@@ -56,6 +56,7 @@
 .finaleCanvas i:nth-child(3) { display: block; animation-delay: 320ms; }
 .words { display: flex; flex-wrap: wrap; gap: 16px 32px; max-width: 61%; margin-top: 40px; font-size: clamp(18px, 1.4vw, 24px); color: #605671; }
 .dragHint { margin-top: 28px; font-size: 16px; color: var(--muted-showcase); }
+.mobileGuide { display: none; }
 .showcase[data-playing="false"] .finaleCanvas * { animation-play-state: paused; }
 .play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: #e8eff4; color: #234556; border-radius: 999px; padding: 14px 26px; min-height: 48px; }
 @keyframes ambienceReveal { from { opacity: 0; } to { opacity: 1; } }
@@ -102,7 +103,8 @@
  .words { max-width: 100%; font-size: 16px; gap: 12px 20px; margin-top: 24px; }
  .showcase[data-feature="explore"] .presentation { height: 100%; }
  .showcase[data-feature="explore"] .media { height: 100%; min-height: 0; aspect-ratio: auto; }
- .finaleCanvas { padding: 4px 4px 300px; }
- .dragHint { font-size: 14px; margin-top: 24px; }
+ .finaleCanvas { padding: 12px 4px 64px; }
+ .dragHint, .media :global([data-guide-lanyard]) { display: none; }
+ .mobileGuide { display: inline-flex; min-height: 44px; margin-top: 22px; padding: 0 18px; align-items: center; border: 1px solid color-mix(in srgb, var(--accent) 58%, transparent); border-radius: 999px; color: var(--ink-showcase); background: rgb(255 255 255 / 42%); font: inherit; font-size: 14px; font-weight: 650; }
 }
 @media (prefers-reduced-motion: reduce) { .showcase *, .showcase .finaleCanvas *, .ambience { animation: none; transition: none; scroll-behavior: auto; } }
