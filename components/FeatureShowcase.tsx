@@ -93,6 +93,7 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen 
               <h2><i>更多</i><i>可能，</i><i>等你发现。</i></h2>
               <div className={styles.words}><span>全文翻译</span><span>文章摘要</span><span>独立词典</span><span>继续阅读</span></div>
               <p className={styles.dragHint}>拉一下吊牌，打开使用说明。</p>
+              <button type="button" className={styles.mobileGuide} onClick={onGuide}>打开使用说明</button>
               <button type="button" className={styles.next} onClick={() => select(0)}>再看一遍 <span aria-hidden="true">↗</span></button>
             </div>
           </div> : feature.screens.map(screen => <Recording key={screen.label} src={screen.src} label={screen.label} playing={visible && !paused} />)}

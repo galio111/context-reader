@@ -96,6 +96,9 @@
   .mobileDirectory nav::-webkit-scrollbar { display: none; }
   .mobileDirectory a { flex: 0 0 auto; padding: 9px 12px; border-radius: 999px; color: #506a73; background: #e3edef; font-size: 12px; font-weight: 650; text-decoration: none; }
   .section, .intro { scroll-margin-top: 122px; }
+  .guide[data-embedded] .topbar { display: none; }
+  .guide[data-embedded] .mobileDirectory { top: 0; }
+  .guide[data-embedded] :is(.section, .intro) { scroll-margin-top: 60px; }
 }
 @media (max-width: 680px) {
   .topbar { padding-inline: 18px; }

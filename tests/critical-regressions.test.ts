@@ -23,9 +23,12 @@ import {
 } from "../lib/featureOrbitMotion";
 import {
   clampMobileSheetHeight,
+  MOBILE_READER_SHEET_HEIGHT,
   MOBILE_SHEET_DEFAULT_HEIGHT,
+  MOBILE_SHEET_DISMISS_DISTANCE,
   MOBILE_SHEET_MAX_HEIGHT,
   MOBILE_SHEET_TALL_HEIGHT,
+  shouldDismissMobileSheet,
 } from "../components/useMobileBottomSheet";
 import { audienceForDifficulty } from "../lib/articleAudience";
 import {
@@ -391,7 +394,7 @@ test("closing lookup surfaces aborts active provider work without creating a pro
   const deepseek = readFileSync(new URL("../lib/deepseek.ts", import.meta.url), "utf8");
 
   assert.match(reader, /function closeMobileToolSheet\(\)[\s\S]*?cancelActiveExplanationRequest\(\)/);
-  assert.match(reader, /onClick=\{closeMobileToolSheet\}>回到原文/);
+  assert.match(reader, /useMobileBottomSheet\([\s\S]*?MOBILE_READER_SHEET_HEIGHT,[\s\S]*?closeMobileToolSheet/);
   assert.match(reader, /<BookDictionary[\s\S]*?active=\{!dictionaryClosing\}/);
   assert.match(reader, /notifyLookupCancellation\(activeExplanationActionIdRef\.current\)/);
   assert.match(dictionary, /if \(!active\) abortActiveDictionaryRequest\(\)/);
@@ -1061,12 +1064,17 @@ test("DeepSeek estimates use historical and peak/off-peak prices at execution ti
   assert.equal(microcnyToCny(1_000_000), 1);
 });
 
-test("mobile tools reopen at 56 percent and never expand beyond 82 percent", () => {
+test("mobile tools use compact Reader height and never expand beyond 82 percent", () => {
   assert.equal(MOBILE_SHEET_DEFAULT_HEIGHT, 56);
+  assert.equal(MOBILE_READER_SHEET_HEIGHT, 48);
   assert.equal(MOBILE_SHEET_MAX_HEIGHT, 82);
   assert.equal(MOBILE_SHEET_TALL_HEIGHT, 76);
+  assert.equal(MOBILE_SHEET_DISMISS_DISTANCE, 96);
   assert.equal(clampMobileSheetHeight(96), 82);
   assert.equal(clampMobileSheetHeight(68), 68);
+  assert.equal(shouldDismissMobileSheet(96, 0), true);
+  assert.equal(shouldDismissMobileSheet(34, 0.72), true);
+  assert.equal(shouldDismissMobileSheet(30, 0.2), false);
 
   const menuStyles = readFileSync(new URL("../components/HomeOptionMenu.module.css", import.meta.url), "utf8");
   const readerStyles = readFileSync(new URL("../components/ReaderToolbar.module.css", import.meta.url), "utf8");
@@ -1110,8 +1118,9 @@ test("mobile overlays lock background scroll and adapt across viewport changes",
   assert.match(scrollLock, /body\.style\.width = scrollbarWidth > 0 \? `calc\(100% - \$\{scrollbarWidth\}px\)`/);
   assert.doesNotMatch(scrollLock, /body\.style\.paddingRight = `\$\{scrollbarWidth\}px`/);
   assert.match(scrollLock, /window\.scrollTo\(previous\.scrollX, previous\.scrollY\)/);
-  assert.match(menu, /pinnedPreview === "vocabulary" \? MOBILE_SHEET_TALL_HEIGHT/);
-  assert.match(sheet, /\[initialHeight, open, resetKey\]/);
+  assert.doesNotMatch(menu, /MOBILE_SHEET_TALL_HEIGHT/);
+  assert.match(sheet, /shouldDismissMobileSheet\(distance, interaction\.velocityY\)/);
+  assert.match(sheet, /dismissRef\.current\(\)/);
   assert.match(vocabulary, /matchMedia\("\(max-width: 639px\)"\)/);
   assert.match(vocabulary, /rowVirtualizer\.measure\(\)/);
   assert.match(menuStyles, /@media \(hover: none\), \(pointer: coarse\)/);
@@ -1142,22 +1151,22 @@ test("reader bottom sheets own gestures without locking the exposed article", ()
   assert.match(boundary, /element\.scrollTop \+ element\.clientHeight < element\.scrollHeight - 1/);
 });
 
-test("mobile sheet return controls stay above drag handles with full touch targets", () => {
+test("mobile sheet drag handles and remaining return controls keep full touch targets", () => {
   const menuStyles = readFileSync(new URL("../components/HomeOptionMenu.module.css", import.meta.url), "utf8");
   const readerStyles = readFileSync(new URL("../components/ReaderToolbar.module.css", import.meta.url), "utf8");
   const homeStyles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
   assert.match(menuStyles, /\.mobilePreviewBack\s*\{[\s\S]*?z-index:\s*64[\s\S]*?min-height:\s*48px/);
   assert.match(menuStyles, /\.mobileSheetHandle\s*\{[\s\S]*?z-index:\s*52/);
-  assert.match(readerStyles, /\.mobileSheetHeader button\s*\{[\s\S]*?min-height:\s*44px/);
+  assert.match(readerStyles, /\.mobileSheetHandle\s*\{[\s\S]*?height:\s*30px/);
   assert.match(readerStyles, /\.workLayer > header > button\s*\{[^}]*min-height:\s*44px/);
-  assert.match(homeStyles, /\.dictionaryWindow > header button\s*\{[^}]*min-height:\s*44px/);
+  assert.match(homeStyles, /\.dictionarySheetHandle\s*\{[^}]*min-height:\s*30px/);
 });
 
 test("homepage dictionary keeps separate desktop-window and mobile-sheet geometry", () => {
   const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
   const styles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
   assert.doesNotMatch(component, /context-reader-dictionary-window-v1|startDictionaryDrag|persistDictionaryWindow/);
-  assert.match(component, /MOBILE_SHEET_MAX_HEIGHT/);
+  assert.match(component, /MOBILE_READER_SHEET_HEIGHT/);
   assert.match(styles, /\.dictionaryWindow\s*\{[\s\S]*?inset:\s*92px auto auto 132px[\s\S]*?width:\s*min\(340px[\s\S]*?height:\s*min\(560px/);
   assert.match(styles, /@media \(max-width: 900px\)[\s\S]*?\.dictionaryWindow\s*\{[^}]*inset:\s*auto 0 0[^}]*height:\s*var\(--mobile-dictionary-height/);
 });
@@ -1204,7 +1213,7 @@ test("release image retention preserves current and direct-parent rollback image
   assert.doesNotMatch(script, /docker (?:system|volume) prune|rm -rf/);
 });
 
-test("homepage showcase preserves mobile scrolling and replaces automatic card rotation", () => {
+test("homepage showcase keeps natural mobile scrolling with one-screen cover handoff", () => {
   assert.equal(FEATURE_ORBIT_AUTOPLAY_MS, 6_000);
   assert.equal(classifyFeatureOrbitGesture(4, 7), "pending");
   assert.equal(classifyFeatureOrbitGesture(13, 5), "horizontal");
@@ -1216,7 +1225,9 @@ test("homepage showcase preserves mobile scrolling and replaces automatic card r
   const showcase = readFileSync(new URL("../components/FeatureShowcase.tsx", import.meta.url), "utf8");
   assert.doesNotMatch(showcase, /setInterval|onTouchMove|onPointerMove/);
   assert.match(component, /!memberHome && <FeatureShowcase/);
-  assert.match(styles, /\.ballField, \.coverBreath \{ display: none; \}/);
+  assert.match(component, /compactViewport && <div className=\{styles\.ballField\}[\s\S]*?count=\{18\}/);
+  assert.match(component, /featureShowcaseRef\.current\?\.scrollIntoView\(\{ behavior: "smooth", block: "start" \}\)/);
+  assert.match(styles, /\.hero \.ballField \{[^}]*z-index: 1[^}]*display: block/);
   assert.match(styles, /\.closingActions \{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
   assert.match(styles, /\.qrToggle, \.wechatQr \{ display: none !important; \}/);
 });

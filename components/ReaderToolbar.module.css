@@ -529,7 +529,11 @@
     max-height: 82dvh;
     grid-template-rows: auto auto minmax(0, 1fr);
     border-radius: 22px 22px 0 0;
+    translate: 0 var(--mobile-sheet-drag-offset, 0px);
+    transition: translate 220ms cubic-bezier(.16, 1, .3, 1);
   }
+
+  .workLayer[data-sheet-dragging] { transition-duration: 0s; }
 
   .workLayerHandle {
     display: flex;
@@ -623,11 +627,15 @@
     box-shadow: 0 -6px 8px oklch(30% 0.04 220 / 14%);
     overscroll-behavior: contain;
     touch-action: pan-y;
+    translate: 0 var(--mobile-sheet-drag-offset, 0px);
+    transition: translate 220ms cubic-bezier(.16, 1, .3, 1);
   }
+
+  .mobileToolSheet[data-sheet-dragging] { transition-duration: 0s; }
 
   .mobileSheetHandle {
     display: flex;
-    height: 24px;
+    height: 30px;
     flex: 0 0 auto;
     align-items: center;
     justify-content: center;
@@ -671,7 +679,7 @@
 
   .mobileSheetBody {
     min-height: 0;
-    padding-top: 8px;
+    padding-top: 0;
     flex: 1;
     overflow: hidden;
     overscroll-behavior: contain;

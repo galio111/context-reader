@@ -93,9 +93,9 @@ export function FeedbackPanel({ open, onClose, embedded = false }: { open: boole
                 <textarea value={message} onChange={(event) => { setMessage(event.target.value); if (status) setStatus(""); }} minLength={10} maxLength={3000} placeholder="请描述发生了什么，或你希望怎样改…" required />
               </ClearableField>
             </label>
-            <label>联系方式（可不填）
+            <label><span className={styles.contactLabel}>联系方式（可不填）<small>填写后我可以给你回信</small></span>
               <ClearableField value={contact} onClear={() => setContact("")} label="清空联系方式">
-                <input value={contact} onChange={(event) => setContact(event.target.value)} maxLength={160} placeholder="留下邮箱、微信或其他联系方式，我可以回信联系你" />
+                <input value={contact} onChange={(event) => setContact(event.target.value)} maxLength={160} placeholder="邮箱、微信或其他联系方式" />
               </ClearableField>
             </label>
             <label className={styles.honeypot} aria-hidden="true">Website<input value={website} onChange={(event) => setWebsite(event.target.value)} tabIndex={-1} autoComplete="off" /></label>
