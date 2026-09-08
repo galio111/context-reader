@@ -77,6 +77,7 @@ import { DictionaryProviderStreamNormalizer } from "../lib/dictionaryStreamServe
 import { explanationFromCompletedStream } from "../lib/explanationDisplay";
 import { normalizeImportedArticleStructure } from "../lib/importedArticleNormalization";
 import { guestCoverTouchSnapTarget } from "../lib/guestCoverTouchSnap";
+import { readClientInteractionCapabilities } from "../lib/clientCapabilities";
 import type { VocabularyEntry } from "../types/vocabulary";
 import {
   readStoredArticles,
@@ -1176,10 +1177,10 @@ test("opening a curated article immediately records the correct recent-reading o
   assert.match(temporary, /current\.sourceArticle/);
 });
 
-test("mobile vocabulary hides Anki actions and image captions use reader tokens", () => {
+test("mobile and non-desktop tablet vocabulary hide Anki actions and image captions use reader tokens", () => {
   const menu = readFileSync(new URL("../components/HomeOptionMenu.tsx", import.meta.url), "utf8");
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
-  assert.match(menu, /showAnkiActions=\{!mobileMenu\}/);
+  assert.match(menu, /showAnkiActions=\{!mobileMenu && desktopAnkiPlatform\}/);
   assert.match(menu, /\{!mobileMenu && <div className=\{styles\.ankiToolbar\}>/);
   assert.match(reader, /image-caption:\$\{block\.id\}/);
   assert.match(reader, /renderTokenList\(block\.captionTokens\)/);
@@ -1247,6 +1248,33 @@ test("guest cover touch gestures snap without turning horizontal drags into page
   assert.match(component, /addEventListener\("touchstart", handleTouchStart, \{ passive: true \}\)/);
   assert.match(component, /addEventListener\("touchend", handleTouchEnd, \{ passive: true \}\)/);
   assert.match(component, /closest\?\.\("\[data-local-scroll-surface\]"\)/);
+});
+
+test("account modal keeps native password focus and tablet Anki behavior follows capabilities", () => {
+  assert.deepEqual(readClientInteractionCapabilities({
+    matchMedia: () => ({ matches: false }),
+    navigator: { userAgent: "Mozilla/5.0 (Linux; Android 14; Tablet)", platform: "Linux armv8l", maxTouchPoints: 5 },
+  }), { preciseHover: false, desktopAnkiPlatform: false });
+  assert.deepEqual(readClientInteractionCapabilities({
+    matchMedia: () => ({ matches: true }),
+    navigator: { userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X)", platform: "MacIntel", maxTouchPoints: 5 },
+  }), { preciseHover: true, desktopAnkiPlatform: false });
+  assert.deepEqual(readClientInteractionCapabilities({
+    matchMedia: () => ({ matches: true }),
+    navigator: { userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)", platform: "Win32", maxTouchPoints: 10 },
+  }), { preciseHover: true, desktopAnkiPlatform: true });
+  assert.deepEqual(readClientInteractionCapabilities({
+    matchMedia: () => ({ matches: false }),
+    navigator: { userAgent: "Mozilla/5.0 (X11; Linux x86_64)", platform: "Linux x86_64", maxTouchPoints: 5 },
+  }), { preciseHover: false, desktopAnkiPlatform: false });
+
+  const account = readFileSync(new URL("../components/AccountProvider.tsx", import.meta.url), "utf8");
+  const menu = readFileSync(new URL("../components/HomeOptionMenu.tsx", import.meta.url), "utf8");
+  assert.doesNotMatch(account, /onMouseDown=\{\(event\) => \{ if \(event\.target === event\.currentTarget\) closeLogin\(\)/);
+  assert.doesNotMatch(account, /readOnly=\{!passwordInputReady\}|passwordInputReady/);
+  assert.match(menu, /hoverDrivenAnkiHelp \? true : !open/);
+  assert.match(menu, /需在电脑端使用/);
+  assert.match(menu, /showAnkiActions=\{!mobileMenu && desktopAnkiPlatform\}/);
 });
 
 test("every recommendation card receives a painted entry keyframe before observation", () => {

@@ -45,6 +45,7 @@ import {
 import { createVocabularySearchIndex, searchVocabularyIndex } from "@/lib/vocabularySearch";
 import type { AccountSessionState } from "@/types/account";
 import type { AnkiSettings } from "@/types/anki";
+import { readClientInteractionCapabilities } from "@/lib/clientCapabilities";
 import type { SavedArticle } from "@/types/article";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import styles from "./HomeOptionMenu.module.css";
@@ -225,6 +226,8 @@ export function HomeOptionMenu({
   const reconciliationAttemptKeyRef = useRef("");
   const [ankiSettingsOpen, setAnkiSettingsOpen] = useState(false);
   const [ankiHelpOpen, setAnkiHelpOpen] = useState(false);
+  const [preciseHover, setPreciseHover] = useState(false);
+  const [desktopAnkiPlatform, setDesktopAnkiPlatform] = useState(true);
   const [guideScrollTarget, setGuideScrollTarget] = useState<GuideSection | null>(null);
   const items = useMemo(
     () => [
@@ -283,6 +286,7 @@ export function HomeOptionMenu({
   const effectiveImportingId = ankiTools?.importingId ?? internalImportingId;
   const effectiveImportError = ankiTools?.importError ?? internalImportError;
   const unimportedVocabularyCount = vocabularyEntries.filter((entry) => !entry.anki.ankiNoteId).length;
+  const hoverDrivenAnkiHelp = preciseHover && desktopAnkiPlatform;
 
   useEffect(() => {
     if (open) setMounted(true);
@@ -337,6 +341,18 @@ export function HomeOptionMenu({
     query.addEventListener("change", update);
     return () => query.removeEventListener("change", update);
   }, [standalonePreview]);
+
+  useEffect(() => {
+    const hoverQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => {
+      const capabilities = readClientInteractionCapabilities(window);
+      setPreciseHover(capabilities.preciseHover);
+      setDesktopAnkiPlatform(capabilities.desktopAnkiPlatform);
+    };
+    update();
+    hoverQuery.addEventListener("change", update);
+    return () => hoverQuery.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -852,7 +868,7 @@ export function HomeOptionMenu({
           ) : (
             <>
             {!mobileMenu && <div className={styles.ankiToolbar}>
-              <button
+              {desktopAnkiPlatform ? <button
                 type="button"
                 onClick={importAllToAnki}
                 disabled={Boolean(effectiveImportingId) || unimportedVocabularyCount === 0}
@@ -862,14 +878,14 @@ export function HomeOptionMenu({
                   : effectiveImportingId === "__reconcile__"
                     ? "正在核对 Anki…"
                     : `核对并导入 ${unimportedVocabularyCount}`}
-              </button>
+              </button> : <span className={styles.ankiDesktopBadge}>电脑端导入</span>}
               <div
                 className={styles.ankiSettingsHelpGroup}
-                onPointerEnter={(event) => { if (event.pointerType === "mouse") keepAnkiHelpOpen(); }}
-                onPointerLeave={(event) => { if (event.pointerType === "mouse") setAnkiHelpOpen(false); }}
+                onPointerEnter={(event) => { if (hoverDrivenAnkiHelp && event.pointerType === "mouse") keepAnkiHelpOpen(); }}
+                onPointerLeave={(event) => { if (hoverDrivenAnkiHelp && event.pointerType === "mouse") setAnkiHelpOpen(false); }}
                 onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setAnkiHelpOpen(false); }}
               >
-                <button
+                {desktopAnkiPlatform && <button
                   type="button"
                   aria-expanded={ankiSettingsOpen}
                   onClick={() => {
@@ -879,14 +895,14 @@ export function HomeOptionMenu({
                   }}
                 >
                   Anki 设置
-                </button>
+                </button>}
                 <button
                   type="button"
                   className={styles.ankiHelpTrigger}
                   aria-label="Anki 是什么"
                   aria-expanded={ankiHelpOpen}
-                  onFocus={() => setAnkiHelpOpen(true)}
-                  onClick={keepAnkiHelpOpen}
+                  onFocus={() => { if (hoverDrivenAnkiHelp) setAnkiHelpOpen(true); }}
+                  onClick={() => setAnkiHelpOpen((open) => hoverDrivenAnkiHelp ? true : !open)}
                 >
                   ?
                 </button>
@@ -898,7 +914,9 @@ export function HomeOptionMenu({
                     onPointerDown={(event) => event.stopPropagation()}
                   >
                     <strong>Anki 是什么？</strong>
+                    <span className={styles.ankiDesktopNotice}>需在电脑端使用</span>
                     <p>Anki 是一款间隔重复记忆软件。Context Reader 把阅读中保存的词和原句做成卡片，Anki 再安排它们何时复习。</p>
+                    {!desktopAnkiPlatform && <p>你可以先在平板保存并同步生词，之后在电脑打开 Context Reader 导入 Anki。</p>}
                     <button
                       type="button"
                       onPointerDown={(event) => {
@@ -917,7 +935,7 @@ export function HomeOptionMenu({
               <button type="button" onClick={exportVocabulary}>导出 CSV</button>
               <button type="button" onClick={clearVocabulary}>清空生词本</button>
             </div>
-            {!mobileMenu && (effectiveAnkiStatus || effectiveImportError) && (
+            {!mobileMenu && desktopAnkiPlatform && (effectiveAnkiStatus || effectiveImportError) && (
               <p className={effectiveImportError ? styles.ankiError : styles.ankiStatus} role="status">
                 {effectiveImportError || effectiveAnkiStatus}
               </p>
@@ -1021,7 +1039,7 @@ export function HomeOptionMenu({
             onImportAnki={() => importOneToAnki(hoveredVocabularyEntry)}
             onCopy={() => copyVocabulary(hoveredVocabularyEntry)}
             onDelete={() => deleteVocabulary(hoveredVocabularyEntry.id)}
-            showAnkiActions={!mobileMenu}
+            showAnkiActions={!mobileMenu && desktopAnkiPlatform}
           />
         )}
       </section>

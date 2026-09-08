@@ -109,8 +109,6 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [showPin, setShowPin] = useState(false);
   const [pinTouched, setPinTouched] = useState(false);
   const [confirmPinTouched, setConfirmPinTouched] = useState(false);
-  const [passwordInputReady, setPasswordInputReady] = useState(false);
-  const [confirmPasswordInputReady, setConfirmPasswordInputReady] = useState(false);
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [syncingLogin, setSyncingLogin] = useState(false);
@@ -420,8 +418,6 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     setShowPin(false);
     setPinTouched(false);
     setConfirmPinTouched(false);
-    setPasswordInputReady(false);
-    setConfirmPasswordInputReady(false);
     setMessage("");
     setSyncingLogin(false);
     setLoginOpen(true);
@@ -436,8 +432,6 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     setConfirmPin("");
     setPinTouched(false);
     setConfirmPinTouched(false);
-    setPasswordInputReady(false);
-    setConfirmPasswordInputReady(false);
     setMessage("");
     setSyncingLogin(false);
   }, [submitting]);
@@ -512,8 +506,6 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       setConfirmPin("");
       setPinTouched(false);
       setConfirmPinTouched(false);
-      setPasswordInputReady(false);
-      setConfirmPasswordInputReady(false);
       setMessage("");
     } catch (error) {
       const detail = await describeCaughtRequestError(error, {
@@ -636,7 +628,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       )}
       {usageNotice && !loginOpen && <div className="fixed bottom-4 left-1/2 z-[150] flex w-[min(92vw,520px)] -translate-x-1/2 items-center justify-between gap-4 rounded-2xl border border-black/10 bg-[#fbfcfe] px-4 py-3 text-sm text-[#344d5e] shadow-xl"><span>{usageNotice} <Link className="font-semibold text-[#2868ad]" href="/account/usage">查看用量</Link></span><button className="shrink-0 rounded-full px-2 py-1 text-xs hover:bg-black/5" type="button" onClick={() => setUsageNotice("")}>关闭</button></div>}
       {loginOpen && (
-        <div className="fixed inset-0 z-[200] grid place-items-center bg-[#172d3b]/35 px-4 backdrop-blur-sm" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) closeLogin(); }}>
+        <div className="fixed inset-0 z-[200] grid place-items-center bg-[#172d3b]/35 px-4 backdrop-blur-sm" role="presentation">
           <section className="max-h-[calc(100dvh-2rem)] w-full max-w-[430px] overflow-y-auto rounded-[16px] bg-[#fbfcfe] p-7 text-[#17212b] shadow-2xl" role="dialog" aria-modal="true" aria-labelledby="account-login-title">
             <div className="flex items-start justify-between gap-6">
               <div><p className="text-xs font-semibold uppercase tracking-[.16em] text-[#5f6d79]">Context Reader Account</p><h2 id="account-login-title" className="mt-2 text-2xl font-semibold">{loginMode === "login" ? "手机号登录" : "创建账号"}</h2></div>
@@ -645,14 +637,14 @@ export function AccountProvider({ children }: { children: ReactNode }) {
             {loginReason && <p className="mt-5 rounded-xl bg-[#e3edf4] px-4 py-3 text-sm leading-6 text-[#405d70]">{loginReason}</p>}
             {!account.configured && <p className="mt-4 rounded-2xl bg-[#fff4df] px-4 py-3 text-sm leading-6 text-[#76531f]">账号数据库尚未连接。站点仍可阅读并使用本机游客试用；完成 Supabase 环境变量与数据库迁移后即可登录。</p>}
             <div className="mt-6 grid grid-cols-2 rounded-xl bg-[#e4ebf1] p-1" aria-label="登录或注册">
-              <button className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors disabled:cursor-wait ${loginMode === "login" ? "bg-white text-[#17212b] shadow-sm" : "text-[#5f6d79]"}`} type="button" disabled={submitting} aria-pressed={loginMode === "login"} onClick={() => { setLoginMode("login"); setNickname(""); setConfirmPin(""); setPin(""); setPinTouched(false); setConfirmPinTouched(false); setPasswordInputReady(false); setConfirmPasswordInputReady(false); setMessage(""); }}>登录</button>
-              <button className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors disabled:cursor-wait ${loginMode === "register" ? "bg-white text-[#17212b] shadow-sm" : "text-[#5f6d79]"}`} type="button" disabled={submitting} aria-pressed={loginMode === "register"} onClick={() => { setLoginMode("register"); setPin(""); setConfirmPin(""); setPinTouched(false); setConfirmPinTouched(false); setPasswordInputReady(false); setConfirmPasswordInputReady(false); setMessage(""); }}>注册</button>
+              <button className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors disabled:cursor-wait ${loginMode === "login" ? "bg-white text-[#17212b] shadow-sm" : "text-[#5f6d79]"}`} type="button" disabled={submitting} aria-pressed={loginMode === "login"} onClick={() => { setLoginMode("login"); setNickname(""); setConfirmPin(""); setPin(""); setPinTouched(false); setConfirmPinTouched(false); setMessage(""); }}>登录</button>
+              <button className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors disabled:cursor-wait ${loginMode === "register" ? "bg-white text-[#17212b] shadow-sm" : "text-[#5f6d79]"}`} type="button" disabled={submitting} aria-pressed={loginMode === "register"} onClick={() => { setLoginMode("register"); setPin(""); setConfirmPin(""); setPinTouched(false); setConfirmPinTouched(false); setMessage(""); }}>注册</button>
             </div>
             <form autoComplete="off" onSubmit={(event) => { event.preventDefault(); void submitPhoneAccount(); }}>
               {loginMode === "register" && <label className="mt-5 block text-sm font-medium">昵称<ClearableField className="mt-2" value={nickname} onClear={() => setNickname("")} label="清空昵称"><input className="w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="text" autoComplete="nickname" maxLength={40} value={nickname} onChange={(event) => setNickname(event.target.value)} placeholder="例如：小林" /></ClearableField></label>}
               <label className="mt-5 block text-sm font-medium">手机号<ClearableField className="mt-2" value={phone} onClear={() => setPhone("")} label="清空手机号"><input className="w-full rounded-xl border border-black/15 bg-white px-4 py-3 outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={(event) => setPhone(event.target.value.replace(/[^\d+\s()-]/g, "").slice(0, 24))} placeholder="中国大陆手机号" /></ClearableField></label>
               <label className="mt-5 block text-sm font-medium">密码
-                <ClearableField className="mt-2" value={pin} onClear={() => { setPin(""); setPinTouched(false); setPasswordInputReady(true); }} label="清空密码" clearButtonInset="4.4rem" inputPaddingRight="7rem">
+                <ClearableField className="mt-2" value={pin} onClear={() => { setPin(""); setPinTouched(false); }} label="清空密码" clearButtonInset="4.4rem" inputPaddingRight="7rem">
                   <input
                     className={`w-full rounded-xl border bg-white px-4 py-3 pr-16 text-base outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15 ${pinTouched && !pinIsValid ? "border-[#b85a4c]" : "border-black/15"}`}
                     type={showPin ? "text" : "password"}
@@ -660,17 +652,9 @@ export function AccountProvider({ children }: { children: ReactNode }) {
                     autoComplete={loginMode === "login" ? "current-password" : "new-password"}
                     data-1p-ignore="true"
                     data-lpignore="true"
-                    readOnly={!passwordInputReady}
                     value={pin}
                     aria-describedby="account-password-help"
                     aria-invalid={pinTouched && !pinIsValid}
-                    onFocus={(event) => {
-                      if (!passwordInputReady) {
-                        event.currentTarget.value = "";
-                        setPin("");
-                        setPasswordInputReady(true);
-                      }
-                    }}
                     onBlur={() => setPinTouched(true)}
                     onChange={(event) => {
                       setPinTouched(true);
@@ -678,12 +662,12 @@ export function AccountProvider({ children }: { children: ReactNode }) {
                     }}
                     placeholder={loginMode === "login" ? "输入密码" : "至少 8 位，包含字母和数字"}
                   />
-                  <button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg px-2 py-1.5 text-xs text-[#526158] hover:bg-black/5" type="button" onClick={() => { if (!passwordInputReady) { setPin(""); setPasswordInputReady(true); } setShowPin((value) => !value); }} aria-label={showPin ? "隐藏密码" : "显示密码"}>{showPin ? "隐藏" : "显示"}</button>
+                  <button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg px-2 py-1.5 text-xs text-[#526158] hover:bg-black/5" type="button" onClick={() => setShowPin((value) => !value)} aria-label={showPin ? "隐藏密码" : "显示密码"}>{showPin ? "隐藏" : "显示"}</button>
                 </ClearableField>
               </label>
               <p id="account-password-help" className={`mt-2 text-xs leading-5 ${pinTouched && !pinIsValid ? "text-[#a1473b]" : pinIsValid ? "text-[#52705d]" : "text-[#738078]"}`} aria-live="polite">{pinFeedback}</p>
               {loginMode === "register" && <label className="mt-5 block text-sm font-medium">确认密码
-                <ClearableField className="mt-2" value={confirmPin} onClear={() => { setConfirmPin(""); setConfirmPinTouched(false); setConfirmPasswordInputReady(true); }} label="清空确认密码">
+                <ClearableField className="mt-2" value={confirmPin} onClear={() => { setConfirmPin(""); setConfirmPinTouched(false); }} label="清空确认密码">
                 <input
                   className={`w-full rounded-xl border bg-white px-4 py-3 text-base outline-none focus:border-[#2868ad] focus:ring-2 focus:ring-[#2868ad]/15 ${confirmPinTouched && !confirmPinIsValid ? "border-[#b85a4c]" : "border-black/15"}`}
                   type={showPin ? "text" : "password"}
@@ -691,17 +675,9 @@ export function AccountProvider({ children }: { children: ReactNode }) {
                   autoComplete="new-password"
                   data-1p-ignore="true"
                   data-lpignore="true"
-                  readOnly={!confirmPasswordInputReady}
                   value={confirmPin}
                   aria-describedby="account-confirm-password-help"
                   aria-invalid={confirmPinTouched && !confirmPinIsValid}
-                  onFocus={(event) => {
-                    if (!confirmPasswordInputReady) {
-                      event.currentTarget.value = "";
-                      setConfirmPin("");
-                      setConfirmPasswordInputReady(true);
-                    }
-                  }}
                   onBlur={() => setConfirmPinTouched(true)}
                   onChange={(event) => {
                     setConfirmPinTouched(true);
