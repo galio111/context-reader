@@ -632,7 +632,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       const current = window.scrollY;
       return {
         insideHandoff: current >= stageTop - 2 && current < recommendationsTop - 2,
-        nearRecommendations: current >= recommendationsTop - 3 && current <= recommendationsTop + 56,
+        nearRecommendations: current >= recommendationsTop - 3 && current <= recommendationsTop + 128,
       };
     };
     const handleWheel = (event: WheelEvent) => {
@@ -813,7 +813,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
     const stageTop = stage.getBoundingClientRect().top + window.scrollY;
     const recommendationsTop = recommendations.getBoundingClientRect().top + window.scrollY;
-    const targetY = target === "cover" ? stageTop : recommendationsTop;
+    const showcaseOffset = Math.min(72, Math.max(42, window.innerHeight * 0.055));
+    const targetY = target === "cover" ? stageTop : recommendationsTop + showcaseOffset;
     const startY = window.scrollY;
     const fullDistance = Math.max(1, recommendationsTop - stageTop);
     const ratio = Math.min(1, Math.abs(targetY - startY) / fullDistance);
