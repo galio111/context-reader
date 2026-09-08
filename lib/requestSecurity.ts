@@ -110,6 +110,9 @@ function maxRequestBytes(pathname: string): number {
   if (pathname === "/api/admin/public-articles" || pathname === "/api/admin/article-candidates") {
     return 8 * 1024 * 1024;
   }
+  if (pathname === "/api/admin/article-covers") {
+    return 5 * 1024 * 1024 + 256 * 1024;
+  }
   if (pathname === "/api/account/sync") {
     return 8 * 1024 * 1024;
   }
