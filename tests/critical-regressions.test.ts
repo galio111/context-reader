@@ -86,6 +86,7 @@ import {
   writeStoredArticles,
 } from "../lib/articleStorage";
 import type { SavedArticle } from "../types/article";
+import { protectApiRequest } from "../lib/requestSecurity";
 
 function ankiTestEntry(id: string, word: string, createdAt: string): VocabularyEntry {
   return {
@@ -578,6 +579,14 @@ test("normal image localization completes inline while slow localization falls b
   assert.equal(slow.mode, "background");
   resolveSlow("localized-later");
   if (slow.mode === "background") assert.equal(await slow.pending, "localized-later");
+});
+
+test("reviewed cover uploads are not rejected by the generic 64 KB request limit", () => {
+  const request = new Request("https://context-reader.com/api/admin/article-covers", {
+    method: "POST",
+    headers: { Origin: "https://context-reader.com", "Content-Length": String(512 * 1024) },
+  });
+  assert.equal(protectApiRequest(request), null);
 });
 
 test("authenticated browser session uses the accepted 400-day rolling window", () => {
