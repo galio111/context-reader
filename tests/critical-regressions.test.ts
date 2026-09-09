@@ -1577,3 +1577,10 @@ test("published homepage toggles persist immediately while candidate choices rem
   assert.match(toolbarStyles, /editorialMobileActions\s*\{[\s\S]*?justify-content:\s*flex-start[\s\S]*?gap:\s*4px/);
   assert.match(toolbarStyles, /editorialMobileActions > button\s*\{[\s\S]*?padding:\s*0 8px[\s\S]*?white-space:\s*nowrap/);
 });
+
+test("homepage feedback keeps the reply promise outside the narrow contact field", () => {
+  const menu = readFileSync(new URL("../components/HomeOptionMenu.tsx", import.meta.url), "utf8");
+  assert.match(menu, /填写后我可以给你回信/);
+  assert.match(menu, /placeholder="邮箱、微信或其他联系方式"/);
+  assert.doesNotMatch(menu, /留下邮箱、微信或其他联系方式，我可以回信联系你/);
+});

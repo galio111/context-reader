@@ -1260,6 +1260,19 @@
   font-weight: 650;
 }
 
+.feedbackContactLabel {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.feedbackContactLabel small {
+  color: #667985;
+  font-size: 11px;
+  font-weight: 500;
+}
+
 .feedbackForm input,
 .feedbackForm select,
 .feedbackForm textarea {
