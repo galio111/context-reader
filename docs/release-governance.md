@@ -65,3 +65,7 @@ If production behavior does not match the expected release:
 ## Application-image retention
 
 The production host keeps `latest`, accepted and candidate tags for both the active release and its direct parent. `ops/mainland/prune-release-images.sh` takes the same global deployment lock, resolves those two releases from the current symlink and release-state file, refuses to run if a protected tag is missing, removes only older `context-reader-app` tags, and then prunes unused dangling layers. Its daily systemd timer does not remove containers, volumes, databases, backups, immutable release directories or images used by the core services. Any broader Docker cleanup requires a separate inventory and explicit approval.
+
+## Latest verified acceptance
+
+As of 2026-09-12, public and server identity agree on release `20260912T161439`, parent `20260909T104551`, source `4e93f9945ec05efedd0a1255fff2df0c5324dcdc`. Account sync/logout, full-body summary, public streams, Admin boundaries, seven-service health, latest backup restore and current/parent images passed. This is recorded evidence, not a substitute for rereading the live parent before the next release.
