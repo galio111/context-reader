@@ -10,7 +10,7 @@ import type {
   DictionaryWordFamilyItem,
 } from "@/types/dictionary";
 
-const DEFAULT_MODEL = "deepseek-v4-flash";
+const DEFAULT_MODEL = "deepseek-flash";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const REQUEST_TIMEOUT_MS = 35_000;
 const MAX_COMPLETION_TOKENS = 2_400;

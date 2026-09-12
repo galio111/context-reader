@@ -10,7 +10,7 @@ import { classifyStreamTermination } from "@/lib/requestCancellation";
 import { registerActiveLookupRequest } from "@/lib/activeLookupRequests";
 import { coreDeepSeekModelCandidates, fetchWithDeepSeekModelFailover } from "@/lib/deepseekModelFailover";
 
-const DEFAULT_MODEL = "deepseek-v4-flash";
+const DEFAULT_MODEL = "deepseek-flash";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const REQUEST_TIMEOUT_MS = 30000;
 const WORD_OR_PHRASE_PATTERN = /^[A-Za-z]+(?:['-][A-Za-z]+)*(?:\s+[A-Za-z]+(?:['-][A-Za-z]+)*){0,7}$/;

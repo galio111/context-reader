@@ -239,7 +239,7 @@ export async function POST(request: Request) {
   }
 
   const baseUrl = (process.env.DEEPSEEK_BASE_URL || DEFAULT_BASE_URL).replace(/\/$/, "");
-  const model = process.env.DEEPSEEK_TRANSLATION_MODEL || "deepseek-v4-flash";
+  const model = process.env.DEEPSEEK_TRANSLATION_MODEL || "deepseek-flash";
   const controller = new AbortController();
   const abortFromClient = () => controller.abort();
   request.signal.addEventListener("abort", abortFromClient, { once: true });

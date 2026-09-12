@@ -9,7 +9,7 @@ import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 import { getPublicArticle } from "@/lib/publicArticles";
 
 const DEFAULT_MODEL = "deepseek-v4-pro";
-const MAX_ARTICLE_CHARS = 6000;
+const MAX_ARTICLE_CHARS = 50_000;
 const MIN_SUMMARY_CHINESE_CHARS = 8;
 const MAX_SUMMARY_CHARS = 32;
 const REQUEST_TIMEOUT_MS = 30000;
@@ -63,7 +63,7 @@ export async function POST(request: Request) {
   let usageSucceeded = false;
   let body: { article?: unknown; publicArticleId?: unknown } | null;
   try {
-    body = await readJsonBody(request, 128 * 1024);
+    body = await readJsonBody(request, 256 * 1024);
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof RequestBodyTooLargeError ? "请求内容过大。" : "请求体必须是合法 JSON。" },
@@ -72,6 +72,10 @@ export async function POST(request: Request) {
   }
   const article = typeof body?.article === "string" ? body.article.trim() : "";
   const publicArticleId = typeof body?.publicArticleId === "string" ? body.publicArticleId.trim() : "";
+
+  if (article.length > MAX_ARTICLE_CHARS) {
+    return NextResponse.json({ error: "正文超过 50,000 字符，文章仍可保存，摘要请缩短正文后生成。" }, { status: 400 });
+  }
 
   if (!article) {
     return NextResponse.json({ error: "缺少文章内容，无法生成摘要。" }, { status: 400 });
@@ -183,7 +187,7 @@ export async function POST(request: Request) {
           },
           {
             role: "user",
-            content: article.slice(0, MAX_ARTICLE_CHARS),
+            content: article,
           },
         ],
       }),

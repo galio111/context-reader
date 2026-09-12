@@ -193,12 +193,12 @@ test("Anki add reuses an existing Context Reader note before creating another", 
 });
 
 test("core lookup routes fall back from overloaded Pro to Flash", async () => {
-  assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-flash", undefined), [
-    "deepseek-v4-flash",
+  assert.deepEqual(coreDeepSeekModelCandidates("deepseek-flash", undefined), [
+    "deepseek-flash",
   ]);
   assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-pro", undefined), [
     "deepseek-v4-pro",
-    "deepseek-v4-flash",
+    "deepseek-flash",
   ]);
   assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-pro", ""), ["deepseek-v4-pro"]);
   assert.equal(isRetryableDeepSeekStatus(429), true);
@@ -208,7 +208,7 @@ test("core lookup routes fall back from overloaded Pro to Flash", async () => {
   const attemptedModels: string[] = [];
   const failedOverModels: string[] = [];
   const result = await fetchWithDeepSeekModelFailover({
-    models: ["deepseek-v4-pro", "deepseek-v4-flash"],
+    models: ["deepseek-v4-pro", "deepseek-flash"],
     attempt: async (model) => {
       attemptedModels.push(model);
       return model === "deepseek-v4-pro"
@@ -218,9 +218,9 @@ test("core lookup routes fall back from overloaded Pro to Flash", async () => {
     onFailover: ({ model }) => { failedOverModels.push(model); },
   });
 
-  assert.deepEqual(attemptedModels, ["deepseek-v4-pro", "deepseek-v4-flash"]);
+  assert.deepEqual(attemptedModels, ["deepseek-v4-pro", "deepseek-flash"]);
   assert.deepEqual(failedOverModels, ["deepseek-v4-pro"]);
-  assert.equal(result.model, "deepseek-v4-flash");
+  assert.equal(result.model, "deepseek-flash");
   assert.equal(await result.response.text(), "ok");
 
   const explanationStream = readFileSync(new URL("../app/api/explain-word-stream/route.ts", import.meta.url), "utf8");
@@ -230,12 +230,12 @@ test("core lookup routes fall back from overloaded Pro to Flash", async () => {
   const articleSummary = readFileSync(new URL("../app/api/summarize-article/route.ts", import.meta.url), "utf8");
   const articleTranslation = readFileSync(new URL("../app/api/translate-article/route.ts", import.meta.url), "utf8");
   for (const source of [explanationStream, dictionaryStream, structuredExplanation, structuredDictionary]) {
-    assert.match(source, /const DEFAULT_MODEL = "deepseek-v4-flash"/);
+    assert.match(source, /const DEFAULT_MODEL = "deepseek-flash"/);
     assert.match(source, /DEEPSEEK_LOOKUP_MODEL/);
   }
   assert.match(articleSummary, /const DEFAULT_MODEL = "deepseek-v4-pro"/);
   assert.match(articleSummary, /process\.env\.DEEPSEEK_MODEL/);
-  assert.match(articleTranslation, /DEEPSEEK_TRANSLATION_MODEL \|\| "deepseek-v4-flash"/);
+  assert.match(articleTranslation, /DEEPSEEK_TRANSLATION_MODEL \|\| "deepseek-flash"/);
   assert.match(explanationStream, /fetchWithDeepSeekModelFailover/);
   assert.match(dictionaryStream, /fetchWithDeepSeekModelFailover/);
   assert.match(structuredExplanation, /coreDeepSeekModelCandidates/);
@@ -558,8 +558,8 @@ test("structured explanation distinguishes an aborted fetch from a completed mal
     }), { status: 200, headers: { "Content-Type": "application/json" } });
   }) as typeof fetch;
   const recovered = await explainWordWithDeepSeek(request);
-  assert.equal(recovered.model, "deepseek-v4-flash");
-  assert.deepEqual(attemptedModels, ["deepseek-v4-pro", "deepseek-v4-pro", "deepseek-v4-flash"]);
+  assert.equal(recovered.model, "deepseek-flash");
+  assert.deepEqual(attemptedModels, ["deepseek-v4-pro", "deepseek-v4-pro", "deepseek-flash"]);
 });
 
 test("context cloze tolerates normalized apostrophes in saved phrases", () => {
@@ -999,7 +999,7 @@ test("long articles and exhausted summary quotas remain saved without a summary 
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
   const sync = readFileSync(new URL("../lib/accountSyncClient.ts", import.meta.url), "utf8");
   const usage = readFileSync(new URL("../components/AccountUsagePageContent.tsx", import.meta.url), "utf8");
-  assert.match(reader, /AUTO_SUMMARY_MAX_ARTICLE_CHARS = 6_000/);
+  assert.match(reader, /AUTO_SUMMARY_MAX_ARTICLE_CHARS = 50_000/);
   assert.match(reader, /currentArticle\.length > AUTO_SUMMARY_MAX_ARTICLE_CHARS[\s\S]*?文章已保存；正文较长，本次不生成摘要/);
   assert.match(reader, /data\?\.code === "quota_exhausted"[\s\S]*?文章已保存；摘要额度已用完，本次不生成摘要/);
   assert.match(sync, /readStoredArticles\(storage\)/);
@@ -1542,7 +1542,7 @@ test("full translation keeps progressive output while batching upstream context"
   const adminPage = readFileSync(new URL("../app/admin/page.tsx", import.meta.url), "utf8");
   assert.match(translationRoute, /stream:\s*true/);
   assert.match(translationRoute, /application\/x-ndjson/);
-  assert.match(translationRoute, /"deepseek-v4-flash"/);
+  assert.match(translationRoute, /"deepseek-flash"/);
   assert.match(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_BLOCKS\s*=\s*80/);
   assert.match(translationRoute, /MAX_CONTEXT_TOTAL_CHARS\s*=\s*64_000/);
   assert.match(translationRoute, /contextMatchesTarget\s*\?/);

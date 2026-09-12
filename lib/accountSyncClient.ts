@@ -1,6 +1,8 @@
 "use client";
 
 import LZString from "lz-string";
+import { explanationFromSync, explanationSyncIdentity } from "@/lib/explanationSyncIdentity";
+import { hasForegroundLookup } from "@/lib/explanationStreamStore";
 import { ACCOUNT_SYNC_TOMBSTONES_KEY, notifyAccountDataMerged } from "@/lib/accountEvents";
 import { mergeDuplicateSavedArticles } from "@/lib/savedArticleMerge";
 import {
@@ -134,7 +136,7 @@ async function waitForBrowserProcessingWindow(
         };
         const hasPendingInput = scheduling.scheduling?.isInputPending?.({ includeContinuous: true }) ?? false;
         const quietFor = performance.now() - lastInteractionAt;
-        if (!hasPendingInput && quietFor >= interactionQuietMs && timeRemaining >= 8) {
+        if (!hasForegroundLookup() && !hasPendingInput && quietFor >= interactionQuietMs && timeRemaining >= 8) {
           finish(true);
           return;
         }
@@ -489,6 +491,9 @@ function mergeCloudIntoLocal(
       if (!local || timestamp(cloud.updatedAt) > timestamp(local.updatedAt)) {
         localDictionaryCacheByQuery.set(cloud.normalizedQuery, cloud);
       }
+    } else if (object.kind === "explanation" && maps.explanation) {
+      const entry = explanationFromSync(object.objectKey, object.payload);
+      maps.explanation[entry.cacheKey] = entry.explanation;
     } else if (maps[object.kind]) {
       maps[object.kind]![object.objectKey] = object.payload;
     }
@@ -521,10 +526,10 @@ function mergeCloudIntoLocal(
   writeTombstones(storage, tombstones);
 }
 
-function collectLocalObjects(
+async function collectLocalObjects(
   manifest: Record<string, SyncManifestEntry>,
   dirtyKinds?: SyncObjectKind[],
-): AccountSyncObject[] {
+): Promise<AccountSyncObject[]> {
   const storage = window.localStorage;
   const now = new Date().toISOString();
   const tombstones = readTombstones(storage);
@@ -600,7 +605,12 @@ function collectLocalObjects(
   for (const [kind, key] of cacheSpecs) {
     if (!wants(kind)) continue;
     const values = parseJson<Record<string, unknown>>(storage.getItem(key), {});
-    for (const [objectKey, payload] of Object.entries(values)) add(kind, objectKey, payload);
+    for (const [objectKey, payload] of Object.entries(values)) {
+      const entry = kind === "explanation"
+        ? await explanationSyncIdentity(objectKey, payload)
+        : { objectKey, payload };
+      add(kind, entry.objectKey, entry.payload);
+    }
   }
 
   for (const [identity, deletedAt] of Object.entries(tombstones)) {
@@ -742,7 +752,7 @@ async function performAccountSync(
     notifyAccountDataMerged(Array.from(new Set(cloud.objects.map((object) => object.kind))));
   }
   const local = mode === "full"
-    ? collectLocalObjects(manifest, initial || cloud.objects.length > 0 ? undefined : dirtyKinds)
+    ? await collectLocalObjects(manifest, initial || cloud.objects.length > 0 ? undefined : dirtyKinds)
     : [];
   let writeResults: AccountSyncWriteResult[] = [];
 

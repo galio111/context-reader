@@ -1,5 +1,5 @@
 const DEFAULT_PRIMARY_MODEL = "deepseek-v4-pro";
-const DEFAULT_CORE_FALLBACK_MODEL = "deepseek-v4-flash";
+const DEFAULT_CORE_FALLBACK_MODEL = "deepseek-flash";
 
 function uniqueModels(models: string[]): string[] {
   return Array.from(new Set(models.map((model) => model.trim()).filter(Boolean)));

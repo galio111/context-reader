@@ -13,7 +13,7 @@ import { coreDeepSeekModelCandidates, fetchWithDeepSeekModelFailover } from "@/l
 
 export const maxDuration = 60;
 
-const DEFAULT_MODEL = "deepseek-v4-flash";
+const DEFAULT_MODEL = "deepseek-flash";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const REQUEST_TIMEOUT_MS = 35_000;
 interface DeepSeekStreamChunk {

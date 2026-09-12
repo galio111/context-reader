@@ -48,6 +48,7 @@ import {
   mergeStreamDisplayIntoExplanation,
 } from "@/lib/explanationDisplay";
 import { EXPLANATION_STREAM_COMPLETE_MARKER } from "@/lib/explanationStreamProtocol";
+import { beginForegroundLookup, createExplanationStreamStore } from "@/lib/explanationStreamStore";
 import { currentFormPhonetic } from "@/lib/pronunciation";
 import { notifyLookupCancellation } from "@/lib/lookupCancellationClient";
 import {
@@ -534,7 +535,7 @@ interface ImageOcrState {
   error: string;
 }
 
-const AUTO_SUMMARY_MAX_ARTICLE_CHARS = 6_000;
+const AUTO_SUMMARY_MAX_ARTICLE_CHARS = 50_000;
 
 function isDocumentScrollLocked(): boolean {
   if (typeof document === "undefined") {
@@ -1418,7 +1419,8 @@ export function ReaderView({
   const [dragCurrentToken, setDragCurrentToken] = useState<ReaderToken | null>(null);
   const [selectedContext, setSelectedContext] = useState<WordContext | null>(null);
   const [explanation, setExplanation] = useState<WordExplanation | null>(null);
-  const [explanationStreamText, setExplanationStreamText] = useState("");
+  const [explanationStream] = useState(createExplanationStreamStore);
+  const setExplanationStreamText = explanationStream.setText;
   const [explanationStreaming, setExplanationStreaming] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -2277,6 +2279,7 @@ export function ReaderView({
 
     const controller = new AbortController();
     const actionId = crypto.randomUUID();
+    const finishForegroundLookup = beginForegroundLookup(controller.signal);
     abortRef.current = controller;
     activeExplanationActionIdRef.current = actionId;
     activeExplanationKeyRef.current = cacheKey;
@@ -2364,6 +2367,7 @@ export function ReaderView({
         openLogin("游客试用额度已用完，登录后可继续查词并跨设备同步学习数据。");
       }
     } finally {
+      finishForegroundLookup();
       if (abortRef.current === controller) {
         abortRef.current = null;
         activeExplanationActionIdRef.current = "";
@@ -4187,7 +4191,7 @@ export function ReaderView({
               <div className={rightPanelMode === "explanation" ? "h-full min-h-0" : "hidden h-full min-h-0"}>
                 <ExplanationPanel
                   explanation={explanation}
-                  streamText={explanationStreamText}
+                  streamSource={explanationStream}
                   streaming={explanationStreaming}
                   selectedContext={selectedContext}
                   loading={loading}
@@ -4434,7 +4438,7 @@ export function ReaderView({
               hasExplanationPanelContent ? (
                 <ExplanationPanel
                   explanation={explanation}
-                  streamText={explanationStreamText}
+                  streamSource={explanationStream}
                   streaming={explanationStreaming}
                   selectedContext={selectedContext}
                   loading={loading}

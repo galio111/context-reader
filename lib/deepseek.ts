@@ -10,7 +10,7 @@ import type {
   WordExplanation,
 } from "@/types/reader";
 
-const DEFAULT_MODEL = "deepseek-v4-flash";
+const DEFAULT_MODEL = "deepseek-flash";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const MAX_CONTEXT_CHARS = 1100;
 const MAX_SINGLE_FIELD_CHARS = 500;

@@ -37,6 +37,7 @@ interface DeepSeekRates {
 
 const PEAK_PRICING_EFFECTIVE_AT = Date.parse("2026-08-16T16:00:00Z");
 const WEEKEND_OFF_PEAK_EFFECTIVE_AT = Date.parse("2026-08-22T16:00:00Z");
+const FLASH_V41_EFFECTIVE_AT = Date.parse("2026-09-09T16:00:00Z");
 const SHANGHAI_OFFSET_MS = 8 * 60 * 60 * 1_000;
 export const DEFAULT_DEEPSEEK_USD_TO_CNY_RATE = 7.2;
 
@@ -71,7 +72,9 @@ export function deepSeekRatesAt(model: string, at: Date): DeepSeekRates {
       : { hit: 0.003625, miss: 0.435, output: 0.87 };
   }
   const offPeak = flash
-    ? { hit: 0.007, miss: 0.22, output: 0.66 }
+    ? at.getTime() >= FLASH_V41_EFFECTIVE_AT
+      ? { hit: 0.003, miss: 0.15, output: 0.6 }
+      : { hit: 0.007, miss: 0.22, output: 0.66 }
     : { hit: 0.022, miss: 0.66, output: 1.98 };
   const multiplier = isDeepSeekPeakTime(at) ? 2 : 1;
   return {
@@ -106,7 +109,9 @@ function deepSeekCnyRatesAt(model: string, at: Date): DeepSeekRates {
       : { hit: 0.025, miss: 3, output: 6 };
   }
   const offPeak = flash
-    ? { hit: 0.05, miss: 1.5, output: 4.5 }
+    ? at.getTime() >= FLASH_V41_EFFECTIVE_AT
+      ? { hit: 0.02, miss: 1, output: 4 }
+      : { hit: 0.05, miss: 1.5, output: 4.5 }
     : { hit: 0.15, miss: 4.5, output: 13.5 };
   const multiplier = isDeepSeekPeakTime(at) ? 2 : 1;
   return {

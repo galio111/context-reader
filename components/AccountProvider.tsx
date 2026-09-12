@@ -525,6 +525,12 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     }
     try {
       await waitForLogoutSync();
+    } catch (error) {
+      throw new Error(error instanceof TypeError
+        ? "退出前暂时无法连接同步服务，本机数据已保留，请稍后重试。"
+        : `退出前同步未完成，本机数据已保留。${error instanceof Error ? error.message : "请稍后重试。"}`);
+    }
+    try {
       const response = await fetch("/api/auth/logout", { method: "POST" });
       const data = await response.json().catch(() => null) as { error?: string } | null;
       if (!response.ok) {

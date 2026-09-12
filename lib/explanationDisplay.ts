@@ -31,7 +31,10 @@ const CANONICAL_LABELS = new Map<string, string>(
 
 export function parseExplanationStream(streamText: string): ExplanationDisplaySection[] {
   const sections: ExplanationDisplaySection[] = [];
-  const lines = streamText.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+  const lines = streamText.split(/\r?\n/).map((line) => line.trim()
+    .replace(/^(?:[-*•]\s+|\d+[.)、]\s*|#{1,6}\s+)/, "")
+    .replace(/\*\*|__/g, "")
+  ).filter((line) => Boolean(line) && !line.startsWith("```"));
 
   for (const line of lines) {
     const match = line.match(/^([^:：]{2,18})[:：]\s*(.*)$/);

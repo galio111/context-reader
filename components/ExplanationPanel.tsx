@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import type { ExplanationStreamStore } from "@/lib/explanationStreamStore";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import ClearableField from "@/components/ClearableField";
 import { fetchJson } from "@/lib/apiClient";
@@ -12,6 +13,7 @@ import type { WordContext, WordExplanation } from "@/types/reader";
 interface ExplanationPanelProps {
   explanation: WordExplanation | null;
   streamText?: string;
+  streamSource?: ExplanationStreamStore;
   streaming?: boolean;
   selectedContext: WordContext | null;
   loading: boolean;
@@ -58,7 +60,8 @@ function displaySectionLabel(label: string, kind: "word" | "phrase"): string {
 
 export function ExplanationPanel({
   explanation,
-  streamText = "",
+  streamText: initialStreamText = "",
+  streamSource,
   streaming = false,
   selectedContext,
   loading,
@@ -74,6 +77,11 @@ export function ExplanationPanel({
   const [sentenceQuestionError, setSentenceQuestionError] = useState("");
   const [askingSentenceQuestion, setAskingSentenceQuestion] = useState(false);
   const panelRef = useRef<HTMLElement | null>(null);
+  const streamText = useSyncExternalStore(
+    streamSource?.subscribe ?? (() => () => {}),
+    streamSource?.getSnapshot ?? (() => initialStreamText),
+    () => initialStreamText,
+  );
   const streamSections = parseExplanationStream(streamText);
   const displayStream = Boolean(streamText || streaming);
   const streamLemma = explanationStreamValue(streamSections, ["lemma", "Lemma", "词元", "原形", "原型"]);

@@ -43,6 +43,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
   const [loggingOut, setLoggingOut] = useState(false);
   const [logoutError, setLogoutError] = useState("");
   const [syncStatus, setSyncStatus] = useState<"idle" | "working" | "success" | "error">("idle");
+  const [syncError, setSyncError] = useState("");
   const [syncProgress, setSyncProgress] = useState<AccountSyncProgress | null>(null);
   const [lastSyncResult, setLastSyncResult] = useState<AccountSyncResult | null>(null);
   const [exportStatus, setExportStatus] = useState<"idle" | "working" | "success" | "error">("idle");
@@ -133,13 +134,17 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
   async function handleSync() {
     if (syncStatus === "working") return;
     setSyncStatus("working");
+    setSyncError("");
     setSyncProgress(null);
     setLastSyncResult(null);
     try {
       const result = await syncNow({ onProgress: setSyncProgress });
       setLastSyncResult(result);
       setSyncStatus("success");
-    } catch {
+    } catch (error) {
+      setSyncError(error instanceof TypeError
+        ? "暂时无法连接同步服务，本机数据已保留，请稍后重试。"
+        : `同步未完成，本机数据已保留。${error instanceof Error ? error.message : "请稍后重试。"}`);
       setSyncStatus("error");
     }
   }
@@ -243,7 +248,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
                     {!account.localDirect && <button className="rounded-full border border-[#9b5353]/25 bg-transparent px-5 py-2.5 text-sm font-semibold text-[#854343] disabled:cursor-wait disabled:opacity-55" type="button" disabled={loggingOut} onClick={() => void handleLogout()}>{loggingOut ? "正在同步并退出…" : "退出登录"}</button>}
                   </div>
                   {syncResultText && <p className="mt-4 text-sm font-medium text-[#35634a]" role="status" aria-live="polite">{syncResultText}</p>}
-                  {syncStatus === "error" && <p className="mt-4 text-sm text-[#963f3f]" role="alert">同步没有完成，请检查网络后重试。</p>}
+                  {syncStatus === "error" && <p className="mt-4 text-sm text-[#963f3f]" role="alert">{syncError}</p>}
                   {exportStatus === "error" && <p className="mt-2 text-sm text-[#963f3f]" role="alert">数据导出没有完成，请检查网络后重试。</p>}
                   {logoutError && <p className="mt-4 text-sm text-[#963f3f]" role="alert">{logoutError}</p>}
                 </>
