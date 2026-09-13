@@ -318,7 +318,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     try {
       const result = await syncAccountData({ ...options, onProgress: progress => {
         options.onProgress?.(progress);
-        if (progress.phase === "pulling" && (progress.pulledCount > 0 || options.mode !== "pull-only")) setSyncNotice(`账号已登录，正在恢复数据：已收到 ${progress.pulledCount} 条记录…`);
+        if (progress.phase === "waiting" && options.mode !== "pull-only") setSyncNotice("正在等待同步服务，稍后自动继续…");
+        else if (progress.phase === "pulling" && (progress.pulledCount > 0 || options.mode !== "pull-only")) setSyncNotice(`账号已登录，正在恢复数据：已收到 ${progress.pulledCount} 条记录…`);
         else if (progress.phase === "pushing") setSyncNotice("正在上传本机更改…");
         else if (progress.phase === "merging" && (progress.pulledCount > 0 || options.mode !== "pull-only")) setSyncNotice("正在校准本机与云端数据…");
       } });

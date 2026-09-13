@@ -680,7 +680,7 @@ function clearAcceptedTombstones(objects: AccountSyncWriteResult[]): void {
   if (changed) writeTombstones(storage, tombstones);
 }
 
-async function syncFetch(input: string, init: RequestInit = {}): Promise<Response> {
+export async function syncFetch(input: string, init: RequestInit = {}, retries = 3): Promise<Response> {
   const controller = new AbortController();
   const timeout = window.setTimeout(() => controller.abort(), 20_000);
   const owner = getLearningStorage().getItem(ACCOUNT_LOCAL_OWNER_KEY);
@@ -689,6 +689,18 @@ async function syncFetch(input: string, init: RequestInit = {}): Promise<Respons
   try {
     const response = await fetch(input, { ...init, headers, signal: controller.signal });
     if (getLearningStorage().getItem(ACCOUNT_LOCAL_OWNER_KEY) !== owner) throw new Error("账号已切换，已停止上一账号的数据恢复。");
+    if (response.status === 429 && retries > 0) {
+      const retryHeader = response.headers.get("Retry-After");
+      const seconds = retryHeader && Number.isFinite(Number(retryHeader)) ? Number(retryHeader) : 5;
+      if (seconds >= 0 && seconds <= 60) {
+        window.clearTimeout(timeout);
+        await response.body?.cancel();
+        reportProgress({ phase: "waiting", initial: false, pulledCount: 0, pushedCount: 0 });
+        await new Promise(resolve => window.setTimeout(resolve, Math.max(250, seconds * 1000)));
+        if (getLearningStorage().getItem(ACCOUNT_LOCAL_OWNER_KEY) !== owner) throw new Error("账号已切换，已停止上一账号的数据恢复。");
+        return syncFetch(input, init, retries - 1);
+      }
+    }
     return response;
   }
   catch (error) {

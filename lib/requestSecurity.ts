@@ -87,6 +87,9 @@ function consume(key: string, rule: RateRule, now: number): { allowed: boolean; 
 }
 
 function routeRules(pathname: string, method: string): RateRule[] {
+  // A bounded sync bootstrap can span many pages. It must not exhaust the
+  // separate login, lookup or connectivity budget for the same connection.
+  if (pathname === "/api/account/sync") return [{ bucket: "account-sync", limit: 120, windowMs: MINUTE }];
   const rules: RateRule[] = [{ bucket: "api-all", limit: 120, windowMs: MINUTE }];
   for (const [pattern, matchingRules] of COSTLY_ROUTE_RULES) {
     if (pattern.test(pathname)) {
