@@ -11,6 +11,7 @@ import {
   accountSyncKindsForStorageKey,
   prepareLocalAccountForUser,
   syncAccountData,
+  AccountSyncSessionError,
   type AccountSyncOptions,
   type AccountSyncResult,
 } from "@/lib/accountSyncClient";
@@ -92,8 +93,6 @@ async function waitForLogoutSync(): Promise<void> {
 
 export function AccountProvider({ children }: { children: ReactNode }) {
   const [storageStatus, setStorageStatus] = useState<LearningStorageStatus>({ ready: false, pending: false, error: "" });
-  const [syncNotice, setSyncNotice] = useState("");
-  const [syncFailed, setSyncFailed] = useState(false);
   const loginController = useRef<AbortController | null>(null);
   useEffect(() => {
     const changed = (event: Event) => setStorageStatus((event as CustomEvent<LearningStorageStatus>).detail);
@@ -313,24 +312,14 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     if (account.profile?.userId) {
       await prepareLocalAccountForUser(account.profile.userId, { preserveExistingData: account.localDirect });
     }
-    setSyncFailed(false);
-    if (options.mode !== "pull-only") setSyncNotice("账号已登录，正在核对并恢复数据…");
     try {
-      const result = await syncAccountData({ ...options, onProgress: progress => {
-        options.onProgress?.(progress);
-        if (progress.phase === "waiting" && options.mode !== "pull-only") setSyncNotice("正在等待同步服务，稍后自动继续…");
-        else if (progress.phase === "pulling" && (progress.pulledCount > 0 || options.mode !== "pull-only")) setSyncNotice(`账号已登录，正在恢复数据：已收到 ${progress.pulledCount} 条记录…`);
-        else if (progress.phase === "pushing") setSyncNotice("正在上传本机更改…");
-        else if (progress.phase === "merging" && (progress.pulledCount > 0 || options.mode !== "pull-only")) setSyncNotice("正在校准本机与云端数据…");
-      } });
-      setSyncNotice("");
-      return result;
+      // Only an explicit caller (the account panel) owns sync progress/error UI.
+      return await syncAccountData(options);
     } catch (error) {
-      setSyncFailed(true);
-      setSyncNotice(error instanceof TypeError ? "账号已登录，同步连接暂时中断，已保存进度。" : `账号已登录，同步尚未完成。${error instanceof Error ? error.message : "请稍后重试。"}`);
+      if (error instanceof AccountSyncSessionError) await refreshAccount();
       throw error;
     }
-  }, [account.authenticated, account.localDirect, account.localOnly, account.profile?.userId]);
+  }, [account.authenticated, account.localDirect, account.localOnly, account.profile?.userId, refreshAccount]);
 
   useEffect(() => {
     if (!storageStatus.ready || !account.authenticated || account.localOnly) return;
@@ -628,11 +617,11 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   return (
     <AccountContext.Provider value={value}>
-      {(!storageStatus.ready || storageStatus.error || syncNotice) && (
-        <aside className="fixed bottom-3 left-1/2 z-[220] w-[min(94vw,640px)] -translate-x-1/2 rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-[#243b45] shadow-lg" role={storageStatus.error || syncFailed ? "alert" : "status"}>
-          <p>{storageStatus.error || (!storageStatus.ready ? "正在准备本机数据，请稍候…" : syncNotice)}</p>
+      {storageStatus.error && (
+        <aside className="fixed bottom-3 left-1/2 z-[220] w-[min(94vw,640px)] -translate-x-1/2 rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-[#243b45] shadow-lg" role="alert">
+          <p>{storageStatus.error}</p>
           {storageStatus.error && <button className="mr-2 mt-2 min-h-11 rounded-full border border-black/20 px-4" type="button" onClick={() => void downloadLearningBackup()}>导出本机备份</button>}
-          {(storageStatus.error || syncFailed) && <button className="mt-2 min-h-11 rounded-full bg-[#174f82] px-4 text-white" type="button" onClick={() => { void initializeLearningStorage().then(flushLearningStorage).then(() => account.authenticated && !account.localOnly ? syncNow({ reconcile: true }) : undefined).catch(() => {}); }}>重试数据恢复</button>}
+          <button className="mt-2 min-h-11 rounded-full bg-[#174f82] px-4 text-white" type="button" onClick={() => { void initializeLearningStorage().then(flushLearningStorage).catch(() => {}); }}>重试本机保存</button>
         </aside>
       )}
       <div inert={!storageStatus.ready}>{children}</div>

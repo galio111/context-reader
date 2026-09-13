@@ -21,23 +21,25 @@ test("login completes while historical cache download is blocked, then retry res
   const member = { ...guest, authenticated: true, profile: { userId: "test-user", nickname: "Test", email: "internal@example.test", phone: "19900000001" }, plan: { id: "free" } };
   const at = "2026-09-13T00:00:00.000Z";
   const article = { id: "a", title: "Test", body: "Persistent article", summary: "", createdAt: at, updatedAt: at, lastOpenedAt: at };
-  let authenticated = false, blockCache = true, releaseCache: (() => void) | undefined, learningRequests = 0;
+  let authenticated = false, blockCache = true, releaseCache: (() => void) | undefined, learningRequests = 0, cacheFailures = 0, expireSession = false;
   const originalFetch = globalThis.fetch;
   globalThis.fetch = (async (input) => {
     const url = new URL(String(input), "https://context-reader.com");
     if (url.pathname === "/api/auth/session") return Response.json({ account: authenticated ? member : guest });
     if (url.pathname === "/api/auth/phone-login") { authenticated = true; return Response.json({ account: member }); }
     if (url.pathname === "/api/account/sync") {
+      if (expireSession) return Response.json({ error: "请先登录。" }, { status: 401 });
       const group = url.searchParams.get("group"), phase = url.searchParams.get("bootstrap");
       if (group === "learning") learningRequests++;
-      if (group === "cache" && blockCache) { await new Promise<void>(resolve => { releaseCache = resolve; }); throw new TypeError("simulated connection interruption"); }
+      if (group === "cache" && blockCache) { await new Promise<void>(resolve => { releaseCache = resolve; }); cacheFailures++; throw new TypeError("simulated connection interruption"); }
       return Response.json({ objects: group === "learning" && phase === "active" ? [{ kind: "article", objectKey: "a", payload: article, serverVersion: 1, clientUpdatedAt: at }] : [], snapshotCursor: "current", nextOffset: null, hasMore: false, nextCursor: "current" });
     }
     throw new Error(`Unexpected endpoint ${url.pathname}`);
   }) as typeof fetch;
   function Harness() {
-    const { account, loading, openLogin } = useAccount();
-    return <><div data-testid="identity">{loading ? "loading" : account.authenticated ? "signed-in" : "guest"}</div><button onClick={() => openLogin()}>Open login</button></>;
+    const { account, loading, openLogin, syncNow } = useAccount();
+    const [manual, setManual] = React.useState("");
+    return <><div data-testid="identity">{loading ? "loading" : account.authenticated ? "signed-in" : "guest"}</div><button onClick={() => openLogin()}>Open login</button><button onClick={() => void syncNow({ reconcile: true, onProgress: p => setManual(p.phase) }).then(() => setManual("complete")).catch(() => setManual("error"))}>Manual sync</button><div data-testid="manual">{manual}</div></>;
   }
   const ui = render(<AccountProvider><Harness /></AccountProvider>);
   try {
@@ -54,13 +56,20 @@ test("login completes while historical cache download is blocked, then retry res
     await waitFor(() => assert.ok(releaseCache), { timeout: 6000 });
     assert.equal(readStoredArticles(getLearningStorage())[0].id, "a", "learning content precedes caches");
     releaseCache!();
-    await waitFor(() => assert.ok(ui.getByText(/同步连接暂时中断/)), { timeout: 3000 });
+    await waitFor(() => assert.equal(cacheFailures, 1));
+    assert.ok(!ui.queryByRole("alert"), "background restore must not create a global banner");
     const beforeRetry = learningRequests;
     blockCache = false;
-    await user.click(ui.getByRole("button", { name: "重试数据恢复" }));
-    await waitFor(() => assert.ok(!ui.queryByText(/同步连接暂时中断/)));
-    await waitFor(() => assert.ok(!ui.queryByText(/正在校准本机/)));
+    await user.click(ui.getByRole("button", { name: "Manual sync" }));
+    await waitFor(() => assert.equal(ui.getByTestId("manual").textContent, "complete"));
+    assert.ok(!ui.queryByRole("alert"));
+    assert.ok(!ui.queryByText(/账号已登录，|正在等待同步服务|重试数据恢复/));
     assert.equal(learningRequests, beforeRetry, "retry resumes after completed learning pages");
     assert.deepEqual(readStoredArticles(getLearningStorage()), [article]);
+    expireSession = true; authenticated = false;
+    await user.click(ui.getByRole("button", { name: "Manual sync" }));
+    await waitFor(() => assert.equal(ui.getByTestId("identity").textContent, "guest"));
+    assert.ok(!ui.queryByRole("alert"), "expired session must not claim account is still logged in");
+    assert.deepEqual(readStoredArticles(getLearningStorage()), [article], "session expiry preserves learning data");
   } finally { releaseCache?.(); cleanup(); globalThis.fetch = originalFetch; dom.window.close(); }
 });

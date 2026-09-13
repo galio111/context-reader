@@ -680,6 +680,10 @@ function clearAcceptedTombstones(objects: AccountSyncWriteResult[]): void {
   if (changed) writeTombstones(storage, tombstones);
 }
 
+export class AccountSyncSessionError extends Error {
+  constructor() { super("登录状态已失效，请重新登录后同步。"); this.name = "AccountSyncSessionError"; }
+}
+
 export async function syncFetch(input: string, init: RequestInit = {}, retries = 3): Promise<Response> {
   const controller = new AbortController();
   const timeout = window.setTimeout(() => controller.abort(), 20_000);
@@ -689,6 +693,7 @@ export async function syncFetch(input: string, init: RequestInit = {}, retries =
   try {
     const response = await fetch(input, { ...init, headers, signal: controller.signal });
     if (getLearningStorage().getItem(ACCOUNT_LOCAL_OWNER_KEY) !== owner) throw new Error("账号已切换，已停止上一账号的数据恢复。");
+    if (response.status === 401) throw new AccountSyncSessionError();
     if (response.status === 429 && retries > 0) {
       const retryHeader = response.headers.get("Retry-After");
       const seconds = retryHeader && Number.isFinite(Number(retryHeader)) ? Number(retryHeader) : 5;

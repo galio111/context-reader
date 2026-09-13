@@ -292,7 +292,7 @@ export async function getAuthenticatedUser(): Promise<User | null> {
 export async function signOutAuthenticatedUser(): Promise<void> {
   const { accessToken } = await readTokens();
   if (accessToken && isAccountSystemConfigured()) {
-    await authClient().auth.admin.signOut(accessToken, "global").catch(() => undefined);
+    await authClient().auth.admin.signOut(accessToken, "local").catch(() => undefined);
   }
   await clearUserSession();
 }

@@ -264,3 +264,6 @@ After successful sync, acknowledged explanation caches alone are evicted by rece
 
 
 Mainland Caddy overwrites X-Real-IP with its direct peer address because the application limiter reads that header; external values cannot spoof it. Sync pagination has its own bounded 120/minute IP bucket so it cannot exhaust login/connectivity budgets. A sync 429 honors Retry-After up to 60 seconds for at most three retries, preserving staged progress and checking account ownership before retry. This was added after real production large-account acceptance exposed shared unknown-address throttling.
+
+
+Routine login restoration, automatic polls, rate-limit waits and recoverable sync failures are silent. Only an explicit manual sync caller receives progress/results in its account panel; AccountProvider no longer creates a global sync banner or a normal storage-preparation notice. A genuine IndexedDB write failure retains its independent local-save warning and backup/retry controls. Sync 401 errors refresh verified account state without clearing learning data or claiming the account is still logged in. Ordinary logout uses Auth admin signOut with scope local, preserving other independently authenticated device/browser sessions; tabs sharing one cookie session remain the same session.
