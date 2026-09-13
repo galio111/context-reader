@@ -460,44 +460,46 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     const credentialValid = loginMode === "login"
       ? isAcceptedAccountLoginPassword(pin)
       : isStrongAccountPassword(pin);
-    if (!credentialValid) {
+    if (!account.authenticated && !credentialValid) {
       setMessage(loginMode === "login" ? "请输入注册时设置的密码。" : accountPasswordRequirement());
       return;
     }
-    if (loginMode === "register" && !isStrongAccountPassword(confirmPin)) {
+    if (!account.authenticated && loginMode === "register" && !isStrongAccountPassword(confirmPin)) {
       setConfirmPinTouched(true);
       setMessage(accountPasswordRequirement());
       return;
     }
-    if (loginMode === "register" && pin !== confirmPin) {
+    if (!account.authenticated && loginMode === "register" && pin !== confirmPin) {
       setConfirmPinTouched(true);
       setMessage("两次输入的密码不一致。");
       return;
     }
-    let signedIn = false;
+    let signedIn = account.authenticated;
     setSubmitting(true); setSyncingLogin(false); setMessage("");
     try {
-      const response = await fetch(loginMode === "register" ? "/api/auth/phone-register" : "/api/auth/phone-login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(loginMode === "register" ? { phone, nickname, pin } : { phone, pin }),
-      });
-      const data = await response.json() as { account?: AccountSessionState; error?: string };
-      if (!response.ok || !data.account) {
-        setMessage(await describeApiFailure(response, data, {
-          operation: loginMode === "register" ? "phone_register" : "phone_login",
-          endpoint: loginMode === "register" ? "/api/auth/phone-register" : "/api/auth/phone-login",
-          fallbackMessage: loginMode === "register" ? "注册失败。" : "登录失败。",
-        }));
-        return;
+      if (!signedIn) {
+        const response = await fetch(loginMode === "register" ? "/api/auth/phone-register" : "/api/auth/phone-login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(loginMode === "register" ? { phone, nickname, pin } : { phone, pin }),
+        });
+        const data = await response.json() as { account?: AccountSessionState; error?: string };
+        if (!response.ok || !data.account) {
+          setMessage(await describeApiFailure(response, data, {
+            operation: loginMode === "register" ? "phone_register" : "phone_login",
+            endpoint: loginMode === "register" ? "/api/auth/phone-register" : "/api/auth/phone-login",
+            fallbackMessage: loginMode === "register" ? "注册失败。" : "登录失败。",
+          }));
+          return;
+        }
+        signedIn = true;
+        setAccount(data.account);
+        setIsOffline(false);
+        setLocalAccount(rememberLocalAccountSession(data.account));
+        if (data.account.profile?.userId) prepareLocalAccountForUser(data.account.profile.userId);
       }
-      signedIn = true;
-      setAccount(data.account);
-      setIsOffline(false);
-      setLocalAccount(rememberLocalAccountSession(data.account));
-      if (data.account.profile?.userId) prepareLocalAccountForUser(data.account.profile.userId);
       setSyncingLogin(true);
-      await syncAccountData();
+      await syncAccountData({ reconcile: true });
       await refreshAccount();
       setLoginOpen(false);
       setPhone("");
@@ -508,12 +510,14 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       setConfirmPinTouched(false);
       setMessage("");
     } catch (error) {
-      const detail = await describeCaughtRequestError(error, {
+      const detail = signedIn && error instanceof Error && /^(浏览器存储空间不足|文章或生词尚未|同步服务未)/.test(error.message)
+        ? error.message
+        : await describeCaughtRequestError(error, {
         operation: signedIn ? "account_sync_after_login" : loginMode === "register" ? "phone_register" : "phone_login",
         endpoint: signedIn ? "/api/account/sync" : loginMode === "register" ? "/api/auth/phone-register" : "/api/auth/phone-login",
         fallbackMessage: signedIn ? "登录后的数据同步失败。" : "登录失败。",
       });
-      setMessage(signedIn ? `账号已登录，但数据同步没有完成：${detail} 请检查网络后重试。` : detail);
+      setMessage(signedIn ? `账号已登录，但数据同步没有完成：${detail} 可以重试同步，或关闭窗口后在“账号与数据”中继续。` : detail);
     }
     finally { setSyncingLogin(false); setSubmitting(false); }
   }
@@ -696,7 +700,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
               </label>}
               {syncingLogin && <p className="mt-4 rounded-xl bg-[#e3edf4] px-3 py-2 text-sm leading-6 text-[#405d70]" role="status">登录成功，正在同步当前账号的生词本、文章和缓存，请稍候…</p>}
               {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="alert">{message}</p>}
-              <button className="mt-6 w-full rounded-full bg-[#174f82] px-5 py-3.5 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2868ad] disabled:cursor-not-allowed disabled:opacity-50" disabled={!account.configured || submitting || phone.trim().length < 11 || !pinIsValid || (loginMode === "register" && (!nickname.trim() || !confirmPinIsValid))} type="submit">{syncingLogin ? "正在同步账号数据…" : submitting ? (loginMode === "login" ? "正在登录…" : "正在创建账号…") : loginMode === "login" ? "登录并同步" : "创建账号并登录"}</button>
+              <button className="mt-6 w-full rounded-full bg-[#174f82] px-5 py-3.5 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2868ad] disabled:cursor-not-allowed disabled:opacity-50" disabled={!account.configured || submitting || (!account.authenticated && (phone.trim().length < 11 || !pinIsValid || (loginMode === "register" && (!nickname.trim() || !confirmPinIsValid))))} type="submit">{syncingLogin ? "正在同步账号数据…" : submitting ? (loginMode === "login" ? "正在登录…" : "正在创建账号…") : account.authenticated ? "重试同步" : loginMode === "login" ? "登录并同步" : "创建账号并登录"}</button>
             </form>
           </section>
         </div>

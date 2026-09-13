@@ -138,7 +138,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
     setSyncProgress(null);
     setLastSyncResult(null);
     try {
-      const result = await syncNow({ onProgress: setSyncProgress });
+      const result = await syncNow({ reconcile: true, onProgress: setSyncProgress });
       setLastSyncResult(result);
       setSyncStatus("success");
     } catch (error) {
@@ -162,7 +162,9 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
             : "正在同步…";
 
   const syncResultText = lastSyncResult
-    ? lastSyncResult.pulledCount === 0 && lastSyncResult.pushedCount === 0
+    ? lastSyncResult.verified
+      ? `已逐项校准：${lastSyncResult.articleCount} 篇文章、${lastSyncResult.vocabularyCount} 个生词与云端一致。`
+      : lastSyncResult.pulledCount === 0 && lastSyncResult.pushedCount === 0
       ? `已是最新，用时 ${(lastSyncResult.durationMs / 1000).toFixed(1)} 秒。`
       : `同步完成：接收 ${lastSyncResult.pulledCount} 项，上传 ${lastSyncResult.pushedCount} 项，用时 ${(lastSyncResult.durationMs / 1000).toFixed(1)} 秒。`
     : "";

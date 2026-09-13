@@ -63,6 +63,7 @@ const ACCOUNT_LOCAL_OWNER_KEY = "context-reader:local-account-owner:v1";
 const LAST_SYNC_KEY = "context-reader:last-sync:v1";
 const SYNC_STATE_KEY = "context-reader:sync-state:v2";
 const ARTICLE_STORAGE_RECOVERY_KEY = "context-reader:article-storage-recovery:20260905";
+const SYNC_STORAGE_RECOVERY_KEY = "context-reader:sync-storage-recovery:20260913";
 const ACCOUNT_LOCAL_DATA_KEYS = [
   ...Object.values(KEYS),
   ACCOUNT_SYNC_TOMBSTONES_KEY,
@@ -70,6 +71,7 @@ const ACCOUNT_LOCAL_DATA_KEYS = [
   LAST_SYNC_KEY,
   SYNC_STATE_KEY,
   ARTICLE_STORAGE_RECOVERY_KEY,
+  SYNC_STORAGE_RECOVERY_KEY,
 ];
 
 interface SyncManifestEntry {
@@ -95,6 +97,9 @@ export interface AccountSyncProgress {
 }
 
 export interface AccountSyncResult {
+  verified?: boolean;
+  articleCount?: number;
+  vocabularyCount?: number;
   initial: boolean;
   pulledCount: number;
   pushedCount: number;
@@ -103,6 +108,8 @@ export interface AccountSyncResult {
 }
 
 export interface AccountSyncOptions {
+  /** Replay the complete cloud snapshot and verify learning data, even with a current cursor. */
+  reconcile?: boolean;
   onProgress?: (progress: AccountSyncProgress) => void;
   mode?: "full" | "pull-only";
   dirtyKinds?: SyncObjectKind[];
@@ -269,7 +276,10 @@ let cachedSyncState: StoredSyncState | null = null;
 function readSyncState(): StoredSyncState {
   const raw = window.localStorage.getItem(SYNC_STATE_KEY);
   if (raw === cachedSyncStateRaw && cachedSyncState) return cachedSyncState;
-  const parsed = parseJson<Partial<StoredSyncState> | null>(raw, null);
+  const serialized = raw?.startsWith(COMPRESSED_PREFIX)
+    ? LZString.decompressFromUTF16(raw.slice(COMPRESSED_PREFIX.length))
+    : raw;
+  const parsed = parseJson<Partial<StoredSyncState> | null>(serialized, null);
   if (
     !parsed
     || parsed.protocol !== 2
@@ -288,10 +298,11 @@ function readSyncState(): StoredSyncState {
 }
 
 function writeSyncState(state: StoredSyncState): void {
-  const raw = JSON.stringify(state);
+  const raw = `${COMPRESSED_PREFIX}${LZString.compressToUTF16(JSON.stringify(state))}`;
+  // A failed persistent write must never advance the in-memory checkpoint.
+  window.localStorage.setItem(SYNC_STATE_KEY, raw);
   cachedSyncStateRaw = raw;
   cachedSyncState = state;
-  window.localStorage.setItem(SYNC_STATE_KEY, raw);
 }
 
 function mergeManifest(
@@ -556,7 +567,7 @@ async function collectLocalObjects(
     const localArticleMerge = mergeDuplicateSavedArticles(
       readStoredArticles(storage),
     );
-    if (localArticleMerge.removedIds.length) {
+    if (!payloadEqual(readStoredArticles(storage), localArticleMerge.articles)) {
       writeStoredArticles(storage, localArticleMerge.articles);
       for (const removedId of localArticleMerge.removedIds) {
         tombstones[`article:${removedId}`] ||= now;
@@ -570,6 +581,7 @@ async function collectLocalObjects(
     const localVocabulary = deduplicateVocabularyEntries(
       normalizeVocabularyEntries(readVocabulary(storage)),
     ).entries;
+    if (!payloadEqual(readVocabulary(storage), localVocabulary)) writeVocabulary(storage, localVocabulary);
     for (const item of localVocabulary) {
       add("vocabulary", item.id, item, item.updatedAt || item.createdAt || now);
     }
@@ -672,7 +684,8 @@ async function readInitialSnapshot(
       };
       if (!response.ok) throw new Error(data.error || "读取首次同步快照失败。");
       if (!snapshotCursor) snapshotCursor = data.snapshotCursor ?? "";
-      const pageObjects = data.objects ?? [];
+      if (!Array.isArray(data.objects)) throw new Error("同步服务未返回完整数据，请稍后重试。");
+      const pageObjects = data.objects;
       objects.push(...pageObjects);
       report({ phase: "pulling", initial: true, pulledCount: objects.length, pushedCount: 0 });
       if (data.nextOffset === null || data.nextOffset === undefined) break;
@@ -704,7 +717,8 @@ async function readCloudChanges(
       error?: string;
     };
     if (!response.ok) throw new Error(data.error || "读取云端数据失败。");
-    const pageObjects = data.objects ?? [];
+    if (!Array.isArray(data.objects)) throw new Error("同步服务未返回完整数据，请稍后重试。");
+    const pageObjects = data.objects;
     objects.push(...pageObjects);
     report({
       phase: "pulling",
@@ -729,16 +743,20 @@ async function performAccountSync(
   mode: "full" | "pull-only",
   dirtyKinds?: SyncObjectKind[],
   deferLocalWork = false,
+  reconcile = false,
 ): Promise<AccountSyncResult> {
   const state = readSyncState();
+  // Reclaim bookkeeping space before any snapshot merge writes larger user data.
+  if (!window.localStorage.getItem(SYNC_STATE_KEY)?.startsWith(COMPRESSED_PREFIX)) writeSyncState(state);
   // The first compressed-article rollout could leave an already-initialized
   // browser with fewer local articles than its cloud snapshot. An incremental
   // cursor cannot see those older objects again, so each account performs one
   // bounded protocol-2 snapshot replay. Missing local data never becomes a
   // deletion; explicit tombstones remain the only deletion authority.
   const recoveringArticleStorage = window.localStorage.getItem(ARTICLE_STORAGE_RECOVERY_KEY) !== "complete";
-  const initial = !state.initialized || recoveringArticleStorage;
-  const cloud = recoveringArticleStorage
+  const recoveringSyncStorage = window.localStorage.getItem(SYNC_STORAGE_RECOVERY_KEY) !== "complete";
+  const initial = !state.initialized || recoveringArticleStorage || recoveringSyncStorage || reconcile;
+  const cloud = initial
     ? await readInitialSnapshot(report)
     : await readCloudChanges(state, report);
   if (deferLocalWork && (mode === "full" || cloud.objects.length > 0)) {
@@ -764,25 +782,53 @@ async function performAccountSync(
       body: JSON.stringify({ objects: local }),
     });
     const data = await response.json() as { objects?: AccountSyncWriteResult[]; error?: string; conflict?: boolean };
-    writeResults = data.objects ?? [];
+    const submitted = new Set(local.map(object => `${object.kind}:${object.objectKey}`));
+    if (!Array.isArray(data.objects) || data.objects.length !== local.length
+      || new Set(data.objects.map(object => `${object.kind}:${object.objectKey}`)).size !== submitted.size
+      || data.objects.some(object => !submitted.has(`${object.kind}:${object.objectKey}`) || (response.ok && !object.accepted))) {
+      throw new Error("同步服务未确认全部上传数据，本机数据已保留，请稍后重试。");
+    }
+    writeResults = data.objects;
     clearAcceptedTombstones(writeResults);
     manifest = mergeManifest(manifest, writeResults);
     if (response.status === 409 && retriesRemaining > 0) {
       writeSyncState({ protocol: 2, initialized: true, cursor: cloud.cursor, manifest });
-      return performAccountSync(retriesRemaining - 1, report, startedAt, mode, dirtyKinds, deferLocalWork);
+      return performAccountSync(retriesRemaining - 1, report, startedAt, mode, dirtyKinds, deferLocalWork, reconcile);
     }
     if (!response.ok) throw new Error(data.error || "同步失败，请稍后重试。");
   }
 
+  let verified = false;
+  const articles = mode === "full" ? readStoredArticles(window.localStorage) : [];
+  const vocabulary = mode === "full" ? readVocabulary(window.localStorage) : [];
+  if (initial && mode === "full") {
+    const expected = new Map<string, AccountSyncObject>();
+    for (const object of [...cloud.objects, ...writeResults]) {
+      if (object.kind !== "article" && object.kind !== "vocabulary") continue;
+      const identity = `${object.kind}:${object.objectKey}`;
+      if (object.deletedAt) expected.delete(identity);
+      else expected.set(identity, object);
+    }
+    const actual = new Map<string, string>([
+      ...articles.map((item) => [`article:${item.id}`, stableSerialize(item)] as const),
+      ...vocabulary.map((item) => [`vocabulary:${item.id}`, stableSerialize(item)] as const),
+    ]);
+    verified = expected.size === actual.size && [...expected].every(([key, object]) => actual.get(key) === stableSerialize(object.payload));
+    if (!verified) throw new Error("文章或生词尚未与云端一致，本机数据已保留，请再次校准同步。");
+  }
   if (!state.initialized || cloud.cursor !== state.cursor || manifest !== state.manifest) {
     writeSyncState({ protocol: 2, initialized: true, cursor: cloud.cursor, manifest });
   }
   if (recoveringArticleStorage) {
     window.localStorage.setItem(ARTICLE_STORAGE_RECOVERY_KEY, "complete");
   }
+  if (recoveringSyncStorage && mode === "full" && verified) window.localStorage.setItem(SYNC_STORAGE_RECOVERY_KEY, "complete");
   const syncedAt = new Date().toISOString();
   window.localStorage.setItem(LAST_SYNC_KEY, syncedAt);
   const result: AccountSyncResult = {
+    verified,
+    articleCount: mode === "full" ? articles.length : undefined,
+    vocabularyCount: mode === "full" ? vocabulary.length : undefined,
     initial,
     pulledCount: cloud.objects.length,
     pushedCount: writeResults.filter((object) => object.accepted).length,
@@ -817,7 +863,7 @@ export function syncAccountData(options: AccountSyncOptions = {}): Promise<Accou
   if (activeSync) {
     const current = activeSync;
     const needsFollowUp = mode === "full"
-      && (current.mode === "pull-only" || Boolean(options.dirtyKinds?.length));
+      && (current.mode === "pull-only" || Boolean(options.dirtyKinds?.length) || Boolean(options.reconcile));
     const pending = needsFollowUp
       ? current.promise.catch(() => undefined).then(() => syncAccountData({
           ...options,
@@ -839,12 +885,18 @@ export function syncAccountData(options: AccountSyncOptions = {}): Promise<Accou
     mode,
     options.dirtyKinds,
     options.deferLocalWork,
+    options.reconcile,
   );
   const lockedSync = typeof navigator !== "undefined" && navigator.locks
     ? navigator.locks.request("context-reader:account-sync", { mode: "exclusive" }, run)
     : run();
   const record: ActiveSync = { mode, promise: Promise.resolve(null as never) };
-  record.promise = lockedSync.finally(() => {
+  record.promise = lockedSync.catch((error: unknown) => {
+    if (error instanceof Error && (error.name === "QuotaExceededError" || /exceeded the quota|quota.*exceeded/i.test(error.message))) {
+      throw new Error("浏览器存储空间不足，账号已登录，但同步尚未完成。已有数据已保留，请勿清除浏览器数据，联系站点处理。");
+    }
+    throw error;
+  }).finally(() => {
     if (activeSync === record) activeSync = null;
   });
   activeSync = record;
