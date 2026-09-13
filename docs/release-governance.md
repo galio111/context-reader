@@ -68,4 +68,4 @@ The production host keeps `latest`, accepted and candidate tags for both the act
 
 ## Latest verified acceptance
 
-As of 2026-09-12, public and server identity agree on release `20260912T161439`, parent `20260909T104551`, source `4e93f9945ec05efedd0a1255fff2df0c5324dcdc`. Account sync/logout, full-body summary, public streams, Admin boundaries, seven-service health, latest backup restore and current/parent images passed. This is recorded evidence, not a substitute for rereading the live parent before the next release.
+As of 2026-09-13, public and server identity agree on release `20260913T183000`, parent `20260912T161439`, source `620bdcd390938a6ba335daea9ebee9675fcb8532`. Independent login, sync/bootstrap/logout, served client repair markers, Admin boundaries, seven-service health, latest backup restore and current/parent images passed. Real-account-sized isolated browser replay matched the Chrome authority with zero uploads; physical device convergence still needs refresh and user confirmation. This is recorded evidence, not a substitute for rereading the live parent before the next release.
