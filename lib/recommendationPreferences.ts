@@ -1,5 +1,7 @@
 "use client";
 
+import { getLearningStorage } from "@/lib/learningStorage";
+
 import { notifyAccountDataChanged } from "@/lib/accountEvents";
 import { type ArticleAudienceStage, type PublicArticle } from "@/types/publicArticle";
 
@@ -58,7 +60,7 @@ export function normalizeRecommendationPreferences(value: unknown): Recommendati
 
 export function readRecommendationPreferences(storage?: Storage): RecommendationPreferences {
   if (!storage && typeof window === "undefined") return emptyRecommendationPreferences();
-  const source = storage ?? window.localStorage;
+  const source = storage ?? getLearningStorage();
   try {
     return normalizeRecommendationPreferences(JSON.parse(source.getItem(RECOMMENDATION_PREFERENCES_STORAGE_KEY) || "null"));
   } catch {
@@ -76,7 +78,7 @@ export function writeRecommendationPreferences(
     updatedAt: new Date().toISOString(),
     scope: options.authenticated ? "account" : "guest",
   });
-  window.localStorage.setItem(RECOMMENDATION_PREFERENCES_STORAGE_KEY, JSON.stringify(next));
+  getLearningStorage().setItem(RECOMMENDATION_PREFERENCES_STORAGE_KEY, JSON.stringify(next));
   window.dispatchEvent(new CustomEvent(RECOMMENDATION_PREFERENCES_CHANGED_EVENT, { detail: next }));
   if (options.authenticated) notifyAccountDataChanged(["preferences"]);
   return next;

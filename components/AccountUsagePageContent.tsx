@@ -1,5 +1,6 @@
 "use client";
 
+import { downloadLearningBackup, getLearningStorage, isLearningStorage, LEARNING_STORAGE_EVENT, type LearningStorageStatus } from "@/lib/learningStorage";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAccount } from "@/components/AccountProvider";
@@ -40,6 +41,14 @@ const entitlementExpiryFormatter = new Intl.DateTimeFormat("zh-CN", {
 
 export function AccountUsagePageContent({ embedded = false }: { embedded?: boolean }) {
   const { account, loading, isOffline, localAccount, openLogin, refreshAccount, syncNow, logout } = useAccount();
+  const [localStorageStatus, setLocalStorageStatus] = useState<LearningStorageStatus | null>(null);
+  useEffect(() => {
+    const changed = (event: Event) => setLocalStorageStatus((event as CustomEvent<LearningStorageStatus>).detail);
+    window.addEventListener(LEARNING_STORAGE_EVENT, changed);
+    try { const storage = getLearningStorage(); if (isLearningStorage(storage)) { setLocalStorageStatus(storage.status); void storage.estimate(); } } catch {}
+    return () => window.removeEventListener(LEARNING_STORAGE_EVENT, changed);
+  }, []);
+  const [localExport, setLocalExport] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
   const [logoutError, setLogoutError] = useState("");
   const [syncStatus, setSyncStatus] = useState<"idle" | "working" | "success" | "error">("idle");
@@ -114,6 +123,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
   async function exportData() {
     if (exportStatus === "working") return;
     setExportStatus("working");
+    setLocalExport(false);
     try {
       await syncNow();
       const response = await fetch("/api/account/export", { cache: "no-store" });
@@ -127,7 +137,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
       URL.revokeObjectURL(url);
       setExportStatus("success");
     } catch {
-      setExportStatus("error");
+      try { await downloadLearningBackup(); setLocalExport(true); setExportStatus("success"); } catch { setExportStatus("error"); }
     }
   }
 
@@ -251,6 +261,9 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
                   </div>
                   {syncResultText && <p className="mt-4 text-sm font-medium text-[#35634a]" role="status" aria-live="polite">{syncResultText}</p>}
                   {syncStatus === "error" && <p className="mt-4 text-sm text-[#963f3f]" role="alert">{syncError}</p>}
+                  {localExport && exportStatus === "success" && <p className="mt-2 text-sm text-[#526b5a]">已导出本机备份，包含尚未同步的内容；云端导出本次未完成。</p>}
+                  {localStorageStatus?.usage !== undefined && <p className="mt-3 text-xs text-[#526b5a]">本机网站数据约 {(localStorageStatus.usage / 1024 / 1024).toFixed(1)} MB，文章和生词会保留，历史释义缓存按上限管理。</p>}
+                  {Boolean(localStorageStatus?.quota && localStorageStatus.usage && localStorageStatus.usage / localStorageStatus.quota > 0.8) && <p className="mt-2 text-sm text-[#963f3f]">本机网站空间接近上限，请先导出个人数据备份。</p>}
                   {exportStatus === "error" && <p className="mt-2 text-sm text-[#963f3f]" role="alert">数据导出没有完成，请检查网络后重试。</p>}
                   {logoutError && <p className="mt-4 text-sm text-[#963f3f]" role="alert">{logoutError}</p>}
                 </>

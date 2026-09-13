@@ -1,3 +1,5 @@
+
+import { getLearningStorage } from "@/lib/learningStorage";
 import { notifyAccountDataChanged, notifyAccountObjectsDeleted } from "@/lib/accountEvents";
 import type { SavedArticle } from "@/types/article";
 import type { ArticleReadingState, ReaderReadingProgress, ReaderViewportAnchor } from "@/types/reader";
@@ -47,7 +49,7 @@ export function normalizeArticleReadingState(value: unknown): ArticleReadingStat
   };
 }
 
-export function readArticleReadingStates(storage: Storage = window.localStorage): Record<string, ArticleReadingState> {
+export function readArticleReadingStates(storage: Storage = getLearningStorage()): Record<string, ArticleReadingState> {
   try {
     const raw = storage.getItem(READING_STATES_KEY);
     if (!raw) return {};
@@ -78,7 +80,7 @@ export function writeArticleReadingStates(
 export function updateArticleReadingState(
   articleId: string,
   patch: { lastOpenedAt?: string; readingProgress?: ReaderViewportAnchor },
-  storage: Storage = window.localStorage,
+  storage: Storage = getLearningStorage(),
 ): ArticleReadingState | null {
   if (!articleId) return null;
   const states = readArticleReadingStates(storage);
@@ -98,7 +100,7 @@ export function updateArticleReadingState(
   return next;
 }
 
-export function deleteArticleReadingState(articleId: string, storage: Storage = window.localStorage): void {
+export function deleteArticleReadingState(articleId: string, storage: Storage = getLearningStorage()): void {
   const states = readArticleReadingStates(storage);
   if (!states[articleId]) return;
   delete states[articleId];
@@ -108,7 +110,7 @@ export function deleteArticleReadingState(articleId: string, storage: Storage = 
 
 export function applyArticleReadingStates(
   articles: SavedArticle[],
-  storage: Storage = window.localStorage,
+  storage: Storage = getLearningStorage(),
 ): SavedArticle[] {
   const states = readArticleReadingStates(storage);
   return articles

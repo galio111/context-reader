@@ -1,3 +1,5 @@
+
+import { getLearningStorage } from "@/lib/learningStorage";
 import type {
   ArticleReadingStyle,
   ImportedArticle,
@@ -58,10 +60,7 @@ function safeLocalStorage(): Storage | null {
   }
 
   try {
-    const testKey = "context-reader:article-storage-test";
-    window.localStorage.setItem(testKey, "1");
-    window.localStorage.removeItem(testKey);
-    return window.localStorage;
+    return getLearningStorage();
   } catch {
     return null;
   }

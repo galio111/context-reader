@@ -1,3 +1,5 @@
+
+import { getLearningStorage } from "@/lib/learningStorage";
 import type { SyncObjectKind } from "@/types/account";
 
 export const ACCOUNT_DATA_CHANGED_EVENT = "context-reader:account-data-changed";
@@ -42,7 +44,7 @@ export function notifyAccountObjectsDeleted(
 
   let tombstones: Record<string, string> = {};
   try {
-    tombstones = JSON.parse(window.localStorage.getItem(ACCOUNT_SYNC_TOMBSTONES_KEY) || "{}") as Record<string, string>;
+    tombstones = JSON.parse(getLearningStorage().getItem(ACCOUNT_SYNC_TOMBSTONES_KEY) || "{}") as Record<string, string>;
   } catch {
     tombstones = {};
   }
@@ -53,6 +55,6 @@ export function notifyAccountObjectsDeleted(
       tombstones[`${kind}:${objectKey}`] = deletedAt;
     }
   }
-  window.localStorage.setItem(ACCOUNT_SYNC_TOMBSTONES_KEY, JSON.stringify(tombstones));
+  getLearningStorage().setItem(ACCOUNT_SYNC_TOMBSTONES_KEY, JSON.stringify(tombstones));
   notifyAccountDataChanged([kind]);
 }

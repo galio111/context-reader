@@ -1,3 +1,5 @@
+import { IDBFactory } from "fake-indexeddb";
+import { getLearningStorage } from "../lib/learningStorage";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
@@ -59,21 +61,24 @@ test("bounded storage replay, missing local records, and incomplete upload ackno
     const params = new URL(String(input), "https://context-reader.com").searchParams;
     if (!params.has("bootstrap")) return Response.json({ objects: [], nextCursor: "current", hasMore: false });
     const deleted = params.get("bootstrap") === "deleted";
-    const rows = [...cloud.values()].filter(o => Boolean(o.deletedAt) === deleted);
+    const group = params.get("group");
+    const learning = new Set(["article", "vocabulary", "reading_state"]);
+    const rows = [...cloud.values()].filter(o => Boolean(o.deletedAt) === deleted && (!group || learning.has(o.kind) === (group === "learning")));
     const offset = Number(params.get("offset"));
     return Response.json({ objects: rows.slice(offset, offset + 500), nextOffset: offset + 500 < rows.length ? offset + 500 : null, snapshotCursor: "current" });
   }) as typeof fetch;
   const selectDevice = (seed: Record<string, string>) => {
     const device = new JSDOM("", { url: "https://context-reader.com", storageQuota: 5 * 1024 * 1024 });
     devices.push(device);
+    Object.defineProperty(device.window, "indexedDB", { value: new IDBFactory() });
     Object.defineProperty(globalThis, "window", { configurable: true, value: device.window });
     globalThis.CustomEvent = device.window.CustomEvent as typeof CustomEvent;
     Object.entries(seed).forEach(([key, value]) => window.localStorage.setItem(key, value));
   };
   const assertAuthority = () => {
     const sorted = (items: any[]) => [...items].sort((a, b) => a.id.localeCompare(b.id));
-    assert.deepEqual(sorted(readStoredArticles(window.localStorage)), sorted(authority.articles));
-    assert.deepEqual(sorted(decode(window.localStorage.getItem(VOCAB) || "[]")), sorted(authority.vocabulary));
+    assert.deepEqual(sorted(readStoredArticles(getLearningStorage())), sorted(authority.articles));
+    assert.deepEqual(sorted(decode(getLearningStorage().getItem(VOCAB) || "[]")), sorted(authority.vocabulary));
   };
   for (const scenario of ["existing-near-capacity", "new-device", "stale-device"] as const) {
     cloud = new Map(structuredClone(initialObjects).map(o => [`${o.kind}:${o.objectKey}`, o]));
@@ -87,10 +92,9 @@ test("bounded storage replay, missing local records, and incomplete upload ackno
     const result = await syncAccountData({ reconcile: scenario === "stale-device" });
     assert.equal(result.verified, true, scenario);
     assertAuthority();
-    assert.ok(window.localStorage.getItem(STATE)!.startsWith("lz-utf16:"));
-    assert.ok(window.localStorage.getItem(STATE)!.length < 400_000);
+    assert.equal(window.localStorage.getItem(STATE), null, "large sync bookkeeping must leave localStorage");
     if (snapshot["unrelated:preserve"] && scenario !== "new-device") assert.equal(window.localStorage.getItem("unrelated:preserve"), snapshot["unrelated:preserve"]);
-    console.log(JSON.stringify({ scenario, articleCount: result.articleCount, vocabularyCount: result.vocabularyCount, manifestCharacters: window.localStorage.getItem(STATE)!.length, uploaded: result.pushedCount }));
+    console.log(JSON.stringify({ scenario, articleCount: result.articleCount, vocabularyCount: result.vocabularyCount, legacyManifestCharacters: window.localStorage.getItem(STATE)?.length || 0, uploaded: result.pushedCount }));
   }
   selectDevice({});
   writeStoredArticles(window.localStorage, [{ id: "unsent", title: "Unsent", summary: "", body: "Preserve this local article", createdAt: at, updatedAt: at }]);
@@ -99,6 +103,6 @@ test("bounded storage replay, missing local records, and incomplete upload ackno
   const phases: string[] = [];
   await assert.rejects(syncAccountData({ reconcile: true, onProgress: p => phases.push(p.phase) }), /同步服务未确认全部上传数据/);
   assert.ok(!phases.includes("complete"));
-  assert.equal(readStoredArticles(window.localStorage)[0].id, "unsent");
+  assert.equal(readStoredArticles(getLearningStorage())[0].id, "unsent");
   assert.notEqual(window.localStorage.getItem(RECOVERY), "complete");
 });

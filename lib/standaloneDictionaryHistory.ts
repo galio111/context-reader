@@ -1,5 +1,7 @@
 "use client";
 
+import { getLearningStorage } from "@/lib/learningStorage";
+
 import LZString from "lz-string";
 import { notifyAccountDataChanged, notifyAccountObjectsDeleted } from "@/lib/accountEvents";
 
@@ -70,7 +72,7 @@ export function sortAndDeduplicateStandaloneDictionaryHistory(
 }
 
 export function readStandaloneDictionaryHistory(
-  storage: Storage | null = typeof window === "undefined" ? null : window.localStorage,
+  storage: Storage | null = typeof window === "undefined" ? null : getLearningStorage(),
 ): StandaloneDictionaryHistoryItem[] {
   if (!storage) return [];
   try {
@@ -105,7 +107,7 @@ export function recordStandaloneDictionaryHistory(query: string): StandaloneDict
     ...readStandaloneDictionaryHistory(),
   ]);
   try {
-    writeStandaloneDictionaryHistory(window.localStorage, next);
+    writeStandaloneDictionaryHistory(getLearningStorage(), next);
     notifyAccountDataChanged(["preferences"]);
   } catch {
     // History persistence must never block a successful dictionary lookup.
@@ -135,7 +137,7 @@ export function migrateStandaloneDictionarySessionHistory(
   if (missing.length === 0) return existing;
   const next = sortAndDeduplicateStandaloneDictionaryHistory([...missing, ...existing]);
   try {
-    writeStandaloneDictionaryHistory(window.localStorage, next);
+    writeStandaloneDictionaryHistory(getLearningStorage(), next);
     notifyAccountDataChanged(["preferences"]);
   } catch {
     // Legacy session migration is best effort.
@@ -150,7 +152,7 @@ export function removeStandaloneDictionaryHistory(query: string): StandaloneDict
     (item) => item.normalizedQuery !== normalizedQuery,
   );
   try {
-    writeStandaloneDictionaryHistory(window.localStorage, next);
+    writeStandaloneDictionaryHistory(getLearningStorage(), next);
     if (normalizedQuery) {
       notifyAccountObjectsDeleted("preferences", [
         standaloneDictionaryHistoryObjectKey({ normalizedQuery }),

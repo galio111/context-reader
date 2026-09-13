@@ -1,3 +1,5 @@
+
+import { getLearningStorage, isLearningStorage } from "@/lib/learningStorage";
 import { normalizeAnkiInfo } from "@/lib/ankiData";
 import type { ArticleTranslationBlock, ArticleTranslationItem, WordExplanation } from "@/types/reader";
 import {
@@ -25,7 +27,7 @@ function readCache(): ExplanationCache {
   }
 
   try {
-    const raw = window.localStorage.getItem(EXPLANATION_CACHE_KEY);
+    const raw = getLearningStorage().getItem(EXPLANATION_CACHE_KEY);
     return raw ? (JSON.parse(raw) as ExplanationCache) : {};
   } catch {
     return {};
@@ -38,7 +40,7 @@ function writeCache(cache: ExplanationCache): void {
   }
 
   try {
-    window.localStorage.setItem(EXPLANATION_CACHE_KEY, JSON.stringify(cache));
+    getLearningStorage().setItem(EXPLANATION_CACHE_KEY, JSON.stringify(cache));
     notifyAccountDataChanged(["explanation"]);
   } catch {
     // Cache failure should not break reading.
@@ -50,7 +52,9 @@ export function createExplanationCacheKey(word: string, sentence: string): strin
 }
 
 export function getCachedExplanation(key: string): WordExplanation | null {
-  const cached = readCache()[key];
+  const storage = typeof window === "undefined" ? null : getLearningStorage();
+  const cached = storage && isLearningStorage(storage) ? storage.getRecord(EXPLANATION_CACHE_KEY, key) as WordExplanation | undefined : readCache()[key];
+  if (cached && storage && isLearningStorage(storage)) storage.setRecord("context-reader:cache-access:v1", key, Date.now());
   if (!cached) {
     return null;
   }
@@ -80,6 +84,8 @@ export function getCachedExplanation(key: string): WordExplanation | null {
 }
 
 export function setCachedExplanation(key: string, explanation: WordExplanation): void {
+  const storage = getLearningStorage();
+  if (isLearningStorage(storage)) { storage.setRecord(EXPLANATION_CACHE_KEY, key, explanation); notifyAccountDataChanged(["explanation"]); return; }
   const cache = readCache();
   cache[key] = explanation;
   writeCache(cache);
@@ -102,7 +108,7 @@ function readArticleTranslationCache(): ArticleTranslationCache {
   }
 
   try {
-    const raw = window.localStorage.getItem(ARTICLE_TRANSLATION_CACHE_KEY);
+    const raw = getLearningStorage().getItem(ARTICLE_TRANSLATION_CACHE_KEY);
     return raw ? (JSON.parse(raw) as ArticleTranslationCache) : {};
   } catch {
     return {};
@@ -115,7 +121,7 @@ function readArticleTranslationBlockCache(): ArticleTranslationBlockCache {
   }
 
   try {
-    const raw = window.localStorage.getItem(ARTICLE_TRANSLATION_BLOCK_CACHE_KEY);
+    const raw = getLearningStorage().getItem(ARTICLE_TRANSLATION_BLOCK_CACHE_KEY);
     return raw ? (JSON.parse(raw) as ArticleTranslationBlockCache) : {};
   } catch {
     return {};
@@ -132,7 +138,7 @@ function writeArticleTranslationCache(cache: ArticleTranslationCache): void {
   }
 
   try {
-    window.localStorage.setItem(ARTICLE_TRANSLATION_CACHE_KEY, JSON.stringify(cache));
+    getLearningStorage().setItem(ARTICLE_TRANSLATION_CACHE_KEY, JSON.stringify(cache));
     notifyAccountDataChanged(["article_translation"]);
   } catch {
     // Translation cache failure should not block reading.
@@ -145,7 +151,7 @@ function writeArticleTranslationBlockCache(cache: ArticleTranslationBlockCache):
   }
 
   try {
-    window.localStorage.setItem(ARTICLE_TRANSLATION_BLOCK_CACHE_KEY, JSON.stringify(cache));
+    getLearningStorage().setItem(ARTICLE_TRANSLATION_BLOCK_CACHE_KEY, JSON.stringify(cache));
     notifyAccountDataChanged(["translation_block"]);
   } catch {
     // Translation cache failure should not block reading.

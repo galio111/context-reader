@@ -1,5 +1,7 @@
 "use client";
 
+import { flushLearningStorage } from "@/lib/learningStorage";
+
 import { memo, startTransition, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent, ReactNode } from "react";
 import { defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
@@ -2672,14 +2674,15 @@ export function ReaderView({
     setDragCurrentToken(null);
   }
 
-  function handleAddToVocabulary() {
+  async function handleAddToVocabulary() {
     if (!requireLocalAccount("登录后才能把词条加入生词本并跨设备同步。")) return;
     if (!explanation || !selectedContext) {
       return;
     }
 
     const entry = createVocabularyEntry(explanation, selectedContext, articleSource);
-    setVocabularyEntries(addVocabularyEntry(entry));
+    const entries = addVocabularyEntry(entry);
+    try { await flushLearningStorage(); setVocabularyEntries(entries); } catch { setImportError("生词尚未写入本机数据库，请保留页面并重试。"); }
   }
 
   function isStandaloneDictionaryInVocabulary(result: DictionaryResult) {
@@ -2690,9 +2693,10 @@ export function ReaderView({
     return vocabularyEntries.some((entry) => vocabularyIdentity(entry) === identity);
   }
 
-  function handleAddStandaloneDictionaryToVocabulary(result: DictionaryResult) {
+  async function handleAddStandaloneDictionaryToVocabulary(result: DictionaryResult) {
     if (!requireLocalAccount("登录后才能把独立查词结果加入生词本并跨设备同步。")) return;
-    setVocabularyEntries(addVocabularyEntry(createStandaloneVocabularyEntry(result)));
+    const entries = addVocabularyEntry(createStandaloneVocabularyEntry(result));
+    try { await flushLearningStorage(); setVocabularyEntries(entries); } catch { setImportError("生词尚未写入本机数据库，请保留页面并重试。"); }
   }
 
   function handleDeleteVocabulary(id: string) {
@@ -3374,6 +3378,7 @@ export function ReaderView({
       }
       pushArticleHistorySnapshot({ article: nextArticle, importedArticle: null });
       saveEditedArticle(currentArticle, nextArticle, null);
+      try { await flushLearningStorage(); } catch { setEditStatus("编辑尚未写入本机数据库，请保留页面并重试。"); return false; }
       setCurrentArticle(nextArticle);
       setCurrentImportedArticle(null);
       onArticleChange?.(nextArticle, null);
@@ -3420,6 +3425,7 @@ export function ReaderView({
     }
     pushArticleHistorySnapshot({ article: nextImportedArticle.text, importedArticle: nextImportedArticle });
     saveEditedArticle(currentArticle, nextImportedArticle.text, nextImportedArticle);
+    try { await flushLearningStorage(); } catch { setEditStatus("编辑尚未写入本机数据库，请保留页面并重试。"); return false; }
     setCurrentArticle(nextImportedArticle.text);
     setCurrentImportedArticle(nextImportedArticle);
     onArticleChange?.(nextImportedArticle.text, nextImportedArticle);
@@ -3545,6 +3551,7 @@ export function ReaderView({
     try {
       const existing = findSavedArticle(currentArticle);
       saveArticle(currentArticle, existing?.summary ?? "", effectiveImportedArticle);
+      await flushLearningStorage();
       saved = true;
       onArticleSaved(findSavedArticle(currentArticle) ?? undefined);
       if (isOffline) {
@@ -3565,6 +3572,7 @@ export function ReaderView({
         }, "文章已保存，但摘要暂时没有生成成功。", { operation: "article_summary" });
         if (response.ok && data?.summary) {
           saveArticle(currentArticle, data.summary, effectiveImportedArticle);
+          await flushLearningStorage();
           onArticleSaved(findSavedArticle(currentArticle) ?? undefined);
           setSaveStatus("文章已保存并生成摘要");
         } else if (data?.code === "quota_exhausted") {

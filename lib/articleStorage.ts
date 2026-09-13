@@ -1,5 +1,6 @@
 "use client";
 
+import { isLearningStorage } from "@/lib/learningStorage";
 import LZString from "lz-string";
 import type { SavedArticle } from "@/types/article";
 
@@ -28,7 +29,7 @@ export function serializeStoredArticles(articles: SavedArticle[]): string {
 }
 
 export function writeStoredArticles(storage: Storage, articles: SavedArticle[]): string {
-  const raw = serializeStoredArticles(articles);
+  const raw = isLearningStorage(storage) ? JSON.stringify(articles) : serializeStoredArticles(articles);
   storage.setItem(SAVED_ARTICLES_STORAGE_KEY, raw);
   return raw;
 }

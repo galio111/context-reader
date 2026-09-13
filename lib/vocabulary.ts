@@ -1,3 +1,5 @@
+
+import { getLearningStorage, isLearningStorage } from "@/lib/learningStorage";
 import { normalizeAnkiInfo } from "@/lib/ankiData";
 import { findSimilarVocabularyEntry, vocabularyWordsMatch } from "@/lib/sourceMatching";
 import LZString from "lz-string";
@@ -18,10 +20,7 @@ function safeLocalStorage(): Storage | null {
   }
 
   try {
-    const testKey = "context-reader:storage-test";
-    window.localStorage.setItem(testKey, "1");
-    window.localStorage.removeItem(testKey);
-    return window.localStorage;
+    return getLearningStorage();
   } catch {
     return null;
   }
@@ -120,7 +119,7 @@ export function getVocabularyEntries(): VocabularyEntry[] {
       }
       notifyAccountObjectsDeleted("vocabulary", deduplicated.removedIds);
     }
-    if (!compressed || normalizedSerialized !== serialized) {
+    if ((!compressed && !isLearningStorage(storage)) || normalizedSerialized !== serialized) {
       saveVocabularyEntries(deduplicated.entries);
     }
     return deduplicated.entries;
@@ -138,7 +137,7 @@ export function saveVocabularyEntries(entries: VocabularyEntry[]): void {
   const serialized = JSON.stringify(entries);
   storage.setItem(
     VOCABULARY_KEY,
-    `${COMPRESSED_VOCABULARY_PREFIX}${LZString.compressToUTF16(serialized)}`,
+    isLearningStorage(storage) ? serialized : `${COMPRESSED_VOCABULARY_PREFIX}${LZString.compressToUTF16(serialized)}`,
   );
   notifyAccountDataChanged(["vocabulary"]);
 }

@@ -1,4 +1,4 @@
-const CACHE_VERSION = "context-reader-v4";
+const CACHE_VERSION = "context-reader-v5";
 const APP_SHELL = ["/", "/offline.html", "/manifest.webmanifest", "/icon.svg"];
 const PUBLIC_ARTICLE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 const MAX_PUBLIC_ARTICLE_ENTRIES = 50;
@@ -16,7 +16,7 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_VERSION).map((key) => caches.delete(key))))
+      .then((keys) => Promise.all(keys.filter((key) => key.startsWith("context-reader-v") && key !== CACHE_VERSION).map((key) => caches.delete(key))))
       .then(() => self.clients.claim()),
   );
 });
@@ -33,9 +33,10 @@ async function networkFirst(request) {
         statusText: response.statusText,
         headers,
       });
-      await cache.put(request, cachedResponse);
-      const articleRequests = (await cache.keys()).filter((item) => new URL(item.url).pathname.startsWith("/api/public-articles"));
-      await Promise.all(articleRequests.slice(0, Math.max(0, articleRequests.length - MAX_PUBLIC_ARTICLE_ENTRIES)).map((item) => cache.delete(item)));
+      // A cache write failure must not replace a fresh page with an old cached release.
+      try { await cache.put(request, cachedResponse); } catch {}
+      const articleRequests = (await cache.keys().catch(() => [])).filter((item) => new URL(item.url).pathname.startsWith("/api/public-articles"));
+      await Promise.all(articleRequests.slice(0, Math.max(0, articleRequests.length - MAX_PUBLIC_ARTICLE_ENTRIES)).map((item) => cache.delete(item).catch(() => false)));
     }
     return response;
   } catch {
@@ -59,7 +60,11 @@ async function cacheFirst(request) {
   const response = await fetch(request);
   if (response.ok) {
     const cache = await caches.open(CACHE_VERSION);
-    await cache.put(request, response.clone());
+    try {
+      await cache.put(request, response.clone());
+      const scripts = (await cache.keys()).filter(item => new URL(item.url).pathname.startsWith("/_next/static/"));
+      await Promise.all(scripts.slice(0, Math.max(0, scripts.length - 120)).map(item => cache.delete(item)));
+    } catch {}
   }
   return response;
 }

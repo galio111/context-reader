@@ -1,5 +1,7 @@
 "use client";
 
+import { getLearningStorage } from "@/lib/learningStorage";
+
 import type { ImportedArticle } from "@/types/article";
 import type { ReaderReadingProgress, ReaderViewportAnchor } from "@/types/reader";
 import type { VocabularySourceArticle } from "@/types/vocabulary";
@@ -23,7 +25,7 @@ function storageKey(userId: string): string {
 function safeStorage(): Storage | null {
   if (typeof window === "undefined") return null;
   try {
-    return window.localStorage;
+    return getLearningStorage();
   } catch {
     return null;
   }

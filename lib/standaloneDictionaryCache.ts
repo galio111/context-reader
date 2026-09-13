@@ -1,5 +1,7 @@
 "use client";
 
+import { getLearningStorage } from "@/lib/learningStorage";
+
 import LZString from "lz-string";
 import { notifyAccountDataChanged } from "@/lib/accountEvents";
 import { normalizeDictionarySpelling } from "@/lib/dictionarySpelling";
@@ -85,7 +87,7 @@ function deserialize(raw: string | null): unknown[] {
 }
 
 export function readStandaloneDictionaryCache(
-  storage: Storage | null = typeof window === "undefined" ? null : window.localStorage,
+  storage: Storage | null = typeof window === "undefined" ? null : getLearningStorage(),
 ): StandaloneDictionaryCacheItem[] {
   if (!storage) return runtimeCache;
   try {
@@ -147,7 +149,7 @@ export function recordStandaloneDictionaryCache(
     { schemaVersion: 2, query, normalizedQuery, result, updatedAt: new Date().toISOString() },
     ...readStandaloneDictionaryCache(),
   ]);
-  writeStandaloneDictionaryCache(window.localStorage, next);
+  writeStandaloneDictionaryCache(getLearningStorage(), next);
   notifyAccountDataChanged(["preferences"]);
   return next;
 }
@@ -183,7 +185,7 @@ export function migrateStandaloneDictionarySessionCache(
   }
   if (missing.length === 0) return existing;
   const next = sortAndDeduplicate([...missing, ...existing]);
-  writeStandaloneDictionaryCache(window.localStorage, next);
+  writeStandaloneDictionaryCache(getLearningStorage(), next);
   notifyAccountDataChanged(["preferences"]);
   return next;
 }

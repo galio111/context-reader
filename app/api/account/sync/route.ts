@@ -35,6 +35,8 @@ export async function GET(request: Request) {
   if (!user) {
     return NextResponse.json({ error: "请先登录。", code: "login_required" }, { status: 401 });
   }
+  const expectedOwner = request.headers.get("X-Context-Account");
+  if (expectedOwner && expectedOwner !== user.id) return NextResponse.json({ error: "账号已在其他标签页切换，请刷新页面后重试。" }, { status: 409 });
   const searchParams = new URL(request.url).searchParams;
   if (searchParams.get("protocol") === "2") {
     const bootstrapKind = searchParams.get("bootstrap");
@@ -43,14 +45,14 @@ export async function GET(request: Request) {
       const snapshot = rawSnapshot
         ? decodeAccountSyncCursor(rawSnapshot)
         : await getLatestSyncCursor(user.id);
+      if (rawSnapshot && !decodeAccountSyncCursor(rawSnapshot)) {
+        return NextResponse.json({ error: "首次同步快照无效，请重新开始。" }, { status: 400 });
+      }
       if (!snapshot) {
         return NextResponse.json(
           { objects: [], nextOffset: null, snapshotCursor: "" },
           { headers: { "Cache-Control": "no-store" } },
         );
-      }
-      if (rawSnapshot && !decodeAccountSyncCursor(rawSnapshot)) {
-        return NextResponse.json({ error: "首次同步快照无效，请重新开始。" }, { status: 400 });
       }
       const requestedOffset = Number(searchParams.get("offset") || "0");
       const offset = Number.isFinite(requestedOffset)
@@ -63,6 +65,7 @@ export async function GET(request: Request) {
         bootstrapKind === "deleted",
         offset,
         sourcePageSize,
+        searchParams.get("group") === "learning" ? "learning" : searchParams.get("group") === "cache" ? "cache" : undefined,
       );
       const objects: AccountSyncObject[] = [];
       const responseByteLimit = 2_000_000;
@@ -143,6 +146,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "请先登录。", code: "login_required" }, { status: 401 });
   }
 
+  const expectedOwner = request.headers.get("X-Context-Account");
+  if (expectedOwner && expectedOwner !== user.id) return NextResponse.json({ error: "账号已在其他标签页切换，请刷新页面后重试。" }, { status: 409 });
   let body: { objects?: unknown };
   try {
     body = await readJsonBody(request, 8 * 1024 * 1024);

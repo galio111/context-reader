@@ -1,5 +1,8 @@
 "use client";
 
+import { getLearningStorage, isLearningStorage, initializeLearningStorage, flushLearningStorage } from "@/lib/learningStorage";
+
+import { pruneAcknowledgedExplanations } from "@/lib/learningCachePolicy";
 import LZString from "lz-string";
 import { explanationFromSync, explanationSyncIdentity } from "@/lib/explanationSyncIdentity";
 import { hasForegroundLookup } from "@/lib/explanationStreamStore";
@@ -63,15 +66,19 @@ const ACCOUNT_LOCAL_OWNER_KEY = "context-reader:local-account-owner:v1";
 const LAST_SYNC_KEY = "context-reader:last-sync:v1";
 const SYNC_STATE_KEY = "context-reader:sync-state:v2";
 const ARTICLE_STORAGE_RECOVERY_KEY = "context-reader:article-storage-recovery:20260905";
+const INDEXEDDB_RECOVERY_KEY = "context-reader:indexeddb-sync-recovery:v1";
 const SYNC_STORAGE_RECOVERY_KEY = "context-reader:sync-storage-recovery:20260913";
 const ACCOUNT_LOCAL_DATA_KEYS = [
   ...Object.values(KEYS),
   ACCOUNT_SYNC_TOMBSTONES_KEY,
   VOCABULARY_CONFLICT_RECOVERY_KEY,
+  "context-reader:vocabulary-backup-before-dedupe:v1",
+  "context-reader:cache-access:v1",
   LAST_SYNC_KEY,
   SYNC_STATE_KEY,
   ARTICLE_STORAGE_RECOVERY_KEY,
   SYNC_STORAGE_RECOVERY_KEY,
+  INDEXEDDB_RECOVERY_KEY,
 ];
 
 interface SyncManifestEntry {
@@ -177,14 +184,17 @@ export function accountSyncKindsForStorageKey(key: string | null): SyncObjectKin
   return [];
 }
 
-export function prepareLocalAccountForUser(userId: string, options?: { preserveExistingData?: boolean }): boolean {
+export async function prepareLocalAccountForUser(userId: string, options?: { preserveExistingData?: boolean }): Promise<boolean> {
+  await initializeLearningStorage();
   if (typeof window === "undefined" || !userId) return false;
 
-  const storage = window.localStorage;
+  const storage = getLearningStorage();
   const previousOwner = storage.getItem(ACCOUNT_LOCAL_OWNER_KEY);
   const switchedAccount = Boolean(previousOwner && previousOwner !== userId);
   if (switchedAccount && !options?.preserveExistingData) {
+    if (isLearningStorage(storage)) await storage.archiveOwner(previousOwner!);
     for (const key of ACCOUNT_LOCAL_DATA_KEYS) storage.removeItem(key);
+    if (isLearningStorage(storage)) { await storage.flush(); await storage.restoreOwner(userId); await storage.clearStage(); }
     clearStandaloneDictionaryRuntimeCache();
     notifyAccountDataMerged();
   }
@@ -192,12 +202,16 @@ export function prepareLocalAccountForUser(userId: string, options?: { preserveE
   return switchedAccount;
 }
 
-export function clearLocalAccountData(): void {
+export async function clearLocalAccountData(): Promise<void> {
+  await initializeLearningStorage();
   if (typeof window === "undefined") return;
 
-  for (const key of ACCOUNT_LOCAL_DATA_KEYS) window.localStorage.removeItem(key);
+  const storage = getLearningStorage();
+  const owner = storage.getItem(ACCOUNT_LOCAL_OWNER_KEY);
+  if (owner && isLearningStorage(storage)) await storage.archiveOwner(owner);
+  for (const key of ACCOUNT_LOCAL_DATA_KEYS) storage.removeItem(key);
   clearStandaloneDictionaryRuntimeCache();
-  window.localStorage.removeItem(ACCOUNT_LOCAL_OWNER_KEY);
+  getLearningStorage().removeItem(ACCOUNT_LOCAL_OWNER_KEY);
   notifyAccountDataMerged();
 }
 
@@ -216,7 +230,7 @@ function readVocabulary(storage: Storage): VocabularyEntry[] {
 }
 
 function writeVocabulary(storage: Storage, items: VocabularyEntry[]): void {
-  storage.setItem(KEYS.vocabulary, `${COMPRESSED_PREFIX}${LZString.compressToUTF16(JSON.stringify(items))}`);
+  storage.setItem(KEYS.vocabulary, isLearningStorage(storage) ? JSON.stringify(items) : `${COMPRESSED_PREFIX}${LZString.compressToUTF16(JSON.stringify(items))}`);
 }
 
 function preserveVocabularyConflict(storage: Storage, entry: VocabularyEntry): void {
@@ -274,7 +288,7 @@ let cachedSyncStateRaw: string | null | undefined;
 let cachedSyncState: StoredSyncState | null = null;
 
 function readSyncState(): StoredSyncState {
-  const raw = window.localStorage.getItem(SYNC_STATE_KEY);
+  const raw = getLearningStorage().getItem(SYNC_STATE_KEY);
   if (raw === cachedSyncStateRaw && cachedSyncState) return cachedSyncState;
   const serialized = raw?.startsWith(COMPRESSED_PREFIX)
     ? LZString.decompressFromUTF16(raw.slice(COMPRESSED_PREFIX.length))
@@ -298,9 +312,10 @@ function readSyncState(): StoredSyncState {
 }
 
 function writeSyncState(state: StoredSyncState): void {
-  const raw = `${COMPRESSED_PREFIX}${LZString.compressToUTF16(JSON.stringify(state))}`;
+  const serialized = JSON.stringify(state);
+  const raw = isLearningStorage(getLearningStorage()) ? serialized : `${COMPRESSED_PREFIX}${LZString.compressToUTF16(serialized)}`;
   // A failed persistent write must never advance the in-memory checkpoint.
-  window.localStorage.setItem(SYNC_STATE_KEY, raw);
+  getLearningStorage().setItem(SYNC_STATE_KEY, raw);
   cachedSyncStateRaw = raw;
   cachedSyncState = state;
 }
@@ -338,7 +353,7 @@ function mergeCloudIntoLocal(
   manifest: Record<string, SyncManifestEntry>,
 ): void {
   if (objects.length === 0) return;
-  const storage = window.localStorage;
+  const storage = getLearningStorage();
   const tombstones = readTombstones(storage);
   const incomingKinds = new Set(objects.map((object) => object.kind));
   const needsArticles = incomingKinds.has("article");
@@ -541,7 +556,7 @@ async function collectLocalObjects(
   manifest: Record<string, SyncManifestEntry>,
   dirtyKinds?: SyncObjectKind[],
 ): Promise<AccountSyncObject[]> {
-  const storage = window.localStorage;
+  const storage = getLearningStorage();
   const now = new Date().toISOString();
   const tombstones = readTombstones(storage);
   const result = new Map<string, AccountSyncObject>();
@@ -654,7 +669,7 @@ async function collectLocalObjects(
 }
 
 function clearAcceptedTombstones(objects: AccountSyncWriteResult[]): void {
-  const storage = window.localStorage;
+  const storage = getLearningStorage();
   const tombstones = readTombstones(storage);
   let changed = false;
   for (const object of objects) {
@@ -665,38 +680,73 @@ function clearAcceptedTombstones(objects: AccountSyncWriteResult[]): void {
   if (changed) writeTombstones(storage, tombstones);
 }
 
+async function syncFetch(input: string, init: RequestInit = {}): Promise<Response> {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 20_000);
+  const owner = getLearningStorage().getItem(ACCOUNT_LOCAL_OWNER_KEY);
+  const headers = new Headers(init.headers);
+  if (owner) headers.set("X-Context-Account", owner);
+  try {
+    const response = await fetch(input, { ...init, headers, signal: controller.signal });
+    if (getLearningStorage().getItem(ACCOUNT_LOCAL_OWNER_KEY) !== owner) throw new Error("账号已切换，已停止上一账号的数据恢复。");
+    return response;
+  }
+  catch (error) {
+    if (controller.signal.aborted) throw new Error("同步请求超时，已保存进度，可重试继续。");
+    throw error;
+  } finally { window.clearTimeout(timeout); }
+}
+
 async function readInitialSnapshot(
   report: (progress: AccountSyncProgress) => void,
 ): Promise<{ objects: AccountSyncObject[]; cursor: string }> {
-  const objects: AccountSyncObject[] = [];
-  let snapshotCursor = "";
-  for (const bootstrap of ["active", "deleted"] as const) {
-    let offset = 0;
-    for (let page = 0; page < 200; page += 1) {
-      const query = new URLSearchParams({ protocol: "2", bootstrap, offset: String(offset) });
-      if (snapshotCursor) query.set("snapshot", snapshotCursor);
-      const response = await fetch(`/api/account/sync?${query.toString()}`, { cache: "no-store" });
-      const data = await response.json() as {
-        objects?: AccountSyncObject[];
-        nextOffset?: number | null;
-        snapshotCursor?: string;
-        error?: string;
-      };
-      if (!response.ok) throw new Error(data.error || "读取首次同步快照失败。");
-      if (!snapshotCursor) snapshotCursor = data.snapshotCursor ?? "";
-      if (!Array.isArray(data.objects)) throw new Error("同步服务未返回完整数据，请稍后重试。");
-      const pageObjects = data.objects;
-      objects.push(...pageObjects);
-      report({ phase: "pulling", initial: true, pulledCount: objects.length, pushedCount: 0 });
-      if (data.nextOffset === null || data.nextOffset === undefined) break;
-      if (!Number.isFinite(data.nextOffset) || data.nextOffset <= offset) {
-        throw new Error("首次同步分页没有前进，请稍后重试。");
-      }
-      offset = data.nextOffset;
-      if (page === 199) throw new Error("首次同步对象过多，请先导出备份后重试。");
-    }
+  const storage = getLearningStorage();
+  const database = isLearningStorage(storage) ? storage : null;
+  const owner = storage.getItem(ACCOUNT_LOCAL_OWNER_KEY) || "guest";
+  type Resume = { owner: string; startedAt: number; cursor: string; phase: number; offset: number; pages: number };
+  let resume = await database?.stageGet<Resume>("resume");
+  if (!resume || resume.owner !== owner || Date.now() - resume.startedAt > 30 * 60_000) {
+    await database?.clearStage();
+    resume = { owner, startedAt: Date.now(), cursor: "", phase: 0, offset: 0, pages: 0 };
   }
-  return { objects, cursor: snapshotCursor };
+  const objects: AccountSyncObject[] = [];
+  for (let page = 0; page < resume.pages; page++) {
+    const saved = await database?.stageGet<AccountSyncObject[]>(`page:${page}`);
+    if (!saved) { await database?.clearStage(); return readInitialSnapshot(report); }
+    objects.push(...saved);
+  }
+  const phases = database
+    ? [{ bootstrap: "active", group: "learning" }, { bootstrap: "deleted", group: "learning" }, { bootstrap: "active", group: "cache" }, { bootstrap: "deleted", group: "cache" }]
+    : [{ bootstrap: "active", group: "" }, { bootstrap: "deleted", group: "" }];
+  for (; resume.phase < phases.length;) {
+    const phase = phases[resume.phase];
+    const query = new URLSearchParams({ protocol: "2", bootstrap: phase.bootstrap, offset: String(resume.offset) });
+    if (phase.group) query.set("group", phase.group);
+    if (resume.cursor) query.set("snapshot", resume.cursor);
+    const response = await syncFetch(`/api/account/sync?${query.toString()}`, { cache: "no-store" });
+    const data = await response.json() as { objects?: AccountSyncObject[]; nextOffset?: number | null; snapshotCursor?: string; error?: string };
+    if (!response.ok) throw new Error(data.error || "读取首次同步快照失败。");
+    if (!Array.isArray(data.objects)) throw new Error("同步服务未返回完整数据，请稍后重试。");
+    if (!resume.cursor) resume.cursor = data.snapshotCursor ?? "";
+    objects.push(...data.objects);
+    await database?.stagePut(`page:${resume.pages}`, data.objects);
+    resume.pages++;
+    if (data.nextOffset === null || data.nextOffset === undefined) { resume.phase++; resume.offset = 0; }
+    else {
+      if (!Number.isFinite(data.nextOffset) || data.nextOffset <= resume.offset) throw new Error("首次同步分页没有前进，请稍后重试。");
+      resume.offset = data.nextOffset;
+    }
+    await database?.stagePut("resume", resume);
+    report({ phase: "pulling", initial: true, pulledCount: objects.length, pushedCount: 0 });
+    // Make learning content available before downloading historical explanation caches.
+    if (database && resume.phase === 2 && resume.offset === 0) {
+      mergeCloudIntoLocal(objects, mergeManifest(readSyncState().manifest, objects));
+      await flushLearningStorage();
+      notifyAccountDataMerged(["article", "vocabulary", "reading_state"]);
+    }
+    if (resume.pages >= 800) throw new Error("首次同步对象过多，请保留数据并联系站点处理。");
+  }
+  return { objects, cursor: resume.cursor };
 }
 
 async function readCloudChanges(
@@ -709,7 +759,7 @@ async function readCloudChanges(
   for (let page = 0; page < 200; page += 1) {
     const query = new URLSearchParams({ protocol: "2" });
     if (cursor) query.set("cursor", cursor);
-    const response = await fetch(`/api/account/sync?${query.toString()}`, { cache: "no-store" });
+    const response = await syncFetch(`/api/account/sync?${query.toString()}`, { cache: "no-store" });
     const data = await response.json() as {
       objects?: AccountSyncObject[];
       nextCursor?: string;
@@ -747,15 +797,16 @@ async function performAccountSync(
 ): Promise<AccountSyncResult> {
   const state = readSyncState();
   // Reclaim bookkeeping space before any snapshot merge writes larger user data.
-  if (!window.localStorage.getItem(SYNC_STATE_KEY)?.startsWith(COMPRESSED_PREFIX)) writeSyncState(state);
+  if (!isLearningStorage(getLearningStorage()) && !getLearningStorage().getItem(SYNC_STATE_KEY)?.startsWith(COMPRESSED_PREFIX)) writeSyncState(state);
   // The first compressed-article rollout could leave an already-initialized
   // browser with fewer local articles than its cloud snapshot. An incremental
   // cursor cannot see those older objects again, so each account performs one
   // bounded protocol-2 snapshot replay. Missing local data never becomes a
   // deletion; explicit tombstones remain the only deletion authority.
-  const recoveringArticleStorage = window.localStorage.getItem(ARTICLE_STORAGE_RECOVERY_KEY) !== "complete";
-  const recoveringSyncStorage = window.localStorage.getItem(SYNC_STORAGE_RECOVERY_KEY) !== "complete";
-  const initial = !state.initialized || recoveringArticleStorage || recoveringSyncStorage || reconcile;
+  const recoveringArticleStorage = getLearningStorage().getItem(ARTICLE_STORAGE_RECOVERY_KEY) !== "complete";
+  const recoveringSyncStorage = getLearningStorage().getItem(SYNC_STORAGE_RECOVERY_KEY) !== "complete";
+  const recoveringIndexedDB = isLearningStorage(getLearningStorage()) && getLearningStorage().getItem(INDEXEDDB_RECOVERY_KEY) !== "complete";
+  const initial = !state.initialized || recoveringArticleStorage || recoveringSyncStorage || recoveringIndexedDB || reconcile;
   const cloud = initial
     ? await readInitialSnapshot(report)
     : await readCloudChanges(state, report);
@@ -772,35 +823,51 @@ async function performAccountSync(
   const local = mode === "full"
     ? await collectLocalObjects(manifest, initial || cloud.objects.length > 0 ? undefined : dirtyKinds)
     : [];
-  let writeResults: AccountSyncWriteResult[] = [];
+  const writeResults: AccountSyncWriteResult[] = [];
 
   if (local.length > 0) {
-    report({ phase: "pushing", initial, pulledCount: cloud.objects.length, pushedCount: local.length });
-    const response = await fetch("/api/account/sync", {
+    const database = getLearningStorage();
+    if (isLearningStorage(database)) await database.clearStage();
+    const batches: AccountSyncObject[][] = [];
+    let batch: AccountSyncObject[] = [], bytes = 0;
+    for (const object of local) {
+      const size = new TextEncoder().encode(JSON.stringify(object)).byteLength;
+      if (size > 7_000_000) throw new Error("单条同步数据过大，原数据已保留，请联系站点处理。");
+      if (batch.length && (batch.length >= 200 || bytes + size > 1_500_000)) { batches.push(batch); batch = []; bytes = 0; }
+      batch.push(object); bytes += size;
+    }
+    if (batch.length) batches.push(batch);
+    for (const batch of batches) {
+      report({ phase: "pushing", initial, pulledCount: cloud.objects.length, pushedCount: writeResults.length });
+    const response = await syncFetch("/api/account/sync", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ objects: local }),
+      body: JSON.stringify({ objects: batch }),
     });
     const data = await response.json() as { objects?: AccountSyncWriteResult[]; error?: string; conflict?: boolean };
-    const submitted = new Set(local.map(object => `${object.kind}:${object.objectKey}`));
-    if (!Array.isArray(data.objects) || data.objects.length !== local.length
+    const submitted = new Set(batch.map(object => `${object.kind}:${object.objectKey}`));
+    if (!Array.isArray(data.objects) || data.objects.length !== batch.length
       || new Set(data.objects.map(object => `${object.kind}:${object.objectKey}`)).size !== submitted.size
       || data.objects.some(object => !submitted.has(`${object.kind}:${object.objectKey}`) || (response.ok && !object.accepted))) {
       throw new Error("同步服务未确认全部上传数据，本机数据已保留，请稍后重试。");
     }
-    writeResults = data.objects;
-    clearAcceptedTombstones(writeResults);
-    manifest = mergeManifest(manifest, writeResults);
+    writeResults.push(...data.objects);
+    clearAcceptedTombstones(data.objects);
+    manifest = mergeManifest(manifest, data.objects);
     if (response.status === 409 && retriesRemaining > 0) {
-      writeSyncState({ protocol: 2, initialized: true, cursor: cloud.cursor, manifest });
+      writeSyncState({ protocol: 2, initialized: state.initialized, cursor: state.cursor, manifest });
+      await flushLearningStorage();
       return performAccountSync(retriesRemaining - 1, report, startedAt, mode, dirtyKinds, deferLocalWork, reconcile);
     }
     if (!response.ok) throw new Error(data.error || "同步失败，请稍后重试。");
+    writeSyncState({ protocol: 2, initialized: state.initialized, cursor: state.cursor, manifest });
+    await flushLearningStorage();
+    }
   }
 
   let verified = false;
-  const articles = mode === "full" ? readStoredArticles(window.localStorage) : [];
-  const vocabulary = mode === "full" ? readVocabulary(window.localStorage) : [];
+  const articles = mode === "full" ? readStoredArticles(getLearningStorage()) : [];
+  const vocabulary = mode === "full" ? readVocabulary(getLearningStorage()) : [];
   if (initial && mode === "full") {
     const expected = new Map<string, AccountSyncObject>();
     for (const object of [...cloud.objects, ...writeResults]) {
@@ -819,12 +886,19 @@ async function performAccountSync(
   if (!state.initialized || cloud.cursor !== state.cursor || manifest !== state.manifest) {
     writeSyncState({ protocol: 2, initialized: true, cursor: cloud.cursor, manifest });
   }
+  await flushLearningStorage();
   if (recoveringArticleStorage) {
-    window.localStorage.setItem(ARTICLE_STORAGE_RECOVERY_KEY, "complete");
+    getLearningStorage().setItem(ARTICLE_STORAGE_RECOVERY_KEY, "complete");
   }
-  if (recoveringSyncStorage && mode === "full" && verified) window.localStorage.setItem(SYNC_STORAGE_RECOVERY_KEY, "complete");
+  if (recoveringSyncStorage && mode === "full" && verified) getLearningStorage().setItem(SYNC_STORAGE_RECOVERY_KEY, "complete");
+  if (recoveringIndexedDB && mode === "full" && verified) getLearningStorage().setItem(INDEXEDDB_RECOVERY_KEY, "complete");
+  if (mode === "full") await pruneAcknowledgedExplanations(getLearningStorage(), async (key, value) => {
+    const identity = await explanationSyncIdentity(key, value as Parameters<typeof explanationSyncIdentity>[1]);
+    const entry = manifest[`explanation:${identity.objectKey}`];
+    return Boolean(entry && !entry.deleted && entry.hash === stableHash(identity.payload));
+  });
   const syncedAt = new Date().toISOString();
-  window.localStorage.setItem(LAST_SYNC_KEY, syncedAt);
+  getLearningStorage().setItem(LAST_SYNC_KEY, syncedAt);
   const result: AccountSyncResult = {
     verified,
     articleCount: mode === "full" ? articles.length : undefined,
@@ -835,6 +909,9 @@ async function performAccountSync(
     syncedAt,
     durationMs: Math.max(0, Date.now() - startedAt),
   };
+  await flushLearningStorage();
+  const database = getLearningStorage();
+  if (isLearningStorage(database)) await database.clearStage();
   report({
     phase: "complete",
     initial,
@@ -856,7 +933,9 @@ function reportProgress(progress: AccountSyncProgress): void {
   for (const listener of progressListeners) listener(progress);
 }
 
-export function syncAccountData(options: AccountSyncOptions = {}): Promise<AccountSyncResult> {
+export async function syncAccountData(options: AccountSyncOptions = {}): Promise<AccountSyncResult> {
+  await initializeLearningStorage();
+  await flushLearningStorage();
   if (options.onProgress) progressListeners.add(options.onProgress);
   const mode = options.mode ?? "full";
 

@@ -44,7 +44,7 @@ Candidate discovery is controlled per website in Admin: daily targets, source ve
 - Saving generates a summary only when that article has no valid one. A curated public article reuses its reviewed Chinese summary without a DeepSeek call while still consuming one plan summary action; once saved, the action becomes `已保存` and there is no second summary-generation control.
 - Admin can generate a unique single-use Basic, Plus, or Max invitation code with a redemption deadline, post-redemption duration and private note. A signed-in user redeems it from Menu; the account then shows the granted limits and expiry, returns to Free at expiry, and can redeem a new code.
 - Registration may continue to a skippable reading-profile step. English level and interests personalize only the default recommendation order; birth year and gender are optional demographic fields and can be cleared.
-- Protocol-2 sync uses a bounded bootstrap, opaque change cursor, compare-and-swap versions and tombstones instead of downloading full history repeatedly.
+- Learning data uses IndexedDB with verified legacy migration and recoverable writes. Login opens the account before background restoration; protocol-2 sync restores learning records before caches, resumes interrupted pages and verifies article/vocabulary content. Only acknowledged explanation caches have an automatic eviction budget.
 - Offline mode reopens only the last verified account's browser-local articles, vocabulary and caches. It never restores Admin, plan, quota or server authorization.
 - Online payment is not connected. Commercial labels and detailed usage counters remain hidden unless their explicit build-time flags are enabled.
 

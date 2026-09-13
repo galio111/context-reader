@@ -564,6 +564,7 @@ export async function listSyncBootstrapObjects(
   deleted: boolean,
   requestedOffset: number,
   requestedLimit: number,
+  group?: "learning" | "cache",
 ): Promise<AccountSyncObject[]> {
   const offset = Math.max(0, Math.min(100_000, Math.floor(requestedOffset)));
   const limit = Math.max(1, Math.min(1_000, Math.floor(requestedLimit)));
@@ -578,6 +579,7 @@ export async function listSyncBootstrapObjects(
     limit: String(limit),
     offset: String(offset),
   });
+  if (group) params.set("kind", group === "learning" ? "in.(article,vocabulary,reading_state)" : "not.in.(article,vocabulary,reading_state)");
   const rows = await accountFetch<SyncBootstrapRow[]>(`user_data_objects?${params.toString()}`);
   return rows.map((row) => ({
     kind: row.kind,

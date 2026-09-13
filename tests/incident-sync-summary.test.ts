@@ -1,3 +1,5 @@
+import { IDBFactory } from "fake-indexeddb";
+import { getLearningStorage } from "../lib/learningStorage";
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { readFileSync } from "node:fs";
@@ -110,6 +112,7 @@ test("a long lookup no longer blocks article upload, second-device sync, or the 
   const selectDevice = (index: number) => {
     Object.defineProperty(globalThis, "window", { configurable: true, value: devices[index].window });
     globalThis.CustomEvent = devices[index].window.CustomEvent as typeof CustomEvent;
+    Object.defineProperty(devices[index].window, "indexedDB", { configurable: true, value: new IDBFactory() });
   };
   const cloud = new Map<string, AccountSyncObject>();
   let writes = 0;
@@ -136,8 +139,8 @@ test("a long lookup no longer blocks article upload, second-device sync, or the 
   assert.equal(first.pushedCount, 2);
   selectDevice(1);
   await syncAccountData();
-  assert.equal(readStoredArticles(window.localStorage)[0].body, article.body);
-  assert.deepEqual(JSON.parse(window.localStorage.getItem("context-reader:explanations:v5")!)[key], explanation);
+  assert.equal(readStoredArticles(getLearningStorage())[0].body, article.body);
+  assert.deepEqual(JSON.parse(getLearningStorage().getItem("context-reader:explanations:v5")!)[key], explanation);
   const logoutSync = await syncAccountData();
   assert.equal(logoutSync.pushedCount, 0);
   assert.equal(writes, 2, "replay must not create duplicate cache uploads");
