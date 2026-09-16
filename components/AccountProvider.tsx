@@ -624,7 +624,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
           <button className="mt-2 min-h-11 rounded-full bg-[#174f82] px-4 text-white" type="button" onClick={() => { void initializeLearningStorage().then(flushLearningStorage).catch(() => {}); }}>重试本机保存</button>
         </aside>
       )}
-      <div inert={!storageStatus.ready}>{children}</div>
+      <div inert={account.authenticated && !storageStatus.ready}>{children}</div>
       {isOffline && (
         <aside
           className="fixed left-1/2 top-2 z-[190] w-[min(94vw,760px)] -translate-x-1/2 rounded-xl bg-[#fff7df] px-3 py-2 text-[#533d17] shadow-[0_4px_8px_rgba(69,48,12,.16)] sm:top-3 sm:px-4 sm:py-3"

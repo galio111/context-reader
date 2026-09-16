@@ -65,3 +65,9 @@ export function normalizeDifficultyLabel(value: string | Difficulty): string {
 export function originalFormLabel(lemma: string, fallback: string): string {
   return (lemma.trim() || fallback.trim().toLowerCase()).trim();
 }
+
+// Participial adjectives are lexical entries in this context, not verb inflections.
+export function contextualLemma(lemma: string, word: string, partOfSpeech: string): string {
+  if (/形容词|adjective|\badj\b/i.test(partOfSpeech) && /(?:ed|ing)$/i.test(word.trim())) return word.trim().toLowerCase();
+  return lemma;
+}

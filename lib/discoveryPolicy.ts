@@ -55,3 +55,7 @@ export function minimumDiscoveryWords(levelHint?: string): number {
   void levelHint;
   return 401;
 }
+
+export const DAILY_DISCOVERY_TARGET = 30;
+export const DAILY_DISCOVERY_MINIMUM = 28;
+export function discoverySupplementCap(target: number): number { return Math.max(target, 4); }

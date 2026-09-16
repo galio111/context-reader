@@ -116,6 +116,8 @@ interface ReaderViewProps {
   onSourceJumpAligned?: () => void;
   savedArticles?: SavedArticle[];
   onOpenSavedArticle?: (article: SavedArticle) => void;
+  onRenameSavedArticle?: (id: string, title: string) => void;
+  onDeleteSavedArticle?: (id: string) => void;
   onOpenImportedArticle?: (
     article: string,
     importedArticle: ImportedArticle | null,
@@ -1156,6 +1158,8 @@ export function ReaderView({
   onSourceJumpAligned,
   savedArticles = [],
   onOpenSavedArticle,
+  onRenameSavedArticle,
+  onDeleteSavedArticle,
   onOpenImportedArticle,
 }: ReaderViewProps) {
   const {
@@ -2240,6 +2244,7 @@ export function ReaderView({
     setSelectedContext(context);
     setError("");
     setMobileExplanationOpen(true);
+    setReaderMenuOpen(false);
     setRightPanelMode("explanation");
 
     if (!options.force && loading && activeExplanationKeyRef.current === cacheKey) {
@@ -2707,6 +2712,7 @@ export function ReaderView({
     if (!requireLocalAccount("登录后才能使用生词本。")) return;
     const entries = getVocabularyEntries();
     setVocabularyEntries(entries);
+    setMobileExplanationOpen(false);
     setImportError("");
     setAnkiStatus("");
     setReaderMenuPlacement("left");
@@ -2879,6 +2885,7 @@ export function ReaderView({
   }
 
   function openMobileTool(mode: RightPanelMode) {
+    setReaderMenuOpen(false);
     if (rightPanelMode === "translation" && mobileTranslationScrollRef.current) {
       mobileTranslationScrollTopRef.current = mobileTranslationScrollRef.current.scrollTop;
     }
@@ -4482,6 +4489,7 @@ export function ReaderView({
                 onGenerate={() => generateArticleTranslation(false)}
                 onRegenerate={() => generateArticleTranslation(true)}
                 scrollContainerRef={mobileTranslationScrollRef}
+                onScrollPositionChange={(top) => { mobileTranslationScrollTopRef.current = top; }}
               />
             </div>
             {rightPanelMode === "dictionary" && (
@@ -4536,6 +4544,7 @@ export function ReaderView({
         placement={readerMenuPlacement}
         initialPreview={readerMenuInitialPreview}
         standalonePreview={readerMenuStandalonePreview}
+        readerTool={readerMenuStandalonePreview}
         isAdmin={account.plan?.id === "admin"}
         account={account}
         isOffline={isOffline}
@@ -4547,6 +4556,8 @@ export function ReaderView({
         onVocabularyEntriesChange={setVocabularyEntries}
         onClose={handleCloseVocabulary}
         onOpenSavedArticle={(savedArticle) => onOpenSavedArticle?.(savedArticle)}
+        onRenameSavedArticle={onRenameSavedArticle}
+        onDeleteSavedArticle={onDeleteSavedArticle}
         onJumpToVocabularySource={handleJumpToVocabularySource}
         canJumpToVocabularySource={(entry) =>
           canJumpToSourceSentence(entry.sourceSentence) ||

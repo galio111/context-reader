@@ -46,7 +46,7 @@ export default function AdminDiscoveryPanel({ onRefresh, onCandidates }: { onRef
       const response = await fetch("/api/admin/article-crawler", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(automation.config) });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "保存失败。");
-      setAutomation(data.automation); setMessage("自动抓取时间已保存，数量由各网站的每日目标决定。");
+      setAutomation(data.automation); setMessage("自动抓取时间已保存，每日目标 30 篇，不足时由合格来源补位。");
     } catch (e) { setError(e instanceof Error ? e.message : "保存失败。"); } finally { setBusy(""); }
   }
   async function testEmail() {
@@ -67,7 +67,7 @@ export default function AdminDiscoveryPanel({ onRefresh, onCandidates }: { onRef
     {(message || error) && <p role={error ? "alert" : "status"} className={`mt-4 rounded-lg px-3 py-3 text-sm leading-6 ${error ? "bg-red-50 text-red-800" : "bg-[#edf5fb] text-[#234861]"}`}>{error || message}</p>}
     {!loaded && <p className="mt-4 text-sm text-[#485661]">正在读取网站与今日记录…</p>}
     {loaded && <>
-      <p className="my-4 text-sm text-[#34424d]">日常启用 {enabled.length} 站，其中低难度专门来源 {enabled.filter((s) => s.levelHint === "lower").length} 站；每日合计目标 {enabled.reduce((n, s) => n + s.dailyTarget, 0)} 篇。备选或停用 {sites.length - enabled.length} 站。</p>
+      <p className="my-4 text-sm text-[#34424d]">日常启用 {enabled.length} 站，其中低难度专门来源 {enabled.filter((s) => s.levelHint === "lower").length} 站；每日目标 30 篇，低于 28 篇需检查来源；各站首轮目标合计 {enabled.reduce((n, s) => n + s.dailyTarget, 0)} 篇。备选或停用 {sites.length - enabled.length} 站。</p>
       <details className="border-y border-[#dce2e7] py-3 text-sm text-[#34424d]"><summary className="cursor-pointer font-medium">查看当前硬规则与反馈如何生效</summary><p className="mt-3 max-w-3xl leading-7">时事和商业必须有可靠日期且不超过 7 天；长期有效的知识、文化和故事可以较旧。拒绝广告软文、付费墙、短讯、低信息量、立场宣传和过于专业的科学文章。所有自动候选都至少 401 个英文词，并且要有完整阅读价值，配图必须能安全保存。网站须近期持续更新。数量不足时报告原因，不放宽这些规则。</p><p className="mt-2 max-w-3xl leading-7">不精选原因会保存。“内容没兴趣”会减少高度相似文章；“太专业或太难”会对该网站相似主题收紧筛选。广告、正文和图片问题会在网站记录中提示复查，不会悄悄禁用整个网站。自动判断不替代发布前的人工审核。</p></details>
       {automation && <div className="my-4 flex flex-wrap items-end gap-4">
         <label className="flex min-h-11 items-center gap-2 text-sm"><input type="checkbox" checked={automation.config.enabled} disabled={!!busy} onChange={(e) => setAutomation({ ...automation, config: { ...automation.config, enabled: e.target.checked } })} />每天自动抓取</label>
@@ -76,7 +76,7 @@ export default function AdminDiscoveryPanel({ onRefresh, onCandidates }: { onRef
         <button className={button} disabled={!!busy || !enabled.length} onClick={() => void perform("run")}>{busy.startsWith("run") ? "正在处理一个网站…" : "立即处理下一站"}</button>
         <button className={button} disabled={!!busy} onClick={() => void load().catch((e) => setError(e.message))}>刷新状态</button>
       </div>}
-      <p className="mb-4 max-w-3xl text-xs leading-6 text-[#485661]">服务器每 5 分钟检查并处理一个网站，逐批完成整份名单，关闭电脑不影响执行。每站每日检查次数有限，随目标篇数调整；目标 2 篇时最多检查 3 批，每批最多尝试 3 篇，重试至少间隔 30 分钟；手动运行也遵守每日目标。每站 2 篇是入选目标，不保证源网站每天发布 2 篇合格新作。</p>
+      <p className="mb-4 max-w-3xl text-xs leading-6 text-[#485661]">服务器每 5 分钟检查并处理一个网站，逐批完成整份名单，关闭电脑不影响执行。每站每日检查次数有限，随目标篇数调整；目标 2 篇时最多检查 3 批，每批最多尝试 3 篇，重试至少间隔 30 分钟；手动运行也遵守每日目标。首轮不足 30 篇时，其他合格网站可补到每站至少 4 篇的上限；仍须满足正文超过 400 词、可存储配图、时效和质量要求。不会自动发布。</p>
       {automation && <details className="mb-4 text-sm text-[#485661]"><summary className="cursor-pointer">运行结果与邮件通知</summary><p className="my-2 leading-6">通知邮箱：{automation.emailConfigured ? automation.notificationEmail : "尚未配置"}。上次新增 {automation.state.lastCreatedCount} 篇；{automation.state.lastError || "暂无异常记录"}。邮件状态：{automation.state.lastEmailStatus === "sent" ? "已发送" : automation.state.lastEmailStatus === "failed" ? "发送失败" : "尚未发送"}。</p><button className={button} disabled={!!busy || !automation.emailConfigured} onClick={() => void testEmail()}>发送测试邮件</button></details>}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#dce2e7] pb-3"><h3 className="font-semibold">网站名单</h3><button className={button} disabled={!!busy} onClick={() => setEdit({ id: "", name: "", feedUrl: "", feeds: [""], articleHosts: [""], topics: ["社会生活"], levelHint: "mixed", discovery: "feed", enabled: false, dailyTarget: 2, note: "" })}>添加网站</button></div>
       {edit && <form className="my-4 space-y-4 rounded-lg bg-[#f1f5f8] p-4" onSubmit={(e) => { e.preventDefault(); void perform("save", edit.id, edit); }}>

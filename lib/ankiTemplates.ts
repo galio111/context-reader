@@ -1,3 +1,4 @@
+import { contextualLemma } from "@/lib/displayLabels";
 import type { AnkiCardMode } from "@/types/anki";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import { standaloneVocabularyPresentation } from "@/lib/vocabularyPresentation";
@@ -179,7 +180,7 @@ export const clozeFrontTemplate = `<div class="card">
 export const clozeBackTemplate = `<div class="card">
   <div class="word" data-context-reader-word>{{Word}}</div>
 
-  <div class="meta"><span class="meta-label">原型：</span>{{Lemma}} · {{PartOfSpeech}}</div>
+  <div class="meta"><span class="meta-label">词目：</span>{{Lemma}} · {{PartOfSpeech}}</div>
   {{#Phonetic}}<div class="meta-row"><span class="meta-label">当前词音标：</span>{{Phonetic}}</div>{{/Phonetic}}
 
   <div class="audio-row" aria-label="单词发音">
@@ -247,7 +248,7 @@ export const basicFrontTemplate = `<div class="card">
 export const basicBackTemplate = `<div class="card">
   <div class="word" data-context-reader-word>{{Word}}</div>
 
-  <div class="meta"><span class="meta-label">原型：</span>{{Lemma}} · {{PartOfSpeech}}</div>
+  <div class="meta"><span class="meta-label">词目：</span>{{Lemma}} · {{PartOfSpeech}}</div>
   {{#Phonetic}}<div class="meta-row"><span class="meta-label">当前词音标：</span>{{Phonetic}}</div>{{/Phonetic}}
 
   <div class="audio-row" aria-label="单词发音">
@@ -313,7 +314,7 @@ export const englishToChineseFrontTemplate = `<div class="card">
 
 export const englishToChineseBackTemplate = `<div class="card">
   <div class="word" data-context-reader-word>{{Word}}</div>
-  <div class="meta"><span class="meta-label">原型：</span>{{Lemma}} · {{PartOfSpeech}}</div>
+  <div class="meta"><span class="meta-label">词目：</span>{{Lemma}} · {{PartOfSpeech}}</div>
   {{#Phonetic}}<div class="meta-row"><span class="meta-label">当前词音标：</span>{{Phonetic}}</div>{{/Phonetic}}
 
   <div class="audio-row" aria-label="单词发音">
@@ -402,7 +403,7 @@ export function fieldsForEntry(entry: VocabularyEntry): Record<string, string> {
   const common = {
     ContextReaderId: entry.id,
     Word: entry.word,
-    Lemma: entry.lemma,
+    Lemma: contextualLemma(entry.lemma, entry.word, entry.partOfSpeech),
     Phonetic: currentFormPhonetic(entry),
     PartOfSpeech: entry.partOfSpeech,
     BasicMeaning: entry.basicMeaning,

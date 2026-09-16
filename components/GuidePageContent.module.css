@@ -5,7 +5,7 @@
 .brand span { color: #60757d; font-size: 12px; }
 .guideFooter > a, .guideFooter > button { display: inline-flex; min-height: 40px; padding: 0 17px; align-items: center; gap: 8px; border: 0; border-radius: 999px; color: #fff; background: #1a6074; font: inherit; font-size: 13px; font-weight: 700; text-decoration: none; cursor: pointer; }
 .guideFooter svg, .ankiAfterImport svg { width: 17px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
-.shell { display: grid; width: min(1280px, 100%); margin: 0 auto; padding: 34px clamp(18px, 3vw, 42px) 86px; grid-template-columns: 222px minmax(0, 1fr); gap: clamp(42px, 5vw, 74px); }
+.shell { display: grid; width: min(1280px, 100%); margin: 0 auto; padding: 34px clamp(18px, 3vw, 42px) 86px; grid-template-columns: 172px minmax(0, 1fr); gap: clamp(24px, 3vw, 42px); }
 .directory nav { position: sticky; top: 96px; display: grid; max-height: calc(100svh - 120px); padding-top: 15px; overflow-y: auto; border-top: 1px solid rgb(24 62 73 / 18%); }
 .directory nav > p { margin: 0 0 10px; color: #71838a; font-size: 11px; font-weight: 700; }
 .directory nav > a { padding: 9px 10px; border-radius: 8px; color: #4e6670; font-size: 13px; font-weight: 600; text-decoration: none; }
@@ -13,7 +13,7 @@
 .directoryNote { margin-top: 18px; padding: 14px; border-radius: 12px; color: #4d6771; background: #e3edef; font-size: 12px; line-height: 1.65; }
 .directoryNote strong { display: block; margin-bottom: 3px; color: #214b5a; }
 .mobileDirectory { display: none; }
-.content { min-width: 0; }
+.content { min-width: 0; padding-inline: clamp(16px, 2.5vw, 34px); background: #fbfcfd; border-radius: 14px; }
 .intro { padding: 54px 0 64px; border-block: 1px solid rgb(24 60 72 / 14%); scroll-margin-top: 80px; }
 .introLabel { margin: 0 0 14px; color: #356573; font-size: 12px; font-weight: 700; }
 .intro h1 { margin: 0; color: #173d49; font-size: 42px; font-weight: 650; letter-spacing: -.025em; line-height: 1.12; text-wrap: balance; }
@@ -247,3 +247,6 @@
   color: #102027 !important;
   background: var(--guide-night-accent) !important;
 }
+
+:global(html[data-context-theme="night"]) .content { background: var(--guide-night-surface); }
+@media (max-width: 680px) { .content { padding-inline: 14px; } }

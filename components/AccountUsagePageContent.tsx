@@ -193,7 +193,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
 
   return (
     <main
-      className={`${embedded ? "min-h-full" : "cr-site-background"} cr-account-usage px-4 py-8 text-[#17212b] sm:px-6 sm:py-12`}
+      className={`${embedded ? "min-h-0" : "cr-site-background"} cr-account-usage px-4 py-8 text-[#17212b] sm:px-6 sm:py-12`}
       data-embedded={embedded || undefined}
     >
       {!embedded && <SiteBackdrop />}

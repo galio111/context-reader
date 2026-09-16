@@ -1026,3 +1026,9 @@
 }
 
 @keyframes memberOpeningReduced { from { opacity: 1; } to { opacity: 0; } }
+
+@media (min-width: 901px) { .dictionaryWindow { resize: both; max-width: calc(100vw - 24px); max-height: calc(100svh - 24px); } .dictionaryWindow > header { cursor: move; touch-action: none; } }
+
+@media (max-width: 900px) { .dictionaryWindow { left: 0 !important; top: auto !important; width: 100% !important; height: var(--mobile-dictionary-height, 48dvh) !important; } }
+
+@media (max-width: 900px) { .dictionaryWindow { grid-template-rows: 24px 44px minmax(0, 1fr); } .dictionarySheetHandle { min-height: 24px; } .dictionaryWindow > header { display: flex; padding-inline: 16px 8px; } .dictionaryWindow > header button { width: auto; min-width: 44px; min-height: 44px; padding-inline: 10px; border-radius: 10px; font-size: 12px; } }

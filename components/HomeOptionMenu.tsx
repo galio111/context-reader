@@ -1,4 +1,5 @@
 "use client";
+import { contextualLemma } from "@/lib/displayLabels";
 
 import {
   useCallback,
@@ -49,6 +50,7 @@ import { readClientInteractionCapabilities } from "@/lib/clientCapabilities";
 import type { SavedArticle } from "@/types/article";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import styles from "./HomeOptionMenu.module.css";
+import { useAccount } from "./AccountProvider";
 
 interface HomeOptionMenuProps {
   open: boolean;
@@ -77,6 +79,7 @@ interface HomeOptionMenuProps {
   onRecommendationMotionChange?: (enabled: boolean) => void;
   placement?: "left" | "right";
   standalonePreview?: boolean;
+  readerTool?: boolean;
   avoidHomeQuickNav?: boolean;
   onVocabularyEntriesChange?: (entries: VocabularyEntry[]) => void;
   ankiTools?: HomeMenuAnkiTools;
@@ -189,11 +192,13 @@ export function HomeOptionMenu({
   placement = "right",
   standalonePreview = false,
   avoidHomeQuickNav = false,
+  readerTool = false,
   onVocabularyEntriesChange,
   ankiTools,
   vocabularyTools,
 }: HomeOptionMenuProps) {
   const router = useRouter();
+  const { openLogin } = useAccount();
   const dialogRef = useRef<HTMLElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -213,7 +218,7 @@ export function HomeOptionMenu({
   const savedArticleRenameInputRef = useRef<HTMLInputElement | null>(null);
   const [previewAnchorY, setPreviewAnchorY] = useState<number | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const mobileSheet = useMobileBottomSheet(open, mobileMenu, undefined, onClose);
+  const mobileSheet = useMobileBottomSheet(open, mobileMenu, readerTool ? 48 : undefined, onClose);
   const [internalAnkiSettings, setInternalAnkiSettings] = useState<AnkiSettings>(() => defaultAnkiSettings());
   const [internalAnkiStatus, setInternalAnkiStatus] = useState("");
   const [internalAnkiChecking, setInternalAnkiChecking] = useState(false);
@@ -320,10 +325,10 @@ export function HomeOptionMenu({
     return () => window.cancelAnimationFrame(frame);
   }, [savedArticleContext?.editing]);
 
-  useDocumentScrollLock(mounted);
+  useDocumentScrollLock(mounted && !(readerTool && mobileMenu));
 
   useEffect(() => {
-    const query = window.matchMedia("(max-width: 760px)");
+    const query = window.matchMedia("(max-width: 1023px)");
     const update = (event?: MediaQueryListEvent) => {
       setMobileMenu(query.matches);
       if (!event) return;
@@ -648,7 +653,7 @@ export function HomeOptionMenu({
       onClose();
       return;
     }
-    if (event.key !== "Tab") return;
+    if (event.key !== "Tab" || (readerTool && mobileMenu)) return;
     const focusable = Array.from(
       dialogRef.current?.querySelectorAll<HTMLElement>(
         "button:not([disabled]), a[href], [tabindex]:not([tabindex='-1'])",
@@ -675,6 +680,7 @@ export function HomeOptionMenu({
       } as CSSProperties}
       role="presentation"
       data-open={open || undefined}
+      data-reader-tool={readerTool || undefined}
       data-theme={theme}
       data-placement={placement}
       data-standalone={standalonePreview || undefined}
@@ -765,6 +771,7 @@ export function HomeOptionMenu({
           data-mobile-account-entry={mobileAccountName ? "hidden" : "guest"}
           aria-label={account.authenticated ? "打开当前账号与用量" : "打开登录与账号入口"}
           onClick={(event) => {
+            if (!account.authenticated && !isOffline) { onClose(); openLogin(); return; }
             anchorPreview(event.currentTarget);
             setPinnedPreview("account");
           }}
@@ -825,7 +832,7 @@ export function HomeOptionMenu({
         className={`${styles.savedPreview} ${orderedVocabularyEntries.length ? "" : styles.previewCompact} ${visiblePreview === "vocabulary" ? styles.savedPreviewVisible : ""}`}
         style={{ "--preview-anchor-y": `${previewAnchorY ?? window.innerHeight / 2}px` } as CSSProperties}
         role={standalonePreview ? "dialog" : undefined}
-        aria-modal={standalonePreview ? "true" : undefined}
+        aria-modal={standalonePreview && !(readerTool && mobileMenu) ? "true" : undefined}
         aria-label="生词本"
         aria-hidden={visiblePreview !== "vocabulary"}
         inert={visiblePreview !== "vocabulary"}
@@ -988,7 +995,7 @@ export function HomeOptionMenu({
                           transform: `translateY(${virtualRow.start}px)`,
                         }}
                         onPointerEnter={(event) => {
-                          if (event.pointerType !== "mouse") return;
+                          if (mobileMenu || event.pointerType !== "mouse") return;
                           if (!vocabularyVirtualizer.isScrolling) setHoveredVocabularyId(entry.id);
                         }}
                         onPointerDown={(event) => {
@@ -1014,7 +1021,7 @@ export function HomeOptionMenu({
                           vocabularyTapRef.current = null;
                           if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
                         }}
-                        onFocus={() => setHoveredVocabularyId(entry.id)}
+                        onFocus={() => { if (!mobileMenu) setHoveredVocabularyId(entry.id); }}
                         onClick={() => setHoveredVocabularyId(entry.id)}
                         aria-expanded={hoveredVocabularyId === entry.id}
                       >
@@ -1276,7 +1283,7 @@ function MenuPreview({
       : "";
   return (
     <section
-      className={`${styles.savedPreview} ${styles.generalPreview} ${variantClass} ${visible ? styles.savedPreviewVisible : ""}`}
+      className={`${styles.savedPreview} ${styles.generalPreview} ${kind === "account" ? styles.accountPreview : ""} ${variantClass} ${visible ? styles.savedPreviewVisible : ""}`}
       style={{ "--preview-anchor-y": `${previewAnchorY ?? 320}px` } as CSSProperties}
       aria-label={title}
       aria-hidden={!visible}
@@ -1518,7 +1525,7 @@ function VocabularyHoverDetail({
       <header className={styles.vocabularyDetailHeader}>
         <div>
           <h3>{entry.word}</h3>
-          <p>原型：{originalFormLabel(entry.lemma, entry.word)} · {normalizePartOfSpeechLabel(entry.partOfSpeech)}</p>
+          <p>词目：{originalFormLabel(contextualLemma(entry.lemma, entry.word, entry.partOfSpeech), entry.word)} · {normalizePartOfSpeechLabel(entry.partOfSpeech)}</p>
           {entryPhonetic && <p><strong>当前词音标：</strong>{entryPhonetic}</p>}
         </div>
         <PronunciationButtons text={entry.word} preload />

@@ -267,3 +267,8 @@ Mainland Caddy overwrites X-Real-IP with its direct peer address because the app
 
 
 Routine login restoration, automatic polls, rate-limit waits and recoverable sync failures are silent. Only an explicit manual sync caller receives progress/results in its account panel; AccountProvider no longer creates a global sync banner or a normal storage-preparation notice. A genuine IndexedDB write failure retains its independent local-save warning and backup/retry controls. Sync 401 errors refresh verified account state without clearing learning data or claiming the account is still logged in. Ordinary logout uses Auth admin signOut with scope local, preserving other independently authenticated device/browser sessions; tabs sharing one cookie session remain the same session.
+
+
+### 候选与解释恢复约定
+
+自动发现以每日 30 篇为目标，低于 28 篇需检查来源；首轮站点额度不足时有限补位，不降低 401 词、配图和时效要求。手动单站仍遵守本站额度。自动开关关闭时不调度；本次维护保持关闭。解释 JSON 解析失败先在当前提供商有限重试，再按已有配置回退，只有最终失败才进入错误报告/告警路径。

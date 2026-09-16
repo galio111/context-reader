@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { GuideAnkiSetup } from "@/components/GuideAnkiSetup";
 import { PUBLIC_CONTACT } from "@/lib/publicContact";
@@ -57,11 +59,18 @@ function SectionHeading({ title, copy }: { title: string; copy?: string }) { ret
 function ToolDemo({ demo }: { demo?: ReadingTool["demo"] }) { return demo ? <figure className={styles.toolDemo}><img src={demo.src} alt={demo.alt} loading="lazy" /></figure> : null; }
 
 export function GuidePageContent({ embedded = false, onOpenFeedback }: { embedded?: boolean; onOpenFeedback?: () => void }) {
-  return <main className={styles.guide} data-embedded={embedded || undefined}>
+  return <main className={styles.guide} data-embedded={embedded || undefined} onClick={(event) => {
+    const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
+    if (!link) return;
+    const target = event.currentTarget.querySelector<HTMLElement>(link.getAttribute("href")!);
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
+  }}>
     <header className={styles.topbar}><Link className={styles.brand} href="/"><strong>Context Reader</strong><span>使用说明</span></Link></header>
     <div className={styles.mobileDirectory}><nav aria-label="使用说明目录" data-local-scroll-surface>{guideNav.map(([href, label]) => <a href={href} key={href} data-mobile-hide-anki={href === "#anki" || undefined}>{label}</a>)}</nav></div>
     <div className={styles.shell}>
-      <aside className={styles.directory}><nav aria-label="使用说明目录" data-local-scroll-surface><p>本页目录</p>{guideNav.map(([href, label]) => <a href={href} key={href}>{label}</a>)}<div className={styles.directoryNote}><strong>第一次使用？</strong>先完成一次阅读，Anki 和其他设置都可以稍后再做。</div></nav></aside>
+      <aside className={styles.directory}><nav aria-label="使用说明目录" data-local-scroll-surface><p>本页目录</p>{guideNav.map(([href, label]) => <a href={href} key={href}>{label}</a>)}</nav></aside>
       <article className={styles.content}>
         <section id="developer" className={styles.intro} aria-labelledby="guide-title"><p className={styles.introLabel}>为什么做这个网站</p><h1 id="guide-title">开发者的话</h1><div className={styles.developerCopy}><p>我做 Context Reader，是因为自己在读外刊和长文章时，也经常被密集的生词劝退。把词一个个复制到词典里很慢，同一个词又会列出很多意思，读完一篇文章常常要花很久。我希望阅读可以简单一点：直接在原句里看懂这个词此刻表达什么，继续把文章读下去；遇到真正值得积累的词，就连同原句和语境保存下来，形成阅读、理解和复习的闭环。</p><p>网站也会持续整理我精选的英文外刊，满足日常阅读需要。你也可以复制自己的文章，或输入网址直接阅读。希望它能让大家少一点查词的消耗，更轻松地学英语，更顺畅地读完真正想读的内容。</p></div></section>
 

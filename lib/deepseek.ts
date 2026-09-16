@@ -1,3 +1,4 @@
+import { contextualLemma } from "@/lib/displayLabels";
 import { normalizeAnkiInfo } from "@/lib/ankiData";
 import { normalizePartOfSpeechLabel } from "@/lib/displayLabels";
 import { pronunciationTargetMatches, requiresCurrentFormPhonetic } from "@/lib/pronunciation";
@@ -37,7 +38,7 @@ const systemPrompt = `你是给中文母语英语学习者使用的语境词义�
 3. sentenceTranslation 必须翻译整句，并让目标词/短语在句中的语气、指代、逻辑关系都被准确体现。
 4. word 必须原样返回输入的 w，不能添加相邻单词、释义或原型。
 5. phonetic 尽量给 IPA，且必须描述用户实际选择的 w，绝不能改成 lemma（原型）的音标。phoneticFor 必须原样返回 w，用来明确音标归属；无法确认 w 的音标时，phonetic 和 phoneticFor 都返回空字符串。w 是单个单词时只给该词当前词形的音标；w 是多词短语时按“单词 /音标/ · 单词 /音标/”列出每个实际选中词形，不要给整段句子音标。
-6. w 是单个单词时，lemma 只返回这个单词在该句中的原型，严禁返回相邻词或多个单词；w 是多词短语时 lemma 返回空字符串。partOfSpeech 只返回规范词性，不要把 CET、IELTS、A2、B2、medium 等考试或等级写进词性。
+6. w 是单个单词时，lemma 只返回这个单词在该句中的原型，严禁返回相邻词或多个单词；w 是多词短语时 lemma 返回空字符串。形容词必须按该语境中的形容词词目返回，例如 heavily fragmented 的 lemma 是 fragmented，不能还原成动词 fragment；比较级可返回形容词原级。partOfSpeech 只返回规范词性，不要把 CET、IELTS、A2、B2、medium 等考试或等级写进词性。
 7. contextMeaning 只能写目标词/短语在当前句中的中文对应含义，不得翻译整句。w 是单个单词时，contextMeaning 必须解释这个单词本身在句中的贡献，不能把相邻副词、否定词、程度词或搭配词的整体效果并入释义。例如 w=intelligible 且原句含 barely intelligible 时，contextMeaning 应写“可理解的；听得清的”，不要写“口齿不清的”；“barely intelligible”的整体效果应放在 sentenceTranslation 或 usageNote。w 是用户选中的多词短语时，contextMeaning 才解释整个短语。sentenceTranslation 才翻译整句。
 8. difficulty 只返回 easy、medium、hard 三者之一。
 9. clozeSentence 只把原句中的目标词/短语替换成 ________，不要改写整句。
@@ -344,7 +345,7 @@ function normalizeExplanation(value: unknown, request: ExplanationRequest): Word
 
   return {
     word: request.word,
-    lemma: normalizeLemma(data.lemma, request.word),
+    lemma: contextualLemma(normalizeLemma(data.lemma, request.word), request.word, text(data.partOfSpeech)),
     phonetic: pronunciationTargetMatches(text(data.phoneticFor), request.word)
       ? text(data.phonetic, "")
       : "",
@@ -549,7 +550,18 @@ export async function explainWordWithDeepSeek(
         }
       }
 
-      const parsed = parseJsonObject(content);
+      let parsed: unknown;
+      try {
+        parsed = parseJsonObject(content);
+      } catch (error) {
+        if (!(error instanceof SyntaxError) && !(error instanceof DeepSeekParseError)) throw error;
+        const retryCompletion = await requestDeepSeekCompletion({ profile, safeRequest, signal });
+        completion = { ...retryCompletion, usage: sumUsage(completion.usage, retryCompletion.usage) };
+        const retryContent = retryCompletion.choices?.[0]?.message?.content?.trim();
+        if (!retryContent) throw new DeepSeekEmptyContentError();
+        try { parsed = parseJsonObject(retryContent); }
+        catch { throw new DeepSeekParseError("解释结果格式不完整，请稍后重试。"); }
+      }
       let invalidFields = [...missingChineseFields(parsed), ...missingTextFields(parsed, safeRequest)];
       if (invalidFields.length > 0) {
         const retryCompletion = await requestDeepSeekCompletion({
@@ -559,7 +571,9 @@ export async function explainWordWithDeepSeek(
           signal,
         });
         const retryContent = retryCompletion.choices?.[0]?.message?.content?.trim();
-        const retryParsed = retryContent ? parseJsonObject(retryContent) : null;
+        let retryParsed: unknown = null;
+        try { retryParsed = retryContent ? parseJsonObject(retryContent) : null; }
+        catch { throw new DeepSeekParseError("解释结果格式不完整，请稍后重试。"); }
         invalidFields = [...missingChineseFields(retryParsed), ...missingTextFields(retryParsed, safeRequest)];
         if (invalidFields.length > 0) {
           throw new DeepSeekParseError("DeepSeek 返回的释义不完整，请重新生成。");

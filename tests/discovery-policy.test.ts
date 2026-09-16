@@ -157,3 +157,11 @@ test("similarity does not equate unrelated short headings", () => {
   assert.equal(similarArticle("Science today", "Science today"), false);
   assert.equal(similarArticle("The history of ancient painting and cultural traditions", "Space telescopes discover planets orbiting distant stars"), false);
 });
+
+test("discovery can supplement low-output sources without unbounded per-source intake", async () => {
+ const { discoverySupplementCap, DAILY_DISCOVERY_TARGET } = await import("../lib/discoveryPolicy");
+ assert.equal(DAILY_DISCOVERY_TARGET, 30);
+ assert.equal(discoverySupplementCap(2), 4);
+ assert.equal(discoverySupplementCap(10), 10);
+ assert.equal(defaultDiscoverySites().some(s => s.articleHosts.includes("openculture.com")), false);
+});

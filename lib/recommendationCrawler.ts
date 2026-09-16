@@ -193,6 +193,7 @@ export async function runRecommendationCrawler(
       if (/\b(?:sponsored|advertorial|paid content|partner content)\b/i.test(item.title + " " + item.description.slice(0, 400))) throw new Error("赞助或推广内容");
       if (/newsinlevels\.com/.test(item.url) && !/-level-3(?:\/|$)/.test(item.url)) throw new Error("只收录 level 3 的完整阅读，避免同文多级重复");
       if (allArticles.some((article) => similarArticle(item.title, article.title))) throw new Error("标题与已有文章高度相似");
+      if (/\/videos?\//i.test(new URL(item.url).pathname)) throw new Error("视频页面不进入自动候选。");
       const imported = await importArticleThroughApi(origin, item.url);
       const article = imported.article!;
       if (imported.metadata?.intakeWarnings?.length) throw new Error(imported.metadata.intakeWarnings.join("；"));

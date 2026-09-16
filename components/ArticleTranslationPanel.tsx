@@ -21,12 +21,13 @@ interface ArticleTranslationPanelProps {
   onGenerate: () => void;
   onRegenerate: () => void;
   scrollContainerRef?: Ref<HTMLElement>;
+  onScrollPositionChange?: (top: number) => void;
 }
 
 export function ArticleTranslationPanel({
   blocks, translations, loading, error, requested, estimatedSecondsRemaining, retryAfterSeconds, retryReason,
   regenerating, completedTargetBlocks, totalTargetBlocks,
-  staleBlockIds = [], removedTranslationCount = 0, adminMode = false, onGenerate, onRegenerate, scrollContainerRef,
+  staleBlockIds = [], removedTranslationCount = 0, adminMode = false, onGenerate, onRegenerate, scrollContainerRef, onScrollPositionChange,
 }: ArticleTranslationPanelProps) {
   const translationById = new Map(translations.map((item) => [item.id, item.translation]));
   const hasTranslations = translations.length > 0;
@@ -51,7 +52,7 @@ export function ArticleTranslationPanel({
     : `已生成 ${translations.length}/${blocks.length} 段，剩余内容正在后台翻译。${estimateText}`;
 
   return (
-    <aside ref={scrollContainerRef} className="cr-reader-panel cr-translation-panel h-full min-h-0 overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [-webkit-overflow-scrolling:touch]" data-native-selection="blue">
+    <aside onScroll={(event) => onScrollPositionChange?.(event.currentTarget.scrollTop)} ref={scrollContainerRef} className="cr-reader-panel cr-translation-panel h-full min-h-0 overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [-webkit-overflow-scrolling:touch]" data-native-selection="blue">
       <header className="flex items-start justify-between gap-3 border-b border-[#e0e0e0] pb-4">
         <div className="min-w-0">
           <h2 className="text-base font-semibold leading-6 tracking-[-0.224px] text-[#1d1d1f]">全文翻译</h2>

@@ -252,3 +252,14 @@ Mainland Caddy overwrites X-Real-IP with its direct peer address because the app
 
 
 Routine login restoration, automatic polls, rate-limit waits and recoverable sync failures are silent. Only an explicit manual sync caller receives progress/results in its account panel; AccountProvider no longer creates a global sync banner or a normal storage-preparation notice. A genuine IndexedDB write failure retains its independent local-save warning and backup/retry controls. Sync 401 errors refresh verified account state without clearing learning data or claiming the account is still logged in. Ordinary logout uses Auth admin signOut with scope local, preserving other independently authenticated device/browser sessions; tabs sharing one cookie session remain the same session.
+
+
+## 阅读工具与候选修复（2026-09-16 待发布）
+
+首页独立查词与 Reader 对齐：桌面可拖动、调整大小，复用完整词典与加入生词本能力；手机保持底部面板和至少 44px 返回/关闭目标。窗口坐标不跨会话持久化。
+
+Reader 切换文章建立独立阅读会话，清空来源词高亮与旧翻译比较状态；我的文章复用首页重命名/删除回调。移动生词本在 1023px 以下使用完整宽度底部面板，保留下方工具栏，点按进入详情；译文滚动位置逐次记录，划词后切回也恢复。游客阅读不依赖私有学习存储初始化；未登录身份按钮和精选登录按钮直达登录弹窗。使用说明目录在内容层内滚动，缩窄侧栏、移除首次提示卡并区分浅色正文；账号预览按内容高度显示。
+
+语境形容词的 -ed/-ing 词目保留实际形容词形式，前端流式合并和 Anki 导出同步规范；旧 Anki 已导入笔记不会自动改写。解释服务先有限重试损坏 JSON，最终失败仍按原分类保留私有错误报告。
+
+候选目标 30 篇，28 篇为最低检查线；先按站点目标分散采集，再允许合格来源补到每站至少 4 篇的有限上限。保留 401 英文词、已存配图、时效、去重和内容质量硬门槛；视频路径直接跳过。Open Culture 已从名单和默认列表删除。9 月 15 日手动实测 30 篇，自动任务保持关闭；Mongabay 与 Science News Explores 经正文/图片验证后启用。JSTOR 验证页、NewsForKids 过期新闻不能作为数量补位。

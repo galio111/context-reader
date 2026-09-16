@@ -1,3 +1,4 @@
+import { contextualLemma } from "@/lib/displayLabels";
 import { normalizeDifficultyLabel, normalizePartOfSpeechLabel } from "@/lib/displayLabels";
 import { normalizeAnkiInfo } from "@/lib/ankiData";
 import { currentFormPhonetic, requiresCurrentFormPhonetic } from "@/lib/pronunciation";
@@ -97,7 +98,7 @@ export function mergeStreamDisplayIntoExplanation(
   }
 
   const partOfSpeech = streamField(sections, "partOfSpeech");
-  const streamLemma = streamField(sections, "lemma") || explanation.lemma;
+  const streamLemma = contextualLemma(streamField(sections, "lemma") || explanation.lemma, explanation.word, partOfSpeech || explanation.partOfSpeech);
   const streamPhoneticFor = streamField(sections, "phoneticFor");
   const streamPhonetic = currentFormPhonetic({
     word: explanation.word,
@@ -143,7 +144,7 @@ export function explanationFromCompletedStream(
   const exampleChinese = streamField(sections, "exampleChinese");
   const lemma = context.word.trim().split(/\s+/).length > 1
     ? ""
-    : streamField(sections, "lemma") || context.word;
+    : contextualLemma(streamField(sections, "lemma") || context.word, context.word, partOfSpeech);
   const phonetic = currentFormPhonetic({
     word: context.word,
     lemma,

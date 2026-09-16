@@ -65,5 +65,5 @@ export function defaultDiscoverySites(): DiscoverySite[] {
   if (science) science.note = "官方 RSS 说明不允许转载完整正文，暂停自动收录；保留原有候选。";
   const time = sites.find((site) => site.articleHosts[0] === "time.com");
   if (time) time.note = "内容方向合适，但大陆生产服务器当前访问主页和 RSS 均超时；保留为待重试来源，不在无法稳定读取时启用凑数。";
-  return sites;
+  return sites.filter((site) => !site.articleHosts.includes("openculture.com"));
 }

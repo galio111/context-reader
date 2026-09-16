@@ -3,7 +3,9 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
 import { createPortal } from "react-dom";
 import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
-import { getVocabularyEntries } from "@/lib/vocabulary";
+import { flushLearningStorage } from "@/lib/learningStorage";
+import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
+import { addVocabularyEntry, vocabularyIdentity, getVocabularyEntries } from "@/lib/vocabulary";
 import { useAccount } from "@/components/AccountProvider";
 import { BookLetterField } from "@/components/BookLetterField";
 import ClearableField from "@/components/ClearableField";
@@ -270,7 +272,7 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
 }
 
 export function HomeRedesign(props: HomeRedesignProps) {
-  const { account, loading: accountLoading, hasLocalAccountAccess, isOffline, localAccount } = useAccount();
+  const { account, loading: accountLoading, hasLocalAccountAccess, isOffline, localAccount, openLogin, requireAccount } = useAccount();
   // This is a visual preview only: it never drops the real session or grants guest
   // permissions. Keeping it URL-driven lets the owner compare both home states
   // without repeatedly logging out and back in.
@@ -285,6 +287,22 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [menuInitialPreview, setMenuInitialPreview] = useState<PreviewKind | null>(null);
   const [menuGuideSection, setMenuGuideSection] = useState<GuideSection | null>(null);
   const [menuStandalonePreview, setMenuStandalonePreview] = useState(false);
+  const dictionaryWindowRef = useRef<HTMLElement | null>(null);
+  function startDictionaryDrag(event: PointerEvent<HTMLElement>) {
+    if (window.matchMedia("(max-width: 900px)").matches || event.button !== 0 || (event.target as HTMLElement).closest("button")) return;
+    const element = dictionaryWindowRef.current;
+    if (!element) return;
+    event.preventDefault();
+    const rect = element.getBoundingClientRect();
+    const move = (next: globalThis.PointerEvent) => {
+      element.style.left = Math.min(Math.max(rect.left + next.clientX - event.clientX, 104 - rect.width), window.innerWidth - 104) + "px";
+      element.style.top = Math.min(Math.max(rect.top + next.clientY - event.clientY, 12), window.innerHeight - 58) + "px";
+    };
+    const finish = () => { window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", finish); window.removeEventListener("pointercancel", finish); };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", finish, { once: true });
+    window.addEventListener("pointercancel", finish, { once: true });
+  }
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
   const mobileDictionarySheet = useMobileBottomSheet(
     dictionaryMounted,
@@ -1040,7 +1058,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
             <span className={styles.quickItem} data-tooltip="粘贴正文或输入文章网址">
               <PillNavAction motion="none" className={styles.quickButton} label="导入" ariaLabel="导入文章" onClick={(event) => { if (event.detail > 0) event.currentTarget.blur(); scrollToImport(); }} renderIcon={() => <QuickActionIcon kind="import" />} />
             </span>
-            <span className={styles.quickItem} data-tooltip="打开固定的单独查词面板">
+            <span className={styles.quickItem} data-tooltip="打开可移动、可调整大小的查词面板">
               <PillNavAction motion="none" className={styles.quickButton} label="查词" ariaLabel="单独查词" onClick={(event) => { if (event.detail > 0) event.currentTarget.blur(); openDictionary(); }} renderIcon={() => <QuickActionIcon kind="dictionary" />} />
             </span>
             <span className={styles.quickItem} data-tooltip="查看加入生词本的词与原句">
@@ -1327,7 +1345,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           {!memberHome && (
             <div className={styles.guestLibraryAction}>
               <span>{personalizedAllCategoryArticles.length > showcaseArticleCount ? `登录后可继续查看这一栏目的其余 ${personalizedAllCategoryArticles.length - showcaseArticleCount} 篇外刊` : "登录后可进入完整外刊库，并保存自己的阅读进度"}</span>
-              <button type="button" onClick={() => openMenuPreview("account")}>登录查看更多</button>
+              <button type="button" onClick={() => openLogin("登录后可查看更多精选外刊。")}>登录查看更多</button>
             </div>
           )}
           {!memberHome && (
@@ -1415,6 +1433,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
         <div className={styles.dictionaryLayer} data-closing={dictionaryClosing || undefined}>
           <button type="button" className={styles.dictionaryBackdrop} aria-label="关闭单独查词" onClick={closeDictionary} />
           <aside
+            ref={dictionaryWindowRef}
             className={`${styles.dictionaryWindow} ${dictionaryClosing ? styles.dictionaryWindowClosing : ""}`}
             style={{
               "--mobile-dictionary-height": `${mobileDictionarySheet.height}dvh`,
@@ -1432,7 +1451,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
               onPointerUp={mobileDictionarySheet.onResizeEnd}
               onPointerCancel={mobileDictionarySheet.onResizeCancel}
             ><span /></div>
-            <header>
+            <header onPointerDown={startDictionaryDrag}>
               <span><QuickActionIcon kind="dictionary" />单独查词</span>
               <button type="button" aria-label="返回菜单" onClick={closeDictionary}>
                 <i className={styles.dictionaryCloseDesktop} aria-hidden="true">×</i>
@@ -1440,7 +1459,15 @@ export function HomeRedesign(props: HomeRedesignProps) {
               </button>
             </header>
             <div className={styles.dictionaryWindowBody} data-local-scroll-surface>
-              <BookDictionary embedded compact panel offline={isOffline} />
+              <BookDictionary embedded compact panel offline={isOffline}
+                onAddToVocabulary={async (result) => {
+                  if (!(await requireAccount("登录后可以保存到生词本。"))) return;
+                  const entries = addVocabularyEntry(createStandaloneVocabularyEntry(result));
+                  await flushLearningStorage();
+                  setVocabularyEntries(entries);
+                }}
+                isInVocabulary={(result) => vocabularyEntries.some((entry) => vocabularyIdentity(entry) === vocabularyIdentity(createStandaloneVocabularyEntry(result)))}
+              />
             </div>
           </aside>
         </div>

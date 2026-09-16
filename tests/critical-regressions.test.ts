@@ -531,6 +531,17 @@ test("structured explanation distinguishes an aborted fetch from a completed mal
     error instanceof DeepSeekParseError && !(error instanceof ClientRequestCancelledError)
   ));
 
+  let formatAttempts = 0;
+  globalThis.fetch = (async () => {
+    formatAttempts += 1;
+    return new Response(JSON.stringify({ choices: [{ message: { content: formatAttempts === 1
+      ? '{"word":"clear" "broken":true}'
+      : JSON.stringify({ phonetic: "/klɪr/", phoneticFor: "clear", basicMeaning: "清楚的", contextMeaning: "清晰的", sentenceTranslation: "这个区别很清楚。", usageNote: "表示容易辨认。", collocation: "clear distinction", exampleChinese: "区别很清楚。" }) } }], usage: {} }), { status: 200 });
+  }) as typeof fetch;
+  const formatRecovered = await explainWordWithDeepSeek(request);
+  assert.equal(formatRecovered.explanation.contextMeaning, "清晰的");
+  assert.equal(formatAttempts, 2);
+
   process.env.DEEPSEEK_LOOKUP_MODEL = "deepseek-v4-pro";
   delete process.env.DEEPSEEK_FALLBACK_MODELS;
   const attemptedModels: string[] = [];
@@ -1111,7 +1122,7 @@ test("mobile overlays lock background scroll and adapt across viewport changes",
   const sheet = readFileSync(new URL("../components/useMobileBottomSheet.ts", import.meta.url), "utf8");
   const menuStyles = readFileSync(new URL("../components/HomeOptionMenu.module.css", import.meta.url), "utf8");
 
-  assert.match(menu, /useDocumentScrollLock\(mounted\)/);
+  assert.match(menu, /useDocumentScrollLock\(mounted && !\(readerTool && mobileMenu\)\)/);
   assert.match(vocabulary, /useDocumentScrollLock\(open\)/);
   assert.match(scrollLock, /activeLocks \+= 1/);
   assert.match(scrollLock, /body\.style\.position = "fixed"/);
@@ -1165,7 +1176,9 @@ test("mobile sheet drag handles and remaining return controls keep full touch ta
 test("homepage dictionary keeps separate desktop-window and mobile-sheet geometry", () => {
   const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
   const styles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
-  assert.doesNotMatch(component, /context-reader-dictionary-window-v1|startDictionaryDrag|persistDictionaryWindow/);
+  assert.match(component, /startDictionaryDrag/);
+  assert.match(component, /onAddToVocabulary/);
+  assert.match(styles, /resize: both/);
   assert.match(component, /MOBILE_READER_SHEET_HEIGHT/);
   assert.match(styles, /\.dictionaryWindow\s*\{[\s\S]*?inset:\s*92px auto auto 132px[\s\S]*?width:\s*min\(340px[\s\S]*?height:\s*min\(560px/);
   assert.match(styles, /@media \(max-width: 900px\)[\s\S]*?\.dictionaryWindow\s*\{[^}]*inset:\s*auto 0 0[^}]*height:\s*var\(--mobile-dictionary-height/);
@@ -1583,4 +1596,13 @@ test("homepage feedback keeps the reply promise outside the narrow contact field
   assert.match(menu, /填写后我可以给你回信/);
   assert.match(menu, /placeholder="邮箱、微信或其他联系方式"/);
   assert.doesNotMatch(menu, /留下邮箱、微信或其他联系方式，我可以回信联系你/);
+});
+
+
+test("participial adjective entries preserve lexical form while verbs and comparatives retain their lemma", async () => {
+ const { contextualLemma } = await import("../lib/displayLabels");
+ assert.equal(contextualLemma("fragment", "fragmented", "形容词"), "fragmented");
+ assert.equal(contextualLemma("interest", "interesting", "adjective"), "interesting");
+ assert.equal(contextualLemma("fragment", "fragmented", "动词"), "fragment");
+ assert.equal(contextualLemma("good", "better", "形容词"), "good");
 });

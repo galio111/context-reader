@@ -17,7 +17,7 @@
   --menu-preview-width: min(390px, calc(100vw - 40px));
 }
 
-@media (min-width: 901px) {
+@media (min-width: 1024px) {
   .overlay[data-standalone][data-home-quick-nav-offset] {
     --standalone-preview-left: 128px;
     --menu-preview-width: min(390px, calc(100vw - 148px));
@@ -1630,7 +1630,7 @@
   to { opacity: 1; }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1023px) {
   .overlay {
     --menu-panel-width: 100vw;
   }
@@ -2039,3 +2039,24 @@
     opacity: 1;
   }
 }
+
+/* Content-sized account surface and mobile overrides with matching specificity. */
+@media (min-width: 1024px) {
+  .overlay .savedPreview.accountPreview { top: 88px; bottom: auto; width: min(720px, calc(100vw - var(--menu-panel-width) - 54px)); height: auto; max-height: calc(100svh - 112px); }
+  .accountPreview .pageContent { height: auto; }
+}
+@media (max-width: 1023px) {
+  .overlay[data-standalone][data-placement="left"] .vocabularyDetail { inset: auto 0 0; width: 100%; height: var(--mobile-sheet-height, 56dvh); max-height: 82dvh; transform: translateY(10px); }
+  .overlay[data-standalone][data-placement="left"] .vocabularyDetailVisible { transform: translateY(0); }
+}
+
+@media (max-width: 1023px) {
+ .overlay[data-reader-tool] { pointer-events: none; }
+ .overlay[data-reader-tool] .backdrop { display: none; }
+ .overlay[data-reader-tool] .savedPreview, .overlay[data-reader-tool][data-standalone][data-placement="left"] .vocabularyDetail { bottom: calc(68px + env(safe-area-inset-bottom)); border-radius: 16px 16px 0 0; pointer-events: auto; background: white; }
+ .overlay[data-reader-tool] .mobilePreviewBack { bottom: calc(var(--mobile-sheet-height, 48dvh) + 68px + env(safe-area-inset-bottom) - 56px); pointer-events: auto; }
+ .overlay[data-reader-tool] .mobileSheetHandle { bottom: calc(var(--mobile-sheet-height, 48dvh) + 68px + env(safe-area-inset-bottom) - 44px); pointer-events: auto; }
+ .overlay[data-reader-tool] .vocabularyDetailInner { padding-top: 64px; }
+}
+
+@media (max-width: 1023px) { .overlay[data-reader-tool][data-theme="night"] .savedPreview, .overlay[data-reader-tool][data-theme="night"][data-standalone][data-placement="left"] .vocabularyDetail { background: #122229; } }

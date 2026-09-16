@@ -381,6 +381,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         window.location.href,
       );
     }
+    setReaderSessionId((sessionId) => sessionId + 1);
     setReading(true);
   }, [beginReadingProgressSession]);
 
@@ -961,6 +962,7 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
     const touchedArticles = touchSavedArticle(savedArticle.id);
     const openedArticle = touchedArticles.find((item) => item.id === savedArticle.id) ?? savedArticle;
     setSavedArticles(touchedArticles);
+    setSourceWordToHighlight("");
     setArticle(openedArticle.body);
     setImportedArticle(openedArticle.importedArticle ?? null);
     void primeLeadingArticleImage(openedArticle.importedArticle ?? null);
@@ -1355,6 +1357,8 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         }}
         savedArticles={savedArticles}
         onOpenSavedArticle={handleOpenSavedArticleFromReader}
+        onRenameSavedArticle={handleRenameSavedArticle}
+        onDeleteSavedArticle={handleDeleteSavedArticle}
         onOpenImportedArticle={handleOpenImportedArticleFromReader}
         onImportedArticleChange={handleImportedArticleChange}
         onJumpToVocabularySourceOutsideArticle={handleJumpToVocabularySource}
