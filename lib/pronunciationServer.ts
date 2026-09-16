@@ -30,6 +30,36 @@ interface PronunciationResult {
   voice: string;
 }
 
+// A bounded hot cache also retains generated audio when Storage is temporarily down.
+// Persistent Storage remains authoritative across app restarts and releases.
+const hotAudio = new Map<string, PronunciationResult>();
+const MAX_HOT_AUDIO_BYTES = 32 * 1024 * 1024;
+const MAX_HOT_AUDIO_ENTRIES = 1_000;
+let hotAudioBytes = 0;
+const persistenceRetries = new Map<string, number>();
+const persistenceInFlight = new Set<string>();
+
+function rememberAudio(key: string, result: PronunciationResult): void {
+  const previous = hotAudio.get(key);
+  if (previous) hotAudioBytes -= previous.bytes.byteLength;
+  hotAudio.delete(key);
+  hotAudio.set(key, result);
+  hotAudioBytes += result.bytes.byteLength;
+  while (hotAudioBytes > MAX_HOT_AUDIO_BYTES || hotAudio.size > MAX_HOT_AUDIO_ENTRIES) {
+    const oldest = hotAudio.keys().next().value;
+    if (oldest === undefined) break;
+    hotAudioBytes -= hotAudio.get(oldest)!.bytes.byteLength;
+    hotAudio.delete(oldest);
+    persistenceRetries.delete(oldest);
+  }
+}
+
+function auditAudio(event: string, identity: string, accent: PronunciationAccent, characters: number): void {
+  // No words, credentials or account identifiers in logs. Character count is
+  // input length, not a claim about the provider's billable-character rules.
+  console.info(JSON.stringify({ event: `pronunciation_${event}`, identity, accent, inputCharacters: characters }));
+}
+
 const inFlight = new Map<string, Promise<PronunciationResult>>();
 
 export class MissingPronunciationConfigurationError extends Error {
@@ -207,17 +237,29 @@ async function createPronunciation(
 
   if (client) {
     try {
-      await ensurePronunciationBucket(client);
-      const cached = await readCachedAudio(client, path);
+      let cached: Uint8Array | null;
+      try {
+        cached = await readCachedAudio(client, path);
+      } catch {
+        // Retry a transient Storage read before spending provider quota.
+        cached = await readCachedAudio(client, path);
+      }
       if (cached) {
+        auditAudio("storage_hit", identity, accent, normalizedText.length);
         return { bytes: cached, filename, cacheStatus: "hit", voice };
       }
     } catch (error) {
       console.error("Pronunciation cache read failed", error);
+      auditAudio("storage_read_failed", identity, accent, normalizedText.length);
     }
   }
 
+  auditAudio("provider_request", identity, accent, normalizedText.length);
   const bytes = await requestVolcengineAudio(normalizedText, accent, voice);
+  auditAudio("provider_success", identity, accent, normalizedText.length);
+  // Keep the successful MP3 even if durable storage fails. The existing
+  // in-flight promise still serializes callers until persistence completes.
+  rememberAudio(identity, { bytes, filename, cacheStatus: "unavailable", voice });
   if (client) {
     try {
       await ensurePronunciationBucket(client);
@@ -225,6 +267,7 @@ async function createPronunciation(
       return { bytes, filename, cacheStatus: "miss", voice };
     } catch (error) {
       console.error("Pronunciation cache write failed", error);
+      auditAudio("storage_write_failed", identity, accent, normalizedText.length);
     }
   }
   return { bytes, filename, cacheStatus: "unavailable", voice };
@@ -239,8 +282,33 @@ export function getPronunciationAudio(
   const key = cacheIdentity(normalizedText.toLowerCase(), accent, voice);
   const existing = inFlight.get(key);
   if (existing) return existing;
+  const hot = hotAudio.get(key);
+  if (hot) {
+    // Refresh LRU order without extending memory usage.
+    hotAudio.delete(key);
+    hotAudio.set(key, hot);
+    if (hot.cacheStatus === "unavailable" && !persistenceInFlight.has(key)
+      && Date.now() - (persistenceRetries.get(key) ?? 0) >= 60_000) {
+      const client = pronunciationCacheClient();
+      if (client) {
+        persistenceRetries.set(key, Date.now());
+        persistenceInFlight.add(key);
+        // Repair persistence independently; never make playback wait for this.
+        void ensurePronunciationBucket(client)
+          .then(() => writeCachedAudio(client, cachePath(accent, key), hot.bytes))
+          .then(() => { hot.cacheStatus = "hit"; })
+          .catch(() => { auditAudio("storage_repair_failed", key, accent, normalizedText.length); })
+          .finally(() => { persistenceInFlight.delete(key); });
+      }
+    }
+    auditAudio("memory_hit", key, accent, normalizedText.length);
+    return Promise.resolve({ ...hot, cacheStatus: "hit" });
+  }
 
-  const request = createPronunciation(normalizedText, accent).finally(() => {
+  const request = createPronunciation(normalizedText, accent).then((result) => {
+    rememberAudio(key, result);
+    return result;
+  }).finally(() => {
     inFlight.delete(key);
   });
   inFlight.set(key, request);

@@ -265,3 +265,9 @@ Reader 切换文章建立独立阅读会话，清空来源词高亮与旧翻译�
 候选目标 30 篇，28 篇为最低检查线；先按站点目标分散采集，再允许合格来源补到每站至少 4 篇的有限上限。保留 401 英文词、已存配图、时效、去重和内容质量硬门槛；视频路径直接跳过。Open Culture 已从名单和默认列表删除。9 月 15 日手动实测 30 篇，自动任务保持关闭；Mongabay 与 Science News Explores 经正文/图片验证后启用。JSTOR 验证页、NewsForKids 过期新闻不能作为数量补位。
 
 Standalone dictionary synonym headings include a small arrow button that queries that exact synonym through the existing lookup callback. Cached replay, history, quota and offline handling remain shared with typed queries. Buttons are disabled during streaming and expose a word-specific accessible label; coarse pointers receive a 44 px target.
+
+### Pronunciation cache reuse
+
+US/UK background preparation and click-to-play remain enabled. The server reuses successful MP3s in an LRU hot cache limited to 32 MiB and 1,000 entries, in addition to private content-addressed Storage and per-process in-flight deduplication. A Storage hit no longer performs an extra bucket metadata request. A failed Storage read is retried once before synthesis; a persistent outage still permits synthesis to preserve playback availability. Successful synthesis survives a failed Storage write in the hot cache, and a subsequent hit retries persistence in the background at most once per minute per key. These protections are process-local: restart, eviction or multiple app processes can still cause another synthesis during a Storage outage.
+
+Structured `pronunciation_*` app logs distinguish memory/storage hits, provider requests/successes and storage failures. Logs contain an opaque audio hash, accent and input string length, never the word or credentials. They use the existing bounded Docker log retention; they are diagnostic records, not a permanent billing ledger or exact provider billable-character calculation.

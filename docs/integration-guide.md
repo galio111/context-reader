@@ -272,3 +272,7 @@ Routine login restoration, automatic polls, rate-limit waits and recoverable syn
 ### 候选与解释恢复约定
 
 自动发现以每日 30 篇为目标，低于 28 篇需检查来源；首轮站点额度不足时有限补位，不降低 401 词、配图和时效要求。手动单站仍遵守本站额度。自动开关关闭时不调度；本次维护保持关闭。解释 JSON 解析失败先在当前提供商有限重试，再按已有配置回退，只有最终失败才进入错误报告/告警路径。
+
+### Pronunciation quota diagnostics
+
+Search private app logs for `pronunciation_provider_request` and `pronunciation_provider_success` to count actual upstream attempts and successful MP3 returns; `pronunciation_memory_hit` and `pronunciation_storage_hit` do not call TTS. `inputCharacters` is JavaScript input length, not provider billing units. The audio identity hash groups retries without logging lookup text. Records rotate with existing Docker logs. Warmup still prepares both accents, and Anki imports reuse the same audio identity. The 32 MiB/1,000-entry server hot cache retains successful audio through transient Storage failures and repairs failed writes on later hits without delaying playback. It is not durable across restarts; private Storage remains the long-term cache.

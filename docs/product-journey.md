@@ -1349,3 +1349,7 @@ User rejected global sync progress and retry banners. Removed routine sync notif
 ## 2026-09-16：词典近义词一键查询
 
 近义词差别中的每个词旁新增小箭头，点击在当前词典查询该词，复用缓存、历史、配额与离线提示。支持键盘焦点及手机 44px 点击区，流式生成时禁用。验证：近义词点击与流式禁用的组件交互检查通过，89 项关键回归及发布契约通过。浏览器连接失败，桌面/手机视觉核验待人工确认。生产发布验收另行记录。
+
+## 2026-09-16 — Pronunciation quota reuse without changing playback
+
+Implemented on a dedicated branch from accepted release `20260916T160100` (`d07133021f0990cc26369f7e5531cbba2a1bb2f8`). Kept dual-accent preparation, voices, click playback and Anki media behavior intact. Added bounded hot MP3 reuse, transient Storage read retry, background repair after failed persistence, and private structured diagnostics. Storage failure still favors playback availability; process restart/eviction can permit regeneration. Mocked regressions cover concurrent requests, accent isolation, transient reads, failed writes, LRU eviction and background persistence recovery. Release acceptance and public evidence will be recorded after deployment; subjective audio acceptance remains manual.
