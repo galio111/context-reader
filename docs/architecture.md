@@ -263,3 +263,5 @@ Reader 切换文章建立独立阅读会话，清空来源词高亮与旧翻译�
 语境形容词的 -ed/-ing 词目保留实际形容词形式，前端流式合并和 Anki 导出同步规范；旧 Anki 已导入笔记不会自动改写。解释服务先有限重试损坏 JSON，最终失败仍按原分类保留私有错误报告。
 
 候选目标 30 篇，28 篇为最低检查线；先按站点目标分散采集，再允许合格来源补到每站至少 4 篇的有限上限。保留 401 英文词、已存配图、时效、去重和内容质量硬门槛；视频路径直接跳过。Open Culture 已从名单和默认列表删除。9 月 15 日手动实测 30 篇，自动任务保持关闭；Mongabay 与 Science News Explores 经正文/图片验证后启用。JSTOR 验证页、NewsForKids 过期新闻不能作为数量补位。
+
+Standalone dictionary synonym headings include a small arrow button that queries that exact synonym through the existing lookup callback. Cached replay, history, quota and offline handling remain shared with typed queries. Buttons are disabled during streaming and expose a word-specific accessible label; coarse pointers receive a 44 px target.

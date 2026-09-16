@@ -667,6 +667,28 @@
 .twoColumns section { padding-top: 16px; border-top: 1px solid #dbe2e7; }
 .twoColumns p { margin: 8px 0; color: #5a6c78; }
 .twoColumns strong { display: block; color: #244f6e; }
+.twoColumns .synonymHeading { display: flex; align-items: center; gap: 4px; }
+.synonymLookup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #245f8c;
+  cursor: pointer;
+}
+.synonymLookup:hover:not(:disabled) { background: #e1edf3; }
+.synonymLookup:active:not(:disabled) { background: #cbdfe9; }
+.synonymLookup:focus-visible { outline: 2px solid #245f8c; outline-offset: 2px; }
+.synonymLookup:disabled { opacity: .45; cursor: wait; }
+@media (pointer: coarse) {
+  .synonymLookup { width: 44px; height: 44px; }
+}
 .result footer { display: grid; margin-top: 28px; padding: 20px; grid-template-columns: 1fr 1fr; gap: 24px; border-radius: 10px; background: #e9f1f6; }
 .result footer p { margin: 5px 0; color: #455e6f; font-size: 13px; }
 .streamingResult > header,

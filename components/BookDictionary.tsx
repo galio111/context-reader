@@ -260,7 +260,26 @@ function DictionaryResultContent({
 
       {(result.synonyms.length > 0 || result.wordFamily.length > 0) && (
         <div className={styles.twoColumns}>
-          {result.synonyms.length > 0 && <section><h4>近义词差别</h4>{result.synonyms.map((item) => <p key={item.word}><strong>{item.word}</strong>{item.difference}</p>)}</section>}
+          {result.synonyms.length > 0 && <section><h4>近义词差别</h4>{result.synonyms.map((item) => (
+            <p key={item.word}>
+              <strong className={styles.synonymHeading}>
+                {item.word}
+                <button
+                  type="button"
+                  className={styles.synonymLookup}
+                  aria-label={`查询近义词 ${item.word}`}
+                  title={`查询 ${item.word}`}
+                  disabled={streaming}
+                  onClick={() => onUseSuggestion(item.word)}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M5 12h14m-6-6 6 6-6 6" />
+                  </svg>
+                </button>
+              </strong>
+              {item.difference}
+            </p>
+          ))}</section>}
           {result.wordFamily.length > 0 && <section><h4>词族</h4>{result.wordFamily.map((item) => <p key={`${item.word}-${item.partOfSpeech}`}><strong>{item.word}</strong>{item.partOfSpeech} · {item.meaning}</p>)}</section>}
         </div>
       )}
