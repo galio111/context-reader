@@ -1336,12 +1336,18 @@ Admin boundaries, seven-service health, SHA-verified backup restore and current/
 User rejected global sync progress and retry banners. Removed routine sync notifications; manual account-panel feedback and genuine local-save failure safeguards remain. Reproduced the global logout bug on production 20260913T224956 with three independently authenticated QA cookie jars: logging out the middle session invalidated all three refresh sessions. Replaced global logout with local scope and added a simultaneous-session acceptance gate, including forced refresh of surviving sessions. Production acceptance is pending below.
 
 
-## 2026-09-16：十五项截图问题修复（待生产验收）
+## 2026-09-16：十五项截图问题修复（已发布，物理设备待复测）
 
-修复 Reader 会话残留、我的文章回调、移动词典/生词本/翻译恢复、游客入口、目录跳转、账号尺寸与形容词词目；补充模型损坏 JSON 重试和每日候选补位。原生产 20260913T235513；发布身份与最终证据将在验收后记录。
+修复 Reader 会话残留、我的文章回调、移动词典/生词本/翻译恢复、游客入口、目录跳转、账号尺寸与形容词词目；补充模型损坏 JSON 重试和每日候选补位。原生产 20260913T235513；最终身份与验收记录见下文。
 
 生产数据维护：Open Culture 16 篇已在服务器私有备份后删除（包含候选、精选及关联预载缓存），自动发现仍关闭。9 月 15 日实测新候选 30 篇。Mongabay、Science News Explores 验证通过后加入；JSTOR 验证页、NewsForKids 过期源与个别站网络失败已记录。
 
 浏览器已验证：保存文章改名后刷新保留、390px 生词详情全宽并可切换下栏、账号窗口随内容收敛、Reader 内说明目录不会退出阅读；长译文滚动到 1688px，直接点原文 fragmented 后切回译文仍为 1688px。真实手机与用户表弟的原设备尚未复测，不能认定其特定设备问题已经完全复现。
 
 补充验证：生产构建通过；111 项关键/候选/海外抓取回归、1 项文章重命名删除持久化回归、2 项登录后台恢复/学习存储回归通过，共 114 项；发布契约与 egress guard 通过。首页词典浏览器实测从 340px 宽调整至 521px，并拖动到新位置；转 390px 窄屏后恢复全宽底部 48dvh。错误中心确认 CR-20260914-BCAD54F3 为一次解释请求的损坏 JSON，非账号注册异常。
+
+### 生产验收
+
+已发布大陆生产版本 `20260916T100100`，父版本 `20260913T235513`，源码提交 `10088bfe0e29d0aa69d73006e25558d58ffc6825`。公网 `/api/connectivity` 与服务器当前目录均匹配。生产构建、114 项回归、发布契约及 egress guard 通过；游客实际文章读取成功，私有同步/错误中心/候选管理匿名请求均为 401，恢复管理入口检查通过。线上 fragmented 查询返回形容词且 lemma=fragmented。七服务健康、最新备份 SHA 校验与隔离恢复、当前和父版回滚镜像通过；五个核心数据服务启动时间完全未变。
+
+生产数据库核验 9 月 15 日新增 30 篇，最短 406 英文词，30 篇封面均已存本站；Open Culture 余量 0，18 个来源启用，自动任务仍关闭。生产构建本地实测两个登录入口直达弹窗。测试创建的文章、词条和两条长译文缓存已从本地回归浏览器移除。公网浏览器自动化连接超时，因此不宣称完成全部生产视觉或真实手机验收。
