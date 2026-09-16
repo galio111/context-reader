@@ -1348,4 +1348,4 @@ User rejected global sync progress and retry banners. Removed routine sync notif
 
 ## 2026-09-16：词典近义词一键查询
 
-近义词差别中的每个词旁新增小箭头，点击在当前词典查询该词，复用缓存、历史、配额与离线提示。支持键盘焦点及手机 44px 点击区，流式生成时禁用。验证：近义词点击与流式禁用的组件交互检查通过，89 项关键回归及发布契约通过。浏览器连接失败，桌面/手机视觉核验待人工确认。生产发布验收另行记录。
+近义词差别中的每个词旁新增小箭头，点击在当前词典查询该词，复用缓存、历史、配额与离线提示。支持键盘焦点及手机 44px 点击区，流式生成时禁用。验证：近义词点击与流式禁用的组件交互检查通过，89 项关键回归及发布契约通过。浏览器连接失败，桌面/手机视觉核验待人工确认。本地与服务器生产构建通过。生产已接受 `20260916T160100`，父版本 `20260916T100100`，源码提交 `d07133021f0990cc26369f7e5531cbba2a1bb2f8`。公网 connectivity 精确匹配版本及 mainland_internal；首页、Admin、会话、公开文章及正文正常，匿名 sync/Admin 返回 401；公开 JS 包包含近义词查询按钮。七服务健康、最新备份隔离恢复及新旧回滚镜像通过。证据：本地 artifacts/synonym-arrow-public-check.json、synonym-arrow-deploy.log、synonym-arrow-backup.log、synonym-arrow-critical.log；服务器 release-state 与 release-audit 为生产权威记录。
