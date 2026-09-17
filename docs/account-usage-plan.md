@@ -86,3 +86,10 @@ After successful sync, acknowledged explanation caches alone are evicted by rece
 
 
 Routine login restoration, automatic polls, rate-limit waits and recoverable sync failures are silent. Only an explicit manual sync caller receives progress/results in its account panel; AccountProvider no longer creates a global sync banner or a normal storage-preparation notice. A genuine IndexedDB write failure retains its independent local-save warning and backup/retry controls. Sync 401 errors refresh verified account state without clearing learning data or claiming the account is still logged in. Ordinary logout uses Auth admin signOut with scope local, preserving other independently authenticated device/browser sessions; tabs sharing one cookie session remain the same session.
+
+
+## Current exhaustion behavior
+
+All authenticated plans, including free and invitation-assigned accounts, retain their own quota identity when an operation is rejected. The UI names the affected pool, shows used/allowed amounts and the reset instant in Beijing time, and links to actual balances on `/account/usage`. Balances are visible independently of commercial plan marketing. Guests are offered login; members are never told they exhausted a guest trial. Zero-allowance features do not promise a reset that cannot grant access. Existing article reading and cached results remain available.
+
+A streaming quota rejection stops before structured fallback. A stream with incomplete required explanation fields cannot finalize the action as succeeded; its existing reservation remains available for structured recovery or failure refund. Provider attempts and user quota success remain separate records. This application-only correction does not change plan limits, database functions or existing user balances.
