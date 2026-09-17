@@ -1,3 +1,4 @@
+import { explanationFromCompletedStream } from "@/lib/explanationDisplay";
 import { NextResponse } from "next/server";
 import type { ExplanationRequest } from "@/types/reader";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
@@ -204,6 +205,12 @@ export async function POST(request: Request) {
         const decoder = new TextDecoder();
         const encoder = new TextEncoder();
         let buffer = "";
+        let displayText = "";
+        let displayOverflow = false;
+        const rememberDisplay = (chunk: string) => {
+          displayOverflow ||= displayText.length + chunk.length > 32_000;
+          displayText = (displayText + chunk).slice(0, 32_000);
+        };
         let providerUsage: ProviderTokenUsage = {};
         const captureUsage = (usage: ProviderTokenUsage) => { providerUsage = usage; };
 
@@ -221,6 +228,7 @@ export async function POST(request: Request) {
             for (const line of lines) {
               const content = parseSseContent(line, captureUsage);
               if (content) {
+                rememberDisplay(content);
                 controller.enqueue(encoder.encode(content));
               }
             }
@@ -228,11 +236,14 @@ export async function POST(request: Request) {
 
           const tail = parseSseContent(buffer, captureUsage);
           if (tail) {
+            rememberDisplay(tail);
             controller.enqueue(encoder.encode(tail));
           }
-          // Tell the reader that all display fields are available before slower
-          // usage bookkeeping finishes and the HTTP response finally closes.
-          controller.enqueue(encoder.encode(EXPLANATION_STREAM_COMPLETE_MARKER));
+          // Transport EOF is not a successful lookup. Use the same completeness
+          // check as the Reader; leave incomplete reservations for fallback to
+          // finish or refund, instead of prematurely making them non-refundable.
+          const complete = !displayOverflow && Boolean(explanationFromCompletedStream(displayText, safeRequest));
+          if (complete) controller.enqueue(encoder.encode(EXPLANATION_STREAM_COMPLETE_MARKER));
           await recordUsageExecution({
             actionId,
             route: "/api/explain-word-stream",
@@ -243,9 +254,9 @@ export async function POST(request: Request) {
             promptCacheMissTokens: providerUsage.prompt_cache_miss_tokens,
             completionTokens: providerUsage.completion_tokens,
             estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, providerUsage),
-            status: "succeeded",
+            status: complete ? "succeeded" : "failed",
           }).catch(() => undefined);
-          await finishUsage(actionId, "succeeded").catch(() => undefined);
+          if (complete) await finishUsage(actionId, "succeeded").catch(() => undefined);
           controller.close();
         } catch (error) {
           const termination = classifyStreamTermination({ clientAborted, timedOut, error });

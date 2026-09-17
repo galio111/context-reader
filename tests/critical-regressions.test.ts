@@ -1012,7 +1012,7 @@ test("long articles and exhausted summary quotas remain saved without a summary 
   const usage = readFileSync(new URL("../components/AccountUsagePageContent.tsx", import.meta.url), "utf8");
   assert.match(reader, /AUTO_SUMMARY_MAX_ARTICLE_CHARS = 50_000/);
   assert.match(reader, /currentArticle\.length > AUTO_SUMMARY_MAX_ARTICLE_CHARS[\s\S]*?文章已保存；正文较长，本次不生成摘要/);
-  assert.match(reader, /data\?\.code === "quota_exhausted"[\s\S]*?文章已保存；摘要额度已用完，本次不生成摘要/);
+  assert.match(reader, /data\?\.code === "quota_exhausted"[\s\S]*?文章已保存；\$\{data\.error/);
   assert.match(sync, /readStoredArticles\(storage\)/);
   assert.match(sync, /writeStoredArticles\(storage, mergedArticles\.articles\)/);
   assert.match(usage, /保存文章不消耗摘要额度[\s\S]*?摘要额度用完后仍可保存文章/);

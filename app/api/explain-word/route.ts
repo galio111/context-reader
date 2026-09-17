@@ -164,7 +164,7 @@ export async function POST(request: Request) {
             : error.message,
         code,
         httpStatus,
-        metadata: error instanceof DeepSeekHttpError ? { upstreamStatus: error.status } : undefined,
+        metadata: { actionId, ...error.diagnostics, ...(error instanceof DeepSeekHttpError ? { upstreamStatus: error.status } : {}) },
       }, error);
       return NextResponse.json(
         { error: userMessage, code, ...reportReference(report) },

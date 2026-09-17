@@ -5,7 +5,7 @@ import { runInNewContext } from "node:vm";
 import test from "node:test";
 import ts from "typescript";
 
-function harness(options: { readFailures?: number; writeFailure?: boolean; stored?: boolean } = {}) {
+function harness(options: { readFailures?: number; writeFailure?: boolean; stored?: boolean; providerFailures?: number; providerStatus?: number } = {}) {
   let reads = 0, providers = 0, writes = 0;
   const events: string[] = [];
   const audio = new Uint8Array([1, 2, 3]);
@@ -28,8 +28,8 @@ function harness(options: { readFailures?: number; writeFailure?: boolean; store
     createHash, randomUUID, createClient: () => ({ storage }),
     normalizePronunciationText: (value: string) => value.trim().replace(/\s+/g, " "),
     process: { env: { SUPABASE_URL: "mock", SUPABASE_SERVICE_ROLE_KEY: "mock", VOLCENGINE_TTS_APP_ID: "mock", VOLCENGINE_TTS_ACCESS_TOKEN: "mock" } },
-    Buffer, Uint8Array, AbortSignal, console: { info: (value: string) => events.push(value), error: () => {} },
-    fetch: async () => { providers++; return new Response(JSON.stringify({ data: Buffer.from(audio).toString("base64") })); },
+    Buffer, Uint8Array, AbortSignal, Error, TypeError, console: { info: (value: string) => events.push(value), error: () => {} },
+    fetch: async () => { providers++; if (providers <= (options.providerFailures ?? 0)) { if (options.providerStatus) return new Response("rejected", { status: options.providerStatus }); throw Object.assign(new Error("timeout"), { name: "TimeoutError" }); } return new Response(JSON.stringify({ data: Buffer.from(audio).toString("base64") })); },
   };
   const getAudio = runInNewContext(js + "\ngetPronunciationAudio", context) as (text: string, accent: string) => Promise<{ bytes: Uint8Array; cacheStatus: string }>;
   return { getAudio, events, counts: () => ({ reads, providers, writes }) };
@@ -83,4 +83,25 @@ test("a failed write is repaired in the background without another synthesis", a
   await h.getAudio("hello", "en-US");
   assert.equal(h.counts().providers, 1);
   assert.equal(h.counts().writes, 2);
+});
+
+
+test("one transient TTS timeout retries inside the existing deduplicated request", async () => {
+  const h = harness({ providerFailures: 1 });
+  const results = await Promise.all([h.getAudio("test", "en-US"), h.getAudio("test", "en-US")]);
+  assert.equal(results.length, 2);
+  assert.equal(h.counts().providers, 2);
+  await h.getAudio("test", "en-US");
+  assert.equal(h.counts().providers, 2);
+});
+
+test("persistent timeouts stop after two attempts and explicit rejections never retry", async () => {
+  const timedOut = harness({ providerFailures: 10 });
+  await assert.rejects(timedOut.getAudio("test", "en-US"), { name: "TimeoutError" });
+  assert.equal(timedOut.counts().providers, 2);
+  for (const status of [401, 403, 429]) {
+    const h = harness({ providerFailures: 10, providerStatus: status });
+    await assert.rejects(h.getAudio("test", "en-US"));
+    assert.equal(h.counts().providers, 1);
+  }
 });

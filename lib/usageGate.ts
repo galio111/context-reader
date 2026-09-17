@@ -1,3 +1,4 @@
+import { quotaExhaustedMessage, type QuotaDetails } from "@/lib/usagePresentation";
 import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
 import { reserveUsage } from "@/lib/accountStore";
@@ -22,7 +23,7 @@ export class UsageGateError extends Error {
   status: number;
   code: string;
 
-  constructor(message: string, status: number, code: string) {
+  constructor(message: string, status: number, code: string, public readonly quota?: QuotaDetails) {
     super(message);
     this.name = "UsageGateError";
     this.status = status;
@@ -138,9 +139,10 @@ export async function gateUsage(request: Request, options: {
 
   if (!reservation.allowed) {
     throw new UsageGateError(
-      identity.authenticated ? "本周期额度已用完，可在用量页查看详情。" : "今天这项游客试用次数已用完，登录后可继续使用。",
+      quotaExhaustedMessage({ ...reservation, authenticated: identity.authenticated }),
       429,
       "quota_exhausted",
+      { metricKey: reservation.metricKey, used: reservation.used, allowance: reservation.allowance, remaining: reservation.remaining, windowEnd: reservation.windowEnd, authenticated: identity.authenticated },
     );
   }
   return { actionId, identity, reservation };
@@ -151,7 +153,7 @@ export function usageErrorResponse(error: unknown): NextResponse | null {
     return null;
   }
   return NextResponse.json(
-    { error: error.message, code: error.code },
+    { error: error.message, code: error.code, ...(error.quota ? { quota: error.quota } : {}) },
     { status: error.status, headers: { "Cache-Control": "no-store" } },
   );
 }

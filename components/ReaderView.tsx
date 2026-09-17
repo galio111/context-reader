@@ -1,5 +1,7 @@
 "use client";
 
+import { LookupQuotaError } from "@/lib/usagePresentation";
+
 import { flushLearningStorage } from "@/lib/learningStorage";
 
 import { memo, startTransition, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
@@ -646,7 +648,7 @@ async function requestExplanation(
 
   if (!response.ok) {
     if (data?.code === "quota_exhausted") {
-      throw new GuestLookupQuotaError();
+      throw new LookupQuotaError(data?.error);
     }
     throw new Error(data?.error || "解释失败，请稍后重试。");
   }
@@ -658,12 +660,6 @@ async function requestExplanation(
   return data.explanation;
 }
 
-class GuestLookupQuotaError extends Error {
-  constructor() {
-    super("今天的游客查词次数已用完，登录后可继续。");
-    this.name = "GuestLookupQuotaError";
-  }
-}
 
 async function requestExplanationStream(
   context: WordContext,
@@ -692,9 +688,14 @@ async function requestExplanationStream(
     return "";
   }
 
-  if (!response.ok || !response.body) {
+  if (!response.ok) {
+    if (response.status === 429) {
+      const data = await response.json().catch(() => null);
+      if (data?.code === "quota_exhausted") throw new LookupQuotaError(data.error);
+    }
     return "";
   }
+  if (!response.body) return "";
 
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
@@ -2326,7 +2327,10 @@ export function ReaderView({
       },
       acceptCompletedStream,
       actionId,
-    ).catch(() => "");
+    ).catch((error: unknown) => {
+      if (error instanceof LookupQuotaError) throw error;
+      return "";
+    });
 
     try {
       const completedStreamText = await streamPromise;
@@ -2365,11 +2369,12 @@ export function ReaderView({
       if (controller.signal.aborted) {
         return;
       }
-      const quotaExhausted = requestError instanceof GuestLookupQuotaError;
-      if (quotaExhausted) setGuestLookupLocked(true);
-      setError(quotaExhausted
-        ? "今天的游客查词次数已用完，登录后可继续。"
-        : requestError instanceof Error ? requestError.message : "解释失败，请稍后重试。");
+      const quotaExhausted = requestError instanceof LookupQuotaError;
+      if (quotaExhausted) {
+        if (!account.authenticated) setGuestLookupLocked(true);
+        void refreshAccount();
+      }
+      setError(requestError instanceof Error ? requestError.message : "解释失败，请稍后重试。");
       if (!account.authenticated && requestError instanceof Error && (quotaExhausted || /登录|游客|额度/.test(requestError.message))) {
         openLogin("游客试用额度已用完，登录后可继续查词并跨设备同步学习数据。");
       }
@@ -3583,7 +3588,7 @@ export function ReaderView({
           onArticleSaved(findSavedArticle(currentArticle) ?? undefined);
           setSaveStatus("文章已保存并生成摘要");
         } else if (data?.code === "quota_exhausted") {
-          setSaveStatus("文章已保存；摘要额度已用完，本次不生成摘要");
+          setSaveStatus(`文章已保存；${data.error || "摘要额度已用完，本次不生成摘要。"}`);
         } else {
           setSaveStatus("文章已保存；摘要暂时未生成，不影响继续阅读");
         }

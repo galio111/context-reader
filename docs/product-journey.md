@@ -1353,3 +1353,12 @@ User rejected global sync progress and retry banners. Removed routine sync notif
 ## 2026-09-16 — Pronunciation quota reuse without changing playback
 
 Implemented on a dedicated branch from accepted release `20260916T160100` (`d07133021f0990cc26369f7e5531cbba2a1bb2f8`). Kept dual-accent preparation, voices, click playback and Anki media behavior intact. Added bounded hot MP3 reuse, transient Storage read retry, background repair after failed persistence, and private structured diagnostics. Storage failure still favors playback availability; process restart/eviction can permit regeneration. Mocked regressions cover concurrent requests, accent isolation, transient reads, failed writes, LRU eviction and background persistence recovery. Release acceptance and public evidence will be recorded after deployment; subjective audio acceptance remains manual.
+
+
+## 2026-09-17 — Quota identity and provider recovery
+
+Incident evidence: accepted production 20260916T210459 recorded two incomplete structured explanations and one US TTS 15-second timeout for a newly registered member. Historical reports omitted invalid field names, so neither the exact malformed payload nor a registration-specific cause can be established.
+
+Implemented member/guest-safe quota messages with actual balances and Beijing reset times; exposed usage details for all accounts; stopped duplicate fallback on quota rejection. Added validated-field-preserving explanation repair, bounded larger output budgets, private validation diagnostics and mainland release attribution. Added one bounded transient TTS retry without changing durable caching or pronunciation ownership. Simulated complementary-field repair, repeated malformed output, member/guest exhaustion and transient/permanent TTS failures. Production acceptance pending the guarded release and public checks.
+
+Further investigation found that stream EOF previously finalized usage even when the Reader rejected incomplete fields, making a later fallback refund a no-op. The server now validates stream completeness before finalization. Local API fixtures verified the exhausted free-account page at desktop and 390×844; live historical errors cannot be mapped to exact action ids, so no retrospective account quota edits were made.

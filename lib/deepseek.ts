@@ -19,7 +19,8 @@ const MAX_QUESTION_CHARS = 500;
 const REQUEST_TIMEOUT_MS = 26000;
 const MAX_PROVIDER_ATTEMPTS = 2;
 const RETRY_DELAY_MS = 250;
-const MAX_COMPLETION_TOKENS = 760;
+const MAX_COMPLETION_TOKENS = 1200;
+const MAX_REPAIR_COMPLETION_TOKENS = 1600;
 const REQUIRED_CHINESE_FIELDS = [
   "basicMeaning",
   "contextMeaning",
@@ -55,7 +56,7 @@ export class MissingDeepSeekEnvError extends Error {
 }
 
 export class DeepSeekParseError extends Error {
-  constructor(message: string) {
+  constructor(message: string, public diagnostics: Record<string, string | number | boolean | null> = {}) {
     super(message);
     this.name = "DeepSeekParseError";
   }
@@ -197,6 +198,36 @@ function missingTextFields(value: unknown, request: ExplanationRequest): string[
     }
   }
   return missing;
+}
+
+
+/** Record validation reasons only; never persist article text or raw model output. */
+function explanationFieldIssues(value: unknown, request: ExplanationRequest): string[] {
+  const data = (value && typeof value === "object" ? value : {}) as Record<string, unknown>;
+  const fields = [...missingChineseFields(value), ...missingTextFields(value, request)];
+  return fields.map((field) => {
+    const v = data[field];
+    const reason = v === undefined || v === null ? "missing"
+      : typeof v !== "string" ? "wrong_type"
+      : !v.trim() ? "empty"
+      : field === "phoneticFor" ? "target_mismatch" : "no_chinese";
+    return `${field}:${reason}`;
+  });
+}
+
+function mergeExplanationRepair(original: unknown, repair: unknown, request: ExplanationRequest): Record<string, unknown> {
+  const first = (original && typeof original === "object" && !Array.isArray(original) ? original : {}) as Record<string, unknown>;
+  const second = (repair && typeof repair === "object" && !Array.isArray(repair) ? repair : {}) as Record<string, unknown>;
+  const merged = { ...first, ...second };
+  const firstInvalid = new Set([...missingChineseFields(first), ...missingTextFields(first, request)]);
+  for (const field of [...REQUIRED_CHINESE_FIELDS, ...REQUIRED_TEXT_FIELDS]) {
+    if (!firstInvalid.has(field)) merged[field] = first[field];
+  }
+  // Treat IPA and its owner as one pair, so a repair cannot relabel unrelated IPA.
+  const source = !firstInvalid.has("phonetic") && !firstInvalid.has("phoneticFor") ? first : second;
+  merged.phonetic = source.phonetic;
+  merged.phoneticFor = source.phoneticFor;
+  return merged;
 }
 
 function isDeepSeekBusy(message = ""): boolean {
@@ -370,6 +401,7 @@ async function requestDeepSeekCompletionOnce(args: {
   profile: ProviderProfile;
   safeRequest: ExplanationRequest;
   repairChineseFields?: string[];
+  repairFormat?: boolean;
   signal?: AbortSignal;
 }): Promise<DeepSeekChatCompletionResponse> {
   const controller = new AbortController();
@@ -400,7 +432,7 @@ async function requestDeepSeekCompletionOnce(args: {
       body: JSON.stringify({
         model: args.profile.model,
         temperature: 0,
-        max_tokens: MAX_COMPLETION_TOKENS,
+        max_tokens: args.repairChineseFields?.length || args.repairFormat ? MAX_REPAIR_COMPLETION_TOKENS : MAX_COMPLETION_TOKENS,
         response_format: { type: "json_object" },
         thinking: {
           type: "disabled",
@@ -436,7 +468,7 @@ async function requestDeepSeekCompletionOnce(args: {
       if (completion) {
         return completion;
       }
-      throw new DeepSeekParseError("DeepSeek 返回了无法读取的响应，请重新生成。");
+      throw new DeepSeekParseError("DeepSeek 返回了无法读取的响应，请重新生成。", { validationStage: "response_json", upstreamStatus: response.status, contentType: response.headers.get("content-type") || "unknown" });
     }
 
     throw new DeepSeekHttpError(
@@ -481,6 +513,7 @@ async function requestDeepSeekCompletion(args: {
   profile: ProviderProfile;
   safeRequest: ExplanationRequest;
   repairChineseFields?: string[];
+  repairFormat?: boolean;
   signal?: AbortSignal;
 }): Promise<DeepSeekChatCompletionResponse> {
   let lastError: DeepSeekParseError | null = null;
@@ -527,8 +560,20 @@ export async function explainWordWithDeepSeek(
   let lastError: DeepSeekParseError | null = null;
 
   for (const profile of profiles) {
+    const diagnostics: Record<string, string | number | boolean | null> = {
+      model: profile.model, provider: profile.label, repairAttempted: false,
+    };
+    function inspectCompletion(completion: DeepSeekChatCompletionResponse) {
+      diagnostics.finishReason = completion.choices?.[0]?.finish_reason || "unknown";
+      diagnostics.outputTruncated = completion.choices?.[0]?.finish_reason === "length";
+      diagnostics.completionTokens = completion.usage?.completion_tokens || 0;
+      diagnostics.responseCharacters = completion.choices?.[0]?.message?.content?.length || 0;
+    }
     try {
       let completion = await requestDeepSeekCompletion({ profile, safeRequest, signal });
+      inspectCompletion(completion);
+      diagnostics.initialFinishReason = diagnostics.finishReason;
+      diagnostics.initialOutputTruncated = diagnostics.outputTruncated;
       let content = completion.choices?.[0]?.message?.content?.trim();
 
       if (!content) {
@@ -545,7 +590,9 @@ export async function explainWordWithDeepSeek(
           usage: sumUsage(completion.usage, retryCompletion.usage),
         };
         content = retryCompletion.choices?.[0]?.message?.content?.trim();
+        inspectCompletion(completion);
         if (!content) {
+          diagnostics.validationStage = "empty_content";
           throw new DeepSeekEmptyContentError();
         }
       }
@@ -555,8 +602,11 @@ export async function explainWordWithDeepSeek(
         parsed = parseJsonObject(content);
       } catch (error) {
         if (!(error instanceof SyntaxError) && !(error instanceof DeepSeekParseError)) throw error;
-        const retryCompletion = await requestDeepSeekCompletion({ profile, safeRequest, signal });
+        diagnostics.validationStage = "content_json";
+        diagnostics.repairAttempted = true;
+        const retryCompletion = await requestDeepSeekCompletion({ profile, safeRequest, signal, repairFormat: true });
         completion = { ...retryCompletion, usage: sumUsage(completion.usage, retryCompletion.usage) };
+        inspectCompletion(retryCompletion);
         const retryContent = retryCompletion.choices?.[0]?.message?.content?.trim();
         if (!retryContent) throw new DeepSeekEmptyContentError();
         try { parsed = parseJsonObject(retryContent); }
@@ -564,18 +614,29 @@ export async function explainWordWithDeepSeek(
       }
       let invalidFields = [...missingChineseFields(parsed), ...missingTextFields(parsed, safeRequest)];
       if (invalidFields.length > 0) {
+        diagnostics.validationStage = "required_fields";
+        diagnostics.initialInvalidFields = invalidFields.join(", ");
+        diagnostics.initialFieldIssues = explanationFieldIssues(parsed, safeRequest).join("; ");
+        diagnostics.repairAttempted = true;
         const retryCompletion = await requestDeepSeekCompletion({
           profile,
           safeRequest,
           repairChineseFields: invalidFields,
           signal,
         });
+        inspectCompletion(retryCompletion);
         const retryContent = retryCompletion.choices?.[0]?.message?.content?.trim();
         let retryParsed: unknown = null;
         try { retryParsed = retryContent ? parseJsonObject(retryContent) : null; }
-        catch { throw new DeepSeekParseError("解释结果格式不完整，请稍后重试。"); }
+        catch { diagnostics.validationStage = "repair_content_json"; throw new DeepSeekParseError("解释结果格式不完整，请稍后重试。"); }
+        // A repair can fix one field while omitting another that was already valid.
+        // Keep validated original fields; never weaken current-form IPA ownership.
+        diagnostics.repairInvalidFields = [...missingChineseFields(retryParsed), ...missingTextFields(retryParsed, safeRequest)].join(", ");
+        retryParsed = mergeExplanationRepair(parsed, retryParsed, safeRequest);
         invalidFields = [...missingChineseFields(retryParsed), ...missingTextFields(retryParsed, safeRequest)];
         if (invalidFields.length > 0) {
+          diagnostics.invalidFields = invalidFields.join(", ");
+          diagnostics.fieldIssues = explanationFieldIssues(retryParsed, safeRequest).join("; ");
           throw new DeepSeekParseError("DeepSeek 返回的释义不完整，请重新生成。");
         }
         return { explanation: normalizeExplanation(retryParsed, safeRequest), model: profile.model, provider: profile.label, usage: sumUsage(completion.usage, retryCompletion.usage) };
@@ -584,6 +645,7 @@ export async function explainWordWithDeepSeek(
       return { explanation: normalizeExplanation(parsed, safeRequest), model: profile.model, provider: profile.label, usage: sumUsage(completion.usage) };
     } catch (error) {
       if (error instanceof DeepSeekParseError) {
+        error.diagnostics = { ...diagnostics, ...error.diagnostics };
         lastError = error;
         console.warn("DeepSeek profile failed", {
           profile: profile.label,

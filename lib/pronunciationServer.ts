@@ -151,10 +151,11 @@ async function writeCachedAudio(
   if (error && !/already exists|duplicate/i.test(error.message)) throw error;
 }
 
-async function requestVolcengineAudio(
+async function requestVolcengineAudioOnce(
   text: string,
   accent: PronunciationAccent,
   voice: string,
+  timeoutMs: number,
 ): Promise<Uint8Array> {
   const appId = process.env.VOLCENGINE_TTS_APP_ID?.trim() || "";
   const accessToken = process.env.VOLCENGINE_TTS_ACCESS_TOKEN?.trim() || "";
@@ -192,7 +193,7 @@ async function requestVolcengineAudio(
           operation: "query",
         },
       }),
-      signal: AbortSignal.timeout(15_000),
+      signal: AbortSignal.timeout(timeoutMs),
       cache: "no-store",
     },
   );
@@ -222,6 +223,26 @@ async function requestVolcengineAudio(
     );
   }
   return bytes;
+}
+
+async function requestVolcengineAudio(text: string, accent: PronunciationAccent, voice: string): Promise<Uint8Array> {
+  // Leave room for cache I/O inside the browser's 20-second request budget.
+  const timeouts = [8_000, 6_000];
+  for (let attempt = 0; attempt < timeouts.length; attempt++) {
+    try {
+      auditAudio("provider_request", cacheIdentity(text.toLowerCase(), accent, voice), accent, text.length);
+      return await requestVolcengineAudioOnce(text, accent, voice, timeouts[attempt]);
+    } catch (error) {
+      const retryable = error instanceof TypeError
+        || (error instanceof Error && error.name === "TimeoutError")
+        || (error instanceof PronunciationProviderError && error.status >= 500 && error.providerCode === 0);
+      if (!retryable || attempt === timeouts.length - 1) {
+        if (error instanceof Error) Object.assign(error, { providerAttempts: attempt + 1 });
+        throw error;
+      }
+    }
+  }
+  throw new PronunciationProviderError("Pronunciation retry budget exhausted.");
 }
 
 async function createPronunciation(
@@ -254,7 +275,6 @@ async function createPronunciation(
     }
   }
 
-  auditAudio("provider_request", identity, accent, normalizedText.length);
   const bytes = await requestVolcengineAudio(normalizedText, accent, voice);
   auditAudio("provider_success", identity, accent, normalizedText.length);
   // Keep the successful MP3 even if durable storage fails. The existing

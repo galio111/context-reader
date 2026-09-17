@@ -69,7 +69,9 @@ export async function POST(request: Request) {
     }
 
     const providerError = error instanceof PronunciationProviderError ? error : null;
-    const status = providerError?.status === 429 ? 429 : 502;
+    const timedOut = error instanceof Error && error.name === "TimeoutError";
+    const status = timedOut ? 504 : providerError?.status === 429 ? 429 : 502;
+    const code = timedOut ? "provider_tts_timeout" : providerError?.status === 429 ? "provider_rate_limit" : "provider_tts_failed";
     const report = await recordServerError(request, {
       category: "provider",
       severity: "warning",
@@ -77,17 +79,19 @@ export async function POST(request: Request) {
       endpoint: "/api/pronunciation",
       userMessage: "云端发音暂时不可用，已尝试使用当前设备的本地语音。",
       technicalMessage: error instanceof Error ? error.message : "Unknown pronunciation provider failure.",
-      code: providerError?.status === 429 ? "provider_rate_limit" : "provider_tts_failed",
+      code,
       httpStatus: status,
       metadata: {
         accent: body.accent,
         providerCode: providerError?.providerCode || 0,
+        providerAttempts: (error as { providerAttempts?: number } | null)?.providerAttempts || 1,
+        ...(timedOut ? { totalProviderTimeoutBudgetMs: 14_000 } : {}),
       },
     }, error);
     return NextResponse.json(
       {
         error: "云端发音暂时不可用。",
-        code: providerError?.status === 429 ? "provider_rate_limit" : "provider_tts_failed",
+        code,
         ...reportReference(report),
       },
       { status },

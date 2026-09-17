@@ -276,3 +276,12 @@ Routine login restoration, automatic polls, rate-limit waits and recoverable syn
 ### Pronunciation quota diagnostics
 
 Search private app logs for `pronunciation_provider_request` and `pronunciation_provider_success` to count actual upstream attempts and successful MP3 returns; `pronunciation_memory_hit` and `pronunciation_storage_hit` do not call TTS. `inputCharacters` is JavaScript input length, not provider billing units. The audio identity hash groups retries without logging lookup text. Records rotate with existing Docker logs. Warmup still prepares both accents, and Anki imports reuse the same audio identity. The 32 MiB/1,000-entry server hot cache retains successful audio through transient Storage failures and repairs failed writes on later hits without delaying playback. It is not durable across restarts; private Storage remains the long-term cache.
+
+
+### Quota rejection and explanation diagnostics
+
+`quota_exhausted` responses include `{error, code, quota: {metricKey, used, allowance, remaining, windowEnd, authenticated}}`. Use the server's message and identity; never reinterpret a member's 429 as guest trial exhaustion. `windowEnd` is an ISO instant displayed in Beijing time, and balances are visible independently of commercial UI. Reading and existing results remain available; no provider request starts for a rejected reservation.
+
+Admin error technical details now expose structured explanation field reasons (`missing`, `empty`, `wrong_type`, `no_chinese`, `target_mismatch`), initial/final invalid fields, model, repair status and output truncation. Raw content is excluded. Mainland `CONTEXT_READER_RELEASE_ID` identifies and separates reports; `CONTEXT_READER_PARENT_RELEASE_ID` is retained in private metadata. Historical reports cannot retroactively recover missing fields. TTS retries at most once for transient failures within 8s + 6s; final timeouts report 504/`provider_tts_timeout`. Provider attempt logs count retries individually.
+
+The contextual stream uses the same completed-explanation validator as the Reader before finalizing usage or emitting its completion marker. Incomplete streams retain a reserved action for structured fallback to finalize or refund; provider token execution is recorded as failed. Final structured diagnostics include the action id for correlation. No database function or quota balance is changed by this release.

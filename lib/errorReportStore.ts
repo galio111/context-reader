@@ -41,7 +41,7 @@ function fingerprintFor(input: ErrorReportInput): string {
     input.code || "",
     String(input.httpStatus || ""),
     input.category,
-    process.env.VERCEL_GIT_COMMIT_SHA || "",
+    process.env.CONTEXT_READER_RELEASE_ID || process.env.VERCEL_GIT_COMMIT_SHA || "",
   ].join("\n");
   return createHash("sha256").update(material).digest("hex").slice(0, 16);
 }
@@ -186,7 +186,7 @@ export async function storeErrorReport(
     code: clipped(input.code, 120),
     httpStatus: Number.isFinite(input.httpStatus) ? Math.max(0, Number(input.httpStatus)) : 0,
     stack: clipped(input.stack, 8_000),
-    metadata: normalizeMetadata(input.metadata),
+    metadata: normalizeMetadata({ ...input.metadata, ...(process.env.CONTEXT_READER_RELEASE_ID ? { parentReleaseId: process.env.CONTEXT_READER_PARENT_RELEASE_ID || "unknown" } : {}) }),
   };
   const fingerprint = fingerprintFor(normalized);
   const objectPath = reportPath(now, fingerprint);
@@ -214,7 +214,7 @@ export async function storeErrorReport(
     userId: clipped(context.userId || existing?.userId, 120),
     nickname: clipped(context.nickname || existing?.nickname, 120),
     userAgent: clipped(context.userAgent || existing?.userAgent, 500),
-    release: clipped(process.env.VERCEL_GIT_COMMIT_SHA || process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA, 120),
+    release: clipped(process.env.CONTEXT_READER_RELEASE_ID || process.env.VERCEL_GIT_COMMIT_SHA || process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA, 120),
     deploymentUrl: clipped(process.env.VERCEL_URL || process.env.NEXT_PUBLIC_VERCEL_URL, 300),
     emailStatus: shouldEmail ? "suppressed" : existing?.emailStatus || "suppressed",
     emailError: shouldEmail ? "" : existing?.emailError || "",

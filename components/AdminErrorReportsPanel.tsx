@@ -213,6 +213,13 @@ export default function AdminErrorReportsPanel() {
                   <summary className="cursor-pointer text-sm font-semibold text-[#0066cc]">查看技术详情</summary>
                   <div className="mt-3 grid gap-3">
                     <pre className="max-h-72 overflow-auto whitespace-pre-wrap break-words rounded-[10px] bg-[#18212a] p-3 text-xs leading-5 text-[#eef4f8]">{item.technicalMessage}</pre>
+                    {item.metadata?.validationStage && <div className="rounded-[10px] bg-[#eef2f6] p-3 text-sm leading-6 text-[#263746]">
+                      <p>模型：{String(item.metadata.model || "未记录")} · 补全尝试：{item.metadata.repairAttempted ? "已尝试" : "未尝试"}</p>
+                      <p className="break-words">首次不合格字段：{String(item.metadata.initialInvalidFields || "未记录")}</p>
+                      <p className="break-words">补全后仍不合格：{String(item.metadata.invalidFields || "见下方解析阶段")}</p>
+                      <p>输出截断：{item.metadata.outputTruncated === true ? "是" : item.metadata.outputTruncated === false ? "否" : "未记录"}</p>
+                      <p className="mt-2 text-xs">下方原因：missing＝缺失；empty＝空白；wrong_type＝类型错误；no_chinese＝缺少中文；target_mismatch＝音标归属与所选词不符。</p>
+                    </div>}
                     {item.stack && <pre className="max-h-80 overflow-auto whitespace-pre-wrap break-words rounded-[10px] bg-[#202a34] p-3 text-xs leading-5 text-[#eef4f8]">{item.stack}</pre>}
                     {Object.keys(item.metadata || {}).length > 0 && (
                       <pre className="max-h-64 overflow-auto whitespace-pre-wrap break-words rounded-[10px] bg-[#eef2f6] p-3 text-xs leading-5 text-[#263746]">

@@ -130,7 +130,7 @@ export function mergeStreamDisplayIntoExplanation(
 
 export function explanationFromCompletedStream(
   streamText: string,
-  context: WordContext,
+  context: Pick<WordContext, "word" | "sentence">,
 ): WordExplanation | null {
   const sections = parseExplanationStream(streamText);
   const partOfSpeech = streamField(sections, "partOfSpeech");

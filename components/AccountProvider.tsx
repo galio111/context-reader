@@ -1,5 +1,7 @@
 "use client";
 
+import { lowUsageNotice } from "@/lib/usagePresentation";
+
 import { getLearningStorage, downloadLearningBackup, initializeLearningStorage, flushLearningStorage, isLearningStorage, LEARNING_STORAGE_EVENT, type LearningStorageStatus } from "@/lib/learningStorage";
 import Link from "next/link";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
@@ -166,8 +168,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         if ((nextAccount.localOnly || nextAccount.localDirect) && nextAccount.profile?.userId) {
           await prepareLocalAccountForUser(nextAccount.profile.userId, { preserveExistingData: true });
         }
-        const low = nextAccount.usage.find((item) => item.allowance > 0 && item.remaining / item.allowance <= 0.2);
-        setUsageNotice(low ? (low.remaining === 0 ? "本周期额度已用完，可前往用量页查看。" : `额度剩余 ${low.remaining} / ${low.allowance}，已低于 20%。`) : "");
+        setUsageNotice(lowUsageNotice(nextAccount.usage));
       } else {
         clearLocalAccountSession();
         setLocalAccount(null);
@@ -679,7 +680,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
           {connectivityToast}
         </div>
       )}
-      {usageNotice && !loginOpen && <div className="fixed bottom-4 left-1/2 z-[150] flex w-[min(92vw,520px)] -translate-x-1/2 items-center justify-between gap-4 rounded-2xl border border-black/10 bg-[#fbfcfe] px-4 py-3 text-sm text-[#344d5e] shadow-xl"><span>{usageNotice} <Link className="font-semibold text-[#2868ad]" href="/account/usage">查看用量</Link></span><button className="shrink-0 rounded-full px-2 py-1 text-xs hover:bg-black/5" type="button" onClick={() => setUsageNotice("")}>关闭</button></div>}
+      {usageNotice && !loginOpen && <div role="status" aria-live="polite" className="fixed bottom-4 left-1/2 z-[150] flex w-[min(92vw,520px)] -translate-x-1/2 items-center justify-between gap-4 rounded-2xl border border-black/10 bg-[#fbfcfe] px-4 py-3 text-sm text-[#344d5e] shadow-xl"><span>{usageNotice} <Link className="font-semibold text-[#2868ad]" href="/account/usage">查看用量</Link></span><button className="min-h-11 min-w-11 shrink-0 rounded-full px-2 py-1 text-xs hover:bg-black/5" type="button" onClick={() => setUsageNotice("")}>关闭</button></div>}
       {loginOpen && (
         <div className="fixed inset-0 z-[200] grid place-items-center bg-[#172d3b]/35 px-4 backdrop-blur-sm" role="presentation">
           <section className="max-h-[calc(100dvh-2rem)] w-full max-w-[430px] overflow-y-auto rounded-[16px] bg-[#fbfcfe] p-7 text-[#17212b] shadow-2xl" role="dialog" aria-modal="true" aria-labelledby="account-login-title">
