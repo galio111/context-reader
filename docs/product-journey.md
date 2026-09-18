@@ -1384,10 +1384,12 @@ Evidence artifacts: `artifacts/quota-diagnostics-local-evidence.json`, `artifact
 
 ## 2026-09-18：恢复 GitHub 默认 main 与当前生产源码同步
 
-状态：本地累计集成与验证完成；本轮为源码/文档同步，不发布新生产版本。同步前 origin/main 为 86d943b（2026-08-25）；9 月改动已在多个 codex 分支，默认分支没有前进，导致 GitHub 默认上下文仍是旧版。
+状态：已完成 GitHub 默认 main 与任务分支同步并核验远端 SHA；本轮为源码/文档同步，不发布新生产版本。同步前 origin/main 为 86d943b（2026-08-25）；9 月改动已在多个 codex 分支，默认分支没有前进，导致 GitHub 默认上下文仍是旧版。
 
 现场只读核实生产 release `20260917T152400`、parent `20260916T210459`、source `cb5a375fee7d7b4f1d443d37fee80d2a07b72e0a`，公网 backendMode 为 mainland_internal，服务器 current symlink 与 release-state 一致。独立 codex/github-sync-0918 从精确生产 source 建立，合入其验收文档提交 0aaf65f，再显式合并 origin/main，保留双方历史及 8 月 GitHub 同步里程碑。
 
 核对并纠正密码规则、400 天会话、HomeRedesign 根首页、桌面词典拖动/大小、IndexedDB 与静默后台恢复、流式优先及结构化回退、用量可见性和候选来源历史范围。GPT 简报及新会话说明收敛为当前状态，旧视觉与实机待验收项保留。AGENTS/发布治理明确任务分支推送后还须累计同步默认 main 并核验远端 SHA。审查并纳入调用目录的两份 worktree 管理脚本，使保留上限规则有实际代码支撑；仅 dry-run 审计和 PowerShell 语法检查，未执行清理删除。
 
 验证：生产构建成功，89 项关键回归 + 22 项额度/发音缓存/IndexedDB/登录恢复/退出范围回归通过，发布契约和静态 egress guard 通过。应用源码与当前生产提交一致；差异限文档、忽略规则及本机 worktree 管理脚本。未重新部署、未运行额外收费 AI 请求、未将共享脏根目录、私有备份、构建输出或其他未审查任务打包。
+
+远端验收：累计合并提交 `7a8b94cafcf4954f4cf8ceb0f548c806b79174b6` 已通过 atomic 普通推送同时更新 `main` 和 `codex/github-sync-0918`；随后 `git ls-remote` 对两分支返回完全相同的该 SHA。提交保留旧 main `86d943b` 与当前生产验收分支 `0aaf65f` 两条父历史。此验收记录的后续文档提交亦须推送两分支并复核。
