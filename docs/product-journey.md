@@ -854,6 +854,20 @@ Reader 顶部“生词本”改为 Menu，撤销/重做箭头仅在编辑态出�
 
 Menu 与独立生词本/我的文章改为互斥打开：直接点 Menu 会清除旧预览，外部关闭则让独立层自行完成退场，不再先把父级模式重置成 Menu，从而消除并排残留与约半秒的 Menu 闪现。该版本后来通过累计 release `20260826T003140` 上线；新增说明页当时没有同步设计夜间配色，后续里程碑记录修复和新验收契约。
 
+## 2026-08-25：以当前生产源码恢复 GitHub 默认分支为权威上下文
+
+**状态：已完成 GitHub 源码同步；未执行生产部署**
+
+**类型：GitHub / 代码治理 / 文档与记忆对齐**
+
+**证据：** 大陆生产 `20260825T071645`、生产源提交 `8893934362630feb133750fb873b3358d3265b75`、发布后文档提交 `298f6c93b66446a65aa15819c8fccb8dd7d5dbdb`、对齐提交 `a33e69b`、三项受保护发布契约、59 页生产构建与 GitHub `main`
+
+GitHub 默认 `main` 原停在 2026-07-26，共享根目录则混有多会话的累计源码、日志、Next.js 缓存、发布归档与历史 worktree，无法直接作为可审查上传源。本轮以公网 `/api/connectivity` 返回的当前接受版本定位精确 `sourceRevision`，从干净生产源建立独立 `codex/github-main-sync` worktree，只合入已完成的发布后记录和审查过的最终状态文档。`artifacts/`、`.next-corrupt-*` 与本地点日志统一排除，没有把共享脏目录、凭证或候选包推到 GitHub。
+
+代码反查同时纠正了过期文档：新注册与主动改密已使用 8–72 位字母 + 数字规则，旧六位数字密码只保留登录兼容；昵称/密码自助修改、Reader 无品牌胶囊左侧外壳、游客导入和重采样粒子字形已接入。Lusion 正反向共享图像、Reader 全来源快照、手机 Menu 下滑/键盘边界、真实账号与用户设备视觉验收、正式文案仍按证据保留为未完成或待验收，没有为了“看起来全部完成”而删除。
+
+后续 Context Reader 代码或功能更新的默认完成标准增加 GitHub 同步：在独立 `codex/*` worktree 完成验证和提交后自动推送审查结果，使 Chat 模式 `@GitHub` 能读到当前项目。GitHub 同步不等于生产部署；大陆上线仍必须另行通过版本血缘、公网身份与回归门槛。
+
 ## 2026-08-27：新增 UI 夜间配色补齐并固化双主题验收契约
 
 **状态：当前生产父版本的独立 worktree 已实现；生产构建、浏览器双主题复核与大陆发布待完成**
@@ -1366,3 +1380,14 @@ Further investigation found that stream EOF previously finalized usage even when
 Release `20260917T152400`, parent `20260916T210459`, source `cb5a375fee7d7b4f1d443d37fee80d2a07b72e0a` is accepted on the mainland stack. Public `/api/connectivity` and `/opt/context-reader-current` matched on 2026-09-17. The change passed 101 regressions, production builds, release contracts and the egress guard. Public structured lookups for `clear`, `of` and `fragmented` returned complete current-form IPA and explanations; `carefully` streamed with the completion marker; fresh US/UK `riverbank` MP3 generation succeeded. Account/unauthenticated sync/Admin boundaries, authorized Admin reads, full-stack health, latest backup restore (16 public tables), and current/parent rollback image existence passed. Only app/caddy were recreated. Local fixture browser checks covered the exhausted member flow and desktop/390x844 usage display; they do not claim physical-device audio validation. A separate public browser navigation timed out, so live visual verification beyond the HTTP checks remains incomplete.
 
 Evidence artifacts: `artifacts/quota-diagnostics-local-evidence.json`, `artifacts/quota-diagnostics-public-evidence.json`, `artifacts/quota-diagnostics-tests.log` and `artifacts/quota-diagnostics-build.log` in the shared checkout. Code is pushed on `codex/quota-diagnostics-0917`. Historical incident reports remain unmodified; the exact missing fields cannot be recovered.
+
+
+## 2026-09-18：恢复 GitHub 默认 main 与当前生产源码同步
+
+状态：本地累计集成与验证完成；本轮为源码/文档同步，不发布新生产版本。同步前 origin/main 为 86d943b（2026-08-25）；9 月改动已在多个 codex 分支，默认分支没有前进，导致 GitHub 默认上下文仍是旧版。
+
+现场只读核实生产 release `20260917T152400`、parent `20260916T210459`、source `cb5a375fee7d7b4f1d443d37fee80d2a07b72e0a`，公网 backendMode 为 mainland_internal，服务器 current symlink 与 release-state 一致。独立 codex/github-sync-0918 从精确生产 source 建立，合入其验收文档提交 0aaf65f，再显式合并 origin/main，保留双方历史及 8 月 GitHub 同步里程碑。
+
+核对并纠正密码规则、400 天会话、HomeRedesign 根首页、桌面词典拖动/大小、IndexedDB 与静默后台恢复、流式优先及结构化回退、用量可见性和候选来源历史范围。GPT 简报及新会话说明收敛为当前状态，旧视觉与实机待验收项保留。AGENTS/发布治理明确任务分支推送后还须累计同步默认 main 并核验远端 SHA。审查并纳入调用目录的两份 worktree 管理脚本，使保留上限规则有实际代码支撑；仅 dry-run 审计和 PowerShell 语法检查，未执行清理删除。
+
+验证：生产构建成功，89 项关键回归 + 22 项额度/发音缓存/IndexedDB/登录恢复/退出范围回归通过，发布契约和静态 egress guard 通过。应用源码与当前生产提交一致；差异限文档、忽略规则及本机 worktree 管理脚本。未重新部署、未运行额外收费 AI 请求、未将共享脏根目录、私有备份、构建输出或其他未审查任务打包。

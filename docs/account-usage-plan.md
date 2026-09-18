@@ -1,15 +1,15 @@
 # Account, Sync, and Usage Plan
 
-Status: application code, production environment variables, and Auth are configured on the mainland self-hosted Supabase-compatible backend. The managed Supabase project remains intact for rollback. The visible beta flow uses an unverified mainland-China phone identifier plus nickname and a six-digit numeric password, with no SMS or email required. Email OTP remains hidden and still requires custom SMTP before it can be offered publicly.
+Status: application code, production environment variables, and Auth are configured on the mainland self-hosted Supabase-compatible backend. The managed Supabase project remains intact for rollback. The visible beta flow uses an unverified mainland-China phone identifier plus nickname and password, with no SMS or email required. New registration and voluntary password changes require 8–72 printable ASCII characters with at least one letter and one digit; existing six-digit numeric passwords remain accepted for legacy login. Email OTP remains hidden and still requires custom SMTP before it can be offered publicly.
 
 ## Product principles
 
 1. Reading comes first. Opening the homepage, entering an article, switching articles, editing, and an in-progress stream are never interrupted by account prompts.
 2. Ask at the restricted action. Login appears only when a guest exhausts lookup trial or tries to save, use vocabulary/Anki, request private full translation, or generate a summary.
-3. One user action is one visible charge. Parallel structured and streaming lookup requests share an idempotent action id; backend executions still record their real token usage separately.
+3. One user action is one visible charge. The stream-first request and any structured fallback share an idempotent action id; backend executions still record their real token usage separately.
 4. Never charge guests or registered users for ordinary cache hits, failures, timeouts, or timely cancellations. The deliberate exception is a published curated full-translation cache: the member's first click for that exact article body version consumes one full-translation action while recording zero DeepSeek cost; later replay is free. Guest article lookup, standalone dictionary, pasted-text import and URL import use separate server-managed pools.
 5. The cloud is authoritative after login, but migration never silently discards local data. Version conflicts are refetched and merged. Article conflicts collapse into one canonical article and discarded ids become tombstones, so visible recovery copies must not remain; vocabulary is normalized and deduplicated by word plus source sentence, while a genuinely ambiguous same-id vocabulary conflict is retained in a separate local recovery store instead of appearing as another notebook entry.
-6. Quotas are product configuration, not UI constants. Ordinary-user allowances are editable from the “账号与用量” section of `/admin`; raw metric keys, fixed period internals, developer safety allowances, and unconnected price experiments are hidden from the daily management UI. Payment is deliberately not connected. The public account page replaces plan names with “公开测试中” and hides every price/purchase/upgrade surface unless the owner later enables `NEXT_PUBLIC_COMMERCIAL_UI=enabled` and rebuilds. Remaining counts, point totals, progress bars, and reset times stay hidden behind the separate `NEXT_PUBLIC_USAGE_DETAILS_UI` switch while enforcement continues on the server. An active invitation grant is the exception: its real plan, allowances and expiry are always shown so the tester knows what was redeemed.
+6. Quotas are product configuration, not UI constants. Ordinary-user allowances are editable from the “账号与用量” section of `/admin`; raw metric keys, fixed period internals, developer safety allowances, and unconnected price experiments are hidden from the daily management UI. Payment is deliberately not connected. The public account page replaces plan names with “公开测试中” and hides every price/purchase/upgrade surface unless the owner later enables `NEXT_PUBLIC_COMMERCIAL_UI=enabled` and rebuilds. All signed-in accounts see actual usage balances and reset times independently of the legacy `NEXT_PUBLIC_USAGE_DETAILS_UI` flag; enforcement remains on the server. An active invitation grant is the exception: its real plan, allowances and expiry are always shown so the tester knows what was redeemed.
 7. Collect the minimum. Analytics stores identity, entitlement, quota actions, route/model, provider tokens, estimated cost, status and error code—not full private article text.
 
 ## User state matrix
@@ -18,16 +18,16 @@ Status: application code, production environment variables, and Auth are configu
 |---|---:|---:|---:|---:|
 | Paste, URL import, read public recommendations | Yes | Yes | Yes | Yes |
 | Word/phrase explanation | 10/day | 30/day | Plan allowance | High safety allowance |
-| Cached word explanation | Counts | Free | Free | Free |
+| Cached word explanation | Free | Free | Free | Free |
 | Save article / vocabulary / Anki | Login prompt | Synced | Synced | Synced |
-| Private translation / summary / OCR | Login prompt | Separate monthly actions | Separate monthly actions | High allowance |
+| Private translation / summary | Login prompt | Separate monthly actions | Separate monthly actions | High allowance |
 | Admin-prepublished translation | Login prompt | First click counts once | First click counts once | High allowance |
 | Cross-device sync | No | Yes | Yes | Yes |
 
 ## Quota model
 
-- `guest_lookup`: one cached or generated lookup, including regenerate.
-- `lookup_generation`: one generated lookup or sentence follow-up. A parallel structured + stream pair is one quota action and two provider execution records.
+- `guest_lookup`: one generated article lookup, including explicit regeneration; ordinary cache replay is free. Standalone dictionary uses its separate guest pool.
+- `lookup_generation`: one generated lookup or sentence follow-up. A stream and any structured fallback share one quota action; provider executions are recorded separately.
 - `article_summary`: one monthly action when the first save generates a summary. Saving itself never depends on this allowance: bodies longer than 50,000 characters skip automatic summary generation, and an exhausted summary allowance leaves the article saved without a summary. Re-saving the same article version reuses the saved summary; there is no user-facing summary-regeneration action.
 - `full_article_translation`: one monthly action for each user-started whole-article translation job, independent of the number of streaming provider batches. Reopening the same account's cached result is free; explicit regeneration charges a new action. A first curated-cache click charges one action but creates no provider execution. Normal articles use one upstream streaming batch with the article context sent once; only oversized articles need a small number of bounded batches.
 - Defaults: guest pools remain 10 article lookups, 5 dictionary lookups, 2 text imports and 2 URL imports per Shanghai day. Registered defaults are Free 30 lookups/day + 10 summaries/month + 1 full translation/month; Basic 80 + 75 + 5; Plus 200 + 250 + 20; Max 600 + 1,000 + 60. Every allowance may be set to zero in Admin.
@@ -36,7 +36,7 @@ Status: application code, production environment variables, and Auth are configu
 
 ## Data model
 
-- Supabase-compatible Auth: phone-identifier + numeric-password identity and refresh session. The phone is mapped server-side to a reserved internal email; it is explicitly unverified and the password is hashed by Auth.
+- Supabase-compatible Auth: phone-identifier + password identity and refresh session. The phone is mapped server-side to a reserved internal email; it is explicitly unverified and the password is hashed by Auth.
 - `account_profiles`, `user_entitlements`: profile, status and plan.
 - `invitation_codes`: SHA-256 code hash, non-secret hint, granted plan, post-redemption duration, optional redemption deadline, private note, redemption owner/time and grant expiry. Plaintext is returned only in the Admin creation response.
 - `quota_plans`, `quota_plan_limits`, `account_settings`: editable global configuration.
@@ -49,7 +49,7 @@ Status: application code, production environment variables, and Auth are configu
 
 ## Key interactions
 
-- Registration uses nickname + mainland-China phone identifier + six-digit numeric password; later login uses phone + password. No SMS is sent and the phone is not proof of ownership. Access and refresh cookies are HttpOnly, Secure in production and SameSite=Lax; the refresh cookie lasts 7 days.
+- Registration uses nickname + mainland-China phone identifier + a strong password; later login uses phone + password, including legacy six-digit numeric credentials until voluntarily changed. No SMS is sent, the phone is not proof of ownership, and password recovery stays disabled. Access and refresh cookies are HttpOnly, Secure in production and SameSite=Lax; the refresh cookie uses a rolling 400-day maximum age, subject to upstream session validity, explicit logout and security revocation.
 - A browser's first sync captures one server snapshot, downloads active payloads plus lightweight tombstone metadata, supplements them with local data, and uploads with expected versions. Later syncs use an opaque `(updated_at, kind, object_key)` cursor and a local version/hash manifest, so unchanged objects and old deletion payloads are not transferred again. Version conflicts refresh the cursor/manifest and retry up to three times.
 - Durable local changes schedule an upload after about 800 ms. While a signed-in page is visible, remote changes are checked about every 15 seconds and immediately on focus or visibility return; a suspended or offline browser catches up when it becomes active again.
 - Vocabulary sync keeps one canonical entry per normalized word and source sentence, merges the most complete generated fields and Anki import record, and sends tombstones for redundant cloud recovery ids.
