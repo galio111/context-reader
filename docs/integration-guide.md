@@ -18,12 +18,11 @@ Production uses the versioned Docker workflow under `ops/mainland/`: Caddy front
 DEEPSEEK_API_KEY=...
 DEEPSEEK_BASE_URL=https://api.deepseek.com
 DEEPSEEK_MODEL=deepseek-v4-pro
+ZHIPU_FALLBACK_MODEL=glm-4.5-air
+ZHIPU_FALLBACK_ENABLED=true
+AI_PRIMARY_WAIT_MS=6000
 DEEPSEEK_LOOKUP_MODEL=deepseek-flash
 DEEPSEEK_TRANSLATION_MODEL=
-DEEPSEEK_FALLBACK_MODELS=
-DEEPSEEK_FALLBACK_BASE_URL=
-DEEPSEEK_FALLBACK_API_KEY=
-DEEPSEEK_FALLBACK_MODEL=
 OCR_PROVIDER=zhipu
 ZHIPU_API_KEY=...
 ZHIPU_BASE_URL=https://open.bigmodel.cn/api/paas/v4
@@ -50,7 +49,7 @@ VOLCENGINE_TTS_UK_VOICE=en_female_emily_mars_bigtts
 
 OCR routes and the dormant legacy image-import path can use either `OCR_PROVIDER=zhipu` with `ZHIPU_API_KEY`, or `OCR_PROVIDER=openai` with `OPENAI_API_KEY`. The shipped root homepage exposes no image upload, and automatic OCR for images embedded in URL-imported articles remains gated off in the reader.
 
-`DEEPSEEK_LOOKUP_MODEL` controls contextual word explanation, its sentence translation, and standalone dictionary; it defaults to the lower-cost `deepseek-flash` independently of the shared `DEEPSEEK_MODEL`. `DEEPSEEK_TRANSLATION_MODEL` overrides only full-article translation; when it is blank, full translation also uses `deepseek-flash`. `DEEPSEEK_FALLBACK_MODELS` is a comma-separated model list used for supported retries on the primary provider. The default Flash lookup path does not add a same-provider model fallback; explicitly configuring a Pro lookup primary with the fallback list unset retains the existing automatic `deepseek-v4-pro` to `deepseek-flash` retry. An explicitly empty fallback list disables model fallback. Structured word explanations can also use `DEEPSEEK_FALLBACK_BASE_URL` with optional `DEEPSEEK_FALLBACK_API_KEY` and `DEEPSEEK_FALLBACK_MODEL`.
+All text-generation paths use `lib/providerFailover.ts`: DeepSeek remains primary and Zhipu `glm-4.5-air` (thinking disabled) is the independent backup. No Flash/Pro or other same-provider model swapping is enabled; legacy `DEEPSEEK_FALLBACK_*` settings are ignored. HTTP 401/402/408/429/5xx, transport errors, empty responses, and absence of visible stream content within 6 seconds switch once to Zhipu. The same 6-second budget bounds non-stream completion; backup first-content/completion wait is capped at 20 seconds within each route's overall deadline. Keepalives and reasoning tokens do not count as progress. A process-local 30-second circuit bypasses the unhealthy primary; it is not distributed availability state. Client cancellation and input/policy rejection never initiate a backup. Once content is visible, the transport never splices a different model into that stream; existing structured lookup fallback or missing-block translation continuation handles recovery. Standalone dictionary partial-output behavior remains unchanged. The existing user action/quota is reused, actual successful provider/model is recorded, and GLM-4.5-Air costs are estimated separately at CNY 0.8/M input and 2/M output, subject to provider billing. Failed primary attempts are logged server-side; they are not separate user charges or separate durable token-ledger rows. Configure `ZHIPU_API_KEY`, optional `ZHIPU_BASE_URL`, `ZHIPU_FALLBACK_MODEL` (default `glm-4.5-air`), `ZHIPU_FALLBACK_ENABLED` (set `false` to disable), and `AI_PRIMARY_WAIT_MS` (default 6000). Keep keys server-only.
 
 `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, the internal compatibility `SUPABASE_URL`, and the self-hosted `SUPABASE_SERVICE_ROLE_KEY` are needed for `/admin`, public recommendations, preloaded word explanations, and preloaded full-article translations. `CRON_SECRET` is required for the scheduled recommendation crawler. `SITE_SMTP_HOST`, `SITE_SMTP_PORT`, `SITE_SMTP_USER`, `SITE_SMTP_PASSWORD`, `SITE_SMTP_FROM`, and `SITE_NOTIFICATION_EMAIL_TO` configure its successful-completion email; these values remain server-only and the SMTP authorization code must never enter Git, logs, or command arguments. Use a long unique admin password; only the independent session secret has an enforced minimum of 32 characters. Increment `ADMIN_SESSION_VERSION` to revoke every existing admin cookie. Run the complete `docs/public-articles-supabase.sql` against the active mainland PostgreSQL database before publishing and after security/schema updates; it creates the three tables, enables RLS, and revokes direct access from browser roles and `PUBLIC`.
 

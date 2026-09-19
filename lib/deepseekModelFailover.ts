@@ -1,5 +1,4 @@
 const DEFAULT_PRIMARY_MODEL = "deepseek-v4-pro";
-const DEFAULT_CORE_FALLBACK_MODEL = "deepseek-flash";
 
 function uniqueModels(models: string[]): string[] {
   return Array.from(new Set(models.map((model) => model.trim()).filter(Boolean)));
@@ -7,13 +6,9 @@ function uniqueModels(models: string[]): string[] {
 
 export function coreDeepSeekModelCandidates(
   primaryModel = process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_PRIMARY_MODEL,
-  configuredFallbacks = process.env.DEEPSEEK_FALLBACK_MODELS,
+  _configuredFallbacks = process.env.DEEPSEEK_FALLBACK_MODELS,
 ): string[] {
-  const fallbackModels = configuredFallbacks === undefined
-    ? primaryModel === DEFAULT_PRIMARY_MODEL ? [DEFAULT_CORE_FALLBACK_MODEL] : []
-    : configuredFallbacks.split(",");
-
-  return uniqueModels([primaryModel, ...fallbackModels]);
+  return uniqueModels([primaryModel]);
 }
 
 export function isRetryableDeepSeekStatus(status: number): boolean {
@@ -52,7 +47,7 @@ export async function fetchWithDeepSeekModelFailover(options: {
     try {
       const response = await options.attempt(model);
       if (response.ok && (!requireBody || response.body)) {
-        return { response, model, errorBody: "" };
+        return { response, model: response.headers.get("x-context-model") || model, errorBody: "" };
       }
 
       const errorBody = await response.text().catch(() => "");

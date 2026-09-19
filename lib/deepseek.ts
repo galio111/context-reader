@@ -1,9 +1,9 @@
+import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
 import { contextualLemma } from "@/lib/displayLabels";
 import { normalizeAnkiInfo } from "@/lib/ankiData";
 import { normalizePartOfSpeechLabel } from "@/lib/displayLabels";
 import { pronunciationTargetMatches, requiresCurrentFormPhonetic } from "@/lib/pronunciation";
 import { ClientRequestCancelledError } from "@/lib/requestCancellation";
-import { coreDeepSeekModelCandidates } from "@/lib/deepseekModelFailover";
 import type {
   Difficulty,
   ExplanationRequest,
@@ -17,7 +17,7 @@ const MAX_CONTEXT_CHARS = 1100;
 const MAX_SINGLE_FIELD_CHARS = 500;
 const MAX_QUESTION_CHARS = 500;
 const REQUEST_TIMEOUT_MS = 26000;
-const MAX_PROVIDER_ATTEMPTS = 2;
+const MAX_PROVIDER_ATTEMPTS = 1;
 const RETRY_DELAY_MS = 250;
 const MAX_COMPLETION_TOKENS = 1200;
 const MAX_REPAIR_COMPLETION_TOKENS = 1600;
@@ -289,31 +289,6 @@ function getProviderProfiles(): ProviderProfile[] {
     },
   ];
 
-  const fallbackBaseURL = process.env.DEEPSEEK_FALLBACK_BASE_URL;
-  const fallbackApiKey = process.env.DEEPSEEK_FALLBACK_API_KEY || primaryApiKey;
-  const fallbackModel = process.env.DEEPSEEK_FALLBACK_MODEL || primaryModel;
-
-  if (fallbackBaseURL) {
-    profiles.push({
-      apiKey: fallbackApiKey,
-      baseURL: fallbackBaseURL,
-      model: fallbackModel,
-      label: "fallback-provider",
-    });
-  }
-
-  const explicitFallbackModels = coreDeepSeekModelCandidates(primaryModel, process.env.DEEPSEEK_FALLBACK_MODELS)
-    .slice(1)
-    .filter((model) => model !== primaryModel);
-  profiles.push(
-    ...explicitFallbackModels.map((model) => ({
-      apiKey: primaryApiKey,
-      baseURL: primaryBaseURL,
-      model,
-      label: `fallback-model:${model}`,
-    })),
-  );
-
   return profiles;
 }
 
@@ -423,7 +398,7 @@ async function requestDeepSeekCompletionOnce(args: {
   }, REQUEST_TIMEOUT_MS);
 
   try {
-    const response = await fetch(`${args.profile.baseURL.replace(/\/$/, "")}/chat/completions`, {
+    const response = await fetchWithProviderFailover(`${args.profile.baseURL.replace(/\/$/, "")}/chat/completions`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${args.profile.apiKey}`,
@@ -463,6 +438,8 @@ async function requestDeepSeekCompletionOnce(args: {
       signal: controller.signal,
     });
 
+    args.profile.model = responseModel(response, args.profile.model);
+    args.profile.label = providerName(args.profile.model);
     const completion = (await response.json().catch(() => null)) as DeepSeekChatCompletionResponse | null;
     if (response.ok) {
       if (completion) {

@@ -1,3 +1,4 @@
+import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
 import { NextResponse } from "next/server";
 import { createHash } from "crypto";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
@@ -119,7 +120,7 @@ export async function POST(request: Request) {
 
   const apiKey = process.env.DEEPSEEK_API_KEY;
   const baseURL = process.env.DEEPSEEK_BASE_URL ?? "https://api.deepseek.com";
-  const model = process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL;
+  let model = process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL;
 
   if (!apiKey) {
     await refundUsage(actionId, "failed", "missing_api_key").catch(() => undefined);
@@ -153,7 +154,7 @@ export async function POST(request: Request) {
     await recordUsageExecution({
       actionId,
       route: "/api/summarize-article",
-      provider: "deepseek",
+      provider: providerName(model),
       model,
       promptTokens: usage.prompt_tokens,
       promptCacheHitTokens: usage.prompt_cache_hit_tokens,
@@ -166,7 +167,7 @@ export async function POST(request: Request) {
   };
 
   try {
-    const response = await fetch(`${baseURL.replace(/\/$/, "")}/chat/completions`, {
+    const response = await fetchWithProviderFailover(`${baseURL.replace(/\/$/, "")}/chat/completions`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -194,6 +195,7 @@ export async function POST(request: Request) {
       signal: controller.signal,
     });
 
+    model = responseModel(response, model);
     const data = (await response.json().catch(() => null)) as DeepSeekSummaryResponse | null;
     if (!response.ok) {
       const providerMessage = data?.error?.message || response.statusText;
@@ -234,7 +236,7 @@ export async function POST(request: Request) {
     }
 
     usageSucceeded = true;
-    await recordUsageExecution({ actionId, route: "/api/summarize-article", provider: "deepseek", model, promptTokens: data?.usage?.prompt_tokens, promptCacheHitTokens: data?.usage?.prompt_cache_hit_tokens, promptCacheMissTokens: data?.usage?.prompt_cache_miss_tokens, completionTokens: data?.usage?.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, data?.usage ?? {}), status: "succeeded" }).catch(() => undefined);
+    await recordUsageExecution({ actionId, route: "/api/summarize-article", provider: providerName(model), model, promptTokens: data?.usage?.prompt_tokens, promptCacheHitTokens: data?.usage?.prompt_cache_hit_tokens, promptCacheMissTokens: data?.usage?.prompt_cache_miss_tokens, completionTokens: data?.usage?.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, data?.usage ?? {}), status: "succeeded" }).catch(() => undefined);
     await finishUsage(actionId, "succeeded").catch(() => undefined);
     return NextResponse.json({ summary });
   } catch (error) {

@@ -57,6 +57,10 @@ function isDeepSeekPeakTime(at: Date): boolean {
 }
 
 export function deepSeekRatesAt(model: string, at: Date): DeepSeekRates {
+  if (/^glm-/i.test(model)) {
+    const rate = deepSeekUsdToCnyRate();
+    return { hit: 0.8 / rate, miss: 0.8 / rate, output: 2 / rate };
+  }
   const flash = /flash|deepseek-chat/i.test(model);
   const configured = {
     hit: configuredRate("DEEPSEEK_CACHE_HIT_USD_PER_MILLION"),
@@ -102,6 +106,7 @@ export function microusdToCny(microusd: number, rate = deepSeekUsdToCnyRate()): 
 }
 
 function deepSeekCnyRatesAt(model: string, at: Date): DeepSeekRates {
+  if (/^glm-/i.test(model)) return { hit: 0.8, miss: 0.8, output: 2 };
   const flash = /flash|deepseek-chat/i.test(model);
   if (at.getTime() < PEAK_PRICING_EFFECTIVE_AT) {
     return flash

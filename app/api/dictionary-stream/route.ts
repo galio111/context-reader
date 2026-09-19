@@ -1,3 +1,4 @@
+import { fetchWithProviderFailover, providerName } from "@/lib/providerFailover";
 import { NextResponse } from "next/server";
 import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
 import { acquireCostSlot } from "@/lib/costConcurrency";
@@ -140,7 +141,7 @@ export async function POST(request: Request) {
   try {
     const provider = await fetchWithDeepSeekModelFailover({
       models: modelCandidates,
-      attempt: (model) => fetch(`${baseURL}/chat/completions`, {
+      attempt: (model) => fetchWithProviderFailover(`${baseURL}/chat/completions`, {
       method: "POST",
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -236,7 +237,7 @@ export async function POST(request: Request) {
             await recordUsageExecution({
               actionId,
               route: "/api/dictionary-stream",
-              provider: "deepseek",
+              provider: providerName(activeModel),
               model,
               promptTokens: providerUsage.prompt_tokens,
               promptCacheHitTokens: providerUsage.prompt_cache_hit_tokens,
@@ -266,7 +267,7 @@ export async function POST(request: Request) {
           await recordUsageExecution({
             actionId,
             route: "/api/dictionary-stream",
-            provider: "deepseek",
+            provider: providerName(activeModel),
             model,
             promptTokens: providerUsage.prompt_tokens,
             promptCacheHitTokens: providerUsage.prompt_cache_hit_tokens,

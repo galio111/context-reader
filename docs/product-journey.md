@@ -1370,3 +1370,8 @@ Further investigation found that stream EOF previously finalized usage even when
 ## 2026-09-19 — Publisher carousel, series branding and lemma label
 
 Implemented from accepted production `20260917T152400` (`cb5a375fee7d7b4f1d443d37fee80d2a07b72e0a`). NASA nested figures now retain still images; unsupported video and rejected images do not leave captions in prose. Reasons to be Cheerful series introductions/logos are excluded by module, preserving ordinary openings and editorial photographs. Animated image localization retains frames, while the reported NASA loop is MP4 and is omitted. Explanation copy uses 原型 consistently with the existing dictionary surface. Actual publisher HTML replay yields six NASA still images and removes the Waterline logo/introduction. Four targeted tests and 89 critical regressions pass; two-frame GIF conversion preserves both delays and loop metadata. Production acceptance evidence follows after release verification.
+
+
+## 2026-09-19 — Independent Zhipu fallback
+
+Implemented DeepSeek-to-GLM-4.5-Air failover across lookup, dictionary, translation, summary, sentence questions and classification. Removed same-supplier model routing, preserved cancellation and single-action quota accounting. Validated 89 core regressions, 7 failover tests and real-provider dictionary streams (fell: 367 ms first content / 7.7 s complete; Chinese kidnapping query: 233 ms / 4.3 s). Production acceptance and final source identity are recorded after guarded deployment; until then this is a validated candidate. Browser-visible mid-stream fault/recovery acceptance remains unverified.

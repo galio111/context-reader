@@ -1,3 +1,4 @@
+import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
 import {
   ARTICLE_AUDIENCE_STAGES,
   ARTICLE_CEFR_LEVELS,
@@ -319,7 +320,7 @@ export async function classifyArticle(
   }
 
   const baseUrl = (process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com").replace(/\/$/, "");
-  const model = process.env.DEEPSEEK_MODEL || DEFAULT_MODEL;
+  let model = process.env.DEEPSEEK_MODEL || DEFAULT_MODEL;
   const metrics = textMetrics(text);
   const profile = sourceProfile(context);
   const prompt = `你是面向中国英语学习者的英文文章分级编辑。请基于可核查证据判断，不要因为句子短就把国外原生文章判成小学或初中。
@@ -358,7 +359,7 @@ ${context.discoveryReview ? `- qualityReview：对象，含 eligible（布尔值
 正文：${compactModelText(text)}`;
 
   try {
-    const response = await fetch(`${baseUrl}/chat/completions`, {
+    const response = await fetchWithProviderFailover(`${baseUrl}/chat/completions`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -374,6 +375,7 @@ ${context.discoveryReview ? `- qualityReview：对象，含 eligible（布尔值
       }),
       signal: AbortSignal.timeout(25_000),
     });
+    model = responseModel(response, model);
     const payload = await response.json().catch(() => null) as DeepSeekClassificationResponse | null;
     if (!response.ok) {
       throw new Error(payload?.error?.message || `DeepSeek ${response.status}`);
@@ -419,7 +421,7 @@ ${context.discoveryReview ? `- qualityReview：对象，含 eligible（布尔值
     await recordSystemUsageExecution({
       feature: "article_classification",
       route: context.usageRoute || "/api/admin/article-classification",
-      provider: "deepseek",
+      provider: providerName(model),
       model,
       promptTokens: payload?.usage?.prompt_tokens,
       promptCacheHitTokens: payload?.usage?.prompt_cache_hit_tokens,
@@ -454,7 +456,7 @@ ${context.discoveryReview ? `- qualityReview：对象，含 eligible（布尔值
     await recordSystemUsageExecution({
       feature: "article_classification",
       route: context.usageRoute || "/api/admin/article-classification",
-      provider: "deepseek",
+      provider: providerName(model),
       model,
       status: "failed",
       errorCode: "classification_fallback",

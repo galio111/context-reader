@@ -1,3 +1,4 @@
+import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
 import { DeepSeekParseError, MissingDeepSeekEnvError } from "@/lib/deepseek";
 import { normalizeDictionarySpelling } from "@/lib/dictionarySpelling";
 import { pronunciationTargetMatches } from "@/lib/pronunciation";
@@ -71,15 +72,6 @@ function profiles(): ProviderProfile[] {
   const baseURL = (process.env.DEEPSEEK_BASE_URL?.trim() || DEFAULT_BASE_URL).replace(/\/$/, "");
   const model = process.env.DEEPSEEK_LOOKUP_MODEL?.trim() || DEFAULT_MODEL;
   const result: ProviderProfile[] = [{ apiKey, baseURL, model, label: "primary" }];
-  const fallbackBaseURL = process.env.DEEPSEEK_FALLBACK_BASE_URL?.trim();
-  if (fallbackBaseURL) {
-    result.push({
-      apiKey: process.env.DEEPSEEK_FALLBACK_API_KEY?.trim() || apiKey,
-      baseURL: fallbackBaseURL.replace(/\/$/, ""),
-      model: process.env.DEEPSEEK_FALLBACK_MODEL?.trim() || model,
-      label: "fallback-provider",
-    });
-  }
   return result;
 }
 
@@ -191,7 +183,7 @@ export async function lookupDictionaryWithDeepSeek(query: string): Promise<DeepS
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
     try {
-      const response = await fetch(`${profile.baseURL}/chat/completions`, {
+      const response = await fetchWithProviderFailover(`${profile.baseURL}/chat/completions`, {
         method: "POST",
         headers: { Authorization: `Bearer ${profile.apiKey}`, "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -207,6 +199,8 @@ export async function lookupDictionaryWithDeepSeek(query: string): Promise<DeepS
         }),
         signal: controller.signal,
       });
+    profile.model = responseModel(response, profile.model);
+    profile.label = providerName(profile.model);
       const completion = await response.json().catch(() => null) as DeepSeekDictionaryResponse | null;
       if (!response.ok || !completion) {
         throw new DeepSeekParseError(completion?.error?.message || "词典服务暂时不可用，请稍后重试。");
@@ -216,7 +210,7 @@ export async function lookupDictionaryWithDeepSeek(query: string): Promise<DeepS
       return {
         dictionary: normalizeDictionary(parseJson(content), query),
         model: profile.model,
-        provider: `deepseek:${profile.label}`,
+        provider: profile.label,
         usage: completion.usage ?? {},
       };
     } catch (error) {
