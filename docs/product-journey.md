@@ -854,6 +854,20 @@ Reader 顶部“生词本”改为 Menu，撤销/重做箭头仅在编辑态出�
 
 Menu 与独立生词本/我的文章改为互斥打开：直接点 Menu 会清除旧预览，外部关闭则让独立层自行完成退场，不再先把父级模式重置成 Menu，从而消除并排残留与约半秒的 Menu 闪现。该版本后来通过累计 release `20260826T003140` 上线；新增说明页当时没有同步设计夜间配色，后续里程碑记录修复和新验收契约。
 
+## 2026-08-25：以当前生产源码恢复 GitHub 默认分支为权威上下文
+
+**状态：已完成 GitHub 源码同步；未执行生产部署**
+
+**类型：GitHub / 代码治理 / 文档与记忆对齐**
+
+**证据：** 大陆生产 `20260825T071645`、生产源提交 `8893934362630feb133750fb873b3358d3265b75`、发布后文档提交 `298f6c93b66446a65aa15819c8fccb8dd7d5dbdb`、对齐提交 `a33e69b`、三项受保护发布契约、59 页生产构建与 GitHub `main`
+
+GitHub 默认 `main` 原停在 2026-07-26，共享根目录则混有多会话的累计源码、日志、Next.js 缓存、发布归档与历史 worktree，无法直接作为可审查上传源。本轮以公网 `/api/connectivity` 返回的当前接受版本定位精确 `sourceRevision`，从干净生产源建立独立 `codex/github-main-sync` worktree，只合入已完成的发布后记录和审查过的最终状态文档。`artifacts/`、`.next-corrupt-*` 与本地点日志统一排除，没有把共享脏目录、凭证或候选包推到 GitHub。
+
+代码反查同时纠正了过期文档：新注册与主动改密已使用 8–72 位字母 + 数字规则，旧六位数字密码只保留登录兼容；昵称/密码自助修改、Reader 无品牌胶囊左侧外壳、游客导入和重采样粒子字形已接入。Lusion 正反向共享图像、Reader 全来源快照、手机 Menu 下滑/键盘边界、真实账号与用户设备视觉验收、正式文案仍按证据保留为未完成或待验收，没有为了“看起来全部完成”而删除。
+
+后续 Context Reader 代码或功能更新的默认完成标准增加 GitHub 同步：在独立 `codex/*` worktree 完成验证和提交后自动推送审查结果，使 Chat 模式 `@GitHub` 能读到当前项目。GitHub 同步不等于生产部署；大陆上线仍必须另行通过版本血缘、公网身份与回归门槛。
+
 ## 2026-08-27：新增 UI 夜间配色补齐并固化双主题验收契约
 
 **状态：当前生产父版本的独立 worktree 已实现；生产构建、浏览器双主题复核与大陆发布待完成**
@@ -1359,25 +1373,59 @@ Implemented on a dedicated branch from accepted release `20260916T160100` (`d071
 
 Incident evidence: accepted production 20260916T210459 recorded two incomplete structured explanations and one US TTS 15-second timeout for a newly registered member. Historical reports omitted invalid field names, so neither the exact malformed payload nor a registration-specific cause can be established.
 
-Implemented member/guest-safe quota messages with actual balances and Beijing reset times; exposed usage details for all accounts; stopped duplicate fallback on quota rejection. Added validated-field-preserving explanation repair, bounded larger output budgets, private validation diagnostics and mainland release attribution. Added one bounded transient TTS retry without changing durable caching or pronunciation ownership. Simulated complementary-field repair, repeated malformed output, member/guest exhaustion and transient/permanent TTS failures. Production acceptance pending the guarded release and public checks.
+Implemented member/guest-safe quota messages with actual balances and Beijing reset times; exposed usage details for all accounts; stopped duplicate fallback on quota rejection. Added validated-field-preserving explanation repair, bounded larger output budgets, private validation diagnostics and mainland release attribution. Added one bounded transient TTS retry without changing durable caching or pronunciation ownership. Simulated complementary-field repair, repeated malformed output, member/guest exhaustion and transient/permanent TTS failures. Production acceptance is recorded below.
 
 Further investigation found that stream EOF previously finalized usage even when the Reader rejected incomplete fields, making a later fallback refund a no-op. The server now validates stream completeness before finalization. Local API fixtures verified the exhausted free-account page at desktop and 390×844; live historical errors cannot be mapped to exact action ids, so no retrospective account quota edits were made.
 
+Release `20260917T152400`, parent `20260916T210459`, source `cb5a375fee7d7b4f1d443d37fee80d2a07b72e0a` is accepted on the mainland stack. Public `/api/connectivity` and `/opt/context-reader-current` matched on 2026-09-17. The change passed 101 regressions, production builds, release contracts and the egress guard. Public structured lookups for `clear`, `of` and `fragmented` returned complete current-form IPA and explanations; `carefully` streamed with the completion marker; fresh US/UK `riverbank` MP3 generation succeeded. Account/unauthenticated sync/Admin boundaries, authorized Admin reads, full-stack health, latest backup restore (16 public tables), and current/parent rollback image existence passed. Only app/caddy were recreated. Local fixture browser checks covered the exhausted member flow and desktop/390x844 usage display; they do not claim physical-device audio validation. A separate public browser navigation timed out, so live visual verification beyond the HTTP checks remains incomplete.
 
-## 2026-09-19：手机划词 AI 追问与四分之一屏下边栏
+Evidence artifacts: `artifacts/quota-diagnostics-local-evidence.json`, `artifacts/quota-diagnostics-public-evidence.json`, `artifacts/quota-diagnostics-tests.log` and `artifacts/quota-diagnostics-build.log` in the shared checkout. Code is pushed on `codex/quota-diagnostics-0917`. Historical incident reports remain unmodified; the exact missing fields cannot be recovered.
 
-手机流式完成和缓存解释都开放原有 AI 追问，保留词语、完整原句与相邻句上下文。下边栏改为 25–82dvh 自由调整，低于四分之一才关闭；快速下甩可直接关闭，停顿及取消不会误关。移除 Reader 280px 最小高度，手机输入保持 16px、回车换行和 44px 提交按钮。
 
-验证：89 项关键回归、手势交互回归、发布契约与生产构建通过；独立 Chromium 在 390×844 测得四分之一高度 211px，验证慢拖、快甩、重新打开和上下文追问（日/夜截图，接口使用固定测试响应）；桌面日/夜也已检查。真实登录接口的解释、词典、全文翻译和追问均成功，当前配置实际记录 deepseek-flash（追问为 deepseek-v4-pro），与旧文档模型名存在差异，本任务不变更服务配置。生产累计集成与身份验收待完成；真机手感仍以用户验收为准。
+## 2026-09-18：恢复 GitHub 默认 main 与当前生产源码同步
+
+状态：已完成 GitHub 默认 main 与任务分支同步并核验远端 SHA；本轮为源码/文档同步，不发布新生产版本。同步前 origin/main 为 86d943b（2026-08-25）；9 月改动已在多个 codex 分支，默认分支没有前进，导致 GitHub 默认上下文仍是旧版。
+
+现场只读核实生产 release `20260917T152400`、parent `20260916T210459`、source `cb5a375fee7d7b4f1d443d37fee80d2a07b72e0a`，公网 backendMode 为 mainland_internal，服务器 current symlink 与 release-state 一致。独立 codex/github-sync-0918 从精确生产 source 建立，合入其验收文档提交 0aaf65f，再显式合并 origin/main，保留双方历史及 8 月 GitHub 同步里程碑。
+
+核对并纠正密码规则、400 天会话、HomeRedesign 根首页、桌面词典拖动/大小、IndexedDB 与静默后台恢复、流式优先及结构化回退、用量可见性和候选来源历史范围。GPT 简报及新会话说明收敛为当前状态，旧视觉与实机待验收项保留。AGENTS/发布治理明确任务分支推送后还须累计同步默认 main 并核验远端 SHA。审查并纳入调用目录的两份 worktree 管理脚本，使保留上限规则有实际代码支撑；仅 dry-run 审计和 PowerShell 语法检查，未执行清理删除。
+
+验证：生产构建成功，89 项关键回归 + 22 项额度/发音缓存/IndexedDB/登录恢复/退出范围回归通过，发布契约和静态 egress guard 通过。应用源码与当前生产提交一致；差异限文档、忽略规则及本机 worktree 管理脚本。未重新部署、未运行额外收费 AI 请求、未将共享脏根目录、私有备份、构建输出或其他未审查任务打包。
+
+远端验收：累计合并提交 `7a8b94cafcf4954f4cf8ceb0f548c806b79174b6` 已通过 atomic 普通推送同时更新 `main` 和 `codex/github-sync-0918`；随后 `git ls-remote` 对两分支返回完全相同的该 SHA。提交保留旧 main `86d943b` 与当前生产验收分支 `0aaf65f` 两条父历史。此验收记录的后续文档提交亦须推送两分支并复核。
+
 ## 2026-09-19：词典关联词跳转与历史前缀检索
 
 英译中词族、常见搭配和中译英英文表达新增与近义词一致的查询箭头，复用缓存、历史和配额逻辑。输入框按不区分大小写的前缀筛选完整历史，所有匹配可滚动查看，支持上下键、回车、Escape、点击与清空，筛选不发网络请求。组件交互验证通过四组箭头、生成期禁用、32 条全量前缀匹配、大小写、键盘/点击缓存回放、无匹配提示、Escape 和清空；检索未触发请求。89 项关键回归与发布契约通过。浏览器连接不可用，桌面/手机视觉及真实浏览器操作仍待人工确认。生产验收另行记录。
 
 ## 2026-09-19 — Publisher carousel, series branding and lemma label
 
-Implemented from accepted production `20260917T152400` (`cb5a375fee7d7b4f1d443d37fee80d2a07b72e0a`). NASA nested figures now retain still images; unsupported video and rejected images do not leave captions in prose. Reasons to be Cheerful series introductions/logos are excluded by module, preserving ordinary openings and editorial photographs. Animated image localization retains frames, while the reported NASA loop is MP4 and is omitted. Explanation copy uses 原型 consistently with the existing dictionary surface. Actual publisher HTML replay yields six NASA still images and removes the Waterline logo/introduction. Four targeted tests and 89 critical regressions pass; two-frame GIF conversion preserves both delays and loop metadata. Production acceptance evidence follows after release verification.
+Implemented from accepted production `20260917T152400` (`cb5a375fee7d7b4f1d443d37fee80d2a07b72e0a`). NASA nested figures now retain still images; unsupported video and rejected images do not leave captions in prose. Reasons to be Cheerful series introductions/logos are excluded by module, preserving ordinary openings and editorial photographs. Animated image localization retains frames, while the reported NASA loop is MP4 and is omitted. Explanation copy uses 原型 consistently with the existing dictionary surface. Actual publisher HTML replay yields six NASA still images and removes the Waterline logo/introduction. Four targeted tests and 89 critical regressions pass; two-frame GIF conversion preserves both delays and loop metadata. Production acceptance is recorded below.
+
+### Publisher media production acceptance — 2026-09-19
+
+Production release `20260919T223000`, parent `20260919T221000`, source `10862dfdb452a9b201a2e105695c627fea49cddd`. The task cumulatively merged accepted dictionary release `20260919T221000` before packaging. Public connectivity reports the exact release/parent and `mainland_internal`; only app/caddy were recreated. Real URL import returns 6 NASA still images, 7 beaver article images without series branding, and 5 images with an intact opening for the London control article. The repaired NASA candidate has 6 localized images; all 13 stored NASA/beaver images return HTTP 200. Four targeted, 89 critical and 18 discovery regressions, production builds, release contracts and egress checks passed. Public account/sync/Admin boundaries, authenticated Admin reads, seven-service health, a 16-table backup restore and parent rollback image existence passed. Browser automation timed out, so visual verification remains incomplete.
+
+NASA candidate `ef87a45f-999a-4e26-807c-8390e01bd1b0` was repaired through Admin with its remaining prose and status preserved; backup is `/var/backups/context-reader/manual/publisher-media-20260919/`. Published beaver article `80f5270c-96e8-470a-ab71-3be2d1d3b4b8` was already clean when inspected and was not overwritten. Older browser-local copies were not rewritten. GitHub integration retains current remote-main documentation and the exact accepted application source; the integration commit must be normal-pushed and verified against remote main.
+
+GitHub verification: atomic normal push advanced `main` and `codex/nasa-media-0919` to `0c5c50d258f56eca99fefa2e3f543a39de7a539b`; `git ls-remote` returned that exact SHA for both branches. The final verification note is a documentation-only follow-up.
 
 
-## 2026-09-19 — Independent Zhipu fallback
+## 2026-09-19：手机划词 AI 追问与四分之一屏下边栏
 
-Implemented DeepSeek-to-GLM-4.5-Air failover across lookup, dictionary, translation, summary, sentence questions and classification. Removed same-supplier model routing, preserved cancellation and single-action quota accounting. Validated 89 core regressions, 7 failover tests and real-provider dictionary streams (fell: 367 ms first content / 7.7 s complete; Chinese kidnapping query: 233 ms / 4.3 s). Integrated accepted production source `1cd456dc9185518ba095a9d782972ffd8dccddb1` (release `20260919T223456`). The integrated production build, all 96 regression/failover tests, release contracts and static egress checks passed. A clean 19-file reviewed release archive was prepared against parent `20260919T223456`; recheck production lineage before using it. The new local key is valid, but automatic approval review blocked the SSH production-secret installation command with only "blocked by policy"; no secret update or production deployment occurred. This remains a candidate, not shipped. Production activation, public account/sync/Admin/health/backup/rollback checks and browser-visible mid-stream recovery acceptance remain pending.
+手机流式完成和缓存解释都开放原有 AI 追问，保留词语、完整原句与相邻句上下文。下边栏改为 25–82dvh 自由调整，低于四分之一才关闭；快速下甩可直接关闭，停顿及取消不会误关。移除 Reader 280px 最小高度，手机输入保持 16px、回车换行和 44px 提交按钮。
+
+验证：89 项关键回归、手势交互回归、发布契约与生产构建通过；独立 Chromium 在 390×844 测得四分之一高度 211px，验证慢拖、快甩、重新打开和上下文追问（日/夜截图，接口使用固定测试响应）；桌面日/夜也已检查。真实登录接口的解释、词典、全文翻译和追问均成功，当前配置实际记录 deepseek-flash（追问为 deepseek-v4-pro），与旧文档模型名存在差异，本任务不变更服务配置。生产累计集成与身份验收已完成，详见下方记录；真机手感仍以用户验收为准。
+
+### 手机面板生产验收
+
+release `20260919T223456`，parent `20260919T223000`，source `1cd456dc9185518ba095a9d782972ffd8dccddb1`。公网 connectivity 与服务器接受记录一致，backendMode 为 mainland_internal；仅 app/caddy 重建。累计合并最新词典、历史检索、媒体和原型文案更新后重新完成 94 项回归、生产构建与发布契约。公网 Chromium 390×844 触摸事件测试确认面板可停留 211px、低于四分之一关闭、快甩关闭及重新打开，手机追问提交包含词语和原句；UI 使用固定测试响应，独立真实账号接口验证解释、词典、两段全文翻译及 AI 追问成功，临时账号已删除。桌面和手机日/夜截图已检查，console 无页面异常。七服务健康、16 表备份恢复、账号/同步/Admin 边界、认证 Admin 只读验收和父版 accepted 镜像存在性通过。证据位于本次任务 visualizations 的 browser-qa/result.json、日夜截图、live-result.json 和 build.log。
+
+
+## 2026-09-19 — Independent Zhipu fallback: accepted production
+
+DeepSeek remains primary and `glm-4.5-air` with thinking disabled is the independent backup for lookup, dictionary, translation, summary, sentence questions and classification. No Flash/Pro swapping. Busy/transport/empty responses and 6-second first-content (or non-stream completion) deadlines switch providers using the original action; a process-local 30-second circuit avoids repeated waits. Already-visible streams are not spliced; existing structured lookup repair and missing-block translation continuation remain in effect. Standalone dictionary interruptions after visible output can still require a retry; physical-browser failure UX is not claimed verified.
+
+Initial automated production-key installation was blocked by policy. The user subsequently updated it manually. Server-side verification confirmed only `ZHIPU_API_KEY` differed from the backup, and GLM-4.5-Air returned HTTP 200. The guarded release `20260919T230100`, parent `20260919T223456`, source `f012229a94e660799eb3de0df4286e2e5ca8d6da` was then accepted; public connectivity and server identity match. Only app/caddy restarted; all five core-service start timestamps stayed unchanged.
+
+Validation: production builds, 96 regression/failover tests, protected contracts and egress guard passed. A temporary loopback-only container using the exact production image forced DeepSeek connection failures without changing public configuration. Real standalone dictionary and contextual explanation streams completed via Zhipu (first output 951 ms / 312 ms; complete 8070 ms / 1781 ms); each ledger shows exactly one succeeded execution and one quota unit. The temporary container was removed. Public dictionary completed 19 events in 6101 ms. Guest account/session, private sync/Admin boundaries, authenticated recovery Admin reads, registration/login and protocol-2 sync write/read passed; the disposable account was removed. The old acceptance script's six-digit generated password was rejected before account creation; the actual acceptance used a compliant random password. Seven-service health, checksum-verified 16-table backup restore and current/parent accepted images passed. Evidence: `artifacts/zhipu-release-20260919/acceptance.json`, `build.log`, `tests.log`. No database schema, persistent quota policy or user learning data was changed.

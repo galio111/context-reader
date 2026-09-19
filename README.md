@@ -14,6 +14,8 @@ The reader is the product center. Article text remains visually primary while lo
 
 Candidate discovery is controlled per website in Admin: daily targets, source verification, readable-image/content gates and quick rejection feedback. The editorial workbench shuffles older published selections across every homepage category while preserving today's selections at the front. Current source evidence and rollout limits are documented in [Candidate discovery controls](docs/candidate-discovery-controls.md).
 
+GitHub default `main` carries the cumulative accepted source and reconciled documents. After validated work, both the task branch and default branch must be pushed and their remote commit verified; a branch-only push is incomplete. The live release identity and evidence are recorded in [release governance](docs/release-governance.md).
+
 ## Current Product State
 
 ### Reading
@@ -23,7 +25,7 @@ Candidate discovery is controlled per website in Admin: daily targets, source ve
 - Enter Reader as soon as text extraction succeeds; meaningful images keep stable reserved space while they are localized in the background, and a failed image never fails the text import.
 - Click a word or deliberately select a phrase to receive a context-aware Chinese explanation.
 - Run a standalone Chinese↔English dictionary for short inputs.
-- Open the homepage dictionary as a fixed left-docked desktop work surface or a bottom-docked mobile sheet; its results scroll independently instead of restoring a draggable floating position.
+- Open the homepage dictionary as a draggable, resizable desktop window or a bottom-docked mobile sheet; results scroll independently and desktop geometry is not persisted across sessions.
 - Start full-article translation from the reader sidebar; one upstream stream normally carries the article while completed blocks still appear and persist paragraph by paragraph.
 - Edit article text directly in the reading canvas with session-level undo/redo. Imported images remain read-only blocks that can be removed whole.
 - Enlarge imported images, zoom around the pointer, use stored layout-word overlays and download validated remote images.
@@ -38,15 +40,15 @@ Candidate discovery is controlled per website in Admin: daily targets, source ve
 
 ### Accounts And Offline
 
-- Public beta registration uses nickname + mainland-China phone identifier + six-digit numeric password without SMS or phone-ownership verification.
+- Public beta registration uses nickname + mainland-China phone identifier + a password of 8–72 non-space printable ASCII characters containing at least one letter and one digit; existing six-digit numeric passwords remain login-compatible until voluntarily changed. No SMS or phone-ownership verification is provided.
 - Guest trials use separate Shanghai-day pools: 10 article lookups, 5 standalone dictionary lookups, 2 pasted-text imports and 2 URL imports. Cache hits, failures and timely cancellations do not consume them; Admin can change all four allowances.
 - Registered plans expose separate Shanghai-month summary and full-translation allowances. A new full-translation job costs one action regardless of paragraph count; replay is free, regeneration costs another. A curated prepublished translation costs one action on the member's first click but creates no DeepSeek execution.
 - Saving generates a summary only when that article has no valid one. A curated public article reuses its reviewed Chinese summary without a DeepSeek call while still consuming one plan summary action; once saved, the action becomes `已保存` and there is no second summary-generation control.
 - Admin can generate a unique single-use Basic, Plus, or Max invitation code with a redemption deadline, post-redemption duration and private note. A signed-in user redeems it from Menu; the account then shows the granted limits and expiry, returns to Free at expiry, and can redeem a new code.
-- Registration may continue to a skippable reading-profile step. English level and interests personalize only the default recommendation order; birth year and gender are optional demographic fields and can be cleared.
+- Registration collects only nickname, phone identifier and password. Publication personalization owns level/interests; legacy demographic fields are not a new registration step.
 - Learning data uses IndexedDB with verified legacy migration and recoverable writes. Login opens the account before background restoration; protocol-2 sync restores learning records before caches, resumes interrupted pages and verifies article/vocabulary content. Only acknowledged explanation caches have an automatic eviction budget.
 - Offline mode reopens only the last verified account's browser-local articles, vocabulary and caches. It never restores Admin, plan, quota or server authorization.
-- Online payment is not connected. Commercial labels and detailed usage counters remain hidden unless their explicit build-time flags are enabled.
+- Online payment is not connected. Commercial labels remain behind their build-time flag; actual usage balances and reset times are visible to every signed-in account.
 
 ### Recommendations And Admin
 
@@ -88,7 +90,7 @@ DEEPSEEK_MODEL=deepseek-v4-pro
 ZHIPU_FALLBACK_MODEL=glm-4.5-air
 ZHIPU_FALLBACK_ENABLED=true
 AI_PRIMARY_WAIT_MS=6000
-DEEPSEEK_LOOKUP_MODEL=deepseek-v4-flash
+DEEPSEEK_LOOKUP_MODEL=deepseek-flash
 DEEPSEEK_TRANSLATION_MODEL=
 
 SUPABASE_URL=
