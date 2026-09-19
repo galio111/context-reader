@@ -1365,4 +1365,4 @@ Further investigation found that stream EOF previously finalized usage even when
 
 ## 2026-09-19：词典关联词跳转与历史前缀检索
 
-英译中词族、常见搭配和中译英英文表达新增与近义词一致的查询箭头，复用缓存、历史和配额逻辑。输入框按不区分大小写的前缀筛选完整历史，所有匹配可滚动查看，支持上下键、回车、Escape、点击与清空，筛选不发网络请求。组件交互验证通过四组箭头、生成期禁用、32 条全量前缀匹配、大小写、键盘/点击缓存回放、无匹配提示、Escape 和清空；检索未触发请求。89 项关键回归与发布契约通过。浏览器连接不可用，桌面/手机视觉及真实浏览器操作仍待人工确认。生产验收另行记录。
+英译中词族、常见搭配和中译英英文表达新增与近义词一致的查询箭头，复用缓存、历史和配额逻辑。输入框按不区分大小写的前缀筛选完整历史，所有匹配可滚动查看，支持上下键、回车、Escape、点击与清空，筛选不发网络请求。组件交互验证通过四组箭头、生成期禁用、32 条全量前缀匹配、大小写、键盘/点击缓存回放、无匹配提示、Escape 和清空；检索未触发请求。89 项关键回归与发布契约通过。浏览器连接不可用，桌面/手机视觉及真实浏览器操作仍待人工确认。生产已接受 `20260919T221000`，父版本 `20260917T152400`，源码 `9a642d4e5a3280e4437114af01c4fc83b0c50195`。本地/服务器构建通过；公网 connectivity 精确匹配，公开 JS 同时含关联词箭头、combobox 与前缀匹配代码；首页、Admin、会话、公开文章及正文正常，匿名 sync/Admin accounts 返回 401。七服务健康、最新备份隔离恢复、新旧 accepted 回滚镜像通过。证据：artifacts/related-arrows-public-check.json、related-arrows-deploy.log、related-arrows-health-backup.log、related-arrows-build.log、related-arrows-critical.log、related-arrows-interaction.cjs；服务器 release-state/release-audit 为版本权威。
