@@ -1362,3 +1362,7 @@ Incident evidence: accepted production 20260916T210459 recorded two incomplete s
 Implemented member/guest-safe quota messages with actual balances and Beijing reset times; exposed usage details for all accounts; stopped duplicate fallback on quota rejection. Added validated-field-preserving explanation repair, bounded larger output budgets, private validation diagnostics and mainland release attribution. Added one bounded transient TTS retry without changing durable caching or pronunciation ownership. Simulated complementary-field repair, repeated malformed output, member/guest exhaustion and transient/permanent TTS failures. Production acceptance pending the guarded release and public checks.
 
 Further investigation found that stream EOF previously finalized usage even when the Reader rejected incomplete fields, making a later fallback refund a no-op. The server now validates stream completeness before finalization. Local API fixtures verified the exhausted free-account page at desktop and 390×844; live historical errors cannot be mapped to exact action ids, so no retrospective account quota edits were made.
+
+## 2026-09-19：词典关联词跳转与历史前缀检索
+
+英译中词族、常见搭配和中译英英文表达新增与近义词一致的查询箭头，复用缓存、历史和配额逻辑。输入框按不区分大小写的前缀筛选完整历史，所有匹配可滚动查看，支持上下键、回车、Escape、点击与清空，筛选不发网络请求。组件交互验证通过四组箭头、生成期禁用、32 条全量前缀匹配、大小写、键盘/点击缓存回放、无匹配提示、Escape 和清空；检索未触发请求。89 项关键回归与发布契约通过。浏览器连接不可用，桌面/手机视觉及真实浏览器操作仍待人工确认。生产验收另行记录。
