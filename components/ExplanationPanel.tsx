@@ -30,7 +30,7 @@ function buildExplanationText(explanation: WordExplanation, context: WordContext
   const phonetic = currentFormPhonetic(explanation);
   return [
     `当前词：${explanation.word}`,
-    explanation.lemma ? `词目：${explanation.lemma}` : "",
+    explanation.lemma ? `原型：${explanation.lemma}` : "",
     phonetic ? `当前词音标（${explanation.word}）：${phonetic}` : "",
     `词性：${explanation.partOfSpeech}`,
     `基础释义：${explanation.basicMeaning}`,
@@ -195,7 +195,7 @@ export function ExplanationPanel({
                 <h2 className="text-[34px] font-semibold leading-[1.47] tracking-[-0.374px] text-[#1d1d1f]">{selectedContext?.word}</h2>
                 {streamOriginalForm && (
                   <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-                    {/^(?:动词|verb|v\.?)(?:$|[\s·（(])/i.test(streamPartOfSpeech.trim()) ? <>原型：{streamOriginalForm}</> : <>词目：{streamOriginalForm}</>}
+                    原型：{streamOriginalForm}
                   </p>
                 )}
               </div>
@@ -332,7 +332,7 @@ export function ExplanationPanel({
               <div>
                 <h2 className="text-[34px] font-semibold leading-[1.47] tracking-[-0.374px] text-[#1d1d1f]">{explanation.word}</h2>
                 <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">
-                  词目：{originalFormLabel(contextualLemma(explanation.lemma, explanation.word, explanation.partOfSpeech), explanation.word)}
+                  原型：{originalFormLabel(contextualLemma(explanation.lemma, explanation.word, explanation.partOfSpeech), explanation.word)}
                 </p>
               </div>
               <span className="rounded-full bg-[#f5f5f7] px-3 py-1 text-xs font-medium text-[#333333]">

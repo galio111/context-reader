@@ -172,6 +172,31 @@ function hasNoiseIdentity(element: Element): boolean {
 }
 
 function removeHighConfidenceNoise(document: Document): void {
+  // Publisher series branding is not part of the article, and can precede real prose.
+  if (new URL(document.URL).hostname.replace(/^www\./, "") === "reasonstobecheerful.world") {
+    document.querySelectorAll(".series-intro").forEach((element) => element.remove());
+  }
+  // Normalize nested publisher figures before Readability can flatten their captions.
+  for (const figure of Array.from(document.querySelectorAll("figure"))) {
+    if (figure.parentElement?.closest("figure")) continue;
+    const images = Array.from(figure.querySelectorAll("img"));
+    const captions = Array.from(figure.querySelectorAll("figcaption"));
+    if (!images.length) {
+      if (figure.querySelector("video") || captions.length) figure.remove();
+      continue;
+    }
+    if (figure.querySelector("figure")) {
+      const normalized = document.createElement("figure");
+      images.forEach((image) => normalized.append(image));
+      captions.forEach((caption) => {
+        caption.querySelectorAll(".hds-credits").forEach((credit) => credit.remove());
+        const text = Array.from(caption.children).map((child) => singleLineText(child.textContent ?? "")).filter(Boolean).join(" ");
+        if (text) caption.textContent = text;
+        normalized.append(caption);
+      });
+      figure.replaceWith(normalized);
+    }
+  }
   const fixedNoise = document.querySelectorAll(
     "script, style, noscript, template, nav, footer, form, button, input, select, textarea, iframe, canvas, svg, dialog, .toggle-caption, .hide-caption, [class*='caption-toggle'], [role='navigation'], [role='contentinfo'], [role='dialog'], [role='alert'], [role='complementary']",
   );
@@ -481,10 +506,11 @@ function walkContent(context: ExtractContext, parent: Element): void {
     }
     if (tag === "figure") {
       const images = Array.from(element.querySelectorAll("img")).filter((image) => image.closest("figure") === element);
+      const previousImageCount = context.imageCount;
       images.forEach((image) => addImageBlock(context, image));
       const caption = Array.from(element.querySelectorAll("figcaption, [aria-label='Image caption'], .caption"))
         .find((child) => child.closest("figure") === element);
-      if (caption) addTextBlock(context, "caption", caption);
+      if (caption && context.imageCount > previousImageCount) addTextBlock(context, "caption", caption);
       continue;
     }
     if (tag === "picture") {

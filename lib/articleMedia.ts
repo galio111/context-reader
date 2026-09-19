@@ -92,3 +92,14 @@ export function articleMediaState(article: Pick<PublicArticle, "importedArticle"
 export function articleHasHomepageImage(article: Pick<PublicArticle, "importedArticle" | "recommendation">): boolean {
   return articleMediaState(article) !== "text-only";
 }
+
+/** Remove failed media together with its immediately following caption blocks. */
+export function removeFailedArticleImages(article: ImportedArticle, failedSources: ReadonlySet<string>): ImportedArticle {
+  let removedImage = false;
+  const blocks = article.blocks.filter((block) => {
+    if (block.type === "caption") return !removedImage;
+    removedImage = block.type === "image" && Boolean(block.src && failedSources.has(block.src));
+    return !removedImage;
+  });
+  return { ...article, blocks, text: blocks.filter((block) => block.type !== "image").map((block) => block.text?.trim()).filter(Boolean).join("\n\n") };
+}
