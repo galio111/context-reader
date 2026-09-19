@@ -1363,6 +1363,10 @@ Implemented member/guest-safe quota messages with actual balances and Beijing re
 
 Further investigation found that stream EOF previously finalized usage even when the Reader rejected incomplete fields, making a later fallback refund a no-op. The server now validates stream completeness before finalization. Local API fixtures verified the exhausted free-account page at desktop and 390×844; live historical errors cannot be mapped to exact action ids, so no retrospective account quota edits were made.
 
+## 2026-09-19：词典关联词跳转与历史前缀检索
+
+英译中词族、常见搭配和中译英英文表达新增与近义词一致的查询箭头，复用缓存、历史和配额逻辑。输入框按不区分大小写的前缀筛选完整历史，所有匹配可滚动查看，支持上下键、回车、Escape、点击与清空，筛选不发网络请求。组件交互验证通过四组箭头、生成期禁用、32 条全量前缀匹配、大小写、键盘/点击缓存回放、无匹配提示、Escape 和清空；检索未触发请求。89 项关键回归与发布契约通过。浏览器连接不可用，桌面/手机视觉及真实浏览器操作仍待人工确认。生产验收另行记录。
+
 ## 2026-09-19 — Publisher carousel, series branding and lemma label
 
 Implemented from accepted production `20260917T152400` (`cb5a375fee7d7b4f1d443d37fee80d2a07b72e0a`). NASA nested figures now retain still images; unsupported video and rejected images do not leave captions in prose. Reasons to be Cheerful series introductions/logos are excluded by module, preserving ordinary openings and editorial photographs. Animated image localization retains frames, while the reported NASA loop is MP4 and is omitted. Explanation copy uses 原型 consistently with the existing dictionary surface. Actual publisher HTML replay yields six NASA still images and removes the Waterline logo/introduction. Four targeted tests and 89 critical regressions pass; two-frame GIF conversion preserves both delays and loop metadata. Production acceptance evidence follows after release verification.

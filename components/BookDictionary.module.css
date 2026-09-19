@@ -667,7 +667,8 @@
 .twoColumns section { padding-top: 16px; border-top: 1px solid #dbe2e7; }
 .twoColumns p { margin: 8px 0; color: #5a6c78; }
 .twoColumns strong { display: block; color: #244f6e; }
-.twoColumns .synonymHeading { display: flex; align-items: center; gap: 4px; }
+.result .relatedHeading { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.relatedHeading > span { min-width: 0; overflow-wrap: anywhere; }
 .synonymLookup {
   display: inline-flex;
   align-items: center;
@@ -686,6 +687,12 @@
 .synonymLookup:active:not(:disabled) { background: #cbdfe9; }
 .synonymLookup:focus-visible { outline: 2px solid #245f8c; outline-offset: 2px; }
 .synonymLookup:disabled { opacity: .45; cursor: wait; }
+.historyMatches { margin-top: 10px; padding: 10px; border: 1px solid #dbe2e7; border-radius: 10px; background: #f3f8fb; }
+.historyMatches p { margin: 0 0 6px; color: #536b79; font-size: 12px; }
+.historyMatches > div { max-height: 220px; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; }
+.historyMatches button { display: flex; width: 100%; min-height: 44px; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 10px; border: 0; border-radius: 6px; background: transparent; color: #244f6e; font: inherit; text-align: left; cursor: pointer; }
+.historyMatches button > span:first-child { overflow-wrap: anywhere; min-width: 0; }
+.historyMatches button:hover, .historyMatches button[aria-selected="true"] { background: #dceaf3; }
 @media (pointer: coarse) {
   .synonymLookup { width: 44px; height: 44px; }
 }

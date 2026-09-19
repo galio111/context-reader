@@ -20,6 +20,7 @@ import {
 } from "@/lib/standaloneDictionaryCache";
 import {
   migrateStandaloneDictionarySessionHistory,
+  normalizeStandaloneDictionaryQuery,
   readStandaloneDictionaryHistory,
   recordStandaloneDictionaryHistory,
   removeStandaloneDictionaryHistory,
@@ -113,6 +114,21 @@ interface BookDictionaryProps {
   isInVocabulary?: (result: DictionaryResult) => boolean;
 }
 
+function RelatedLookupButton({ query, label, disabled, onLookup }: {
+  query: string;
+  label: string;
+  disabled: boolean;
+  onLookup: (query: string) => void;
+}) {
+  return (
+    <button type="button" className={styles.synonymLookup} aria-label={`查询${label} ${query}`} title={`查询 ${query}`} disabled={disabled} onClick={() => onLookup(query)}>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M5 12h14m-6-6 6 6-6 6" />
+      </svg>
+    </button>
+  );
+}
+
 function DictionaryResultContent({
   result,
   streaming,
@@ -159,7 +175,7 @@ function DictionaryResultContent({
               <li key={`${sense.meaning}-${index}`}>
                 <div className={styles.translationHead}>
                   <div>
-                    <h4>{sense.meaning}</h4>
+                    <h4 className={styles.relatedHeading}><span>{sense.meaning}</span><RelatedLookupButton query={sense.meaning} label="英文表达" disabled={streaming} onLookup={onUseSuggestion} /></h4>
                     <p>{[sense.partOfSpeech, sense.register].filter(Boolean).join(" · ")}</p>
                   </div>
                   <div className={styles.pronunciation}>
@@ -254,7 +270,7 @@ function DictionaryResultContent({
       {result.collocations.length > 0 && (
         <section className={styles.details}>
           <h4>常见搭配</h4>
-          <ul>{result.collocations.map((item) => <li key={item.phrase}><strong>{item.phrase}</strong><span>{item.meaning}</span>{item.exampleEnglish && <em>{item.exampleEnglish}</em>}</li>)}</ul>
+          <ul>{result.collocations.map((item) => <li key={item.phrase}><strong className={styles.relatedHeading}><span>{item.phrase}</span><RelatedLookupButton query={item.phrase} label="搭配" disabled={streaming} onLookup={onUseSuggestion} /></strong><span>{item.meaning}</span>{item.exampleEnglish && <em>{item.exampleEnglish}</em>}</li>)}</ul>
         </section>
       )}
 
@@ -262,25 +278,14 @@ function DictionaryResultContent({
         <div className={styles.twoColumns}>
           {result.synonyms.length > 0 && <section><h4>近义词差别</h4>{result.synonyms.map((item) => (
             <p key={item.word}>
-              <strong className={styles.synonymHeading}>
-                {item.word}
-                <button
-                  type="button"
-                  className={styles.synonymLookup}
-                  aria-label={`查询近义词 ${item.word}`}
-                  title={`查询 ${item.word}`}
-                  disabled={streaming}
-                  onClick={() => onUseSuggestion(item.word)}
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M5 12h14m-6-6 6 6-6 6" />
-                  </svg>
-                </button>
+              <strong className={styles.relatedHeading}>
+                <span>{item.word}</span>
+                <RelatedLookupButton query={item.word} label="近义词" disabled={streaming} onLookup={onUseSuggestion} />
               </strong>
               {item.difference}
             </p>
           ))}</section>}
-          {result.wordFamily.length > 0 && <section><h4>词族</h4>{result.wordFamily.map((item) => <p key={`${item.word}-${item.partOfSpeech}`}><strong>{item.word}</strong>{item.partOfSpeech} · {item.meaning}</p>)}</section>}
+          {result.wordFamily.length > 0 && <section><h4>词族</h4>{result.wordFamily.map((item) => <p key={`${item.word}-${item.partOfSpeech}`}><strong className={styles.relatedHeading}><span>{item.word}</span><RelatedLookupButton query={item.word} label="词族" disabled={streaming} onLookup={onUseSuggestion} /></strong>{item.partOfSpeech} · {item.meaning}</p>)}</section>}
         </div>
       )}
 
@@ -313,11 +318,26 @@ export function BookDictionary({
   const [error, setError] = useState("");
   const [history, setHistory] = useState<StandaloneDictionaryHistoryItem[]>([]);
   const [historyExpanded, setHistoryExpanded] = useState(false);
+  const [historySearchOpen, setHistorySearchOpen] = useState(false);
+  const [activeHistoryIndex, setActiveHistoryIndex] = useState(-1);
   const [visibleHistoryCount, setVisibleHistoryCount] = useState(2);
   const dictionaryId = useId();
   const headingId = `${dictionaryId}-heading`;
   const inputId = `${dictionaryId}-query`;
   const historyListId = `${dictionaryId}-history-list`;
+  const historyMatchesId = `${dictionaryId}-history-matches`;
+  const historyMatchesRef = useRef<HTMLDivElement | null>(null);
+  const historyPrefix = normalizeStandaloneDictionaryQuery(query);
+  const historyMatches = useMemo(() => historyPrefix
+    ? history.filter((item) => item.normalizedQuery.startsWith(historyPrefix))
+    : [], [history, historyPrefix]);
+  const showHistoryMatches = historySearchOpen && Boolean(historyPrefix) && !loading;
+  const selectedHistoryIndex = activeHistoryIndex < historyMatches.length ? activeHistoryIndex : -1;
+  useEffect(() => {
+    if (showHistoryMatches && selectedHistoryIndex >= 0) {
+      historyMatchesRef.current?.children[selectedHistoryIndex]?.scrollIntoView({ block: "nearest" });
+    }
+  }, [showHistoryMatches, selectedHistoryIndex]);
   const cacheRef = useRef<Record<string, DictionaryResult>>({});
   const abortRef = useRef<AbortController | null>(null);
   const activeActionIdRef = useRef("");
@@ -430,6 +450,8 @@ export function BookDictionary({
   async function lookup(nextQuery = query, options: { force?: boolean } = {}) {
     const normalized = nextQuery.trim().replace(/\s+/g, " ");
     if (!normalized || loading) return;
+    setHistorySearchOpen(false);
+    setActiveHistoryIndex(-1);
     setQuery(normalized);
     setError("");
     setStreamText("");
@@ -566,13 +588,37 @@ export function BookDictionary({
             <ClearableField
               className={styles.searchField}
               value={query}
-              onClear={() => { setQuery(""); setError(""); }}
+              onClear={() => { setQuery(""); setError(""); setActiveHistoryIndex(-1); }}
               label="清空查词内容"
             >
               <input
                 id={inputId}
                 value={query}
-                onChange={(event) => { setQuery(event.target.value); if (error) setError(""); }}
+                role="combobox"
+                aria-autocomplete="list"
+                aria-expanded={showHistoryMatches && historyMatches.length > 0}
+                aria-controls={showHistoryMatches && historyMatches.length > 0 ? historyMatchesId : undefined}
+                aria-activedescendant={showHistoryMatches && selectedHistoryIndex >= 0 ? `${historyMatchesId}-${selectedHistoryIndex}` : undefined}
+                onFocus={() => setHistorySearchOpen(true)}
+                onBlur={() => { setHistorySearchOpen(false); setActiveHistoryIndex(-1); }}
+                onChange={(event) => { setQuery(event.target.value); setHistorySearchOpen(true); setActiveHistoryIndex(-1); if (error) setError(""); }}
+                onKeyDown={(event) => {
+                  if (event.nativeEvent.isComposing) return;
+                  if (event.key === "Escape") {
+                    if (showHistoryMatches) { event.preventDefault(); event.stopPropagation(); }
+                    setHistorySearchOpen(false);
+                    setActiveHistoryIndex(-1);
+                  } else if ((event.key === "ArrowDown" || event.key === "ArrowUp") && historyMatches.length > 0 && !loading) {
+                    event.preventDefault();
+                    setHistorySearchOpen(true);
+                    setActiveHistoryIndex(event.key === "ArrowDown"
+                      ? (selectedHistoryIndex + 1) % historyMatches.length
+                      : (selectedHistoryIndex <= 0 ? historyMatches.length - 1 : selectedHistoryIndex - 1));
+                  } else if (event.key === "Enter" && showHistoryMatches && selectedHistoryIndex >= 0) {
+                    event.preventDefault();
+                    selectHistory(historyMatches[selectedHistoryIndex].query);
+                  }
+                }}
                 placeholder="例如 take in 或 微妙"
                 autoComplete="off"
                 maxLength={80}
@@ -581,6 +627,23 @@ export function BookDictionary({
             <button type="submit" disabled={!query.trim() || loading}>{loading ? "正在查询…" : "深度查询"}</button>
           </div>
         </form>
+
+        {showHistoryMatches && (
+          <section className={styles.historyMatches} aria-label="历史词检索">
+            <p role="status">{historyMatches.length ? `历史匹配 · ${historyMatches.length}` : "没有以此开头的历史词，可直接深度查询。"}</p>
+            {historyMatches.length > 0 && (
+              <div ref={historyMatchesRef} id={historyMatchesId} role="listbox" aria-label="匹配的历史词" data-local-scroll-surface>
+                {historyMatches.map((item, index) => (
+                  <button key={item.normalizedQuery} id={`${historyMatchesId}-${index}`} type="button" role="option" aria-selected={selectedHistoryIndex === index} tabIndex={-1}
+                    onMouseDown={(event) => event.preventDefault()}
+                    onClick={() => selectHistory(item.query)}>
+                    <span>{item.query}</span><span aria-hidden="true">→</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </section>
+        )}
 
         {history.length > 0 ? (
           <div className={styles.historyBlock}>
