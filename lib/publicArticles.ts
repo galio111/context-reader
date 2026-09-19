@@ -508,6 +508,10 @@ export async function publishArticleCandidate(id: string, options: { expectedEdi
   if (!candidate) {
     throw new Error("Article candidate was not found.");
   }
+  if (options.expectedEditorialHash) {
+    const { eligibleEditorialCandidate } = await import("@/lib/editorialRunner");
+    if (!eligibleEditorialCandidate(mapArticle(candidate))) throw new Error("候选状态或审核已变化，自动发布已停止。");
+  }
   const importedArticle = isRemoteImportedArticle(candidate.imported_article)
     ? sanitizeImportedArticleContent(candidate.imported_article)
     : candidate.imported_article;

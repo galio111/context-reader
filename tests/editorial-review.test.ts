@@ -84,3 +84,14 @@ test("public reload preserves reviewed CEFR instead of remapping it from the old
   try { assert.equal((await listPublicArticles())[0].recommendation?.cefr, "B2"); }
   finally { globalThis.fetch = savedFetch; if (oldUrl === undefined) delete process.env.SUPABASE_URL; else process.env.SUPABASE_URL = oldUrl; if (oldKey === undefined) delete process.env.SUPABASE_SERVICE_ROLE_KEY; else process.env.SUPABASE_SERVICE_ROLE_KEY = oldKey; }
 });
+
+test("publication rechecks a fresh rejection before touching images or published rows", async () => {
+  const { publishArticleCandidate } = await import("../lib/publicArticles");
+  const savedFetch=globalThis.fetch;const oldUrl=process.env.SUPABASE_URL;const oldKey=process.env.SUPABASE_SERVICE_ROLE_KEY;
+  process.env.SUPABASE_URL="https://example.invalid";process.env.SUPABASE_SERVICE_ROLE_KEY="test-only";
+  let calls=0;
+  const recommendation={sourceKind:"crawler",difficulty:"CET-6 / 考研",topics:[],rejectedAt:new Date().toISOString(),editorialReview:{version:1,status:"passed",checkedAt:new Date().toISOString(),contentHash:editorialContentHash(article)}};
+  globalThis.fetch=async()=>{calls++;return new Response(JSON.stringify([{id:"test",title:article.title,summary:"Test",body:article.text,source_url:article.url,source_name:"Example",imported_article:{...article,recommendation},created_at:new Date().toISOString(),updated_at:new Date().toISOString()}]));};
+  try {await assert.rejects(publishArticleCandidate("test",{expectedEditorialHash:editorialContentHash(article)}));assert.equal(calls,1);}
+  finally {globalThis.fetch=savedFetch;if(oldUrl===undefined)delete process.env.SUPABASE_URL;else process.env.SUPABASE_URL=oldUrl;if(oldKey===undefined)delete process.env.SUPABASE_SERVICE_ROLE_KEY;else process.env.SUPABASE_SERVICE_ROLE_KEY=oldKey;}
+});
