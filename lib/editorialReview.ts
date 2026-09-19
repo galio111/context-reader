@@ -15,8 +15,13 @@ export async function getEditorialConfig(): Promise<EditorialConfig> {
   const attempts = Number(value.dailyReviewLimit ?? 90);
   return { enabled: value.enabled === true, provider: value.provider === "jev-shadow" ? value.provider : "deepseek", jevMonthlyBudgetUsd: Number.isFinite(budget) ? Math.min(4, Math.max(0, budget)) : 4, dailyReviewLimit: Number.isFinite(attempts) ? Math.min(150, Math.max(30, Math.floor(attempts))) : 90 };
 }
+function canonicalValue(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(canonicalValue);
+  if (value && typeof value === "object") return Object.fromEntries(Object.keys(value).sort().map((key) => [key, canonicalValue((value as Record<string, unknown>)[key])]));
+  return value;
+}
 export function editorialContentHash(article: ImportedArticle): string {
-  return createHash("sha256").update(JSON.stringify([article.title, article.text, article.blocks])).digest("hex");
+  return createHash("sha256").update(JSON.stringify(canonicalValue([article.title, article.text, article.blocks]))).digest("hex");
 }
 
 // Called under the discovery DB lease. Reserve before requests; timeouts are not free.

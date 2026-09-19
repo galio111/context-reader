@@ -95,3 +95,11 @@ test("publication rechecks a fresh rejection before touching images or published
   try {await assert.rejects(publishArticleCandidate("test",{expectedEditorialHash:editorialContentHash(article)}));assert.equal(calls,1);}
   finally {globalThis.fetch=savedFetch;if(oldUrl===undefined)delete process.env.SUPABASE_URL;else process.env.SUPABASE_URL=oldUrl;if(oldKey===undefined)delete process.env.SUPABASE_SERVICE_ROLE_KEY;else process.env.SUPABASE_SERVICE_ROLE_KEY=oldKey;}
 });
+
+test("JSONB field reordering preserves review identity but reordered blocks do not", () => {
+  const persisted = JSON.parse(JSON.stringify(article));
+  persisted.blocks = persisted.blocks.map((block: Record<string, unknown>) => Object.fromEntries(Object.entries(block).reverse()));
+  assert.equal(editorialContentHash(article), editorialContentHash(persisted));
+  persisted.blocks.reverse();
+  assert.notEqual(editorialContentHash(article), editorialContentHash(persisted));
+});
