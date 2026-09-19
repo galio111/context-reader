@@ -192,13 +192,12 @@ test("Anki add reuses an existing Context Reader note before creating another", 
   }
 });
 
-test("core lookup routes fall back from overloaded Pro to Flash", async () => {
+test("core lookup routes keep one DeepSeek model and share provider failover", async () => {
   assert.deepEqual(coreDeepSeekModelCandidates("deepseek-flash", undefined), [
     "deepseek-flash",
   ]);
   assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-pro", undefined), [
     "deepseek-v4-pro",
-    "deepseek-flash",
   ]);
   assert.deepEqual(coreDeepSeekModelCandidates("deepseek-v4-pro", ""), ["deepseek-v4-pro"]);
   assert.equal(isRetryableDeepSeekStatus(429), true);
@@ -238,7 +237,7 @@ test("core lookup routes fall back from overloaded Pro to Flash", async () => {
   assert.match(articleTranslation, /DEEPSEEK_TRANSLATION_MODEL \|\| "deepseek-flash"/);
   assert.match(explanationStream, /fetchWithDeepSeekModelFailover/);
   assert.match(dictionaryStream, /fetchWithDeepSeekModelFailover/);
-  assert.match(structuredExplanation, /coreDeepSeekModelCandidates/);
+  assert.match(structuredExplanation, /fetchWithProviderFailover/);
 });
 
 test("standalone dictionary compacts pretty provider JSON across arbitrary chunks", () => {
@@ -568,9 +567,15 @@ test("structured explanation distinguishes an aborted fetch from a completed mal
       usage: {},
     }), { status: 200, headers: { "Content-Type": "application/json" } });
   }) as typeof fetch;
-  const recovered = await explainWordWithDeepSeek(request);
-  assert.equal(recovered.model, "deepseek-flash");
-  assert.deepEqual(attemptedModels, ["deepseek-v4-pro", "deepseek-v4-pro", "deepseek-flash"]);
+  const oldZhipu = process.env.ZHIPU_API_KEY;
+  process.env.ZHIPU_API_KEY = "test-key";
+  try {
+    const recovered = await explainWordWithDeepSeek(request);
+    assert.equal(recovered.model, "glm-4.5-air");
+    assert.deepEqual(attemptedModels, ["deepseek-v4-pro", "glm-4.5-air"]);
+  } finally {
+    if (oldZhipu === undefined) delete process.env.ZHIPU_API_KEY; else process.env.ZHIPU_API_KEY = oldZhipu;
+  }
 });
 
 test("context cloze tolerates normalized apostrophes in saved phrases", () => {

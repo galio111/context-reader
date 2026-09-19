@@ -1,3 +1,4 @@
+import { fetchWithProviderFailover, providerName } from "@/lib/providerFailover";
 import { explanationFromCompletedStream } from "@/lib/explanationDisplay";
 import { NextResponse } from "next/server";
 import type { ExplanationRequest } from "@/types/reader";
@@ -148,7 +149,7 @@ export async function POST(request: Request) {
   try {
     const provider = await fetchWithDeepSeekModelFailover({
       models: modelCandidates,
-      attempt: (model) => fetch(`${baseURL.replace(/\/$/, "")}/chat/completions`, {
+      attempt: (model) => fetchWithProviderFailover(`${baseURL.replace(/\/$/, "")}/chat/completions`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${apiKey}`,
@@ -247,7 +248,7 @@ export async function POST(request: Request) {
           await recordUsageExecution({
             actionId,
             route: "/api/explain-word-stream",
-            provider: "deepseek",
+            provider: providerName(activeModel),
             model,
             promptTokens: providerUsage.prompt_tokens,
             promptCacheHitTokens: providerUsage.prompt_cache_hit_tokens,

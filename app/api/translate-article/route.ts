@@ -1,3 +1,4 @@
+import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
 import { NextResponse } from "next/server";
 import { createHash } from "crypto";
 import type { ArticleTranslationBlock, ArticleTranslationResult } from "@/types/reader";
@@ -239,7 +240,7 @@ export async function POST(request: Request) {
   }
 
   const baseUrl = (process.env.DEEPSEEK_BASE_URL || DEFAULT_BASE_URL).replace(/\/$/, "");
-  const model = process.env.DEEPSEEK_TRANSLATION_MODEL || "deepseek-flash";
+  let model = process.env.DEEPSEEK_TRANSLATION_MODEL || "deepseek-flash";
   const controller = new AbortController();
   const abortFromClient = () => controller.abort();
   request.signal.addEventListener("abort", abortFromClient, { once: true });
@@ -249,7 +250,7 @@ export async function POST(request: Request) {
     await recordUsageExecution({
       actionId,
       route: "/api/translate-article",
-      provider: "deepseek",
+      provider: providerName(model),
       model,
       promptTokens: usage.prompt_tokens,
       promptCacheHitTokens: usage.prompt_cache_hit_tokens,
@@ -264,7 +265,7 @@ export async function POST(request: Request) {
   if (request.headers.get("Accept")?.includes("application/x-ndjson")) {
     let providerResponse: Response;
     try {
-      providerResponse = await fetch(`${baseUrl}/chat/completions`, {
+      providerResponse = await fetchWithProviderFailover(`${baseUrl}/chat/completions`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${apiKey}`,
@@ -303,6 +304,7 @@ export async function POST(request: Request) {
       );
     }
 
+    model = responseModel(providerResponse, model);
     if (!providerResponse.ok || !providerResponse.body) {
       const data = (await providerResponse.json().catch(() => ({}))) as DeepSeekTranslationResponse;
       const classified = providerError(data.error?.message || providerResponse.statusText, providerResponse.status);
@@ -403,7 +405,7 @@ export async function POST(request: Request) {
           } else {
             usageSucceeded = true;
             if (!localOnlyAction) {
-              await recordUsageExecution({ actionId, route: "/api/translate-article", provider: "deepseek", model, promptTokens: usage.prompt_tokens, promptCacheHitTokens: usage.prompt_cache_hit_tokens, promptCacheMissTokens: usage.prompt_cache_miss_tokens, completionTokens: usage.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, usage), status: "succeeded" }).catch(() => undefined);
+              await recordUsageExecution({ actionId, route: "/api/translate-article", provider: providerName(model), model, promptTokens: usage.prompt_tokens, promptCacheHitTokens: usage.prompt_cache_hit_tokens, promptCacheMissTokens: usage.prompt_cache_miss_tokens, completionTokens: usage.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, usage), status: "succeeded" }).catch(() => undefined);
             }
             if (!managedTranslationAction) await finishUsage(actionId, "succeeded").catch(() => undefined);
             output.enqueue(encoder.encode(`${JSON.stringify({ type: "done" })}\n`));
@@ -437,7 +439,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const response = await fetch(`${baseUrl}/chat/completions`, {
+    const response = await fetchWithProviderFailover(`${baseUrl}/chat/completions`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -467,6 +469,7 @@ export async function POST(request: Request) {
       signal: controller.signal,
     });
 
+    model = responseModel(response, model);
     const data = (await response.json().catch(() => ({}))) as DeepSeekTranslationResponse;
     if (!response.ok) {
       const errorMessage = data.error?.message || response.statusText || "DeepSeek request failed.";
@@ -559,7 +562,7 @@ export async function POST(request: Request) {
 
     usageSucceeded = true;
     if (!localOnlyAction) {
-      await recordUsageExecution({ actionId, route: "/api/translate-article", provider: "deepseek", model, promptTokens: data.usage?.prompt_tokens, promptCacheHitTokens: data.usage?.prompt_cache_hit_tokens, promptCacheMissTokens: data.usage?.prompt_cache_miss_tokens, completionTokens: data.usage?.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, data.usage ?? {}), status: "succeeded" }).catch(() => undefined);
+      await recordUsageExecution({ actionId, route: "/api/translate-article", provider: providerName(model), model, promptTokens: data.usage?.prompt_tokens, promptCacheHitTokens: data.usage?.prompt_cache_hit_tokens, promptCacheMissTokens: data.usage?.prompt_cache_miss_tokens, completionTokens: data.usage?.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, data.usage ?? {}), status: "succeeded" }).catch(() => undefined);
     }
     if (!managedTranslationAction) await finishUsage(actionId, "succeeded").catch(() => undefined);
     return NextResponse.json(result);
