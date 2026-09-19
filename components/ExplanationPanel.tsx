@@ -171,6 +171,7 @@ export function ExplanationPanel({
   }
 
   function handleSentenceQuestionKeyDown(event: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
     if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) {
       return;
     }
@@ -264,7 +265,7 @@ export function ExplanationPanel({
                 <p className="text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{vocabularyMatchNotice}</p>
               )}
 
-              <section className="hidden border-t border-[#e0e0e0] pt-5 lg:block">
+              <section className="border-t border-[#e0e0e0] pt-5">
                 <h3 className="text-sm font-semibold tracking-[-0.224px] text-[#1d1d1f]">向 AI 追问这句</h3>
                 <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">
                   当前问题会带上所划词和它所在的完整句子。
@@ -272,17 +273,18 @@ export function ExplanationPanel({
                 <form className="mt-3 space-y-3" onSubmit={handleAskSentenceQuestion}>
                   <ClearableField value={sentenceQuestion} onClear={() => setSentenceQuestion("")} label="清空追问内容" multiline>
                     <textarea
-                      className="min-h-24 w-full resize-y rounded-[18px] border border-[#e0e0e0] px-3 py-2 text-sm leading-6 tracking-[-0.224px] text-[#1d1d1f] outline-none transition placeholder:text-[#7a7a7a] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
+                      className="min-h-24 w-full resize-y rounded-[18px] border border-[#e0e0e0] px-3 py-2 text-base lg:text-sm leading-6 tracking-[-0.224px] text-[#1d1d1f] outline-none transition placeholder:text-[#6e6e73] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
                       value={sentenceQuestion}
                       onChange={(event) => setSentenceQuestion(event.target.value)}
                       onKeyDown={handleSentenceQuestionKeyDown}
                       placeholder="例如：为什么这里用 empowering？which 指代什么？这句怎么拆？"
+                      aria-label="向 AI 追问这句话"
                       maxLength={500}
                     />
                   </ClearableField>
                   <button
                     type="submit"
-                    className="h-10 w-full rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
+                    className="min-h-11 w-full rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
                     disabled={askingSentenceQuestion || !sentenceQuestion.trim()}
                   >
                     {askingSentenceQuestion ? "正在回答..." : "提问"}
@@ -413,7 +415,7 @@ export function ExplanationPanel({
             <p className="text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{vocabularyMatchNotice}</p>
           )}
 
-          <section className="hidden border-t border-[#e0e0e0] pt-5 lg:block">
+          <section className="border-t border-[#e0e0e0] pt-5">
             <h3 className="text-sm font-semibold tracking-[-0.224px] text-[#1d1d1f]">向 AI 追问这句话</h3>
             <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">
               当前问题会带上所划词和它所在的完整句子。
@@ -421,17 +423,18 @@ export function ExplanationPanel({
             <form className="mt-3 space-y-3" onSubmit={handleAskSentenceQuestion}>
               <ClearableField value={sentenceQuestion} onClear={() => setSentenceQuestion("")} label="清空追问内容" multiline>
                 <textarea
-                  className="min-h-24 w-full resize-y rounded-[18px] border border-[#e0e0e0] px-3 py-2 text-sm leading-6 tracking-[-0.224px] text-[#1d1d1f] outline-none transition placeholder:text-[#7a7a7a] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
+                  className="min-h-24 w-full resize-y rounded-[18px] border border-[#e0e0e0] px-3 py-2 text-base lg:text-sm leading-6 tracking-[-0.224px] text-[#1d1d1f] outline-none transition placeholder:text-[#6e6e73] focus:border-[#0066cc] focus:ring-2 focus:ring-[#0071e3]/20"
                   value={sentenceQuestion}
                   onChange={(event) => setSentenceQuestion(event.target.value)}
                   onKeyDown={handleSentenceQuestionKeyDown}
                   placeholder="例如：为什么这里用 empowering？which 指代什么？这句怎么拆？"
+                  aria-label="向 AI 追问这句话"
                   maxLength={500}
                 />
               </ClearableField>
               <button
                 type="submit"
-                className="h-10 w-full rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
+                className="min-h-11 w-full rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
                 disabled={askingSentenceQuestion || !sentenceQuestion.trim()}
               >
                 {askingSentenceQuestion ? "正在回答..." : "提问"}

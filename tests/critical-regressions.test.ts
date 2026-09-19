@@ -25,7 +25,7 @@ import {
   clampMobileSheetHeight,
   MOBILE_READER_SHEET_HEIGHT,
   MOBILE_SHEET_DEFAULT_HEIGHT,
-  MOBILE_SHEET_DISMISS_DISTANCE,
+  MOBILE_SHEET_MIN_HEIGHT,
   MOBILE_SHEET_MAX_HEIGHT,
   MOBILE_SHEET_TALL_HEIGHT,
   shouldDismissMobileSheet,
@@ -1080,12 +1080,12 @@ test("mobile tools use compact Reader height and never expand beyond 82 percent"
   assert.equal(MOBILE_READER_SHEET_HEIGHT, 48);
   assert.equal(MOBILE_SHEET_MAX_HEIGHT, 82);
   assert.equal(MOBILE_SHEET_TALL_HEIGHT, 76);
-  assert.equal(MOBILE_SHEET_DISMISS_DISTANCE, 96);
+  assert.equal(MOBILE_SHEET_MIN_HEIGHT, 25);
   assert.equal(clampMobileSheetHeight(96), 82);
   assert.equal(clampMobileSheetHeight(68), 68);
-  assert.equal(shouldDismissMobileSheet(96, 0), true);
-  assert.equal(shouldDismissMobileSheet(34, 0.72), true);
-  assert.equal(shouldDismissMobileSheet(30, 0.2), false);
+  assert.equal(shouldDismissMobileSheet(24.9, 96, 0), true);
+  assert.equal(shouldDismissMobileSheet(44, 34, 0.72), true);
+  assert.equal(shouldDismissMobileSheet(25, 194, 0.2), false);
 
   const menuStyles = readFileSync(new URL("../components/HomeOptionMenu.module.css", import.meta.url), "utf8");
   const readerStyles = readFileSync(new URL("../components/ReaderToolbar.module.css", import.meta.url), "utf8");
@@ -1130,7 +1130,7 @@ test("mobile overlays lock background scroll and adapt across viewport changes",
   assert.doesNotMatch(scrollLock, /body\.style\.paddingRight = `\$\{scrollbarWidth\}px`/);
   assert.match(scrollLock, /window\.scrollTo\(previous\.scrollX, previous\.scrollY\)/);
   assert.doesNotMatch(menu, /MOBILE_SHEET_TALL_HEIGHT/);
-  assert.match(sheet, /shouldDismissMobileSheet\(distance, interaction\.velocityY\)/);
+  assert.match(sheet, /shouldDismissMobileSheet\(nextHeight, distance, velocity\)/);
   assert.match(sheet, /dismissRef\.current\(\)/);
   assert.match(vocabulary, /matchMedia\("\(max-width: 639px\)"\)/);
   assert.match(vocabulary, /rowVirtualizer\.measure\(\)/);

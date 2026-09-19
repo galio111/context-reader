@@ -4,7 +4,9 @@
 
 手机游客 hero 单独挂载减量 Ballpit：18 个球、不跟手指，画布在 hero 文字层下方。落字开场使用双行更粗的 `Context Reader` 目标、6px 取样和上限 440 颗更小粒子。`HomeRedesign` 只在触点始于 hero、向上纵移超过阈值且纵向占优时，对 `FeatureShowcase` 执行顶边对齐的平滑 `scrollIntoView`。该监听器为 passive，不阻止浏览器自然滚动。
 
-`useMobileBottomSheet` 是普通手机底部层的单一手势权威。Menu 及列表子页默认 `56dvh`，首页单独词典和 Reader 工具/工作层默认约 `48dvh`，均可上拉至 `82dvh`。向下拖通过 `--mobile-sheet-drag-offset` 使整层跟手。累计下滑 96px，或下滑至少 28px 且速度达 0.62px/ms，会调用层自身的关闭回调；未达阈值统一回弹。层内结果仍使用隔离滚动，拖动把手使用 `touch-action: none`，不把手势串到 Reader 正文。
+`useMobileBottomSheet` 是普通手机底部层的单一手势权威。Menu 及列表子页默认 `56dvh`，首页单独词典和 Reader 工具/工作层默认约 `48dvh`，均可上拉至 `82dvh`。向上/下拖动把手会实际调整高度，松手可停留在 `25dvh` 至 `82dvh`；低于 `25dvh` 才关闭。下滑至少 28px 且最近移动速度达 0.62px/ms 时可快速下甩关闭；停住超过 80ms 后松手不沿用旧速度，取消手势恢复起始高度。低于最小高度的拖动使用 `--mobile-sheet-drag-offset` 跟手。层内结果仍使用隔离滚动，拖动把手使用 `touch-action: none`，不把手势串到 Reader 正文。
+
+`ExplanationPanel` 的流式完成结果与缓存结果在桌面、手机都显示 AI 追问，继续携带所划词、完整原句与相邻句。手机输入为 16px、提交触控区至少 44px，软键盘回车换行，桌面 Enter 提交。
 
 手机 `HomeOptionMenu` 隐藏大号 Menu 标题，已登录身份只以非互动的 `Context Reader · 昵称` 放在顶部，游客底部登录入口保留。生词条目用 pointer capture 区分有效点按与触摸滚动，首页和 Reader 入口共用同一详情行为。嵌入使用说明在手机隐藏 `GuidePageContent` 顶栏和 Menu 全局身份头，只留左上返回菜单、拖动把手与内容。
 

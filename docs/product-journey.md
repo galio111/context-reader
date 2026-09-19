@@ -1362,3 +1362,10 @@ Incident evidence: accepted production 20260916T210459 recorded two incomplete s
 Implemented member/guest-safe quota messages with actual balances and Beijing reset times; exposed usage details for all accounts; stopped duplicate fallback on quota rejection. Added validated-field-preserving explanation repair, bounded larger output budgets, private validation diagnostics and mainland release attribution. Added one bounded transient TTS retry without changing durable caching or pronunciation ownership. Simulated complementary-field repair, repeated malformed output, member/guest exhaustion and transient/permanent TTS failures. Production acceptance pending the guarded release and public checks.
 
 Further investigation found that stream EOF previously finalized usage even when the Reader rejected incomplete fields, making a later fallback refund a no-op. The server now validates stream completeness before finalization. Local API fixtures verified the exhausted free-account page at desktop and 390×844; live historical errors cannot be mapped to exact action ids, so no retrospective account quota edits were made.
+
+
+## 2026-09-19：手机划词 AI 追问与四分之一屏下边栏
+
+手机流式完成和缓存解释都开放原有 AI 追问，保留词语、完整原句与相邻句上下文。下边栏改为 25–82dvh 自由调整，低于四分之一才关闭；快速下甩可直接关闭，停顿及取消不会误关。移除 Reader 280px 最小高度，手机输入保持 16px、回车换行和 44px 提交按钮。
+
+验证：89 项关键回归、手势交互回归、发布契约与生产构建通过；独立 Chromium 在 390×844 测得四分之一高度 211px，验证慢拖、快甩、重新打开和上下文追问（日/夜截图，接口使用固定测试响应）；桌面日/夜也已检查。真实登录接口的解释、词典、全文翻译和追问均成功，当前配置实际记录 deepseek-flash（追问为 deepseek-v4-pro），与旧文档模型名存在差异，本任务不变更服务配置。生产累计集成与身份验收待完成；真机手感仍以用户验收为准。

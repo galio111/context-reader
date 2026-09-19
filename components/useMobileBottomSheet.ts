@@ -5,9 +5,9 @@ import { useCallback, useEffect, useRef, useState, type PointerEvent } from "rea
 export const MOBILE_SHEET_DEFAULT_HEIGHT = 56;
 export const MOBILE_SHEET_TALL_HEIGHT = 76;
 export const MOBILE_SHEET_MAX_HEIGHT = 82;
-export const MOBILE_SHEET_MIN_HEIGHT = 40;
+export const MOBILE_SHEET_MIN_HEIGHT = 25;
 export const MOBILE_READER_SHEET_HEIGHT = 48;
-export const MOBILE_SHEET_DISMISS_DISTANCE = 96;
+export const MOBILE_SHEET_FLICK_DISTANCE = 28;
 export const MOBILE_SHEET_DISMISS_VELOCITY = 0.62;
 
 export function clampMobileSheetHeight(height: number): number {
@@ -18,15 +18,15 @@ interface ResizeInteraction {
   pointerId: number;
   startY: number;
   startHeight: number;
-  startedAt: number;
+  viewportHeight: number;
   lastY: number;
   lastAt: number;
   velocityY: number;
 }
 
-export function shouldDismissMobileSheet(distance: number, velocity: number): boolean {
-  return distance >= MOBILE_SHEET_DISMISS_DISTANCE
-    || (distance >= 28 && velocity >= MOBILE_SHEET_DISMISS_VELOCITY);
+export function shouldDismissMobileSheet(height: number, distance: number, velocity: number): boolean {
+  return height < MOBILE_SHEET_MIN_HEIGHT
+    || (distance >= MOBILE_SHEET_FLICK_DISTANCE && velocity >= MOBILE_SHEET_DISMISS_VELOCITY);
 }
 
 export function useMobileBottomSheet(
@@ -54,12 +54,13 @@ export function useMobileBottomSheet(
   }, [initialHeight, open, resetKey]);
 
   const onResizeStart = useCallback((event: PointerEvent<HTMLElement>) => {
+    if (!event.isPrimary || event.button !== 0 || resizeRef.current) return;
     const now = performance.now();
     resizeRef.current = {
       pointerId: event.pointerId,
       startY: event.clientY,
       startHeight: height,
-      startedAt: now,
+      viewportHeight: window.innerHeight,
       lastY: event.clientY,
       lastAt: now,
       velocityY: 0,
@@ -78,14 +79,10 @@ export function useMobileBottomSheet(
     interaction.lastY = event.clientY;
     interaction.lastAt = now;
     const deltaY = event.clientY - interaction.startY;
-    if (deltaY > 0) {
-      setDragOffset(deltaY);
-      setHeight(interaction.startHeight);
-      return;
-    }
-    setDragOffset(0);
-    const deltaHeight = (-deltaY / window.innerHeight) * 100;
-    setHeight(clampMobileSheetHeight(interaction.startHeight + deltaHeight));
+    const nextHeight = interaction.startHeight - deltaY / interaction.viewportHeight * 100;
+    setHeight(clampMobileSheetHeight(nextHeight));
+    // Below the minimum, keep the handle following the finger until release.
+    setDragOffset(Math.max(0, MOBILE_SHEET_MIN_HEIGHT - nextHeight) / 100 * interaction.viewportHeight);
   }, []);
 
   const finishResize = useCallback((event: PointerEvent<HTMLElement>, cancelled: boolean) => {
@@ -95,11 +92,15 @@ export function useMobileBottomSheet(
     if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
     setDragging(false);
     const distance = Math.max(0, event.clientY - interaction.startY);
-    if (!cancelled && dismissRef.current && shouldDismissMobileSheet(distance, interaction.velocityY)) {
+    const nextHeight = interaction.startHeight - (event.clientY - interaction.startY) / interaction.viewportHeight * 100;
+    // A fast move followed by a pause is a resize, not a fling.
+    const velocity = performance.now() - interaction.lastAt <= 80 ? interaction.velocityY : 0;
+    if (!cancelled && dismissRef.current && shouldDismissMobileSheet(nextHeight, distance, velocity)) {
       setDragOffset(typeof window === "undefined" ? distance : Math.max(distance, window.innerHeight));
       dismissRef.current();
       return;
     }
+    setHeight(clampMobileSheetHeight(cancelled ? interaction.startHeight : nextHeight));
     setDragOffset(0);
   }, []);
 
