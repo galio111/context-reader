@@ -74,3 +74,13 @@ test("uncertain Flash decisions require Pro and unresolved uncertainty stays hel
   assert.ok(calls.includes("deepseek-v4-pro"));
   assert.equal(review.status, "held");
 });
+
+test("public reload preserves reviewed CEFR instead of remapping it from the old label", async () => {
+  const { listPublicArticles } = await import("../lib/publicArticles");
+  const savedFetch = globalThis.fetch;
+  const oldUrl = process.env.SUPABASE_URL; const oldKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  process.env.SUPABASE_URL = "https://example.invalid"; process.env.SUPABASE_SERVICE_ROLE_KEY = "test-only";
+  globalThis.fetch = async () => new Response(JSON.stringify([{ id: "test", title: "Test", summary: "Test", body: "Text", source_url: "", source_name: "Test", created_at: new Date().toISOString(), updated_at: new Date().toISOString(), recommendation: { difficulty: "CET-6 / 考研", cefr: "B2", classificationSource: "model", topics: ["文化历史"], editorialReview: { version: 1 } } }]), { status: 200 });
+  try { assert.equal((await listPublicArticles())[0].recommendation?.cefr, "B2"); }
+  finally { globalThis.fetch = savedFetch; if (oldUrl === undefined) delete process.env.SUPABASE_URL; else process.env.SUPABASE_URL = oldUrl; if (oldKey === undefined) delete process.env.SUPABASE_SERVICE_ROLE_KEY; else process.env.SUPABASE_SERVICE_ROLE_KEY = oldKey; }
+});

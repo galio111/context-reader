@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Authenticated editorial acceptance; credentials stay in the server environment file."""
 import argparse
+import os
 import json
 import urllib.request
-from http.cookiejar import CookieJar
+from http.cookiejar import LWPCookieJar
 from pathlib import Path
 from importlib.machinery import SourceFileLoader
 
@@ -19,13 +20,19 @@ identity = json.load(urllib.request.urlopen(base + "/api/connectivity", timeout=
 if identity.get("backendMode") != "mainland_internal":
     raise SystemExit("Not the mainland backend")
 env = SourceFileLoader("admin_acceptance", str(Path(__file__).with_name("acceptance-admin.py"))).load_module().read_env(Path(a.env))
-opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(CookieJar()))
+os.umask(0o077)
+jar = LWPCookieJar("/var/run/context-reader-editorial.cookies")
+if Path(jar.filename).exists():
+    jar.load(ignore_discard=True)
+opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
 def call(path, body=None, method=None):
     request = urllib.request.Request(base + path, data=json.dumps(body).encode() if body is not None else None,
         headers={"Content-Type": "application/json", "Origin": base}, method=method or ("POST" if body is not None else "GET"))
     with opener.open(request, timeout=880) as response:
         return json.load(response)
-call("/api/admin/login", {"password": env["ADMIN_PASSWORD"]})
+if not call("/api/admin/session").get("authenticated"):
+    call("/api/admin/login", {"password": env["ADMIN_PASSWORD"]})
+    jar.save(ignore_discard=True)
 if a.action == "inspect":
     sites = call("/api/admin/discovery-sources")
     print(json.dumps({"release": identity.get("releaseId"), "sites": [{"id": s["id"], "name": s["name"], "enabled": s["enabled"], "level": s["levelHint"], "verified": s.get("verification", {}).get("ok")} for s in sites["sites"]]}, ensure_ascii=False))

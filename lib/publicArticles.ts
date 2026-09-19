@@ -111,7 +111,8 @@ function recommendationFromRow(row: SupabaseArticleRow, body: string): ArticleRe
   const automaticCefr = (["A2", "B1", "B2", "C1", "C1", "C2"] as const)[difficultyIndex];
   const cefrWasManuallySet =
     recommendation.classificationSource === "manual"
-    || recommendation.manualFields?.includes("cefr");
+    || recommendation.manualFields?.includes("cefr")
+    || recommendation.editorialReview?.version === 1;
   return {
     ...recommendation,
     wordCount,
