@@ -317,6 +317,7 @@ export async function localizePublicArticleInputCover<T extends PublicArticleInp
     }
   }
 
+  let removedArticleImages = false;
   let importedArticle = input.importedArticle
     ? { ...input.importedArticle, ...(storedRecommendation ? { recommendation: storedRecommendation } : {}) }
     : undefined;
@@ -327,6 +328,7 @@ export async function localizePublicArticleInputCover<T extends PublicArticleInp
       { removeFailed: true },
     );
     importedArticle = localized.article;
+    removedArticleImages = localized.removed > 0;
   }
   storedRecommendation = recommendationWithBodyImageFallback(
     storedRecommendation,
@@ -340,6 +342,7 @@ export async function localizePublicArticleInputCover<T extends PublicArticleInp
     ...input,
     ...(storedRecommendation ? { recommendation: storedRecommendation } : {}),
     ...(importedArticle ? { importedArticle } : {}),
+    ...(removedArticleImages && importedArticle ? { body: importedArticle.text } : {}),
   };
 }
 
