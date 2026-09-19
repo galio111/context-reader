@@ -59,7 +59,7 @@ export async function PATCH(request: Request) {
   if (!(await isAdminRequest())) {
     return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
   }
-  let body: { id?: unknown; ids?: unknown; action?: unknown; reason?: unknown; category?: unknown; featured?: unknown; includeInRecommendation?: unknown; recommendationFeatured?: unknown } | null;
+  let body: { id?: unknown; ids?: unknown; action?: unknown; reason?: unknown; category?: unknown; featured?: unknown; includeInRecommendation?: unknown; recommendationFeatured?: unknown; expectedUpdatedAt?: unknown } | null;
   try {
     body = await readJsonBody(request, 32 * 1024);
   } catch {
@@ -86,7 +86,7 @@ export async function PATCH(request: Request) {
   const published = [];
   for (const id of ids) {
     try {
-      const article = await publishArticleCandidate(id);
+      const article = await publishArticleCandidate(id, { expectedUpdatedAt: typeof body?.expectedUpdatedAt === "string" ? body.expectedUpdatedAt : undefined });
       published.push(article);
       const articleCategory = category ?? editorialCategoryForArticle(article);
       const current = await getHomepageCuration();
@@ -119,7 +119,7 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ error: "缺少有效的候选文章 ID。" }, { status: 400 });
   }
   try {
-    await deleteArticleCandidate(id);
+    await deleteArticleCandidate(id, new URL(request.url).searchParams.get("expectedUpdatedAt") ?? undefined);
     return NextResponse.json({ ok: true });
   } catch (error) {
     return NextResponse.json(

@@ -474,10 +474,11 @@ export async function saveArticleCandidate(input: PublicArticleCandidateInput): 
     existing = await findDuplicateArticleRow(storedInput, false);
   }
 
+  if (input.expectedUpdatedAt && !existing) throw new Error("候选已变化，请重新审核。");
   let row: SupabaseArticleRow | undefined;
   if (existing) {
     const rows = await supabaseFetch<SupabaseArticleRow[]>(
-      `public_articles?id=eq.${encodeURIComponent(existing.id)}&published=eq.false`,
+      `public_articles?id=eq.${encodeURIComponent(existing.id)}&published=eq.false${revisionFilter(input.expectedUpdatedAt)}`,
       {
         method: "PATCH",
         headers: { Prefer: "return=representation" },
@@ -500,7 +501,7 @@ export async function saveArticleCandidate(input: PublicArticleCandidateInput): 
   return mapArticle(row);
 }
 
-export async function publishArticleCandidate(id: string, options: { expectedEditorialHash?: string; autoPublishedAt?: string } = {}): Promise<PublicArticle> {
+export async function publishArticleCandidate(id: string, options: { expectedEditorialHash?: string; autoPublishedAt?: string; expectedUpdatedAt?: string } = {}): Promise<PublicArticle> {
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
     `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&id=eq.${encodeURIComponent(id)}&published=eq.false&limit=1`,
   );
@@ -508,6 +509,8 @@ export async function publishArticleCandidate(id: string, options: { expectedEdi
   if (!candidate) {
     throw new Error("Article candidate was not found.");
   }
+  if (options.expectedUpdatedAt && candidate.updated_at !== options.expectedUpdatedAt) throw new Error("候选已变化，请重新审核。");
+  const guarded = !!(options.expectedEditorialHash || options.expectedUpdatedAt);
   if (options.expectedEditorialHash) {
     const { eligibleEditorialCandidate } = await import("@/lib/editorialRunner");
     if (!eligibleEditorialCandidate(mapArticle(candidate))) throw new Error("候选状态或审核已变化，自动发布已停止。");
@@ -527,7 +530,7 @@ export async function publishArticleCandidate(id: string, options: { expectedEdi
     importedArticle,
     recommendation: importedArticle?.recommendation,
   };
-  const storedCandidateInput = await localizePublicArticleInputCover(candidateInput, { strictImages: !!options.expectedEditorialHash });
+  const storedCandidateInput = await localizePublicArticleInputCover(candidateInput, { strictImages: guarded });
   const storedCandidateImportedArticle = importedArticleForInput(storedCandidateInput);
   if (options.expectedEditorialHash) {
     const { editorialContentHash } = await import("@/lib/editorialReview");
@@ -538,7 +541,7 @@ export async function publishArticleCandidate(id: string, options: { expectedEdi
   }
   const duplicate = await findDuplicateArticleRow(storedCandidateInput, true);
   if (duplicate && duplicate.id !== candidate.id) {
-    if (options.expectedEditorialHash) throw new Error("已有相同公开文章，不重复自动精选。");
+    if (guarded) throw new Error("已有相同公开文章，不重复自动精选。");
     const [explanations, articleTranslations] = await Promise.all([
       listPublicExplanations(candidate.id),
       listPublicArticleTranslations(candidate.id),
@@ -552,16 +555,16 @@ export async function publishArticleCandidate(id: string, options: { expectedEdi
     return updated;
   }
 
-  const publishedRows = await supabaseFetch<unknown[]>(`public_articles?id=eq.${encodeURIComponent(id)}&published=eq.false${options.expectedEditorialHash ? `&updated_at=eq.${encodeURIComponent(candidate.updated_at)}` : ""}`, {
+  const publishedRows = await supabaseFetch<unknown[]>(`public_articles?id=eq.${encodeURIComponent(id)}&published=eq.false${guarded ? revisionFilter(candidate.updated_at) : ""}`, {
     method: "PATCH",
-    headers: { Prefer: options.expectedEditorialHash ? "return=representation" : "return=minimal" },
+    headers: { Prefer: guarded ? "return=representation" : "return=minimal" },
     body: JSON.stringify({
       published: true,
       body: candidateBody,
       imported_article: storedCandidateImportedArticle,
     }),
   });
-  if (options.expectedEditorialHash && !publishedRows?.length) throw new Error("候选同时发生变更，自动发布已停止。");
+  if (guarded && !publishedRows?.length) throw new Error("候选同时发生变更，自动发布已停止。");
   const article = await getPublicArticle(id);
   if (!article) {
     throw new Error("Candidate was published but could not be reloaded.");
@@ -570,11 +573,12 @@ export async function publishArticleCandidate(id: string, options: { expectedEdi
   return article;
 }
 
-export async function deleteArticleCandidate(id: string): Promise<void> {
-  await supabaseFetch(`public_articles?id=eq.${encodeURIComponent(id)}&published=eq.false`, {
+export async function deleteArticleCandidate(id: string, expectedUpdatedAt?: string): Promise<void> {
+  const deleted = await supabaseFetch<unknown[]>(`public_articles?id=eq.${encodeURIComponent(id)}&published=eq.false${revisionFilter(expectedUpdatedAt)}`, {
     method: "DELETE",
-    headers: { Prefer: "return=minimal" },
+    headers: { Prefer: expectedUpdatedAt ? "return=representation" : "return=minimal" },
   });
+  if (expectedUpdatedAt && !deleted?.length) throw new Error("候选已变化，未删除。");
 }
 
 export async function setArticleCandidateRejected(id: string, rejected: boolean, reason?: string): Promise<PublicArticle> {
@@ -605,7 +609,7 @@ export async function setArticleCandidateRejected(id: string, rejected: boolean,
 export async function updatePublicArticle(id: string, input: PublicArticleInput): Promise<PublicArticle> {
   const storedInput = await localizePublicArticleInputCover(input);
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
-    `public_articles?id=eq.${encodeURIComponent(id)}&published=eq.true`,
+    `public_articles?id=eq.${encodeURIComponent(id)}&published=eq.true${revisionFilter(input.expectedUpdatedAt)}`,
     {
       method: "PATCH",
       headers: { Prefer: "return=representation" },
@@ -641,10 +645,17 @@ export async function createPublicArticle(input: PublicArticleInput): Promise<Pu
   return getPublicArticle(article.id).then((created) => created ?? mapArticle(article));
 }
 
-export async function deletePublicArticle(id: string): Promise<void> {
-  await supabaseFetch(`public_articles?id=eq.${encodeURIComponent(id)}`, {
+export async function deletePublicArticle(id: string, expectedUpdatedAt?: string): Promise<void> {
+  const deleted = await supabaseFetch<unknown[]>(`public_articles?id=eq.${encodeURIComponent(id)}${revisionFilter(expectedUpdatedAt)}`, {
     method: "DELETE",
-    headers: { Prefer: "return=minimal" },
+    headers: { Prefer: expectedUpdatedAt ? "return=representation" : "return=minimal" },
   });
+  if (expectedUpdatedAt && !deleted?.length) throw new Error("文章已变化，未删除。");
   invalidatePublicRecommendations();
+}
+
+function revisionFilter(value?: string): string {
+  if (value === undefined) return "";
+  if (typeof value !== "string" || value.length > 64 || !Number.isFinite(Date.parse(value))) throw new Error("无效的文章版本。");
+  return `&updated_at=eq.${encodeURIComponent(value)}`;
 }

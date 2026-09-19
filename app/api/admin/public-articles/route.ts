@@ -81,7 +81,7 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ error: "缺少公开文章 ID。" }, { status: 400 });
   }
   try {
-    await deletePublicArticle(id);
+    await deletePublicArticle(id, new URL(request.url).searchParams.get("expectedUpdatedAt") ?? undefined);
     try {
       const curation = await getHomepageCuration();
       await saveHomepageCuration(removePublishedArticle(curation, id));

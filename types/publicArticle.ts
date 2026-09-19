@@ -125,6 +125,7 @@ export interface PublicArticle {
 }
 
 export interface PublicArticleInput {
+  expectedUpdatedAt?: string;
   title: string;
   summary: string;
   body: string;

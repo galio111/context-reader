@@ -134,3 +134,22 @@ test("review serialization retains table cells, inline text and image captions",
   const content = editorialChunks(rich).join("");
   for (const marker of ["CELL_MARKER", "INLINE_MARKER", "CAPTION_MARKER"]) assert.ok(content.includes(marker));
 });
+
+
+test("revision-guarded deletion fails closed when another edit wins", async () => {
+  const { deleteArticleCandidate, deletePublicArticle } = await import("../lib/publicArticles");
+  const savedFetch = globalThis.fetch;
+  const oldUrl = process.env.SUPABASE_URL; const oldKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  process.env.SUPABASE_URL = "https://example.invalid"; process.env.SUPABASE_SERVICE_ROLE_KEY = "test-only";
+  const urls: string[] = [];
+  globalThis.fetch = async (url) => { urls.push(String(url)); return new Response("[]", { status: 200 }); };
+  try {
+    const revision = "2026-09-20T00:00:00.000Z";
+    await assert.rejects(deleteArticleCandidate("test", revision));
+    await assert.rejects(deletePublicArticle("test", revision));
+    assert.equal(urls.length, 2);
+    for (const url of urls) assert.ok(url.includes("updated_at=eq."));
+    await assert.rejects(deletePublicArticle("test", "invalid"));
+    assert.equal(urls.length, 2);
+  } finally { globalThis.fetch = savedFetch; if (oldUrl === undefined) delete process.env.SUPABASE_URL; else process.env.SUPABASE_URL = oldUrl; if (oldKey === undefined) delete process.env.SUPABASE_SERVICE_ROLE_KEY; else process.env.SUPABASE_SERVICE_ROLE_KEY = oldKey; }
+});

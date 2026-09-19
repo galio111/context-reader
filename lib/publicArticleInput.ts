@@ -153,6 +153,7 @@ export function isSafePublicArticleInput(value: unknown, allowId = false): value
     return false;
   }
 
+  if (input.expectedUpdatedAt !== undefined && (typeof input.expectedUpdatedAt !== "string" || input.expectedUpdatedAt.length > 64 || !Number.isFinite(Date.parse(input.expectedUpdatedAt)))) return false;
   return true;
 }
 

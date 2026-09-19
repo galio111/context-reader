@@ -1455,3 +1455,8 @@ Paused automatic publication before the authorized existing-library cleanup. Pri
 
 GitHub commit be46869 carried a failed Vercel status for the legacy full-app project, causing unwanted deployment emails after the mainland release. Set root vercel.json git.deploymentEnabled to false, preserving cron configuration, manual rollback deployment capability and the separate overseas-fetcher configuration. Future branches must inherit this setting; old branches require updating before push. No mainland application release is needed for this Vercel-only configuration change. Validation: JSON parse, focused diff and remote main revision check; account-wide email preferences and server-side repository disconnection are not changed because no usable Vercel login is available.
 >>>>>>> origin/main
+
+
+## 2026-09-20 — Editorial safety release accepted
+
+Release 20260920T075500, parent 20260920T000500, source 883a16de105fc1da3595ad3d5d154d24c7070721 passed public mainland identity and signed-in account, sync, Admin-denial, explanation, dictionary, translation and follow-up checks; the disposable account was removed. The publication switch remains off during full-library read-only review. A follow-up adds optional revision guards to existing Admin save/publish/delete operations before cleanup, including a regression proving stale deletions fail closed.
