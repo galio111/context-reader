@@ -103,3 +103,34 @@ test("JSONB field reordering preserves review identity but reordered blocks do n
   persisted.blocks.reverse();
   assert.notEqual(editorialContentHash(article), editorialContentHash(persisted));
 });
+
+
+test("an interrupted audit cannot authorize deletion even after a text defect", async () => {
+  const review = await reviewEditorialArticle(article, { ...config, provider: "deepseek" }, { complete: async (_prompt, _model, images) => {
+    if (images?.length) throw new Error("image request timeout");
+    return { ...await complete(), parsed: { checks: { ...clean, contamination: true }, uncertain: false } };
+  } });
+  assert.equal(review.completed, false);
+  assert.equal(review.status, "held");
+  assert.deepEqual(review.confirmedDefects, ["contamination"]);
+});
+
+test("image defects require vision-capable confirmation and uncertainty is not a confirmed defect", async () => {
+  const calls: string[] = [];
+  const review = await reviewEditorialArticle(article, { ...config, provider: "deepseek" }, { complete: async (_prompt, model, images) => {
+    if (!images?.length) return complete();
+    calls.push(model);
+    return { ...await complete(), parsed: { relevant: false, uncertain: true } };
+  } });
+  assert.deepEqual(calls, ["deepseek-flash", "deepseek-flash"]);
+  assert.equal(review.completed, true);
+  assert.equal(review.status, "held");
+  assert.deepEqual(review.confirmedDefects, []);
+});
+
+
+test("review serialization retains table cells, inline text and image captions", () => {
+  const rich = { ...article, blocks: [...article.blocks, { id: "table", type: "table", table: { rows: [[{ text: "CELL_MARKER" }]] } }, { id: "rich", type: "paragraph", text: "Text", inline: [{ text: "INLINE_MARKER" }] }, { id: "captioned", type: "image", src: "https://example.com/a.webp", caption: "CAPTION_MARKER" }] } as ImportedArticle;
+  const content = editorialChunks(rich).join("");
+  for (const marker of ["CELL_MARKER", "INLINE_MARKER", "CAPTION_MARKER"]) assert.ok(content.includes(marker));
+});

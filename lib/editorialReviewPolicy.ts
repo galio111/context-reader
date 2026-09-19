@@ -16,6 +16,8 @@ export type EditorialProvider = "deepseek" | "jev-shadow";
 export interface EditorialReview {
   version: number;
   status: "passed" | "held";
+  completed?: boolean;
+  confirmedDefects?: string[];
   checkedAt: string;
   contentHash: string;
   provider: string;
@@ -39,7 +41,7 @@ export function parseEditorialDecisions(value: unknown): EditorialDecisions {
 
 /** Preserve every character and block; no head/tail sampling for release gates. */
 export function editorialChunks(article: ImportedArticle, limit = 16_000): string[] {
-  const serialized = article.blocks.map((b) => JSON.stringify({ id: b.id, type: b.type, text: b.text, alt: b.alt, hasImage: b.type === "image" && !!b.src }));
+  const serialized = article.blocks.map(({ src, ...block }) => JSON.stringify({ ...block, hasImage: block.type === "image" && !!src }));
   const chunks: string[] = [];
   let current = "";
   for (const block of serialized) {

@@ -231,7 +231,7 @@ export async function runRecommendationCrawler(
           imageDescriptions: images.map((image) => image.alt || "").join("; ") || "文章发布者提供的社交分享封面，无法确认内容；需人工复核",
         },
       );
-      if (input.editorial?.enabled && (classification.classificationSource !== "model" || classification.difficultyEvidence.confidence !== "high")) {
+      if (input.editorial?.enabled && (classification.classificationSource !== "model" || classification.difficultyEvidence.confidence !== "high" || !EDITORIAL_DIFFICULTIES.includes(classification.difficulty))) {
         classification = await classifyArticle(article.title, article.text, { sourceUrl: item.url, sourceName: item.source.name, discoveryReview: true, fullTextReview: true, model: process.env.EDITORIAL_DEEPSEEK_REVIEW_MODEL || "deepseek-v4-pro", imageDescriptions: images.map((image) => image.alt || "").join("; ") });
       }
       if (input.editorial?.enabled && !EDITORIAL_DIFFICULTIES.includes(classification.difficulty)) throw new Error("高中及以下难度暂停自动更新，保留原标签且不计入每日精选。");
