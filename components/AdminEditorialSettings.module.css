@@ -1,0 +1,17 @@
+.root { --surface: #f1f5f8; --ink: #17212a; --muted: #485661; --line: #7c8b98; --field: #fff; --hover: #deebf5; --accent: #1769aa; --error: #9c2424; padding: 20px; margin: 20px 0; border-radius: 10px; background: var(--surface); color: var(--ink); }
+.root h3 { font-size: 18px; font-weight: 600; }
+.root p { max-width: 74ch; font-size: 14px; line-height: 1.8; color: var(--muted); margin: 10px 0; }
+.root label { font-size: 14px; }
+.fields { display: flex; flex-wrap: wrap; gap: 16px; margin: 12px 0; }
+.fields label { flex: 1 1 200px; min-width: 0; }
+.fields input, .fields select { width: 100%; min-height: 44px; margin-top: 6px; padding: 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--field); color: var(--ink); font-size: 16px; }
+.check { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+.check input { accent-color: var(--accent); width: 18px; height: 18px; }
+.root button { min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--field); color: var(--ink); }
+.root button:hover:not(:disabled) { background: var(--hover); }
+.root button:active:not(:disabled) { background: var(--surface); }
+.root :is(button,input,select):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.root :disabled { opacity: .65; cursor: wait; }
+.root p[data-error="true"] { color: var(--error); }
+:global(html[data-context-theme="night"]) .root { --surface: #17222d; --ink: #edf2f6; --muted: #bac9d6; --line: #8198ac; --field: #0e1720; --hover: #293e51; --accent: #8ecbff; --error: #ffb1b1; }
+@media (max-width: 480px) { .root { padding: 14px; } .fields label { flex-basis: 100%; } }

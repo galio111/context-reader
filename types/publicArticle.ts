@@ -68,6 +68,8 @@ export interface ArticleDifficultyEvidence {
 }
 
 export interface ArticleRecommendationMetadata {
+  editorialReview?: import("@/lib/editorialReviewPolicy").EditorialReview;
+  autoPublishedAt?: string;
   discoverySourceId?: string;
   rejectionReason?: string;
   coverImageUrl: string;

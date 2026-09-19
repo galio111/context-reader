@@ -4,6 +4,8 @@ import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 
 const TRAILING_SECTION_PATTERN = /^(?:related\s+(?:topics?|terms?|stories|articles|content)|story\s+source|journal\s+references?|cite\s+this\s+page|explore\s+more|recommended(?:\s+for\s+you)?|you\s+(?:may|might)\s+also\s+like|read\s+next|more\s+(?:stories|articles|from)|most\s+popular|trending|about\s+the\s+author|sign\s+up\s+for\b|advertisement)\b/i;
 const PUBLISHER_TRAILING_SECTIONS: Array<{ domain: string; pattern: RegExp }> = [
+  { domain: "nautil.us", pattern: /^(?:Enjoying Nautilus\?|Lead Image:)/i },
+  { domain: "quantamagazine.org", pattern: /^Also in (?:Mathematics|Physics|Biology|Computer Science|Multimedia)$/i },
   { domain: "science.nasa.gov", pattern: /^downloads?$/i },
   { domain: "smithsonianmag.com", pattern: /^planning\s+your\s+next\s+trip\??$/i },
   { domain: "newsforkids.net", pattern: /^sources?$/i },

@@ -1,6 +1,7 @@
 // Narrow publisher-specific removals supplement, never weaken, the shared sanitizer.
 // A new complex publisher remains disabled until its actual extraction samples pass review.
 const SELECTORS: Record<string, string> = {
+  "noemamag.com": ".bio-block, .related-posts, .newsletter-signup",
   "npr.org": ".story-tools, .storybyline, .story-meta, .bucketwrap, .recommendations",
   "smithsonianmag.com": ".related-articles, .article-author, .newsletter-signup, .ad-container",
   "lithub.com": ".related-posts, .author-bio, .td-post-sharing, .td_block_related_posts",
@@ -48,6 +49,13 @@ export function publisherIntakeWarnings(document: Document, baseUrl = ""): strin
 }
 export function applyPublisherProfile(document: Document, baseUrl: string): void {
   const host = new URL(baseUrl).hostname.replace(/^www\./, "");
+  if (host === "nautil.us") {
+    document.querySelectorAll("[class*='PrimisVideoAdBlock_']").forEach((node) => node.remove());
+    document.querySelectorAll("p,h2,h3,div").forEach((node) => {
+      if (/^(?:Featured Video|Enjoying Nautilus\? Subscribe to our free newsletter\.|Lead Image: .{1,180})$/i.test(node.textContent?.trim() || "")) node.remove();
+      if (node.tagName === "P" && /^Read more:/i.test(node.textContent?.trim() || "") && node.querySelector("a")) node.remove();
+    });
+  }
   if (host === "daily.jstor.org") {
     document.querySelectorAll(".slick-slider a").forEach((anchor) => {
       if (anchor.querySelector("img")) anchor.replaceWith(...Array.from(anchor.childNodes));

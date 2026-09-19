@@ -298,7 +298,7 @@ export async function localizeImportedArticleImages(
   };
 }
 
-export async function localizePublicArticleInputCover<T extends PublicArticleInput>(input: T): Promise<T> {
+export async function localizePublicArticleInputCover<T extends PublicArticleInput>(input: T, options: { strictImages?: boolean } = {}): Promise<T> {
   const recommendation = input.recommendation ?? input.importedArticle?.recommendation;
   const coverImageUrl = recommendation?.coverImageUrl?.trim() || "";
   let storedRecommendation = recommendation;
@@ -325,8 +325,9 @@ export async function localizePublicArticleInputCover<T extends PublicArticleInp
     const localized = await localizeImportedArticleImages(
       importedArticle,
       input.sourceUrl || importedArticle.url,
-      { removeFailed: true },
+      { removeFailed: !options.strictImages },
     );
+    if (options.strictImages && localized.failures.length) throw new Error("正文图片未全部保存，不能自动发布。");
     importedArticle = localized.article;
     removedArticleImages = localized.removed > 0;
   }

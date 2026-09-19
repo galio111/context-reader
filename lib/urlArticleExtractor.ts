@@ -43,6 +43,7 @@ const EMBEDDED_UI_NOISE_PATTERNS = [
 ];
 
 interface ExtractionMetadata {
+  completeness?: { referenceKind: string; missingTextBlocks: number; missingImages: number };
   intakeWarnings?: string[];
   description: string;
   coverCandidates: string[];
@@ -732,6 +733,12 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
   const imageSources = selectedBlocks
     .filter((block) => block.type === "image" && block.src)
     .map((block) => block.src as string);
+  const reference = candidates.filter((candidate) => candidate.kind === "article-body" && candidate.linkDensity < 0.15)
+    .sort((a, b) => b.textCharacters - a.textCharacters)[0];
+  const normalizedSelected = text.toLowerCase().replace(/\s+/g, " ");
+  const missingTextBlocks = reference?.blocks.filter((block) => block.type !== "image" && (block.text?.length || 0) > 160
+    && !normalizedSelected.includes((block.text || "").toLowerCase().replace(/\s+/g, " ").trim())).length || 0;
+  const missingImages = reference?.blocks.filter((block) => block.type === "image" && block.src && !imageSources.includes(block.src)).length || 0;
   const publishedTime = extractPublishedTime(document, readable?.publishedTime || "");
   const language = singleLineText(readable?.lang || document.documentElement.lang || "")
     .replace(/^["']+|["']+$/g, "")
@@ -748,6 +755,7 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
       ...(language ? { language } : {}),
     },
     metadata: {
+      completeness: { referenceKind: reference?.kind || selected.kind, missingTextBlocks, missingImages },
       intakeWarnings,
       description: singleLineText(readable?.excerpt || metadataDescription),
       coverCandidates: uniqueUrls([...metaCoverCandidates, ...imageSources], baseUrl).slice(0, 12),

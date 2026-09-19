@@ -11,6 +11,13 @@ export function defaultDiscoverySites(): DiscoverySite[] {
     } else groups.set(host, { ...source, id: host.replaceAll(".", "-"), name: host === "npr.org" ? "NPR" : host === "learningenglish.voanews.com" ? "VOA Learning English" : host === "theconversation.com" ? "The Conversation" : source.name, feeds: [source.feedUrl], enabled: false, dailyTarget: 2, discovery: "feed", note: "待验证正文、图片与清洗效果，验证通过后可启用。" });
   }
   const additions: Array<[string, string, string, DiscoverySite["topics"], boolean, string?]> = [
+    ["Nautilus", "nautil.us", "https://nautil.us/feed/", ["科技科学", "人物成长", "文化历史"], false],
+    ["SAPIENS", "sapiens.org", "https://www.sapiens.org/feed/", ["文化历史", "社会生活", "人物成长"], false],
+    ["Quanta Magazine", "quantamagazine.org", "https://www.quantamagazine.org/feed/", ["科技科学"], false],
+    ["Greater Good Magazine", "greatergood.berkeley.edu", "https://greatergood.berkeley.edu/site/rss", ["人物成长", "社会生活"], false],
+    ["Noema", "noemamag.com", "https://www.noemamag.com/feed/", ["文化历史", "社会生活", "商业经济"], false],
+    ["Atlas Obscura", "atlasobscura.com", "https://www.atlasobscura.com/feeds/latest", ["文化历史", "自然环境"], false],
+    ["The MIT Press Reader", "thereader.mitpress.mit.edu", "https://thereader.mitpress.mit.edu/feed/", ["文化历史", "社会生活", "科技科学"], false],
     ["UN News", "news.un.org", "https://news.un.org/feed/subscribe/en/news/all/rss.xml", ["社会生活", "商业经济", "自然环境"], false],
     ["Asian Development Blog", "blogs.adb.org", "https://blogs.adb.org/rss.xml", ["商业经济", "社会生活"], false],
     ["Economics Observatory", "economicsobservatory.com", "https://www.economicsobservatory.com/feed", ["商业经济"], false],

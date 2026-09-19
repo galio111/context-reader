@@ -53,6 +53,7 @@ export interface RecommendationAutomationStatus {
 }
 
 export interface RecommendationCrawlerRunInput {
+  editorial?: import("@/lib/editorialReview").EditorialConfig;
   sourceId?: string;
   excludedUrls?: string[];
   maxAttempts?: number;

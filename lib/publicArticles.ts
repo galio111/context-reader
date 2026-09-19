@@ -499,7 +499,7 @@ export async function saveArticleCandidate(input: PublicArticleCandidateInput): 
   return mapArticle(row);
 }
 
-export async function publishArticleCandidate(id: string): Promise<PublicArticle> {
+export async function publishArticleCandidate(id: string, options: { expectedEditorialHash?: string; autoPublishedAt?: string } = {}): Promise<PublicArticle> {
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
     `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&id=eq.${encodeURIComponent(id)}&published=eq.false&limit=1`,
   );
@@ -522,10 +522,18 @@ export async function publishArticleCandidate(id: string): Promise<PublicArticle
     importedArticle,
     recommendation: importedArticle?.recommendation,
   };
-  const storedCandidateInput = await localizePublicArticleInputCover(candidateInput);
+  const storedCandidateInput = await localizePublicArticleInputCover(candidateInput, { strictImages: !!options.expectedEditorialHash });
   const storedCandidateImportedArticle = importedArticleForInput(storedCandidateInput);
+  if (options.expectedEditorialHash) {
+    const { editorialContentHash } = await import("@/lib/editorialReview");
+    if (editorialContentHash(storedCandidateImportedArticle) !== options.expectedEditorialHash || storedCandidateImportedArticle.recommendation?.editorialReview?.status !== "passed") throw new Error("候选内容在审核后变化，需重新审核。");
+  }
+  if (options.expectedEditorialHash && options.autoPublishedAt && storedCandidateImportedArticle.recommendation) {
+    storedCandidateImportedArticle.recommendation = { ...storedCandidateImportedArticle.recommendation, autoPublishedAt: options.autoPublishedAt };
+  }
   const duplicate = await findDuplicateArticleRow(storedCandidateInput, true);
   if (duplicate && duplicate.id !== candidate.id) {
+    if (options.expectedEditorialHash) throw new Error("已有相同公开文章，不重复自动精选。");
     const [explanations, articleTranslations] = await Promise.all([
       listPublicExplanations(candidate.id),
       listPublicArticleTranslations(candidate.id),
@@ -539,15 +547,16 @@ export async function publishArticleCandidate(id: string): Promise<PublicArticle
     return updated;
   }
 
-  await supabaseFetch(`public_articles?id=eq.${encodeURIComponent(id)}&published=eq.false`, {
+  const publishedRows = await supabaseFetch<unknown[]>(`public_articles?id=eq.${encodeURIComponent(id)}&published=eq.false${options.expectedEditorialHash ? `&updated_at=eq.${encodeURIComponent(candidate.updated_at)}` : ""}`, {
     method: "PATCH",
-    headers: { Prefer: "return=minimal" },
+    headers: { Prefer: options.expectedEditorialHash ? "return=representation" : "return=minimal" },
     body: JSON.stringify({
       published: true,
       body: candidateBody,
       imported_article: storedCandidateImportedArticle,
     }),
   });
+  if (options.expectedEditorialHash && !publishedRows?.length) throw new Error("候选同时发生变更，自动发布已停止。");
   const article = await getPublicArticle(id);
   if (!article) {
     throw new Error("Candidate was published but could not be reloaded.");

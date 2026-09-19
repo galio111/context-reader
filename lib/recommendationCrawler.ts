@@ -1,4 +1,7 @@
 import { classifyArticle } from "@/lib/articleClassification";
+import { reviewEditorialArticle } from "@/lib/editorialReview";
+import { EDITORIAL_DIFFICULTIES } from "@/lib/editorialReviewPolicy";
+import { sanitizeImportedArticleContent } from "@/lib/articleContentSanitizer";
 import { getDiscoverySites } from "@/lib/discoveryStore";
 import { freshnessFailure, similarArticle, hasRecentPublishingCadence, minimumDiscoveryWords } from "@/lib/discoveryPolicy";
 import { localizePublicArticleInputCover } from "@/lib/publicArticleCovers";
@@ -19,7 +22,7 @@ const DEFAULT_MAX_NEW_ARTICLES = 2;
 const MAX_NEW_ARTICLES_PER_RUN = 10;
 interface ImportApiResponse {
   article?: ImportedArticle;
-  metadata?: { description?: string; coverCandidates?: string[]; intakeWarnings?: string[] };
+  metadata?: { description?: string; coverCandidates?: string[]; intakeWarnings?: string[]; completeness?: { referenceKind: string; missingTextBlocks: number; missingImages: number } };
   error?: string;
 }
 
@@ -196,6 +199,7 @@ export async function runRecommendationCrawler(
       if (/\/videos?\//i.test(new URL(item.url).pathname)) throw new Error("视频页面不进入自动候选。");
       const imported = await importArticleThroughApi(origin, item.url);
       const article = imported.article!;
+      if (input.editorial?.enabled && (!imported.metadata?.completeness || imported.metadata.completeness.missingTextBlocks > 0 || imported.metadata.completeness.missingImages > 0)) throw new Error("页面正文结构与提取结果不一致，暂停自动收录以核实漏段或漏图。");
       if (imported.metadata?.intakeWarnings?.length) throw new Error(imported.metadata.intakeWarnings.join("；"));
       const words = (article.text.match(/\b[a-zA-Z]+\b/g) ?? []).length;
       if (words < minimumDiscoveryWords(item.source.levelHint)) throw new Error(`正文只有 ${words} 词，自动候选必须超过 400 词`);
@@ -214,7 +218,7 @@ export async function runRecommendationCrawler(
       if (!verifiedCover) throw new Error("配图不可读取或尺寸不足，不用图标、像素图凑数");
       article.blocks = article.blocks.filter((block) => block.type !== "image" || images.includes(block));
       imported.metadata = { ...imported.metadata, coverCandidates: [verifiedCover] };
-      const classification = await classifyArticle(
+      let classification = await classifyArticle(
         imported.article?.title || item.title,
         imported.article?.text || "",
         {
@@ -222,9 +226,15 @@ export async function runRecommendationCrawler(
           sourceName: imported.article?.siteName || item.source.name,
           usageRoute: "/api/admin/article-crawler",
           discoveryReview: true,
+          fullTextReview: input.editorial?.enabled,
+          model: input.editorial?.enabled ? process.env.EDITORIAL_DEEPSEEK_MODEL || "deepseek-flash" : undefined,
           imageDescriptions: images.map((image) => image.alt || "").join("; ") || "文章发布者提供的社交分享封面，无法确认内容；需人工复核",
         },
       );
+      if (input.editorial?.enabled && (classification.classificationSource !== "model" || classification.difficultyEvidence.confidence !== "high")) {
+        classification = await classifyArticle(article.title, article.text, { sourceUrl: item.url, sourceName: item.source.name, discoveryReview: true, fullTextReview: true, model: process.env.EDITORIAL_DEEPSEEK_REVIEW_MODEL || "deepseek-v4-pro", imageDescriptions: images.map((image) => image.alt || "").join("; ") });
+      }
+      if (input.editorial?.enabled && !EDITORIAL_DIFFICULTIES.includes(classification.difficulty)) throw new Error("高中及以下难度暂停自动更新，保留原标签且不计入每日精选。");
       if (!classification.qualityReview?.eligible) throw new Error(classification.qualityReview?.reason || "质量判断暂时不可用，未自动入库");
       if (images.some((image) => image.alt?.trim()) && !classification.qualityReview.imageRelevant) throw new Error("配图说明与正文主题不相符");
       if (classification.topics.includes("科技科学") && classification.qualityReview.specialist) throw new Error("科学内容过于专业，不符合通俗科普要求");
@@ -239,8 +249,18 @@ export async function runRecommendationCrawler(
         resultBase.skipped.push({ title: item.title, url: item.url, reason: `判断为${classification.difficulty}，与目标难度不符` });
         continue;
       }
-      const prepared = await localizePublicArticleInputCover(crawlerCandidateInput(item, imported, classification));
+      const prepared = await localizePublicArticleInputCover(crawlerCandidateInput(item, imported, classification), { strictImages: input.editorial?.enabled });
       if (!articleHasHomepageImage({ ...prepared, importedArticle: prepared.importedArticle || undefined })) throw new Error("图片无法安全保存，未收录无图文章");
+      if (input.editorial?.enabled && prepared.importedArticle && prepared.recommendation) {
+        prepared.importedArticle = sanitizeImportedArticleContent(prepared.importedArticle);
+        prepared.body = prepared.importedArticle.text;
+        const review = await reviewEditorialArticle(prepared.importedArticle, input.editorial);
+        if (classification.classificationSource !== "model" || classification.difficultyEvidence.confidence === "low") {
+          review.status = "held"; review.reasons.push("难度判断仍不确定");
+        }
+        prepared.recommendation.editorialReview = review;
+        prepared.importedArticle.recommendation = prepared.recommendation;
+      }
       const candidate = await saveArticleCandidate(prepared);
       if (knownArticleIds.has(candidate.id)) {
         resultBase.skipped.push({ title: item.title, url: item.url, reason: "与候选库中已有文章内容重复" });

@@ -59,7 +59,7 @@ After each completed and validated change, automatically commit and push its rev
 ## Recommendations And Admin
 
 - Public recommendations are server-rendered by `app/page.tsx`. Changes to article data, caches, import or schema must be checked against Admin publishing, preload storage and public replay.
-- New recommendations enter one `/admin` candidate workflow from saved article, pasted text, URL or reviewed RSS/Atom discovery. URL intake and crawling reuse `/api/import-url` and the shared article-boundary sanitizer. Crawler output never publishes automatically.
+- New recommendations enter one `/admin` candidate workflow from saved article, pasted text, URL or reviewed RSS/Atom discovery. URL intake and crawling reuse `/api/import-url` and the shared article-boundary sanitizer. The explicitly enabled automatic editorial mode may publish only after full-text/image review, content-version checks and diversity gates; ordinary and single-source manual crawling remains candidate-only. See docs/automated-editorial.md.
 - Candidate and published rows open the real `ReaderView`; body edits write back to that row, while title/summary/cover metadata stay in Admin. Publishing requires a reviewed cover.
 - Published homepage-placement toggles persist immediately and rollback visibly on failure; candidate toggles remain draft until publication. Recommendation and category featured choices stay singletons. Do not restore a separate placement save button.
 - The Admin recommendation pool is an authoritative whitelist: excluded published articles never return through whole-inventory fallback. Keep the three post-feature desktop rows free of image-less cards; defer and interleave those cards only in the expanded library, with Admin-only cover-status markers.

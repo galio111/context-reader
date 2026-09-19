@@ -1420,3 +1420,8 @@ GitHub verification: atomic normal push advanced `main` and `codex/nasa-media-09
 ### 手机面板生产验收
 
 release `20260919T223456`，parent `20260919T223000`，source `1cd456dc9185518ba095a9d782972ffd8dccddb1`。公网 connectivity 与服务器接受记录一致，backendMode 为 mainland_internal；仅 app/caddy 重建。累计合并最新词典、历史检索、媒体和原型文案更新后重新完成 94 项回归、生产构建与发布契约。公网 Chromium 390×844 触摸事件测试确认面板可停留 211px、低于四分之一关闭、快甩关闭及重新打开，手机追问提交包含词语和原句；UI 使用固定测试响应，独立真实账号接口验证解释、词典、两段全文翻译及 AI 追问成功，临时账号已删除。桌面和手机日/夜截图已检查，console 无页面异常。七服务健康、16 表备份恢复、账号/同步/Admin 边界、认证 Admin 只读验收和父版 accepted 镜像存在性通过。证据位于本次任务 visualizations 的 browser-qa/result.json、日夜截图、live-result.json 和 build.log。
+
+
+## 2026-09-19 — Automatic editorial implementation prepared
+
+Prepared daily automatic publication with retained manual candidates, school-label exclusion, bounded DeepSeek review and optional Jev shadow/fallback. New source samples exposed newsletter, biography and video contamination; narrow publisher cleanup and source evidence are recorded in automated-editorial.md. Eleven targeted, 89 critical and 18 discovery tests plus release contracts passed. Live Jev testing is deferred because no key exists. Production activation/full-day throughput are pending; this entry is not deployment acceptance.

@@ -1,5 +1,7 @@
 # Context Reader GPT 项目上下文包
 
+
+自动精选与 DeepSeek/Jev 接口准备、质量门槛、成本及验收边界见 [automated-editorial.md](automated-editorial.md)。该模式需显式开启；单站手动导入继续使用候选流程。
 核验日期：2026-09-19。GitHub `galio111/context-reader` 的默认 `main` 是 ChatGPT 读取当前代码与文档的入口；任务分支仅推送成功不代表默认入口已更新。先读 `AGENTS.md`，再按问题读本文件链接的专题文档。
 
 ## 当前版本与范围
