@@ -1,5 +1,8 @@
 "use client";
 
+import { AdminZhipuUsage } from "@/components/AdminZhipuUsage";
+import type { ZhipuUsageSummary } from "@/lib/zhipuUsage";
+
 import ClearableField from "@/components/ClearableField";
 
 import { useEffect, useMemo, useState } from "react";
@@ -15,6 +18,7 @@ interface DashboardData {
   limits: Array<Record<string, unknown>>;
   actions: Array<Record<string, unknown>>;
   executions: Array<Record<string, unknown>>;
+  zhipuUsage?: ZhipuUsageSummary;
   activitySummary: {
     dau: number;
     wau: number;
@@ -332,7 +336,7 @@ export default function AdminAccountsPanel() {
           <section id="account-cost" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-4">
               <h3 className="text-lg font-semibold">每日运行情况</h3>
-              <p className="mt-1 text-xs leading-5 text-[#68717a]">过去 {data.usageSummary.windowDays} 个上海自然日的站内已记录调用。成本按 DeepSeek 人民币价、模型、缓存 token 和调用时间逐条重算，周末全天按低谷价；DeepSeek 控制台实扣仍是最终依据。</p>
+              <p className="mt-1 text-xs leading-5 text-[#68717a]">过去 {data.usageSummary.windowDays} 个上海自然日的站内已记录调用。成本按供应商和模型估算；DeepSeek 区分缓存与高低峰，智谱按 GLM-4.5-Air 单价估算。各供应商控制台实扣是最终依据。</p>
             </div>
             <div className="divide-y divide-[#e1e5e9]">
               {data.usageSummary.daily.slice(0, 7).map((day, index) => <DailyUsageRow key={day.date} day={day} today={index === 0} />)}
@@ -351,10 +355,12 @@ export default function AdminAccountsPanel() {
             {data.usageSummary.truncated && <p className="border-t border-[#e1e5e9] px-5 py-3 text-xs text-[#8d3224]">过去 30 天记录超过 50,000 条，当前统计已达到安全读取上限，需要增加数据库聚合后才能显示完整总数。</p>}
           </section>
 
+          {data.zhipuUsage && <AdminZhipuUsage usage={data.zhipuUsage} truncated={data.usageSummary.truncated} />}
+
           <section id="account-features" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-4">
               <h3 className="text-lg font-semibold">按功能统计</h3>
-              <p className="mt-1 text-xs leading-5 text-[#68717a]">同一项用户操作可能包含结构化与流式两次上游调用，因此这里按真实 DeepSeek 执行次数统计。全文翻译单独列出。</p>
+              <p className="mt-1 text-xs leading-5 text-[#68717a]">同一项用户操作可能包含结构化与流式两次上游调用，因此这里按已记录的 AI 执行次数统计。全文翻译单独列出。</p>
             </div>
             <div className="divide-y divide-[#e1e5e9]">
               {data.usageSummary.features.length === 0 && <p className="px-5 py-8 text-center text-sm text-[#68717a]">过去 30 天没有站内 AI 执行记录。</p>}
@@ -538,7 +544,7 @@ function QuotaUsageRow({ label, usage, articleUnit }: { label: string; usage: Qu
       <dl className="grid grid-cols-2 gap-y-4 divide-x divide-[#e1e5e9] sm:grid-cols-5">
         <MetricCell label="用户扣量" value={`${usage.chargedActions.toLocaleString("zh-CN")} 次`} />
         <MetricCell label={articleUnit} value={`${usage.generatedArticles.toLocaleString("zh-CN")} 篇`} />
-        <MetricCell label="DeepSeek 请求" value={`${usage.providerExecutions.toLocaleString("zh-CN")} 次`} />
+        <MetricCell label="AI 请求" value={`${usage.providerExecutions.toLocaleString("zh-CN")} 次`} />
         <MetricCell label="Tokens" value={(usage.promptTokens + usage.completionTokens).toLocaleString("zh-CN")} />
         <MetricCell label="估算成本" value={`￥${usage.estimatedCostCny.toFixed(4)}`} />
       </dl>
