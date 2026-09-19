@@ -1,3 +1,4 @@
+import { summarizeZhipuUsage } from "@/lib/zhipuUsage";
 import { NextResponse } from "next/server";
 import { accountFetch } from "@/lib/accountStore";
 import { isAdminRequest } from "@/lib/adminAuth";
@@ -181,7 +182,7 @@ export async function GET() {
     daily,
     features,
     truncated: executionPage.truncated,
-    pricingBasis: "DeepSeek direct CNY rates, calculated per execution timestamp and cache usage; weekends are off-peak from 2026-08-23",
+    pricingBasis: "Provider-specific estimates: DeepSeek timestamp/cache rates; GLM-4.5-Air CNY 0.8/M input and 2/M output. Provider bills are authoritative.",
   };
   const safeProfiles = profiles.map((profile) => {
     const email = String(profile.email ?? "");
@@ -201,6 +202,7 @@ export async function GET() {
     limits,
     actions,
     executions: executions.slice(0, 200),
+    zhipuUsage: summarizeZhipuUsage(executions),
     activitySummary,
     quotaUsage: { summary: summaryUsage, translation: translationUsage, publicCache: publicCacheUsage, details: actionDetails },
     usageSummary,
