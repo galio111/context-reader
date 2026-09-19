@@ -266,7 +266,7 @@ Reader 切换文章建立独立阅读会话，清空来源词高亮与旧翻译�
 
 候选目标 30 篇，28 篇为最低检查线；先按站点目标分散采集，再允许合格来源补到每站至少 4 篇的有限上限。保留 401 英文词、已存配图、时效、去重和内容质量硬门槛；视频路径直接跳过。Open Culture 已从名单和默认列表删除。9 月 15 日手动实测 30 篇，自动任务保持关闭；Mongabay 与 Science News Explores 经正文/图片验证后启用。JSTOR 验证页、NewsForKids 过期新闻不能作为数量补位。
 
-Standalone dictionary synonym headings include a small arrow button that queries that exact synonym through the existing lookup callback. Cached replay, history, quota and offline handling remain shared with typed queries. Buttons are disabled during streaming and expose a word-specific accessible label; coarse pointers receive a 44 px target.
+Standalone dictionary synonym, word-family, collocation and Chinese-to-English expression headings share a small arrow button that queries the exact displayed English word or phrase through the existing lookup callback. Cached replay, history, quota and offline handling remain shared with typed queries. Buttons are disabled during streaming and expose a word-specific accessible label; coarse pointers receive a 44 px target. The query input also filters the complete stored lookup history by normalized, case-insensitive prefix while focused. Its inline scrollable combobox lists every match in existing recent-first order, supports ArrowUp/ArrowDown, Enter and Escape, and closes on blur or lookup. Filtering never calls an API or consumes quota; selecting a match reuses normal cached lookup and history handling. Empty input hides the list and unmatched input remains available for a new deep query.
 
 ### Pronunciation cache reuse
 
@@ -284,3 +284,7 @@ Structured explanations allow 1,200 output tokens and 1,600 on format/field repa
 Cold TTS requests retry one transient transport/timeout/HTTP 5xx failure with 8-second and 6-second attempt budgets inside the existing shared in-flight promise. Explicit authentication, rate-limit and provider business-code rejections are not retried. Memory/Storage hits remain unchanged. Each actual upstream attempt emits its own hashed audit event. A final timeout is recorded as `provider_tts_timeout` (504), with attempt count and the 14-second provider budget; browser local-speech fallback remains available.
 
 The contextual stream uses the same completed-explanation validator as the Reader before finalizing usage or emitting its completion marker. Incomplete streams retain a reserved action for structured fallback to finalize or refund; provider token execution is recorded as failed. Final structured diagnostics include the action id for correlation. No database function or quota balance is changed by this release.
+
+### Publisher media extraction (2026-09-19)
+
+URL intake normalizes nested editorial figures before Readability, retaining NASA carousel still images with separated captions. Video-only figures are omitted with their captions; MP4 loops are not imported as images. A rejected or failed localized image loses its associated following caption blocks and text mirror. On Reasons to be Cheerful, `.series-intro` branding/series funding modules are excluded without deleting ordinary first paragraphs or editorial photographs. Body GIF/animated WebP imports retain animation through bounded animated WebP conversion (50 million input pixels, 25 MB download, 5 MB output); homepage covers remain still images.

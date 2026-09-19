@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
 import { revalidateTag } from "next/cache";
 import sharp from "sharp";
-import { recommendationWithBodyImageFallback } from "@/lib/articleMedia";
+import { recommendationWithBodyImageFallback, removeFailedArticleImages } from "@/lib/articleMedia";
 import { isExternalArticleImageUrl, isFirstPartyArticleImageUrl } from "@/lib/articleImageUrls";
 import { assertSafeRemoteUrl, readResponseBytes, safeRemoteFetch } from "@/lib/safeRemoteFetch";
 import type { ImportedArticle } from "@/types/article";
@@ -224,7 +224,7 @@ export async function storeRemotePublicArticleImage(value: string, sourceUrl = "
   }
 
   const input = await readResponseBytes(response, MAX_REMOTE_ARTICLE_IMAGE_BYTES);
-  const output = await sharp(input, { failOn: "error", limitInputPixels: 50_000_000 })
+  const output = await sharp(input, { animated: true, failOn: "error", limitInputPixels: 50_000_000 })
     .rotate()
     .resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true })
     .webp({ quality: 82, effort: 4 })
@@ -283,11 +283,11 @@ export async function localizeImportedArticleImages(
     ? article.blocks.filter((block) => block.type === "image" && block.src && failedSources.has(block.src)).length
     : 0;
   if (!storedBySource.size && !removed) return { article, localized: 0, removed: 0, failures };
+  const retainedArticle = removeFailed ? removeFailedArticleImages(article, failedSources) : article;
   return {
     article: {
-      ...article,
-      blocks: article.blocks
-        .filter((block) => !(removeFailed && block.type === "image" && block.src && failedSources.has(block.src)))
+      ...retainedArticle,
+      blocks: retainedArticle.blocks
         .map((block) => block.type === "image" && block.src && storedBySource.has(block.src)
           ? { ...block, src: storedBySource.get(block.src) as string }
           : block),
@@ -317,6 +317,7 @@ export async function localizePublicArticleInputCover<T extends PublicArticleInp
     }
   }
 
+  let removedArticleImages = false;
   let importedArticle = input.importedArticle
     ? { ...input.importedArticle, ...(storedRecommendation ? { recommendation: storedRecommendation } : {}) }
     : undefined;
@@ -327,6 +328,7 @@ export async function localizePublicArticleInputCover<T extends PublicArticleInp
       { removeFailed: true },
     );
     importedArticle = localized.article;
+    removedArticleImages = localized.removed > 0;
   }
   storedRecommendation = recommendationWithBodyImageFallback(
     storedRecommendation,
@@ -340,6 +342,7 @@ export async function localizePublicArticleInputCover<T extends PublicArticleInp
     ...input,
     ...(storedRecommendation ? { recommendation: storedRecommendation } : {}),
     ...(importedArticle ? { importedArticle } : {}),
+    ...(removedArticleImages && importedArticle ? { body: importedArticle.text } : {}),
   };
 }
 
