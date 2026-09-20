@@ -69,4 +69,4 @@ DeepSeek 保持首选；查词/划词及全文翻译继续默认 Flash，其他�
 
 上述后台展示已由 release `20260919T232800` 上线（parent `20260919T230100`，source `5fa612eb68836158d5605f9c5fc4c703a14dc4e5`）；管理员接口实测显示两条成功的智谱验收调用，普通登录阅读核心三项接口保持 DeepSeek Flash 成功。
 
-自动精选与 DeepSeek/Jev 接口准备、质量门槛、成本及验收边界见 [automated-editorial.md](automated-editorial.md)。实现已部署至大陆生产；全库审核期间暂停自动发布，单站手动导入继续候选流程。
+自动精选与 DeepSeek/Jev 接口准备、质量门槛、成本及验收边界见 [automated-editorial.md](automated-editorial.md)。实现已部署至大陆生产 20260920T084500；全库复审完成，DeepSeek 自动精选及北京时间每日 06:00 发现计划已开启，单站手动导入继续候选流程。验收快照为 346 篇精选、18 篇候选；32 篇判断未定的文章保留，未因审核中断删除。Jev 无密钥，尚未实测。
