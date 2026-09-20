@@ -28,6 +28,7 @@ export interface EditorialReview {
   outputTokens: number;
   costMicrousd: number;
   imageCount: number;
+  repair?: import("@/lib/editorialRepair").EditorialRepairEvidence;
 }
 
 export function parseEditorialDecisions(value: unknown): EditorialDecisions {

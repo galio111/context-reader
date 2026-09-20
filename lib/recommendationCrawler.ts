@@ -1,4 +1,5 @@
 import { classifyArticle } from "@/lib/articleClassification";
+import { repairEditorialArticle } from "@/lib/editorialRepair";
 import { reviewEditorialArticle } from "@/lib/editorialReview";
 import { confirmedEditorialRejection, EDITORIAL_DIFFICULTIES } from "@/lib/editorialReviewPolicy";
 import { sanitizeImportedArticleContent } from "@/lib/articleContentSanitizer";
@@ -156,7 +157,12 @@ export async function runRecommendationCrawler(
   }
 
   const configured = (await getDiscoverySites()).filter((site) => site.enabled && (input.sourceId ? site.id === input.sourceId : site.topics.includes(input.topic)));
-  const sources = configured.flatMap((site) => site.feeds.map((feedUrl) => ({ ...site, feedUrl })));
+  const sources = configured.flatMap((site) => site.feeds.map((feedUrl) => {
+    const url = new URL(feedUrl);
+    // Only bounded WordPress feed pagination. Robots and host checks still run for each URL.
+    if (input.editorial?.enabled && input.feedPage && input.feedPage > 1 && /\/feed\/?$/.test(url.pathname)) url.searchParams.set("paged", String(Math.min(3, Math.floor(input.feedPage))));
+    return { ...site, feedUrl: url.href };
+  }));
   const feedResults = await Promise.allSettled(sources.map((source) => readSourceFeed(source, input.topic)));
   const discoveredItems: FeedItem[] = [];
   feedResults.forEach((feedResult, index) => {
@@ -169,7 +175,7 @@ export async function runRecommendationCrawler(
       });
     }
   });
-  if (input.sourceId && !hasRecentPublishingCadence(discoveredItems.map((item) => item.publishedAt))) {
+  if (input.sourceId && !input.editorial?.enabled && !hasRecentPublishingCadence(discoveredItems.map((item) => item.publishedAt))) {
     return { ...resultBase, targetNewArticles: maxNewArticles, targetAchieved: false, shortfall: maxNewArticles, inventoryAfter: inventoryBefore, finishedAt: new Date().toISOString(), sourceErrors: [...resultBase.sourceErrors, { sourceName: configured[0]?.name || "来源", message: "未确认近期持续更新，本批不使用存档文章凑数。" }] };
   }
 
@@ -200,6 +206,8 @@ export async function runRecommendationCrawler(
       if (allArticles.some((article) => similarArticle(item.title, article.title))) throw new Error("标题与已有文章高度相似");
       if (/\/videos?\//i.test(new URL(item.url).pathname)) throw new Error("视频页面不进入自动候选。");
       const imported = await importArticleThroughApi(origin, item.url);
+      const repair = input.editorial?.enabled ? await repairEditorialArticle(imported.article!) : { article: imported.article! };
+      imported.article = repair.article;
       const article = imported.article!;
       if (input.editorial?.enabled && (!imported.metadata?.completeness || imported.metadata.completeness.missingTextBlocks > 0 || imported.metadata.completeness.missingImages > 0)) throw new Error("页面正文结构与提取结果不一致，暂停自动收录以核实漏段或漏图。");
       if (imported.metadata?.intakeWarnings?.length) throw new Error(imported.metadata.intakeWarnings.join("；"));
@@ -238,9 +246,9 @@ export async function runRecommendationCrawler(
       }
       if (input.editorial?.enabled && !EDITORIAL_DIFFICULTIES.includes(classification.difficulty)) throw new Error("高中及以下难度暂停自动更新，保留原标签且不计入每日精选。");
       if (!classification.qualityReview?.eligible) throw new Error(classification.qualityReview?.reason || "质量判断暂时不可用，未自动入库");
-      if (images.some((image) => image.alt?.trim()) && !classification.qualityReview.imageRelevant) throw new Error("配图说明与正文主题不相符");
+      if (!input.editorial?.enabled && images.some((image) => image.alt?.trim()) && !classification.qualityReview.imageRelevant) throw new Error("配图说明与正文主题不相符");
       if (classification.topics.includes("科技科学") && classification.qualityReview.specialist) throw new Error("科学内容过于专业，不符合通俗科普要求");
-      const dateFailure = freshnessFailure([article.publishedTime || "", item.publishedAt], classification.timeliness === "time-sensitive" || classification.topics.includes("商业经济"));
+      const dateFailure = freshnessFailure([article.publishedTime || "", item.publishedAt], classification.timeliness === "time-sensitive");
       if (dateFailure) throw new Error(dateFailure);
       const rejectedSimilar = allCandidates.some((old) => old.recommendation?.rejectedAt && old.recommendation.rejectionReason === "内容没兴趣" && similarArticle(article.title + " " + classification.summary, old.title + " " + old.summary, 0.5));
       if (rejectedSimilar) throw new Error("与之前标为不感兴趣的文章主题高度相似");
@@ -259,6 +267,12 @@ export async function runRecommendationCrawler(
         const review = await reviewEditorialArticle(prepared.importedArticle, input.editorial);
         if (classification.classificationSource !== "model" || classification.difficultyEvidence.confidence === "low") {
           review.status = "held"; review.reasons.push("难度判断仍不确定");
+        }
+        if (repair.evidence) {
+          review.repair = repair.evidence;
+          review.inputTokens += repair.evidence.inputTokens;
+          review.outputTokens += repair.evidence.outputTokens;
+          review.costMicrousd += repair.evidence.costMicrousd;
         }
         prepared.recommendation.editorialReview = review;
         if (confirmedEditorialRejection(review)) {

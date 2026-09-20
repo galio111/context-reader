@@ -35,7 +35,7 @@ async function reserveJevBudget(inputBytes: number, budgetUsd: number): Promise<
   return true;
 }
 
-async function completeReview(prompt: string, model: string, images: string[] = []) {
+export async function completeReview(prompt: string, model: string, images: string[] = [], maxTokens = 800) {
   if (!process.env.DEEPSEEK_API_KEY) throw new Error("editorial_deepseek_unconfigured");
   const content: Array<{ type: "text"; text: string } | { type: "image_url"; image_url: { url: string } }> = [{ type: "text", text: prompt }];
   let totalImageBytes = 0;
@@ -49,7 +49,7 @@ async function completeReview(prompt: string, model: string, images: string[] = 
   }
   const response = await fetch(`${(process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com").replace(/\/$/, "")}/chat/completions`, {
     method: "POST", headers: { Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ model, messages: [{ role: "user", content: images.length ? content : prompt }], response_format: { type: "json_object" }, thinking: { type: "disabled" }, temperature: 0, max_tokens: 800 }),
+    body: JSON.stringify({ model, messages: [{ role: "user", content: images.length ? content : prompt }], response_format: { type: "json_object" }, thinking: { type: "disabled" }, temperature: 0, max_tokens: maxTokens }),
     signal: AbortSignal.timeout(45_000),
   });
   const payload = await response.json() as { choices?: Array<{ message?: { content?: string } }>; usage?: ProviderTokenUsage };
