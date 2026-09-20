@@ -1460,3 +1460,8 @@ GitHub commit be46869 carried a failed Vercel status for the legacy full-app pro
 ## 2026-09-20 — Editorial safety release accepted
 
 Release 20260920T075500, parent 20260920T000500, source 883a16de105fc1da3595ad3d5d154d24c7070721 passed public mainland identity and signed-in account, sync, Admin-denial, explanation, dictionary, translation and follow-up checks; the disposable account was removed. The publication switch remains off during full-library read-only review. A follow-up adds optional revision guards to existing Admin save/publish/delete operations before cleanup, including a regression proving stale deletions fail closed.
+
+
+## 2026-09-20 — Caption-pairing correction before cleanup
+
+Release 20260920T080000 (parent 20260920T075500, source 9b369b4978e8aa409ecc7a4b9048f66c2904c9ea) accepted the revision guards; public signed-in reading checks passed. The full read-only audit exposed false orphan-caption flags when images had empty alt text or credits were distant. Added full ordered-block plus actual-image pairing, with two positive vision checks required to confirm missing images. Earlier caption findings are re-reviewed and cannot authorize deletion directly. Nineteen targeted regressions and production build pass; final caption correction deployment remains pending in this entry. A fresh database backup restored all 16 public tables successfully before any cleanup.

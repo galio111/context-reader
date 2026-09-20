@@ -153,3 +153,15 @@ test("revision-guarded deletion fails closed when another edit wins", async () =
     assert.equal(urls.length, 2);
   } finally { globalThis.fetch = savedFetch; if (oldUrl === undefined) delete process.env.SUPABASE_URL; else process.env.SUPABASE_URL = oldUrl; if (oldKey === undefined) delete process.env.SUPABASE_SERVICE_ROLE_KEY; else process.env.SUPABASE_SERVICE_ROLE_KEY = oldKey; }
 });
+
+
+test("text-only orphan-caption claims require actual-image pairing before rejection", async () => {
+  const review = await reviewEditorialArticle(article, { ...config, provider: "deepseek" }, { complete: async (prompt, _model, images) => {
+    if (prompt.startsWith("Check the complete ordered")) return { ...await complete(), parsed: { missingCaptionImage: false, uncertain: false } };
+    if (images?.length) return complete();
+    return { ...await complete(), parsed: { checks: { ...clean, orphanCaption: true }, uncertain: false } };
+  } });
+  assert.equal(review.status, "passed");
+  assert.equal(review.checks.orphanCaption, false);
+  assert.deepEqual(review.confirmedDefects, []);
+});
