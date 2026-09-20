@@ -1,7 +1,7 @@
 # Context Reader Architecture
 
 
-自动精选与 DeepSeek/Jev 接口准备、质量门槛、成本及验收边界见 [automated-editorial.md](automated-editorial.md)。该模式需显式开启；单站手动导入继续使用候选流程。
+自动精选与 DeepSeek/Jev 接口准备、质量门槛、成本及验收边界见 [automated-editorial.md](automated-editorial.md)。当前已开启该模式：先安全修复非正文，再按策略 v2 全文/图片复审及版本校验发布；每日 30 篇与次日储备、重试、分布配额和统计邮件由数据库租约协调。单站手动导入继续使用候选流程。
 ## System map
 
 The live release identity is recorded in [release-governance.md](release-governance.md). This document describes the accepted source; historical rollout counts and timings belong in [product-journey.md](product-journey.md).
