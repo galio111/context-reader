@@ -69,7 +69,7 @@ test("sponsored related card cannot condemn an independent article, but the arti
 
 
 test("Guardian share and related-story footer is removed without changing the ending", () => {
-  const html = `<html><title>Report</title><body><article><p>${prose}</p><p>The reporter explains the final outcome and the remaining uncertainty.</p><div>ShareReuse this content</div><h2>More on this story</h2><p>Unrelated news teaser.</p></article></body></html>`;
+  const html = `<html><title>Report</title><body><article><p>${prose}</p><p>The earlier section describes the company and the people affected by its decision.</p><p>The reporter explains the final outcome and the remaining uncertainty.</p><div>ShareReuse this content</div><h2>More on this story</h2><p>Unrelated news teaser.</p></article></body></html>`;
   const result = extractImportedArticleFromHtml(html, "https://www.theguardian.com/business/2026/sep/20/report");
   assert.ok(result?.article.text.includes("remaining uncertainty"));
   assert.ok(!result?.article.text.includes("Unrelated news teaser"));
