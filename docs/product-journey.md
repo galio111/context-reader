@@ -1506,3 +1506,8 @@ Primary topics: science 9, nature 7, culture/history 7, business 3, growth 2, so
 今天旧费率账本已预置 ¥1.637930，阻断批次前后模型 execution 均为384，新增付费调用0；实发 30/35 不足与费用邮件（SMTP accepted）。当前类别文化13、时事6、商业4、科学7；难度15中阶/15进阶。35且≤¥1尚无完整生产日证据，不能保证未来绝不缺额。估算审核50–75篇可约¥0.63–0.89，属于条件预测。Jev无key，未调用；提供只读访问检查/显式小测试脚本与配置文档，不承诺无需绑卡或已验证准确率。
 
 证据：主工作区 artifacts/editorial-audit-20260920/cost-business-acceptance.json、cost-business-verification.log、cost-business-smoke.log、cost-business-deploy.log；私有变更前快照 /var/backups/context-reader/manual/editorial-cost-20260920/。成本与接入详情 docs/editorial-cost-and-jev.md。
+
+
+## 2026-09-20 — Jev production runtime configuration
+
+Installed the user-provided AI Gateway key privately in the active mainland runtime and selected jev-shadow through authenticated Admin. Gateway model metadata returned HTTP 200 with Jev from both workstation and mainland host; Admin confirms Jev and DeepSeek configured, daily budget CNY 1, Jev monthly budget USD 4 and review limit 150. DeepSeek remains final approval and fallback. No inference or paid test was dispatched because today's budget was exhausted; actual Jev inference and accuracy remain unverified. Only app/caddy were recreated under the global deploy lock. No application source release: accepted identity remains 20260920T172600, parent 20260920T104100, source 0a721d9997f9052b7d7d94dd433246098ab7cb93. Private rollback configuration is retained on the server; sanitized evidence: artifacts/jev-key-setup/production-config-result.log. This setup does not prove daily supply or free-tier eligibility.

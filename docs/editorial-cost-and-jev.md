@@ -37,7 +37,7 @@
 
 ## Jev：无须把网站部署到 Vercel
 
-当前大陆服务器可以通过 AI Gateway API 调用 Jev。应用接口及 DeepSeek 回退已经存在。现在使用 `deepseek`；`jev-shadow` 是对照模式，会同时进行 DeepSeek 终审，**不会自动省掉 DeepSeek 费用**。只有用真实文章建立可信的误判对照后，才适合替代其中的判断。概率不是本项目上已经验证的准确率。
+当前大陆服务器可以通过 AI Gateway API 调用 Jev。应用接口及 DeepSeek 回退已经存在。2026-09-20 已将私有 Gateway key 安装到当前生产运行环境，并经带认证的 Admin 接口确认两个 provider 已配置。大陆服务器模型列表请求成功（HTTP 200，包含 Jev）；未执行推理，新增测试费用为零。只重建 app/caddy，应用源码和 releaseId 仍为 `20260920T172600`，数据库等核心服务未重启。每日 ¥1、每月 Jev $4 及每日 150 次尝试上限保持不变。现在使用 `jev-shadow`；`jev-shadow` 是对照模式，会同时进行 DeepSeek 终审，**不会自动省掉 DeepSeek 费用**。只有用真实文章建立可信的误判对照后，才适合替代其中的判断。概率不是本项目上已经验证的准确率。
 
 1. 登录 [Vercel AI Gateway](https://vercel.com/ai-gateway)，确认当前团队。
 2. 进入 AI Gateway → API Keys → Create Key。名称可用 `context-reader-editorial`。若控制台提供 key 预算，设为每月 $4；关闭自动充值。
