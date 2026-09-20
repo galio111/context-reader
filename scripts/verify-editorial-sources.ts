@@ -14,6 +14,7 @@ async function main() {
   const ids = process.argv.slice(2);
   await mkdir("artifacts/editorial-source-probes", { recursive: true });
   for (const site of defaultDiscoverySites().filter((s) => ids.includes(s.id))) {
+    if (process.env.EDITORIAL_PROBE_FEED) { site.feedUrl = process.env.EDITORIAL_PROBE_FEED; site.feeds = [site.feedUrl]; }
     const samples: unknown[] = [];
     try {
       const items = (await readSourceFeed(site, site.topics[0])).filter((i) => !i.publishedAt || Date.parse(i.publishedAt) <= Date.now());

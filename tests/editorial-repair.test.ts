@@ -35,7 +35,7 @@ test("failed repair preserves original and never supplies an approval", async ()
 test("email reports exact published counts, zero categories, primary topics and difficulties", () => {
   const rows = [{ title: "One", sourceUrl: "https://example.org/a", recommendation: { difficulty: "CET-6 / 考研", topics: ["商业经济", "社会生活"] } }] as PublicArticle[];
   const report = editorialDailyReport("2026-09-20", rows, 3, false);
-  assert.match(report.subject, /未达标 1\/30/);
+  assert.match(report.subject, /未达标 1\/35/);
   assert.match(report.text, /商业：1 篇/); assert.match(report.text, /科学：0 篇/);
   assert.match(report.text, /商业经济：1 篇/); assert.match(report.text, /社会生活：0 篇/);
   assert.match(report.text, /CET-6 \/ 考研：1 篇/);
@@ -65,4 +65,13 @@ test("sponsored related card cannot condemn an independent article, but the arti
   const own = document.createElement("span"); own.textContent = "Sponsored Content";
   document.querySelector("article")!.prepend(own);
   assert.ok(publisherIntakeWarnings(document, url).some((s) => s.includes("赞助")));
+});
+
+
+test("Guardian share and related-story footer is removed without changing the ending", () => {
+  const html = `<html><title>Report</title><body><article><p>${prose}</p><p>The reporter explains the final outcome and the remaining uncertainty.</p><div>ShareReuse this content</div><h2>More on this story</h2><p>Unrelated news teaser.</p></article></body></html>`;
+  const result = extractImportedArticleFromHtml(html, "https://www.theguardian.com/business/2026/sep/20/report");
+  assert.ok(result?.article.text.includes("remaining uncertainty"));
+  assert.ok(!result?.article.text.includes("Unrelated news teaser"));
+  assert.ok(!result?.article.text.includes("Reuse this content"));
 });

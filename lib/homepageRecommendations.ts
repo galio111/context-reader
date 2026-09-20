@@ -66,7 +66,8 @@ export function homepageShowcaseArticles(articles: PublicArticle[], count: numbe
 
 function preferenceScore(article: PublicArticle, preferences: RecommendationPreferences): number {
   const preferredStages = audienceStagesForReadingLevel(preferences.readingLevel);
-  const levelScore = preferredStages.some((stage) => article.recommendation?.audienceStages.includes(stage)) ? 4 : 0;
+  const middle = ["六级", "考研", "雅思/托福"].includes(preferences.readingLevel);
+  const levelScore = (middle ? ["CET-6 / 考研", "雅思 / 托福基础"].includes(article.recommendation?.difficulty || "") : preferredStages.some((stage) => article.recommendation?.audienceStages.includes(stage))) ? 4 : 0;
   const interestScore = preferences.interests.filter((interest) => articleMatchesRecommendationInterest(article, interest)).length * 2;
   return levelScore + interestScore;
 }

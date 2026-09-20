@@ -23,12 +23,13 @@ export default function AdminEditorialSettings() {
   }
   return <div className={styles.root}>
     <h3>自动精选</h3>
-    <p>审核通过后直接发布，每日目标 30 篇。高中及以下暂停更新，原标签和手动候选流程保留。无法确认的文章留在候选区。</p>
+    <p>审核通过后直接发布，每日目标 35 篇。高中及以下暂停更新，原标签和手动候选流程保留。无法确认的文章留在候选区。</p>
     {config ? <form onSubmit={(e) => { e.preventDefault(); void save(); }}>
       <label className={styles.check}><input type="checkbox" checked={config.enabled} disabled={busy} onChange={(e) => setConfig({ ...config, enabled: e.target.checked })} />审核通过后自动发布</label>
       <div className={styles.fields}>
         <label>审核方式<select disabled={busy} value={config.provider} onChange={(e) => setConfig({ ...config, provider: e.target.value as EditorialConfig["provider"] })}><option value="deepseek">仅 DeepSeek</option><option value="jev-shadow">Jev 对照试用，DeepSeek 负责终审</option></select></label>
         <label>每日最多尝试篇数<input disabled={busy} type="number" min={30} max={240} required value={config.dailyReviewLimit} onChange={(e) => setConfig({ ...config, dailyReviewLimit: Number(e.target.value) })} /></label>
+        <label>每日 AI 成本上限（元）<input disabled={busy} type="number" min={0} max={10} step={0.1} required value={config.dailyBudgetCny ?? 1} onChange={(e) => setConfig({ ...config, dailyBudgetCny: Number(e.target.value) })} /></label>
         <label>Jev 月预算（美元）<input disabled={busy} type="number" min={0.1} max={4} step={0.1} required value={config.jevMonthlyBudgetUsd} onChange={(e) => setConfig({ ...config, jevMonthlyBudgetUsd: Number(e.target.value) })} /></label>
       </div>
       <p>{jev ? "Jev 密钥已配置；实际可用性和准确度以对照测试为准。" : "Jev 尚未配置，试用模式也会自动使用 DeepSeek。"} Jev 超时、额度不足或返回异常时不影响 DeepSeek 终审。发布数量服从内容质量与分布要求。</p>

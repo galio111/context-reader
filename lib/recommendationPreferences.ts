@@ -93,9 +93,7 @@ export function writeRecommendationPreferencesFromSync(storage: Storage, input: 
 export function audienceStagesForReadingLevel(level: RecommendationReadingLevel | ""): ArticleAudienceStage[] {
   if (level === "高中") return ["高中"];
   if (level === "四级") return ["CET-4"];
-  if (level === "六级") return ["CET-6"];
-  if (level === "考研") return ["考研"];
-  if (level === "雅思/托福") return ["IELTS", "TOEFL"];
+  if (["六级", "考研", "雅思/托福"].includes(level)) return ["CET-6", "考研", "IELTS", "TOEFL"];
   return [];
 }
 
@@ -108,6 +106,6 @@ export function articleMatchesRecommendationInterest(article: PublicArticle, int
   if (interest === "current") return metadata?.topics.includes("社会生活") ?? false;
   if (interest === "growth") return metadata?.topics.includes("人物成长") ?? false;
   if (interest === "literature") return metadata?.topics.includes("故事文学") ?? false;
-  if (interest === "business") return /business|econom|finance|market|trade|industry|商业|经济|金融/i.test(text);
+  if (interest === "business") return metadata?.topics.includes("商业经济") || metadata?.homepageCategory === "商业";
   return /health|medicine|medical|wellbeing|wellness|sleep|exercise|nutrition|diet|健康|医疗|生活方式/i.test(text);
 }

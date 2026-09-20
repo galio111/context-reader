@@ -20,7 +20,7 @@ const SELECTORS: Record<string, string> = {
   "newsinlevels.com": ".test-your-english, .related-posts, .app-promo",
   "themarginalian.org": "#donation, #newsletter, #end_print, #amazon-notice, .donate, .donation, .newsletter",
   "oecdecoscope.blog": ".wp-block-jetpack-subscriptions, .jetpack-subscribe-modal, .wp-block-post-terms",
-  "news.crunchbase.com": ".post-tags, .entry-tags, .mks_author_widget, .related-posts",
+  "news.crunchbase.com": ".post-tags, .entry-tags, .meta-tags, .mks_author_widget, .related-posts",
   "newsforkids.net": ".tab-content, .nocc, .nfk_social_block",
   "daily.jstor.org": ".j-icon, .daily_email_signup, .daily-explore, [class*='collab-incontent-banner']",
   "reasonstobecheerful.world": ".membershipbanner, .series-intro-img",

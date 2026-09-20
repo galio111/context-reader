@@ -200,6 +200,7 @@ export async function runRecommendationCrawler(
     try {
       const earlyFailure = freshnessFailure([item.publishedAt], false);
       if (earlyFailure) throw new Error(earlyFailure);
+      if (/\b(?:top \d+|week[’']s \d+ biggest funding rounds)\b/i.test(item.title)) throw new Error("榜单汇总不进入自动精选，节省模型调用。");
       if (/\/image-article\/apod-/i.test(item.url)) throw new Error("天文每日图片短条目，不作为完整阅读文章");
       if (/\b(?:sponsored|advertorial|paid content|partner content)\b/i.test(item.title + " " + item.description.slice(0, 400))) throw new Error("赞助或推广内容");
       if (/newsinlevels\.com/.test(item.url) && !/-level-3(?:\/|$)/.test(item.url)) throw new Error("只收录 level 3 的完整阅读，避免同文多级重复");

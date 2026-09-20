@@ -24,6 +24,6 @@ export async function retryEditorialCandidate(row: PublicArticle, config: Editor
     review.inputTokens += repair.evidence.inputTokens;
     review.outputTokens += repair.evidence.outputTokens;
   }
-  const recommendation = { ...row.recommendation, difficulty: classification.difficulty, cefr: classification.cefr, audienceStages: classification.audienceStages, topics: classification.topics, homepageCategory: classification.homepageCategory, wordCount: classification.wordCount, timeliness: classification.timeliness, classifiedAt: classification.classifiedAt, classificationSource: classification.classificationSource, difficultyEvidence: classification.difficultyEvidence, editorialReview: review };
+  const recommendation = { ...row.recommendation, difficulty: classification.difficulty, cefr: classification.cefr, audienceStages: classification.audienceStages, topics: classification.topics, homepageCategory: classification.homepageCategory, wordCount: classification.wordCount, timeliness: classification.timeliness, classifiedAt: classification.classifiedAt, classificationSource: classification.classificationSource, reviewNotes: classification.reviewNotes, difficultyEvidence: classification.difficultyEvidence, editorialReview: review };
   return saveArticleCandidate({ id: row.id, expectedUpdatedAt: row.updatedAt, title: row.title, summary: classification.summary, body: article.text, sourceUrl: row.sourceUrl, sourceName: row.sourceName, importedArticle: { ...article, recommendation }, recommendation });
 }

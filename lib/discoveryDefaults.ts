@@ -51,7 +51,7 @@ export function defaultDiscoverySites(): DiscoverySite[] {
     ["Level Read", "levelread.com", "https://levelread.com/", ["社会生活", "科技科学", "商业经济"], true, "^/news/level-3/[^/]+/?$"],
     ["Knowable Magazine", "knowablemagazine.org", "https://knowablemagazine.org/rss", ["科技科学", "自然环境"], false],
     ["Popular Science", "popsci.com", "https://www.popsci.com/feed/", ["科技科学", "自然环境"], false],
-    ["Econlib", "econlib.org", "https://www.econlib.org/feed/", ["商业经济"], false],
+    ["Econlib", "econlib.org", "https://econlib.org/?feed=rss", ["商业经济"], false],
     ["Harvard Working Knowledge", "library.hbs.edu", "https://www.library.hbs.edu/working-knowledge", ["商业经济"], false, "^/working-knowledge/(?!collections|popular-research|about)[^/?]+$"],
     ["Knowledge at Wharton", "knowledge.wharton.upenn.edu", "https://knowledge.wharton.upenn.edu/feed/", ["商业经济"], false],
     ["British Council Magazine", "learnenglish.britishcouncil.org", "https://learnenglish.britishcouncil.org/free-resources/general/magazine-zone", ["文化历史", "社会生活"], true, "^/free-resources/general/magazine-zone/[^/?]+$"],
@@ -66,6 +66,8 @@ export function defaultDiscoverySites(): DiscoverySite[] {
     note: lower ? "专门补充较低难度；仍按实际语言分级，短讯不凑数。" : "待逐站验证，科学只接收面向普通读者的解释型内容。",
   });
   const sites = [...groups.values()];
+  const guardian = sites.find((site) => site.articleHosts[0] === "theguardian.com");
+  if (guardian) { guardian.feeds = [guardian.feedUrl = "https://www.theguardian.com/business/rss", "https://www.theguardian.com/world/rss"]; guardian.topics = ["商业经济", "社会生活", "文化历史", "自然环境"]; }
   const pdr = sites.find((site) => site.articleHosts[0] === "publicdomainreview.org");
   if (pdr) pdr.feeds = [pdr.feedUrl = "https://publicdomainreview.org/rss.xml"];
   const science = sites.find((site) => site.articleHosts[0] === "sciencedaily.com");

@@ -4,6 +4,7 @@ import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 
 const TRAILING_SECTION_PATTERN = /^(?:related\s+(?:topics?|terms?|stories|articles|content)|story\s+source|journal\s+references?|cite\s+this\s+page|explore\s+more|recommended(?:\s+for\s+you)?|you\s+(?:may|might)\s+also\s+like|read\s+next|more\s+(?:stories|articles|from)|most\s+popular|trending|about\s+the\s+author|sign\s+up\s+for\b|advertisement)\b/i;
 const PUBLISHER_TRAILING_SECTIONS: Array<{ domain: string; pattern: RegExp }> = [
+  { domain: "theguardian.com", pattern: /^(?:Share\s*Reuse this content|More on this story|Most viewed)$/i },
   { domain: "globalvoices.org", pattern: /^(?:Categories|Top World Stories|Start the conversation)$/i },
   { domain: "nautil.us", pattern: /^(?:Enjoying Nautilus\?|Lead Image:)/i },
   { domain: "quantamagazine.org", pattern: /^Also in (?:Mathematics|Physics|Biology|Computer Science|Multimedia)$/i },

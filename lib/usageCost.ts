@@ -217,7 +217,7 @@ const USAGE_FEATURES: Array<{ key: string; label: string; routes: string[] }> = 
   { key: "dictionary", label: "单独查词", routes: ["/api/dictionary", "/api/dictionary-stream"] },
   { key: "summary", label: "文章摘要", routes: ["/api/summarize-article"] },
   { key: "sentence_question", label: "句子追问", routes: ["/api/ask-sentence"] },
-  { key: "recommendation_analysis", label: "推荐文章分析", routes: ["/api/admin/article-classification", "/api/admin/article-crawler"] },
+  { key: "recommendation_analysis", label: "推荐文章分析", routes: ["/api/admin/article-classification", "/api/admin/article-crawler", "/api/cron/recommendations"] },
 ];
 
 function usageFeatureForRoute(route: string): { key: string; label: string } {

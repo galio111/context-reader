@@ -1,7 +1,7 @@
 # Context Reader Architecture
 
 
-自动精选与 DeepSeek/Jev 接口准备、质量门槛、成本及验收边界见 [automated-editorial.md](automated-editorial.md)。当前已开启该模式：先安全修复非正文，再按策略 v2 全文/图片复审及版本校验发布；每日 30 篇与次日储备、重试、分布配额和统计邮件由数据库租约协调。单站手动导入继续使用候选流程。
+自动精选与 DeepSeek/Jev 接口准备、质量门槛、成本及验收边界见 [automated-editorial.md](automated-editorial.md)。当前已开启该模式：先安全修复非正文，再按策略 v2 全文/图片复审及版本校验发布；每日 35 篇、¥1 上限、重试、分布配额和统计邮件由数据库租约协调。单站手动导入继续使用候选流程。
 ## System map
 
 The live release identity is recorded in [release-governance.md](release-governance.md). This document describes the accepted source; historical rollout counts and timings belong in [product-journey.md](product-journey.md).
@@ -284,7 +284,7 @@ Reader 切换文章建立独立阅读会话，清空来源词高亮与旧翻译�
 
 语境形容词的 -ed/-ing 词目保留实际形容词形式，前端流式合并和 Anki 导出同步规范；旧 Anki 已导入笔记不会自动改写。解释服务先有限重试损坏 JSON，最终失败仍按原分类保留私有错误报告。
 
-独立自动精选模式以每天 30 篇通过全文和实际图片审核的公开文章为目标；数量不足保留缺口。候选模式原有 30/28 检查线不等于自动精选验收。401 英文词、安全保存配图、时效和去重门槛保留；高中及以下暂停自动更新。Nautilus、Noema、Quanta 已通过生产来源验证并启用。单站手动采集仍只进入候选；运行开关和验收状态见 automated-editorial.md。
+独立自动精选模式以每天 35 篇通过全文和实际图片审核的公开文章为目标；数量不足保留缺口。候选模式原有 30/28 检查线不等于自动精选验收。401 英文词、安全保存配图、时效和去重门槛保留；高中及以下暂停自动更新。Nautilus、Noema、Quanta 已通过生产来源验证并启用。单站手动采集仍只进入候选；运行开关和验收状态见 automated-editorial.md。
 
 Standalone dictionary synonym, word-family, collocation and Chinese-to-English expression headings share a small arrow button that queries the exact displayed English word or phrase through the existing lookup callback. Cached replay, history, quota and offline handling remain shared with typed queries. Buttons are disabled during streaming and expose a word-specific accessible label; coarse pointers receive a 44 px target. The query input also filters the complete stored lookup history by normalized, case-insensitive prefix while focused. Its inline scrollable combobox lists every match in existing recent-first order, supports ArrowUp/ArrowDown, Enter and Escape, and closes on blur or lookup. Filtering never calls an API or consumes quota; selecting a match reuses normal cached lookup and history handling. Empty input hides the list and unmatched input remains available for a new deep query.
 
@@ -315,3 +315,5 @@ Production release `20260919T223000`, parent `20260919T221000`, source `10862dfd
 
 
 Admin account operations includes a dedicated 智谱备用调用 section: 30 Shanghai-day totals for recorded Zhipu executions, success/failure, input/output tokens, estimated cost and latest 100 matching records with time, feature and model. Matching uses provider or GLM model for historical compatibility and runs over the entire bounded 50,000-row result, not only the latest 200 general executions. The existing server-side Admin gate protects all records; no credentials or prompt content are exposed. Refresh uses the existing Admin refresh action. Calls that fail before the route writes a correctly attributed execution are not claimed as complete provider-attempt telemetry.
+
+自动精选成本和商业分类更新的部署状态、¥1/日费用边界、35 篇条件估算以及 Jev 接入步骤见 [editorial-cost-and-jev.md](editorial-cost-and-jev.md)；历史全库离线分类的费用记录不完整，不能把局部 token 估算当作整个账号账单。

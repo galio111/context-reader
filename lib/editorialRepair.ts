@@ -36,6 +36,8 @@ export function applyEditorialRepair(article: ImportedArticle, first: unknown, s
 }
 
 export async function repairEditorialArticle(article: ImportedArticle, complete = completeReview): Promise<{ article: ImportedArticle; evidence?: EditorialRepairEvidence }> {
+  // This only decides whether to TRY repair; the full model audit still runs for every article.
+  if (!/subscribe|newsletter|sign up|related (?:articles|stories)|read more|share (?:this|on)|all rights reserved|about the author|follow us|advertisement|support (?:our|us)|become a member/i.test(article.text)) return { article };
   // Bounded full context, never silently repair a sampled beginning/end.
   const state = JSON.stringify({ title: article.title, blocks: article.blocks.map(({ src, ...b }) => ({ ...b, hasImage: !!src })) });
   if (state.length > 80_000) return { article };
