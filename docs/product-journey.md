@@ -1493,3 +1493,16 @@ The user corrected the earlier deletion-first treatment of removable non-body fu
 Accepted release `20260920T104100`, parent `20260920T101600`, source `86f4a55840e176a60b74189e1cd771fde685c1fe` cumulatively includes repair release `20260920T101600`. 140 regressions, build, protected contracts, egress guard and live signed-in account/sync/Admin/reading plus health checks passed. At 10:50 Beijing, the real pipeline had 30 auto-published articles, all 30 present in public homepage HTML, all 64 unique first-party images readable, and zero review-hash/word-count/placement errors. SMTP accepted a success report after the earlier 28/30 shortfall report. Temporary maintenance allowance 240 was restored to normal 150; cumulative attempts 160 were retained honestly rather than reset.
 
 Primary topics: science 9, nature 7, culture/history 7, business 3, growth 2, society 1, literature 1. Difficulties: CET-6/考研 15, IELTS/TOEFL advanced 15, foundation 0. Source count 8. Online classification/review executions since 10:00 estimated $0.143768 while adding 22 to the eight already published; this excludes earlier/offline/hosting costs and is not a full-day invoice. Daily 06:00 scheduling remains enabled. A single verified day and a reserve mechanism do not establish stable multi-day supply or exact exam-equivalence grading. Evidence: `artifacts/editorial-audit-20260920/daily-30-verification.md` and private server `daily-30-acceptance.json`.
+
+
+## 2026-09-20 — 自动精选成本上限、35 篇目标与商业来源
+
+用户发现商业/时事不足，要求每日 35、费用邮件，并确认整个流水线每天最多 ¥1。此前仅报告最后 22 篇的 $0.143768 不代表全任务；补查生产当日精选 384 次调用约 ¥1.638，离线审核 $0.822909，离线分类缺完整 token，不能给出虚假的精确总账。
+
+发布 20260920T172600，父 20260920T104100，源码 0a721d9997f9052b7d7d94dd433246098ab7cb93：每请求持久化预留、实际 token 结算、未知结果保留预留；¥1/日、35目标、完成即停，不额外付费备货。邮件新增费用、阶段、输入输出和未知预留。全文分类须正文原句证据；商业兴趣使用元数据；六级/考研与雅思/托福基础统一偏好层。廉价修复触发检查与 Guardian/Crunchbase 清洗减少无用调用。Guardian 商业/世界订阅及 Crunchbase 已通过生产验证启用。核读全文后纠正海军采购、Vals（商业）及印度来电监管（时事）。高中标签与合格现有精选保留，不重做删除清库。
+
+145 项回归、生产构建、发布契约、egress 通过。公开 connectivity 与软链匹配；账号/同步/Admin边界复验，临时账号删除；30 篇首页真实可见，64 张图可读，哈希一致；原父版本镜像及备份保留，仅 app/caddy 重建。付费核心阅读/强制提供商实测未重复，沿用同日旧版本已通过证据，不能声称本版重新付费验证。
+
+今天旧费率账本已预置 ¥1.637930，阻断批次前后模型 execution 均为384，新增付费调用0；实发 30/35 不足与费用邮件（SMTP accepted）。当前类别文化13、时事6、商业4、科学7；难度15中阶/15进阶。35且≤¥1尚无完整生产日证据，不能保证未来绝不缺额。估算审核50–75篇可约¥0.63–0.89，属于条件预测。Jev无key，未调用；提供只读访问检查/显式小测试脚本与配置文档，不承诺无需绑卡或已验证准确率。
+
+证据：主工作区 artifacts/editorial-audit-20260920/cost-business-acceptance.json、cost-business-verification.log、cost-business-smoke.log、cost-business-deploy.log；私有变更前快照 /var/backups/context-reader/manual/editorial-cost-20260920/。成本与接入详情 docs/editorial-cost-and-jev.md。
