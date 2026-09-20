@@ -1,4 +1,5 @@
 import { getEditorialSpend, withEditorialBudget } from "@/lib/editorialBudget";
+import { editorialBudgetForDay } from "@/lib/editorialBudgetPolicy";
 import { retryEditorialCandidate } from "@/lib/editorialPending";
 import { sendSiteNotificationEmail } from "@/lib/siteNotificationEmail";
 import { editorialDailyReport } from "@/lib/editorialReport";
@@ -67,7 +68,8 @@ async function notifyDailyResult(today: string, articles: PublicArticle[], attem
 
 /** Caller holds the cross-instance discovery lease. One source per bounded batch. */
 export async function runEditorialBatch(origin: string, trigger: "scheduled" | "manual", config: EditorialConfig, now: Date): Promise<RecommendationAutomationRunResponse> {
-  return withEditorialBudget(shanghaiDay(now), config.dailyBudgetCny ?? 1, () => runBudgetedBatch(origin, trigger, config, now));
+  const effectiveConfig = { ...config, dailyBudgetCny: editorialBudgetForDay(config, shanghaiDay(now)) };
+  return withEditorialBudget(shanghaiDay(now), effectiveConfig.dailyBudgetCny, () => runBudgetedBatch(origin, trigger, effectiveConfig, now));
 }
 async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual", config: EditorialConfig, now: Date): Promise<RecommendationAutomationRunResponse> {
   const today = shanghaiDay(now);
@@ -117,7 +119,7 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
     const attempts = Math.min(3, config.dailyReviewLimit - ledger.attempts);
     ledger.attempts += attempts; // reserve before network calls; crash cannot create unlimited spend
     await writeDiscoverySetting(dayKey, ledger);
-    result = await runRecommendationCrawler({ topic: site.topics[0], difficulty: "any", targetInventory: 0, ignoreInventoryTarget: true, inventoryScope: "candidates", sourceId: site.id, maxNewArticles: 3, maxAttempts: attempts, feedPage: Math.min(3, Math.ceil(entry.visits / 3)), excludedUrls: entry.urls, editorial: config }, origin);
+    result = await runRecommendationCrawler({ topic: site.topics[0], difficulty: "any", targetInventory: 0, ignoreInventoryTarget: true, inventoryScope: "candidates", sourceId: site.id, maxNewArticles: Math.min(3, DAILY_DISCOVERY_TARGET - todays().length), maxAttempts: attempts, feedPage: Math.min(3, Math.ceil(entry.visits / 3)), excludedUrls: entry.urls, editorial: config }, origin);
     // Reconcile reservations only after a completed call. Crashes retain their bounded reservation.
     ledger.attempts -= Math.max(0, attempts - result.attempted);
     await writeDiscoverySetting(`recommendation_editorial_batch_${today}_${site.id}`, { at: new Date().toISOString(), attempted: result.attempted, created: result.created.length, skipped: result.skipped, sourceErrors: result.sourceErrors });

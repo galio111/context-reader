@@ -4,6 +4,8 @@ Accepted production: `20260920T172600`, parent `20260920T104100`, source `0a721d
 
 ## Current cost and balance policy
 
+A validated optional `budgetTrial: { day, cny }` applies only to the exact Shanghai ledger date; the base `dailyBudgetCny` remains unchanged. The authorized 2026-09-21 trial cap is CNY 3, returning to CNY 1 for all other dates without a reset job. It is a spending ceiling, not a forecast. Source batches request at most the remaining daily article count. Emails identify advisory Jev coverage and explicitly state zero independent Jev approvals.
+
 Daily target is 35, with the user-confirmed **¥1/day** pipeline budget. Pre-request durable reservations cover classification, repair, text/image review, retries and Jev shadow calls; known usage settles the reservation, unknown outcomes retain it. Completed days stop all further paid reserve work. Daily email includes actual estimated cost, token totals, stages and unknown reserved cost. See [cost audit and Jev setup](editorial-cost-and-jev.md) for the incomplete historical accounting and exact limits of the daily forecast.
 
 Classification uses full article text, validates every topic/category and requires two verbatim body evidence excerpts; malformed classification cannot silently fall back to keyword categories. Business preferences now use metadata. CET-6/考研 and IELTS/TOEFL foundation share the same preference tier. Daily category deficits target business/current/science/culture 9/9/9/8, capped at 10 each, and the two language tiers at 18 each; these are selection constraints, never permission to relabel.

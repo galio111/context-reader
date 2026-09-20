@@ -1511,3 +1511,8 @@ Primary topics: science 9, nature 7, culture/history 7, business 3, growth 2, so
 ## 2026-09-20 — Jev production runtime configuration
 
 Installed the user-provided AI Gateway key privately in the active mainland runtime and selected jev-shadow through authenticated Admin. Gateway model metadata returned HTTP 200 with Jev from both workstation and mainland host; Admin confirms Jev and DeepSeek configured, daily budget CNY 1, Jev monthly budget USD 4 and review limit 150. DeepSeek remains final approval and fallback. No inference or paid test was dispatched because today's budget was exhausted; actual Jev inference and accuracy remain unverified. Only app/caddy were recreated under the global deploy lock. No application source release: accepted identity remains 20260920T172600, parent 20260920T104100, source 0a721d9997f9052b7d7d94dd433246098ab7cb93. Private rollback configuration is retained on the server; sanitized evidence: artifacts/jev-key-setup/production-config-result.log. This setup does not prove daily supply or free-tier eligibility.
+
+
+## 2026-09-20 — One-day editorial cost measurement budget
+
+User authorized a CNY 3 ceiling for the 2026-09-21 run targeting 35 articles, with CNY 1 on all other Shanghai dates. Implemented a date-scoped budget exception separate from the persistent base, preserved by unrelated Admin saves. Added Shanghai-midnight and malformed-date regression tests, bounded each source batch by remaining daily demand, and clarified Jev advisory coverage in email. No immediate paid trial was authorized or dispatched. Deployment acceptance is recorded below after verification.

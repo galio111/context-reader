@@ -16,6 +16,7 @@ export function editorialDailyReport(day: string, articles: PublicArticle[], att
       "主要题材（每篇只计第一标签）：\n" + count((a) => a.recommendation?.topics[0] || "未分类", ARTICLE_TOPICS),
       "难度：\n" + count((a) => a.recommendation?.difficulty || "未分类", EDITORIAL_DIFFICULTIES),
       `实际审核尝试：${attempts}。修复后通过：${articles.filter((a) => a.recommendation?.editorialReview?.repair).length} 篇。`,
+      `本次入选文章中，有 Jev 对照结果：${articles.filter((a) => Object.keys(a.recommendation?.editorialReview?.jev || {}).length > 0).length} 篇；记录 Jev 回退：${articles.filter((a) => a.recommendation?.editorialReview?.provider === "deepseek-fallback").length} 篇。对照结果可能来自之前的审核，不能当作本日 Jev 请求次数。Jev 目前独立审批 0 篇，DeepSeek 仍审核相同正文，并负责分类、难度和图片检查。当天 Jev 调用费用见上方“Jev 对照”；超时等未结算请求包含在结果不明预留中。`,
       "逐篇核验（正文和图片均经审核，模型判断仍可能有误）：\n" + articles.map((a, i) => `${i + 1}. ${a.title}\n${a.recommendation?.difficulty} / ${a.recommendation?.topics[0]}\n原文：${a.sourceUrl}`).join("\n"),
       "首页：https://context-reader.com/",
     ].join("\n\n"),

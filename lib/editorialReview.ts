@@ -1,4 +1,5 @@
 import sharp from "sharp";
+import { parseEditorialBudgetTrial, type EditorialBudgetTrial } from "@/lib/editorialBudgetPolicy";
 import { editorialPaidRequest } from "@/lib/editorialBudget";
 import { createHash } from "node:crypto";
 import { experimental_evaluate as evaluate } from "ai";
@@ -9,13 +10,13 @@ import { safeRemoteFetch, readResponseBytes } from "@/lib/safeRemoteFetch";
 import { EDITORIAL_POLICY_VERSION, EDITORIAL_QUESTIONS, editorialChunks, editorialStructureFailures, parseEditorialDecisions, type EditorialCheck, type EditorialProvider, type EditorialReview } from "@/lib/editorialReviewPolicy";
 import type { ImportedArticle } from "@/types/article";
 
-export interface EditorialConfig { enabled: boolean; provider: EditorialProvider; jevMonthlyBudgetUsd: number; dailyReviewLimit: number; dailyBudgetCny?: number }
+export interface EditorialConfig { enabled: boolean; provider: EditorialProvider; jevMonthlyBudgetUsd: number; dailyReviewLimit: number; dailyBudgetCny?: number; budgetTrial?: EditorialBudgetTrial | null }
 export const EDITORIAL_CONFIG_KEY = "recommendation_editorial_config_v1";
 export async function getEditorialConfig(): Promise<EditorialConfig> {
   const value = await readDiscoverySetting<Partial<EditorialConfig>>(EDITORIAL_CONFIG_KEY, {});
   const budget = Number(value.jevMonthlyBudgetUsd ?? 4);
   const attempts = Number(value.dailyReviewLimit ?? 90);
-  return { dailyBudgetCny: Math.min(10, Math.max(0, Number.isFinite(Number(value.dailyBudgetCny)) ? Number(value.dailyBudgetCny) : 1)), enabled: value.enabled === true, provider: value.provider === "jev-shadow" ? value.provider : "deepseek", jevMonthlyBudgetUsd: Number.isFinite(budget) ? Math.min(4, Math.max(0, budget)) : 4, dailyReviewLimit: Number.isFinite(attempts) ? Math.min(240, Math.max(30, Math.floor(attempts))) : 90 };
+  return { budgetTrial: parseEditorialBudgetTrial(value.budgetTrial), dailyBudgetCny: Math.min(10, Math.max(0, Number.isFinite(Number(value.dailyBudgetCny)) ? Number(value.dailyBudgetCny) : 1)), enabled: value.enabled === true, provider: value.provider === "jev-shadow" ? value.provider : "deepseek", jevMonthlyBudgetUsd: Number.isFinite(budget) ? Math.min(4, Math.max(0, budget)) : 4, dailyReviewLimit: Number.isFinite(attempts) ? Math.min(240, Math.max(30, Math.floor(attempts))) : 90 };
 }
 function canonicalValue(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(canonicalValue);
