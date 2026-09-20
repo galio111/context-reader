@@ -26,7 +26,7 @@ Bounded DeepSeek samples after cleanup: Nautilus moon/crater 415 words, review $
 
 ## Validation and limits
 
-19 editorial regressions cover full-text coverage, strict boolean schema, label exclusions, content binding, rejected/edited candidates, image structure, balance, sanitizer cleanup, Jev outage and budget-store fallback, DeepSeek failure and Pro escalation. 89 existing critical and 18 discovery regressions plus protected release contracts passed. Desktop/mobile form interaction was exercised with browser API fixtures; live Admin authorization/publication must be checked separately after deployment. No model can certify perfect completeness or objectively exact learner difficulty. Retained manual review is the recovery path.
+21 editorial regressions cover full-text coverage, strict boolean schema, label exclusions, content binding, rejected/edited candidates, image structure, balance, sanitizer cleanup, Jev outage and budget-store fallback, DeepSeek failure and Pro escalation. 89 existing critical and 18 discovery regressions plus protected release contracts passed. Desktop/mobile form interaction was exercised with browser API fixtures; live Admin authorization/publication must be checked separately after deployment. No model can certify perfect completeness or objectively exact learner difficulty. Retained manual review is the recovery path.
 
 ## Existing-library audit acceptance
 
@@ -37,3 +37,5 @@ Private server snapshots on 2026-09-20 contain 240 candidates, 233 published art
 Existing Admin save, publish and delete operations accept an optional expectedUpdatedAt revision. Guarded operations use a database compare-and-swap; stale decisions cannot overwrite or delete later edits, and guarded publication refuses duplicate replacement. The audit operator supplies the exact snapshot revision and records each mutation result.
 
 Text-only orphan-caption flags are provisional. The reviewer compares the full ordered blocks with all actual images using Flash, requiring two explicit missing-image decisions before confirming a defect. Absent alt text or a distant credit alone is not a missing image. The read-only recheck tool revisits earlier caption flags before cleanup.
+
+Completed, explicitly confirmed automatic defects are saved directly in the reversible rejected queue, not the active candidate queue; uncertainty and interrupted reviews remain pending. `recommendation_editorial_excluded_urls_v1` stores up to 5,000 canonicalizable URLs from explicitly deleted audit failures, preventing RSS rediscovery of removed content. Explicit URL intake remains available. This is separate from daily balance and cost reservations.

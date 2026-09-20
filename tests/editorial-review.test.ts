@@ -181,3 +181,13 @@ test("saving metadata never persists a presentation cover or shifts body identit
     assert.deepEqual(payload.imported_article.blocks, [{ id: "block-1", type: "paragraph", text: article.text }]);
   } finally { globalThis.fetch = savedFetch; if (oldUrl === undefined) delete process.env.SUPABASE_URL; else process.env.SUPABASE_URL = oldUrl; if (oldKey === undefined) delete process.env.SUPABASE_SERVICE_ROLE_KEY; else process.env.SUPABASE_SERVICE_ROLE_KEY = oldKey; }
 });
+
+
+test("only completed confirmed defects leave the active candidate queue", async () => {
+  const { confirmedEditorialRejection } = await import("../lib/editorialReviewPolicy");
+  const base = await reviewEditorialArticle(article, { ...config, provider: "deepseek" }, { complete });
+  assert.equal(confirmedEditorialRejection(base), false);
+  assert.equal(confirmedEditorialRejection({ ...base, status: "held", confirmedDefects: [] }), false);
+  assert.equal(confirmedEditorialRejection({ ...base, status: "held", completed: false, confirmedDefects: ["contamination"] }), false);
+  assert.equal(confirmedEditorialRejection({ ...base, status: "held", completed: true, confirmedDefects: ["contamination"] }), true);
+});

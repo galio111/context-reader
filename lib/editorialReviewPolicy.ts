@@ -73,3 +73,7 @@ export function editorialBalanceScore(topic: ArticleTopic, difficulty: ArticleDi
   const sameSource = recent.filter((a) => a.recommendation?.discoverySourceId === sourceId).length;
   return -(sameTopic * 3 + sameDifficulty * 2 + sameSource);
 }
+
+export function confirmedEditorialRejection(review: EditorialReview): boolean {
+  return review.status === "held" && review.completed === true && !!review.confirmedDefects?.length;
+}

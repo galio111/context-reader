@@ -1,8 +1,8 @@
 import { classifyArticle } from "@/lib/articleClassification";
 import { reviewEditorialArticle } from "@/lib/editorialReview";
-import { EDITORIAL_DIFFICULTIES } from "@/lib/editorialReviewPolicy";
+import { confirmedEditorialRejection, EDITORIAL_DIFFICULTIES } from "@/lib/editorialReviewPolicy";
 import { sanitizeImportedArticleContent } from "@/lib/articleContentSanitizer";
-import { getDiscoverySites } from "@/lib/discoveryStore";
+import { getDiscoverySites, readDiscoverySetting } from "@/lib/discoveryStore";
 import { freshnessFailure, similarArticle, hasRecentPublishingCadence, minimumDiscoveryWords } from "@/lib/discoveryPolicy";
 import { localizePublicArticleInputCover } from "@/lib/publicArticleCovers";
 import { articleHasHomepageImage } from "@/lib/articleMedia";
@@ -173,7 +173,9 @@ export async function runRecommendationCrawler(
     return { ...resultBase, targetNewArticles: maxNewArticles, targetAchieved: false, shortfall: maxNewArticles, inventoryAfter: inventoryBefore, finishedAt: new Date().toISOString(), sourceErrors: [...resultBase.sourceErrors, { sourceName: configured[0]?.name || "来源", message: "未确认近期持续更新，本批不使用存档文章凑数。" }] };
   }
 
-  const knownUrls = new Set(allArticles.map((article) => canonicalArticleUrl(article.sourceUrl)).filter(Boolean));
+  const excluded = await readDiscoverySetting<unknown>("recommendation_editorial_excluded_urls_v1", []);
+  const excludedUrls = Array.isArray(excluded) ? excluded.filter((url): url is string => typeof url === "string").slice(-5000) : [];
+  const knownUrls = new Set([...allArticles.map((article) => article.sourceUrl), ...excludedUrls].map(canonicalArticleUrl).filter(Boolean));
   const knownTitles = new Set(allArticles.map((article) => normalizedFeedTitle(article.title)).filter(Boolean));
   const knownArticleIds = new Set(allArticles.map((article) => article.id));
   const uniqueItems = interleaveSources(
@@ -259,6 +261,10 @@ export async function runRecommendationCrawler(
           review.status = "held"; review.reasons.push("难度判断仍不确定");
         }
         prepared.recommendation.editorialReview = review;
+        if (confirmedEditorialRejection(review)) {
+          prepared.recommendation.rejectedAt = new Date().toISOString();
+          prepared.recommendation.rejectionReason = review.confirmedDefects?.includes("promotional") ? "广告或软文" : review.confirmedDefects?.includes("irrelevantImage") ? "图片不合适" : "正文不完整或杂乱";
+        }
         prepared.importedArticle.recommendation = prepared.recommendation;
       }
       const candidate = await saveArticleCandidate(prepared);
