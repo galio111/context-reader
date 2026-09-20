@@ -13,7 +13,7 @@ export async function getEditorialConfig(): Promise<EditorialConfig> {
   const value = await readDiscoverySetting<Partial<EditorialConfig>>(EDITORIAL_CONFIG_KEY, {});
   const budget = Number(value.jevMonthlyBudgetUsd ?? 4);
   const attempts = Number(value.dailyReviewLimit ?? 90);
-  return { enabled: value.enabled === true, provider: value.provider === "jev-shadow" ? value.provider : "deepseek", jevMonthlyBudgetUsd: Number.isFinite(budget) ? Math.min(4, Math.max(0, budget)) : 4, dailyReviewLimit: Number.isFinite(attempts) ? Math.min(150, Math.max(30, Math.floor(attempts))) : 90 };
+  return { enabled: value.enabled === true, provider: value.provider === "jev-shadow" ? value.provider : "deepseek", jevMonthlyBudgetUsd: Number.isFinite(budget) ? Math.min(4, Math.max(0, budget)) : 4, dailyReviewLimit: Number.isFinite(attempts) ? Math.min(240, Math.max(30, Math.floor(attempts))) : 90 };
 }
 function canonicalValue(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(canonicalValue);

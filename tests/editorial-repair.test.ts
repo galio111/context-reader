@@ -5,6 +5,8 @@ import { editorialDailyReport } from "../lib/editorialReport";
 import type { ImportedArticle } from "../types/article";
 import type { PublicArticle } from "../types/publicArticle";
 import { extractImportedArticleFromHtml } from "../lib/urlArticleExtractor";
+import { publisherIntakeWarnings } from "../lib/publisherExtractionProfiles";
+import { JSDOM } from "jsdom";
 const prose = "This is substantive independent reporting about people and the natural world. ".repeat(45);
 const article: ImportedArticle = { title: "Example", url: "https://example.org/a", siteName: "Example", text: prose + "\nSubscribe to our newsletter.", blocks: [{ id: "p", type: "paragraph", text: prose }, { id: "ad", type: "paragraph", text: "Subscribe to our newsletter." }, { id: "end", type: "paragraph", text: "The final substantive paragraph must remain intact." }, { id: "img", type: "image", src: "https://example.org/photo.jpg", alt: "Article illustration" }] };
 const proposal = { uncertain: false, remove: [{ id: "ad", text: "Subscribe to our newsletter.", category: "newsletter", reason: "standalone signup" }] };
@@ -53,4 +55,14 @@ test("Global Voices footer boundary preserves the complete story before categori
   const result = extractImportedArticleFromHtml(html, "https://globalvoices.org/2026/09/20/story/");
   assert.ok(result?.article.text.includes("complete conclusion"));
   assert.ok(!result?.article.text.includes("Top World Stories"));
+});
+
+test("sponsored related card cannot condemn an independent article, but the article's own label blocks", () => {
+  const url = "https://www.popsci.com/technology/real-story";
+  const card = '<div class="post-content"><span>Sponsored Content</span><a class="card-post-title-link" href="/sponsored/other-story">Other story</a></div>';
+  const document = new JSDOM(`<article><h1>Real story</h1><p>${prose}</p></article>${card}`, { url }).window.document;
+  assert.deepEqual(publisherIntakeWarnings(document, url), []);
+  const own = document.createElement("span"); own.textContent = "Sponsored Content";
+  document.querySelector("article")!.prepend(own);
+  assert.ok(publisherIntakeWarnings(document, url).some((s) => s.includes("赞助")));
 });

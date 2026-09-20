@@ -28,7 +28,15 @@ const SELECTORS: Record<string, string> = {
 export function publisherIntakeWarnings(document: Document, baseUrl = ""): string[] {
   const warnings: string[] = [];
   if ([...document.querySelectorAll('script[type="application/ld+json"]')].some((s) => /"isAccessibleForFree"\s*:\s*(?:false|"false")/.test(s.textContent || ""))) warnings.push("页面标记正文需要订阅");
-  if ([...document.querySelectorAll("p,span,small,div")].some((node) => node.children.length === 0 && /^(?:sponsored(?: content| post| by .{1,80})?|paid content|advertorial|partner content|brand studio)$/i.test(node.textContent?.trim() || ""))) warnings.push("页面包含赞助或付费推广标记");
+  if ([...document.querySelectorAll("p,span,small,div")].some((node) => {
+    if (node.children.length || !/^(?:sponsored(?: content| post| by .{1,80})?|paid content|advertorial|partner content|brand studio)$/i.test(node.textContent?.trim() || "")) return false;
+    // A sponsored recommendation card describes that linked story, not this article.
+    const cardLink = node.closest(".post-content")?.querySelector("a.card-post-title-link[href]");
+    if (cardLink && baseUrl) {
+      try { if (new URL(cardLink.getAttribute("href")!, baseUrl).pathname.replace(/\/$/, "") !== new URL(baseUrl).pathname.replace(/\/$/, "")) return false; } catch { /* unrecognized markers remain blocking */ }
+    }
+    return true;
+  })) warnings.push("页面包含赞助或付费推广标记");
   let host = "";
   try { host = new URL(baseUrl).hostname.replace(/^www\./, ""); } catch { /* malformed URLs are rejected earlier */ }
   const pageTitle = document.querySelector("h1")?.textContent?.trim() || document.title;

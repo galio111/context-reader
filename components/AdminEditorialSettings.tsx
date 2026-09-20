@@ -28,7 +28,7 @@ export default function AdminEditorialSettings() {
       <label className={styles.check}><input type="checkbox" checked={config.enabled} disabled={busy} onChange={(e) => setConfig({ ...config, enabled: e.target.checked })} />审核通过后自动发布</label>
       <div className={styles.fields}>
         <label>审核方式<select disabled={busy} value={config.provider} onChange={(e) => setConfig({ ...config, provider: e.target.value as EditorialConfig["provider"] })}><option value="deepseek">仅 DeepSeek</option><option value="jev-shadow">Jev 对照试用，DeepSeek 负责终审</option></select></label>
-        <label>每日最多尝试篇数<input disabled={busy} type="number" min={30} max={150} required value={config.dailyReviewLimit} onChange={(e) => setConfig({ ...config, dailyReviewLimit: Number(e.target.value) })} /></label>
+        <label>每日最多尝试篇数<input disabled={busy} type="number" min={30} max={240} required value={config.dailyReviewLimit} onChange={(e) => setConfig({ ...config, dailyReviewLimit: Number(e.target.value) })} /></label>
         <label>Jev 月预算（美元）<input disabled={busy} type="number" min={0.1} max={4} step={0.1} required value={config.jevMonthlyBudgetUsd} onChange={(e) => setConfig({ ...config, jevMonthlyBudgetUsd: Number(e.target.value) })} /></label>
       </div>
       <p>{jev ? "Jev 密钥已配置；实际可用性和准确度以对照测试为准。" : "Jev 尚未配置，试用模式也会自动使用 DeepSeek。"} Jev 超时、额度不足或返回异常时不影响 DeepSeek 终审。发布数量服从内容质量与分布要求。</p>
