@@ -1465,3 +1465,10 @@ Release 20260920T075500, parent 20260920T000500, source 883a16de105fc1da3595ad3d
 ## 2026-09-20 — Caption-pairing correction before cleanup
 
 Release 20260920T080000 (parent 20260920T075500, source 9b369b4978e8aa409ecc7a4b9048f66c2904c9ea) accepted the revision guards; public signed-in reading checks passed. The full read-only audit exposed false orphan-caption flags when images had empty alt text or credits were distant. Added full ordered-block plus actual-image pairing, with two positive vision checks required to confirm missing images. Earlier caption findings are re-reviewed and cannot authorize deletion directly. Nineteen targeted regressions and production build pass; final caption correction deployment remains pending in this entry. A fresh database backup restored all 16 public tables successfully before any cleanup.
+
+
+## 2026-09-20 — Existing-library cleanup and legacy cover identity repair
+
+The reviewed 473-row snapshot produced 162 candidate publications, 60 candidate deletions and 52 published deletions. Two confirmed school-level candidates remain unpublished; 16 candidates and 16 published articles with unresolved judgements remain unchanged. Every mutation used revision guards, and an interrupted candidate save was resumed only after all fresh content fields exactly matched the reviewed input. The private mutation journal and database restore-tested backup preserve recovery evidence.
+
+Post-write verification caught 23 legacy cover-only published rows whose presentation covers were accidentally persisted as body images during metadata saves, renumbering blocks without changing text or image content. Saving now strips presentation-only cover blocks before persistence so the reader can recreate the same cover while preserving body and translation identities. Twenty editorial regressions, 89 critical regressions and production build passed; repair deployment and exact post-repair verification are required before re-enabling automation.

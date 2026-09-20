@@ -7,7 +7,7 @@ import {
   trimTrailingWebsiteText,
 } from "@/lib/articleContentSanitizer";
 import { countArticleEnglishWords } from "@/lib/articleWordCount";
-import { recommendationWithBodyImageFallback, withLeadCoverForImageFreeArticle } from "@/lib/articleMedia";
+import { isPresentationCoverBlock, recommendationWithBodyImageFallback, withLeadCoverForImageFreeArticle } from "@/lib/articleMedia";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import { createArticleTranslationBatches } from "@/lib/articleTranslationBatching";
 import { createArticleTranslationCacheKey } from "@/lib/articleTranslationIdentity";
@@ -229,6 +229,7 @@ function importedArticleForInput(input: PublicArticleInput): ImportedArticle {
   if (input.importedArticle) {
     return {
       ...input.importedArticle,
+      blocks: input.importedArticle.blocks.filter((block) => !isPresentationCoverBlock(block)),
       title: input.title.trim(),
       url: sourceUrl,
       siteName: sourceName,
