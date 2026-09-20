@@ -24,6 +24,7 @@ export interface EditorialReview {
   reasons: string[];
   checks: EditorialDecisions;
   jev?: Partial<Record<EditorialCheck, number>>;
+  jevIndependentChecks?: EditorialCheck[];
   inputTokens: number;
   outputTokens: number;
   costMicrousd: number;

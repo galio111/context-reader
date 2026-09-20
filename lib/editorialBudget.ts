@@ -6,11 +6,13 @@ export interface EditorialSpend {
   actualMicrocny: number; actualMicrousd: number; reservedMicrocny: number;
   calls: number; inputTokens: number; outputTokens: number; blocked: boolean;
   stages: Record<string, { calls: number; microcny: number }>;
+  providers?: Record<string, { calls: number; settledCalls: number; microcny: number; microusd: number; reservedMicrocny: number; inputTokens: number; outputTokens: number }>;
 }
 const empty = (): EditorialSpend => ({ actualMicrocny: 0, actualMicrousd: 0, reservedMicrocny: 0, calls: 0, inputTokens: 0, outputTokens: 0, blocked: false, stages: {} });
 type Store = { read: (key: string) => Promise<EditorialSpend>; write: (key: string, value: EditorialSpend) => Promise<void> };
 const context = new AsyncLocalStorage<{ day: string; limit: number; store?: Store }>();
 export const editorialBudgetActive = () => !!context.getStore();
+export const editorialBudgetDay = () => context.getStore()?.day;
 export const withEditorialBudget = <T>(day: string, cny: number, work: () => Promise<T>, store?: Store) => context.run({ day, limit: Math.floor(cny * 1e6), store }, work);
 export const getEditorialSpend = (day: string) => context.getStore()?.store?.read(`recommendation_editorial_spend_${day}`) ?? readDiscoverySetting<EditorialSpend>(`recommendation_editorial_spend_${day}`, empty());
 
@@ -34,6 +36,11 @@ export async function editorialPaidRequest(stage: string, model: string, prompt:
   }
   spent.reservedMicrocny += reserve;
   spent.calls++;
+  const provider = jev ? "jev" : /^glm-/i.test(model) ? "zhipu" : "deepseek";
+  spent.providers ||= {};
+  const providerSpend = spent.providers[provider] ||= { calls: 0, settledCalls: 0, microcny: 0, microusd: 0, reservedMicrocny: 0, inputTokens: 0, outputTokens: 0 };
+  providerSpend.calls++;
+  providerSpend.reservedMicrocny += reserve;
   await save(key, spent);
   const response = await request();
   const payload = await response.clone().json().catch(() => null) as { usage?: ProviderTokenUsage; gatewayCostUsd?: number } | null;
@@ -45,6 +52,12 @@ export async function editorialPaidRequest(stage: string, model: string, prompt:
     spent.reservedMicrocny -= reserve;
     spent.inputTokens += payload.usage.prompt_tokens || 0;
     spent.outputTokens += payload.usage.completion_tokens || 0;
+    providerSpend.settledCalls++;
+    providerSpend.microcny += cny;
+    providerSpend.microusd += usd;
+    providerSpend.reservedMicrocny -= reserve;
+    providerSpend.inputTokens += payload.usage.prompt_tokens || 0;
+    providerSpend.outputTokens += payload.usage.completion_tokens || 0;
     const bucket = spent.stages[stage] ||= { calls: 0, microcny: 0 };
     bucket.calls++; bucket.microcny += cny;
     await save(key, spent);

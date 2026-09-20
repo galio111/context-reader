@@ -19,3 +19,11 @@ test('invalid or removed trials cannot expand the budget', () => {
     assert.equal(editorialBudgetForDay({ dailyBudgetCny: 1, budgetTrial: parseEditorialBudgetTrial(value) }, '2026-09-21'), 1);
   }
 });
+
+test('explicit uncapped date removes only that days application spending ceiling', () => {
+  const config = { dailyBudgetCny: 1, budgetTrial: { day: '2026-09-21', cny: null } };
+  assert.deepEqual(parseEditorialBudgetTrial(config.budgetTrial), config.budgetTrial);
+  assert.equal(editorialBudgetForDay(config, '2026-09-21'), Infinity);
+  assert.equal(editorialBudgetForDay(config, '2026-09-22'), 1);
+  assert.equal(parseEditorialBudgetTrial({ day: '2026-09-21' }), null);
+});
