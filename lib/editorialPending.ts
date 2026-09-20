@@ -1,3 +1,4 @@
+import { sanitizeImportedArticleContent } from "@/lib/articleContentSanitizer";
 import { classifyArticle } from "@/lib/articleClassification";
 import { repairEditorialArticle } from "@/lib/editorialRepair";
 import { reviewEditorialArticle, type EditorialConfig } from "@/lib/editorialReview";
@@ -9,7 +10,7 @@ import type { PublicArticle } from "@/types/publicArticle";
 export async function retryEditorialCandidate(row: PublicArticle, config: EditorialConfig): Promise<PublicArticle | null> {
   if (!row.importedArticle || !row.recommendation || row.recommendation.rejectedAt) return null;
   const repair = await repairEditorialArticle(row.importedArticle);
-  const article = repair.article;
+  const article = sanitizeImportedArticleContent(repair.article);
   const options = { sourceUrl: row.sourceUrl, sourceName: row.sourceName, discoveryReview: true, fullTextReview: true, imageDescriptions: article.blocks.filter((b) => b.type === "image").map((b) => b.alt || "").join("; ") };
   let classification = await classifyArticle(article.title, article.text, { ...options, model: process.env.EDITORIAL_DEEPSEEK_MODEL || "deepseek-flash" });
   if (classification.classificationSource !== "model" || classification.difficultyEvidence.confidence !== "high" || !EDITORIAL_DIFFICULTIES.includes(classification.difficulty)) classification = await classifyArticle(article.title, article.text, { ...options, model: process.env.EDITORIAL_DEEPSEEK_REVIEW_MODEL || "deepseek-v4-pro" });
@@ -18,7 +19,7 @@ export async function retryEditorialCandidate(row: PublicArticle, config: Editor
     review.status = "held"; review.reasons.push(classification.qualityReview?.reason || "分类或质量判断未通过");
   }
   if (repair.evidence) {
-    review.repair = repair.evidence;
+    review.repair = { ...repair.evidence, afterHash: review.contentHash };
     review.costMicrousd += repair.evidence.costMicrousd;
     review.inputTokens += repair.evidence.inputTokens;
     review.outputTokens += repair.evidence.outputTokens;

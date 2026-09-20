@@ -162,13 +162,16 @@ function isHiddenElement(element: Element): boolean {
 }
 
 function hasNoiseIdentity(element: Element): boolean {
-  const identity = [
+  let identity = [
     element.id,
     element.className || "",
     element.getAttribute("data-testid") ?? "",
     element.getAttribute("data-component") ?? "",
     element.getAttribute("aria-label") ?? "",
   ].join(" ");
+  // Popular Science uses this marker on the actual publicly delivered story body,
+  // not just its subscription overlay. Hidden content is still rejected separately.
+  if (new URL(element.ownerDocument.URL).hostname.replace(/^www\./, "") === "popsci.com" && element.matches(".entry-content.Article-bodyText")) identity = identity.replace(/\bpaywall\b/gi, "");
   return NOISE_IDENTITY_PATTERN.test(identity);
 }
 

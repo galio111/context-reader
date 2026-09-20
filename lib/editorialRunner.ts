@@ -44,7 +44,7 @@ async function curate(article: PublicArticle, today: string): Promise<void> {
 export function eligibleEditorialCandidate(article: PublicArticle): boolean {
   const meta = article.recommendation;
   return !!(article.importedArticle && meta && !meta.rejectedAt && meta.sourceKind === "crawler" && EDITORIAL_DIFFICULTIES.includes(meta.difficulty)
-    && meta.editorialReview?.version === EDITORIAL_POLICY_VERSION && meta.editorialReview.status === "passed"
+    && meta.editorialReview?.version === EDITORIAL_POLICY_VERSION && meta.editorialReview.status === "passed" && meta.editorialReview.completed === true
     && meta.editorialReview.contentHash === editorialContentHash(article.importedArticle)
     && Date.now() >= Date.parse(meta.editorialReview.checkedAt)
     && Date.now() - Date.parse(meta.editorialReview.checkedAt) < 48 * 3600_000
@@ -86,7 +86,7 @@ export async function runEditorialBatch(origin: string, trigger: "scheduled" | "
   }
   const recent = published.filter((a) => Date.now() - Date.parse(a.recommendation?.autoPublishedAt || a.createdAt) < 7 * 86400_000);
   // Retry at most one unresolved candidate per batch, twice per day. Known low-level candidates stay pending.
-  const retry = ledger.attempts % 4 === 0 ? candidates.find((a) => Date.now() - Date.parse(a.createdAt) < 48 * 3600_000 && a.recommendation?.sourceKind === "crawler" && a.recommendation.editorialReview?.status === "held" && EDITORIAL_DIFFICULTIES.includes(a.recommendation.difficulty) && (ledger.candidateRetries?.[a.id] || 0) < 2) : undefined;
+  const retry = ledger.attempts % 4 === 0 ? candidates.find((a) => Date.now() - Date.parse(a.createdAt) < 14 * 86400_000 && a.recommendation?.sourceKind === "crawler" && !!a.recommendation.editorialReview && !eligibleEditorialCandidate(a) && !freshnessFailure([a.importedArticle?.publishedTime || ""], a.recommendation.timeliness === "time-sensitive") && EDITORIAL_DIFFICULTIES.includes(a.recommendation.difficulty) && (ledger.candidateRetries?.[a.id] || 0) < 2) : undefined;
   if (retry && ledger.attempts < config.dailyReviewLimit) {
     ledger.candidateRetries ||= {};
     ledger.candidateRetries[retry.id] = (ledger.candidateRetries[retry.id] || 0) + 1;

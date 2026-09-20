@@ -1,7 +1,7 @@
 import type { ImportedArticle } from "@/types/article";
 import type { ArticleDifficulty, ArticleTopic, PublicArticle } from "@/types/publicArticle";
 
-export const EDITORIAL_POLICY_VERSION = 1;
+export const EDITORIAL_POLICY_VERSION = 2;
 export const EDITORIAL_DIFFICULTIES: ArticleDifficulty[] = ["CET-6 / 考研", "雅思 / 托福基础", "雅思 / 托福进阶"];
 export const EDITORIAL_QUESTIONS = {
   incomplete: "Does the text have clear evidence of missing article content, an abrupt truncation, a paywall teaser, or references to missing essential sections? A naturally open ending alone is not truncation.",

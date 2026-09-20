@@ -23,8 +23,8 @@ export async function assertCrawlerAllowed(url: string): Promise<void> {
   }
   const robots = robotsParser(robotsUrl, entry.text);
   if (robots.isDisallowed(url, AGENT)) throw new Error("网站 robots.txt 不允许自动抓取此地址");
-  // Sites with long requested delays need a separate pacing adapter.
-  if ((robots.getCrawlDelay(AGENT) ?? 0) > 5) throw new Error("网站要求较长抓取间隔，需要单独适配后启用");
+  // Respect bounded publisher pacing, including 10–30 second delays; never bypass robots.
+  if ((robots.getCrawlDelay(AGENT) ?? 0) > 30) throw new Error("网站要求较长抓取间隔，需要单独适配后启用");
   const readyAt = Math.max(Date.now(), nextAllowedAt.get(robotsUrl) || 0);
   nextAllowedAt.set(robotsUrl, readyAt + Math.max(1000, (robots.getCrawlDelay(AGENT) || 0) * 1000));
   if (readyAt > Date.now()) await new Promise((resolve) => setTimeout(resolve, readyAt - Date.now()));

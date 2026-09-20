@@ -206,6 +206,7 @@ export async function runRecommendationCrawler(
       if (allArticles.some((article) => similarArticle(item.title, article.title))) throw new Error("标题与已有文章高度相似");
       if (/\/videos?\//i.test(new URL(item.url).pathname)) throw new Error("视频页面不进入自动候选。");
       const imported = await importArticleThroughApi(origin, item.url);
+      if ((imported.article!.text.match(/\b[a-zA-Z]+\b/g) || []).length < minimumDiscoveryWords(item.source.levelHint)) throw new Error("正文不足 401 词，不调用模型清理短讯。");
       const repair = input.editorial?.enabled ? await repairEditorialArticle(imported.article!) : { article: imported.article! };
       imported.article = repair.article;
       const article = imported.article!;
@@ -216,7 +217,7 @@ export async function runRecommendationCrawler(
       const imageCount = article.blocks.filter((block) => block.type === "image").length;
       const host = new URL(item.url).hostname.replace(/^www\./, "");
       const isReviewedJstorGallery = host === "daily.jstor.org" && words >= 600 && imageCount <= 20;
-      if (imageCount > 8 && !isReviewedJstorGallery) throw new Error("图片过多，可能是图库或合集，留待人工导入");
+      if (imageCount > (input.editorial?.enabled ? 20 : 8) && !isReviewedJstorGallery) throw new Error("图片过多，可能是图库或合集，留待人工导入");
       if (article.language && !/^en\b/i.test(article.language)) throw new Error("不是英文正文");
       const images = article.blocks.filter((block) => block.type === "image" && block.src && !/logo|avatar|icon|banner|pixel|tracking/i.test(block.src));
       const covers = (imported.metadata?.coverCandidates ?? []).filter((url) => !/logo|avatar|icon|banner|pixel|tracking/i.test(url));
@@ -269,7 +270,7 @@ export async function runRecommendationCrawler(
           review.status = "held"; review.reasons.push("难度判断仍不确定");
         }
         if (repair.evidence) {
-          review.repair = repair.evidence;
+          review.repair = { ...repair.evidence, afterHash: review.contentHash };
           review.inputTokens += repair.evidence.inputTokens;
           review.outputTokens += repair.evidence.outputTokens;
           review.costMicrousd += repair.evidence.costMicrousd;
