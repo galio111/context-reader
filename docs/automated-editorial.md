@@ -1,6 +1,6 @@
 # Automatic editorial publication — current contract
 
-Current revision: 2026-09-21 recovery from the failed uncapped trial. Production remains paused until this revision passes its release and live acceptance checks. Deployment identity and final evidence are recorded in product-journey.md.
+Current revision: 2026-09-21 recovery from the failed uncapped trial. Accepted production 20260921T083200 (parent 20260921T082100, source 0bd89991e42b36b33b116fbf374d3a8fd480d8bb). Runtime restored for 2026-09-22 06:00 Shanghai; the stopped incident day remains suspended with its ledger intact. Deployment identity and final evidence are recorded in product-journey.md.
 
 ## Quantity, balance and budget
 
