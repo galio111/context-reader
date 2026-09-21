@@ -21,6 +21,15 @@ export const EDITORIAL_MINIMUM = 25;
 const DAILY_DISCOVERY_TARGET = EDITORIAL_TARGET;
 const PENDING_KEY = "recommendation_editorial_pending_curation_v1";
 
+/** Completed days use only tiny settings reads; yesterday's email state cannot suppress today's report. */
+export async function editorialDayClosed(day:string, read=readDiscoverySetting):Promise<boolean> {
+  const ledger=await read<{finished?:boolean;suspended?:boolean}>(`recommendation_editorial_day_${day}`,{});
+  if(!ledger.finished)return false;
+  if(ledger.suspended)return true;
+  const reports=await Promise.all(["complete","shortfall"].map(kind=>read<{status?:string}>(`recommendation_editorial_email_${day}_${EDITORIAL_TARGET}_${kind}`,{})));
+  return reports.some(report=>report.status==="sent");
+}
+
 /** CAS preserves simultaneous Admin placement edits; the journal repairs a publish/curation crash. */
 async function curate(article: PublicArticle, today: string): Promise<void> {
   const key = "homepage_publication_curation";
@@ -71,6 +80,7 @@ async function notifyDailyResult(today: string, articles: PublicArticle[], attem
 
 /** Caller holds the cross-instance discovery lease. One source per bounded batch. */
 export async function runEditorialBatch(origin: string, trigger: "scheduled" | "manual", config: EditorialConfig, now: Date): Promise<RecommendationAutomationRunResponse> {
+  if(await editorialDayClosed(shanghaiDay(now)))return {skipped:"already_ran_today",status:await getRecommendationAutomationStatus(now)};
   // No trial escape hatch: all automatic editorial runs share the finite daily cap.
   const effectiveConfig: EditorialConfig = {...config, provider:"deepseek", jevAutoAdopt:false, approvedJevChecks:[], budgetTrial:null, dailyBudgetCny:Math.min(1.5,config.dailyBudgetCny ?? 1.5)};
   return withEditorialBudget(shanghaiDay(now), effectiveConfig.dailyBudgetCny!, () => runBudgetedBatch(origin, trigger, effectiveConfig, now));
@@ -91,7 +101,7 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   ledger.startedAt ||= now.toISOString();
   const todays = () => published.filter(a=>shanghaiDay(a.recommendation?.autoPublishedAt||"")===today);
   if (ledger.finished) {
-    if(!ledger.suspended && initial.state.lastEmailStatus!=="sent") {
+    if(!ledger.suspended) {
       const email=await notifyDailyResult(today,todays(),ledger.attempts,todays().length>=EDITORIAL_MINIMUM,config);
       if(email)await writeDiscoverySetting("recommendation_automation_state",{...initial.state,lastEmailStatus:email.status,lastEmailError:email.error});
     }
