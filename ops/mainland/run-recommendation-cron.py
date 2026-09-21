@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -44,32 +45,23 @@ def main() -> None:
         headers={"Authorization": f"Bearer {secret}"},
         method="GET",
     )
-    try:
-        with urllib.request.urlopen(request, timeout=880) as response:
-            payload = json.loads(response.read().decode("utf-8"))
-            if response.status != 200 or not payload.get("ok"):
-                raise SystemExit(f"recommendation crawler returned {response.status}")
-    except urllib.error.HTTPError as error:
-        raise SystemExit(f"recommendation crawler returned {error.code}") from error
-
-    if payload.get("skipped"):
-        return
-    result = payload.get("result", {})
-    if result.get("targetAchieved") is False:
-        raise SystemExit(
-            f"recommendation crawler exhausted candidates with shortfall={result.get('shortfall', 0)}"
-        )
-    print(
-        json.dumps(
-            {
-                "status": "passed",
-                "topic": result.get("topic"),
-                "created": len(result.get("created", [])),
-                "inventory_after": result.get("inventoryAfter"),
-            },
-            ensure_ascii=False,
-        )
-    )
+    deadline = time.monotonic() + 240
+    while time.monotonic() < deadline:
+        try:
+            with urllib.request.urlopen(request, timeout=600) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+                if response.status != 200 or not payload.get("ok"):
+                    raise SystemExit(f"recommendation crawler returned {response.status}")
+        except urllib.error.HTTPError as error:
+            raise SystemExit(f"recommendation crawler returned {error.code}") from error
+        state = payload.get("status", {}).get("state", {})
+        print(json.dumps({"status": state.get("status"), "published": state.get("lastCreatedCount"), "attempts": state.get("lastAttemptedCount"), "skipped": payload.get("skipped")}, ensure_ascii=False), flush=True)
+        if payload.get("skipped") or state.get("status") != "running":
+            if not payload.get("skipped") and state.get("status") == "failed":
+                raise SystemExit("daily editorial stopped with shortfall; details retained and email requested")
+            return
+        time.sleep(2)
+    # Yield to systemd between bounded sessions; persisted daily deadline/budget remain authoritative.
 
 
 if __name__ == "__main__":

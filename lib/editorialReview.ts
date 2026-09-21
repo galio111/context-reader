@@ -20,7 +20,7 @@ export async function getEditorialConfig(): Promise<EditorialConfig> {
   const budget = Number(value.jevMonthlyBudgetUsd ?? 4);
   const attempts = Number(value.dailyReviewLimit ?? 90);
   const approvedJevChecks = value.jevAutoAdopt ? adoptedJevChecks(await readDiscoverySetting<JevAdoption | null>(JEV_ADOPTION_KEY, null), shanghaiDay()) : [];
-  return { jevAutoAdopt: value.jevAutoAdopt === true, approvedJevChecks, budgetTrial: parseEditorialBudgetTrial(value.budgetTrial), dailyBudgetCny: Math.min(10, Math.max(0, Number.isFinite(Number(value.dailyBudgetCny)) ? Number(value.dailyBudgetCny) : 1)), enabled: value.enabled === true, provider: value.provider === "jev-shadow" ? value.provider : "deepseek", jevMonthlyBudgetUsd: Number.isFinite(budget) ? Math.min(4, Math.max(0, budget)) : 4, dailyReviewLimit: Number.isFinite(attempts) ? Math.min(240, Math.max(30, Math.floor(attempts))) : 90 };
+  return { jevAutoAdopt: value.jevAutoAdopt === true, approvedJevChecks, budgetTrial: parseEditorialBudgetTrial(value.budgetTrial), dailyBudgetCny: Math.min(1.5, Math.max(0, Number.isFinite(Number(value.dailyBudgetCny)) ? Number(value.dailyBudgetCny) : 1)), enabled: value.enabled === true, provider: value.provider === "jev-shadow" ? value.provider : "deepseek", jevMonthlyBudgetUsd: Number.isFinite(budget) ? Math.min(4, Math.max(0, budget)) : 4, dailyReviewLimit: Number.isFinite(attempts) ? Math.min(240, Math.max(30, Math.floor(attempts))) : 90 };
 }
 function canonicalValue(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(canonicalValue);
@@ -46,14 +46,17 @@ export async function completeReview(prompt: string, model: string, images: stri
   if (!process.env.DEEPSEEK_API_KEY) throw new Error("editorial_deepseek_unconfigured");
   const content: Array<{ type: "text"; text: string } | { type: "image_url"; image_url: { url: string } }> = [{ type: "text", text: prompt }];
   let totalImageBytes = 0;
-  for (const url of images) {
+  for (let offset=0;offset<images.length;offset+=3) {
+    const batch = await Promise.all(images.slice(offset,offset+3).map(async url => {
     const response = await safeRemoteFetch(url, { signal: AbortSignal.timeout(15_000) });
     if (!response.ok) throw new Error("editorial_image_unreadable");
     const bytes = await readResponseBytes(response, 5_000_000);
     totalImageBytes += bytes.length;
     if (totalImageBytes > 30_000_000) throw new Error("editorial_image_batch_too_large");
     const resized = await sharp(Buffer.from(bytes), { limitInputPixels: 40_000_000 }).rotate().resize({ width: 1024, height: 1024, fit: "inside", withoutEnlargement: true }).webp({ quality: 85 }).toBuffer();
-    content.push({ type: "image_url", image_url: { url: `data:image/webp;base64,${resized.toString("base64")}` } });
+    return { type: "image_url" as const, image_url: { url: `data:image/webp;base64,${resized.toString("base64")}` } };
+    }));
+    content.push(...batch);
   }
   const response = await editorialPaidRequest(costStage || (images.length ? "图片核验" : maxTokens === 2400 ? "正文修复" : "全文审核"), model, prompt, maxTokens, images.length, () => fetch(`${(process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com").replace(/\/$/, "")}/chat/completions`, {
     method: "POST", headers: { Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`, "Content-Type": "application/json" },

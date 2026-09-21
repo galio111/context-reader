@@ -70,7 +70,7 @@ function round(value: number, digits = 2): number {
   return Math.round(value * factor) / factor;
 }
 
-function textMetrics(text: string): ArticleTextMetrics {
+export function textMetrics(text: string): ArticleTextMetrics {
   const words = articleEnglishWords(text);
   const sentences = text
     .replace(/\s+/g, " ")

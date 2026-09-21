@@ -27,7 +27,7 @@ test("hash binds title, full text and images but not mutable recommendation meta
   assert.equal(editorialContentHash(article), editorialContentHash({ ...article, recommendation: {} as never }));
 });
 test("post-review edits and rejected candidates cannot auto-publish", () => {
-  const meta = { sourceKind: "crawler", difficulty: "CET-6 / 考研", editorialReview: { version: EDITORIAL_POLICY_VERSION, completed: true, status: "passed", checkedAt: new Date().toISOString(), contentHash: editorialContentHash(article) } };
+  const meta = { sourceKind: "crawler", difficulty: "CET-6 / 考研", editorialReview: { version: EDITORIAL_POLICY_VERSION, completed: true, sourceCompletenessVerified: true, status: "passed", checkedAt: new Date().toISOString(), contentHash: editorialContentHash(article) } };
   const row = { importedArticle: article, recommendation: meta } as PublicArticle;
   assert.equal(eligibleEditorialCandidate(row), true);
   assert.equal(eligibleEditorialCandidate({ ...row, importedArticle: { ...article, text: "Changed" } }), false);

@@ -1,11 +1,11 @@
 import { classifyArticle } from "@/lib/articleClassification";
-import { repairEditorialArticle } from "@/lib/editorialRepair";
-import { reviewEditorialArticle } from "@/lib/editorialReview";
+import { auditEditorialFlash, cleanEditorialFurniture } from "@/lib/editorialFlash";
+import { editorialContentHash } from "@/lib/editorialReview";
 import { confirmedEditorialRejection, EDITORIAL_DIFFICULTIES } from "@/lib/editorialReviewPolicy";
 import { sanitizeImportedArticleContent } from "@/lib/articleContentSanitizer";
 import { getDiscoverySites, readDiscoverySetting } from "@/lib/discoveryStore";
 import { freshnessFailure, similarArticle, hasRecentPublishingCadence, minimumDiscoveryWords } from "@/lib/discoveryPolicy";
-import { localizePublicArticleInputCover } from "@/lib/publicArticleCovers";
+import { localizePublicArticleInputCover, localizeImportedArticleImages, withRemoteImageDeadline } from "@/lib/publicArticleCovers";
 import { articleHasHomepageImage } from "@/lib/articleMedia";
 import { assertCrawlerAllowed } from "@/lib/crawlerRobots";
 import { discoveryImageIsReadable } from "@/lib/discoveryImages";
@@ -186,7 +186,8 @@ export async function runRecommendationCrawler(
   const knownArticleIds = new Set(allArticles.map((article) => article.id));
   const uniqueItems = interleaveSources(
     [...new Map(discoveredItems.map((item) => [canonicalArticleUrl(item.url), item])).values()]
-      .filter((item) => !knownUrls.has(canonicalArticleUrl(item.url)) && !knownTitles.has(normalizedFeedTitle(item.title)) && !input.excludedUrls?.includes(item.url)),
+      .filter((item) => !knownUrls.has(canonicalArticleUrl(item.url)) && !knownTitles.has(normalizedFeedTitle(item.title)) && !input.excludedUrls?.includes(item.url))
+      .filter(item => !input.editorial?.enabled || !/\/(?:videos?|films?)\/|\/image-article\/apod-|\/shorts\//i.test(new URL(item.url).pathname)),
   );
   resultBase.discovered = uniqueItems.length;
 
@@ -208,7 +209,10 @@ export async function runRecommendationCrawler(
       if (/\/videos?\//i.test(new URL(item.url).pathname)) throw new Error("视频页面不进入自动候选。");
       const imported = await importArticleThroughApi(origin, item.url);
       if ((imported.article!.text.match(/\b[a-zA-Z]+\b/g) || []).length < minimumDiscoveryWords(item.source.levelHint)) throw new Error("正文不足 401 词，不调用模型清理短讯。");
-      const repair = input.editorial?.enabled ? await repairEditorialArticle(imported.article!) : { article: imported.article! };
+      const originalArticle=imported.article!;
+      const repair = { article: input.editorial?.enabled ? sanitizeImportedArticleContent(cleanEditorialFurniture(imported.article!)) : imported.article! };
+      const blockIdentity=(b:typeof originalArticle.blocks[number])=>JSON.stringify([b.type,b.text,b.alt,b.src,b.caption]);
+      const removedFurniture=originalArticle.blocks.filter(b=>!repair.article.blocks.some(next=>blockIdentity(next)===blockIdentity(b))).map(b=>({id:b.id,text:b.text||b.alt||b.caption||"",reason:"经过验证的页面结构规则清理"}));
       imported.article = repair.article;
       const article = imported.article!;
       if (input.editorial?.enabled && (!imported.metadata?.completeness || imported.metadata.completeness.missingTextBlocks > 0 || imported.metadata.completeness.missingImages > 0)) throw new Error("页面正文结构与提取结果不一致，暂停自动收录以核实漏段或漏图。");
@@ -225,27 +229,24 @@ export async function runRecommendationCrawler(
       if (!images.length && !covers.length) throw new Error("没有可用的文章配图");
       let verifiedCover = "";
       for (const url of [...new Set([...images.map((image) => image.src!), ...covers])].slice(0, 3)) {
-        if (await discoveryImageIsReadable(url, item.url)) { verifiedCover = url; break; }
+        if (await withRemoteImageDeadline(20_000,()=>discoveryImageIsReadable(url, item.url))) { verifiedCover = url; break; }
       }
       if (!verifiedCover) throw new Error("配图不可读取或尺寸不足，不用图标、像素图凑数");
       article.blocks = article.blocks.filter((block) => block.type !== "image" || images.includes(block));
       imported.metadata = { ...imported.metadata, coverCandidates: [verifiedCover] };
-      let classification = await classifyArticle(
-        imported.article?.title || item.title,
-        imported.article?.text || "",
-        {
-          sourceUrl: item.url,
-          sourceName: imported.article?.siteName || item.source.name,
-          usageRoute: "/api/admin/article-crawler",
-          discoveryReview: true,
-          fullTextReview: input.editorial?.enabled,
-          model: input.editorial?.enabled ? process.env.EDITORIAL_DEEPSEEK_MODEL || "deepseek-flash" : undefined,
-          imageDescriptions: images.map((image) => image.alt || "").join("; ") || "文章发布者提供的社交分享封面，无法确认内容；需人工复核",
-        },
-      );
-      if (input.editorial?.enabled && (classification.classificationSource !== "model" || classification.difficultyEvidence.confidence !== "high" || !EDITORIAL_DIFFICULTIES.includes(classification.difficulty))) {
-        classification = await classifyArticle(article.title, article.text, { sourceUrl: item.url, sourceName: item.source.name, discoveryReview: true, fullTextReview: true, model: process.env.EDITORIAL_DEEPSEEK_REVIEW_MODEL || "deepseek-v4-pro", imageDescriptions: images.map((image) => image.alt || "").join("; ") });
+      if (input.editorial?.enabled) {
+        // Fetch with publisher-aware headers and store EVERY body image before paying for its audit.
+        const coverIndex=article.blocks.findIndex(b=>b.type==='image' && b.src===verifiedCover);
+        const localized=await withRemoteImageDeadline(70_000,()=>localizeImportedArticleImages(article,item.url,{removeFailed:false}));
+        if(localized.failures.length)throw new Error("正文图片未全部保存，暂不付费审核。");
+        article.blocks=localized.article.blocks;
+        if(coverIndex>=0 && article.blocks[coverIndex].src)imported.metadata.coverCandidates=[article.blocks[coverIndex].src!];
       }
+      const integrated = input.editorial?.enabled ? await auditEditorialFlash(article) : null;
+      const classification = integrated?.classification || await classifyArticle(article.title, article.text, {
+        sourceUrl:item.url, sourceName:item.source.name, usageRoute:"/api/admin/article-crawler", discoveryReview:true,
+        imageDescriptions:images.map(image=>image.alt||"").join("; ")
+      });
       if (input.editorial?.enabled && !EDITORIAL_DIFFICULTIES.includes(classification.difficulty)) throw new Error("高中及以下难度暂停自动更新，保留原标签且不计入每日精选。");
       if (!classification.qualityReview?.eligible) throw new Error(classification.qualityReview?.reason || "质量判断暂时不可用，未自动入库");
       if (!input.editorial?.enabled && images.some((image) => image.alt?.trim()) && !classification.qualityReview.imageRelevant) throw new Error("配图说明与正文主题不相符");
@@ -261,21 +262,17 @@ export async function runRecommendationCrawler(
         resultBase.skipped.push({ title: item.title, url: item.url, reason: `判断为${classification.difficulty}，与目标难度不符` });
         continue;
       }
-      const prepared = await localizePublicArticleInputCover(crawlerCandidateInput(item, imported, classification), { strictImages: input.editorial?.enabled });
+      const prepared = await withRemoteImageDeadline(70_000,()=>localizePublicArticleInputCover(crawlerCandidateInput(item, imported, classification), { strictImages: input.editorial?.enabled }));
       if (!articleHasHomepageImage({ ...prepared, importedArticle: prepared.importedArticle || undefined })) throw new Error("图片无法安全保存，未收录无图文章");
       if (input.editorial?.enabled && prepared.importedArticle && prepared.recommendation) {
         prepared.importedArticle = sanitizeImportedArticleContent(prepared.importedArticle);
         prepared.body = prepared.importedArticle.text;
-        const review = await reviewEditorialArticle(prepared.importedArticle, input.editorial);
-        if (classification.classificationSource !== "model" || classification.difficultyEvidence.confidence === "low") {
-          review.status = "held"; review.reasons.push("难度判断仍不确定");
-        }
-        if (repair.evidence) {
-          review.repair = { ...repair.evidence, afterHash: review.contentHash };
-          review.inputTokens += repair.evidence.inputTokens;
-          review.outputTokens += repair.evidence.outputTokens;
-          review.costMicrousd += repair.evidence.costMicrousd;
-        }
+        if (!integrated) throw new Error("integrated_audit_missing");
+        // Storage may replace image URLs, but must not change the audited ordered content.
+        const projection = (value: typeof article) => JSON.stringify([value.title,value.text,value.blocks.map(({src,...b})=>({...b,hasImage:!!src}))]);
+        if (projection(article) !== projection(prepared.importedArticle)) throw new Error("存储后正文结构变化，需要重新审核");
+        const review = {...integrated.review, sourceCompletenessVerified:true, contentHash:editorialContentHash(prepared.importedArticle)};
+        if(removedFurniture.length)review.repair={beforeHash:editorialContentHash(originalArticle),afterHash:review.contentHash,removed:removedFurniture,inputTokens:0,outputTokens:0,costMicrousd:0};
         prepared.recommendation.editorialReview = review;
         if (confirmedEditorialRejection(review)) {
           prepared.recommendation.rejectedAt = new Date().toISOString();

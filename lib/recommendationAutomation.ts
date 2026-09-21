@@ -158,7 +158,7 @@ function nextRunAt(
   const alreadyRanToday = state.lastScheduledDate === parts.dateKey;
   const passedToday = parts.hour * 60 + parts.minute >= scheduledMinute(config);
   if (passedToday && !alreadyRanToday) {
-    return new Date(now.getTime() + 5 * 60 * 1000).toISOString();
+    return new Date(now.getTime() + 30 * 1000).toISOString();
   }
   const dayOffset = alreadyRanToday ? 1 : 0;
   return new Date(Date.UTC(parts.year, parts.month - 1, parts.day + dayOffset, hour - 8, minute)).toISOString();
@@ -176,7 +176,7 @@ export async function getRecommendationAutomationStatus(now = new Date()): Promi
     state,
     nextRunAt: nextRunAt(config, state, now),
     timeZone: TIME_ZONE,
-    schedulePrecisionMinutes: 5,
+    schedulePrecisionMinutes: 1,
     emailConfigured: email.configured,
     notificationEmail: email.recipient,
   };

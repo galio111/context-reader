@@ -272,7 +272,7 @@ Routine login restoration, automatic polls, rate-limit waits and recoverable syn
 
 ### 候选与解释恢复约定
 
-自动发现以每日 35 篇为目标，少于 35 篇报告缺口；首轮站点额度不足时有限补位，不降低 401 词、配图和时效要求。手动单站仍遵守本站额度。自动开关关闭时不调度；当前已开启 DeepSeek 自动精选及北京时间 06:00 计划，按每日 35 篇发布与首页归属统计成功，正常审核上限 150。可修复的非正文先清理再复审；达标/不足邮件包含类型、难度和逐篇原文链接。解释 JSON 解析失败先在当前提供商有限重试，再按已有配置回退，只有最终失败才进入错误报告/告警路径。
+2026-09-21 自动精选新约定：目标约 30、至少 25 篇，约 ¥1 软目标、¥1.50 硬上限；均衡改为排序补位，取消 18/18 硬配额。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。按 v3 原网页完整性、图片安全保存、正文哈希和时效校验发布；连续处理批次，90 分钟或预算/连续失败边界停止并发邮件。手动候选与高中标签保留。实测与恢复状态见 automated-editorial.md、product-journey.md。
 
 ### Pronunciation quota diagnostics
 
@@ -290,6 +290,6 @@ The contextual stream uses the same completed-explanation validator as the Reade
 
 Admin account operations includes a dedicated 智谱备用调用 section: 30 Shanghai-day totals for recorded Zhipu executions, success/failure, input/output tokens, estimated cost and latest 100 matching records with time, feature and model. Matching uses provider or GLM model for historical compatibility and runs over the entire bounded 50,000-row result, not only the latest 200 general executions. The existing server-side Admin gate protects all records; no credentials or prompt content are exposed. Refresh uses the existing Admin refresh action. Calls that fail before the route writes a correctly attributed execution are not claimed as complete provider-attempt telemetry.
 
-自动精选成本和商业分类更新的部署状态、¥1/日费用边界、35 篇条件估算以及 Jev 接入步骤见 [editorial-cost-and-jev.md](editorial-cost-and-jev.md)；历史全库离线分类的费用记录不完整，不能把局部 token 估算当作整个账号账单。
+2026-09-21 自动精选新约定：目标约 30、至少 25 篇，约 ¥1 软目标、¥1.50 硬上限；均衡改为排序补位，取消 18/18 硬配额。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。按 v3 原网页完整性、图片安全保存、正文哈希和时效校验发布；连续处理批次，90 分钟或预算/连续失败边界停止并发邮件。手动候选与高中标签保留。实测与恢复状态见 automated-editorial.md、product-journey.md。
 
 Admin editorial PATCH accepts optional budgetTrial (day in Shanghai YYYY-MM-DD; cny number 0–10 exclusive of zero, or null for explicitly uncapped date) and jevAutoAdopt boolean. Omitted fields preserve existing values; budgetTrial: null removes the exception. The base dailyBudgetCny never inherits the trial value. Calibration and adoption records remain private account_settings, including per-provider ledger reservations; adoption is gated by completed sample day and policy versions. No API key is returned by these APIs.

@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { AsyncLocalStorage } from "node:async_hooks";
 import { createClient } from "@supabase/supabase-js";
 import { revalidateTag } from "next/cache";
 import sharp from "sharp";
@@ -23,6 +24,8 @@ const MAX_LOCALIZED_ARTICLE_IMAGES = 64;
 const ARTICLE_IMAGE_DOWNLOAD_CONCURRENCY = 3;
 let activeArticleImageDownloads = 0;
 const articleImageDownloadWaiters: Array<() => void> = [];
+const imageDeadline = new AsyncLocalStorage<AbortSignal>();
+export const withRemoteImageDeadline = <T>(milliseconds:number,work:()=>Promise<T>) => imageDeadline.run(AbortSignal.timeout(milliseconds),work);
 
 async function withArticleImageDownloadSlot<T>(task: () => Promise<T>): Promise<T> {
   if (activeArticleImageDownloads < ARTICLE_IMAGE_DOWNLOAD_CONCURRENCY) {
@@ -139,10 +142,11 @@ async function fetchRemotePublicImage(value: string, headers: HeadersInit): Prom
   await assertSafeRemoteUrl(sourceImageUrl(value));
   let lastFailure = "远程图片读取失败。";
   for (const candidate of remotePublicImageFetchCandidates(value)) {
+    imageDeadline.getStore()?.throwIfAborted();
     try {
       const response = await safeRemoteFetch(candidate.url, {
         headers,
-        signal: AbortSignal.timeout(candidate.timeoutMs),
+        signal: imageDeadline.getStore() ? AbortSignal.any([imageDeadline.getStore()!,AbortSignal.timeout(candidate.timeoutMs)]) : AbortSignal.timeout(candidate.timeoutMs),
       }, { maxRedirects: 4 });
       if (response.ok) return response;
       lastFailure = `远程图片读取失败（HTTP ${response.status}）。`;

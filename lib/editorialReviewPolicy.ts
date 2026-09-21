@@ -1,7 +1,7 @@
 import type { ImportedArticle } from "@/types/article";
 import type { ArticleDifficulty, ArticleTopic, PublicArticle } from "@/types/publicArticle";
 
-export const EDITORIAL_POLICY_VERSION = 2;
+export const EDITORIAL_POLICY_VERSION = 3;
 export const EDITORIAL_DIFFICULTIES: ArticleDifficulty[] = ["CET-6 / 考研", "雅思 / 托福基础", "雅思 / 托福进阶"];
 export const EDITORIAL_QUESTIONS = {
   incomplete: "Does the text have clear evidence of missing article content, an abrupt truncation, a paywall teaser, or references to missing essential sections? A naturally open ending alone is not truncation.",
@@ -29,6 +29,7 @@ export interface EditorialReview {
   outputTokens: number;
   costMicrousd: number;
   imageCount: number;
+  sourceCompletenessVerified?: boolean;
   repair?: import("@/lib/editorialRepair").EditorialRepairEvidence;
 }
 
@@ -65,6 +66,7 @@ export function editorialStructureFailures(article: ImportedArticle): string[] {
   const ids = article.blocks.map((b) => b.id);
   if (new Set(ids).size !== ids.length) reasons.push("正文块编号重复");
   if (article.blocks.some((b) => b.type === "image" && !b.src)) reasons.push("正文图片缺少地址");
+  if (article.blocks.some(b=>b.type==='caption' && /(?:image|figure|photo(?:graph)?)\s+(?:(?:has|have)\s+not\s+been\s+loaded|(?:is|was)\s+(?:missing|unavailable|not\s+loaded))|(?:failed|unable)\s+to\s+load\s+(?:the\s+)?(?:image|figure|photo)/i.test(b.text||b.caption||''))) reasons.push("图注明确指出对应图片缺失");
   return reasons;
 }
 
