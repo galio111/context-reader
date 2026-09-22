@@ -1600,3 +1600,9 @@ Final three-context cold checks: desktop 1.84/1.46/3.31 s and mobile-size 3.32/2
 105 focused regressions, production builds, real Next root rendering, release contracts and egress audit pass. All 113 live Brotli assets decode identically, including fallback/404 checks. Recovery Admin reads and anonymous boundaries pass; all seven services healthy, isolated backup restoration verifies 16 tables, current/parent rollback images exist. Keyboard Menu Enter/Escape and reduced-motion smoke pass. Local synthetic session/media delays and failed WebM -> successful MP4 fallback are clearly separate from public measurements. Guest load-test activity remains in the private operational audit.
 
 An intermediate deployed root-render regression (`20260922T090800`) was detected by real browser tests and rolled back to `20260922T084600` around 09:14 UTC. Pure preference calculations were split from browser persistence, and the reviewed stable deploy guard gained a real candidate-root content/error check before cutover. Subsequent slow cold/video samples also remain recorded rather than discarded. Full findings, timing definitions and current boundaries are in docs/cold-start-performance.md; local evidence is in artifacts/cold-start-three/. Final source and documentation are to be synchronized through a normal main push, with the exact remote verification recorded in the local report.
+
+## 2026-09-22 四六级阅读接入开发与本机验证
+
+- 用户由独立 demo 转为真实网站接轨，要求有答案才入库，未来多年题库不能影响已完成的性能优化。
+- 独立 `codex/cet-reading-integration` 工作树基于已接受生产的后续文档提交；新增 15 套/60 篇/450 题，真实首页切换、ReaderView 插槽、模式/计时/历史、按需题库和账号同步。
+- 本机初步生产构建、117 项既有关键回归及 CET 合并/完整性测试通过；浏览器完成游客与临时账号的真实查词/全文翻译/保存与同步检查。手机原工具隐藏问题已修正，待最终构建复核。这里记录开发里程碑，不声称已生产发布；最终接受身份另记。

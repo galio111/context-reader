@@ -1,5 +1,7 @@
 "use client";
 
+import dynamicCet from "next/dynamic";
+const CetLibrary = dynamicCet(() => import("@/components/cet/CetLibrary").then(m => m.CetLibrary), { loading: () => <p role="status">正在读取真题目录…</p> });
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
 import Image from "next/image";
 import { createPortal } from "react-dom";
@@ -129,6 +131,7 @@ function QuickActionIcon({ kind }: { kind: QuickActionKind }) {
 
 
 interface HomeRedesignProps {
+  onOpenCet?: (entry: import("@/components/cet/CetLibrary").CetEntry) => void;
   forceGuestPreview?: boolean;
   forceMemberPreview?: boolean;
   skipMemberOpening?: boolean;
@@ -365,6 +368,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const flowRef = useRef<HTMLDivElement | null>(null);
   const ballpitControllerRef = useRef<BallpitHandle | null>(null);
   const memberBallpitControllerRef = useRef<BallpitHandle | null>(null);
+  const [resourceTab, setResourceTab] = useState<"articles" | "cet">("articles");
+  useEffect(() => { if(sessionStorage.getItem("context-reader:home-resource") === "cet") setResourceTab("cet"); },[]);
   const recommendationsRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
     if (journeyPending || props.catalogueStatus !== "idle" || !recommendationsRef.current) return;
@@ -1299,7 +1304,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
         <section ref={recommendationsRef} className={styles.recommendations} aria-labelledby="selected-reading-title">
           <div className={styles.sectionHead}>
             <p>SELECTED READING</p>
-            <h2 id="selected-reading-title">精选外刊</h2>
+            <h2 id="selected-reading-title" className={styles.resourceSwitch}><button aria-pressed={resourceTab === "articles"} onClick={() => {setResourceTab("articles");sessionStorage.setItem("context-reader:home-resource","articles");}}>精选外刊</button><span>/</span><button aria-pressed={resourceTab === "cet"} onClick={() => {setResourceTab("cet");sessionStorage.setItem("context-reader:home-resource","cet");}}>四六级真题</button></h2>
+            {resourceTab === "articles" && <>
             <div className={styles.preferenceBar}>
               <div ref={preferenceControlRef} className={styles.preferenceControl} data-open={preferenceOpen || undefined}>
                 <span className={styles.updateCadence}><i aria-hidden="true" />外刊会定期更新</span>
@@ -1371,8 +1377,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
                 </label>
               </div>
             )}
+            </>}
           </div>
 
+          {resourceTab === "cet" ? <CetLibrary onOpen={entry => props.onOpenCet?.(entry)} /> : <>
           {props.catalogueStatus === "loading" && <p role="status">正在加载完整外刊目录…</p>}
           {props.catalogueStatus === "error" && <p role="status">完整外刊目录暂时无法加载，已显示的文章仍可打开。<button type="button" onClick={props.onRequestCatalogue}>重试</button></p>}
           {displayArticles.length ? (
@@ -1434,6 +1442,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
               <i />
             </div>
           )}
+          </>}
         </section>
         </section>
 

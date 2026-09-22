@@ -63,3 +63,7 @@ Day and night are equal product states. Every new or redesigned interface must d
 Support reduced-motion expectations by avoiding unnecessary animation in the reading workflow. On mobile, keep scroll behavior predictable and avoid gestures that accidentally block reading. The homepage must never reinterpret ordinary vertical wheel/touch movement as a different action without an explicit, user-understood interaction boundary.
 
 探索模块只保留一份大字主画面。桌面使用说明由可拖拽的 Lanyard 吊牌进入正常 Menu guide preview；手机不显示吊牌，使用直接的“打开使用说明”。文字不参与边缘渐隐；桌面真实刚体参考 React Bits，具体视觉仍待用户验收。
+
+## 四六级阅读方向
+
+真实真题与精选外刊并列，是现有精读工具的阅读材料入口。先做阅读与练习，不扩听力、写作和翻译试题；优先流畅阅读、可退出的考试模式、明确的进度与计时，不做监考。只收录有参考答案的材料并提供来源解析，未来五到十年扩库坚持目录分页、按需正文和原网站性能边界。

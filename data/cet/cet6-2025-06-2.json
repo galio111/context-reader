@@ -1,0 +1,1788 @@
+{
+  "id": "cet6-2025-06-2",
+  "level": 6,
+  "year": 2025,
+  "month": 6,
+  "set": 2,
+  "title": "2025 年 6 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/2025.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2025-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The slow progress of women in elective office is frustrating for some political observers and experts—including myself. Achieving gender equality in Congress is an important goal. This is because the number of women involved in legislative decisions has significant [[26]] for all the policies that governments [[27]] . Female legislators are more likely than men to introduce, speak about and work to pass policies that disproportionately affect women and girls, such as paid family leave, pay [[28]] and gender-based violence.",
+        "Having more women in Congress also fosters a greater sense of connection between female voters and government. In addition, it [[29]] women’s sense-that government cares about their concerns and inspires young women to become more politically engaged.",
+        "While women are underrepresented in governments around the globe, it is a particularly [[30]] problem in the United States. Currently, the U.S. ranks 73rd in the world when it comes to female representation in government.",
+        "But the reason women are so [[31]] underrepresented in U.S. government is not because they face resistance from voters or struggle to raise money. On the contrary, decades of research shows that female candidates raise as much money and win as often as male politicians with similar [[32]] .",
+        "Rather, the slow progress of women in politics is a tale of two political parties.",
+        "In the next Congress, there will be 107 female Democratic lawmakers and 42 female Republican lawmakers in the Senate and House combined.",
+        "In order for women to gain half of the seats in Congress, more women need to run, [[33]] on Republican tickets. This will require the Republican Party as a whole to [[34]] recruiting women — and not just for one election cycle, but in a [[35]] way."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "bolsters"
+        },
+        {
+          "key": "B",
+          "text": "consequences"
+        },
+        {
+          "key": "C",
+          "text": "credentials"
+        },
+        {
+          "key": "D",
+          "text": "dramatically"
+        },
+        {
+          "key": "E",
+          "text": "enact"
+        },
+        {
+          "key": "F",
+          "text": "equity"
+        },
+        {
+          "key": "G",
+          "text": "especially"
+        },
+        {
+          "key": "H",
+          "text": "evasively"
+        },
+        {
+          "key": "I",
+          "text": "formidable"
+        },
+        {
+          "key": "J",
+          "text": "impetus"
+        },
+        {
+          "key": "K",
+          "text": "lavish"
+        },
+        {
+          "key": "L",
+          "text": "prioritize"
+        },
+        {
+          "key": "M",
+          "text": "suffices"
+        },
+        {
+          "key": "N",
+          "text": "sustained"
+        },
+        {
+          "key": "O",
+          "text": "tenured"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bolsters"
+            },
+            {
+              "key": "B",
+              "text": "consequences"
+            },
+            {
+              "key": "C",
+              "text": "credentials"
+            },
+            {
+              "key": "D",
+              "text": "dramatically"
+            },
+            {
+              "key": "E",
+              "text": "enact"
+            },
+            {
+              "key": "F",
+              "text": "equity"
+            },
+            {
+              "key": "G",
+              "text": "especially"
+            },
+            {
+              "key": "H",
+              "text": "evasively"
+            },
+            {
+              "key": "I",
+              "text": "formidable"
+            },
+            {
+              "key": "J",
+              "text": "impetus"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prioritize"
+            },
+            {
+              "key": "M",
+              "text": "suffices"
+            },
+            {
+              "key": "N",
+              "text": "sustained"
+            },
+            {
+              "key": "O",
+              "text": "tenured"
+            }
+          ],
+          "answer": "B",
+          "explanation": "第一段②句提出观点，实现国会内部性别平等是一个重要目标。③句继而说明原因，这是因\n为参与立法决策的女性人数对所有政策都会有重大的\n。④句做出进一步阐释，女性议员比男性议员更\n有可能提出、探讨并设法通过那些对妇女和女孩影响显著的政策。由④句内容可推知，女性议员人数的多寡\n会对政策（尤其是女性权益相关政策）产生重大影响，空格词应体现“作用/影响\"之意，B）consequences正确。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bolsters"
+            },
+            {
+              "key": "B",
+              "text": "consequences"
+            },
+            {
+              "key": "C",
+              "text": "credentials"
+            },
+            {
+              "key": "D",
+              "text": "dramatically"
+            },
+            {
+              "key": "E",
+              "text": "enact"
+            },
+            {
+              "key": "F",
+              "text": "equity"
+            },
+            {
+              "key": "G",
+              "text": "especially"
+            },
+            {
+              "key": "H",
+              "text": "evasively"
+            },
+            {
+              "key": "I",
+              "text": "formidable"
+            },
+            {
+              "key": "J",
+              "text": "impetus"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prioritize"
+            },
+            {
+              "key": "M",
+              "text": "suffices"
+            },
+            {
+              "key": "N",
+              "text": "sustained"
+            },
+            {
+              "key": "O",
+              "text": "tenured"
+            }
+          ],
+          "answer": "E",
+          "explanation": "空格所在从句修饰thepolicies，意为“政府\n的（政策）”。因为③④句为顺承关系，故可\n结合下句所述“政府议员提出、探讨并设法通过…政策”推知空格词与pass近义，指向“通过/出台/制定”等\n意，E）enact正确。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bolsters"
+            },
+            {
+              "key": "B",
+              "text": "consequences"
+            },
+            {
+              "key": "C",
+              "text": "credentials"
+            },
+            {
+              "key": "D",
+              "text": "dramatically"
+            },
+            {
+              "key": "E",
+              "text": "enact"
+            },
+            {
+              "key": "F",
+              "text": "equity"
+            },
+            {
+              "key": "G",
+              "text": "especially"
+            },
+            {
+              "key": "H",
+              "text": "evasively"
+            },
+            {
+              "key": "I",
+              "text": "formidable"
+            },
+            {
+              "key": "J",
+              "text": "impetus"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prioritize"
+            },
+            {
+              "key": "M",
+              "text": "suffices"
+            },
+            {
+              "key": "N",
+              "text": "sustained"
+            },
+            {
+              "key": "O",
+              "text": "tenured"
+            }
+          ],
+          "answer": "F",
+          "explanation": "空格句先指出女性议员比男性议员更有可能提出、探讨并设法通过那些对妇女和女孩影响显\n著的政策，后以suchas...例举三项此类政策。pay\n应与paidfamilyleave（带薪家事假）、gender-based\nviolence(性别暴力相关政策）一样，指向“保障女性权益、维护性别平等的政策”。备选项中，只有F）equity能体"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bolsters"
+            },
+            {
+              "key": "B",
+              "text": "consequences"
+            },
+            {
+              "key": "C",
+              "text": "credentials"
+            },
+            {
+              "key": "D",
+              "text": "dramatically"
+            },
+            {
+              "key": "E",
+              "text": "enact"
+            },
+            {
+              "key": "F",
+              "text": "equity"
+            },
+            {
+              "key": "G",
+              "text": "especially"
+            },
+            {
+              "key": "H",
+              "text": "evasively"
+            },
+            {
+              "key": "I",
+              "text": "formidable"
+            },
+            {
+              "key": "J",
+              "text": "impetus"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prioritize"
+            },
+            {
+              "key": "M",
+              "text": "suffices"
+            },
+            {
+              "key": "N",
+              "text": "sustained"
+            },
+            {
+              "key": "O",
+              "text": "tenured"
+            }
+          ],
+          "answer": "A",
+          "explanation": "第二段①句指出，让更多女性进入国会还会增进女性选民与政府之间的联系感。②句继而\n指出，这也\n女性对于“政府关心她们所关切之事”的认识，并激励年轻女性更多地参与政治。①②句的\n句间衔接词Inaddition及②句的句内衔接词and表明\nwomen's sense...与 fosters agreater sense of\nconnection...、inspiresyoungwomento...一样，均指向让更多女性进入国会的积极意义，故空格词应表示\n“增进/增强/提高”之意，A）bolsters正确。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bolsters"
+            },
+            {
+              "key": "B",
+              "text": "consequences"
+            },
+            {
+              "key": "C",
+              "text": "credentials"
+            },
+            {
+              "key": "D",
+              "text": "dramatically"
+            },
+            {
+              "key": "E",
+              "text": "enact"
+            },
+            {
+              "key": "F",
+              "text": "equity"
+            },
+            {
+              "key": "G",
+              "text": "especially"
+            },
+            {
+              "key": "H",
+              "text": "evasively"
+            },
+            {
+              "key": "I",
+              "text": "formidable"
+            },
+            {
+              "key": "J",
+              "text": "impetus"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prioritize"
+            },
+            {
+              "key": "M",
+              "text": "suffices"
+            },
+            {
+              "key": "N",
+              "text": "sustained"
+            },
+            {
+              "key": "O",
+              "text": "tenured"
+            }
+          ],
+          "answer": "I",
+          "explanation": "第三段①句指出，女性在全球各国政府中都未被充分代表，但在美国这是一个尤为\n问\n题。②句随即介绍美国的情况：在政府中女性的代表性方面，美国在世界上排名第73位。根据②句内容可知，\n“女性在政府中代表性不足”这一问题在美国（比在其他国家）更为突出/严峻/棘手，I）formidable契合此意。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bolsters"
+            },
+            {
+              "key": "B",
+              "text": "consequences"
+            },
+            {
+              "key": "C",
+              "text": "credentials"
+            },
+            {
+              "key": "D",
+              "text": "dramatically"
+            },
+            {
+              "key": "E",
+              "text": "enact"
+            },
+            {
+              "key": "F",
+              "text": "equity"
+            },
+            {
+              "key": "G",
+              "text": "especially"
+            },
+            {
+              "key": "H",
+              "text": "evasively"
+            },
+            {
+              "key": "I",
+              "text": "formidable"
+            },
+            {
+              "key": "J",
+              "text": "impetus"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prioritize"
+            },
+            {
+              "key": "M",
+              "text": "suffices"
+            },
+            {
+              "key": "N",
+              "text": "sustained"
+            },
+            {
+              "key": "O",
+              "text": "tenured"
+            }
+          ],
+          "answer": "D",
+          "explanation": "31.答案：D）dramatically\n[确定词性］第四段①句的主体结构为But（连词）十thereason（主语）十is not（系动词）十becausethey\nface...money（表语从句），空格位于thereason的定语从句（从句省略了引导词that）中。so\nunderrepresented在从句中作表语，空格词应为副词，修饰形容词underrepresented。\n界排名极其靠后。空格所在从句继而指出，女性在美国政府中如此\n代表性不足。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bolsters"
+            },
+            {
+              "key": "B",
+              "text": "consequences"
+            },
+            {
+              "key": "C",
+              "text": "credentials"
+            },
+            {
+              "key": "D",
+              "text": "dramatically"
+            },
+            {
+              "key": "E",
+              "text": "enact"
+            },
+            {
+              "key": "F",
+              "text": "equity"
+            },
+            {
+              "key": "G",
+              "text": "especially"
+            },
+            {
+              "key": "H",
+              "text": "evasively"
+            },
+            {
+              "key": "I",
+              "text": "formidable"
+            },
+            {
+              "key": "J",
+              "text": "impetus"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prioritize"
+            },
+            {
+              "key": "M",
+              "text": "suffices"
+            },
+            {
+              "key": "N",
+              "text": "sustained"
+            },
+            {
+              "key": "O",
+              "text": "tenured"
+            }
+          ],
+          "answer": "C",
+          "explanation": "第四段开启对“女性在美国政府中代表性不足”的原因分析。段内两句以thereason...isnot\nbecause...Onthecontrary...先否后肯，指出：原因不是女性面临选民的阻挠或难以筹资；恰恰相反，数十载\n的研究表明，女性候选人与\n相近的男性政治家筹集的资金一样多，获胜的频率也一样高。因为比较研\n究要控制唯一变量，排除其他因素的干扰，所以要比较女性与男性候选人的筹资能力和胜选频率，就必须排除\n性别以外其他影响因素，如政治资历/能力等，C）credentials以复数形式出现时表示“资格；资历”，故正确。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bolsters"
+            },
+            {
+              "key": "B",
+              "text": "consequences"
+            },
+            {
+              "key": "C",
+              "text": "credentials"
+            },
+            {
+              "key": "D",
+              "text": "dramatically"
+            },
+            {
+              "key": "E",
+              "text": "enact"
+            },
+            {
+              "key": "F",
+              "text": "equity"
+            },
+            {
+              "key": "G",
+              "text": "especially"
+            },
+            {
+              "key": "H",
+              "text": "evasively"
+            },
+            {
+              "key": "I",
+              "text": "formidable"
+            },
+            {
+              "key": "J",
+              "text": "impetus"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prioritize"
+            },
+            {
+              "key": "M",
+              "text": "suffices"
+            },
+            {
+              "key": "N",
+              "text": "sustained"
+            },
+            {
+              "key": "O",
+              "text": "tenured"
+            }
+          ],
+          "answer": "G",
+          "explanation": "空格句指出，要让女性在国会占据半数席位，就必须有更多女性参选，一\n要以共和党候选\n人的身份参选。回溯上文可知，“女性在政治领域进展缓慢/女性在美国政府中代表性不足”的原因在于两党差\n异，国会中民主党女性议员较多，而共和党女性议员极少（107femaleDemocraticlawmakersvs42female\nRepublicanlawmakers）。因此，要提高女性议员在国会中的占比就必须让更多女性（尤其是共和党女性）参选。\n空格词应表强调，更进一步突出“以共和党候选人的身份参选”的重要性，唯有G）especially具有这一语用功能。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bolsters"
+            },
+            {
+              "key": "B",
+              "text": "consequences"
+            },
+            {
+              "key": "C",
+              "text": "credentials"
+            },
+            {
+              "key": "D",
+              "text": "dramatically"
+            },
+            {
+              "key": "E",
+              "text": "enact"
+            },
+            {
+              "key": "F",
+              "text": "equity"
+            },
+            {
+              "key": "G",
+              "text": "especially"
+            },
+            {
+              "key": "H",
+              "text": "evasively"
+            },
+            {
+              "key": "I",
+              "text": "formidable"
+            },
+            {
+              "key": "J",
+              "text": "impetus"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prioritize"
+            },
+            {
+              "key": "M",
+              "text": "suffices"
+            },
+            {
+              "key": "N",
+              "text": "sustained"
+            },
+            {
+              "key": "O",
+              "text": "tenured"
+            }
+          ],
+          "answer": "L",
+          "explanation": "第七段①句提出建议，必须有更多女性参选，尤其是要以共和党候选人的身份参选。②句明\n确具体实施办法，这需要共和党总体上\n招募女性。require暗含“目的一条件”逻辑，故由“目的”（即\n极/重点/优先招募女性，L）prioritize可传达此意。\n[补充技巧]借助段/句间衔接词可快速理清文章脉络、明确作者观点倾向，锁定契合段落主旨的选项。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bolsters"
+            },
+            {
+              "key": "B",
+              "text": "consequences"
+            },
+            {
+              "key": "C",
+              "text": "credentials"
+            },
+            {
+              "key": "D",
+              "text": "dramatically"
+            },
+            {
+              "key": "E",
+              "text": "enact"
+            },
+            {
+              "key": "F",
+              "text": "equity"
+            },
+            {
+              "key": "G",
+              "text": "especially"
+            },
+            {
+              "key": "H",
+              "text": "evasively"
+            },
+            {
+              "key": "I",
+              "text": "formidable"
+            },
+            {
+              "key": "J",
+              "text": "impetus"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prioritize"
+            },
+            {
+              "key": "M",
+              "text": "suffices"
+            },
+            {
+              "key": "N",
+              "text": "sustained"
+            },
+            {
+              "key": "O",
+              "text": "tenured"
+            }
+          ],
+          "answer": "N",
+          "explanation": "空格句先提出“共和党总体上要优先考虑招募女性”，后以and（表示补充说明，含有强调意\n味）补充指出“不能只在一个选举周期内（这样做），而是要以\n方式（这样做）”。not...but...（不是….…\n而是...）体现取舍逻辑，故ina\nway应与justforoneelectioncycle语义相对，空格词应表示“长久的/\n持久的”之意，N）sustained可表示“持续的；持久的”，故正确。\n资格”，常修饰“人”或“职位”，如atenuredpost(终身职位）、atenuredprofessor(终身教授），不能修饰抽象名词way。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-06-2-b",
+      "type": "matching",
+      "title": "The Benefits of Solitude",
+      "paragraphs": [
+        "A) I can be a reluctant socialiser. I'm sometimes secretly pleased when social plans are called off. I get restless a few hours into a hangout. I even once went on a free 10-day silent meditation（冥想） retreat—not for the meditation, but for the silence.",
+        "B) So can relate to author Anneli Rufus, who wrote in Party of One: The Loners’ Manifesto: “When parents on TV shows punished their kids by ordering them to go to their rooms, I was confused. I loved my room. Being there behind a locked door was a treat. To me a punishment was being ordered to play games with my cousin Louis.”",
+        "C) Unsocial tendencies like these are often far from ideal. Abundant research shows the harms of social isolation, considered a serious public health problem in countries that have rapidly ageing populations ( though talk of a ‘loneliness epidemic’ may be exaggerated). In the UK, the Royal College of General Practitioners says that loneliness has the same risk level for premature death as diabetes. Strong social connections are important for cognitive functioning, motor function and a smoothly running immune system. .",
+        "D) This is especially clear from cases of extreme social isolation. Examples of people kept in captivity, children kept isolated in abusive orphanages, and prisoners kept in solitary confinement all show how prolonged solitude can lead to hallucinations (41%) and other forms of mental instability.",
+        "E) But these are severe and involuntary cases of aloneness. For those of us who just prefer plenty of alone time, emerging research suggests some good news: there are upsides to being alone—for both our work lives and our emotional well-being.",
+        "F) Solitude is a time for reflection, for thinking about things more deeply. In a world increasingly focused on speed and competitiveness, solitude is precious and something to be treasured. And there are benefits in learning to love your solitude.",
+        "G) One key benefit of solitude is improved creativity. Gregory Feist, who focuses on the psychology of creativity at California’s San Jose State University, has defined creativity as thinking or activity with two key elements: originality and usefulness. He has found that personality traits commonly associated with creativity are openness ( receptiveness to new thoughts and experiences) , self-confidence, and autonomy — which may include “a lack of concern for social norms” and “a preference for being alone”. In fact, Feist’s research on both artists and scientists shows that one of the most prominent features of creative folks is their lesser interest in socialising.",
+        "H) One reason for this is that such people are likely to spend sustained time alone working on their craft. Plus, Feist says, many artists “are trying to make sense of their internal world and a lot of internal personal experiences that they're trying to give expression and meaning to through their art.” Solitude allows for the reflection and observation necessary for that creative process.",
+        "I) A recent justification of these ideas came from University at Buffalo psychologist Julie Bowker, who researches social withdrawal. Social withdrawal is usually categorised into three types: shyness caused by fear or anxiety; avoidance, from a dislike of socialising; and unsociability, from a preference for solitude. A paper by Bowker and her colleagues was the first to show that a type of social withdrawal could have a positive effect—they found that creativity was linked specifically to unsociability. They also found that unsociability had no correlation with aggression (shyness and avoidance did). This was significant because while previous research had suggested that unsociability might be harmless, Bowker and colleagues’ paper showed that it could actually be beneficial. Unsociable people are likely to be “having just enough interaction,” Bowker says. “They have a preference for being alone, but they also don’t mind being with others.”",
+        "J) Still, it turns out that solitude is important for more than creativity. It’s commonly believed that leaders need to be sociable. But this depends, among other things, on the personalities of their employees. One 2011 study showed that in branches of a pizza chain where employees were more passive, outgoing bosses were associated with higher profits. But in branches where employees were more active, introverted（内向的） leaders were more effective. One reason for this is that introverted people are less likely to feel threatened by strong personalities and suggestions. They’re also more likely to listen.",
+        "K) Since ancient times, meanwhile, people have been aware of a link between isolation and mental focus. After all, cultures with traditions of religious hermits（隐士） believe that solitude is important for enlightenment. Recent research has given us a better understanding of why. One benefit of unsociability is the brain’s state of active mental rest, which goes hand-in-hand with the stillness of being alone. When another person is present, your brain can’t help but pay some attention. This can be a positive distraction. But it’s still a distraction.",
+        "L) Daydreaming in the absence of such distractions activates the brain’s default-mode network. Among other functions, this network helps to consolidate memory and understand others’ emotions. Giving free rein to a wandering mind not only helps with focus in the long term but strengthens your sense of both yourself and others. Paradoxically, therefore, periods of solitude actually help when it comes time to socialise once more. And the occasional absence of focus ultimately helps concentration in the long run.",
+        "M) A more recent advocate of thoughtful and productive solitude is Susan Cain, author of Quiet: The Power of Introverts in a World That Can't Stop Talking and founder of Quiet Revolution, a company that promotes quiet and introvert-friendly workplaces. “These days, we tend to believe that creativity emerges from a decidedly unreserved socialising process, but in fact it requires sustained attention and deep focus,” she says. “Also, humans are such absorbent social beings that when we surround ourselves with others, we automatically take in their opinions and aesthetics. To truly chart our own path or vision, we have to be willing to isolate ourselves, at least for some period of time.”",
+        "N) Still, the line between useful solitude and dangerous isolation can be blurry. “Almost anything can be adaptive and maladaptive, depending on how extreme they get,” Feist says. A disorder 6:7 has to do with dysfunction. If someone stops caring about people and cuts off all contact, this could point to an irrational neglect of social relations. But creative unsociability is a far cry from this. In fact, Feist says, “there’s a real danger with people who are never alone.” It’s hard to examine one’s own thoughts, feelings and motives, to be self-aware, and fully relaxed unless you have occasional solitude. In addition, introverts tend to have fewer but stronger friendships — which has been linked to greater happiness.",
+        "O) As with many things, quality reigns over quantity. Nurturing a few solid relationships without feeling the need to constantly populate your life with endless chatting ultimately may be better for you.",
+        "P) Thus, if your personality tends toward unsociability, you shouldn’t feel the need to change. Of course, that comes with qualifications. But as long as you have regular social contact, you are choosing solitude rather than being forced into it, you have at least a few good friends and your solitude is good for your well-being or productivity, there’s no point agonising over how to fit a square personality into a round hole."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Lots of research demonstrates that being socially isolated is harmful to the elderly.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[精解]C段②句指出“大量研究表明，社交孤立的危害已被视为人口快速老龄化国家的严重\n公共卫生问题”，③句顺而援引权威机构的说法予以论证“孤独导致早逝的风险与糖尿病相当”，可见社交孤立\n对老年群体是有害的。试题是对该内容的概括总结，Lotsofresearchdemonstrates是对段中Abundant\nresearch shows的同义替换，beingsociallyisolatedisharmfultotheelderly是对theharmsof social\nisolation...a serious publichealthproblem...ageingpopulations的概括总结。"
+        },
+        {
+          "number": 37,
+          "stem": "Being alone enables artists to think and observe, which is a must for their creation.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "[精解］H段③句指出“独处为艺术家的创造过程提供了必要的反思和观察时间”（句中that\ncreativeprocess回指上句所述“艺术家的创作过程”）。试题是对该句的同义转述，Beingaloneenables...to\nthinkandobserve是对Solitudeallowsforthereflectionandobservation的同义改写，whichisamustfortheir\ncreation是对necessaryforthatcreativeprocess的同义转述。"
+        },
+        {
+          "number": 38,
+          "stem": "To one writer, being forced to play with others was a penalty while being kept alone in a room was quite a pleasure.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "[精解]B段介绍作家安妮莉·鲁弗斯在其书中的部分言论，由③④句可知，她认为“待在锁着的门后是一种享受，而真正的惩罚是被要求和表弟路易斯一起玩游戏”。试题是对该内容的总结，Toone\nwriter与文中authorAnneliRufus...Tome对应，beingforcedtoplaywithotherswasapenalty是对a\npunishment was being ordered toplay games withmy cousin Louis 的同义改写，beingkept alonein aroom was\nquiteapleasure是对Beingtherebehindalockeddoorwasatreat的同义替换。"
+        },
+        {
+          "number": 39,
+          "stem": "Recent research shows for the first time that there is a specific link between being creative and being unsociable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "[精解]I段③句指出“鲍克等人的研究首次表明，有一类社交退缩可以产生积极影响—他\n们发现创造力与‘不爱社交’之间有特定的联系”。试题是对该句的提炼，其中Recentresearchshowsforthe\nfirst time与Apaperby...was thefirst to show对应，thereis a specificlinkbetweenbeing creative and being\nunsociable是对creativitywaslinkedspecificallytounsociability的同义改写。"
+        },
+        {
+          "number": 40,
+          "stem": "We must be willing to stay alone at least for some in time order to plot our own course.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "[精解]M段末句指出，为了真正规划我们自己的道路或愿景，我们必须愿意至少在某段时\n间内让自己独处。试题是对该句的同义转述，Wemustbewillingtostayalone与wehavetobewillingto\nisolateourselves一致，atleastforsometime与atleastforsomeperiodoftime对应，inordertoplotourown\ncourse与Totrulychartourownpathorvision契合。"
+        },
+        {
+          "number": 41,
+          "stem": "According to new research, for people who prefer being alone, solitude can be beneficial to their work lives and emotional health.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "［精解］E段②句指出“对大部分时候偏爱独处的人来说，最新研究带来了好消息：独处对工\n作生活和情感健康都有积极意义”。试题是对该句的同义转述，Accordingtonewresearch与emerging\nresearch suggests贴合，forpeoplewhopreferbeingalone与For those ofuswhojustpreferplentyof alone\ntime对应，solitudecanbebeneficial是对thereareupsidestobeingalone的同义替换，totheirworklivesand\nemotionalhealth与forbothourworklivesandouremotionalwell-being一致。"
+        },
+        {
+          "number": 42,
+          "stem": "It may turn out to be better for one to cultivate a few steady relationships than to busy themselves socialising.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "O",
+          "explanation": "[精解]O段②句指出，培养几段稳固的关系，而非不断用无休止的闲聊来填满你的生活，最\n终可能对你更有益。试题是对该句的同义转述，tocultivateafewsteadyrelationships与Nurturingafewsolid\nrelationships对应，tobusy themselves socialising是对toconstantlypopulateyourlifewithendlesschatting的\n同义改写，Itmay turnout tobebetterforone to...than to...与...withoutfeeling theneed to...ultimately\nmaybebetterforyou契合。"
+        },
+        {
+          "number": 43,
+          "stem": "Allowing your mind to wander freely is conducive to sharpening your focus in the long run.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "[精解]L段③句指出“放任思绪自由游走不仅有助于从长期提升专注力，还能增强你的自我\n认知和共情能力”，④5句进而援引例证说明“因此看似矛盾的是，独处时段实则能提升后续社交的质量。而\n偶尔的注意力分散最终有助于长期专注力的培养”。试题是对上述内容其中一项益处的提炼，Allowingyour\nmindtowanderfreely与Givingfreereintoawanderingmind对应，二者同时也是原文例证句中theoccasional\nabsence of focus 的上义表达，conducive to sharpeningyour focusin thelongrun与文中helpswithfocusin the\nlong term、helps concentrationin thelongrun对应。"
+        },
+        {
+          "number": 44,
+          "stem": "Research conducted on artists and scientists indicates that creative people are less interested in hanging out with others.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "[精解]G段④句指出，费斯特对艺术家和科学家的研究表明，富有创造力的人最显著的特征\n之一就是社交兴趣较低。试题是该句的同义转述，Researchconductedonartistsandscientistsindicatesthat\n与research onboth artists and scientists shows that一致，creativepeopleareless interested inhanging out\nwithothers是对one of...featuresofcreativefolksistheirlesserinterestinsocialising的近义改写。"
+        },
+        {
+          "number": 45,
+          "stem": "According to Feist, you will have difficulty knowing yourself if you do not stay alone occasionally.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "N",
+          "explanation": "[精解]N段6句介绍费斯特的观点“那些从不独处的人才是真的危险”，句顺而阐述其理\n由“除非你偶尔独处，否则很难审视自己的想法、感受和动机，保持自我觉知并彻底放松”，即若不偶尔独处，你\n将难以了解自己。试题是对该内容的合理解读，AccordingtoFeist与Feistsays对应，youwillhavedifficulty\nknowingyourself 是对It'shard toexamine one's own thoughts，feelings andmotives，to be self-aware..\nrelaxed的概括总结，ifyou donotstay aloneoccasionally是对unlessyouhave occasionalsolitude的同义替换。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Simulators are most often utilized within industries such as nuclear power, aviation and surgery where failure results in disastrous consequences. To maximize the value from a simulation learning experience, participants should immediately and directly apply their learning to ‘a specific intervention within their organization.",
+        "Most organizations aspire to deploy significant change programs, only to find them nearly impossible to implement. That is largely because successful change requires more than a vision; it requires a workforce that not only doesn’t resist change, but embraces it.",
+        "To achieve success, ‘an organization must build a transformation program that will allow change to be rapidly pulled across its departments and throughout its layers. Regardless of the level of senior management commitment, unless key thought leaders at all levels embrace the change, the initiative will wither and die. To create this kind of widespread passion, learning leaders must expose the workforce to what could be, which will enable them to rethink their mental models, enable them to break free from their deep-rooted paradigms and embrace the opportunity to learn.",
+        "Allowing participants to enter a simulated environment provides them with the opportunity to experience alternative realities which can prompt them to rethink their current beliefs.",
+        "Behavioral change is not easy for most adults. Lectures, training programs and workshops can explain the intellectual elements of transformation, but they are seldom effective at getting to the behavioral aspects that lie at the heart of a significant change initiative. Further, under normal working conditions, managers rarely see the full effect of their employee development efforts. As such, an intervention like a simulation can provide the stimulus for change.",
+        "An effective simulation can be better than experience as a learning tool because it accelerates time, compresses space, and unlike reality, is specifically designed to maximize participant learning. Simulations provide an immersive learning experience where skills, processes and knowledge all can be highlighted in a way reality cannot. The ability to explore, experiment and repeatedly apply new knowledge in unlimited, risk-free models is what makes simulation one of the most productive forms of learning.",
+        "‘Well-designed simulations can enable individuals and groups to develop a deep level of understanding about how their decisions and intuitive responses to business stimuli affect their fellow participants and the organization as a whole. To reap the benefits, however, simulations must feel like reality. At the end of the successful simulation, participants must declare “this is us.” If they don’t, they will view the experience as a game, which can be difficult to apply on the job, or worse, irrelevant to everyday work tasks. To maximize benefits from simulation, participants should immediately apply the learning from the experience to forge a smooth link between learning and doing."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn about successful changes in organizations?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can be immediately implemented with great ease."
+            },
+            {
+              "key": "B",
+              "text": "They are usually led by organization leaders of vision."
+            },
+            {
+              "key": "C",
+              "text": "They call for enthusiastic support from the workforce."
+            },
+            {
+              "key": "D",
+              "text": "They often result from simulation learning experiences."
+            }
+          ],
+          "answer": "C",
+          "explanation": "第二段②句指出，成功的变革需要的不仅仅是一个愿景，更需要一支拥抱变革的员工队\n伍。可见C项正确，call for enthusiastic support from the workforce 同义替换原文requires a workforce...\nembraces it。"
+        },
+        {
+          "number": 47,
+          "stem": "What should learning leaders do to arouse learners’ passion for change?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Allow them to see what could possibly be achieved."
+            },
+            {
+              "key": "B",
+              "text": "Help them break free from their old paradigms."
+            },
+            {
+              "key": "C",
+              "text": "Encourage them to rethink their thought models."
+            },
+            {
+              "key": "D",
+              "text": "Stimulate them to embrace fresh opportunities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "第三段③句指出，若要激发广泛的热情，学习领导者必须让全体员工能够感知未来会是\n怎样，可见A项正确，Allow them to see what could possiblybe achieved是对文中expose the workforce to\nwhat could be的同义改写。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the passage say about lectures, training programs and workshops?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are generally incapable of changing workers’ behaviors on the job."
+            },
+            {
+              "key": "B",
+              "text": "They are interventions different from simulations in creating stimuli for change."
+            },
+            {
+              "key": "C",
+              "text": "They aim at transforming the behaviors of the workers in an organization."
+            },
+            {
+              "key": "D",
+              "text": "They help managers achieve the full effect of employee development efforts."
+            }
+          ],
+          "answer": "A",
+          "explanation": "第五段①②句指出，改变行为对于大多数成年人来说都非易事。讲座、培训项目，以及研\n讨会可以解释说明变革所需的智力因素，但很少能触及新方案的核心问题一行为方面。可见讲座等无力改\n变员工的行为，A项正确，generally incapable of同义替换文中 seldom effective at，且changing workers’\nbehaviors on thejob明确文中getting to thebehavioralaspects所指。\n等干预措施可刺激改变）错误理解为“平行并列”关系（讲座和模拟是刺激改变的不同干预方式）。C项错误推\n导第五段①②句间关系：将“观点-例证”关系（改变行为对于大多数成年人来说都非易事；讲座等鲜能有效触\n及行为方面的问题）改为“问题-方案”关系（改变行为对于大多数成年人来说都非易事；讲座等则以改变员工\n行为为目标）。D项错误推导第五段②③句间关系：将两句间“并列/递进”关系（问题1：讲座等很少能有效触\n及行为方面的问题；问题2：管理者很少能看到员工发展举措的全部效果）改为“问题-方案”关系（讲座等可帮\n助管理者实现员工发展举措的最大效果）。"
+        },
+        {
+          "number": 49,
+          "stem": "What makes simulation one of the most fruitful forms of learning?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its capability of saving time by accelerating the immersive learning experience."
+            },
+            {
+              "key": "B",
+              "text": "Its potential for learners to examine their skills, knowledge and learning process."
+            },
+            {
+              "key": "C",
+              "text": "Its capability of providing all participants with a practical learning experience."
+            },
+            {
+              "key": "D",
+              "text": "Its potential for learners to explore, experiment and practice without any risk."
+            }
+          ],
+          "answer": "D",
+          "explanation": "第六段③句指出，正是这种“在无限制且无风险的模型中探索、体验并反复应用新知识”\n的能力使模拟成为了最具成效的学习形式之一，D项正确，potentialforlearnerstoexplore，experiment and\npractice without any risk 同义改写原文The ability to explore，experiment and repeatedly apply new\nknowledge in unlimited，risk-free models。"
+        },
+        {
+          "number": 50,
+          "stem": "What should participants do in a simulation to reap the greatest benefits possible?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Take the experience as a mere game."
+            },
+            {
+              "key": "B",
+              "text": "Apply promptly what they learn to their jobs."
+            },
+            {
+              "key": "C",
+              "text": "Develop a deep level of understanding."
+            },
+            {
+              "key": "D",
+              "text": "Strive to connect closely with their leaders."
+            }
+          ],
+          "answer": "B",
+          "explanation": "末段5句提出，为了最大化模拟生成的效益，参与者应立即将体验中所学加以应用，在学习和\n实践之间建立顺畅的连接，可见B项正确，promptly同义替换文中immediately，且theirjobs明确文中doing所指。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "GDP growth is not a good indicator of how well a country is performing, and should not be the primary goal of governments. Unlimited growth is not sustainable, and economic thinking is moving toward the idea that we should aim for sustainability in our economic models. ‘But while a sustainable economy is vital to our future, it is a means to an end, not an end in itself.",
+        "The idea that governments should focus on happiness has its critics. There are concerns about how happiness can be measured. Is happiness not a fleeting and subjective psychological state? Don’t different people experience different levels of happiness? Even on the broadest interpretation of ‘happiness’ as prosperity or ‘life satisfaction’, people want different things.",
+        "Of course, governments cannot impose life satisfaction on citizens. But our happiness relies on collaborative efforts as a society. A government's obligation lies in creating conditions that promote prosperity. And there is good reason to suppose that such conditions exist, are globally applicable, and are discoverable through research.",
+        "In a recently published article, philosopher Julian Baggini suggests we should focus on ‘real wealth’ for citizens, which does not depend on GDP growth. Access is key: people do not need to own, but rather access things that enable them to live well. Technological advances and changes in social behavior enable us to make more efficient use of the assets that we already have. And focusing on access to the resources people need to live better lives could help reduce inequality.",
+        "As far as it goes, this has much in common with proposals tabled by ‘happiness’ advocates. But it sets the bar far too low for what governments can and should be doing for their citizens.",
+        "For example, it’s not clear how a ‘real wealth’ economy would remedy the epidemic of mental ill-health that plagues our society. In Western countries, at least — poor mental health is more detrimental to wellbeing than poverty. Over and above a vastly improved provision of therapeutic mental healthcare, there are preventative measures for improving mental health that governments could and should adopt. The WHO recommends establishing institutions that facilitate community participation — educational programs and interventions that provide skills for promoting mental wellbeing. It says a lot, however, that the WHO feels the need to appeal to the economic benefits of improving mental health to persuade governments that the cost of taking proposed measures is justified. As long as the economy is their priority, governments need go no further than ensuring citizens’ continued productivity.",
+        "To demand that governments set the ‘ happiness’ of citizens as their highest priority is to demand that they view citizens as ends in themselves."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the passage say is the more recent thinking of economic growth?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tt should be made sustainable."
+            },
+            {
+              "key": "B",
+              "text": "It is vital to the future of humanity."
+            },
+            {
+              "key": "C",
+              "text": "It should be governments’ chief concern."
+            },
+            {
+              "key": "D",
+              "text": "It is an indicator of government performance."
+            }
+          ],
+          "answer": "A",
+          "explanation": "第一段②句明确指出，无限制的经济增长并不具有可持续性，当前经济思维正逐渐转向\n“经济模式应以可持续性为目标”这一理念。可见，当前有关经济增长的最新观点是它应当具有可持续性，A\n项正确。注：句中economicthinking可以理解为“对经济现象和经济政策的整体思维趋势、理念、分析框架或\n主导观点”，它不指某一个具体的“想法”，而是指一种集体的、主导的思维趋势。"
+        },
+        {
+          "number": 52,
+          "stem": "Why are some people opposed to the idea that governments should focus on happiness?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Governments cannot impose happiness on citizens."
+            },
+            {
+              "key": "B",
+              "text": "People’s happiness is built upon their own endeavor."
+            },
+            {
+              "key": "C",
+              "text": "Happiness means different things to different people."
+            },
+            {
+              "key": "D",
+              "text": "Happiness depends on sustainable economic growth."
+            }
+          ],
+          "answer": "C",
+          "explanation": "第二段①句首先指出“政府应关注幸福”这一理念面临质疑，②至5句随后解释质疑所\n在：幸福难以衡量、短暂且主观、个体对幸福的体验和需求千差万别。可见，C项正确。"
+        },
+        {
+          "number": 53,
+          "stem": "What does philosopher Julian Baggini suggest governments do in a recently published article?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Try to reduce inequality between the rich and the poor."
+            },
+            {
+              "key": "B",
+              "text": "Provide people with access to resources for a better life."
+            },
+            {
+              "key": "C",
+              "text": "Change people’s behaviors to put social wealth to better use."
+            },
+            {
+              "key": "D",
+              "text": "Make use of advanced technologies to improve people’s lives."
+            }
+          ],
+          "answer": "B",
+          "explanation": "第四段①句首先概述哲学家朱利安·巴吉尼对政府的建议：关注公民的“真实财富”，②\n句随后说明该建议的核心关键：提供改善人们生活的资源获取途径/使用权。可见，B项正确。"
+        },
+        {
+          "number": 54,
+          "stem": "Why does the WHO feel the need to appeal to the economic benefits of improving mental health to justify its recommendations?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Mental health programs cannot be executed without GDP growth."
+            },
+            {
+              "key": "B",
+              "text": "Psychological interventions are conducive to people’s wellbeing."
+            },
+            {
+              "key": "C",
+              "text": "Poor mental health is detrimental to a nation’s economic system."
+            },
+            {
+              "key": "D",
+              "text": "Governments still take economic development as their priority."
+            }
+          ],
+          "answer": "D",
+          "explanation": "第六段5句指出“世卫组织觉得有必要诉诸“改善心理健康的经济效益”来让政府相信采\n取其建议的相关投入值得”，6句进而作出解释“只要经济仍是政府的优先事项，政府就会止步于保障公民的\n持续生产力”。两句间语义逻辑为“政府以经济发展作为优先事项→政府只会考虑能带来经济效益的建议举\n措→WHO需要证明其建议（即改善民众心理健康）的经济效益，政府才会考虑其建议”，可见D项正确。"
+        },
+        {
+          "number": 55,
+          "stem": "What message does the author try to convey at the end of the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Governments’ goal should be prosperity-driven."
+            },
+            {
+              "key": "B",
+              "text": "Governments’ goal should be people-oriented."
+            },
+            {
+              "key": "C",
+              "text": "Governments should consider citizens’ views in decision-making."
+            },
+            {
+              "key": "D",
+              "text": "Governments should set sustained productivity as their top priority."
+            }
+          ],
+          "answer": "B",
+          "explanation": "作者在末段总结陈述，指出“要求政府把公民幸福放在最高优先级，就是把公民当作目标\n本身”，结合前文内容“政府仍以经济发展为优先事项、仅关注人的生产力，使得WHO想让政府实施心理健康\n项目也不得不诉诸这些项目的经济效益”可知，作者意在指出政府应以人为本，而非将人视为生产力工具，B\n项正确。注：结尾句中endsinthemselves是哲学术语（源自康德伦理学），指“人本身即目的，而非工具”，作者\n借此强调政府的终极目标是服务民众，而非追求GDP、生产力等工具性指标。"
+        }
+      ]
+    }
+  ],
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2025.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97.pdf"
+}

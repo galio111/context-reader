@@ -88,7 +88,13 @@ import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabular
 import type { DictionaryResult } from "@/types/dictionary";
 import { useAccount } from "@/components/AccountProvider";
 
+export interface ReaderExamSurface {
+  locked: boolean; toolbar: ReactNode; rail: ReactNode; timer: ReactNode; menu?: ReactNode;
+  render: (lookup: (context: WordContext) => void) => ReactNode;
+}
+
 interface ReaderViewProps {
+  examSurface?: ReaderExamSurface;
   article: string;
   importedArticle?: ImportedArticle | null;
   preloadedExplanations?: PublicExplanation[];
@@ -1162,6 +1168,7 @@ export function ReaderView({
   onRenameSavedArticle,
   onDeleteSavedArticle,
   onOpenImportedArticle,
+  examSurface,
 }: ReaderViewProps) {
   const {
     account,
@@ -1471,6 +1478,13 @@ export function ReaderView({
   const [failedImageBlockIds, setFailedImageBlockIds] = useState<Set<string>>(() => new Set());
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
   const [dictionaryClosing, setDictionaryClosing] = useState(false);
+  useEffect(() => {
+    if (!examSurface?.locked) return;
+    setDictionaryMounted(false);
+    setMobileExplanationOpen(false);
+    setReaderMenuOpen(false);
+    setReaderWorkLayer(null);
+  }, [examSurface?.locked]);
   const [guestLookupLocked, setGuestLookupLocked] = useState(false);
   const [articleTranslations, setArticleTranslations] = useState<ArticleTranslationItem[]>([]);
   const [translationLoading, setTranslationLoading] = useState(false);
@@ -2229,6 +2243,7 @@ export function ReaderView({
     tokenIds: string[],
     options: { force?: boolean; syncVocabulary?: boolean } = {},
   ) {
+    if (examSurface?.locked) return;
     if (!account.authenticated && guestLookupLocked) {
       openLogin("今天的游客查词次数已用完，登录后可继续查词并同步学习数据。");
       return;
@@ -2439,6 +2454,7 @@ export function ReaderView({
   }
 
   function handleRegenerateExplanation() {
+    if (examSurface?.locked) return;
     if (!account.authenticated && guestLookupLocked) {
       openLogin("今天的游客查词次数已用完，登录后可继续查词并同步学习数据。");
       return;
@@ -2714,6 +2730,7 @@ export function ReaderView({
   }
 
   function handleOpenVocabulary() {
+    if (examSurface?.locked) return;
     if (!requireLocalAccount("登录后才能使用生词本。")) return;
     const entries = getVocabularyEntries();
     setVocabularyEntries(entries);
@@ -2727,6 +2744,7 @@ export function ReaderView({
   }
 
   function handleOpenSavedArticlesMenu() {
+    if (examSurface?.locked) return;
     if (!requireLocalAccount("登录后才能查看我的文章。")) return;
     setReaderMenuPlacement("left");
     setReaderMenuStandalonePreview(true);
@@ -2778,6 +2796,7 @@ export function ReaderView({
   }
 
   function openDictionaryWindow() {
+    if (examSurface?.locked) return;
     if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
     setDictionaryClosing(false);
     setDictionaryMounted(true);
@@ -2890,6 +2909,7 @@ export function ReaderView({
   }
 
   function openMobileTool(mode: RightPanelMode) {
+    if (examSurface?.locked) return;
     setReaderMenuOpen(false);
     if (rightPanelMode === "translation" && mobileTranslationScrollRef.current) {
       mobileTranslationScrollTopRef.current = mobileTranslationScrollRef.current.scrollTop;
@@ -3716,6 +3736,7 @@ export function ReaderView({
     <main
       className="cr-reader-root min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#1d1d1f]"
       data-editorial-workbench={editorialWorkbench || undefined}
+      data-cet-reader={Boolean(examSurface) || undefined}
       style={{ "--reader-desktop-inset-left": `${desktopViewportInsetLeft}px` } as CSSProperties}
     >
       <aside className={toolbarStyles.desktopRail} aria-label="阅读快捷入口">
@@ -3726,19 +3747,20 @@ export function ReaderView({
           disabled={savingArticleEdit}
         />}
         <div className={toolbarStyles.railActions}>
-          {!editorialWorkbench && <button type="button" onClick={() => setReaderWorkLayer("import")}>
+          {!editorialWorkbench && <button type="button" disabled={examSurface?.locked} onClick={() => setReaderWorkLayer("import")}>
             <ReaderRailIcon kind="import" /><span>导入</span><small>导入新的文章或网址</small>
           </button>}
-          <button type="button" onClick={openDictionaryWindow}>
+          <button type="button" disabled={examSurface?.locked} onClick={openDictionaryWindow}>
             <ReaderRailIcon kind="dictionary" /><span>查词</span><small>打开可移动查词窗口</small>
           </button>
-          <button type="button" onClick={handleOpenVocabulary}>
+          <button type="button" disabled={examSurface?.locked} onClick={handleOpenVocabulary}>
             <ReaderRailIcon kind="vocabulary" /><span>生词本</span><small>查看保存的词与原句</small>
           </button>
-          <button type="button" onClick={handleOpenSavedArticlesMenu}>
+          <button type="button" disabled={examSurface?.locked} onClick={handleOpenSavedArticlesMenu}>
             <ReaderRailIcon kind="articles" /><span>我的文章</span><small>打开保存文章</small>
           </button>
         </div>
+        {examSurface?.rail}
         {editorialWorkbench && editorialRailActions && <div className={toolbarStyles.editorialRailActions} aria-label="文章队列">{editorialRailActions}</div>}
       </aside>
       <header className={toolbarStyles.toolbar} aria-label="文章工具">
@@ -3757,6 +3779,7 @@ export function ReaderView({
           />
         )}
         <div className={toolbarStyles.actions}>
+          {examSurface ? <>{examSurface.toolbar}{!examSurface.locked && <span title="把当前阅读文章保存到我的文章"><PillNavAction className={toolbarStyles.action} label={saveButtonText} onClick={handleSaveArticle} disabled={articleSaved || savingArticle} /></span>}</> : <>
           {editingArticle ? (
             <PillNavAction
               className={toolbarStyles.action}
@@ -3793,6 +3816,7 @@ export function ReaderView({
               disabled={articleSaved || savingArticle || savingArticleEdit}
             />
           )}
+          </>}
           <PillNavAction
             className={`${toolbarStyles.action} ${toolbarStyles.primaryAction}`}
             tone="dark"
@@ -3820,7 +3844,7 @@ export function ReaderView({
         style={{ "--mobile-sheet-height": `${mobileToolSheet.height}dvh` } as CSSProperties}
       >
         <article className="cr-reader-article min-w-0 overflow-x-hidden rounded-[16px] bg-white px-4 py-7 sm:min-h-[70vh] sm:px-10 sm:py-8 lg:px-12 lg:py-14">
-          {!articleMediaReady ? (
+          {examSurface ? <div className={articleShellClassName} style={paragraphStyle}>{examSurface.render(context => { void explainContext(context, []); })}</div> : !articleMediaReady ? (
             <div
               className={loadingStyles.stage}
               role="status"
@@ -4165,6 +4189,7 @@ export function ReaderView({
           data-native-selection="blue"
         >
           <div className="flex h-full min-h-0 flex-col gap-3">
+            {examSurface?.locked ? <div className="flex-1 rounded-[18px] border border-[#e0e0e0] bg-white p-5 text-sm text-[#6e6e73]">考试进行中，交卷或关闭考试模式后可查词精读。</div> : <>
             <div data-reader-panel-tabs className="grid h-10 shrink-0 grid-cols-2 rounded-full border border-[#d2d2d7] bg-white p-1">
               <button
                 type="button"
@@ -4223,6 +4248,8 @@ export function ReaderView({
                 />
               </div>
             </div>
+            </>}
+            {examSurface?.timer}
           </div>
         </div>
       </div>
@@ -4537,14 +4564,14 @@ export function ReaderView({
       )}
 
       <nav className={toolbarStyles.mobileToolDock} aria-label="阅读工具">
-        <button type="button" aria-pressed={mobileExplanationOpen && rightPanelMode === "explanation"} onClick={() => openMobileTool("explanation")}>解释</button>
-        <button type="button" aria-pressed={mobileExplanationOpen && rightPanelMode === "translation"} onClick={() => openMobileTool("translation")}>翻译</button>
-        <button type="button" aria-pressed={mobileExplanationOpen && rightPanelMode === "dictionary"} onClick={() => openMobileTool("dictionary")}>查词</button>
-        <button type="button" onClick={handleOpenVocabulary}>生词本</button>
-        <button type="button" aria-pressed={mobileExplanationOpen && rightPanelMode === "article"} onClick={() => openMobileTool("article")}>更多</button>
+        <button type="button" disabled={examSurface?.locked} aria-pressed={mobileExplanationOpen && rightPanelMode === "explanation"} onClick={() => openMobileTool("explanation")}>解释</button>
+        <button type="button" disabled={examSurface?.locked} aria-pressed={mobileExplanationOpen && rightPanelMode === "translation"} onClick={() => openMobileTool("translation")}>翻译</button>
+        <button type="button" disabled={examSurface?.locked} aria-pressed={mobileExplanationOpen && rightPanelMode === "dictionary"} onClick={() => openMobileTool("dictionary")}>查词</button>
+        <button type="button" disabled={examSurface?.locked} onClick={handleOpenVocabulary}>生词本</button>
+        <button type="button" disabled={examSurface?.locked} aria-pressed={mobileExplanationOpen && rightPanelMode === "article"} onClick={() => openMobileTool("article")}>更多</button>
       </nav>
 
-      <HomeOptionMenu
+      {examSurface?.locked ? (readerMenuOpen && <div className={toolbarStyles.workLayerBackdrop} onMouseDown={event => { if(event.target === event.currentTarget) setReaderMenuOpen(false); }}><section className={toolbarStyles.workLayer} role="dialog" aria-modal="true" aria-label="考试菜单"><header><h2>Menu</h2><button onClick={() => setReaderMenuOpen(false)} aria-label="关闭菜单">×</button></header>{examSurface.menu}</section></div>) : <HomeOptionMenu
         open={readerMenuOpen}
         placement={readerMenuPlacement}
         initialPreview={readerMenuInitialPreview}
@@ -4598,7 +4625,7 @@ export function ReaderView({
           onExportCsv: handleExportCsv,
           onCopy: (entry) => void handleCopyEntry(entry),
         }}
-      />
+      />}
     </main>
   );
 }

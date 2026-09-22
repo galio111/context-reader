@@ -1,0 +1,1967 @@
+[
+  {
+    "id": "cet4-2025-06-1",
+    "level": 4,
+    "year": 2025,
+    "month": 6,
+    "set": 1,
+    "title": "2025 年 6 月四级 · 第 1 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/cet4_2025_06_1.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_06_1_ans.pdf",
+    "sections": [
+      {
+        "id": "cet4-2025-06-1-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-06-1-b",
+        "type": "matching",
+        "title": "Getting young minds into design",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-06-1-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-06-1-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet4-2025-06-2",
+    "level": 4,
+    "year": 2025,
+    "month": 6,
+    "set": 2,
+    "title": "2025 年 6 月四级 · 第 2 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/cet4_2025_06_2.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_06_2_ans.pdf",
+    "sections": [
+      {
+        "id": "cet4-2025-06-2-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-06-2-b",
+        "type": "matching",
+        "title": "Is juicing actually good for you?",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-06-2-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-06-2-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet4-2025-06-3",
+    "level": 4,
+    "year": 2025,
+    "month": 6,
+    "set": 3,
+    "title": "2025 年 6 月四级 · 第 3 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/cet4_2025_06_3.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_06_3_ans.pdf",
+    "sections": [
+      {
+        "id": "cet4-2025-06-3-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-06-3-b",
+        "type": "matching",
+        "title": "“Phantom” Traffic Jams Are Real—And Scientists Know How to Stop Them",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-06-3-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-06-3-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet4-2025-12-1",
+    "level": 4,
+    "year": 2025,
+    "month": 12,
+    "set": 1,
+    "title": "2025 年 12 月四级 · 第 1 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet4_2025_12_1.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_12_1_ans.pdf",
+    "sections": [
+      {
+        "id": "cet4-2025-12-1-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-12-1-b",
+        "type": "matching",
+        "title": "The battle over bike lanes needs a mindset shift",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-12-1-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-12-1-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet4-2025-12-2",
+    "level": 4,
+    "year": 2025,
+    "month": 12,
+    "set": 2,
+    "title": "2025 年 12 月四级 · 第 2 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet4_2025_12_2.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_12_2_ans.pdf",
+    "sections": [
+      {
+        "id": "cet4-2025-12-2-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-12-2-b",
+        "type": "matching",
+        "title": "Can playing video games help you get a better job?",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-12-2-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-12-2-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet4-2025-12-3",
+    "level": 4,
+    "year": 2025,
+    "month": 12,
+    "set": 3,
+    "title": "2025 年 12 月四级 · 第 3 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet4_2025_12_3.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_12_3_ans.pdf",
+    "sections": [
+      {
+        "id": "cet4-2025-12-3-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-12-3-b",
+        "type": "matching",
+        "title": "Looking for a job after 45",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-12-3-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet4-2025-12-3-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet6-2025-06-1",
+    "level": 6,
+    "year": 2025,
+    "month": 6,
+    "set": 1,
+    "title": "2025 年 6 月六级 · 第 1 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/2025.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2025.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+    "sections": [
+      {
+        "id": "cet6-2025-06-1-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-06-1-b",
+        "type": "matching",
+        "title": "Why Your Library Is the Most Important Place in Town",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-06-1-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-06-1-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet6-2025-06-2",
+    "level": 6,
+    "year": 2025,
+    "month": 6,
+    "set": 2,
+    "title": "2025 年 6 月六级 · 第 2 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/2025.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2025.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97.pdf",
+    "sections": [
+      {
+        "id": "cet6-2025-06-2-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-06-2-b",
+        "type": "matching",
+        "title": "The Benefits of Solitude",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-06-2-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-06-2-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet6-2025-06-3",
+    "level": 6,
+    "year": 2025,
+    "month": 6,
+    "set": 3,
+    "title": "2025 年 6 月六级 · 第 3 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/2025.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2025.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC3%E5%A5%97.pdf",
+    "sections": [
+      {
+        "id": "cet6-2025-06-3-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-06-3-b",
+        "type": "matching",
+        "title": "Yes, eating meat affects the environment, but cows are not killing the climate",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-06-3-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-06-3-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet6-2025-12-1",
+    "level": 6,
+    "year": 2025,
+    "month": 12,
+    "set": 1,
+    "title": "2025 年 12 月六级 · 第 1 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet6_2025_12_1.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet6_2025_12_1_ans.pdf",
+    "sections": [
+      {
+        "id": "cet6-2025-12-1-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-12-1-b",
+        "type": "matching",
+        "title": "Restaurants are now employing robots—should chefs be worried? (A-P paragraphs)",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-12-1-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-12-1-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet6-2025-12-2",
+    "level": 6,
+    "year": 2025,
+    "month": 12,
+    "set": 2,
+    "title": "2025 年 12 月六级 · 第 2 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet6_2025_12_2.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet6_2025_12_2_ans.pdf",
+    "sections": [
+      {
+        "id": "cet6-2025-12-2-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-12-2-b",
+        "type": "matching",
+        "title": "",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-12-2-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-12-2-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet6-2025-12-3",
+    "level": 6,
+    "year": 2025,
+    "month": 12,
+    "set": 3,
+    "title": "2025 年 12 月六级 · 第 3 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet6_2025_12_3.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet6_2025_12_3_ans.pdf",
+    "sections": [
+      {
+        "id": "cet6-2025-12-3-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-12-3-b",
+        "type": "matching",
+        "title": "",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-12-3-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet6-2025-12-3-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet6-2026-06-1",
+    "level": 6,
+    "year": 2026,
+    "month": 6,
+    "set": 1,
+    "title": "2026 年 6 月六级 · 第 1 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2026.06/%E7%9C%9F%E9%A2%98PDF/cet6_2026_06_1.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2026.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet6_2026_06_1_ans.pdf",
+    "sections": [
+      {
+        "id": "cet6-2026-06-1-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet6-2026-06-1-b",
+        "type": "matching",
+        "title": "Meet the 'digital nomads' who travel the world in search of fast Wi-Fi",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet6-2026-06-1-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet6-2026-06-1-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet6-2026-06-2",
+    "level": 6,
+    "year": 2026,
+    "month": 6,
+    "set": 2,
+    "title": "2026 年 6 月六级 · 第 2 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2026.06/%E7%9C%9F%E9%A2%98PDF/cet6_2026_06_2.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2026.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet6_2026_06_2_ans.pdf",
+    "sections": [
+      {
+        "id": "cet6-2026-06-2-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet6-2026-06-2-b",
+        "type": "matching",
+        "title": "How do you bring a forest back to life?",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet6-2026-06-2-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet6-2026-06-2-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cet6-2026-06-3",
+    "level": 6,
+    "year": 2026,
+    "month": 6,
+    "set": 3,
+    "title": "2026 年 6 月六级 · 第 3 套",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2026.06/%E7%9C%9F%E9%A2%98PDF/cet6_2026_06_3.pdf",
+    "status": "ready",
+    "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2026.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet6_2026_06_3_ans.pdf",
+    "sections": [
+      {
+        "id": "cet6-2026-06-3-a",
+        "type": "cloze",
+        "title": "选词填空",
+        "questions": [
+          {
+            "number": 26
+          },
+          {
+            "number": 27
+          },
+          {
+            "number": 28
+          },
+          {
+            "number": 29
+          },
+          {
+            "number": 30
+          },
+          {
+            "number": 31
+          },
+          {
+            "number": 32
+          },
+          {
+            "number": 33
+          },
+          {
+            "number": 34
+          },
+          {
+            "number": 35
+          }
+        ]
+      },
+      {
+        "id": "cet6-2026-06-3-b",
+        "type": "matching",
+        "title": "It's never too early to teach children about money",
+        "questions": [
+          {
+            "number": 36
+          },
+          {
+            "number": 37
+          },
+          {
+            "number": 38
+          },
+          {
+            "number": 39
+          },
+          {
+            "number": 40
+          },
+          {
+            "number": 41
+          },
+          {
+            "number": 42
+          },
+          {
+            "number": 43
+          },
+          {
+            "number": 44
+          },
+          {
+            "number": 45
+          }
+        ]
+      },
+      {
+        "id": "cet6-2026-06-3-c1",
+        "type": "detail",
+        "title": "仔细阅读 · 1",
+        "questions": [
+          {
+            "number": 46
+          },
+          {
+            "number": 47
+          },
+          {
+            "number": 48
+          },
+          {
+            "number": 49
+          },
+          {
+            "number": 50
+          }
+        ]
+      },
+      {
+        "id": "cet6-2026-06-3-c2",
+        "type": "detail",
+        "title": "仔细阅读 · 2",
+        "questions": [
+          {
+            "number": 51
+          },
+          {
+            "number": 52
+          },
+          {
+            "number": 53
+          },
+          {
+            "number": 54
+          },
+          {
+            "number": 55
+          }
+        ]
+      }
+    ]
+  }
+]

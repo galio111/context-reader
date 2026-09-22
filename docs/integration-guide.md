@@ -301,3 +301,7 @@ Admin editorial PATCH accepts optional budgetTrial (day in Shanghai YYYY-MM-DD; 
 ## Admin usage reporting
 
 `GET /api/admin/usage?period=today&scope=all` is Admin-only and no-store. Date/source validation, aggregate and unpriced-cost semantics are defined in [admin-usage-report.md](admin-usage-report.md). It is read-only and changes no quota or model configuration. The accounts mutation API is unchanged.
+
+## CET 题库接口
+
+`GET /api/cet?level=4|6&year=recent|YYYY&page=N` 返回至多 12 套目录元数据；游客仅可访问每级最近 6 套。`GET /api/cet?id=<id>` 校验可见范围后读取该卷正文与答案，均 private/no-store。未登录访问范围外试卷返回 401。文件由 standalone outputFileTracingIncludes 打包，不能移入 public。来源下载、格式与数据同步说明见 [cet-reading.md](cet-reading.md)。

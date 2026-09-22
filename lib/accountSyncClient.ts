@@ -49,7 +49,10 @@ import type { AccountSyncObject, AccountSyncWriteResult, SyncObjectKind } from "
 import type { VocabularyEntry } from "@/types/vocabulary";
 import { readStoredArticles, writeStoredArticles } from "@/lib/articleStorage";
 
+import { CET_PROGRESS_KEY, CET_OBJECT_PREFIX, readCetAttempts, writeCetAttempts, normalizeCetAttempt, mergeCetAttempt } from "@/lib/cetProgress";
+
 const KEYS = {
+  cetProgress: CET_PROGRESS_KEY,
   articles: "context-reader:articles:v1",
   vocabulary: "context-reader:vocabulary:v1",
   explanations: "context-reader:explanations:v5",
@@ -178,7 +181,7 @@ export function accountSyncKindsForStorageKey(key: string | null): SyncObjectKin
   if (key === KEYS.translations) return ["article_translation"];
   if (key === KEYS.translationBlocks) return ["translation_block"];
   if (key === KEYS.readingStates) return ["reading_state"];
-  if (key === KEYS.dictionaryHistory || key === KEYS.dictionaryCache || key === KEYS.recommendationPreferences) {
+  if (key === KEYS.cetProgress || key === KEYS.dictionaryHistory || key === KEYS.dictionaryCache || key === KEYS.recommendationPreferences) {
     return ["preferences"];
   }
   return [];
@@ -356,6 +359,8 @@ function mergeCloudIntoLocal(
   const storage = getLearningStorage();
   const tombstones = readTombstones(storage);
   const incomingKinds = new Set(objects.map((object) => object.kind));
+  const needsCet = objects.some(o => o.kind === "preferences" && o.objectKey.startsWith(CET_OBJECT_PREFIX));
+  const cetAttempts = new Map((needsCet ? readCetAttempts(storage) : []).map(item => [item.id, item]));
   const needsArticles = incomingKinds.has("article");
   const needsVocabulary = incomingKinds.has("vocabulary");
   const needsReadingStates = incomingKinds.has("reading_state")
@@ -416,6 +421,7 @@ function mergeCloudIntoLocal(
       }
       else if (object.kind === "vocabulary") localVocabularyById.delete(object.objectKey);
       else if (object.kind === "reading_state") delete localReadingStates[object.objectKey];
+      else if (object.kind === "preferences" && object.objectKey.startsWith(CET_OBJECT_PREFIX)) cetAttempts.delete(object.objectKey.slice(CET_OBJECT_PREFIX.length));
       else if (object.kind === "preferences" && isStandaloneDictionaryHistoryObjectKey(object.objectKey)) {
         const historyItem = normalizeStandaloneDictionaryHistoryItem(object.payload);
         let normalizedQuery = historyItem?.normalizedQuery ?? "";
@@ -503,6 +509,9 @@ function mergeCloudIntoLocal(
           : localRecommendationPreferences,
       );
       localRecommendationPreferences = cloud;
+    } else if (object.kind === "preferences" && object.objectKey.startsWith(CET_OBJECT_PREFIX)) {
+      const cloud = normalizeCetAttempt(object.payload);
+      if(cloud && object.objectKey === CET_OBJECT_PREFIX + cloud.id) cetAttempts.set(cloud.id, mergeCetAttempt(cetAttempts.get(cloud.id), cloud));
     } else if (object.kind === "preferences" && isStandaloneDictionaryHistoryObjectKey(object.objectKey)) {
       const cloud = normalizeStandaloneDictionaryHistoryItem(object.payload);
       if (!cloud) continue;
@@ -543,6 +552,7 @@ function mergeCloudIntoLocal(
     }
     writeVocabulary(storage, deduplicatedVocabulary.entries);
   }
+  if (needsCet) writeCetAttempts(storage, Array.from(cetAttempts.values()));
   if (needsReadingStates) writeArticleReadingStates(storage, localReadingStates, { notify: false });
   if (maps.explanation) storage.setItem(KEYS.explanations, JSON.stringify(maps.explanation));
   if (maps.article_translation) storage.setItem(KEYS.translations, JSON.stringify(maps.article_translation));
@@ -607,6 +617,7 @@ async function collectLocalObjects(
     }
   }
   if (wants("preferences")) {
+    for (const item of readCetAttempts(storage)) add("preferences", CET_OBJECT_PREFIX + item.id, item, item.updatedAt);
     for (const item of readStandaloneDictionaryHistory(storage)) {
       add("preferences", standaloneDictionaryHistoryObjectKey(item), item, item.lastLookedUpAt);
     }

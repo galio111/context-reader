@@ -1,0 +1,1712 @@
+{
+  "id": "cet6-2025-06-1",
+  "level": 6,
+  "year": 2025,
+  "month": 6,
+  "set": 1,
+  "title": "2025 年 6 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/2025.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2025-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "In her second year, Charlene Duong learned of the use of poisonous, synthetic pesticides on her college campus. Shocked but not surprised, she knew she had to do something. Along with a couple of classmates, Charlene did a quick web search and discovered a small but growing movement led by the organization, Herbicide-Free Campus (HFC), to rid college campuses of artificial herbicides（灭草剂）. They were [[26]].",
+        "Like many, Charlene experiences climate anxiety — a [[27]] fear of a climate catastrophe — and was, at the time, looking for an[[28]] . ‘When she discovered the HFC movement, she said she felt she “had found a specific area to focus on that still fit into the larger picture of fighting for a healthier, safer, cleaner [[29]] for all.”",
+        "Toxic herbicide use in university land care is not unique. Most institutions of higher education rely on synthetic pesticides and fertilizers to achieve [[30]] goals. Having a “beautiful” campus means green and perfectly maintained lawns along with flower beds and paved sidewalks. But these [[31]] managed campuses can come at a cost: increased cancer risk, [[32]] waterways, poisoned wildlife and lifeless soil.",
+        "Pesticide use on college campuses also contributes to our global climate crisis. The use of chemicals to get rid of insects or unwanted plant life can increase indirect [[33]] , as they can include petroleum-based ingredients. Pesticide use also decreases the life in soil, [[34]] the ability of soils to absorb carbon or retain water and thus reducing campuses’ ability to recover quickly from climate-related extreme weather events like droughts and floods.",
+        "Instead of using toxic chemicals, students working with HFC help out with [[35]] the campus grounds.",
+        "“This work reminds me to be in the present moment as I play my role in reducing herbicide use and keeping my campus safe and healthy,” says Charlene."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "aesthetic"
+        },
+        {
+          "key": "B",
+          "text": "chronic"
+        },
+        {
+          "key": "C",
+          "text": "contaminated"
+        },
+        {
+          "key": "D",
+          "text": "conventionally"
+        },
+        {
+          "key": "E",
+          "text": "emissions"
+        },
+        {
+          "key": "F",
+          "text": "environment"
+        },
+        {
+          "key": "G",
+          "text": "hampering"
+        },
+        {
+          "key": "H",
+          "text": "incidentally"
+        },
+        {
+          "key": "I",
+          "text": "infringement"
+        },
+        {
+          "key": "J",
+          "text": "intrigued"
+        },
+        {
+          "key": "K",
+          "text": "juvenile"
+        },
+        {
+          "key": "L",
+          "text": "outlet"
+        },
+        {
+          "key": "M",
+          "text": "rotating"
+        },
+        {
+          "key": "N",
+          "text": "vibrations"
+        },
+        {
+          "key": "O",
+          "text": "weeding"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "chronic"
+            },
+            {
+              "key": "C",
+              "text": "contaminated"
+            },
+            {
+              "key": "D",
+              "text": "conventionally"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "environment"
+            },
+            {
+              "key": "G",
+              "text": "hampering"
+            },
+            {
+              "key": "H",
+              "text": "incidentally"
+            },
+            {
+              "key": "I",
+              "text": "infringement"
+            },
+            {
+              "key": "J",
+              "text": "intrigued"
+            },
+            {
+              "key": "K",
+              "text": "juvenile"
+            },
+            {
+              "key": "L",
+              "text": "outlet"
+            },
+            {
+              "key": "M",
+              "text": "rotating"
+            },
+            {
+              "key": "N",
+              "text": "vibrations"
+            },
+            {
+              "key": "O",
+              "text": "weeding"
+            }
+          ],
+          "answer": "J",
+          "explanation": "空格句中They指代“查伦和几位同学”，were\n描述其行为或感受。上文指出，查伦得\n知其大学校园使用了有毒的合成杀虫剂后，和几位同学一起上网搜索，发现了HFC领导的、旨在清除校园灭\n草剂的运动；下文提到，查伦和同学们认可HFC运动并参与其中（foundaspecificareatofocuson...working\nwithHFC...）。可推知，were\n应表示查伦和几位同学对HFC运动非常认可/很感兴趣/跃跃欲试，J）\nintrigued符合此意。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "chronic"
+            },
+            {
+              "key": "C",
+              "text": "contaminated"
+            },
+            {
+              "key": "D",
+              "text": "conventionally"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "environment"
+            },
+            {
+              "key": "G",
+              "text": "hampering"
+            },
+            {
+              "key": "H",
+              "text": "incidentally"
+            },
+            {
+              "key": "I",
+              "text": "infringement"
+            },
+            {
+              "key": "J",
+              "text": "intrigued"
+            },
+            {
+              "key": "K",
+              "text": "juvenile"
+            },
+            {
+              "key": "L",
+              "text": "outlet"
+            },
+            {
+              "key": "M",
+              "text": "rotating"
+            },
+            {
+              "key": "N",
+              "text": "vibrations"
+            },
+            {
+              "key": "O",
+              "text": "weeding"
+            }
+          ],
+          "answer": "B",
+          "explanation": "空格句指出，同许多人一样，查伦也有气候焦虑，当时正在。空格所在部分“一种\n词应能体现对于气候灾难的忧虑存在已久或程度很重，B）chronic“长期的；难以治愈（或根除）的”契合此意，\n且能与后半句atthetime形成时间上的对比，体现“长久深陷焦虑，当时正积极采取行动”之意。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "chronic"
+            },
+            {
+              "key": "C",
+              "text": "contaminated"
+            },
+            {
+              "key": "D",
+              "text": "conventionally"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "environment"
+            },
+            {
+              "key": "G",
+              "text": "hampering"
+            },
+            {
+              "key": "H",
+              "text": "incidentally"
+            },
+            {
+              "key": "I",
+              "text": "infringement"
+            },
+            {
+              "key": "J",
+              "text": "intrigued"
+            },
+            {
+              "key": "K",
+              "text": "juvenile"
+            },
+            {
+              "key": "L",
+              "text": "outlet"
+            },
+            {
+              "key": "M",
+              "text": "rotating"
+            },
+            {
+              "key": "N",
+              "text": "vibrations"
+            },
+            {
+              "key": "O",
+              "text": "weeding"
+            }
+          ],
+          "answer": "L",
+          "explanation": "第二段①句指出，查伦长期对气候灾难感到忧虑，当时正在寻找\n②句继而指出，她\n发现了HFC运动，觉得自己找到了一个可以专注的领域。由waslookingfor...discovered...hadfound...一\n系列顺承动作可推知“HFC运动”正是查伦寻找的东西，再联系上文所述“HFC运动的目标是清除校园里的\n人工灭草剂，保护环境”可判定，查伦寻找的是保护环境、缓解/宣泄自身气候焦虑的途径，L）outlet正确。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "chronic"
+            },
+            {
+              "key": "C",
+              "text": "contaminated"
+            },
+            {
+              "key": "D",
+              "text": "conventionally"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "environment"
+            },
+            {
+              "key": "G",
+              "text": "hampering"
+            },
+            {
+              "key": "H",
+              "text": "incidentally"
+            },
+            {
+              "key": "I",
+              "text": "infringement"
+            },
+            {
+              "key": "J",
+              "text": "intrigued"
+            },
+            {
+              "key": "K",
+              "text": "juvenile"
+            },
+            {
+              "key": "L",
+              "text": "outlet"
+            },
+            {
+              "key": "M",
+              "text": "rotating"
+            },
+            {
+              "key": "N",
+              "text": "vibrations"
+            },
+            {
+              "key": "O",
+              "text": "weeding"
+            }
+          ],
+          "answer": "F",
+          "explanation": "由空格句所述“查伦发现HFC运动时，觉得自己找到了一个可以专注的领域”可知，aspecific\narea指向“清除校园里的人工灭草剂”这一环保细分领域，而空格所在从句用以修饰aspecificarea，指出“这个\n领域还与为所有人争取更健康、更安全、更清洁的\n这一更宏大的图景相契合”。不难推知，空格词应表\n示“环境/校园环境”，F）environment正确。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "chronic"
+            },
+            {
+              "key": "C",
+              "text": "contaminated"
+            },
+            {
+              "key": "D",
+              "text": "conventionally"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "environment"
+            },
+            {
+              "key": "G",
+              "text": "hampering"
+            },
+            {
+              "key": "H",
+              "text": "incidentally"
+            },
+            {
+              "key": "I",
+              "text": "infringement"
+            },
+            {
+              "key": "J",
+              "text": "intrigued"
+            },
+            {
+              "key": "K",
+              "text": "juvenile"
+            },
+            {
+              "key": "L",
+              "text": "outlet"
+            },
+            {
+              "key": "M",
+              "text": "rotating"
+            },
+            {
+              "key": "N",
+              "text": "vibrations"
+            },
+            {
+              "key": "O",
+              "text": "weeding"
+            }
+          ],
+          "answer": "A",
+          "explanation": "空格句指出，大多数高等教育机构都依赖合成杀虫剂和化肥来实现\n目标。下一句继\n而做出阐释，拥有“美丽”的校园意味着既要有花坛和铺砌过的人行道，也要有绿意盘然、养护完美的草坪。根\n应与beautiful近义，指向“美丽的/美观的/美化的”等意，A）aesthetic正确。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "chronic"
+            },
+            {
+              "key": "C",
+              "text": "contaminated"
+            },
+            {
+              "key": "D",
+              "text": "conventionally"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "environment"
+            },
+            {
+              "key": "G",
+              "text": "hampering"
+            },
+            {
+              "key": "H",
+              "text": "incidentally"
+            },
+            {
+              "key": "I",
+              "text": "infringement"
+            },
+            {
+              "key": "J",
+              "text": "intrigued"
+            },
+            {
+              "key": "K",
+              "text": "juvenile"
+            },
+            {
+              "key": "L",
+              "text": "outlet"
+            },
+            {
+              "key": "M",
+              "text": "rotating"
+            },
+            {
+              "key": "N",
+              "text": "vibrations"
+            },
+            {
+              "key": "O",
+              "text": "weeding"
+            }
+          ],
+          "answer": "D",
+          "explanation": "空格句中these\nmanagedcampuses回指“依赖合成杀虫剂和化肥管护的校园”，而由\n第三段①②句notunique、Most可知，这种管护方式是常规操作，故空格词应表示“常规的/惯用的”等意，D）\nconventionally正确。\n和化肥管护校园”相。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "chronic"
+            },
+            {
+              "key": "C",
+              "text": "contaminated"
+            },
+            {
+              "key": "D",
+              "text": "conventionally"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "environment"
+            },
+            {
+              "key": "G",
+              "text": "hampering"
+            },
+            {
+              "key": "H",
+              "text": "incidentally"
+            },
+            {
+              "key": "I",
+              "text": "infringement"
+            },
+            {
+              "key": "J",
+              "text": "intrigued"
+            },
+            {
+              "key": "K",
+              "text": "juvenile"
+            },
+            {
+              "key": "L",
+              "text": "outlet"
+            },
+            {
+              "key": "M",
+              "text": "rotating"
+            },
+            {
+              "key": "N",
+              "text": "vibrations"
+            },
+            {
+              "key": "O",
+              "text": "weeding"
+            }
+          ],
+          "answer": "C",
+          "explanation": "空格句先指出，依赖合成杀虫剂和化肥管护校园可能要付出代价；随后列举具体代价：增加\n的癌症风险，\n水道，受到毒害的野生动物和了无生机的土壤。因此，空格词应为能修饰水道的负向词且\n体现健康或生态代价，唯有C）contaminated契合。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "chronic"
+            },
+            {
+              "key": "C",
+              "text": "contaminated"
+            },
+            {
+              "key": "D",
+              "text": "conventionally"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "environment"
+            },
+            {
+              "key": "G",
+              "text": "hampering"
+            },
+            {
+              "key": "H",
+              "text": "incidentally"
+            },
+            {
+              "key": "I",
+              "text": "infringement"
+            },
+            {
+              "key": "J",
+              "text": "intrigued"
+            },
+            {
+              "key": "K",
+              "text": "juvenile"
+            },
+            {
+              "key": "L",
+              "text": "outlet"
+            },
+            {
+              "key": "M",
+              "text": "rotating"
+            },
+            {
+              "key": "N",
+              "text": "vibrations"
+            },
+            {
+              "key": "O",
+              "text": "weeding"
+            }
+          ],
+          "answer": "E",
+          "explanation": "第四段①句概述指出，使用杀虫剂会加剧全球气候危机。空格句作以阐释，使用化学药剂来\n消灭昆虫或去除杂草会增加间接\n，因为这些药剂可能含有石油基成分。as表明主从句间因果关系，结\n合常识“石油基成分会增加温室气体排放，进而加剧气候危机”可推出，空格词应表示“排放物/散发物”等意，\nE）emissions正确。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "chronic"
+            },
+            {
+              "key": "C",
+              "text": "contaminated"
+            },
+            {
+              "key": "D",
+              "text": "conventionally"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "environment"
+            },
+            {
+              "key": "G",
+              "text": "hampering"
+            },
+            {
+              "key": "H",
+              "text": "incidentally"
+            },
+            {
+              "key": "I",
+              "text": "infringement"
+            },
+            {
+              "key": "J",
+              "text": "intrigued"
+            },
+            {
+              "key": "K",
+              "text": "juvenile"
+            },
+            {
+              "key": "L",
+              "text": "outlet"
+            },
+            {
+              "key": "M",
+              "text": "rotating"
+            },
+            {
+              "key": "N",
+              "text": "vibrations"
+            },
+            {
+              "key": "O",
+              "text": "weeding"
+            }
+          ],
+          "answer": "G",
+          "explanation": "空格句指出，使用杀虫剂会使土壤中的生物减少，\n土壤吸收碳或保持水分的能力，进\n而降低校园从干旱、洪水等气候相关的极端天气事件中快速恢复的能力。thus提示状语部分内部的因果逻\n辑，根据结果“校园从干旱、洪水快速恢复的能力降低”可反推出原因“土壤·保持水分的能力减弱”；另外，\n结合常识“土壤中的微生物有固碳保水的作用”也可推知“土壤中的生物减少将导致其吸收碳或保持水分的能\n力减弱”。因此，空格词应表示“减弱/削弱/降低”等意，G）hampering正确。\n[补充技巧］梳理段内逻辑，抓取段落主旨可高效解题。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "chronic"
+            },
+            {
+              "key": "C",
+              "text": "contaminated"
+            },
+            {
+              "key": "D",
+              "text": "conventionally"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "environment"
+            },
+            {
+              "key": "G",
+              "text": "hampering"
+            },
+            {
+              "key": "H",
+              "text": "incidentally"
+            },
+            {
+              "key": "I",
+              "text": "infringement"
+            },
+            {
+              "key": "J",
+              "text": "intrigued"
+            },
+            {
+              "key": "K",
+              "text": "juvenile"
+            },
+            {
+              "key": "L",
+              "text": "outlet"
+            },
+            {
+              "key": "M",
+              "text": "rotating"
+            },
+            {
+              "key": "N",
+              "text": "vibrations"
+            },
+            {
+              "key": "O",
+              "text": "weeding"
+            }
+          ],
+          "answer": "O",
+          "explanation": "空格句内表取舍的Insteadof提示helpoutwith\nthe campus grounds与using toxic\nchemicals语义相对，结合上文所述使用有毒化学药剂的目的是“消灭昆虫或去除杂草”，可推知学生们的做法\n是“亲手帮忙杀虫或除草”，空格词应体现“给…….…·杀虫或除草”之意，O）weeding正确。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-06-1-b",
+      "type": "matching",
+      "title": "Why Your Library Is the Most Important Place in Town",
+      "paragraphs": [
+        "A) Librarians know the value of their community services, and their patrons appreciate their importance as well. But in an increasingly digital world, we see the role of libraries as community and cultural centers at times undervalued. When shrinking municipal budgets combine with the nonstop technological revolution, public library services that focus on building communities face-to-face, inspiring and educating patrons about art, literature, and music, and helping patrons engage in civil discourse can seem old-fashioned. But it is precisely those shrinking budgets and the assault of technologically mediated life that make public libraries’ cultural and community offerings more important than ever.",
+        "B) Many people point out the value public libraries bring to their communities. More than just books and banks of computers, libraries are still places where individuals gather to explore, interact, and imagine. Some of the specific ways in which libraries add value to our communities and serve as cultural centers for our patrons are community builders, centers for the arts, and champions of youth. Libraries serve in these capacities and are more than just about information.",
+        "C) As community builders libraries are engaged in incredible work. From tiny public libraries to huge city institutions with multiple branches, libraries across the United States are building community and supporting local culture in exciting ways. These are inspiring and hopefully will : encourage librarians interested in community services and cultural outreach to make connections with each other, share ideas, and build partnerships. Supporters of libraries as community builders claim that unless you are out there changing neighborhoods, you are not completing the work you are to do. Strengthening neighborhoods and championing the cultural lives of communities are big responsibilities.",
+        "D) Place-based economic development stresses the importance of offering attractive, functional, and community-based places, such as libraries, in town squares and depressed neighborhoods. Like a major department store in a mall, libraries attract large numbers of people, creating economic opportunities for numerous businesses and organizations in the surrounding area. Large cities, medium-sized ones, and even small towns have successfully transformed their libraries into the hubs（枢纽） of vibrant neighborhoods.",
+        "E) As key municipal agencies, and focal points for community education, libraries are major players in creating livable, environmentally friendly cities and towns. The Urban Libraries Council released a report detailing the unique ways in which libraries can further sustainability at the local level. Beyond ensuring that library construction projects consider environmental impact, libraries can take a lead in supporting local foods and craftsmen, like the Peabody Institute Library’s partnering with local businesses to pioneer a farmers’ market in their courtyard, or the Richmond Public Library’s seed lending library which * nurtures locally-adapted plant varieties, and fosters community resilience（韧性）, self-reliance and a culture of sharing.”",
+        "F) Archives preserve historic artifacts, oral histories, digital history projects, and scholarly writings relevant to the community, including minority groups. Communities lucky enough to have archivists have a great advantage when it comes to organizing historical records and artifacts. An organized archive is a place where people can research their ancestry and immigration history, do environmental research, and more. An archivist is an advocate for preservation who, among other things, coordinates the restoration of maps and paintings, the digitization of vital records, and the creation of oral history projects. With projects like the Massachussets Memories Road Show and the Veterans History Project, evidence of the importance of archives is everywhere.",
+        "G) In the words of Robert Putnam, “People may go to the library looking mainly for information, but they find each other there.” New moms connect at baby story-times; elderly people, often facing difficult life transitions, attend events and find that they make new friends; teenagers meet up in libraries’ teen spaces after school; and readers discuss current events in the periodicals room. In libraries, community-building connections are happening all the time.",
+        "H) As Keith Richards said, “The public library is the great equalizer.” Despite the rising costs of concert and theater tickets, public library events (including concerts, author visits, and gallery displays) are often offered free of charge, enabling people of any income level to attend. In addition; library book groups allow people to explore and discuss the literary arts, and the Great Stories Club introduces at-risk youth to literature. The best part: it’s all free and open to the public.",
+        "I) In a time when education is increasingly expensive, public libraries provide information and educational opportunities free for all people, regardless of their socio-economic status. Offered by libraries across the country, American Library Association’s Let’s Talk about It programs are wonderful examples of scholar-facilitated learning opportunities in libraries. In addition, many libraries present classes and discussion programs, and some even provide online continuing education courses such as the Universal Class database.",
+        "J) Librarians know that patrons aren’t just information consumers, they’re information producers. Patrons use the library to gain knowledge in order to create their own new and independent works. Increasing numbers of libraries provide spaces and services that meet the needs of people who want to learn how to edit Wikipedia, set up blogs or podcasts, create their own magazines, and so much more. Many libraries offer art or writing workshops and groups, and some provide music practice rooms for patrons. Programs like ImaginOn in Charlotte, North Carolina, provide exciting models that take community partnership, creativity, and creation to a new level.",
+        "K) The decline of civil discourse stems in part from the fact that it is so easy for people to watch news about, buy products from, and engage — in both the virtual and real worlds — only with those of similar backgrounds and ideologies. Public libraries, through such programs as The Human Library and Socrates Café, can help build small communities of difference that encourage people to interact with and learn from each other through dialogue. By both actively promoting civil discourse through these programs, and modeling and upholding the principles of free inquiry and expression for all, libraries help individuals rediscover the importance of and increased need for civil discourse in American life.",
+        "L) Free tutoring, homework help programs, and summer reading programs for kids and teens help bridge the economic divide that impacts students’ academic performance. The cost of hiring a private tutor is well beyond what many library patrons can afford, so libraries offer homework help and tutoring online, by phone, in person, and even through social media and homework apps. Annual summer reading programs also have a positive impact on student performance and, according to a 2010 study conducted by Dominican University’s Graduate School of Library and Information Science, students’ reading skills get a boost from these popular nationwide events.",
+        "M) Through library collections, programs, and physical spaces, children learn to share, to be engaged in their communities, to participate in the arts, and to explore their immediate world and the world at large. There are surely endless examples of innovative library services for children, including the Middle Country Public Library’s Nature Explorium, which engages children in learning about the natural world.",
+        "N) These examples are just a few of the many amazing things that public libraries around the United States (and the world) are doing to build and maintain strong community connections. We encourage you to try some of these ideas in your own libraries, and we hope that these ideas will help you be better able to convince your community leaders of the important role that public libraries play in communities large and small."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "People going to the library in search of information can build connections with each other there.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "[精解]G段①句引用罗伯特·帕特南的话，指出“人们走进图书馆或许主要是为了寻找信\n息，但他们在那里找到了彼此”，②句具体以新手妈妈、老者、青少年、读者为例阐释①句，③句总结“图书馆里，\nsearchof information对应①句中的People...go to thelibrarylooking...for information,而build connections\nwitheachotherthere明确①句中findeachotherthere的实质内涵（呼应②③句中的connect、makenew\nfriends、meetup、discuss、community-building connections)。"
+        },
+        {
+          "number": 37,
+          "stem": "According to advocates of libraries as community builders, librarians are not doing their job well if they do not change their communities.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[精解]C段④句指出“将图书馆视为社区创建者”这一理念的支持者的观点：只有切实改变\n社区，才算完成应尽的职责。试题是对该句的同义转述，其中Accordingtoadvocatesoflibrariesas\ncommunitybuilders对应Supportersoflibrariesascommunitybuildersclaimthat，而librariansarenot\ndoing...well if they do not...是对unless you are...you are not completing...的同义改写。"
+        },
+        {
+          "number": 38,
+          "stem": "With the costs of education continually rising, public libraries remain places where all people can have access to education.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "[精解］I段①句指出，在这个教育成本不断攀升的时代，公共图书馆却为所有人一无论其\n社会经济地位如何一一无偿提供知识与教育机会。试题是对该句的同义替换，Withthecostsofeducation\ncontinuallyrising是对①句Inatimewheneducationisincreasinglyexpensive的同义替换，allpeoplecanhave\naccess toeducation是对provide...freeforallpeople，regardlessof...的概括，remain显化①句中“教育成本"
+        },
+        {
+          "number": 39,
+          "stem": "Libraries draw large crowds, thus creating lots of business opportunities in neighboring areas.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "[精解］D段②句指出“犹如商场里的核心百货商店，图书馆能吸引大量人流，为周边区域的\n众多企业和组织创造经济机遇”。试题与该句文意相符，其中drawlargecrowds、creating...business\nopportunities in neighboring areas 分别是对attract large numbers of people、creating economic\nopportunities...inthesurroundingarea的同义替换，thus体现两个影响之间的因果逻辑关联。"
+        },
+        {
+          "number": 40,
+          "stem": "With the world more and more digitalized, people sometimes underestimate the role of libraries as community and cultural centers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "[精解］A段②句指出，在日益数字化的世界里，图书馆作为社区和文化中心的作用时常被低\n估。试题是对该句的同义转述，Withtheworldmoreandmoredigitalized对应②句中inanincreasinglydigital\nworld，而peoplesometimesunderestimatetheroleoflibrariesas...是对②句中weseetheroleoflibraries\nas...attimesundervalued的同义改写。"
+        },
+        {
+          "number": 41,
+          "stem": "Various programs organized by public libraries for children and adolescents help narrow the gap between students from varying economic backgrounds.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "[精解]L段①句指出，面向青少年提供的免费课业辅导、作业帮项目和暑期阅读计划有助弥\n合影响学生学业表现的经济鸿沟。试题是对该句的概括总结，Variousprogramsorganizedbypubliclibraries\nforchildren andadolescents概括①句Free tutoring...forkidsandteens所指，并明确这类项目的举办者为\n“公共图书馆”,help narrow the gapbetween students from varying economic backgrounds 契合①句help\nbridgetheeconomicdividethatimpactsstudents’academicperformance文意。"
+        },
+        {
+          "number": 42,
+          "stem": "In an organized archive, people can do research on their family history and find out how their ancestors came to settle in the new land.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "[精解］F段③句指出，一个管理有序的档案馆能让人们在此研究家族谱系与移民历史，开展\n环境研究等各类工作。试题契合该句文意，其中doresearchontheirfamilyhistoryandfindouthowtheir\nancestorscametosettleinthenewland是对research theirancestryandimmigrationhistory的详细阐述。"
+        },
+        {
+          "number": 43,
+          "stem": "Public libraries organize cultural events, often allowing people of different income levels to attend free of charge.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "[精解]H段②句指出，尽管音乐会和剧院票价不断攀升，公共图书馆筹办的各类活动（包括\n名家讲座、作家见面会和艺术展）却常常免费开放，让不同收入水平的民众都能参与。试题是对该句后半句的\n同义转述，Publiclibraries organize culturalevents 是对publiclibrary events（including concerts，author\nvisits，andgallerydisplays)的总结，often allowingpeopleof differentincomelevelstoattendfree of charge是\n对areoftenofferedfree ofcharge，enablingpeopleof anyincomeleveltoattend的同义改写。"
+        },
+        {
+          "number": 44,
+          "stem": "Besides being an information provider, the library performs many other important services for the community.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "[精解]B段①句暗示“图书馆为社区做出贡献”，②句指出“图书馆不只是藏书与电脑的集结\n之地，更是一起探索新知、交流思想、激发想象的聚集之所”，③句具体举例图书馆的功能“充当社区建设者、艺\n术中心以及青少年成长守护者”，④句总结“图书馆的作用并非只是传递信息，它以多重身份服务社会”。试题\n是结合本段文意对④句的同义替换，performs...importantservicesforthecommunity明确serveinthese\ncapacities的内涵，Besidesbeing aninformation provider...performs many other...是对more than just about\ninformation的同义改写。"
+        },
+        {
+          "number": 45,
+          "stem": "Public libraries can help build small communities of people with different backgrounds and ideologies. .",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "[\n[精解］K段②句指出，通过“人类图书馆”和“苏格拉底咖啡馆”等项目，公共图书馆能够帮助\n建立起鼓励人们通过对话彼此交流、互相学习的多元小型社区。试题与该句信息对应，smallcommunitiesof\npeople with different backgrounds and ideologies 准确概括small communities of difference that encourage\npeopletointeractwith andlearnfromeachotherthroughdialogue的内涵。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Nationally, one in six children miss 15 or more days of school in a year. Education officials have deplored all this missed instruction.",
+        "These chronically absent students suffer academically because of all the classroom instruction they miss out on. In 2015, the U.S. secretary of education responded to this crisis, urging communities to support every student to attend every day and be successful in school. His open letter stated that missing 10% of school days in a year for any reason — excused or unexcused — is a primary cause of low academic achievement.",
+        "Worrying about whether children attend school makes sense. After all, if students don’t show up, teachers can’t teach them.",
+        "But what if America’s attendance crisis is about much more than students missing class? What if, instead, it is a reflection of family and community crises these students face — such as being ejected from the family apartment, fearing for their safety in their neighborhood or suffering an illness?",
+        "As social scientists we investigated how excused and unexcused absences relate to children’s academic achievement.",
+        "We find that absences excused by a parent do little to harm children’s learning. In fact, children with no unexcused absences — but 15 to 18 excused absences — have test scores equal to their peers. who have no absences. i Meanwhile, the average child with even just one unexcused absence does much worse academically than peers with none.",
+        "We believe unexcused absence is a strong signal of the many challenges children and families face, including economic and medical hardships. Unexcused absences can be a powerful signal of how those out-of-school challenges affect children’s academic progress.",
+        "Our evidence suggests unexcused absences are problematic, but for a different reason than people often think. Absence from school, and especially unexcused absence, matters mainly as a signal of many crises children and their families may be facing. It matters less as a cause of lower student achievement due to missed instruction.",
+        "How we choose to think of school absences matters for educational policy. School attendance policies typically hold schools and families accountable for the days children miss, regardless of whether they were excused or unexcused absences.",
+        "These policies assume that missing school for any reason harms children academically because they are missing classroom instruction. They also assume that schools will be able to effectively intervene by reducing student absences. We find neither to be the case.",
+        "As a result, these attendance policies end up disproportionately punishing families dealing with out-of-school crises in their lives and pressuring schools who serve them to get students to school more often.",
+        "We instead suggest using unexcused absence from school as a signal to channel resources to the children and families who need them most."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the U.S. secretary of education say in his open letter?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is of vital importance to respond promptly to the school absence crisis."
+            },
+            {
+              "key": "B",
+              "text": "The academic performance of chronically absent students is deplorable."
+            },
+            {
+              "key": "C",
+              "text": "Low academic achievement is mainly attributed to school absences."
+            },
+            {
+              "key": "D",
+              "text": "The effect of school absences on American education is worrisome."
+            }
+          ],
+          "answer": "C",
+          "explanation": "第二段③句明确美国教育部长在公开信中所提出的观点：出于各种原因而一年缺课10%\n是造成学业成绩不佳的一个主要原因。可见C项正确，其中XismainlyattributedtoY契合Yisaprimary\ncauseofX所述因果逻辑。"
+        },
+        {
+          "number": 47,
+          "stem": "What do the authors find about school absences?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Excused school absences have little impact on children’s learning."
+            },
+            {
+              "key": "B",
+              "text": "There is little difference between unexcused and excused absences."
+            },
+            {
+              "key": "C",
+              "text": "Excused absences lead to comparatively better school performance."
+            },
+            {
+              "key": "D",
+              "text": "Unexcused absences are a big challenge to both schools and families."
+            }
+          ],
+          "answer": "A",
+          "explanation": "第六段先明确研究发现“由家长请假的缺课对孩子学习造成的危害微乎其微”，继而补充指\n出“有多次因故缺课（但没有无故缺课）的孩子的考试成绩与未缺课的同学相当”。可见，因故缺课/由家长请假\n的缺课对孩子的学业影响极小，A项正确，其中...havelittleimpacton...同义改写...dolittletoharm..."
+        },
+        {
+          "number": 48,
+          "stem": "What do the authors believe concerning unexcused school absences?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are likely to cause a decrease in students’ academic achievements due to missed instruction."
+            },
+            {
+              "key": "B",
+              "text": "They point directly to many of the out-of-school challenges confronting children and their families."
+            },
+            {
+              "key": "C",
+              "text": "They are matters the American government typically ignores when formulating educational policies."
+            },
+            {
+              "key": "D",
+              "text": "They give a clear signal to children and their families of the crises they are likely to face in the future."
+            }
+          ],
+          "answer": "B",
+          "explanation": "第八段直接阐述作者们的观点“无故缺课是孩子及其家庭面临诸多挑战的强烈信号，能\n有力地表明校外挑战是如何影响孩子学业进步的”，也即“无故缺课有力表明学生及其家庭面临诸多校外挑\n战”。可见B项正确，point directlyto与isastrong signalof、canbeapowerful signalof含义相符。"
+        },
+        {
+          "number": 49,
+          "stem": "What is the assumption underlying education policies in the U.S.?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Children’s academic performance depends on reducing the number of absences."
+            },
+            {
+              "key": "B",
+              "text": "Schools can boost children’s academic performance by effective intervention."
+            },
+            {
+              "key": "C",
+              "text": "Schools as well as families should be held responsible for out-of-school crises."
+            },
+            {
+              "key": "D",
+              "text": "Children’s academic performance is closely related to the quality of instruction."
+            }
+          ],
+          "answer": "B",
+          "explanation": "第十一段①②句介绍现行出勤政策的两项假定：一、缺课会对孩子的学业造成损害，二、\n学校能够通过减少学生缺课次数进行有效干预。综合可知，教育政策的假定是“学校可以采取有效干预，改善\n孩子的学业表现”，B项正确。"
+        },
+        {
+          "number": 50,
+          "stem": "What do the authors suggest doing regarding school absences?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Identifying their underlying causes."
+            },
+            {
+              "key": "B",
+              "text": "Reframing school attendance policies."
+            },
+            {
+              "key": "C",
+              "text": "Directing resources to helping needy children."
+            },
+            {
+              "key": "D",
+              "text": "Pressuring schools to reduce unexcused ones."
+            }
+          ],
+          "answer": "C",
+          "explanation": "前文指出“无故缺课是孩子及其家庭正面临诸多经济及医疗挑战的信号”，第十三段继而\n提议“将无故缺课作为一种信号，把资源输送给最需要它们的孩子及其家庭”，C项符合文意。Directing\nresources to...对应channelresources to...，needychildren对应the children...who need them most。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "After earning a bachelor’s degree, I was determined. to do what I love. I headed straight to graduate school to investigate the social problems that fascinated me. For almost a decade, I told everyone I encountered that they should do the same. “Follow your passion,” I counseled. “You can figure out the employment stuff later.”",
+        "It wasn’t until I began to research this widely accepted career advice that I understood how problematic it really was.",
+        "As a sociologist, I interviewed college students and professional workers to learn what it really meant to pursue their dreams, which I will refer to here as the passion principle. I was stunned by what I found out about this principle in the research for my new book. .",
+        "Surveys show the American public has long held the passion principle in high regard as a career decision-making priority. And its popularity is even stronger among those facing job instability.",
+        "Advocates of the passion principle found it compelling because they believed that following one’s passion can provide workers with both the motivation necessary to work hard and a place to find fulfillment. .",
+        "Yet, what I found is that following one’s passion does not necessarily lead to fulfillment, but is one of the most powerful cultural forces perpetuating overwork. I also found that promoting the pursuit of one’s passion helps perpetuate social inequalities due to the fact that not everyone has the same economic resources to allow them to pursue their passion with ease.",
+        "While the passion principle is broadly popular, not everyone has the necessary resources to turn their passion into a stable, good-paying job. Passion-seekers from wealthy families are better able to wait until a job they are passionate about comes along without worrying about student loans in the meantime. They are also better situated to take unpaid internships to get their foot in the door while their parents pay their rent. And they often have access to parents’ social networks to help them find jobs. Surveys revealed that working-class and first-generation college graduates, regardless of their career field, are more likely than their wealthier peers to end up in low-paying unskilled jobs when they pursue their passion.",
+        "Colleges, workplaces and career counselors who promote the “follow your passion” path for everyone, without leveling the playing field, help perpetuate socioeconomic inequalities among career aspirants.",
+        "It’s not just well-off passion-seekers who benefit from the passion principle. Employers of passionate workers do, too. Potential employers showed greater interest in passionate applicants in part because they believed the applicants would work hard at their jobs without expecting an increase in pay. They even sacrifice a good salary, job stability and leisure time to work in a job they love."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What did the author advise people do for almost a decade?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Figure out what is the most fascinating job."
+            },
+            {
+              "key": "B",
+              "text": "Follow widely accepted career counsel."
+            },
+            {
+              "key": "C",
+              "text": "Pursue their careers with passion."
+            },
+            {
+              "key": "D",
+              "text": "Do whatever they are zealous for. ."
+            }
+          ],
+          "answer": "D",
+          "explanation": "第二段介绍作者在近十年里对所有人的建议“追随你的激情，就业问题以后再考虑”。D\n项与之对应，其中Dowhatevertheyarezealousfor是对第二段②句Followyourpassion的同义改写。"
+        },
+        {
+          "number": 52,
+          "stem": "How did the author feel about the passion principle through his research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He was astonished by its consequences."
+            },
+            {
+              "key": "B",
+              "text": "He was further convinced of its soundness."
+            },
+            {
+              "key": "C",
+              "text": "He was actually right to follow it through."
+            },
+            {
+              "key": "D",
+              "text": "He was struck by its broad popularity."
+            }
+          ],
+          "answer": "A",
+          "explanation": "第四段②句指出，作者在为新书做研究时，对“热情原则”（thisprinciple回指①句的the\npassionprinciple)的有关发现感到震惊。A项是对该句的近义改写，其中astonished对应句中的stunned。"
+        },
+        {
+          "number": 53,
+          "stem": "What is important to turning one’s passion into a stable, good-paying job?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Willingness to take unpaid internships and low-paying jobs. '"
+            },
+            {
+              "key": "B",
+              "text": "Full academic preparedness and sound career counseling."
+            },
+            {
+              "key": "C",
+              "text": "Hard work and sacrifice of leisure time."
+            },
+            {
+              "key": "D",
+              "text": "Financial backing and social connections."
+            }
+          ],
+          "answer": "D",
+          "explanation": "第八段①句指出，虽然“热情原则”广受欢迎，但并非每个人都有足够的资源将自己的热\n情转化为一份稳定且高薪的工作；②至句对比“富裕家庭逐梦者”和“工薪阶层/第一代大学生逐梦者”，论证\n指出经济支持与人脉资源能让人轻松追逐热情，而缺乏相关资源的逐梦者则可能最终只能从事低薪低技能岗\n位。D项与文意相符，其中Financialbackingandsocialconnections是对①句中关键信息necessaryresources\n的具体解释。"
+        },
+        {
+          "number": 54,
+          "stem": "What happens when everyone is encouraged to follow their passion?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Many more career aspirants end up unemployed."
+            },
+            {
+              "key": "B",
+              "text": "People are less concerned with socioeconomic inequality."
+            },
+            {
+              "key": "C",
+              "text": "Socioeconomic inequality is likely to persist."
+            },
+            {
+              "key": "D",
+              "text": "Career counselors are going to lose credibility."
+            }
+          ],
+          "answer": "C",
+          "explanation": "第九段指出，当大学、用人单位和职业指导者鼓励所有人去追随热情却没有创造公平的\n竞争环境时，这会加剧职场逐梦者之间的社会经济不平等，C项正确。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author say about employers of passionate workers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They provide these workers with job stability and a good salary."
+            },
+            {
+              "key": "B",
+              "text": "They exploit these workers’ passion to benefit themselves."
+            },
+            {
+              "key": "C",
+              "text": "They level the playing field for these workers to reach their goals."
+            },
+            {
+              "key": "D",
+              "text": "They encourage these workers to realize their aspirations."
+            }
+          ],
+          "answer": "B",
+          "explanation": "末段①②句指出，富裕家庭的热情追随者和雇用充满热情的员工的雇主都是“热情原则”\n主动牺牲高薪与工作稳定性。B项精准概括了原文中雇主利用员工的职业热情实现的利益最大化。"
+        }
+      ]
+    }
+  ],
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2025.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf"
+}

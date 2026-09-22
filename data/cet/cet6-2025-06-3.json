@@ -1,0 +1,1750 @@
+{
+  "id": "cet6-2025-06-3",
+  "level": 6,
+  "year": 2025,
+  "month": 6,
+  "set": 3,
+  "title": "2025 年 6 月六级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/2025.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2025-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "No beast on Earth is tougher than the tiny tardigrade（缓步类动物）. It can [[26]] being frozen at —272° Celsius, being exposed to the vacuum of outer space and even being [[27]] with 500 times the dose of X-rays that would kill a human. In other words, the creature can endure conditions that don’t even exist on Earth. And researchers are looking to the microscopic animals to learn how to prepare humans and crops to handle the [[28]] of space travel.",
+        "The tardigrade’s indestructibility stems from its [[29]] to its environment—which may seem surprising, since it lives in [[30]] comfortable places, like the cool, wet patches of moss（青苔） that dot a garden wall.",
+        "But it turns out that a tardigrade’s damp, mossy home can dry out many times each year. Drying is pretty [[31]] for most living things. It does damage to cells in some of the same ways that freezing, vacuum and radiation do. Tardigrades, however, have [[32]] special strategies for dealing with these kinds of damage.",
+        "As a tardigrade dries out, its cells produce several strange proteins that are unlike anything found in other animals. In water, the proteins are shapeless. But as water disappears, the proteins self-assemble into long fibers that fill the cell's [[33]] . The fibers support the cell’s membranes（细胞膜） and proteins, preventing them from breaking or [[34]] .",
+        "Emulating tardigrades could one day help humans colonize outer space. Food crops could be engineered to produce tardigrade proteins, allowing these organisms to grow more efficiently on spacecraft where levels of radiation are elevated compared with on Earth.",
+        "So if humans ever succeed in reaching the stars, they may accomplish this [[35]] , in part, by standing on the shoulders of the tiny eight-legged endurance specialists in your backyard."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "adaptations"
+        },
+        {
+          "key": "B",
+          "text": "blasted"
+        },
+        {
+          "key": "C",
+          "text": "catastrophic"
+        },
+        {
+          "key": "D",
+          "text": "evolved"
+        },
+        {
+          "key": "E",
+          "text": "feat"
+        },
+        {
+          "key": "F",
+          "text": "interior"
+        },
+        {
+          "key": "G",
+          "text": "probing"
+        },
+        {
+          "key": "H",
+          "text": "recurrence"
+        },
+        {
+          "key": "I",
+          "text": "rigors"
+        },
+        {
+          "key": "J",
+          "text": "seemingly"
+        },
+        {
+          "key": "K",
+          "text": "survive"
+        },
+        {
+          "key": "L",
+          "text": "tempt"
+        },
+        {
+          "key": "M",
+          "text": "thrill"
+        },
+        {
+          "key": "N",
+          "text": "unanimously"
+        },
+        {
+          "key": "O",
+          "text": "unfolding"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptations"
+            },
+            {
+              "key": "B",
+              "text": "blasted"
+            },
+            {
+              "key": "C",
+              "text": "catastrophic"
+            },
+            {
+              "key": "D",
+              "text": "evolved"
+            },
+            {
+              "key": "E",
+              "text": "feat"
+            },
+            {
+              "key": "F",
+              "text": "interior"
+            },
+            {
+              "key": "G",
+              "text": "probing"
+            },
+            {
+              "key": "H",
+              "text": "recurrence"
+            },
+            {
+              "key": "I",
+              "text": "rigors"
+            },
+            {
+              "key": "J",
+              "text": "seemingly"
+            },
+            {
+              "key": "K",
+              "text": "survive"
+            },
+            {
+              "key": "L",
+              "text": "tempt"
+            },
+            {
+              "key": "M",
+              "text": "thrill"
+            },
+            {
+              "key": "N",
+              "text": "unanimously"
+            },
+            {
+              "key": "O",
+              "text": "unfolding"
+            }
+          ],
+          "answer": "K",
+          "explanation": "空格前句指出，缓步类动物是地球上最坚韧的生物。空格句指出其（It)在三种极端生存条件\n（在零下272摄氏度被冻结、暴露于外太空真空、被500倍人类致死剂量X射线……）之下均能\n。空格\n后句进一步总结指出，缓步类动物（thecreature）能忍受地球上根本不存在的环境条件。由此可推知，can\n应描述缓步类动物在极恶劣环境条件下存活/生存/幸存的能力，体现其坚韧性，K）survive符合此意。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptations"
+            },
+            {
+              "key": "B",
+              "text": "blasted"
+            },
+            {
+              "key": "C",
+              "text": "catastrophic"
+            },
+            {
+              "key": "D",
+              "text": "evolved"
+            },
+            {
+              "key": "E",
+              "text": "feat"
+            },
+            {
+              "key": "F",
+              "text": "interior"
+            },
+            {
+              "key": "G",
+              "text": "probing"
+            },
+            {
+              "key": "H",
+              "text": "recurrence"
+            },
+            {
+              "key": "I",
+              "text": "rigors"
+            },
+            {
+              "key": "J",
+              "text": "seemingly"
+            },
+            {
+              "key": "K",
+              "text": "survive"
+            },
+            {
+              "key": "L",
+              "text": "tempt"
+            },
+            {
+              "key": "M",
+              "text": "thrill"
+            },
+            {
+              "key": "N",
+              "text": "unanimously"
+            },
+            {
+              "key": "O",
+              "text": "unfolding"
+            }
+          ],
+          "answer": "B",
+          "explanation": "空格处描述缓步类动物能够承受的第三种极端生存条件：被500倍人类致死剂量的X射线\n。结合物理常识不难推知，空格词应能体现“被高强度X射线照射/轰射/冲击”的语义，B）blasted有\n“喷射；轰击”的意思，能够精准传递“承受极端辐射冲击”的语义。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptations"
+            },
+            {
+              "key": "B",
+              "text": "blasted"
+            },
+            {
+              "key": "C",
+              "text": "catastrophic"
+            },
+            {
+              "key": "D",
+              "text": "evolved"
+            },
+            {
+              "key": "E",
+              "text": "feat"
+            },
+            {
+              "key": "F",
+              "text": "interior"
+            },
+            {
+              "key": "G",
+              "text": "probing"
+            },
+            {
+              "key": "H",
+              "text": "recurrence"
+            },
+            {
+              "key": "I",
+              "text": "rigors"
+            },
+            {
+              "key": "J",
+              "text": "seemingly"
+            },
+            {
+              "key": "K",
+              "text": "survive"
+            },
+            {
+              "key": "L",
+              "text": "tempt"
+            },
+            {
+              "key": "M",
+              "text": "thrill"
+            },
+            {
+              "key": "N",
+              "text": "unanimously"
+            },
+            {
+              "key": "O",
+              "text": "unfolding"
+            }
+          ],
+          "answer": "I",
+          "explanation": "前文介绍缓步类动物的极强生存能力，空格句承前引出其科研价值（也是研究人员关注这种\n微生物的目的）：学习如何让人类和农作物为应对太空旅行中的\n做好准备。由此不难推知，研究人员希\n望学习借鉴缓步类动物应对极端生存条件的能力，也即“太空旅行环境”与“缓步类动物能应对的环境”类似，\n空格词对应beingfrozenat-272°Celsius，beingexposed to thevacuumofouter space...beingblastedwith\n500timesthedoseofX-rays及conditionsthatdon'tevenexistonEarth，指向极端条件/艰苦环境/严峻考验\n等，I）rigors（苛刻或艰苦、极端的条件）正确。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptations"
+            },
+            {
+              "key": "B",
+              "text": "blasted"
+            },
+            {
+              "key": "C",
+              "text": "catastrophic"
+            },
+            {
+              "key": "D",
+              "text": "evolved"
+            },
+            {
+              "key": "E",
+              "text": "feat"
+            },
+            {
+              "key": "F",
+              "text": "interior"
+            },
+            {
+              "key": "G",
+              "text": "probing"
+            },
+            {
+              "key": "H",
+              "text": "recurrence"
+            },
+            {
+              "key": "I",
+              "text": "rigors"
+            },
+            {
+              "key": "J",
+              "text": "seemingly"
+            },
+            {
+              "key": "K",
+              "text": "survive"
+            },
+            {
+              "key": "L",
+              "text": "tempt"
+            },
+            {
+              "key": "M",
+              "text": "thrill"
+            },
+            {
+              "key": "N",
+              "text": "unanimously"
+            },
+            {
+              "key": "O",
+              "text": "unfolding"
+            }
+          ],
+          "answer": "A",
+          "explanation": "空格句主句中stemsfrom传递因果逻辑，将“缓步类动物强大的生存能力（Thetardigrade's\nindestructibility）”归因于“它们对环境的\n(its\ntoitsenvironment）”。结合第三、四段大意“缓步\n类动物的生存环境会发生恶化，但它们能够应对这种变化（...homecandryout...doesdamage...\nTardigrades...have...strategiesfordealingwiththesekindsofdamage)”可推知，缓步类动物对环境具备适\n应能力，空格词应表示适应性/适应能力，A）adaptations契合句内语义。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptations"
+            },
+            {
+              "key": "B",
+              "text": "blasted"
+            },
+            {
+              "key": "C",
+              "text": "catastrophic"
+            },
+            {
+              "key": "D",
+              "text": "evolved"
+            },
+            {
+              "key": "E",
+              "text": "feat"
+            },
+            {
+              "key": "F",
+              "text": "interior"
+            },
+            {
+              "key": "G",
+              "text": "probing"
+            },
+            {
+              "key": "H",
+              "text": "recurrence"
+            },
+            {
+              "key": "I",
+              "text": "rigors"
+            },
+            {
+              "key": "J",
+              "text": "seemingly"
+            },
+            {
+              "key": "K",
+              "text": "survive"
+            },
+            {
+              "key": "L",
+              "text": "tempt"
+            },
+            {
+              "key": "M",
+              "text": "thrill"
+            },
+            {
+              "key": "N",
+              "text": "unanimously"
+            },
+            {
+              "key": "O",
+              "text": "unfolding"
+            }
+          ],
+          "answer": "J",
+          "explanation": "空格句指出，缓步类动物坚不可摧的特性源于其对环境的适应能力，这似乎会令人感到惊\n讶，因为它们生活在\n舒适的地方，比如花园墙壁上散布的那一片片凉爽潮湿的青苔中。结合下文转折\n后内容“缓步类动物的潮湿苔藓家园每年都会经历多次干涸，脱水对细胞造成破坏”可知，缓步类动物的生存\n环境（凉爽潮湿的青苔）看似舒适，实则不然。空格词指向“看似/貌似/表面上”等意。J）seemingly精准体现\n“表面舒适实则暗藏挑战”的反差逻辑，故为正确选项。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptations"
+            },
+            {
+              "key": "B",
+              "text": "blasted"
+            },
+            {
+              "key": "C",
+              "text": "catastrophic"
+            },
+            {
+              "key": "D",
+              "text": "evolved"
+            },
+            {
+              "key": "E",
+              "text": "feat"
+            },
+            {
+              "key": "F",
+              "text": "interior"
+            },
+            {
+              "key": "G",
+              "text": "probing"
+            },
+            {
+              "key": "H",
+              "text": "recurrence"
+            },
+            {
+              "key": "I",
+              "text": "rigors"
+            },
+            {
+              "key": "J",
+              "text": "seemingly"
+            },
+            {
+              "key": "K",
+              "text": "survive"
+            },
+            {
+              "key": "L",
+              "text": "tempt"
+            },
+            {
+              "key": "M",
+              "text": "thrill"
+            },
+            {
+              "key": "N",
+              "text": "unanimously"
+            },
+            {
+              "key": "O",
+              "text": "unfolding"
+            }
+          ],
+          "answer": "C",
+          "explanation": "空格句指出，对多数生物而言，脱水是非常\n的。③句作出进一步阐释：脱水会对细胞\n造成破坏，破坏的方式与冰冻、真空和辐射有一些相似之处。“冰冻、真空和辐射（freezing，vacuumand\nradiation）”均会对细胞造成致命损伤，可推知“脱水”对生物而言也是极为致命的，故空格处应填入最高程度的\n负面形容词或副词，指向“危害极大/灾难性/极端致命”等意。C）catastrophic意为“毁灭性的；灾难性的”，代\n入句中可与②句形成“总述一细述”逻辑，说明脱水对细胞的毁灭性伤害。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptations"
+            },
+            {
+              "key": "B",
+              "text": "blasted"
+            },
+            {
+              "key": "C",
+              "text": "catastrophic"
+            },
+            {
+              "key": "D",
+              "text": "evolved"
+            },
+            {
+              "key": "E",
+              "text": "feat"
+            },
+            {
+              "key": "F",
+              "text": "interior"
+            },
+            {
+              "key": "G",
+              "text": "probing"
+            },
+            {
+              "key": "H",
+              "text": "recurrence"
+            },
+            {
+              "key": "I",
+              "text": "rigors"
+            },
+            {
+              "key": "J",
+              "text": "seemingly"
+            },
+            {
+              "key": "K",
+              "text": "survive"
+            },
+            {
+              "key": "L",
+              "text": "tempt"
+            },
+            {
+              "key": "M",
+              "text": "thrill"
+            },
+            {
+              "key": "N",
+              "text": "unanimously"
+            },
+            {
+              "key": "O",
+              "text": "unfolding"
+            }
+          ],
+          "answer": "D",
+          "explanation": "第三段①句指出，缓步类动物的潮湿苔藓家园每年都会经历多次干涸。②③句指出，对多数\n生物而言，脱水是非常灾难的。空格句转而指出，缓步类动物已/有\n特殊策略来应对此类损伤。可见文\n中对比指出“脱水对大多数生物造成毁灭性伤害VS缓步类动物却具有适应脱水环境的独特生理优势”，空格\n处应指向“产生/进化/拥有”等意，或表达“优秀/不错”“非常/十分”等意。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptations"
+            },
+            {
+              "key": "B",
+              "text": "blasted"
+            },
+            {
+              "key": "C",
+              "text": "catastrophic"
+            },
+            {
+              "key": "D",
+              "text": "evolved"
+            },
+            {
+              "key": "E",
+              "text": "feat"
+            },
+            {
+              "key": "F",
+              "text": "interior"
+            },
+            {
+              "key": "G",
+              "text": "probing"
+            },
+            {
+              "key": "H",
+              "text": "recurrence"
+            },
+            {
+              "key": "I",
+              "text": "rigors"
+            },
+            {
+              "key": "J",
+              "text": "seemingly"
+            },
+            {
+              "key": "K",
+              "text": "survive"
+            },
+            {
+              "key": "L",
+              "text": "tempt"
+            },
+            {
+              "key": "M",
+              "text": "thrill"
+            },
+            {
+              "key": "N",
+              "text": "unanimously"
+            },
+            {
+              "key": "O",
+              "text": "unfolding"
+            }
+          ],
+          "answer": "F",
+          "explanation": "第四段①句指出，当缓步类动物脱水时，其细胞会产生几种其他动物体内不存在的奇特蛋白\n质。②句指出这些蛋白质在水中的形态：呈无形状态（无固定结构）。③句转而指出这些蛋白质在脱水状态下\n的情形：自组装形成填充细胞的\n的长纤维。④句进一步指出这些纤维的作用“支撑细胞膜和细胞的蛋\n白质结构”。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptations"
+            },
+            {
+              "key": "B",
+              "text": "blasted"
+            },
+            {
+              "key": "C",
+              "text": "catastrophic"
+            },
+            {
+              "key": "D",
+              "text": "evolved"
+            },
+            {
+              "key": "E",
+              "text": "feat"
+            },
+            {
+              "key": "F",
+              "text": "interior"
+            },
+            {
+              "key": "G",
+              "text": "probing"
+            },
+            {
+              "key": "H",
+              "text": "recurrence"
+            },
+            {
+              "key": "I",
+              "text": "rigors"
+            },
+            {
+              "key": "J",
+              "text": "seemingly"
+            },
+            {
+              "key": "K",
+              "text": "survive"
+            },
+            {
+              "key": "L",
+              "text": "tempt"
+            },
+            {
+              "key": "M",
+              "text": "thrill"
+            },
+            {
+              "key": "N",
+              "text": "unanimously"
+            },
+            {
+              "key": "O",
+              "text": "unfolding"
+            }
+          ],
+          "answer": "O",
+          "explanation": "空格句上文指出缓步类动物脱水时，其细胞产生的蛋白质会自组装形成填充细胞内部的长\n纤维。空格句指出，这些纤维能支撑细胞膜和细胞的蛋白质结构，防止细胞破裂或\n。可见空格处应填\n入细胞的另一种损伤形式。（)）unfolding意为“展开；打开”，此处指“细胞膜或蛋白质由其自身稳定的结构变\n成展开、不稳定的状态”，契合文意。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptations"
+            },
+            {
+              "key": "B",
+              "text": "blasted"
+            },
+            {
+              "key": "C",
+              "text": "catastrophic"
+            },
+            {
+              "key": "D",
+              "text": "evolved"
+            },
+            {
+              "key": "E",
+              "text": "feat"
+            },
+            {
+              "key": "F",
+              "text": "interior"
+            },
+            {
+              "key": "G",
+              "text": "probing"
+            },
+            {
+              "key": "H",
+              "text": "recurrence"
+            },
+            {
+              "key": "I",
+              "text": "rigors"
+            },
+            {
+              "key": "J",
+              "text": "seemingly"
+            },
+            {
+              "key": "K",
+              "text": "survive"
+            },
+            {
+              "key": "L",
+              "text": "tempt"
+            },
+            {
+              "key": "M",
+              "text": "thrill"
+            },
+            {
+              "key": "N",
+              "text": "unanimously"
+            },
+            {
+              "key": "O",
+              "text": "unfolding"
+            }
+          ],
+          "answer": "E",
+          "explanation": "第五段①句指出，效仿缓步类动物或许有朝一日能助力人类殖民外太空。②句指出，通\n过基因改造让农作物产生缓步类动物的蛋白质，可使其在辐射水平高于地球的航天器中更高效地生长。\n第六段空格句总结道，如果人类真能成功抵达星际，他们能实现这一\n，某种程度上可能要归功于那\n些八条腿的微型耐力专家（即缓步类动物）。由逻辑词if及bystandingontheshouldersof...（源于名言\nstandontheshouldersofgiants“站在巨人的肩膀上”，表达“借鉴前人知识取得思想进步”之意）可知，“人\n类实现这一\n”是“成功抵达星际”的结果，且源于“对缓步类动物行为的借鉴”，故this\n应回指\n前文“殖民外太空”这件事，空格词应表达“设想/梦想/壮举/成就”等意。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-06-3-b",
+      "type": "matching",
+      "title": "Yes, eating meat affects the environment, but cows are not killing the climate",
+      "paragraphs": [
+        "A) As the scale and impacts of climate change become increasingly alarming, meat is a popular target for action. Advocates for the protection of the natural environment from destruction or pollution urge the public to eat less meat. Some activists have even called for taxing meat to reduce consumption of it.",
+        "B) A key claim underlying these arguments holds that globally, meat production generates more greenhouse gases than the entire transportation sector. However, this claim is demonstrably wrong, as I will show. And its persistence has led to false assumptions about the linkage between meat and climate change.",
+        "C) My recent research focuses on ways in which animal agriculture affects air quality and climate change. In my view, there are many reasons for either choosing animal protein or opting for a vegetarian selection. However, abandoning meat and meat products is not the environmental panacea（万灵药） many would have us believe. And if taken to an extreme, it also could have harmful nutritional consequences.",
+        "D) A healthy portion of meat’s negative reputation centers on the assertion that livestock is the largest source of greenhouse gases worldwide. For example, an analysis published in 2009 by the World Watch Institute based in Washington, D.C. asserted that 51 percent of global greenhouse gas emissions come from rearing and processing livestock. According to the U.S. Environmental Protection Agency, the largest sources of U.S. greenhouse gas emissions in 2016 ’ were electricity production (28 percent of total emissions) , transportation (28 percent) and industry (22 percent). All of agriculture accounted for a total of 9 percent, but all of animal agriculture contributes less than half of this amount, representing 3.9 percent of the total greenhouse emission in the U.S. That is very different from claiming that livestock represents as much as or more than transportation.",
+        "E) Why is there such a misconception? In 2006 the United Nations Food and Agriculture Organization (FAO) published a study titled “Livestock’s Long Shadow,” which received widespread international attention. It stated that livestock produced a staggering 18 percent of the world’s greenhouse gas emissions. The agency drew a startling conclusion that livestock was doing more to harm the climate than all modes of transportation combined. This latter claim was wrong, and has since been corrected by Henning Stenfeld, the report’s senior author.",
+        "F) The problem was that analysts from the FAO used a comprehensive life-cycle assessment to study the climate impact of livestock, but.a different method when they analyzed transportation. For livestock, they considered every factor associated with producing meat. This included emissions from fertilizer production, converting land from forests to pastures, growing feed, and direct emissions from animals (manure as well as expelling of gas from the stomach) from birth to death.",
+        "G) However, when they looked at transportation’s carbon footprint, they ignored impacts on the climate from manufacturing vehicle materials and parts, assembling vehicles and maintaining roads, bridges and airports. Instead, they only considered the exhaust smoke emitted by finished cars, trucks, trains and planes. As a result, the FAO's comparison of greenhouse gas emissions from livestock to those from transportation was greatly distorted.",
+        "H) I pointed out this flaw during a speech to fellow scientists in San Francisco on March 22, 2010, which led to a flood of media coverage. To its credit, the FAO immediately owned up to its error. Unfortunately, the agency’s initial claim that livestock was responsible for the lion’s share of world greenhouse gas emissions had already received wide coverage. To this day, we struggle to “unring” the bell. In its most recent assessment report, the FAO estimated that livestock produces 14.5 percent of global greenhouse gas emissions from human activities. There is no comparable full life-cycle assessment for transportation. However, as Stenfeld has pointed out, direct emissions from transportation versus livestock can be compared and amount to 14 versus 5 percent, respectively.",
+        "I) Many people continue to think that avoiding meat as infrequently as once a week will make a significant difference to the climate. But according to one recent study, even if Americans eliminated all animal protein from their diets, they would reduce greenhouse gas emissions by only 2.6 percent. According to our research at the University of California, Davis, if the practice of Meatless Monday were to be adopted by all Americans, we’d see a reduction of only 0.5 percent.",
+        "J) Moreover, technological, genetic and management changes that have taken place in U.S. agriculture over the past 70 years have made livestock production more efficient and less greenhouse gas-intensive. According to the FAO's statistical database, total direct greenhouse gas emissions from U.S. livestock have declined by 11.3 percent since 1961, while production of livestock meat has more than doubled.",
+        "K) Demand for meat is rising in developing and emerging economies, especially in the Middle East, North Africa and Southeast Asia. For example, raising livestock such as goats in Kenya is an important source of food and income for many small-scale farmers and herders. But meat consumption per person in these regions still lags that of developed countries. In 2015, average annual meat consumption per person in developed countries was 92 kilograms, compared to 24 kilograms in the Middle East and North Africa and 18 kilograms in Southeast Asia. Still, given projected population growth in the developing world, there will certainly be an opportunity for countries such as the United States to bring their sustainable livestock rearing practices to the table.",
+        "L) Removing animals from U.S. agriculture would lower national greenhouse gas emissions to a small degree, but it would also make it harder to meet people’s nutritional requirements. Many critics of animal agriculture are quick to point out that if farmers raised only plants, they could produce more pounds of food and more calories per person. But humans also need many essential micro- and macro-nutrients for good health. It’s hard to make a compelling argument that the United States has a calorie deficit, given its high national rates of adult and child obesity. Moreover, not all plant parts are edible or desirable. Raising livestock is a way to add nutritional and economic value to plant agriculture.",
+        "M) As one example, the energy in plants that livestock consume is most often contained in cellulose（纤维素）, which is indigestible for humans and many other mammals. But cows, sheep and other ruminant（反刍的） animals can break cellulose down and release the solar energy contained in this vast resource. According to the FAO, as much as 70 percent of all agricultural land globally is range land that can only be utilized as grazing land for ruminant livestock.",
+        "N) The world population is currently projected to reach 9.8 billion by 2050. Feeding this many people will raise immense challenges. Meat is more calorie-dense per serving than vegetarian options, and ruminant animals largely thrive on feed that is not suitable for humans. Raising livestock also offers much-needed income for small-scale farmers in developing nations. Worldwide, livestock provides a livelihood for 1 billion people.",
+        "O) Climate change demands urgent attention, and the livestock industry has a large overall environmental footprint that affects air, water and land. These, combined with a rapidly rising world population, give us plenty of compelling reasons to continue to work for greater efficiencies in animal agriculture. I believe the place to start is with science-based facts."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "The FAO concluded that farm animals were producing more greenhouse gases than all modes of transportation combined.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "[精解]E段②③句指出，联合国粮农组织的一篇研究报告称，畜牧业产生的温室气体排放量\n竞高达全球总量的18%。④句继而指出，该机构得出惊人结论“畜牧业对气候的危害超过所有交通载具的总\n和”。试题是对④句的合理解读，TheFAO明确Theagency所指，producingmoregreenhousegases点明\ndoingmoretoharmtheclimate的实际内涵。"
+        },
+        {
+          "number": 37,
+          "stem": "Consumption of meat per person in developing countries is much less than that in countries like the U.S.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "[精解］K段①③句指出，发展中和新兴经济体的肉类需求正在增长，但这些地区人均肉类消\n耗量仍低于发达国家。试题是对③句的近义改写，其中developingcountries明确theseregions所指，much\nlessthanthatincountriesliketheU.S.是对lags thatofdevelopedcountries的近义替换。"
+        },
+        {
+          "number": 38,
+          "stem": "The FAO was worthy of praise in that it admitted its mistake once it was pointed out.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "[精解］H段①句中，作者提到自己在旧金山演讲时向科学家同行指出联合国粮农组织的错\n误。②句随即指出，值得称赞的是，粮农组织立即承认其错误。试题与对该内容相符，其中wasworthyof\npraise是对②句Toits credit的近义替换，admitteditsmistakeonceitwaspointedout是对①②句中pointed\noutthisflaw...immediatelyowneduptoitserror的综合改写，inthat显化②句句内逻辑“立即承认错误（因）\n→值得称赞（果）”。"
+        },
+        {
+          "number": 39,
+          "stem": "Environmentalists try hard to make people consume less meat to combat climate change.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "[精解］A段①句指出，随着气候变化的规模和影响日益令人担忧，肉类成为气候行动的热门\n攻击对象。②句继而指出，主张保护自然环境免遭破坏或污染的倡导者们敦促公众减少肉类摄入。试题是对\n①②句内容的合理总结，其中Environmentalists概括Advocatesfortheprotectionofthenaturalenvironment\nfromdestructionorpollution所指人群，tryhardtomakepeopleconsumelessmeat同义替换urgethepublicto\neatlessmeat，而tocombatclimatechange则与①②句暗含的逻辑“气候变化的规模和影响日益骇人→敦促公\n众减少肉类摄入以应对气候变化”对应。"
+        },
+        {
+          "number": 40,
+          "stem": "Recent research has shown that even if Americans quit eating meat altogether, the resulting reduction of greenhouse gases in the U.S. would be slight.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "[精解]I段②句指出，一项最新研究显示，即便美国人完全不摄入任何动物蛋白，温室气体排\n放量也只会减少2.6%。试题是对该句内容的合理解读，Recentresearchhasshownthat与accordingtoone\nrecentstudy对应，quit...altogether是对eliminatedall..的同义替换，theresultingreductionofgreenhouse\ngasesintheU.S.wouldbeslight是对wouldreducegreenhousegasemissionsbyonly2.6percent的解读“只\n降低2.6%温室气体排放量→减排效果微乎其微”。"
+        },
+        {
+          "number": 41,
+          "stem": "More than half of the world’s farmland is suitable only for animals like cows to graze on.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "[精解］M段②句指出，牛、羊等反当动物能分解纤维素。③句指出，全球高达70%的农业用\n地是仅适合反当畜禽放牧的牧场。试题是对③句内容的近义替换，Morethanhalfoftheworld'sfarmland与\n70percentofallagriculturallandglobally对应，suitableonlyfor...tograzeon是对canonlybeutilizedas\ngrazingland for...的近义替换，animalslike cows对应ruminant livestock（与②句cows，sheepandother\nruminantanimals呼应）。"
+        },
+        {
+          "number": 42,
+          "stem": "The allegation that farm animals produce the world’s largest portion of greenhouse gases is responsible for meat’s bad reputation.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "[精解]D段①句指出，肉类背负恶名很大程度上源于这样一种说法“畜牧业是全球最大的温\n室气体排放源”。试题是对该句的近义替换，Theallegationthat...isresponsibleformeat'sbadreputation是\n对Ahealthy portion of meat's negative reputation centers on the assertion that...的近义改写。"
+        },
+        {
+          "number": 43,
+          "stem": "Raising farm animals makes it easier to meet people’s nutritional needs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "[精解］L段①句总起指出，从农业中剔除畜禽养殖会增加满足人们营养需求的难度。②至\n5句从“营养结构（植物提供的热量≠营养，还需微量和大量营养素）”“现实情况（美国肥胖率居高不下→应关\n注营养而非热量）”“实用性（并非所有植物部分都可食用或适合食用）”的角度进一步阐释并批驳反对者观点。\n6句总结道，畜禽养殖是一种为植物农业增加营养价值和经济价值的方式（即能弥补纯植物农业的不足，更好\n地满足人类营养需求）。试题是对本段内容的概括，改写自①句RemovinganimalsfromU.S.agriculture...\nmakeithardertomeetpeople'snutritionalrequirements。\n语听颖想说"
+        },
+        {
+          "number": 44,
+          "stem": "The author doesn’t believe giving up meat and meat products will be a cure-all for the environmental problem.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[精解]C段②③句点明作者的观点：不论是选择动物蛋白还是素食，都各有其诸多理由，但\n放弃肉类及肉制品并非许多人试图让我们相信的那种“对环境问题的万灵药”。试题与该信息对应，The\nauthor doesn't believe giving up...will be a cure-all for the environmental problem 是对 In my view...\nabandoning...isnottheenvironmentalpanacea的同义改写。"
+        },
+        {
+          "number": 45,
+          "stem": "Changes in America’s farming technology and management in the past decades have increased efficiency and reduced greenhouse gas emissions in meat production.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "[精解]J段①句指出，过去70年间，美国农业在技术、基因和管理方面的变革使得畜禽养殖变得更加高效，温室气体排放强度也有所降低。②句以具体数据说明，温室气体排放量减少，肉类产量翻倍。\n试题是对该内容的近义改写，ChangesinAmerica'sfarmingtechnology andmanagementinthepast decades对\n应 technological...and management changes...U. S. agriculture over the past 70 years,而 have increased\nefficiency and reduced greenhouse gas emissions in meat production 对应have made livestock production more\nefficient and less greenhouse gas-intensive、total direct greenhouse gas emissions from...livestock have\ndeclined、production of livestockmeat has more than doubled。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Why are we so worried about our careers? Partly it’s to do with money, but there’s a psychological aspect to our fears as well.",
+        "We worry because we suspect — not wrongly — that the world is full of a frightening sort of person ready to judge us ruthlessly and swiftly: a person we can call a snob.",
+        "A snob is anyone who takes a relatively small part of us and uses it to come to a rigid conclusion about how much of their attention we deserve. In the past, that might be your ancestry and royal connections. Nowadays, the snob cares about one thing only: what you do for a living.",
+        "This explains why the first question we will be asked in any new social context is ‘ What do you do? ’ and according to how we answer, snobs will either welcome us with broad smiles, or leave us in the cold.",
+        "And that is why we are fired up by such a desperate urge to achieve and impress.",
+        "Sometimes our behaviour is mistaken for greed and vanity, but it is more than this. A lot of our interest in fancy cars, jobs and houses has nothing to do with materialism. It has to do with a hunger for the respect and esteem that is only available in our societies through the acquisition of material goods. It isn’t the goods themselves we seek, it is the love we stand to gain through our possession of them. The next time we see someone driving a Ferrari, we shouldn’t condemn them for their greed, we should pity them for the intensity of their need for love from the world.",
+        "At the root of snobbery is a lack of imagination and confidence about how to decide who in the world is valuable. The snobs are brutally misguided and slavish in their beliefs about how the superior individuals can be identified. For snobs, it is the already acclaimed and already successful who are the only ones worthy of respect. There is no room in their timid regimented minds to imagine that someone might be clever, kind or good — and yet somehow have been overlooked entirely by society, their qualities lying hidden beneath an unfamiliar veil, and having as yet discovered no obvious outlet.",
+        "The true answer to snobbery is not to say that there is no such thing as a better or worse person, but to insist that better or worse exist in constantly unexpected places and carry none of the outward signs of distinction. And because we are such poor judges of the worth of others, our ultimate duty remains to be kind, good, curious and imaginative about pretty much everyone who ever crosses our path."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What gives rise to our worry about careers apart from money?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Fear of being judged in a snobbish manner."
+            },
+            {
+              "key": "B",
+              "text": "The prospect of facing fault-finding managers."
+            },
+            {
+              "key": "C",
+              "text": "The ruthless way employees are often treated."
+            },
+            {
+              "key": "D",
+              "text": "Fright at the difficulty in hunting for a job."
+            }
+          ],
+          "answer": "A",
+          "explanation": "首段指出，我们如此忧心于自己的职业，除了有金钱方面的原因，也有心理方面的原因。\n第二段进一步指出，我们之所以忧心，是因为我们怀疑世界上满是势利者，他们动不动就会无情且迅速地对我\n们进行评判。换言之，我们忧心于自己的职业是因为我们担心势利者会对我们做出评判，A项正确。"
+        },
+        {
+          "number": 47,
+          "stem": "What do we learn from the passage about today’s snobs?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They try hard to dig into a person’s past."
+            },
+            {
+              "key": "B",
+              "text": "They draw a rigid conclusion about people."
+            },
+            {
+              "key": "C",
+              "text": "They judge a person by their occupation."
+            },
+            {
+              "key": "D",
+              "text": "They tend to place people in a social context."
+            }
+          ],
+          "answer": "C",
+          "explanation": "第三段③句指出，如今，势利者只关心一件事：你靠什么谋生。结合该段①句大意“势利\n者会抓住某个局部特征评判我们是否值得自己关注”和第四段所述“（如今）势利者会根据我们对自身职业的\n回答选择不同的对待方式”可知，如今的势利者会以谋生方式（即工作、职业）来评判他人的价值，进而采取不\n同的对待方式，C项正确。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author say about people’s interest in material goods?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is the cause for condemnation of their greed."
+            },
+            {
+              "key": "B",
+              "text": "It has a lot to do with the comforts they provide."
+            },
+            {
+              "key": "C",
+              "text": "It arouses pity rather than respect from the wealthy."
+            },
+            {
+              "key": "D",
+              "text": "It arises from their craving for social recognition."
+            }
+          ],
+          "answer": "D",
+          "explanation": "第六段②至④句指出，我们对豪车、体面工作和豪宅的兴趣很大程度上与物质主义无关，\n而与渴望受尊重和敬仰有关一一在我们的社会里，唯有通过获取物质财富才能得到尊重和敬仰，我们追求的\n不是物质本身，而是通过拥有这些物质而获得的爱意。综合可知，人们想要拥有更多物质财富，本质上是因为\n想要获得他人的尊重和敬仰；换言之，人们对物质财富感兴趣源于渴望得到社会的认可，D项正确。"
+        },
+        {
+          "number": 49,
+          "stem": "What kind of people do snobs deem worth respect and esteem?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Those with fame and fortune."
+            },
+            {
+              "key": "B",
+              "text": "Those with regimented minds."
+            },
+            {
+              "key": "C",
+              "text": "Those with intelligence and imagination."
+            },
+            {
+              "key": "D",
+              "text": "Those with qualities lying hidden in disguise."
+            }
+          ],
+          "answer": "A",
+          "explanation": "第七段③句指出，对势利者而言，唯有那些已广受赞誉且功成名就者才配获得尊重。可\n见，A项正确，选项同义改写句中的thealreadyacclaimedandalreadysuccessful。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author imply we should do to avoid being snobbish?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Be aware there has never been such a thing as a better or worse person."
+            },
+            {
+              "key": "B",
+              "text": "Be kind to and curious about those who we happen to meet in our lives."
+            },
+            {
+              "key": "C",
+              "text": "Realize that better or worse keeps changing in unexpected ways."
+            },
+            {
+              "key": "D",
+              "text": "Judge people on the basis of their distinctive character traits."
+            }
+          ],
+          "answer": "B",
+          "explanation": "末段指出，要真正化解势利心态，并非要否认人有优劣之分，而是要坚信优劣总是存在于\n意想不到之处，且没有任何能加以区分的外在表现；正因为我们如此不善于判断他人的价值，我们最终该做的\n就是对人生道路上偶遇的几乎每一个人都保持友好、善良、好奇与想象。B项契合文意，其中Bekind、curious\nabout于末段②句原词复现，whowehappentomeetinourlives同义改写该句的whoevercrossesourpath。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "‘Women have historically been paid less. But in the US in the 1980s, they began to catch up — fast. During that decade, the gender pay gap closed by about one percentage point a year. Had that trend continued, the gender wage gap would have been closed by 2017.",
+        "But the trend didn’t continue, and the gap remains yawning.",
+        "According to a new study from academics at Harvard, the stagnation can be put down, perhaps counterintuitively, to the introduction of state and federal family leave policies.",
+        "The academics argue that during the 1990s, as governments began to introduce leave policies, it was mainly women who took advantage of them. Though the leave policies might have helped those women to stay in the workplace — instead of dropping out to have families — those who returned saw their wages had increased at lower rates than the men.",
+        "After family leave was introduced in the US, in fact, the rate of gender wage convergence fell to just 0.03 percentage points per year, and has remained there ever since.",
+        "Those monitoring the process towards salary equity at work have long watched as progress slowed in many countries around the world. In fact, that progress began to reverse during the pandemic（大流行病）.",
+        "The gender pay gap is one of the most outstanding examples of that lack of parity（平等）, and still exists just about everywhere. The motherhood penalty has become a shorthand for describing why: In many places, especially rich countries, women earn the same as men until they reach their childbearing years. Women who have children begin to see their salaries slip behind their male counterparts.",
+        "Part of this is because women take on more of the unpaid labor at home, which can eat into time available for work and energy for career advancement. But it’s also because mothers are passed over for raises and promotion, and because time out of the workplace sets women back, even if that time is taken voluntarily, and supported by company or government policy.",
+        "‘What would have happened if leave policies hadn’t been introduced? The study doesn’t go into that question, other than to say that if the 1980s trend continued, we would have been at parity by now.",
+        "It’s possible, however, that the journey towards wage parity would have stalled either way. If women’s gains in the 1980s were made through the erasure of things like bias, once those less uncontrollable problems had been addressed, there would still have been an issue with women — who are the ones to bear children and take care of them in the early weeks because of biological factors like the ability to breastfeed, forcing them to take breaks, whether or not those breaks were mandated."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn about the gender pay gap in the US during the 1980s?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was being slowly closed."
+            },
+            {
+              "key": "B",
+              "text": "It was shrinking rapidly."
+            },
+            {
+              "key": "C",
+              "text": "It started to yawn."
+            },
+            {
+              "key": "D",
+              "text": "It remained substantial."
+            }
+          ],
+          "answer": "B",
+          "explanation": "首段前三句指出，女性历来薪酬较低，但在20世纪80年代的美国，女性的薪酬开始迅速\n赶上，这十年里，男女薪酬差距每年缩小约一个百分点。可见，20世纪80年代美国的男女薪酬差距在迅速缩\n小，B项正确，选项中的shrinking对应文中的catchup、closed，rapidly对应文中的fast。"
+        },
+        {
+          "number": 52,
+          "stem": "What happened with the introduction of state and federal family leave policies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The process towards salary equity at work began to reverse."
+            },
+            {
+              "key": "B",
+              "text": "The rate of gender wage convergence started to fall noticeably."
+            },
+            {
+              "key": "C",
+              "text": "The trend of women returning to work after childbirth started."
+            },
+            {
+              "key": "D",
+              "text": "The narrowing of the gender pay gap attracted more attention."
+            }
+          ],
+          "answer": "B",
+          "explanation": "第三段借新研究概述指出，缩小男女薪酬差距的进程停滞不前，可归因于各州及联邦政\n府推行的家庭事务休假政策。第四、五段进一步指出，在20世纪90年代，随着该政策的推行，利用该政策的\n女性在休假返岗后发现自己的涨薪幅度低于男性，男女薪酬趋同的速度下降至每年仅0.03个百分点，此后一\n直保持不变。再结合前文所述20世纪80年代的情形可知，该政策的推行导致男女薪酬趋同/差距缩小的速\n度大幅下降（由每年约1%下降至仅0.03%），B项正确，其中noticeably准确体现从aboutonepercentage\npoint a year到just O.03percentage points per year的变化幅度。"
+        },
+        {
+          "number": 53,
+          "stem": "What partly accounts for the slip in women’s salaries?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The insufficient motivation women generally have for career advancement."
+            },
+            {
+              "key": "B",
+              "text": "The opportunities numerous women give up for pay raise and promotion."
+            },
+            {
+              "key": "C",
+              "text": "The huge amounts of time and energy women spend taking care of the family."
+            },
+            {
+              "key": "D",
+              "text": "The lack of policy support from government and business corporations."
+            }
+          ],
+          "answer": "C",
+          "explanation": "第七段③句点明现象：生育之后，女性的薪资便开始落后于男性同事。第八段①②句进\n而解释原因：女性在家中承担了更多无偿劳动，这会消耗其用于工作的时间和职业发展的精力；母亲们被排除\n在加薪升职的名单之外，脱离职场的时间会阻碍女性的职业发展。C项契合第八段①句所述原因“女性花费\n了大量时间和精力在家庭事务/照顾家庭上，没有足够的时间和精力来顾及工作与职业发展”，故正确。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the new study say about wage parity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It would have stalled if those controllable problems had not been addressed."
+            },
+            {
+              "key": "B",
+              "text": "It would have halted if company and government had not worked together."
+            },
+            {
+              "key": "C",
+              "text": "It would have been achieved with the complete erasure of gender biases."
+            },
+            {
+              "key": "D",
+              "text": "It would have been attained with the continuation of the 1980s trend."
+            }
+          ],
+          "answer": "D",
+          "explanation": "第九段②句指出，研究只提到若20世纪80年代（男女薪酬差距缩小）的趋势得以持续，\n到如今薪酬平等本应实现。可见D项正确，选项中的withthecontinuationofthe1980strend对应句中的if\nthe1980strendcontinued,Itwouldhavebeenattained对应wewouldhavebeenatparity。"
+        },
+        {
+          "number": 55,
+          "stem": "What prevents women from achieving parity with men in the final analysis?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Ignoring biases against women in the workplace."
+            },
+            {
+              "key": "B",
+              "text": "Giving birth to children and taking care of them."
+            },
+            {
+              "key": "C",
+              "text": "Failing to mandate breaks for childbirth and care."
+            },
+            {
+              "key": "D",
+              "text": "Lacking resources to address biological problems."
+            }
+          ],
+          "answer": "B",
+          "explanation": "末段①句先指出，薪酬平等的进程或许无论如何都会停滞；②句随后给出解释：即便相对\n可控的问题能得到解决（比如性别偏见能完全消除），女性也依旧会面临一个问题一由于哺乳能力等生理因\n素，生孩子的是她们，（孩子出生后）前几周照顾孩子的也是她们，这让她们不得不请假（进而影响职业发展和\n薪酬前景）。换言之，阻碍女性实现与男性平等的因素归根结底在于女性要生育并照顾孩子，B项正确。"
+        }
+      ]
+    }
+  ],
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2025.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC3%E5%A5%97.pdf"
+}

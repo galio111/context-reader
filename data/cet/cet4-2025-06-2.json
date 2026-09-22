@@ -1,0 +1,1576 @@
+{
+  "id": "cet4-2025-06-2",
+  "level": 4,
+  "year": 2025,
+  "month": 6,
+  "set": 2,
+  "title": "2025 年 6 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/cet4_2025_06_2.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2025-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Sir Alfred Hitchcock was an English movie director and producer. Famously [[26]] to as “The Master of Suspense”, Hitchcock is one of the most influential filmmakers in the history of [[27]]. He was an extraordinary director who entertained his audience with [[28]] and gripping suspense movies.",
+        "His fascination with crime began at an early age when he was [[29]] by his father who made him spend a few minutes inside a prison for his misconduct. Hence, his movies are [[30]] of the guilt and innocence of the wrongdoer and the victim. He had a gift for creating stories that consisted of deceit, robbery, murder, corruption, and other criminal [[31]] with incredible plot twists in the storyl ine. The principal characters in his movies were often ordinary people [[32]] in unwanted and unavoidable situations.",
+        "He was [[33]] productive and his amazing body of work is considered fascinating by the critics. Most of his movies have [[34]] the test of time and are considered to be masterpieces. He is also remembered by other filmmakers, for he continues to inspire them to be passionate about their work. He is also [[35]] by people around the world for his entertaining and exciting stories."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "caught"
+        },
+        {
+          "key": "B",
+          "text": "cinema"
+        },
+        {
+          "key": "C",
+          "text": "engaging"
+        },
+        {
+          "key": "D",
+          "text": "graphically"
+        },
+        {
+          "key": "E",
+          "text": "highly"
+        },
+        {
+          "key": "F",
+          "text": "incentive"
+        },
+        {
+          "key": "G",
+          "text": "instincts"
+        },
+        {
+          "key": "H",
+          "text": "offences"
+        },
+        {
+          "key": "I",
+          "text": "punished"
+        },
+        {
+          "key": "J",
+          "text": "referred"
+        },
+        {
+          "key": "K",
+          "text": "stood"
+        },
+        {
+          "key": "L",
+          "text": "symbolic"
+        },
+        {
+          "key": "M",
+          "text": "tuned"
+        },
+        {
+          "key": "N",
+          "text": "visually"
+        },
+        {
+          "key": "O",
+          "text": "worshipped"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "caught"
+            },
+            {
+              "key": "B",
+              "text": "cinema"
+            },
+            {
+              "key": "C",
+              "text": "engaging"
+            },
+            {
+              "key": "D",
+              "text": "graphically"
+            },
+            {
+              "key": "E",
+              "text": "highly"
+            },
+            {
+              "key": "F",
+              "text": "incentive"
+            },
+            {
+              "key": "G",
+              "text": "instincts"
+            },
+            {
+              "key": "H",
+              "text": "offences"
+            },
+            {
+              "key": "I",
+              "text": "punished"
+            },
+            {
+              "key": "J",
+              "text": "referred"
+            },
+            {
+              "key": "K",
+              "text": "stood"
+            },
+            {
+              "key": "L",
+              "text": "symbolic"
+            },
+            {
+              "key": "M",
+              "text": "tuned"
+            },
+            {
+              "key": "N",
+              "text": "visually"
+            },
+            {
+              "key": "O",
+              "text": "worshipped"
+            }
+          ],
+          "answer": "J",
+          "explanation": "26.J）referred（v称…为）\n语法判断空格位于句子的状语结构中，逻辑主语与主句主语一致，为被动关系。空格前面为副词\nFamously，后面为toas...，空格处应填过去分词。\n语义判断由Hitchcockisoneofthemost influentialfilmmakers可知，他享有盛誉，而下一句提到，他以扣人\n心弦的悬疑电影为观众带来观影享受，由此可知，此处是说被誉为“悬疑大师”的希区柯克。（be)referred\ntoas为固定搭配，意为“被称为”，（be）famouslyreferred toas意为“被誉为”，符合此处语境，故答\n案为referred。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "caught"
+            },
+            {
+              "key": "B",
+              "text": "cinema"
+            },
+            {
+              "key": "C",
+              "text": "engaging"
+            },
+            {
+              "key": "D",
+              "text": "graphically"
+            },
+            {
+              "key": "E",
+              "text": "highly"
+            },
+            {
+              "key": "F",
+              "text": "incentive"
+            },
+            {
+              "key": "G",
+              "text": "instincts"
+            },
+            {
+              "key": "H",
+              "text": "offences"
+            },
+            {
+              "key": "I",
+              "text": "punished"
+            },
+            {
+              "key": "J",
+              "text": "referred"
+            },
+            {
+              "key": "K",
+              "text": "stood"
+            },
+            {
+              "key": "L",
+              "text": "symbolic"
+            },
+            {
+              "key": "M",
+              "text": "tuned"
+            },
+            {
+              "key": "N",
+              "text": "visually"
+            },
+            {
+              "key": "O",
+              "text": "worshipped"
+            }
+          ],
+          "answer": "B",
+          "explanation": "27.B）cinema（n.电影业）\n语法判断空格位于句末，前面为inthehistoryof，故空格处应填名词。\n语义判断从前文的moviedirector（电影导演）、filmmakers（电影制作人），以及后文的suspensemovies\n（悬疑电影）可推断，上下文与电影领域有关，此处应填cinema。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "caught"
+            },
+            {
+              "key": "B",
+              "text": "cinema"
+            },
+            {
+              "key": "C",
+              "text": "engaging"
+            },
+            {
+              "key": "D",
+              "text": "graphically"
+            },
+            {
+              "key": "E",
+              "text": "highly"
+            },
+            {
+              "key": "F",
+              "text": "incentive"
+            },
+            {
+              "key": "G",
+              "text": "instincts"
+            },
+            {
+              "key": "H",
+              "text": "offences"
+            },
+            {
+              "key": "I",
+              "text": "punished"
+            },
+            {
+              "key": "J",
+              "text": "referred"
+            },
+            {
+              "key": "K",
+              "text": "stood"
+            },
+            {
+              "key": "L",
+              "text": "symbolic"
+            },
+            {
+              "key": "M",
+              "text": "tuned"
+            },
+            {
+              "key": "N",
+              "text": "visually"
+            },
+            {
+              "key": "O",
+              "text": "worshipped"
+            }
+          ],
+          "answer": "C",
+          "explanation": "28.C）engaging（adj.有吸引力的；引人入胜的）\n语法判断空格前面为entertainedhisaudiencewith，后面为andgrippingsuspensemovies，and连接并列成分，\ngripping为形容词，故空格处应填形容词，与gripping共同修饰suspensemovies。\n语义判断空格所填词与gripping（扣人心弦的）共同描述电影的特点，逻辑上需保持情感色彩一致，形成语\n义递进。engaging意为“引人人胜的”，符合语境，故为答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "caught"
+            },
+            {
+              "key": "B",
+              "text": "cinema"
+            },
+            {
+              "key": "C",
+              "text": "engaging"
+            },
+            {
+              "key": "D",
+              "text": "graphically"
+            },
+            {
+              "key": "E",
+              "text": "highly"
+            },
+            {
+              "key": "F",
+              "text": "incentive"
+            },
+            {
+              "key": "G",
+              "text": "instincts"
+            },
+            {
+              "key": "H",
+              "text": "offences"
+            },
+            {
+              "key": "I",
+              "text": "punished"
+            },
+            {
+              "key": "J",
+              "text": "referred"
+            },
+            {
+              "key": "K",
+              "text": "stood"
+            },
+            {
+              "key": "L",
+              "text": "symbolic"
+            },
+            {
+              "key": "M",
+              "text": "tuned"
+            },
+            {
+              "key": "N",
+              "text": "visually"
+            },
+            {
+              "key": "O",
+              "text": "worshipped"
+            }
+          ],
+          "answer": "I",
+          "explanation": "29.I）punished（v惩罚，处罚）\n语法判断空格前面为hewas，后面为动作执行者byhisfather，空格处需填人动词的过去分词形式，构成完\n整的被动语态。\n语义判断句中提到他行为不端，父亲让他在监狱里待了几分钟，由此可知，父亲为了“惩罚”他才让他在\n监狱里待了几分钟，punished符合语境，故为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "caught"
+            },
+            {
+              "key": "B",
+              "text": "cinema"
+            },
+            {
+              "key": "C",
+              "text": "engaging"
+            },
+            {
+              "key": "D",
+              "text": "graphically"
+            },
+            {
+              "key": "E",
+              "text": "highly"
+            },
+            {
+              "key": "F",
+              "text": "incentive"
+            },
+            {
+              "key": "G",
+              "text": "instincts"
+            },
+            {
+              "key": "H",
+              "text": "offences"
+            },
+            {
+              "key": "I",
+              "text": "punished"
+            },
+            {
+              "key": "J",
+              "text": "referred"
+            },
+            {
+              "key": "K",
+              "text": "stood"
+            },
+            {
+              "key": "L",
+              "text": "symbolic"
+            },
+            {
+              "key": "M",
+              "text": "tuned"
+            },
+            {
+              "key": "N",
+              "text": "visually"
+            },
+            {
+              "key": "O",
+              "text": "worshipped"
+            }
+          ],
+          "answer": "L",
+          "explanation": "30.L)symbolic（adj.象征的，象征性的）\n语法判断空格前面为系动词are，后面为介词短语oftheguilt..，空格处应填形容词。\n语义判断前一句提到导演童年时被惩罚的经历，hence（因此）引出结果，即童年经历影响了电影的主题，\nbesymbolicof为固定搭配，意为“象征.”，用symbolic更能体现电影对现实的映射。故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "caught"
+            },
+            {
+              "key": "B",
+              "text": "cinema"
+            },
+            {
+              "key": "C",
+              "text": "engaging"
+            },
+            {
+              "key": "D",
+              "text": "graphically"
+            },
+            {
+              "key": "E",
+              "text": "highly"
+            },
+            {
+              "key": "F",
+              "text": "incentive"
+            },
+            {
+              "key": "G",
+              "text": "instincts"
+            },
+            {
+              "key": "H",
+              "text": "offences"
+            },
+            {
+              "key": "I",
+              "text": "punished"
+            },
+            {
+              "key": "J",
+              "text": "referred"
+            },
+            {
+              "key": "K",
+              "text": "stood"
+            },
+            {
+              "key": "L",
+              "text": "symbolic"
+            },
+            {
+              "key": "M",
+              "text": "tuned"
+            },
+            {
+              "key": "N",
+              "text": "visually"
+            },
+            {
+              "key": "O",
+              "text": "worshipped"
+            }
+          ],
+          "answer": "H",
+          "explanation": "31.H）offences（n.犯罪，违法行为）\n语法判断空格前面为形容词criminal（当然criminal也可以是名词，意为“罪犯”，但它是可数名词，且\n在此处有other修饰，如果它是名词，应使用其复数形式，故排除其名词词性），后面为介词短语with\nincredibleplot..，故空格处应填名词。\n语义判断andother表明空格所填名词应与前面列举的犯罪行为并列，criminaloffences表示“刑事犯罪”，\n能概括前面的具体罪行（deceit、robbery、murder、corruption），符合语境，故为答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "caught"
+            },
+            {
+              "key": "B",
+              "text": "cinema"
+            },
+            {
+              "key": "C",
+              "text": "engaging"
+            },
+            {
+              "key": "D",
+              "text": "graphically"
+            },
+            {
+              "key": "E",
+              "text": "highly"
+            },
+            {
+              "key": "F",
+              "text": "incentive"
+            },
+            {
+              "key": "G",
+              "text": "instincts"
+            },
+            {
+              "key": "H",
+              "text": "offences"
+            },
+            {
+              "key": "I",
+              "text": "punished"
+            },
+            {
+              "key": "J",
+              "text": "referred"
+            },
+            {
+              "key": "K",
+              "text": "stood"
+            },
+            {
+              "key": "L",
+              "text": "symbolic"
+            },
+            {
+              "key": "M",
+              "text": "tuned"
+            },
+            {
+              "key": "N",
+              "text": "visually"
+            },
+            {
+              "key": "O",
+              "text": "worshipped"
+            }
+          ],
+          "answer": "A",
+          "explanation": "32.A）caught（v抓住，捕获：赶上，接住）\n语法判断空格前面为ordinarypeople，后面为inunwantedand.，空格处应填过去分词，作后置定语，修饰\npeople.\n语义判ordinarypeople（普通人）与unwanted andunavoidable situations（身不由己之境）二者为人“陷\n人”身不由己之境的关系。（be)caughtin意为“陷人”，符合语境，故答案为caught。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "caught"
+            },
+            {
+              "key": "B",
+              "text": "cinema"
+            },
+            {
+              "key": "C",
+              "text": "engaging"
+            },
+            {
+              "key": "D",
+              "text": "graphically"
+            },
+            {
+              "key": "E",
+              "text": "highly"
+            },
+            {
+              "key": "F",
+              "text": "incentive"
+            },
+            {
+              "key": "G",
+              "text": "instincts"
+            },
+            {
+              "key": "H",
+              "text": "offences"
+            },
+            {
+              "key": "I",
+              "text": "punished"
+            },
+            {
+              "key": "J",
+              "text": "referred"
+            },
+            {
+              "key": "K",
+              "text": "stood"
+            },
+            {
+              "key": "L",
+              "text": "symbolic"
+            },
+            {
+              "key": "M",
+              "text": "tuned"
+            },
+            {
+              "key": "N",
+              "text": "visually"
+            },
+            {
+              "key": "O",
+              "text": "worshipped"
+            }
+          ],
+          "answer": "E",
+          "explanation": "33.E）highly（adv.非常，极）\n语法判断空格所在句子主系表结构完整，前面为系动词was，后面为形容词productive，故空格处应填副\n词，修饰后面的形容词。\n语义判断由空格后的productive（高产的）以及hisamazingbodyofwork（其令人惊叹的作品体系）可知，\n此处是说希区柯克十分高产，代人副词选项可知，highly“非常，极”符合此处语境，故为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "caught"
+            },
+            {
+              "key": "B",
+              "text": "cinema"
+            },
+            {
+              "key": "C",
+              "text": "engaging"
+            },
+            {
+              "key": "D",
+              "text": "graphically"
+            },
+            {
+              "key": "E",
+              "text": "highly"
+            },
+            {
+              "key": "F",
+              "text": "incentive"
+            },
+            {
+              "key": "G",
+              "text": "instincts"
+            },
+            {
+              "key": "H",
+              "text": "offences"
+            },
+            {
+              "key": "I",
+              "text": "punished"
+            },
+            {
+              "key": "J",
+              "text": "referred"
+            },
+            {
+              "key": "K",
+              "text": "stood"
+            },
+            {
+              "key": "L",
+              "text": "symbolic"
+            },
+            {
+              "key": "M",
+              "text": "tuned"
+            },
+            {
+              "key": "N",
+              "text": "visually"
+            },
+            {
+              "key": "O",
+              "text": "worshipped"
+            }
+          ],
+          "answer": "K",
+          "explanation": "34.K）stood（v经受，承受）\n语法判断空格所在句为现在完成时，前面为助动词have，后面为名词短语thetestoftimeand.，故空格处应\n填过去分词，构成完成时态。\n语义判断由下文与“have34thetestoftime”构成并列关系的andareconsideredtobemasterpiece（被视\n为杰作）可知，此处是作者高度评价希区柯克的电影，杰作自然能“经受住”时间的考验，而standthetest\noftime为固定短语，意为“经受时间的考验”，符合此处语境，故答案为stood。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "caught"
+            },
+            {
+              "key": "B",
+              "text": "cinema"
+            },
+            {
+              "key": "C",
+              "text": "engaging"
+            },
+            {
+              "key": "D",
+              "text": "graphically"
+            },
+            {
+              "key": "E",
+              "text": "highly"
+            },
+            {
+              "key": "F",
+              "text": "incentive"
+            },
+            {
+              "key": "G",
+              "text": "instincts"
+            },
+            {
+              "key": "H",
+              "text": "offences"
+            },
+            {
+              "key": "I",
+              "text": "punished"
+            },
+            {
+              "key": "J",
+              "text": "referred"
+            },
+            {
+              "key": "K",
+              "text": "stood"
+            },
+            {
+              "key": "L",
+              "text": "symbolic"
+            },
+            {
+              "key": "M",
+              "text": "tuned"
+            },
+            {
+              "key": "N",
+              "text": "visually"
+            },
+            {
+              "key": "O",
+              "text": "worshipped"
+            }
+          ],
+          "answer": "O",
+          "explanation": "35.O)worshipped（v崇拜；崇敬）\n语法判断空格前面为Heisalso，后面为动作执行者bypeople，空格处需填入动词的过去分词形式，构成完\n整的被动语态。\n语义判断前文提到“其他电影制作人也对他缅怀不已，因为他始终激励着后来者以热忧投身创作”，而空\n格所在句承接上文，且使用了also一词，可知此处作者仍在正面评价希区柯克，突出其影响力。代人选项\n可知，worshipped“崇拜；崇敬”符合此处语境，故为答案。\n干扰项注释\nD)graphically（adv.以图表形式；生动地）F）incentive（n.激励，刺激）G）instincts（n.本能，直觉；天\n性）M)tuned（v.调整，调节）N）visually（adv.视觉上；直观地；外表上）"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-06-2-b",
+      "type": "matching",
+      "title": "Is juicing actually good for you?",
+      "paragraphs": [
+        "A) Freshly juiced fruit has become a basic dietary item — especially for busy, health-conscious consumers who can save time on making (and perhaps even chewing) their food without missing out on nutrients. Fruit juice also has been linked to claims that it can help you both lose weight and stay healthy. All of wh ich, of course, has made it highly profitable. The global fruit and vegetable juices market was valued at $154 billion in 2016 and is expected to grow.",
+        "B) But is juicing really as healthy as we think? Most foods containing fructose —a naturally occurring sugar found in all fruits and fruit juices — don’t seem to have harmful effects as long as they’re not contributing to excess daily calories. This is because the fibre found in whole fruits is intact, and the sugar is contained within the fruit’s cells. It takes our digestive system a while to break these cells down and for fructose to enter the bloodstream.",
+        "C) But this is not the case with fruit juice. Unlike whole fruit, fruit juice has most of the fibre removed. This is why the fructose in fruit juices counts as ‘free sugars’ — which also include honey and the sugars added to foods. It’s recommended by the World Health Organisation that adults have no more than 30g of added sugar, the equivalent of 150ml of fruit juice, per day. The problem is that, with the fibre removed, fruit juice’s fructose is absorbed more quickly. Sudden increases in blood sugar cause the release of insulin (胰岛素) to bring it back down to a stable level. Over time, this mechanism can wear out increasing the risk of developing type 2 diabetes. In 2013, researchers analysed the health data of 100,000 people collected between 1986 and 2009 and found that fruit juice consumption was linked with increased risk of type 2 diabetes. Another study found a relationship between fruit juice and type 2 diabetes after following the diets and diabetes status of more than 70,000 nurses over 18 years. The researchers explain that the possible reason for this may partly have been the lack of the other components found in whole fruit, like fibre.",
+        "D) Juices containing vegetables can provide more nutrients and less sugar than juices made up of just fruit — but they still lack valuable fibre. Diets high in fibre have been linked to a lower risk of developing heart disease, stroke, high blood pressure and diabetes, and it’s recommended adults consume 30g per day.",
+        "E) Aside from the link to type 2 diabetes, many studies agree that fruit juice is harmful if it contributes to an excess in calories. In an analysis of 155 studies, John Sievenpiper, associate professor at the University of Toronto’s Department of Nutritional Sciences, set out to understand if the associations between sugary soft drinks and health — including risk of diabetes and heart disease — were applicable to the food and drink we generally consume as part of a healthy diet. He compared studies looking into the effects of fructose-containing sugars with control diets free from or lower in these sugars. His aim? To isolate the effects of consuming too many calories from the effects of foods containing different sugars.",
+        "F) He found negative effects on blood sugar and insulin levels when food provided excess calories from sugars, including fruit juice. However, when the calories weren't in excess overall, there were some advantages to consuming whole fruit — and even fruit juice. Sievenpiper concludes that the recommended 150ml of fruit juice per day, which is an average serving, is reasonable. The paper concluded that foods containing fructose may have some small benefits for long-term blood sugar control when they don’t lead to over-consumption of calories. But when they do lead to too many calories, they risk raising blood sugar and insulin levels.",
+        "G) So while we know that fruit juice can cause diabetes if it’s part of a diet that has more calories overall, it's less clear how juice affects the long-term health of those who aren’t overweight. But we have a higher risk of consuming more than the recommended daily number of calories (around 2,000 for women and 2,500 for men) on the days we drink juice, according to research. Numerous studies have shown that drinking fruit juice doesn’t make us consume any less of other foods throughout the day.",
+        "H) As it is easy to consume large amounts of fruit juice quite quickly, extra calories are taken in. And extra calories can contribute to weight gain. One way we can improve the effects of fruit juice on our heal th is making sure we select ripe fruit to retain as much of its goodness as possible, according to Roger Clemens, professor of pharmaceutical ( 药物的) sciences at the University of Southern California.",
+        "I) Another reason for fruit juice’s recent popularity is the argument that it can help to remove poisonous or harmful substances from the body. However, “the whole concept of a juice diet helping to remove poisonous or harmful substances from the body is completely false, ” says Clemens. “We consume compounds every day that may be poisonous and our bodies do a wonderful job of removing and eliminating anything harmful from our bodies.”",
+        "J) And juice isn’t a cure-all for getting your nutrients, either. “There are a lot of nutrients contained in the parts of the fruits, such as in apple skins, that are excluded when you juice them,” says Heather Ferris, a professor of medicine. “You end up with sugary water with some vitamins.”",
+        "K) Plus, she adds, it’s not an ideal way to reach the advised ‘five a day’. “People try to get five servings of fruit and vegetables per day and don’t realise this isn’t just about getting vitamins,” she says. “It’s also about reducing the amount of grain carbs (碳水化合物) and protein and fats in our diet, and increasing fibre.” So while fruit juice is better than no fruit at all, there are limits. It particularly comes with risks when we consume more than 150ml of free sugars per day, or when it puts us over our recommended calorie intake. It provides us with vitamins — but fruit juice is far from a quick fix."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Fruit juice is different from whole fruit in that it contains much less fibre.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案解析C。由题干关键信息Fruitjuice，differentfromwholefruit和containsmuchlessfibre定位到C段。C段\n第二句提到，与整个水果不同，果汁中的大部分纤维已被去除。题干与该句内容同义，其中Fruitjuice属于\n原词重现，differentfromwholefruit对应原文中的Unlikewholefruit，containsmuchlessfibre与原文中的has\nmostofthefibreremoved同义，故答案为C。"
+        },
+        {
+          "number": 37,
+          "stem": "Some people believe a juice diet helps to rid our body of harmful or poisonous substances.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "答案解析1。由题干关键信息ajuicediet、ridourbodyofharmful orpoisonous substances定位到I段。I段第一\n句提到，果汁近来受欢迎的另一个原因是它能帮助清除体内有毒或有害物质的说法。题干与该句同义，\n其中Some peoplebelieve对应原文中的theargument，ajuice diet属于第二句中的原词重现，helpstoridour\nbodyofharmfulorpoisonous substances对应原文中的helptoremovepoisonousorharmful substancesfrom the\nbody，故答案为I"
+        },
+        {
+          "number": 38,
+          "stem": "A lot of research comes to the same conclusion that fruit juice does harm to the human body when it leads to surplus calories:",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "答案解析E。由题干关键信息Alotofresearch、the sameconclusion、doesharm to thehuman body和surplus\ncalories定位到E段。E段第一句提到，除了与2型糖尿病的关联外，许多研究一致认为，如果果汁导致热\n量过剩，它就是有害的。题千与这句话同义，其中Alotofresearchcomes tothe sameconclusion与原文中的\nmany studies agreethat同义，fruitjuice does harm to thehumanbody对应原文中的fruitjuiceisharmful，when\nit leadsto surpluscalories对应原文中的ifit contributes toanexcessincalories，故答案为E。"
+        },
+        {
+          "number": 39,
+          "stem": "The claimed health benefits of fruit and vegetable juices have rendered the industry very profitable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案解析A。由题干关键信息claimed healthbenefitsoffruit andvegetablejuices和theindustryveryprofitable\n定位到A段。A段最后两句提到，当然，所有这一切使其利润十分可观，2016年，全球果蔬汁市场价值为\n1540亿美元，这一数字预计还将增长。而“所有这一切”指的就是前面几句提到的：鲜榨果汁已经成为一\n种基本的饮食项目一特别是对于那些忙碌且注重健康的消费者来说：果汁还与一些减肥和保持健康的\n说法相关联。故题干是对该段内容的概括总结，其中Theclaimedhealthbenefits是对原文Fruitjuicealsohas\nbeen linkedtoclaimsthatitcanhelpyoubothloseweightandstayhealthy的概括总结，fruitandvegetablejuices\n属于该段最后一句中的原词重现，haverenderedtheindustryveryprofitable对应原文中的hasmadeithighly\nprofitable，故答案为A。"
+        },
+        {
+          "number": 40,
+          "stem": "To increase the benefits of fruit juice to our health, we’d better choose ripe fruit to make juice.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "答案解析H。由题干关键信息increase thebenefits、fruitjuice、ourhealth和chooseripe fruit tomakejuice定\n位到H段。H段最后一句提到，南加州大学药物科学教授罗杰·克莱门斯表示，一种办法是，我们可以通\n过确保选择成熟的水果来榨汁，以保留尽可能多的营养价值，从而改善果汁对健康的影响。题干是对这\n句话的概括，其中Toincrease thebenefitsoffruitjuicetoour health对应原文中的Onewaywecanimprove the\neffectsoffruitjuiceonour health，wedbetterchooseripefruit tomakejuice与原文中的makingsurewe select\nripefruit同义，故答案为H。"
+        },
+        {
+          "number": 41,
+          "stem": "Diets containing large amounts of fibre reduce the risk of heart disease, diabetes and other health hazards.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案解析D。由题干关键信息Diets containing large amounts offibre、reduce therisk、heart disease、diabetes\n和otherhealthhazards定位到D段。D段第二句提到，高纤维饮食与降低患心脏病、中风、高血压和糖尿病\n的风险存在关联。题干与该句属于同义转述，其中Dietscontaininglargeamountsoffibre对应原文中的Diets\nhighinfibre，reduce theriskofheartdisease,diabetes andother healthhazards是对原文中的havebeenlinked to\na lowerriskofdevelopingheartdiseasestrokehighblood pressureanddiabetes的概括，故答案为D。"
+        },
+        {
+          "number": 42,
+          "stem": "According to a research paper, drinking fruit juice is beneficial on condition that it is consumed in reasonable amounts.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答案解析F。由题干关键信息aresearchpaper、drinkingfruit juice、beneficial和consumed inreasonable\namounts定位到F段。F段第二至四句提到，如果总热量摄入不超标，食用整个水采，甚至是果汁，还是有\n\n\f\n一些益处的。西文皮珀得出结论：每天推荐的150毫升果汁是合理的。该论文得出结论：含有果糖的食物\n在不导致热量摄入过度的情况下，对长期血糖控制可能有一些小的益处。题于是对这几句内容的概括，其\n中Accordingtoaresearchpaper对应原文中的Thepaperconcluded，fruitjuice属于原词重现，beneficial对应\n原文中的have some small benefits；consumedinreasonableamounts是对原文中whentheydon’tleadtoover-\nconsumptionofcalories的概括总结，故答案为F。"
+        },
+        {
+          "number": 43,
+          "stem": "One expert claims that juicing wastes a lot of nutrients contained in fruits.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "答案解析J。由题干关键信息Oneexpertclaims、juicing、wastesa lotofnutrients和containedinfruits定位到J\n段。J段第二句提到，“水果的某些部分，如苹果皮中，含有很多营养物质，而这些部分在榨汁时会被过\n滤掉，”医学教授希瑟·费里斯说。题千与这句话同义，其中Oneexpertclaims对应原文中的saysHeather\nFerrisaprofessorofmedicine，juicing与原文中的whenyoujuicethem（fruits）同义，wastes对应原文中的are\nexcluded，a lotofnutrientscontainedinfruits对应原文中的alotofnutrientscontained in the partsofthefruits，\n故答案为J。"
+        },
+        {
+          "number": 44,
+          "stem": "It takes some time for fruit’s cells to be digested and for fructose to be absorbed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案解析B。由题干关键信息takes sometime、fruit'scells、bedigested、fructose和beabsorbed定位到B段。\nB段最后一句提到，我们的消化系统需要一些时间来分解这些细胞，然后果糖才会进入血液中。“这些细\n胞”指的就是前一句中提到的“水果的细胞”，故题干与该句同义，其中Ittakessometime对应原文中的\nIttakes...awhile，fruit'scells属于倒数第二句中的原词重现，tobedigested对应原文中的ourdigestive\nsystem.. tobreak...down，forfructose tobeabsorbed与原文中的forfructose to enter the bloodstream同义，故\n答案为B。"
+        },
+        {
+          "number": 45,
+          "stem": "A lot of research has demonstrated that drinking fruit juice does not reduce our daily consumption of other foods.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "答案解析G。由题干关键信息Alotofresearch、drinkingfruitjuice和reduceourdailyconsumptionofother\nfoods定位到G段。G段最后一句提到，大量的研究已经表明，喝果汁不会减少全天其他食物的摄入量。\n题干与该句属于同义转述，其中Alotofresearchhasdemonstratedthat对应原文中的Numerousstudieshave\nshown that，drinkingfruitjuice doesnotreduceour daily consumptionofother foods与原文中的drinkingfruit\njuice doesn’tmake us consume any less ofother foods throughout the day同义，故答案为G。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "We all take a little extra effort to look nice for special occasions. But most of us have conflicting feelings about dressing up and feel guilty about taking the time to focus on clothes. Science now suggests the right dress may give ourselves the extra edge in our professional and personal lives.",
+        "We hear sayings like “dress for the job you want, not the job you have”. Most people don’t really believe in them, but research into the impact of clothes on behavior now suggests that there may actually be a grain of truth in these sayings. Science says that the clothes we wear affect our behavior, our mood and even the way we interact with others because of the symbolic meaning that we assign to different types of clothing.",
+        "We consider some clothes to be powerful some to be fun, and so on. We even evaluate people whom we have just met based on their clothes. We also evaluate ourselves based on what we are wearing because of the way they make us feel. This means that the experience of wearing something affects our attitudes and our choice of behavior.",
+        "There’s a reason tailored jackets are associated with being “dressed for success”. It seems that wearing formal office wear puts us in the right frame of mind to conduct business. Wearing power clothing makes us feel more confident and even increases hormones needed for displaying dominance. This in turn helps us become better negotiators and abstract thinkers.",
+        "While a good suit works wonders for our performance in the boardroom, wearing formal wear isn’t a great idea when we want to socialize. Studies have found that people tend to be less open and less able to relax when they wear formal clothes.",
+        "On the other hand, a casual dress helps us become more friendly and creative. These findings support the idea of wearing business casuals on a Friday, since colleagues are most likely to take out time to socialize on the last work day of the week. I mean, who wants to hang out with people in their suits?"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does science suggest the right dress may do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Add to our advantage in work and life."
+            },
+            {
+              "key": "B",
+              "text": "Enable us to look a lot more attractive."
+            },
+            {
+              "key": "C",
+              "text": "Help us to enjoy a fuller personal life."
+            },
+            {
+              "key": "D",
+              "text": "Provide extra energy for what we do."
+            }
+          ],
+          "answer": "A",
+          "explanation": "46.科学表明合适的着装可以起到什么作用？\nA)增加我们在工作和生活中的优势。\nC)帮助我们享受更充实的个人生活。\nB）让我们看起来更有吸引力。\nD)为我们的工作提供额外的能量。\n定位：根据题干关键词science suggest theright dress可将答案定位到原文第一段最后一句。\n\n解析：第一段最后一句指出，现在的科学表明，合适的着装可能会给我们的职业和个人生活提供额外的优势，故\n\n选项A正确。选项中的Addtoouradvantage和原文中的giveourselvestheextraedge属于同义替换，edge作名\n词时，除了“边缘”“刀口”的含义，还有“优势”的含义。原文并未提及吸引力与能量，故选项B和选\n项D可以排除；原文仅提及着装给个人生活带来额外优势，未具体说明“更充实”，故选项C也排除。"
+        },
+        {
+          "number": 47,
+          "stem": "Why does science say the clothes one wears may affect their interaction with others?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Clothes usually represent one’s social and economic status."
+            },
+            {
+              "key": "B",
+              "text": "Clothes largely determine one’s likability by people around."
+            },
+            {
+              "key": "C",
+              "text": "Different types of clothing markedly reflect different personalities."
+            },
+            {
+              "key": "D",
+              "text": "Different types of clothing convey different messages symbolically."
+            }
+          ],
+          "answer": "D",
+          "explanation": "47.为什么科学表明一个人的着装可能会影响其与他人的交往？\nA）着装通常代表一个人的社会和经济地位。\nB）着装在很大程度上决定了一个人被周围的人喜爱的程度。\nC）不同类型的着装明显反映出不同的个性。\nD)不同类型的着装传达不同的象征性信息。\n\n解析：第二段第三句话指出，科学表明，我们的着装会影响我们的行为、情绪，甚至与他人交往的方式，因为\n\n我们赋予了不同类型的服装象征性的意义，这说明服装的象征意义影响穿衣者与他人的交往，故选项D正\n确。选项中的symbolically对应原文中的symbolic。其他三个选项在原文中均未提及，故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "How do the clothes we wear sway our evaluation of ourselves?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By exerting an effect on our power of judgment."
+            },
+            {
+              "key": "B",
+              "text": "By impacting how we feel about ourselves."
+            },
+            {
+              "key": "C",
+              "text": "By affecting what we take as the basis for assessment."
+            },
+            {
+              "key": "D",
+              "text": "By influencing our interpretation of symbolic messages."
+            }
+          ],
+          "answer": "B",
+          "explanation": "48.我们的着装如何影响我们对自己的评价？\nA)通过影响我们的判断力。\nC)通过影响我们评估的依据。\nB）通过影响我们对自己的感觉。\nD)通过影响我们对象征性信息的解读。\n定位：根据题干关键词evaluationofourselves可将答案定位到第三段第三句。\n\n解析：第三段第三句指出，我们也会根据自已的穿着来评价自己，因为它们会影响我们的感觉，故选项B正确。\n选项中的impactinghowwefeel对应原文中的thewaytheymakeusfeel。其他三个选项在原文中并未提及，\n均排除。"
+        },
+        {
+          "number": 49,
+          "stem": "Why does the author say tailored jackets are associated with being “dressed for success”?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are necessary for formal business dealings."
+            },
+            {
+              "key": "B",
+              "text": "They may help people concentrate on their business."
+            },
+            {
+              "key": "C",
+              "text": "They are vital to keeping a dominant position in business transactions."
+            },
+            {
+              "key": "D",
+              "text": "They may enable people to have the right mentality for doing business."
+            }
+          ],
+          "answer": "D",
+          "explanation": "49.为什么作者说定制夹克与“为成功着装”有关？\nA）它们是正式商业交易的必需品。\nC)它们对在商业交易中保持优势地位至关重要。\nB）它们可以帮助人们专注于自己的业务。\nD）它们可以让人们拥有开展业务的正确心态。\n\n\f\n定位：根据题干中的tailoredjackets和“dressed for success可将答案定位到第四段第一、二句。\n\n解析：第四段第一句指出，定制夹克与“为成功着装”联系在一起是有原因的。然后在第二句表明原因，穿着\n\n正式的职业装似乎能让我们以正确心态开展业务，故选项D正确。选项中的therightmentalityfordoing\nbusiness和原文中的therightframeofmindtoconductbusiness属于同义替换。原文强调的是正确心态（如自\n信），而非专注度，故选项B可排除，选项A和选项C在原文中并未提及，也可排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What are people advised to do when they want to socialize?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Focus on clothing."
+            },
+            {
+              "key": "B",
+              "text": "Wear a good suit."
+            },
+            {
+              "key": "C",
+              "text": "Dress casually."
+            },
+            {
+              "key": "D",
+              "text": "Look unusual."
+            }
+          ],
+          "answer": "C",
+          "explanation": "50.建议人们在想要社交时怎么做？\nA）专注于服装。\nC)穿着休闲。\nB）穿一套好西装。\nD)看起来与众不同。\n定位：根据题干关键词socialize可将答案定位到原文第五段和第六段。\n\n解析：第五段第一句指出，但当我们想要社交时，穿正装并不是一个好主意，故选项B可排除；第六段第一句指\n\n出，休闲装能让我们变得更友好、更具创造力，下一句提到了周五穿便装进行社交的内容，由此可知，选\n项C符合原文；选项A和选项D在原文中并未提及，均可排除，故选项C正确。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "With the rise of pop music, jazz, and electronic music, both opera and classical music started to fade away from the public eye. Some people are beginning to wonder whether opera and classical music are still relevant to the modern world of music. Granted, you will not typically see today's teenagers lending their ears to Bach anytime soon, but there are some major indicators that both opera and classical music are now still quite alive.",
+        "The most major indicator of classical music’s importance in society today is the fact that much of the popular music that is currently being produced uses similar beats, harmonies, and melodies (旋律) as those that were used in some of classical music’s best works. Even so, it c an be difficult for those who do not study music theory to see this as an indicator, since it is subtle and just shows the impact symphonic (交响乐的) orchestras have had on society’s taste in music.",
+        "A better example for the relevance of opera and classical music can be seen in the invention of the rock opera. Opera, in its simplest definition, is telling a story using music as its form. The art of telling a story using music has not faded in the least bit. In fact, sometimes actual orchestras are used for major parts of the opera itself. Some of the world’s greatest hits have been parts of rock operas.",
+        "Fans of classical music can also tell you that there are few types of music that are more expressive. So, it should come as no surprise to anyone that classical music pieces are still used as background music in modern movies. Symphonic orchestra compositions have also been created solely for the purpose of being included in major motion pictures. These are often very well received amongst mainstream music fans.",
+        "Classical music and opera are the very foundation of what our modern music is based upon. Considering the huge impact they have had on our current society, it is without doubt that we can expect them to continue to remain important for centuries to come."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author think of classical music and opera in today’s world?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They still make their presence felt."
+            },
+            {
+              "key": "B",
+              "text": "They have given way to electronic music."
+            },
+            {
+              "key": "C",
+              "text": "They will not fade away from the public eye."
+            },
+            {
+              "key": "D",
+              "text": "They are no longer relevant to teenagers’ lives."
+            }
+          ],
+          "answer": "A",
+          "explanation": "51.作者如何看待当今世界中的古典音乐和歌剧？\nA)它们仍然有存在感。\nC)它们不会淡出公众视野。\nB）它们已经让位于电子音乐。\nD)它们不再与青少年的生活息息相关。\n\n\f\n定位：根据出题顺序与原文顺序基本一致的原则以及题干关键词today'sworld，可将答案定位到第一段。\n\n解析：第一段第一句指出，随着流行音乐、爵士乐和电子音乐的兴起，歌剧和古典音乐都开始淡出公众的视野，\n\n选项C与原文表述不符，故排除；本段最后一句指出，你通常不会看到今天的青少年很快就去聆听巴赫的\n作品，但有一些重大的迹象表明，歌剧和古典音乐至今仍然充满活力，所以选项A符合原文，且选项中的\nmaketheirpresencefelt对应原文中的alive。选项B与原文表述不符，可排除。原文并没有否定歌剧和古典\n音乐与青少年生活的相关性，故选项D也可排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What do we learn about much of the popular music currently produced?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It can be difficult for many classical music fans to appreciate."
+            },
+            {
+              "key": "B",
+              "text": "It can be seen as an indicator of refinement on classical music."
+            },
+            {
+              "key": "C",
+              "text": "It caters to society’s taste in music in a more subtle way than classical music."
+            },
+            {
+              "key": "D",
+              "text": "It contains elements similar to those in some masterpieces of classical music."
+            }
+          ],
+          "answer": "D",
+          "explanation": "52.关于当下制作的许多流行音乐，我们可以了解到什么？\nA)许多古典音乐爱好者可能很难欣赏。\nB)它可以被看作古典音乐改良的一个标志。\nC）与古典音乐相比，它以更微妙的方式迎合了社会的音乐品味。\nD)它包含了与一些古典音乐杰作相似的元素。\n定位：根据题干关键词thepopularmusiccurrentlyproduced可将答案定位到第二段第一句。\n\n解析：第二段第一句指出，古典音乐在当今社会中仍具重要性的最主要标志是，目前制作的许多流行音乐都使用\n\n了与古典音乐中一些最佳作品相似的节拍、和声和旋律，即流行音乐包含了与一些古典音乐杰作相似的元\n素，并非说流行音乐是古典音乐改良的标志，故选项D正确，同时排除选项B。选项D中的elements对应原文\n中的beats，harmonies，andmelodies，similar属于原词重现，masterpieces和原文中的bestworks属于同义替换。\n本段第二句说的是，不学习音乐理论的人可能很难将此视为一个标志，因为它很微妙，只是体现了交响乐团\n对社会音乐品味的影响，选项C是利用这一信息设置的干扰项，故排除。选项A在文中未提及，故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "Why does the author mention the invention of the rock opera?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To illustrate how to tell a story using music."
+            },
+            {
+              "key": "B",
+              "text": "To present the simplest definition of opera."
+            },
+            {
+              "key": "C",
+              "text": "To show the relevance of opera and classical music."
+            },
+            {
+              "key": "D",
+              "text": "To justify the necessity of using orchestras in opera."
+            }
+          ],
+          "answer": "C",
+          "explanation": "53.作者为什么提到摇滚歌剧的发明？\nA)为了说明如何用音乐讲故事。\nC)为了说明歌剧与古典音乐的重要性。\nB)为了展现歌剧最简单的定义。\nD)为了证明在歌剧中使用管弦乐队的必要性。\n定位：根据题干关键词theinventionof therockopera可将答案定位到第三段第一句。\n\n解析：第三段第一句指出，关于歌剧和古典音乐重要性的一个更好的例子是摇滚歌剧的发明，故选项C正确。其\n\n他三个选项均不是作者提到摇滚歌剧的发明的目的，故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "Why are classical music pieces still used as background music in modern movies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "There are few types of music for movie producers to choose from."
+            },
+            {
+              "key": "B",
+              "text": "They are considered to be the most expressive type of music."
+            },
+            {
+              "key": "C",
+              "text": "They are well received by movie fans from all over the world."
+            },
+            {
+              "key": "D",
+              "text": "They are essential for movies to become the world’s greatest hits."
+            }
+          ],
+          "answer": "B",
+          "explanation": "54.为什么古典音乐仍被用作现代电影的背景音乐？\nA)电影制作人可选择的音乐类型很少。（\nC)它们深受世界各地电影爱好者的欢迎。\nB)它们被认为是最具表现力的音乐类型。\nD）它们是电影成为全球热门影片的关键\n定位：根据题干关键词backgroundmusicinmodernmovies可将答案定位到第四段第一、二句。\n\n解析：第四段前两句指出，古典音乐爱好者也可以告诉你，几乎没有比古典音乐更具表现力的音乐类型了，因\n\n此，古典音乐作品仍被用作现代电影的背景音乐也就不足为奇了，B项符合题意，故为答案，且选项中的\nthemostexpressivetype是对原文中的fewtypes...moreexpressive的同义转述。原文说的是出现在电影中的\n音乐作品往往深受主流音乐爱好者的欢迎，不是深受世界电影爱好者的欢迎，故排除C；A、D两项文中未\n提及，可排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What do we learn about our modern music?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It could not have come into being without classical music and opera as its foundation."
+            },
+            {
+              "key": "B",
+              "text": "It cannot outcompete classical music and opera in its impact on our current society."
+            },
+            {
+              "key": "C",
+              "text": "It will not enjoy as much popularity as classical music and opera among music fans."
+            },
+            {
+              "key": "D",
+              "text": "It might not be able to rival classical music and opera in importance for centuries to come."
+            }
+          ],
+          "answer": "A",
+          "explanation": "55.关于现代音乐，我们可以了解到什么？\nA)没有古典音乐和歌剧作为基础，它无法形成。\nB）在对当今社会的影响方面，它无法超越古典音乐和歌剧。\nC)它在音乐爱好者中的受欢迎程度不如古典音乐和歌剧。\nD）在未来几个世纪里，它在重要性方面可能无法与古典音乐和歌剧相匹敌。\n定位：根据题干关键词ourmodermmusic可将答案定位到最后一段第一句。\n\n解·最后一段首句指出，古典音乐和歌剧正是现代音乐的基础，故选项A正确。原文强调的是古典音乐和歌剧\n\n会在未来几个世纪中继续保持重要地位，并未将其与现代音乐的重要性作比较，故排除D；B、C两项文中\n未提及，可排除。"
+        }
+      ]
+    }
+  ],
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_06_2_ans.pdf"
+}

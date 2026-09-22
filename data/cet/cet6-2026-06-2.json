@@ -1,0 +1,1671 @@
+{
+  "id": "cet6-2026-06-2",
+  "level": 6,
+  "year": 2026,
+  "month": 6,
+  "set": 2,
+  "title": "2026 年 6 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2026.06/%E7%9C%9F%E9%A2%98PDF/cet6_2026_06_2.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2026-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Most financial crises have plenty in common: they tend to start in the banking sector and involve excessive borrowing, together with an asset bubble. The [[26]] crisis of 2008 was no different, with the asset bubble focused on US real estate.",
+        "But my research suggests this crisis had another [[27]] cause —— that some people in the banking sector were playing or \"gaming\" the system for their own financial gain.",
+        "The game being played had several important features. The first was the deliberate complexity of the financial products at its core. Then there are the [[28]] biases that permeate decision-making at all levels of the banking industry.",
+        "Banking often attracts people with certain personality [[29]], including those who are overconfident and take excessive risks.",
+        "Such people tend to like complexity for its own sake, but they often do not fully understand the [[30]] of that complexity for the stability of the financial system as a whole. Often they do not care —— they are primarily interested in gaming the system to [[31]] their bonuses.",
+        "The next element is risk. There are parts of the banking sector that will always be [[32]] to risk, but many bankers have come to feel immune to its potential impact, because they [[33]] that, however recklessly banks behave, governments will always be there to bail them out.",
+        "Gaming in the banking sector seems virtually impossible to [[34]]. The only effective measure to end it would be to make bankers [[35]] liable for losses, but no government has ever passed such a law, and no single government could do so on its own, since this would immediately cause their entire national banking sector to move wholesale to another jurisdiction."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "behavioural"
+        },
+        {
+          "key": "B",
+          "text": "eliminate"
+        },
+        {
+          "key": "C",
+          "text": "fragile"
+        },
+        {
+          "key": "D",
+          "text": "global"
+        },
+        {
+          "key": "E",
+          "text": "implications"
+        },
+        {
+          "key": "F",
+          "text": "maximise"
+        },
+        {
+          "key": "G",
+          "text": "overlapping"
+        },
+        {
+          "key": "H",
+          "text": "personally"
+        },
+        {
+          "key": "I",
+          "text": "presume"
+        },
+        {
+          "key": "J",
+          "text": "prone"
+        },
+        {
+          "key": "K",
+          "text": "prototypes"
+        },
+        {
+          "key": "L",
+          "text": "reassure"
+        },
+        {
+          "key": "M",
+          "text": "skeptically"
+        },
+        {
+          "key": "N",
+          "text": "traits"
+        },
+        {
+          "key": "O",
+          "text": "underlying"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "D",
+          "explanation": "global (D) — 修饰 “crisis of 2008” ， 2008 年金融危机是全球性的，global 符合\n文意。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "O",
+          "explanation": "underlying (O) — 指 “ 潜在的、根本的原因 ” ，underlying 表示 “ 根本的 ” 。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "A",
+          "explanation": "behavioural (A) — 修饰 “biases” ，指 “ 行为偏差 ” ，behavioural 表示 “ 行为的 ” 。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "N",
+          "explanation": "traits (N) — “ 某些性格特征 ” ，traits 意为 “ 特质、特征 ” 。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "E",
+          "explanation": "implications (E) — “ 复杂性的影响 / 含义 ” ，implications 表示 “ 影响、含义 ” 。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "F",
+          "explanation": "maximise (F) — “ 最大化他们的奖金 ” ，maximise 意为 “ 最大化 ” 。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "J",
+          "explanation": "prone (J) — “ 容易面临风险 ” ，prone to 表示 “ 易于 … 的 ” 。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "I",
+          "explanation": "presume (I) — “ 他们假定 ” ，presume 意为 “ 假定、推测 ” 。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "B",
+          "explanation": "eliminate (B) — “ 似乎几乎不可能消除 ” ，eliminate 表示 “ 消除 ” 。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "H",
+          "explanation": "personally (H) — “ 使银行家个人承担损失责任 ” ，personally 意为 “ 个人地 ” 。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2026-06-2-b",
+      "type": "matching",
+      "title": "How do you bring a forest back to life?",
+      "paragraphs": [
+        "A) Five hundred years ago, forests covered much of the Iberian peninsula. But that soon changed. Centuries of wars and invasions, agricultural expansion and woodcutting for firewood and shipping wiped out most of the woods and transformed places like Matamorisca, a small village in northern Spain, into degraded landscapes.",
+        "B) The region's dry climate and depleted soils would be a recipe for disaster in your average program to replant trees, but for the Amsterdam-based Land Life Company it's an ideal place. \"We typically operate where nature does not come back by itself,\" says Jurrian Ruys, its CEO. \"We go where there are rougher conditions in terms of weather, with rough or very hot summers.\" In Matamorisca, they intervened in 17 barren hectares owned by the regional government and peppered them with their signature device: a biodegradable (可生物降解的) cardboard container they call the cocoon which can hold 25 litres of water underground to aid a seedling's first year. Around 16,000 trees, including oaks, ashes, walnuts, rowans, and whitebeams, were planted in May 2018, and the company reports that 96% of them survived that year's burning hot summer without extra irrigation, a critical milestone for a young tree.",
+        "C) \"Does nature return by itself?\" asks Arnout Asjes, Land Life Company's chief technology officer, who oversees a mix of drone (无人机) and satellite imagery, big data analysis, soil enhancement, QR (二维码) tagging and site-specific tree configuration designs. \"Probably, but it can take decades or hundreds of years, so we are speeding things up.\"",
+        "D) His company belongs to a global movement of organisations trying to save degraded or deforested areas, ranging from fertile tropical lowlands to dry hills in temperate (温带的) regions. Spurred by global biodiversity loss and climate change, these groups are pushing the boundary of how to revive forest cover. \"It's not a theoretical proposition,\" says Walter Vergara, a forest and climate specialist at the World Resources Institute (WRI). \"It requires the right incentives, the right stakeholders, the right analysis and sufficient capital, but it can happen.\"",
+        "E) How these factors come together for a particular project —— and whether saving destroyed woods is even possible —— depends on what kind of ecosystem you have in mind. Secondary forests in the Amazon are different from Texas pines recovering after wildfires or the Arctic timber woods that cover much of Sweden. Each provides different reasons for reforestation programs and each has particular needs. In the dry conditions around Matamorisca and similar areas in Spain, Land Life Company worries about rapid desertification (沙漠化). As its focus is on restoring an ecosystem, it works with organisations that don't expect their money back.",
+        "F) With around 600 hectares replanted around the world since 2015 and another 1,100 planned for this year, the company's drive fits into the Bonn Challenge, a global effort to restore 150 million hectares of the world's deforested and degraded land by 2020. That's an area roughly the size of Iran or Mongolia. By 2030, the goal is to reach 350 million hectares —— 20% more land than India. These targets include both the rehabilitation of forested areas that have lost density or look a bit weak (a process known as 'restoration' in forestry jargon) and the recovery of forest cover in areas where it was completely cleared (what's known as 'reforestation').",
+        "G) That global target is broken into smaller pieces and takes shape in Latin America as the 20x20 Initiative, an effort to contribute 20 million hectares to the overall goal by initiating small to medium projects with the political backing of governments. Unlike Land Life Company, this region-wide project makes the economic and business case for reforestation, even though they are after biodiversity conservation. \"You need to bring in private sector money,\" says WRI's Vergara, who leads the initiative, \"and that capital needs to see a return on their investment.\" A study he led predicts Latin America would see an estimated net present value of about $23bn over a 50-year period if it reaches its goal.",
+        "H) Money can come from timber sales in sustainably managed forests or from harvesting 'non-wood products' like nuts, oils and fruits from the trees. You can take note of how much carbon dioxide your forest is capturing and sell carbon credits to companies keen to offset their emissions. Or you can even grow the forest hoping that biodiversity will attract ecotourists who'd pay for lodging, birdwatching tours and meals.",
+        "I) Still, these backers are not your high-street bank. Money for the 20x20 Initiative comes mostly from financial organisations with triple goals —— a modest return on their investment, environmental benefits and social gains —— known as impact investors. Take the German fund 12Tree for instance, one of the 20x20 partners. It put $9.5 million into Cuango, a 1,455-hectare property on the Caribbean coast of Panama that combines a commercial cocoa tree plantation with timber extraction from a sustainably managed secondary forest. With their money, they reforested a former cattle ranch, provided high-quality jobs for the surrounding communities and made a return on their investment.",
+        "J) Even on land cleared decades ago and currently used by farmers, some crops can coexist with the forest, if you find the right balance. Although not technically reforestation, agroforestry (a system of land use in which harvestable trees or shrubs are grown among or around crops or on pasture land, as a means of preserving or enhancing the productivity of the land) provides an opportunity for small-holder farmers to sustain their livelihoods while adding some forest cover to their farms.",
+        "K) A global project called Breedcafs is studying how trees behave in coffee farms, hoping to find crop varieties that manage to grow under the shade of trees. Coffee grows naturally in such forests, so copying that in farms is taking the crop back to its roots. \"By reintroducing trees in the landscape, we impact positively humidity, rain capture, soil conservation and biodiversity preservation,\" says coffee expert Benoit Bertrand, who leads the project from the French Agricultural Research Centre for International Development. Bertrand is analysing which of dozens of coffee varieties fits better for this system. A similar approach can be applied to land with cocoa, vanilla and fruit trees.",
+        "L) Not every piece of land is fit for reforestation. Vergara's partners look for safe investments, and even Land Life Company only runs major projects in what they consider \"low-risk\" countries. \"We tend to avoid large-scale operations in countries in some parts of the Middle East or Africa where the permanence is not secured,\" says Ruys.",
+        "M) But in the right location, perhaps all you need is time. In the Central Pacific of Costa Rica, the 330-hectare National Wildlife Refuge Barú looks nothing like the cattle ranch it was before 1987, when Jack Ewing decided to turn this large estate into an ecotourism destination. Instead of intervening, a friend told him to let nature have its way. Barú's former grazing lands are now thriving woods and the property boasts over 150 hectares of secondary forests with no intervention from humans. In the past 10 years, animals such as howling monkeys, scarlet macaws and even migratory cougars have returned to the refuge's land, boosting tourism and revitalising the ecosystem. Ewing, now 75, explains this success using the words his friend chose three decades ago: \"In Costa Rica, when you stop managing the shrubs, the jungle comes back for its revenge.\" Statements:"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Land Life Company's efforts fit into the global goal to restore millions of hectares of the world's deforested and degraded land.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F — Land Life Company 的努力符合全球恢复森林的目标（ F 段首句）。"
+        },
+        {
+          "number": 37,
+          "stem": "Planting trees or shrubs together with crops can help improve the yield of the land, while offering small-scale farmers a chance to make a living.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J — 将树木或灌木与农作物一起种植有助于提高土地产量，并为小农提供生计\n（ J 段）。"
+        },
+        {
+          "number": 38,
+          "stem": "One reforestation project bases its argument on economic benefits and investment returns.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G — 20x20 倡议以经济效益和投资回报为论据（ G 段 “makes the economic and\nbusiness case” ）。"
+        },
+        {
+          "number": 39,
+          "stem": "With time, nature may return to its original state without human intervention if the location is appropriate.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M — 在合适的地点，大自然无需人工干预即可恢复（ M 段描述巴鲁保护\n区）。"
+        },
+        {
+          "number": 40,
+          "stem": "According to a forest and climate expert, the revival of forest cover can take place under the necessary conditions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D — Vergara 认为在必要条件下森林覆盖可以恢复（ D 段末句）。"
+        },
+        {
+          "number": 41,
+          "stem": "One company runs its major operations exclusively in countries where risks are not high.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L — Land Life Company 只在低风险国家开展主要业务（ L 段）。"
+        },
+        {
+          "number": 42,
+          "stem": "Left alone, nature may take scores of years or even centuries to repair itself.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C — 自然恢复可能需要数十年甚至数百年（ C 段 “decades or hundreds of\nyears” ）。"
+        },
+        {
+          "number": 43,
+          "stem": "Economic returns can be derived from selling timber and non-wood products as well as carbon credits.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H — 通过销售木材、非木材产品及碳信用可获得经济回报（ H 段）。"
+        },
+        {
+          "number": 44,
+          "stem": "A study is under way across the world to look for crops that can grow among trees.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K — Breedcaf 项目在全球范围内寻找可在树下生长的作物（ K 段首句）。"
+        },
+        {
+          "number": 45,
+          "stem": "Land Life Company's operations are usually located where reforestation is impossible without human intervention.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B — Land Life Company 通常在没有人为干预就无法再造林的地方运营（ B 段\n首句）。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2026-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "What does self-discipline look like at work? Sometimes, it's the ability to resist temptation, such as distractions to avoid a particular task. Other times it's the ability to persist with a task when your energy and motivation seem low.",
+        "What do you believe about the nature of your own self-discipline? Is it something that runs on internal energy that is spent with use? Or is it something that is bolstered as you apply it and persist?",
+        "Your answer matters, as it determines how much self-discipline you experience.",
+        "For years, research in psychology pointed to self-control as a resource that is depleted with use and needs to be restored through breaks, rest, or sleep. More recently, however, research points to the importance of mindset. If you view self-discipline as an expendable resource, your willpower tends to fade with use.",
+        "If you believe that exercising your self-control strengthens and fuels it, that is more likely to be your experience as you resist temptation or push yourself to get something done that is not appealing.",
+        "If you don't already view self-discipline as a force that feeds itself, what might you do? Reflect on times that you had initial difficulty resisting temptation, getting started on something, or sticking with it, but pushed ahead and accomplished the task or met the goal. That's the kind of experience we're talking about with this particular belief about self-discipline, and you've already had such an experience, so you've shown that it's possible. When you feel your willpower and motivation fading, remind yourself of those previous experiences and imagine the same happening now.",
+        "What if your experiences have always seemed to indicate that your self-control diminishes with use, and you need breaks to recharge? There's nothing wrong with that as long as you can afford to take those breaks. If not, remind yourself that not everyone experiences self-discipline as a depletable resource and that your experience might be different if you focus on gathering more energy at this point rather than focusing on how difficult it is to continue or the need for a break.",
+        "Also, if you know someone who is a role model of self-discipline, picture that person in your situation, persisting in the task. Regardless of how you do it, as you push forward to continue to accomplish progress, be sure to mentally reinforce yourself by taking pride in your ability to exert more willpower as you persist.",
+        "The benefits of exerting willpower are cumulative. Your self-discipline is akin to a muscle, and each time you resist temptation or persist in a task despite a lack of motivation, you strengthen that muscle, leading to less effort and resistance in similar instances in the future."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What plays an important role in determining how much self-discipline people experience?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their belief about the nature of motivation."
+            },
+            {
+              "key": "B",
+              "text": "Their use of internal energy for persisting."
+            },
+            {
+              "key": "C",
+              "text": "Their conception of self-discipline."
+            },
+            {
+              "key": "D",
+              "text": "Their ability to resist temptation."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C — 第三段： “Your answer matters, as it determines how much self-discipline\nyou experience.” 这里的 “answer” 指对自律本质的看法，即conception of self-\ndiscipline。"
+        },
+        {
+          "number": 47,
+          "stem": "What did years of research suggest about self-discipline?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a depletable resource."
+            },
+            {
+              "key": "B",
+              "text": "It is bolstered through use."
+            },
+            {
+              "key": "C",
+              "text": "Its strength is dependent on willpower."
+            },
+            {
+              "key": "D",
+              "text": "Its exercise is an exhausting experience."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A — 第三段： “For years, research…pointed to self-control as a resource that\nis depleted with use” 即自律是可耗尽的资源。"
+        },
+        {
+          "number": 48,
+          "stem": "Why does the author ask us to reflect on our experience of meeting the goal despite initial difficulty?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To show the urgency of abandoning outdated beliefs about self-control."
+            },
+            {
+              "key": "B",
+              "text": "To show the feasibility of viewing self-discipline as a force fueling itself."
+            },
+            {
+              "key": "C",
+              "text": "To support the argument for persistence in workplace accomplishments."
+            },
+            {
+              "key": "D",
+              "text": "To add evidence to consistent findings in previous psychological research."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B — 第四段：反思过往成功经历是为了证明 “ 将自律视为自我强化的力量 ” 是可\n行的。"
+        },
+        {
+          "number": 49,
+          "stem": "What are we advised to do if we cannot afford to take breaks to recharge?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Figure out what has gone wrong."
+            },
+            {
+              "key": "B",
+              "text": "Focus on the hardest part of our task."
+            },
+            {
+              "key": "C",
+              "text": "Exert ourselves to go on with the work."
+            },
+            {
+              "key": "D",
+              "text": "Gather new energy from people around."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C — 第五段：如果无法休息，则应集中精力继续工作，而不是纠结于困难。"
+        },
+        {
+          "number": 50,
+          "stem": "Why does the author compare our self-discipline to a muscle?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The more it is applied, the more resistance it encounters."
+            },
+            {
+              "key": "B",
+              "text": "The more it is exerted, the more proud we become."
+            },
+            {
+              "key": "C",
+              "text": "The more it is enforced, the stronger our willpower proves."
+            },
+            {
+              "key": "D",
+              "text": "The more it is exercised, the more strengthened it gets."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D — 末段： “Your self-discipline is akin to a muscle…each time…you\nstrengthen that muscle” 即锻炼越多，变得越强。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2026-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Smartphones have always posed challenges for parents of teens. From social media apps to excessive screen time, the digital world is as threatening as the physical.",
+        "A new study shows that about half of parents of teens are worried about their teens being exposed to explicit content online. This is a valid concern, of course.",
+        "But there are ways to alleviate the spread of explicit content, from changing the settings in their kids' phone to monitoring such content with apps like Bark.",
+        "Just as alarming, if not more so, is that the amount of time teens spend on social media can lead to anxiety and depression.",
+        "Excessive screen time has detrimental effects, for a lot of obvious reasons.",
+        "Constant media consumption inhibits healthy activities associated with childhood, like spending time outside, exercising, talking to friends and family.",
+        "If it interferes with sleep, that's even worse.",
+        "Ample research shows too much smartphone use produces significant anxiety, depression, and feelings of isolation in teens. Teens log on to social media or spend time online trying to make connections, but end up feeling more alone and sad than ever. Faceless communication not only produces feelings of isolation and loneliness but increases instances of online bullying and susceptibility to criminal conducts.",
+        "Though I've banned most social media, I've still battled smartphone time with my own kids. A lot of the time I wish I could throw my kids' smartphones into the nearest lake. The convenience of communication —— when they need a ride home from school after practice, for instance —— often feels like it isn't worth the battle to keep their screen time low and productive, and continue to encourage \"real-life\" activities outside and with friends and family. I understand the addiction and often tell them I'm not sure how I would have handled having a smartphone as a teen. As an adult, I too, struggle with overuse.",
+        "In a recent TV interview to promote a new film about a mother and daughter navigating social media use, actress Kate Winslet expressed her view on teens and social media —— and her concern mirrors the trends. \"I do definitely feel that the world of social media is frightening to parents because we don't really know what's there,\" she said. \"We don't know how our children are using it. We don't know the effects that it's really having on them.\"",
+        "I don't think the U. S. government should regulate social media and teen smartphone use, but it is a vital topic for parents to understand and take seriously. Unfortunately, now, parents don't just have to worry about real-world dangers, but all the ones sneaking online and the effects they have on teenagers and their mental health."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do around half of parents of teens do according to a new study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They set their kids' phones to filter out obscene information."
+            },
+            {
+              "key": "B",
+              "text": "They try to alleviate the spread of explicit scenes on the internet."
+            },
+            {
+              "key": "C",
+              "text": "They feel concerned about their kids' viewing indecent content online."
+            },
+            {
+              "key": "D",
+              "text": "They strive to prevent their kids from spending excessive screen time."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C — 第二段： “about half of parents of teens are worried about their teens\nbeing exposed to explicit content online” 即担心孩子看到不当内容。"
+        },
+        {
+          "number": 52,
+          "stem": "What does a large amount of research show about teens' excessive smartphone use?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It allows them less time for meaningful activities."
+            },
+            {
+              "key": "B",
+              "text": "It renders them more lonely and low-spirited."
+            },
+            {
+              "key": "C",
+              "text": "It gives them less time for social interactions."
+            },
+            {
+              "key": "D",
+              "text": "It makes them more alert to online bullying."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B — 第五段： “Teens log on…but end up feeling more alone and sad than\never.” 即让他们更孤独、更沮丧。"
+        },
+        {
+          "number": 53,
+          "stem": "What do we learn about the author's feelings regarding smartphones and screen time?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are deep-seated."
+            },
+            {
+              "key": "B",
+              "text": "They are instinctive."
+            },
+            {
+              "key": "C",
+              "text": "They are unique."
+            },
+            {
+              "key": "D",
+              "text": "They are mixed."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D — 第六段：作者既认识到智能手机的便利，又纠结于屏幕时间的管理，情\n感是复杂的（ mixed ）。"
+        },
+        {
+          "number": 54,
+          "stem": "What does actress Kate Winslet think about the world of social media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It poses increasing challenges to parents trying to ensure internet safety."
+            },
+            {
+              "key": "B",
+              "text": "It scares parents because they don't really know what is on the screen."
+            },
+            {
+              "key": "C",
+              "text": "It is a sphere difficult for parents and their teens to navigate."
+            },
+            {
+              "key": "D",
+              "text": "It is full of uncertainties frightful to parents and their teens."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B — 第七段： Winslet 说 “the world of social media is frightening to parents\nbecause we don't really know what's there” 即因为不了解屏幕上的内容而害怕。"
+        },
+        {
+          "number": 55,
+          "stem": "What message does the author try to convey in the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Parents have to be concerned about dangers to their teens in both real and virtual worlds."
+            },
+            {
+              "key": "B",
+              "text": "Governments have responsibilities in regulating social media and teens' smartphone use."
+            },
+            {
+              "key": "C",
+              "text": "Parents should provide guidance to their teens in the use of social media."
+            },
+            {
+              "key": "D",
+              "text": "Online dangers are as serious as problems with teenagers' mental health."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A — 末段：父母不仅要担心现实世界的危险，还要担心网络上的危险及其对\n青少年的影响。"
+        }
+      ]
+    }
+  ],
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2026.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet6_2026_06_2_ans.pdf"
+}

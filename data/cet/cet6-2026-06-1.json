@@ -1,0 +1,1668 @@
+{
+  "id": "cet6-2026-06-1",
+  "level": 6,
+  "year": 2026,
+  "month": 6,
+  "set": 1,
+  "title": "2026 年 6 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2026.06/%E7%9C%9F%E9%A2%98PDF/cet6_2026_06_1.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2026-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Two proposals are before the state legislature that looks to put some limits on ever-increasing rent prices, which some lawmakers say are contributing to rising homelessness rates.",
+        "The proposals [[26]] caps on rent increases, preventing landlords in the state from raising rent more than the rate of inflation in most cases. There are exceptions for buildings less than 10 years old, public housing, improvements beyond maintenance, and a hardship [[27]].",
+        "In a 2020 study, researchers at the U. S. Government Accountability Office estimated that every $100 in rent increase is [[28]] to a 9% rise in homelessness.",
+        "Rent increases have an even more detrimental effect on some demographic groups, such as racial minorities.",
+        "Representative Alex Ramel explained why he thought that this kind of legislation was so important, telling the story of a [[29]] struggling to live in the community.",
+        "Ramel pointed out the [[30]] effect of double-digit rent increases, saying that he made the decision to introduce the legislation while talking to a young man in Bellingham. \"He's a recent graduate from Western Washington University and just got a new job,\" Ramel said. \"He was leaving our community because his landlord [[31]] him that his rent was going to go up by $600 a month.\"",
+        "The Rental Housing Association of Washington opposes the legislation. The association [[32]] that the policy won't actually solve the problem of rental prices.",
+        "Instead, it will punish small landlords and allow wealthy renters easy access to cheap housing.",
+        "\"The rent control policy has failed everywhere it has been [[33]] in this county. It has not fixed one housing problem [[34]]. It also does not distinguish between rich and poor when [[35]] who gets the benefits of rent control,\" said Chester Baldwin with the Rental Housing Coalition."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "anywhere"
+        },
+        {
+          "key": "B",
+          "text": "asserts"
+        },
+        {
+          "key": "C",
+          "text": "constituent"
+        },
+        {
+          "key": "D",
+          "text": "correlated"
+        },
+        {
+          "key": "E",
+          "text": "determining"
+        },
+        {
+          "key": "F",
+          "text": "devastating"
+        },
+        {
+          "key": "G",
+          "text": "enacted"
+        },
+        {
+          "key": "H",
+          "text": "entails"
+        },
+        {
+          "key": "I",
+          "text": "exemption"
+        },
+        {
+          "key": "J",
+          "text": "impose"
+        },
+        {
+          "key": "K",
+          "text": "notified"
+        },
+        {
+          "key": "L",
+          "text": "notwithstanding"
+        },
+        {
+          "key": "M",
+          "text": "presume"
+        },
+        {
+          "key": "N",
+          "text": "rehabilitation"
+        },
+        {
+          "key": "O",
+          "text": "reproaching"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "anywhere"
+            },
+            {
+              "key": "B",
+              "text": "asserts"
+            },
+            {
+              "key": "C",
+              "text": "constituent"
+            },
+            {
+              "key": "D",
+              "text": "correlated"
+            },
+            {
+              "key": "E",
+              "text": "determining"
+            },
+            {
+              "key": "F",
+              "text": "devastating"
+            },
+            {
+              "key": "G",
+              "text": "enacted"
+            },
+            {
+              "key": "H",
+              "text": "entails"
+            },
+            {
+              "key": "I",
+              "text": "exemption"
+            },
+            {
+              "key": "J",
+              "text": "impose"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "notwithstanding"
+            },
+            {
+              "key": "M",
+              "text": "presume"
+            },
+            {
+              "key": "N",
+              "text": "rehabilitation"
+            },
+            {
+              "key": "O",
+              "text": "reproaching"
+            }
+          ],
+          "answer": "J",
+          "explanation": "impose (J) — 句意： “ 提案对租金上涨施加限制 ” ，impose caps on 固定搭配，\n意为 “ 对 … 施加上限 ” 。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "anywhere"
+            },
+            {
+              "key": "B",
+              "text": "asserts"
+            },
+            {
+              "key": "C",
+              "text": "constituent"
+            },
+            {
+              "key": "D",
+              "text": "correlated"
+            },
+            {
+              "key": "E",
+              "text": "determining"
+            },
+            {
+              "key": "F",
+              "text": "devastating"
+            },
+            {
+              "key": "G",
+              "text": "enacted"
+            },
+            {
+              "key": "H",
+              "text": "entails"
+            },
+            {
+              "key": "I",
+              "text": "exemption"
+            },
+            {
+              "key": "J",
+              "text": "impose"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "notwithstanding"
+            },
+            {
+              "key": "M",
+              "text": "presume"
+            },
+            {
+              "key": "N",
+              "text": "rehabilitation"
+            },
+            {
+              "key": "O",
+              "text": "reproaching"
+            }
+          ],
+          "answer": "I",
+          "explanation": "exemption (I) — 前文提到 “ 例外情况 ” ，包括老旧建筑、公共住房等，\nexemption 表示 “ 豁免、例外 ” 。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "anywhere"
+            },
+            {
+              "key": "B",
+              "text": "asserts"
+            },
+            {
+              "key": "C",
+              "text": "constituent"
+            },
+            {
+              "key": "D",
+              "text": "correlated"
+            },
+            {
+              "key": "E",
+              "text": "determining"
+            },
+            {
+              "key": "F",
+              "text": "devastating"
+            },
+            {
+              "key": "G",
+              "text": "enacted"
+            },
+            {
+              "key": "H",
+              "text": "entails"
+            },
+            {
+              "key": "I",
+              "text": "exemption"
+            },
+            {
+              "key": "J",
+              "text": "impose"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "notwithstanding"
+            },
+            {
+              "key": "M",
+              "text": "presume"
+            },
+            {
+              "key": "N",
+              "text": "rehabilitation"
+            },
+            {
+              "key": "O",
+              "text": "reproaching"
+            }
+          ],
+          "answer": "D",
+          "explanation": "correlated (D) — 每增加 100 美元租金与流浪者增加 9% 相关，be correlated to\n表示 “ 与 … 相关 ” 。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "anywhere"
+            },
+            {
+              "key": "B",
+              "text": "asserts"
+            },
+            {
+              "key": "C",
+              "text": "constituent"
+            },
+            {
+              "key": "D",
+              "text": "correlated"
+            },
+            {
+              "key": "E",
+              "text": "determining"
+            },
+            {
+              "key": "F",
+              "text": "devastating"
+            },
+            {
+              "key": "G",
+              "text": "enacted"
+            },
+            {
+              "key": "H",
+              "text": "entails"
+            },
+            {
+              "key": "I",
+              "text": "exemption"
+            },
+            {
+              "key": "J",
+              "text": "impose"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "notwithstanding"
+            },
+            {
+              "key": "M",
+              "text": "presume"
+            },
+            {
+              "key": "N",
+              "text": "rehabilitation"
+            },
+            {
+              "key": "O",
+              "text": "reproaching"
+            }
+          ],
+          "answer": "C",
+          "explanation": "constituent (C) — 代表讲述了一位 “ 选民 ” 挣扎生活的故事，constituent 意为\n“ 选民、居民 ” 。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "anywhere"
+            },
+            {
+              "key": "B",
+              "text": "asserts"
+            },
+            {
+              "key": "C",
+              "text": "constituent"
+            },
+            {
+              "key": "D",
+              "text": "correlated"
+            },
+            {
+              "key": "E",
+              "text": "determining"
+            },
+            {
+              "key": "F",
+              "text": "devastating"
+            },
+            {
+              "key": "G",
+              "text": "enacted"
+            },
+            {
+              "key": "H",
+              "text": "entails"
+            },
+            {
+              "key": "I",
+              "text": "exemption"
+            },
+            {
+              "key": "J",
+              "text": "impose"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "notwithstanding"
+            },
+            {
+              "key": "M",
+              "text": "presume"
+            },
+            {
+              "key": "N",
+              "text": "rehabilitation"
+            },
+            {
+              "key": "O",
+              "text": "reproaching"
+            }
+          ],
+          "answer": "F",
+          "explanation": "devastating (F) — “ 两位数的租金增长带来的毁灭性影响 ” ，devastating 表示\n“ 毁灭性的、严重的 ” 。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "anywhere"
+            },
+            {
+              "key": "B",
+              "text": "asserts"
+            },
+            {
+              "key": "C",
+              "text": "constituent"
+            },
+            {
+              "key": "D",
+              "text": "correlated"
+            },
+            {
+              "key": "E",
+              "text": "determining"
+            },
+            {
+              "key": "F",
+              "text": "devastating"
+            },
+            {
+              "key": "G",
+              "text": "enacted"
+            },
+            {
+              "key": "H",
+              "text": "entails"
+            },
+            {
+              "key": "I",
+              "text": "exemption"
+            },
+            {
+              "key": "J",
+              "text": "impose"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "notwithstanding"
+            },
+            {
+              "key": "M",
+              "text": "presume"
+            },
+            {
+              "key": "N",
+              "text": "rehabilitation"
+            },
+            {
+              "key": "O",
+              "text": "reproaching"
+            }
+          ],
+          "answer": "K",
+          "explanation": "notified (K) — “ 房东通知他租金上涨 ” ，notify 意为 “ 通知 ” 。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "anywhere"
+            },
+            {
+              "key": "B",
+              "text": "asserts"
+            },
+            {
+              "key": "C",
+              "text": "constituent"
+            },
+            {
+              "key": "D",
+              "text": "correlated"
+            },
+            {
+              "key": "E",
+              "text": "determining"
+            },
+            {
+              "key": "F",
+              "text": "devastating"
+            },
+            {
+              "key": "G",
+              "text": "enacted"
+            },
+            {
+              "key": "H",
+              "text": "entails"
+            },
+            {
+              "key": "I",
+              "text": "exemption"
+            },
+            {
+              "key": "J",
+              "text": "impose"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "notwithstanding"
+            },
+            {
+              "key": "M",
+              "text": "presume"
+            },
+            {
+              "key": "N",
+              "text": "rehabilitation"
+            },
+            {
+              "key": "O",
+              "text": "reproaching"
+            }
+          ],
+          "answer": "B",
+          "explanation": "asserts (B) — 协会 “ 坚称 ” 政策无法解决问题，assert 表示 “ 断言、声称 ” 。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "anywhere"
+            },
+            {
+              "key": "B",
+              "text": "asserts"
+            },
+            {
+              "key": "C",
+              "text": "constituent"
+            },
+            {
+              "key": "D",
+              "text": "correlated"
+            },
+            {
+              "key": "E",
+              "text": "determining"
+            },
+            {
+              "key": "F",
+              "text": "devastating"
+            },
+            {
+              "key": "G",
+              "text": "enacted"
+            },
+            {
+              "key": "H",
+              "text": "entails"
+            },
+            {
+              "key": "I",
+              "text": "exemption"
+            },
+            {
+              "key": "J",
+              "text": "impose"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "notwithstanding"
+            },
+            {
+              "key": "M",
+              "text": "presume"
+            },
+            {
+              "key": "N",
+              "text": "rehabilitation"
+            },
+            {
+              "key": "O",
+              "text": "reproaching"
+            }
+          ],
+          "answer": "G",
+          "explanation": "enacted (G) — “ 租金控制政策在实施的任何地方都失败了 ” ，enact 表示 “ 颁\n布、实施 ” 。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "anywhere"
+            },
+            {
+              "key": "B",
+              "text": "asserts"
+            },
+            {
+              "key": "C",
+              "text": "constituent"
+            },
+            {
+              "key": "D",
+              "text": "correlated"
+            },
+            {
+              "key": "E",
+              "text": "determining"
+            },
+            {
+              "key": "F",
+              "text": "devastating"
+            },
+            {
+              "key": "G",
+              "text": "enacted"
+            },
+            {
+              "key": "H",
+              "text": "entails"
+            },
+            {
+              "key": "I",
+              "text": "exemption"
+            },
+            {
+              "key": "J",
+              "text": "impose"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "notwithstanding"
+            },
+            {
+              "key": "M",
+              "text": "presume"
+            },
+            {
+              "key": "N",
+              "text": "rehabilitation"
+            },
+            {
+              "key": "O",
+              "text": "reproaching"
+            }
+          ],
+          "answer": "A",
+          "explanation": "anywhere (A) — “ 没有解决任何一个住房问题 ” ，not…anywhere 表示 “ 在任何\n地方都没有 ” 。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "anywhere"
+            },
+            {
+              "key": "B",
+              "text": "asserts"
+            },
+            {
+              "key": "C",
+              "text": "constituent"
+            },
+            {
+              "key": "D",
+              "text": "correlated"
+            },
+            {
+              "key": "E",
+              "text": "determining"
+            },
+            {
+              "key": "F",
+              "text": "devastating"
+            },
+            {
+              "key": "G",
+              "text": "enacted"
+            },
+            {
+              "key": "H",
+              "text": "entails"
+            },
+            {
+              "key": "I",
+              "text": "exemption"
+            },
+            {
+              "key": "J",
+              "text": "impose"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "notwithstanding"
+            },
+            {
+              "key": "M",
+              "text": "presume"
+            },
+            {
+              "key": "N",
+              "text": "rehabilitation"
+            },
+            {
+              "key": "O",
+              "text": "reproaching"
+            }
+          ],
+          "answer": "E",
+          "explanation": "determining (E) — “ 在决定谁获得租金控制利益时 ” ，determine 表示 “ 决定 ” 。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2026-06-1-b",
+      "type": "matching",
+      "title": "Meet the 'digital nomads' who travel the world in search of fast Wi-Fi",
+      "paragraphs": [
+        "A) For those \"citizens of the world\", the office can be anything from a beach hut in Brisbane to a Starbucks in Seattle, thanks to the growing prevalence of remote-based work. But roaming the globe from café to café is not without its challenges.",
+        "B) When the average traveller lands in a city like Bangkok, Berlin, or Buenos Aires, their first step might be to drop their bags at their hotel and to log on to TripAdvisor to find out the hours of a popular tourist attraction or the best rooftop bar for happy hour.",
+        "C) But people like Pieter Levels are not your average traveller. A Dutch website developer, Levels has been living and working nomadically (像游牧民那样) in places like Singapore, Hong Kong, Tokyo and Manila for two years. With just a carry-on backpack, he chooses his location at will, based on a variety of factors —— Wi-Fi speed, average temperature, exotic food and cost of living —— that have little bearing on the work he actually does.",
+        "D) Somewhere in his nomadic journey, Levels noticed that there was a growing need to create an online infrastructure for people like himself. That's when he created #nomads, a membership-based chat system which runs on the team communication platform known as Slack. The channel allows users to ask people in their current city the types of practical questions that a tourist would unlikely need to ask.",
+        "E) Members of the geographically dispersed subculture that Levels is a part of call themselves \"digital nomads\". They are borderless, mostly self-employed remote workers who interact with cities in a way that's entirely different from a tourist, but still doesn't quite reach the status of resident. A relatively new phenomenon, there are no hard statistics on the prevalence of digital nomads or location independent workers. But thanks to the growing prevalence of freelance (自由职业的) livelihoods, a global sharing economy and numerous digital tools, the number of people who are able to live this life is growing quickly. And in a rapidly urbanising world, where a major city in Asia increasingly offers the same comforts as one in Europe, many people are reaching the realisation they don't need to stay in one place.",
+        "F) So how does a nomad differ from a tourist or resident? In many ways, Levels says, you can think of a digital nomad like a \"short-term independent expat (移居国外的人)\". Unlike a resident expat, they don't work for a large multinational company in an air conditioned office building and they generally enter a country on a tourist visa, simply renewing or moving on when it expires. But unlike a tourist, they don't arrive in a foreign city without any responsibilities. Travel isn't necessarily required for them to do their jobs, but neither is staying in one place.",
+        "G) Janet Brent is an independent ebook designer. She says many people she knows assume she travels for work, but in reality her international destinations are largely up to her, and driven by cost. \"Contrary to what some people might think, I don't get paid to travel — I simply choose the lifestyle. Rather than rent in one given city, I choose to travel and do short-term, temporary stays around the world, and my travel decisions are literally based on what makes the most sense financially for me,\" Brent said. \"It's completely different from vacationing —— you really sink into the city life and get your feet wet in the communities.\"",
+        "H) Bryce Adams is another such nomad. He works as a developer for a South African company WooThemes, which has a workforce that's more than 80% remote-based. Though Adams frequently posts pictures on Instagram of his enviable cooking adventures from Seoul to Bangkok, he says nomad life in foreign cities has its downsides, including finding adequate Wi-Fi for the bandwidth-hungry work his livelihood depends on. Contrary to the perception that he works under a mango tree in a tropical haven, Adams says the reality of this life means that he often ends up staying in more western style places in globalised cities —— ones that are sure to have air conditioning and a decent connection —— rather than exotic beachfront cafés.",
+        "I) \"A fellow nomad posted quite a funny but honest message on Twitter a few days ago that stuck with me: 'It's funny that digital nomads spend 16 hours to fly to the other side of the world to sit in Starbucks,' and it's completely true,\" Adams said. \"When you're a digital nomad, you don't actually have as much freedom as most people think you do. We have deadlines, we all have people relying on us and a mouth (or two) that needs to be fed. It's nice to be able to work anywhere in the world but it's not without its challenges.\"",
+        "J) But these challenges can often provide an opportunity for nomads to see a side of a city they may not have if they were staying in a luxury hotel for a long weekend. However inconvenient, a trip to a local doctor, immigration office or laundry —— or a conflict with a local Airbnb host (the accommodation style of choice for most nomads) —— can be far more culturally instructive than a trip to the national museum. And because nomads often have to stay where the strongest internet connection is, they tend to spend more time in developing cities compared to the average tourist, who often flees to more touristy destinations soon after landing at the airport.",
+        "K) The nomad life is, by all accounts, one built out of privilege. You not only need a relatively powerful passport that makes tourist visas easy to attain, but also a knowledge economy job and access to the technology and devices that make remote working possible. But nomads like Adams say that while they are aware of this privilege, they believe living this way elevates what they're able to offer, by giving them a broader perspective on what they're building, writing, or designing and expanding their world view.",
+        "L) \"Being able to travel and get around makes it easy to stay inspired,\" he added. \"I truly believe that it makes me a more sensible human being, as I tend to see and appreciate the creative solutions people come up with in other parts of the world, even though many tend to have far more constraints than we have at home.\"",
+        "M) So when you're constantly on the road and don't own any property or have a fixed address, which city do you call home? It's no surprise that many nomads are dual citizens or \"third culture kids,\" who have grown up with a notion of identity that's not tied to nationalism or staying in one place. Levels says that the nomad life has not only changed his notions of citizenship, but the people he chooses to spend time with as well. \"Saying you're a 'citizen of the world' is a super cliché, right? But it's becoming quite true,\" Levels said. \"This global awareness has been the reason I started Nomad List and it's affected who my friends are. It's normal to have dinner now and sit with a Korean girl, a British-Singaporean guy, a Mexican girl and a Nigerian guy. As much as that sounds like a politically correct TV advertisement, it's great that that's the time we're in now.\" Statements:"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Pieter Levels created a chat system to satisfy the need of digital nomads for information tourists normally don't seek.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D — Pieter Levels 创建了聊天系统满足数字游民对实用信息的需求（ D 段）。"
+        },
+        {
+          "number": 37,
+          "stem": "It is said that digital nomads do not enjoy as much freedom as most people suppose.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I — Adams 指出数字游民并没有人们想象的那么多自由（ I 段）。"
+        },
+        {
+          "number": 38,
+          "stem": "Different from tourists, digital nomads travel to foreign places with work to do.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F — 与游客不同，数字游民去国外是带着工作任务去的（ F 段）。"
+        },
+        {
+          "number": 39,
+          "stem": "Digital nomads believe their lifestyle enables them to broaden their vision and do a better job.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K — 数字游民相信这种生活方式拓宽了视野，能做得更好（ K 段）。"
+        },
+        {
+          "number": 40,
+          "stem": "The first thing a typical traveller possibly does after arriving at a city is search for information online about its popular tourist attractions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B — 普通游客到达城市后第一件事是上网查找旅游景点信息（ B 段）。"
+        },
+        {
+          "number": 41,
+          "stem": "One digital nomad thinks their life in foreign cities has its disadvantages.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H — Bryce Adams 认为在国外城市的生活也有缺点（ H 段）。"
+        },
+        {
+          "number": 42,
+          "stem": "Travelling around helps to keep digital nomads inspired.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L — 旅行有助于保持灵感（ L 段）。"
+        },
+        {
+          "number": 43,
+          "stem": "The number of self-employed remote workers living a digital nomad's life is fast increasing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E — 数字游民的数量正在快速增长（ E 段）。"
+        },
+        {
+          "number": 44,
+          "stem": "Pieter Levels says his life as a nomad has transformed not only his idea of citizenship, but his choice of companions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M — Levels 说游民生活不仅改变了他的公民观念，也改变了朋友选择（ M\n段）。"
+        },
+        {
+          "number": 45,
+          "stem": "Interactions with local people and institutions provide nomads with far more cultural information than a visit to the national museum.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J — 与当地人的互动比参观国家博物馆提供更多文化信息（ J 段）。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2026-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Children's use of social media is a problem. That doesn't mean it should be stopped. While younger children should not be on platforms where 13 is the minimum age, it is neither practical nor desirable to imagine a world in which teenagers are prevented from accessing the platforms and messaging systems that the adults around them use to organise their lives.",
+        "But the pleasure and stimulation that people of all ages find on their screens and smartphones must not blind us to the harm that spending time in this way can cause. The finding that the alarmingly high rate of depression in British teenage girls is closely correlated to time spent on social media is extremely concerning. Research found that two in five girls are on social media for at least three hours a day —— with half as many boys engaged to the same extent. More than a third of depressed girls have experienced online harassment. About half of affected girls suffered disrupted sleep, compared with 20% of depressed boys.",
+        "Although the research does not prove that social media causes depression, the importance of the finding that there is a connection should not be underestimated. Schools have done important work in communicating key messages about the risks of online abuse. But when it comes to broader questions about \"screen time\", many professionals as well as parents are confused and uncertain.",
+        "The health secretary, Matt Hancock, wants official guidelines on time and age limits. This idea has the virtue of simplicity, though some experts question its effects and call for a greater degree of differentiation, arguing that time online by itself is not a bad thing and it all depends on what you are doing. Also due this year is information commissioner Elizabeth Denham's Age Appropriate Design Code, covering the use of children's personal data. Both initiatives are welcome. But the government is playing catch-up. Statutory regulation of the digital media giants is long overdue. The failure to protect children from data harvesting and targeted advertising thus far is as shocking as the lack of concern shown by the companies themselves with regard to children's psychological health.",
+        "Of course, social media companies are not the source of all our ills, and can offer a too-easy target for politicians keen to divert attention from inadequately resourced schools and health services. There are other reasons for the rising incidence of depression in young people, with increasing pressure to succeed in education and in life more broadly —— to be famous, beautiful, rich —— often cited as a source of unhappiness or anxiety which can, if aggravated by other factors, and not managed, tip into ill health. Safeguarding means more than the avoidance of physical threat."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author believe regarding social media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To stop children using it is unrealistic and inadvisable."
+            },
+            {
+              "key": "B",
+              "text": "It helps both adults and children to organise their lives."
+            },
+            {
+              "key": "C",
+              "text": "It poses problems to both parents and children."
+            },
+            {
+              "key": "D",
+              "text": "A world without it is really hard to imagine."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A — 第一段： “…it is neither practical nor desirable to imagine a world in\nwhich teenagers are prevented from accessing…” 即禁止孩子使用社交媒体既不现\n\n\n实也不可取。"
+        },
+        {
+          "number": 47,
+          "stem": "What do we learn from the passage about British teenage girls?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The more frequently they interact on social media, the more they experience harassment."
+            },
+            {
+              "key": "B",
+              "text": "The more time they spend on social media, the more likely they suffer from depression."
+            },
+            {
+              "key": "C",
+              "text": "Most of them are engaged on social media for at least three hours a day."
+            },
+            {
+              "key": "D",
+              "text": "They spend half as many hours on social media as British teenage boys."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B — 第二段： “…depression…is closely correlated to time spent on social\nmedia” 即花在社交媒体上的时间与抑郁密切相关。"
+        },
+        {
+          "number": 48,
+          "stem": "What is the author's view on the research finding about British teenage girls?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its implications about online abuse are obvious."
+            },
+            {
+              "key": "B",
+              "text": "Its key message calls for immediate attention."
+            },
+            {
+              "key": "C",
+              "text": "Its importance should not be undervalued."
+            },
+            {
+              "key": "D",
+              "text": "Its uncertainty should not go unnoticed."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C — 第三段： “…the importance of the finding…should not be\nunderestimated.” 即不应低估这一发现的重要性。"
+        },
+        {
+          "number": 49,
+          "stem": "What do experts think of health secretary Matt Hancock's idea?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its implementation requires prompt action."
+            },
+            {
+              "key": "B",
+              "text": "It is a welcome initiative but is long overdue."
+            },
+            {
+              "key": "C",
+              "text": "Its success depends on how it is implemented."
+            },
+            {
+              "key": "D",
+              "text": "It is too simplistic to produce the desired effect."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D — 第四段： “This idea has the virtue of simplicity, though some experts\nquestion its effects and call for a greater degree of differentiation” 即专家认为过\n于简单化，可能无法达到预期效果。"
+        },
+        {
+          "number": 50,
+          "stem": "Besides social media companies, what factors contribute to young people's psychological health problems?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Poorly financed schools and health services."
+            },
+            {
+              "key": "B",
+              "text": "Politicians' eagerness to divert public attention."
+            },
+            {
+              "key": "C",
+              "text": "Bad statutory regulation of digital media giants."
+            },
+            {
+              "key": "D",
+              "text": "Their parents' educational background and life."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A — 末段： “…with increasing pressure to succeed in education and in life…\noften cited as a source of unhappiness…” 即资源不足的学校和医疗服务也是因素\n之一。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2026-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "About a decade ago, the G-20, a forum of the world's biggest economies, agreed to crack down on multinational corporations' abusive use of tax havens. This resulted in a plan that aimed to curb practices that shielded a large chunk of corporate profits from tax authorities.",
+        "But, instead of reining in the use of tax havens —— countries such as the Bahamas and Cayman Islands with very low or no effective tax rates —— the problem has only gotten worse.",
+        "In a new study, we measured the excessive profits reported in tax havens that cannot be explained by ordinary economic activity such as employees, factories and research in that country. Our findings show a striking pattern of artificial shifting of paper profits to tax havens by corporations, which has been relentless since the 1980s.",
+        "We found that the world's biggest multinational businesses shifted 37% of the profits —— $969 billion —— they earned in other countries to tax havens in 2019. The figure was less than 2% in the 1970s. The main reasons for the large increase were the growth of the tax avoidance industry in the 1980s and U. S. policies that made it easier to shift profits from high-tax countries to tax havens.",
+        "We estimate that the amount of corporate taxes lost as a result reached 10% of total corporate revenue in 2019, up from less than 0.1% in the 1970s. In 2019, the total government tax loss globally was $250 billion. U. S. multinational corporations alone accounted for about half of that, followed by the U. K. and Germany.",
+        "How do policymakers fix this? So far, the world as a whole has been trying to solve this problem by cutting or scrapping corporate taxes in a very gradual way.",
+        "In the past 40 years, the global effective corporate tax rate has fallen from 23% to 17%. At the same time, governments have relied more heavily on consumption taxes.",
+        "But the root cause of profit-shifting is the incentives involved, such as generous or lenient corporate tax rates in other countries. If countries could agree on a global minimum corporate tax rate of, say, 20%, the problem of profit-shifting would largely disappear, as tax havens would simply cease to exist.",
+        "This type of mechanism is exactly what more than 130 countries signed onto in 2021, with implementation of a 15% minimum tax set to begin soon in the EU, U. K., Japan, Indonesia and many other countries. The U. S. has notably not been able to pass this legislation.",
+        "Our research suggests implementing this type of tax reform is necessary in reversing the shift of ever-greater amounts of corporate profits to tax havens —— instead of being taxed by the governments where they operate and create value."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn about the G-20's agreement on curbing the use of tax havens?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has aggravated the problem in non-G-20 countries."
+            },
+            {
+              "key": "B",
+              "text": "It has taken a toll on countries such as Cayman Islands."
+            },
+            {
+              "key": "C",
+              "text": "It has failed to achieve the expected outcome."
+            },
+            {
+              "key": "D",
+              "text": "It has failed to result in any long-term plan."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C — 第二段： “But, instead of reining in…the problem has only gotten worse.”\n即未达到预期效果。"
+        },
+        {
+          "number": 52,
+          "stem": "What mainly accounted for the large increase in the world's biggest multinational corporations' shift of profits to tax havens?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Fluctuating tax rates globally."
+            },
+            {
+              "key": "B",
+              "text": "Lenient policies of the U. S."
+            },
+            {
+              "key": "C",
+              "text": "Heavy taxes imposed on them."
+            },
+            {
+              "key": "D",
+              "text": "Rapid growth of their business."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B — 第四段： “…the main reasons…were the growth of the tax avoidance\nindustry…and U.S. policies…” 即美国的宽松政策是主因之一。"
+        },
+        {
+          "number": 53,
+          "stem": "What have policymakers been doing to prevent government tax loss?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Reducing corporate taxes step by step."
+            },
+            {
+              "key": "B",
+              "text": "Scrapping consumption taxes gradually."
+            },
+            {
+              "key": "C",
+              "text": "Making joint efforts to levy corporate taxes."
+            },
+            {
+              "key": "D",
+              "text": "Adjusting global effective corporate tax rates."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A — 第六段： “…trying to solve this problem by cutting or scrapping\ncorporate taxes in a very gradual way.” 即逐步降低企业所得税。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the author say would bring tax havens to an end?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The alignment of corporate taxes with consumption taxes."
+            },
+            {
+              "key": "B",
+              "text": "The implementation of generous tax rates in all countries."
+            },
+            {
+              "key": "C",
+              "text": "The agreement on the root cause of global profit-shifting."
+            },
+            {
+              "key": "D",
+              "text": "The imposition of a global minimum corporate tax rate."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D — 第七段： “If countries could agree on a global minimum corporate tax\nrate…the problem would largely disappear” 即实施全球最低公司税率。"
+        },
+        {
+          "number": 55,
+          "stem": "What could be expected of the global problem of profit-shifting in the near future?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It would be solved with more countries cutting tax rates."
+            },
+            {
+              "key": "B",
+              "text": "It would end with governments' awareness of its severity."
+            },
+            {
+              "key": "C",
+              "text": "It would cease to exist with worldwide corporate support."
+            },
+            {
+              "key": "D",
+              "text": "It would continue because of noncooperation from the U. S."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D — 第八段提到美国未能通过立法，其他国家的进展也可能受影响，故问题\n可能继续存在。"
+        }
+      ]
+    }
+  ],
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2026.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet6_2026_06_1_ans.pdf"
+}

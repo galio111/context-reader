@@ -328,3 +328,7 @@ Zhipu is included in the unified per-model report alongside DeepSeek and MiMo. T
 ## Accented lookup and homepage media
 
 Reader tokenization, standalone validation, pronunciation and contextual lookup/continuation share `lib/latinWords.ts`: Latin script letters retain combining accents and internal apostrophes/hyphens. Original Reader offsets remain unchanged. Homepage covers use eager responsive Next.js WebP variants restricted to the production public-cover bucket, with the featured cover prioritized and year-long optimization cache. Showcase recordings begin preloading on mount; versioned assets cache for seven days. Daily update notice uses the same Shanghai-day curation selection dates as the today badge, counts each available public article once, and records one shown day per account in this browser. It lasts two seconds and never receives pointer events. Admin `todayFeatures` aggregates recorded model executions since Shanghai midnight, including guests and failures, separately for article lookup and dictionary; no quota policy changes. Costs remain token-based estimates, not supplier billing.
+
+## 四六级阅读域
+
+HomeClient 管理真实 CET 阅读入口；CetReader 通过 ReaderView 的可选 examSurface 插槽复用账户、查词、保存和翻译。服务端 `/api/cet` 按账号过滤目录、按需读取单卷私有 JSON；客户端不导入题库全集。CET 尝试作为独立 preferences 对象进入现有 protocol-2 同步，独立时段合并和 timerEpoch 防止重放加时与旧归零覆盖。完整边界见 [cet-reading.md](cet-reading.md)。

@@ -11,7 +11,7 @@ test("bootstrap keeps every category's desktop/mobile showcase, full counts and 
   const articles = Array.from({ length: 180 }, (_, i) => ({
     id: `article-${i}`, title: `Article ${i}`, summary: `Searchable summary ${i}`, body: "",
     sourceName: "Source", sourceUrl: `https://example.org/${i}`, createdAt: "2026-09-22", updatedAt: "2026-09-22",
-    recommendation: { coverImageUrl: i % 7 ? `https://example.org/${i}.webp` : "", audienceStages: [], topics: [], homepageCategory: HOME_CURATION_CATEGORIES[1 + i % 4], wordCount: 800 },
+    recommendation: { difficulty: "高中 / CET-4", cefr: "B2", timeliness: "evergreen", sourceKind: "manual-url", classificationSource: "manual", coverImageUrl: i % 7 ? `https://example.org/${i}.webp` : "", audienceStages: [], topics: [], homepageCategory: HOME_CURATION_CATEGORIES[1 + i % 4] as "时事" | "科技" | "文化" | "商业", wordCount: 800 },
   } as PublicArticle));
   const snapshot = JSON.stringify(articles);
   const curation = normalizeHomepageCuration({ version: 2, categories: { 推荐: articles.slice(15).reverse().map(a => a.id), 科技: ["article-77", "article-1"] }, recommendationFeaturedId: "article-179", selectedAtById: { "article-77": "2026-09-22T00:00:00Z" } });
@@ -32,7 +32,7 @@ test("bootstrap keeps every category's desktop/mobile showcase, full counts and 
 
 test("empty/small catalogues need no redundant completion fetch", () => {
   assert.equal(homepageBootstrap([], undefined, "2026-09-22").complete, true);
-  const article = { id: "one", title: "One", summary: "Original", body: "", recommendation: { coverImageUrl: "https://example.org/cover.webp", topics: [], audienceStages: [] } } as unknown as PublicArticle;
+  const article = { id: "one", title: "One", summary: "Original", body: "", recommendation: { difficulty: "高中 / CET-4", cefr: "B2", timeliness: "evergreen", sourceKind: "manual-url", classificationSource: "manual", coverImageUrl: "https://example.org/cover.webp", topics: [], audienceStages: [] } } as unknown as PublicArticle;
   assert.deepEqual(homepageBootstrap([article], undefined, "2026-09-22").articles, [article]);
   assert.equal(homepageBootstrap([article], undefined, "2026-09-22").complete, true);
 });

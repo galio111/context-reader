@@ -1,0 +1,1702 @@
+{
+  "id": "cet4-2025-06-3",
+  "level": 4,
+  "year": 2025,
+  "month": 6,
+  "set": 3,
+  "title": "2025 年 6 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/cet4_2025_06_3.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2025-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The human brain has the abil ity to constantly form new networks and connections between brain cells. This means the brain has an almost magical ability to change. This characteristic is [[26]] apparent in a new study, focusing on people who underwent a hemispherectomy, a surgical procedure in which half of the brain is removed to treat illness.",
+        "The findings showed that, despite missing half of this critical [[27]], participants could function well. This was because the [[28]] half of their brain stre ngthened. In fact, researche rs found that connections — and thus communication — between parts of different brain networks are actually stronger in people who had hemispherectomies than in people with intact brains . This [[29]] that the brain is able to compe nsate for loss of certain brain structure.",
+        "There are many other cases in the medical [[30]] that document the brain’s amazing ability to [[31]]. For example, a young boy had a significant portion of his brain removed for medical reasons, which included the part of the brain [[32]] for sight. But a few years after his surgery, scientists found that he could [[33]] see. They determined that this was because other parts of his brain took over the missing part’s [[34]] tasks. Another study involved people who could smell despite missing the region in the brain that processes information about smells. Though they are not sure how these individuals [[35]] the ability to smell , scientists believe it is possible that another part of the brain took on that task."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "adapt"
+        },
+        {
+          "key": "B",
+          "text": "hardly"
+        },
+        {
+          "key": "C",
+          "text": "indicates"
+        },
+        {
+          "key": "D",
+          "text": "insist"
+        },
+        {
+          "key": "E",
+          "text": "literature"
+        },
+        {
+          "key": "F",
+          "text": "organ"
+        },
+        {
+          "key": "G",
+          "text": "particularly"
+        },
+        {
+          "key": "H",
+          "text": "remaining"
+        },
+        {
+          "key": "I",
+          "text": "responsible"
+        },
+        {
+          "key": "J",
+          "text": "retained"
+        },
+        {
+          "key": "K",
+          "text": "still"
+        },
+        {
+          "key": "L",
+          "text": "strategy"
+        },
+        {
+          "key": "M",
+          "text": "transformed"
+        },
+        {
+          "key": "N",
+          "text": "underlines"
+        },
+        {
+          "key": "O",
+          "text": "visual"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "hardly"
+            },
+            {
+              "key": "C",
+              "text": "indicates"
+            },
+            {
+              "key": "D",
+              "text": "insist"
+            },
+            {
+              "key": "E",
+              "text": "literature"
+            },
+            {
+              "key": "F",
+              "text": "organ"
+            },
+            {
+              "key": "G",
+              "text": "particularly"
+            },
+            {
+              "key": "H",
+              "text": "remaining"
+            },
+            {
+              "key": "I",
+              "text": "responsible"
+            },
+            {
+              "key": "J",
+              "text": "retained"
+            },
+            {
+              "key": "K",
+              "text": "still"
+            },
+            {
+              "key": "L",
+              "text": "strategy"
+            },
+            {
+              "key": "M",
+              "text": "transformed"
+            },
+            {
+              "key": "N",
+              "text": "underlines"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "G",
+          "explanation": "26.G）particularly（adv.特别，尤其）\n语法判断空格所在句子主系表结构完整，故空格处应填副词，修饰后面的形容词apparent。\n明显”。代入选项可知，particularly符合此处语境。particularlyapparent（尤为明显）既呼应前文中almost\nmagical的强调语气，又通过focusingon...hemispherectomy的限定场景突出了大脑这一能力的强大。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "hardly"
+            },
+            {
+              "key": "C",
+              "text": "indicates"
+            },
+            {
+              "key": "D",
+              "text": "insist"
+            },
+            {
+              "key": "E",
+              "text": "literature"
+            },
+            {
+              "key": "F",
+              "text": "organ"
+            },
+            {
+              "key": "G",
+              "text": "particularly"
+            },
+            {
+              "key": "H",
+              "text": "remaining"
+            },
+            {
+              "key": "I",
+              "text": "responsible"
+            },
+            {
+              "key": "J",
+              "text": "retained"
+            },
+            {
+              "key": "K",
+              "text": "still"
+            },
+            {
+              "key": "L",
+              "text": "strategy"
+            },
+            {
+              "key": "M",
+              "text": "transformed"
+            },
+            {
+              "key": "N",
+              "text": "underlines"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "F",
+          "explanation": "27.F）organ（n.器官）\n语法判断空格位于形容词critical后，故空格处应填名词。\n语义判断前一句提及hemispherectomy（大脑半球切除术），本句指出“尽管缺失这一关键\n的一半，\n参与者仍能正常生活”。代人选项可知，organ符合此处语境。criticalorgan与hemispherectomy形成手术对\n象的呼应。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "hardly"
+            },
+            {
+              "key": "C",
+              "text": "indicates"
+            },
+            {
+              "key": "D",
+              "text": "insist"
+            },
+            {
+              "key": "E",
+              "text": "literature"
+            },
+            {
+              "key": "F",
+              "text": "organ"
+            },
+            {
+              "key": "G",
+              "text": "particularly"
+            },
+            {
+              "key": "H",
+              "text": "remaining"
+            },
+            {
+              "key": "I",
+              "text": "responsible"
+            },
+            {
+              "key": "J",
+              "text": "retained"
+            },
+            {
+              "key": "K",
+              "text": "still"
+            },
+            {
+              "key": "L",
+              "text": "strategy"
+            },
+            {
+              "key": "M",
+              "text": "transformed"
+            },
+            {
+              "key": "N",
+              "text": "underlines"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "H",
+          "explanation": "28.H）remaining（ad.剩余的，剩下的）\n语法判断空格前面为定冠词the，后面为名词短语halfof..，故空格处应填形容词，修饰后面的名词。\n语义判断前文提到“尽管缺失这一关键器官的一半，参与者仍能正常生活”，本句说明原因，即“他们大\n脑中一半得到了强化”。—\nhalf与missinghalf形成对比，空格所填词与missing（缺失的）语义\n相对，故答案为remaining。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "hardly"
+            },
+            {
+              "key": "C",
+              "text": "indicates"
+            },
+            {
+              "key": "D",
+              "text": "insist"
+            },
+            {
+              "key": "E",
+              "text": "literature"
+            },
+            {
+              "key": "F",
+              "text": "organ"
+            },
+            {
+              "key": "G",
+              "text": "particularly"
+            },
+            {
+              "key": "H",
+              "text": "remaining"
+            },
+            {
+              "key": "I",
+              "text": "responsible"
+            },
+            {
+              "key": "J",
+              "text": "retained"
+            },
+            {
+              "key": "K",
+              "text": "still"
+            },
+            {
+              "key": "L",
+              "text": "strategy"
+            },
+            {
+              "key": "M",
+              "text": "transformed"
+            },
+            {
+              "key": "N",
+              "text": "underlines"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "C",
+          "explanation": "29.C）indicates（v.表明，显示）\n语法判断空格前面为句子主语This，后面为that引导的宾语从句，空格处应填谓语动词。前文时态为一般现\n在时，故空格处应填动词的第三人称单数形式。\n（及由此产生的信息交流），实际上比大脑完整的人更强”，本句结论为“大脑能够弥补某些脑结构的损\n失”。前后句是研究发现与结论之间的推导关系，故此处应填indicates。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "hardly"
+            },
+            {
+              "key": "C",
+              "text": "indicates"
+            },
+            {
+              "key": "D",
+              "text": "insist"
+            },
+            {
+              "key": "E",
+              "text": "literature"
+            },
+            {
+              "key": "F",
+              "text": "organ"
+            },
+            {
+              "key": "G",
+              "text": "particularly"
+            },
+            {
+              "key": "H",
+              "text": "remaining"
+            },
+            {
+              "key": "I",
+              "text": "responsible"
+            },
+            {
+              "key": "J",
+              "text": "retained"
+            },
+            {
+              "key": "K",
+              "text": "still"
+            },
+            {
+              "key": "L",
+              "text": "strategy"
+            },
+            {
+              "key": "M",
+              "text": "transformed"
+            },
+            {
+              "key": "N",
+              "text": "underlines"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "E",
+          "explanation": "30.E）literature（n.文献，资料）\n语法判断空格前面为形容词medical，后面为that引|导的定语从句，故空格处应填名词。\n存在许多其他案例…”。代人选项\n可知，medicalliterature（医学文献）符合此处语境，故答案为literature。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "hardly"
+            },
+            {
+              "key": "C",
+              "text": "indicates"
+            },
+            {
+              "key": "D",
+              "text": "insist"
+            },
+            {
+              "key": "E",
+              "text": "literature"
+            },
+            {
+              "key": "F",
+              "text": "organ"
+            },
+            {
+              "key": "G",
+              "text": "particularly"
+            },
+            {
+              "key": "H",
+              "text": "remaining"
+            },
+            {
+              "key": "I",
+              "text": "responsible"
+            },
+            {
+              "key": "J",
+              "text": "retained"
+            },
+            {
+              "key": "K",
+              "text": "still"
+            },
+            {
+              "key": "L",
+              "text": "strategy"
+            },
+            {
+              "key": "M",
+              "text": "transformed"
+            },
+            {
+              "key": "N",
+              "text": "underlines"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "A",
+          "explanation": "31.A）adapt（v适应）\n语法判断空格位于句末，前面为abilityto，故空格处应填动词原形，构成不定式结构，充当ability的后置定语。\n语义判断前文提到大脑有形成新网络和新连接的能力，从而能够弥补某些脑结构的损失，这强调了大脑具\n有神奇的适应能力。本句意为“医学文献中存在许多其他案例，记载了大脑惊人的能力”，进一步\n强调大脑的适应能力。故答案为adapt。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "hardly"
+            },
+            {
+              "key": "C",
+              "text": "indicates"
+            },
+            {
+              "key": "D",
+              "text": "insist"
+            },
+            {
+              "key": "E",
+              "text": "literature"
+            },
+            {
+              "key": "F",
+              "text": "organ"
+            },
+            {
+              "key": "G",
+              "text": "particularly"
+            },
+            {
+              "key": "H",
+              "text": "remaining"
+            },
+            {
+              "key": "I",
+              "text": "responsible"
+            },
+            {
+              "key": "J",
+              "text": "retained"
+            },
+            {
+              "key": "K",
+              "text": "still"
+            },
+            {
+              "key": "L",
+              "text": "strategy"
+            },
+            {
+              "key": "M",
+              "text": "transformed"
+            },
+            {
+              "key": "N",
+              "text": "underlines"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "I",
+          "explanation": "32.I）responsible（adj.负责的）\n语法判断空格前面为名词短语thepartofthebrain，后面为介词短语forsight，空格处应填分词或形容词，作\n后置定语。\n语义判断本句意为“一个小男孩因医疗原因切除了很大一部分大脑，其中包括大脑中视觉的区\n域”。responsiblefor（对…·负责）符合此处语境，故答案为responsible。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "hardly"
+            },
+            {
+              "key": "C",
+              "text": "indicates"
+            },
+            {
+              "key": "D",
+              "text": "insist"
+            },
+            {
+              "key": "E",
+              "text": "literature"
+            },
+            {
+              "key": "F",
+              "text": "organ"
+            },
+            {
+              "key": "G",
+              "text": "particularly"
+            },
+            {
+              "key": "H",
+              "text": "remaining"
+            },
+            {
+              "key": "I",
+              "text": "responsible"
+            },
+            {
+              "key": "J",
+              "text": "retained"
+            },
+            {
+              "key": "K",
+              "text": "still"
+            },
+            {
+              "key": "L",
+              "text": "strategy"
+            },
+            {
+              "key": "M",
+              "text": "transformed"
+            },
+            {
+              "key": "N",
+              "text": "underlines"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "K",
+          "explanation": "33.K）still（adv.仍然，还）\n语法判断空格前面为hecould，后面为动词原形see，故空格处应填人副词，修饰see。\n正常来说，视觉区域的缺失会导致该男孩失明、但本句提到“但在手术数年后，科学家发现他能够\n看见东西”。still（仍然）符合此处语境，表明视觉能力一直没有消失，故答案为still。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "hardly"
+            },
+            {
+              "key": "C",
+              "text": "indicates"
+            },
+            {
+              "key": "D",
+              "text": "insist"
+            },
+            {
+              "key": "E",
+              "text": "literature"
+            },
+            {
+              "key": "F",
+              "text": "organ"
+            },
+            {
+              "key": "G",
+              "text": "particularly"
+            },
+            {
+              "key": "H",
+              "text": "remaining"
+            },
+            {
+              "key": "I",
+              "text": "responsible"
+            },
+            {
+              "key": "J",
+              "text": "retained"
+            },
+            {
+              "key": "K",
+              "text": "still"
+            },
+            {
+              "key": "L",
+              "text": "strategy"
+            },
+            {
+              "key": "M",
+              "text": "transformed"
+            },
+            {
+              "key": "N",
+              "text": "underlines"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "O",
+          "explanation": "34.0）visual（adj.视觉的，视力的）\n语法判断空格前面为所有格hemissingpart's，后面为名词tasks，故空格处应填入形容词或分词，修饰tasks。\n西”，本句解释原因“其大脑其他区域接管了缺失部分的任务”。视觉区域当然是负责视觉任务，\n故答案为visual。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "hardly"
+            },
+            {
+              "key": "C",
+              "text": "indicates"
+            },
+            {
+              "key": "D",
+              "text": "insist"
+            },
+            {
+              "key": "E",
+              "text": "literature"
+            },
+            {
+              "key": "F",
+              "text": "organ"
+            },
+            {
+              "key": "G",
+              "text": "particularly"
+            },
+            {
+              "key": "H",
+              "text": "remaining"
+            },
+            {
+              "key": "I",
+              "text": "responsible"
+            },
+            {
+              "key": "J",
+              "text": "retained"
+            },
+            {
+              "key": "K",
+              "text": "still"
+            },
+            {
+              "key": "L",
+              "text": "strategy"
+            },
+            {
+              "key": "M",
+              "text": "transformed"
+            },
+            {
+              "key": "N",
+              "text": "underlines"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "J",
+          "explanation": "35.J）retained（v保留，保存）\n语法判断空格前面为从句主语theseindividuals，后面为宾语theabilitytosmell，空格处应填谓语动词。\n不确定这些人如何噢觉能力”。代人选项可知，retained“保留”符合此处语境.故为答案。\n干扰项注释\nB）hardly（adv.几乎不）D）insist（v坚称，坚决认为：坚决要求）L）strategy（n.策略，计策；战略）\nM）transformed（v改变；转换）N）underlines（v强调，突出；在·….下画线）"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-06-3-b",
+      "type": "matching",
+      "title": "“Phantom” Traffic Jams Are Real—And Scientists Know How to Stop Them",
+      "paragraphs": [
+        "A) Traffic jams are a common problem of most big cities, either in developed or in developing countries, but one kind of traffic jams in particular can be especially frustrating. These are generally known as “phantom” traffic jams, in which dense traffic crawls to a halt for no apparent reason at all.",
+        "B) “When caught in such a traffic jam, it is common for drivers to assume that there must be an accident, or construction or something,” said Massachusetts Institute of Technology (MIT) computer science professor Berthold Horn. “And then you drive and drive and drive... and there isn’t anything there.”",
+        "C) The exact cause of these phantom traffic jams has long remained a mystery. But now, new research has found the cause and researchers may have come up with a solution for this frustrating traffic pattern: maintaining equal spacing between cars on the road, rather than driving so closely behind another vehicle that a collision (碰撞) is likely if that vehicle brakes suddenly.",
+        "D) Horn said phantom traffic jams are an emergent property of the flow of vehicles down a highway. A phantom jam begins when a car in dense traffic slows down even slightly, which causes the car behind that vehicle to slow even more — and the slowing action spreads backward through the lane of traffic like a wave, getting worse the farther it spreads, Eventually, the cars far behind are forced to stop completely or risk hitting the slower vehicles ahead — and so the traffic grinds to a halt over nothing, Horn said.",
+        "E) Horn has been working on the problem of phantom traffic jams for years, and he has come up with a solution: By splitting the difference between the cars in front and the cars behind, the spacing of cars in a stream of traffic can act as a damper (抑制) on phantom traffic jams. That is, it can prevent the slow-down effect from being amplified (增强) by the cars that follow behind, he said. In essence, each driver would constantly make adjustments to keep their car roughly halfway between the car in front and the car behind.",
+        "F) Horn calls this method of vehicle spacing bilateral (双边的) control and he said it could be achieved with relatively simple modifications to the adaptive cruise control that many new cars already have. Adaptive cruise control is a driver assistance technology that sets a maximum speed for vehicles and automatically slows the speed of the car when traffic is sensed in front of the vehicle. The technology is also known as autonomous cruise control. Such modifications, Horn said, could help fight phantom jams within a few years, maybe decades before an alternative solution, such as networked self-driving cars, becomes a reality on the roads.",
+        "G) Traffic jams are caused by a number of factors, such as roads that are poorly designed or over-capacity, localized factors like city traffic-lighting patterns, and events like accidents and construction. But phantom traffic jams can make all those problems worse, Horn said. And the researchers in the new study have calculated that solving phantom jams could save at least some of the estimated $121 billion per year that traffic jams are estimated to cost the U.S. economy, Horn told Live Science.",
+        "H) New research by Horn and MIT postdoctoral associate Liang Wang, published in the journal IEEE Transactions on Intelligent Transportation Systems, shows how bilateral control can fight the problem. The researchers made computer models of real-world traffic conditions, showing how a typical U.S. freeway could benefit from cars using bilateral control. That would be in place when human drivers fail to slow down, thus avoiding tailgating ( 紧跟) the car in front, Horn said. “Under reasonable conditions today, you might get 1,800 cars per lane per hour throughput (the volume of traffic passing through),” he added. “But with bilateral control you could almost double that.”",
+        "I) The main alternative to increasing traffic throughput per lane has been to build more lanes and more highways, and putting in new roads is very expensive, he said. “If we can increase the throughput on major highways, even if it’s only by 50 percent that would be a big deal,” Horn said.",
+        "J) With the help of engineering students at high schools in Maine, Horn and Wang have also built a robot simulation (模拟) that shows how bilateral control can suppress phantom traffic jams. Increasing the sp acing of vehicles dampens the effect of slowdowns by cars in front of a given car, so that the slowing is not worsened until it becomes a phantom jam, the researchers said.",
+        "K) A video from the project shows a train of autonomous robots running along a track without bilateral control: they eventually back up in phantom jams. But when the robots are switched over to bilateral control (by flashing the lights in the room), each autonomous robot tries to keep itself halfway between the robot in front and the one behind; the phantom jams disappear as a result, Horn said.",
+        "L) Since starting his research on phantom traffic jams, Horn has learned that schools of fish and flocks of birds and bats use similar spacing strategies to avoid hitting each other while swimming or flying in densely packed groups. In particular, studies of millions of bats emerging at dusk from caves in Southeast Asia showed that each bat used a form of bilateral control to reduce the likelihood of collisions with other bats in the densely packed swarm (一大群), Hom said.",
+        "M) Unlike bats, birds and fish, however, humans have difficulty judging distances behind them. To address that weakness, Horn is now working with the car company Toyota to enable a form of bilateral control via modifications to existing adaptive cruise control systems, which use forward-facing sensors to judge the distance to the vehicle ahead. The bilateral control approach would include adding rear-facing sensors to determine the distance to the vehicle following a car.",
+        "N) But until those systems become standard, human drivers can help reduce phantom traffic jams simply by not following the car in front so closely. As Horn argues, “There’s absolutely no advantage of tailgating the car in front of you.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "The age-long mystery has now been resolved as to how phantom traffic jams are caused.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案解析C。由题干关键信息Theage-longmystery和howphantom trafficjams are caused定位到C段。C段提\n到，这种幽灵交通堵塞的确切原因长期以来一直是个谜，但如今，新的研究已经找到了原因，研究人员\n可能已经想出了应对这种令人沮丧的交通模式的解决方案题干是对这段内容的概括，其中Theage\nlongmystery对应原文中的has longremainedamystery，has nowbeenresolved与原文中的havecomeupwitha\nsolution同义，howphantom trafficjams arecaused对应原文中的Theexactcauseofthesephantom trafficjams，\n故答案为C。"
+        },
+        {
+          "number": 37,
+          "stem": "It is possible to nearly double the hourly throughput per lane by adopting bilateral control.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "答案解析H。由题干关键信息nearlydoublethehourlythroughputperlane和adoptingbilateral control定位到\nH段。H段结尾部分提到，他补充道：“在当今合理的条件下，每条车道每小时的通行量（交通流量）可\n能达到1800辆车。但是在采用双边控制后，这一数字几乎可以翻倍。”题干是对这一内容的概括，其中\nIt ispossibletonearlydouble对应原文中的youcould almost double，thehourlythroughput per lane对应原\n文中的per lane perhourthroughput，byadoptingbilateralcontrol与原文中的withbilateralcontrol同义，故\n答案为H。"
+        },
+        {
+          "number": 38,
+          "stem": "According to Ho rn, drivers making constant adjustments for equal spacing between cars in a flow of traffic can help reduce phantom traffic jams.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "答案解析E。由题干关键信息driversmakingconstantadjustments、equal spacingbetweencars和helpreduce\nphantomtrafficjams定位到E段。该段第一句提到，霍恩针对曲灵交通堵塞问题提出了一个解决方案：通过\n平衡前后车之间的距离（即保持与前车和后车等距），车流中的车辆间距可以起到抑制幽灵交通堵塞的作\n用。该段最后一句话又提到，每位司机都需要不断调整，让自己的车大致保持在前车和后车的中间位置。\n由此可知，题干是对这两句话的综合概括，其中driversmakingconstantadjustmentsforequal spacingbetween\ncars对应最后一句话中的eachdriverwouldconstantlymake adjustments tokeeptheircarroughlyhalfway\nbetween thecarinfront and thecar behind，canhelpreduce phantom traffic jams与第-句话中的canactasa\ndamperonphantomtrafficjams同义，故答案为E。"
+        },
+        {
+          "number": 39,
+          "stem": "Before systems for bilateral control are installed, drivers should not follow the car in front too closely so as to reduce phantom traffic jams.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "N",
+          "explanation": "答案解析N。由题干关键信息systemsforbilateralcontrol、notfollowthecarinfronttooclosely和reduce\nphantomtrafficjamis定位到N段。N段第一句提到，但在这些系统成为标准配置之前，人类司机只需不紧跟\n前车就能帮助减少幽灵交通堵塞。这些系统指的就是前文提到的双边控制系统，故题干与该句同义，其中\nsystemsforbilateralcontrol对应原文中的those systems，notfollowthecarinfronttooclosely与原文中的not\nfollowingthecarinfront soclosely同义，reducephantom trafficjams属于原词重现，故答案为N。"
+        },
+        {
+          "number": 40,
+          "stem": "Horn said with some simple modifications to the existing equipment in new vehicles, their spacing bilateral control could be accomplished.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答解析F。由题干关键信息simplemodifications、theexistingequipmentinnewvehicles和spacingbilateral\ncontrol定位到F段。F段第一句提到，霍恩将这种车辆间距控制方法称为双边控制，他说这可以通过对\n许多新车已经配备的自适应巡航控制系统进行相对简单的改进来实现。题干与该句同义，其中Hornsaid\n对应原文中的he said，with some simplemodificationstotheexistingequipmentinnewvehicles与原文中的\nwithrelatively simplemodificationstotheadaptivecruisecontrol thatmanynewcarsalreadyhave同义，spacing\nbilateralcontrol属于原词重现，couldbeaccomplished对应原文中的itcouldbeachieved，故答案为F。"
+        },
+        {
+          "number": 41,
+          "stem": "Drivers caught up in phantom traffic jams are likely to think an accident has happened or some construction is going on.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案解析B。由题干关键信息Driverscaught up in phantom traffic jams、an accidenthas happened和some\nconstructionisgoingon定位到B段。B段第一句提到，遇到这种交通堵塞时，司机通常会认为一定是前方发\n生了交通事故、道路有施工或其他情况。题干与该句同义，其中drivers是原词复现，caughtupinphantom\ntrafficjams与原文中的caughtinsuchatrafficjam同义，arelikelytothink对应原文中的itiscommon...to\nassume，an accident has happenedor some constructionisgoingon对应原文中的theremust bean accident,or\nconstructionorsomething，故答案为B"
+        },
+        {
+          "number": 42,
+          "stem": "Two sets of sensors would be used to help drivers determine the distances between cars.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "答案解析M。由题干关键信息Two setsofsensors和determinethe distances betweencars定位到M段。M段第\n二、三句提到，为了弥补这一弱点（即该段首句提到的，人类难以判断后方的距离），霍恩正在与丰田\n汽车公司合作，通过改进现有的自适应巡航控制系统来实现一种双边控制，现有的系统使用向前传感器\n来判断与前方车辆之间的距离。这种双边控制方法将包括添加向后传感器，以确定与后方车辆之间的距\n离。由此可知，双边控制方法包含两组传感器（向前传感器和向后传感器），用来帮助司机确定车辆之\n间的距离。故题干是对这两句话的概括，其中Twosetsof sensorswouldbeused对应原文中的useforward-\nfacing sensors和includeaddingrear-facing sensors，determine thedistancesbetween cars是对原文中tojudge the\ndistance to thevehicle ahead和todeterminethedistanceto thevehiclefollowingacar的概括，故答案为M。"
+        },
+        {
+          "number": 43,
+          "stem": "Solving the problem of phantom jams could save America billions of dollars every year.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "答案解析G。由题干关键信息Solvingtheproblemof phantomjams和saveAmericabillionsofdollarseveryyear\n定位到G段。G段最后一句提到，霍恩向《生活科学》杂志透露，这项新研究的研究人员计算出，解决\n幽灵交通堵塞，每年至少能够为美国节省部分预估因交通拥堵损失的约1210亿美元。题干是对这句话的\n概括，其中Solvingtheproblemofphantomjams对应原文中的solvingphantomjams，saveAmericabillions\nofdollarseveryyear是对原文中save atleast someof theestimatedS121billionperyear that trafficjams are\nestimatedtocosttheU.S.cconomy的概括，故答案为G。"
+        },
+        {
+          "number": 44,
+          "stem": "In a phantom traffic jam, the cars in the same lane slow down one after another, creating a wave-like effect.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案解析D。由题干关键信息aphantom trafficjam、the cars in the same lane、slowdown oneafteranother和\ncreatingawave-likeeffect定位到D段。D段第二句提到，当密集车流中的一辆车稍微减速时，曲灵堵塞便开\n始了，这会导致后面的车辆减速幅度更大一这种减速行为像波浪一样在车道上向后蔓延，蔓延得越远，\n情况就越糟糕。换言之，在幽灵交通堵塞中，同一车道的车辆依次减速，会产生波浪效应。题干是对该句\n的概括，其中aphantom trafficjam对应原文中的Aphantomjam，thecarsinthesamelane slowdownone after\nanother是对原文中的acarindense trafficslowsdownevenslightly，whichcauses thecarbehind thatvehicleto\nslowevenmore的概括总结，creatingawave-likeeffect与原文中的the slowingaction spreadsbackwardthrough\nthe laneoftrafficlikeawave同义，故答案为D。"
+        },
+        {
+          "number": 45,
+          "stem": "Horn has found that certain creatures use strategies similar to bilateral control to avoid hitting each other while moving in dense crowds.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "答案解析L。由题干关键信息certaincreatures、strategies similarto bilateralcontrol、avoid hittingeachother和\nmovingindensecrowds定位到L段。L段第一句提到，自从开始研究幽灵交通堵塞以来，霍恩已经了解到，\n鱼群、乌群和蝙蝠群在密集成群地游动或飞行时，会使用类似的间距策略来避免相互碰撞。题干是对这句\n话的概括，其中Homhasfound对应原文中的Hornhaslearned，certaincreatures是对原文中schoolsoffishand\nflocksofbirdsandbats的概括，use strategies similar tobilateralcontrol toavoidhittingeachotherwhilemoving\nindensecrowds与原文中的use similarspacingstrategies toavoidhittingeachotherwhileswimmingorflyingin\ndenselypackedgroups同义，故答案为L。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Our society places a high value on physical beauty. Americans spend an average of over $722 each year on their appearance. One in ten Americans has tried to look like a star.",
+        "There’s nothing wrong with trying to look our best but excessive focus on physical appearance misses the soulful aspects of what it means to be beautiful. Trying to look like the magazine pictures can take us on a long ride away from what beauty is really about.",
+        "Many of us spend far too much time, energy, and money trying to polish an image of what we think will bring attention, love, and connection. In the process, we may fail to attend to ourselves in a way that would move us toward deeper intimacy, fulfillment, and meaning.",
+        "It may sound trite (老生常谈的), but beauty is only skin deep; it’s not what brings love toward us. Just read about the latest Hollywood starlets whose seeming love turns into resentment and bitter court battles.",
+        "Outer beauty can be as much of a curse as a blessing. We may develop a habit of being so focused on maintaining a perfect appearance that we never cultivate the inner qualities necessary to sustain and deepen intimacy and connection. As I describe in my book, The Authentic Heart, it is the courage to be authentic that connects us in a deeper way.",
+        "While our initial attraction may be based in part on physical chemistry, it is the meeting of our inner worlds that creates the lasting intimacy and spiritual connection for which we long. If we redirect our attention toward cultivating inner qualities, we might find a magnetic attraction that moves us from something superficial to something that connects us to our depths.",
+        "The path toward cultivating inner beauty is really simple. But what is simple is not always easy. Not everyone will see us and appreciate us as we take the courageous risk to allow ourselves to be seen as we really are. But if they don’t it is their loss, not ours. Eventually we’ll find those compatible souls who appreciate us as we are."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn about American society from the first paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It sees lots of personal income wasted on beauty products."
+            },
+            {
+              "key": "B",
+              "text": "It considers one’s physical appearance very important."
+            },
+            {
+              "key": "C",
+              "text": "It places a high value on the physical fitness of stars."
+            },
+            {
+              "key": "D",
+              "text": "It expects every individual to look their very best."
+            }
+          ],
+          "answer": "B",
+          "explanation": "46.从第一段中我们能了解到美国社会的什么情况？\nA)美国社会见证大量个人收入被浪费在美容产品上。C）美国社会高度重视明星的身体健康。\nB)美国社会认为一个人的外貌非常重要。\nD)美国社会期望每个人都展现出最佳形象。\n定位：根据关键词Americansociety和thefirstparagraph定位到第一段首句。\n\n解析：第一段首句明确指出我们的社会高度重视外在美，随后列举美国人年均花费722美元在外表上、十分之一\n\n的人曾尝试模仿明星造型的例子加以论证，这说明美国社会认为外在美很重要。B项符合原文表述，故选\nB。文章中提及花费金钱，但重点是强调社会对美的重视，而非浪费个人收人，A项属于过度引申，应排\n除。C项和D项的内容文章中未提及，故均排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What happens when people strive to look better?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have to get prepared for resentment and bitter court battles."
+            },
+            {
+              "key": "B",
+              "text": "They are better able to gain attention, love, and personal connection."
+            },
+            {
+              "key": "C",
+              "text": "They may neglect to cultivate the inner qualities that matter more."
+            },
+            {
+              "key": "D",
+              "text": "They feel much of their precious time, energy and resources is wasted."
+            }
+          ],
+          "answer": "C",
+          "explanation": "47.当人们竭力追求更好的外貌时，会发生什么？\nA)他们不得不为怨恨和激烈的法庭纠纷做好准备。\nB)他们会更容易获得关注、爱和人际联结。\nC)他们可能忽视培养更重要的内在品质。\nD)他们觉得自己大量的宝贵时间、精力和资源被浪费了。\n定位：根据关键词strivetolookbetter定位到第二、三段。\n\n解→第二段指出，过度关注外貌会让我们忽略“美”的灵魂层面，让我们与美的真谛渐行渐远；第三段进一步\n\n指出，人们在追求外表时，可能会没能以一种能让自己走向更深层次的亲密关系、获得满足感和人生意\n义的方式呵护自己，也就是说人们过度追求外在美时可能会忽视培养更重要的内在品质。C项的含义与原\n文一致，故选C。第四段提到了好莱坞新秀女演员的例子，但这只是一个具体案例，用于说明外表美不一\n定能带来真爱，而她们的爱情演变成怨恨与激烈的法庭纷争也并非普遍结果，A项过于绝对和极端，故排\n除。B项与文章表达的意思相反，故排除。文章第三段提到人们耗费了过多的时间、精力和金钱，但并未\n说他们因此感觉浪费，故排除D项。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author say about outer beauty?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may be inherited or cultivated."
+            },
+            {
+              "key": "B",
+              "text": "It may lead to bad as well as good habits."
+            },
+            {
+              "key": "C",
+              "text": "It may create connection or isolation."
+            },
+            {
+              "key": "D",
+              "text": "It may do as much harm as good."
+            }
+          ],
+          "answer": "D",
+          "explanation": "48.作者对外在美有何看法？\nA)它可能是与生俱来或后天培养的。\nC）它可能创造联结，也可能造成隔阁。\nB）它可能养成好习惯，也可能导致坏习惯。\nD)它的益处与危害可能同样多。\n定位：根据关键词outerbeauty定位到第五段第一句。\n\n解析：第五段第一句明确指出，外在美可能福祸并存、即它既有益处也有害处，D项与原文相符，故选D。A项\n\n的内容文章中未提及，故排除。文章强调外在美可能导致一味追求完美外表的习惯，这属于“坏习惯”范\n畴，未提及“好习惯”：此外，文章的焦点是内在品质的缺失，而非习惯本身，B项偏离了文章的中心，\n故排除。第五段强调外在美无法替代内在品质维系并深化亲密关系，而非直接创造联结或造成隔阁，C项\n属于过度推断，应排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What brings about spiritual connection?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Meeting of minds."
+            },
+            {
+              "key": "B",
+              "text": "Attraction at first sight."
+            },
+            {
+              "key": "C",
+              "text": "Physical chemistry."
+            },
+            {
+              "key": "D",
+              "text": "Frequent interaction."
+            }
+          ],
+          "answer": "A",
+          "explanation": "49.什么会带来心灵相通？\nA)心灵的相遇。\nC)身体化学反应。\nB)一见钟情。\nD)频繁的互动。\n定位：根据关键词spiritualconnection定位到第六段第一句。\n\n解析：第六段第一句明确提到，真正造就我们渴望的那种持久亲密与心灵相通，是内心世界的相遇相知，A项\n\nMeetingofminds是对原文meetingofourinnerworlds的同义替换，故选A项。第六段第一句的前半句提到最\n初的吸引可能部分源于我们身体本能的化学反应，但由后半句可知，作者认为这无法带来心灵相通，故排\n除C项。B项和D项的内容文章中未提及，故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What happens when we take the path toward cultivating inner beauty?",
+          "options": [
+            {
+              "key": "A",
+              "text": "We may find a route toward other people’s souls."
+            },
+            {
+              "key": "B",
+              "text": "We may be appreciated more by people around us."
+            },
+            {
+              "key": "C",
+              "text": "We will meet people who value us for who we are."
+            },
+            {
+              "key": "D",
+              "text": "We will be discouraged from revealing our true selves."
+            }
+          ],
+          "answer": "C",
+          "explanation": "50.当我们踏上培养内在美的道路时会发生什么？\nB）我们可能获得身边人更多的欣赏。\nD)我们将怯于展现真实的自己。\n\n\f\n定位：根据题干关键词cultivatinginnerbeauty定位到最后一段末句。\n\n解析：最后一段末句提到，终有一天，我们会遇见那些与我们灵魂相契、能欣赏我们本来模样的人，C项是原文\n\n相关内容的同义转述，故选C。A、B两项的内容原文没有提及，故排除。最后一段提到，当我们鼓起勇气\n展现真实自我时，并非每个人都会看见并欣赏这样的我们，但如果他们不懂得欣赏，那是他们的损失，而\n非我们的，这是在鼓励人们展现真实的自我，并没有提及人们在追求内在美的时候是否会怯于展现真实的\n自己，D项的说法在文中没有依据，故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Plant-based meats are coming soon to a dinner table near you, but do they deserve a spot on your plate? If you tried a vegetable burger years ago and dismissed it as rubbery and flavorless, it’s a good time to give meatless meat another chance. Newer varieties imitate the lo ok, flavor, and texture of meat. Analysts don’t expect the meat-free movement to slow anytime soon; a 2021 report predicts the market will skyrocket to $74 billion by 2030 — a 957 percent surge.",
+        "Plant-based meats are no longer just for vegetarians. Comp anies such as Impossible Foods and Beyond Meat — the current superstars of the alternative protein sector — are pursuing consumers who enjoy meat but want to reduce their meat consumption for animal rights, health, or environmental reasons. So far, it's a wi nning strategy: More than nine out of ten consumers who buy Beyond Burger and Impossible Foods products also eat meat.",
+        "Many vegetarians don’t actually care for food that resembles meat. When reporter Joan Solsman, a longtime vegetarian, tried a dish from Impossible Foods, she felt so sick that she couldn’t finish it. “Maybe the best sign that Impossible Foods has cracked the code to realistic fake meat is that I couldn’t stand to take another bite,” she wrote.",
+        "Meatless meats are generally a healthier choice than beef because they are cholesterol-free, plus they're a good source of vitamins, minerals, protein, and fiber.",
+        "If meatless meat can help you stick to a plant-based diet, that in itself can lead to better health. Not only has red meat been linked to cancer, but studies show that people who ditch meat have lower blood pressure, lower average blood sugar, and lower cholesterol levels.",
+        "However, just because it’s plant-based doesn’t mean it’s health food. Most imitation meats are highly processed and contain high amounts of sodium (钠) compared to traditional beef.",
+        "These new generations of alternate meat get all the attention, but don’t forget about whole grains and vegetables. Beans are an especially excellent protein substitute. They’re nutritious, inexpensive, and far more sustainable than any of the processed meatless substitutes on the market today."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What can we expect of plant-based meats?",
+          "options": [
+            {
+              "key": "A",
+              "text": "An increasing interest in their analyses."
+            },
+            {
+              "key": "B",
+              "text": "An enormous effort in their promotion."
+            },
+            {
+              "key": "C",
+              "text": "A huge boost in their consumption."
+            },
+            {
+              "key": "D",
+              "text": "A noticeable surge in their varieties."
+            }
+          ],
+          "answer": "C",
+          "explanation": "51.关于植物肉我们可以有什么期待？\nA)人们对其分析的兴趣日益增加。\nC)其消费量将大幅增长。\nB)人们会付出巨大努力来推广它们。\nD)其种类会显著激增。\n\n\f\n定位：根据关键词expect和plant-basedmeats定位到第一段最后一句。\n\n解析：第一段最后一句提到，分析人士认为，素食潮流短期内不会放缓；2021年的一份报告预测，到2030年该市\n\n场规模将升至740亿美元一增幅高达957%，这说明植物肉的消费量将会大幅度增长，C项与原文表述\n相符，故选C。文章仅提到分析人士认为素食潮流不会放缓，未提及分析兴趣，故排除A。B项的内容文中\n未提及，故排除。文章中提到新一代产品在外观、风味和口感上都能模仿肉类，但未提及种类增加，故\n排除D。"
+        },
+        {
+          "number": 52,
+          "stem": "What do we learn about consumers buying Beyond Burger and Impossible Foods products?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are mostly non-vegetarians."
+            },
+            {
+              "key": "B",
+              "text": "They are mostly animal-rights advocates."
+            },
+            {
+              "key": "C",
+              "text": "Most of them refrain from eating meat for health reasons."
+            },
+            {
+              "key": "D",
+              "text": "Most of them eat meatless meat to protect the environment"
+            }
+          ],
+          "answer": "A",
+          "explanation": "52. 关于购买这些产品的消费者\nA)他们大多是非素食者。\nC）他们中大多数人因健康原因不吃肉。\nB）他们大多是动物权益倡导者。\nD）他们中大多数人吃素肉是为了保护环境。\n定位：根据关键词Beyond Burgerand ImpossibleFoods定位到第二段。\n\n解析：第二段最后一句指出，购买“超越汉堡”和“不可能食品”产品的消费者中，超过九成同时也食用肉类，\n\n这说明他们大多不是素食者，A项符合原文，故选A。B项和D项是部分消费者减少肉类摄人的动机，但文\n中未限定大多数人具体出于哪种动机，故均应排除。文中提到有部分消费者因动物权益保护、健康或环保\n原因想减少肉类摄人，而不是不吃肉，C项与原文不符，应排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What can we conclude about Impossible Foods’ products from Joan Solsman’s remark?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They more often appeal to meat-eaters."
+            },
+            {
+              "key": "B",
+              "text": "They very much resemble animal meat."
+            },
+            {
+              "key": "C",
+              "text": "Some have become its signature dishes."
+            },
+            {
+              "key": "D",
+              "text": "Most of them are sold as true fake meat"
+            }
+          ],
+          "answer": "B",
+          "explanation": "53.从琼·索尔斯曼的评论中，我们能就“不可能食品”的产品得出什么结论？\nA)它们更常吸引肉食者。\nC）有些产品已成为其招牌菜。\nB)它们非常像动物肉类。\nD）它们大多数作为“真正的人造肉”出售。\n定位：根据关键词JoanSolsman'sremark定位到第三段。\n\n解根据第三段可知，琼·索尔斯曼是长期素食者，她在尝试了“不可能食品”的一道菜后感到非常不适，甚\n\n至没能吃完。由此可知，该段结尾琼·索尔斯曼指出“或许·不可能食品’已经掌握了制作逼真素肉的密\n码，最好的证明就是我一口都吃不下了”，即“不可能食品”的产品过于逼真，作为素食者她感到难以下\n咽，B项的表述是原文的同义转述，故选B。其他三项的内容文中均未提及，故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "Why can the habit of eating a plant-based diet lead to better health?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It frees people from any known link to cancer."
+            },
+            {
+              "key": "B",
+              "text": "It provides all the nutrients for staying healthy."
+            },
+            {
+              "key": "C",
+              "text": "It helps maintain normal blood pressure and blood sugar."
+            },
+            {
+              "key": "D",
+              "text": "It reduces various health risks posed by meat consumption."
+            }
+          ],
+          "answer": "D",
+          "explanation": "54.为什么吃植物性饮食的习惯能带来更健康的身体？\nA)它让人们摆脱了与癌症的任何已知联系。C）它帮助维持正常的血压和血糖。\nB)它提供保持健康所需的所有营养素。D）它降低了食用肉类带来的各种健康风险。\n定位：根据关键词plant-baseddiet和betterhealth定位到第四、五段。\n\n解→第四段提到植物肉不含胆固醇，且是维生素、矿物质等的良好来源；第五段指出红肉与癌症相关，而不\n\n食用肉类的人血压、平均血糖和胆固醇水平更低。由此可知，植物性饮食能减少肉类带来的健康风险，D\n项是对原文的概括总结，故选D。原文只提及红肉与癌症有关联，未提及植物肉能完全消除癌症风险，A\n项内容过于绝对，故排除。文章说素肉富含维生素、矿物质等，但并未说它提供了所有营养素，故排除B\n项。文章只提及不食用肉类的人血压、平均血糖更低，并未提及吃植物性饮食能帮助维持正常的血压和血\n糖，故排除C。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author recommend we eat at the end of the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Naturally produced foods."
+            },
+            {
+              "key": "B",
+              "text": "Processed protein substitutes."
+            },
+            {
+              "key": "C",
+              "text": "Red meats like traditional beef."
+            },
+            {
+              "key": "D",
+              "text": "New generations of alternate meat."
+            }
+          ],
+          "answer": "A",
+          "explanation": "55.在文章结尾，作者建议我们吃什么？\nA)天然食物。\nC）像传统牛肉这样的红肉。\nB）加工过的蛋白质替代品。\nD）新一代的替代肉类。\n定位：根据关键词attheendofthepassage定位到最后一段。\n\n解析：最后一段作者指出，这些新一代替代肉类备受关注，但也别忘了全谷物和蔬菜。作者还指出，豆类是极佳\n\n的蛋白质替代品，它们营养丰富、价格实惠。这些都说明作者建议人们吃天然食物，故选A。作者批评加\n工素肉钠含量高，且建议用天然豆类替代，故排除B项。作者指出了红肉的健康风险，明确反对红肉，故\n排除C项。作者认为新一代替代肉类仍是加工品，应优先选择天然食物，故排除D项。"
+        }
+      ]
+    }
+  ],
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_06_3_ans.pdf"
+}

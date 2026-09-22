@@ -34,6 +34,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: { "/api/cet": ["./data/cet/*.json"] },
   output: "standalone",
   images: {
     remotePatterns: [{ protocol: "https", hostname: "context-reader.com", pathname: "/storage/v1/object/public/public-article-covers/**" }],

@@ -1,0 +1,1662 @@
+{
+  "id": "cet4-2025-06-1",
+  "level": 4,
+  "year": 2025,
+  "month": 6,
+  "set": 1,
+  "title": "2025 年 6 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/cet4_2025_06_1.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2025-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Psychologists have long been interested in how we construct our identities and the sorts of strategies that we use to present ourselves in society. New findings suggest that the kinds of [[26]] and strategic self-presentation behaviour we see in adults appear at a much younger age than [[27]] known.",
+        "Research shows that a child’s awareness of social standing comes from adults. Like grown-ups, kids want to be [[28]] by those they admire. Interactive experiences may provide opportunities for children to learn about what [[29]] a desirable reputation and the kinds of strategies that are effective for [[30]] a good reputation in their social environment.",
+        "Five-year-olds aren’t just aware of their reputations, they also behave strategically to alter their outward image. They will [[31]] their behaviour in order to appear moral or socially good in the eyes of key observers. While we know that adults use a large variety of attributes to manage and create impressions, we don’t yet know whether children [[32]] and use the fact that different attributes are valu able at different times to different [[33]]. It’s important for us to further consider where in this process children succeed in controlling their reputation and where they [[34]].",
+        "A question to think about is, “What happens even earlier than age five?” Children don’t just show up to the first day of kindergarten and have the idea of reputation pop [[35]] into existence. The logical question to ask is, “What happens even earlier?”"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "accepted"
+        },
+        {
+          "key": "B",
+          "text": "audiences"
+        },
+        {
+          "key": "C",
+          "text": "building"
+        },
+        {
+          "key": "D",
+          "text": "complex"
+        },
+        {
+          "key": "E",
+          "text": "constitutes"
+        },
+        {
+          "key": "F",
+          "text": "deputies"
+        },
+        {
+          "key": "G",
+          "text": "previously"
+        },
+        {
+          "key": "H",
+          "text": "revolving"
+        },
+        {
+          "key": "I",
+          "text": "samples"
+        },
+        {
+          "key": "J",
+          "text": "selected"
+        },
+        {
+          "key": "K",
+          "text": "solemn"
+        },
+        {
+          "key": "L",
+          "text": "struggle"
+        },
+        {
+          "key": "M",
+          "text": "suddenly"
+        },
+        {
+          "key": "N",
+          "text": "understand"
+        },
+        {
+          "key": "O",
+          "text": "vary"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accepted"
+            },
+            {
+              "key": "B",
+              "text": "audiences"
+            },
+            {
+              "key": "C",
+              "text": "building"
+            },
+            {
+              "key": "D",
+              "text": "complex"
+            },
+            {
+              "key": "E",
+              "text": "constitutes"
+            },
+            {
+              "key": "F",
+              "text": "deputies"
+            },
+            {
+              "key": "G",
+              "text": "previously"
+            },
+            {
+              "key": "H",
+              "text": "revolving"
+            },
+            {
+              "key": "I",
+              "text": "samples"
+            },
+            {
+              "key": "J",
+              "text": "selected"
+            },
+            {
+              "key": "K",
+              "text": "solemn"
+            },
+            {
+              "key": "L",
+              "text": "struggle"
+            },
+            {
+              "key": "M",
+              "text": "suddenly"
+            },
+            {
+              "key": "N",
+              "text": "understand"
+            },
+            {
+              "key": "O",
+              "text": "vary"
+            }
+          ],
+          "answer": "D",
+          "explanation": "26.D)complex（adj.复杂的）\n语法判断空格前是thekindsof，空格后是andstrategicself-presentationbehaviour。and连接并列成分，\nstrategic为形容词，故空格处需填人形容词，与strategic共同修饰behaviour。\n语义判断由定语从句weseeinadults可知，这种展示自我的行为是人们在成年人身上看到的，它具有复杂\n性，因为，一般而言，人越长大行为越复杂，故空格处应填入complex一词，与and后的strategic（策略性\n的）构成语义上的并列关系，故选D。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accepted"
+            },
+            {
+              "key": "B",
+              "text": "audiences"
+            },
+            {
+              "key": "C",
+              "text": "building"
+            },
+            {
+              "key": "D",
+              "text": "complex"
+            },
+            {
+              "key": "E",
+              "text": "constitutes"
+            },
+            {
+              "key": "F",
+              "text": "deputies"
+            },
+            {
+              "key": "G",
+              "text": "previously"
+            },
+            {
+              "key": "H",
+              "text": "revolving"
+            },
+            {
+              "key": "I",
+              "text": "samples"
+            },
+            {
+              "key": "J",
+              "text": "selected"
+            },
+            {
+              "key": "K",
+              "text": "solemn"
+            },
+            {
+              "key": "L",
+              "text": "struggle"
+            },
+            {
+              "key": "M",
+              "text": "suddenly"
+            },
+            {
+              "key": "N",
+              "text": "understand"
+            },
+            {
+              "key": "O",
+              "text": "vary"
+            }
+          ],
+          "answer": "G",
+          "explanation": "27.G)previously（adv.以前，先前）\n语法判断该句为比较结构，than引导比较状语从句，从句中省略了主语和be动词，完整形式可能为than[it\nwas]known。known为过去分词，此处需填入副词修饰known。\n语义判断Newfindings（新发现）暗示前后认知的差异，即现在的发现与过去的认知进行对比。代人\npreviously，thanpreviouslyknown明确表达“比先前已知的要早得多”，符合语境，故为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accepted"
+            },
+            {
+              "key": "B",
+              "text": "audiences"
+            },
+            {
+              "key": "C",
+              "text": "building"
+            },
+            {
+              "key": "D",
+              "text": "complex"
+            },
+            {
+              "key": "E",
+              "text": "constitutes"
+            },
+            {
+              "key": "F",
+              "text": "deputies"
+            },
+            {
+              "key": "G",
+              "text": "previously"
+            },
+            {
+              "key": "H",
+              "text": "revolving"
+            },
+            {
+              "key": "I",
+              "text": "samples"
+            },
+            {
+              "key": "J",
+              "text": "selected"
+            },
+            {
+              "key": "K",
+              "text": "solemn"
+            },
+            {
+              "key": "L",
+              "text": "struggle"
+            },
+            {
+              "key": "M",
+              "text": "suddenly"
+            },
+            {
+              "key": "N",
+              "text": "understand"
+            },
+            {
+              "key": "O",
+              "text": "vary"
+            }
+          ],
+          "answer": "A",
+          "explanation": "28.A)accepted（v认可；接受）\n语法判断空格前为wanttobe，空格后是动作执行者bythose..，空格处需填入动词的过去分词形式，构成完\n整的被动语态。\n语义判断前句指出“儿童对社会地位的认知源于成年人”，本句通过Likegrown-ups类比，说明儿童与成\n人有相似需求，即希望被自己仰慕的人—。admire（仰慕）暗示对象是儿童认可的权威或榜样，而前\n一句中提及的socialstanding（社会地位）关系到他人的评价与接纳。成年人渴望被社会认可，儿童同样如\n此，故空格处需体现“被认可、被接纳”的语义，应填人accepted。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accepted"
+            },
+            {
+              "key": "B",
+              "text": "audiences"
+            },
+            {
+              "key": "C",
+              "text": "building"
+            },
+            {
+              "key": "D",
+              "text": "complex"
+            },
+            {
+              "key": "E",
+              "text": "constitutes"
+            },
+            {
+              "key": "F",
+              "text": "deputies"
+            },
+            {
+              "key": "G",
+              "text": "previously"
+            },
+            {
+              "key": "H",
+              "text": "revolving"
+            },
+            {
+              "key": "I",
+              "text": "samples"
+            },
+            {
+              "key": "J",
+              "text": "selected"
+            },
+            {
+              "key": "K",
+              "text": "solemn"
+            },
+            {
+              "key": "L",
+              "text": "struggle"
+            },
+            {
+              "key": "M",
+              "text": "suddenly"
+            },
+            {
+              "key": "N",
+              "text": "understand"
+            },
+            {
+              "key": "O",
+              "text": "vary"
+            }
+          ],
+          "answer": "E",
+          "explanation": "29.E)constitutes（v构成，组成）\n语法判断空格前的what在从句中作主语，空格后是宾语，空格处需填人谓语动词。\n语义判断前一句提到“互动体验可以为儿童提供机会”，此处的机会指“让他们了解是什么\n理想的\n声誉”。代人选项可知，constitutes（构成，组成）符合此处语境，句意为“让他们了解是什么构成了理想\n的声誉”。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accepted"
+            },
+            {
+              "key": "B",
+              "text": "audiences"
+            },
+            {
+              "key": "C",
+              "text": "building"
+            },
+            {
+              "key": "D",
+              "text": "complex"
+            },
+            {
+              "key": "E",
+              "text": "constitutes"
+            },
+            {
+              "key": "F",
+              "text": "deputies"
+            },
+            {
+              "key": "G",
+              "text": "previously"
+            },
+            {
+              "key": "H",
+              "text": "revolving"
+            },
+            {
+              "key": "I",
+              "text": "samples"
+            },
+            {
+              "key": "J",
+              "text": "selected"
+            },
+            {
+              "key": "K",
+              "text": "solemn"
+            },
+            {
+              "key": "L",
+              "text": "struggle"
+            },
+            {
+              "key": "M",
+              "text": "suddenly"
+            },
+            {
+              "key": "N",
+              "text": "understand"
+            },
+            {
+              "key": "O",
+              "text": "vary"
+            }
+          ],
+          "answer": "C",
+          "explanation": "30.C)building（v建立，构建）\n语法判断空格前为介词for，空格后是名词短语agoodreputation，介词后接动词时需用动名词形式，因此空\n格处需填人动名词，构成目的状语结构“for+动名词+宾语”。\n语义判断前面部分提及“了解是什么构成了理想的声誉”，然后用and连接空格所在的并列部分，进一步说\n明维护声誉的策略。代人选项可知，building“建立，构建”符合此处语境，句意为“在社交环境中哪些策\n略能有效树立起良好的声誉”。前后文形成逻辑链条，即先认知“声誉的要素组成”，再掌握“声誉的树\n立方法”。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accepted"
+            },
+            {
+              "key": "B",
+              "text": "audiences"
+            },
+            {
+              "key": "C",
+              "text": "building"
+            },
+            {
+              "key": "D",
+              "text": "complex"
+            },
+            {
+              "key": "E",
+              "text": "constitutes"
+            },
+            {
+              "key": "F",
+              "text": "deputies"
+            },
+            {
+              "key": "G",
+              "text": "previously"
+            },
+            {
+              "key": "H",
+              "text": "revolving"
+            },
+            {
+              "key": "I",
+              "text": "samples"
+            },
+            {
+              "key": "J",
+              "text": "selected"
+            },
+            {
+              "key": "K",
+              "text": "solemn"
+            },
+            {
+              "key": "L",
+              "text": "struggle"
+            },
+            {
+              "key": "M",
+              "text": "suddenly"
+            },
+            {
+              "key": "N",
+              "text": "understand"
+            },
+            {
+              "key": "O",
+              "text": "vary"
+            }
+          ],
+          "answer": "O",
+          "explanation": "31.O)vary（v变化；改变）\n语法判断空格前是情态动词will，空格后是名词短语theirbehaviour，故空格处应填动词原形。\n语义判断前一句指出“五岁儿童不仅已具备声誉意识，还会通过策略性行为来改变其外界形象”。本句承\n接altertheiroutwardimage，说明他们会通过调整行为来达成不同的目的。vary有“改变”之意，符合此处\n语境，且与alter形成语义复现。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accepted"
+            },
+            {
+              "key": "B",
+              "text": "audiences"
+            },
+            {
+              "key": "C",
+              "text": "building"
+            },
+            {
+              "key": "D",
+              "text": "complex"
+            },
+            {
+              "key": "E",
+              "text": "constitutes"
+            },
+            {
+              "key": "F",
+              "text": "deputies"
+            },
+            {
+              "key": "G",
+              "text": "previously"
+            },
+            {
+              "key": "H",
+              "text": "revolving"
+            },
+            {
+              "key": "I",
+              "text": "samples"
+            },
+            {
+              "key": "J",
+              "text": "selected"
+            },
+            {
+              "key": "K",
+              "text": "solemn"
+            },
+            {
+              "key": "L",
+              "text": "struggle"
+            },
+            {
+              "key": "M",
+              "text": "suddenly"
+            },
+            {
+              "key": "N",
+              "text": "understand"
+            },
+            {
+              "key": "O",
+              "text": "vary"
+            }
+          ],
+          "answer": "N",
+          "explanation": "32.N）understand（v理解，明白）\n语法判断空格前是宾语从句的主语children，空格后是anduse...。and连接并列成分，use为动词原形，故空\n格处应填入动词原形，与use并列，充当谓语。\n语义判断前半句是while引导的让步状语从句，意为“尽管我们知道成年人会运用五花八门的特质进行印\n象管理”，由此可推测，主句要表达的意思应该是，但不知道儿童是否懂得或运用类似的策略进行印象管\n理。结合备选项及空格后的anduse可知，空格处应填人understand，该词与use（运用）形成认知递进，即\n先理解规律，再付诸实践。故答案为understand。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accepted"
+            },
+            {
+              "key": "B",
+              "text": "audiences"
+            },
+            {
+              "key": "C",
+              "text": "building"
+            },
+            {
+              "key": "D",
+              "text": "complex"
+            },
+            {
+              "key": "E",
+              "text": "constitutes"
+            },
+            {
+              "key": "F",
+              "text": "deputies"
+            },
+            {
+              "key": "G",
+              "text": "previously"
+            },
+            {
+              "key": "H",
+              "text": "revolving"
+            },
+            {
+              "key": "I",
+              "text": "samples"
+            },
+            {
+              "key": "J",
+              "text": "selected"
+            },
+            {
+              "key": "K",
+              "text": "solemn"
+            },
+            {
+              "key": "L",
+              "text": "struggle"
+            },
+            {
+              "key": "M",
+              "text": "suddenly"
+            },
+            {
+              "key": "N",
+              "text": "understand"
+            },
+            {
+              "key": "O",
+              "text": "vary"
+            }
+          ],
+          "answer": "B",
+          "explanation": "33.B)audiences（n.观众，听众）\n语法判断空格位于句末，其前面为形容词different，故空格处应填名词。\n语义判断此句意为“不同特质在不同情境下对不同具有不同价值”。代人选项可知，audiences符合\n此处语境，此处并非特指“观众”，而是引申为“社交场景中的观察方”，如老师、同伴、家长等。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accepted"
+            },
+            {
+              "key": "B",
+              "text": "audiences"
+            },
+            {
+              "key": "C",
+              "text": "building"
+            },
+            {
+              "key": "D",
+              "text": "complex"
+            },
+            {
+              "key": "E",
+              "text": "constitutes"
+            },
+            {
+              "key": "F",
+              "text": "deputies"
+            },
+            {
+              "key": "G",
+              "text": "previously"
+            },
+            {
+              "key": "H",
+              "text": "revolving"
+            },
+            {
+              "key": "I",
+              "text": "samples"
+            },
+            {
+              "key": "J",
+              "text": "selected"
+            },
+            {
+              "key": "K",
+              "text": "solemn"
+            },
+            {
+              "key": "L",
+              "text": "struggle"
+            },
+            {
+              "key": "M",
+              "text": "suddenly"
+            },
+            {
+              "key": "N",
+              "text": "understand"
+            },
+            {
+              "key": "O",
+              "text": "vary"
+            }
+          ],
+          "answer": "L",
+          "explanation": "34.L）struggle（v.艰难地行进；吃力地进行）\n语法判断空格位于句末，其前面是宾语从句的主语they，空格处应填谓语动词。where..succeed和where\nthey_—是consider的并列宾语从句，故空格处所填词与succeed并列，需填入动词原形。\n语义判断前半句讨论成功控制声誉的环节，后半句应指向失败或难以控制的环节。该词与succeed形成对\n比，体现研究的客观性，既肯定儿童的策略性能力，也指出其可能存在的认知局限。struggle在此取“艰难\n应对”之意，符合语境，故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accepted"
+            },
+            {
+              "key": "B",
+              "text": "audiences"
+            },
+            {
+              "key": "C",
+              "text": "building"
+            },
+            {
+              "key": "D",
+              "text": "complex"
+            },
+            {
+              "key": "E",
+              "text": "constitutes"
+            },
+            {
+              "key": "F",
+              "text": "deputies"
+            },
+            {
+              "key": "G",
+              "text": "previously"
+            },
+            {
+              "key": "H",
+              "text": "revolving"
+            },
+            {
+              "key": "I",
+              "text": "samples"
+            },
+            {
+              "key": "J",
+              "text": "selected"
+            },
+            {
+              "key": "K",
+              "text": "solemn"
+            },
+            {
+              "key": "L",
+              "text": "struggle"
+            },
+            {
+              "key": "M",
+              "text": "suddenly"
+            },
+            {
+              "key": "N",
+              "text": "understand"
+            },
+            {
+              "key": "O",
+              "text": "vary"
+            }
+          ],
+          "answer": "M",
+          "explanation": "35.M)suddenly（adv.突然地；忽然）\n语法判断popintoexistence（突然产生）为固定搭配，故空格处需填人副词，修饰动词pop。\n语义判断前文提出问题“在五岁之前会发生什么？”，本句用don’t否定了“孩子们在踏人幼儿园的第一天\n就形成了声誉的观念”的情况，又根据后文提到的问题“更早的时候发生了什么呢？”，可知儿童\n形成有关声誉的观念并非是一而就的。suddenly“突然地”符合此处语境，故为答案。\n干扰项注释\nF)deputies（n.代理人；副手）H）revolving（v旋转adj.旋转的；循环的）I）samples（n.样品，样本\nv采样，取样）J)selected（adj.挑选出来的v选择，挑选）K）solemn（adj.庄严的，严肃的）"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-06-1-b",
+      "type": "matching",
+      "title": "Getting young minds into design",
+      "paragraphs": [
+        "A) Recently, a leading design federation in the UK warned that the UK could face a creative skills shortage, after the latest figures revealed a drop of almost 10 percent in students studying Design and Technology. These figures showed that the number of pupils that sat exams in Design and Technology fell 10 percent from 204,788 to 185,279 last year.",
+        "B) Chief executive John Kampfner of the Creative Industries Federation thinks that this drop in figures has worrying implications for the skills pipeline in Britain’s hugely successful arts and creative industries. He said, “We already have skills shortages in many jobs such as animation (动画制作) and special effects.” He added: “Engineering, which requires a similar mix of creative and technical skills, also has recruitment problems.”",
+        "C) Many other designers and architects have expressed concern over the future supply of home-grown talent for UK firms, and industry bodies have pointed out that there has been a lack of roots-level support. However, if these designers had visited the Design Museum shop in London earlier this year their fears may have been eased. With £10 to spend, they could have bought a fascinating children’s toy called “Dazzle Racer”. An automotive cylinder(圆柱体), it included a wind-up, elastic (有弹性的)-band-powered mechanism, minimal parts, all 100 percent recycled and lots of stickers. It was good fun, simple, eye-catching and very original.",
+        "D) Well you’d expect the Design Museum to commission and make some interesting items, but this one was different. Designed by a group of six Year 9 and Year 10 boys from Finchley Catholic High School, the toy was the winning entry in the museum’s 2015 Design Ventura competition, which brings the business of design to life for students aged 13 to 16 by challenging them to develop a new creative, sustainable and commercially feasible product for the Design Museum shop and attracts hundreds of entries nationwide.",
+        "E) “We did Design Ventura in my previous school, ” says Liam Hourican, Finchley Catholic High School’s design technology curriculum leader. “Then when I changed schools four years ago, I introduced it here because it helps to develop so many skills.”",
+        "F) The theme for last year’s competition was “Move”, and Hourican began with three groups working in lunch breaks and after school before selecting the group with the most innovative idea. Each participating school may submit just one proposal. “It’s the taking part and doing the work which is important, ” he says. “And I never dreamt we’d win.”",
+        "G) Catherine Ritman Smith, head of learning at the Design Museum, is expecting around 10,000 participants aged 13 to 16 to take part this year and says that the project — funded by Deutsche Bank as part of its youth engagement programme Born To Be — is the biggest event in the museum’s calendar. “We started Design Ventura with around 800 young people in 2010 and it has grown steadily since,” she says. “Teachers like it because the skills are all transferable and it helps to validate the value of design as a subject,” she explains, telling me that nearly 600 schools have taken part so far.",
+        "H) So how does the competition work? A single-word theme is announced in the summer. This year it is “Change”. Schools work with groups to produce imaginative design ideas for a product in simple materials that could sell for £10 in the Design Museum Shop. Participating schools then register by November and eventually submit their design idea. Along the way there is training and support for teachers and tutoring for students from designers. An additional bonus is when the winners see their design on sale in the spring of the following year.",
+        "I) Hourican and his pupils have happy memories of spending a whole day at the museum, having been selected as one of 10 shortlisted schools to present their idea to a panel of judges, including designer Jasper Conran. Then they worked with the Kin Design Studio in Shoreditch, met designers at their school and attended a lunch with Deutsche Bank employees. The students helped to make decisions and there were plenty of discussions — they changed the product’s name, for example.",
+        "J) “One of the really useful things about this competition, ” says Hourican, “is that there’s a commercial element because the product is going on sale for real and the boys had to learn about budgeting and marketing, as well as designing their game.” Profits go to charity. “The winning team chooses where it wants the profits to go, ” says Ritman Smith. “The Finchley Catholic High School product raised about £1,000 for Great Ormond Street Hospital.” Winning entries in past years have included a make-your-own cloth kit called Dove Bunting and a threefold, wallet-sized travel game with goals at each end, called Badoiiing.",
+        "K) It costs the schools nothing to participate in Design Ventura; the professional designers provide their services for free. Among them are architect Asif Khan, a Design Museum trustee who has worked as designer-in-residence at the museum, helping emerging architects. He has recently been commissioned to design the new Museum of London building in Smithfield.",
+        "L) Another is television presenter and interior designer Naomi Cleaver, who is one of the competition’s judges. “I'm very keen to encourage young people,” she says, observing that design brings together other subjects such as literature, art, history, geography and science. “Now that design education is limited in the curriculum, I’m all in favour of competitions such as Design Ventura, which helps to bring the standard curriculum to life,” says Cleaver. “And the judging day is terrific fun. Some of these students are very imaginative. One group presented their idea in the form of a puppet show and we see some marvelous demonstration models. “I’m always impressed by the levels of confidence and the support the students get from their teachers.”",
+        "M) Ritman Smith adds: “Design technology has become a tricky subject to make a case for, and we’ve heard of departments closing in some schools. We find that if pupils take part in Design Ventura in Year Nine it can be the trigger which leads them to opt for it at General Certificate of Secondary Education, so we are helping to keep alive something which is crucial to industry and entrepreneurship.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "During the course of preparing for Design Ventura, teachers receive training and support while students get tutoring from designers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "答案解析H。由题干关键信息During thecourse、teachers、trainingand support、students、tutoring from\ndesigners定位到H段。H段倒数第二句提到，在此过程中，教师会接受培训并获得支持，学生则可以获得\n设计师的辅导。题干是对该句的同义转述，其中During thecourse of preparing forDesign Ventura对应原文中\n的Along theway，teachersreceive training andsupport对应原文中的thereis training and support forteachers，\nstudentsget tutoringfrom designers对应原文中的tutoringforstudentsfromdesigners，故答案为H。"
+        },
+        {
+          "number": 37,
+          "stem": "A visit to the Design Museum shop in London can reduce the designers’ fears about the future supply of talents educated in Britain.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案解析C。由题干关键信息visit和theDesignMuseum shopinLondon定位到C段。C段第二句提到，然而，\n如果这些设计师在今年早些时候去过伦敦设计博物馆的商店，或许就能减少他们的担忧。题干是对该句\n的同义转述，其中visit和theDesignMuseum shopinLondon是原词复现，题于中的canreducethedesigners\nfears对应原文中的theirfears mayhavebeen eased，而原文中的theirfears指的就是C段第一句提到的内容，即\n许多其他设计师和建筑师也对英国公司未来本土人才的供应表示担忧，故答案为C。"
+        },
+        {
+          "number": 38,
+          "stem": "One of Design Ventura’s judges says the competition adds vigour to the standard curriculum in schools.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "答案解析L。由题干关键信息OneofDesignVentura'sjudges和curriculum定位到L段。L段第一句提到了竞赛\n评委之一克利弗。第三句引述了克利弗的原话“鉴于当前设计教育在常规课程中的占比有限，我全力支持\n像‘设计冒险家’这样的竞赛—它有助于让标准课程变得生动有趣”，题干是对第一句和第三句的概括\n与转述，其中OneofDesignVentura’sjudges和competition是原词复现，addsvigourto the standardcurriculum\nin schools对应原文中的helpstobringthestandardcurriculumtolife，故答案为L。"
+        },
+        {
+          "number": 39,
+          "stem": "Enrollment in Design and Technology decreased by nearly ten percent last year in the UK.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案解析A。由题干关键信息DesignandTechnology、decreasedbynearly ten percent和last year定位到A\n段。A段提到，最近，英国一家顶尖的设计联合会警告称，英国可能会面临创意技能短缺的问题，因为\n最新的数据显示，学习“设计与技术”课程的学生人数下降了近10%。题干是对该句的同义转述，其中\nDesign andTechnology和lastyear是原词复现，decreasedbynearlytenpercent与原文中的adropofalmost\n10percent同义，Enrollment inDesignandTechnology与原文中的students studyingDesignandTechnology同\n义，故答案为A。"
+        },
+        {
+          "number": 40,
+          "stem": "Participation of ninth graders in Design Ventura can motivate them to choose design technology as their subject.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "答案解析M。由题干关键信息Participationof ninth graders、DesignVentura、motivate和choose..astheir\nsubject定位到M段。M段的引语中的第二句提到，我们发现，如果学生在九年级时参加了“设计冒险家”\n竞赛，可能会促使他们在后续普通中等教育阶段选修设计技术这门课程。题干是对该句的同义转述，其中\nParticipationof ninthgradersinDesignVentura对应原文中的pupils takepartinDesignVenturainYearNine，\nmotivate对应原文中的trigger，choose designtechnologyastheirsubject对应原文中的optforitat General\nCertificateofSecondaryEducation，故答案为M。"
+        },
+        {
+          "number": 41,
+          "stem": "Design Ventura is welcomed by teachers because it helps to prove the worth of design as a school subject.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "答案解析G。由题干关键信息iswelcomedbyteachers和designasa school subject定位到G段。G段最后一句提\n到，教师们喜欢这个竞赛，因为它培养的技能都是可在学科间迁移的，有助于证实设计学科的价值。题干\n是对该句的同义转述，其中teachers和asa...subject是原词复现，iswelcomedby与原文中的like同义，helps\ntoprovetheworthof对应原文中的helpstovalidatethevalueof，故答案为G。"
+        },
+        {
+          "number": 42,
+          "stem": "The schools don’t have to pay anything to take part in the Design Ventura competition.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "答案解析K。由题干关键信息schools、don’t have topayanything和totake partintheDesignVentura\ncompetition定位到K段。K段开头提到，学校参加“设计冒险家”竞赛无需花费任何费用。题干是对该\n句的同义转述，其中schools和DesignVentura是原词复现，don'thavetopayanything对应原文中的cost...\nnothing，totakepartin与原文中的toparticipatein同义，故答案为K。"
+        },
+        {
+          "number": 43,
+          "stem": "Participants in Design Ventura are challenged to create sustainable and marketable products.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案解析D。由题干关键信息arechallengedto、sustainable和marketableproducts定位到D段。D段第二句中提\n到，这项竞赛面向13至16岁的学生，通过挑战他们为设计博物馆的商店开发兼具创意性、可持续性与商业\n可行性的新产品...题干是对该句相关内容的同义转述，其中challenged对应原文中的challenging，create...\nproducts对应原文中的develop..product，sustainableandmarketable对应原文中的sustainableandcommercially\nfeasible，故答案为D。"
+        },
+        {
+          "number": 44,
+          "stem": "Students benefit from Design Ventura because they can learn about budgeting and mark eting in addition to game design.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "答案解析J。由题干关键信息learn about budgeting andmarketing和game design定位到J段。J段开头提到，这\n项竞赛真正实用的一点在于它具有商业元素一因为获奖作品会真正上市销售，因此几个参赛的男生不\n仅需要设计游戏，还必须学习预算和营销知识。题干是对该句的同义转述，其中learnaboutbudgetingand\nmarketing是原词复现，benefitfrom对应原文中的reallyusefulthings，inadditionto对应原文中的aswellas，\ngamedesign与designingtheirgame同义，故答案为J。"
+        },
+        {
+          "number": 45,
+          "stem": "According to an officer of the Creative Industries Federation, there is difficulty now in recruiting engineers in the UK.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案解析B。由题干关键信息CreativeIndustriesFederation、recruiting和engineers定位到B段。B段最后提\n到，他（即本段开头提到的创意产业联合会首席执行官）认为，同样需要创新和技术能力相结合的工程行\n业也存在招聘难题。题干是对该句的同义转述，其中anofficeroftheCreativeIndustriesFederation对应原文\n中的Chiefexecutive...oftheCreativeIndustriesFederation,thereisdifficultynowinrecruitingengineers与原文\n中的Engineering..hasrecruitment problems同义，故答案为B。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "New research suggests that pandas may be at risk of dying out because they are too comfortable. Experts say too much happiness can stop the bears from searching for new mates.",
+        "Environmentalists have long believed that building roads or homes near the bears may threaten their survival by “reducing or fragmenting their natural habitats”, The Times reported. But the new research suggests that a “modest degree of discomfort and fragmentation” may actually help preserve panda populations.",
+        "The research was conducted by scientists from Michigan State University. It concluded that pandas fail to wander off in search of new mates if they find their habitat too comfortable, resulting in a lack of vital genetic diversity.",
+        "For their study — outlined in a paper in the journal Conservation Biology — the team looked at genetic diversity and spread among a Chinese panda population. The ideal level of perfectly livable habitat was found to be only 80% of an area, with the remainder either too harsh or too affected by human activity.",
+        "The experts concluded that pandas should ideally “be happy enough to thrive, but not so content that they don’t want to move around and find new mates”.",
+        "Their conclusions about what The Guardian described as this “sweet spot” are in line with the so-called Goldilocks principle: that there can be just the right amount of something. The concept has been applied to a wide range of disciplines, from developmental psychology to economics and engineering.",
+        "Claudio Sillero, a professor of conservation biology at Oxford University, told the newspaper that the new findings could have implications beyond panda conservation.",
+        "“Most large animals that eat meat live in increasingly fragmented landscapes,” said Sillero, who was not involved in the research. “It may well be that the messy nature of their relationship with human efforts induces more animals to scatter or travel further, and might result in greater genetic connectivity and enhanced population persistence.”",
+        "The most recent count of pandas found that there were more than 1,800 left in the wild, putting them on the list of vulnerable, but not endangered, species."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from new research about pandas?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are losing habitat due to the building of roads and houses."
+            },
+            {
+              "key": "B",
+              "text": "They have stopped seeking new mates for reproduction."
+            },
+            {
+              "key": "C",
+              "text": "They may not adapt to the fragmentation of their habitat."
+            },
+            {
+              "key": "D",
+              "text": "They may cease to exist as a result of enjoying too good a life."
+            }
+          ],
+          "answer": "D",
+          "explanation": "46.关于熊猫的新研究，我们了解到什么？\nA)由于道路和房屋的修建，它们正在失去栖息地。C)它们可能无法适应栖息地的碎片化。\nB）它们已经停止寻找新配偶进行繁殖。\nD）由于生活过于安逸，它们可能会走向灭绝。\n定位：根据关键词newresearchaboutpandas定位到第一段第一句。\n\n解文章第一段第一句明确指出新研究表明，熊猫可能因生活得过于舒适而面临灭绝风险。选项D与原文意思\n\n一致，故选D。根据第二段第一句可知，道路和房屋建设导致栖息地丧失是环保主义者的传统观点，非新\n研究结论，故排除A。根据第一段第二句可知，过度安逸会导致熊猫不再寻觅新配偶，而不是已经停止，\nB项与原文表述不一致，故排除。根据第二段第二句可知，适度的不适与栖息地碎片化实际上可能有助于\n保护熊猫种群，选项C与原文表述相反，故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What can we conclude from the new research by scientists at Michigan State University?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Environmentalists’ long-time belief regarding panda conservation may be misleading."
+            },
+            {
+              "key": "B",
+              "text": "Housing development near pandas’ homes may threaten their survival."
+            },
+            {
+              "key": "C",
+              "text": "Pandas’ natural habitats are becoming less suitable for reproduction."
+            },
+            {
+              "key": "D",
+              "text": "The increased panda population is attributed to the fragmentation of their habitat."
+            }
+          ],
+          "answer": "A",
+          "explanation": "47.从密歇根州立大学科学家的新研究中，我们可以得出什么结论？\nA)环保主义者长期以来关于熊猫保护的观点可能存在误导性。\nB)在熊猫栖息地附近开展住房开发可能威胁它们的生存。\nC)熊猫的自然栖息地变得越来越不适合繁殖。\nD)熊猫种群数量的增加归因于其栖息地的碎片化。\n\n\f\n定位：根据关键词newresearch和MichiganStateUniversity定位到第二、三段。\n\n解→文章第二段提到，环保主义者长期以来一直认为栖息地碎片化会威胁熊猫生存，但新研究（由第三段首句\n\n可知，该研究是由密歇根州立大学的科学家开展的）表明适度的不适与栖息地碎片化可能有助于保护熊猫\n种群，这说明传统观点可能具有误导性，选项A与原文逻辑一致，故选A。根据第二段第一句可知，住房\n开发威胁生存是环保主义者的观点，并非新研究结论，故排除B。根据第三段第二句可知，若熊猫发现栖\n息地过于舒适，就不会迁徙寻找新配偶，并没有提到栖息地变得越来越不适合繁殖，故排除C。第二段第\n二句提到，栖息地适度碎片化可能有助于保护熊猫种群，并没有说种群数量增加归因于栖息地碎片化，且\n原文中未提及种群数量增加的原因，故排除D。"
+        },
+        {
+          "number": 48,
+          "stem": "What is the experts’ conclusion regarding pandas?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is urgent to provide an ideal habit at for them to thrive."
+            },
+            {
+              "key": "B",
+              "text": "It is very important to preserve their genetic diversity ."
+            },
+            {
+              "key": "C",
+              "text": "Their chances of finding new mates have a lot to do with their habitat."
+            },
+            {
+              "key": "D",
+              "text": "Their environment for survival has been continuously worsening."
+            }
+          ],
+          "answer": "C",
+          "explanation": "48.专家针对熊猫得出的结论是什么？\nA)函需为它们提供理想的栖息地以繁衍生息。C）它们寻找新配偶的机会与栖息地密切相关。\nB)保护它们的遗传多样性至关重要。\nD)它们的生存环境在持续恶化。\n定位：根据关键词experts²conclusion定位到第三段。\n\n解由第三段第二句可知，研究得出结论：若熊猫发现栖息地过于舒适，它们就不会迁徙寻找新配偶，从而导\n\n致关键的遗传多样性缺失。这说明专家认为熊猫寻找新配偶的机会与栖息地舒适度密切相关，选项C与原\n文表述含义一致，故选C。第四段第二句提到，栖息地中适宜生存的区域占比达到80%时最为理想，这暗\n示并非提供完全理想的栖息地就是最佳策略，A项与原文不一致，故排除。专家结论侧重栖息地与寻找配\n偶的关系，而保护它们的遗传多样性至关重要是该行为缺失导致的后果，而非专家在此项研究中的直接结\n论，故排除B。D项内容原文中未提及，故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What can we infer from the passage about the Goldilocks principle?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It needs to be confirmed by more studies on pandas."
+            },
+            {
+              "key": "B",
+              "text": "It applies to the preservation of pandas too."
+            },
+            {
+              "key": "C",
+              "text": "It has implications for future panda research."
+            },
+            {
+              "key": "D",
+              "text": "It can be used to locate the right spot for pandas."
+            }
+          ],
+          "answer": "B",
+          "explanation": "49.从文中关于“金发姑娘原则”的描述可以推断出什么？\nA)该原则需要更多关于熊猫的研究来证实。C)它对未来的熊猫研究具有启示意义。\nB）它同样适用于熊猫的保护工作。\nD)它可用于为熊猫找到适宜的栖息地。\n定位：根据关键词theGoldilocksprinciple定位到第六段。\n\n解文章第六段第一句明确提到，新研究结论与“金发姑娘原则”不谋而合，该原则强调事物的量需恰到好\n\n处，而由前面的内容可知密歇根州立大学的新研究结论有助于熊猫物种的保护，由此可推断“金发姑娘原\n则”也适用于熊猫保护，故选B。原文未提及需要进一步验证，A项内容与原文不一致，故排除。第六段\n第一句仅说明该原则也适用于熊猫保护，原文重点在于其适用性而非未来启示，故排除C。D项内容文中\n未提及，故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What can the new findings do according to Professor Sillero?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Help discover new ways for the conservation of pandas."
+            },
+            {
+              "key": "B",
+              "text": "Help remove pandas from the list of endangered species."
+            },
+            {
+              "key": "C",
+              "text": "Shed light on the conservation of most large meat-eating animals."
+            },
+            {
+              "key": "D",
+              "text": "Show the complexity of interactions between humans and animals."
+            }
+          ],
+          "answer": "C",
+          "explanation": "50.根据西莱罗教授的观点，这些新发现能起到什么作用？\nA)帮助发现保护熊猫的新方法。\nC）为大多数大型肉食动物的保护提供启发。\nB)帮助将熊猫从濒危物种名单中移除。\nD)显示人类与动物互动关系的复杂性。\n定位：根据关键词ProfessorSillero定位到倒数第二、三段。\n\n解根据文章前面段落的内容可知，密歇根州立大学的新研究发现适度的不适与栖息地碎片化实际上可能有助\n\n于保护熊猫种群，而文章倒数第三段中西莱罗教授表示，这项新发现（即密歇根州立大学的新发现）的影\n响范围不止在熊猫保护领域。言外之意，该研究结论不仅适用于熊猫种群，还适用于其他种群。在下一段\n中，西莱罗教授对其言论做了进一步解释，概括起来就是，大多数大型肉食动物都生活在日益碎片化的环\n境中，这可能促使它们更多地分散或迁徙，从而可能提升其遗传连通性并增强其种群存续能力。也就是\n说，新发现不仅会促进熊猫物种保护，也为大型肉食动物保护提供了启示。由此可知，本题应选C。A项在\n西莱罗教授的言论中找不到依据，故排除。原文最后一段虽提及野生熊猫已从濒危名单降级至易危名单，\n他物种保护同样有作用，但并未指出该研究是否有助于显示人类与动物互动关系的复杂性，故排除D项。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "With those born with natural talents, it feels as if they excel without really trying. But what about those of us who don’t have a natural talent? We’ve been told all our lives that if you work hard, you too can succeed. But with the release of Angela Duckworth’s Grit, we are given a new key to success.",
+        "“As much as talent counts, effort counts twice,” says Duckworth in Grit. She introduces a new concept that talent may be overrated, and if you want real success, what you need is grit the perfect combination of passion and persistence. Even if you have natural talent it’s nothing without grit.",
+        "Duckworth says grit is the difference between success and failure. A person who has grit is more likely to succeed than a person who does not. When we think about attaining success — whether it’s landing that job or learning that new skill — our thoughts are immediately burdened by all the things we must first learn. If you want that new job, you have to learn the job skills, then the interview skills, then the dress part — and you must be perfect at all of them. Grit is different because it tells us that perfection isn’t the goal.",
+        "Grit lifts the unreasonable expectations off our shoulders. Grit tells us that the door is open wider than we first thought possible. Grit allows us to redefine our goals. Think about it: what’s something you’ve always wanted to do, but gave up because you “don’t have the skills for it”? What’s something you love but aren’t good at?",
+        "The real workings of grit are to have sustainable passion and continue to try. Effort means more than your natural ability. Even if you haven’t mastered a skill, grit tells you that you can still succeed if you can transform your passion into action. In a way, Duckworth is giving new hope to people who have shut the doors on their dreams. She is saying it is possible that you can accomplish anything. If at first you fail, then try one more time with grit."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the passage say about people born with natural talents?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They seem to outdo others without hard work."
+            },
+            {
+              "key": "B",
+              "text": "They appear to know all the secrets to success."
+            },
+            {
+              "key": "C",
+              "text": "They feel it only too logical to succeed."
+            },
+            {
+              "key": "D",
+              "text": "They are bound to excel effortlessly."
+            }
+          ],
+          "answer": "A",
+          "explanation": "51.关于天赋异票的人，文章说了什么？\nA)他们似乎无需努力就能超越他人。\nC)他们认为成功是理所当然的。\nB)他们看似知晓所有成功的秘诀。\nD）他们必然能毫不费力地出类拔萃。\n\n解文章第一段第一句指出，天赋异票的人似乎无需真正努力就能出类拔萃，选项A与原文表述的含义一致，\n\n故为答案。B、C两项原文中均未提及，故排除。D项说法过于绝对，也排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What does Duckworth say about talent?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a new concept much too overrated."
+            },
+            {
+              "key": "B",
+              "text": "It proves necessary for big achievements."
+            },
+            {
+              "key": "C",
+              "text": "It plays a lesser role in one’s success."
+            },
+            {
+              "key": "D",
+              "text": "It is a guarantee for real success in life."
+            }
+          ],
+          "answer": "C",
+          "explanation": "52.达克沃斯如何评价天赋？\nA)这是一个被过度高估的新概念。\nC)它在个人成功中所起的作用较小。\nB)事实证明，它是取得重大成就的必要条件。D)它是人生真正成功的保障。\n定位：根据关键词Duckworthsayabouttalent定位到第二段。\n\n解文章第二段第二句提到，达克沃斯认为天赋或许被高估了，若想获得真正的成功，需要的是坚毅，可见她\n\n强调努力比天赋更重要，即天赋在成功中作用较小。C项与原文逻辑一致，故选C。文章中提到的新概念\n是坚毅而非天赋，A项与原文不一致，故排除。第二段第三句提到，即便拥有天赋，缺乏坚毅也终将一事\n无成，B项与原文不符，故排除。关于成功的因素，达克沃斯强调的是坚毅而不是天赋，故排除D。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the passage say about people thinking of attaining success?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are puzzled how to present their best to the employer."
+            },
+            {
+              "key": "B",
+              "text": "They are burdened by their expectation of perfection."
+            },
+            {
+              "key": "C",
+              "text": "They will try hard to land a job that fits their skills best."
+            },
+            {
+              "key": "D",
+              "text": "They will find themselves lacking in all the skills they need."
+            }
+          ],
+          "answer": "B",
+          "explanation": "53.关于想要取得成功的人，文章说了什么？\nA)他们困惑于如何向雇主展现最佳状态。\nC)他们会努力争取最匹配自身技能的工作。\nB）他们被追求完美的期望所累。\nD)他们会发现自己缺乏所需的全部技能。\n定位：根据关键词peoplethinkingofattainingsuccess定位到第三段第三句。\n\n解文章第三段第三句提到，当我们思考如何获得成功时一无论是争取一份工作，还是学习一项新技能一\n\n思绪总会被“必须先掌握的所有知识”压得喘不过气，也就是说人们追求成功时，力争在各方面都做到完\n美，从而产生负担，B项含义与原文表述一致，故选B。A项是找工作的细节，而不是整体的心理状态，应\n排除。C项是具体行为，而非原文强调的因追求完美而产生负担，故排除。第三段第四句中提到，必须在\n各方面做到完美，而不是缺乏所需的全部技能，D项与原文不一致，故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "How does the author think grit can be helpful to us?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It allows us to know what we are good at."
+            },
+            {
+              "key": "B",
+              "text": "It opens our eyes to new opportunities."
+            },
+            {
+              "key": "C",
+              "text": "It focuses our attention on what we do."
+            },
+            {
+              "key": "D",
+              "text": "It lets us reconsider the goals to achieve."
+            }
+          ],
+          "answer": "D",
+          "explanation": "54.作者认为坚毅对我们有怎样的帮助？\nA)它让我们了解自己的擅长之处。\nC)它让我们专注于所做之事。\nB)它让我们看到新机遇。\nD）它让我们重新思考要实现的目标。\n定位：根据关键词gritcanbehelpful定位到第四段第三句。\n\n解·文章第四段第三句指出，坚毅让我们重新思考自己的目标，选项D与原文意思一致，故选D。第四段结尾\n\n处虽提及是否有某件事你热爱着，却不够擅长，但并未提及坚毅就能让我们了解自已的擅长之处，故排除\nA项。第四段第二句提到，成功的大门比最初想象中的更为开阔，指成功的可能性增加，而非具体机会，\nB项与原文不一致，故排除。C项内容原文未提及，故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What message does Duckworth try to convey in her book Grit?",
+          "options": [
+            {
+              "key": "A",
+              "text": "We should perfect ourselves to ensure success."
+            },
+            {
+              "key": "B",
+              "text": "We should stay persistent even in face of failures."
+            },
+            {
+              "key": "C",
+              "text": "We can never master a skill without constant practice."
+            },
+            {
+              "key": "D",
+              "text": "We can never expect to reach our goals without passion."
+            }
+          ],
+          "answer": "B",
+          "explanation": "55.达克沃斯在其《坚毅》一书中试图传达什么信息？\nA)我们应该让自己臻于完美以确保成功。\nC)不持续练习我们就无法掌握一项技能。\nB)即便面临失败，我们也应坚持不懈。\nD)没有激情我们就无法指望实现目标。\n定位：根据关键词message和Duckworthtrytoconvey定位到第五段最后两句。\n解由第五段最后两句可知，达克沃斯宣告：一切皆有可能，若初次尝试失败，就带着坚毅再试一次。全文在\n\n介绍达克沃斯《坚毅》一书，所以全文最后两句就是在总结她在《坚毅》一书中要传递的信息，即面对失\n败仍需坚持，选项B精准概括了这一观点，故选B。原文否定完美主义，A项与原文内容矛盾，应排除。C\n项过度聚焦练习，忽略了原文中坚毅的核心定义是“激情+坚持”，故应排除。D项片面强调激情，忽略\n了坚持，与原文观点不一致，应排除。"
+        }
+      ]
+    }
+  ],
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_06_1_ans.pdf"
+}

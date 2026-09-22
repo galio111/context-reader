@@ -1,0 +1,1621 @@
+{
+  "id": "cet4-2025-12-2",
+  "level": 4,
+  "year": 2025,
+  "month": 12,
+  "set": 2,
+  "title": "2025 年 12 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet4_2025_12_2.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2025-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Some music inspires you to move your feet, some inspires you to get out there and change the world. In any case, it’s [[26]] to say that music moves people in special ways.",
+        "If you're especially into a piece of music, your brain does something called Autonomous Sensory Meridian Response (ASMR), which [[27]] to you like a sting in your brain.",
+        "It turns out that ASMR is pretty special. According to a [[28]] published study in The Journal of Prevention of Alzheimer’s Disease, the part of your brain responsible for ASMR doesn’t get lost to Alzheimer’s. Alzheimer’s [[29]] to put people into layers of confusion, and the study confirms that music can sometimes [[30]] lift people out of the Alzheimer’s haze and bring them back to (at least a likeness of) normality... if only for a short while. ASMR is powerful stuff!",
+        "This phenomenon has been [[31]] several times but rarely studied properly. One of the most famous examples of this is the story of 92-year-old Henry Dryer, who comes out of dementia (痴呆) while listening to songs from his youth.",
+        "Jeff Anderson, associate professor in Radiology at the University of Utah and [[32]] author on the study, says “In our society, the diagnoses of dementia are [[33]] resources to the maximum. No on e says playing music will be a cure for Alzheimer’s disease, but it might make the symptoms more [[34]] , decrease the cost of care and improve a patient’s [[35]] of life.”"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "actually"
+        },
+        {
+          "key": "B",
+          "text": "consequently"
+        },
+        {
+          "key": "C",
+          "text": "contributing"
+        },
+        {
+          "key": "D",
+          "text": "fair"
+        },
+        {
+          "key": "E",
+          "text": "feels"
+        },
+        {
+          "key": "F",
+          "text": "manageable"
+        },
+        {
+          "key": "G",
+          "text": "mends"
+        },
+        {
+          "key": "H",
+          "text": "observed"
+        },
+        {
+          "key": "I",
+          "text": "phase"
+        },
+        {
+          "key": "J",
+          "text": "plotting"
+        },
+        {
+          "key": "K",
+          "text": "quality"
+        },
+        {
+          "key": "L",
+          "text": "recently"
+        },
+        {
+          "key": "M",
+          "text": "taxing"
+        },
+        {
+          "key": "N",
+          "text": "tends"
+        },
+        {
+          "key": "O",
+          "text": "yielded"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "D",
+          "explanation": "26.D)fair（adj.合理的）\n语法判断空格前面为it's，后面为不定式to say，故空格处应填形容词，构成“it's+形容词+todo”结构。\n语义判断前文列举了音乐给人们带来的不同影响，此处是总结性表述“无论如何，说音乐能以独特的方式触\n动人心，是”。代人选项可知，fair可以自然衔接前文的例子与后文的总结，符合语境，故为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "E",
+          "explanation": "27.E）feels（v使人感觉）\n语法判断空格前面是关系代词which（指代ASMR），后面是toyoulike..，能直接接like的动词以感官动词\n为主，故空格处应填感官动词。全文用一般现在时，故此处填动词的第三人称单数。\n脑被刺了一下”，代人选项可知，feeltosb.like（对某人来说感觉像）这一结构符合语境，故选E。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "L",
+          "explanation": "28.L)recently（adv.最近，近期）\n语法判断空格前面为不定冠词a，后面为publishedstudy，故此处填副词。\n语义判断句意为“根据《阿尔茨海默病预防杂志》—发表的一项研究，大脑中负责ASMR的区域，并\n不会因阿尔茨海默病而受损”。代人选项可知，recently符合此处语境，故为答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "N",
+          "explanation": "29.N）tends（v往往会，倾向于）\n语法判断空格前面是主语Alzheimer's（Alzheimer'sdisease的简称），后面是toput，故此处应填动词，作谓\n语。根据全文时态可知，此处应填动词的第三人称单数。\n语义判断此处描述阿尔茨海默病的普遍影响“让患者陷人层层困惑”。代人选项可知，tends符合此\n处语境，能客观描述该病的常见症状，故为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "A",
+          "explanation": "30.A)actually（adv.实际上；事实上）\n语法判断空格前面为cansometimes，后面为动词lift，故空格处应填副词。\n语义判断前文提到“大脑中负责ASMR的区域，并不会因阿尔茨海默病而受损”，后文说“音乐能有时\n能将患者从阿尔茨海默病的混沌状态中唤醒”。代人选项可知，actually符合此处语境，既能衔接研\n究结论，又能突出音乐起改善作用的真实性，故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "H",
+          "explanation": "31.H)observed（v观察；注意到）\n语法判断空格前是hasbeen，后面是severaltimes，故空格处应填过去分词或形容词，构成现在完成时的被\n动语态或系表结构。\n察；注意到”与“先观察现象再深人研究”的科研流程相符，也与本文对ASMR研究现状的描述相符，故\n答案为H。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "C",
+          "explanation": "32.C)contributing（v贡献）\n语法判断空格前面为associateprofessor..和连词and，后面为名词author，故空格处需填形容词或现在分词，\n作定语修饰后面的名词，与associateprofessor构成并列关系。\n语义判断句子介绍杰夫·安德森的身份“犹他大学放射学副教授、该研究的__作者”，contributing\nauthor（合著者）是学术文本中的固定术语，故答案为C。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "M",
+          "explanation": "33.M)taxing（v耗费力量或资源，使负重担）\n语法判断空格前面是系动词are，后面是名词resources和介词短语tothemaximum（最大限度地），空格处\n应填形容词或现在分词，描述diagnoses与resources的关系。\n语义判断句意为“在我们的社会中，痴呆症的诊断正最大限度地医疗资源”。结合医疗资源紧张的\n社会现实，又根据后文提到的“降低照护成本”的诉求，可知此处选M。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "F",
+          "explanation": "34.F)manageable（adj.可控制的）\n语法判断空格前面是makethesymptomsmore，后面为逗号，故空格处应填形容词，构成比较级。\n语义判断句意为“没人说播放音乐能治愈阿尔茨海默病，但它或许能让症状变得更\n，降低照护成\n本，同时提升患者的生活”。句子中的but提示语义转折，前文铺垫“音乐不是治愈方法”，此处需\n体现“音乐能改善症状”。代人选项可知，manageable符合此处语境，故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "K",
+          "explanation": "35.K)quality（n.质量；品质）\n语法判断空格前面是patient's，后面是介词短语oflife，故空格处需填名词。\n语义判断句意为“但它或许能让症状变得更可控，降低照护成本，同时提升患者的生活_”，quality\noflife（生活质量）是固定短语，且与此处描述音乐的积极意义相符，故答案为K。\n干扰项注释\nB)consequently（adv.因此；结果；所以）G）mends（v修补；康复；好转）1）phase（n.阶段；时期v分\n阶段进行）J）plotting（v密谋；绘制）O）yielded（v产生；屈服）"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-2-b",
+      "type": "matching",
+      "title": "Can playing video games help you get a better job?",
+      "paragraphs": [
+        "A) The gaming industry is larger than films and music combined, yet few of us are likely to list our achievements in playing computer games as work experience in our resume. But why not? Businesses are waking up to the skills gamers can bring to the workplace.",
+        "B) One start-up is convinced that the skills learned by playing games — hard-won through years of training and battle — can be applied to real-life work situations. And Game Academy reckons its belief is backed up by hard data. Do you enjoy unusual puzzle games like Portal, or tower defence games like Defense Grid? The team has found that IT workers play those more than average. But if you prefer Civilization, Total War, or X-Com, where strategy and resource management are key, then you might have more in common with managers.",
+        "C) Game Academy's idea is simple: analyse gamers’habits from their online gaming profile, and offer courses in valuable skills that reflect their aptitudes — skills they can practise and refine in-game. And there is already a growing acceptance that gaming skills are transferable.",
+        "D) Even the military is hiring gamers. “The ability to absorb information, react swiftly and coordinate actions whilst remaining calm under pressure are often attributes of people that are good at gaming,” according to a Royal Air Force spokesperson. Those skills are part of what the Royal Air Force is looking for “in a variety of roles”. “Skills acquired through gaming can be very relevant to certain areas.”",
+        "E) “There are plenty of soft skills that gamers can utilise in a professional setting, such as teamwork, problem solving and strategic planning,” says Ryan Gardner, a regional director with Hays recruitment. But does that really mean your top 100 ranking in Overwatch should go down in your resume? “It’s about how you either make it relevant to the job you are applying for, or how it makes you more interesting as a potential employee,” Mr. Gardner says.",
+        "F) Two years ago, a Glasgow University study made headlines for suggesting gaming could make students more successful. But “the research hasn’t really changed minds, at least not yet, ” says one of the authors of the study, Dr. Matthew Barr. He’s now writing a book on the topic. “For now, I think the negative reputation around games means that telling someone you’re a determined gamer is more likely to harm your chances of getting a job. But if someone can explain how they’ve led a team in an online game, for example, they may be able to persuade an employer that this is useful,” says Dr Barr.",
+        "G) Playing games casually is unlikely to help your career prospects. But part of Game Academy’s suggestion is to transform casual gamers into “conscious” ones, applying critical thinking to developing their skills. “We see gameplay as a resource of talent, ” says co-founder David Barrie. “Why can’t we put in our resume our gaming victories and achievements? ” he asks. “If they say they want leadersh ip — why can’t I point to my years of leading World of Warcraft raids?”",
+        "H) There are already plenty of gamers out there who know that their hobby has made them who they are. Earlier this year, Matthew Ricci told gaming site Kotaku: “If you're playing EVE Online you basically already have an MBA.” Often made fun of in gaming circles as a “spreadsheet simulator ( 电子表格模拟器)”, the economy of the fictional EVE universe is driven by real market principles. If you want to build a new spaceship, the raw material has to be mined by another player. Manufacturing costs come into effect, and commodities fluctuate in price based on demand and the distance to haul the commodity.",
+        "I) Mr. Ricci, who had always dreamed of being the boss of his own company, ran an in-game corporation comprising hundreds of players. Eventually, he realised he could transfer his skills to real-life business — instead of doing it for free. He restructured Zentech, once a taxation vehicle for his father’s business, and it is now in its fourth year helping international brands enter the Canadian market. EVE teaches skills like creativity, leadership, organisation, and conflict resolution, he maintains. He credits his success to his family, his strong desire to run his own business- and “a damn good company in Iceland that made a damn good game”.",
+        "J) Digital entrepreneur and business consultant Mia Bennett says: “In more traditional settings, gaming is still imagined to be the pursuit of teenage boys — a waste of time.” But there are some links to skills like “decision-making, the ability to anticipate and future planning,” she says. “It also helps with meta-skills — learning how to learn, experimentation, and creative thinking.”",
+        "K) Twelve years into his career, Mark Long, a radiotherapy physicist with the NHS in Surrey, doesn’t get as much gaming time as he used to. “I would love to say that my gaming skills allow me to destroy cancer using linear accelerators like photon (光子) blasters, but that’s not quite the reality.” Instead, he credits old-school games like Palace of Magic with exposing him to computers. Every new gaming upgrade improved his knowledge of how they worked. Gaming also encouraged a competitive spirit — and that, he believes, translates. “When creating treatment plans, the aim is to optimise the radiation dose to the tumour and restrict it as much as possible to healthy surrounding tissues and organs,” he says. It’s about “repeating the process, but each time doing something slightly different to improve the result”. Not unlike achieving a high score or a perfect run. “Most videogames are essentially puzzles to solve,” he says. “And problem-solving is a big part of my job.”",
+        "L) Over at Game Academy, Mr. Barrie is aware they still have a mountain to climb. “The employer community will need the science,” he says, but confesses he only became a true believer when he started asking players about their biggest in-game achievements. “The scale and scope of their answers were amazing, ” he says. “But ask them the same about their work, and they don’t know.” “The engagement and powerful skills that people get playing a game — why can’t work be like that?” he asks."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Certain gaming skills meet the requirements of the armed forces in Britain.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案解析D。由题干关键信息Certain gaming skills、requirements ofthearmed forces和Britain定位到D段。D\n段通过一位英国皇家空军发言人的话指出：“能够吸收信息，迅速做出反应并协调行动，同时在压力下保\n“各种岗位”中所寻求的素质之一。由此可知题干是对这两句的概括，其中Certaingamingskills对应原文\n中的Those skills；meet the requirements ofthe armed forces inBritain对应原文中的are part of what theRoyal\nAirForce is looking for“inavariety of roles\"，故答案为D。"
+        },
+        {
+          "number": 37,
+          "stem": "One veteran player has applied his gaming skills to his real-world business and owes his success partly to a game company.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "答案解析I。由题干关键信息Oneveteranplayer、gaming skills、real-worldbusiness和oweshis successpartlyto\nagamecompany定位到I段。I段开头提到，里奇先生曾在游戏里运营一家由数百名玩家组成的公司。接着\n第二句指出，他意识到自已可以把技能运用到现实商业中。最后两句提到，里奇先生认为，《星战前夜》\n能教授诸如创造力、领导力、组织能力和冲突解决能力等技能。他将自已的成功归功于他的家庭、他强烈\n的自主创业愿望，以及“冰岛那家超牛的公司开发出了一款超赞的游戏”，由此可知题干是对这些内容的\n概括，其中One veteran player对应原文中的MrRicci；has applied hisgaming skills to his real-world business对\n应原文中的could transferhis skillstoreal-life business，这里的skills指的就是该段倒数第二句提到的skillslike\ncreativity，leadership，organisation，andconflictresolution；而oweshissuccesspartlyto对应原文中的creditshis\nsuccess to；a game company对应原文中的adamn goodcompanyin Iceland thatmadeadamngoodgame，故答\n案为I。"
+        },
+        {
+          "number": 38,
+          "stem": "According to a researcher, bad reputation about games will probably limit a gamer’s chances of landing a job.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答案解析F。由题干关键信息aresearcher、badreputation aboutgames和chances of landingajob定位到F段。\nF段倒数第二句通过引用巴尔博士的话指出：“从目前来看，我认为游戏背负的负面名声意味着，告诉\n别人你是位坚定的游戏玩家更有可能会损害你获得工作的机会。”故题干是对该句的同义转述。其中a\nresearcher对应原文中的one ofthe authors ofthe study，Dr.MatthewBarr；badreputation about games与原文中\n的the negative reputation aroundgames同义；will probably limit a gamer’s chances of landing ajob与原文中的\nismorelikely to harm yourchances ofgettingajob同义，故答案为F。"
+        },
+        {
+          "number": 39,
+          "stem": "Businesses are beginning to realise gaining skills are applicable to their employees’ work.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案解析A。由题干关键信息Businesses、gaming skills、applicable和employees’work定位到A段。A段最\n后一句提到，企业正开始意识到游戏玩家能够为职场带来的技能，故题干与该句属于同义转述，其中\nBusinesses arebeginning to realise对应原文中的Businesses are waking up to；而gaming skills are applicable to\ntheiremployees’work与原文中的the skillsgamers canbringto theworkplace同义，故答案为A。"
+        },
+        {
+          "number": 40,
+          "stem": "A physicist admits gaming has contributed to his computer knowledge and skills of solving problems.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "答案解析K。由题干关键信息Aphysicist、computerknowledge和skillsof solving problems定位到K段。K段\n第三句提到，他（一位放射治疗物理师）将自已能接触电脑归功于像《魔法官殿》那样的老式游戏。每一\n次游戏版本更新都提高了他对电脑运作原理的了解。最后一句引用马克·朗的话提到：“大多数电子游戏\n本质上都是需要解决的谜题，而解决问题是我工作中非常重要的一部分。”题干是对这两句内容的概括。\n其中Aphysicist是原词重现；admits gaminghascontributed tohiscomputerknowledge是对原文中credits old-\nschoolgames likePalace of Magicwithexposing himto computers以及Everynewgaming upgrade improvedhis\nknowledgeofhowtheyworked的概括；而skillsof solvingproblem与原文中的problem-solving同义，故答\n案为K。"
+        },
+        {
+          "number": 41,
+          "stem": "Game Academy proposes to help gamers develop their skills using critical thinking.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "答案解析G。由题干关键信息Game Academy、proposes to help gamers、develop their skills和critical thinking\n定位到G段。G段第二句提到，游戏学院建议将休闲玩家转变为“有意识”的玩家，运用批判性思维来发展\n自己的技能。题干是对该句的同义转述，其中GameAcademy proposes对应原文中的partofGameAcademy's\n\n\f\n“conscious”ones,applying critical thinkingto developing their skills的概括总结，故答案为G。"
+        },
+        {
+          "number": 42,
+          "stem": "One who enjoys playing games that require management skills to win might possess more qualities of a manager.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案解析B。由题干关键信息games thatrequiremanagement skillsto win和possessmorequalities ofamanager\n定位到B段。B段最后一句提到，如果你喜欢《文明》《全面战争》或《幽浮》这类核心在于策略和资源管\n理的游戏，那么你可能与管理者们有更多的共同之处。故题干是对这句的同义转述，其中Onewhoenjoys\nplayinggames thatrequiremanagement skills towin对应原文中的if you prefer...where strategyandresource\nwithmanagers，故答案为B。"
+        },
+        {
+          "number": 43,
+          "stem": "In more conventional views, gaming is a time-wasting activity pursued by young boys.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "答案解析J。由题干关键信息moreconventionalviews、a time-wasting activity和pursued by young boys定位到\nJ段。J段第一句提到，数字创业家兼商业顾问米娅·贝内特表示：“在更为传统的观念中，游戏仍被想象\n为青少年男孩的消遣一—一种浪费时间的行为。”题干是对这句话的同义转述，其中Inmoreconventional\nviews对应原文中的Inmoretraditional setings；gaming is a time-wasting activity pursued by young boys与原文\n中的gaming is still imagined tobe the pursuit of teenageboys—a waste of time同义，故答案为J。"
+        },
+        {
+          "number": 44,
+          "stem": "It is suggested that gaming skills be included in a resume if they enhance a job applicant’s appeal.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "答案解析E。由题干关键信息gaming skills、resumé和enhanceajobapplicant'sappeal定位到E段。E段第二、\n三句提到，但这是否真的意味着你在《守望先锋》中的百强排名应该写进你的简历里呢？加德纳先生说：\n“关键在于你如何能让其与你所申请的工作岗位相关联，或者如何让其使你作为一名潜在员工更具吸引\n力。”换言之，加德纳先生建议，如果游戏技能能够提升求职者的吸引力，那么就应将其填入简历当中。\n题干是对这两句内容的概括，其中Itis suggested对应原文中的Mr.Gardner says；gaming skills指的是原文中\n提到的plentyofsoft skills.suchasteamworkproblemsolvingandstrategicplanning；beincludedinaresume\n对应原文中的shouldgodowninyourresume；enhanceajobapplicant'sappeal对应原文中的makesyoumore\ninterestingasapotentialemployee，故答案为E。"
+        },
+        {
+          "number": 45,
+          "stem": "Many gamers know their passion for playing games has shaped their identity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "答案解析H。由题干关键信息Manygamers、passion、playing games和shaped theiridentity定位到H段。H段\n第一句提到，如今已经有不少玩家意识到，正是他们的爱好造就了如今的自己。题干是对这句话的同义转\n述，其中Many gamers对应原文中的plenty ofgamers；know属于原词重现；their passionforplayinggames对\n应原文中的theirhobby；has shapedtheiridentity对应原文中hasmadethemwhotheyare，故答案为H。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Junk food is now a staple of many Americans’ diets. Advertising campaigns from the snack food companies, often featuring sports stars, send the message that we can neutralize any negative effects of consuming their products simply by getting more physical exercise. But recent studies show a lack of exercise is not to blame for rising obesity rates. Bad diets are.",
+        "Interventions ( 干预) to help reduce junk food consumption are especially important for children and teenagers. Prevention is better than cure because obesity is so difficult to treat. Unfortunately, while health education has shown some success among young children, teens have been harder to reach.",
+        "Now a large-scale study has tried an innovative approach to change teenagers’ attitudes towards healthy eating, and the results are promising. The researchers argued that previous interventions have probably been unsuccessful because of a major flaw: they focused on a future, healthier you and assumed that this would be enough motivation for teenagers. In contrast, the new intervention cleverly exploits teenagers’ instinct for rebelliousness and autonomy, and the value they place on social justice.",
+        "To do this, research ers had students read an article on the food industry. It revealed a secret about the manipulative and deceptive strategies used to make junk food more addictive and characterize the products as healthy. The article also explained how advertising campaigns specifically target very young and poor people, causing harm for these vulnerable groups. Afterwards, the participants read a fictional survey of teens who wanted to “fight back against the companies by buying and eating less processed food ”.",
+        "After the intervention, participants associated healthy eating with autonomy and social justice. The teenagers also rated healthy eating as being more appealing. Importantly, there were also some promising effects of the new intervention on actual behavior. A day later the students were offered a choice of snacks and drinks in a seemingly unrelated context. The teens chose healthy snacks and drinks (such as fruit or water) more often over unhealthy options (like biscuits and soda). Apparently associating a healthy diet with teenagers’ own values seems to be a promising avenue to prevent obesity."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn about advertising campaigns from the snack food companies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They convey the idea that their products are ok if consumers exercise more."
+            },
+            {
+              "key": "B",
+              "text": "They send the message that bad diets are responsible for Americans’ obesity."
+            },
+            {
+              "key": "C",
+              "text": "They usually feature sports stars to emphasize the benefits of their snack foods."
+            },
+            {
+              "key": "D",
+              "text": "They claim that lack of exercise is to blame for the increasing obesity rates."
+            }
+          ],
+          "answer": "A",
+          "explanation": "46.关于零食公司的广告宣传活动，我们了解到什么？\nA)这些广告传递的理念是，只要消费者加强锻炼，食用它们的产品就没有问题。\nB)这些广告传递的信息是，不良饮食习惯是造成美国人肥胖的原因。\nC)这些广告通常邀请体育明星代言，以此强调其零食产品的益处。\nD)这些广告声称，缺乏运动是肥胖率上升的罪魁祸首。\n\n解析：第一段第二句指出，零食公司推出的广告宣传活动常常邀请体育明星代言，传递出的理念是：只要加强体\n\n育锻炼，就能抵消食用这些产品带来的任何负面影响。也就是说，只要消费者加强锻炼，食用它们的产品\n就没有问题，A项与原文意思一致，故选A。B项原文中未提及，故排除。C项偷换概念，用体育明星代言\n是为了传递“运动抵消危害”的观点，而不是强调零食本身的好处，故排除。D项与原文不符，故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the passage say about health education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has shed light on teens’ instinct for rebellion and autonomy."
+            },
+            {
+              "key": "B",
+              "text": "It has placed much more emphasis on cure than on prevention."
+            },
+            {
+              "key": "C",
+              "text": "It has contributed little to the campaigns against obesity."
+            },
+            {
+              "key": "D",
+              "text": "It has largely failed to t urn teens away from junk food."
+            }
+          ],
+          "answer": "D",
+          "explanation": "47.文章对健康教育有何论述？\nA)它揭示了青少年叛逆和追求自主的天性。C)它在对抗肥胖的相关行动中几乎没有发挥作用。\nB)它更注重治疗而非预防。\nD)它在很大程度上未能引导青少年远离垃圾食品。\n定位：根据题干关键词healtheducation定位到第二段最后一句。\n\n解析：第二段最后一句提到，尽管健康教育在低龄儿童群体中取得了一定成效，却很难影响到青少年。这说明健康教\n\n育在引导青少年远离垃圾食品方面基本没有效果，D项与原文相符，故选D。选项A是利用新研究中提及的青\n少年叛逆和追求自主的天性设置的干扰项；选项B文中未提及，故排除。第二段最后一句提到健康教育在低龄\n儿童群体中取得了一定成效，并不是几乎没有发挥作用，故排除C。"
+        },
+        {
+          "number": 48,
+          "stem": "What is a major flaw in previous interventions to help reduce junk food consumption?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They motivated teens to stay away from junk food only temporarily."
+            },
+            {
+              "key": "B",
+              "text": "They focused on the benefits young people would reap in the future."
+            },
+            {
+              "key": "C",
+              "text": "They were based on the assumption that motivation was the only key."
+            },
+            {
+              "key": "D",
+              "text": "They were incapable of appealing to teens’ instinct for rebelliousness."
+            }
+          ],
+          "answer": "B",
+          "explanation": "48.以往旨帮助在减少垃圾食品摄入的干预措施存在的一个重大缺陷是什么？\nA)它们只能暂时激励青少年远离垃圾食品。\nB)它们将重点放在了年轻人未来能获得的益处上。\n\n\f\nD)它们无法迎合青少年叛逆的天性。\n定位：根据题干关键词amajorflaw定位到第三段第二句。\n\n解析：第三段第二句指出，以往的干预措施之所以多半失败，是因为存在一个重大缺陷：这些措施将重点放在\n\n“未来拥有更健康的身体”上，并假定这一点足以成为激励青少年的动力，B项与原文相符，故选B。A项\n文中未提及，故排除。第二句是假设未来的健康足以成为动力，而不是认为“动力是唯一的关键因素”，\n故排除C。原文虽提到新干预措施利用了青少年叛逆的天性，但并未提到以往干预措施的重大缺陷是无法\n迎合青少年叛逆的天性，故排除D。"
+        },
+        {
+          "number": 49,
+          "stem": "In what way is the new intervention innovative?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It emphasizes people’s sense of social responsibi lity."
+            },
+            {
+              "key": "B",
+              "text": "It cleverly exploits teenagers’personal weaknesses."
+            },
+            {
+              "key": "C",
+              "text": "It takes advantage of teenagers’natural inclination."
+            },
+            {
+              "key": "D",
+              "text": "It promises immediate rather than future benefit"
+            }
+          ],
+          "answer": "C",
+          "explanation": "49.这项新的干预措施在哪些方面具有创新性？\nA)它强调人们的社会责任感。\nC)它利用了青少年的天性倾向。\nB)它巧妙地利用了青少年的个人弱点。\nD)它承诺能带来即时益处，而非未来的益处。\n定位：根据题干关键词thenewinterventioninnovative定位到第三段最后一句。\n\n解析：第三段最后一句指出，新的干预措施巧妙地利用了青少年叛逆、追求自主的天性，以及他们对社会公平的\n\n重视，C项与原文内容相符，故选C。A项所说的“社会责任感”在文中并未提及，故排除。青少年叛逆、\n追求自主的天性不等同于弱点，B项表述错误，故排除。文中提及新干预措施时并未指出它承诺带来即时\n益处，故排除D。"
+        },
+        {
+          "number": 50,
+          "stem": "What conclusion can be drawn from the new research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A totally different approa ch could be adopted to combat advertising campaigns for snack food."
+            },
+            {
+              "key": "B",
+              "text": "An effective intervention has to be found to persuade teenagers to switch to a healthier lifestyle."
+            },
+            {
+              "key": "C",
+              "text": "Obesity can be hopefully prevented by building links between teenagers’values and healthy eating."
+            },
+            {
+              "key": "D",
+              "text": "An innovative way to beat obesity is to expose food companies’manipulative and deceptive practices"
+            }
+          ],
+          "answer": "C",
+          "explanation": "50.从这项新研究中可以得出什么结论？\nA)可以采用一种截然不同的方法来抵制零食的广告宣传活动。\nB)必须找到一种有效的干预措施，说服青少年转向更健康的生活方式。\nC)通过建立青少年价值观与健康饮食之间的关联，肥胖问题有望得到预防。\nD)揭露食品公司的操控性、欺骗性手段，是一种对抗肥胖的创新方法。\n定位：根据题干关键词conclusion定位到文章最后一句。\n\n解析：最后一句提到，将健康饮食与青少年自身的价值观相结合，似乎是预防肥胖的有效途径，C项与原文内容\n\n相符，故选C。A项与新研究的结论无关，新研究的重点是改变青少年的饮食态度，而非对抗零食广告，\n故排除A。B项是笼统的呼吁，不是研究得出的具体结论，故排除。揭露食品公司的操纵性、欺骗性手段\n是研究过程中所采用的具体做法，而非研究的最终结论，故排除D项。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Adults dream during REM (rapid eye movement) sleep and infants have loads of REM. So, it might be fair to assume that babies have tons of dreams.",
+        "But scientists believe REM serves a completely different purpose for newborns and infants than dreaming. When babies are in REM, it allows their brain to develop pat hways, connections, and eventually, learn languages.",
+        "Since your baby doesn’t dream at this stage of brain development, i t’s safe to assume babies do not have nightmares, either. Nightmares stem from exposure to trauma ( 创伤)，an overactive imagination, and the no rmal stresses of everyday life.",
+        "Are you wondering, what do babies dream about? Good question, but the answer is nothing!",
+        "So, when do babies start dreaming? The general consensus is that they start dreaming around the age of two. Psychologist David Foulkes studies children (from very small kids to teens) to bring the secrets of their dreams to the light of day. In his lab, he lets kids fall asleep and then wakes them 3 times a night and asks them to describe what they recall.",
+        "Foulkes’ findings are unsurprising. Basically, little kids have little dreams. But exactly what kids see while dreaming depends on their age. As children develop and grow, their dreams do too.",
+        "Dreams of very small kids are usually just snapshots (快照), looking much more like a slideshow than a movie, when compared to the dreams of adults. They heavily feature animals and other familiar sights, like images of people eating. According to Foulkes, “Children’s dream life...seems to be similar to their waking imagination and narration.” Kids ages 5 — 9 begin seeing moving images and characters in action. Dreams now include multiple events strung together, one after the other. They also start developing greater ability to remember dreams. Still, that’s not always the case: When roused during REM sleep, 25% of the kids in Foulkes’ studies had no recollection of dreaming, a trend that continues through age 9.",
+        "So, if your baby seems to be in a stressful state while sleeping or is upset upon waking, there may be other factors at play ."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do scientists think of REM?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a sign of dreaming in adults and infants alike."
+            },
+            {
+              "key": "B",
+              "text": "It is essential to human beings’language learning."
+            },
+            {
+              "key": "C",
+              "text": "It determines the formation of connections in the brain."
+            },
+            {
+              "key": "D",
+              "text": "It performs a different function in babies than in adults."
+            }
+          ],
+          "answer": "D",
+          "explanation": "51.科学家如何看待快速眼动睡眠？\nA)它既是成人也是婴儿做梦的标志。\nC)它决定了大脑中神经元连接的形成。\nB)它对人类的语言学习至关重要。\nD)它在婴儿和成人身上发挥的作用不同。\n定位：根据题干关键词scientiststhinkofREM定位到第二段第一句。\n\n解文章首段提到，成年人在快速眼动睡眠期间会做梦，而婴儿的快速眼动睡眠次数极多。因此，我们或许可以\n\n合理推测，婴儿也会做大量的梦。第二段第一句话锋一转指出，但科学家认为，快速眼动睡眠对新生儿\n和婴儿的作用与做梦完全不同，而由后文可知，婴儿不会做梦。由此可知，快速眼动睡眠对成人和婴儿\n的作用完全不同，D项与原文相符，故选D。第三段明确提到，婴儿不会做梦，A项与此相，故排除。\n第二段第二句提到，当婴儿处于快速眼动睡眠状态时，这有助于他们的大脑构建神经通路和连接，最终\n促进语言学习，并不是说快速眼动睡眠对所有人的语言学习都至关重要，也不是说快速眼动睡眠决定了\n大脑中神经元连接的形成，故排除B、C两项。"
+        },
+        {
+          "number": 52,
+          "stem": "What can we infer about nightmares from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They occur often in people with an active imagination."
+            },
+            {
+              "key": "B",
+              "text": "They occur in people suffering from emotional stress."
+            },
+            {
+              "key": "C",
+              "text": "They vary in different stages of brain develop ment."
+            },
+            {
+              "key": "D",
+              "text": "They appear in the sleep of both adults and infants."
+            }
+          ],
+          "answer": "B",
+          "explanation": "52.从文章中我们可以推断出关于噩梦的什么信息？\nA)想象力活跃的人经常做噩梦。\nC)噩梦在大脑发育的不同阶段有所不同。\nB)遭受情绪压力的人会做噩梦。\nD)成年人和婴儿在睡眠中都会做噩梦。\n定位：根据题干关键词nightmares定位到第三段第二句。\n\n解析：第三段第二句指出，噩梦源于创伤经历、过于活跃的想象力以及日常生活中的正常压力，由此可以推断\n\n遭受情绪压力的人可能会做噩梦，故选B。A项错在原文使用的是overactive（过于活跃的）一词，而非active\n（活跃的），二者意思有别，故排除。C项文中未提及，故排除。第三段第一句明确指出婴儿不会做梦，故\n排除D。"
+        },
+        {
+          "number": 53,
+          "stem": "What is the aim of psychologist David Foulkes’ study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To reveal the secrets of children's dreams."
+            },
+            {
+              "key": "B",
+              "text": "To see if children start dreaming at age two."
+            },
+            {
+              "key": "C",
+              "text": "To solve the mystery of dreaming and brain growth."
+            },
+            {
+              "key": "D",
+              "text": "To confirm the general consensus on when kids dream."
+            }
+          ],
+          "answer": "A",
+          "explanation": "53.心理学家大卫·福尔克斯的研究目的是什么？\nA)揭示儿童梦境的秘密。\nC)解开做梦与大脑发育之间的谜团。\nB)验证儿童是否在两岁时开始做梦。\nD)确认关于儿童何时开始做梦的普遍共识。\n定位：根据题干关键词psychologistDavidFoulkes定位到第五段第三句。\n\n解析：第五段第三句提到，心理学家大卫·福尔克斯致力于研究儿童（从婴幼儿到青少年），旨在揭示他们梦境\n\n中的秘密，A项表述正确，reveal the secrets ofchildren’sdreams与原文bringthe secrets oftheirdreams to the\n\n\f\nlightofday属于同义转述关系，故选A。原文虽然提到儿童大约在两岁左右开始做梦是一种普遍的共识，\n但该共识并不是大卫·福尔克斯的主要研究方向，故排除B项和D项。原文中提到研究聚焦于揭示儿童梦\n境中的秘密，而非解开做梦与大脑发育之间的谜团，故排除C项。"
+        },
+        {
+          "number": 54,
+          "stem": "What are Foulkes’findings about kids’dreams?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They feature strange animals."
+            },
+            {
+              "key": "B",
+              "text": "They are unsurprising to adults."
+            },
+            {
+              "key": "C",
+              "text": "They grow and evolve with age."
+            },
+            {
+              "key": "D",
+              "text": "They reflect kids’waking life."
+            }
+          ],
+          "answer": "C",
+          "explanation": "54.福尔克斯关于儿童梦境的发现是什么？\nA)它们以奇特的动物为主要元素。\nC)它们随着年龄的增长而发展演变。\nB)它们对成年人来说并不意外。\nD)它们反映了儿童清醒时的生活。\n定位：根据题干关键词findingsaboutkids’dreams定位到第六段第三、四句。\n\n解→第六段第三、四句提到，孩子们在梦中具体看到的内容取决于他们的年龄。随着儿童的成长发育，他们的\n梦境也会随之发展，故选C项。原文中提到儿童梦境是以熟悉的动物和场景为主，而非奇特的动物，A项\n错误。原文中提到的是研究结果不令人意外，而不是儿童梦境内容对成年人来说并不意外，B项错误。题\n干问的是福尔克斯关于儿童梦境的核心发现，D项不属于核心发现，只是儿童梦境的局部特征，故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What can we assume about babies who appear upset upon waking?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have been roused against their will."
+            },
+            {
+              "key": "B",
+              "text": "They have been disturbed by a nightmare."
+            },
+            {
+              "key": "C",
+              "text": "They have trouble recollecting the images of their dreams."
+            },
+            {
+              "key": "D",
+              "text": "They have been affected by something other than dreaming ."
+            }
+          ],
+          "answer": "D",
+          "explanation": "55.对于醒来后显得烦躁不安的婴儿，我们可以做出什么推测？\nA)他们是被强行叫醒的。\nC)他们难以回忆起梦中的影像。\nB)他们受到了噩梦的惊扰。\nD)他们受到了做梦之外其他因素的影响。\n定位：根据题干关键词babies whoappearupsetuponwaking定位到最后一段。\n\n解析：最后一段提到，如果你的宝宝在睡觉时看起来处于紧张状态，或者醒来后情绪烦躁，可能是其他因素在起\n\n作用。结合前文中提到的婴儿不会做梦的结论可知，婴儿醒来后烦躁不安并非源于做梦，而是其他因素，\n故选D项。文中未提及婴儿被强行叫醒，故排除A项。原文明确提到婴儿不会做梦，所以他们不会做噩\n梦，也不可能有梦境可回忆，B项和C项表述错误，故均排除。"
+        }
+      ]
+    }
+  ],
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_12_2_ans.pdf"
+}

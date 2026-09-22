@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+const CetReader = dynamic(() => import("@/components/cet/CetReader").then(m => m.CetReader), { loading: () => <div role="status" className="p-10">正在打开真题…</div> });
+import type { CetEntry } from "@/components/cet/CetLibrary";
 import { HomeRedesign } from "@/components/HomeRedesign";
 import dynamic from "next/dynamic";
 const ArticleInput = dynamic(() => import("@/components/ArticleInput").then(module => module.ArticleInput));
@@ -220,6 +222,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
   const [ocrLoading, setOcrLoading] = useState(false);
   const [openingPublicArticleId, setOpeningPublicArticleId] = useState("");
   const [reading, setReading] = useState(false);
+  const [cetEntry, setCetEntry] = useState<CetEntry | null>(null);
   const [homeDemoCompleted, setHomeDemoCompleted] = useState(false);
   const [sourceSentenceToHighlight, setSourceSentenceToHighlight] = useState("");
   const [sourceWordToHighlight, setSourceWordToHighlight] = useState("");
@@ -1353,6 +1356,8 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     return false;
   }
 
+  if (cetEntry) return <CetReader entry={cetEntry} onOpen={setCetEntry} onBack={() => setCetEntry(null)} savedArticles={savedArticles} onArticleSaved={() => setSavedArticles(getSavedArticles())} onRenameSavedArticle={handleRenameSavedArticle} onDeleteSavedArticle={handleDeleteSavedArticle} onOpenSavedArticle={item => { setCetEntry(null); handleOpenSavedArticleFromReader(item); }} onOpenImportedArticle={async (...args) => { const result = await handleOpenImportedArticleFromReader(...args); if(result) setCetEntry(null); return result; }} />;
+
   if (reading) {
     return (
       <ReaderView
@@ -1425,6 +1430,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
   if (homeVariant === "book") {
     return (
       <HomeRedesign
+        onOpenCet={setCetEntry}
         forceGuestPreview={forceGuestPreview}
         forceMemberPreview={forceMemberPreview}
         skipMemberOpening={homeDemoCompleted}

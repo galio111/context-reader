@@ -466,6 +466,24 @@
     display: none;
   }
 
+  :global(.cr-reader-root[data-cet-reader="true"]) .actions {
+    display: flex;
+    flex: 1;
+    max-width: none;
+    gap: 4px;
+  }
+
+  :global(.cr-reader-root[data-cet-reader="true"]) .toolbar {
+    padding-inline: 8px;
+    gap: 4px;
+  }
+
+  :global(.cr-reader-root[data-cet-reader="true"]) .action {
+    height: 44px;
+    padding-inline: 8px;
+    font-size: 11px;
+  }
+
   .editorialMobileActions {
     display: flex;
     min-width: 0;

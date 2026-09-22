@@ -1,0 +1,1742 @@
+{
+  "id": "cet4-2025-12-1",
+  "level": 4,
+  "year": 2025,
+  "month": 12,
+  "set": 1,
+  "title": "2025 年 12 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet4_2025_12_1.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2025-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "People tend to want as many choices as possible. They believe this will maximize their [[26]] of making the best decision. But research shows that, when it comes to actually making a [[27]] from all of these choices, people can become [[28]] and avoid making a decision altogether. Even worse, when people finally do decide, they are generally less satisfied with their decision and feel more regretful over whatever choice they made.",
+        "Why does this happen? Research shows that when people choose from many options, they [[29]] more in the decision, but feel less confident in their ability to decide well. In other words, when we are [[30]] with more choices, making the “right” or “correct” decision begins to feel more [[31]] and, at the same time, more difficult to do. This may contribute to the deep fear that we will make the wrong decision.",
+        "How can we solve this problem? I believe this fear could be tempered by putting decisions into perspective. It might help to remember that many of the choices you make, such as what to have for lunch, will not [[32]] much in the future and that, even more important choices, like accepting a new job, can [[33]] be changed. It could also help to [[34]] these situations with clear guidelines and ideas of what you want from the [[35]] of options, which can narrow the possible choices, and also make you more confident about your ability to make the right decision."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "approximately"
+        },
+        {
+          "key": "B",
+          "text": "case"
+        },
+        {
+          "key": "C",
+          "text": "chance"
+        },
+        {
+          "key": "D",
+          "text": "confused"
+        },
+        {
+          "key": "E",
+          "text": "crucial"
+        },
+        {
+          "key": "F",
+          "text": "deposited"
+        },
+        {
+          "key": "G",
+          "text": "enter"
+        },
+        {
+          "key": "H",
+          "text": "invest"
+        },
+        {
+          "key": "I",
+          "text": "matter"
+        },
+        {
+          "key": "J",
+          "text": "presented"
+        },
+        {
+          "key": "K",
+          "text": "range"
+        },
+        {
+          "key": "L",
+          "text": "regular"
+        },
+        {
+          "key": "M",
+          "text": "seize"
+        },
+        {
+          "key": "N",
+          "text": "selection"
+        },
+        {
+          "key": "O",
+          "text": "ultimately"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "C",
+          "explanation": "26.C）chance（n.可能性；机会）\n语法判断空格前面是形容词性物主代词their，后面是介词短语ofmakingthebestdecision作后置定语，故空\n格处需填入名词，构成“their+名词+of.的结构。\n语义判断句意为“他们认为这样能最大程度地增加自己做出最佳决策的\n”。根据常识，选择越多，\n做出最佳决策的几率就越大。代人选项可知，chance符合此处语境，故为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "N",
+          "explanation": "27.N）selection（n.选择；执择）\n语法判断空格前面是不定冠词a，后面是介词短语fromallofthesechoices，故空格处需填人可数名词的单数\n形式。\n语义判断前文围绕“从众多选择中做决定”展开，makinga selection（做出选择）对应“从这些选择中做出\n一个抉择”的动作，与choices形成语义呼应，符合“从选项中挑选”的动作逻辑，故答案为N。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "D",
+          "explanation": "28.D)confused（adj.困惑的）\n语法判断空格前面是canbecome，后面是连词and，故空格处需填入形容词，作表语，描述主语people的\n状态。\n语义判断文章开头提到选择过多给人们带来的正面影响，即增加做出最佳决策的几率。本句中的But提示语\n义转折，前文强调选择多的优势，此处则陈述负面影响。句意为“但研究表明，当要从所有这些选项中实\n际做出选择时，人们可能会变得，甚至彻底回避做决定”。由此可知，confused符合语境。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "H",
+          "explanation": "29.H）invest（v投资；投入<精力、时间等>）\n语法判断空格前面是主语they，后面是moreinthedecision，故空格处需填人动词作谓语，全文主体时态为\n一般现在时，故此处应填动词原形。\n语义判断句意为“研究表明，当人们需要从众多选项中做选择时，他们会为这个决定更多精力，却\n会对自己能否做出明智执择的能力越发缺乏信心”。句中的but提示前后语义转折，代人选项可知，invest\nmoreinthedecision与lessconfident形成“投入多却信心低”的对比逻辑，故答案为H。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "J",
+          "explanation": "30.J)presented（v提供；呈现）\n语法判断空格前面是when weare，后面是withmorechoices，故空格处需填人动词的过去分词，构成“be+\n过去分词+with”的被动结构。\n语义判断句意为“换句话说，当我们面前更多选择时，做出“恰当”或“正确”的决定这件事会开\n“当我们面前出现更多选择时”，符合此处语境，故答案为J。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "E",
+          "explanation": "31.E)crucial（adj.至关重要的；关键的；决定性的）\n语法判断空格前面是系动词feel和副词more，后面是连词and，故空格处需填人形容词，与more构成比较\n级，作表语描述makingthe“right”or“correct”decision的属性。\n变得更—，同时也更难实现”。选择越多，投入的精力越多，而做出正确决定的重要性便会被放大。\n代入选项可知，crucial符合此处语境，故为答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "I",
+          "explanation": "32.I)matter（v要紧；有重大影响）\n语法判断空格前面是助动词willnot，后面为muchinthefuture，故空格处需填人动词原形，构成一般将来时\n的否定结构。\n\n\f\n语义判断前文提到“客观理性看待决策”，后文以“午餐吃什么”举例，说明这类选择的影响有限，不必\n太担忧。代人选项可知，mater符合此处语境，故为答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "O",
+          "explanation": "33.O)ultimately（adv.最终；终究）\n语法判断空格前面是情态动词can，后面是bechanged，故空格处需填人副词，修饰动词短语bechanged。\n语义判断句意为“而即使是更重要的选择（比如接受一份新工作），也是可以改变的”。结合段首提\n到的“通过客观理性地看待决策，这种担忧是可以得到缓解的”，可知ultimately符合语境，故为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "G",
+          "explanation": "34.Genter（v进入；面对）\n语法判断空格前面是helpto，后面是名词短语these situations，故空格处需填入动词原形，构成helptodo\nsth.的固定结构。\n语义判断句意为“在这些情况时，若能明确指导原则和想法，清楚自己希望从选项中获得什\n么，也会大有神益。这既能帮助你缩小可选范围，也能增强你对自已做出正确决策的能力的信心”。代入\n选项可知，enter符合此处语境，enterthese situations表示“面对这些（选择的）情况”，故答案为G。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "K",
+          "explanation": "35.K）range（n.一系列；范围）\n语法判断空格前面是定冠词the，后面是介词短语ofoptions，故空格处需填入名词，构成“the+名词+\nof.\"的结构。\n语义判断前文围绕选项过多的情况展开陈述，结合后文提到的narrowthepossiblechoices（缩小可选范围）\n可知，range符合此处语境。therangeofoptions是固定搭配，意为“一系列选项”，故答案为K。\n干扰项注释\nA）approximately（adv.大约；近似）B）case（n.情况；案例；箱子v装入容器内）F）deposited（v存\n放；沉积；使沉淀）L）regular（adj.定期的；常规的n.常客）M）seize（v抓住；夺取；逮捕）"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-1-b",
+      "type": "matching",
+      "title": "The battle over bike lanes needs a mindset shift",
+      "paragraphs": [
+        "A) Five years ago, the city of Queens, New York, announced that it would be putting bike lanes onto a stretch of Skillman Ave — and removing 116 parking spots. Cyclists loved the plan, but local business owners got very angry. Taking out those parking spots, as they argued at protests and in letters to the city council, would ruin stores and restaurants along Skillman. “Parking here is already a nightmare,” one shouted at a protest rally.",
+        "B) But the bike lanes were a done deal, and soon they were in place. Early this year, Jesse Coburn — an investigative writer with Streetsblog New York — wondered whether those predictions of economic collapse came true. So he asked the city’s Department of Finance to give him a few years’ worth of sales figures for that stretch of Skillman Ave. How had the businesses on that street fared?",
+        "C) Quite well, it turns out. In the year after the bike lanes arrived, businesses on Skillman saw sales rise by 12 percent, compared to 3 percent for Queens in general. What’s more, that section of road saw new businesses open, while Queens overall had a net loss.",
+        "D) The thing is, the actual merchants along Skillman? They didn’t believe it. When Coburn spoke to them and described what he’d found, only a few store owners admitted the lanes had helped. Many still insisted the lanes were killing their part of the city. And emotions ran hot: Someone scattered tacks (大头钉) on the bike lane.",
+        "E) This little story turns out to be a fascinating glimpse at the challenges cities face as they try to update their urban infrastructure — to clean up the air, reduce greenhouse emissions, and speed up travel by making towns more bike-friendly. There’s a rising amount of data showing that installing bike lanes and making streets more pedestrian-friendly boosts the economic fortunes of a place. Removing cars and parking spots works. But the folks who run local businesses simply aren’t convinced, even when their own street performs. Given that sort of mess, can political fights over bike lanes ever end?",
+        "F) In 2013, researchers at New York City’s Department of Transportation studied seven stretches of road that had installed bike lanes or created pedestrian-friendly areas. The city analyzed the data for businesses along those routes and found that by the third year sales grew faster on five of the streets than in the district overall, on average — up to five times faster, in fact.",
+        "G) Beyond New York, a survey of research from 23 cities found that bike lanes and pedestrian-friendly design didn’t hurt local retail and food stores. (“Fears of disastrous consequences for local businesses are unfounded,” the researchers concluded.) More recent work has shown roughly the same.",
+        "H) The truth is that in fairly dense areas, bikes are more efficient at moving people around. You might lose one car driver’s business — but you gain shoppers who now can arrive more easily on bikes. “Cyclists and pedestrians are consumers too,” notes Professor Susan Handy. Plus, streets redesign ed for bikes and pedestrians tend to become more pleasant places to hang around, so “in a lot of cases, that’s created much nicer environments that are really good for those businesses. ”",
+        "I) Mom-and-pop shops are usually pretty quick at recognizing situations that will help their bottom lines. So why the blind spot here? Perhaps it’s that attention focuses on horror stories — and some merchants do get hit when bike lanes come in.",
+        "J) I spoke to Cindy Hughes, a hairdresser (理发师) in Cambridge, Massachusetts. She said business fell by at least 40 percent when the city removed nearby parking to put in a bike lane. The majority of her customers drive, with many coming from nearby towns. Only a very few have shifted to cycling, and even those almost certainly won’t cycle in Boston’s snowy winters. So while Hughes supports bike lanes — “cyclists deserve to be safe” — she sees the parking loss as an existential risk. “Look, 90 percent of my customers drive,” she told me. “For our business, the bike lanes are way worse than Covid was.”",
+        "K) For others, the pushback is cultural, says Henry Grabar, a writer for the Slate Magazine. Small business owners are frequently drivers who commute from other parts of the city by car, Grabar points out. They're also often longtime locals. “They tend to be people with deep roots in the city, who have hung around since before the neighborhood became what it is today,” he adds. Driving around town in a car is so normal to them that cycling seems weird and unusual — despite its boost from Covid, when bike sales exploded by 75 percent.",
+        "L) Psychology beats all! Who knew, right? The fierce divide between store owners and bike-lane advocates seems similar to our larger culture wars over climate change. If we’ve learned anything about culture wars, it’s that data isn’t much good at changing minds.",
+        "M) When Janette Sadik-Khan was the head of New York City’s Transportation Department back in the early 2000s, she oversaw a rollout (推出) of bike lanes — and got angry blowback from residents and business owners who claimed there weren’t enough cyclists to justify installing lanes. Now, she notes ironically, the lanes are so full of activity that opponents have turned to claiming the problem is the opposite: There are too many cyclists getting in the way of cars.",
+        "N) Maybe bike lanes will always be charged with emotion, until enough of the public is finally concerned about climate change — and it seems reckless (鲁莽的) to not have them.",
+        "O) Crises, after all, have a way of opening people’s eyes to possibilities. During Covid, restaurants and cafes lost so much business that cities nationwide began allowing them to build curbside seating areas where people could sit, safely, in the open air. It greatly reduced parking — but because, well, shop owners didn’t see any way around it. Customers loved the outdoor seating so much that cities are making it permanent: A New York City study of several streets closed during Covid found storeowners making more than before, and diners enjoying the outdoor lifestyle. If data won’t change minds, customers might."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "An increasing amount of data indicates that installing bike lanes raises local business revenues.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "答案解析E。由题干关键信息An increasing amount of data、installing bike lanes和raises local businessrevenues\n定位到E段。E段第二句提到，越来越多的数据表明，设置自行车道和让街道更适宜步行，能促进一个地\n\n\f\n方的经济发展。题干是对该句的同义转述，其中Anincreasingamountofdata对应原文中的arisingamountof\ndata,indicates对应showing，installingbikelanes是原词重现，raiseslocalbusinessrevenues与原文中的boosts\ntheeconomicfortunesofaplace同义，故答案为E。"
+        },
+        {
+          "number": 37,
+          "stem": "According to a magazine writer, some small business owners’ resistance to bike lanes arises from cultural factors.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "答案解析K。由题干关键信息amagazine writer、some small business owners、resistance to bikelanes、cultural\nfactors定位到K段。K段首句提到，《石板》杂志撰稿人亨利·格拉巴表示，对另一些人（商家）来说，\n这种抵触是文化层面的。题干是对该句的同义转述，其中Accordingtoamagazine writer对应原文中的says\nHenryGrabar，awriterfor theSlateMagazine；题干中的some smallbusiness owners对应原文中的others，即\nother business owners；resistance tobikelanes对应原文中的pushback；arisesfrom cultural factors对应原文中\n的iscultural，故答案为K。"
+        },
+        {
+          "number": 38,
+          "stem": "A stretch of Skillman Ave witnessed not only a big increase in sales but also the opening of new businesses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案解析C。由题干关键信息Skillman Ave、witnessed、abig increase in sales和the opening of newbusinesses\n定位到C段。C段第二、三句提到，在自行车道建成后的那年，斯基尔曼大道上的商家销售额增长了12%，\n而整个皇后区的平均增长率仅为3%。更重要的是，那段路上还有新的商铺开业，而皇后区整体出现了\n（商铺）净减少态势。题干是对原文这两句的概括。stretch与原文中的section同义，Skillman是原词复\n现，witnessed与原文中的saw同义，abigincrease in sales对应原文中的salesriseby12percent,comparedto3\npercent forQueensin general，the opening ofnewbusinesses对应原文中的newbusinesses open，notonlybut\nalso...对应原文中的What'smore..，故答案为C。"
+        },
+        {
+          "number": 39,
+          "stem": "When people have no way out in crises, they are more likely to embrace changes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "O",
+          "explanation": "答案解析O。由题干关键信息no wayout、incrises和embracechanges定位到O段。O段第二、三句提到，新\n冠疫情期间，餐馆和咖啡馆生意惨淡，全美各城市开始允许商家在人行道旁设置露天就餐区，供人们安\n全地露天用餐。这种做法虽大幅挤占了停车位，但商家也别无选择。题干是对这部分内容的概括，其中\npeople指的就是商家，对应原文中的restaurants andcafes、shopowners；incrises对应原文中提到的During\nCovid；have no way out意为“没有出路”，对应原文中的didn't seeanywayaround it；embrace changes对应\n原文中商家面对重创所做出的改变，故答案为0。"
+        },
+        {
+          "number": 40,
+          "stem": "According to one survey, city design with bike lanes and pedestrian space did not negatively impact local businesses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "答案解析G。由题干关键信息one survey、city design with bike lanes and pedestrian space、didnot negatively\nimpactlocalbusinesses定位到G段。G段首句提到，在纽约之外，一项针对23座城市的调研发现，自行车道\n和步行友好型设计并未损害当地零售店与餐饮店的利益。题干是对该句的同义转述，其中survey是原词复\n现；city designwithbikelanes and pedestrian space与原文中的cities..bikelanes andpedestrian-friendly design\n同义；did not negatively impact local businesses与原文中的didn’t hurt localretailand food stores同义，其中\nlocal为原词复现，businesses对应retailandfoodstores，故答案为G。"
+        },
+        {
+          "number": 41,
+          "stem": "Despite increased business activity on Skillman Ave, many store owners insisted the bike lanes were destroying their area.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案解析D。由题干关键信息SkillmanAve、storeowners、insisted和thebikelaneswere destroying theirarea定\n位到D段。D段提到，问题是，斯基尔曼大道的商家们怎么看呢？他们根本不相信这个结果许多人仍\n坚持认为自行车道正在毁掉他们所在的城市区域。题干是对上述内容的同义转述，其中many storeowners\n对应原文中的the actualmerchants和many，insisted是原词复现，the bikelanes were destroyingtheirarea与原\n文中的the lanes were killing their part of the city同义，故答案为D。"
+        },
+        {
+          "number": 42,
+          "stem": "In a war of culture, data does not help much in changing people’s minds.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "答案解析L。由题干关键信息awarofculture、data doesnothelpmuch和changing people'sminds定位到L\n段。L段末句提到，如果我们从文化大战中学到了什么，那就是数据在改变人们想法方面作用不大。题干\n是对这句的同义转述，其中awarofculture对应原文中的culture wars，datadoesnothelpmuchin changing\npeople'sminds对应原文中的dataisn'tmuchgoodatchangingminds，故答案为L。"
+        },
+        {
+          "number": 43,
+          "stem": "A businesswoman said her business dropped sharply when parking space gave way to a bike lane, because most of her customers came by car.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "答案解析J。由题干关键信息businesswoman、business dropped sharply、parking space gave way toabike\nlane、mostofhercustomerscamebycar定位到J段。J段前三句提到，一位女理发师表示，当市政府取消附\n近停车位以修建自行车道后，店里的生意至少下滑了40%。她的大部分顾客喜欢开车前来。题干是对这几\n有的概括，其中Abusinesswoman对应原文中提到的CindyHughes,ahairdresser；business dropped sharply与原文\n中的businessfellbyat least40percent；when parking spacegave waytoabikelane与原文中的whenthecityremoved\nnearby parkingtoputinabikelane同义，givewayto意为“让位于，被…….取代”，remove意为“移除”；most\nofhercustomers camebycar与原文中的Themajorityofhercustomers drive同义，故答案为J。"
+        },
+        {
+          "number": 44,
+          "stem": "Local business owners on Skillman Ave argued that their businesses would be ruined when parking spots were replaced by bike lanes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答索解析A。由题干关键信息Local business owners、Skillman Ave、their businesses would beruined和parking\nspots werereplacedbybikelanes定位到A段。A段提到，美国纽约皇后区宣布将在斯基尔曼大道的一段路\n上增设自行车道—并且移除116个停车位当地的商家非常愤怒。他们辩称，移除这些停车位会\n毁了斯基尔曼大道沿线的商店和餐馆。题干是对这几句内容的概括，其中Localbusinessowners和Skillman\nAve为原词复现；theirbusinesses would beruined与原文中的wouldruin stores andrestaurants同义，其中\nbusinesses包括了stores andrestaurants；when parking spotswerereplaced bybikelanes与原文中的it would be\nputtingbikelanes...andremoving116parking spots同义，故答案为A。"
+        },
+        {
+          "number": 45,
+          "stem": "People may find it more pleasant to wander around streets redesigned for cycling and walking.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "答索解析H。由题干关键信息more pleasant、wanderaround和streetsredesigned forcyclingandwalking定位到\nH段。H段最后提到，更重要的是，为骑行和步行改造的街道往往成为更宜人的休闲场所。题干是对该句\n的同义转述，其中morepleasant为原词复现；wanderaround与原文中的hangaround同义；streetsredesigned\nfor cycling andwalking与原文中的streets redesigned forbikes andpedestrians同义，故答案为H。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "All living organisms on Earth are exposed to a 24-hour day-night cycle. This cycle is the reason why people rest at night and are active during the day. Consequently, all human body functions also follow this daily rhythm, and the timing of behaviors like exercise or food intake can significantly influence your health. For example, eating at night can lead to weight gain over time because food intake at night leads to increased fat storage.",
+        "Many drug targets in the body follow a 24-hour cycle, too. This means that the specific proteins a drug is designed to modify can react differently to the medicine over the course of a 24-hour time period. Because how the body responds to a drug can differ depending on the time it is taken, it logically follows that taking medicines at specific times could help increase their effectiveness and reduce unwanted side effects.",
+        "When doctors prescribe medicine for people, they rarely consider the best time to take it. There are two main reasons for that oversight. First, many physicians are not aware that some drugs work better during a specific time of the day. And second, most drugs have not been studied for possible different effects during a 24-hour cycle. Therefore, patients are directed to take most drugs during the morning or evening primarily to ensure compliance.",
+        "Over 50 years ago, researchers found that the cholesterol drug simvastatin is more effective at lowering cholesterol levels when taken at night rather than during the day. This is because the liver enzyme (酶) these drugs target is more active at night.",
+        "Taking medicine at the wrong time can even cause harm. My colleagues and I wondered whether midazolam, the most common sedative (镇静剂) used in surgical procedures worldwide, might interfere with the internal clock that protects the heart at night. Currently, there are no guidelines regarding when midazolam should be administered.",
+        "More research is needed to determine the best times to administer treatments for different diseases. I believe taking drug timing into account could help make treatments more effective and help more people worldwide."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from the passage about the timing of our behaviors?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has a considerable impact on our health."
+            },
+            {
+              "key": "B",
+              "text": "It confines us to a 24-hour day-night cycle."
+            },
+            {
+              "key": "C",
+              "text": "It requires us to follow a particular rhythm."
+            },
+            {
+              "key": "D",
+              "text": "It holds the key to all human body functions."
+            }
+          ],
+          "answer": "A",
+          "explanation": "46.关于人类行为的时间安排，我们从文章中了解到什么？\nA)它对我们的健康有相当大的影响。C)它要求我们遵循特定的节律。\nB)它将我们限制在24小时的昼夜周期中。D）它掌控着人体所有机能的关键。\n定位：根据题干关键词timingofourbehaviors可定位到第一段第三句。\n\n解析：第一段第三句明确指出，人体的所有机能也遵循这一日常节律，而像运动或进食这类行为的时间安排会显\n\n著影响你的健康，故选项A正确。选项中的considerableimpact与原文中的significantlyinfluence为同义转述关\n系。选项B在文中未提及，可排除；原文说的是人体机能遵循节律，并非它要求我们遵循特定的节律，选项\nC可排除；选项D“它掌控着人体所有机能的关键”这一表述过于绝对，且原文未提及，故也可排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author say about the proteins in our body?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can modify the effects of medicines in different ways."
+            },
+            {
+              "key": "B",
+              "text": "They can reduce unwanted side effects of certain medicines."
+            },
+            {
+              "key": "C",
+              "text": "Their reaction to medicines changes during the day-night cycle."
+            },
+            {
+              "key": "D",
+              "text": "Their design determines how differently they react to medicines."
+            }
+          ],
+          "answer": "C",
+          "explanation": "47.关于人体中的蛋白质，作者说了什么？\nA)它们能以不同的方式改变药物的效果。C)它们对药物的反应会随着昼夜节律而变化。\nB)它们能减少某些药物的不良副作用。\nD)它们的结构决定了自身对药物反应的差异。\n定位：根据题干关键词proteins可以将答案定位到第二段第二句。\n\n解析：第二段第二句指出，这意味着，药物旨在调节的特定蛋白质，在24小时周期内对药物的反应会有所不同，\n\n这与选项C表述含义一致，故选C。选项A所说的蛋白质能以不同的方式改变药物效果与原文说法有出人，\n由原文可知，蛋白质对药物的反应随时间改变是被动的，而不是蛋白质主动去改变药效，故排除。原文是\n说逻辑上而言，在特定时间服药有助于减少不良副作用，而非蛋白质可以减少药物的副作用，故选项B可\n排除；选项D原文并未提及，也可排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What do doctors do when prescribing medicine for people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They give little thought to the time of taking it for maximum effect."
+            },
+            {
+              "key": "B",
+              "text": "They rarely consider which medicine works better for which patient."
+            },
+            {
+              "key": "C",
+              "text": "They tell patients its possible side effects during a period of 24 hours."
+            },
+            {
+              "key": "D",
+              "text": "They tell patients to comply with the directions of drug manufacturers."
+            }
+          ],
+          "answer": "A",
+          "explanation": "48.医生在为人们开药时会做什么？\nA)他们很少考虑能达到最佳效果的服药时间。C)他们会告知患者在24小时内可能出现的副作用。\n定位：根据题干关键词doctors do when prescribingmedicine可以将答案定位到第三段第一句。\n\n解析：第三段第一句指出，当医生给患者开药时，他们很少考虑服药的最佳时间，因此选项A正确。选项A中的\n\ngivelittlethought tothetime of takingit formaximumeffect是原文中rarely considerthebest time to takeit的同\n义转述。选项B、C、D的表述在原文中均未提及，可排除。"
+        },
+        {
+          "number": 49,
+          "stem": "Why do doctors advise patients to take most drugs in the morning or in the evening?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To discourage them from making complaints."
+            },
+            {
+              "key": "B",
+              "text": "To ensure they take the drugs as instructed."
+            },
+            {
+              "key": "C",
+              "text": "To comply with new research findings strictly."
+            },
+            {
+              "key": "D",
+              "text": "To guarantee the maximum effect of the drugs."
+            }
+          ],
+          "answer": "B",
+          "explanation": "49.为什么医生建议患者在早晨或晚上服用大多数药物？\nA)为了阻止他们抱怨。\nC)为了严格遵循新的研究成果。\nB)为了确保他们遵照医瞩服药。\nD)为了保证药物发挥最佳疗效。\n定位：根据题干关键词takemost drugsin themomingorin theevening可以将答案定位到第三段最后一句。\n\n解析：第三段最后一句指出，指导患者在早晨或晚上服药主要是为了确保他们遵医瞩服药，故选项B正确。选项\n\n中的asinstructed与原文中的compliance为同义转述关系。选项A和C原文均未提及，可排除；原文明确指\n出，当医生给患者开药时，他们很少考虑服药的最佳时间，因此选项D与原文相矛盾，故也可排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author suggest near the end of the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Considering drug-taking timing when prescribing drugs for patients."
+            },
+            {
+              "key": "B",
+              "text": "Making treatments less complex by taking drug timing into account."
+            },
+            {
+              "key": "C",
+              "text": "Conducting more studies to find out the best timing for treating different diseases."
+            },
+            {
+              "key": "D",
+              "text": "Finding out the most effective drugs for treating diseases through further research."
+            }
+          ],
+          "answer": "C",
+          "explanation": "50.在文章快结束时，作者提出了什么建议？\nA)在为患者开药时考虑服药时间。\nC）进行更多研究以找出治疗不同疾病的最佳服药时间。\nB)通过考虑服药时间来简化治疗。\nD)通过进一步研究找出治疗疾病最有效的药物。\n定位：根据题干关键词neartheendofthepassage可以将答案定位到最后一段第一句。\n\n解析：最后一段第一句指出，我们需要开展更多研究，以确定治疗不同疾病的最佳给药时间，故选项C正确。选\n\n项A所说的“在为患者开药时考虑服药时间”是作者隐含的观点，而非作者在文末直接提出的建议，故\n排除；选项B在文中并未提及，可排除；原文的核心话题为“服药时间”，故选项D所说的“最有效的药\n物”也可排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Katharine Abraham, an economics professor, was chatting with her hairdresser (理发师) about retirement plans. The economist said she plans to continue working because she wants to. The hairdresser agreed but for a different reason: She needs the money.",
+        "Both scenarios (情况) are contributing to a big increase in the number of people in the US working into their 70s. Over the past 20 years, the share of Americans working in their 70s has risen from less than 10% to nearly 15%.",
+        "In addition to people being healthier and living much longer, economists say that a combination of financial considerations such as years of slow rise in real wages and a shi ft away from traditional pensions in the private sector are some of the reasons people delay retirement. The decline of manufacturing and the increase in the number of people working in less labor-intensive occupations also has contributed to the trend, sa ys Abraham, who researches work and retirement decisions of older Americans.",
+        "“Which matters more depends on what your history up until that point has been in the type of work you’re doing,” Abraham says.",
+        "The overall trend is hitting Americans of all different levels of educational attainment, although the percentages vary by category. The share of Americans with bachelor's degrees who were working into their 70s reached nearly 20% in 2018. For those with a high school degree or less, the proportion of those working in their 70s had risen to around 10%, while those with some college education were in the middle at around 15%.",
+        "Martin Neil Baily, an economist who is leading a research project on retirement security, notes that quitting a career can lead to feelings of isolation and loneliness, particularly for men. He suggests that many college-educated workers are choosing to stay in the labor force more for social benefits than for financial reasons. They’re also more likely to be in professional occupations where they tend to enjoy their work more.",
+        "Workers in more physical jobs, meanwhile, may be more likely to look forward to retiring, Baily says, suggesting those who stay on are more likely doing so for financial reasons."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn from the passage about the economics professor and her hairdresser?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They differ in their reasons for continuing to work."
+            },
+            {
+              "key": "B",
+              "text": "They are both committed to working into their 70s."
+            },
+            {
+              "key": "C",
+              "text": "They are happy about their current financial situation."
+            },
+            {
+              "key": "D",
+              "text": "They hold different views about postponing retirement."
+            }
+          ],
+          "answer": "A",
+          "explanation": "51.关于经济学教授和她的理发师，我们从文章中可以了解到什么？\nA)她们继续工作的原因不同。\nC)她们对目前的经济状况感到满意。\nB)她们都决心工作到70多岁。\nD)她们对延迟退休持有不同看法。\n\n\f\n定位：根据题干关键词theeconomicsprofessorand herhairdreser可定位到第一段。\n\n解析：第一段第二、三句明确指出，这位经济学家表示自己打算继续工作，因为她想工作。理发师表示赞同，但理\n\n由截然不同：她需要这笔钱。由此可知，二者继续工作的原因存在差异，故选项A正确。选项中的differin\ntheirreasons是原文foradifferentreason的同义转述。原文只提到她们都打算继续工作，并未提及她们决心工作\n到70多岁，故选项B可排除；原文并没有提及二者的经济状况，选项C可排除；第一段讨论的是二者“继续\n工作”的原因，并未提及她们对“延迟退休”这一现象或政策本身的“看法”，故D项也可排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What is one of the reasons for people to delay retirement?",
+          "options": [
+            {
+              "key": "A",
+              "text": "More and more people have switched to less intellectually challenging jobs."
+            },
+            {
+              "key": "B",
+              "text": "The number of jobs suitable for older people has increased in the private sector."
+            },
+            {
+              "key": "C",
+              "text": "The rate of wage increase in terms of purchasing power has slowed down for years."
+            },
+            {
+              "key": "D",
+              "text": "More and more people in the workplace find it hard to rely on traditional pensions."
+            }
+          ],
+          "answer": "C",
+          "explanation": "52.人们延迟退休的原因之一是什么？\nA)越来越多人转向智力挑战较小的工作。C)以购买力衡量的工资增长率多年来持续放缓。\nB)私营部门适合老年人的工作岗位增加了。D)职场中越来越多的人发现依靠传统养老金很难。\n定位：根据题干关键词reasonsforpeopletodelayretirement可定位到第三段第一句。\n\n解析：第三段第一句指出，多重经济因素也是人们延迟退休的部分原因，例如实际工资多年来增长缓慢，以及\n\n私营部门传统养老金制度的转型。选项c中的wage...intermsofpurchasingpower与原文中的realwages（实\n际工资，即考虑购买力后的工资）含义相同，has slowed down foryears对应slowrise，故选项C正确。选项\nA、B、D的描述在原文中均未提及，故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What is the general trend in people delaying retirement?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The higher their earnings, the more likely they are tempted to delay retirement."
+            },
+            {
+              "key": "B",
+              "text": "Those who have more job satisfaction tend to retire later than those who have less."
+            },
+            {
+              "key": "C",
+              "text": "More men than women are likely to stay in the labor force until their late seventies."
+            },
+            {
+              "key": "D",
+              "text": "The higher their educational level, the more likely they are to delay retirement."
+            }
+          ],
+          "answer": "D",
+          "explanation": "53.人们延迟退休的总体趋势是什么？\nA)收入越高，越有可能倾向于延迟退休。\nB)工作满意度越高的人，退休时间往往比满意度低的人更晚。\nC)男性比女性更有可能工作到70多岁晚期。\nD)教育水平越高，越有可能延迟退休。\n定位：根据题干关键词general trend可定位到第五段。\n\n解析：第五段第二、三句明确提到，2018年，拥有学士学位的美国人中，工作至70岁以上的比例接近20%。对于\n\n高中及以下学历的人来说，这一比例已上升至约10%，而接受过部分大学教育的人群则处于中间水平，约\n为15%。这一数据体现了教育水平越高，延迟退休的可能性越大，故选项D正确。文章未提及收入水平与\n延迟退休趋势的直接关系，选项A可排除；该趋势数据并未提及工作满意度，选项B也可排除；原文未涉\n及性别差异的对比，故选项C也可排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What is the chief reason for college-educated workers delaying retirement according to an economist?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Enjoying financial security."
+            },
+            {
+              "key": "B",
+              "text": "Staying connected socially."
+            },
+            {
+              "key": "C",
+              "text": "Contributing more professionally."
+            },
+            {
+              "key": "D",
+              "text": "Increasing social security payments."
+            }
+          ],
+          "answer": "B",
+          "explanation": "54.据一位经济学家称，受过大学教育的从业者延迟退休的主要原因是什么？\nA)享受经济保障。\nC)做出更多职业贡献。\nB)维持社交联系。\nD)提高社会保障发放金额。\n定位：根据题干关键词college-educated workers、chiefreason可定位到第六段第二句。\n\n解析：第六段第二句指出，经济学家马丁·尼尔·贝利认为，许多受过大学教育的劳动者选择留在劳动力市场，\n\n更多是出于社交效益，而非经济考量。Staying connected socially是对socialbenefits的合理闸释，故选项B正\n确。享受经济保障属于financialreasons，而原文明确指出，并非出于经济原因，故选项A可排除；选项C\n和选项D原文均未提及，均可排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the passage say about people doing manual work?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are eager to enjoy life after retiring."
+            },
+            {
+              "key": "B",
+              "text": "They are likely to have financial troubles."
+            },
+            {
+              "key": "C",
+              "text": "They generally don't enjoy doing it."
+            },
+            {
+              "key": "D",
+              "text": "They tend to anticipate retirement. ."
+            }
+          ],
+          "answer": "D",
+          "explanation": "55.关于从事体力劳动的人，文章说了什么？\nA)他们渴望退休后享受生活。\nC)他们通常不喜欢自己的工作。\nB)他们可能存在经济困难。\nD)他们往往期待退休。\n定位：根据题干关键词peopledoingmanualwork可定位到最后一段。\n\n解析：最后一段明确指出，从事体力劳动的人可能更期待退休，故选项D正确。选项中的anticipateretirement与原\n\n文中的lookforwardtoretiring为同义转述关系。原文未提及从事体力劳动的人渴望退休后享受生活，仅说\n明他们期待退休，故选项A可排除；选项B和选项C在原文中均没有依据，可排除。"
+        }
+      ]
+    }
+  ],
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_12_1_ans.pdf"
+}

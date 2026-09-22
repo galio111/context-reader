@@ -1,0 +1,1663 @@
+{
+  "id": "cet4-2025-12-3",
+  "level": 4,
+  "year": 2025,
+  "month": 12,
+  "set": 3,
+  "title": "2025 年 12 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet4_2025_12_3.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2025-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Earth Day is an annual celebration that honors the achievements of the environmental movement and raises awareness of the need to protect Earth’s natural resources for future generations. Earth Day is celebrated on April 22 in the United States and on either April 22 or the day the spring equinox (春分) occurs throughout the [[26]] of the world.",
+        "Environmental activism during the 1960s [[27]] Wisconsin Senator Gaylord Nelson to create a [[28]] celebration uniting the environmental movement. With the help of Denis Hayes, a graduate student at Harvard University, Nelson organized the first Earth Day on April 22, 1970, educating participants in the [[29]] of environmental protection. Attended by 20 million people across the United States, the event [[30]] support for legislation such as the Clean Air Act and the Endangered Species Act.",
+        "In 1990, Hayes organized a global Earth Day, with more than 200 million participants in 140 countries. Earth Day now brings [[31]] citizens and activists from around the world to raise awareness and take action regarding such environmental [[32]] as global warming and renewable energy.",
+        "Today, the Earth Day Network, which rallies more than 20,000 [[33]] and organizations in 190 countries, supports the Earth Day mission year-round. This mission is founded on the proposition that all people, regardless of race, gender, income, or [[34]], have a moral right to a healthy, sustainable environment. The Earth Day Network [[35]] this mission through education, public policy, and activism campaigns."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "concerns"
+        },
+        {
+          "key": "B",
+          "text": "expansion"
+        },
+        {
+          "key": "C",
+          "text": "forth"
+        },
+        {
+          "key": "D",
+          "text": "geography"
+        },
+        {
+          "key": "E",
+          "text": "importance"
+        },
+        {
+          "key": "F",
+          "text": "imposed"
+        },
+        {
+          "key": "G",
+          "text": "inspired"
+        },
+        {
+          "key": "H",
+          "text": "national"
+        },
+        {
+          "key": "I",
+          "text": "partners"
+        },
+        {
+          "key": "J",
+          "text": "potential"
+        },
+        {
+          "key": "K",
+          "text": "pursues"
+        },
+        {
+          "key": "L",
+          "text": "rescues"
+        },
+        {
+          "key": "M",
+          "text": "rest"
+        },
+        {
+          "key": "N",
+          "text": "strengthened"
+        },
+        {
+          "key": "O",
+          "text": "together"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "concerns"
+            },
+            {
+              "key": "B",
+              "text": "expansion"
+            },
+            {
+              "key": "C",
+              "text": "forth"
+            },
+            {
+              "key": "D",
+              "text": "geography"
+            },
+            {
+              "key": "E",
+              "text": "importance"
+            },
+            {
+              "key": "F",
+              "text": "imposed"
+            },
+            {
+              "key": "G",
+              "text": "inspired"
+            },
+            {
+              "key": "H",
+              "text": "national"
+            },
+            {
+              "key": "I",
+              "text": "partners"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "pursues"
+            },
+            {
+              "key": "L",
+              "text": "rescues"
+            },
+            {
+              "key": "M",
+              "text": "rest"
+            },
+            {
+              "key": "N",
+              "text": "strengthened"
+            },
+            {
+              "key": "O",
+              "text": "together"
+            }
+          ],
+          "answer": "M",
+          "explanation": "26.M)rest（n.剩余部分）\n语法判断空格前面是定冠词the，后面是介词短语oftheworld，故空格处应填名词。\n语义判断句意为“美国在4月22日庆祝世界地球日，而世界_地区则在4月22日或春分当天庆祝”。the\nrestoftheworld是固定搭配，表示“世界其他地区”，符合此处语境，故答案为M。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "concerns"
+            },
+            {
+              "key": "B",
+              "text": "expansion"
+            },
+            {
+              "key": "C",
+              "text": "forth"
+            },
+            {
+              "key": "D",
+              "text": "geography"
+            },
+            {
+              "key": "E",
+              "text": "importance"
+            },
+            {
+              "key": "F",
+              "text": "imposed"
+            },
+            {
+              "key": "G",
+              "text": "inspired"
+            },
+            {
+              "key": "H",
+              "text": "national"
+            },
+            {
+              "key": "I",
+              "text": "partners"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "pursues"
+            },
+            {
+              "key": "L",
+              "text": "rescues"
+            },
+            {
+              "key": "M",
+              "text": "rest"
+            },
+            {
+              "key": "N",
+              "text": "strengthened"
+            },
+            {
+              "key": "O",
+              "text": "together"
+            }
+          ],
+          "answer": "G",
+          "explanation": "27.Ginspired（v启发；激励）\n语法判断空格前面是主语Environmentalactivism和时间状语duringthe1960s，后面是宾语WisconsinSenator\nGaylordNelson，故空格处应填动词的过去式，作句子的谓语。\n即环保行动的影响力让尼尔森产生了组织活动的想法。代人选项可知，inspired精准体现了这种行动推动想\n法的因果关联，符合此处语境，故为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "concerns"
+            },
+            {
+              "key": "B",
+              "text": "expansion"
+            },
+            {
+              "key": "C",
+              "text": "forth"
+            },
+            {
+              "key": "D",
+              "text": "geography"
+            },
+            {
+              "key": "E",
+              "text": "importance"
+            },
+            {
+              "key": "F",
+              "text": "imposed"
+            },
+            {
+              "key": "G",
+              "text": "inspired"
+            },
+            {
+              "key": "H",
+              "text": "national"
+            },
+            {
+              "key": "I",
+              "text": "partners"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "pursues"
+            },
+            {
+              "key": "L",
+              "text": "rescues"
+            },
+            {
+              "key": "M",
+              "text": "rest"
+            },
+            {
+              "key": "N",
+              "text": "strengthened"
+            },
+            {
+              "key": "O",
+              "text": "together"
+            }
+          ],
+          "answer": "H",
+          "explanation": "28.H)national（adj.全国性的）\n语法判断空格前面是不定冠词a，后面是名词celebration，故空格处应填形容词，作定语修饰后面的名词。\n语义判断后文提到美国各地有2000万人参与了首届地球日活动，这说明活动最初的覆盖范围是美国国内。代\n入选项可知，national符合此处语境。nationalcelebration（全国性庆祝活动）既对应“20o0万美国人”的参与规\n模，也与后面提到的globalEarthDay（全球性的地球日）形成从国内到全球的发展阶段对比，故答案为H。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "concerns"
+            },
+            {
+              "key": "B",
+              "text": "expansion"
+            },
+            {
+              "key": "C",
+              "text": "forth"
+            },
+            {
+              "key": "D",
+              "text": "geography"
+            },
+            {
+              "key": "E",
+              "text": "importance"
+            },
+            {
+              "key": "F",
+              "text": "imposed"
+            },
+            {
+              "key": "G",
+              "text": "inspired"
+            },
+            {
+              "key": "H",
+              "text": "national"
+            },
+            {
+              "key": "I",
+              "text": "partners"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "pursues"
+            },
+            {
+              "key": "L",
+              "text": "rescues"
+            },
+            {
+              "key": "M",
+              "text": "rest"
+            },
+            {
+              "key": "N",
+              "text": "strengthened"
+            },
+            {
+              "key": "O",
+              "text": "together"
+            }
+          ],
+          "answer": "E",
+          "explanation": "29.E)importance（n.重要性）\n语法判断空格前面是定冠词the，后面是介词短语ofenvironmentalprotection，故空格处应填名词。\n语义判断句意为“在哈佛大学研究生丹尼斯·海斯的帮助下，尼尔森于1970年4月22日组织举办了首届\n地球日活动，向参与者们宣传了环境保护的_”。尼尔森组织首届地球日活动的核心目的是教育参与\n者，而教育的核心内容正是环保的价值。代人选项可知，importance符合此处语境，故答案为E。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "concerns"
+            },
+            {
+              "key": "B",
+              "text": "expansion"
+            },
+            {
+              "key": "C",
+              "text": "forth"
+            },
+            {
+              "key": "D",
+              "text": "geography"
+            },
+            {
+              "key": "E",
+              "text": "importance"
+            },
+            {
+              "key": "F",
+              "text": "imposed"
+            },
+            {
+              "key": "G",
+              "text": "inspired"
+            },
+            {
+              "key": "H",
+              "text": "national"
+            },
+            {
+              "key": "I",
+              "text": "partners"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "pursues"
+            },
+            {
+              "key": "L",
+              "text": "rescues"
+            },
+            {
+              "key": "M",
+              "text": "rest"
+            },
+            {
+              "key": "N",
+              "text": "strengthened"
+            },
+            {
+              "key": "O",
+              "text": "together"
+            }
+          ],
+          "answer": "N",
+          "explanation": "30.N）strengthened（v.加强，巩固）\n语法判断空格前面是主语theevent，后面是宾语support，故空格处应填动词作谓语。结合前面的过去时间\n“onApril22,1970”，故动词用过去式。\n法》等立法的公众支持”。有2000万人参与的大规模活动，必然会提升公众对环保问题的关注度，进而推\n动立法支持。代人选项可知，strengthened符合此处语境，故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "concerns"
+            },
+            {
+              "key": "B",
+              "text": "expansion"
+            },
+            {
+              "key": "C",
+              "text": "forth"
+            },
+            {
+              "key": "D",
+              "text": "geography"
+            },
+            {
+              "key": "E",
+              "text": "importance"
+            },
+            {
+              "key": "F",
+              "text": "imposed"
+            },
+            {
+              "key": "G",
+              "text": "inspired"
+            },
+            {
+              "key": "H",
+              "text": "national"
+            },
+            {
+              "key": "I",
+              "text": "partners"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "pursues"
+            },
+            {
+              "key": "L",
+              "text": "rescues"
+            },
+            {
+              "key": "M",
+              "text": "rest"
+            },
+            {
+              "key": "N",
+              "text": "strengthened"
+            },
+            {
+              "key": "O",
+              "text": "together"
+            }
+          ],
+          "answer": "O",
+          "explanation": "31.O)together（adv.一起，共同）\n语法判断空格前面是动词brings，后面是宾语citizens andactivists，空格处应填形容词或副词。\n入选项可知，together符合此处语境，故为答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "concerns"
+            },
+            {
+              "key": "B",
+              "text": "expansion"
+            },
+            {
+              "key": "C",
+              "text": "forth"
+            },
+            {
+              "key": "D",
+              "text": "geography"
+            },
+            {
+              "key": "E",
+              "text": "importance"
+            },
+            {
+              "key": "F",
+              "text": "imposed"
+            },
+            {
+              "key": "G",
+              "text": "inspired"
+            },
+            {
+              "key": "H",
+              "text": "national"
+            },
+            {
+              "key": "I",
+              "text": "partners"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "pursues"
+            },
+            {
+              "key": "L",
+              "text": "rescues"
+            },
+            {
+              "key": "M",
+              "text": "rest"
+            },
+            {
+              "key": "N",
+              "text": "strengthened"
+            },
+            {
+              "key": "O",
+              "text": "together"
+            }
+          ],
+          "answer": "A",
+          "explanation": "32.A)concerns（n.令人担忧、关注或感兴趣的问题、事务或议题）\n语法判断空格前面是形容词environmental，后面是举例asglobalwarming.，故空格处应填名词。\n语义判断本句说明地球日关注的问题，globalwarming（全球变暖）、renewableenergy（可再生能源）都属\n于环境问题（environmentalconcerms），故答案为A。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "concerns"
+            },
+            {
+              "key": "B",
+              "text": "expansion"
+            },
+            {
+              "key": "C",
+              "text": "forth"
+            },
+            {
+              "key": "D",
+              "text": "geography"
+            },
+            {
+              "key": "E",
+              "text": "importance"
+            },
+            {
+              "key": "F",
+              "text": "imposed"
+            },
+            {
+              "key": "G",
+              "text": "inspired"
+            },
+            {
+              "key": "H",
+              "text": "national"
+            },
+            {
+              "key": "I",
+              "text": "partners"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "pursues"
+            },
+            {
+              "key": "L",
+              "text": "rescues"
+            },
+            {
+              "key": "M",
+              "text": "rest"
+            },
+            {
+              "key": "N",
+              "text": "strengthened"
+            },
+            {
+              "key": "O",
+              "text": "together"
+            }
+          ],
+          "answer": "I",
+          "explanation": "33.Ipartners（n.合作伙伴）\n语法判断空格前面是数字20.ooo，后面是andorganizations，故空格处应填名词复数，与organizations构成并\n列关系。\n语义判断句意为“如今，地球日网络（EDN）汇集了来自190个国家的两万多个和组织，全年支持地\n\n\f\n球日的使命”。代人选项可知，partners符合此处语境，故为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "concerns"
+            },
+            {
+              "key": "B",
+              "text": "expansion"
+            },
+            {
+              "key": "C",
+              "text": "forth"
+            },
+            {
+              "key": "D",
+              "text": "geography"
+            },
+            {
+              "key": "E",
+              "text": "importance"
+            },
+            {
+              "key": "F",
+              "text": "imposed"
+            },
+            {
+              "key": "G",
+              "text": "inspired"
+            },
+            {
+              "key": "H",
+              "text": "national"
+            },
+            {
+              "key": "I",
+              "text": "partners"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "pursues"
+            },
+            {
+              "key": "L",
+              "text": "rescues"
+            },
+            {
+              "key": "M",
+              "text": "rest"
+            },
+            {
+              "key": "N",
+              "text": "strengthened"
+            },
+            {
+              "key": "O",
+              "text": "together"
+            }
+          ],
+          "answer": "D",
+          "explanation": "34.D)geography（n.地域，地理）\n语法判断空格前面是regardlessofrace,gender,income，or，后面是逗号，故空格处应填名词，表示“身份/\n背景”等，与race、gender、income并列。\n语义判断句意为“这项使命的立足点是：所有人，不论种族、性别、收人或\n，都享有…”。\nregardlessof后的内容是对allpeople的范围补充。代人选项可知，geography符合语境，故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "concerns"
+            },
+            {
+              "key": "B",
+              "text": "expansion"
+            },
+            {
+              "key": "C",
+              "text": "forth"
+            },
+            {
+              "key": "D",
+              "text": "geography"
+            },
+            {
+              "key": "E",
+              "text": "importance"
+            },
+            {
+              "key": "F",
+              "text": "imposed"
+            },
+            {
+              "key": "G",
+              "text": "inspired"
+            },
+            {
+              "key": "H",
+              "text": "national"
+            },
+            {
+              "key": "I",
+              "text": "partners"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "pursues"
+            },
+            {
+              "key": "L",
+              "text": "rescues"
+            },
+            {
+              "key": "M",
+              "text": "rest"
+            },
+            {
+              "key": "N",
+              "text": "strengthened"
+            },
+            {
+              "key": "O",
+              "text": "together"
+            }
+          ],
+          "answer": "K",
+          "explanation": "35.K）pursues（v追求；致力于）\n语法判断空格前面是主语TheEarthDayNetwork，后面是宾语thismission，故空格处应填动词作谓语。又\n根据段首的现在时间词Today可知，此处用动词的第三人称单数。\n语义判断本句句意为“地球白网络通过教育推广、公共政策和行动主义活动来这一使命”。代人选\n项可知，pursues符合此处语境，pursuesthismission意译为“践行这一使命”，故答案为K。\n干扰项注释\nB)expansion（n.扩张，扩展）C)forth（adv.向前）F)imposed（v.强加；施加）J)potential（adj.潜在\n的，可能的n.潜力，潜能）L）rescues（v营救，救援n.营救，救援行动）"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-3-b",
+      "type": "matching",
+      "title": "Looking for a job after 45",
+      "paragraphs": [
+        "A) Ageism and long-term unemployment are most damaging for those in the second half of their careers. Changing careers is hard. Getting back into work after you’ve been laid off is even harder. Those over 45 make up the bulk of the long-term unemployed, in America and elsewhere. Hiring managers admit they are reluctant to hire those over 40 or 45, arguing they probably won’t be a good “fit,” their experience won’t be relevant to the workplace, and they’ll be unable or unwilling to learn new skills.",
+        "B) But the one thing that can really make a difference? More education and training. These are the results from a new study by Generation, a nonprofit founded by former McKinsey consultants. They’ve just published a global survey on midcareer employment, based on surveys of over 5,000 workers and managers in seven countries.",
+        "C) “Older midcareer workers...make up the bulk of the long-term unemployed in many countries,” Generation’s analysts write in their report. Those over 45 comprise over 40% of the long-term unemployed, for example. And if you’re out of work past the age of 45, there’s nearly a two in three chance you’ll be out of work for over a year, they find. “Midcareer individuals are finding it harder to get jobs,” they write. “People age 45+ face persistent and rising pressure in the global job market. They are unemployed for much longer than the average, and their age is indeed one of the greatest barriers to their finding a job.”",
+        "D) A substantial part of this, they report, is “widespread ageism” on the part of hiring managers. Although such managers admit that post-45 hires turn out on average to be just as good as or better than younger workers, they still don’t want to hire them. “Hiring managers have a strong perception bias against 45+ job candidates — they believe that members of this age group have poor skills and low adaptability,” Generation’s analysts report.",
+        "E) The survey results are remarkable. Hiring managers are three times as likely to rate job applicants age 35-44 as a better “fit” than those over 45. They rate the post-45 job seekers lower on average on all three measures — even experience — than those ages 18 to 34. This is true even though nearly nine managers in 10 also said their post-45 workers were as good as or better than younger employees in the same jobs.",
+        "F) Their biggest fears about hiring those over 45? Managers said they worry that older hires will be reluctant to try new technologies, and will be unable to learn new skills. Besides, the majority of hiring managers are under 45 — and seem reluctant to hire people older than themselves.",
+        "G) But here's the good news. Older workers who’ve actively engaged in more education and training relevant to their jobs turn this pretty much on its head. Three-quarters of hiring managers said they’d be more likely to hire an over-45 who had relevant education, training or credentials (文凭). Among those over 45 who’d successfully switched careers, 74% said training helped them get their new job.",
+        "H) “Midcareer switchers overwhelmingly say that training enabled them to shift to a new career path, ” the analysts write. And when they asked over-45 candidates about their attitudes, they found that “those who are excited by training are unemployed for less time, receive more job offers, and are more satisfied by the job offers they receive.”",
+        "I) Hiring managers said training was three times more likely to get them to hire applicants over age 45 than, say, government subsidies (补贴). What training are we talking about? Obviously it depends on the job. And, yes, managers are most likely to be impressed by industry qualifications you get in school. These things cost money, and time. But these aren’t the only things helpful. Those who had successfully changed careers after 45 told Generation that education and training had been a big help — and that included in-person, on-the-job training, “'informal learning,” and online courses — with or without certification.",
+        "J) If they think we’re too old to learn new skills after we’re 45, just learning some new skills may have an effect on its own. There’s a downside to this. The people least interested in retraining are more likely to come from historically disadvantaged communities, more likely to have low incomes, and are more likely to have the least schooling after getting their high-school diploma or earlier. On average, post -45 job switchers with higher incomes participate in 2.5 training programs each. Those with lower incomes: 0.9 programs on average.",
+        "K) Many years ago, I wrote about a study which found that employers are much more likely to hire a college graduate who has some work experience in the industry than a college graduate who took the “right” degree. A bank is more likely to hire a literature graduate who spent their summers working in their local bank than a finance or economics graduate who spent their summers surfing or traveling around Italy. They’ve learned through long experience. The person who worked in the bank is more likely ready, willing and able to be part of the team and do the job from day 1.",
+        "L) We can rail against “ageism” all we like. It gets us nowhere. And it’s easy to forget that employers, like everyone else, are under time pressure and are just trying to solve problems. Any and all “training,” including inexpensive and informal training, is going to help resolve their worries about hiring someone over 45. And it has never been easier or cheaper to gain instruction in new skills, thanks to the internet. Online schools like Udemy and Lynda.com offer sweet deals at sign- up. And courses on YouTube are free.",
+        "M) Bottom line? Yes, it really can be difficult getting a new job after age 45, let alone changing careers. One of the best things we can do to help ourselves is to go online and learn new, relevant skills. Sadly, the people who most need the help are least likely to take it — which raises a challenge for society as a whole. Not only do we not want to see lives go to waste, but we all benefit if more people are working and fewer are unemployed"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Hiring managers believe unemployed workers over 45 lack good skills and are less adaptable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案解析D。由题干关键信息Hiringmanagers、unemployed workers over 45、good skills和less adaptable定\n位到D段。D段最后一句提到，“招聘经理对45岁以上的求职者存在强烈的认知偏见—他们认为这个年龄\n段的人技能差、适应能力差。”世代的分析师报告称。题干是对其同义转述，其中Hiringmanagers believe\nunemployedworkers over45对应原文中的Hiringmanagershaveastrongperceptionbias against45+job candidates，\n而lackgood skillsand areless adaptable对应原文中的have poor skillsandlow adaptability，故答案为D。"
+        },
+        {
+          "number": 37,
+          "stem": "Switching to a new career is difficult and getting reemployed after a layoff is even tougher.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案解析A。由题干关键信息Switching toanewcareer、getingreemployed afteralayof和eventougher定位\n到A段。A段第二、三句提到，转行很难，而被解雇后再就业则更难。题干是对该句的同义转述，其中\nSwitching toanewcareerisdifficult与原文中的Changing careers ishard同义，而getting reemployed afteralayoffis\neventougher对应原文中的Gettingbackintoworkafteryouvebeenlaidoffisevenharder，故答案为A。\n38.题于译文来自贫困社区的人往往对再培训最不感兴趣。"
+        },
+        {
+          "number": 38,
+          "stem": "People from poor neighborhoods tend to have the least interest in retraining.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "答案解析J。由题干关键信息Peoplefrom poor neighborhoods和have theleast interest in retraining定位到J段。\n\n\f\nJ段第三句提到，那些对再培训最不感兴趣的人更有可能来自历来处于不利地位的社区，更有可能收入较\n低，并且在获得高中文凭后（甚至更早）就没再接受过多少教育。题干是对该句的同义转述。其中havethe\nleast interest inretraining与原文中的least interestedinretraining同义，Peoplefrompoor neighborhoods tend to\n是对原文中Thepeople..aremore likelytocomefromhistoricallydisadvantagedcommunitiesmore likelytohave\nlowincomes的概括总结，故答案为J。"
+        },
+        {
+          "number": 39,
+          "stem": "Hiring managers who are not yet 45 years old seem unwilling to hire people their senior.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答索解析F。由题干关键信息Hiringmanagers、notyet45yearsold和unwillingtohirepeopletheir senior定位\n到F段。F段末句提到，此外，大多数招聘经理都不到45岁，而且似乎不太愿意聘用比自已年长的人。题干\n与该句同义，其中Hiring managers whoare notyet45years old对应原文中的hiringmanagers are under45，而\nseem unwilling tohire people their senior与原文中的seemreluctant tohire people older than themselves同义，故\n答案为F。"
+        },
+        {
+          "number": 40,
+          "stem": "Some analysts find age 45+ jobless workers are most likely to be unemployed for more than a year.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案解析C。由题干关键信息Some analysts、age 45+joblessworkers和beunemployed formore thana year定\n位到C段。C段第三句提到，他们（即该段首句提到的世代的分析师）发现，如果45岁以后失业，那么有将\n近三分之二的可能性会失业超过一年。题干是对该句的同义转述，其中Someanalystsfind对应原文中的they\nfind；age45+jobless workers对应out of work past the age of45；aremost likely与原文中的there’snearly a two\nin three chance同义；be unemployed formore thanayear对应be out of work for overayear，故答案为C。"
+        },
+        {
+          "number": 41,
+          "stem": "People who had succeeded in career change after 45 told a nonprofit organization they owed a great deal to the education and training they had received.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "答案解析I。由题干关键信息People who had succeeded in career change after45、a nonprofit organization和\neducationandtraining定位到I段。I段末句提到，那些在45岁之后成功转行的人告诉世代，教育和培训起到了很\n大的帮助作用一这包括面对面的在职培训、“非正式学习”以及在线课程一无论是否有证书。题干是对该\n句的概括总结，其中Peoplewhohadsucceededincareerchange after45对应原文中的Thosewhohadsuccessfully\nchangedcareersafter45；toldanonprofitorganization对应toldGeneration；theyowedagreatdealtothe\neducation and training theyhadreceived对应education and traininghadbeenabighelp-and thatincludedin-\nperson，on-the-job training，“informallearning，”and online courses—withorwithoutcertification，故答案为I。"
+        },
+        {
+          "number": 42,
+          "stem": "Older workers who actively pursue more education and training have a good chance of being hired.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "答案解析G。由题干关键信息Olderworkers、actively pursuemore educationand training和have agood chance\nofbeinghired定位到G段。G段首句承上启下提到，但好消息来了。那些积极参加与工作相关的更多教育和\n培训的年长员工，几乎完全扭转了这一局面。接着指出四分之三的招聘经理表示，他们更有可能雇用45岁\n以上且拥有相关教育、培训或文凭的求职者。由此可知题干是对这一内容的概括总结，其中Olderworkers\nwhoactivelypursuemore education and training对应原文中的Olderworkers whove activelyengaged inmore\neducation and trainingrelevant to their jobs；haveagoodchance of being hired是对原文Three-quarters of hiring\nmanagers said theydbe more likelytohire anover-45whohadrelevant education,trainingor credentials的概括\n总结，故答案为G。"
+        },
+        {
+          "number": 43,
+          "stem": "A new study finds that more education and training helps midcareer individuals find a new job.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案解析B。由题干关键信息Anew study、more education and training、midcareerindividuals和findanewjob\n定位到B段。B段前两句提到，但真正能带来改变的办法是什么？那就是更多的教育和培训。这些是由前麦\n肯锡顾问创立的非营利组织“世代”的一项新研究得出的结论。再联系第一段可知，更多的教育和培训有\n助于那些职业生涯处于后半段的人转行或再就业。Anew studyfinds对应原文中的Thesearetheresultsfroma\nnewstudy；面moreeducationand training属于原词重现，helpsmidcareerindividualsfindanewjob对应原文中\n的canreallymakeadifference和midcareeremployment，故答案为B。"
+        },
+        {
+          "number": 44,
+          "stem": "Owing to the internet, it is now more convenient than ever to receive training in new skills.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "答案解析L。由题干关键信息Owing tothe intermet、more convenient thanever和receive training innew skills定位\n到L段。L段第四句提到，得益于互联网，获取新技能指导变得前所未有地容易和便宜，题干与该句同义，其\n中Owing to theinternet对应原文中的thanksto the intermet；itisnowmore convenient than evertoreceive training in\n\n\f\nnew skills与原文中的it has neverbeen easier orcheaperto gain instructioninnewskills同义，故答案为L。"
+        },
+        {
+          "number": 45,
+          "stem": "People over 45 stimulated by training suffer shorter periods of unemployment, get more job offers and have greater satisfaction in them",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "答案解析H。由题干关键信息People over45、shorter periods ofunemployment、more job offers和greater\nsatisfaction定位到H段。H段第二句提到，当他们询问年龄在45岁以上的求职者的态度时，他们发现“那些\n对培训充满热情的人失业时间更短，获得的工作邀约更多，对所获得的工作邀约也更满意”。题干是对该\n句的同义转述，其中Peopleover45对应原文中的over-45candidates，而stimulatedbytraining对应areexcited\nareunemployedforlesstime,receivemorejoboffersand aremoresatisfied by thejobofferstheyreceive，故答\n案为H。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "New York's Eleven Madison Park has become the first vegan (素食主义的) restaurant to be awarded three Michelin stars.",
+        "The fine dining establishment received its first three-star Michelin rating in 2011 when the menu was famed for its fancy animal-based dishes.",
+        "However, last year, the restaurant’s co-owner and famous chef, Daniel Humm, made the bold decision to remove meat from the menu, citing our unsustainable food system. While cow milk is still served for tea and coffee, the menu is almost 100 percent vegan.",
+        "At the time, Humm acknowledged the move was risky, admitting that “it wasn’t clear if guests would come”, but called the gamble “a risk worth taking.”",
+        "“In view of the climate crisis, I didn’t want to open the same restaurant,” Humm told the Financial Times in an interview. “If we can show the possibilities of eating plant-based food in this setting, it can open a lot of doors” for others to follow.",
+        "Now, this impressive new accomplishment validates Eleven Madison Park’s decision to take meat off the menu and embrace plant-based foods, with Michelin’s 2022 New York guide branding it a “bold vision of luxury dining”.",
+        "“We took the jump to transform Eleven Madison Park into a plant-based fine dining restaurant knowing in our hearts this is what we believed in,” stated Humm on Instagram. “Last night, we were honored to be awarded three Michelin stars for the 11th year in a row. I am so grateful to the team members who contributed through its nearly 25-year history. We are also grateful to our guests and partners who believed in our vision and encouraged us to push harder?.” Three Michelin stars is the highest award, given to chefs who are at the peak of their profession. “Their cooking is elevated to an art form and some of their dishes are destined to become classics,” reads Michelin’s website, in a clear nod to plant- based foods’ growing significance in the culinary (烹饪的) world.",
+        "“I think luxury companies have a real role to play and a responsibility,” says Humm. “The more creative we are, the more beautiful and delicious our future will be.”"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn about New York’s Eleven Madison Park?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is the first vegan restaurant to receive the highest Michelin rating."
+            },
+            {
+              "key": "B",
+              "text": "It is the first restaurant in the city to remove meat from its menu."
+            },
+            {
+              "key": "C",
+              "text": "It was famed throughout the U.S. for its fancy regional dishes."
+            },
+            {
+              "key": "D",
+              "text": "It was established as a three-star Michelin restaurant in 2011."
+            }
+          ],
+          "answer": "A",
+          "explanation": "46.关于纽约的麦迪逊公园11号餐厅，我们了解到什么？\nA)它是首家获得最高米其林评级的素食餐厅。C)它以其精致的地方菜驰名美国各地。\nB）它是该市首家将肉类从菜单中移除的餐厅。D）它于2011年成立时即为米其林三星餐厅。\n定位：根据题干关键词NewYork'sElevenMadisonPark以及题文同序的原则定位到第一段。\n\n解析：第一段指出，纽约麦迪逊公园11号餐厅成为首家获得米其林三星评级的素食餐厅。选项A与原文内容一\n\n致，故选A。第三段第一句仅提到餐厅去年移除肉类，但未说明是该市首家，B项属于无中生有，故排\n除。第二段提到2011年这家高级餐厅的菜单以精致的动物源菜品而闻名，但并未提及它驰名“美国各\n地”，C项不符合原文，故排除。原文第二段提到该餐厅2011年首次获得米其林三星评级，而不是说成立\n时就是三星餐厅，D项与原文不符，故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "Why did Daniel Humm decide to remove meat from the menu of his restaurant?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To encourage more customers to be vegan."
+            },
+            {
+              "key": "B",
+              "text": "To contribute to a sustainable food system."
+            },
+            {
+              "key": "C",
+              "text": "To show the appeal of a plant-based menu."
+            },
+            {
+              "key": "D",
+              "text": "To strive for the three-star Michelin rating."
+            }
+          ],
+          "answer": "B",
+          "explanation": "47.丹尼尔·胡姆为何决定将肉类从餐厅菜单中移除？\nA)为了鼓励更多顾客成为素食主义者。\nC)为了展示植物基饮食菜单的吸引力。\nB)为可持续食物体系做出贡献。\nD)为了争取米其林三星评级。\n定位：根据题干关键词removemeatfromthemenu定位到第三段第一句。\n\n解析：第三段第一句提到去年该餐厅的联合创始人、名厨丹尼尔·胡姆基于“当前不可持续的食物体系”的认\n\n知，做出了移除菜单中肉类的果敢决定，也就是说，他希望为可持续食物体系做出贡献，故选B。A项内\n容原文中未提及，故排除。第五段提到能在这样的环境中展示植物基饮食的可能性，能为其他餐厅打开很\n多扇大门，这是餐厅转型的结果及意义，而不是做出决定的原因，故排除C。D项逻辑错误，第二段明确\n提到该餐厅于2011年已获得三星评级，转型是在“去年”，时间线矛盾，故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What did Daniel Humm think of his move to a meat-free menu?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was a worthwhile effort even though he was unsure of its success."
+            },
+            {
+              "key": "B",
+              "text": "It would set a model for many more restaurants to follow."
+            },
+            {
+              "key": "C",
+              "text": "It was a mad gamble few chefs in the fine dining world would risk taking."
+            },
+            {
+              "key": "D",
+              "text": "It would prove a right step to take in today’s catering business."
+            }
+          ],
+          "answer": "A",
+          "explanation": "48.丹尼尔·胡姆如何看待其转向无肉菜单的举措？\nA)尽管不确定能否成功，但这是一项值得的努力。\nB)这将为更多餐厅树立榜样。\nC)这是一场疯狂的冒险，高级餐饮界鲜有主厨敢冒这个险。\nD)这将被证明是当今餐饮行业中的一个正确的举措。\n定位：根据题干关键词DanielHumm、hismove及ameat-freemenu定位到第四段。\n\n\n一试”，由此可知，胡姆不确定能否成功，但认为这是一项值得的努力，故选A。根据第五段的内容可\n知，B项“为更多餐厅树立榜样”是转型的潜在影响，而不是他对举措本身的看法，应排除。原文中提到\n餐厅转型是“大胆决定”，但未提及此举是高级餐饮界鲜有主厨敢做的，C项属于过度解读，应排除。胡\n姆承认餐厅转型的举动有风险，但并未肯定它一定是正确的举措，D项与胡姆不确定的心理矛盾，故\n排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What does Michelin’s 2022 New York guide say about Eleven Madison Park’s decision?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It elevates the restaurant’s cooking to an art form."
+            },
+            {
+              "key": "B",
+              "text": "It proves the validity of ratings awarded by Michelin."
+            },
+            {
+              "key": "C",
+              "text": "It shows a daring foresight regarding future fine dining."
+            },
+            {
+              "key": "D",
+              "text": "It is an effort to transform the restaurant into a luxury one."
+            }
+          ],
+          "answer": "C",
+          "explanation": "49.米其林2022年组约指南对麦迪逊公园11号餐厅的决定有何评价？\nA)它将餐厅的烹饪提升到了艺术层面。\nC)它展现了对未来高级餐饮的大胆远见。\nB)它证明了米其林评级的合理性。\nD)这是一项将该餐厅转型为高端餐厅的努力。\n定位：根据题干关键词Michelin’s2022NewYorkguide定位到第六段第二句。\n\n解析：第六段第二句提到，米其林2022年纽约指南将其誉为“奢华餐饮的大胆愿景”，C项是对原文的同义转\n述，故为正确选项。倒数第二段中提到米其林评价某些主厨的烹饪已升华为艺术形式，部分菜品注定成为\n经典，A项将“主厨”偷换成“餐厅”，故排除。B项内容原文中未提及，故排除。第二段明确提到该餐\n厅原本就是高级餐厅，转型的是“菜单（无肉）”，而不是餐厅的层级，D项不符合原文逻辑，故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the awarding of three Michelin stars to Eleven Madison Park indicate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "An optimistic vision of vegan foods becoming mainstream."
+            },
+            {
+              "key": "B",
+              "text": "A greater responsibility for the culinary world to undertake."
+            },
+            {
+              "key": "C",
+              "text": "A strong incentive for more restaurants to offer healthier foods to their customers."
+            },
+            {
+              "key": "D",
+              "text": "An explicit recognition of the rising importance of restaurants serving vegan food"
+            }
+          ],
+          "answer": "D",
+          "explanation": "50.麦迪逊公园i1号餐厅获得来其林三星评级表明了什么？\nA)素食食品成为主流的乐观愿景。\nC)对更多餐厅为顾客提供更健康食品的一种强有力的激励。\nB)烹饪界肩负的责任愈发重大。\nD)对供应素食的餐厅正日益重要的一种明确认可。\n\n\f\n定位：根据题干关键词theawardingofthreMichelin stars和题文同序的原则定位到倒数第二段。\n\n解倒数第二段首先指出，米其林三星是最高奖项，授予那些厨艺处于行业巅峰的主厨。然后第二句直接引述\n\n了米其林官网的评论，并明确指出，这显然是在认可植物基饮食在烹饪界日益增长的重要性。由此可知，\n麦迪逊公园11号餐厅获得米其林三星评级表明了米其林对素食餐厅日益重要的一种明确认可，选项D与此\n内容相符，故为答案。“越来越重要”不等于“成为主流”，A项属于过度解读，应排除。烹任界需承担\n更大的责任是丹尼尔·胡姆的观点，而不是米其林授星所表明的内容，主体混淆，故排除。C项内容文中\n未提及，故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "With genetic testing becoming increasingly popular, many people are left wondering exactly how accurate it is. Whether you are taking a DNA test to build your extended DNA family tree, or want precise information on inborn (先天的) health conditions, it is important to understand how accurate genetic tests are, and what information we can rely upon.",
+        "How accurate DNA tests are relies greatly upon the kind of test being taken, on the specific question you ask, and on how complex the genetics behind a trait ( 特征) is. For example, tests for traits that depend on a single gene provide much more reliable results, because you can see whether a disease-causing trait is present.",
+        "Ancestry tests claim to reveal our genetic identities. But saying you are 30 percent East Asian or American hardly reflects your real ancestry.",
+        "What about using DNA tests to discover distant family members? There are tools to compare one’s DNA with others’ to find distant relatives based on their genetic identification. These kinds of applications are generally accurate. It’s relatively easy to tell whether two DNA samples belong to close relatives. With distant relatives, results become hazier.",
+        "Genetic health tests claim to be able to detect certain hereditary ( 遗传的) diseases, or other health conditions. While certain rare diseases can be easily identified, most potential health conditions cannot be identified by genetic testing alone. The large majority of our traits and diseases also depend upon non-genetic factors, such as lifestyle, the environment, and many others.",
+        "Genetic tests for multi-factorial traits are often very tricky to interpret. Height, for example, depends on hundreds of genes, each contributing a li ttle to the outcome, together with a bunch of environmental factors. A test can look at many genes at once, but it’s difficult to predict how they will play together. Then you should also account for non-genetic factors that are not written in the DNA.",
+        "Tests that offer to find your perfect romantic match and those claiming to predict personality or talents based on your DNA are pure nonsense. At the moment , the scientific bases for these applications are non-existent or incredibly weak."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the passage say is of importance regarding genetic tests?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Knowing their accuracy."
+            },
+            {
+              "key": "B",
+              "text": "Evaluating their applicability."
+            },
+            {
+              "key": "C",
+              "text": "Utilizing the information they provide."
+            },
+            {
+              "key": "D",
+              "text": "Weighing the consequences they have."
+            }
+          ],
+          "answer": "A",
+          "explanation": "51.关于基因检测，文章认为什么是重要的？\nA)了解它们的准确性。\nC)利用它们提供的信息。\nB)评估它们的适用性。\nD)权衡它们带来的后果。\n定位：根据题干关键词ofimportanceregardinggenetictests定位到第一段第二句。\n\n解析：第一段第二句提到，无论你是进行DNA检测来构建你的扩展DNA家谱，还是想获取关于先天健康状况的\n\n精准信息，了解基因检测的准确性以及哪些信息值得相信都是至关重要的，A项是对核心信息的直接提\n\n\f\n炼，故为正确选项。B项和D项的内容原文中均未提及，故排除。第一段第二句提到需要了解哪些信息可\n以相信，而不是要利用它们提供的信息，C项表述存在偏差，故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What kind of genetic tests tend to be comparatively reliable?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Those complex enough to reveal the genetics behind a trait."
+            },
+            {
+              "key": "B",
+              "text": "Those looking for traits responsible for certain diseases."
+            },
+            {
+              "key": "C",
+              "text": "Those focusing on the specific questions being asked."
+            },
+            {
+              "key": "D",
+              "text": "Those looking for traits determined by a single gene."
+            }
+          ],
+          "answer": "D",
+          "explanation": "52.哪种基因检测往往相对可靠？\nA)那些足够复杂、能揭示某一特征背后基因机制的检测。\nB)那些寻找导致特定疾病的特征的检测。\nC)那些聚焦所提出的具体问题的检测。\nD)那些寻找由单个基因决定的特征的检测。\n定位：根据题干关键词tendtobecomparativelyreliable定位到第二段第二句。\n\n解析：第二段第二句提到，针对由单个基因决定的特征的检测，其结果可靠性更高，因为你可以直接看到是否存\n在致病的特征，D项与原文一致，故选D。倒数第二段第一句提到，针对多因素特征的基因检测往往难以\n解读，A项与原文逻辑相反，故排除。原文明确提到是依赖单个基因的致病特征才更可靠，B项未提及单\n个基因这一核心前提，表述不严谨，故排除。C项是由第二段第一句“你提出的具体问题”拼凑而成的干\n扰项，故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What do we learn about genetic health tests from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are unable to identify certain hereditary diseases by themselves."
+            },
+            {
+              "key": "B",
+              "text": "They are generally unable to separate genetic and non-genetic factors."
+            },
+            {
+              "key": "C",
+              "text": "They cannot independently identify the majority of potential diseases."
+            },
+            {
+              "key": "D",
+              "text": "They cannot tell apart the impact of lifestyle and that of the environment."
+            }
+          ],
+          "answer": "C",
+          "explanation": "53.从文章中我们了解到关于基因健康检测的什么信息？\nA)它们无法自行识别某些遗传性疾病。\nC)它们无法独立识别大多数潜在疾病。\nB)它们通常无法区分遗传因素和非遗传因素。D）它们无法区分生活方式和环境的影响。\n定位：根据题干关键词genetichealthtests定位到第五段。\n\n解析：第五段第二句提到，虽然某些罕见疾病可以较容易地识别出来，但大多数潜在的健康状况无法仅靠基因检\n测来识别，C项是同义转述，故为正确答案。第五段第二句明确提到某些罕见病可以通过基因检测轻松识\n别，A项与此矛盾，故排除。第五段第三句提到大多数特征和疾病取决于非遗传因素，但未说检测无法区\n分遗传和非遗传因素，B项属于过度推断，故排除。D项说法在文中无依据，故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What makes genetic tests for multi-factorial traits tricky to interpret?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The challenge in determining the role of each individual gene."
+            },
+            {
+              "key": "B",
+              "text": "The difficulty of foretelling how the various genes will interact."
+            },
+            {
+              "key": "C",
+              "text": "The difficulty of telling genetic factors from environmental ones."
+            },
+            {
+              "key": "D",
+              "text": "The enormous work to identify the hundreds of genes involved."
+            }
+          ],
+          "answer": "B",
+          "explanation": "54.是什么让多因素特征的基因检测难以解读？\nA)确定每个单个基因作用的难度。\nC)区分遗传因素和环境因素的难度。\nB)预测不同基因如何相互作用的难度。\nD)识别涉及的数百个基因的繁重工作。\n定位：根据题干关键词multi-factorialtraitstrickytointerpret定位到第六段第二句和第三句。\n\n解析：第六段第二句和第三句提到，以身高为例，它取决于数百个基因，每个基因对结果的影响都很小，同时还\n\n受一系列环境因素的影响。检测可以同时分析多个基因，但很难预测它们将如何共同作用，B项与原文意\n思一致，故为正确选项。A项原文中未提及，故排除。第六段最后一句提到需要考虑非遗传因素，但这是\n额外考虑项，而非解读困难的核心原因，核心原因是基因间的相互作用难以预测，C项属于主次混淆，故\n排除。D项内容文中未提及，故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the passage say about DNA tests to predict personality or talents?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are solid scientific bases for application."
+            },
+            {
+              "key": "B",
+              "text": "They are helpful in finding a romantic match."
+            },
+            {
+              "key": "C",
+              "text": "They do not look promising at the moment."
+            },
+            {
+              "key": "D",
+              "text": "They do not make any sense at present."
+            }
+          ],
+          "answer": "D",
+          "explanation": "55.关于预测性格或天赋的DNA检测，文章说了什么？\nA)它们是应用的坚实科学基础。\nC)目前来看它们前景并不乐观。\nB)它们有助于寻找恋爱对象。\nD)目前来看它们没有任何意义。\n\n解析：最后一段提到，那些声称能通过DNA为你找到理想伴侣，以及预测性格或天赋的检测纯属无稽之谈，D项\n\n与原文表达的意思一致，故为正确选项。A项和B项与原文意思相矛盾，故排除。原文中提到这种预测纯\n属无稽之谈，C项的表述语气过弱，未体现原文表达的否定态度，故排除。"
+        }
+      ]
+    }
+  ],
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_12_3_ans.pdf"
+}

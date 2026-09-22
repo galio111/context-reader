@@ -179,3 +179,7 @@ npm.cmd run build
 ```
 
 Then use the cumulative versioned workflow under `ops/mainland/`. Package only a clean dedicated integration worktree with `package-release.py`; its manifest must name the exact active production parent, source commit and reviewed file delta. The stable server deploy guard serializes releases and rejects stale parents, missing protected behavior or undeclared files. A routine release recreates only `app` and `caddy` with `--no-deps`; PostgreSQL, Auth, REST, Storage and the internal gateway stay running. Verify `https://context-reader.com/api/connectivity` reports the exact new release identity, then check the affected product, account sync, Admin, health, backup and rollback gates. Keep the current and direct-parent accepted application images for runtime and rollback; the daily image-prune timer may remove only older Context Reader tags and unused dangling layers. See `docs/release-governance.md`.
+
+## 四六级阅读真题
+
+首页与精选外刊并列的真实阅读题库，复用 ReaderView；支持考试、边读边做、按卷/题型、手动计时、进度同步与重做。当前仅收录有答案解析的 15 套试卷，材料清单、性能与扩库流程见 [docs/cet-reading.md](docs/cet-reading.md)。本轮生产状态以 release-governance 和产品历程为准。
