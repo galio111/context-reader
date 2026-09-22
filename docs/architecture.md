@@ -1,9 +1,10 @@
 # Context Reader Architecture
 
-2026-09-22 已准备、未部署：统一功能/套餐主备模型、MiMo 与 TypeSafe Jev 直连接口、约 60 篇且各板块 13–17 篇的策略。¥1.50 硬上限保持。待新密钥实测后部署，见 [模型控制说明](model-control.md)。
+2026-09-22 已部署（20260922T072500）：统一功能/套餐主备模型、MiMo 直连、约 60 篇且各板块 13–17 篇的策略，¥1.50 硬上限。MiMo 真实及线上连接通过；Jev 无有效密钥，关闭。见 [模型控制说明](model-control.md)。
 
 
-2026-09-21 自动精选新约定：目标约 30、至少 25 篇，约 ¥1 软目标、¥1.50 硬上限；均衡改为排序补位，取消 18/18 硬配额。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。按 v3 原网页完整性、图片安全保存、正文哈希和时效校验发布；连续处理批次，90 分钟或预算/连续失败边界停止并发邮件。手动候选与高中标签保留。实测与恢复状态见 automated-editorial.md、product-journey.md。
+自动精选目标约 60，合格范围 55–68、四板块各 13–17，预算不足报告缺口。默认 Flash 综合审核，Jev 关闭；新后台允许按功能和套餐切换主备模型。质量门槛、手动候选和高中标签保留。完整规则见 automated-editorial.md。
+
 ## System map
 
 The live release identity is recorded in [release-governance.md](release-governance.md). This document describes the accepted source; historical rollout counts and timings belong in [product-journey.md](product-journey.md).

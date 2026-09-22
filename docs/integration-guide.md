@@ -1,6 +1,6 @@
 # Context Reader Integration Guide
 
-2026-09-22 已准备、未部署：统一功能/套餐主备模型、MiMo 与 TypeSafe Jev 直连接口、约 60 篇且各板块 13–17 篇的策略。¥1.50 硬上限保持。待新密钥实测后部署，见 [模型控制说明](model-control.md)。
+2026-09-22 已部署（20260922T072500）：统一功能/套餐主备模型、MiMo 直连、约 60 篇且各板块 13–17 篇的策略，¥1.50 硬上限。MiMo 真实及线上连接通过；Jev 无有效密钥，关闭。见 [模型控制说明](model-control.md)。
 
 
 自动精选与 DeepSeek/Jev 接口准备、质量门槛、成本及验收边界见 [automated-editorial.md](automated-editorial.md)。该模式需显式开启；单站手动导入继续使用候选流程。
