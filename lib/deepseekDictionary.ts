@@ -1,4 +1,5 @@
-import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
+import {anyTextKey} from '@/lib/modelSettings';
+import { fetchWithProviderFailover as fetchConfiguredProvider, responseModel, providerName } from "@/lib/providerFailover";
 import { DeepSeekParseError, MissingDeepSeekEnvError } from "@/lib/deepseek";
 import { normalizeDictionarySpelling } from "@/lib/dictionarySpelling";
 import { pronunciationTargetMatches } from "@/lib/pronunciation";
@@ -67,7 +68,7 @@ function rows<T>(value: unknown, map: (item: Record<string, unknown>) => T | nul
 }
 
 function profiles(): ProviderProfile[] {
-  const apiKey = process.env.DEEPSEEK_API_KEY?.trim() || "";
+  const apiKey = anyTextKey().trim() || "";
   if (!apiKey) return [];
   const baseURL = (process.env.DEEPSEEK_BASE_URL?.trim() || DEFAULT_BASE_URL).replace(/\/$/, "");
   const model = process.env.DEEPSEEK_LOOKUP_MODEL?.trim() || DEFAULT_MODEL;
@@ -222,3 +223,5 @@ export async function lookupDictionaryWithDeepSeek(query: string): Promise<DeepS
   if (lastError?.name === "AbortError") throw new DeepSeekParseError("词典查询超时，请重新查询。");
   throw lastError ?? new DeepSeekParseError("词典服务请求失败，请稍后重试。");
 }
+
+function fetchWithProviderFailover(url:string,init:RequestInit){return fetchConfiguredProvider(url,init,"dictionary");}

@@ -1,5 +1,7 @@
 # Context Reader GPT 项目上下文包
 
+2026-09-22 已准备、未部署：统一功能/套餐主备模型、MiMo 与 TypeSafe Jev 直连接口、约 60 篇且各板块 13–17 篇的策略。¥1.50 硬上限保持。待新密钥实测后部署，见 [模型控制说明](model-control.md)。
+
 核验日期：2026-09-21。GitHub `galio111/context-reader` 的默认 `main` 是 ChatGPT 读取当前代码与文档的入口；任务分支仅推送成功不代表默认入口已更新。先读 `AGENTS.md`，再按问题读本文件链接的专题文档。
 
 ## 当前版本与范围

@@ -170,6 +170,8 @@ export async function getRecommendationAutomationStatus(now = new Date()): Promi
   const { config, state } = await readSettings();
   const { getDiscoverySites } = await import("@/lib/discoveryStore");
   config.maxNewArticles = (await getDiscoverySites()).filter((site) => site.enabled).reduce((n, site) => n + site.dailyTarget, 0);
+  const {getEditorialConfig}=await import("@/lib/editorialReview");
+  if((await getEditorialConfig()).enabled)config.maxNewArticles=60;
   const email = siteNotificationEmailStatus();
   return {
     config,

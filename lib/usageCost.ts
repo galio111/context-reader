@@ -1,5 +1,6 @@
 export interface ProviderTokenUsage {
   prompt_tokens?: number;
+  prompt_tokens_details?: {cached_tokens?:number};
   prompt_cache_hit_tokens?: number;
   prompt_cache_miss_tokens?: number;
   completion_tokens?: number;
@@ -57,6 +58,8 @@ function isDeepSeekPeakTime(at: Date): boolean {
 }
 
 export function deepSeekRatesAt(model: string, at: Date): DeepSeekRates {
+  if (/^mimo-/.test(model)) return {hit:0.02/7.2,miss:1/7.2,output:2/7.2};
+  if (/jev/.test(model)) return {hit:0.042,miss:0.042,output:0};
   if (/^glm-/i.test(model)) {
     const rate = deepSeekUsdToCnyRate();
     return { hit: 0.8 / rate, miss: 0.8 / rate, output: 2 / rate };
@@ -91,7 +94,7 @@ export function deepSeekRatesAt(model: string, at: Date): DeepSeekRates {
 export function estimateDeepSeekCostMicrousd(model: string, usage: ProviderTokenUsage, at = new Date()): number {
   const rates = deepSeekRatesAt(model, at);
   const prompt = Math.max(0, Number(usage.prompt_tokens ?? 0));
-  const hit = Math.max(0, Number(usage.prompt_cache_hit_tokens ?? 0));
+  const hit = Math.max(0, Number(usage.prompt_cache_hit_tokens ?? usage.prompt_tokens_details?.cached_tokens ?? 0));
   const miss = Math.max(0, Number(usage.prompt_cache_miss_tokens ?? Math.max(0, prompt - hit)));
   const output = Math.max(0, Number(usage.completion_tokens ?? 0));
   return Math.max(0, Math.round(hit * rates.hit + miss * rates.miss + output * rates.output));
@@ -106,6 +109,8 @@ export function microusdToCny(microusd: number, rate = deepSeekUsdToCnyRate()): 
 }
 
 function deepSeekCnyRatesAt(model: string, at: Date): DeepSeekRates {
+  if (/^mimo-/.test(model)) return {hit:0.02,miss:1,output:2};
+  if (/jev/.test(model)) return {hit:0.042*7.2,miss:0.042*7.2,output:0};
   if (/^glm-/i.test(model)) return { hit: 0.8, miss: 0.8, output: 2 };
   const flash = /flash|deepseek-chat/i.test(model);
   if (at.getTime() < PEAK_PRICING_EFFECTIVE_AT) {
@@ -129,7 +134,7 @@ function deepSeekCnyRatesAt(model: string, at: Date): DeepSeekRates {
 export function estimateDeepSeekCostMicrocny(model: string, usage: ProviderTokenUsage, at = new Date()): number {
   const rates = deepSeekCnyRatesAt(model, at);
   const prompt = Math.max(0, Number(usage.prompt_tokens ?? 0));
-  const hit = Math.max(0, Number(usage.prompt_cache_hit_tokens ?? 0));
+  const hit = Math.max(0, Number(usage.prompt_cache_hit_tokens ?? usage.prompt_tokens_details?.cached_tokens ?? 0));
   const miss = Math.max(0, Number(usage.prompt_cache_miss_tokens ?? Math.max(0, prompt - hit)));
   const output = Math.max(0, Number(usage.completion_tokens ?? 0));
   return Math.max(0, Math.round(hit * rates.hit + miss * rates.miss + output * rates.output));

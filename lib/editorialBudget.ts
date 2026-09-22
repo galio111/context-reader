@@ -33,8 +33,8 @@ export async function editorialPaidRequest(stage: string, model: string, prompt:
   // UTF-8 bytes bound text tokens. Images are resized to <=1024px before dispatch.
   // Peak rates reserve safely even when a request crosses a pricing window.
   const pro = /pro/.test(model);
-  const jev = model === "typesafe-ai/jev";
-  const reserve = Math.ceil((Buffer.byteLength(prompt, "utf8") + 8000 + images * 16384) * (jev ? 0.042 * 7.2 : pro ? 9 : 2) + outputLimit * (pro ? 27 : 8));
+  const jev = /jev/.test(model);
+  const reserve = Math.ceil((Buffer.byteLength(prompt, "utf8") + 8000 + images * 16384) * (jev ? 4 * 0.042 * 7.2 : pro ? 9 : 2) + outputLimit * (pro ? 27 : 8));
   if (spent.actualMicrocny + spent.reservedMicrocny + reserve > scope.limit) {
     spent.blocked = true;
     await save(key, spent);
@@ -42,7 +42,7 @@ export async function editorialPaidRequest(stage: string, model: string, prompt:
   }
   spent.reservedMicrocny += reserve;
   spent.calls++;
-  const provider = jev ? "jev" : /^glm-/i.test(model) ? "zhipu" : "deepseek";
+  const provider = jev ? "jev" : /^glm-/i.test(model) ? "zhipu" : /^mimo-/.test(model) ? "mimo" : "deepseek";
   spent.providers ||= {};
   const providerSpend = spent.providers[provider] ||= { calls: 0, settledCalls: 0, microcny: 0, microusd: 0, reservedMicrocny: 0, inputTokens: 0, outputTokens: 0 };
   providerSpend.calls++;

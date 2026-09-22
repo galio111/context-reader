@@ -1,3 +1,5 @@
+import {anyTextKey} from '@/lib/modelSettings';
+import {withModelContext} from '@/lib/modelSettings';
 import { fetchWithProviderFailover, providerName } from "@/lib/providerFailover";
 import { explanationFromCompletedStream } from "@/lib/explanationDisplay";
 import { NextResponse } from "next/server";
@@ -71,7 +73,7 @@ function parseSseContent(line: string, onUsage?: (usage: ProviderTokenUsage) => 
   }
 }
 
-export async function POST(request: Request) {
+async function handlePOST(request: Request) {
   let body: unknown;
   let actionId = "";
 
@@ -103,7 +105,7 @@ export async function POST(request: Request) {
     return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
   }
 
-  const apiKey = process.env.DEEPSEEK_API_KEY;
+  const apiKey = anyTextKey();
   if (!apiKey) {
     return NextResponse.json({ error: "缺少 DEEPSEEK_API_KEY，请先配置 .env.local。" }, { status: 500 });
   }
@@ -312,3 +314,5 @@ export async function POST(request: Request) {
     );
   }
 }
+
+export function POST(request:Request){return withModelContext("lookup",()=>handlePOST(request));}

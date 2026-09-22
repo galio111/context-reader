@@ -1,4 +1,5 @@
-import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
+import {anyTextKey} from '@/lib/modelSettings';
+import { fetchWithProviderFailover as fetchConfiguredProvider, responseModel, providerName } from "@/lib/providerFailover";
 import {
   DeepSeekParseError,
   MissingDeepSeekEnvError,
@@ -58,7 +59,7 @@ function friendlyDeepSeekError(message = "", status?: number): string {
 }
 
 function getProviderProfiles(): ProviderProfile[] {
-  const primaryApiKey = process.env.DEEPSEEK_API_KEY;
+  const primaryApiKey = anyTextKey();
   const primaryBaseURL = process.env.DEEPSEEK_BASE_URL ?? DEFAULT_BASE_URL;
   const primaryModel = process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL;
 
@@ -168,3 +169,5 @@ export async function answerSentenceQuestionWithDeepSeek(
 
   throw lastError ?? new DeepSeekParseError("DeepSeek 请求失败，请稍后重试。");
 }
+
+function fetchWithProviderFailover(url:string,init:RequestInit){return fetchConfiguredProvider(url,init,"question");}

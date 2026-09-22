@@ -1,3 +1,4 @@
+import {DAILY_TOTAL_MAX,DAILY_CATEGORY_MAX,DAILY_CATEGORIES,distributionSatisfied} from './editorialDistribution';
 import { getEditorialSpend, withEditorialBudget } from "@/lib/editorialBudget";
 
 import { sendSiteNotificationEmail } from "@/lib/siteNotificationEmail";
@@ -16,8 +17,8 @@ import { editorialCategoryForArticle } from "@/lib/editorialCuration";
 import { getRecommendationAutomationStatus, type RecommendationAutomationRunResponse } from "@/lib/recommendationAutomation";
 import type { PublicArticle } from "@/types/publicArticle";
 
-export const EDITORIAL_TARGET = 30;
-export const EDITORIAL_MINIMUM = 25;
+export const EDITORIAL_TARGET = 60;
+export const EDITORIAL_MINIMUM = 55;
 const DAILY_DISCOVERY_TARGET = EDITORIAL_TARGET;
 const PENDING_KEY = "recommendation_editorial_pending_curation_v1";
 
@@ -26,7 +27,7 @@ export async function editorialDayClosed(day:string, read=readDiscoverySetting):
   const ledger=await read<{finished?:boolean;suspended?:boolean}>(`recommendation_editorial_day_${day}`,{});
   if(!ledger.finished)return false;
   if(ledger.suspended)return true;
-  const reports=await Promise.all(["complete","shortfall"].map(kind=>read<{status?:string}>(`recommendation_editorial_email_${day}_${EDITORIAL_TARGET}_${kind}`,{})));
+  const reports=await Promise.all([EDITORIAL_TARGET,30].flatMap(target=>["complete","shortfall"].map(kind=>read<{status?:string}>(`recommendation_editorial_email_${day}_${target}_${kind}`,{}))));
   return reports.some(report=>report.status==="sent");
 }
 
@@ -102,7 +103,7 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   const todays = () => published.filter(a=>shanghaiDay(a.recommendation?.autoPublishedAt||"")===today);
   if (ledger.finished) {
     if(!ledger.suspended) {
-      const email=await notifyDailyResult(today,todays(),ledger.attempts,todays().length>=EDITORIAL_MINIMUM,config);
+      const email=await notifyDailyResult(today,todays(),ledger.attempts,distributionSatisfied(Object.fromEntries(DAILY_CATEGORIES.map(k=>[k,todays().filter(a=>editorialCategoryForArticle(a)===k).length]))),config);
       if(email)await writeDiscoverySetting("recommendation_automation_state",{...initial.state,lastEmailStatus:email.status,lastEmailError:email.error});
     }
     return {skipped:"already_ran_today",status:await getRecommendationAutomationStatus(now)};
@@ -115,10 +116,13 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
     const source=rows.filter(b=>b.recommendation?.discoverySourceId===meta.discoverySourceId).length;
     return -(category*4+difficulty*3+source*2);
   };
+  const counts=()=>Object.fromEntries(DAILY_CATEGORIES.map(k=>[k,todays().filter(a=>editorialCategoryForArticle(a)===k).length]));
+  const targetSatisfied=()=>todays().length>=EDITORIAL_TARGET&&distributionSatisfied(counts());
   const publishPool = async () => {
     const pool=candidates.filter(eligibleEditorialCandidate).filter(a=>!published.some(b=>b.id===a.id));
-    while(pool.length && todays().length<EDITORIAL_TARGET) {
+    while(pool.length && todays().length<DAILY_TOTAL_MAX && !targetSatisfied()) {
       pool.sort((a,b)=>score(b)-score(a)); const candidate=pool.shift()!;
+      if((counts()[editorialCategoryForArticle(candidate)]||0)>=DAILY_CATEGORY_MAX)continue;
       // Balance ranks eligible items, never discards them or creates a paid retry.
       await writeDiscoverySetting(PENDING_KEY,[candidate.id]);
       const article=await publishArticleCandidate(candidate.id,{expectedEditorialHash:candidate.recommendation!.editorialReview!.contentHash,autoPublishedAt:new Date().toISOString()});
@@ -128,25 +132,25 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   await publishPool(); // Reuse already-paid valid candidates before spending on discovery.
   const spend=await getEditorialSpend(today);
   const maySpend=!spend.blocked && spend.actualMicrocny+spend.reservedMicrocny<(config.dailyBudgetCny??1.5)*1e6;
-  const softBudgetReached=todays().length>=EDITORIAL_MINIMUM && spend.actualMicrocny+spend.reservedMicrocny>=1e6;
+  const softBudgetReached=distributionSatisfied(counts()) && spend.actualMicrocny+spend.reservedMicrocny>=1e6;
   const expired=Date.now()-Date.parse(ledger.startedAt)>90*60_000;
-  const sites=(await getDiscoverySites()).filter(s=>s.enabled && s.verification?.ok && s.levelHint!=="lower");
+  const sites=(await getDiscoverySites()).filter(s=>s.enabled && s.verification?.ok && s.levelHint!=="lower" && (counts()[s.topics[0]==="商业经济"?"商业":s.topics[0]==="社会生活"?"时事":s.topics[0]==="科技科学"||s.topics[0]==="自然环境"?"科技":"文化"]||0)<DAILY_CATEGORY_MAX);
   const categoryCount=(category:string)=>todays().filter(a=>editorialCategoryForArticle(a)===category).length;
   const advanced=todays().filter(a=>a.recommendation?.difficulty==="雅思 / 托福进阶").length;
   sites.sort((a,b)=> {
     const priority=(s:typeof a)=> -(ledger.sites[s.id]?.visits||0)*12
-      - categoryCount(s.topics[0]==="商业经济"?"商业":s.topics[0]==="社会生活"?"时事":s.topics[0]==="科技科学"||s.topics[0]==="自然环境"?"科技":"文化")*2
+      - categoryCount(s.topics[0]==="商业经济"?"商业":s.topics[0]==="社会生活"?"时事":s.topics[0]==="科技科学"||s.topics[0]==="自然环境"?"科技":"文化")*8
       + (s.levelHint==="advanced" && advanced*2<todays().length ? (todays().length-advanced*2>5?28:8):0);
     return priority(b)-priority(a);
   });
-  const site=sites.find(s=>(ledger.sites[s.id]?.visits||0)<4 && (ledger.sites[s.id]?.empty||0)<2);
+  const site=sites.find(s=>(ledger.sites[s.id]?.visits||0)<6 && (ledger.sites[s.id]?.empty||0)<2);
   let result:RecommendationAutomationRunResponse["result"];
   const before=todays().length;
-  if (before<EDITORIAL_TARGET && maySpend && !softBudgetReached && !expired && site && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3) {
+  if (!targetSatisfied() && before<DAILY_TOTAL_MAX && maySpend && !softBudgetReached && !expired && site && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3) {
     const entry=ledger.sites[site.id] ||= {visits:0,urls:[],empty:0};
     entry.visits++; const attempts=Math.min(3,config.dailyReviewLimit-ledger.attempts); ledger.attempts+=attempts;
     await writeDiscoverySetting(dayKey,ledger);
-    result=await runRecommendationCrawler({topic:site.topics[0],difficulty:"any",targetInventory:0,ignoreInventoryTarget:true,inventoryScope:"candidates",sourceId:site.id,maxNewArticles:Math.min(3,EDITORIAL_TARGET-before),maxAttempts:attempts,feedPage:Math.min(3,entry.visits),excludedUrls:entry.urls,editorial:config},origin);
+    result=await runRecommendationCrawler({topic:site.topics[0],difficulty:"any",targetInventory:0,ignoreInventoryTarget:true,inventoryScope:"candidates",sourceId:site.id,maxNewArticles:Math.min(3,DAILY_TOTAL_MAX-before),maxAttempts:attempts,feedPage:Math.min(3,entry.visits),excludedUrls:entry.urls,editorial:config},origin);
     ledger.attempts-=Math.max(0,attempts-result.attempted);
     entry.urls=[...new Set([...entry.urls,...result.skipped.map(s=>s.url),...result.created.map(a=>a.sourceUrl)])];
     entry.empty=result.created.length?0:(entry.empty||0)+1;
@@ -158,8 +162,8 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   }
   ledger.noProgress=todays().length>before?0:(ledger.noProgress||0)+1;
   const afterSpend=await getEditorialSpend(today);
-  const stopped=todays().length>=EDITORIAL_TARGET || !maySpend || afterSpend.blocked || softBudgetReached || expired || !site || ledger.attempts>=config.dailyReviewLimit || (ledger.failureStreak||0)>=3 || (ledger.noProgress||0)>=18;
-  const complete=stopped && todays().length>=EDITORIAL_MINIMUM;
+  const stopped=targetSatisfied() || todays().length>=DAILY_TOTAL_MAX || !maySpend || afterSpend.blocked || softBudgetReached || expired || !site || ledger.attempts>=config.dailyReviewLimit || (ledger.failureStreak||0)>=3 || (ledger.noProgress||0)>=18;
+  const complete=stopped && distributionSatisfied(counts());
   ledger.finished=stopped; await writeDiscoverySetting(dayKey,ledger);
   const email=stopped?await notifyDailyResult(today,todays(),ledger.attempts,complete,config):null;
   await writeDiscoverySetting("recommendation_automation_state",{...initial.state,...(email?{lastEmailStatus:email.status,lastEmailError:email.error}:{}),status:complete?"succeeded":stopped?"failed":"running",lastTrigger:trigger,lastStartedAt:ledger.startedAt,lastFinishedAt:new Date().toISOString(),lastCreatedCount:todays().length,lastAttemptedCount:ledger.attempts,lastSkippedCount:result?.skipped.length||0,lastSourceErrorCount:result?.sourceErrors.length||0,lastScheduledDate:stopped?today:"",lastError:complete?"":stopped?`已停止：${todays().length} 篇；预算、90 分钟时限、来源耗尽或连续失败达到边界，请查看明细。`:`已精选 ${todays().length} 篇，连续处理下一批。`});

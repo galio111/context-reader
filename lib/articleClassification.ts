@@ -1,5 +1,6 @@
+import {anyTextKey} from '@/lib/modelSettings';
 import { editorialPaidRequest, editorialBudgetActive } from "@/lib/editorialBudget";
-import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
+import { fetchWithProviderFailover as fetchConfiguredProvider, responseModel, providerName } from "@/lib/providerFailover";
 import {
   ARTICLE_AUDIENCE_STAGES,
   ARTICLE_CEFR_LEVELS,
@@ -317,7 +318,7 @@ export async function classifyArticle(
   context: ArticleClassificationContext = {},
 ): Promise<ArticleClassificationResult> {
   const fallback = heuristicResult(title, text, context);
-  const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
+  const apiKey = anyTextKey().trim();
   if (!apiKey) {
     return heuristicResult(title, text, context, "未配置 DeepSeek，当前使用本地多证据难度规则。");
   }
@@ -475,3 +476,5 @@ ${context.discoveryReview ? `- qualityReview：对象，含 eligible（布尔值
     return heuristicResult(title, text, context, "DeepSeek 判断失败，已自动改用本地多证据规则，请在发布前复核。");
   }
 }
+
+function fetchWithProviderFailover(url:string,init:RequestInit){return fetchConfiguredProvider(url,init,"classification");}
