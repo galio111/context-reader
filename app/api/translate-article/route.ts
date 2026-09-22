@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { createHash } from "crypto";
 import type { ArticleTranslationBlock, ArticleTranslationResult } from "@/types/reader";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
-import { acquireCostSlotWithWait } from "@/lib/costConcurrency";
+import { acquireAiSlot } from "@/lib/costConcurrency";
 import { finishUsage, getUsageAction, recordUsageExecution, refundUsage } from "@/lib/accountStore";
 import { deepReadingUnits, gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { resolveUsageIdentity } from "@/lib/usageIdentity";
@@ -216,10 +216,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const releaseSlot = await acquireCostSlotWithWait("ai", 8, {
-    signal: request.signal,
-    timeoutMs: 8_000,
-  });
+  const releaseSlot = await acquireAiSlot(request.signal, true);
   if (!releaseSlot) {
     if (!managedTranslationAction) await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
     const report = await recordServerError(request, {

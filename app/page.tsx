@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { HomeClient } from "@/components/HomeClient";
 import { getHomepageCuration } from "@/lib/homepageCuration";
 import { listPublicArticleSummaries } from "@/lib/publicArticles";
+import { publicArticleSummary } from "@/lib/publicArticleSummary";
 
 export const dynamic = "force-dynamic";
 
@@ -26,7 +27,7 @@ export default async function HomePage({
 
   return (
     <HomeClient
-      initialPublicArticles={initialPublicArticles}
+      initialPublicArticles={initialPublicArticles.map(publicArticleSummary)}
       initialHomepageCuration={initialHomepageCuration}
       homeVariant="book"
       forceGuestPreview={params.preview === "guest"}

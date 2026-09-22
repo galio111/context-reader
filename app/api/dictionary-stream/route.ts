@@ -1,7 +1,7 @@
 import { fetchWithProviderFailover, providerName } from "@/lib/providerFailover";
 import { NextResponse } from "next/server";
 import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
-import { acquireCostSlot } from "@/lib/costConcurrency";
+import { acquireAiSlot } from "@/lib/costConcurrency";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { isValidStandaloneDictionaryQuery, sanitizeDictionaryQuery } from "@/lib/deepseekDictionary";
 import { DictionaryProviderStreamNormalizer } from "@/lib/dictionaryStreamServer";
@@ -87,7 +87,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const releaseSlot = acquireCostSlot("ai", 8);
+  const releaseSlot = await acquireAiSlot(request.signal);
   if (!releaseSlot) {
     await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
     const report = await recordServerError(request, {

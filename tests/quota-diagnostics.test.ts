@@ -106,7 +106,7 @@ test("stream EOF with missing fields cannot finalize a quota reservation", async
       LATIN_PHRASE_PATTERN, providerName: () => "test", NextResponse, Response, ReadableStream, TextEncoder, TextDecoder, AbortController, setTimeout, clearTimeout,
       process: { env: { DEEPSEEK_API_KEY: "test" } },
       readJsonBody: (request: Request) => request.json(), RequestBodyTooLargeError: class extends Error {},
-      acquireCostSlot: () => () => {}, gateUsage: async () => ({ actionId: "test-action" }), usageErrorResponse: () => null,
+      acquireAiSlot: async () => () => {}, gateUsage: async () => ({ actionId: "test-action" }), usageErrorResponse: () => null,
       finishUsage: async () => { finished++; }, recordUsageExecution: async (input: { status: string }) => { statuses.push(input.status); }, refundUsage: async () => {},
       estimateDeepSeekCostMicrousd: () => 0, EXPLANATION_STREAM_COMPLETE_MARKER, explanationFromCompletedStream,
       classifyStreamTermination: () => "failed", registerActiveLookupRequest: () => () => {},

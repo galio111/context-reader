@@ -10,8 +10,12 @@ import { addVocabularyEntry, vocabularyIdentity, getVocabularyEntries } from "@/
 import { useAccount } from "@/components/AccountProvider";
 import { BookLetterField } from "@/components/BookLetterField";
 import ClearableField from "@/components/ClearableField";
-import { BookDictionary } from "@/components/BookDictionary";
-import { HomeOptionMenu, type GuideSection, type PreviewKind } from "@/components/HomeOptionMenu";
+import dynamic from "next/dynamic";
+import type { GuideSection, PreviewKind } from "@/components/HomeOptionMenu";
+const BookDictionary = dynamic(() => import("@/components/BookDictionary").then(module => module.BookDictionary), {
+  loading: () => <p role="status">正在打开词典…</p>,
+});
+const HomeOptionMenu = dynamic(() => import("@/components/HomeOptionMenu").then(module => module.HomeOptionMenu));
 import { PillNavAction } from "@/components/PillNavAction";
 import { MOBILE_READER_SHEET_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
@@ -285,6 +289,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const journeyPending = !guestPreviewAllowed && !memberPreviewAllowed && journeyHomeMode === null;
   const memberHome = memberPreviewAllowed || (!guestPreviewAllowed && journeyHomeMode === "member");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuMounted, setMenuMounted] = useState(false);
+  useEffect(() => { if (menuOpen) setMenuMounted(true); }, [menuOpen]);
   const [menuInitialPreview, setMenuInitialPreview] = useState<PreviewKind | null>(null);
   const [menuGuideSection, setMenuGuideSection] = useState<GuideSection | null>(null);
   const [menuStandalonePreview, setMenuStandalonePreview] = useState(false);
@@ -1503,7 +1509,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
         </div>
       ), document.body)}
 
-      <HomeOptionMenu
+      {(menuOpen || menuMounted) && <HomeOptionMenu
         open={menuOpen}
         isAdmin={account.plan?.id === "admin"}
         account={account}
@@ -1540,7 +1546,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
         onRenameSavedArticle={props.onRenameSavedArticle}
         onJumpToVocabularySource={props.onJumpToVocabularySource}
         canJumpToVocabularySource={props.canJumpToVocabularySource}
-      />
+      />}
     </main>
   );
 }

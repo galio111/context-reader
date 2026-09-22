@@ -1,4 +1,5 @@
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
+import { publicReadCache, invalidatePublicReadCache } from "@/lib/publicReadCache";
 import { revalidatePath, revalidateTag } from "next/cache";
 import {
   decodeHtmlEntitiesRepeated,
@@ -207,6 +208,7 @@ function articleBodyIdentity(value: string): string {
 }
 
 function invalidatePublicRecommendations(): void {
+  invalidatePublicReadCache();
   revalidateTag("public-article-summaries");
   revalidatePath("/");
 }
@@ -373,6 +375,7 @@ export async function replaceManagedArticleTranslation(
     translations: blocks.map((block) => ({ id: block.id, translation: translationById.get(block.id) ?? "" })),
   };
   await insertPublicArticleTranslations(articleId, [translation]);
+  invalidatePublicReadCache();
   await supabaseFetch(
     `public_article_translations?article_id=eq.${encodeURIComponent(articleId)}&cache_key=neq.${encodeURIComponent(expectedCacheKey)}`,
     { method: "DELETE", headers: { Prefer: "return=minimal" } },
@@ -425,11 +428,13 @@ export async function listPublicArticles(options: { includeImportedArticle?: boo
  * intent or a click through getPublicArticle().
  */
 export async function listPublicArticleSummaries(): Promise<PublicArticle[]> {
+  return publicReadCache.summaries.get("catalogue", async () => {
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
     "public_articles?select=id,title,summary,source_url,source_name,recommendation:imported_article->recommendation,created_at,updated_at&published=eq.true&order=updated_at.desc",
     { next: { revalidate: 300, tags: ["public-article-summaries"] } },
   );
   return rows.map((row) => mapArticle(row));
+  });
 }
 
 export async function getPublicArticle(id: string): Promise<PublicArticle | null> {

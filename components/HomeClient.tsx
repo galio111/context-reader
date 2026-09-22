@@ -3,7 +3,10 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArticleInput } from "@/components/ArticleInput";
 import { HomeRedesign } from "@/components/HomeRedesign";
-import { ReaderView } from "@/components/ReaderView";
+import dynamic from "next/dynamic";
+const ReaderView = dynamic(() => import("@/components/ReaderView").then(module => module.ReaderView), {
+  loading: () => <div role="status" className="min-h-screen bg-white p-8 text-center text-slate-600">正在打开文章…</div>,
+});
 import { fetchJson } from "@/lib/apiClient";
 import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import {

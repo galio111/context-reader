@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getPublicArticle } from "@/lib/publicArticles";
+import { publicReadCache } from "@/lib/publicReadCache";
 
 interface RouteContext {
   params: Promise<{ id: string }>;
@@ -13,7 +14,7 @@ export async function GET(_request: Request, context: RouteContext) {
   const { id } = await context.params;
 
   try {
-    const article = await getPublicArticle(id);
+    const article = await publicReadCache.articles.get(id, () => getPublicArticle(id));
     if (!article) {
       return NextResponse.json({ error: "没有找到这篇公开文章。" }, { status: 404 });
     }

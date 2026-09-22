@@ -1,5 +1,7 @@
 # Context Reader Architecture
 
+Capacity implementation and acceptance boundaries are documented in [capacity-plan.md](capacity-plan.md): compact complete public catalogue, bounded public-read caching with mutation invalidation, on-demand reader/tool bundles, and a shared configurable AI pool with a smaller background budget. Account authorization, quota and protocol-2 sync remain uncached and unchanged. Production acceptance is recorded separately in the journey.
+
 
 2026-09-21 自动精选新约定：目标约 30、至少 25 篇，约 ¥1 软目标、¥1.50 硬上限；均衡改为排序补位，取消 18/18 硬配额。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。按 v3 原网页完整性、图片安全保存、正文哈希和时效校验发布；连续处理批次，90 分钟或预算/连续失败边界停止并发邮件。手动候选与高中标签保留。实测与恢复状态见 automated-editorial.md、product-journey.md。
 ## System map

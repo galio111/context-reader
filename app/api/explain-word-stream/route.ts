@@ -4,7 +4,7 @@ import { explanationFromCompletedStream } from "@/lib/explanationDisplay";
 import { NextResponse } from "next/server";
 import type { ExplanationRequest } from "@/types/reader";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
-import { acquireCostSlot } from "@/lib/costConcurrency";
+import { acquireAiSlot } from "@/lib/costConcurrency";
 import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
@@ -109,8 +109,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "缺少 DEEPSEEK_API_KEY，请先配置 .env.local。" }, { status: 500 });
   }
 
-  const releaseSlot = acquireCostSlot("ai", 8);
+  const releaseSlot = await acquireAiSlot(request.signal);
   if (!releaseSlot) {
+    await refundUsage(actionId, request.signal.aborted ? "cancelled" : "failed", "local_concurrency").catch(() => undefined);
     return NextResponse.json({ error: "AI 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
   }
 

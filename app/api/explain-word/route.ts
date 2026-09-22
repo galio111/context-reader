@@ -12,7 +12,7 @@ import {
 } from "@/lib/deepseek";
 import type { ExplanationRequest } from "@/types/reader";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
-import { acquireCostSlot } from "@/lib/costConcurrency";
+import { acquireAiSlot } from "@/lib/costConcurrency";
 import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd } from "@/lib/usageCost";
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
     return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
   }
 
-  const releaseSlot = acquireCostSlot("ai", 8);
+  const releaseSlot = await acquireAiSlot(request.signal);
   if (!releaseSlot) {
     await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
     const report = await recordServerError(request, {

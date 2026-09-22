@@ -2,7 +2,7 @@ import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/pr
 import { NextResponse } from "next/server";
 import { createHash } from "crypto";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
-import { acquireCostSlot } from "@/lib/costConcurrency";
+import { acquireAiSlot } from "@/lib/costConcurrency";
 import { finishUsage, recordUsageExecution, refundUsage, setUsageActionMetadata } from "@/lib/accountStore";
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
@@ -140,7 +140,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const releaseSlot = acquireCostSlot("ai", 8);
+  const releaseSlot = await acquireAiSlot(request.signal, true);
   if (!releaseSlot) {
     await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
     return NextResponse.json({ error: "AI 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });

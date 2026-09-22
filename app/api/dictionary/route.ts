@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
-import { acquireCostSlot } from "@/lib/costConcurrency";
+import { acquireAiSlot } from "@/lib/costConcurrency";
 import { DeepSeekParseError, MissingDeepSeekEnvError } from "@/lib/deepseek";
 import {
   isValidStandaloneDictionaryQuery,
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
   }
 
-  const releaseSlot = acquireCostSlot("ai", 8);
+  const releaseSlot = await acquireAiSlot(request.signal);
   if (!releaseSlot) {
     await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
     return NextResponse.json({ error: "AI 服务当前请求较多，请稍后再试。" }, { status: 503 });
