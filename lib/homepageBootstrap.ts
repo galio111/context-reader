@@ -2,7 +2,7 @@ import type { PublicArticle } from "@/types/publicArticle";
 import { HOME_CURATION_CATEGORIES, type HomepageCuration } from "@/lib/homepageCurationShared";
 import { articleMatchesEditorialCategory } from "@/lib/editorialCuration";
 import { homepageShowcaseArticles, orderHomepageCategoryArticles, orderHomepageRecommendations, HOMEPAGE_RECOMMENDATION_TARGET } from "@/lib/homepageRecommendations";
-import { emptyRecommendationPreferences } from "@/lib/recommendationPreferences";
+import { emptyRecommendationPreferences } from "@/lib/recommendationPreferencesShared";
 
 /** Preserve each category's exact SSR showcase; the complete catalogue is fetched before browsing it. */
 export function homepageBootstrap(articles: PublicArticle[], curation: HomepageCuration | undefined, day: string) {

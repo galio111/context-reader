@@ -306,6 +306,25 @@ if [[ "$candidate_ok" -ne 1 ]]; then
 fi
 
 docker exec "$candidate_name" wget -qO- http://127.0.0.1:3000/guide >/dev/null
+candidate_home="$(mktemp)"
+if ! docker exec "$candidate_name" wget -qO- http://127.0.0.1:3000/ > "$candidate_home"; then
+  rm -f -- "$candidate_home"
+  echo "candidate homepage HTTP render failed; current deployment was not changed" >&2
+  exit 1
+fi
+if ! python3 - "$candidate_home" <<'PY'
+import pathlib
+import sys
+html = pathlib.Path(sys.argv[1]).read_text(encoding="utf-8")
+if 'id="selected-reading-title"' not in html or 'data-dgst=' in html:
+    raise SystemExit("candidate homepage did not render its server-side recommendations")
+PY
+then
+  rm -f -- "$candidate_home"
+  echo "candidate homepage content check failed; current deployment was not changed" >&2
+  exit 1
+fi
+rm -f -- "$candidate_home"
 docker rm -f "$candidate_name" >/dev/null
 candidate_started=0
 

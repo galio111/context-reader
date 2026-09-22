@@ -19,12 +19,17 @@ for (const [path, expected] of [['/api/account/sync', 401], ['/api/admin/account
   const r = await fetch(base + path); checks[path] = r.status; assert.equal(r.status, expected);
 }
 const home = await fetch(base).then(r => r.text());
-assert.ok(after.articles.every(a => home.includes(a.id)));
+const bootstrapMatch = home.match(/data-catalogue-count="(\d+)"/);
+const bootstrapCount = bootstrapMatch ? Number(bootstrapMatch[1]) : after.articles.length;
+if (bootstrapMatch) {
+  assert.ok(bootstrapCount > 0 && bootstrapCount <= after.articles.length);
+  assert.ok(home.includes('selected-reading-title'));
+} else assert.ok(after.articles.every(a => home.includes(a.id)));
 const legacy = await fetch(base + '/home-v2?preview=guest', { redirect: 'manual' });
 assert.equal(legacy.status, 308); assert.ok(legacy.headers.get('location')?.endsWith('/?preview=guest'));
 const details = await fetch(base + '/api/public-articles/' + after.articles[0].id).then(r => r.json());
 assert.ok(details.article.body.length > 100);
 assert.ok(details.article.recommendation.editorialReview || details.article.recommendation.difficultyEvidence);
 const release = await fetch(base + '/api/connectivity').then(r => r.json());
-const result = { passed: true, catalogueCount: after.articles.length, allVisibleFieldsPreserved: true, allIdsServerRendered: true, detailAndEditorialEvidencePreserved: true, beforeCatalogueBytes: Buffer.byteLength(JSON.stringify(before)), afterCatalogueBytes: Buffer.byteLength(raw), legacyRedirect: 308, checks, release };
+const result = { passed: true, catalogueCount: after.articles.length, allVisibleFieldsPreserved: true, ssrBootstrapCount: bootstrapCount, progressiveCatalogue: bootstrapCount < after.articles.length, detailAndEditorialEvidencePreserved: true, beforeCatalogueBytes: Buffer.byteLength(JSON.stringify(before)), afterCatalogueBytes: Buffer.byteLength(raw), legacyRedirect: 308, checks, release };
 writeFileSync(output, JSON.stringify(result, null, 2)); console.log(JSON.stringify(result, null, 2));

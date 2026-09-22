@@ -2,7 +2,7 @@ import {
   articleMatchesRecommendationInterest,
   audienceStagesForReadingLevel,
   type RecommendationPreferences,
-} from "@/lib/recommendationPreferences";
+} from "@/lib/recommendationPreferencesShared";
 import type { HomepageCuration } from "@/lib/homepageCurationShared";
 import type { PublicArticle } from "@/types/publicArticle";
 import { articleHasHomepageImage } from "@/lib/articleMedia";
