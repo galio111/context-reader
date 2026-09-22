@@ -1,5 +1,7 @@
 # Context Reader GPT 项目上下文包
 
+后台用户与额度重构：四分区、上海日期筛选、功能/实际模型成本、后台来源、失败与高用量账号。统计区分操作、扣量和调用，未知费用待核算。实现与验收见 [admin-usage-report.md](admin-usage-report.md) 和 product-journey.md。
+
 2026-09-22 已部署（20260922T072500）：统一功能/套餐主备模型、MiMo 直连、约 60 篇且各板块 13–17 篇的策略，¥1.50 硬上限。MiMo 真实及线上连接通过；Jev 无有效密钥，关闭。见 [模型控制说明](model-control.md)。
 
 核验日期：2026-09-21。GitHub `galio111/context-reader` 的默认 `main` 是 ChatGPT 读取当前代码与文档的入口；任务分支仅推送成功不代表默认入口已更新。先读 `AGENTS.md`，再按问题读本文件链接的专题文档。

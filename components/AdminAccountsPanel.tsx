@@ -1,7 +1,8 @@
 "use client";
 import {PlanModelControls} from "./AdminModelsPanel";
 
-import { AdminZhipuUsage } from "@/components/AdminZhipuUsage";
+import AdminUsageReport from "./AdminUsageReport";
+import reportStyles from "./AdminUsageReport.module.css";
 import type { ZhipuUsageSummary } from "@/lib/zhipuUsage";
 
 import ClearableField from "@/components/ClearableField";
@@ -51,6 +52,7 @@ interface DashboardData {
       promptTokens: number;
       completionTokens: number;
       estimatedCostCny: number;
+      unknownCost: number;
       createdAt: string;
     }>;
   };
@@ -92,6 +94,7 @@ interface DashboardData {
 }
 
 interface QuotaFeatureUsage {
+  unknownCost: number;
   chargedActions: number;
   succeededActions: number;
   failedActions: number;
@@ -196,6 +199,8 @@ function profileName(profile: Record<string, unknown>): string {
 }
 
 export default function AdminAccountsPanel() {
+  const [section, setSection] = useState("usage");
+  const sections = [["usage", "用量与成本"], ["users", "用户管理"], ["plans", "套餐与额度"], ["invitations", "邀请码"]];
   const [data, setData] = useState<DashboardData | null>(null);
   const [limitDrafts, setLimitDrafts] = useState<Record<string, string>>({});
   const [search, setSearch] = useState("");
@@ -205,6 +210,7 @@ export default function AdminAccountsPanel() {
   const [notice, setNotice] = useState<{ phone: string; pin: string } | null>(null);
 
   async function load() {
+    try {
     const response = await fetch("/api/admin/accounts", { cache: "no-store" });
     const next = (await response.json().catch(() => null)) as DashboardData & { error?: string } | null;
     if (!response.ok || !next) {
@@ -217,6 +223,7 @@ export default function AdminAccountsPanel() {
       String(Number(limit.allowance || 0)),
     ])));
     setError("");
+    } catch { setError("网络连接失败，请稍后重新读取账号。"); }
   }
 
   useEffect(() => {
@@ -275,7 +282,7 @@ export default function AdminAccountsPanel() {
     const term = search.trim().toLowerCase();
     const profiles = data?.profiles ?? [];
     if (!term) return profiles;
-    return profiles.filter((profile) => [profile.nickname, profile.phone, profile.email]
+    return profiles.filter((profile) => [profile.user_id, profile.nickname, profile.phone, profile.email]
       .some((value) => String(value || "").toLowerCase().includes(term)));
   }, [data, search]);
 
@@ -284,27 +291,17 @@ export default function AdminAccountsPanel() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h2 className="text-[24px] font-semibold leading-tight">用户与额度</h2>
-          <p className="mt-1 max-w-2xl text-sm leading-6 text-[#4d535a]">管理普通用户能用多少次 AI 功能，并处理账号套餐、封禁和密码重置。</p>
+          <p className="mt-1 max-w-2xl text-sm leading-6 text-[#4d535a]">查看全站用量与模型成本，管理用户、套餐及邀请码。</p>
         </div>
         <button className="min-h-10 self-start rounded-full border border-[#0066cc] px-4 text-sm font-medium text-[#0066cc] hover:bg-[#f2f7fc]" type="button" onClick={() => void load()}>
-          刷新数据
+          刷新账号
         </button>
       </div>
 
-      <nav className="sticky top-2 z-20 mt-5 overflow-x-auto rounded-xl border border-[#dce2e7] bg-white/95 px-2 py-2 shadow-sm backdrop-blur" aria-label="用户与额度目录">
-        <div className="flex min-w-max gap-1">
-          {[
-            ["account-activity", "活跃用户"],
-            ["account-cost", "用量成本"],
-            ["account-features", "功能拆分"],
-            ["account-invitations", "邀请码"],
-            ["account-plans", "套餐额度"],
-            ["account-users", "用户账号"],
-            ["account-details", "扣量明细"],
-          ].map(([id, label]) => <a key={id} className="rounded-lg px-3 py-2 text-sm font-medium text-[#47535d] hover:bg-[#edf4f8] hover:text-[#175a8d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1769aa]" href={`#${id}`}>{label}</a>)}
-        </div>
-      </nav>
-
+      <div className={reportStyles.layout}>
+      <nav className={reportStyles.navigation} aria-label="用户与额度分区">{sections.map(([key, label]) => <button type="button" key={key} aria-current={section === key ? "page" : undefined} onClick={() => { setSection(key); document.getElementById("account-content")?.scrollIntoView({block:"start"}); }}>{label}</button>)}</nav>
+      <label className={reportStyles.mobileNav}>当前分区<select value={section} onChange={event => { setSection(event.target.value); document.getElementById("account-content")?.scrollIntoView({block:"start"}); }}>{sections.map(([key,label]) => <option key={key} value={key}>{label}</option>)}</select></label>
+      <div id="account-content" className={`${reportStyles.content} scroll-mt-20`}>
       {error && <p className="mt-5 rounded-xl bg-red-50 px-4 py-3 text-sm leading-6 text-red-700" role="alert">{error}</p>}
       {savedMessage && <p className="mt-5 rounded-xl bg-[#e9f5ee] px-4 py-3 text-sm text-[#17613b]" role="status">{savedMessage}</p>}
       {notice && (
@@ -317,6 +314,8 @@ export default function AdminAccountsPanel() {
 
       {data && (
         <>
+          <div hidden={section !== "usage"}><AdminUsageReport profiles={data.profiles} onSelectUser={userId => { setSearch(userId); setSection("users"); document.getElementById("account-content")?.scrollIntoView({block:"start"}); }} /></div>
+          <div hidden={section !== "users"}>
           <section id="account-activity" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-4">
               <h3 className="text-lg font-semibold">活跃用户</h3>
@@ -335,113 +334,21 @@ export default function AdminAccountsPanel() {
             </div>
           </section>
 
-          <section id="account-cost" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
-            <div className="border-b border-[#e1e5e9] px-5 py-4">
-              <h3 className="text-lg font-semibold">每日运行情况</h3>
-              <p className="mt-1 text-xs leading-5 text-[#68717a]">过去 {data.usageSummary.windowDays} 个上海自然日的站内已记录调用。成本按供应商和模型估算；DeepSeek 区分缓存与高低峰，智谱按 GLM-4.5-Air 单价估算。各供应商控制台实扣是最终依据。</p>
-            </div>
-            <div className="divide-y divide-[#e1e5e9]">
-              {data.usageSummary.daily.slice(0, 7).map((day, index) => <DailyUsageRow key={day.date} day={day} today={index === 0} />)}
-              {data.usageSummary.daily.length > 7 && (
-                <details className="group">
-                  <summary className="cursor-pointer px-5 py-3 text-sm font-medium text-[#175a8d] hover:bg-[#f6f9fb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#1769aa]">
-                    <span className="group-open:hidden">查看更早的 {data.usageSummary.daily.length - 7} 天</span>
-                    <span className="hidden group-open:inline">收起更早记录</span>
-                  </summary>
-                  <div className="divide-y divide-[#e1e5e9] border-t border-[#e1e5e9]">
-                    {data.usageSummary.daily.slice(7).map((day) => <DailyUsageRow key={day.date} day={day} />)}
-                  </div>
-                </details>
-              )}
-            </div>
-            {data.usageSummary.truncated && <p className="border-t border-[#e1e5e9] px-5 py-3 text-xs text-[#8d3224]">过去 30 天记录超过 50,000 条，当前统计已达到安全读取上限，需要增加数据库聚合后才能显示完整总数。</p>}
-          </section>
-
-          {data.zhipuUsage && <AdminZhipuUsage usage={data.zhipuUsage} truncated={data.usageSummary.truncated} />}
-
-          <section id="account-features" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
-            <div className="border-b border-[#e1e5e9] px-5 py-4">
-              <h3 className="text-lg font-semibold">按功能统计</h3>
-              <p className="mt-1 text-xs leading-5 text-[#68717a]">同一项用户操作可能包含结构化与流式两次上游调用，因此这里按已记录的 AI 执行次数统计。全文翻译单独列出。</p>
-            </div>
-            <div className="divide-y divide-[#e1e5e9]">
-              {data.usageSummary.features.length === 0 && <p className="px-5 py-8 text-center text-sm text-[#68717a]">过去 30 天没有站内 AI 执行记录。</p>}
-              {data.usageSummary.features.map((feature) => (
-                <article key={feature.key} className="grid gap-3 px-5 py-4 sm:grid-cols-[140px_minmax(0,1fr)] sm:items-start sm:gap-5">
-                  <div>
-                    <strong className="text-sm text-[#17191c]">{feature.label}</strong>
-                    {feature.key === "translation" && <p className="mt-1 text-[11px] text-[#175a8d]">单独统计</p>}
-                  </div>
-                  <dl className="grid grid-cols-3 divide-x divide-[#e1e5e9]">
-                    <div className="pr-3">
-                      <dt className="text-[11px] text-[#68717a]">执行</dt>
-                      <dd className="mt-1 text-lg font-semibold text-[#17191c]">{feature.executions.toLocaleString("zh-CN")} 次</dd>
-                    </div>
-                    <div className="px-3">
-                      <dt className="text-[11px] text-[#68717a]">Tokens</dt>
-                      <dd className="mt-1 text-lg font-semibold text-[#17191c]">{(feature.promptTokens + feature.completionTokens).toLocaleString("zh-CN")}</dd>
-                    </div>
-                    <div className="pl-3">
-                      <dt className="text-[11px] text-[#68717a]">成本估计</dt>
-                      <dd className="mt-1 text-lg font-semibold text-[#17191c]">￥{feature.estimatedCostCny.toFixed(4)}</dd>
-                      <dd className="mt-1 text-[11px] leading-4 text-[#68717a]">占已记录成本 {data.usageSummary.estimatedCostCny ? (feature.estimatedCostCny / data.usageSummary.estimatedCostCny * 100).toFixed(1) : "0.0"}%</dd>
-                    </div>
-                  </dl>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="mt-6 overflow-hidden rounded-2xl bg-white" aria-labelledby="today-lookups-title">
-            <div className="border-b border-[#e1e5e9] px-5 py-4">
-              <h3 id="today-lookups-title" className="text-lg font-semibold">今日查词用量与成本</h3>
-              <p className="mt-1 text-xs leading-5 text-[#68717a]">北京时间当天，包含游客和登录用户；按已记录的真实模型请求及返回 Token 估算，含失败消耗。缓存命中不产生模型调用，供应商账单为准。</p>
-            </div>
-            {[{ key: "article_lookup", label: "划词翻译" }, { key: "dictionary", label: "单独查词" }].map(item => {
-              const usage = data.todayFeatures?.find(row => row.key === item.key);
-              return <article key={item.key} className="grid gap-3 border-b border-[#e1e5e9] px-5 py-4 lg:grid-cols-[150px_minmax(0,1fr)]">
-                <strong className="text-sm">{item.label}</strong>
-                <dl className="grid grid-cols-2 gap-y-4 sm:grid-cols-4">
-                  <MetricCell label="模型请求" value={`${usage?.executions ?? 0} 次`} />
-                  <MetricCell label="失败请求" value={`${usage?.failed ?? 0} 次`} />
-                  <MetricCell label="Tokens" value={((usage?.promptTokens ?? 0) + (usage?.completionTokens ?? 0)).toLocaleString("zh-CN")} />
-                  <MetricCell label="成本估计" value={`￥${(usage?.estimatedCostCny ?? 0).toFixed(4)}`} />
-                </dl>
-              </article>;
-            })}
-          </section>
-
-          <section className="mt-6 overflow-hidden rounded-2xl bg-white" aria-labelledby="quota-split-title">
-            <div className="border-b border-[#e1e5e9] px-5 py-4">
-              <h3 id="quota-split-title" className="text-lg font-semibold">扣量与模型成本拆分</h3>
-              <p className="mt-1 text-xs leading-5 text-[#68717a]">用户额度按一次完整动作统计；DeepSeek 请求按实际上游流批次统计。普通文章通常只需 1 次，超长文章才会拆成少量批次。</p>
-            </div>
-            <div className="divide-y divide-[#e1e5e9]">
-              <QuotaUsageRow label="摘要" usage={data.quotaUsage.summary} articleUnit="生成文章" />
-              <QuotaUsageRow label="全文翻译" usage={data.quotaUsage.translation} articleUnit="生成文章" />
-              <article className="grid gap-3 px-5 py-4 lg:grid-cols-[150px_minmax(0,1fr)] lg:gap-5">
-                <div><strong className="text-sm">精选缓存</strong><p className="mt-1 text-[11px] text-[#247044]">实际模型成本 ￥0</p></div>
-                <dl className="grid grid-cols-2 gap-y-4 divide-x divide-[#e1e5e9] sm:grid-cols-4">
-                  <MetricCell label="命中次数" value={`${data.quotaUsage.publicCache.hits.toLocaleString("zh-CN")} 次`} />
-                  <MetricCell label="涉及文章" value={`${data.quotaUsage.publicCache.articles.toLocaleString("zh-CN")} 篇`} />
-                  <MetricCell label="节省调用" value={`${data.quotaUsage.publicCache.avoidedDeepSeekCalls.toLocaleString("zh-CN")} 次`} />
-                  <MetricCell label="DeepSeek 成本" value="￥0.0000" />
-                </dl>
-              </article>
-            </div>
-          </section>
-
+          </div>
+          <div hidden={section !== "invitations"}>
           <div id="account-invitations" className="scroll-mt-24">
             <AdminInvitationCodesPanel profiles={data.profiles} />
           </div>
 
+          </div>
+          <div hidden={section !== "plans"}>
           <section id="account-plans" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-5">
               <h3 className="text-[21px] font-semibold">套餐额度规则</h3>
               <div className="mt-3 max-w-3xl rounded-xl bg-[#edf5fb] px-4 py-3 text-sm leading-6 text-[#174d73]">
                 <p><strong>AI 查词与追问：</strong>注册用户只有新生成解释或句子追问会扣次数，缓存命中免费；游客无论缓存或新生成都计入每日试用。</p>
                 <p className="mt-1"><strong>文章摘要：</strong>首次保存且没有有效摘要时生成并扣 1 次；保存后的摘要直接复用。</p>
-                <p className="mt-1"><strong>全文翻译：</strong>点击开始一次新翻译扣 1 次，重看已有结果免费；重新生成再扣 1 次。精选缓存首次点击同样扣 1 次，但不调用 DeepSeek。</p>
+                <p className="mt-1"><strong>全文翻译：</strong>点击开始一次新翻译扣 1 次，重看已有结果免费；重新生成再扣 1 次。精选缓存首次点击同样扣 1 次，但不调用模型。</p>
               </div>
             </div>
             <div className="divide-y divide-[#e1e5e9]">
@@ -471,6 +378,8 @@ export default function AdminAccountsPanel() {
             </div>
           </section>
 
+          </div>
+          <div hidden={section !== "users"}>
           <section id="account-users" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="flex flex-col gap-4 border-b border-[#e1e5e9] px-5 py-5 sm:flex-row sm:items-end sm:justify-between">
               <div><h3 className="text-[21px] font-semibold">用户账号</h3><p className="mt-1 text-sm leading-6 text-[#4d535a]">日常通常只需要分配套餐、封禁异常账号或帮助用户重置密码。</p></div>
@@ -521,6 +430,26 @@ export default function AdminAccountsPanel() {
             )}
           </section>
 
+          <details className="mt-6"><summary className="cursor-pointer py-3 text-sm font-semibold">近 30 天摘要、翻译与精选缓存汇总</summary><section className="mt-6 overflow-hidden rounded-2xl bg-white" aria-labelledby="quota-split-title">
+            <div className="border-b border-[#e1e5e9] px-5 py-4">
+              <h3 id="quota-split-title" className="text-lg font-semibold">扣量与模型成本拆分（近 30 天）</h3>
+              <p className="mt-1 text-xs leading-5 text-[#68717a]">用户额度按一次完整动作统计；模型 请求按实际上游流批次统计。普通文章通常只需 1 次，超长文章才会拆成少量批次。</p>
+            </div>
+            <div className="divide-y divide-[#e1e5e9]">
+              <QuotaUsageRow label="摘要" usage={data.quotaUsage.summary} articleUnit="生成文章" />
+              <QuotaUsageRow label="全文翻译" usage={data.quotaUsage.translation} articleUnit="生成文章" />
+              <article className="grid gap-3 px-5 py-4 lg:grid-cols-[150px_minmax(0,1fr)] lg:gap-5">
+                <div><strong className="text-sm">精选缓存</strong><p className="mt-1 text-[11px] text-[#247044]">实际模型成本 ￥0</p></div>
+                <dl className="grid grid-cols-2 gap-y-4 divide-x divide-[#e1e5e9] sm:grid-cols-4">
+                  <MetricCell label="命中次数" value={`${data.quotaUsage.publicCache.hits.toLocaleString("zh-CN")} 次`} />
+                  <MetricCell label="涉及文章" value={`${data.quotaUsage.publicCache.articles.toLocaleString("zh-CN")} 篇`} />
+                  <MetricCell label="节省调用" value={`${data.quotaUsage.publicCache.avoidedDeepSeekCalls.toLocaleString("zh-CN")} 次`} />
+                  <MetricCell label="模型 成本" value="￥0.0000" />
+                </dl>
+              </article>
+            </div>
+          </section></details>
+
           <section id="account-details" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-5">
               <h3 className="text-[21px] font-semibold">每个用户、每篇文章的扣量记录</h3>
@@ -529,18 +458,20 @@ export default function AdminAccountsPanel() {
             {data.quotaUsage.details.length === 0 ? <p className="px-5 py-10 text-center text-sm text-[#68717a]">还没有摘要或全文翻译扣量记录。</p> : (
               <div className="overflow-x-auto">
                 <table className="min-w-[980px] w-full text-left text-sm">
-                  <thead className="bg-[#f5f7f8] text-xs text-[#59636c]"><tr><th className="px-5 py-3 font-semibold">时间 / 用户</th><th className="px-3 py-3 font-semibold">文章</th><th className="px-3 py-3 font-semibold">类型</th><th className="px-3 py-3 font-semibold">用户扣量</th><th className="px-3 py-3 font-semibold">DeepSeek</th><th className="px-3 py-3 font-semibold">Tokens / 成本</th><th className="px-5 py-3 font-semibold">结果</th></tr></thead>
+                  <thead className="bg-[#f5f7f8] text-xs text-[#59636c]"><tr><th className="px-5 py-3 font-semibold">时间 / 用户</th><th className="px-3 py-3 font-semibold">文章</th><th className="px-3 py-3 font-semibold">类型</th><th className="px-3 py-3 font-semibold">用户扣量</th><th className="px-3 py-3 font-semibold">模型调用</th><th className="px-3 py-3 font-semibold">Tokens / 成本</th><th className="px-5 py-3 font-semibold">结果</th></tr></thead>
                   <tbody className="divide-y divide-[#e1e5e9]">{data.quotaUsage.details.map((detail) => {
                     const profile = profileByUser.get(detail.userId);
                     const totalTokens = detail.promptTokens + detail.completionTokens;
-                    return <tr key={detail.id} className="align-top"><td className="px-5 py-4"><time className="block whitespace-nowrap">{new Date(detail.createdAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" })}</time><span className="mt-1 block text-xs text-[#68717a]">{profile ? profileName(profile) : "账号已删除"}</span></td><td className="max-w-xs px-3 py-4"><strong className="block truncate text-[#27333d]" title={detail.articleLabel}>{detail.articleLabel}</strong><span className="mt-1 block font-mono text-[11px] text-[#7b858d]">{detail.articleKey.slice(0, 12) || "无版本号"}</span></td><td className="px-3 py-4">{detail.metricKey === "article_summary" ? "摘要" : detail.source === "public_cache" ? "精选缓存" : "全文翻译"}</td><td className="px-3 py-4">{detail.quotaUnits > 0 ? `${detail.quotaUnits} 次` : "0 次"}</td><td className="px-3 py-4">{detail.providerExecutions} 次调用</td><td className="px-3 py-4">{totalTokens.toLocaleString("zh-CN")}<span className="mt-1 block text-xs text-[#68717a]">￥{detail.estimatedCostCny.toFixed(4)}</span></td><td className="px-5 py-4"><span className={`rounded-full px-2.5 py-1 text-xs font-medium ${detail.status === "succeeded" || detail.status === "cached" ? "bg-[#e9f5ee] text-[#17613b]" : "bg-red-50 text-red-700"}`}>{detail.status === "cached" ? "缓存命中" : detail.status === "succeeded" ? "成功" : detail.status === "reserved" ? "进行中" : "失败/取消"}</span></td></tr>;
+                    return <tr key={detail.id} className="align-top"><td className="px-5 py-4"><time className="block whitespace-nowrap">{new Date(detail.createdAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" })}</time><span className="mt-1 block text-xs text-[#68717a]">{profile ? profileName(profile) : "账号已删除"}</span></td><td className="max-w-xs px-3 py-4"><strong className="block truncate text-[#27333d]" title={detail.articleLabel}>{detail.articleLabel}</strong><span className="mt-1 block font-mono text-[11px] text-[#7b858d]">{detail.articleKey.slice(0, 12) || "无版本号"}</span></td><td className="px-3 py-4">{detail.metricKey === "article_summary" ? "摘要" : detail.source === "public_cache" ? "精选缓存" : "全文翻译"}</td><td className="px-3 py-4">{detail.quotaUnits > 0 ? `${detail.quotaUnits} 次` : "0 次"}</td><td className="px-3 py-4">{detail.providerExecutions} 次调用</td><td className="px-3 py-4">{totalTokens.toLocaleString("zh-CN")}<span className="mt-1 block text-xs text-[#68717a]">￥{detail.estimatedCostCny.toFixed(6)}{detail.unknownCost > 0 ? ` + ${detail.unknownCost} 次待核算` : ""}</span></td><td className="px-5 py-4"><span className={`rounded-full px-2.5 py-1 text-xs font-medium ${detail.status === "succeeded" || detail.status === "cached" ? "bg-[#e9f5ee] text-[#17613b]" : "bg-red-50 text-red-700"}`}>{detail.status === "cached" ? "缓存命中" : detail.status === "succeeded" ? "成功" : detail.status === "reserved" ? "进行中" : "失败/取消"}</span></td></tr>;
                   })}</tbody>
                 </table>
               </div>
             )}
           </section>
+          </div>
         </>
       )}
+      </div></div>
     </div>
   );
 }
@@ -552,25 +483,6 @@ function ActivityMetric({ label, value, accounts, guests, note }: { label: strin
       <dd className="mt-2 text-3xl font-semibold tracking-tight text-[#17212b]">{value.toLocaleString("zh-CN")}</dd>
       <dd className="mt-2 text-xs text-[#68717a]">账号 {accounts.toLocaleString("zh-CN")} · 游客 {guests.toLocaleString("zh-CN")}</dd>
     </div>
-  );
-}
-
-function MetricCell({ label, value }: { label: string; value: string }) {
-  return <div className="px-3 first:pl-0"><dt className="text-[11px] text-[#68717a]">{label}</dt><dd className="mt-1 text-base font-semibold text-[#17212b]">{value}</dd></div>;
-}
-
-function QuotaUsageRow({ label, usage, articleUnit }: { label: string; usage: QuotaFeatureUsage; articleUnit: string }) {
-  return (
-    <article className="grid gap-3 px-5 py-4 lg:grid-cols-[150px_minmax(0,1fr)] lg:gap-5">
-      <div><strong className="text-sm">{label}</strong><p className="mt-1 text-[11px] text-[#68717a]">成功 {usage.succeededActions} · 失败 {usage.failedActions}</p></div>
-      <dl className="grid grid-cols-2 gap-y-4 divide-x divide-[#e1e5e9] sm:grid-cols-5">
-        <MetricCell label="用户扣量" value={`${usage.chargedActions.toLocaleString("zh-CN")} 次`} />
-        <MetricCell label={articleUnit} value={`${usage.generatedArticles.toLocaleString("zh-CN")} 篇`} />
-        <MetricCell label="AI 请求" value={`${usage.providerExecutions.toLocaleString("zh-CN")} 次`} />
-        <MetricCell label="Tokens" value={(usage.promptTokens + usage.completionTokens).toLocaleString("zh-CN")} />
-        <MetricCell label="估算成本" value={`￥${usage.estimatedCostCny.toFixed(4)}`} />
-      </dl>
-    </article>
   );
 }
 
@@ -601,34 +513,21 @@ function BonusControl({
   );
 }
 
-function DailyUsageRow({
-  day,
-  today = false,
-}: {
-  day: DashboardData["usageSummary"]["daily"][number];
-  today?: boolean;
-}) {
+
+function MetricCell({ label, value }: { label: string; value: string }) {
+  return <div className="px-3 first:pl-0"><dt className="text-[11px] text-[#68717a]">{label}</dt><dd className="mt-1 text-base font-semibold text-[#17212b]">{value}</dd></div>;
+}
+
+function QuotaUsageRow({ label, usage, articleUnit }: { label: string; usage: QuotaFeatureUsage; articleUnit: string }) {
   return (
-    <article className="grid gap-3 px-5 py-4 sm:grid-cols-[140px_minmax(0,1fr)] sm:items-start sm:gap-5">
-      <div className="flex items-center gap-2 sm:block">
-        <time className="text-sm font-semibold text-[#17191c]" dateTime={day.date}>{formatUsageDay(day.date)}</time>
-        {today && <span className="rounded-full bg-[#edf5fb] px-2 py-0.5 text-[11px] font-medium text-[#175a8d] sm:ml-2">今天</span>}
-      </div>
-      <dl className="grid grid-cols-3 divide-x divide-[#e1e5e9]">
-        <div className="pr-3">
-          <dt className="text-[11px] text-[#68717a]">用量</dt>
-          <dd className="mt-1 text-lg font-semibold text-[#17191c]">{day.executions.toLocaleString("zh-CN")} 次</dd>
-          <dd className="mt-1 text-[11px] leading-4 text-[#68717a]">输入 {day.promptTokens.toLocaleString("zh-CN")}<br />输出 {day.completionTokens.toLocaleString("zh-CN")} tokens</dd>
-        </div>
-        <div className="px-3">
-          <dt className="text-[11px] text-[#68717a]">成本估计</dt>
-          <dd className="mt-1 text-lg font-semibold text-[#17191c]">￥{day.estimatedCostCny.toFixed(4)}</dd>
-        </div>
-        <div className="pl-3">
-          <dt className="text-[11px] text-[#68717a]">失败执行</dt>
-          <dd className="mt-1 text-lg font-semibold text-[#17191c]">{day.failed.toLocaleString("zh-CN")} 次</dd>
-          <dd className="mt-1 text-[11px] leading-4 text-[#68717a]">失败率 {(day.failureRate * 100).toFixed(1)}%</dd>
-        </div>
+    <article className="grid gap-3 px-5 py-4 lg:grid-cols-[150px_minmax(0,1fr)] lg:gap-5">
+      <div><strong className="text-sm">{label}</strong><p className="mt-1 text-[11px] text-[#68717a]">成功 {usage.succeededActions} · 失败 {usage.failedActions}</p></div>
+      <dl className="grid grid-cols-2 gap-y-4 divide-x divide-[#e1e5e9] sm:grid-cols-5">
+        <MetricCell label="用户扣量" value={`${usage.chargedActions.toLocaleString("zh-CN")} 次`} />
+        <MetricCell label={articleUnit} value={`${usage.generatedArticles.toLocaleString("zh-CN")} 篇`} />
+        <MetricCell label="AI 请求" value={`${usage.providerExecutions.toLocaleString("zh-CN")} 次`} />
+        <MetricCell label="Tokens" value={(usage.promptTokens + usage.completionTokens).toLocaleString("zh-CN")} />
+        <MetricCell label="估算成本" value={`￥${usage.estimatedCostCny.toFixed(6)}${usage.unknownCost ? " + 待核算" : ""}`} />
       </dl>
     </article>
   );

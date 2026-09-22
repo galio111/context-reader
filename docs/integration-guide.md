@@ -295,3 +295,7 @@ Admin account operations includes a dedicated 智谱备用调用 section: 30 Sha
 2026-09-21 自动精选新约定：目标约 30、至少 25 篇，约 ¥1 软目标、¥1.50 硬上限；均衡改为排序补位，取消 18/18 硬配额。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。按 v3 原网页完整性、图片安全保存、正文哈希和时效校验发布；连续处理批次，90 分钟或预算/连续失败边界停止并发邮件。手动候选与高中标签保留。实测与恢复状态见 automated-editorial.md、product-journey.md。
 
 Admin editorial PATCH accepts optional budgetTrial (day in Shanghai YYYY-MM-DD; cny number 0–10 exclusive of zero, or null for explicitly uncapped date) and jevAutoAdopt boolean. Omitted fields preserve existing values; budgetTrial: null removes the exception. The base dailyBudgetCny never inherits the trial value. Calibration and adoption records remain private account_settings, including per-provider ledger reservations; adoption is gated by completed sample day and policy versions. No API key is returned by these APIs.
+
+## Admin usage reporting
+
+`GET /api/admin/usage?period=today&scope=all` is Admin-only and no-store. Date/source validation, aggregate and unpriced-cost semantics are defined in [admin-usage-report.md](admin-usage-report.md). It is read-only and changes no quota or model configuration. The accounts mutation API is unchanged.
