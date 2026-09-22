@@ -51,6 +51,8 @@ import type { HomepageCuration } from "@/lib/homepageCurationShared";
 
 interface HomeClientProps {
   initialPublicArticles: PublicArticle[];
+  initialCatalogueComplete?: boolean;
+  initialCatalogueCounts?: Record<string, number>;
   initialHomepageCuration?: HomepageCuration;
   homeVariant?: "immersive" | "book";
   forceGuestPreview?: boolean;
@@ -187,7 +189,24 @@ async function requestImageLayoutWords(file: File): Promise<ImportedImageLayoutW
   return data.words;
 }
 
-export function HomeClient({ initialPublicArticles, initialHomepageCuration, homeVariant = "immersive", forceGuestPreview = false, forceMemberPreview = false }: HomeClientProps) {
+export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCatalogueComplete = true, initialCatalogueCounts, initialHomepageCuration, homeVariant = "immersive", forceGuestPreview = false, forceMemberPreview = false }: HomeClientProps) {
+  const [initialPublicArticles, setPublicArticles] = useState(bootstrapArticles);
+  const [catalogueStatus, setCatalogueStatus] = useState<"idle" | "loading" | "ready" | "error">(initialCatalogueComplete ? "ready" : "idle");
+  const catalogueRef = useRef({ articles: bootstrapArticles, complete: initialCatalogueComplete, pending: null as Promise<PublicArticle[]> | null });
+  const ensurePublicCatalogue = useCallback((): Promise<PublicArticle[]> => {
+    const current = catalogueRef.current;
+    if (current.complete) return Promise.resolve(current.articles);
+    if (current.pending) return current.pending;
+    setCatalogueStatus("loading");
+    current.pending = fetchJson<{ articles?: PublicArticle[] }>("/api/public-articles", {}, "完整外刊目录暂时无法加载，请重试。").then(({ response, data }) => {
+      if (!response.ok || !Array.isArray(data?.articles)) throw new Error("完整外刊目录暂时无法加载，请重试。");
+      current.articles = data.articles; current.complete = true;
+      setPublicArticles(data.articles); setCatalogueStatus("ready");
+      return data.articles;
+    }).catch(error => { setCatalogueStatus("error"); throw error; }).finally(() => { current.pending = null; });
+    return current.pending;
+  }, []);
+  const requestPublicCatalogue = useCallback(() => { void ensurePublicCatalogue().catch(() => {}); }, [ensurePublicCatalogue]);
   const { account, isOffline, requireAccount } = useAccount();
   const [article, setArticle] = useState("");
   const [articleUrl, setArticleUrl] = useState("");
@@ -1230,12 +1249,13 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
   async function findPublicArticleForVocabularyEntry(
     entry: VocabularyEntry,
   ): Promise<{ article: PublicArticleDetails; matchedSentence: string } | null> {
+    const catalogue = await ensurePublicCatalogue().catch(() => catalogueRef.current.articles);
     const candidateIds = entry.sourceArticle?.kind === "public"
       ? [
           entry.sourceArticle.id,
-          ...initialPublicArticles.map((item) => item.id).filter((id) => id !== entry.sourceArticle?.id),
+          ...catalogue.map((item) => item.id).filter((id) => id !== entry.sourceArticle?.id),
         ]
-      : initialPublicArticles.map((item) => item.id);
+      : catalogue.map((item) => item.id);
 
     for (const id of candidateIds) {
       try {
@@ -1415,6 +1435,9 @@ export function HomeClient({ initialPublicArticles, initialHomepageCuration, hom
         importingUrl={importingUrl}
         openingPublicArticleId={openingPublicArticleId}
         publicArticles={initialPublicArticles}
+        catalogueStatus={catalogueStatus}
+        catalogueCounts={initialCatalogueCounts}
+        onRequestCatalogue={requestPublicCatalogue}
         homepageCuration={initialHomepageCuration}
         savedArticles={savedArticles}
         temporaryReading={temporaryReading}

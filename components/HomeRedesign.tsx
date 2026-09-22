@@ -139,6 +139,9 @@ interface HomeRedesignProps {
   importingUrl: boolean;
   openingPublicArticleId: string;
   publicArticles: PublicArticle[];
+  catalogueStatus?: "idle" | "loading" | "ready" | "error";
+  catalogueCounts?: Record<string, number>;
+  onRequestCatalogue?: () => void;
   homepageCuration?: HomepageCuration;
   savedArticles: SavedArticle[];
   temporaryReading: TemporaryReading | null;
@@ -361,6 +364,14 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const ballpitControllerRef = useRef<BallpitHandle | null>(null);
   const memberBallpitControllerRef = useRef<BallpitHandle | null>(null);
   const recommendationsRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    if (journeyPending || props.catalogueStatus !== "idle" || !recommendationsRef.current) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { props.onRequestCatalogue?.(); observer.disconnect(); }
+    }, { rootMargin: "240px" });
+    observer.observe(recommendationsRef.current);
+    return () => observer.disconnect();
+  }, [journeyPending, props.catalogueStatus, props.onRequestCatalogue]);
   const articleGridRef = useRef<HTMLDivElement | null>(null);
   const preferenceControlRef = useRef<HTMLDivElement | null>(null);
   const publicationBridgeRef = useRef<HTMLDivElement | null>(null);
@@ -389,7 +400,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [dailyUpdateNotice]);
   const recommendationDayKey = useMemo(() => SHANGHAI_DAY_FORMATTER.format(new Date()), []);
   useEffect(() => {
-    if (accountLoading || !account.authenticated || !account.profile || isOffline || !props.homepageCuration) return;
+    if (accountLoading || !account.authenticated || !account.profile || isOffline || !props.homepageCuration || (props.catalogueStatus && props.catalogueStatus !== "ready")) return;
     const key = `context-reader:daily-update:${account.profile.userId}`;
     let displayTimer: number | undefined;
     try {
@@ -408,7 +419,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       }, 1500);
     } catch { /* Storage-disabled browsers keep the reading flow silent. */ }
     return () => { window.clearTimeout(displayTimer); };
-  }, [accountLoading, account.authenticated, account.profile?.userId, isOffline, props.homepageCuration, props.publicArticles, recommendationDayKey]);
+  }, [accountLoading, account.authenticated, account.profile?.userId, isOffline, props.homepageCuration, props.publicArticles, props.catalogueStatus, recommendationDayKey]);
 
   const allCategoryArticles = useMemo(
     () => props.publicArticles.filter(category.test),
@@ -439,6 +450,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
     [activeCategory, allCategoryArticles, categoryArticles, props.homepageCuration, recommendationDayKey, recommendationPreferences],
   );
   const showcaseArticleCount = visibleArticleCount(personalizedCategoryArticles.length, compactViewport);
+  const totalCategoryCount = props.catalogueStatus && props.catalogueStatus !== "ready"
+    ? props.catalogueCounts?.[activeCategory] ?? personalizedAllCategoryArticles.length
+    : personalizedAllCategoryArticles.length;
   const libraryArticles = useMemo(() => {
     const term = librarySearch.trim().toLocaleLowerCase("zh-CN");
     return personalizedAllCategoryArticles.filter((article) => {
@@ -986,6 +1000,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }
 
   function openRecommendationPreferences() {
+    props.onRequestCatalogue?.();
     setPreferenceDraft(recommendationPreferences);
     setPreferenceOpen(true);
   }
@@ -1015,6 +1030,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }
 
   function switchCategory(nextCategory: string) {
+    props.onRequestCatalogue?.();
     if (nextCategory === activeCategory || categorySwitching) return;
     setCategorySwitching(true);
     categorySwitchTimerRef.current = window.setTimeout(() => {
@@ -1096,7 +1112,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   ].filter(Boolean).join(" · ") || "设置阅读水平与兴趣";
 
   return (
-    <main className={styles.root} data-theme={homeTheme} data-home-mode={memberHome ? "member" : "guest"} data-nav-motion={navMotion} data-guest-preview={guestPreviewAllowed || undefined} data-member-preview={memberPreviewAllowed || undefined} data-standalone-tool-open={menuOpen && menuStandalonePreview || undefined}>
+    <main className={styles.root} data-catalogue-status={props.catalogueStatus ?? "ready"} data-catalogue-count={props.publicArticles.length} data-theme={homeTheme} data-home-mode={memberHome ? "member" : "guest"} data-nav-motion={navMotion} data-guest-preview={guestPreviewAllowed || undefined} data-member-preview={memberPreviewAllowed || undefined} data-standalone-tool-open={menuOpen && menuStandalonePreview || undefined}>
       {dailyUpdateNotice !== null && <div className={styles.dailyUpdateNotice} role="status">今天更新了 {dailyUpdateNotice} 篇文章</div>}
       {journeyPending && <div className={styles.accountResolving} role="status" aria-label="正在打开阅读空间"><span /><span /><span /></div>}
       <BookLetterField paused={memberOpeningVisible || !letterMotionEnabled} />
@@ -1161,7 +1177,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       <div ref={flowRef} className={styles.flow}>
         <section ref={coverStageRef} className={`${styles.coverStage} ${memberHome ? styles.memberStage : ""}`}>
         {!memberHome && <section ref={heroRef} className={styles.hero} aria-labelledby="home-redesign-title">
-          {compactViewport && <div className={styles.ballField} aria-hidden="true">
+          {!journeyPending && compactViewport && <div className={styles.ballField} aria-hidden="true">
             <Ballpit
               className={styles.ballCanvas}
               count={18}
@@ -1200,7 +1216,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           <div className={styles.heroEdge} aria-hidden="true"><span>EXPLORE CONTEXT READER</span><i /></div>
         </section>}
 
-        {!memberHome && !compactViewport && <div className={styles.ballField} aria-hidden="true">
+        {!journeyPending && !memberHome && !compactViewport && <div className={styles.ballField} aria-hidden="true">
           <Ballpit
             className={styles.ballCanvas}
             count={compactViewport ? 32 : 56}
@@ -1345,6 +1361,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
             )}
           </div>
 
+          {props.catalogueStatus === "loading" && <p role="status">正在加载完整外刊目录…</p>}
+          {props.catalogueStatus === "error" && <p role="status">完整外刊目录暂时无法加载，已显示的文章仍可打开。<button type="button" onClick={props.onRequestCatalogue}>重试</button></p>}
           {displayArticles.length ? (
             <div ref={articleGridRef} className={styles.articleGrid} data-switching={categorySwitching || undefined}>
               {displayArticles.map((item, index) => {
@@ -1383,17 +1401,17 @@ export function HomeRedesign(props: HomeRedesignProps) {
           ) : (
             <div className={styles.emptyArticles}>这一分类的首页外刊正在整理中。</div>
           )}
-          {memberHome && personalizedAllCategoryArticles.length > showcaseArticleCount && (
+          {memberHome && totalCategoryCount > showcaseArticleCount && (
             <div className={styles.libraryAction}>
-              <button type="button" onClick={() => setMemberLibraryOpen((current) => { const next = !current; persistHomeViewState({ memberLibraryOpen: next }); return next; })} aria-expanded={memberLibraryOpen}>
+              <button type="button" onClick={() => { props.onRequestCatalogue?.(); setMemberLibraryOpen((current) => { const next = !current; persistHomeViewState({ memberLibraryOpen: next }); return next; }); }} aria-expanded={memberLibraryOpen}>
                 {memberLibraryOpen ? "收起更多外刊" : "显示更多"}
               </button>
-              <span>{memberLibraryOpen ? `当前显示 ${displayArticles.length} 篇` : `还有 ${personalizedAllCategoryArticles.length - showcaseArticleCount} 篇`}</span>
+              <span>{memberLibraryOpen ? `当前显示 ${displayArticles.length} 篇` : `还有 ${totalCategoryCount - showcaseArticleCount} 篇`}</span>
             </div>
           )}
           {!memberHome && (
             <div className={styles.guestLibraryAction}>
-              <span>{personalizedAllCategoryArticles.length > showcaseArticleCount ? `登录后可继续查看这一栏目的其余 ${personalizedAllCategoryArticles.length - showcaseArticleCount} 篇外刊` : "登录后可进入完整外刊库，并保存自己的阅读进度"}</span>
+              <span>{totalCategoryCount > showcaseArticleCount ? `登录后可继续查看这一栏目的其余 ${totalCategoryCount - showcaseArticleCount} 篇外刊` : "登录后可进入完整外刊库，并保存自己的阅读进度"}</span>
               <button type="button" onClick={() => openLogin("登录后可查看更多精选外刊。")}>登录查看更多</button>
             </div>
           )}

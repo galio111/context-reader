@@ -3,6 +3,8 @@ import { HomeClient } from "@/components/HomeClient";
 import { getHomepageCuration } from "@/lib/homepageCuration";
 import { listPublicArticleSummaries } from "@/lib/publicArticles";
 import { publicArticleSummary } from "@/lib/publicArticleSummary";
+import { homepageBootstrap } from "@/lib/homepageBootstrap";
+import { shanghaiDay } from "@/lib/discoveryPolicy";
 
 export const dynamic = "force-dynamic";
 
@@ -25,9 +27,12 @@ export default async function HomePage({
     getHomepageCuration().catch(() => undefined),
   ]);
 
+  const bootstrap = homepageBootstrap(initialPublicArticles.map(publicArticleSummary), initialHomepageCuration, shanghaiDay(new Date().toISOString()));
   return (
     <HomeClient
-      initialPublicArticles={initialPublicArticles.map(publicArticleSummary)}
+      initialPublicArticles={bootstrap.articles}
+      initialCatalogueComplete={bootstrap.complete}
+      initialCatalogueCounts={bootstrap.counts}
       initialHomepageCuration={initialHomepageCuration}
       homeVariant="book"
       forceGuestPreview={params.preview === "guest"}

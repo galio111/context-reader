@@ -5,8 +5,8 @@ Implementation in validation; production identity and measured acceptance must b
 ## Loading behavior
 
 - The legacy `ArticleInput` homepage is still available through its existing branch, but loads only when used. It no longer pulls legacy reading/vocabulary/UI dependencies into the real homepage's initial bundle.
-- Ballpit remains the same component with the same props and physics. Its Three.js dependency loads independently from the homepage controls. Existing word-fall opening, desktop/mobile rendering and reduced-motion behavior remain.
-- Article titles, catalogue and recommendation order remain server-rendered. Cover image requests start within 350 pixels of the viewport after hydration, retain their layout space and still use the original optimized image/alt/failure behavior. The featured card no longer preloads from below the fold.
+- Ballpit remains the same component with the same props and physics. Its Three.js dependency loads independently from the homepage controls and only after account resolution for the guest cover. Existing word-fall opening, desktop/mobile rendering and reduced-motion behavior remain.
+- Every category's initial desktop/mobile showcase keeps its exact server-rendered articles and order. The initial payload contains the union of those showcases (at most 50 records), plus full category counts. The complete unchanged catalogue is requested within 240 pixels of the article section, on category/preference/library intent, or before vocabulary source recovery. Requests are coalesced; failures retain initial cards with an explicit retry, and counts/personalization/search use the full data once it arrives. Daily update notices wait for the complete catalogue. Cover image requests start within 350 pixels of the viewport after hydration, retain their layout space and still use the original optimized image/alt/failure behavior. The featured card no longer preloads from below the fold.
 - The hidden contact QR image loads when expanded. Showcase poster/video requests follow actual showcase visibility/playback; replay and all modules remain present.
 
 ## Immutable asset delivery
@@ -24,3 +24,5 @@ Use three fresh browser contexts with empty caches/service workers blocked, navi
 Baseline on release `20260922T074500`: three simultaneous desktop Chrome cold contexts had control hydration times 11.82, 13.45 and 21.56 seconds, despite no JavaScript errors. Their resource waterfalls included below-fold eager article covers, a hidden 122 kB QR JPEG and a showcase poster competing with the initial scripts. Screenshots still showed the account-resolution indicator at the hydration milestone. This browser result supersedes any implication that the earlier resource-only timings captured complete page readiness. Baseline was recorded before another accepted Admin-only release; cumulative deployment must retain that release.
 
 Evidence belongs in `artifacts/cold-start-three/`; do not package browser dependencies or local evidence into production.
+
+Intermediate release `20260922T084600` (parent `20260922T083448`, source `6da7153d8218a4336ccf418443f819268ef1de1e`) reduced initial JS from 454 kB to 213 kB, but a three-browser cold run still had a 6.44 s slowest homepage resolution. That failed measurement motivated the progressive complete-catalogue transport above; it is not reported as final acceptance.
