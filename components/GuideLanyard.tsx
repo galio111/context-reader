@@ -17,10 +17,17 @@ export function GuideLanyard({ active, preload, onOpen, running, motionEnabled }
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [reduced, setReduced] = useState(false);
   const [supported, setSupported] = useState(true);
+  const [compact, setCompact] = useState(true);
   const [started, setStarted] = useState(false);
   const [settling, setSettling] = useState(false);
   const open = useRef(onOpen);
   open.current = onOpen;
+  useEffect(() => {
+    const viewport = window.matchMedia("(max-width: 700px)");
+    const update = () => setCompact(viewport.matches);
+    update(); viewport.addEventListener("change", update);
+    return () => viewport.removeEventListener("change", update);
+  }, []);
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
     const update = () => setReduced(query.matches);
@@ -32,14 +39,14 @@ export function GuideLanyard({ active, preload, onOpen, running, motionEnabled }
     return () => query.removeEventListener("change", update);
   }, []);
   useEffect(() => {
-    if (preload && motionEnabled && !reduced && supported) {
+    if (preload && !compact && motionEnabled && !reduced && supported) {
       setStarted(true);
       void loadScene();
       for (const path of ["/lanyard/card.glb", "/lanyard/card-atlas.webp", "/lanyard/front.svg", "/lanyard/back.svg", "/lanyard/lanyard.png"]) {
         void fetch(path, { cache: "force-cache" }).catch(() => {});
       }
     }
-  }, [motionEnabled, preload, reduced, supported]);
+  }, [compact, motionEnabled, preload, reduced, supported]);
   useEffect(() => {
     if (!running && timer.current) { clearTimeout(timer.current); timer.current = null; setSettling(false); }
     return () => { if (timer.current) { clearTimeout(timer.current); timer.current = null; } };
@@ -55,6 +62,7 @@ export function GuideLanyard({ active, preload, onOpen, running, motionEnabled }
     timer.current = setTimeout(() => { timer.current = null; setSettling(false); open.current(); }, 1100);
   }
   const fallback = <button className={styles.fallback} onClick={() => open.current()} aria-label="打开 Menu 中的使用说明"><span>使用说明</span><small>Context Reader</small></button>;
+  if (compact) return null;
   return <div className={styles.lanyard} data-active={active || undefined} data-guide-lanyard data-settling={settling} aria-hidden={!active} inert={!active}>
     {supported && motionEnabled && !reduced ? <SceneBoundary fallback={fallback}>
       {started && <Scene running={running} onDragStart={cancelPending} onDragRelease={release} />}

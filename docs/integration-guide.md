@@ -1,5 +1,7 @@
 # Context Reader Integration Guide
 
+Homepage delivery uses a server-rendered union of the original category showcases (at most 50 summaries) and full category counts, followed by the unchanged complete `GET /api/public-articles` catalogue near the reading section or on user intent. The API still returns all published summaries and article-detail endpoints retain the full reader/preload payload. `GET /api/static-asset/[...path]` serves validated immutable build-time Brotli JS/CSS sidecars when negotiated by middleware; clients without Brotli retain standard Next.js assets. Do not proxy account data through this cache. See [cold-start-performance.md](cold-start-performance.md) for the browser and media-loading acceptance contract.
+
 2026-09-22 已部署（20260922T072500）：统一功能/套餐主备模型、MiMo 直连、约 60 篇且各板块 13–17 篇的策略，¥1.50 硬上限。MiMo 真实及线上连接通过；Jev 无有效密钥，关闭。见 [模型控制说明](model-control.md)。
 
 
