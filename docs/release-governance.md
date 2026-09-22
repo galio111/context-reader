@@ -74,7 +74,7 @@ Local integration validation on 2026-09-18 passed the production build, 89 criti
 
 ## Latest verified acceptance
 
-Accepted production `20260922T133000`（parent `20260922T102600`，source `ab90241089ffdc9a55e1b8184f37aeb23038bdb8`）. Public mainland identity and current symlink agree. CET catalog and answer-backed detail APIs, authenticated cloud attempts, contextual explanation with sentence translation, dictionary and full-passage translation pass; all three live model executions use deepseek-flash. Local desktop/390px reader checks, 117 critical/CET tests, seven usage-report tests and release contracts pass. Recovery Admin, anonymous boundaries, seven services, isolated 16-table backup restore and accepted current/parent images pass. Only app/caddy recreated. The synthetic QA account and its cloud objects were removed. Final public browser inspection was interrupted by browser-connection failure; local same-build UI verification does not replace user visual acceptance. Full details: cet-reading.md.
+已上线 `20260922T153000`（parent `20260922T133000`，source `4ae326b46bb21ec85b2bdebcf1889bb9af9583b5`）。119 项关键/CET/切换回归、7 项用量报告测试、正式构建和发布契约通过。公共身份与大陆后台一致；签入查词及句译、词典、两段全文翻译均成功且执行模型为 deepseek-flash。账号同步、恢复 Admin、七服务、16 表隔离备份恢复和当前/父回滚镜像通过。图片卷挂载正确，四张既有 768px 图片在应用重建后的八次请求均 HIT，约 0.185–0.362s（仅网络样本，不等于页面可见时间）。仅重建 app/caddy。 Synthetic QA account cleanup is recorded with the acceptance evidence; browser visual inspection remains unavailable.
 
 ### Previous performance acceptance
 
