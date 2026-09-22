@@ -1,10 +1,6 @@
 # Automatic editorial publication — current contract
 
-Current revision: 2026-09-21 recovery from the failed uncapped trial. Accepted production 20260921T083200 (parent 20260921T082100, source 0bd89991e42b36b33b116fbf374d3a8fd480d8bb). Runtime restored for 2026-09-22 06:00 Shanghai; the stopped incident day remains suspended with its ledger intact. Deployment identity and final evidence are recorded in product-journey.md.
-
-## Prepared revision 2026-09-22 (not yet deployed)
-
-The accepted production identity above still describes the 30-article Flash-only release. The following new policy and model controls are implemented and locally tested, awaiting private MiMo/TypeSafe key entry, real-provider acceptance and cumulative deployment. See [model-control.md](model-control.md).
+Accepted production `20260922T072500`, parent `20260922T070500`, source `022128281711473bf6c6af575885ae938b2b08ba`. MiMo is configured and passed live connection acceptance; defaults remain Flash and Jev is disabled. The existing configured schedule is 01:00 Shanghai, with next run 2026-09-23 01:00; this deployment did not change that schedule. Email configuration and active timer verified. See [model-control.md](model-control.md).
 
 ## Quantity, balance and budget
 
