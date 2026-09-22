@@ -348,6 +348,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [heroSubtitleVariant, setHeroSubtitleVariant] = useState<keyof typeof HERO_SUBTITLES>("a");
   const [memberOpeningVisible, setMemberOpeningVisible] = useState(false);
   const [guestOpeningComplete, setGuestOpeningComplete] = useState(false);
+  const [guestBallpitStarted, setGuestBallpitStarted] = useState(false);
   const [letterMotionEnabled, setLetterMotionEnabled] = useState(true);
   const [recommendationMotionEnabled, setRecommendationMotionEnabled] = useState(true);
   const [homeTheme, setHomeTheme] = useState<HomeTheme>("day");
@@ -378,6 +379,16 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const publicationBridgeRef = useRef<HTMLDivElement | null>(null);
   const importRef = useRef<HTMLElement | null>(null);
   const featureShowcaseRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    if (memberHome || journeyPending || guestBallpitStarted || !(guestOpeningComplete || props.skipMemberOpening)) return;
+    const cover = coverStageRef.current;
+    if (!cover) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setGuestBallpitStarted(true); observer.disconnect(); }
+    });
+    observer.observe(cover);
+    return () => observer.disconnect();
+  }, [guestBallpitStarted, guestOpeningComplete, journeyPending, memberHome, props.skipMemberOpening]);
   const closingRef = useRef<HTMLElement | null>(null);
   const coverProgressRef = useRef(0);
   const memberOpeningFrameRef = useRef(0);
@@ -1178,7 +1189,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       <div ref={flowRef} className={styles.flow}>
         <section ref={coverStageRef} className={`${styles.coverStage} ${memberHome ? styles.memberStage : ""}`}>
         {!memberHome && <section ref={heroRef} className={styles.hero} aria-labelledby="home-redesign-title">
-          {!journeyPending && (guestOpeningComplete || props.skipMemberOpening) && compactViewport && <div className={styles.ballField} aria-hidden="true">
+          {guestBallpitStarted && compactViewport && <div className={styles.ballField} aria-hidden="true">
             <Ballpit
               className={styles.ballCanvas}
               count={18}
@@ -1217,7 +1228,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           <div className={styles.heroEdge} aria-hidden="true"><span>EXPLORE CONTEXT READER</span><i /></div>
         </section>}
 
-        {!journeyPending && (guestOpeningComplete || props.skipMemberOpening) && !memberHome && !compactViewport && <div className={styles.ballField} aria-hidden="true">
+        {guestBallpitStarted && !memberHome && !compactViewport && <div className={styles.ballField} aria-hidden="true">
           <Ballpit
             className={styles.ballCanvas}
             count={compactViewport ? 32 : 56}

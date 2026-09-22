@@ -13,12 +13,17 @@ export const FEATURE_SHOWCASE = [
   { id: "explore", label: "继续探索", detail: "还有更多", title: ["读进去之后，", "还有更多发现。"], paragraphs: ["全文翻译、文章摘要、独立词典，还有为下一次阅读保存的进度。", "更多顺手的小功能，等你在阅读中发现。"], color: "#e3eaf0", screens: [] },
 ] as const;
 
-function Recording({ src, label, playing }: { src: string; label: string; playing: boolean }) {
+function Recording({ src, label, playing, onBuffered }: { src: string; label: string; playing: boolean; onBuffered: () => void }) {
   const video = useRef<HTMLVideoElement>(null);
   const [failed, setFailed] = useState(false);
   const [blocked, setBlocked] = useState(false);
   const [loadedSrc, setLoadedSrc] = useState<string>();
   const poster = src ? src.replace(/\.mp4$/, ".webp") : undefined;
+  function reportBuffered() {
+    const element = video.current;
+    if (element && Number.isFinite(element.duration) && element.buffered.length
+      && element.buffered.end(element.buffered.length - 1) >= element.duration - 0.1) onBuffered();
+  }
   useEffect(() => {
     if (playing && src && !loadedSrc) setLoadedSrc(window.matchMedia("(max-width: 700px)").matches ? src.replace(/\.mp4$/, "-mobile.mp4") : src);
   }, [playing, src, loadedSrc]);
@@ -36,7 +41,7 @@ function Recording({ src, label, playing }: { src: string; label: string; playin
   }, [playing, src, loadedSrc]);
   return <div className={styles.recording} data-has-video={Boolean(src)}>
     {src && !failed ? <>
-      <video ref={video} src={loadedSrc} poster={loadedSrc ? poster : undefined} muted loop playsInline preload={playing ? "auto" : "metadata"} onError={() => { if (loadedSrc) setFailed(true); }} aria-label={label} />
+      <video ref={video} src={loadedSrc} poster={loadedSrc ? poster : undefined} muted loop playsInline preload={playing ? "auto" : "metadata"} onProgress={reportBuffered} onLoadedData={reportBuffered} onCanPlayThrough={reportBuffered} onError={() => { if (loadedSrc) setFailed(true); }} aria-label={label} />
       {blocked && <button className={styles.play} onClick={() => { void video.current?.play().then(() => setBlocked(false)).catch(() => {}); }}>播放演示</button>}
     </> : <div className={styles.placeholder}><span className={styles.placeholderIcon} aria-hidden="true">▷</span><strong>{label}</strong><span>{failed ? "演示暂时无法播放" : "录屏预留画面"}</span></div>}
   </div>;
@@ -47,6 +52,7 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen 
   const [replay, setReplay] = useState(0);
   const [visible, setVisible] = useState(false);
   const [paused, setPaused] = useState(false);
+  const [recordingBuffered, setRecordingBuffered] = useState(false);
   const mediaRef = useRef<HTMLDivElement>(null);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
   const selectionScrollY = useRef<number | null>(null);
@@ -98,8 +104,8 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen 
               <button type="button" className={styles.mobileGuide} onClick={onGuide}>打开使用说明</button>
               <button type="button" className={styles.next} onClick={() => select(0)}>再看一遍 <span aria-hidden="true">↗</span></button>
             </div>
-          </div> : feature.screens.map(screen => <Recording key={screen.label} src={screen.src} label={screen.label} playing={visible && !paused} />)}
-          <GuideLanyard active={feature.id === "explore"} preload={visible} onOpen={onGuide} running={feature.id === "explore" && visible && !paused && !guideOpen} motionEnabled={motionEnabled} />
+          </div> : feature.screens.map(screen => <Recording key={screen.label} src={screen.src} label={screen.label} playing={visible && !paused} onBuffered={() => setRecordingBuffered(true)} />)}
+          <GuideLanyard active={feature.id === "explore"} preload={visible && (feature.id !== "publications" || recordingBuffered)} onOpen={onGuide} running={feature.id === "explore" && visible && !paused && !guideOpen} motionEnabled={motionEnabled} />
         </div>
       </div>
       <div className={styles.navigation}>
