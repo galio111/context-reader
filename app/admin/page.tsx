@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import AdminModelsPanel from "@/components/AdminModelsPanel";
 import AdminAccountsPanel from "@/components/AdminAccountsPanel";
 import ClearableField from "@/components/ClearableField";
 import AdminArticleIntakePanel from "@/components/AdminArticleIntakePanel";
@@ -104,7 +105,7 @@ export default function AdminPage() {
   const [checkingSession, setCheckingSession] = useState(true);
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [activeSection, setActiveSection] = useState<"articles" | "accounts" | "feedback" | "errors">("articles");
+  const [activeSection, setActiveSection] = useState<"articles" | "accounts" | "feedback" | "errors" | "models">("articles");
   const [loginError, setLoginError] = useState("");
   const [articles, setArticles] = useState<SavedArticle[]>([]);
   const [publishingId, setPublishingId] = useState("");
@@ -150,6 +151,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     const section = new URLSearchParams(window.location.search).get("section");
+    if (section === "models") setActiveSection("models");
     if (section === "accounts") setActiveSection("accounts");
     if (section === "feedback") setActiveSection("feedback");
     if (section === "errors") setActiveSection("errors");
@@ -170,7 +172,7 @@ export default function AdminPage() {
     void checkSession();
   }, []);
 
-  function selectSection(section: "articles" | "accounts" | "feedback" | "errors") {
+  function selectSection(section: "articles" | "accounts" | "feedback" | "errors" | "models") {
     setActiveSection(section);
     const url = section === "articles" ? "/admin" : `/admin?section=${section}`;
     window.history.replaceState(null, "", url);
@@ -921,9 +923,9 @@ export default function AdminPage() {
           </button>
         </header>
 
-        <nav className="mt-5 flex w-full gap-1 rounded-full bg-white p-1 sm:w-fit" aria-label="后台功能">
+        <nav className="mt-5 flex w-full flex-wrap gap-1 rounded-2xl bg-white p-1 sm:w-fit" aria-label="后台功能">
           <button
-            className={`h-10 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
+            className={`min-h-11 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
               activeSection === "articles" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
             }`}
             type="button"
@@ -932,8 +934,9 @@ export default function AdminPage() {
           >
             推荐文章
           </button>
+          <button type="button" className={`min-h-11 flex-1 whitespace-nowrap rounded-full px-3 text-sm sm:flex-none sm:px-5 ${activeSection==='models'?'bg-[#0066cc] text-white':'text-[#333333] hover:bg-[#f5f5f7]'}`} aria-current={activeSection==='models'?'page':undefined} onClick={()=>selectSection('models')}>模型与调用</button>
           <button
-            className={`h-10 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
+            className={`min-h-11 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
               activeSection === "accounts" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
             }`}
             type="button"
@@ -943,7 +946,7 @@ export default function AdminPage() {
             用户与额度
           </button>
           <button
-            className={`h-10 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
+            className={`min-h-11 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
               activeSection === "feedback" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
             }`}
             type="button"
@@ -953,7 +956,7 @@ export default function AdminPage() {
             用户反馈
           </button>
           <button
-            className={`h-10 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
+            className={`min-h-11 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
               activeSection === "errors" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
             }`}
             type="button"
@@ -964,7 +967,7 @@ export default function AdminPage() {
           </button>
         </nav>
 
-        {activeSection === "errors" ? (
+        {activeSection === "models" ? <AdminModelsPanel /> : activeSection === "errors" ? (
           <div className="mt-6">
             <AdminErrorReportsPanel />
           </div>

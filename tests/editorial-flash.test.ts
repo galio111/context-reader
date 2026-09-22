@@ -3,9 +3,24 @@ import assert from 'node:assert/strict';
 import {parseFlashAudit,flashPrompt,cleanEditorialFurniture,auditEditorialFlash} from '../lib/editorialFlash';
 import {withEditorialBudget,withEditorialArticle,editorialPaidRequest,markEditorialOutcome,getEditorialSpend,type EditorialSpend} from '../lib/editorialBudget';
 import type {ImportedArticle} from '../types/article';
+import {defaultModelConfig} from '../lib/modelCatalog';
 const prose='This paragraph explains the historical evidence and its implications for ordinary readers. '.repeat(40);
 const article:ImportedArticle={title:'Evidence and history',url:'https://sciencealert.com/example',siteName:'Example',text:prose,blocks:[{id:'a',type:'paragraph',text:prose},{id:'b',type:'paragraph',text:'The final paragraph explains the limitations.'},{id:'c',type:'image',src:'https://example.com/photo.webp',alt:'Artifact'}]};
 const output={category:2,topic:2,level:1,cefr:'B2',summary:'历史证据与解释',evidence:[0,1],rationale:'讨论历史文物，句法适合 B2',confidence:'high',timely:false,eligible:true,specialist:false,imagesRelevant:true,uncertain:false,checks:{incomplete:false,contamination:false,orphanCaption:false,mediaDependent:false,promotional:false},reason:'clean'};
+test('Jev replaces confident text checks without asking LLM to decide them again',async()=>{
+ const config=defaultModelConfig();config.jevEnabled=true;let calls=0;
+ const audit=await auditEditorialFlash(article,{cache:false,config,jev:async()=>({incomplete:false,contamination:false,mediaDependent:false,promotional:false}),complete:async prompt=>{
+  calls++;assert.ok(!prompt.includes('"incomplete":false'));assert.ok(prompt.includes('"orphanCaption":false'));
+  return {parsed:{...output,checks:{orphanCaption:false}},usage:{},cost:0};
+ }});assert.equal(audit.review.status,'passed');assert.equal(calls,1);
+ await assert.rejects(auditEditorialFlash(article,{cache:false,config,jev:async()=>({promotional:true}),complete:async()=>{throw Error('should not dispatch')}}),/jev_text_defect/);
+});
+test('text-only editorial selection dispatches independent vision once',async()=>{
+ const config=defaultModelConfig();config.routes.editorial={primary:'deepseek-v4-pro',fallback:null};const calls:Array<{model:string;images:number}>=[];
+ const result=await auditEditorialFlash(article,{cache:false,config,complete:async(_prompt,model,images)=>{
+  calls.push({model,images:images?.length||0});return {parsed:model==='deepseek-v4-pro'?structuredClone(output):{imagesRelevant:true,orphanCaption:false,uncertain:false},usage:{},cost:0};
+ }});assert.equal(result.review.status,'passed');assert.deepEqual(calls,[{model:'deepseek-v4-pro',images:0},{model:'deepseek-flash',images:1}]);
+});
 test('block evidence validates without brittle verbatim quote copying; invalid indices fail closed',()=>{
  assert.equal(parseFlashAudit(article,output).review.status,'passed');
  for(const evidence of [[0,0],[0,99],[0,2],['0',1]])assert.throws(()=>parseFlashAudit(article,{...output,evidence}));

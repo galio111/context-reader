@@ -1,4 +1,5 @@
 "use client";
+import {PlanModelControls} from "./AdminModelsPanel";
 
 import { AdminZhipuUsage } from "@/components/AdminZhipuUsage";
 import type { ZhipuUsageSummary } from "@/lib/zhipuUsage";
@@ -464,6 +465,7 @@ export default function AdminAccountsPanel() {
                   <button className="min-h-10 rounded-full bg-[#1769aa] px-4 text-sm font-medium text-white hover:bg-[#10598f] disabled:bg-[#aeb8c2]" type="button" disabled={saving === `limits-${plan.id}`} onClick={() => void savePlanRule(plan)}>
                     {saving === `limits-${plan.id}` ? "保存中..." : "保存本套餐"}
                   </button>
+                  <div className="lg:col-span-3"><PlanModelControls planId={plan.id}/></div>
                 </div>
               ))}
             </div>

@@ -1,3 +1,6 @@
+import {getModelConfig} from './modelSettings';
+import {MODEL_CATALOG} from './modelCatalog';
+import {jevTextDecisions} from './jevDirect';
 import { createHash } from "node:crypto";
 import { completeReview, editorialContentHash } from "@/lib/editorialReview";
 import { readDiscoverySetting, writeDiscoverySetting } from "@/lib/discoveryStore";
@@ -68,9 +71,10 @@ export function parseFlashAudit(article: ImportedArticle, value: unknown): Flash
   };
 }
 /** One bounded Flash call, no Pro/retry escalation. Cache keyed to exact content, not URL. */
-export async function auditEditorialFlash(article: ImportedArticle, options: { complete?: typeof completeReview; cache?: boolean } = {}): Promise<FlashAudit> {
+export async function auditEditorialFlash(article: ImportedArticle, options: { complete?: typeof completeReview; cache?: boolean; config?:Awaited<ReturnType<typeof getModelConfig>>; jev?:typeof jevTextDecisions } = {}): Promise<FlashAudit> {
   const hash = editorialContentHash(article);
-  const key = `recommendation_flash_audit_${FLASH_AUDIT_VERSION}_${hash}`;
+  const config=options.config||await getModelConfig();
+  const key = `recommendation_flash_audit_${FLASH_AUDIT_VERSION}_${createHash("sha256").update(JSON.stringify({routes:config.routes,jev:config.jevEnabled})).digest("hex").slice(0,12)}_${hash}`;
   if (options.cache !== false) {
     const old = await readDiscoverySetting<FlashAudit|null>(key,null);
     if (old && Date.now()-Date.parse(old.review.checkedAt)<24*3600_000) return old;
@@ -81,8 +85,33 @@ export async function auditEditorialFlash(article: ImportedArticle, options: { c
   let result:Awaited<ReturnType<typeof completeReview>>;
   let audit:FlashAudit;
   try {
-    result = await withEditorialArticle(article.url,hash,()=> (options.complete || completeReview)(flashPrompt(article),"deepseek-flash",images,650,"合并全文分类与图文审核"));
+    result = await withEditorialArticle(article.url,hash,async()=> {
+      let decisions:Record<string,boolean>={};
+      if(config.jevEnabled){try{decisions=await (options.jev||jevTextDecisions)(JSON.stringify({title:article.title,blocks:article.blocks.filter(b=>b.type!=='image')}));}catch(e){if(String(e).includes('cost_limit'))throw e;}}
+      if(Object.values(decisions).some(Boolean))throw Error('jev_text_defect_requires_manual_review');
+      let prompt=flashPrompt(article);
+      if(Object.keys(decisions).length){
+        for(const k of Object.keys(decisions))prompt=prompt.replace(`"${k}":false,`,'').replace(`,"${k}":false`,'');
+        prompt=prompt.replace(/checks true means[\s\S]*?\nimagesRelevant:/,'checks: evaluate only orphanCaption and any other keys still listed in the JSON schema. orphanCaption means a caption referring to an absent image; compare actual pixels and ordered blocks.\nimagesRelevant:');
+        prompt+='\nDo not evaluate or return these delegated text checks: '+Object.keys(decisions).join(',')+'. Their decisions are already made independently.';
+      }
+      const primary=config.routes.editorial.primary;
+      const vision=MODEL_CATALOG.find(m=>m.id===primary)!.vision && (!config.routes.editorial.fallback || MODEL_CATALOG.find(m=>m.id===config.routes.editorial.fallback)!.vision);
+      if(!vision)prompt+="\nNo actual pixels are supplied to this text pass. Do NOT evaluate images or orphanCaption; return imagesRelevant=true and orphanCaption=false as placeholders for the separate vision pass. Do not set uncertain merely for absent pixels.";
+      const main=await (options.complete||completeReview)(prompt,primary,vision?images:[],650,'分类与审核');
+      main.parsed.checks={...(main.parsed.checks as object),...decisions};
+      if(!vision){
+        const image=await (options.complete||completeReview)('Check actual article images against ordered body. Return JSON {"imagesRelevant":boolean,"orphanCaption":boolean,"uncertain":boolean}. No text quality re-review. '+JSON.stringify({title:article.title,blocks:article.blocks}),config.routes.editorialVision.primary,images,160,'图片核验');
+        if(typeof image.parsed.imagesRelevant!=='boolean'||typeof image.parsed.orphanCaption!=='boolean'||typeof image.parsed.uncertain!=='boolean')throw Error('invalid_vision_result');
+        main.parsed.imagesRelevant=image.parsed.imagesRelevant;
+        (main.parsed.checks as Record<string,unknown>).orphanCaption=image.parsed.orphanCaption;
+        main.parsed.uncertain=!!main.parsed.uncertain||image.parsed.uncertain;
+        main.cost+=image.cost;main.usage.prompt_tokens=(main.usage.prompt_tokens||0)+(image.usage.prompt_tokens||0);main.usage.completion_tokens=(main.usage.completion_tokens||0)+(image.usage.completion_tokens||0);
+      }
+      return main;
+    });
     audit = parseFlashAudit(article,result.parsed);
+    audit.review.provider=result.model||config.routes.editorial.primary;
     await markEditorialOutcome(hash,audit.review.status);
   } catch(error) { await markEditorialOutcome(hash,"invalid_result_paid"); throw error; }
   audit.review.inputTokens=result.usage.prompt_tokens||0; audit.review.outputTokens=result.usage.completion_tokens||0; audit.review.costMicrousd=result.cost;

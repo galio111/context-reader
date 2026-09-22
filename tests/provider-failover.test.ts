@@ -9,6 +9,7 @@ test("cross-provider fallback, first-content deadline, cancellation and circuit"
   const originalFetch = globalThis.fetch;
   const env = { ...process.env };
   process.env.ZHIPU_API_KEY = "test-backup-key";
+  process.env.DEEPSEEK_API_KEY = "test-primary-key";
   process.env.AI_PRIMARY_WAIT_MS = "20";
   t.after(() => { globalThis.fetch = originalFetch; process.env = env; resetProviderCircuitForTests(); });
   await t.test("busy primary switches once; next request bypasses unhealthy primary", async () => {

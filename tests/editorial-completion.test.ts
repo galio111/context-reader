@@ -9,7 +9,7 @@ test('yesterday sent does not suppress a finished day whose email was interrupte
  assert.equal(closed,false);assert.ok(seen.every(k=>k.includes(day)));
 });
 test('sent current-day email or explicit suspension closes without reading article bodies',async()=>{
- assert.equal(await editorialDayClosed(day,store({['recommendation_editorial_day_'+day]:{finished:true},['recommendation_editorial_email_'+day+'_30_complete']:{status:'sent'}})),true);
+ assert.equal(await editorialDayClosed(day,store({['recommendation_editorial_day_'+day]:{finished:true},['recommendation_editorial_email_'+day+'_60_complete']:{status:'sent'}})),true);
  const seen:string[]=[];assert.equal(await editorialDayClosed(day,store({['recommendation_editorial_day_'+day]:{finished:true,suspended:true}},seen)),true);assert.equal(seen.length,1);
 });
 test('running day does not query old delivery records',async()=>{
