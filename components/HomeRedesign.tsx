@@ -347,6 +347,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [memberOpeningVariant, setMemberOpeningVariant] = useState<"spiral" | "wordfall">("wordfall");
   const [heroSubtitleVariant, setHeroSubtitleVariant] = useState<keyof typeof HERO_SUBTITLES>("a");
   const [memberOpeningVisible, setMemberOpeningVisible] = useState(false);
+  const [guestOpeningComplete, setGuestOpeningComplete] = useState(false);
   const [letterMotionEnabled, setLetterMotionEnabled] = useState(true);
   const [recommendationMotionEnabled, setRecommendationMotionEnabled] = useState(true);
   const [homeTheme, setHomeTheme] = useState<HomeTheme>("day");
@@ -1151,7 +1152,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
             {!memberHome || memberOpeningVariant === "wordfall" ? (
               <FallingWordOpening
                 className={styles.wordFallCanvas}
-                onComplete={() => setMemberOpeningVisible(false)}
+                onComplete={() => { setMemberOpeningVisible(false); setGuestOpeningComplete(true); }}
               />
             ) : (
               <Ballpit
@@ -1177,7 +1178,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       <div ref={flowRef} className={styles.flow}>
         <section ref={coverStageRef} className={`${styles.coverStage} ${memberHome ? styles.memberStage : ""}`}>
         {!memberHome && <section ref={heroRef} className={styles.hero} aria-labelledby="home-redesign-title">
-          {!journeyPending && compactViewport && <div className={styles.ballField} aria-hidden="true">
+          {!journeyPending && (guestOpeningComplete || props.skipMemberOpening) && compactViewport && <div className={styles.ballField} aria-hidden="true">
             <Ballpit
               className={styles.ballCanvas}
               count={18}
@@ -1216,7 +1217,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           <div className={styles.heroEdge} aria-hidden="true"><span>EXPLORE CONTEXT READER</span><i /></div>
         </section>}
 
-        {!journeyPending && !memberHome && !compactViewport && <div className={styles.ballField} aria-hidden="true">
+        {!journeyPending && (guestOpeningComplete || props.skipMemberOpening) && !memberHome && !compactViewport && <div className={styles.ballField} aria-hidden="true">
           <Ballpit
             className={styles.ballCanvas}
             count={compactViewport ? 32 : 56}
@@ -1282,7 +1283,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           </section>
         )}
 
-        {!memberHome && <FeatureShowcase sectionRef={featureShowcaseRef} onGuide={() => { setMenuStandalonePreview(false); setMenuInitialPreview("guide"); setMenuGuideSection(null); setMenuOpen(true); }} guideOpen={menuOpen} motionEnabled={recommendationMotionEnabled} />}
+        {!memberHome && <FeatureShowcase sectionRef={featureShowcaseRef} enabled={!journeyPending && (guestOpeningComplete || Boolean(props.skipMemberOpening))} onGuide={() => { setMenuStandalonePreview(false); setMenuInitialPreview("guide"); setMenuGuideSection(null); setMenuOpen(true); }} guideOpen={menuOpen} motionEnabled={recommendationMotionEnabled} />}
 
         <section ref={recommendationsRef} className={styles.recommendations} aria-labelledby="selected-reading-title">
           <div className={styles.sectionHead}>

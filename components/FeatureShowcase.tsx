@@ -42,23 +42,25 @@ function Recording({ src, label, playing }: { src: string; label: string; playin
   </div>;
 }
 
-export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen = false }: { sectionRef: RefObject<HTMLElement | null>; onGuide: () => void; motionEnabled: boolean; guideOpen?: boolean }) {
+export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen = false, enabled = true }: { sectionRef: RefObject<HTMLElement | null>; onGuide: () => void; motionEnabled: boolean; guideOpen?: boolean; enabled?: boolean }) {
   const [active, setActive] = useState(0);
   const [replay, setReplay] = useState(0);
   const [visible, setVisible] = useState(false);
   const [paused, setPaused] = useState(false);
+  const mediaRef = useRef<HTMLDivElement>(null);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
   const selectionScrollY = useRef<number | null>(null);
   const feature = FEATURE_SHOWCASE[active];
   useEffect(() => {
-    const section = sectionRef.current;
+    const section = mediaRef.current;
     if (!section) return;
+    if (!enabled) { setVisible(false); return; }
     const updateVisibility = () => setVisible(section.getBoundingClientRect().bottom > 0 && section.getBoundingClientRect().top < window.innerHeight && !document.hidden);
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting && !document.hidden), { threshold: 0 });
     observer.observe(section);
     document.addEventListener("visibilitychange", updateVisibility);
     return () => { observer.disconnect(); document.removeEventListener("visibilitychange", updateVisibility); };
-  }, [sectionRef]);
+  }, [enabled]);
   useLayoutEffect(() => {
     const y = selectionScrollY.current;
     if (y === null) return;
@@ -87,7 +89,7 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen 
           {feature.paragraphs.map(text => <p key={text}>{text}</p>)}
           <button type="button" className={styles.next} onClick={() => select(active + 1)}>下一个 <span aria-hidden="true">↗</span></button>
         </div>}
-        <div className={styles.media} style={visible && feature.id === "publications" ? { "--poster": "url(/showcase/publications-v1.webp)" } as CSSProperties : undefined}>
+        <div ref={mediaRef} className={styles.media} style={visible && feature.id === "publications" ? { "--poster": "url(/showcase/publications-v1.webp)" } as CSSProperties : undefined}>
           {feature.id === "explore" ? <div className={styles.finale}>
             <div className={styles.finaleCanvas} key={`finale-${replay}`}>
               <h2><i>更多</i><i>可能，</i><i>等你发现。</i></h2>

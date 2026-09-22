@@ -148,7 +148,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     const controller = new AbortController();
     const timeoutId = window.setTimeout(() => controller.abort(), ACCOUNT_SESSION_TIMEOUT_MS);
     try {
-      const response = await fetch("/api/auth/session", { cache: "no-store", signal: controller.signal });
+      const response = await fetch("/api/auth/session", { cache: "no-store", priority: "high", signal: controller.signal });
       const data = await response.json().catch(() => null) as { account?: AccountSessionState; unavailable?: boolean } | null;
       if (!response.ok || data?.unavailable) {
         throw new Error("account service unavailable");
