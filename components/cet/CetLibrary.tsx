@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { readCetLibraryView, writeCetLibraryView, type CetLibraryView } from "@/lib/cetLibraryView";
 import { useAccount } from "@/components/AccountProvider";
 import { readCetAttempts } from "@/lib/cetProgress";
 import { initializeLearningStorage } from "@/lib/learningStorage";
@@ -22,11 +23,12 @@ export function CetLibrary({
   compact?: boolean;
 }) {
   const { account, openLogin } = useAccount();
-  const [level, setLevel] = useState<4 | 6>(4),
-    [view, setView] = useState<"paper" | "type">("paper"),
-    [type, setType] = useState("cloze"),
-    [year, setYear] = useState("recent"),
-    [page, setPage] = useState(0),
+  const [initialView] = useState(readCetLibraryView);
+  const [level, setLevel] = useState<4 | 6>(initialView.level),
+    [view, setView] = useState<"paper" | "type">(initialView.view),
+    [type, setType] = useState<CetLibraryView["type"]>(initialView.type),
+    [year, setYear] = useState(initialView.year),
+    [page, setPage] = useState(initialView.page),
     [total, setTotal] = useState(0),
     [years, setYears] = useState<number[]>([]),
     [papers, setPapers] = useState<CetPaper[]>([]),
@@ -35,11 +37,13 @@ export function CetLibrary({
     [history, setHistory] = useState<CetAttempt[]>([]),
     [historyLimit, setHistoryLimit] = useState(30),
     [retry, setRetry] = useState(0);
+  useEffect(() => { writeCetLibraryView({ level, view, type, year, page }); }, [level, view, type, year, page]);
   useEffect(() => {
     let cancelled = false;
+    const controller = new AbortController();
     setLoading(true);
     setError("");
-    fetch(`/api/cet?level=${level}&page=${page}&year=${year}`)
+    fetch(`/api/cet?level=${level}&page=${account.authenticated ? page : 0}&year=${account.authenticated ? year : "recent"}`, { signal: controller.signal })
       .then(async (r) => {
         const d = await r.json();
         if (!r.ok) throw Error(d.error);
@@ -57,6 +61,7 @@ export function CetLibrary({
       });
     return () => {
       cancelled = true;
+      controller.abort();
     };
   }, [level, account.authenticated, page, year, retry]);
   useEffect(() => {
@@ -79,7 +84,7 @@ export function CetLibrary({
     };
   }, [account.profile?.userId]);
   const filtered = papers.filter(
-      (p) => year === "recent" || String(p.year) === year,
+      (p) => !account.authenticated || year === "recent" || String(p.year) === year,
     ),
     rows =
       view === "paper"
@@ -127,7 +132,7 @@ export function CetLibrary({
           <select
             aria-label="选择题型"
             value={type}
-            onChange={(e) => setType(e.target.value)}
+            onChange={(e) => setType(e.target.value as CetLibraryView["type"])}
           >
             <option value="cloze">选词填空</option>
             <option value="matching">长篇匹配</option>

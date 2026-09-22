@@ -176,6 +176,8 @@ services:
     logging: *rotated-logs
 
   app:
+    volumes:
+      - next-image-cache:/app/.next/cache/images
     build:
       context: ../..
       dockerfile: ops/mainland/Dockerfile
@@ -231,6 +233,7 @@ networks:
     driver: bridge
 
 volumes:
+  next-image-cache:
   postgres-data:
   supabase-postgres-data:
   supabase-storage-data:

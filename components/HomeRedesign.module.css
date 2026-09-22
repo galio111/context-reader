@@ -502,6 +502,8 @@
 .articleCard[data-motion-ready]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); }
 .articleCard[data-motion-ready][data-enter-direction="up"]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); transform-origin: 50% 50%; }
 .articleCard[data-visible="true"] .coverSurface { transform: translateZ(0) scale(1); }
+/* A late network image must not miss the original reveal on its empty shell. */
+.articleCard[data-motion-ready] .coverSurface[data-image-pending] { transform: translateZ(0) scale(.9); }
 
 .coverSurface > img {
   width: 106%;

@@ -284,10 +284,12 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     if (imageStatusTimerRef.current !== null) window.clearTimeout(imageStatusTimerRef.current);
   }, []);
   const pendingHomeScrollRef = useRef<number | null>(null);
+  const cetHomeScrollRef = useRef(0);
   const initialHomePositionedRef = useRef(false);
   const readerHistoryDepthRef = useRef(0);
 
   useLayoutEffect(() => {
+    if (cetEntry) return;
     if (reading && sourceSentenceToHighlight) {
       return;
     }
@@ -313,7 +315,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
       };
     }
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [reading, sourceSentenceToHighlight]);
+  }, [cetEntry, reading, sourceSentenceToHighlight]);
 
   useEffect(() => {
     readingRef.current = reading;
@@ -1356,7 +1358,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     return false;
   }
 
-  if (cetEntry) return <CetReader entry={cetEntry} onOpen={setCetEntry} onBack={() => setCetEntry(null)} savedArticles={savedArticles} onArticleSaved={() => setSavedArticles(getSavedArticles())} onRenameSavedArticle={handleRenameSavedArticle} onDeleteSavedArticle={handleDeleteSavedArticle} onOpenSavedArticle={item => { setCetEntry(null); handleOpenSavedArticleFromReader(item); }} onOpenImportedArticle={async (...args) => { const result = await handleOpenImportedArticleFromReader(...args); if(result) setCetEntry(null); return result; }} />;
+  if (cetEntry) return <CetReader entry={cetEntry} onOpen={setCetEntry} onBack={() => { pendingHomeScrollRef.current = cetHomeScrollRef.current; setHomeDemoCompleted(true); setCetEntry(null); }} savedArticles={savedArticles} onArticleSaved={() => setSavedArticles(getSavedArticles())} onRenameSavedArticle={handleRenameSavedArticle} onDeleteSavedArticle={handleDeleteSavedArticle} onOpenSavedArticle={item => { setCetEntry(null); handleOpenSavedArticleFromReader(item); }} onOpenImportedArticle={async (...args) => { const result = await handleOpenImportedArticleFromReader(...args); if(result) setCetEntry(null); return result; }} />;
 
   if (reading) {
     return (
@@ -1430,7 +1432,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
   if (homeVariant === "book") {
     return (
       <HomeRedesign
-        onOpenCet={setCetEntry}
+        onOpenCet={entry => { cetHomeScrollRef.current = window.scrollY; setCetEntry(entry); }}
         forceGuestPreview={forceGuestPreview}
         forceMemberPreview={forceMemberPreview}
         skipMemberOpening={homeDemoCompleted}

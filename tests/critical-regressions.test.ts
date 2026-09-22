@@ -881,7 +881,7 @@ test("published placement can remove recommendation membership and move category
 test("recommendation motion rebinds when preference ordering swaps article ids without changing length", () => {
   const source = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
   assert.match(source, /const displayArticleMotionKey = displayArticles\.map\(\(article\) => article\.id\)/);
-  assert.match(source, /\[activeCategory, displayArticleMotionKey\]/);
+  assert.match(source, /useArticleReveal\(articleGridRef, styles\.articleCard, resourceTab, `\$\{activeCategory\}.*\$\{displayArticleMotionKey\}`\)/);
   assert.match(source, /Math\.max\(2, Math\.ceil\(words \/ 120\)\)/);
 });
 
@@ -1316,7 +1316,7 @@ test("account modal keeps native password focus and tablet Anki behavior follows
 });
 
 test("every recommendation card receives a painted entry keyframe before observation", () => {
-  const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
+  const component = readFileSync(new URL("../components/useArticleReveal.ts", import.meta.url), "utf8");
   assert.match(component, /cards\.forEach\(\(card\) => \{[\s\S]*?delete card\.dataset\.visible/);
   assert.match(component, /requestAnimationFrame\(\(\) => \{\s*observeFrame = window\.requestAnimationFrame/);
   assert.match(component, /cards\.forEach\(\(card\) => observer\.observe\(card\)\)/);

@@ -4,6 +4,7 @@ import dynamicCet from "next/dynamic";
 const CetLibrary = dynamicCet(() => import("@/components/cet/CetLibrary").then(m => m.CetLibrary), { loading: () => <p role="status">正在读取真题目录…</p> });
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
 import Image from "next/image";
+import { useArticleReveal } from "@/components/useArticleReveal";
 import { createPortal } from "react-dom";
 import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { flushLearningStorage } from "@/lib/learningStorage";
@@ -198,23 +199,25 @@ function orderRecommendationArticles(
   return orderHomepageRecommendations(articles, curation, preferences, dayKey);
 }
 
-function ArticleCover({ article, featured = false, motion3dEnabled = true }: { article: PublicArticle; featured?: boolean; motion3dEnabled?: boolean }) {
+function ArticleCover({ article, featured = false, preload = false, motion3dEnabled = true }: { article: PublicArticle; featured?: boolean; preload?: boolean; motion3dEnabled?: boolean }) {
   const surfaceRef = useRef<HTMLSpanElement | null>(null);
   const pointerFrameRef = useRef(0);
   const pointerTargetRef = useRef({ x: 0.5, y: 0.5 });
   const pointerCurrentRef = useRef({ x: 0.5, y: 0.5 });
   const [coverFailed, setCoverFailed] = useState(false);
-  const [nearViewport, setNearViewport] = useState(false);
+  const [nearViewport, setNearViewport] = useState(preload);
+  const [loadedCoverUrl, setLoadedCoverUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const surface = surfaceRef.current;
     if (!surface) return;
+    if (preload || !("IntersectionObserver" in window)) { setNearViewport(true); return; }
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { setNearViewport(true); observer.disconnect(); }
-    }, { rootMargin: "350px" });
+    }, { rootMargin: "1200px 0px" });
     observer.observe(surface);
     return () => observer.disconnect();
-  }, []);
+  }, [preload]);
 
   useEffect(() => () => {
     if (pointerFrameRef.current) window.cancelAnimationFrame(pointerFrameRef.current);
@@ -276,13 +279,14 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
     <span
       ref={surfaceRef}
       className={`${styles.coverSurface} ${featured ? styles.coverFeatured : ""}`}
+      data-image-pending={Boolean(coverUrl && !coverFailed && loadedCoverUrl !== coverUrl) || undefined}
       data-tilt-disabled={!motion3dEnabled || undefined}
       onPointerMove={updatePointer}
       onPointerLeave={resetPointer}
     >
       {coverUrl && !coverFailed ? (nearViewport ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <Image src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} width={1920} height={1440} sizes={featured ? "(max-width: 700px) 100vw, 90vw" : "(max-width: 700px) 94vw, 32vw"} quality={75} loading="eager" draggable={false} onError={() => setCoverFailed(true)} />
+        <Image src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} width={1920} height={1440} sizes={featured ? "(max-width: 900px) 94vw, (max-width: 1440px) 58vw, 800px" : "(max-width: 900px) 46vw, (max-width: 1440px) 30vw, 420px"} quality={75} loading="eager" fetchPriority={featured ? "auto" : "low"} draggable={false} onLoad={() => setLoadedCoverUrl(coverUrl)} onError={() => setCoverFailed(true)} />
       ) : null
       ) : (
         <span className={styles.coverFallback} aria-label="纯文本外刊封面">
@@ -369,16 +373,18 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const ballpitControllerRef = useRef<BallpitHandle | null>(null);
   const memberBallpitControllerRef = useRef<BallpitHandle | null>(null);
   const [resourceTab, setResourceTab] = useState<"articles" | "cet">("articles");
-  useEffect(() => { if(sessionStorage.getItem("context-reader:home-resource") === "cet") setResourceTab("cet"); },[]);
+  useEffect(() => {
+    try { if (sessionStorage.getItem("context-reader:home-resource") === "cet") setResourceTab("cet"); } catch { /* In-memory tabs still work without storage. */ }
+  }, []);
   const recommendationsRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
-    if (journeyPending || props.catalogueStatus !== "idle" || !recommendationsRef.current) return;
+    if (resourceTab !== "articles" || journeyPending || props.catalogueStatus !== "idle" || !recommendationsRef.current) return;
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { props.onRequestCatalogue?.(); observer.disconnect(); }
     }, { rootMargin: "240px" });
     observer.observe(recommendationsRef.current);
     return () => observer.disconnect();
-  }, [journeyPending, props.catalogueStatus, props.onRequestCatalogue]);
+  }, [resourceTab, journeyPending, props.catalogueStatus, props.onRequestCatalogue]);
   const articleGridRef = useRef<HTMLDivElement | null>(null);
   const preferenceControlRef = useRef<HTMLDivElement | null>(null);
   const publicationBridgeRef = useRef<HTMLDivElement | null>(null);
@@ -586,53 +592,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     return () => query.removeEventListener("change", update);
   }, []);
 
-  useEffect(() => {
-    const grid = articleGridRef.current;
-    if (!grid) return;
-    const cards = Array.from(grid.querySelectorAll<HTMLElement>(`.${styles.articleCard}`));
-    if (!("IntersectionObserver" in window)) {
-      cards.forEach((card) => { card.dataset.visible = "true"; });
-      return;
-    }
-    cards.forEach((card) => {
-      card.dataset.motionReady = "true";
-      delete card.dataset.visible;
-      delete card.dataset.enterDirection;
-    });
-    let lastY = window.scrollY;
-    let direction: "up" | "down" = "down";
-    const trackDirection = () => {
-      direction = window.scrollY < lastY ? "up" : "down";
-      lastY = window.scrollY;
-    };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const card = entry.target as HTMLElement;
-        if (entry.isIntersecting) {
-          card.dataset.enterDirection = direction;
-          card.dataset.visible = "true";
-        } else {
-          delete card.dataset.visible;
-        }
-      });
-    }, { rootMargin: "0px 0px -2% 0px", threshold: 0.001 });
-    // Let the hidden cover/copy keyframe paint before observing. Without this,
-    // already-visible cards (including the featured card and a newly revealed
-    // last card) can enter in the same frame and skip their transition entirely.
-    let observeFrame = 0;
-    const prepareFrame = window.requestAnimationFrame(() => {
-      observeFrame = window.requestAnimationFrame(() => {
-        cards.forEach((card) => observer.observe(card));
-      });
-    });
-    window.addEventListener("scroll", trackDirection, { passive: true });
-    return () => {
-      window.cancelAnimationFrame(prepareFrame);
-      if (observeFrame) window.cancelAnimationFrame(observeFrame);
-      observer.disconnect();
-      window.removeEventListener("scroll", trackDirection);
-    };
-  }, [activeCategory, displayArticleMotionKey]);
+  useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\0${displayArticleMotionKey}`);
 
   useEffect(() => {
     const sections = [publicationBridgeRef.current, importRef.current, closingRef.current]
@@ -667,7 +627,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       observer.disconnect();
       window.removeEventListener("scroll", trackDirection);
     };
-  }, [memberHome]);
+  }, [resourceTab, memberHome]);
 
   useEffect(() => () => {
     if (memberOpeningFrameRef.current) window.cancelAnimationFrame(memberOpeningFrameRef.current);
@@ -1046,6 +1006,18 @@ export function HomeRedesign(props: HomeRedesignProps) {
     setPreferenceDraft((current) => ({ ...current, readingLevel: "", interests: [] }));
   }
 
+  function switchResource(next: "articles" | "cet") {
+    if (next === resourceTab) return;
+    setPreferenceOpen(false);
+    if (categorySwitchTimerRef.current !== null) {
+      window.clearTimeout(categorySwitchTimerRef.current);
+      categorySwitchTimerRef.current = null;
+      setCategorySwitching(false);
+    }
+    setResourceTab(next);
+    try { sessionStorage.setItem("context-reader:home-resource", next); } catch { /* Keep the current tab usable. */ }
+  }
+
   function switchCategory(nextCategory: string) {
     props.onRequestCatalogue?.();
     if (nextCategory === activeCategory || categorySwitching) return;
@@ -1304,7 +1276,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
         <section ref={recommendationsRef} className={styles.recommendations} aria-labelledby="selected-reading-title">
           <div className={styles.sectionHead}>
             <p>SELECTED READING</p>
-            <h2 id="selected-reading-title" className={styles.resourceSwitch}><button aria-pressed={resourceTab === "articles"} onClick={() => {setResourceTab("articles");sessionStorage.setItem("context-reader:home-resource","articles");}}>精选外刊</button><span>/</span><button aria-pressed={resourceTab === "cet"} onClick={() => {setResourceTab("cet");sessionStorage.setItem("context-reader:home-resource","cet");}}>四六级真题</button></h2>
+            <h2 id="selected-reading-title" className={styles.resourceSwitch}><button aria-pressed={resourceTab === "articles"} onClick={() => switchResource("articles")}>精选外刊</button><span>/</span><button aria-pressed={resourceTab === "cet"} onClick={() => switchResource("cet")}>四六级真题</button></h2>
             {resourceTab === "articles" && <>
             <div className={styles.preferenceBar}>
               <div ref={preferenceControlRef} className={styles.preferenceControl} data-open={preferenceOpen || undefined}>
@@ -1403,7 +1375,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                     onClick={(event) => beginArticleTransition(item, event)}
                     disabled={Boolean(props.openingPublicArticleId || openingArticle)}
                   >
-                  <ArticleCover article={item} featured={featured} motion3dEnabled={recommendationMotionEnabled} />
+                  <ArticleCover article={item} featured={featured} preload={index < 4 && !journeyPending && (guestOpeningComplete || Boolean(props.skipMemberOpening) || (memberHome && !memberOpeningVisible))} motion3dEnabled={recommendationMotionEnabled} />
                     <span className={styles.cardCopy}>
                       <small>{item.sourceName || "Context Reader"}</small>
                       <strong>{item.title}</strong>
