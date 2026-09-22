@@ -7,7 +7,7 @@ const base='https://context-reader.com';
 const mode=process.argv[2]||'inventory';
 const n=Number(process.argv[3]||1);
 if(!Number.isInteger(n)||n<1||n>64) throw Error('Concurrency must be 1..64');
-if(mode==='ai'&&n>12) throw Error('AI batch cap 12');
+if(mode==='ai'&&n>24) throw Error('AI batch cap 24');
 const out=process.env.CAPACITY_OUTPUT||'artifacts/capacity-20260922';
 mkdirSync(out,{recursive:true});
 const agent=new https.Agent({keepAlive:true,maxSockets:256});
@@ -68,7 +68,7 @@ if(mode==='inventory'||mode==='cold'){
  results=await Promise.all(Array.from({length:n},async(_,i)=>{const r=await request('/api/public-articles/'+articles[i%articles.length].id,undefined,i);let valid=false;try{valid=!!JSON.parse(r.text).article}catch{};return{...compact(r),valid}}));
 }else if(mode==='ai'){
  const words=['resilience','curiosity','reflect','patient','observe','deliberate','wonder','persist','adapt','explore','notice','balance'];
- results=await Promise.all(Array.from({length:n},async(_,i)=>{const r=await request('/api/dictionary-stream',{query:words[i]});return{...compact(r),response:r.text}}));
+ results=await Promise.all(Array.from({length:n},async(_,i)=>{const r=await request('/api/dictionary-stream',{query:words[i%words.length]});return{...compact(r),response:r.text}}));
 }else throw Error('Unknown mode');
 const summary={mode,n,transport:h2?'h2':'http1',release,startedAt:new Date(start).toISOString(),elapsedMs:Date.now()-start,p50Ms:percentile(results.map(r=>r.totalMs),.5),p95Ms:percentile(results.map(r=>r.totalMs),.95),maxMs:Math.max(...results.map(r=>r.totalMs)),wireBytes:results.reduce((s,r)=>s+r.wireBytes,0),failed:results.filter(r=>r.errors?.length||r.status!==undefined&&r.status!==200||r.valid===false).length};
 const path=`${out}/${mode}-${n}-${start}.json`;

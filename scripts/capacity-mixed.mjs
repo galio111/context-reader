@@ -17,15 +17,17 @@ const results = [];
 const words = ['curiosity', 'resilience', 'observe', 'reflect', 'persist', 'adapt', 'notice', 'balance', 'explore', 'patient'];
 async function request(path, body) {
   const start = performance.now();
+  const actionId = body ? randomUUID() : undefined;
+  let text = '', firstMs = null, headersMs = null, status = 0, requestId = null;
   try {
-    const r = await fetch(base + path, { signal: AbortSignal.timeout(30_000), ...(body ? { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-context-action-id': randomUUID() }, body: JSON.stringify(body) } : {}) });
-    let text = '', firstMs = null;
+    const r = await fetch(base + path, { signal: AbortSignal.timeout(30_000), ...(body ? { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-context-action-id': actionId }, body: JSON.stringify(body) } : {}) });
+    headersMs = performance.now() - start; status = r.status; requestId = r.headers.get('x-request-id');
     const reader = r.body.getReader();
     const decoder = new TextDecoder();
     while (true) { const part = await reader.read(); if (part.done) break; firstMs ??= performance.now() - start; text += decoder.decode(part.value, { stream: true }); }
     text += decoder.decode();
-    return { status: r.status, firstMs, totalMs: performance.now() - start, text };
-  } catch (error) { return { status: 0, firstMs: null, totalMs: performance.now() - start, error: String(error) }; }
+    return { status, actionId, requestId, headersMs, firstMs, totalMs: performance.now() - start, text };
+  } catch (error) { return { status, actionId, requestId, headersMs, firstMs, text, totalMs: performance.now() - start, error: String(error) }; }
 }
 async function action(kind, index) {
   const user = index % 100;
@@ -42,12 +44,12 @@ async function action(kind, index) {
     const { text, ...rest } = r; result = { ...rest, valid };
   } else {
     const r = await request('/api/dictionary-stream', { query: words[index % words.length] });
-    let events = []; try { events = r.text.trim().split('\n').map(s => JSON.parse(s)); } catch {}
+    const events = (r.text || '').trim().split('\n').flatMap(s => { try { return [JSON.parse(s)]; } catch { return []; } });
     const { text, ...rest } = r;
     result = { ...rest, done: events.some(e => e.type === 'done'), streamError: events.some(e => e.type === 'error'), code: events[0]?.code };
   }
-  const failed = result.status !== 200 || (kind === 'article' && !result.valid) || (kind === 'ai' && (!result.done || result.streamError));
-  const slow = kind === 'ai' ? result.firstMs > 5000 : result.totalMs > (kind === 'cold' ? 5000 : 3000);
+  const failed = !!result.error || result.status !== 200 || (kind === 'article' && !result.valid) || (kind === 'ai' && (!result.done || result.streamError));
+  const slow = kind === 'ai' ? (result.firstMs ?? result.totalMs) > 5000 : result.totalMs > (kind === 'cold' ? 5000 : 3000);
   results.push({ kind, user, offsetMs: Date.now() - stamp, ...result, failed, slow });
 }
 const tasks = [];
