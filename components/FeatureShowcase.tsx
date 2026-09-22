@@ -19,14 +19,19 @@ function Recording({ src, label, playing, onBuffered }: { src: string; label: st
   const [blocked, setBlocked] = useState(false);
   const [loadedSrc, setLoadedSrc] = useState<string>();
   const poster = src ? src.replace(/\.mp4$/, ".webp") : undefined;
+  const desktopWebm = src === "/showcase/publications-v2.mp4" ? "/showcase/publications-v2.webm" : undefined;
   function reportBuffered() {
     const element = video.current;
     if (element && Number.isFinite(element.duration) && element.buffered.length
       && element.buffered.end(element.buffered.length - 1) >= element.duration - 0.1) onBuffered();
   }
   useEffect(() => {
-    if (playing && src && !loadedSrc) setLoadedSrc(window.matchMedia("(max-width: 700px)").matches ? src.replace(/\.mp4$/, "-mobile.mp4") : src);
-  }, [playing, src, loadedSrc]);
+    if (playing && src && !loadedSrc) {
+      const compact = window.matchMedia("(max-width: 700px)").matches;
+      setLoadedSrc(compact ? src.replace(/\.mp4$/, "-mobile.mp4")
+        : desktopWebm && video.current?.canPlayType('video/webm; codecs="vp9"') ? desktopWebm : src);
+    }
+  }, [desktopWebm, playing, src, loadedSrc]);
   useEffect(() => {
     const element = video.current;
     if (!element || !src || !loadedSrc) return;
@@ -41,7 +46,7 @@ function Recording({ src, label, playing, onBuffered }: { src: string; label: st
   }, [playing, src, loadedSrc]);
   return <div className={styles.recording} data-has-video={Boolean(src)}>
     {src && !failed ? <>
-      <video ref={video} src={loadedSrc} poster={loadedSrc ? poster : undefined} muted loop playsInline preload={playing ? "auto" : "metadata"} onProgress={reportBuffered} onLoadedData={reportBuffered} onCanPlayThrough={reportBuffered} onError={() => { if (loadedSrc) setFailed(true); }} aria-label={label} />
+      <video ref={video} src={loadedSrc} poster={loadedSrc ? poster : undefined} muted loop playsInline preload={playing ? "auto" : "metadata"} onProgress={reportBuffered} onLoadedData={reportBuffered} onCanPlayThrough={reportBuffered} onError={() => { if (desktopWebm && loadedSrc === desktopWebm) setLoadedSrc(src); else if (loadedSrc) setFailed(true); }} aria-label={label} />
       {blocked && <button className={styles.play} onClick={() => { void video.current?.play().then(() => setBlocked(false)).catch(() => {}); }}>播放演示</button>}
     </> : <div className={styles.placeholder}><span className={styles.placeholderIcon} aria-hidden="true">▷</span><strong>{label}</strong><span>{failed ? "演示暂时无法播放" : "录屏预留画面"}</span></div>}
   </div>;
