@@ -1,0 +1,1586 @@
+{
+  "id": "cet4-2022-12-3",
+  "level": 4,
+  "year": 2022,
+  "month": 12,
+  "set": 3,
+  "title": "2022 年 12 月四级 · 第 3 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2022-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Phones influence all aspects of teenage life. Ninety-five percent of Americans ages 13 to 17 have a smartphone or have access to one, and nearly half report using the internet “almost [[26]].”",
+        "But as recent survey data and interviews have suggested, many teens find much of that time to be unsatisfyingly spent. Continuous [[27]]shouldn’t be mistaken for endless enjoyment. A new [[28]]representative survey about “screen time and device distractions” from the Pew Research Center indicates that it’s not just parents who think teenagers are worryingly [[29]] from their phones—many teens",
+        "themselves do too. Fifty-four percent of the 13-to-17-year-olds surveyed said they spend too much time ) [[30]] _ in their phones.",
+        "Vicky Rideout, who runs a research firm that studies children’s interactions with media and technology, was not surprised by this finding. She says it’s hardly [[31]] to teenagers. “They are dealing with the same challenges that adults are, as far as they are living in the [[32]]of a tech environment designed to suck as much of their time onto their devices as possible,” Rideout says.",
+        "The way parents interact with technology can [[33]]the way they interact with their kids. Rideout thus thinks it’s up to parents to model good [[34]]: Kids tend to take note if their parents put their phone away at dinner or charge it in another room while they sleep. Witnessing habits like that can help kids “realize that they can [[35]]some more control over their devices,” she says."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "absorbed"
+        },
+        {
+          "key": "B",
+          "text": "addicted"
+        },
+        {
+          "key": "C",
+          "text": "behavior"
+        },
+        {
+          "key": "D",
+          "text": "constantly"
+        },
+        {
+          "key": "E",
+          "text": "context"
+        },
+        {
+          "key": "F",
+          "text": "exercise"
+        },
+        {
+          "key": "G",
+          "text": "inseparable"
+        },
+        {
+          "key": "H",
+          "text": "nationally"
+        },
+        {
+          "key": "I",
+          "text": "recruited"
+        },
+        {
+          "key": "J",
+          "text": "shape"
+        },
+        {
+          "key": "K",
+          "text": "solution"
+        },
+        {
+          "key": "L",
+          "text": "specific"
+        },
+        {
+          "key": "M",
+          "text": "summary"
+        },
+        {
+          "key": "N",
+          "text": "usage"
+        },
+        {
+          "key": "O",
+          "text": "vaguely"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorbed"
+            },
+            {
+              "key": "B",
+              "text": "addicted"
+            },
+            {
+              "key": "C",
+              "text": "behavior"
+            },
+            {
+              "key": "D",
+              "text": "constantly"
+            },
+            {
+              "key": "E",
+              "text": "context"
+            },
+            {
+              "key": "F",
+              "text": "exercise"
+            },
+            {
+              "key": "G",
+              "text": "inseparable"
+            },
+            {
+              "key": "H",
+              "text": "nationally"
+            },
+            {
+              "key": "I",
+              "text": "recruited"
+            },
+            {
+              "key": "J",
+              "text": "shape"
+            },
+            {
+              "key": "K",
+              "text": "solution"
+            },
+            {
+              "key": "L",
+              "text": "specific"
+            },
+            {
+              "key": "M",
+              "text": "summary"
+            },
+            {
+              "key": "N",
+              "text": "usage"
+            },
+            {
+              "key": "O",
+              "text": "vaguely"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【语法判断】空格所在分句结构完整,不缺成分。 空格前为动词短语 using the internet 与副词 almost,因此本空应填入副词。 【语义判断空格所在名的意思是,13 岁至 17 岁的美国人中,95% 的人拥有智能手机或可以使用智能手机,近一半的人表示“几乎 ”使用互联网。由句意可知,本句说明美国青少年使用网络的频率,因此本空应填入程度副词,由此确定答案为D) constantly。备选的其他副词均没有此含义,因此排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorbed"
+            },
+            {
+              "key": "B",
+              "text": "addicted"
+            },
+            {
+              "key": "C",
+              "text": "behavior"
+            },
+            {
+              "key": "D",
+              "text": "constantly"
+            },
+            {
+              "key": "E",
+              "text": "context"
+            },
+            {
+              "key": "F",
+              "text": "exercise"
+            },
+            {
+              "key": "G",
+              "text": "inseparable"
+            },
+            {
+              "key": "H",
+              "text": "nationally"
+            },
+            {
+              "key": "I",
+              "text": "recruited"
+            },
+            {
+              "key": "J",
+              "text": "shape"
+            },
+            {
+              "key": "K",
+              "text": "solution"
+            },
+            {
+              "key": "L",
+              "text": "specific"
+            },
+            {
+              "key": "M",
+              "text": "summary"
+            },
+            {
+              "key": "N",
+              "text": "usage"
+            },
+            {
+              "key": "O",
+              "text": "vaguely"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【语法判断】分析句子结构可知,空格处为句子主语,应填入名词。 【语义判断】空格所在句的意思是,连续不应被误认为是无尽的享受。本句是对上一句 “许多青少年对花在手机上的大部分时间并不满意”的进一步阐述,因此本空指的是使用手机, 应填入含有“使用?意义的名词,由此确定答案为 N) usage。 ， verbal 言语的 nonverbal 非言语的 ion mlfic .Com 《大西洋月刊)杂志官网) 上一篇标题为*Pew 《佩尤研究表明:青少年对自己的屏幕时间不满意办的究中心的调查数据，说明美国青少年玩手机时间过长。 | 赖德奥特的观点，她认为青少年和家长一样面临手机的 ， 少年树立榜样。 几 FE) exercise 锻炼;练习; J]) shape 形状; K) solution 解法尾;锻炼; J) shape 影响 ,形成; D recruited 招收;招募看的, 有交的; G) inseparable 分不开的,不可分离的; i性的 ally 全国性地; O) vaguely 含糊地;稍微"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorbed"
+            },
+            {
+              "key": "B",
+              "text": "addicted"
+            },
+            {
+              "key": "C",
+              "text": "behavior"
+            },
+            {
+              "key": "D",
+              "text": "constantly"
+            },
+            {
+              "key": "E",
+              "text": "context"
+            },
+            {
+              "key": "F",
+              "text": "exercise"
+            },
+            {
+              "key": "G",
+              "text": "inseparable"
+            },
+            {
+              "key": "H",
+              "text": "nationally"
+            },
+            {
+              "key": "I",
+              "text": "recruited"
+            },
+            {
+              "key": "J",
+              "text": "shape"
+            },
+            {
+              "key": "K",
+              "text": "solution"
+            },
+            {
+              "key": "L",
+              "text": "specific"
+            },
+            {
+              "key": "M",
+              "text": "summary"
+            },
+            {
+              "key": "N",
+              "text": "usage"
+            },
+            {
+              "key": "O",
+              "text": "vaguely"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【语法判断】分析句子结构可知,本句不缺主语和谓语, 且空格前后都是形容词,因此本空应填入副词。 【语义判断】空格所在分句的意思是,佩尤研究中心关于“屏幕使用时间与设备干扰?的一项新的代表性调查表明……。由句意可知,本空应填入表达某个级别的副词,以限定 representative 的范围,由此确定答案为 H) nationally。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorbed"
+            },
+            {
+              "key": "B",
+              "text": "addicted"
+            },
+            {
+              "key": "C",
+              "text": "behavior"
+            },
+            {
+              "key": "D",
+              "text": "constantly"
+            },
+            {
+              "key": "E",
+              "text": "context"
+            },
+            {
+              "key": "F",
+              "text": "exercise"
+            },
+            {
+              "key": "G",
+              "text": "inseparable"
+            },
+            {
+              "key": "H",
+              "text": "nationally"
+            },
+            {
+              "key": "I",
+              "text": "recruited"
+            },
+            {
+              "key": "J",
+              "text": "shape"
+            },
+            {
+              "key": "K",
+              "text": "solution"
+            },
+            {
+              "key": "L",
+              "text": "specific"
+            },
+            {
+              "key": "M",
+              "text": "summary"
+            },
+            {
+              "key": "N",
+              "text": "usage"
+            },
+            {
+              "key": "O",
+              "text": "vaguely"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【语法判断】空格前有系动词 are 和副词 worryingly,空格后有介词 from, 因此本空应填入形容词作表语。 【语义判断】空格所在句的意思是,佩尤研究中心的调查表明,不仅父母担忧青少年与手机 ,许多青少年自己也是如此。下一句提到,在接受调查的 13 岁至 17 岁的青少年中,54% 的人说他们花太多时间在手机上。因此本空应填和人能够说明青少年与手机密不可分的关系的形容词。备选形容词中,A) absorbed、B) addicted 和 30 〈第 3 套) G) inseparable 都有此含义,但是 A) absorbed 和 B) addicted 均不能与 from 搭配,因此确定本题答案为 G) inseparable。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorbed"
+            },
+            {
+              "key": "B",
+              "text": "addicted"
+            },
+            {
+              "key": "C",
+              "text": "behavior"
+            },
+            {
+              "key": "D",
+              "text": "constantly"
+            },
+            {
+              "key": "E",
+              "text": "context"
+            },
+            {
+              "key": "F",
+              "text": "exercise"
+            },
+            {
+              "key": "G",
+              "text": "inseparable"
+            },
+            {
+              "key": "H",
+              "text": "nationally"
+            },
+            {
+              "key": "I",
+              "text": "recruited"
+            },
+            {
+              "key": "J",
+              "text": "shape"
+            },
+            {
+              "key": "K",
+              "text": "solution"
+            },
+            {
+              "key": "L",
+              "text": "specific"
+            },
+            {
+              "key": "M",
+              "text": "summary"
+            },
+            {
+              "key": "N",
+              "text": "usage"
+            },
+            {
+              "key": "O",
+              "text": "vaguely"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【语法判断】空格前有 spend too much time,常用搭配为 doing sth.,但是备选项中没有动词-ing形式。分析句子结构可知,空格处与介词短语 in their phones 为后置定语,修饰 time, 因此本空应填入形容词或过去分词。 【语义判断】 空格所在句的意思是,在接受调查的 13 岁至 17 岁的青少年中,54%的人说他们花太多时间于手机。结合上一句内容可知,本空应填和人能表达青少年浪费太多时间在手机上的词。A) absorbed 有“耗费,耗去(大量金钱.时间等)”的意思, 符合句意与句子结构, 因此,答案为 A) absorbed。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorbed"
+            },
+            {
+              "key": "B",
+              "text": "addicted"
+            },
+            {
+              "key": "C",
+              "text": "behavior"
+            },
+            {
+              "key": "D",
+              "text": "constantly"
+            },
+            {
+              "key": "E",
+              "text": "context"
+            },
+            {
+              "key": "F",
+              "text": "exercise"
+            },
+            {
+              "key": "G",
+              "text": "inseparable"
+            },
+            {
+              "key": "H",
+              "text": "nationally"
+            },
+            {
+              "key": "I",
+              "text": "recruited"
+            },
+            {
+              "key": "J",
+              "text": "shape"
+            },
+            {
+              "key": "K",
+              "text": "solution"
+            },
+            {
+              "key": "L",
+              "text": "specific"
+            },
+            {
+              "key": "M",
+              "text": "summary"
+            },
+            {
+              "key": "N",
+              "text": "usage"
+            },
+            {
+              "key": "O",
+              "text": "vaguely"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【语法判断】 空格前有系动词 is 和副词 hardly,因此本空应填入形容词。 【语义判断】空格所在句的意思是,她说这并不是青少年 。结合下一名可知,他们(青少年) 面临着和成年人一样的挑战。所以这并不是青少年所特有的,因此本空应填入含有“特有的,特定的”意义的形容词,由此确定答案为 L) specific。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorbed"
+            },
+            {
+              "key": "B",
+              "text": "addicted"
+            },
+            {
+              "key": "C",
+              "text": "behavior"
+            },
+            {
+              "key": "D",
+              "text": "constantly"
+            },
+            {
+              "key": "E",
+              "text": "context"
+            },
+            {
+              "key": "F",
+              "text": "exercise"
+            },
+            {
+              "key": "G",
+              "text": "inseparable"
+            },
+            {
+              "key": "H",
+              "text": "nationally"
+            },
+            {
+              "key": "I",
+              "text": "recruited"
+            },
+            {
+              "key": "J",
+              "text": "shape"
+            },
+            {
+              "key": "K",
+              "text": "solution"
+            },
+            {
+              "key": "L",
+              "text": "specific"
+            },
+            {
+              "key": "M",
+              "text": "summary"
+            },
+            {
+              "key": "N",
+              "text": "usage"
+            },
+            {
+              "key": "O",
+              "text": "vaguely"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【语法判断】空格前是定冠词 the,空格后是介词 of,因此本空应填入名词。 【语义判断】空格所在名的意思是,只要他们生活在科技环境的“中,即旨在将尽可能多的时间吸到设备上的环境中,他们就面临着和成年人一样的挑战。由句意可知,科技环境是青少年生活的大背景,因此本空应填入含有“背景,环境”意义的名词,由此确定答案为 E) context。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorbed"
+            },
+            {
+              "key": "B",
+              "text": "addicted"
+            },
+            {
+              "key": "C",
+              "text": "behavior"
+            },
+            {
+              "key": "D",
+              "text": "constantly"
+            },
+            {
+              "key": "E",
+              "text": "context"
+            },
+            {
+              "key": "F",
+              "text": "exercise"
+            },
+            {
+              "key": "G",
+              "text": "inseparable"
+            },
+            {
+              "key": "H",
+              "text": "nationally"
+            },
+            {
+              "key": "I",
+              "text": "recruited"
+            },
+            {
+              "key": "J",
+              "text": "shape"
+            },
+            {
+              "key": "K",
+              "text": "solution"
+            },
+            {
+              "key": "L",
+              "text": "specific"
+            },
+            {
+              "key": "M",
+              "text": "summary"
+            },
+            {
+              "key": "N",
+              "text": "usage"
+            },
+            {
+              "key": "O",
+              "text": "vaguely"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【语法判断】空格前有情态动词 can,因此本空应填入动词原形。 【语义判断】空格所在句的意思是,父母与科技互动的方式可以他们与孩子互动的方式。 将备选动词原形分别代入句子中, 只有 shape“影响,形成”符合句意,由此确定答案为了]) shape。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorbed"
+            },
+            {
+              "key": "B",
+              "text": "addicted"
+            },
+            {
+              "key": "C",
+              "text": "behavior"
+            },
+            {
+              "key": "D",
+              "text": "constantly"
+            },
+            {
+              "key": "E",
+              "text": "context"
+            },
+            {
+              "key": "F",
+              "text": "exercise"
+            },
+            {
+              "key": "G",
+              "text": "inseparable"
+            },
+            {
+              "key": "H",
+              "text": "nationally"
+            },
+            {
+              "key": "I",
+              "text": "recruited"
+            },
+            {
+              "key": "J",
+              "text": "shape"
+            },
+            {
+              "key": "K",
+              "text": "solution"
+            },
+            {
+              "key": "L",
+              "text": "specific"
+            },
+            {
+              "key": "M",
+              "text": "summary"
+            },
+            {
+              "key": "N",
+              "text": "usage"
+            },
+            {
+              "key": "O",
+              "text": "vaguely"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【语法判断空格前有动词 model 和形容词 good， 因此本空应填入名词。 【语义判断空格所在句的意思是,赖德奥特认为父母应该树立良好的榜样。下一句提到了一些良好的父母的行为, 比如吃饭时把手机收起来,或者睡觉时把手机放在另一个房间充电,因此本空应填入含有“行为”意义的名词,由此确定答案为 C) behavior。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorbed"
+            },
+            {
+              "key": "B",
+              "text": "addicted"
+            },
+            {
+              "key": "C",
+              "text": "behavior"
+            },
+            {
+              "key": "D",
+              "text": "constantly"
+            },
+            {
+              "key": "E",
+              "text": "context"
+            },
+            {
+              "key": "F",
+              "text": "exercise"
+            },
+            {
+              "key": "G",
+              "text": "inseparable"
+            },
+            {
+              "key": "H",
+              "text": "nationally"
+            },
+            {
+              "key": "I",
+              "text": "recruited"
+            },
+            {
+              "key": "J",
+              "text": "shape"
+            },
+            {
+              "key": "K",
+              "text": "solution"
+            },
+            {
+              "key": "L",
+              "text": "specific"
+            },
+            {
+              "key": "M",
+              "text": "summary"
+            },
+            {
+              "key": "N",
+              "text": "usage"
+            },
+            {
+              "key": "O",
+              "text": "vaguely"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【语法判断空格前有情态动词 can,因此本空应填入动词原形。 【语义判断】空格所在句的意思是,见证这样的习惯可以帮助孩子们“意识到他们可以对他们的设备更多的控制>。备选动词原形只有 F) exercise,意为“行使(权利、权力或自身特质)”, 由此确定答案为 F) exercise。 1 (第3 套)"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-3-b",
+      "type": "matching",
+      "title": "Evil Genius",
+      "paragraphs": [
+        "A) A few years ago I found myself teaching a university class on evil. It was for third-year criminology students to help them contextualize theory and research within controversial current topics. It was a huge success. The debates were heated and interesting. I could see people’s views change within the course of a single lecture. Over the past 13 years, as a student, lecturer and researcher, I've enjoyed discussing the science of evil with anyone willing to listen. What I like most is destroying the cliche (陈词滥调) of good and evil, and replacing them with scientific insight. We need a more informed way of discussing behavior that at first we cannot, or should not, begin to understand.",
+        "B) Without understanding, we risk dehumanizing others, writing off human beings simply because we don’t comprehend them. We must try to understand what we have labeled evil. We tend to think evil is something that other people are. We think of ourselves as “good people”, and even when we do morally wrong things, we understand the context of our decisions. With others, however, it is far easier to write them off. If their actions deviate (偏离) substantially from what we consider acceptable, we may label them evil. We need to be careful with this. Calling someone evil is often similar to saying they cannot change, and perhaps aren’t even a human at all. However, when you actually go monster-hunting, and you look deeply at the people behind shocking behavior, you may be surprised.",
+        "C) As a child I used to love the Scooby-Doo cartoons. Arriving in their “Mystery Machine”, the gang would have to find a monster who was terrorizing a neighborhood. They would run around looking for clues and at the end unmask the bad guy. It was always a normal person in a costume. There were no monsters. Like the Scooby crew, we may find ourselves hunting for an easy fix, one word for people who do bad things. But if we take a good look, the word ‘evil’ is insufficient—there are no simple explanations for why humans do bad things: instead there are many, and they are all marvelously different.",
+        "D) Evil is typically referred to when there is deviance from social norms: formal deviance is the violation of laws, like theft, murder, and attacks, while informal deviance involves violations of social norms, like lying. Evil behavior is typically thought to embrace one or both forms. However, deviance can also describe a behavior that simply differs from the norm.",
+        "E) Perhaps this is where we can find the good side of our bad side. Deviating from the norm can make us villains (恶棍), but it can also make us heroes. A child deviates from social pressures when they stand up for another child being bullied in school. A soldier deviates when they choose not to follow orders to kill an innocent civilian. An employee in a big tech company deviates when they expose its wrongdoings.",
+        "F) Creativity is also a deviation. Here, too, things are complex. Thinking creatively has given us modern medicine, technology and modern political structures, but it has also given us poison and nuclear weapons. Great benefit and great harm can come from the same human tendency.",
+        "G) In a research paper, Evil Genius, published in 2014, the behavioral scientists Francesca Gino and Scott Wiltermuth wanted to examine whether people who behave unethically in one task are more creative than others on a subsequent task, even after controlling for differences in baseline creative skills. The unethical behavior they chose was dishonesty.",
+        "H) Over five experiments researchers gave participants tasks in which they could cheat. In one study, they were given matrixes (矩阵) and had to find two numbers that added up to 10. Participants were asked to self-report how well they did at the end of the study: 59% cheated by saying that they solved more matrixes than they actually had.",
+        "I) After each task, the researchers measured participants’ performance on the Remote Associates Test. This shows participants three words at a time that appear to be unrelated, and the person has to think of a fourth word that is associated with all of them. For example, you might get “Fox, Man, Peep”, or “Dust, Cereal, Fish”. In order to find the linking words (“Hole” for the first, “Bowl” for the second) you need to be creative. The more you get right, the more creative you are thought to be because you have come up with uncommon associations.",
+        "J) For every one of the five studies, they found the same thing—participants who cheated in the first task did better on the creativity task. Why? Like other forms of unethical behavior, lying means breaking rules. It involves being deviant, going against the social principle that people should tell the truth. Similarly, being creative involves “thinking outside the box”, deviating from expectations. They involve similar thought patterns, so stimulating one stimulates the other. Can we learn from this? Perhaps. To be more creative, we could try lying in a controlled environment. Find online logic games and cheat at them, play Scrabble (拼字游戏) with a dictionary, or write a story about something that is untrue? Such tasks can get our brains thinking flexibly, beyond our normal comfort zone. This is not a call to become a compulsive (强迫性的) liar, but a controlled liar.",
+        "K) In addition to benefits for creativity, deviance can be a good thing in other ways. Even Philip Zimbardo, the author of the Stanford prison experiment, who showed how easily we can be led to , behave badly, believes that the future of deviance research may lie more in understanding extreme pro- social behavior, such as heroism. Like evil, we often view heroism as only a possibility for outliers— for people who are abnormal. But Zimbardo asks: “What if the capability to act heroically is also fundamentally ordinary and available to all of us?” Some say we should never meet our heroes, lest they disappoint us when we find out how normal they are. But this should be liberating, not disappointing. We are all capable of behaving like outliers. It’s time for us to understand deviance, and realize its potential for good as well as for harm."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "A behavior that does not conform to social norms may be described as being deviant.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】同义转述题。定位句提到,反常也可以描述一种只是与正常不同的行为。题干中的 A behavior that does not conform to social norms 对应定位句中的 a behavior that simply differs from the norm;题干中的 be described as 对应定位句中的 describe;题干中的 being deviant 对应定位句中的 deviance。题干是对定位句的同义转述,故答案为 D) 。"
+        },
+        {
+          "number": 37,
+          "stem": "Various experiments found that participants who cheated in the initial task performed better in the creativity test.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【〖精析】同义转述题。定位句提到,对于五项研究中的每一项,他们都发现了同样的事情一一在第一项任务中作弊的参与者在创造性任务中表现得更好。题干中的 Various experiments 对应定位句中的 every one of the five studies; 题干中的 participants who cheated in the initial task Performed better in the creativity test 对应定位句中的 participants who cheated in the first task did better on the creativity task。题干是对定位句的同义转述,故答案为了) 。"
+        },
+        {
+          "number": 38,
+          "stem": "People may be simply considered evil if their behaviors are morally unacceptable to us.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析卫同义转述题。定位句提到,如果别人的行为严重偏离我们认为可以接受的范围,我们可能会给他们贴上政恶的标签。题干中的 People may be simply considered evil 对应定位句中的 we may label them evil;题干中的 their behaviors are morally unacceptable to us 对应定位句中的 their j引出关于善与恶的讨论，指出不应简单地定义“那恶\",， 各样的原因。 1 进一步阐释，指出反常既可以带来伤害，也可以带来 ， 究指出，不道德的行为可以提升创造力。 1 方面的好处，并发出呼吁，我们应当正确理解反常行为 actions deviate substantially from what We consider acceptable。题干是对定位句的同义转述,故答案为 B)。"
+        },
+        {
+          "number": 39,
+          "stem": "The research published by two scientists was intended to examine the relationship between dishonesty and creativity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析本细节归纳题。定位段提到,在 2014 年发表的一篇名为6那恶天才》的研究论文中,科学家弗朗西斯卡。吉诺和斯科特。 威尔特穆斯想要研究,在一项任务中表现不道德的人在后续任务中是否比其他人更有创造力。他们选择的不道德行为是不诚实。题干中的 The research published by two scientists 对应定位段中的 a research paper， Evil Gemius… the behavioral Scientists Francesca Gino and Scott Wiltermuth; 题干中的 intended to examine the relationship between dishonesty and creativity 对应定位段中的 wanted to examine whether people who behave unethically in one task are more creative than others on a subsequent task..… The unethical behavior they chose was dishonesty。题干是对定位段的概括归纳,故答案为 G) 。"
+        },
+        {
+          "number": 40,
+          "stem": "The author’s lectures sparked lively discussions in his class.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】细节归纳题。定位句提到,几年前,我\"在大学里教一门关于那恶的课程。这是为犯罪学三年级的学生准备的,帮助他们结合当前一些有争议的话题背景来理解理论和研究。这是一个巨大的成功。辩论激烈而有趣。题干中 The author's lectures 对应定位句中的 Ifound myself teaching a university class; 题干中的 sparked lively 32 〈第 3 套) discussions 对应定位句中的 The debates were heated and interesting。题干是对定位句的概括归纳,故答案为 A) 。"
+        },
+        {
+          "number": 41,
+          "stem": "The researchers tested the participants’ creativity by asking them to play a word game.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【精析】细节归纳题。定位段提到 ,在完成每项任务后,研究人员测量了参与者在远程关联测试中的表现。这个测试是一次向参与者展示 3 个看似不相关的单词,参与者必须想出与所有单词相关的第 4个单词。你答对的越多,人们就认为你越有创造力,因为你产生了不同寻常的联想。题干中的 tested the participants”creativity 对应定位段中的 The more you get right，the more creative you are thought to be;题干中的 play a word game 对应定位段中的 This shows participants three Words..:a fourth word that is associated with all of them。题干是对定位段的概括归纳,故答案为 I 。"
+        },
+        {
+          "number": 42,
+          "stem": "It is time we realized that deviance may be capable of doing both good and harm to individuals and society.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【精析】同义转述题。定位句提到,现在是我们理解反常的时候了,我们应该认识到反常既可能带来好处,也可能带来坏处。题干中的 It is time we realized 对应定位句中的 Itbs time for us to understand;题干中的 deviance 在定位句中直接出现;题干中的 both good and harm 对应定位句中的its potential for good as well as for harm。 题干是对定位句的同义转述,故答案为开) 。"
+        },
+        {
+          "number": 43,
+          "stem": "The reasons for people’s evil behaviors can be explained in more ways than one.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】同义转述题。定位句提到, 如果我们仔细观察 \"收恶>这个词是不够的一一人类为什么做坏事并没有简单的解释:相反,有很多,而且都惊人地不同。题干中 The reasons for people's evil behaviors 对应定位句中的 explanations for why humans do bad things;题干中的 can be explained in more ways than one 对应定位句中的 there are many，and they are all marvelously different。题干是对定位句的同义转述,故答案为 C) 。"
+        },
+        {
+          "number": 44,
+          "stem": "The math task in one experiment was designed to test participants’ tendency to cheat.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】细节归纳题。定位句提到,在 5 个实验中， 研究人员给参加者布置了任务,在任务中他们可以作弊。在一项研究中,他们得到了和矩阵,并必须从中找到两个加起来等于 10 的数字。题干中的 The math task in one experiment 对应定位句中的 In one study，they were given matrixes...and had to find two numbers that added up to 10;题干中的 designed to test participants”tendency to cheat 对应定位句中的 Over five experiments Tesearchers gave participants tasks in which they could cheat。题干是对定位句的概括总结,故答案为 H) 。"
+        },
+        {
+          "number": 45,
+          "stem": "Some creative ideas have turned out to do harm to human society.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【精析】同义转述题。定位句提到,创造性思维给了我们现代医学 .技术和现代政治结构,但也给了我们毒药和核武器。题干中的 Some creative ideas 对应定位句中 Thinking creatively; 题干中的 have turned out to do harm to human society 对应定位句中的 has also given us poison and nuclear weapons。题干是对定位句的同义转述， 故答案为FE) 。 3 (第3 套)"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Even though we are living in an age where growing old is thought of as an inevitable misery, this doctor has been changing the game for seniors over the last 25 years.",
+        "It all started in 1991 when the Harvard-educated physician was transferred from working in a stressful emergency room to being the medical director of a nursing home in upstate New York. The depressing and regimented (严格管制的) environment got him thinking on what exactly could improve the residents’ conditions.",
+        "Even though animals in nursing homes were illegal at the time, Dr. Bill Thomas took a chance. Based on a hunch (直觉), he brought in two dogs, four cats, hens, rabbits, 100 birds, a multitude of plants, a flower garden, and a vegetable patch.",
+        "The change was dramatic. There was a 50% drop in medical prescriptions along with a dramatic decrease in death rates—but most importantly, the residents were simply happier.",
+        "Dr. Thomas's approach, named the Eden Alternative, has driven nursing homes to allow a more autonomous (自主的) and creative living space for their elderly. It erases the belief that growing old means growing useless. He encourages residents to think of their age as an enriching new phase of life rather than the end of it.",
+        "Thomas, now a speaker and author of several books, also created small, independently-run residences with their own bedrooms and bathrooms, and he has been preaching a singular message that getting old is not a bad thing.",
+        "“Within six weeks, they had to send a truck around to pick up all the wheelchairs,” Thomas told the Washington Post . “You know why most people in nursing homes use wheelchairs? Because the buildings are so big.”",
+        "The 56-year-old doctor’s methods have been adopted in Australia, Japan, Canada, and America with enormous success. Last year he published Second Wind: Navigating the Passage to a Slower, Deeper, and More Connected Life, a guide on how to shift our perspectives on aging and growth.",
+        "He is currently traveling through North America performing with his guitar and his enthusiasm on his Age of Disruption Tour."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What has Bill Thomas been doing for a quarter of a century?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Transforming people’s lifestyle."
+            },
+            {
+              "key": "B",
+              "text": "Honoring his Harvard education."
+            },
+            {
+              "key": "C",
+              "text": "Changing people’s philosophy of life."
+            },
+            {
+              "key": "D",
+              "text": "Shifting people’s perspective on aging."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】 推理判断题。本文第一段概括托马斯医生的主要成就:在过去的 25 年里,这位医生一直在改变这场老年人的游戏。第五段末句指出,他鼓励老年人把他们的年龄看作是生命中的一个丰富多彩的新阶段, 而不是生命的结束。第八段未句指出,他的书指导我们如何改变对训老和成长的看法。由此可见, 比尔。 托马斯在努力改变人们对衰老的看法 ,故答案为D)。"
+        },
+        {
+          "number": 47,
+          "stem": "Why did Bill Thomas try something different in the nursing home?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He wanted to make it more pleasant for seniors."
+            },
+            {
+              "key": "B",
+              "text": "He wanted to apply his Harvard training to practice."
+            },
+            {
+              "key": "C",
+              "text": "He felt it his duty to revolutionize its management."
+            },
+            {
+              "key": "D",
+              "text": "He felt disappointed working in the environment."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】推理判断题。文章第二段末句提到,养老院压抑而严格管制的环境让他开始思考究竟怎样才能改善院里老年人的生活条件。由第四段可知,在比尔' 托马斯采取了一系列措施后,养老院的老人们更快乐了 ,故答案为 A) 。"
+        },
+        {
+          "number": 48,
+          "stem": "What do we learn about Bill Thomas bringing animals and plants into the nursing home?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He made a mess of the nursing home."
+            },
+            {
+              "key": "B",
+              "text": "He did something all professionals would do."
+            },
+            {
+              "key": "C",
+              "text": "He won instant support from the state authorities."
+            },
+            {
+              "key": "D",
+              "text": "He acted in violation of the state law."
+            }
+          ],
+          "answer": "D",
+          "explanation": "原文明确指出，当时在养老院饲养动物是违法的，托马斯医生仍冒险尝试。因此将动物带进养老院违反了当时的规定，选 D。"
+        },
+        {
+          "number": 49,
+          "stem": "What has Bill Thomas been persistently advocating?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Good health is not just a privilege of the young."
+            },
+            {
+              "key": "B",
+              "text": "Nursing homes should be strictly limited in size."
+            },
+            {
+              "key": "C",
+              "text": "Getting old is by no means something miserable."
+            },
+            {
+              "key": "D",
+              "text": "Residences for seniors should be run independently."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】细节辩认题。定位段提到,托马斯一直在宣扬一个特别的信息:变老并不是一件坏事,故答案为C)。"
+        },
+        {
+          "number": 50,
+          "stem": "How is Bill Thomas's new concept received?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is gaining ground in many countries."
+            },
+            {
+              "key": "B",
+              "text": "It is being heatedly debated worldwide."
+            },
+            {
+              "key": "C",
+              "text": "It is considered revolutionary everywhere."
+            },
+            {
+              "key": "D",
+              "text": "It is winning approval from the government."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】推理判断题。定位句指出,托马斯的方法已经被澳大利亚日本,加拿大和美国采用,并取得了巨大的成功。由此可见,很多国家都接受了托马斯的新观念,故答案为 A) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Research shows that in developed countries, more affluent and educated people tend to consume higher-quality diets—including more fruits and vegetables, fish and whole grains. On the contrary, economically disadvantaged people report diets that are nutrient-poor and energy-dense. They are less likely to have food-purchasing habits that conform to public health recommendations.",
+        "These dietary differences are often accompanied by higher rates of obesity and diabetes among lower- income people. This relationship between social class and diet quality and health is extensively documented. However, the research does not explain why this is the case—a question that has significant implications for designing effective policies and initiatives to improve diets and prevent chronic diseases.",
+        "Public-health initiatives to promote healthy diets often focus on providing nutrition education and recipes (4%). These approaches, however, often presume less food literacy (i.e. food knowledge and skills) among low-income people. Are unhealthy diets really the result of poor choices, limited food skills and knowledge?",
+        "Research suggests that adults in food-insecure households are just as likely as those in food-secure households to adjust recipes to make them more healthy. They are also just as proficient in food preparation and cooking skills. There is no indication that increasing food skills or budgeting skills will reduce food insecurity.",
+        "Instead, disadvantaged groups are constrained by their economic, material and social circumstances. For example, low income is the strongest predictor of food insecurity in Canada, where one in eight households experiences insufficient access to nutritious foods.",
+        "It’s well-established that food prices are an important determinant of food choice. Low-income",
+        "households report that they find it difficult to adopt dietary guidelines because food prices are a barrier to improving their diets.",
+        "When researchers estimate the cost of diets people actually eat, higher-quality diets are typically more costly.",
+        "While this may be so, it does not, in itself, prove that healthy diets are necessarily more expensive or cost-prohibitive. After all, not all socioeconomically disadvantaged people consume poor diets.",
+        "We can easily think of a number of foods and recipes that are both inexpensive and nutritious. The internet is full of recipes for “eating well on a budget.”"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What can we learn from research on diets in developed countries?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Dietary recommendations are not fit for underprivileged people."
+            },
+            {
+              "key": "B",
+              "text": "People from different social groups vary in their dietary habits."
+            },
+            {
+              "key": "C",
+              "text": "People’s choice of food depends on their individual taste."
+            },
+            {
+              "key": "D",
+              "text": "There is no consensus on what high-quality diets are."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】 推理判断题。定位句指出,研究表明,在发达国家,更富裕和受教育程度更高的人倾向于消费更高质量的饮食,包括更多的水果和蔬菜.鱼和全谷物;相反,经济困难的人饮食低营养,高能量。由此可见,在发达国家,不同社会群体的人饮食习惯不相同 ,故答案为 B) 。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the author say is important in formulating policies to improve diets and health?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A better understanding of the relationship between social class and health."
+            },
+            {
+              "key": "B",
+              "text": "A greater emphasis on studying the cause of obesity and chronic diseases."
+            },
+            {
+              "key": "C",
+              "text": "Prioritizing the provision of better nutrition for lower classes."
+            },
+            {
+              "key": "D",
+              "text": "Designing education programs and initiatives on public health."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】细节辨认题。定位句提到,有充分的文献证明社会阶层与饮食质量和健康之间的关系;然而， 这项研究并没有解释为什么会出现这种情况一一这个问题对于设计有效的.用来改善饮食和预防慢性疾病的政策和计划具有重要意义。由此可知,在制定改善饮食和健康的政策时,更好地理解社会阶层与健康之间的关系很重要,故答案为 A) 。"
+        },
+        {
+          "number": 53,
+          "stem": "What does research reveal about adults in food-insecure households?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their eating habits need to be changed."
+            },
+            {
+              "key": "B",
+              "text": "Their food literacy has been improving."
+            },
+            {
+              "key": "C",
+              "text": "They do not pay much attention to their food recipes."
+            },
+            {
+              "key": "D",
+              "text": "They do not lack food knowledge or budgeting skills."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】细节辨认题。定位句指出,研究表明,生活在食物不足的家庭中的成年人和生活在食物充足的家庭的成年人一样,有可能调整食谱,使自己更健康。他们也同样精通食物准备和衰饪技巧。由此可知,生活在食物不足家庭的成年人也具备食物知识或预算技巧 ,故答案为 D) 。"
+        },
+        {
+          "number": 54,
+          "stem": "What would help improve food security among the disadvantaged groups in Canada?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Teaching them budgeting skills."
+            },
+            {
+              "key": "B",
+              "text": "Increasing their food choices."
+            },
+            {
+              "key": "C",
+              "text": "Enabling them to have more access to nutritious foods."
+            },
+            {
+              "key": "D",
+              "text": "Taking more effective measures to increase food supplies."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】 推理判断题。定位句提到,在加拿大,低收人最有可能预示着食物不足的情况,八分之一的家庭无法获得有营养的食物。由此可见,促使加拿大弱势群体食物充足的有效措施是使他们有更多机会获得有营养的食品,故答案为 C) 。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author suggest disadvantaged people do to improve their health?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Adopt a positive attitude towards dietary guidelines."
+            },
+            {
+              "key": "B",
+              "text": "Choose diets that are both healthy and affordable."
+            },
+            {
+              "key": "C",
+              "text": "Make sure to purchase healthy foods on the internet."
+            },
+            {
+              "key": "D",
+              "text": "Change their eating habits and consumption patterns."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】推理判断题。定位段指出,研究并不能证明健康饮食一定更贵或成本高昂;我们可以很容易地想到许多既便宜又有营养的食物和食谱;互联网上到处都是“省钱吃得好?的食谱。由此可推断,弱势群体可以选择便宜且有营养的食物和食谱,故答案为 B) 。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/cet4_2022_12_3.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2022_12_3_ans.pdf"
+}

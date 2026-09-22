@@ -1,0 +1,1732 @@
+{
+  "id": "cet6-2024-06-1",
+  "level": 6,
+  "year": 2024,
+  "month": 6,
+  "set": 1,
+  "title": "2024 年 6 月六级 · 第 1 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2024-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "It's quite remarkable how different genres of music can spark unique feelings,emotions,and memories. Studies have shown that music can reduce stress and anxiety before surgeries and we are all attracted toward our own unique life soundtrack. If you're looking to [[26]]stress,you might want to give classical music a try. The sounds of classical music produce a calming effect letting [[27]] pleasure-inducing dopamine(多巴 胺 )in the brain that helps control attention,learning and emotional responses.It can also turn down the body's stress response,resulting in an overall happier mood.It turns out a pleasant mood can lead to [[28]]in a person's thinking. Although there are many great [[29]] of classical music like Bach,Beethoven and Handel,none of these artists'music seems to have the same health effects as Mozart's does.According to researchers,listening to",
+        "Mozart can increase brain wave activity and improve [[30]] function.Another study found that the distinctive features of Mozart's music trigger parts of the brain that are responsible for high-level mental functions.Even maternity [[31]] use Mozart to help newborn babies adapt to life outside of the mother's belly. It has been found that listening to classical music [[32]] _reduces a person's blood pressure.Researchers believe that the calming sounds of classical music may help your heart [[33]] from stress.Classical music can also be a great tool to help people who have trouble sleeping.One study found that students who had trouble sleeping slept better while they were listening to classical music. Whether classical music is something that you listen to on a regular basis or not,it wouldn't [[34]] totake time out of your day to listen to music that you find [[35]] .You will be surprised at how good it makes you feel and the potentially positive change in your health"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "alleviate"
+        },
+        {
+          "key": "B",
+          "text": "clarity"
+        },
+        {
+          "key": "C",
+          "text": "cognitive"
+        },
+        {
+          "key": "D",
+          "text": "composers"
+        },
+        {
+          "key": "E",
+          "text": "hurt"
+        },
+        {
+          "key": "F",
+          "text": "inhibiting"
+        },
+        {
+          "key": "G",
+          "text": "interrogation"
+        },
+        {
+          "key": "H",
+          "text": "intrinsically"
+        },
+        {
+          "key": "I",
+          "text": "loose"
+        },
+        {
+          "key": "J",
+          "text": "majestic"
+        },
+        {
+          "key": "K",
+          "text": "mandatory"
+        },
+        {
+          "key": "L",
+          "text": "recover"
+        },
+        {
+          "key": "M",
+          "text": "significantly"
+        },
+        {
+          "key": "N",
+          "text": "soothing"
+        },
+        {
+          "key": "O",
+          "text": "wards"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) alleviate (让减轻 ) 空格前为不定式符号ko，空格后是名词stress，由此可知，空格处应填入一个动词原形。 首段提到，研究表明，音乐可以减轻手术前的压力和焦虑，本段承接上段内容，强调一种假设， 即“如果你想减轻压力，你可能想尝试一下古典音乐”，与上文相呼应，故备选动词中alleviate符合语境。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "I",
+          "explanation": "D loose (以释放 dy. 不坚固的; 疏松的) 空格前是letting，空格后是名词短语pleasure-inducing dopamine，由此可知，空格处应填入一个动词原形，注意letting后省略了宾语people。 前半句提及古典音乐的声音产生一种平静的效果，此处做进一步分析，指出古典音乐具体是如何达到那种效果的，现在分词短语letting loose符合语境，即“释放大脑中诱导快乐的多巴胺，帮助控制注意力、学习和情绪反应”。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) clarity (. 清晰 ) 空格前为谓语can lead te，空格后为介词短语in a person's thinking，由此可知，空格处应填入名词，充当宾语。 上文提到，听古典音乐可以使人的大脑释放多巴胺，帮助控制注意力、学习和情绪反应，而且， 它还可以降低身体的压力反应，从而产生整体上更快乐的情绪。由此可知，此处承接上文，应该继续讲述快乐的情绪会带来什么益处。将备选名词代和原文可知clarity符合语境，即“快乐的情绪可以使一个人的思维变得清晰”。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) composers (7. 作曲家 ) 空格前为修饰语many great，空格后为介词短语of classical music，由此可知，空格处应填入一个被 many great修饰的复数名词。 此处为Although引导的让步状语从句，由从名后半句中表示列举的like介词短语like Bach， Beethoven and Handel以及主句中提到的Mozart可知，此处是说巴赫、贝多芬、享德尔和莫扎特这类伟大的作曲家， 故复数名词composers符合语境。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) cognitive ( ad. 认知的) 空格前为动词improve，空格后为名词fhnction，显然，function是improve的宾语，由此可知，空格处应填入一个形容词或分词，充当定语，修饰名词fhnction。 上文提到快乐的情绪可以使一个人的思维变得清晰 ，而许多作曲家的音乐都达不到莫扎特的音乐给人带来的健康效果。本句进一步引述研究人员的研究加以佐证，前半句提及，研究人员表示，听莫扎特的音乐可以增加脑电波活动，由此推断，此处并列指出，听莫扎特的音乐可以改善脑部相关功能，将备选形容词或分词代入原文可知cognitive符合语境。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) wards (7. 病房 ) 空格前为名词maternity，空格后为动词短语use Mozart to help newborn babies.….，由此可知，空格处应填入一个名词，与matemity一起充当句子主语。 上文提到，另一项研究发现，莫扎特的音乐的独特特征触发了大脑中负责高级心理功能的部分， 本句中使用Even递进指出莫扎特的音乐在帮助新生儿方面的实际应用。由此可知，备选名词wards符合语境，即“甚至产科病房也用莫扎特的音乐来帮助新生儿适应……”。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "M",
+          "explanation": "MD significantly ( adv 显著地 ) 此处为that引导的宾语从句，空格前为动名词短语listening to classical music，即该宾语从句的主语，空格后为该宾语从句的谓语reduces。由此可知，空格处应填入一个副词，修饰动词reduces，表示其程度。 本文主题是听古典音乐能给人的健康带来益处，此处应表示其积极作用，将备选副词代入原文可知significantly符合语境，即“研究发现，听古典音乐可以显著降低人的血压”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) recover (了恢复) 空格前为that宾语从句的谓语may help your heart，空格后为介词短语from stress，由此可知，空格处应填入一个省略to的动词不定式，即动词原形，且该动词可以与fom构成固定搭配。 此处进一步引用研究人员的观点，说明听古典音乐给人的健康带来的益处，文章指出，研究人员认为,古典音乐中平静的声音可以帮助你的心脏从压力中 。将备选动词原形代入原文，recover符合语境，且能与fom构成固定搭配，recover ffom意为“从……中恢复”。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "E",
+          "explanation": "卫) hurt (妇和弄痛; 感到疼痛即心灵创伤; 身体上的伤或痛 adj. 受伤的) 空格前是情态动词wouldn'\"t，空格后是不定式结构，由此可知，空格处应填入一个动词原形。 前面Whether..or not引导的让步状语从句意为“无论你是否经常听古典音乐”，由此可知，主句是说这些都不会有什么不良后果或影响，将剩余动词原形选项代和人原文可知hurt符合语境，即“抽出时间听你觉得的音乐不会有什么损害”，it wouldn\"t hurt to do sth.为习惯用语，意为“做某事不会有什么损害”。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) soothing ( ad. 安奈的，使人平静的; 舒缓的，镇痛的) 空格前为listen to music that you find，空格后为句点，由此可知，此处为that引导的定语从句，该从句关系代词指代先行词music，而music是find的逻辑宾语，空格处应填入一个形容词，充当宾语补足语， 从而构成“find sth.+a必” ( 发觉某事物…… ) 的结构。 通篇讲述听古典音乐给人带来的健康益处，此处是作者总结性的语句，即“无论你是否经常听古典音乐，抽出时间听你觉得舒缓的音乐不会有什么损害”，由此可知soothing符合语境。 F) inhibiting〈?久阻碍，抑制 ) G) interrogation (7 审问，审讯 ) H) intrinsically (adv 本质上 ) ]) majestic (ad 雄伟的; 威严的; 壮观的 ) K) mandatory (a. 强制的; 法定的; 义务的)"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-1-b",
+      "type": "matching",
+      "title": "The Curious Case of the Tree That Owns Itself",
+      "paragraphs": [
+        "A) In the city of Athens,Georgia,there exists a rather curious local landmark—a large white oak that is almost universally stated to own itself.Because of this,it is considered one of the most famous trees in the world.So how did this treecome to own itself and the land around it?",
+        "B) Sometime in the 19th century a Georgian called Colonel William Jackson reportedly took a liking to the said tree and endeavored to protect it from any danger.As to why he loved it so,the earliest documented account of this story is an anonymously written front page article in the Athens WeeklyBanner published on August 12,1890.It states,“Col.Jackson had watched the tree grow from his childhood,and grew to love it almost as he would a human.Its luxuriant leaves and sturdy limbs had often protected him from the heavy rains, and out of its highest branches he had many a time gotten the eggs of the feathered singers.He watched its growth,and when reaching a ripe old age he saw the tree standing in its magnificent proportions,he was pained to think that after his death it would fall into the hands of those who might destroy it.”",
+        "C) Towards this end,Jackson transferred by means of a deed ownership of the tree and a little land around it to the tree itself.The deed read,“W.H.Jackson for and in consideration of the great affection which he bears the said tree,and his great desire to see it protected has conveyed unto the said oak tree entire possession of itself and of all land within eight feet of it on all sides.”",
+        "D) In time,the tree came to be something ofa tourist attraction,known as The TreeThat Owns Itself.However, in the early 20th century,the tree started showing signs of its slow death,with little that could be done about it.Father time comes for us all eventually,even our often long lived,tall and leafy fellow custodians(看管者) of Earth.Finally,on October 9,1942,the over 30 meter tall and 200-400 year old tree fell,rumor has it,as a result of a severe windstorm and/or via having previously died and its roots rotted.",
+        "E) About four years later,members of the Junior Ladies Garden Club(who'd tended to the tree before its unfortunate death)tracked down a small tree grown from a nut taken from the original tree.And so it was that on October 9,1946,under the direction of Professor Roy Bowden of the College of Agriculture at the University of Georgia,this little tree was transplanted to the location of its ancestor.A couple of months later,an official ceremony was held featuring none other than the Mayor ofAthens,Robert L McWhorter,to commemorate the occasion.",
+        "F) This new tree became known as The Son of the Tree That Owns Itself and it was assumed that,as the original tree's heir,it naturally inherited the land it stood on.Of course,there are many dozens of other trees known to exist descending from the original,as people taking a nut from it to grow elsewhere was a certainty.That said,to date,none of the original tree's other children have petitioned the courts for their share of the land,so it seems all good.In any event,The Son of the Tree That Owns Itself still stands today,though often referred to simply as The Tree That Owns Itself.",
+        "G) Thisall brings us around to whether Jackson ever actually gave legal ownership of the tree to itself in the first place and whether such a deed is legally binding.",
+        "H) Well,to begin with,it turns out Jackson only spent about three years of his life in Athens,starting at the age of 43 from 1829 to 1832,sort of dismissing the idea that he loved the tree from spending time under it as a child and watching it grow,and then worrying about what would happen to it after he died.Further,an extensive search of land ownership records in Athens does not seem to indicate Jackson ever owned the land the tree sits on.",
+        "I) He did live on a lot of land directly next to it for those three years,but whether he owned that land or not isn't clear.Whatever the case,in 1832 a four acre parcel,which included the land the tree was on and the neighboring land Jackson lived on,among others,was sold to University professor Malthus A Ward.In the transaction,Wardwas required to pay Jackson a sum of $1,200(about $31,000 today),either for the property itself or simply in compensation for improvements Jackson had made on the lot.In the end,whether he ever owned the neighboring lot or was simply allowed to use it while he allegedly worked at the University,he definitely never owned the lot the tree grew on,which is the most important bit for the topic at hand.",
+        "J) After Professor Ward purchased the land,Jackson and his family purchased a 655 acre parcel a few miles away and moved there.Ten years later,in 1844,Jackson seemed to have come into financial difficulties and had his little plantation seized by the Clarke County Sheriff's office and auctioned off to settle the mortgage. Thus,had he owned some land in Athens itself,including the land the tree sat on,presumably he would have sold it to raise funds or otherwise had it takenas well.",
+        "K) And whatever the case there,Jackson would have known property taxes needed to be paid on the deeded land for the tree to be truly secure in its future.Yet no account or record indicates any trust or the like was set up to facilitate this",
+        "L) On top of all this,there is no hard evidence such a deed ever existed,despite the fact that deed records in Athens go back many decades before Jackson's death in 1876 and that it was supposed to have existed in 1890 in the archives according to the original anonymous news reporter who claims to have seen it.",
+        "M) As you might imagine from all of this,few give credit to this side of the story.So how did all of this come about then?",
+        "N) It is speculated to have been invented by the imagination of the said anonymous author at the Athens Weekly Banner in the aforementioned 1890 front page article titled“Deeded to Itself”,which by the way contained several elements that are much more easily proved to be false.As to why the author would do this,it's speculated perhaps it was a 19th century version of a click-bait thought exercise on whether it would be legal for someone to deed such a non-conscious living thing to itselfor not.",
+        "O) Whatever the case,the next known instance of the TreeThat Owns Itselfbeing mentioned wasn't until 1901 in the Centennial Edition of that same paper,the Athens Weekly Banner.This featured another account very clearly just copying the original article published about a decade before,only slightly reworded.The next account was in 1906,again in the Athens Weekly Banner,again very clearly copying the original account, only slightly reworded,the 19th century equivalent of re-posts when the audience has forgotten about the original."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Jackson was said to have transferred his ownership of the oak tree to itself in order to protect it from being destroyed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "据说杰克逊为了保护这棵橡树不被毁坏，而将其所有权转让给了橡树自己。 C。由题干关键信息transferred和ownership of the tree定位到C段。该段第一句提到，出于这个原因，杰克示通过地契的方式把这棵树和它周围的一小块土地的所有权转让给了这棵树。结合上文B段的内容可知，该名中的this end指的是杰克逊担心自己死后这棵树会被人损毁，而希望能够想办法保护它。由此可知，题干是对原文的同义转述。题干中的transferred和ownership属于原词重现。"
+        },
+        {
+          "number": 37,
+          "stem": "No proof has been found from an extensive search that Jackson had ever owned the land where the oak tree grew",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H 段最后一句指出，对雅典土地所有权记录的大量搜索，并未发现杰克逊曾拥有该土地的证据。题干与此对应。"
+        },
+        {
+          "number": 38,
+          "stem": "When it was raining heavily,Jackson often took shelter under a big tree that is said to own itself.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "下大十的时候，杰克逊经常躲在一棵据说自己拥有自己的大树下。 B。由题干关键信息raining heavily和took shelter under a big tree定位到B段。该段第四句提到，它繁茂的叶子和粗壮的枝干经常为他遮挡大雨，他还多次从它最高的树枝上失到有羽毛的“歌手”的蛋。由此可知，题干是对原文的同义转述。题干中的raining heavily对应原文中的the heavy rains; 题干中的often took shelter under a big tree对应原文中的often protected him from the heavy rains。"
+        },
+        {
+          "number": 39,
+          "stem": "There is no evidence that Jacksonhad made arrangements to pay property taxes for the land onwhich the oak tree sat.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "没有证据表明杰克进曾安排为橡树所在的土地缴纳财产税。 KK。由题干关键信息no evidence和pay property taxes for the land定位到K段。该段提到，无论情况如何，杰克示应该知道，要想使这棵树的未来真正安全，需要为这块有地契的土地缴纳财产税。然而，没有账目或记录表明有设立过任何信托或类似的东西来促成这一点。由此可知，题干是对原文的同义转述。题干中的no evidence对应原文中的no account or record; 题干中的property taxes属于原词重现。"
+        },
+        {
+          "number": 40,
+          "stem": "Professor Ward paid Jackson over one thousand dollars when purchasing a piece ofland from him.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "沃德教授在向杰克进购买一块士地时，付给了他一千多美元。 I。由题干关键信息Professor Ward和over one thousand dollars定位到I段。该段第二名和第三句提到，无论情况如何，1832年，一块四英亩的土地，包括这棵树所在的土地和杰克逊所居住的邻近的土地， 被卖给了大学教授马尔萨斯' A' 沃德。在这笔交易中，沃德被要求向杰克逊支付1200美元 〈 约合今天的 3.1万美元) ，要么是为了购买地产本身，要么只是为了补偿杰克逊对这块地所做的改善。由此可知，题干是对原文的同义转述。题干中的over one thousand dollars对应原文中的a sum of$1,200; 题干中的a piece of land对应原文中的a four acre parcel。注意，parcel除了表示“包庄; 小包”之外，还可以表示“一块地; 一片地”。"
+        },
+        {
+          "number": 41,
+          "stem": "It is said the tree that owned itself fell in a heavy windstorm.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "据说那棵自己拥有自己的树在一场强风暴中倒下了。 D。由题干关键信息fell in a heavy windstorm定位到D段。该段最后一句提到，最后，在1942年10 月9日，这棵30多米高、200~400岁龄的老树倒下了，有传言说，这是由于一场严重的风暴，以及/或者是由于它之前已经死亡，树根已经腐烂。由此可知，题干是对原文的同义转述。题干中的in a heavy windstorm 对应原文中的 as aresult ofa severe windstorm; 题干中的fell属于原词重现。"
+        },
+        {
+          "number": 42,
+          "stem": "The story of the oak tree is suspected to have been invented as a thought exercise.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "N",
+          "explanation": "人们怀疑橡树的故事是作为一项思考练习而虚构出来的。 N。由题干关键信息invented as a thought exercise定位到N段。该提到，据推测，它是由《雅典周报》的那名匿名作者在上述的1890年头版标题为“被转让契约给自己”的文章中虚构出来的，顺便说一下，这篇文章包含了几个更容易被证明是虚假的元素。至于作者为什么要这样做，据推测，这可能是19世纪的一个“标题党”式的思考练习，关于一个人通过契约向一个无意识的生物转让它自己的所有权的做法是否合法。由此可知，题干是对原文的同义转述。题干中的have been invented as a thought exercise对应原文中的a 19th century version of a click-bait thought exercise。"
+        },
+        {
+          "number": 43,
+          "stem": "Jackson's little plantation was auctioned off to settle his debt in the mid-19th century",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "杰克进的小种植园在19世纪中期被拍卖以偿还债务。 Jo。由题干关键信息little plantation was auctioned off和settle his debt定位到J段。该段第二句提到， 十年后的1844年，杰克逊似乎陷入了经济困境，他的小种植园被克拉克县治安官办公室没收，并被拍卖以偿还抵押贷款。由此可知，题于是对原文的同义转述。题干中的settle his debt对应原文中的settle the mortgage; 题干中的in the mid-19th century对应原文中的in 1844。原文中的little plantation和auctioned off属于原词重现。"
+        },
+        {
+          "number": 44,
+          "stem": "An official ceremony was held to celebrate the transplantingof a small tree to where its ancestor had stood.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "人们举行了一个官方仪式，庆祝将一棵小树移植到它的祖先曾经意立的地方。 E。由题干关键信息An official ceremony和celebrate the transplanting of a small tree定位到E段。该段第二名和第三句提到，1946年10月9日，在佐治亚大学农业学院罗伊，鲍登教授的指导下，这棵小树被移植到了它祖先曾经生长的地方。几个月后，不是别人，正是雅典市市长罗伯特.工' 麦克沃特举行了一场官方仪式来纪念这一时刻。由此可知，题干是对原文的同义转述。题干中的celebrate对应原文中的 commemorate; 题干中的to where its ancestor had stood对应原文中的to the location ofits ancestor。题干中的 An official ceremony属于原词重现。"
+        },
+        {
+          "number": 45,
+          "stem": "The story of the Tree That Owns Itself appeared in the local paper several times,with slight alterations in wording.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "O",
+          "explanation": "这棵“拥有自己的树”的故事在当地报纸上出现过几次，但每次的措辞稍有变化。 O。由题干关键信息appeared in the local paper several times和slight alterations in wording定位到O 段。该段提到，无论如何，直到1901年，同一份报纸一一《雅典周报》的一百周年纪念版才再次提到了 “拥有自己的树”。这篇报道的特点是非常明显地复制了大约十年前发表的原始文章，只是稍微改动了一下措辞。再次报道它是在1906年，还是在《雅典周报》上，同样非常明显地复制了原始的描述，只是稍微修改了一下措辞，这相当于19世纪的在观众忘记原始内容后的再次发布。由此可知，这棵橡树的故事除了在1890年初次刊载之后，还在1901年和1906年也报道了，因此，题干是对原文的同义转述。题干中的with slight alterations in wording对应原文中的only slightly reworded。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "It is irrefutable that employees know the difference between right and wrong.So why don't more employees intervene when they see someone exhibiting at-risk behavior in the workplace? There are a number of factors that influence whether people intervene.First,they need to be able to see a risky situation beginning to unfold.Second,the company's culture needs to make them feel safe to speak up.And third,they need to have the communication skills to say something effectively. This is not strictly a workplace problem;it's a growing problem off the job too.Every day people witness things on the street and choose to stand idly by.This is known as the bystander effect—the more people who witness an event,the less likely anyone in that group is to help the victim.The psychology behind this is called diffusion of responsibility.Basically,the larger the crowd,the more people assume that someone else will take care of it—meaning no one effectively intervenes or acts in a moment of need. This crowd mentality is strong enough for people to evade their known responsibilities.But it's not only frontline workers who don't make safety interventions in the workplace.There are also instances where supervisors do not intervene either.",
+        "When a group of employees sees unsafe behavior not being addressed at a leadership level it creates the precedent that this is how these situations should be addressed,thus defining the safety culture for everyone. Despite the fact that workers are encouraged to intervene when they observe unsafe operations,this happens less than half of the time.Fear is the ultimate factor in not intervening.There is a fear of penalty,a fear that they'll have to do more work if they intervene.Unsuccessful attempts in the past are another strong contributing factor to why people don't intervene—they tend to prefer to defer that action to someone else for all future situations. On many worksites,competent workers must be appointed.Part of theirjob is to intervene when workers perform a taskwithoutthe proper equipment or if the conditions are unsafe.Competentworkers are alsorequired to stop work from continuing when there's a danger. Supervisors also play a critical role.Even if a competent person isn't required,supervisors need a broad set of skills to not only identify and alleviate workplace hazards but also build a safety climate within theirteam that supports intervening and open communication among them. Beyond competent workers and supervisors,it's important to educate everyone within the organization that they are obliged to intervene if they witness a possible unsafe act,whether you're adesignated competent person, a supervisoror a frontline worker"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What is one of the factors contributing to failure of intervention in face of riskybehavior in the workplace?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Slack supervision style"
+            },
+            {
+              "key": "B",
+              "text": "Unfavorable workplace culture."
+            },
+            {
+              "key": "C",
+              "text": "Unforeseeable risk."
+            },
+            {
+              "key": "D",
+              "text": "Blocked communication."
+            }
+          ],
+          "answer": "B",
+          "explanation": "面对工作场所的危险行为，导致未能干预的一个因素是什么? A) 监督方式松懈。 C) 不可预测的风险。 B) 不良的工作场所文化。 D) 沟通受阻。 鹤? 根据是下信息词one of the faetors、failure ofintervention可将答案线索定位至第-区。 各* 第二段回答第一段提出的问题，即为什么没有更多的员工在看到有人在工作场所表现出危险行为时出面二 ，预。该段指出，员工需要能够看到危险情况开始出现，公司的文化需要让他们感到发声是安全的，他们需 ，要具备有效发言的沟通技巧。由此可知B项符合题意，不良的工作场所文化会使员工选择不进行干预。定位段落未提及监督方式，故排除A项“风险”是需要能被看到而不是被预测，C项的unforeseeable与原文 ，unfold不符，故排除。第二段中提及沟通是讲有效发言的沟通技巧，而不是沟通受阻，故排除D项。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author mean by“diffusion of responsibility”(Line 4,Para.3)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The more people are around,the more they need to worry about their personal safety."
+            },
+            {
+              "key": "B",
+              "text": "The more people who witness an event,the less likely anyone will venture to participate."
+            },
+            {
+              "key": "C",
+              "text": "The more people idling around on the street,the more likely they need taking care of."
+            },
+            {
+              "key": "D",
+              "text": "The more people are around,the less chance someone will step forward to intervene."
+            }
+          ],
+          "answer": "D",
+          "explanation": "作者所说的“责任分散 (效应) ”(第3 段第4 行) 是什么意思? A) 周围的人越多，他们就越需要担心自己的人身安全。 B) 目睹一起事件的人越多，就越不可能有人冒险参与。 C) 街上闲诞的人越多，他们就越可能需要照顾。 D) 周围的人越多，有人站出来于预的可能性就越洒。 十* 根据甫十信息启 diffusion ofresponsibiliy” (ine 4 Para 3j可将冤案绰索定信守第三访第下。 解$ 第三段第四句提到了“责任分散 (效应 ) ”，它的具体含义需要回湖上文。本段第三句提到了旁观者效村”应，即目睹事件的人越多，这个群体中就越没有人愿意帮助受害着。第五句对“责任分散 (效应) 进一步解释: 这个群体的人数越多，人们就越认为会有其他人来处理这件事。由此可知，D项符合题意。其他三项均与原文不符，故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What happens when unsafe behavior at the workplace is not addressed by the leaders?",
+          "options": [
+            {
+              "key": "A",
+              "text": "No one will intervene when they see similar behaviors."
+            },
+            {
+              "key": "B",
+              "text": "Everyone will see it as the easiest way to deal with crisis."
+            },
+            {
+              "key": "C",
+              "text": "Workers have to take extra caution executing their duties"
+            },
+            {
+              "key": "D",
+              "text": "Workers are left to take care of the emergency themselves."
+            }
+          ],
+          "answer": "A",
+          "explanation": "当领导没有处理工作场所的不安全行为时，会发生什么情况? 仿在看到类似行为时没有人会进行干预。 C) 员工在履行职责时必须格外小心。 B) 每个人都会认为这是处理危机最简单的方法。D) 员工只能自己处理紧急情况。 宕# 根据是二信息词unsafe behavior、not addressed by the leaders可将管案线索定位至第玉恨。 名> 第五段提及，当一群员工看到不安全行为没有得到领导层的处理时，就会形成这样的传统，即这些情况就应该这样处理，从而为每个人定义了安全文化，也即所有人都会遵循惯例，即使发现不安全行为也不去干预。由此可知，A项符合题意。B项中的“最简单的方法”与原文表述不符，故排除。其他两项定位段落 ，均未提及，故也排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What is the ultimate reason workers won't act when they see unsafe operations?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Preference of deferring the action to others."
+            },
+            {
+              "key": "B",
+              "text": "Anticipation of leadership intervention."
+            },
+            {
+              "key": "C",
+              "text": "Fear of being isolated by coworkers"
+            },
+            {
+              "key": "D",
+              "text": "Fear of having to do more work"
+            }
+          ],
+          "answer": "D",
+          "explanation": "员工在看到不安全操作时不采取行动的根本原因是什么? A) 倾向于将行动推给他人。 C) 害怕被同事孤立。 B) 预料到领导会干预。 D) 害怕必须做更多的工作。 号本有站订e ni和和了定全大各-有名+ 第六段第二句讲到，慌惧是不去干预的根本原因，第三句紧接着解释具体恐惧什么: 他们害怕受到惩罚，害怕如果干预就必须做更多的工作。由此可知，D项符合题意。A项是文中提到的another strong contributing factor“另一个重要因素”，不是题干中问的the ultimate reason，故排除。B 、C两项定位段落 ， 均未提及，故直接排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What is critical to ensuring workplace safety?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Workers be trained to operate their equipment properly"
+            },
+            {
+              "key": "B",
+              "text": "Workers exhibiting at-risk behavior be strictly disciplined."
+            },
+            {
+              "key": "C",
+              "text": "Supervisors create a safety environment for timely intervention."
+            },
+            {
+              "key": "D",
+              "text": "Supervisors conduct effective communication with frontline workers."
+            }
+          ],
+          "answer": "C",
+          "explanation": "确保工作场所安全的关键是什么? A) 对员工进行正确操作设备的培训。 C) 管理者创造一个能及时干预的安全环境。 B) 对表现出危险行为的员工进行严惩。 D) 管理者与一线员工进行有效沟通。 + 而夯下人下河iUDT SUNE WGH SEED订向宕宁且二十合第和本名第八段开始陈述管理者在保证工作场所安全方面的重要性: 管理者不仅要识别和减少工作场所的危险，还要在团队中营造一种安全氛围，鼓励团队成员进行干预和公开交流。C项中的safety environment与原文中的safety climate是同义转述，climate此处意为“氛围”，不是常用的“气候”，故本题选C。A、B两项原文均未提及，故排除。原文中提到“一线员工”是在最后一段，主要是讲组织内的每一个人，无论是何身 ，份，都要及时干预不安全行为，D项与原文和题干均不符，故排除。 了"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "The term“environmentalist”can mean different things.It used to refer to people trying to protect wildlife and natural ecosystems.In the 21st century,the term has evolved to capture the need to combat human-made climate change",
+        "The distinction between these two strands of environmentalism is the cause of a split within the scientific community about nuclear energy On one side are purists who believe nuclear power isn't worth the risk and the exclusive solution to the climate crisis is renewable energy.The opposing side agrees that renewables are crucial,but says society needs an amount of power available to meet consumers'basic demands when the sun isn't shining and the wind isn't blowing.Nuclear energy,being far cleaner than oil,gas and coal,is a natural option,especially where hydroelectric capacity is limited Leon Clarke,who helped author reports for the UN's Intergovernmental Panel on Climate Change,isn't an uncritical supporter of nuclear energy,but says it's a valuable option to have if we're serious about reaching carbon neutrality. “Core to all of this is the degree to which you think we can actually meet climate goals with 100% renewables,”he said.“If you don't believe we can do it,and you care about the climate,you are forced to think about something like nuclear.” The achievability of universal 100%renewability is similarly contentious.Cities such as Burlington, Vermont,have been“100%renewable”for years.But these cities often have small populations,occasionally still rely on fossil fuel energy and have significant renewable resources at their immediate disposal.Meanwhile, countries that manage to run off renewables typically do so thanks to extraordinary hydroelectric capabilities. Germany stands as the best case study for a large,industrialized country pushing into green energy Chancellor Angela Merkel in 2011 announced Energiewende,an energy transition that would phase out nuclear and coal while phasing in renewables.Wind and solar power generation has increased over 400%since 2010, and renewables provided 46%of the country's electricity in 2019. But progress has halted in recent years.The instability of renewables doesn't just mean energy is often not produced at night,but also that solar and wind can overwhelm the grid during the day,forcing utilities to pay customers to use their electricity.Lagging grid infrastructure struggles to transport this overabundance of green energy from Germany's north to its industrial south,meaning many factories still run on coal and gas.The political limit has also been reached in some places,with citizens meeting the construction of new wind turbines with loud protests. The result is that Germany's greenhouse gas emissions have fallen by around 11.5%since 2010—slower than the EU average of 13.5%."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What accounts for the divide within the scientific community about nuclear energy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Attention to combating human-made climate change."
+            },
+            {
+              "key": "B",
+              "text": "Emphasis on protecting wildlife and natural ecosystems."
+            },
+            {
+              "key": "C",
+              "text": "Evolution of the term ‘green energy'over the last century"
+            },
+            {
+              "key": "D",
+              "text": "Adherence to different interpretations of environmentalism."
+            }
+          ],
+          "answer": "D",
+          "explanation": "科学界在核能问题上存在分歧的原因是什么? A) 对应对人为气候变化的关注。 C) “绿色能源”一词在上个世纪的演变。 B) 对保护野生动物和自然生态系统的重视。 “了D) 对环保主义的不同解释的坚持。 鹤* 根据题二信息词divide within the scientifie community about nuclear energy 可将答案线索定位于第二段。 名> 第二段提到，这两种环保主义之间的区别是科学界在核能问题上产生分歧的原因。紧接着第三段对这一分歧进行了具体阐述，即一方认为核能不值得冒险，另一方认为核能是一个自然的选择。原文中的split对应题干中的divide，题干中的within the scientific community about nuclear energy属于原词复现，D项表述是原文中The distinction between these two strands of environmentalism的同义转述，故选项D为正确答案。选项 ，A、B、C均不符合题意，故都排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What is the solution to energy shortage proposed by purists'opponents?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Relying on renewables firmly and exclusively."
+            },
+            {
+              "key": "B",
+              "text": "Using fossil fuel and green energy alternately."
+            },
+            {
+              "key": "C",
+              "text": "Opting for nuclear energy when necessary"
+            },
+            {
+              "key": "D",
+              "text": "Limiting people's non-basic consumption."
+            }
+          ],
+          "answer": "C",
+          "explanation": "纯粹主义者的反对者提出的解决能源短缺的方案是什么? A) 坚定地完全依赖可再生能源。 C) 必要时选择核能。 B) 交替使用化石燃料和绿色能源。 D) 限制人们的非基本消耗。 宕 ?# 根据题干信息词solution to energy shortage和purists; opponents可将答案线索定位于第三段。 解记第三段提到纯粹主义者及其反对者对使用核能的观点。第一名指出，纯粹主义者认为核能不值得冒险, 气析 | 候危机的唯一解决方案是可再生能源。第二、三句指出反对者的观点，他们同意可再生能源至关重要， 但在可再生能源不稳定的情况下，为了满足人们的基本电力需求，核能是一个自然的选择。选项C是对第二、三句话的概括，故为正确答案。选项A在原文中是纯粹主义者的观点，故排除。选项B和D是利用原文中的个别词语设置的干扰项，也要排除。 ，"
+        },
+        {
+          "number": 53,
+          "stem": "What point does the author want to make with cities like Burlington as an example?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is controversial whether the goal of the whole world's exclusive dependence on renewables is attainable"
+            },
+            {
+              "key": "B",
+              "text": "It is contentious whether cities with large populations have renewable resources at their immediate disposal."
+            },
+            {
+              "key": "C",
+              "text": "It is arguable whether cities that manage to run off renewables have sustainable hydroelectric capabilities."
+            },
+            {
+              "key": "D",
+              "text": "It is debatable whether traditional fossil fuel energy can be done away with entirely throughout the world."
+            }
+          ],
+          "answer": "A",
+          "explanation": "作者想以伯灵顿这样的城市为例说明什么观点? A) 全世界完全依赖可再生能源的目标是否可以实现，是一个有争议的问题。 B) 人口众多的城市是否有可再生资源供其直接使用，是一个有争议的问题。 C) 能够成功依靠可再生能源运转的城市是否具有可持续的水力发电能力，是一个有争议的问题。 D) 传统的化石燃料能源能否在全世界被彻底淘汰，是一个有争议的问题。 过 1向FEEUEOIDRSRREERETTT 名> 第六段第一句指出，在全世界使用100%可再生能源的可实现性同样是有争议的。接着举了伯灵顿等城市的例子，伯灵顿等城市多年来一直宣称“100%使用可再生能源”，但这些城市往往人口较少，偶尔仍依 ，赖化石燃料能源，并有大量可再生资源可供直接使用。也就是说，全世界完全依赖可再生能源的目标是否 ，可以实现，是一个有争议的问题。故选项A是正确答案。B 、C两项是利用原文中的信息设置的干扰项，故排除。D项在原文中没有提及，应排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What do we learn about Germany regarding renewable energy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has increased its wind and solar power generation four times over the last two decades."
+            },
+            {
+              "key": "B",
+              "text": "It represents a good example of a major industrialized country promoting green energy."
+            },
+            {
+              "key": "C",
+              "text": "It relies on renewable energy to generate more than half ofits electricity."
+            },
+            {
+              "key": "D",
+              "text": "It has succeeded in reaching the goal of energy transition setby Merkel."
+            }
+          ],
+          "answer": "B",
+          "explanation": "在可再生能源方面，关于德国我们了解到什么? A) 在过去的二十年里，德国的风能和太阳能发电量增加了四售。 B) 德国是主要工业化国家推广绿色能源的一个典范。 C) 德国依靠可再生能源生产超过一半的电力。 D) 德国成功地实现了默克尔设定的能源转型目标。 相根据题干信息词Germany regarding renewable energy可将答案线索定位于第英。 名* 第七段首句提到，德国是一个工业化大国进军绿色能源领域的最佳案例研究对象。选项B是对这句话的同义转述，故为正确答案。由第七段第三句可判断，在过去十几年间，德国的风能和太阳能发电量增长了四倍多，而不是在二十年间，故选项A错误。德国依靠可再生能源生产的电力占该国总电力的46%，不超过一半，故选项C错误 。由第八段第一句话“但近年来进展已经停滞”可知，德国没有实现默克尔设定的逐步淘汰核能和煤炭，同时逐步引入可再生能源的能源转型目标，故选项D错误。"
+        },
+        {
+          "number": 55,
+          "stem": "What may be one ofthe reasons for Germany's progress having halted in recent years?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its grid infrastructure's capacityhas fallen behind its development of greenenergy"
+            },
+            {
+              "key": "B",
+              "text": "Its overabundance of green energy has forced power plants to suspend operation during daytime."
+            },
+            {
+              "key": "C",
+              "text": "Its industrial south is used to running factories on conventional energy supplies"
+            },
+            {
+              "key": "D",
+              "text": "Its renewable energy supplies areunstable both at night and during the day"
+            }
+          ],
+          "answer": "A",
+          "explanation": "末段指出，德国电网基础设施的容量未能跟上绿色能源的发展：北部多余的电力无法输送到南部，白天太阳能和风能发电还会使电网过载。这说明基础设施容量不足是发展受阻的原因之一，因此选 A；原文并未说过剩电力迫使发电厂停运。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98Word/2024%E5%B9%B46%E6%9C%88%E7%AC%AC1%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E3%80%90%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8PDF%E7%89%88%E3%80%91.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2024%E5%B9%B46%E6%9C%88%E7%AC%AC1%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90.pdf"
+}

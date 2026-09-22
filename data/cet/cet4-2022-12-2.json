@@ -1,0 +1,1500 @@
+{
+  "id": "cet4-2022-12-2",
+  "level": 4,
+  "year": 2022,
+  "month": 12,
+  "set": 2,
+  "title": "2022 年 12 月四级 · 第 2 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2022-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Parenting brings fathers more joy than it does mothers, according to a new study. The research examined three studies [[26]] more than 18,000 participants. Across all three, parenthood was [[27]]with more positive wellbeing outcomes for dads than for mums.",
+        "So why are fathers happier than mothers? “Fathers may fare better than mothers in part due to how they spend time with their children,” said lead author Katherine Nelson-Coffey. In one study, the authors [[28]]that dads were more likely to take “playing” as an [[29]]activity both when caring for their kids",
+        "and spending time with their kids. “Playing with their children likely offers parents opportunities to",
+        "experience positive feelings and [[30]]closeness with their children,” they say.",
+        "Fathers also did better than men without kids, reporting greater happiness, life satisfaction, and fewer [[31]]symptoms. They also reported greater connectedness and autonomy (§ %). For mums, [[32]], compared to women without children, the results weren't quite as positive. Mums reported greater autonomy, but also “greater trouble” and fewer positive [[33]].",
+        "Mums reported happier moods while interacting with their kids, compared to other experiences, but not while engaging [[34]]in childcare. “This difference suggests that how mothers and fathers spend time with their children might have important [[35]]for their wellbeing,” the authors write. They suspect that mums may be less happy than dads because they're more likely to have higher expectations about parenthood. As such, they're more likely to be “let down” by the experience."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "additional"
+        },
+        {
+          "key": "B",
+          "text": "associated"
+        },
+        {
+          "key": "C",
+          "text": "composing"
+        },
+        {
+          "key": "D",
+          "text": "cultivate"
+        },
+        {
+          "key": "E",
+          "text": "depressive"
+        },
+        {
+          "key": "F",
+          "text": "directly"
+        },
+        {
+          "key": "G",
+          "text": "emotions"
+        },
+        {
+          "key": "H",
+          "text": "however"
+        },
+        {
+          "key": "I",
+          "text": "implications"
+        },
+        {
+          "key": "J",
+          "text": "interfered"
+        },
+        {
+          "key": "K",
+          "text": "involving"
+        },
+        {
+          "key": "L",
+          "text": "note"
+        },
+        {
+          "key": "M",
+          "text": "precisely"
+        },
+        {
+          "key": "N",
+          "text": "superficial"
+        },
+        {
+          "key": "O",
+          "text": "therefore"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "additional"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "composing"
+            },
+            {
+              "key": "D",
+              "text": "cultivate"
+            },
+            {
+              "key": "E",
+              "text": "depressive"
+            },
+            {
+              "key": "F",
+              "text": "directly"
+            },
+            {
+              "key": "G",
+              "text": "emotions"
+            },
+            {
+              "key": "H",
+              "text": "however"
+            },
+            {
+              "key": "I",
+              "text": "implications"
+            },
+            {
+              "key": "J",
+              "text": "interfered"
+            },
+            {
+              "key": "K",
+              "text": "involving"
+            },
+            {
+              "key": "L",
+              "text": "note"
+            },
+            {
+              "key": "M",
+              "text": "precisely"
+            },
+            {
+              "key": "N",
+              "text": "superficial"
+            },
+            {
+              "key": "O",
+              "text": "therefore"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【语法判断】空格前的 The research examined three studies 是一个完整的主谓宾结构,空格后是一个名词短语,因此本空应填入动词的-ing 形式， 与其后的名词短语 more than 18,000 participants 共同修饰空格前的 studies。 【语义判断〗空格所在句的意思是,这项研究调查了3项 .1.8万多名参与者。由和句意可知， 这 3 项研究共有 1.8 万多名参与者,因此本空应填入含有“包括,涉及”意义的动词,由此确定答案为 K) involving。备选的动词-ing 形式中,C) composing 一般与 of 连用构成短语 be composed of“组成”， 因此排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "additional"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "composing"
+            },
+            {
+              "key": "D",
+              "text": "cultivate"
+            },
+            {
+              "key": "E",
+              "text": "depressive"
+            },
+            {
+              "key": "F",
+              "text": "directly"
+            },
+            {
+              "key": "G",
+              "text": "emotions"
+            },
+            {
+              "key": "H",
+              "text": "however"
+            },
+            {
+              "key": "I",
+              "text": "implications"
+            },
+            {
+              "key": "J",
+              "text": "interfered"
+            },
+            {
+              "key": "K",
+              "text": "involving"
+            },
+            {
+              "key": "L",
+              "text": "note"
+            },
+            {
+              "key": "M",
+              "text": "precisely"
+            },
+            {
+              "key": "N",
+              "text": "superficial"
+            },
+            {
+              "key": "O",
+              "text": "therefore"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【语法判断】分析句子结构可知,本名缺少谓语动词。空格前有 be 动词的过去式 was,空格后是介词 with,因此本空应填入动词的过去分词形式。 【语义判断空格所在句的意思是,在这 3 项研究中,相较于母亲, 对父亲来说,养育孩子与更多积极的幸福效果 。将备选项中的 associated 代入句中,构成 be associated with“与……有关”， 符合句意,因此答案为 B) associated。备选的其他词不能与 with 构成搭配,因此排除。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "additional"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "composing"
+            },
+            {
+              "key": "D",
+              "text": "cultivate"
+            },
+            {
+              "key": "E",
+              "text": "depressive"
+            },
+            {
+              "key": "F",
+              "text": "directly"
+            },
+            {
+              "key": "G",
+              "text": "emotions"
+            },
+            {
+              "key": "H",
+              "text": "however"
+            },
+            {
+              "key": "I",
+              "text": "implications"
+            },
+            {
+              "key": "J",
+              "text": "interfered"
+            },
+            {
+              "key": "K",
+              "text": "involving"
+            },
+            {
+              "key": "L",
+              "text": "note"
+            },
+            {
+              "key": "M",
+              "text": "precisely"
+            },
+            {
+              "key": "N",
+              "text": "superficial"
+            },
+            {
+              "key": "O",
+              "text": "therefore"
+            }
+          ],
+          "answer": "L",
+          "explanation": "空格作复数主语 authors 的谓语，后接 that 从句，需要动词原形。作者们指出父亲照顾或陪伴孩子时更可能把玩耍作为活动，L) note 表示“指出”，符合句意。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "additional"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "composing"
+            },
+            {
+              "key": "D",
+              "text": "cultivate"
+            },
+            {
+              "key": "E",
+              "text": "depressive"
+            },
+            {
+              "key": "F",
+              "text": "directly"
+            },
+            {
+              "key": "G",
+              "text": "emotions"
+            },
+            {
+              "key": "H",
+              "text": "however"
+            },
+            {
+              "key": "I",
+              "text": "implications"
+            },
+            {
+              "key": "J",
+              "text": "interfered"
+            },
+            {
+              "key": "K",
+              "text": "involving"
+            },
+            {
+              "key": "L",
+              "text": "note"
+            },
+            {
+              "key": "M",
+              "text": "precisely"
+            },
+            {
+              "key": "N",
+              "text": "superficial"
+            },
+            {
+              "key": "O",
+              "text": "therefore"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【语法判断】空格前有不定冠词an,空格后有名词 activity,因此本空应填入以元音音素开头的形容词。 【语义判断] 空格所在句的意思是,父亲在照顾孩子和陪伴孩子时,更有可能把“玩夏”作为一项 _ 活动。在备选项中,只有 additional“额外的”符合句意,由此确定答案为 A) additional。 在备选项中, B) associated“有关联的”也是以元音音素开头的形容词,但是不符合句意,因此排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "additional"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "composing"
+            },
+            {
+              "key": "D",
+              "text": "cultivate"
+            },
+            {
+              "key": "E",
+              "text": "depressive"
+            },
+            {
+              "key": "F",
+              "text": "directly"
+            },
+            {
+              "key": "G",
+              "text": "emotions"
+            },
+            {
+              "key": "H",
+              "text": "however"
+            },
+            {
+              "key": "I",
+              "text": "implications"
+            },
+            {
+              "key": "J",
+              "text": "interfered"
+            },
+            {
+              "key": "K",
+              "text": "involving"
+            },
+            {
+              "key": "L",
+              "text": "note"
+            },
+            {
+              "key": "M",
+              "text": "precisely"
+            },
+            {
+              "key": "N",
+              "text": "superficial"
+            },
+            {
+              "key": "O",
+              "text": "therefore"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【语法判断】分析句子结构可知,空格所在短语与 experience positive feelings 构成并列结构,因此本空应填入动词原形,与 experience 对应。 【语义判断】空格所在句的意思是,和孩子一起玩可能会给父母提供体验积极情感的机会, 并 ~ 与孩子的亲密关系。备选项中只有 cultivate“培养”符合句意,由此答案为 D) cultivate。 备选项中其他的动词原形只有 L) note,不符合句意,因此排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "additional"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "composing"
+            },
+            {
+              "key": "D",
+              "text": "cultivate"
+            },
+            {
+              "key": "E",
+              "text": "depressive"
+            },
+            {
+              "key": "F",
+              "text": "directly"
+            },
+            {
+              "key": "G",
+              "text": "emotions"
+            },
+            {
+              "key": "H",
+              "text": "however"
+            },
+            {
+              "key": "I",
+              "text": "implications"
+            },
+            {
+              "key": "J",
+              "text": "interfered"
+            },
+            {
+              "key": "K",
+              "text": "involving"
+            },
+            {
+              "key": "L",
+              "text": "note"
+            },
+            {
+              "key": "M",
+              "text": "precisely"
+            },
+            {
+              "key": "N",
+              "text": "superficial"
+            },
+            {
+              "key": "O",
+              "text": "therefore"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【语法判断空格前有限定词 fewer,空格后是名词 symptoms,因此本空应填入形容词修饰其后的名词。 【语义判断】空格所在句的意思是,父亲也比没有孩子的男性更好, 他们更幸福,生活满意度更高， 症状更少。结合句意,本空应填入表达负面、消极情绪的形容词, 由此确定答案为 E) depressive。备选的其他形容词均没有此含义， 因此排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "additional"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "composing"
+            },
+            {
+              "key": "D",
+              "text": "cultivate"
+            },
+            {
+              "key": "E",
+              "text": "depressive"
+            },
+            {
+              "key": "F",
+              "text": "directly"
+            },
+            {
+              "key": "G",
+              "text": "emotions"
+            },
+            {
+              "key": "H",
+              "text": "however"
+            },
+            {
+              "key": "I",
+              "text": "implications"
+            },
+            {
+              "key": "J",
+              "text": "interfered"
+            },
+            {
+              "key": "K",
+              "text": "involving"
+            },
+            {
+              "key": "L",
+              "text": "note"
+            },
+            {
+              "key": "M",
+              "text": "precisely"
+            },
+            {
+              "key": "N",
+              "text": "superficial"
+            },
+            {
+              "key": "O",
+              "text": "therefore"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【语法判断】空格所在句句子成分完整,因此本空应填入副词。 【语义判断】空格所在句的意思是，__ ,对于母亲来说,与没有孩子的女性相比,结果就不那么乐观了。由上一句可知,父亲比没有孩子的男性感到更幸福。本句对比了母亲与没有孩子的女性的情绪体验,结果并不如父亲那样乐观。本句与上一句构成转折关系,因此本空应填入表达转折意义的副词,由此确定答案为 H) however。备选的其他副词均没有此含义,因此排除。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "additional"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "composing"
+            },
+            {
+              "key": "D",
+              "text": "cultivate"
+            },
+            {
+              "key": "E",
+              "text": "depressive"
+            },
+            {
+              "key": "F",
+              "text": "directly"
+            },
+            {
+              "key": "G",
+              "text": "emotions"
+            },
+            {
+              "key": "H",
+              "text": "however"
+            },
+            {
+              "key": "I",
+              "text": "implications"
+            },
+            {
+              "key": "J",
+              "text": "interfered"
+            },
+            {
+              "key": "K",
+              "text": "involving"
+            },
+            {
+              "key": "L",
+              "text": "note"
+            },
+            {
+              "key": "M",
+              "text": "precisely"
+            },
+            {
+              "key": "N",
+              "text": "superficial"
+            },
+            {
+              "key": "O",
+              "text": "therefore"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【语法判断】分析句子结构可知,and 连接两个并列成分 greater trouble 和 fewer positive 因此本空应填入名词,与 trouble 对应， 而且空格前还有限定词 fewer,因此应填入可数名词复数。 【语义判断] 空格所在句的意思是,妈妈们说她们拥有更大的自主权,但也有“更多的麻烦”和更少的积极 。备选项中只有 emotions“情绪， 感情”符合句意,由此答案为 G) emotions。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "additional"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "composing"
+            },
+            {
+              "key": "D",
+              "text": "cultivate"
+            },
+            {
+              "key": "E",
+              "text": "depressive"
+            },
+            {
+              "key": "F",
+              "text": "directly"
+            },
+            {
+              "key": "G",
+              "text": "emotions"
+            },
+            {
+              "key": "H",
+              "text": "however"
+            },
+            {
+              "key": "I",
+              "text": "implications"
+            },
+            {
+              "key": "J",
+              "text": "interfered"
+            },
+            {
+              "key": "K",
+              "text": "involving"
+            },
+            {
+              "key": "L",
+              "text": "note"
+            },
+            {
+              "key": "M",
+              "text": "precisely"
+            },
+            {
+              "key": "N",
+              "text": "superficial"
+            },
+            {
+              "key": "O",
+              "text": "therefore"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【语法判断】空格所在句句子成分完整,因此本空应填入副词。考生需要注意的是,空格把动词短语 engaging in 分隔开了。 【语义判断空格所在句的意思是,与其他经历相比,妈妈们在与孩子互动时的情绪更快乐,但在 ~ 照顾孩子时则不然。备选项中只有 directly “直接地?符合句意, 由此确定答案为 F) directly。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "additional"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "composing"
+            },
+            {
+              "key": "D",
+              "text": "cultivate"
+            },
+            {
+              "key": "E",
+              "text": "depressive"
+            },
+            {
+              "key": "F",
+              "text": "directly"
+            },
+            {
+              "key": "G",
+              "text": "emotions"
+            },
+            {
+              "key": "H",
+              "text": "however"
+            },
+            {
+              "key": "I",
+              "text": "implications"
+            },
+            {
+              "key": "J",
+              "text": "interfered"
+            },
+            {
+              "key": "K",
+              "text": "involving"
+            },
+            {
+              "key": "L",
+              "text": "note"
+            },
+            {
+              "key": "M",
+              "text": "precisely"
+            },
+            {
+              "key": "N",
+              "text": "superficial"
+            },
+            {
+              "key": "O",
+              "text": "therefore"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断】空格前有谓语动词 have 和形容词 important,空格后是介词 for, 因此本空应填入名词。 【语义判断空格所在句的意思是,这种差异表明， 父母如何花时间陪伴孩子可能对父母的幸福有重要 。备选项中只有 implications“影响”符合句意,由此答案为 I) implications。 mn"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-2-b",
+      "type": "matching",
+      "title": "Learning to say no",
+      "paragraphs": [
+        "A) Not doing something will always be faster than doing it. This philosophy applies in many areas of life. For example, there is no meeting that goes faster than not having a meeting at all. This is not to say you should never attend another meeting, but the truth is that we say “yes” to too many things we don’t actually want to do.",
+        "B) How often do people ask you to do something and you just reply, “Sure.” Three days later, you're overwhelmed by how much is on your to-do list. We become frustrated by our obligations even though we were the ones who said “yes” to them in the first place. Even worse, people will occasionally fight to do things that waste time. You don’t have to do something just because it exists. It’s worth asking if things are necessary. Many of them are not, and a simple “no” will be more productive than whatever work the most efficient person can cope with. But if the benefits of saying “no” are so obvious, then why do we say “yes” so often?",
+        "C) We say “yes” to many requests not because we want to do them, but because we don’t want to be seen as rude or unhelpful. Often, we have to consider saying “no” to someone we will interact with again in the future—our co-worker, our spouse, our family and friends. Saying “no” to our superiors at work can be particularly difficult. In these situations, I like the approach recommended in Essentialism by Greg McKeown. He writes, “Remind your superiors what you would be neglecting if you said ‘yes’ and force them to deal with the trade-off. For example, if your manager comes to you and asks you to do X, you can respond with ‘Yes, I'm happy to make this the priority. Which of these other projects should I deprioritize to pay attention to this new project?””",
+        "D) Collaborating with others is an important element of life. The thought of straining the relationship outweighs the commitment of our time and energy. For this reason, it can be helpful to be gracious in your response. Do whatever favors you can, and be warm-hearted and direct when you have to say no. But even after we have accounted for these social considerations, many of us still seem to do a poor job of managing the trade-off between yes and no. We find ourselves over-committed to things that don’t meaningfully improve or support those around us, and certainly don’t improve our own lives.",
+        "E) Perhaps one issue is how we think about the meaning of yes and no. The words “yes” and “no” get so often used in comparison with each other that it feels like they carry equal weight in conversation. In reality, they're not just opposite in meaning, but of entirely different magnitudes in commitment. When you say “no”, you're only saying “no” to one option. When you say “yes”, you're saying “no” to every other option. I like how economist Tim Harford put it, “Every time we say ‘yes’ to a request, we're also saying ‘no’ to anything else we might accomplish with the time.” Once youre committed to something, you've already decided how that future block of time will be spent. In other words, saying “no” saves you time in the future. Saying “yes” costs you time in the future. “No” is a form of time credit. You retain the ability to spend your future time however you want. “Yes” is a form of time debt. You have to pay back your commitment at some point.",
+        "F) “No” is a decision. “Yes” is a responsibility. Saying “no” is sometimes seen as a luxury that only those in power can afford. And it’s true: turning down opportunities is easier when you can fall back on the safety net provided by power, money, and authority. But it’s also true that saying “no” is not merely a privilege reserved for the successful. It’s also a strategy that can help you become successful. Saying “no” is an important skill to develop at any stage of your career because it retains the most important asset in life: your time. As investor Pedro Sorrentino put it, “If you don’t guard your time, people will steal it from you.” You need to say “no” to whatever isn’t leading you toward your goals.",
+        "G) Nobody embodied this idea better than Steve Jobs, who said, “People think focus means saying ‘yes’ to the thing you've got to focus on. But that’s not what it means at all. It means saying ‘no’ to the hundred other good ideas that there are. You have to pick carefully.” Jobs had another great quote about saying “no”: “I'm actually as proud of the things we haven’t done as the things I have done. Innovation is saying ‘no’ to 1,000 things.”",
+        "H) Over time, as you continue to improve and succeed, your strategy needs to change. The opportunity cost of your time increases as you become more successful. At first, you just eliminate the obvious distractions and explore the rest. As your skills improve and you learn to separate what works from what doesn’t, you have to continually increase your threshold for saying “yes”. You still need to say “no” to distractions, but you also need to learn to say “no” to opportunities that were previously good uses of time, so you can make space for better uses of time. It’s a good problem to have, but it can be a tough skill to master.",
+        "I) What is true about health is also true about productivity: an ounce of prevention is worth a pound of cure. More effort is wasted doing things that don’t matter than is wasted doing things inefficiently. And if that is the case, elimination is a more useful skill than optimization. I'm reminded of the famous Peter Drucker quote, “There is nothing so useless as doing efficiently that which should not be done at all.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "People often grant a request just because they want to appear polite and helpful.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】同义转述题。定位句提出,我们答应的许多请求并不是因为我们想去做,而是我们不想被别人党得自己没礼狐,或者不想帮助他人。题干中的 grant a request 对应定位句中的 say“yes”to many Tequests, 题干中的 polite and helpful 对应原文中的 don't.….rude or unhelpful, 故答案为C) 。"
+        },
+        {
+          "number": 37,
+          "stem": "It’s no easy job learning to say “no” to opportunities that were once considered worth grasping.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】 细节归纳题。定位段最后两句提到,你仍然需要对分心的事情说“不,但你也需要学会对以前曾认为是很好地利用时间的那些机会说“不,这样你就可以腾出空间更好地利用时间。这是一个很好的问题,但它可能是一项很难掌握的技能。题于中的 say“no”to opportunities that were once considered worth grasping 对应原文中的 say“no” to opportunities that were Previously good uses of time,题干中的 no easy job 对应定位段最后一名中的 tough,题干内容为定位段最后两句的总结归纳,故答案为 HD 。"
+        },
+        {
+          "number": 38,
+          "stem": "When you decline a request, you are saving your future time.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】同义转述题。定位句提到,说“不?可以节省你将来的时间。题于中的 saving your future time 对应文中的 saves you time in the future,题于中的 decline a request 对应定位句中的 saying “no”,故答案为E) 。"
+        },
+        {
+          "number": 39,
+          "stem": "People sometimes struggle to do things that are simply a waste of time.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 段提到，人们有时还会为做一些浪费时间的事情而争执。题干的 struggle 对应 fight，a waste of time 对应 waste time，是原句的同义转述。"
+        },
+        {
+          "number": 40,
+          "stem": "Doing efficiently what is not worth doing is the most useless effort.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【精析】同义转述题。定位句提到彼得，德鲁克的名言:\"没有什么比高效地做根本不应该做的事情更无用了。?题干中的 not worth doing 对应文中的 doing.….that which should not be done at all,题干中的 the most useless effort 对应文中的 There is nothing so useless,故答案为I 。"
+        },
+        {
+          "number": 41,
+          "stem": "It is especially difficult for people to decline to do what their superiors ask them to do.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】同义转述题。定位句提到,在工作中对上司说“不”可能尤其困难。题干中的 especially difficult 对应原文中的 particularly difficult, 题干中的 decline to do what their superiors ask them to do 对应原文中的 Saying“no”to our superiors， 故答案为 C) 。"
+        },
+        {
+          "number": 42,
+          "stem": "People agree to do too many things they are in fact unwilling to do.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】细节归纳题。定位句指出,事实是,我们对于太多实际上不想做的事情说“是”了。题干中的 agree 对应定位句中 say“yes”,题干中的 in fact unwilling to do 对应原文中的 don't actually want to do,题干为原文内容的归纳概括,故答案为 A) 。"
+        },
+        {
+          "number": 43,
+          "stem": "According to one famous entrepreneur, innovation means refusal to do an enormous number of things.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】同义转述题。定位句指出,创新就是对 1,000件事说“不”。题干中的innovation means Tefusal to do an enormous number of things 是对原文中“Innovation is saying“no”to 1, 000 things”的同义转述,故答案为 G) 。"
+        },
+        {
+          "number": 44,
+          "stem": "It is an essential aspect of life to cooperate with other people.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】同义转述题。定位句指出,与他人合作是生活的重要组成部分。题干中的 essential aspect 对应定位句中的 important element,题干中的 cooperate 对应原文中的 Collaborating,故答案为D) 。"
+        },
+        {
+          "number": 45,
+          "stem": "Refusing a request is sometimes seen as a privilege not enjoyed by ordinary people.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【精析】同义转述题。定位句指出,说“不>有时被视为只有当权者才能负担得起的奢侈品。题干中的 Privilege 是对原文中 luxury 的同义转述,题干中 not enjoyed by ordinary people 是对原文中 only those in power can afford 的同义转述,故答案为 F) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "We're eating more fish than ever these days. At around 20 kilograms per person global fish consumption is now more than twice what it was in the 1960s. What's really remarkable, though, is where that fish comes from.",
+        "For the first time in human history, most of our aquatic (水产的) food now comes from farming rather than fishing.",
+        "People ate around 73 million tonnes of farmed fish—just more than half of the volume of fish that humans consumed—in 2014. That’s out of a total fish supply of 167 million tonnes; the remaining 20 million or so tonnes go into things like animal feed and medical products.",
+        "To keep eating fish at the current rate, we're definitely going to need to keep aquaculture (水产养殖) developing. That's because the volume of fish caught in the wild has leveled off since the 1990s.",
+        "Back in 1974, only 10% of marine fish stocks had been overfished. Now, more than three-tenths are. Only a tenth of our oceans’ fish stocks could sustain heavier fishing than current levels.",
+        "But while catchings at sea have suffered, fish-farming has been growing at a fast rate. A lot of that is coming from China, which produces 60% of the world’s farmed fish. In fact, some 35 countries, including China, now produce more farmed than wild-caught fish.",
+        "This shift toward aquaculture isn’t just good for ensuring salmon (三文鱼) on your plate; it’s also crucial to ensuring food security and sustainability. By 2050, the world will need to feed an estimated 9.7 billion people. They'll have to get their protein somewhere. However, raising cattle, pigs, and other land- based animals requires vast sums of grain and water. For example, pound for pound, beef requires 15 times more feed to raise than carp, a freshwater fish farmed all over Asia. That grain—and the water needed to grow it—could be consumed by people instead.",
+        "However, aquaculture is no silver bullet. In some southeast Asian countries, shrimp farming does disastrous damage to marine ecosystems. Despite these problems, however, shrimp continues to be among the most popular seafoods worldwide."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author say is remarkable about the fish we eat?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They reproduce quickly."
+            },
+            {
+              "key": "B",
+              "text": "They are mostly farmed."
+            },
+            {
+              "key": "C",
+              "text": "They have become as important as grain."
+            },
+            {
+              "key": "D",
+              "text": "They have a longer history than humans."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】了细节辨认题。第一段最后一句提到,真正值得注意的是这些鱼的来源。第二段接着指出,我们大部分的水产食物来自养殖而非捕捞。由此可知， 我们吃的大部分的鱼是养殖的,故答案为 B) 。"
+        },
+        {
+          "number": 47,
+          "stem": "What do we need to do if we keep consuming fish at the current rate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Increase the fishing volume considerably."
+            },
+            {
+              "key": "B",
+              "text": "Develop more advanced fishing technology."
+            },
+            {
+              "key": "C",
+              "text": "Enlarge the marine fish stocks effectively."
+            },
+            {
+              "key": "D",
+              "text": "Expand the scale of fish-farming continuously."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】推理判断题。定位句提到,为了保证鱼肉摄入量一直处于现如今的水平,我们肯定需要让水产养殖业不断发展。通过推断可知,让水产养殖业不断发展的举措肯定包括扩大养殖规模,故答案为 D) 。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author say about China in terms of aquatic food?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It places increasing emphasis on fishing now."
+            },
+            {
+              "key": "B",
+              "text": "It boasts of the world’s largest fishing stocks."
+            },
+            {
+              "key": "C",
+              "text": "It raises more fish than caught from the wild."
+            },
+            {
+              "key": "D",
+              "text": "It supplies 60% of the world’s fish products."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】细节辨认题。定位句指出,事实上,包括中国在内的约 35 个国家, 现如今的养殖鱼产量超过了野生捕捞量。C)选项中的 raises more…than caught from the wild 对应定位句中的 produce more farmed than wild-caught,故答案为 C) 。"
+        },
+        {
+          "number": 49,
+          "stem": "Why does the author say aquaculture is so important these days?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a must for feeding the world’s fast-growing population."
+            },
+            {
+              "key": "B",
+              "text": "It proves a reliable source of protein for humans and animals."
+            },
+            {
+              "key": "C",
+              "text": "It is essential to maintaining both mental and physical health."
+            },
+            {
+              "key": "D",
+              "text": "It ensures a balanced healthy diet for people the world over."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】 推理判断题。定位段提到,这种向水产养殖的转变对于确保食品安全性和可持续性至关重要。到 2050 年,全球将需要养活大约97 亿人。他们需要从某些地方获取和蛋白质。随后用牛和鲤鱼的例子来说明,养鱼比养牛更划算。结合段落大意可以推断出,发展水产养殖对于养活迅速增长的人口更有利,故答案为 A) 。 【吉错】倒数第二段中只提及了人类生存需要蛋白质,并没有提到动物 ,故排除 B)。文中没有提到水产养殖对于保持身心健康的影响,故排除 C)。文中也没有提及水产养殖确保了人类饮食的平衡健康,故排除 D) 。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author imply by saying aquaculture is no silver bullet?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Shrimp-farming is a risky business."
+            },
+            {
+              "key": "B",
+              "text": "Fish-farming will not be sustainable."
+            },
+            {
+              "key": "C",
+              "text": "Fish-farming may cause serious problems too."
+            },
+            {
+              "key": "D",
+              "text": "Shrimp-farming can become quite expensive."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】细节辨认题。最后一段第二句指出,在一些东南亚国家,虾类养殖对海洋生态造成了灾难性的破坏。 由此可知,水产养殖也有负面影响,故答案为 C)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "In 2020, the Nobel Peace Prize was awarded to the World Food Programme (WFP).",
+        "Why a Nobel Prize for the WFP, and why now? In 2019, the WFP assisted nearly 100 million people in 88 countries. It is the safety net for those who fall off the edge of existence. It is a response to solving the problem of food instability. Its Nobel Prize reminds us all of the moral hazard in imagining that the poor and vulnerable are somebody else’s problem.",
+        "The WFP has been around since 1961 and has been the global coordinator of nationally based efforts to avoid disasters with food aid. Despite decades of effort to eliminate hunger, the latest estimate is that about 11% of people on the planet (about 820 million people) are suffering daily undernourishment. Progress at reducing undernourishment has stopped despite gains through the 1990s and 2000s.",
+        "Developed countries sometimes offer food and aid to developing ones, but at a price. One American philosopher stated that addressing the needs of the poor and vulnerable is about more than money—it is mostly about creating conditions under which prosperity and opportunity can thrive. When aid is offered",
+        "with heavy conditions attached, like loan repayment or food for resources, it often widens the gap between rich and poor and sustains the old world order. This is why the work of the WFP is so vital.",
+        "The scientific community, however, can provide a helping hand to the WFP. By sharing knowledge of agriculture and climate with peers in countries most vulnerable to poverty and hunger, scientists can help reduce these problems. By making its voice heard, science can lead by example. The ability to overcome food shortages that must be built into some of the poorest countries will not come from loans from wealthy countries, which may have food problems of their own, or world economic institutions. This ability will be built upon self-confident people using open and shared scientific knowledge to pull themselves out of their misery."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the WFP's winning of the Nobel Peace Prize make us realize?",
+          "options": [
+            {
+              "key": "A",
+              "text": "More and more people in the world are suffering from starvation."
+            },
+            {
+              "key": "B",
+              "text": "All of us can be affected by food instability one way or another."
+            },
+            {
+              "key": "C",
+              "text": "It is hazardous to leave millions of people poor and vulnerable."
+            },
+            {
+              "key": "D",
+              "text": "It is morally wrong to think helping the poor is not our business."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】细节辨认题。定位句指出,它的诺贝尔奖提醒我们所有人,把穷人和弱势群体当成别人的问题是一种道德危机.。“它”指的是前文提到的世界粮食计划署,D)选项中的 morally wrong 对应定位句中的 moral hazard。由此可知,答案为D) 。"
+        },
+        {
+          "number": 52,
+          "stem": "What do we learn about the WFP's effort to eliminate hunger?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has ensured a sufficient food supply to millions."
+            },
+            {
+              "key": "B",
+              "text": "It is still far from its goal despite the progress made."
+            },
+            {
+              "key": "C",
+              "text": "It has done a good job in combating natural disasters."
+            },
+            {
+              "key": "D",
+              "text": "It is preventing starvation occurring on a global scale."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】推理判断题。定位段提到,世界粮食计划署自 1961 年成立以来,一直是各国通过粮食援助避免灾难的全球协调机构。尽管为消除钒狐付出了几十年的努力,但据最新估计,地球上约有 11% 的人(约 8.2亿人)每天营养不良。尽管在 20 世纪 90 年代和 21 世纪初取得了一些进展,但在减少营养不良方面的进展已经停止。由此推断可知,世界粮食计划署在消除饥狐上取得了一些进展,但距离目标还很远,故答案为 B) 。"
+        },
+        {
+          "number": 53,
+          "stem": "What will happen when food aid is offered at a price?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The rich will become richer and the poor poorer."
+            },
+            {
+              "key": "B",
+              "text": "More people will be willing to join in the effort."
+            },
+            {
+              "key": "C",
+              "text": "More food will be made available to the needy."
+            },
+            {
+              "key": "D",
+              "text": "The relief effort will be rendered less sustainable."
+            }
+          ],
+          "answer": "A",
+          "explanation": "原文指出，附带偿还贷款、以粮食换资源等沉重条件的粮食援助，往往扩大贫富差距。因此这种援助可能使富人更富、穷人更穷，选 A。"
+        },
+        {
+          "number": 54,
+          "stem": "How can scientists help cope with poverty and hunger?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By collaborating closely with world economic institutions."
+            },
+            {
+              "key": "B",
+              "text": "By sharing expertise with peers in poverty-stricken nations."
+            },
+            {
+              "key": "C",
+              "text": "By setting up more food research programs in developing countries."
+            },
+            {
+              "key": "D",
+              "text": "By building self-respect in people suffering from undernutrition."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】推理判断题。定位句提到,通过与最容易遭受贫困和饥饿的国家的同行分享农业和气候知识,科学家可以帮助减少这些问题。B)选项中的 expertise 是对定位句中 knowledge of agriculture and climate 的总结,由此可推断,科学家可以通过与贫困国家的同行分享专业知识来帮助解决贫困和饥钱问题,故答案为 B) 。"
+        },
+        {
+          "number": 55,
+          "stem": "What message does the author try to convey at the end of the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Wealthy nations should solve their own food problems first."
+            },
+            {
+              "key": "B",
+              "text": "Rich countries should be more generous in providing food aid."
+            },
+            {
+              "key": "C",
+              "text": "Poor nations should enhance their own ability to solve their food shortages."
+            },
+            {
+              "key": "D",
+              "text": "World economic institutions should play a bigger role in fighting hunger."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析]推理判断题。定位句指出,这种能力将建立在自信的人们利用开放和共享的科学知识使自己摆脱痛苦的基础上。结合前文可知“这种能力”指的是最贫穷的国家必须具备克服粮食短缺的能力。由此推断可知,作者认为贫穷国家应该提高自己解决粮食短缺的能力,故答案为 C) 。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/cet4_2022_12_2.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2022_12_2_ans.pdf"
+}

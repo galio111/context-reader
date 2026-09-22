@@ -1,0 +1,1662 @@
+{
+  "id": "cet4-2023-06-1",
+  "level": 4,
+  "year": 2023,
+  "month": 6,
+  "set": 1,
+  "title": "2023 年 6 月四级 · 第 1 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2023-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "You probably haven't taken the time to think of all the work that went into creating the shirt on your back. I mean, how hard it could be to create fabric and [[26]] it into a shirt shape. Don't machines do all that? Well, creating fabric from cotton, which is the most [[27]]clothing material, is actually a process that involves a lot of water, 2,700 liters per shirt to be [[28]]Take a look at the video below from National Geographic for some more mind-blowing [[29]]about cotton clothing production.",
+        "Clean water is [[30]] becoming one of the most sought-after resources in the world. Given how large the [[31]] and cotton industries are, they take up a lot of our fresh water demands across the world, according to The Huffington Post. The video from National Geographic was created to spread [[32]]of how environmentally harmful cotton is. But the situation can be made better. Through better water management and farming practices, water usage in cotton production can be cut down by [[33]]40 percent.",
+        "Called \"Better Cotton\", this environmentally conscious product will save millions of liters of water a year simply from [[34]]the demands of cotton production. Cotton doesn't have to go, since it is,",
+        "after all, one of the most useful cash crops across the globe. However, as water supplies [[35]], farmers and consumers need to be more conscious of the effect that these products have on the environment as a whole."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "abstracts"
+        },
+        {
+          "key": "B",
+          "text": "abundant"
+        },
+        {
+          "key": "C",
+          "text": "awareness"
+        },
+        {
+          "key": "D",
+          "text": "conscience"
+        },
+        {
+          "key": "E",
+          "text": "exact"
+        },
+        {
+          "key": "F",
+          "text": "increasingly"
+        },
+        {
+          "key": "G",
+          "text": "intense"
+        },
+        {
+          "key": "H",
+          "text": "mend"
+        },
+        {
+          "key": "I",
+          "text": "nearly"
+        },
+        {
+          "key": "J",
+          "text": "reckoning"
+        },
+        {
+          "key": "K",
+          "text": "reducing"
+        },
+        {
+          "key": "L",
+          "text": "sew"
+        },
+        {
+          "key": "M",
+          "text": "shrink"
+        },
+        {
+          "key": "N",
+          "text": "statistics"
+        },
+        {
+          "key": "O",
+          "text": "textile"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【语法判断】空格前有连词 and,说明本空填入的词与and 之前的 create 并列,因此本空应填入动词原形。 【语义判断] 空格所在句指出,制作布料并 _ 成衬衫的形状有多难。由句意可知,此处是想表达把布料制成衬衫,因此本空应填入含有 “制造,制作?意义的动词原形,由此确定答案为工) sew。备选的其他动词原形均没有此含义,因此排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "B",
+          "explanation": "空格在 the most 与 clothing material 之间，需要形容词。B) abundant 表示“丰富的、充裕的”，代入后说明棉花是最丰富的服装材料，符合句意。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【语法判断空格前有系动词 be,因此本空应填入形容词。 【语义判断】空格所在句指出,用棉花来制作织物实际上是一个需要大量用水的过程,每件衬衫需要 2,700 升的水， 。本句提供了一个用棉花制作织物所需水量的准确数字, 因此本空应填入含有“准确的,确切的”意义的形容词,由此确定答案为 E) exact。to be exact 表示“准确地说,确切地说”。备选的其他形容词均没有此含义,因此排除。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【语法判断空格前有形容词 mind-blowing, 因此本空应填入名词。 共 15 页 【语义判断】空格所在句的意思是,看看下面(国家地理)杂志的视频,就可以知道更多关于棉质服装生产的令人震惊的 。前一句已经提供了一个惊人的数字一一2, 700, 而空格前又出现了 more,因此本空应填入含有“数字,数据?意义的名词,由此确定答案为 N) statistics。备选的其他名词均没有此含义,因此排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【语法判断】空格位于谓语动词 is becoming 之间， 因此本空应填入副词。 【语义判断】空格所在句的意思是,净水正成为世界上最受欢迎的资源之一。由常识可知， 人们对净水的需求日益增多, 因此本空应填入含有“日益地,越来越多地”意义的副词,由此确定答案为 F) increasingly。备选的其他副词均没有此含义,因此排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【语法判断】空格前有定冠词 the, 因此本空应填入名词,并和 and 后面的 cotton 并列。 【语义判断】空格所在句的意思是, 据《赫芬顿邮报报道,考虑到和棉花工业的规模,它们占用了全球大量的淡水需求。本文第一段中提到制造衬衫需要大量的水,而将棉花做成衬衫涉及纺织业,因此本空应填入含有“纺织业”意义的名词,由此确定答案为 O) textile。备选的其他名词均没有此含义,因此排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【语法判断】空格前有及物动词 pread, 后面是 of 介词词组,因此本空应填入名词。 【语义判断】空格所在句的意思是,这段来自《国家地理》的视频是为了传播棉花对环境危害的 _ _ 。由句意可知,该视频的目的是让人们知道棉花对环境的危害,因此本空应填入含有“认识， 意识\"意义的名词,由此确定答案为 C) awareness。 备选的其他名词均没有此含义,因此排除。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断】空格前是介词 by,空格后是一个数字， 因此本空应填入副词修饰该数字。 【语义判断】空格所在句的意思是,通过更好的水管理和耕作方式,棉花生产中的用水量可以减少 40% 。将备选副词分别代入句中,只有 D nearly\" 几乎,差不多”能使句意通顺,由此确定答案为I 。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【语法判断】空格前是介词 from,空格后是名词短语,因此本空应填入及物动词的-ing 形式。 【语义判断空格所在句的意思是,这种被称为“更好的棉花?的环保产品,仅通过棉花生产的需求,每年就可以节省数百万升水。由句意可知,如果要节约水,就要减少棉花的产量,因此本空应填入含有“减少,降低?意义的动词,由此确定答案为K) reducing。备选的另一个动词-ing 形式 Teckoning 没有此含义,因此排除。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【语法判断】空格所在部分是 as 引导的从名,空格前的 water supplies 是从句的主语, 因此本空应填入动词作谓语。 【语义判断】 空格所在句的意思是,然而,随着水供应 ,农民和消费者需要更加意识到这些产品对整个环境的影响。备选动词中,虽然 K) reducing\"减少”符合句意,但是动词-ing 形式， 不能作谓语, 由此确定答案为 M) shrink“减少”。 其他备选动词不符合句意,因此排除。 共 15 页"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-1-b",
+      "type": "matching",
+      "title": "The spoken web",
+      "paragraphs": [
+        "A) We're growing more used to chatting to our computers, phones and smart speakers through voice assistants like Amazon's Alexa, Apple's Siri and Microsoft's Cortana. Blind and partially sighted people have been using text-to-speech converters for decades.",
+        "B) Out of these assistants, Siri is the most well-known. The assistant uses voice inquiries and a natural-language user interface ( 7 [fil ) to answer questions. The software adapts to users’ individual language usages, searches, and preferences, with continuing use.",
+        "C) Some think voice could soon take over from typing and clicking as the main way to interact online. But what are the challenges of moving to \"the spoken web\"?",
+        "D) What use is written online content if you can't read? That is the situation facing illiterate (不识字的) African farmers. They are often denied crucial information the web offers many others. With a literacy rate in some parts of Africa at only 22.6%, farmers are often \"underpaid for their produce because they might be unaware of the prevailing prices,\" says Francis Dittoh, a researcher behind Mr Meteo, a speech-based weather information service.",
+        "E) \"The most frequently heard complaint is about rainfall predictions,\" says Mr Dittoh, who lives in Tamale, northern Ghana. \"They tell us the methods their forefathers used to predict the weather don't seem to work as well these days.\" This is down to climate change, he believes. Yet knowing when it's going to rain is vital for farmers wanting to sow seeds, irrigate crops or take their animals out to the fields to feed on grass.",
+        "F) Mr Dittoh says the idea of converting online weather reports into speech came from the farmers themselves, after a workshop in the village of Guabuligah. \"They came up with this,\" he says. Mr Meteo takes the online weather forecast, converts it to a short recording in the appropriate language and makes it available on a basic phone. Farmers ring up to receive the information. The local language Dagbani is spoken by 1.2 million people but is not served by any online translation applications. The service was designed to be cheap and easy to run, says Mr Dittoh. He plans to begin field tests this month, working with Tamale's Savanna Agricultural Research Institute.",
+        "G) The spoken web could also help the one-in-five adults in Europe and the U.S. with poor reading skills. But building the spoken web—web-to-voice and voice-to-web—isn't straightforward. For software to understand pizza is served at Italian restaurants is easy. To cover multiple domains and to be able to have a conversation with users on every single topic is still a long way off.",
+        "H) So although many computer assistants can answer simple questions about the weather and play music for us, anything resembling a wide-ranging human conversation is decades away. Artificial intelligence just isn't smart enough yet. Even turning your voice into text—automatic speech recognition—is one of the hardest problems to solve, as there are as many ways to pronounce things as there are people on the planet.",
+        "I) Siri has often been praised for its ability to interpret our casual language and deliver very specific and accurate results, sometimes even providing additional information. But it is still somewhat restricted, particularly when the language moves away from stiffer commands into more human interactions. In one example, the phrase \"Send a text to Jason, Clint, Sam, and Lee saying we're having dinner at Silver Cloud restaurant” was interpreted as sending a message to Jason only, containing the text \"Clint Sam and Lee saying we're having dinner at Silver Cloud restaurant”. It has also been noted that Siri lacks a proper editing function, as saying \"Edit message to say: we're at Silver Cloud restaurant and you should come find us\" generates \"Clint Sam and Lee saying we're having dinner at Silver Cloud restaurant to say we're at Silver Cloud restaurant and you should come find us\".",
+        "J) Using voice interaction feels far more intimate than surfing the net the old-fashioned way. This is intentional as the informal tone of the assistant helps create an emotional attachment. But if something speaks, it must also listen. Our phones are always near us and they are collecting data about us all the time. This has already raised privacy concerns. The American Civil Liberties Union has stated that digital assistants create a threat to privacy from hackers. Some people have other concerns. They worry assistants will one day be used to deliver advertising directly to us.",
+        "K) But digital voices need more personality to make them popular. Robots are not yet witty, Siri is boring. The benefits of using voice instead of tapping fingers obviously depend on the context. Doctors completing online forms about their patients by speech, for example, can dictate 150 words a minute, three times faster than typing on a keyboard. This enables them to spend less time on administration and more time with patients.",
+        "L) Last year, speech recognition company Nuance helped a doctors' surgery in Dukinfield, near Manchester, set up a speech system for the practice's six doctors. Now they can dictate notes on a patient's health condition and treatment and a smart assistant automatically enters the information into the right fields on a web form. Previously, the doctors made voice recordings that were then transcribed by secretaries—a process that was costly and likely to cause delays. The new system means letters to patients now have more detail.",
+        "M) Using voice also makes sense when you're doing other things with your hands. Think about when you're cooking, and you just want to know what the next step in the recipe is. Your hands are covered with oil; you're not going to get on the iPad, so it's a lot more natural to talk. And speech obviously makes sense when you're driving. In the U.S., 29% of drivers admit they surf behind the wheel, according to insurance firm State Farm. This is up from 13% in 2009. No wonder using mobile phones while driving causes more crashes a year than drink driving, says the U.S. National Safety Council."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "According to Francis Dittoh, their speech-based weather information service was meant to be inexpensive and easy to use.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【精析】〗同义转述题。定位句提到,迪托先生说,这项服务设计的宗旨是既便宜又易于运行。题干中的 speech-based weather information service 指的是定位句中的 The service,题干中的 inexpensive and easy to use 对应定位句中的 cheap and easy to run,故答案为 F) 。"
+        },
+        {
+          "number": 37,
+          "stem": "Using voice instead of typing enables doctors to spend more time taking care of patients.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【精析】细节归纳题。定位句指出,医生通过语音填写关于患者的在线表格,每分钟可以口述 150 个单词 ,比在键盘上打字快三倍。这使他们能够花更少的时间在管理上,花更多的时间给病人诊断病情。题干中的 spend more time taking care of patients 是对定位句中 spend less time on administration and more time with patients 的归纳概括 ,故答案为人) 。"
+        },
+        {
+          "number": 38,
+          "stem": "It is extremely difficult to convert voice into text because of different pronunciations.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】细节归纳题。定位句提到,甚至把你的声音转换成文本也是最难解决的问题之一,因为地球上有多少人就有多少种发音方法。题干中的 extremely difficult 对应定位句中的 one of the hardest problems, 题干中的 convert voice into text 对应定位句中的 turning your voice into text， 或来越习惯于语音助手。 1 思考由传统网络向语音网络转变会面临的挑战。 I 对没有阅读能力的人而言提供了即时了解重要信息 ， 加络所面临的困难以及人们对语音网络普及所带来 ， 域，使用语音网络相比于传统方法具有的优势。 1 解题干中的 different pronunciations 对应定位句中的 many ways to pronounce things。题干是对定位句的总结概括,故答案为 HD) 。"
+        },
+        {
+          "number": 39,
+          "stem": "African farmers unable to read often don't have access to important information conveyed online.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】同义转述题。定位句指出,这就是非洲不识字的农民所面临的情况。他们经常对网络提供给许多其他人的关键信息无从知晓。题干中的 African farmers unable to read 对应定位句中的 illiterate African farmers, 题干中的 don't have access 是对定位句中 denied 的同义转述,题干中的 important information conveyed online 对应定位句中的 crucial information the web offers,故答案为D)。"
+        },
+        {
+          "number": 40,
+          "stem": "Some phone users worry advertisers will take advantage of voice assistants to send ads directly to them.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【精析】同义转述题。定位句提到,他们担心有一天助手会被用来直接向我们发送广告。题干中的 voice assistants 对应定位句中的 assistants,题干中的 send ads directly to them 对应定位句中的 deliver advertising directly to us,故答案为了)。"
+        },
+        {
+          "number": 41,
+          "stem": "The spoken web is helpful when one's hands are occupied.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【精析】同义转述题。定位句指出, 当你用手做其他事情时,使用语音也是有意义的。题干中的 The spoken web 指的就是定位句中的 voice,题干中的共 15 页 helpful 是对定位句中 makes sense 的同义转述,题干中的 when one's hands are occupied 对应定位句中的 when you're doing other things with your hands,故答案为 M) 。"
+        },
+        {
+          "number": 42,
+          "stem": "Some people believe online interaction would soon depend mainly on voice.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】同义转述题。定位句提到,一些人认为语音很快就会取代打字和点击成为在线互动的主要方式。题干中的 online interaction 对应定位句中的 interact online,题干中的 depend mainly on 对应定位句中的 the main way,故答案为 C) 。"
+        },
+        {
+          "number": 43,
+          "stem": "Setting up a spoken web is by no means an easy task.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】同义转述题。定位句指出,建立语音网络并非易事。题干中的 Setting up a spoken web 对应定位句中的 building the spoken web,题干中的 by no means an easy task 是对定位句中 isn't straightforward 的同义转述,故答案为 G) 。"
+        },
+        {
+          "number": 44,
+          "stem": "Weather information is extremely important to farmers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】细节归纳题。定位句提到,对于想要播种、 灌溉作物或放牧的农民来说,知道什么时候会下雨至关重要。题寺中的 Weather information 指的就是定位句中的 when it's going to rain,题干中的 extremely important to farmers 对应定位句中的 vital for farmers,故答案为 E) 。"
+        },
+        {
+          "number": 45,
+          "stem": "Some people are concerned about privacy because their phones are constantly collecting their personal information.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【精析】同义转述题。定位句指出,我们的手机总是在我们身边,它们一直在收集关于我们的数据。 这已经引起了人们对隐私的担忧。题干中的 concerned about privacy 对应定位句中的 raised Privacy concerns, 题干中的 their phones are constantly collecting their personal information 对应定位句中的 they are collecting data about us all the time,故答案为J) 。 3又-or 共 15 页"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The United States is facing a housing crisis: Affordable housing is inadequate, while luxury homes abound (大量存在), and homelessness remains a persistent problem. Despite this, popular culture and the housing industry market happiness as living with both more space and more amenities (便利设施). Big houses are advertized as a reward for hard work and diligence, turning housing from a basic necessity into a luxury.",
+        "This is reflected in our homes. The average single-family home built in the United States before 1970was less than 1,500 square feet in size. By 2016, the average size of a new, single-family home was 2,422 square feet. What's more, homes built in the 2000s were more likely than earlier models to have more of all types of spaces; bedrooms, bathrooms, living rooms, dining rooms, recreation rooms and garages.",
+        "There are consequences of living big. As middle-class houses have grown larger, two things have happened. First, large houses take time to maintain, so cleaners and other low-wage service workers are required to keep these houses in order. Second, once-public spaces, where people from diverse backgrounds used to come together, have increasingly become privatized, leading to a reduction in the number of public facilities available to all, and a reduced quality of life for many. Take swimming pools. While in 1950, only 2,500 U.S. families owned pools, by 1999 this number was 4 million. At the same time, public municipal pools were often closed, leaving low-income people nowhere to swim.",
+        "The trend for bigger housing thus poses ethical questions. Should Americans accept a system in which the middle and upper classes enjoy a luxurious lifestyle, using the low-wage labor of others? Are we willing to accept a system in which an increase in amenities purchased by the affluent means a reduction in amenities for the poor?",
+        "I believe neither is acceptable. We must change the way we think: living well does not need to mean having more private spaces; instead, it could mean having more public spaces. A better goal than building bigger houses for some is to create more publicly accessible spaces and amenities for all."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What are big houses promoted to be in the United States?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A luxury for the homeless."
+            },
+            {
+              "key": "B",
+              "text": "A reward for industriousness."
+            },
+            {
+              "key": "C",
+              "text": "An abundant source of comforts."
+            },
+            {
+              "key": "D",
+              "text": "An absolute necessity for happiness."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析] 细节辨认题。定位句指出,大房子被宣代为是对辛勤工作和勤奋的奖励,而这一宣传将信共 15 页房从基本必需品变成了奢侈品。由此可见,流行文化与房地产行业都以大房子是对辛苦工作和勤奋的奖励为嗪头来推销豪宅,industriousness 是对 hard work 和 diligence 的同义转述,故答案为 B) 。"
+        },
+        {
+          "number": 47,
+          "stem": "What is one of the consequences of living big?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Many Americans’ quality of life has become lower."
+            },
+            {
+              "key": "B",
+              "text": "People from diverse backgrounds no longer socialize."
+            },
+            {
+              "key": "C",
+              "text": "People no longer have access to public swimming pools."
+            },
+            {
+              "key": "D",
+              "text": "Many Americans’ private life has been negatively affected."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】细节辨认题。第三段主要介绍了住房面积增大带来的两个后果。第三段第四句提到,曾经的公共空间越来越私有化,导致所有人可用的公共设施数量减少,许多人的生活质量下降了。由此可知,住房面积的增大导致很多美国人生活质 | 量下降了,故答案为 A) 。"
+        },
+        {
+          "number": 48,
+          "stem": "What questions arise from living big?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Questions related to moral principles."
+            },
+            {
+              "key": "B",
+              "text": "Questions having to do with labor cost."
+            },
+            {
+              "key": "C",
+              "text": "Questions about what lifestyle to promote."
+            },
+            {
+              "key": "D",
+              "text": "Questions concerning housing development."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】推理判断题。定位句指出,住房面积增大的趋势引发了道德问题。由此可见,住房面积增 La -ee 冯大的趋势给人们带来的是与道德原则有关的问题,故答案为A) 。"
+        },
+        {
+          "number": 49,
+          "stem": "What kind of social system does the author think is unacceptable?",
+          "options": [
+            {
+              "key": "A",
+              "text": "One in which the wealthy exploit the low-wage laborers building their houses."
+            },
+            {
+              "key": "B",
+              "text": "One in which the rich purchase amenities at an increasingly unjustifiable price."
+            },
+            {
+              "key": "C",
+              "text": "One in which the upper classes deprive the lower classes of affordable housing."
+            },
+            {
+              "key": "D",
+              "text": "One in which the affluent enjoy a more comfortable life at the expense of the poor."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析]】 推理判断题。由第五段第一句“两者都不可接受?可知,不可接受的问题在第四段。第四段最后一句提到一种“富人购买便利设施的增加意味着穷人的便利设施减少”的制度。换言之,作者反对“富人通过牺牲穷人的生活品质而享受更舒适的生活的制度\",故答案为 D) 。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author advocate for people to live well?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Finding ways to turn private spaces into public ones."
+            },
+            {
+              "key": "B",
+              "text": "Building more houses affordable to those less affluent."
+            },
+            {
+              "key": "C",
+              "text": "More public spaces created for everyone to enjoy."
+            },
+            {
+              "key": "D",
+              "text": "All amenities made accessible to the rich and the poor alike."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】推理判断题。定位句指出,过得好可以意味着拥有更多的公共空间。对一些人来说, 比起建造更大的房子,更好的目标是为所有人创造更多的公共空间和便利设施。由此可见,为了使人们过得好,作者主张创造更多每个人都可以享受的公共空间,故答案为 C) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Most of us in the entrepreneurial community are blessed—or cursed—with higher-than-average ambition. Ambitious people strongly desire accomplishments and are willing to take more risks and spend more effort to get them.",
+        "Overall, this is a positive quality, especially for people trying to build their own businesses. Apparently, if you're more naturally driven to set goals, you are more likely to succeed.",
+        "Actually, this isn't always the case. In fact, in some cases, extreme ambition may end up doing more harm than good.",
+        "One major side effect of excessive ambition is the tendency to focus too determinedly on one particular vision or end goal. This is problematic because it hinders your ability to adapt to new circumstances, which is vital if you want to be a successful entrepreneur. If a new competitor emerges to threaten your business, you may need to change direction, even if that means straying from your original vision. If you have too much ambition, you'll find this hard, if not impossible.",
+        "Few people are successful when they try to build their first brand. Unfortunately, for the most ambitious entrepreneurs, a failure is seen as disastrous, and impossible to recover from.",
+        "It's a clear departure from the intended plan toward the intended goal. For people with limited ambition, however, failure is viewed as something closer to reality. Remember, failure is inevitable, and every failure you survive is a learning experience.",
+        "Ambitious people tend to be more materialistically successful than their non-ambitious",
+        "counterparts. However, they're only slightly happier than their less-ambitious counterparts, and tend to live significantly shorter lives. This implies that even though ambitious people are more likely to achieve conventional \"success,\" such success means nothing for their health and happiness-and if you don't have health and happiness, what else could possibly matter?",
+        "Clearly, some amount of ambition is good for your motivation. Without any ambition, you wouldn't start your own business, set or achieve goals and get far in life. But an excess of ambition can also be dangerous, putting you at risk of burnout, stubbornness and even a shorter life."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author think of most entrepreneurs?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are more willing to risk their own lives."
+            },
+            {
+              "key": "B",
+              "text": "They are more ambitious than ordinary people."
+            },
+            {
+              "key": "C",
+              "text": "They achieve greater nonconventional success."
+            },
+            {
+              "key": "D",
+              "text": "They have more positive qualities than most of us."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】细节辨认题。定位句指出,大部分创业君体的人都会有幸拥有亦或是受苦于一种高于常人的野心。由此可知,创业者比普通人拥有更多能野心,故答案为 B) 。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the author imply by saying \"this isn't always the case\" (Line 1, Para. 3)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Ambitious people may not have a greater chance of success."
+            },
+            {
+              "key": "B",
+              "text": "Ambitious people may not have more positive qualities."
+            },
+            {
+              "key": "C",
+              "text": "Entrepreneurs’ ambition does as much good as harm."
+            },
+            {
+              "key": "D",
+              "text": "Entrepreneurs are more naturally driven to success."
+            }
+          ],
+          "answer": "A",
+          "explanation": "第二段末句说明，自发设定目标的动力越强，成功的可能性越大。第三段首句随即说事实并非总是如此，意在反驳或限定前一段的观点，故选 A。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the author say is of extreme importance for one to become a successful entrepreneur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Holding on to one's original vision."
+            },
+            {
+              "key": "B",
+              "text": "Being able to adapt to new situations."
+            },
+            {
+              "key": "C",
+              "text": "Focusing determinedly on one particular goal."
+            },
+            {
+              "key": "D",
+              "text": "Avoiding radical change in one's career direction."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】细节辨认题。定位句指出,这是有问题的， 因为这会限制你适应新环境的能力,而这一点对于想成为一名成功企业家的你来说又至关重要。 由此可知,如果想成为成功的企业家,能够适应新共 15 页环境是很重要的,故答案为 B) 。"
+        },
+        {
+          "number": 54,
+          "stem": "How do the most ambitious entrepreneurs regard failure in their endeavor?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will awaken them to reality."
+            },
+            {
+              "key": "B",
+              "text": "It is a lesson they have to learn."
+            },
+            {
+              "key": "C",
+              "text": "It means the end of their career."
+            },
+            {
+              "key": "D",
+              "text": "It will result in a slow recovery."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析本推理判断题。定位句指出,不幸的是,对于最有野心的企业家而言,失败被视为是灾难性的， 无法从中恢复。由此可知,无法从失败中恢复就意味着职业生涯走向终点,故答案为 C) 。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author advise us to do concerning ambition?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Distinguish between conventional success and our life goal."
+            },
+            {
+              "key": "B",
+              "text": "Follow the example of the most ambitious entrepreneurs."
+            },
+            {
+              "key": "C",
+              "text": "Avoid taking unnecessary risks when starting a business."
+            },
+            {
+              "key": "D",
+              "text": "Prioritize health and happiness over material success."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】推理判断题。定位句指出,这意味着即便具备野心的人更有可能取得传统意义上的“成功”,但这种成功却无益于他们的健康和幸福一一假如你失去了健康和幸福,其他的事情又有何重要呢? 作者通过反问的方式,暗示了健康和幸福要比\"成功更重要,故答案为 D)。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/cet4_2023_06_1.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_06_1_ans.pdf"
+}

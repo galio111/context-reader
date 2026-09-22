@@ -1,0 +1,1567 @@
+{
+  "id": "cet6-2022-06-1",
+  "level": 6,
+  "year": 2022,
+  "month": 6,
+  "set": 1,
+  "title": "2022 年 6 月六级 · 第 1 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2022-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The city of Bath was founded by the Romans almost two thousand years ago. It has been famous for its [[26]] pleasing architecture and healing thermal springs ever since. There are three hot springs in Bath; one is the King's Spring, upon which the Roman Baths and a temple were [[27]] . The other two are the Cross Spring and the Hetling Spring, close to each other in Hot Bath Street. Although Bath is [[28]] known as a Roman and Georgian city, many people came in the intervening centuries to make use of the [[29]] waters. While the Georgians made \"taking the waters' or bathing particularly fashionable, it was [[30]] generations who paved the way, creating greater interest in Bath and its springs. Charles II , desperate for an heir and unable to produce a [[31]] son, came to Bath to take the waters in the hope that their magical powers would do something to [[32]] the situation. Craving for a male heir, James and Mary both came to Bath and soon after produced a son, which bred many conspiracy theories about who was the real father of their [[33]] . Regardless, the \"miracle created something of a boom in tourism for Bath and once Queen Anne had paid a visit in 1702, sealing it as the place to be, the whole nation [[34]] to the city. Afterwards, the spas (矿泉疗 养浴场)in Bath continued to go in and out of fashion for more than 150 years until they closed completely. The new Bath Spa, which opened in 2006, [[35]] modem architecture with the ancient spring, now the New Royal Bath."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "aesthetically"
+        },
+        {
+          "key": "B",
+          "text": "constructed"
+        },
+        {
+          "key": "C",
+          "text": "designates"
+        },
+        {
+          "key": "D",
+          "text": "extract"
+        },
+        {
+          "key": "E",
+          "text": "flocked"
+        },
+        {
+          "key": "F",
+          "text": "incorporates"
+        },
+        {
+          "key": "G",
+          "text": "legitimate"
+        },
+        {
+          "key": "H",
+          "text": "natural"
+        },
+        {
+          "key": "I",
+          "text": "offspring"
+        },
+        {
+          "key": "J",
+          "text": "previous"
+        },
+        {
+          "key": "K",
+          "text": "principally"
+        },
+        {
+          "key": "L",
+          "text": "remedy"
+        },
+        {
+          "key": "M",
+          "text": "rhetorically"
+        },
+        {
+          "key": "N",
+          "text": "sneaked"
+        },
+        {
+          "key": "O",
+          "text": "versatile"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetically"
+            },
+            {
+              "key": "B",
+              "text": "constructed"
+            },
+            {
+              "key": "C",
+              "text": "designates"
+            },
+            {
+              "key": "D",
+              "text": "extract"
+            },
+            {
+              "key": "E",
+              "text": "flocked"
+            },
+            {
+              "key": "F",
+              "text": "incorporates"
+            },
+            {
+              "key": "G",
+              "text": "legitimate"
+            },
+            {
+              "key": "H",
+              "text": "natural"
+            },
+            {
+              "key": "I",
+              "text": "offspring"
+            },
+            {
+              "key": "J",
+              "text": "previous"
+            },
+            {
+              "key": "K",
+              "text": "principally"
+            },
+            {
+              "key": "L",
+              "text": "remedy"
+            },
+            {
+              "key": "M",
+              "text": "rhetorically"
+            },
+            {
+              "key": "N",
+              "text": "sneaked"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【语法判断】空格前面是形容词性物主代词 its,空格后是名词词组 pleasing architecture,因此,空格处需要填入一个有襄义色彩的副词来修饰形容词 pleasing。 【语义判断空格所在句大意是巴斯以美观的建筑和有疗养效果的温泉而闻名, 由此确定副词 A) aesthetically 为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetically"
+            },
+            {
+              "key": "B",
+              "text": "constructed"
+            },
+            {
+              "key": "C",
+              "text": "designates"
+            },
+            {
+              "key": "D",
+              "text": "extract"
+            },
+            {
+              "key": "E",
+              "text": "flocked"
+            },
+            {
+              "key": "F",
+              "text": "incorporates"
+            },
+            {
+              "key": "G",
+              "text": "legitimate"
+            },
+            {
+              "key": "H",
+              "text": "natural"
+            },
+            {
+              "key": "I",
+              "text": "offspring"
+            },
+            {
+              "key": "J",
+              "text": "previous"
+            },
+            {
+              "key": "K",
+              "text": "principally"
+            },
+            {
+              "key": "L",
+              "text": "remedy"
+            },
+            {
+              "key": "M",
+              "text": "rhetorically"
+            },
+            {
+              "key": "N",
+              "text": "sneaked"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "B",
+          "explanation": "空格位于 were 之后，描述罗马浴场和神庙建在国王泉上方，需要过去分词构成被动语态。B) constructed 表示“建造”，符合句意。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetically"
+            },
+            {
+              "key": "B",
+              "text": "constructed"
+            },
+            {
+              "key": "C",
+              "text": "designates"
+            },
+            {
+              "key": "D",
+              "text": "extract"
+            },
+            {
+              "key": "E",
+              "text": "flocked"
+            },
+            {
+              "key": "F",
+              "text": "incorporates"
+            },
+            {
+              "key": "G",
+              "text": "legitimate"
+            },
+            {
+              "key": "H",
+              "text": "natural"
+            },
+            {
+              "key": "I",
+              "text": "offspring"
+            },
+            {
+              "key": "J",
+              "text": "previous"
+            },
+            {
+              "key": "K",
+              "text": "principally"
+            },
+            {
+              "key": "L",
+              "text": "remedy"
+            },
+            {
+              "key": "M",
+              "text": "rhetorically"
+            },
+            {
+              "key": "N",
+              "text": "sneaked"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【语法判断】空格前为主语 Bath 和 be 动词 is,空格后为过去分词 known, be known as 有“以…… 著称”之意,可以推断出空格处应填入副词来说明 known 的程度。 【语义判断空格所在句大意为“尽管巴斯主要作为一座古罗马风和乔治王时代风城市而出名,但在中间的几个世纪里,有很多人为了泡温泉来到这里.principally 意为“主要地”符合语境。由此确定玉)为答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetically"
+            },
+            {
+              "key": "B",
+              "text": "constructed"
+            },
+            {
+              "key": "C",
+              "text": "designates"
+            },
+            {
+              "key": "D",
+              "text": "extract"
+            },
+            {
+              "key": "E",
+              "text": "flocked"
+            },
+            {
+              "key": "F",
+              "text": "incorporates"
+            },
+            {
+              "key": "G",
+              "text": "legitimate"
+            },
+            {
+              "key": "H",
+              "text": "natural"
+            },
+            {
+              "key": "I",
+              "text": "offspring"
+            },
+            {
+              "key": "J",
+              "text": "previous"
+            },
+            {
+              "key": "K",
+              "text": "principally"
+            },
+            {
+              "key": "L",
+              "text": "remedy"
+            },
+            {
+              "key": "M",
+              "text": "rhetorically"
+            },
+            {
+              "key": "N",
+              "text": "sneaked"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【语法判断空格前面为定冠词 the, 后面为名词 waters, 可见此处的三个单词应构成一个名词短语， 6月 29 因此空格处应填入形容词,用来修饰名词 waters。 【语义判断】空格所在句大意为“在中间的几个世纪里,有很多人为了泡温泉来到这里”>。natural “天然的,非人为的”符合句意,故答案为 H) 。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetically"
+            },
+            {
+              "key": "B",
+              "text": "constructed"
+            },
+            {
+              "key": "C",
+              "text": "designates"
+            },
+            {
+              "key": "D",
+              "text": "extract"
+            },
+            {
+              "key": "E",
+              "text": "flocked"
+            },
+            {
+              "key": "F",
+              "text": "incorporates"
+            },
+            {
+              "key": "G",
+              "text": "legitimate"
+            },
+            {
+              "key": "H",
+              "text": "natural"
+            },
+            {
+              "key": "I",
+              "text": "offspring"
+            },
+            {
+              "key": "J",
+              "text": "previous"
+            },
+            {
+              "key": "K",
+              "text": "principally"
+            },
+            {
+              "key": "L",
+              "text": "remedy"
+            },
+            {
+              "key": "M",
+              "text": "rhetorically"
+            },
+            {
+              "key": "N",
+              "text": "sneaked"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "J",
+          "explanation": "空格修饰 generations。句意是乔治王朝时期的人让泡温泉流行起来，但这是前几代人为此铺了路。previous 表示“以前的、先前的”，符合语境。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetically"
+            },
+            {
+              "key": "B",
+              "text": "constructed"
+            },
+            {
+              "key": "C",
+              "text": "designates"
+            },
+            {
+              "key": "D",
+              "text": "extract"
+            },
+            {
+              "key": "E",
+              "text": "flocked"
+            },
+            {
+              "key": "F",
+              "text": "incorporates"
+            },
+            {
+              "key": "G",
+              "text": "legitimate"
+            },
+            {
+              "key": "H",
+              "text": "natural"
+            },
+            {
+              "key": "I",
+              "text": "offspring"
+            },
+            {
+              "key": "J",
+              "text": "previous"
+            },
+            {
+              "key": "K",
+              "text": "principally"
+            },
+            {
+              "key": "L",
+              "text": "remedy"
+            },
+            {
+              "key": "M",
+              "text": "rhetorically"
+            },
+            {
+              "key": "N",
+              "text": "sneaked"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【语法判断】空格前面为不定冠词 a, 后面为名词 son,可见此处的三个单词应构成一个名词短语， 因此空格处应填入形容词,用来修饰 son。 【语义判断】空格所在句提到查理二世急需一位继承人,但却没有儿子。legitimate“(小孩)合法婚姻所生的”符合句意,故答案为 G) 。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetically"
+            },
+            {
+              "key": "B",
+              "text": "constructed"
+            },
+            {
+              "key": "C",
+              "text": "designates"
+            },
+            {
+              "key": "D",
+              "text": "extract"
+            },
+            {
+              "key": "E",
+              "text": "flocked"
+            },
+            {
+              "key": "F",
+              "text": "incorporates"
+            },
+            {
+              "key": "G",
+              "text": "legitimate"
+            },
+            {
+              "key": "H",
+              "text": "natural"
+            },
+            {
+              "key": "I",
+              "text": "offspring"
+            },
+            {
+              "key": "J",
+              "text": "previous"
+            },
+            {
+              "key": "K",
+              "text": "principally"
+            },
+            {
+              "key": "L",
+              "text": "remedy"
+            },
+            {
+              "key": "M",
+              "text": "rhetorically"
+            },
+            {
+              "key": "N",
+              "text": "sneaked"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【语法判断】空格前面是不定式符号 to,后面有名词短语 the situation,因此空格处需要填入动词原形,且该动词应是及物动词。 【语义判断】前文提到,查理二世没有儿子。空格所在句的意思是查理二世来到巴斯沐浴,希望温泉的魔力能挽救现状。remedy“补救,纠正?符合语境,故工) 为答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetically"
+            },
+            {
+              "key": "B",
+              "text": "constructed"
+            },
+            {
+              "key": "C",
+              "text": "designates"
+            },
+            {
+              "key": "D",
+              "text": "extract"
+            },
+            {
+              "key": "E",
+              "text": "flocked"
+            },
+            {
+              "key": "F",
+              "text": "incorporates"
+            },
+            {
+              "key": "G",
+              "text": "legitimate"
+            },
+            {
+              "key": "H",
+              "text": "natural"
+            },
+            {
+              "key": "I",
+              "text": "offspring"
+            },
+            {
+              "key": "J",
+              "text": "previous"
+            },
+            {
+              "key": "K",
+              "text": "principally"
+            },
+            {
+              "key": "L",
+              "text": "remedy"
+            },
+            {
+              "key": "M",
+              "text": "rhetorically"
+            },
+            {
+              "key": "N",
+              "text": "sneaked"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断】空格前为名词所有格 their, 可推断出空格处应填入名词。 【语义判断】空格所在句讲的是詹姆斯和玛丽同样极其需要一位男性继承人, 他们也因此来到了巴斯,不久之后就生下了一个儿子,这引发了许多关于谁才是这个孩子真正父亲的阴谋论。offspring “后代,子女”符合语境,由此确定 D为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetically"
+            },
+            {
+              "key": "B",
+              "text": "constructed"
+            },
+            {
+              "key": "C",
+              "text": "designates"
+            },
+            {
+              "key": "D",
+              "text": "extract"
+            },
+            {
+              "key": "E",
+              "text": "flocked"
+            },
+            {
+              "key": "F",
+              "text": "incorporates"
+            },
+            {
+              "key": "G",
+              "text": "legitimate"
+            },
+            {
+              "key": "H",
+              "text": "natural"
+            },
+            {
+              "key": "I",
+              "text": "offspring"
+            },
+            {
+              "key": "J",
+              "text": "previous"
+            },
+            {
+              "key": "K",
+              "text": "principally"
+            },
+            {
+              "key": "L",
+              "text": "remedy"
+            },
+            {
+              "key": "M",
+              "text": "rhetorically"
+            },
+            {
+              "key": "N",
+              "text": "sneaked"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【语法判断】空格前面是主语 the whole nation,后面是不定式,因此空格处需要填入动词,同时因为这件事发生在过去,所以此处应填动词的过去式形式。 【语义判断】空格所在名的意思是:安妮女王在 1702 年曾到访巴斯,确立了其地位,于是全国人 _ 这座城市.”flock 作动词有“涌人;聚集” 之意,符合句意,故 E)为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetically"
+            },
+            {
+              "key": "B",
+              "text": "constructed"
+            },
+            {
+              "key": "C",
+              "text": "designates"
+            },
+            {
+              "key": "D",
+              "text": "extract"
+            },
+            {
+              "key": "E",
+              "text": "flocked"
+            },
+            {
+              "key": "F",
+              "text": "incorporates"
+            },
+            {
+              "key": "G",
+              "text": "legitimate"
+            },
+            {
+              "key": "H",
+              "text": "natural"
+            },
+            {
+              "key": "I",
+              "text": "offspring"
+            },
+            {
+              "key": "J",
+              "text": "previous"
+            },
+            {
+              "key": "K",
+              "text": "principally"
+            },
+            {
+              "key": "L",
+              "text": "remedy"
+            },
+            {
+              "key": "M",
+              "text": "rhetorically"
+            },
+            {
+              "key": "N",
+              "text": "sneaked"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【语法判断空格所在句结构完整, 主语为 the new Bath Spa, 两个逗号之间是一个定语从句,空格后是名词 modern architecture, 可知空格处应填一个及物动词作谓语,动词应用一般现在时。 【语义判断】此处意思为;于 2006 年开业的新巴斯浴场将现代建筑和古代温泉融为一体,即现在的新皇家浴场”incorporate 与 with 搭配,构成动词短语,意为“与……了融合”符合语境,故答案为 FE) incorporates。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-1-b",
+      "type": "matching",
+      "title": "The Doctor Will Skype You Now",
+      "paragraphs": [
+        "A) Fazila is a young woman that has been dealing with eczema ( 湿疹 ), a common skin condition, for the past five years, but never got it treated. The nearest hospital is an hour away, by boat and bus, and her skin condition didn't seem serious enough to make the trek, so she ignored it- until a new technology brought the doctor to her. Fazila lives on one of the remote river islands in northern Bangladesh. These islands are low-lying, temporary sand islands that are continuously formed and destroyed through sand buildup and erosion. They are home to over six million people, who face repeated displacement from flooding and erosion- which may be getting worse because of climate change-and a range of health risks, including poor nutrition, malaria (疟疾)and other water-borne diseases.",
+        "B) The most dangerous thing for these remote island dwellers is land erosion. The second is lack of access to medical supplies and doctors. There are no doctors within miles, and while child mortality and maternal death have gone down in the rest of the country, this is not the case for the islands. The medical situation is so bad that it really takes away from the quality of their life. Yet for many island inhabitants——some of Bangladesh's poorest- paying for health care is a costly ordeal. Victims of erosion lose their houses, agricultural land and jobs as farmers, fishermen and day laborers. Though government hospitals are free, many people hesitate to go, citing long commutes, endless lines and questionable diagnoses. For convenience's sake, one-third of rural households visit unqualified village doctors, who rely on unscientific methods of treatment, according to a 2016 study in the peer-reviewed journal Global Health Action.",
+        "C) On the islands, there s even a colloquial (口 头 的 )expression for the idea of making medical care your lowest priority: It's known as “rog pushai rakha^^ in Bengali, which roughly translates to \"stockpiling their diseases”--waiting to seek medical attention until a condition becomes extremely serious. Now, a new virtual medical service called Teledaktar (TD) is trying to make health care more easily accessible. Every week, TD's medical operators travel to the islands by boat, carrying a laptop, a portable printer for prescriptions and tools to run basic medical screenings such as blood pressure, blood sugar, body temperature and weight. They choose an area of the island with the best Internet reception and set up a makeshift (临 时凑合的)medical center which consists of plastic stools and small tables borrowed from the locals' homes, a tent in case of rain and a sheet that is strung up to give the patients privacy during their session.",
+        "D) Launched in October 2018, TD has eight centers in towns and villages across rural Bangladesh and on three islands. It is funded by a nonprofit organization founded by Bangladeshi entrepreneurs, finance and technology professionals. Inside the center, the laptop screen lights up to reveal Dr. Tina Mustahid, TD's head physician, live-streamed (网 络 直 播 ) from the capital city of Dhaka for free remote medical consultations. Affectionately called Doctor Apa一 \"older sister\" in Bengali- by her patients, she is one of three volunteer doctors at TD.",
+        "E) “I diagnose them through conversation,says Dr. Mustahid. '\"Sometimes it's really obvious things that local doctors don't have the patience to talk through with their patients. For example, a common complaint mothers come in with is that their children refuse to eat their meals. The mothers are concerned they are dealing with indigestion, but it's because they are feeding the children packaged chips which are cheap and convenient. I tell them it is ruining their appetite and ask them to cut back on unhealthy snacks.\" Dr. Mustahid says building awareness about health and nutrition is important for island patients who are cut off from mainland resources.",
+        "F) Even off the islands, Bangladesh faces a critical deficit of health services. The country has half the doctors-per-person ratio recommended by the World Health Organization: roughly one doctor per 2,000 people, instead of one doctor per 1,000 people. And of those physicians, many are concentrated in cities: 70% of the country's population live in rural areas, yet less than 20% of health workers practice there. Over 70% of TD's 3,000 patients are female, in part because many are not comfortable speaking with local doctors who tend to be male. The rural women are mostly not literate or confident enough to travel on their own to the nearest town to visit medical facilities. Many have spent their entire lives rebuilding their homes when the islands flood. Early marriage and young motherhood, which are prevalent in these parts of Bangladesh, also contribute to the early onset of health problems.",
+        "G) For most TD patients on the islands, Dr. Mustahid is the first big-city doctor that they've ever consulted. TD doctors are not meant to treat serious illnesses or conditions that require a doctor to be physically present, such as pregnancy. But they can write prescriptions, diagnose common ailments一 including digestive issues, joint pain, skin diseases, fever and the common cold——and refer patients to doctors at local hospitals. The visit is also an opportunity for the patients, especially women, to air their concerns about aging, motherhood and reproductive health according to Dr. Mustahid. The doctors also offer health, dietary and lifestyle advice where necessary, including insight on everything from recognizing postnatal (产 后 的 ) depression to daily exercise. Dr. Mustahid regularly recommends her patients to take a daily thirty-minute morning walk before the sun gets too intense.",
+        "H) After a few sessions about general health issues Fazila finally opened up about something else that was bothering her: her persistent skin condition. It can get expensive to travel to the doctor, so usually the women living on the islands describe their illness to their husbands. The husbands then go to the pharmacy, try to describe the issue and return home with some random medicines. Nothing worked for Fazila until she started seeing Dr. Apa.",
+        "I) Other nonprofits are also starting to provide health services on the islands. A local non-governmental organization called Friendship operates floating boat hospitals that provide health services to islands all over Bangladesh, docking at each for two months at a time. Friendship also runs satellite clinics in which one doctor and one clinic aide who are residents of the community disperse health and hygiene information.",
+        "J) TD still has a few major challenges. Many residents complain the medicines they are prescribed are sometimes unaffordable, but the government isn't doing enough for them. Patients often ask why the medicine isn't free along with the consultation from the doctors. The organizations are linked to local pharmacies and offer discounts to the patients and make sure to prescribe the most cost-effective brands, but still many residents can't afford even that.",
+        "K) Nevertheless, TD's remote consultations seem to be popular: Of 3,000 patients, at least 200 have returned for follow-ups, according to TD. The reason, explains one resident, might be the simple gesture of treating the island inhabitants with respect.：“Dr. Apa is patient,“ he says, “At government hospitals, the doctors treat us very badly, but here they listen to us, I can repeat myself many times and no one gets annoyed.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Some children on the remote islands won't eat their meals because they are fed cheap junk food.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析了】细节辨认题。E)段第三句提到, 一些岛上的母亲们抱怨孩子们拒绝进食。第四句说明了 TD 医生的判断,指出孩子们不肯吃饭的原因是母亲们给他们吃一些廉价方便的包装苗条,影响了孩子的食欲。题干是对 E)段第三、四句信息的同义转述。 题干中的 they are fed cheap junk food 对应原文中的 they are feeding the children packaged chips which are cheap and convenient,故答案为卫) 。"
+        },
+        {
+          "number": 37,
+          "stem": "Unlike other parts of Bangladesh, the number of women who die from giving birth remains high on the river islands.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的 women who die from giving birth 定位到 B)段第三句。 B) 精析卫细节推断题。B)段第三句提到,尽管备加拉国其他地区的儿童死亡率和孕产妇死亡率有所下降,但这些岛屿上的情况并非如此。由此可以推知,在这些岛屿上,产妇死亡率仍然较高。题干中的 other parts of Bangladesh 对应原文中的 the Test of the country,题干中的 remains high 可根据原文中 maternal death have gone down in the TIest of the country 和 this is not the case for the islands 推知,故答案为 B) 。"
+        },
+        {
+          "number": 38,
+          "stem": "One big problem many islanders have is that they can't afford the prescribed medicines, even with discounts offered.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J 段指出，尽管 TD 与药店合作提供折扣并选择性价比高的品牌，许多岛民仍负担不起。这是远程医疗面临的一大挑战。"
+        },
+        {
+          "number": 39,
+          "stem": "TD is a virtual medical service financially supported by one of the nation's nonprofit organizations.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】细节归纳题。D)段第二名指出,TD 项目由该国的非营利组织资助,而第三句后半部分则以某位医生看诊的事例说明, 这种医疗服务是通过网络直播进行的远程医疗咨询。题干中的 Virtual medical service 是对定位段第三句中 live- streamed 和 remote medical consultations 的概括, 而 financially supported 则是对第二句中 funded 的同义转述,故答案为 D) 。"
+        },
+        {
+          "number": 40,
+          "stem": "TD doctors are welcome to the islanders because they treat the sick with respect and patience.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K 段提到，TD 的医生尊重岛民，而且很有耐心，因此受到欢迎。题干概括了这几处信息。"
+        },
+        {
+          "number": 41,
+          "stem": "Women islanders tend to have health problems early partly because they get married and give birth early.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位〗由题干中的 health problems 和 get married and give birth early 定位到 F)段最后一句。 F) 芭精析】同义转述题。F)段定位句提到,早婚和早育在孟加拉国的这些地区十分普遍, 而这也会导致健康问题较早出现。题干中的 get married and give birth early 是对原文中 early marriage and young motherhood 的同义转述,题干中的 have health problems early 是对原句中 early onset of health problems 的同义转述,故答案为 F) 。"
+        },
+        {
+          "number": 42,
+          "stem": "TD doctors make weekly visits to the remote islands to provide services at a temporary medical center.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】细节归纳题。C)段第三名指出,每周,TD 项目的医疗人员都会乘船前往群岛,第四句继续指出,他们在岛上网络接收效果最好的地方搭建临时医疗中心。题干中的 make weekly visits to the remote islands 是对第三句中 every week， 6月 31 TD's medical operators travel to the islands 的同义转述,题干中的 temporary medical center 对应第四句中的 makeshift medical center,故答案为 C) 。"
+        },
+        {
+          "number": 43,
+          "stem": "TD doctors provide the islanders with online diagnoses and treatments for common diseases.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析了细节推断题。G)段第三句指出,TD 项目的医生可以开处方,诊断常见疾病,并将患者转诊给当地医院的医生。结合第二句的内容“TD 项目的医生并不打算治疗需要医生亲自到场的严重疾病或状况?可知 ,该项目主要提供远程在线诊断和治疗。题干中的 common diseases 对应第三句中的 common ailments, 题干中的 online diagnoses and treatments 可由第二句推知,故答案为 G) 。"
+        },
+        {
+          "number": 44,
+          "stem": "The residents of the river islands have to keep moving their homes because of floods and land erosions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】同义转述题。A) 段定位句提到, 它们 (they 指代前文中提到的 the remote river islands)是 600 多万人的家园,由于洪水和侵蚀,这些人面临着反复的流离失所。题干中的 keep moving their homes 是对原文中 repeated displacement 的同义转述,故答案为 A) 。"
+        },
+        {
+          "number": 45,
+          "stem": "Women islanders usually rely on their husbands to get some medicines for them without diagnoses and prescriptions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】细节推断题。H)段第二、三句指出,生活在岛上的女性通常会向丈夫描述自己的病情,然后丈夫们去药房,试着描述病情,然后带着一些随便开出的药物回家。题干中的 rely on their husbands to get some medicines 是对第二名 describe their iness to their husbands 和第三名 “The husbands then go to the pharmacy... and Teturn home with some random medicines.”的总结概括,题干中的 without diagnoses and prescriptions 是第三句中 return home with some Iandom medicines 的隐含之意,故答案为 HD) 。 年6月 32"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Selective colleges and universities in the U.S. are under fire for being too elite and too expensive, and for not training graduates for the world of work. Such charges ignore the fact that these institutions continue to prepare students for success in their work, for thoughtful engagement in civic life, for lifelong learning, and for understanding the world and those with whom they live. These colleges and universities must be doing something right. Applications are at record highs, and their financial aid programs make them more accessible than ever. This model of education has long played a central role in creating opportunity, driving economic",
+        "growth, and spurring innovation. Yet, there is growing skepticism about the value of this model. The recent tax reform bill is a wake-up call that our strongest colleges and universities are under assault by some in government. The initial proposals would have made education unaffordable for many by taxing tuition waivers for graduate students and ending deductions for student loan interest. Thankfully, these provisions were ultimately stripped from the bill, but lawmakers let stand a new tax on the investment income of some colleges and universities. While these attacks are motivated by misguided ideas, we need to do a better job of explaining why these claims are false and why what we do is valuable. We cannot take for granted that any of this is obvious. It is often said that elite colleges and universities do not train students, particularly those who study the liberal arts, for the workforce. But this can be refuted by scholarly research. The data are clear: a liberal arts education is great career preparation, both for excellent lifetime earnings and for satisfaction with the work. This education develops the skills of critical thinking, rigorous analysis of data and facts, communication with the written and spoken word, understanding of cultural differences and issues, and the ability to keep learning. In fact, liberal arts graduates do extremely well in every imaginable field. Access to an education at selective colleges and universities is now more available than ever to low-and middle-income families. We have built endowments from donations by alumni (校友)and parents who understand and appreciate our mission to provide access and opportunity, and a significant portion of the returns from these endowments is used to fund financial aid. Ironically, the new tax on endowments drains financial aid funds from the very schools most able to offer opportunity to those who have earned a spot but cannot otherwise afford this education. Beyond the virtue of access to those who have earned a place at these schools, the diversity of economic backgrounds enhances the education and experience of all of our students."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What fact does the author emphasize concerning selective colleges and universities?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have been ignoring the training of graduates for the world of work."
+            },
+            {
+              "key": "B",
+              "text": "They have been doing well in ensuring their students a successful future."
+            },
+            {
+              "key": "C",
+              "text": "They have been constantly attacked for being too elite and too expensive."
+            },
+            {
+              "key": "D",
+              "text": "They have been actively engaged in civic life beyond the school campus."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】事实细节题。文章第一段第二句提到,对这些择优录取学生的大学的指责忽视了这样一个事实:它们一直在为学生取得事业成功、积极参与公民生活、终身学习.了解世界以及周边人做好准备,由此看出,它们在确保学生未来取得成功方面表现良好。故答案为 B) 。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author say in arguing for the model of education in the U.S.?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has contributed substantially to the nation's overall development."
+            },
+            {
+              "key": "B",
+              "text": "It has succeeded in maintaining sustainable financial aid programs."
+            },
+            {
+              "key": "C",
+              "text": "It has given priority to innovative programs for graduate studies."
+            },
+            {
+              "key": "D",
+              "text": "It has played a central role in attracting international applicants."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析了事实细节题。文章第二段第三句提到,长期以来,美国这种教育模式在创造机会.推动经济增长和激励创新方面发挥了重要作用,由此看出， 它对国家全面发展做出了巨大贡献。故答案为 A) 。"
+        },
+        {
+          "number": 48,
+          "stem": "What do we learn about the initial proposals concerning the recent tax reform bill?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They would have stripped many students of life's chances."
+            },
+            {
+              "key": "B",
+              "text": "They would have deducted graduate student loan interest."
+            },
+            {
+              "key": "C",
+              "text": "They would have added to many students’financial burden."
+            },
+            {
+              "key": "D",
+              "text": "They would have increased the number of tuition waivers."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。文章第三段第三句指出,根据最初的提案,将对研究生学费减免征税,并取消扣减学生贷款利息,这样一来,许多学生将负担不起教育开支。故答案为 C) 。"
+        },
+        {
+          "number": 49,
+          "stem": "What do the data show about elite colleges and universities?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their graduates lack the rigor required for doing statistical analysis."
+            },
+            {
+              "key": "B",
+              "text": "Their students prove to be inadequately prepared for their future careers."
+            },
+            {
+              "key": "C",
+              "text": "Their focus on research is conducive to developing students‘ critical thinking."
+            },
+            {
+              "key": "D",
+              "text": "Their liberal arts education enables graduates to excel in whatever field they are in."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】事实细节题。第五段最后一句提到,事实上,文科毕业生在任何可以想象到的领域都做得非常好。故答案为D) 。"
+        },
+        {
+          "number": 50,
+          "stem": "What is an advantage of providing financial aid for students?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Every student can choose the institution they wish to attend."
+            },
+            {
+              "key": "B",
+              "text": "All students can benefit from a diversified student population."
+            },
+            {
+              "key": "C",
+              "text": "All students will be able to earn a place on university campus."
+            },
+            {
+              "key": "D",
+              "text": "Less privileged students will be more competitive at elite schools."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】推理判断题。最后一段指出,除了让已经在这些学校获得一席之地的学生有机会接受到这种教育外,经济背景的多样化也提高了所有学生的受教育水平,丰富了他们的经验。由第六段可知,在当前教育模式下,来自校友和家长的捐赠基金使中低收入家庭的学生能够更容易进入择优录取学生的大学。由此可知,这种教育模式使学生多元化,所有学生都能从中受益。故答案为 B) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "When a group of Australians was asked why they believed climate change was not happening, about 36% said it was “common sense”, according to a report published last year by the Commonwealth Scientific and Industrial Research Organization. This was the most popular reason fbr their opinion, with only 11% saying their belief that climate change was not happening was based on scientific research. But what do we mean by an appeal to common sense? Presumably it's an appeal to rationality of some sort that forms the basis of more complex reasoning. The appeal to common sense, however, is usually nothing more than an appeal to thinking that just feels right, but what feels right to one person may not feel right to another. Whether it feels right is usually a reflection of the world view and ideologies we have internalised, and that frames how we interact with new ideas. When new ideas are in accord with what we already believe, they are more readily accepted. When they are not, they, and the arguments that lead to them, are more readily rejected. We often mistake this automatic compatibility testing of new ideas with existing beliefs as an application of common sense, but, in reality, it is more about judging than thinking. As Nobelist Daniel Kahneman notes in Thinking, Fast and Slow, when we arrive at conclusions in this way, the outcomes also feel true, regardless of whether they are. We are not psychologically well equipped to judge our own thinking. We are also highly susceptible to a range of cognitive biases such as giving preference to the first things that come to mind when making decisions or giving weight to evidence. One way we can check our internal biases and inconsistencies is through the social verification of knowledge, in which we test our ideas in a rigorous and systematic way to see if they make sense not just to us, but to other people. The outstanding example of this socially shared cognition is science. That does not mean that individuals are not capable of excellent thinking, nor does it mean no individual is rational. But the extent to which individuals can do this on their own is a function of how well integrated they are with communities of systematic inquiry in the first place. You can't learn to think well by yourself. In matters of science at least, those who value their common sense over methodological, collaborative investigation imagine themselves to be more free in their thinking, unbound",
+        "by involvement with the group, but in reality they are tightly bound by their capabilities and perspectives. We are smarter together than we are individually, and perhaps that's just common sense."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author intend to show by citing the findings from the report published last year?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People seldom appeal to rationality in their thinking."
+            },
+            {
+              "key": "B",
+              "text": "It is often the case that truth lies in the hands of a few."
+            },
+            {
+              "key": "C",
+              "text": "Common sense and science are the two sides of a coin."
+            },
+            {
+              "key": "D",
+              "text": "Few people know if climate change is really happening."
+            }
+          ],
+          "answer": "A",
+          "explanation": "首段调查中，相信气候变化没有发生的人多以常识为依据，只有少数诉诸科学研究；第二段进一步指出，诉诸常识并不等于真正理性。这说明人们往往缺乏理性思考，故选 A。"
+        },
+        {
+          "number": 52,
+          "stem": "What is the appeal to common sense according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is the basis for the internalisation of individuals‘ideologies."
+            },
+            {
+              "key": "B",
+              "text": "It is a series of conceptions formulated from complex reasoning."
+            },
+            {
+              "key": "C",
+              "text": "It is collective wisdom that helps people interact with new ideas."
+            },
+            {
+              "key": "D",
+              "text": "It is something subjective based on what one perceives to be right."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】事实细节题。文章第二段第三句提到,通常来讲,诉诸常识不过是诉诸那些感觉上认为正确的想法,但一个人感觉正确的想法在另一个人眼中可能并非如此,说明这种诉诸常识的做法其实是带有主观色彩的,它基于一个人自己所认为正确的想法。故答案为 D) 。 【吉错】文章第二段第四句指出,感觉是否正确通常反映了我们已经内化的世界观和意识形态,说明意识形态内化应该先于这种对某个想法正确与 FE 6月 35 否的感觉(即常识),A)项逻辑颠倒,不符合文章意思,故排除;该段第二名指出,诉诸常识就是对某种形式的理性的呼吁,而这种理性形成了更复杂的推理的基础,也即诉诸常识需要理性的思考,进而才有更复杂的推理,并未提及常识是由复杂推理形成的一系列概念,B)项无中生有,故排除; 该段最后两句指出,这种常识与新思想如果一致,则新思想易于被接受,反之则容易被拒绝,说明新思想并不一定能与常识良好互动,而文中也并未表示常识是集体智慧,C) 项不符合文章意思, 故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What does Daniel Kahneman think is the problem of testing new ideas with existing beliefs?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may lead to incorrect judgment."
+            },
+            {
+              "key": "B",
+              "text": "It makes no use of common sense."
+            },
+            {
+              "key": "C",
+              "text": "It fails to correct mistakes through serious reasoning."
+            },
+            {
+              "key": "D",
+              "text": "It can produce psychologically unacceptable outcomes."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】推理判断题。文章第三段第一句指出,我们经常误以为这种将新想法与现有信念自动兼容的测试是对常识的应用,但实际上这更多的是判断而非思考。第二句接着说,丹尼尔。卡尼曼在其著作中表示, 当我们以这种方式得出结论时,不管它们是否的确真实,我们心里也会感觉是真实的,由此可知,这种方式有可能会导致不正确的判断。故答案为 A) 。"
+        },
+        {
+          "number": 54,
+          "stem": "What can we do to be less susceptible to cognitive biases?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Give equal weight to evidence of both sides in a conflict."
+            },
+            {
+              "key": "B",
+              "text": "Provide convincing examples in developing an argument."
+            },
+            {
+              "key": "C",
+              "text": "Establish socially shared cognition via scientific methods."
+            },
+            {
+              "key": "D",
+              "text": "Avoid inconsistencies when addressing controversial issues."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。文章第五段提到,对知识进行社会验证是我们可以检查自己内在偏见和不一致的一个方法,科学是这种社会共享认知的范例， 说明要通过科学方法来建立社会共享的认知,故答案为 C) 。"
+        },
+        {
+          "number": 55,
+          "stem": "What message does the author try to convey at the end of the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Multiple perspectives stimulate people's interest in exploring the unknown."
+            },
+            {
+              "key": "B",
+              "text": "Individuals can enhance their overall capabilities by interacting with others."
+            },
+            {
+              "key": "C",
+              "text": "Individuals should think freely to break from the restrictions of common sense."
+            },
+            {
+              "key": "D",
+              "text": "Collaborative efforts can overcome individuals limitations in scientific inquiry."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析了事实细节题。文章最后一段指出,至少在科学问题上,那些把常识看得比有方法的合作调查更重要的人以为自己在思考上更加自由,但实际上却被自己的能力和观点所束缚,而众人协力合作会比个人行动更聪明,可以看出协作能够克服个人在科学探索中可能存在的不足。故答案为D)。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%9C%9F%E9%A2%98Word/2022%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%80%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf"
+}

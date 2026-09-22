@@ -1,0 +1,1796 @@
+{
+  "id": "cet6-2022-12-3",
+  "level": 6,
+  "year": 2022,
+  "month": 12,
+  "set": 3,
+  "title": "2022 年 12 月六级 · 第 3 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2022-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "American colleges and universities are using 64 percent less coal than they did a decade ago, burning 700,000 tons last year, down from 2 million tons in 2008, the U.S. Energy Information Administration (EIA) said in areport [[26]]yesterday.",
+        "All 57 schools that were burning coal in 2008 are using less now, and 20",
+        "have [[27]]coal completely, EIA found.",
+        "Most universities have turned to natural gas asa [[28]], with state funding backing the fuel switch.",
+        "While academic institutions use less than 0.1 percent of U.S. coal burned for power, campus coal use has a history dating back to the 1800s when [[29]]to power was scarce.",
+        "Many universities still operate their own power plants. The Public Utility Regulatory Policies Act of 1978 encouraged more electricity generation by allowing institutions to sell [[30]]power to utilities.",
+        "But EIA noted many coal-fired universities have signed onto the American College and University Presidents Climate Commitment, which was launched in 2007.",
+        "About 665 schools are part of the program, which aims to [[31]]greenhouse gas emissions. Thirty percent of the participants have pledged to be carbon [[32]]within 20 years.",
+        "The Sierra Club’s Beyond Coal campaign, which also leads campaigns for universities to withdraw their [[33]]in coal and other fossil fuels, lists 22 schools that have pledged to move “beyond coal,” including Clemson University, Indiana University, Ohio University, Penn State University, the University of Louisville and the University of Tennessee, Knoxville.",
+        "The largest coal use [[34]]at colleges were in Michigan, Missouri, Tennessee and",
+        "Indiana. Indiana’s universities alone cut coal [[35]] by 81 percent between 2008 and",
+        "2015.",
+        "During the same period, Michigan made an 80 percent cut and Tennessee cut back by",
+        "94 percent at state institutions."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "abandoned"
+        },
+        {
+          "key": "B",
+          "text": "access"
+        },
+        {
+          "key": "C",
+          "text": "consumption"
+        },
+        {
+          "key": "D",
+          "text": "contrive"
+        },
+        {
+          "key": "E",
+          "text": "duplications"
+        },
+        {
+          "key": "F",
+          "text": "investments"
+        },
+        {
+          "key": "G",
+          "text": "mobilized"
+        },
+        {
+          "key": "H",
+          "text": "negligent"
+        },
+        {
+          "key": "I",
+          "text": "neutral"
+        },
+        {
+          "key": "J",
+          "text": "reductions"
+        },
+        {
+          "key": "K",
+          "text": "released"
+        },
+        {
+          "key": "L",
+          "text": "replacement"
+        },
+        {
+          "key": "M",
+          "text": "slash"
+        },
+        {
+          "key": "N",
+          "text": "surplus"
+        },
+        {
+          "key": "O",
+          "text": "void"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "access"
+            },
+            {
+              "key": "C",
+              "text": "consumption"
+            },
+            {
+              "key": "D",
+              "text": "contrive"
+            },
+            {
+              "key": "E",
+              "text": "duplications"
+            },
+            {
+              "key": "F",
+              "text": "investments"
+            },
+            {
+              "key": "G",
+              "text": "mobilized"
+            },
+            {
+              "key": "H",
+              "text": "negligent"
+            },
+            {
+              "key": "I",
+              "text": "neutral"
+            },
+            {
+              "key": "J",
+              "text": "reductions"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "replacement"
+            },
+            {
+              "key": "M",
+              "text": "slash"
+            },
+            {
+              "key": "N",
+              "text": "surplus"
+            },
+            {
+              "key": "O",
+              "text": "void"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【语法判断】空格前面是一个介词短语训 a report,后面是时间副词 yesterday, 由此可推断空格处填的单词应该是 report 的后置定语,那么只能是动词的过去分词形式。 【语义判断】空格所在段主要讲美国高校的煤炭使用量大幅度下降, 这段描述中涉及很多真实的数据,均出自美国能源信息署CEIA)的一份报告。动词的过去分词中,K) released 表示“发布,公开”， 用在这里表示“昨天发布的报告>,符合文意,故答案为上) 。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "access"
+            },
+            {
+              "key": "C",
+              "text": "consumption"
+            },
+            {
+              "key": "D",
+              "text": "contrive"
+            },
+            {
+              "key": "E",
+              "text": "duplications"
+            },
+            {
+              "key": "F",
+              "text": "investments"
+            },
+            {
+              "key": "G",
+              "text": "mobilized"
+            },
+            {
+              "key": "H",
+              "text": "negligent"
+            },
+            {
+              "key": "I",
+              "text": "neutral"
+            },
+            {
+              "key": "J",
+              "text": "reductions"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "replacement"
+            },
+            {
+              "key": "M",
+              "text": "slash"
+            },
+            {
+              "key": "N",
+              "text": "surplus"
+            },
+            {
+              "key": "O",
+              "text": "void"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【语法判断】空格前面是 have,后面是名词 coal， 如果此处 have 是实义动词,那么空格处应该填入一个形容词或名词; 如果 have 是助动词,那么此处应为现在完成时,空格处应填入一个动词的过去分词形式。而后面的副词 completely 和实义动词 have 语义上不能搭配,由此可推断出空格处为动词的过去分词 。 【语义判断】空格所在句前半句提到,2008 年使用煤炭的所有 57 所学校现在都在减少煤炭的使用， 后半句又提及其中 20 所学校在煤炭使用方面的问题。在所有过去分词的备选项中,只有 A) abandoned“放弃?可以与 coal 搭配,表示“弃用煤炭”,符合语境,故为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "access"
+            },
+            {
+              "key": "C",
+              "text": "consumption"
+            },
+            {
+              "key": "D",
+              "text": "contrive"
+            },
+            {
+              "key": "E",
+              "text": "duplications"
+            },
+            {
+              "key": "F",
+              "text": "investments"
+            },
+            {
+              "key": "G",
+              "text": "mobilized"
+            },
+            {
+              "key": "H",
+              "text": "negligent"
+            },
+            {
+              "key": "I",
+              "text": "neutral"
+            },
+            {
+              "key": "J",
+              "text": "reductions"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "replacement"
+            },
+            {
+              "key": "M",
+              "text": "slash"
+            },
+            {
+              "key": "N",
+              "text": "surplus"
+            },
+            {
+              "key": "O",
+              "text": "void"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【语法判断】空格前面是不定冠词 a, 由此可推断出空格处是一个单数名词。 【语义判断】 由上文可知,很多高校都减少了煤炭的使用量, 而空格所在句指出它们转而使用天然气,说明它们是用天然气来代替煤炭,空格处填入的名词应该有“替代品”的意思。由此确定工) replacement“替代品?为答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "access"
+            },
+            {
+              "key": "C",
+              "text": "consumption"
+            },
+            {
+              "key": "D",
+              "text": "contrive"
+            },
+            {
+              "key": "E",
+              "text": "duplications"
+            },
+            {
+              "key": "F",
+              "text": "investments"
+            },
+            {
+              "key": "G",
+              "text": "mobilized"
+            },
+            {
+              "key": "H",
+              "text": "negligent"
+            },
+            {
+              "key": "I",
+              "text": "neutral"
+            },
+            {
+              "key": "J",
+              "text": "reductions"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "replacement"
+            },
+            {
+              "key": "M",
+              "text": "slash"
+            },
+            {
+              "key": "N",
+              "text": "surplus"
+            },
+            {
+              "key": "O",
+              "text": "void"
+            }
+          ],
+          "answer": "B",
+          "explanation": "空格与 to power 构成名词短语，作 was scarce 的主语。句子说明十九世纪获得电力的机会有限，B) access 表示“使用或获得的机会”，符合语境。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "access"
+            },
+            {
+              "key": "C",
+              "text": "consumption"
+            },
+            {
+              "key": "D",
+              "text": "contrive"
+            },
+            {
+              "key": "E",
+              "text": "duplications"
+            },
+            {
+              "key": "F",
+              "text": "investments"
+            },
+            {
+              "key": "G",
+              "text": "mobilized"
+            },
+            {
+              "key": "H",
+              "text": "negligent"
+            },
+            {
+              "key": "I",
+              "text": "neutral"
+            },
+            {
+              "key": "J",
+              "text": "reductions"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "replacement"
+            },
+            {
+              "key": "M",
+              "text": "slash"
+            },
+            {
+              "key": "N",
+              "text": "surplus"
+            },
+            {
+              "key": "O",
+              "text": "void"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【语法判断】空格前面是动词 sell, 后面是名词 power,说明空格处应填入一个形容词性或者名词性的单词 ,而备选项中的所有名词都不能与 power 搭配,因此可推断出空格处应该是一个形容词。 【语义判断】空格所在名意思是政府鼓励电力生产,允许这些拥有自己发电厂的院校出售电力,由于院校自身也需要使用部分电力,可以推其出它们出售的电力应该是满足自身供给后剩余的部分。由此确定 N) surplus“剩余的?为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "access"
+            },
+            {
+              "key": "C",
+              "text": "consumption"
+            },
+            {
+              "key": "D",
+              "text": "contrive"
+            },
+            {
+              "key": "E",
+              "text": "duplications"
+            },
+            {
+              "key": "F",
+              "text": "investments"
+            },
+            {
+              "key": "G",
+              "text": "mobilized"
+            },
+            {
+              "key": "H",
+              "text": "negligent"
+            },
+            {
+              "key": "I",
+              "text": "neutral"
+            },
+            {
+              "key": "J",
+              "text": "reductions"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "replacement"
+            },
+            {
+              "key": "M",
+              "text": "slash"
+            },
+            {
+              "key": "N",
+              "text": "surplus"
+            },
+            {
+              "key": "O",
+              "text": "void"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【语法判断] 空格前为动词aims 接不定式 to,后面是名词短语 greenhouse gas emissions, 说明空格处应该十人一个动词原形。 【语义判断】上一段提到,许多燃煤的高校已经签署了 2007 年启动的“美国高校校长气候承诺”,可以推断出这个承诺的目的应该是让气候变得更好,如果要符合这个期阶的话就应该减少温室气体排放,备选项中只有 M) slash“大幅度削减“符合语境,故答案为 MD 。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "access"
+            },
+            {
+              "key": "C",
+              "text": "consumption"
+            },
+            {
+              "key": "D",
+              "text": "contrive"
+            },
+            {
+              "key": "E",
+              "text": "duplications"
+            },
+            {
+              "key": "F",
+              "text": "investments"
+            },
+            {
+              "key": "G",
+              "text": "mobilized"
+            },
+            {
+              "key": "H",
+              "text": "negligent"
+            },
+            {
+              "key": "I",
+              "text": "neutral"
+            },
+            {
+              "key": "J",
+              "text": "reductions"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "replacement"
+            },
+            {
+              "key": "M",
+              "text": "slash"
+            },
+            {
+              "key": "N",
+              "text": "surplus"
+            },
+            {
+              "key": "O",
+              "text": "void"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断】由句子结构可判断,空格处的词应和前面的 carbon 共同组成名词短语,作 to be 的表语,由此可知,空格处应该填入一个名词。 【语义判断】上文已经提到高校承诺要实施有利于气候的行动,即减少温室气体排放, 而下文再次提及了相关的“超越煤炭运动\",说明空格所在处的词也与此相关。备选项中的名词 D) neutral 和 carbon 是固定搭配, carbon neutral 表示“碳中和”,符合语境,故答案为I 。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "access"
+            },
+            {
+              "key": "C",
+              "text": "consumption"
+            },
+            {
+              "key": "D",
+              "text": "contrive"
+            },
+            {
+              "key": "E",
+              "text": "duplications"
+            },
+            {
+              "key": "F",
+              "text": "investments"
+            },
+            {
+              "key": "G",
+              "text": "mobilized"
+            },
+            {
+              "key": "H",
+              "text": "negligent"
+            },
+            {
+              "key": "I",
+              "text": "neutral"
+            },
+            {
+              "key": "J",
+              "text": "reductions"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "replacement"
+            },
+            {
+              "key": "M",
+              "text": "slash"
+            },
+            {
+              "key": "N",
+              "text": "surplus"
+            },
+            {
+              "key": "O",
+              "text": "void"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【语法判断空格前面是形容词性物主代词 their， 后罗十雹祭羽生。 由此可推断出空格处应该填入词。 【语义判断空格所在段讲的是“超越煤炭运动”， 这一运动也是为了减少温室气体排放,为了实现这一目标需要相应地减少煤炭使用量,由此可推断也应该减少对其的资金投入, 备选项中 F) investments 表示“投资>,用在这里表示“减少对煤央和其他化石燃料的投资,符合语境,故为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "access"
+            },
+            {
+              "key": "C",
+              "text": "consumption"
+            },
+            {
+              "key": "D",
+              "text": "contrive"
+            },
+            {
+              "key": "E",
+              "text": "duplications"
+            },
+            {
+              "key": "F",
+              "text": "investments"
+            },
+            {
+              "key": "G",
+              "text": "mobilized"
+            },
+            {
+              "key": "H",
+              "text": "negligent"
+            },
+            {
+              "key": "I",
+              "text": "neutral"
+            },
+            {
+              "key": "J",
+              "text": "reductions"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "replacement"
+            },
+            {
+              "key": "M",
+              "text": "slash"
+            },
+            {
+              "key": "N",
+              "text": "surplus"
+            },
+            {
+              "key": "O",
+              "text": "void"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【语法判断空格前面是名词短语 coal use,后面是地点状语, 且空格所在部分 the largest coal use at colleges 是整句话的主语,由此可推断该部分没有谓语动词,所以空格处应填入的是一个名词。 【语义判断】下一句提到印第安纳州的高校煤炭使用量具体缩减了多少,说明上文中(也就是空格所在句)讲的也是缩减煤炭使用量的内容,备选项中的 J) reductions“减少”符合文意,故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "access"
+            },
+            {
+              "key": "C",
+              "text": "consumption"
+            },
+            {
+              "key": "D",
+              "text": "contrive"
+            },
+            {
+              "key": "E",
+              "text": "duplications"
+            },
+            {
+              "key": "F",
+              "text": "investments"
+            },
+            {
+              "key": "G",
+              "text": "mobilized"
+            },
+            {
+              "key": "H",
+              "text": "negligent"
+            },
+            {
+              "key": "I",
+              "text": "neutral"
+            },
+            {
+              "key": "J",
+              "text": "reductions"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "replacement"
+            },
+            {
+              "key": "M",
+              "text": "slash"
+            },
+            {
+              "key": "N",
+              "text": "surplus"
+            },
+            {
+              "key": "O",
+              "text": "void"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【语法判断】空格所在句结构完整,空格前是名词 coal,后面是介词 by 引出状语,由此可推断空格处应该填入一个名词,和 coal 组成名词短语。 【语义判断】上下文中都提到各州高校减少煤炭的使用,因此空格处的名词也应该与“使用”的意思相近,备选项中只有 C) consumption“消耗?可以搭配动词 cut,且符合文意,故为答案。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-3-b",
+      "type": "matching",
+      "title": "Classical music aims to evolve, build audiences without alienating old guard",
+      "paragraphs": [
+        "A) In 1913, classical music sparked a riot in Paris. Igor Stravinsky was introducing his revolutionary “Rite of Spring” ballet to the world, with its discordant melodies and unorthodox choreography (编舞), and the purists in the crowd expressed their disapproval loud and clear. It might have been classical music’s version of the time Bob Dylan went electric at the Newport Folk Festival. “The noise, fighting, and shouting in the audience got so loud,” NPR’s music reporter Miles Hoffman said of the Stravinsky debut, “that the choreographer had to shout out the numbers to the dancers so that they knew what they were supposed to do.”",
+        "B) It’s difficult to imagine a similar disturbance occurring today within America’s sacred symphony halls. In fact, it’s hard to picture any kind of disruptive activity at all (unless someone’s cell phone happens to go off, and then you’d better watch your back). A mannerly aura (氛围) hangs over most classical proceedings, and many of the genre’s biggest supporters would have it no other way.",
+        "C) Today, Western audiences for classical music and opera and ballet are almost always well dressed, older, respectful, achingly silent and often very wealthy (one has to be able to afford most tickets). But as many of America’s most storied “highbrow” (高雅的) institutions struggle financially—the Philadelphia Orchestra’s much-publicized rebound from bankruptcy is just one recent example—classical music fans and theorists are wondering how the medium can weave itself into the 21st century’s cultural fabric without sacrificing its integrity.",
+        "D) For example, should we feel OK “clapping” during classical music events, even if nobody else is? Why shouldn’t we cheer for something great, like we do at a rock concert? The Huffington Post recently ran a Great Debate on this issue and many commenters came out on the side of silence. “There is no more rewarding experience in life than being part of an audience where everybody is leaning forward in silence, thoroughly carried away by a great performance of a masterpiece,” one commenter wrote. “Why is it so difficult for folks to develop an appreciation and understanding for the mannerisms and traditions of classical music?” asked another.",
+        "E) The truth is that classical music audiences weren’t always so polite. Robert Greenberg, an award-winning composer, said that when Beethoven first performed his 7th Symphony, audiences forced the orchestra to perform encores (重演) of certain movements immediately, applauding wildly. And in the last few decades, he said, many audiences at opera performances have abandoned pretenses, yelling “Bravo” when they feel like it.",
+        "F) “I don’t think there’s anything wrong with an audience showing their enthusiasm for a proper moment by applauding, showing their joy,” Greenberg said, noting that the stuffiness in concert halls is “one aspect of contemporary concert etiquette” he doesn’t understand. “Instead of waiting half an hour to show enthusiasm, why not show it every eight or nine minutes?”",
+        "G) Until the rules about behavior and clothing change, it’s hard to imagine multitudes of young people filling concert halls on their own accord. They re probably more likely to head to Central Park to watch a free performance with a bottle of wine and their friends. “I think anyone should be able to come into a performance dressed any way they like, and be comfortable any way they like, sitting in that seat ready to enjoy themselves,” Greenberg said. “Because it’s enjoyable.”",
+        "H) Greenberg stressed that he doesn't want people to start respecting the music less, and he’s not suggesting that we “dumb down” the experience. Rather, it’s about opening up “access.” When operas first instituted subtitles (字幕) during shows, he said, many purists didn’t like the idea, believing that the audience should instead study the works before attending. But now it’s commonplace to find titles on the seatback in front of you—choose a language, sit back, and understand what’s going on.",
+        "I) Allison Vulgamore, president of the Philadelphia Orchestra, is certainly looking to the future. She says certain “classics concerts” dedicated to the old masters will always exist, but not every program has to feature Beethoven and Brahms—or even a stage and seats. “We're trying to introduce different kinds of concerts in different ways,” she said. “We are an interactive society now, where people like to learn.”",
+        "J) As the Philadelphia Orchestra rebounds from its financial straits, it is also aiming to experiment, without alienating the loyalists. Vulgamore pointed to Cirque de la Symphonie, a recent offering in which jugglers (玩杂耍的人) and acrobats (杂技演员) interacted with musicians. An upcoming collaboration with New York City’s Ridge Theatre, meanwhile, will feature a “suspended dance installation” and other theatrical elements occurring in conjunction with an orchestral piece.",
+        "K) The orchestra also continues to offer $25 annual memberships to Philadelphia students, who can buy rush tickets to every concert on the schedule. “Students line up for the concerts they want, and we get roughly 300 or 350 kids a night coming to these. They take any of the open seats available, 5 minutes before the concert starts,” Vulgamore said. “It’s like the running of the bulls, that energy when the doors open.”",
+        "L) Greenberg thinks that youthful energy needs to be harvested. Conductors don’t have to be arrogant and untouchable—they can be accessible. Perhaps there could even be a “bit of humor” about them, he suggested, and an abandoning of pretension within the high-art institutions themselves. “On one hand, these organizations are all saying the same thing: we want more general audiences, to break down cultural barriers,” he said. “But then they come up with some very snooty (目中无人的) thing that makes you crazy.”",
+        "M) John Terauds, a critic who has covered Toronto’s classical music scene extensively, also wants to do away with the stuffiness. He suggested that the warmer an audience is, the better the musicians themselves will respond. “But the producer or organizer has to let everyone know it’s OK,” he said. “It’s OK to enjoy yourself.” At the Toronto Symphony Orchestra, for example, conductor Peter Oundjian often stops between pieces, taking a moment to talk about the composer or the music in a very amiable way. And some nights, Terauds said, “at least a third” of the audience consists of students who have purchased cheaper tickets. On these nights, the energy of the room drastically shifts. It becomes a less intimidating place.",
+        "N) Back in February, Terauds wrote on his blog about how going to classical performances can be intimidating. Certain people “think they have to dress up,” he wrote. “They think they have to know something about the music before they go. And, I'm sure, sitting in a seat, trembling in fear that this might be the wrong time to applaud, is also one of the factors.”",
+        "O) Everyone in the classical world agrees on the need for increased “accessibility,” but achieving it is often easier said than done. Nowadays, there are unknown, unorthodox opera singers wowing (博得……的喝彩) viewers on TV programs like “America’s Got Talent” and “The Voice”. What can higher institutions do with any of that? And if they appeal to these outlets, do they risk compromising the integrity or the intelligence of the music?",
+        "P) Vulgamore seems to understand this. She thinks an organization can have it both ways, claiming the new while keeping the old. And as she reorganizes the Philadelphia Orchestra, she will attempt to do just that. “The world’s most respected musicians brought together as an orchestra will always exist,” she said. “But it’s essential that we be willing to experiment and fail.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "It was not a rare occurrence that audiences behaved wildly while listening to classical music.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】细节归纳题。E)段第一句提到,古典音乐的听众并不总是那么有礼狐,接着以观众迫切要求乐团重奏第七交响曲的例子来估证这一观点。 该段最后一句又提到,在过去的几十年里,歌剧表演中的许多观众已经放弃了伪装, 他们喜欢表演时就会大喊“Bravo(好极了)”。由此可知,题干是对了E)段定位句的归纳概括:观众在听古典音乐时经常出现狂热失控的行为。题干中的 not a Tare occurrence 和 behaved wildly 对应原文中的 weren't always so polite,故答案为也) 。"
+        },
+        {
+          "number": 37,
+          "stem": "Some high-art institutions don't actually mean it when they say they want more general audiences.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【精析】细节推断题。L)段定位句指出,这些高级艺术机构都表示希望有更多的普通观众,以打破文化障碍,但后来他们却提出了一些非常目中无人的要求,这些要求会让观众发疯。由此可以推断,这些高级艺术机构并非真心实意地欢迎更多的普通观众。题干中的 don't actually mean it 是根据原文中 they come up with some very Snooty thing that makes you crazy 推断出的意思 ,题干中的 want more general audiences 直接对应原文内容,故答案为工) 。"
+        },
+        {
+          "number": 38,
+          "stem": "The theatre was in chaos when an unconventional ballet was first put on stage in the capital of France.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】同义转述题。A)段定位句提到,1913 年， 在巴黎,伊戈尔' 斯特拉文斯基向世界展示了他革命性的芭曹舞k春之祭》旋律不和谐,编舞非正统,人群中的纯粹主义者大声而明确地表达了他们的不满,因而引发了一场驭乱。题干中的 was in chaos 对应原文中的 sparked a riot; 题干中的 unconventional 是原文中 unorthodox 的同义词; 题干中的 was first put on stage 是对原文中 introducing 的同义转述,题干中的 the capital of France 对应原文中的 Paris,故答案为 A) 。"
+        },
+        {
+          "number": 39,
+          "stem": "According to one critic, the audience's warm response would encourage the musicians to do a better job.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【精析】同义转述题。MD)段定位句提到,约翰。特劳德斯是一位曾广泛报道过多伦多古典音乐界的评论家,他认为观众越热情,音乐家们自己的反应就越好。题干中的 one critic 直接对应原文中的 John Terauds，a critic; 题干中的 the audience's warm response would encourage the musicians to do a better job 是对原文中 the warmer an audience is，the better the musicians themselves will respond 的同义转述,故答案为 MD 。"
+        },
+        {
+          "number": 40,
+          "stem": "Many commenters argued for the audience enjoying classical music quietly.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 段介绍了有关古典音乐现场是否应鼓掌的争论，许多评论者支持保持安静，后文的两位评论者也认可传统欣赏方式。题干概括了这一立场。"
+        },
+        {
+          "number": 41,
+          "stem": "What appears on the seatback screen makes it unnecessary for the audience to study the works beforehand",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】细节推断题。H)段定位句指出, 当歌剧首次在演出期间设置字幕时,许多纯粹主义者不喜欢这个想法,他们认为观众应该在观看之前先研究一下作品。但现在观众普遍可以在座椅靠背上找到字幕,很容易就能明白作品的内容。由此可推断出,有了这些椅背屏幕上的字幕,观众就没有必要再事先研究作品了。题干中的 on the seatback screen 对应原文中的 on the seatback;题干中的 study the works beforehand 是对原文中 study the works before attending 的同义转述,故答案为 H) 。"
+        },
+        {
+          "number": 42,
+          "stem": "It is generally accepted that there should be no disturbance from the audience during classical music performance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】细节归纳题。B)段第一句衔接上文,表示很难想象今天在美国神圣的交响乐大厅内会发生类似的骚乱,接着提到平时在欣赏古典音乐表演时即便手机响了也得当心。最后一句又指出,大多数古典音乐的表演过程都被一种彬彬有礼的氛围笼单着。由此可知,题干是对 B)段的归纳概括:这种骚乱在古典音乐表演中极为罕见,说明人们都认为在欣赏表演的过程中观众不可以有干扰性的行为。题干中的 there should be no disturbance 对应原文中的 it's difficult to imagine a similar disturbance; 题干中的 during classical mnusic performance 对应原文中的 hangs over most classical proceedings,故答案为 B) 。"
+        },
+        {
+          "number": 43,
+          "stem": "Higher institutions will be concerned about compromising the integrity of classical music if they have to resort to the television medium.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【精析】同义转述题。O)段定位句提出疑问:面对如今电视节目中非正统歌剧演员深受好评的现象,更高级的机构如果也试图通过这些表演平台寻求改变,是否有可能损害音乐的完整性或智慧? 题干和原文内容意思相符题干中的 compromising the integrity of classical music 对应原文中的“compromising the integrity. . .of the music”;题干中的 resort to 是原文中 appeal to 的同义表达;题干中的 television medium 对应原文中的 these outlets,故答案为 O) 。"
+        },
+        {
+          "number": 44,
+          "stem": "Heavily discounted rush tickets help attract many young students to attend classical concerts.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【精析】细节归纳题。K)段定位句指出,乐团向费城学生出售会员资格,他们可以买日程表上每场音乐会的抢购票。乐团的主席瓦尔格莫也提到， 每晚大约有 300 或 350 个孩子来参加这些音乐会。由此可知,题干是对 K)段定位句的归纳概括。题干中的 heavily discounted rush tickets 对应原文中的 $25 annual memberships 和 rush tickets;题干中的 young students 对应原文中的 Philadelphia students 和 kids; 题干中的 classical concerts 对应原文中的 concerts,故答案为开) 。"
+        },
+        {
+          "number": 45,
+          "stem": "The formalities of high-art theatres can intimidate some people attending a performance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【精析]】细节归纳题。N)段第一句指出,早在今年 2 月,特劳德斯在他的博客上表示欣赏古典表演会令人生旦,之后又具体解释原因:有人认为必须盛装打扮,有人认为在去之前必须对音乐有所了解， 还有人可能会担心自己鼓掌的时机不对。这些都是高级艺术剧院中涉及古典音乐表演的一些礼节要求,而这些要求令人对欣赏古典表演感到胆侍。 由此可知,题干是对 N)段定位句的归纳概括。题于中的 formalities 对应原文中的 dress up、know Something about the music before they go 以及 time to applaud,题干中的 intimidate 对应原文中的 intimidating，题干中的 attending a performance 对应原文中的 going to classical performances,故答案为 N) 。 共9页"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "How can one person enjoy good health, while another person looks old before her time? Humans have been asking this question for thousands of years, and recently, it’s becoming clearer and clearer to scientists that the differences between people’s rates of aging lie in the complex interactions among genes, social relationships, environments and lifestyles. Even though you were born with a particular set of genes, the way you live can influence how they express themselves. Some lifestyle factors may even turn genes on or shut them off.",
+        "Deep within the genetic heart of all our cells are telomeres, or repeating segments of noncoding DNA that live at the ends of the chromosomes (4: & 4%). They form caps at the ends of the chromosomes and keep the genetic material together. Shortening with each cell division, they help determine how fast a cell ages. When they become too short, the cell stops dividing altogether. This isn't the only reason a cell can age—there are other stresses on cells we don’t yet understand very well—but short telomeres are one of the major reasons human cells grow old. We've devoted most of our careers to studying telomeres, and one extraordinary discovery from our labs is that telomeres can actually lengthen.",
+        "Scientists have learned that several thought patterns appear to be unhealthy for telomeres, and one of them is cynical hostility. Cynical hostility is defined by high anger and frequent thoughts that other people cannot be trusted. Someone with hostility doesn’t just think, “I hate to stand in long lines”; they think, “Others deliberately sped up and beat me to my rightful position in the line!” —and then get violently agitated. People who score high on measures of cynical hostility tend to get more heart disease, metabolic disease and often die at younger ages. They also have shorter telomeres. In a study of British civil",
+        "servants, men who scored high on measures of cynical hostility had shorter telomeres than men whose hostility scores were low. The most hostile men were 30% more likely to have short telomeres.",
+        "What this means: aging is a dynamic process that could possibly be accelerated or slowed—and, in some aspects, even reversed. To an extent, it has surprised us and the rest of the scientific community that telomeres do not simply carry out the commands issued by your genetic code. Your telomeres are listening to you. The foods you eat, your response to challenges, the amount of exercise you get, and many other factors appear to influence your telomeres and can prevent premature aging at the cellular level. One of the keys to enjoying good health is simply doing your part to foster healthy cell renewal."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What have scientists come to know better today?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Why people age at different rates."
+            },
+            {
+              "key": "B",
+              "text": "How genes influence the aging process."
+            },
+            {
+              "key": "C",
+              "text": "How various genes express themselves in aging."
+            },
+            {
+              "key": "D",
+              "text": "Why people have long been concerned about aging."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】事实细节题。文章首段第一二句指出,几千年来,人类一直在追问一个问题:为什么一个人可以享受健康, 而另一个人却看起来未老先误? 最近,科学家们越来越清楚地认识到,人们衰老速度的差异在于基因、社会关系、环境和生活方式之间复杂的相互作用。由此可知,科学家们最近了 oo 故答案 A)。"
+        },
+        {
+          "number": 47,
+          "stem": "Why are some lifestyle factors considered extremely important?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may shorten the process of cell division."
+            },
+            {
+              "key": "B",
+              "text": "They may determine how genes function."
+            },
+            {
+              "key": "C",
+              "text": "They may affect the lifespan of telomeres."
+            },
+            {
+              "key": "D",
+              "text": "They may account for the stresses on cells."
+            }
+          ],
+          "answer": "B",
+          "explanation": "首段指出，生活方式会影响基因的表达，一些因素甚至能开启或关闭基因。这说明生活方式能决定基因是否发挥作用，因此选 B。"
+        },
+        {
+          "number": 48,
+          "stem": "What have the author and his colleagues discovered about telomeres?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their number affects the growth of cells."
+            },
+            {
+              "key": "B",
+              "text": "Their length determines the quality of life."
+            },
+            {
+              "key": "C",
+              "text": "Their shortening process can be reversed."
+            },
+            {
+              "key": "D",
+              "text": "Their health impacts the division of cells."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】推理判断题。文章最后一段第一句指出， 衰老是一个动态的过程,有可能加速或减缓, 而且在某些方面甚至可以逆转。通过前文可知,端粒的缩短是细胞衰老的主要原因之一, 由此可推断出细胞衰老过程就是端粒缩短过程, 而这个过程是可以被道转的,故答案为 C) 。"
+        },
+        {
+          "number": 49,
+          "stem": "What have scientists learned about cynical hostility?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may lead to confrontational thought patterns."
+            },
+            {
+              "key": "B",
+              "text": "It may produce an adverse effect on telomeres."
+            },
+            {
+              "key": "C",
+              "text": "It may cause people to lose their temper frequently."
+            },
+            {
+              "key": "D",
+              "text": "It may stir up agitation among those in long lines."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析了事实细节题。第三段第一句指出,科学家们已经了解到,有几种思维模式似乎会对端粒产生不利影响,其中之一就是愤世嫉俗的敌意。由此可知答案为 B) 。"
+        },
+        {
+          "number": 50,
+          "stem": "What do we learn from the last paragraph about the process of aging?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may vary from individual to individual."
+            },
+            {
+              "key": "B",
+              "text": "It challenges scientists to explore further."
+            },
+            {
+              "key": "C",
+              "text": "It depends on one’s genetic code."
+            },
+            {
+              "key": "D",
+              "text": "It may be controlled to a degree."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】 推理判断题。文章最后一段第一句提到， 衰老是一个动态的过程,有可能加速或减缓,而且在某些方面甚至可以逆转;最后一句又提到,享受良好健康的关键之一就是简单地尽你自己的一份力来促进有益于健康的细胞更新。说明衰老的过程是可以发生改变的,而且我们可以通过自己的努力来促进有益健康的细胞更新,从而延缓衰老。 由此可推断衰老的过程在一定程度上是可以得到控制的,故答案为 D)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Scientists have created by accident an enzyme (4) that breaks down plastic drinks",
+        "bottles. The breakthrough could help solve the global plastic pollution crisis by enabling for the first time the full recycling of bottles.",
+        "The new research was spurred by the discovery in 2016 of the first bacterium that had naturally evolved to eat plastic at a waste dump in Japan. Scientists have now revealed the detailed structure of the crucial enzyme produced by the bug.",
+        "An international team then adjusted the enzyme to see how it had evolved, but tests showed they had accidentally made the molecule even better at breaking down the plastic used for drinks bottles. “What actually turned out was we improved the enzyme, which was a bit of a shock,” said head researcher Prof. McGeehan, at the University of Portsmouth, UK.",
+        "Currently, the enzyme takes a few days to start breaking down the plastic, far faster than the centuries it takes in the oceans, but the researchers are optimistic this can be speeded up even further and become a viable large-scale process.",
+        "“What we are hoping to do is use this enzyme to turn this plastic back into its original components, so we can literally recycle it back to plastic,” said McGeehan. “It means we won’t need to dig up any more oil and, fundamentally, it should reduce the amount of plastic in the environment.”",
+        "About 1 million plastic bottles are sold each minute around the globe and, with just 14% recycled, many end up in the oceans where they have polluted even the remotest parts, harming marine life and potentially people who eat sea food. “Plastic is incredibly resistant to degradation,” said McGeehan. “It is one of these wonder materials that has been made a little bit too well.”",
+        "Currently those bottles that are recycled can only be turned into opaque fibres for clothing or carpets, while the new enzyme indicates a way to recycle old clear plastic bottles back into new clear plastic bottle.",
+        "“You are always up against the fact oil is cheap, so plastic is cheap,” said McGeehan. “It is so easy for manufacturers to generate more of that stuff, rather than even try to recycle, but I believe there is a public interest here: perception is changing so much that companies are starting to look at how they can properly recycle these bottles.”",
+        "Prof. Adisa Azapagic, at the University of Manchester in the UK, agreed the enzyme could be useful but added: “A full life-cycle assessment would be needed to ensure that the technology does not solve one environmental problem—waste—at the expense of others, including additional greenhouse gas emissions.”"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn from the passage about an enzyme scientists have created?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was identified during a lab experiment accident."
+            },
+            {
+              "key": "B",
+              "text": "It may make full recycling of plastic bottles a reality."
+            },
+            {
+              "key": "C",
+              "text": "It was a breakthrough made with persistent efforts."
+            },
+            {
+              "key": "D",
+              "text": "It may initiate a radical reform in plastic industry."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的 an enzyme scientists have created 定位到第一段第一句。 B) 芭精析了事实细节题。定位句指出,科学家偶然制出了一种能分解塑料饮料瓶的酶,随后一句说,这一突破将首次实现塑料瓶的完全回收,可见 B)为该句的同义转述,故为答案。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the passage say about the bug that produces the important enzyme?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has a natural ability to consume plastics."
+            },
+            {
+              "key": "B",
+              "text": "It is a bacterium that reproduces at a high rate."
+            },
+            {
+              "key": "C",
+              "text": "It is essential to the recycling of plastic bottles."
+            },
+            {
+              "key": "D",
+              "text": "It has a chemical structure unknown to scientists."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析了事实细节题。第二段第二句提到了 bug， 由上下文可知,这里的 bug 就是指前一句中提到的 bacterium。第二段首句指出,这种细菌是第一种自然进化出的以塑料为食的细菌,可知它具有消耗塑料的天然能力,故答案为 A) 。"
+        },
+        {
+          "number": 53,
+          "stem": "By adjusting the enzyme produced by the bug, the scientists.",
+          "options": [
+            {
+              "key": "A",
+              "text": "made it more effective by chance"
+            },
+            {
+              "key": "B",
+              "text": "discovered an extraordinary chemical"
+            },
+            {
+              "key": "C",
+              "text": "altered its basic molecular composition"
+            },
+            {
+              "key": "D",
+              "text": "found its evolutionary process sped up"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】事实细节题。定位句提到,科学家对这种酶进行了调整,原本的目的是观察它如何进化,但测试结果显示,他们意外地增强了这种分子分解饮料瓶所用的塑料时的作用,可知 A)为该句信息的转述,故为答案。"
+        },
+        {
+          "number": 54,
+          "stem": "What does Prof. McGeehan say about the recycling of plastic bottles?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Manufacturers are implementing it on an increasingly larger scale."
+            },
+            {
+              "key": "B",
+              "text": "It generates huge business opportunities for plastic manufacturers."
+            },
+            {
+              "key": "C",
+              "text": "It has aroused persistent interest among the general public."
+            },
+            {
+              "key": "D",
+              "text": "Manufacturers are beginning to explore ways of doing it."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析]】 推理判断题。该段最后一句提到,对于制造商而言,生产更多的塑料比试图回收更容易， 但由于回收塑料涉及公众利益,导致人们的看法也发生了巨大变化,所以这些制造商公司也开始考虑如何恰当地回收这些瓶子,可知 D)是对该句部分信息的转述 ,故为答案。"
+        },
+        {
+          "number": 55,
+          "stem": "What is Prof. AdisaAzapagic’s advice concerning the application of the enzyme?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Developing technologies to address greenhouse gas emissions."
+            },
+            {
+              "key": "B",
+              "text": "Considering the extra cost involved in producing the enzyme."
+            },
+            {
+              "key": "C",
+              "text": "Assessing its possible negative impact on the environment."
+            },
+            {
+              "key": "D",
+              "text": "Studying the full life cycle of the enzyme as the first step."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析卫推理判断题。在该段引用这位教授的话中,提及需要进行一个全生命周期的评估,目的在于确保新的塑料分解技术不会以引起其他环境问题为代价,可知评估的目的在于这项新技术会不会对环境造成负面影响 ,故答案为 C) 。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97%E7%AD%94%E6%A1%88%E5%8F%8A%E8%AF%A6%E8%A7%A3.pdf"
+}

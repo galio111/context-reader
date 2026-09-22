@@ -86,7 +86,7 @@ test("catalogue ships complete reading papers with answers and explanations, exc
   const files = readdirSync(dir).filter((name) =>
     /^cet[46]-.*\.json$/.test(name),
   );
-  assert.equal(files.length, 15);
+  assert.equal(files.length, 53);
   for (const name of files) {
     const p = JSON.parse(readFileSync(new URL(name, dir), "utf8")) as CetPaper;
     assert.ok(!(p.level === 4 && p.year === 2026));
@@ -114,6 +114,7 @@ test("catalogue ships complete reading papers with answers and explanations, exc
       }
       if (s.type === "cloze") {
         assert.equal(s.bank?.length, 15);
+        assert.equal(new Set(s.questions.map((q) => q.answer)).size, 10);
         assert.equal(
           (s.paragraphs.join(" ").match(/\[\[\d+\]\]/g) || []).length,
           10,
@@ -124,6 +125,36 @@ test("catalogue ships complete reading papers with answers and explanations, exc
             q.options.map((o) => o.key),
             ["A", "B", "C", "D"],
           );
+    }
+  }
+});
+
+test("five-year coverage separates missing answers from incomplete reading order", () => {
+  const dir = new URL("../data/cet/", import.meta.url);
+  const coverage = JSON.parse(readFileSync(new URL("coverage.json", dir), "utf8"));
+  const catalogue = JSON.parse(readFileSync(new URL("catalog.json", dir), "utf8")) as CetPaper[];
+  assert.deepEqual([...new Set(catalogue.map((p) => p.year))].sort(), [2022, 2023, 2024, 2025, 2026]);
+  for (const id of [...coverage.missingAnswers, ...coverage.incompleteReadingOrder, ...Object.keys(coverage.sharedReading)])
+    assert.ok(!catalogue.some((p) => p.id === id), id);
+  for (const id of Object.values(coverage.sharedReading))
+    assert.ok(catalogue.some((p) => p.id === id));
+  for (const p of catalogue)
+    for (const s of p.sections) {
+      assert.ok(!("paragraphs" in s));
+      for (const q of s.questions) assert.deepEqual(Object.keys(q), ["number"]);
+    }
+  const read = (id: string) => JSON.parse(readFileSync(new URL(`${id}.json`, dir), "utf8")) as CetPaper;
+  assert.equal(read("cet4-2024-12-3").sections[3].questions[4].answer, "A");
+  assert.equal(read("cet6-2024-12-1").sections[0].questions[9].answer, "M");
+  assert.match(read("cet6-2023-12-1").sections[1].paragraphs[0], /2% of/);
+  for (const p of catalogue.filter((p) => p.year < 2025)) {
+    const paper = read(p.id);
+    for (const s of paper.sections) {
+      assert.ok(!/[#*]|EXDVEIST|ASGEANRIUER/.test(s.paragraphs.join(" ")), p.id);
+      if (s.type === "matching")
+        assert.deepEqual(s.paragraphs.map((t) => t[0]), [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"].slice(0, s.paragraphs.length));
+      for (const q of s.questions)
+        assert.ok(!/解析册|结构框图|参考译文|网站上一篇标题/.test(q.explanation || ""), `${p.id} Q${q.number}`);
     }
   }
 });

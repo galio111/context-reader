@@ -241,6 +241,582 @@
       "sha": "f8b7d16d303ae89728b8189ae83c58d6cfc9fd9c",
       "sha256": "b39d9eb289d7ef5ea1a82fb478b8190425b03a52eec73e71dd6b4413c70fe788",
       "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2025_12_3_ans.pdf"
+    },
+    {
+      "path": "四级真题/2022.06/真题PDF/cet4_2022_06_1.pdf",
+      "file": "06ca635d7b45.pdf",
+      "size": 1661396,
+      "sha": "06ca635d7b453c975be92489d0faf70a226e815f",
+      "sha256": "98a4aaecf332f9874f8940a802593eb66b2cb44dfaabfaadade4eb4c97b9c585",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%9C%9F%E9%A2%98PDF/cet4_2022_06_1.pdf"
+    },
+    {
+      "path": "四级真题/2022.06/答案解析/cet4_2022_06_1_ans.pdf",
+      "file": "ba46d8224990.pdf",
+      "size": 3692216,
+      "sha": "ba46d8224990acd0800f8912705e148bf2ae81a2",
+      "sha256": "8ee468ef7d12fe2950441aa8e2414c7550b8ae9dc8b9bcbf4a0d7dc09071ac3f",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2022_06_1_ans.pdf"
+    },
+    {
+      "path": "四级真题/2022.06/真题PDF/cet4_2022_06_2.pdf",
+      "file": "bfea887ff461.pdf",
+      "size": 1272497,
+      "sha": "bfea887ff4618d4d4369bbb8cc62f44fbea52bde",
+      "sha256": "315b1fcd4ebcdcada822b8ba32896aa55c3dca890a5493ff3d55e6a09dbe0d3b",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%9C%9F%E9%A2%98PDF/cet4_2022_06_2.pdf"
+    },
+    {
+      "path": "四级真题/2022.06/答案解析/cet4_2022_06_2_ans.pdf",
+      "file": "bcdd481ba255.pdf",
+      "size": 2629698,
+      "sha": "bcdd481ba25555cfd9858b2c7d75cbaeb42a2ceb",
+      "sha256": "5babad090dc67db1d648bce2d13abc1c064a08aed57b0e45ee421190e279bad1",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2022_06_2_ans.pdf"
+    },
+    {
+      "path": "四级真题/2022.09/真题PDF/cet4_2022_09_1.pdf",
+      "file": "d37739955d42.pdf",
+      "size": 2335748,
+      "sha": "d37739955d42d8ed70725efc66bc77f2b9bb5708",
+      "sha256": "38db7898e9b6cf56c9f58693ae055a9fb0f3162836d6f6a8b82be394508393b3",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.09/%E7%9C%9F%E9%A2%98PDF/cet4_2022_09_1.pdf"
+    },
+    {
+      "path": "四级真题/2022.09/答案解析/cet4_2022_09_1_ans.pdf",
+      "file": "9a0461029321.pdf",
+      "size": 3321580,
+      "sha": "9a0461029321df93b93331339fb829fdd5084118",
+      "sha256": "f9b34d1819b4bc802438d49e569ed5403710e8c17e71e5c200d7552eb3fb1192",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.09/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2022_09_1_ans.pdf"
+    },
+    {
+      "path": "四级真题/2022.12/真题PDF/cet4_2022_12_1.pdf",
+      "file": "9c0fe2caeaa6.pdf",
+      "size": 1616535,
+      "sha": "9c0fe2caeaa664d84725fce474636a924dec0fca",
+      "sha256": "c29d9111253133135fe2fe40cdc6e0b18667f2251d05c48ebcae6ae528e88c17",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/cet4_2022_12_1.pdf"
+    },
+    {
+      "path": "四级真题/2022.12/答案解析/cet4_2022_12_1_ans.pdf",
+      "file": "874aa97fdaad.pdf",
+      "size": 3467422,
+      "sha": "874aa97fdaadf9b1173cdfc9df6c179ba0c7b65b",
+      "sha256": "50823f391b353322c5cb0a5e1c2fa9a52322168e521953bf1a23cefd747be553",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2022_12_1_ans.pdf"
+    },
+    {
+      "path": "四级真题/2022.12/真题PDF/cet4_2022_12_2.pdf",
+      "file": "e9f8bea11a83.pdf",
+      "size": 1560469,
+      "sha": "e9f8bea11a831b2939ca179ff5848d80a02382bc",
+      "sha256": "5218c0206fda282bba0c3a56b99c2c7a2187fc63da2b871c2e436728757bbcc7",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/cet4_2022_12_2.pdf"
+    },
+    {
+      "path": "四级真题/2022.12/答案解析/cet4_2022_12_2_ans.pdf",
+      "file": "da35a553ebba.pdf",
+      "size": 3402816,
+      "sha": "da35a553ebba1fd49301cc8816857c3933eab909",
+      "sha256": "b6cfc2bfab7380c699db00c6d6774500c95417f303f29d8aaa97d6e7a7b5bea2",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2022_12_2_ans.pdf"
+    },
+    {
+      "path": "四级真题/2022.12/真题PDF/cet4_2022_12_3.pdf",
+      "file": "2e324416308c.pdf",
+      "size": 1252496,
+      "sha": "2e324416308c77ef1e7fb42280b2962278b1e675",
+      "sha256": "277d8ea6e799069bf9b0367cf069166358f44af559293d5037f9faacc105cdcd",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/cet4_2022_12_3.pdf"
+    },
+    {
+      "path": "四级真题/2022.12/答案解析/cet4_2022_12_3_ans.pdf",
+      "file": "36e8a8f48d17.pdf",
+      "size": 2610477,
+      "sha": "36e8a8f48d17604c4ac880d8211ddd9a3d3080e6",
+      "sha256": "e3b7e0f036be624888d6bbc7e44453006bcd498153416aeec369045a870c79ec",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2022_12_3_ans.pdf"
+    },
+    {
+      "path": "四级真题/2023.03/真题PDF/cet4_2023_03_1.pdf",
+      "file": "28282fc27135.pdf",
+      "size": 1806114,
+      "sha": "28282fc27135e2b930abe157b7a262e3f82e0123",
+      "sha256": "40a0aaad9c96828069ac2161603fd133b69fbe1b0a2bd52484a60da94b2b0178",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.03/%E7%9C%9F%E9%A2%98PDF/cet4_2023_03_1.pdf"
+    },
+    {
+      "path": "四级真题/2023.03/答案解析/cet4_2023_03_1_ans.pdf",
+      "file": "058cbeb8079f.pdf",
+      "size": 3183811,
+      "sha": "058cbeb8079f0d20091f74c9a4d03bbb65d25348",
+      "sha256": "718331b486783211eedd360f4d40ef23e08282ab80f0a53b5d41481b51ac714b",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.03/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_03_1_ans.pdf"
+    },
+    {
+      "path": "四级真题/2023.06/真题PDF/cet4_2023_06_1.pdf",
+      "file": "2a005a641ff7.pdf",
+      "size": 1557361,
+      "sha": "2a005a641ff76297c2d976eb8aedecb7fce97427",
+      "sha256": "9a61fb8b74a989810ce4d3561a4c3d8fc80510c1bde79afbf574b132e0fd9f4f",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/cet4_2023_06_1.pdf"
+    },
+    {
+      "path": "四级真题/2023.06/答案解析/cet4_2023_06_1_ans.pdf",
+      "file": "863255942cda.pdf",
+      "size": 3478846,
+      "sha": "863255942cda8c28da6746d34bd6a8b0c28acd98",
+      "sha256": "937d1b450b5d26b8f5c563624ae5c18b030b2315949eef65d70dfbbc0c03e3e7",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_06_1_ans.pdf"
+    },
+    {
+      "path": "四级真题/2023.06/真题PDF/cet4_2023_06_2.pdf",
+      "file": "b86652db9eb8.pdf",
+      "size": 1545271,
+      "sha": "b86652db9eb890bda8b3723ab942992fb79d80d0",
+      "sha256": "fe37a99b9f09dd848ca00df780ee4d187140e9ed2e1ac81f197a798457ed0668",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/cet4_2023_06_2.pdf"
+    },
+    {
+      "path": "四级真题/2023.06/答案解析/cet4_2023_06_2_ans.pdf",
+      "file": "f8e8f70ca251.pdf",
+      "size": 3609535,
+      "sha": "f8e8f70ca2512355a8e89f64cf1937adbf1450b7",
+      "sha256": "b9bf0d70815d828a282f18e424400bed1e13d8fc69a6adc3ec6f567d44908480",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_06_2_ans.pdf"
+    },
+    {
+      "path": "四级真题/2023.06/真题PDF/cet4_2023_06_3.pdf",
+      "file": "9550c073c82c.pdf",
+      "size": 1193766,
+      "sha": "9550c073c82c00e539e0e9d5dedd9773875484eb",
+      "sha256": "0025fc03ecad69fc75ad4d16a74eb98c99a3660b38818ba9b892eef15484b8ea",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/cet4_2023_06_3.pdf"
+    },
+    {
+      "path": "四级真题/2023.06/答案解析/cet4_2023_06_3_ans.pdf",
+      "file": "5025e789eaaf.pdf",
+      "size": 2268493,
+      "sha": "5025e789eaaf1df1b3d58aa8822ccc03e25e250b",
+      "sha256": "c8ef963c9eb6096e3393c197a661d17accd83e4e0d368fbde23b519727decc70",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_06_3_ans.pdf"
+    },
+    {
+      "path": "四级真题/2023.12/真题PDF/cet4_2023_12_1.pdf",
+      "file": "548fa782c572.pdf",
+      "size": 1530495,
+      "sha": "548fa782c5728fc65e6c6f202935d996eaa08c2f",
+      "sha256": "0c033a2fe168d4783fc80ab4e6ef60d6246130fa41e897ec0db71601fb020410",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/cet4_2023_12_1.pdf"
+    },
+    {
+      "path": "四级真题/2023.12/答案解析/cet4_2023_12_1_ans.pdf",
+      "file": "19b89fe8a356.pdf",
+      "size": 4121808,
+      "sha": "19b89fe8a356f5c3789aa66853bf7dc2c7d24806",
+      "sha256": "fc3f8ef70ff883b8fecc665c1616738e0689657cb1ad200e22c836b397cc00c3",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_12_1_ans.pdf"
+    },
+    {
+      "path": "四级真题/2023.12/真题PDF/cet4_2023_12_2.pdf",
+      "file": "3d66d0e4f569.pdf",
+      "size": 1473673,
+      "sha": "3d66d0e4f569a6bf20b650a2cad31563d9bcd104",
+      "sha256": "9dc516c8db6b9f1ffd459e6c7a8dce11b4325dfe4e52e28668776d2e544652e5",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/cet4_2023_12_2.pdf"
+    },
+    {
+      "path": "四级真题/2023.12/答案解析/cet4_2023_12_2_ans.pdf",
+      "file": "d33df0a73a69.pdf",
+      "size": 4020950,
+      "sha": "d33df0a73a6903c1e8fd0999285ca78296bf3476",
+      "sha256": "51d6b097ca28cbf09aeca9c18913bd4ab44d4abab979b42be07974950022bb32",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_12_2_ans.pdf"
+    },
+    {
+      "path": "四级真题/2023.12/真题PDF/cet4_2023_12_3.pdf",
+      "file": "f2cbc74ef95b.pdf",
+      "size": 1128404,
+      "sha": "f2cbc74ef95b0d04ea322cc23d088d7c4b8270f3",
+      "sha256": "9b95b2e4cbf4fd7763ada5f69d38ac659c18dbcb5386239f5f7bb1b72a7059a2",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/cet4_2023_12_3.pdf"
+    },
+    {
+      "path": "四级真题/2023.12/答案解析/cet4_2023_12_3_ans.pdf",
+      "file": "5f16dbb1c5c0.pdf",
+      "size": 2391544,
+      "sha": "5f16dbb1c5c05bedb43700154a065514e6517077",
+      "sha256": "ef53a867d57ca03656c32e67bd1bd0f04226edd372be4c576bf7dedc74be0642",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_12_3_ans.pdf"
+    },
+    {
+      "path": "四级真题/2024.06/真题PDF/cet4_2024_06_1.pdf",
+      "file": "3c336c042fb5.pdf",
+      "size": 347606,
+      "sha": "3c336c042fb5db82ceed0a1a02cea7efbe5c69a1",
+      "sha256": "be050a97398dfd72ef0f349e0f2036bbb82f71434a5186eec4bfd63f6babf183",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98PDF/cet4_2024_06_1.pdf"
+    },
+    {
+      "path": "四级真题/2024.06/答案解析/cet4_2024_06_1_ans.pdf",
+      "file": "9536d630f507.pdf",
+      "size": 3213851,
+      "sha": "9536d630f5074a786d580b796e592364bb2d0b36",
+      "sha256": "f0013c91edf1a2e2280601a3fc944b51e17259802ae7d4394c3d2fcb45357117",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2024_06_1_ans.pdf"
+    },
+    {
+      "path": "四级真题/2024.06/真题PDF/cet4_2024_06_2.pdf",
+      "file": "1ec8be3d8d31.pdf",
+      "size": 346840,
+      "sha": "1ec8be3d8d31388c6016fe46b7ff7cc946477603",
+      "sha256": "aada101cc537bcfc69d54a77acdaefa52bf340779bead0f2a1e29ee40683d358",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98PDF/cet4_2024_06_2.pdf"
+    },
+    {
+      "path": "四级真题/2024.06/答案解析/cet4_2024_06_2_ans.pdf",
+      "file": "d3f382256c05.pdf",
+      "size": 3042257,
+      "sha": "d3f382256c05ada386d1505440f255794f2d9217",
+      "sha256": "8e1ab6ee16f90d47e624d45ac5fc233feeaa415244c2263e39b54f4cb54165f4",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2024_06_2_ans.pdf"
+    },
+    {
+      "path": "四级真题/2024.06/真题PDF/cet4_2024_06_3.pdf",
+      "file": "0f1e359a942e.pdf",
+      "size": 314753,
+      "sha": "0f1e359a942e604aae6cff44f8f878d5643ac0ad",
+      "sha256": "ec1c750fc530c5ca9b5db11c9d0bcccb90f0ac9220c0a1c5ae840f4f43c171c0",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98PDF/cet4_2024_06_3.pdf"
+    },
+    {
+      "path": "四级真题/2024.06/答案解析/cet4_2024_06_3_ans.pdf",
+      "file": "0b35cfd6cf1c.pdf",
+      "size": 2041911,
+      "sha": "0b35cfd6cf1c8b392ced1e3e08e4c4766d948d4a",
+      "sha256": "bd043efd7477d716d1731a19d71970ab32d4bcc2a2e83f371faeb51bf6fb94ea",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2024_06_3_ans.pdf"
+    },
+    {
+      "path": "四级真题/2024.12/真题PDF/cet4_2024_12_1.pdf",
+      "file": "5aed29cc006f.pdf",
+      "size": 368437,
+      "sha": "5aed29cc006f8fdcf1e61411808f4c24453eb3c4",
+      "sha256": "451a0a9470c043cd6e5449d3fc265877283e31153aaa2647167f1bde4a706216",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%9C%9F%E9%A2%98PDF/cet4_2024_12_1.pdf"
+    },
+    {
+      "path": "四级真题/2024.12/答案解析/cet4_2024_12_1_ans.pdf",
+      "file": "61361e8e4634.pdf",
+      "size": 4333246,
+      "sha": "61361e8e4634a104431471d94ccf218fc06f8d38",
+      "sha256": "f7bb689ec7f373f756a0ff86eea577bf427ee755794c7d0fa9a86a10b3e990e9",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2024_12_1_ans.pdf"
+    },
+    {
+      "path": "四级真题/2024.12/真题PDF/cet4_2024_12_2.pdf",
+      "file": "58a32fb2ab46.pdf",
+      "size": 342476,
+      "sha": "58a32fb2ab460b3c875ef47e06919feae991444f",
+      "sha256": "982a486689a7dc6196fe41e7e687ab6b28846523f14f53cdd5e64e3172cdc603",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%9C%9F%E9%A2%98PDF/cet4_2024_12_2.pdf"
+    },
+    {
+      "path": "四级真题/2024.12/答案解析/cet4_2024_12_2_ans.pdf",
+      "file": "bcd7f946932e.pdf",
+      "size": 4598420,
+      "sha": "bcd7f946932eed4c3c1884a1c540ffeec282890b",
+      "sha256": "de0abe924fc05550bb9259391abaf0a122621380951f28f3a6e46e816a3c672e",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2024_12_2_ans.pdf"
+    },
+    {
+      "path": "四级真题/2024.12/真题PDF/cet4_2024_12_3.pdf",
+      "file": "c536548faf45.pdf",
+      "size": 310643,
+      "sha": "c536548faf454d4c0b60ac0e189717df069f4da3",
+      "sha256": "ffeabe7091f01fd2f1367ef5b401cebeaac6cf3c0af0dbeb855dabb08c8024bd",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%9C%9F%E9%A2%98PDF/cet4_2024_12_3.pdf"
+    },
+    {
+      "path": "四级真题/2024.12/答案解析/cet4_2024_12_3_ans.pdf",
+      "file": "0530d6bfee93.pdf",
+      "size": 2634305,
+      "sha": "0530d6bfee93cd48323dc8dde60e1baf5297f83b",
+      "sha256": "3743e6c4052aeb1cf797578d2cebff7b51c6582c73f18d48dd7faa387dfdc6b4",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2024_12_3_ans.pdf"
+    },
+    {
+      "path": "六级真题/2022.06/真题Word/2022年6月英语六级真题第一套.docx",
+      "file": "4728cd32cf1d.docx",
+      "size": 38019,
+      "sha": "4728cd32cf1d23d1db25e2564b4e025f1bf2e6ee",
+      "sha256": "c894df2b1d3e3e6dfb04caae7553961087f07745f7c5f21bbcd051e3225911f3",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%9C%9F%E9%A2%98Word/2022%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%80%E5%A5%97.docx"
+    },
+    {
+      "path": "六级真题/2022.06/答案解析/2022.06英语六级考试第1套解析.pdf",
+      "file": "ee465361ea17.pdf",
+      "size": 2953639,
+      "sha": "ee465361ea17667b5796c881927dab3e42772563",
+      "sha256": "0f5baaa606bc5259a797117731da85b8e6c120edc6002ec9d8d123fe367a5314",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf"
+    },
+    {
+      "path": "六级真题/2022.06/真题Word/2022年6月英语六级真题 第二套.docx",
+      "file": "e11bb10f5cba.docx",
+      "size": 30619,
+      "sha": "e11bb10f5cba2bb8301575df848336ce4967e5c7",
+      "sha256": "25dab8944c14ce8699ff5551f793ff297d707dee851315ce9274271b0ae7eacd",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%9C%9F%E9%A2%98Word/2022%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%20%E7%AC%AC%E4%BA%8C%E5%A5%97.docx"
+    },
+    {
+      "path": "六级真题/2022.06/答案解析/2022.06英语六级真题解析第2套 .pdf",
+      "file": "45c3157c269d.pdf",
+      "size": 1806998,
+      "sha": "45c3157c269d19dce0fddc01d38339f6fbf3fb46",
+      "sha256": "1c674d81bad40df0bf0b66509c3cdd1375fddd547cc0aef1907fa65b7f869507",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97%20.pdf"
+    },
+    {
+      "path": "六级真题/2022.09/真题PDF/2022年09月六级真题全3套.pdf",
+      "file": "c4fe128c6fbf.pdf",
+      "size": 11820903,
+      "sha": "c4fe128c6fbf17f35ce07727dfe8d9714ad8014e",
+      "sha256": "d6929cafd3bef3458c353bc86c8841959430b6d99b5777486dd1e4045af03031",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.09/%E7%9C%9F%E9%A2%98PDF/2022%E5%B9%B409%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E5%85%A83%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2022.09/答案解析/2022.09英语六级解析全3套.pdf",
+      "file": "7302fc96de0a.pdf",
+      "size": 5957558,
+      "sha": "7302fc96de0a8599879e314c4e5a045b55e16dfe",
+      "sha256": "8702c905176c8f2ae78832fb3002a1deb0fa7fb382b0ab0e5368d6bc6708ad5e",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.09/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.09%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E5%85%A83%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2022.12/真题PDF/2022.12六级真题第1套.pdf",
+      "file": "7dd76e25b9fc.pdf",
+      "size": 11999480,
+      "sha": "7dd76e25b9fc835a6ac7dc20b45d89d602b4ab07",
+      "sha256": "6b2ab9a7fe004ffa359d5bdc4b66dae98d4c395c7070812fc28231620e806aff",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2022.12/答案解析/2022.12六级真题第1套答案及详解.pdf",
+      "file": "27961cdc32fa.pdf",
+      "size": 13272099,
+      "sha": "27961cdc32fa8cc3842adbc425bf2fbebfd89cc5",
+      "sha256": "1826ed706ea64d51c6f71de8fac6ff0ae6adc9ad608632cf747081015a39cfd7",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%E7%AD%94%E6%A1%88%E5%8F%8A%E8%AF%A6%E8%A7%A3.pdf"
+    },
+    {
+      "path": "六级真题/2022.12/真题PDF/2022.12六级真题第2套.pdf",
+      "file": "ab695fba6516.pdf",
+      "size": 12150927,
+      "sha": "ab695fba6516a73dafda38fc9cfd6a92d6342678",
+      "sha256": "47b92aa92c0de67f0e8f47d4a554b6a89f1dde8b4ac5636a9a859bf43f9bd07b",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2022.12/答案解析/2022.12六级真题第2套答案及详解.pdf",
+      "file": "dafde754cc19.pdf",
+      "size": 23805386,
+      "sha": "dafde754cc19b198157b53656eb26dbf39a0d00e",
+      "sha256": "fe5311354639fedef298ceae307d4c289ea72727b49792b87e644c36c98a888e",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97%E7%AD%94%E6%A1%88%E5%8F%8A%E8%AF%A6%E8%A7%A3.pdf"
+    },
+    {
+      "path": "六级真题/2022.12/真题PDF/2022.12六级真题第3套.pdf",
+      "file": "bd23ba8720f4.pdf",
+      "size": 9448186,
+      "sha": "bd23ba8720f4b8aad4c05b9727e14ae0826f70c7",
+      "sha256": "514798304be81d3d8177e9a330e181f561ebc58c072804442edb378937402a7f",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2022.12/答案解析/2022.12六级真题第3套答案及详解.pdf",
+      "file": "2874731ae2cb.pdf",
+      "size": 15660540,
+      "sha": "2874731ae2cba5bb42baec0e659a3a6eb2c5e5da",
+      "sha256": "f59f4708c44892bf906e579edc1370afdb601a3d6e1ec7eac3e549e7c9853b05",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97%E7%AD%94%E6%A1%88%E5%8F%8A%E8%AF%A6%E8%A7%A3.pdf"
+    },
+    {
+      "path": "六级真题/2023.06/真题PDF/2023.06六级真题第1套.pdf",
+      "file": "6f2605febf78.pdf",
+      "size": 5265740,
+      "sha": "6f2605febf789beab1e851ba1b6629f4cf1418df",
+      "sha256": "08e8b936e2a1a754ac704bb7b9a88f45e008877d8015a2867f26dde0285ee941",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2023.06/答案解析/2023.06六级真题第1套详解.pdf",
+      "file": "35b0bc2fbe39.pdf",
+      "size": 11502462,
+      "sha": "35b0bc2fbe39725f4c620098b7fa4fcb9dc59642",
+      "sha256": "497d330ecbedfbba426c7c39bfeca173be8cee2f3140d8470610e4f102d8da49",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%E8%AF%A6%E8%A7%A3.pdf"
+    },
+    {
+      "path": "六级真题/2023.06/真题PDF/2023.06六级真题第2套.pdf",
+      "file": "da08b85f8989.pdf",
+      "size": 5357945,
+      "sha": "da08b85f89896b7951d4d3452fac82df9cff0020",
+      "sha256": "05901e4b4c2ae786875fd01f52b8fb54807ea4c00f8b04c65792c09a27df5afd",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2023.06/答案解析/2023.06六级真题第2套详解.pdf",
+      "file": "918724e346d1.pdf",
+      "size": 11827896,
+      "sha": "918724e346d1804845ece65b223ef0e4a8f73443",
+      "sha256": "4af2df44c8f211a8d4396b6f417ed6470d93e4184191071d03dac760144169e3",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97%E8%AF%A6%E8%A7%A3.pdf"
+    },
+    {
+      "path": "六级真题/2023.06/真题PDF/2023.06六级真题第3套.pdf",
+      "file": "8a4c1cae1e45.pdf",
+      "size": 4084627,
+      "sha": "8a4c1cae1e45871fbd41fded5c279671152bc54e",
+      "sha256": "69ac09d188fadf11e3b9b65fdb7e75ab6953035b954c1772243efae3bd99253a",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2023.06/答案解析/2023.06六级真题第3套详解.pdf",
+      "file": "cf401511ec99.pdf",
+      "size": 7247485,
+      "sha": "cf401511ec99d864b37645f250daf53aeb4f2f19",
+      "sha256": "28488bcb040c8ed003e70524dc9378cac6d46dfff79d873815d5cc5335fb348e",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97%E8%AF%A6%E8%A7%A3.pdf"
+    },
+    {
+      "path": "六级真题/2023.12/真题PDF/2023.12六级真题第1套(1).pdf",
+      "file": "590307525027.pdf",
+      "size": 9184828,
+      "sha": "5903075250273dc09ebeb76fc6c4c7b76bb539b0",
+      "sha256": "7de1670c462ae011f4200ef987e57c51a3b252856722258abb14051c601ad5c5",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/2023.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%281%29.pdf"
+    },
+    {
+      "path": "六级真题/2023.12/答案解析/2023.12英语六级解析第1套(1).pdf",
+      "file": "5684099734df.pdf",
+      "size": 35585423,
+      "sha": "5684099734dfb247eb96c54a27fa8bde60d03744",
+      "sha256": "8f1c38d0a06eb58fea832c68c7f9d3bf77bd53067fe52d2a6c3b1898f8717cce",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97%281%29.pdf"
+    },
+    {
+      "path": "六级真题/2023.12/真题PDF/2023.12六级真题第2套(1).pdf",
+      "file": "74b018eb8597.pdf",
+      "size": 8928690,
+      "sha": "74b018eb8597003f53511c4a6b7e105628cdcc1f",
+      "sha256": "e59d53368892066dedcc7cb61d08662c68b2f8c03acd94211a4a4587f1a09f98",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/2023.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97%281%29.pdf"
+    },
+    {
+      "path": "六级真题/2023.12/答案解析/2023.12英语六级解析第2套(1).pdf",
+      "file": "932686755e28.pdf",
+      "size": 33877626,
+      "sha": "932686755e285ca53bf58ddc22cb5def32809021",
+      "sha256": "3f4d4fe95fe3fb499e68c80da3fd60814fad8a95e356bfc52d876d12726c244d",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97%281%29.pdf"
+    },
+    {
+      "path": "六级真题/2024.06/真题Word/2024年6月第1套英语六级真题【推荐使用PDF版】.docx",
+      "file": "e50e01e8df62.docx",
+      "size": 62310,
+      "sha": "e50e01e8df6271638c0807e85c9e5bd3e713604d",
+      "sha256": "26a0c9c7f3fdec00b8306095ecac6880085a96fe454063cd14bc104dc4759c28",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98Word/2024%E5%B9%B46%E6%9C%88%E7%AC%AC1%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E3%80%90%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8PDF%E7%89%88%E3%80%91.docx"
+    },
+    {
+      "path": "六级真题/2024.06/答案解析/2024年6月第1套英语六级真题解析.pdf",
+      "file": "8b540434bd04.pdf",
+      "size": 2850717,
+      "sha": "8b540434bd0489a6f5d8d364e0aba659457c9db2",
+      "sha256": "a6c520cdb8efd0aae200b9a0bdc4ca5c69bc857f27911ce3e7d6c5729584fd4e",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2024%E5%B9%B46%E6%9C%88%E7%AC%AC1%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90.pdf"
+    },
+    {
+      "path": "六级真题/2024.06/真题Word/2024年6月第2套英语六级真题【推荐使用PDF版】.docx",
+      "file": "9272f8cbbbf7.docx",
+      "size": 68252,
+      "sha": "9272f8cbbbf7b4bd6ed81e8ab788be8c1c7a0e89",
+      "sha256": "7d0ee01e746ce982456ecff86f17607c01df9803ff56af75de63ba47e68e22a4",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98Word/2024%E5%B9%B46%E6%9C%88%E7%AC%AC2%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E3%80%90%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8PDF%E7%89%88%E3%80%91.docx"
+    },
+    {
+      "path": "六级真题/2024.06/答案解析/2024年6月第2套英语六级真题解析.pdf",
+      "file": "d71872b14b63.pdf",
+      "size": 2779155,
+      "sha": "d71872b14b63fec471b1d5e526fd5c3d72e75801",
+      "sha256": "31e58d3e885e317b1a1b31bce2188df704a820dacceed0ec6a8008139d0ce08e",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2024%E5%B9%B46%E6%9C%88%E7%AC%AC2%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90.pdf"
+    },
+    {
+      "path": "六级真题/2024.06/真题Word/2024年6月第3套英语六级真题【推荐使用PDF版】.docx",
+      "file": "2580ef3a7874.docx",
+      "size": 51869,
+      "sha": "2580ef3a78746ff4a68bf2b8461c49e6012d74d9",
+      "sha256": "45984f4321205acad04927f60d8aaac37e64b78c2b2b2bd86a070873e2bc9012",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98Word/2024%E5%B9%B46%E6%9C%88%E7%AC%AC3%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E3%80%90%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8PDF%E7%89%88%E3%80%91.docx"
+    },
+    {
+      "path": "六级真题/2024.06/答案解析/2024年6月第3套英语六级真题解析.pdf",
+      "file": "79e25a4e4973.pdf",
+      "size": 1603600,
+      "sha": "79e25a4e4973dd425b3f0cc016dfa0b169eed9bb",
+      "sha256": "9d4472449598551f75a38e64aaa40a5fac0aff853573fdc694190a725e81122c",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2024%E5%B9%B46%E6%9C%88%E7%AC%AC3%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90.pdf"
+    },
+    {
+      "path": "六级真题/2024.12/真题PDF/2024.12六级真题第1套.pdf",
+      "file": "36f1008dd916.pdf",
+      "size": 1057885,
+      "sha": "36f1008dd916e65aed7dd8ad05cdd7416468662d",
+      "sha256": "089e635dfb40797a158e9cde513507cee1b1907e716cdbf20a8438bdace8623f",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%9C%9F%E9%A2%98PDF/2024.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2024.12/答案解析/2024.12英语六级解析第1套.pdf",
+      "file": "8280e9f39c1f.pdf",
+      "size": 37651307,
+      "sha": "8280e9f39c1f167287e87d4b0a6f6d0530b09fd9",
+      "sha256": "3ef129446bae134207887a82bacd09c091349320772b810aa0f4eb6645a96fac",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2024.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2024.12/真题PDF/2024.12六级真题第2套.pdf",
+      "file": "542efee098ef.pdf",
+      "size": 1040345,
+      "sha": "542efee098efc8e6d9114f4f9b5342f41c4656ee",
+      "sha256": "8f92a3530cdb47948105b283b1c70c5c738aa318e29ef6e82a73658fd3d47298",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%9C%9F%E9%A2%98PDF/2024.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2024.12/答案解析/2024.12英语六级解析第2套.pdf",
+      "file": "8367fdc7b99f.pdf",
+      "size": 37222607,
+      "sha": "8367fdc7b99f8f501ed1978ceba6467f7d401568",
+      "sha256": "7f83bc156ee56d87281f1d4b479e5fbfe8101d74954b2273f0a25744b281af2a",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2024.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2024.12/真题PDF/2024.12六级真题第3套.pdf",
+      "file": "34a5ff3822e7.pdf",
+      "size": 863504,
+      "sha": "34a5ff3822e78ee6621f0bad86629515470c9149",
+      "sha256": "c9e80cf73440b330d0f2550abd51c72be38bf6e52c6b824b292ae312f175dada",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%9C%9F%E9%A2%98PDF/2024.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.pdf"
+    },
+    {
+      "path": "六级真题/2024.12/答案解析/2024.12英语六级解析第3套.pdf",
+      "file": "c9f0e3406a99.pdf",
+      "size": 22996178,
+      "sha": "c9f0e3406a992424887583447e5ae95eb5d80a81",
+      "sha256": "6bfadcf06e8e97ef2023c399be0f0dd5b3d0f8b403b5d9056466eace9e15fe51",
+      "url": "https://raw.githubusercontent.com/0609x/CET46-Resources/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2024.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC3%E5%A5%97.pdf"
     }
   ]
 }

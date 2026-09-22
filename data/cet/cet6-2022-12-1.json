@@ -1,0 +1,1621 @@
+{
+  "id": "cet6-2022-12-1",
+  "level": 6,
+  "year": 2022,
+  "month": 12,
+  "set": 1,
+  "title": "2022 年 12 月六级 · 第 1 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2022-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "During the summer, when I was a visiting poet at a residency out of state, an angry, confused woman wandered into my class and said: “I have three guns and I want to use them.” We all [[26]]. It wasn’t clear if she had the guns, but we each know that, when we teach in America, we are already in danger.",
+        "I was dizzy with fear. The woman, who later turned out to be a schizophrenic (精神分裂症患者) without [[27]] to her medications, was, by some force, wrestled out and [[28]]away, then put in a hospital for observation, in a step that was actually safer for everyone than any one of us pressing charges. My class went on; we talked about poems. But despite the fact that the rest of our days on campus passed [[29]]I was rattled. I couldn't shake the sense that in this country we always live at [[30]]risk.",
+        "A few months later, crisis [[31]]again. While my husband was locking his bike to drop off our 3-year-old daughter for her preschool-aged day camp, a different woman approached. Swiftly and for no [[32]] reason, she bent down, picked up our daughter, and began to carry her down the street. It was so fast and confusing that my daughter [[33]]cried. My husband, in a burst of speed, chased the woman and reclaimed our daughter. The woman, clearly confused, retreated into the public library. A [[34]]of homeless people who generally know the other homeless in the area said they did not recognize the woman. The woman was so clearly unwell that when she was taken into custody she was incoherent. Heartbreakingly, she called our daughter by the name of someone else’s child. Each part of the episode was as haunting as it was [[35]]"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "access"
+        },
+        {
+          "key": "B",
+          "text": "apparent"
+        },
+        {
+          "key": "C",
+          "text": "barely"
+        },
+        {
+          "key": "D",
+          "text": "dedication"
+        },
+        {
+          "key": "E",
+          "text": "escorted"
+        },
+        {
+          "key": "F",
+          "text": "froze"
+        },
+        {
+          "key": "G",
+          "text": "incredible"
+        },
+        {
+          "key": "H",
+          "text": "indignant"
+        },
+        {
+          "key": "I",
+          "text": "network"
+        },
+        {
+          "key": "J",
+          "text": "overriding"
+        },
+        {
+          "key": "K",
+          "text": "peacefully"
+        },
+        {
+          "key": "L",
+          "text": "presumably"
+        },
+        {
+          "key": "M",
+          "text": "stifled"
+        },
+        {
+          "key": "N",
+          "text": "struck"
+        },
+        {
+          "key": "O",
+          "text": "terrifying"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "access"
+            },
+            {
+              "key": "B",
+              "text": "apparent"
+            },
+            {
+              "key": "C",
+              "text": "barely"
+            },
+            {
+              "key": "D",
+              "text": "dedication"
+            },
+            {
+              "key": "E",
+              "text": "escorted"
+            },
+            {
+              "key": "F",
+              "text": "froze"
+            },
+            {
+              "key": "G",
+              "text": "incredible"
+            },
+            {
+              "key": "H",
+              "text": "indignant"
+            },
+            {
+              "key": "I",
+              "text": "network"
+            },
+            {
+              "key": "J",
+              "text": "overriding"
+            },
+            {
+              "key": "K",
+              "text": "peacefully"
+            },
+            {
+              "key": "L",
+              "text": "presumably"
+            },
+            {
+              "key": "M",
+              "text": "stifled"
+            },
+            {
+              "key": "N",
+              "text": "struck"
+            },
+            {
+              "key": "O",
+              "text": "terrifying"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【语法判断] 空格前面是第一人称代词 we 和限定词 all,后面直接句点结尾,可推断出空格处是一个不及物动词。结合文章时态可知,空格处应为动词的过去式。 【语义判断】 空格所在句的前一句提到,有个女人表示自己有枪并且想要使用它们,由此可推断教室中的人都受到惊吓很害怕 ,froze“(因害怕等)不动,停住;吓呆”符合语境,故答案为了) 。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "access"
+            },
+            {
+              "key": "B",
+              "text": "apparent"
+            },
+            {
+              "key": "C",
+              "text": "barely"
+            },
+            {
+              "key": "D",
+              "text": "dedication"
+            },
+            {
+              "key": "E",
+              "text": "escorted"
+            },
+            {
+              "key": "F",
+              "text": "froze"
+            },
+            {
+              "key": "G",
+              "text": "incredible"
+            },
+            {
+              "key": "H",
+              "text": "indignant"
+            },
+            {
+              "key": "I",
+              "text": "network"
+            },
+            {
+              "key": "J",
+              "text": "overriding"
+            },
+            {
+              "key": "K",
+              "text": "peacefully"
+            },
+            {
+              "key": "L",
+              "text": "presumably"
+            },
+            {
+              "key": "M",
+              "text": "stifled"
+            },
+            {
+              "key": "N",
+              "text": "struck"
+            },
+            {
+              "key": "O",
+              "text": "terrifying"
+            }
+          ],
+          "answer": "A",
+          "explanation": "空格位于 without 和 to 之间，需要名词。句子描述一位精神分裂症患者无法获得药物治疗，without access to 表示“无法获得或使用”，因此选 A) access。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "access"
+            },
+            {
+              "key": "B",
+              "text": "apparent"
+            },
+            {
+              "key": "C",
+              "text": "barely"
+            },
+            {
+              "key": "D",
+              "text": "dedication"
+            },
+            {
+              "key": "E",
+              "text": "escorted"
+            },
+            {
+              "key": "F",
+              "text": "froze"
+            },
+            {
+              "key": "G",
+              "text": "incredible"
+            },
+            {
+              "key": "H",
+              "text": "indignant"
+            },
+            {
+              "key": "I",
+              "text": "network"
+            },
+            {
+              "key": "J",
+              "text": "overriding"
+            },
+            {
+              "key": "K",
+              "text": "peacefully"
+            },
+            {
+              "key": "L",
+              "text": "presumably"
+            },
+            {
+              "key": "M",
+              "text": "stifled"
+            },
+            {
+              "key": "N",
+              "text": "struck"
+            },
+            {
+              "key": "O",
+              "text": "terrifying"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【语法判断】空格处前面为并列连词 and,and 前面是一个动词的过去分词短语,说明空格处也应该是一个动词的过去分词形式。 【语义判断】 空格所在句描述的是这个女人被摔倒在地,之后又被送进医院的一系列动作,由动作发生的先后顺序可推断出,女人在被送进医院之前应该是先被送出教室, be escorted“被护送”是被动语态,且符合句意,故答案为 E) 。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "access"
+            },
+            {
+              "key": "B",
+              "text": "apparent"
+            },
+            {
+              "key": "C",
+              "text": "barely"
+            },
+            {
+              "key": "D",
+              "text": "dedication"
+            },
+            {
+              "key": "E",
+              "text": "escorted"
+            },
+            {
+              "key": "F",
+              "text": "froze"
+            },
+            {
+              "key": "G",
+              "text": "incredible"
+            },
+            {
+              "key": "H",
+              "text": "indignant"
+            },
+            {
+              "key": "I",
+              "text": "network"
+            },
+            {
+              "key": "J",
+              "text": "overriding"
+            },
+            {
+              "key": "K",
+              "text": "peacefully"
+            },
+            {
+              "key": "L",
+              "text": "presumably"
+            },
+            {
+              "key": "M",
+              "text": "stifled"
+            },
+            {
+              "key": "N",
+              "text": "struck"
+            },
+            {
+              "key": "O",
+              "text": "terrifying"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【语法判断】空格前面是谓语动词 passed, 且空格所在句有主语,可推断出空格处是一个副词,用来修饰动词 passed。 【语义判断】 空格所在句描述的是这次危险事件结束后作者的状态:尽管我们在校园里的余下日子过得 ,我仍然很不安。despite 引导让步状语从句,说明前后语义有矛盾,peacefully “平静地”与“不安语义相反,且符合句意,由此确定入) 共15页为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "access"
+            },
+            {
+              "key": "B",
+              "text": "apparent"
+            },
+            {
+              "key": "C",
+              "text": "barely"
+            },
+            {
+              "key": "D",
+              "text": "dedication"
+            },
+            {
+              "key": "E",
+              "text": "escorted"
+            },
+            {
+              "key": "F",
+              "text": "froze"
+            },
+            {
+              "key": "G",
+              "text": "incredible"
+            },
+            {
+              "key": "H",
+              "text": "indignant"
+            },
+            {
+              "key": "I",
+              "text": "network"
+            },
+            {
+              "key": "J",
+              "text": "overriding"
+            },
+            {
+              "key": "K",
+              "text": "peacefully"
+            },
+            {
+              "key": "L",
+              "text": "presumably"
+            },
+            {
+              "key": "M",
+              "text": "stifled"
+            },
+            {
+              "key": "N",
+              "text": "struck"
+            },
+            {
+              "key": "O",
+              "text": "terrifying"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【语法判断】空格前面是介词 at,后面是名词 risk， 说明空格处应填入一个形容词性的单词,来修饰名词 risk。 【语义判断】空格所在句意思是通过这次危险事件后,作者无法摆脱“我们总是处于危险中”的观念。 由上文可知,在美国随时随地都可能遇到诸如此类的危险事件,说明这种风险发生率是很高的,此处侧重于风险的频率而非程度。由此确定 G) incredible 为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "access"
+            },
+            {
+              "key": "B",
+              "text": "apparent"
+            },
+            {
+              "key": "C",
+              "text": "barely"
+            },
+            {
+              "key": "D",
+              "text": "dedication"
+            },
+            {
+              "key": "E",
+              "text": "escorted"
+            },
+            {
+              "key": "F",
+              "text": "froze"
+            },
+            {
+              "key": "G",
+              "text": "incredible"
+            },
+            {
+              "key": "H",
+              "text": "indignant"
+            },
+            {
+              "key": "I",
+              "text": "network"
+            },
+            {
+              "key": "J",
+              "text": "overriding"
+            },
+            {
+              "key": "K",
+              "text": "peacefully"
+            },
+            {
+              "key": "L",
+              "text": "presumably"
+            },
+            {
+              "key": "M",
+              "text": "stifled"
+            },
+            {
+              "key": "N",
+              "text": "struck"
+            },
+            {
+              "key": "O",
+              "text": "terrifying"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【语法判断】空格前为名词 crisis,空格后为程度副词 again,且空格所在句没有谓语,可推知空格所在处应填入一个动词,再结合文章时态可知,该处应为动词的过去式。 【语义判断】在动词过去式中,struck 可以搭配主语 crisis, 是从后文的叙述可知,作者的丈夫和女儿也遭遇了危险事件,struck“侵袭”符合语境,故答案为 N) 。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "access"
+            },
+            {
+              "key": "B",
+              "text": "apparent"
+            },
+            {
+              "key": "C",
+              "text": "barely"
+            },
+            {
+              "key": "D",
+              "text": "dedication"
+            },
+            {
+              "key": "E",
+              "text": "escorted"
+            },
+            {
+              "key": "F",
+              "text": "froze"
+            },
+            {
+              "key": "G",
+              "text": "incredible"
+            },
+            {
+              "key": "H",
+              "text": "indignant"
+            },
+            {
+              "key": "I",
+              "text": "network"
+            },
+            {
+              "key": "J",
+              "text": "overriding"
+            },
+            {
+              "key": "K",
+              "text": "peacefully"
+            },
+            {
+              "key": "L",
+              "text": "presumably"
+            },
+            {
+              "key": "M",
+              "text": "stifled"
+            },
+            {
+              "key": "N",
+              "text": "struck"
+            },
+            {
+              "key": "O",
+              "text": "terrifying"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【语法判断】空格前为介词 for 和限定词 no,空格后为名词 reason,说明空格处应填入一个形容词性的单词 ,来修饰名词 reason。 【语义判断】空格所在句的意思是,没有什么原因， 这个女人抱起我们的女儿就往街上走,后一句再次提及一切发生得太快且令人困惑,说明空格处填入的形容词应有“明确,清楚?的意思。由此确定 B) apparent 为答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "access"
+            },
+            {
+              "key": "B",
+              "text": "apparent"
+            },
+            {
+              "key": "C",
+              "text": "barely"
+            },
+            {
+              "key": "D",
+              "text": "dedication"
+            },
+            {
+              "key": "E",
+              "text": "escorted"
+            },
+            {
+              "key": "F",
+              "text": "froze"
+            },
+            {
+              "key": "G",
+              "text": "incredible"
+            },
+            {
+              "key": "H",
+              "text": "indignant"
+            },
+            {
+              "key": "I",
+              "text": "network"
+            },
+            {
+              "key": "J",
+              "text": "overriding"
+            },
+            {
+              "key": "K",
+              "text": "peacefully"
+            },
+            {
+              "key": "L",
+              "text": "presumably"
+            },
+            {
+              "key": "M",
+              "text": "stifled"
+            },
+            {
+              "key": "N",
+              "text": "struck"
+            },
+            {
+              "key": "O",
+              "text": "terrifying"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【语法判断空格前为 my daughter,空格后为动词 cried,说明空格处应填入一个副词。 【语义判断】空格所在句是一个“so. . .that...”句型,后半句是前半句导致的结果,该句的意思是一切发生得太快,令人困惑, 以至于我的女儿避。遭遇被抢夺的危险,按照正常情况孩子肯定会避,但是前面强调了事情发生得太突然,由此可推断作者的女儿应该还没来得及反应过来,所以此处应该是“没有导\",C) barely“几乎没有”符合语境,故为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "access"
+            },
+            {
+              "key": "B",
+              "text": "apparent"
+            },
+            {
+              "key": "C",
+              "text": "barely"
+            },
+            {
+              "key": "D",
+              "text": "dedication"
+            },
+            {
+              "key": "E",
+              "text": "escorted"
+            },
+            {
+              "key": "F",
+              "text": "froze"
+            },
+            {
+              "key": "G",
+              "text": "incredible"
+            },
+            {
+              "key": "H",
+              "text": "indignant"
+            },
+            {
+              "key": "I",
+              "text": "network"
+            },
+            {
+              "key": "J",
+              "text": "overriding"
+            },
+            {
+              "key": "K",
+              "text": "peacefully"
+            },
+            {
+              "key": "L",
+              "text": "presumably"
+            },
+            {
+              "key": "M",
+              "text": "stifled"
+            },
+            {
+              "key": "N",
+              "text": "struck"
+            },
+            {
+              "key": "O",
+              "text": "terrifying"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断】空格前面是不定冠词 a, 后面是介词 of ,说明空格处需填入一个单数名词。 【语义判断】名词中,network 是可数名词的单数形式且能与 a 搭配。此外,空格所在句的意思是这些无家可归的人通常也都认识这个地方其他同样无家可归的人,说明他们之间也相互联系,存在着一张关系网,D 符合句意 ,故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "access"
+            },
+            {
+              "key": "B",
+              "text": "apparent"
+            },
+            {
+              "key": "C",
+              "text": "barely"
+            },
+            {
+              "key": "D",
+              "text": "dedication"
+            },
+            {
+              "key": "E",
+              "text": "escorted"
+            },
+            {
+              "key": "F",
+              "text": "froze"
+            },
+            {
+              "key": "G",
+              "text": "incredible"
+            },
+            {
+              "key": "H",
+              "text": "indignant"
+            },
+            {
+              "key": "I",
+              "text": "network"
+            },
+            {
+              "key": "J",
+              "text": "overriding"
+            },
+            {
+              "key": "K",
+              "text": "peacefully"
+            },
+            {
+              "key": "L",
+              "text": "presumably"
+            },
+            {
+              "key": "M",
+              "text": "stifled"
+            },
+            {
+              "key": "N",
+              "text": "struck"
+            },
+            {
+              "key": "O",
+              "text": "terrifying"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【语法判断】空格前面是 it was, 可知空格处应填入一个形容词或动词的分词形式。 【语义判断空格所在句的意思是这段插曲的每一个部分都令人难以忘怀,as 引导原因状语从句,解释难以忘怀的原因。备选项中的形容词 terrifying 表示“可怕的>,用在这里表示因为可怕,所以难以忘怀,符合语境,故答案为 O) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-1-b",
+      "type": "matching",
+      "title": "This man is running 7 marathons on 7 continents in 7 days",
+      "paragraphs": [
+        "A) Michael Wardian pushed forward into the penetrating arctic (北极的) wind, fighting the urge to speed up. Too much effort and he’d begin to sweat, which, he was told, would only increase the risk of hypothermia (体温过低).",
+        "B) At the 2014 North Pole Marathon, the temperature dipped to minus-22 degrees F, with a wind chill that made it feel even colder. Along the route, armed guards wandered the large sheets of floating ice to minimize the risk of polar bear attacks.",
+        "C) “I like to do stuff that scares me,” Wardian said. With ice frozen to his beard, Wardian crossed the finish line that April afternoon in a winning time of 4 hours 7 minutes and 40 seconds, almost two hours slower than his personal best over 26.2 miles. The race for Wardian, however, was less about the result than overcoming his aversion to the cold.",
+        "D) In a few days, Wardian will once again compete in an unfamiliar territory and below-freezing temperatures. He will line up Monday in Antarctica (南极) for the first leg of the World Marathon Challenge—joining 32 other adventure seekers on an unusual journey where participants travel through different time zones and climates to run seven marathons on seven continents in seven days.",
+        "E) An elite ultra-runner, Wardian has his sights on breaking the event's record average marathon time of 3:32:25 set last January by U.S. Marine Corps captain Daniel Cartica. Wardian, a 42-year-old Arlington resident, is a record-breaking racer, known in the ultra-running community for seeking tough courses and setting world records. Last year, he ran 1,254.65 miles in 47 races. The World Marathon Challenge, like most of Wardian’s running goals, will be about pushing his limits. “I love diverse and unique challenges,” he said. “I'm definitely interested in seeing what I can handle and what my body can accept. That drives me.”",
+        "F) Something about the way Richard Donovan carried himself appealed to Wardian. Perhaps it was the sense of adventure Donovan displayed when they first met at the 2010 50K Championships in Galway, Ireland, where Donovan was the race director. The two hit it off, and soon Wardian was participating in Donovan’s events. It was at the North Pole Marathon, a race that Donovan organizes, that Wardian first heard about the Irishman’s plan for the World Marathon Challenge-a challenge that Donovan himself completed in 2009 and 2012. “I knew that many people had a goal of running seven marathons on seven continents during any time period,” Donovan, 50, said. “T felt the natural extension to this idea would be to try to achieve it within a seven-day period.”",
+        "G) Wardian started saving for the trip in 2014, connecting with sponsors and getting approval from his wife, Jennifer, before committing. Registration for the event costs 36,000 euros, which covers international charter flights to each of the seven marathon locations: Union Glacier (Antarctica), Punta Arenas, Chile (South America), Miami (North America), Madrid (Europe), Marrakesh, Morocco (Africa), Dubai (Asia) and Sydney (Australia). The challenge is a test of both physical strength and mental fitness. Sleeping on a crammed plane, adjusting to different time zones and finding food to eat (Wardian is a vegetarian) would make it an exhausting trip over a month, let alone a week. “The key to a race like this is getting comfortable being uncomfortable,” said Becca Pizzi, last year's women’s champion. “The highs of the race are incredibly high, and the lows incredibly low.”",
+        "H) Since turning it into an organized event in 2015, Donovan has attracted a variety of runners. This year’s challenge will feature a far more elite field, which includes Ryan Hall, America’s fastest marathon runner. Despite his proven track record, Hall said he has no time goals and that he still suffers from the same fatigue issues that forced him to leave the professional ranks in 2015. Hall plans to run with his friend, Pastor Matthew Barnett of The Dream Center in Los Angeles—one of the six American men who will be competing. “I don’t expect to run a step with Mike, but I will be excited to see how he does,” said the 34-year-old Hall, who began weight-lifting after retiring. “If I finish within an hour of him in each marathon, I’d be surprised.”",
+        "I) Instead, 43-year-old Petr Vabrousek, an elite Czech Ironman champion, is expected to be Wardian’s closest challenger. To others on the trip, simply finishing will be its own reward. Sinead Kane of Ireland is aiming to become the first blind person to complete the challenge. And Beth Ann Telford, a 47-year-old federal government worker from Fairfax and the only American female in this year’s mix, is using the event as a platform to raise money for cancer research. It’s a cause with a personal connection to Telford, who was diagnosed with brain cancer in 2004. “Doing something like this is definitely the hardest challenge that I’ve ever done except for the chemotherapy and brain surgery,” she said. “It’s going to raise awareness ... I just wanted to do something that is epic and this certainly is right up there.” Wardian, too, hopes his involvement will give him a platform to promote a cause. He recently became an ambassador for the United Nations Women’s HeForShe initiative to fight inequalities faced by women and girls worldwide.",
+        "J) On a chilly December afternoon, Wardian wove through Washington's crowded sidewalks on the way home from his full-time job as an international ship broker. His elastic, 6-foot frame bounced gently and efficiently off the ground with each step of the hilly six-mile trip back to Arlington. This is a daily routine during the week for Wardian, who started racing professionally in 2003 and runs seven days a week, often multiple times a day. When he travels, he prefers to explore new places on his feet.",
+        "K) But in some ways, Wardian still has trouble thinking of himself as a runner. For the majority of his childhood, Wardian devoted his energy to becoming a Division I lacrosse (长曲棍球) player-a dream he realized when he was recruited to play at Michigan State University. “Once he decides to do something, he just works at it until he does it,” Michael’s younger sister, Mariele, said. “Once he decides to do it, it’s usually something that’s going to happen. He’s always been like that. He’s a very motivated individual.”",
+        "L) It was only a year or so ago that Wardian realized that he had been a runner longer than a lacrosse player. It was not until he ran in the 2004 U.S. Olympic Marathon Trials-the first of three for Wardian-that he felt that he was a legitimate runner. Now more than 10 years and numerous ultra-marathon national titles and world records later, he embraces that identity. Wardian wants to see how far his legs can take him, one epic challenge at a time. “IT want to always keep doing things that are exciting, adventurous, different and most importantly, probably things I'm not the best at,” Wardian said, “because if you're not seeking things out that are challenging and difficult for you, then you're not growing ... So I hope maybe people see what I do, and say, ‘Okay, I want to do something different or try something new ... I’m going to do something that scares me.’ That’s what I’m hoping people will take from it.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Wardian regards the various extraordinary challenges as a test of his physical endurance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】同义转述题。E)段倒数第二、三句提出， 沃迪恩喜欢多样化和独一无二的挑战,他很想看看自己能应付什么,身体能接受什么,由此可知， 题干是对该处信息的同义转述。题干中的 various extraordinary 对应原文中的 diverse and unique,题干中的 a test of his physical endurance 是对原文中 what my body can accept 的转述,故答案为 E) 。"
+        },
+        {
+          "number": 37,
+          "stem": "Wardian hopes his participation in the seven-day marathon series will contribute to a worthy cause.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【精析】同义转述题。D段倒数第二句提到,沃迪恩也希望他的参与能给他一个促进事业的平台。 而结合前文, 这是在讲述沃迪恩打算参加一个7 天马拉松系列赛的情况,题干是对该处信息的转述。题干中的 his participation 对应原文中的 his involvement,题干中的 contribute to 是对原文中 give him a platform to promote 的同义转述,故答案为I) 。"
+        },
+        {
+          "number": 38,
+          "stem": "Wardian is going to join over thirty other runners in a week-long marathon series.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "〖精析】同义转述题。D)段定位句提到,他将与 32 名其他探险者一起踏上一段不同寻常的旅程,参与者在 7 天内穿越不同的时区和气候,在 7 大洲跑7场马拉松。可知题干是对定位句信息的转述。 题干中的 over thirty other runners 对应原文中的 32 other adventure seekers, 题干中的 a weekr-long anarathon series 是对原文中“seven marathons. . .in Seven days”的同义转述,故答案为D) 。"
+        },
+        {
+          "number": 39,
+          "stem": "Over-exertion in extreme cold can lower one’s body temperature to a dangerous point.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 段指出，北极严寒中用力过度会出汗，继而增加体温过低的风险。题干的 over-exertion 对应 too much effort，降低体温至危险水平对应 hypothermia 的风险。"
+        },
+        {
+          "number": 40,
+          "stem": "Wardian was very much impressed by a race director’s sense of adventure.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析了细节归纳题。F)段第一句说,理查德， 多诺万的举止吸引了沃迪恩,接着提到,吸引沃迪恩的就是他们在 2010 年的 50K 锦标赛上首次相遇时多诺万表现出来的冒险感,在爱尔兰戈尔韦举行的锦标赛上, 多诺万担任比赛总监。可知题干是对该处信息的概括。题干中的 very much impressed 对应原文中的 appealed to, 故答案为E) 。"
+        },
+        {
+          "number": 41,
+          "stem": "Once Wardian sets his mind on something, he is determined to make it happen.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K 段引用妹妹对沃迪恩的评价：一旦他决定做某件事，就会坚持努力，直到完成。题干是这段评价的同义转述。"
+        },
+        {
+          "number": 42,
+          "stem": "One top American marathoner quit his running career because of his physical condition.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】细节归纳题。H)段定位句指出,今年的挑战赛特色是一个更为精英的圈子加入,其中包括美国最快的马拉松选手瑞安。霍尔。而随后一句中提到,堆尔因面临着疲劳问题,迫使他于 2015 年离开了职业队伍。可知题干是对定位部分信息的概括归纳。题干中的 quit his running career 对应原文中的 leave the professional ranks, 题干中的 physical condition 对应原文中的 fatigue issues,故答案为 H) 。"
+        },
+        {
+          "number": 43,
+          "stem": "To many of the week-long marathon participants, completing the race will be a success in itself.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【精析】同义转述题。D段定位句指出,对旅途中的其他人来说,只要完成任务,这本身就是一种嘉页，共15页奖了。根据前文,这里所说的旅途就是为期一周的马拉松赛事。题干中的“to many of the... participants”对应原文中的 to others on the trip， 题干中的 a success 对应原文中的 reward,题干中的in itself 对应原文中的“simply. . .its own”, 故答案为I 。"
+        },
+        {
+          "number": 44,
+          "stem": "For Wardian, the marathon in the Arctic was more about how to triumph over the extreme cold.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】同义转述题。前文提到沃迪恩是在北极参加马拉松,而 C)段的定位句提到, 沃迪恩参加这次比赛,与其说是为了成绩,不如说是为了克服他对寒冷的厌恶。题干中的 the marathon in the Arctic 对应定位句中的 the race,题干中的 more about 对应原文中的 less about the result than,题于中的 triumph over the extreme cold 对应原文中的 overcoming his aversion to the cold,故答案为G)5"
+        },
+        {
+          "number": 45,
+          "stem": "To participate in the seven-day marathon series, Wardian had to raise a lot of money and have his wife’s support.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】细节归纳题。G)段定位句提到,沃迪恩于 2014 年开始为旅行存钱,与忱助商联系,并在承诺报名之前获得妻子詹妮弗的认可。题干中的 to participate in the seven-day marathon series 对应原文中的 for the trip in 2014 ,题干中的 raise a lot of money 是对原文中 saving 和 connecting with sponsors 的概括性转述,题干中的 have his wife's support 对应原文中的 getting approval from his wife,故答案为 G) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Many people associate their self-worth with their work. The more successful their career, the better they feel about themselves. Work-related self-esteem is therefore a worthy ideal to pursue with vigor, right? Well, not always. According to recent research, in which psychologists interviewed 370 full-time workers over a period of three weeks, the reality is a little more complicated. And it involves negative as well as positive consequences.",
+        "It’s natural to be drawn towards pleasure and to step away from pain. In the workplace, if that pleasure comes from a triumph which swells our self-respect, people will try to repeat the accomplishment. But repeating that accomplishment is often not realistic, which can lead to severe negative emotional consequences when it doesn’t reoccur. This form of motivation is widely regarded as a negative type of motivation. It can hinder other more positive motivation types, such as completing a task purely because it's fulfilling or enjoyable.",
+        "What consumes the employee instead is a pressing need to feel mighty and sure of themselves. They then take on only tasks and objectives which serve that ego-driven need.",
+        "As a result, to avoid feelings of shame and worthlessness associated with failure, they extend themselves to such a degree that there’s a subsequent adverse effect on their well-being. This internal pressure to succeed at all costs demands a lot of effort. It depletes their energy, culminating in disproportionate levels of damaging sentiment.",
+        "Those negative emotions mount into heightened anxiety, impacting their ability to make the most of their personal life. Their desire to avoid feeling inferior ends up making them feel inferior when it comes to their diminished capacity for friendship and leisure. They end up dissatisfied both at work and outside of it.",
+        "But thankfully, for those people compelled almost entirely by this specific form of motivation, the news isn’t all bad, or bad at all. The study also discovered several positive outcomes that can actually outweigh the harmful ones. Though these types of employees are motivated by the desire to avoid negative consequences, they are also motivated by the excitement of pursuing emotional rewards. This excitement makes pursuing goals enjoyable and stimulates pleasure and pride that would result from success. An effect of the positive motivation is that it neutralizes the existence of negative motivation.",
+        "Sure, it affects people’s personal lives to what could be deemed an unhealthy extent, because leisure activities are often seen as a part of life that must be sacrificed to manage work and family demands. However, the way people feel about their work has less to do with whether they're motivated by the preservation of self-esteem but more with the fact that they \"re simply motivated."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author say about the pursuit of work-related self-esteem?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may result in negative motivation."
+            },
+            {
+              "key": "B",
+              "text": "It contributes to one's accomplishments."
+            },
+            {
+              "key": "C",
+              "text": "It can increase one's vigor as one keeps trying."
+            },
+            {
+              "key": "D",
+              "text": "It costs too much emotionally and psychologically."
+            }
+          ],
+          "answer": "A",
+          "explanation": "文章指出，靠工作成就增强自尊的人会试图重复这种成就，但这并不总是现实；未能再次成功可能带来严重负面情绪。因此这种动机常被视为消极动机，选 A。"
+        },
+        {
+          "number": 47,
+          "stem": "What do employees tend to do in pursuing work-related self-esteem?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Take on tasks well beyond their actual capabilities."
+            },
+            {
+              "key": "B",
+              "text": "Strive to succeed at the expense of their well-being."
+            },
+            {
+              "key": "C",
+              "text": "Resort to all means regardless of the consequences."
+            },
+            {
+              "key": "D",
+              "text": "Exaggerate their sense of shame and worthlessness."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】事实细节题。文章第三段第三.四句提到， 为了避免与失败相关的盖耻感和无价值感,员工非常拼命,不惜一切代价获得成功,这不利于他们获得幸福。由此可知,员工在追求与工作相关的自尊时往往是以牺牲幸福为代价的,故答案为B) 。"
+        },
+        {
+          "number": 48,
+          "stem": "What do we learn about people over-concerned with work-related self-esteem?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may often feel inferior to their colleagues."
+            },
+            {
+              "key": "B",
+              "text": "They cannot enjoy their personal life to the full."
+            },
+            {
+              "key": "C",
+              "text": "They are never satisfied with their achievements."
+            },
+            {
+              "key": "D",
+              "text": "They have their own view of friendship and leisure."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析了事实细节题。文章第四段第一句指出,这些负面情绪上升为高度焦虑,影响了他们尽情享受个人生活的能力。由此可知,这些员工过度关注与工作相关的自尊, 以至于无法充分享受个人生活 ,故答案为 B) 。"
+        },
+        {
+          "number": 49,
+          "stem": "What is the good news we learn from the recent research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The pursuit of goals may turn out to be enjoyable and pleasant."
+            },
+            {
+              "key": "B",
+              "text": "The emotional rewards from goal pursuit are worth the pains taken."
+            },
+            {
+              "key": "C",
+              "text": "The negative consequences of goal pursuit can mostly be avoided."
+            },
+            {
+              "key": "D",
+              "text": "The goal of swelling self-esteem can be achieved if one keeps trying."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】事实细节题。第五段第二至四句提到,该研究还发现了几个积极的结果,那就是:尽管这种类型的员工的动机是避免消极后果,但他们也会被追求情感回报的兴奋感所激励。这种兴奋感使追求目标变得愉快,并激发了成功带来的快乐和自豪感。由此可知,研究新发现的好消息就是:追求目标也可能是一种享受和快乐,故答案为 A) 。"
+        },
+        {
+          "number": 50,
+          "stem": "What can we infer from the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Workers have to make sacrifices to preserve self-esteem."
+            },
+            {
+              "key": "B",
+              "text": "Self-esteem swells when workers are strongly motivated. 2022 4 12 AGEN HIES 1 55 5 8 TT 36 10 7"
+            },
+            {
+              "key": "C",
+              "text": "Pursuit of goals affects people’s personal lives to an unhealthy extent."
+            },
+            {
+              "key": "D",
+              "text": "People feel positive about their work as long as they are motivated."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】推理判断题。最后一段最后一句指出,人们对工作的感觉与他们是否受到维护自尊的激励关系不大, 而更多与他们仅仅受到激励这一事实有关。说明人们是否能积极面对工作主要和他们受到激励有关, 而具体这种激励是从何而来并不是很重要,由此可以推断,只要有激励,有动力,人们就会积极面对工作,故答案为D) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Degradation of the world’s natural resources by humans is rapidly outpacing the planet’s ability to absorb the damage, a recent UN environmental study has found. The study concludes that without radical action the level of prosperity that millions of people in the developed world count on will be impossible to maintain or extend to poorer countries.",
+        "Water scarcity is the curse of some of the poorest regions on Earth, leaving developing countries increasingly unable to feed themselves, and causing hardship for millions of people. There appears little prospect of this desperate situation being remedied without radical action being taken. Water resources are under increasing threat from population growth, climate change, rapid urbanization, rising levels of consumption, and the degradation of lands that previously provided a natural replenishment (补充) of water resources.",
+        "The rate of damage to the natural environment was found to increase globally, despite concerted efforts to persuade government to take measures to improve the condition. “If current trends continue, and the world fails to improve patterns of production and consumption, then the state of the world’s environment will continue to decline,” warned UN executive director Achim Steiner.",
+        "He said the tools for improving the environment for millions of people existed in developed countries, but were in danger of not being used.",
+        "The study found that basic measures to tackle some of the key causes of environmental damage were still not being taken. These included measures to reduce air pollution; to control the damage to marine ecosystems, which can have a huge effect on fish stocks on which hundreds of millions of people depend; and to curb the degradation of land where modem agricultural methods were pursued without regard to the longer-term consequences.",
+        "Despite the recent global agreement on cutting greenhouse gas emissions, global carbon output continues to rise. This will put a long-term strain on the ability of developing economies to feed their own people. Climate change is aggravated by the emissions of greenhouse gases from chemical and natural fertilisers used in agriculture which increased by more than a quarter between 2000 and 2010. Other problem areas identified in the report included glaciers, which provide vital water resources for millions of people, but which are shrinking as the climate warms.",
+        "In rich countries, these problems have built up over decades and centuries while economic growth was pursued at the expense of the environment. Subsequent efforts to remedy the environment have met with partial success. But in developing countries, the path of future development has more potential to change, which has encouraged",
+        "international institutions to devise more sustainable growth pathways that are supposed both to alleviate poverty and preserve the environment."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is the major finding of the UN environmental study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Human activity has rendered Mother Earth almost uninhabitable."
+            },
+            {
+              "key": "B",
+              "text": "Humans are doing more damage to the earth than it can cope with."
+            },
+            {
+              "key": "C",
+              "text": "Environmental problems have considerably weakened human prosperity."
+            },
+            {
+              "key": "D",
+              "text": "Environmental damage is more serious in developed countries these days."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】事实细节题。文章首段第一句指出,最近一项联合国环境研究发现,人类对世界自然资源的破坏正快速超过地球承受伤害的能力。由此可知,人类对地球造成的破坏已经超出了地球所能承受的范围,故答案为 B) 。"
+        },
+        {
+          "number": 52,
+          "stem": "What is said about water scarcity in some of the poorest regions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is getting so serious that there is little hope of solution."
+            },
+            {
+              "key": "B",
+              "text": "It largely accounts for their slow economic development."
+            },
+            {
+              "key": "C",
+              "text": "It can hardly be relieved if no drastic measures are taken."
+            },
+            {
+              "key": "D",
+              "text": "It is primarily caused by the acceleration of climate change."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。文章第二段第二句指出,如果不采取激进的行动,这种令人绝望的情况几乎无法得到改善。由此可知,如果不采取严厉措施， 很难缓解缺水问题,故答案为 C) 。"
+        },
+        {
+          "number": 53,
+          "stem": "What does Achim Steiner say about the environmental condition?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will deteriorate worldwide."
+            },
+            {
+              "key": "B",
+              "text": "It is attracting global attention."
+            },
+            {
+              "key": "C",
+              "text": "It is being slowly remedied globally."
+            },
+            {
+              "key": "D",
+              "text": "It will shrink the world’s population."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析了】推理判断题。文章第三段第二句指出,联合国执行主任阿希姆。施泰纳警告道,如果目前的趋势继续持续下去,并且全世界的生产方式和消费模式也不改进的话,那么全世界的环境将会继续恶化.由此可知,阿希姆。施泰纳认为全球环境会继续恶化,故答案为 A) 。"
+        },
+        {
+          "number": 54,
+          "stem": "What is the dilemma developing countries face?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They cannot modernise farming without causing land degradation."
+            },
+            {
+              "key": "B",
+              "text": "They cannot promote industrialisation without polluting waterways."
+            },
+            {
+              "key": "C",
+              "text": "They cannot boost crop yields without causing greenhouse gas emissions."
+            },
+            {
+              "key": "D",
+              "text": "They cannot catch up with rich countries without sacrificing the environment."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。文章第六段第一至三句指出,全球碳排放量一直居高不下 ,这对发展中经济体养活本国人民将会造成长期的压力。在 2000 年至 2010 年期间,农业生产中化学肥料和天然肥料的使用量增加了四分之一以上, 其所产生的温室气体排放加剧了气候变化。由此可知,发展中国家要想提高作物产量,需要借助现代化农业手段,这一定会造成温室气体排放,故答案为 C) 。"
+        },
+        {
+          "number": 55,
+          "stem": "What should developing countries do in their future development according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They turn to developed countries for the assistance they need."
+            },
+            {
+              "key": "B",
+              "text": "They remedy environmental damage by slowing economic growth."
+            },
+            {
+              "key": "C",
+              "text": "They avoid damaging interference from international institutions."
+            },
+            {
+              "key": "D",
+              "text": "They improve people’s livelihood without harming the environment."
+            }
+          ],
+          "answer": "D",
+          "explanation": "〖精析】 推理判断题。文章最后一段最后一句指出,在发展中国家,未来的发展道路充满了变数， 这鼓励了国际机构设计更多的可持续增长途径， 既能减少贫困,又能保护环境。由此可知, 发展中国家要走可持续经济增长道路,在保护环境的前提下,发展经济,改善人们的生活,故答案为D) 。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%E7%AD%94%E6%A1%88%E5%8F%8A%E8%AF%A6%E8%A7%A3.pdf"
+}

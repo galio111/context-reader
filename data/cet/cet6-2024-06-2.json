@@ -1,0 +1,1607 @@
+{
+  "id": "cet6-2024-06-2",
+  "level": 6,
+  "year": 2024,
+  "month": 6,
+  "set": 2,
+  "title": "2024 年 6 月六级 · 第 2 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2024-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The Sun Is Also a Star is a truly lovely story of love,romance,fate,and destiny. Natasha is a Jamaican-born immigrant living [[26]] in America,not by choice exactly.Her parents brought her over and created the situation she [[27]] to be out of. Daniel is an American born of Korean immigrants.He believes in true love,fate,and all that other nonsense thatNatasha [[28]] through scientific reasoning. Daniel and Natasha meet by [[29]] _on the streets of New York on the day that she is to be [[30]] .She doesn't tll him that but does allow him to keep her company while he tries to get her to fall in love with him over the course of the day. Natasha is me.I found her so similar to myself.She's scientifically-minded,practical,somewhat cynical, and always [[31]] _.Her obsession with the universe through a scientific lens is infectious and I [[32]] Daniel seeing that too Daniel is charming and passionate and has a way with words that even [[33]] Natasha's tough outer shell By the end of the book I fell in love with both of them I used to find romance stories to always be cheap or laughable.I think now I can see the value in escaping into a story of pure optimism.I got [[34]] in The Sun Is Also a Star and finishedit cover to cover in a weekend.I couldn't wait to get to what I hoped would be a happy ending. It's nice every once in a while to give in to magic.It doesn't have to be a hard fantasy novel with actual spells,it can be the magic found between two people who just have that special something.That [[35]] that causes them to react and spark when they're near each other"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "adore"
+        },
+        {
+          "key": "B",
+          "text": "appraise"
+        },
+        {
+          "key": "C",
+          "text": "assaults"
+        },
+        {
+          "key": "D",
+          "text": "chemistry"
+        },
+        {
+          "key": "E",
+          "text": "coincidence"
+        },
+        {
+          "key": "F",
+          "text": "cracks"
+        },
+        {
+          "key": "G",
+          "text": "deported"
+        },
+        {
+          "key": "H",
+          "text": "dismisses"
+        },
+        {
+          "key": "I",
+          "text": "illegally"
+        },
+        {
+          "key": "J",
+          "text": "lost"
+        },
+        {
+          "key": "K",
+          "text": "perpetually"
+        },
+        {
+          "key": "L",
+          "text": "prescribed"
+        },
+        {
+          "key": "M",
+          "text": "shrewd"
+        },
+        {
+          "key": "N",
+          "text": "skeptical"
+        },
+        {
+          "key": "O",
+          "text": "strives"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "I",
+          "explanation": "D illegally ( adv 非法地) - 空格前是现在分词living，空格后是介词短语in America，由此可知，空格处应填入一个副词，修饰现在分词。 前半句提及娜塔落是一个出生于牙买加的移民，后半句指出她并非出于自愿，下一句又提到是她的父母把她带过来的，由此可知，此处是说娜塔莎一家是非法移民，非法居住在美国，故ilegally符合语境。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) strives (习努力) 空格前是and created the situation she，空格后是不定式短语to be out of。由此判断she _27 to be out o人是定语从句，修饰先行词situation，而situation在该定语从句中充当out of的逻辑宾语，故关系代词可以省略，空格处应填入一个动词，且能与不定式连用，充当该定语从句的谓语。 上文提及娜塔莎一家是非法移民，来美国并非出于她自愿，由常识可知非法移民的生活面临种种困难，故可判断此处是说，她努力想摆脱当前所处的局面，故strives符合语境。strive to do sth.为固定搭配，意为“努力做某事”。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HD dismisses (vL 据弃; 对……'不导一顾，不予考虑 ) 空格前为nonsense that Natasha，空格后为介词短语through scientific reasoning。由此判断此处为that 引导的定语从句，修饰先行词nonsense，而该定语从名缺少谓语动词，空格处应填入一个动词。 该定语从句的主句提到，他(丹尼尔 ) 相信和真爱、命运以及其他一切廖论,，文中使用的是 nonsense一词，而在下文中作者提到娜塔莎scientifically-minded，结合through scientific reasoning ( 通过科学推理 ) 推断，娜塔落对廖论持否定态度，不悦一顾，故dismisses符合语境。注意，根据上下文语境 dismisses 转译为“驳斥”。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "E",
+          "explanation": "了E) coincidence (72. 巧合) 空格前为动词meet和介词by，空格后为on the streets of New York，由此可知，空格处应填入一个名词，构成介宾短语，充当meet的状语。 由on the streets of New York (在纽约街头 ) 以及前面提到的丹尼尔韩裔移民的身份可知，娜塔莎和他素不相识，只是在街头偶遇才相识的，故coincidence符合语境。by coincidence为固定搭配，意为“偶然地，碰巧地”。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) deported (让把……驱逐出境 ) 空格前为she is to be，空格后为句点，由此可知，空格处应填入一个过去分词，构成不定式的被动式。 由上文提到的娜塔莎一家非法移民的身份可知，此处是说，在两人相遇的那一天她要被驱逐出境，deported符合语境。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) skeptical ( adj. 怀疑的) 空格前为and always，空格后为句点，由此可知，空格处应填入一个形容词 ，与前面的 scientifically-minded、practical和cynical构成并列表语。 上文提及娜塔莎对丹尼尔相信的真爱、命运等方面完全不信，由此可知，此处是说，她有科学的头脑，务实，有些愤世嫉俗，总是持怀疑态度，skeptical符合语境。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) adore (凡喜爱; 爱莫) 空格前是andI，空格后是Daniel seeing that tto，由此可知，空格处应填入一个动词，充当谓语。 由下一段结尾提到的作者最后爱上了书中的两位主人公(即娜塔莎和丹尼尔 ) 以及本段作者提到的娜塔莎和自己很像这两处信息可知，此处是说，作者喜欢丹尼尔看到了娜塔落身上的优秀品质，故adore 符合语境。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) cracks (v 使……破裂，破裂凡裂终) . 空格前为has a way with words that even，空格后为Natasha'\"s tough outer shell，由此可知，此处是 that引导的定语从句，从句中缺少谓语动词，空格处应填入一个动词，与shell构成动宾搭配。 前半句提到Daniel is charming and passionate ( 丹尼尔有魅力，有激情 ) ，由此判断，后半句是说，说话的方式甚至能打破娜塔莎坚硬的外壳，故cracks符合语境。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J lost (ady. 迷失的以遗失; 丧失 ) 空格前为I got，空格后为介词短语in THpe Sun zs 4jso a Star。由此可知，空格处应填入一个形容词，构成“get+ adj. + in”的结构。 由后半句“一个周末就把它从头到尾读完了”可知，作者很喜欢这本书，因此前半句是说作者迷 - 上了这本书，get lost in为固定搭配，意为“迷恋，痴迷于” ，符合语境。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) chemistry [7. 化学反应; 〈彼此间的) 吸引] 空格前后都有that，分析句子结构可知，第二个that是关系代词，引导定语从名that causes them to react and spark，而that在该定语从句中充当主语，因此和句首的That是指示代词，空格处应填入一个名词，充当定语从句的先行词。 前一句提到，它不一定是一本充满魔法的上涩的奇幻小说，它可以是两个拥有某种特殊东西的人之间的魔法。本名承接上文，句首的That指代前面所说的special something，根据定语从句的内容“它会使他们发生反应并产生火花”，可见备选名词中的chemistry符合语境，只有“化学物质”才具备这种特质。 B) appraise ( 尼评价; 估价 ) C) assaults (L 猛攻; 缆击吨袭击 ) K) perpetually ( adv 永恒地，持久地) L) prescribed (以开处方; 规定 ) M) shrewd (adr. 精明的)"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-2-b",
+      "type": "matching",
+      "title": "These are the habits to avoid if you want to make a behaviorchange",
+      "paragraphs": [
+        "A) According to recent research,behavioral change involves physical changes in the brain.In the past decade, researchers have shown that when it comes to the duration of making a new behavior a deep-rooted habit there is not a simple answer.Even for the most productive and disciplined among us,undoing something that has become an automatic part of who we are takes more than an overnight effort.Once we've successfully made that change,we then have to make other adjustments to our lives to ensure that we continue to maintain it,which is often a whole other challenge in itself.",
+        "B) At its core,success in changing and maintaining a behavior rarely occurs without the introduction of some sort of system.When there isn't the right framework in place,we face a greater likelihood ofderailing our hard-earned progress.To ensure success in changing and maintaining a behavior,we should stay away from some detrimental habits",
+        "C) The first one to avoid is relying on willpower.Think about the last time you vowed to resist a temptation. Perhaps you didn't want to check your phone every 15 minutes,or you were determined not to reach for a chocolate bar at 3 p.m.Think about how difficult it must have been not to glance at your phone when it was within reach,ornot to walk to the vending machine when your afternoon slump hit.",
+        "D) The research on whether we have finite or infinite willpower is inconclusive,but experts do generally agree that you can't change and sustain a habit if you rely on your willpower alone.The old military saying“You never rise to the occasion,you only sink to the level of training”also applies to behavior change.The idea is simple—you repeat something so many times that it becomes automatic.",
+        "E) Think about what else you can change about your surrounding that makes it easier for you to perform this change on a daily basis.This is called your“cue.”Basically,it's a trigger to perform that particular habit.If you don't want to reach for a sugary treat at 3 p.m.,have a box of herbal tea ready at your desk.When 3 p.m. comes around,that's your cue to pouryourself a cup of hot water and drink that tea,instead of walking to the vending machine.",
+        "F) The second one to avoid is focusing on negative goals.Sometimes,it's not your process that lets you down,but the habit that you want to change in the first place.For starters,not eating chocolate to beat your afternoon slump is a harder goal than swapping chocolate for herbal tea when you reach the designated time. Your brain wants to find routines that have succeeded in the past and allow you to repeat those actions again in the future without having to think about them explicitly.However,this habit-learning system isn't so effective when it comes to learning not to do something.That's why rather than giving up something,think about introducing something in its place.Focus on actions you are going to take that will ultimately conflict with the behaviors you want to stop.When your attention is on doing something new,you give your habit system a chance to operate.",
+        "G) The third one to avoid is using the same strategies in different circumstances.Because we are creatures of habit,it's natural to assume that when we do manage to adopt and sustain a desirable behavior,that same strategy will work when we want to make another behavior change.But that's not always the case. Sometimes,the system that got you to change one behavior might not work for another.",
+        "H) Sometimes we become accustomed to relying on our guts when it comes to decision-making.This serves us well in certain situations,but can hinder us in others especially when we need to consider metrics and data, rather than letting our instinct override everything.For example,if you want to stop checking your email first thing in the morning,you might decide to substitute another activity in its place.But if you want to stop indulging in video games,simply deciding you will go for a run might not be as effective.You might need to introduce another reinforcement,such as meetinga friend and booking an exercise class together",
+        "I) The fourth one to avoid is not forgiving ourselves for slipping up.Of course,even the best-laid plans fail sometimes.You might have stuck to your screen-free nighttime routine for five days,and then a big project landed on your desk and you found yourself in bed with your laptop before you went to sleep.Or you prepared meals on Sunday and stuck to eating healthy dinners at home,but by Friday you found yourself so exhausted and opted to order greasy takeout.Life happens and even if your behavior change is small, every single day can prove pretty inflexible,and at some point your luck may run out,even if just for a day. The perfectionist in you might be screaming to abandon your goals altogether,but try to see it in the bigger picture.Just because you might have temporarily strayed off course doesn't mean you can't start afresh the next day.",
+        "J) The final one to avoid is discounting small progress.There's a habit that many perfectionists tend to fall into when they try to establish a behavior change.They focus too much on the big goal and don't take the time to celebrate the small progress they make in the process.Your brain responds to rewards.The basal ganglia, the brain region linked to our performance of habits,is most active at the beginning of a behavior,when the habit is cued,and at the end,when it's rewarded.Say your goal is to run five miles three times a week,and this week you ran one mile on Monday,Wednesday,and Friday.Rather than focusing on how far you've gone toward your goal,think about how you can reward yourself for the progress you've made.It doesn't have to be big or expensive;it can be something as simple as making your favorite fruit juice after your run. Whatever yourreward,it has to be more than just the activity itself to get you going.",
+        "K) Initiating a new behavior usually seems like the hardest part of the process of change.However,people often fail to adequately prepare for maintaining it.One of the reasons for this is because we mistakenly believe the strategies we used to initiate the change will be equally effective in helping us continue the change.But they won't.Where changing a strongly deep-rooted habit requires changing our belief about that habit that penetrates deeply into our lives,continually manifesting that wisdom requires that we maintain a positive outlook.If our mood is low,the wisdom to behave differently seems to disappear and we go back to eating more and exercising less.The key,then,to maintaining new behaviors is to be happy!Which is why it's so hard to maintain new behaviors.",
+        "L) Remember,overcoming the behavioral inertia that prevents us from implementing new changes,like eating a healthy diet or exercising,can benefit us in the long run and can improve our physical and mental health.No one was born with habits.They were all learned,and can all,therefore,be unlearned.The question is:how badly do you really want to change?"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "There is general consensus among experts that willpower alone cannot guarantee one's success in changing and maintaining a habit.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "专家们普遍达成共识，仅任意志力无法保证一个人能成功改变和维持习惯。 D。由题干关键信息general consensus among experts和willpower定位到D段。D段第一名提到，关于我们的意志力是有限还是无限的研究并无定论，但专家们尊遍认为，如果你仅仅依赖意志力，是无法改变并维持一个习惯的。题干是对该句后半部分的同义转述，其中There is general consensus among experts 对应原文中的experts do generally agree; 题干中的willpower alone cannot...a habit对应原文中的you can7t.a habit..willpower alone。"
+        },
+        {
+          "number": 37,
+          "stem": "One need not abandon their goals completely just because they missed their target temporarily;they can start anew.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "一个人不需要因为乔时没能达成目标就完全放弃目标; 他们可以重新开始。 I。由题干关键信息abandon their goals completely和start anew可定位到I段。该段最后两句提到，你内心的完美主义者可能会喷喷着要完全放弃你的目标，但试着从大局看问题吧。虽然你可能暂时偏离了正轨，但这并不意味着你不能在第二天重新开始。题干是对原文这两句话的概括和总结。题干中的abandon their goals completely对应原文中的abandon your goals altogether; 题干中的start anew对应原文中的start afresh。"
+        },
+        {
+          "number": 38,
+          "stem": "Research shows it is quite another challenge to maintain a behavioral change after you have initiated it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "研究显示，在你开始一项行为改变后，维持这种变化是另外一种挑战。 A。由题干关键信息it is quite another challenge to maintain a behavioral change可定位到A段。该段最后一名提到，一旦我们成功地做出了改变，我们就必须对我们的生活进行其他调整，以确保我们继续保持这种变化，而保持变化本身往往是另一个挑战。题干描述是对原文此处的归纳和概括。题干中的maintain a behavioral change对应原文中的continue to maintain it (it指代前面的that change ) ; 题干中的quite another challenge对应原文中的a whole other challenge in itself。"
+        },
+        {
+          "number": 39,
+          "stem": "It is wrong to assume the strategies we use to start a change of behavior will work equally well in helping maintain it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "如果认为我们用来开启行为改变的策略在帮助维持这种变化上同样有效，那就错了。 玫。由题干关键信息the strategies we use...will work equally well定位到K段。该段第三、四名提到，我们错误地认为我们曾经在开启改变时使用的策略在帮助我们维持这个变化时同样有效，但事实并非如此。题干表述是对原文此处的同义转述。题干中的It is wrong to assume对应原文中的we mistakenly believe; 题干中的start a change ofbehavior对应原文中的initiate the change; 题干中的will work equally well 对应原文中的will be equally effective。"
+        },
+        {
+          "number": 40,
+          "stem": "Sometimes,it may not be successful to simply substitute one activity with anotherto effect a change of habit; you may need extra reinforcement",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H 段以电子邮件和电子游戏举例：有时可以用另一种活动替代旧行为，有时还需要加入额外的强化方式。题干概括了该例。"
+        },
+        {
+          "number": 41,
+          "stem": "One should introduce something new to replace an old habit instead of simply kicking it",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "应该引入新的事物来替代旧的习惯，而不是简单地据弃它。 F。由题干关键信息introduce something new to replace an old habit定位到F段。F段指出第二个要避免的习惯一一把注意力集中在负面目标上。该段的第五、六句指出，习惯养成系统在养成不做某事的习惯时并不那么有效，这就是为什么与其放弃某样东西，不如考虑引入某样东西来代替它。也就是说，我们应该引入新的行为来代替旧的习惯，而不是简单地所弃它。题二表述是对原文此处的同义转述。题干中的introduce something new to replace an old habit对应原文中的introducing something in its place; 题干中的 kicking it对应原文中的giving up something。"
+        },
+        {
+          "number": 42,
+          "stem": "Perfectionists focus too much on their big target and neglect celebrating the small gains they make in the process.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "完美主义者过于关注他们的大目标，而忽视去庆祝他们在过程中取得的小进步。 J。由题干关键信息Perfectionists和neglect celebrating the small gains定位到J段。该段第二、三名指出，许多追求完美的人在试图改变行为时，都容易陷入一个习惯，那就是他们过于关注大目标，而不花时闻去庆祝他们在过程中取得的小进步。题干表述是对原文第三名的同义转述。题干中的neglect celebrating the small gains对应原文中的don't take the time to celebrate the small progress。"
+        },
+        {
+          "number": 43,
+          "stem": "It is of great benefit to us in the long term to conquer the inertia that stops usfrom making behavioral changes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L 段首句指出，克服阻止我们实施行为改变的惰性，可以长期改善身心健康。题干是同义转述。"
+        },
+        {
+          "number": 44,
+          "stem": "The strategy that successfully changed one of your behaviors may not work for some other behavior of yours.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "成功改变你某一行为的策略可能不适用于改变你的其他行为。 G。由题二关键信息The strategy和may not work for some other behavior可定位到G段。该段首句指出，要避免在不同的情况下使用相同的策略; 最后一句提到，有时，让你改变一种行为的系统可能对另一种行为并不起作用。题干是对最后一名的同义转述。题干中的The strategy that successfully changed one of your behaviors对应原文中的the system that got you to change one behavior; 题干中的may not work for some other behavior of yours对应原文中的might not work for another。"
+        },
+        {
+          "number": 45,
+          "stem": "Without a happy mood,it seems that our wisdom to adopt a different behavior vanishes",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K 段指出，持续维持新习惯需要积极态度；情绪低落时，改变行为的智慧似乎就消失了。因此对应 K 段。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The“American Dream”promises that in the Land of Opportunity,any individual can climb the economic ladder and prosper through hard work and ambition alone.And yet,young Americans today are struggling to earn more thantheir parents did at the same age,and upward mobility in the US actuallycompares unfavourably tothat of other industrialised nations. So why does the idea of the American Dream persist?A new study in the American Journal of Political Science identifies one factor that has been overlooked:the influence of reality TV. Realityshows have come to dominate US television over the past 20 years,notes Eunji Kimfrom Vanderbilt University.And the overwhelming majority of these have a“rags-to-riches”storyline:they feature ordinary Americans whowork hard to achieve great economic success.And while these programmes are regularly among the most-watched shows,news broadcasts—which paint amore realistic view of the economic hardship faced by millions of Americans—get a much smaller proportion of the viewership Rags-to-riches stories are wbiquitous(无处不在的)on TV—but does watching these programmes actually convince people that economic mobility is easily attainable?To find out,Kim's team had participants watch a 5-minute clip from a reality show with a rags-to-riches storyline.Control participants watched a clip from a reality show that didn't have a rags-to-riches story.After watching the shows,participants rated how much they agreed with four statements relating to the American Dream The results showed that those who'd watched a rags-to-riches clip did indeed have a significantly greater belief in theAmerican Dream.Interestingly,when participants were separated by party affliation,this effect was significant among Republicans but not Democrats,suggesting that the kind of messages implicit in these TV shows may play into people's existing socioeconomic beliefs. Kim also conducted a survey of 3,000 US residents.They also rated the extent to which they believed success in life is related to various internal factors (such as ambition)and external factors (such as family wealth).Finally,they read a list of TV programmes and indicated which they regularly watched. Participants whowere heavy viewers of rags-to-riches programmes or frequent viewers had a stronger belief in the American Dream than those who never watched such shows. Kim concludes that “rags-to-riches entertainment media are an important cultural force that promotes and perpetuates beliefs in upward mobility”.And here's the problem:if people mistakenly believe that hard work is all that is needed for individuals to make a better life for themselves,they may be less supportive of policies that could actually combat inequality. “In this era of choice,entertainment media are what captures hearts and minds,”Kim writes.“Its political consequences are anythingbut trivial”."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from the passage about young Americans of today?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have greater ambitions than their parents."
+            },
+            {
+              "key": "B",
+              "text": "They find it difficult to achieve upward mobility."
+            },
+            {
+              "key": "C",
+              "text": "They have overtaken their parents in terms of earnings"
+            },
+            {
+              "key": "D",
+              "text": "They envy the opportunities in other industrialised nations"
+            }
+          ],
+          "answer": "B",
+          "explanation": "从这篇文章中，我们可以了解到当今美国年轻人的什么情况? A) 他们比父辈更有抱负。 C) 他们的收入超过了父辈。 了) 他们发现很难实现向上流动。 D) 他们其获其他工业化国家的机会。 窗? 根据题王信息词young Americans可将答案线索定位至第一段第二名。 解# 第一段第二句提及，今天的美国年既人为了赚取比父辈同龄时更多的收入而艰难地奋斗着，美国的向上流半”动性与其他工业化国家相比，实际上并不乐观。B项是对原文的总结概括，故本题选B。A项原文未提及， 排除。C项与原文不符，排除。D项是对原文的过度推断，也排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What does Kim's team find about reality TV shows inAmerica?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They reinterpret the essence of the popular rags-to-riches culture."
+            },
+            {
+              "key": "B",
+              "text": "They urge people to achieve economic success through hard work."
+            },
+            {
+              "key": "C",
+              "text": "They help strengthen people's conviction in the American Dream."
+            },
+            {
+              "key": "D",
+              "text": "They feature ordinary Americans striving for social recognition"
+            }
+          ],
+          "answer": "C",
+          "explanation": "金女士的研究小组对美国的真人秀节目有何发现? A) 它们重新诠释了流行的白手起家文化的精人。 “C) 它们有助于增强人们对“美国梦”的信念。 B) 它们敦促人们通过努力工作取得经济成功。 ，_D) 它们的主角是努力争取社会认可的普通美国人。 罕* 根据题王信息误Kim's team和reality TV shows可将答案线索定位至第四段第二名。 从> 第二、三段只介绍了真人秀节目的相关信息，并未提及金女士的团队对此的研究。关键词Kim'”s team出现在第四段。第四段第一句开始讨论真人秀节目对观众的影响，接下来是金女士的研究小组对此展开的研究。研究结论在第五段第一句: 结果显示，那些观看了白手起家片段的人对“美国梦”的信念确实明显增强了。由此可知，C项符合题意，strengthen people's conviction是原文中have a significantly greater belief的同义转述。A项中的reinterpret和essence、B项中的urge都属于无中生有，故排除。D项的social ， ;recognition属于无中生有，而且也不是研究结果，故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author say about news broadcasts in America?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They attract far fewer viewers than reality TV."
+            },
+            {
+              "key": "B",
+              "text": "They are bent on reporting the dark side of life."
+            },
+            {
+              "key": "C",
+              "text": "They stand in striking contrast with reality TV."
+            },
+            {
+              "key": "D",
+              "text": "They focus on Americans'economic hardships."
+            }
+          ],
+          "answer": "A",
+          "explanation": "关于美国的新闻广播，作者说了什么? A) 它们吸引的观众比真人秀节目少得多。 O) 它们与真人秀节目形成鲜明对比。 B) 它们热衷于报道生活的阴暗面。 D) 它们关注美国人的经济困境。 + 栓通二入下启UNS TSICESG可笠闪要访家是从于第三节让解记第三段最后一句提及，真人秀节目经常是收视率最高的节目之一，而新闻广播的收视率要低得多。由此可村 | 知，A项正确。B、C两项原文未提及，直接排除。D项是强干扰项，原文表述是paint a more realistic view of the economic hardship ，即更真实地描绘了经济困境，描绘了经济困境的真实性并非关注经济困境，D项与原文不符，故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What can we infer from the passage about Republicans in general?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They believe strongly in the American Dream."
+            },
+            {
+              "key": "B",
+              "text": "They strive to climb the socio-economic ladder"
+            },
+            {
+              "key": "C",
+              "text": "They have a very strong affiliation with their party."
+            },
+            {
+              "key": "D",
+              "text": "They tend to watch more rags-to-riches TV shows."
+            }
+          ],
+          "answer": "A",
+          "explanation": "关于共和党人，我们从这篇文章中可以推断出什么? A) 他们坚信“美国梦”。 C) 他们对自己的政党有很强的归属感。 .B) 他们努力攀登社会经济阶梯。 ___D) 他们往往会观看更多的白手起家类电视节目。 估根据题干信息词Republicans可将答案线索定位至第五段第二句。 站四扣* 第五段首句指明上文的研究结果，观看白手起家片段的人对“美国梦”的信念确实明显增强，第二句讲到: 有趣的是，如按党派划分参与者，这一效果明显表现在共和党人身上 ，而不是民主党人，这表明这些电视节目中隐含的此类信息可能会印证人们现有的社会经济信念。这说明共和党人坚信“美国梦”，故A 项符合题意。其他三项原文均未提及，故直接排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What is stated about people who believe in upward mobility?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are likely to blame the government for their plight."
+            },
+            {
+              "key": "B",
+              "text": "They regard political consequences as anything but trivial."
+            },
+            {
+              "key": "C",
+              "text": "They respect individuals striving to climb the social ladder"
+            },
+            {
+              "key": "D",
+              "text": "They are less likely to approve of policies to fight inequality."
+            }
+          ],
+          "answer": "D",
+          "explanation": "关于相信向上流动的人，文章说了什么? A) 他们很可能把自己的困境归咎于政府。 C) 他们尊重努力攀登社会阶梯的人。 B) 他们认为政治后果绝非微不足道。 D) 他们不太可能狗同消除不平等的政策。 机顶让依上河DENGGTGDI柯向将二绩示定们于出症记和、 名， 倒数第二段第一句指出了金得出的结论: (宣传 ) 穷人致富的娱乐媒体是一种重要的文化力量，它促进并维持了向上流动的信念，然后话锋一转指出，问题就出在这里: 如果人们错误地认为，只要努力工作就能让自己过上更好的生活，他们可能就不会那么拥护那些能够真正消除不平等的政策了。D项中的less likely to approve of policies to fight inequality是对原文less supportive of policies that could actually combat inequality的同义转述，故D项正确。A、C两项原文均未提及，直接排除。B项是金女士的观点，故排除。 了"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "When someone asks us 'what do you do?'we nearly always reply with our occupation.Work,for many of us,is much more than a job.It is the defining aspect of our identity.For many of us it is through our job that we can define ourselves. “Without myjob I don't know who I am,”is a sentence that has been uttered on more than a handful of occasions from my office chair.Indeed,it can be one of the most challenging aspects I work on with clients who have lost or been forced into changing their jobs.This loss provokes an identity crisis much greater than the loss of thejob itself. One of the things I have come to understand,however,is that our identity is much more complex than we recognise at first glance.If we take the time to reflect we might recognise that as well as our work we can also identify as a friend,a spouse,a sonor daughter,a parent,a member of a sports team or religious community.We may recognise that we feel and act differently in these roles and relationships than we do at work.The passive daughter becomes an assertive leader at work.Furthermore,our identities at work are not static.They change over time.I myself have been a shop assistant,a waitress,a student,a graduate,and a clinical psychologist.At each stage my ability to adapt to and develop my career identity has been crucial to my wellbeing.Whilst we like to eliminate uncertainty in our lives at some level we have to manage uncertainty,especially in today's volatile and ever-shifting job market.",
+        "How we see ourselves is central to the issue ofour identity.When we tell ourselves “I'm good at starting projects but not so great at seeing them through”it can become part ofour belief system.But if you have the unfortunate experience of an enforced job change you will need to examine those beliefs to see how grounded in reality they are.You will be required to ask yourself how helpful these beliefs are and consider personal change We can change our beliefs,behaviours and emotional experience at any time through experimentation,practice and conscious self-discipline.In an age where career progression may lead us into new sectors it is ever more important to challenge our sense of self and explore whether you can create a new experience ofyour identity by changing the beliefs you hold about yourself in orderto expand your career options.Ultimately it is you who define who you are.You are only your job ifyou let it be so."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn from the passage about one's loss of a job?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It compels them to visit a clinical psychologist."
+            },
+            {
+              "key": "B",
+              "text": "It offers them a chance to play different roles."
+            },
+            {
+              "key": "C",
+              "text": "It renders them puzzled about who they are."
+            },
+            {
+              "key": "D",
+              "text": "It forces them to redefine their life's goals."
+            }
+          ],
+          "answer": "C",
+          "explanation": "第二段引用“没有工作，我不知道自己是谁”，并指出失业引发的身份危机比失业本身更严重。因此失业会让人对自己是谁感到困惑，选 C。"
+        },
+        {
+          "number": 52,
+          "stem": "What has the author come to understand about our identity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is crucial to our emotional wellbeing."
+            },
+            {
+              "key": "B",
+              "text": "Itplays a big role in many facets of life"
+            },
+            {
+              "key": "C",
+              "text": "It reflects our changing status in society."
+            },
+            {
+              "key": "D",
+              "text": "It is more complicated than it appears"
+            }
+          ],
+          "answer": "D",
+          "explanation": "关于我们的身份，作者逐渐明白了什么? A) 它对我们的情绪健康至关重要。 C) 它反映了我们社会地位的变化。 B) 它在生活的许多方面发挥着重要作用。 “六[它比表面下看起来更复杂是机全cand boutour ii可生生人第组* 文章第三段首句提到，\"我”逐渐明白的一件事是，我们的身份比我们乍一看所认识到的要复杂得多。接着作者提到除了工作，我们还可以通过其他角色和关系来定义自己的身份，例如朋友、配偶、儿子或女 ，儿、父亲或有母亲、运动队或宗教团体的成员。此外，作者还提到了工作中的身份并不是一成不变的，而是 ，随着时间的推移而发展变化的。综上所述，选项D正确。其他三项在原文中均未提及，故都排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What does thepassage say about our identities at work?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are essential to our self-esteem"
+            },
+            {
+              "key": "B",
+              "text": "They evolve with the passage of time."
+            },
+            {
+              "key": "C",
+              "text": "They overrule all other self-perceptions."
+            },
+            {
+              "key": "D",
+              "text": "They are key to understanding ourselves."
+            }
+          ],
+          "answer": "B",
+          "explanation": "关于我们在工作中的身份，这篇文章说了什么? A) 它们对我们的自尊至关重要。 O) 它们凌驾于其他所有自我认知之上。 B) 它们随着时间的推移而变化。 D) 它们是了解我们自己的关键。 写本信息河ourideniies at wb林和觅守宁大未二位于第=区解> 文章第三段第五、六句提到，我们在工作中的身份并不是一成不变的，而是会随着时间的推移而变化，接析着作者通过自己的经历说明了这一点，提到自己曾经是店员、服务员、学生、毕业生和临床心理学家。因 ， 此，选项B正确。其他三项在原文中均未提及，故都排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What do we have to do in today's ever-changing job market?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Strive to develop our social identity."
+            },
+            {
+              "key": "B",
+              "text": "Prepare for different career paths."
+            },
+            {
+              "key": "C",
+              "text": "Try to be assertive at all times."
+            },
+            {
+              "key": "D",
+              "text": "Learn to manage uncertainty."
+            }
+          ],
+          "answer": "D",
+          "explanation": "在就业市场不断变化的今天，我们该怎么办? A) 努力发展我们的社会身份。 C) 努力在任何时候都保持自信。 B) 为不同的职业道路做好准备。 D) 学会管理不确定性。 内机直人十届0 SOTGNTEE JI本竺等案过定位三解文章第三段最后一句提到，虽然我们喜欢在某种程度上消除生活中的不确定性，但我们必须管理不确定村性，尤其是在当今动功不安、不断变化的就业市场中。 这表明在职业发展过程中，我们需要适应不断变化的就业环境和不同的职业身份。选项D中的manage uncertainty是文中的原词复现，故D正确。选项A、B 在原文中未提及，故排除。选项C是利用原文中的assertive一词设置的干扰项，也排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What should we do to expand our career options?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Alter our perceptions of ourselves."
+            },
+            {
+              "key": "B",
+              "text": "Compare various job opportunities."
+            },
+            {
+              "key": "C",
+              "text": "Look into newly emerging sectors"
+            },
+            {
+              "key": "D",
+              "text": "Exercise self-discipline consciously."
+            }
+          ],
+          "answer": "A",
+          "explanation": "我们应该做些什么来扩大我们的职业选择? A) 改变我们对自己的看法。 C) 关注新兴行业。 B) 比较各种工作机会。 D) 有意识地进行自我约束。 过 + 要所天下信息词Sand 5 SEE EGG可将冤案并过是生于最下-攻解文章最后一段后半部分提到，在一个职业发展可能引领我们进入新领域的时代，挑战自我意识，探索是折和否可以通过改变对自己的信念来创造新的身份体验，从而拓展职业选择，这一点变得越来越重要。这表明我们只有改变对自己的看法和信念，才能扩大职业选择，故选项A正确。选项D是原文提到的，原文是说我们可以通过实验、练习和有意识的自我约束随时改变我们的信念，与题干无关。其他两项在原文中未提及，故均排除。 四.全译主， 分布广泛 (be) extensively/widely distributed 生命力 vitality 坚韧不拔 unwavering perseverance 品种丰富 (be) diverse in variety 适应能力 adaptability 被视为 (be) esteemed as 实用性强 (be) highly versatile; (be) highly practical “恶劣 harsh 中华民族 the Chinese nation 文人 scholar 顽强 toughly 品格 character 正直的品格 integrity 寓意 embody; symbolize ."
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98Word/2024%E5%B9%B46%E6%9C%88%E7%AC%AC2%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E3%80%90%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8PDF%E7%89%88%E3%80%91.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2024%E5%B9%B46%E6%9C%88%E7%AC%AC2%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90.pdf"
+}

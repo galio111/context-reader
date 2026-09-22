@@ -1,0 +1,1566 @@
+{
+  "id": "cet4-2024-06-1",
+  "level": 4,
+  "year": 2024,
+  "month": 6,
+  "set": 1,
+  "title": "2024 年 6 月四级 · 第 1 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2024-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "It's well known that physical exercise is beneficial not just to physical health but also to mental health. Yet whereas most countries have [[26]] evidence-backed guidelines on the type and intensity of exercise [[27]] for various physical health benefits, such guidelines do not yet exist for exercise and mood. This is [[28]] due to a lack of necessary evidence. However, a new systematic review brings us usefully up-to-date on the current findings in this area. Before [[29]] into some of the key take -aways, an important [[30]] made in the review is between aerobic exercise and anaerobic. The former [[31]] such things as walking, jogging and cycling and means ex ercising in such a way that your body is able to use oxygen to burn fat for energy. In contrast, anaerobic exercise—such as lifting heavy weights—is of such [[32]] intensity that your body does not have time to use oxygen to create energy and so instead it breaks down glucose (葡萄糖) in your blood or muscles. Beginning first with the influence of exercise intensity on the mood benefits of aerobic exercise, the researchers, led by John Chan at Shenzhen University, found [[33]] results from 19 relevant studies. Some favoured higher intensity, others low, while seven studies found that intensity made no [[34]] to mood benefits. In relation to the intensity of anaerobic exercise, however, the results were far clearer —the optimum ( 最佳选择) for improving mood is [[35]] intensity, perhaps because low intensity is too dull while high intensity is too unpleasant."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "constitutes"
+        },
+        {
+          "key": "B",
+          "text": "contradictory"
+        },
+        {
+          "key": "C",
+          "text": "decision"
+        },
+        {
+          "key": "D",
+          "text": "detailed"
+        },
+        {
+          "key": "E",
+          "text": "difference"
+        },
+        {
+          "key": "F",
+          "text": "dipping"
+        },
+        {
+          "key": "G",
+          "text": "distinction"
+        },
+        {
+          "key": "H",
+          "text": "falling"
+        },
+        {
+          "key": "I",
+          "text": "involves"
+        },
+        {
+          "key": "J",
+          "text": "moderate"
+        },
+        {
+          "key": "K",
+          "text": "notified"
+        },
+        {
+          "key": "L",
+          "text": "partly"
+        },
+        {
+          "key": "M",
+          "text": "required"
+        },
+        {
+          "key": "N",
+          "text": "traditionally"
+        },
+        {
+          "key": "O",
+          "text": "vigorous"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constitutes"
+            },
+            {
+              "key": "B",
+              "text": "contradictory"
+            },
+            {
+              "key": "C",
+              "text": "decision"
+            },
+            {
+              "key": "D",
+              "text": "detailed"
+            },
+            {
+              "key": "E",
+              "text": "difference"
+            },
+            {
+              "key": "F",
+              "text": "dipping"
+            },
+            {
+              "key": "G",
+              "text": "distinction"
+            },
+            {
+              "key": "H",
+              "text": "falling"
+            },
+            {
+              "key": "I",
+              "text": "involves"
+            },
+            {
+              "key": "J",
+              "text": "moderate"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "partly"
+            },
+            {
+              "key": "M",
+              "text": "required"
+            },
+            {
+              "key": "N",
+              "text": "traditionally"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) detailed ( adj. 详尽的，详细的Y 详细说明，详述 ) 空格前是从句的谓语have，空格后是逗号和名词短语evidence-backed guidelines，由此可知，空格处应填入一个形容词或分闻，与evidence-backed一起充当guidelines的定语。 本段综合阐述目前关于运动强度、运动类型和情绪之间关系的研究成果。前后半句表意相反，后半句转折表述目前还没有关于运动与情绪的指导方针，前半句则表述目前存在有益于身体健康的运动类型和强度的指导方针，指导方针详细且有证据支持，故detailed符合语境。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constitutes"
+            },
+            {
+              "key": "B",
+              "text": "contradictory"
+            },
+            {
+              "key": "C",
+              "text": "decision"
+            },
+            {
+              "key": "D",
+              "text": "detailed"
+            },
+            {
+              "key": "E",
+              "text": "difference"
+            },
+            {
+              "key": "F",
+              "text": "dipping"
+            },
+            {
+              "key": "G",
+              "text": "distinction"
+            },
+            {
+              "key": "H",
+              "text": "falling"
+            },
+            {
+              "key": "I",
+              "text": "involves"
+            },
+            {
+              "key": "J",
+              "text": "moderate"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "partly"
+            },
+            {
+              "key": "M",
+              "text": "required"
+            },
+            {
+              "key": "N",
+              "text": "traditionally"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "M",
+          "explanation": "MD) required (v 需要 wd. 必需的) 空格前是名词短语the type and intensity of exercise，空格后是介词短语for various physical health benefits ，由此可知，空格处应填入过去分词，充当the type and intensity of exercise的后置定语。 此处亲述大多数国家已存在详细的、有证据支持的关于各种有益于身体健康所需的运动类型和强度的指导方针，故required符合语境。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constitutes"
+            },
+            {
+              "key": "B",
+              "text": "contradictory"
+            },
+            {
+              "key": "C",
+              "text": "decision"
+            },
+            {
+              "key": "D",
+              "text": "detailed"
+            },
+            {
+              "key": "E",
+              "text": "difference"
+            },
+            {
+              "key": "F",
+              "text": "dipping"
+            },
+            {
+              "key": "G",
+              "text": "distinction"
+            },
+            {
+              "key": "H",
+              "text": "falling"
+            },
+            {
+              "key": "I",
+              "text": "involves"
+            },
+            {
+              "key": "J",
+              "text": "moderate"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "partly"
+            },
+            {
+              "key": "M",
+              "text": "required"
+            },
+            {
+              "key": "N",
+              "text": "traditionally"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) partlty ( adv 在某种程度上; 部分地) 空格所在句子主系表结构完整，故空格处应填入一个副词，起修饰作用。 上文提到“目前还没有关于运动和情绪的指导方针”，此处前述原因，即“这由于缺乏必要的证据”，故partly符合语境。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constitutes"
+            },
+            {
+              "key": "B",
+              "text": "contradictory"
+            },
+            {
+              "key": "C",
+              "text": "decision"
+            },
+            {
+              "key": "D",
+              "text": "detailed"
+            },
+            {
+              "key": "E",
+              "text": "difference"
+            },
+            {
+              "key": "F",
+              "text": "dipping"
+            },
+            {
+              "key": "G",
+              "text": "distinction"
+            },
+            {
+              "key": "H",
+              "text": "falling"
+            },
+            {
+              "key": "I",
+              "text": "involves"
+            },
+            {
+              "key": "J",
+              "text": "moderate"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "partly"
+            },
+            {
+              "key": "M",
+              "text": "required"
+            },
+            {
+              "key": "N",
+              "text": "traditionally"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) dipping(v 浸，薰; 促进，伸入) 医者呵| 空格前是介词before，由此可知，空格处应填入一个名词或动名词，充当before的宾语。空格后是介词into，由此可知，空格处应填和人动名词，且该词能与into构成合理的搭配。 前文提及“一项新的系统综述为我们提供了该领域中有用的最新发现”，本段进一步阐述这一最新发现。该句意为“在一些关键要点之前，综述中提出的一个重要是有氧运动和无氧运动”。dip into意为“把手伸进; 浏览”,，故dipping符合语境。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constitutes"
+            },
+            {
+              "key": "B",
+              "text": "contradictory"
+            },
+            {
+              "key": "C",
+              "text": "decision"
+            },
+            {
+              "key": "D",
+              "text": "detailed"
+            },
+            {
+              "key": "E",
+              "text": "difference"
+            },
+            {
+              "key": "F",
+              "text": "dipping"
+            },
+            {
+              "key": "G",
+              "text": "distinction"
+            },
+            {
+              "key": "H",
+              "text": "falling"
+            },
+            {
+              "key": "I",
+              "text": "involves"
+            },
+            {
+              "key": "J",
+              "text": "moderate"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "partly"
+            },
+            {
+              "key": "M",
+              "text": "required"
+            },
+            {
+              "key": "N",
+              "text": "traditionally"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) distinction (m 差别 ，区分 ) 空格前是an important，空格后是made in the review，为过去分词短语作后署定语，由此可知，空格处应填入一个名词。 下文具体介绍了有氧运动和无氧运动的本质区别，故综述中应该是提到了二者的区别。故 distinction符合语境。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constitutes"
+            },
+            {
+              "key": "B",
+              "text": "contradictory"
+            },
+            {
+              "key": "C",
+              "text": "decision"
+            },
+            {
+              "key": "D",
+              "text": "detailed"
+            },
+            {
+              "key": "E",
+              "text": "difference"
+            },
+            {
+              "key": "F",
+              "text": "dipping"
+            },
+            {
+              "key": "G",
+              "text": "distinction"
+            },
+            {
+              "key": "H",
+              "text": "falling"
+            },
+            {
+              "key": "I",
+              "text": "involves"
+            },
+            {
+              "key": "J",
+              "text": "moderate"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "partly"
+            },
+            {
+              "key": "M",
+              "text": "required"
+            },
+            {
+              "key": "N",
+              "text": "traditionally"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "I",
+          "explanation": "D involvyes (v 包含; 涉及) 空格前是句子的主语the former，空格后是宾语such things as.……，由此可知，空格处应填入动词的第三人称单数，充当句子的谓语。 空格前面的the former ( 前者 ) 指代前一句中的aerobic exercise ( 有氧运动 ) ，本句中所列举的散步、慢跑、骑自行车都属于有氧运动的范畴,前后是所属关系，故involves符合语境。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constitutes"
+            },
+            {
+              "key": "B",
+              "text": "contradictory"
+            },
+            {
+              "key": "C",
+              "text": "decision"
+            },
+            {
+              "key": "D",
+              "text": "detailed"
+            },
+            {
+              "key": "E",
+              "text": "difference"
+            },
+            {
+              "key": "F",
+              "text": "dipping"
+            },
+            {
+              "key": "G",
+              "text": "distinction"
+            },
+            {
+              "key": "H",
+              "text": "falling"
+            },
+            {
+              "key": "I",
+              "text": "involves"
+            },
+            {
+              "key": "J",
+              "text": "moderate"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "partly"
+            },
+            {
+              "key": "M",
+              "text": "required"
+            },
+            {
+              "key": "N",
+              "text": "traditionally"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) vigorous ( a坟剧烈的; 强度大的; 强壮的; 精力充沛的 ) 空格前是限定词such，空格后是名词intensity，由此可知，空格处应填入一个形容词或分词，充当 intensity的定语。 与散步、慢跑、骑自行车等低强度的运动相比，举重则是一种高强度的运动，vigorous intensity意为“高强度”，故vigorous符合语境。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constitutes"
+            },
+            {
+              "key": "B",
+              "text": "contradictory"
+            },
+            {
+              "key": "C",
+              "text": "decision"
+            },
+            {
+              "key": "D",
+              "text": "detailed"
+            },
+            {
+              "key": "E",
+              "text": "difference"
+            },
+            {
+              "key": "F",
+              "text": "dipping"
+            },
+            {
+              "key": "G",
+              "text": "distinction"
+            },
+            {
+              "key": "H",
+              "text": "falling"
+            },
+            {
+              "key": "I",
+              "text": "involves"
+            },
+            {
+              "key": "J",
+              "text": "moderate"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "partly"
+            },
+            {
+              "key": "M",
+              "text": "required"
+            },
+            {
+              "key": "N",
+              "text": "traditionally"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) contradictory ( qd. 相互矛盾的，对立的) 空格所在句子主谓宾结构完整，空格前是谓语found，空格后是宾语results，由此可知，空格处要么应填入一个副词，修饰动词fpund，要么填入一个形容词或分间，修饰名词results。 本段提及运动强度对有氧运动情绪影响的相关研究。首句提到从其益处开始研究,末尾提及研究结果显示无论高强度还是低强度，对情绪益处并无影响，这说明研究结果与一开始的预想相矛盾。因此 contradictory符合语境。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constitutes"
+            },
+            {
+              "key": "B",
+              "text": "contradictory"
+            },
+            {
+              "key": "C",
+              "text": "decision"
+            },
+            {
+              "key": "D",
+              "text": "detailed"
+            },
+            {
+              "key": "E",
+              "text": "difference"
+            },
+            {
+              "key": "F",
+              "text": "dipping"
+            },
+            {
+              "key": "G",
+              "text": "distinction"
+            },
+            {
+              "key": "H",
+              "text": "falling"
+            },
+            {
+              "key": "I",
+              "text": "involves"
+            },
+            {
+              "key": "J",
+              "text": "moderate"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "partly"
+            },
+            {
+              "key": "M",
+              "text": "required"
+            },
+            {
+              "key": "N",
+              "text": "traditionally"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) difference ( 7. 差异，不同之处 ) 空格前是made no，空格后是介词tt和名词短语mood benefits，由此可知，空格处应填入一个名词。 从运动强度对有和氧运动情绪益处的影响开始研究, 却得出了相互矛盾的结果，即有氧运动强度的高低对情绪益处并无影响。make no difference意为“没有区别，没有影响”，故difference符合语境。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constitutes"
+            },
+            {
+              "key": "B",
+              "text": "contradictory"
+            },
+            {
+              "key": "C",
+              "text": "decision"
+            },
+            {
+              "key": "D",
+              "text": "detailed"
+            },
+            {
+              "key": "E",
+              "text": "difference"
+            },
+            {
+              "key": "F",
+              "text": "dipping"
+            },
+            {
+              "key": "G",
+              "text": "distinction"
+            },
+            {
+              "key": "H",
+              "text": "falling"
+            },
+            {
+              "key": "I",
+              "text": "involves"
+            },
+            {
+              "key": "J",
+              "text": "moderate"
+            },
+            {
+              "key": "K",
+              "text": "notified"
+            },
+            {
+              "key": "L",
+              "text": "partly"
+            },
+            {
+              "key": "M",
+              "text": "required"
+            },
+            {
+              "key": "N",
+              "text": "traditionally"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "J",
+          "explanation": "要moderate ( a夫. 中等的六缓和，使适中中温和派 ) 空格前是be动词si，空格后是名词intensity，由此可知，空格处要么应填和人一个形容词或分词，充当intensity的定语，要么应填入一个副词，修饰be动词。 本段阐述无氧运动的强度对情绪益处的影响。由下文“这可能是因为低强度太沉闷，而高强度太令人不快”可知，无氧运动中，中等强度是改善情绪的最佳选择，故moderate符合语境 A) constitutes (V 组成.构成 ) C) decision (六决定，挟择 ) H) falling (adj. 下降的，正在减少的V 降落; 进入某状态 ) K) notified (V 通报，告知) N) traditionally ( adv 传统上; 习惯上)"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-06-1-b",
+      "type": "matching",
+      "title": "Why Do Americans Work So Much?",
+      "paragraphs": [
+        "A) How will we all keep busy when we only have to work 15 hours a week? That was the question that worried the British economist John Maynard Keynes when he wrote his short essay “Economic Possibilities for Our Grandchildren” in 1930. Over the next century, he predicted, the economy would become so productive that people would barely need to work at all. For a while, it looked like Keynes was right. In 1930 the average working week was 47 hours in the United States. But by 1970, the number of hours Americans worked on average had fallen to slightly less than 39.",
+        "B) But then something changed. Instead of continuing to decline, the duration of the working week remained stable. It has stayed at just below 40 hours for nearly five decades. So what happened? Why are people working just as much today as in 1970?",
+        "C) There would be no mystery in this if Keynes had been wrong about the power of technology to increase the economy's productivity, which he thought would lead to a standard of living “between four and eight times as high as it is today.” But Keynes got that right: Technology has made the economy massively more productive. According to Benjamin M. Friedman, an economist at Harvard, the U.S. economy is right on track to reach Keynes’s eightfold (八倍) multiple by 2029. That is a century after the last data Keynes would have had access to.",
+        "D) In a new paper, Friedman tries to figure out why that increased productivity has not translated into increased leisure time. Perhaps people just never feel materially satisfied, always wanting more money to buy the next new thing . This is a theory that appeals to many economists. “This argument is, at best, far from sufficient,” he writes. If that were the case, why did the duration of the working week decline in the first place?",
+        "E) Another theory Friedman considers is that, in an era of ever fewer settings that provide effective opportunities for personal connections and relationships, people may place more value on the socializing that happens at work. There is support for this theory. Many people today consider colleagues as friends. But Friedman argues that the evidence for this theory is far from conclusive. Many workers report that they would like to spend more time with family, rather than at work Furthermore, this theory cannot explain the change in trend in the U.S. working week in the 1970s.",
+        "F) A third possibility proves more convincing for Friedman. That is , American inequality means that the gains of increasing productivity are not widely shared by everyone. In other words, most Americans are too poor to work less. Unlike the other two explanations Friedman considers, this one fits chronologically (按年代). Inequality declined in America during the period following World War I I, along with the duration of the working week. But since the early 1970s it has risen dramatically.",
+        "G) Keynes's prediction of a shorter working week rests on the idea that the standard of living would continue rising for everyone. But Friedman says that this is not what has happened. Although Keynes’s eight-fold figure holds up for the economy as a whole, it is not at all the case for the median(中位数的) American worker. For them, output by 2029 is likely to be around 3.5 times what it was when Keynes was writing. This is a bit below his four-to eight-fold predicted range.",
+        "H) This can be seen in the median workers income over this time period complete with a shift in 1973 that fits in precisely with when the working week stopped shrinking. According to Friedman, between 1947 and 1973, the average hourly wage for normal workers (those who were not in management roles) in private industries other than agriculture nearly doubled in terms of what their money could buy. But by 2013 the average hourly wage for ordinary workers had fallen 5 percent from the 1973 level in terms of actual purchasing Power. Thus, though American incomes may have gone up since 1973, the amount that American workers can actually buy with their money has gone down. For most Americans, then, the magic of increasing productivity stopped working around 1973.Thus , they had to keep working just as much in order to maintain their standard of living.",
+        "I) What Keynes predicted was a very optimistic version of what economists call technological unemployment. This is the idea that less labor will be necessary because machines can do so much. In Keynes’s vision, the resulting unemployment would be distributed more or less evenly across society in the form of increased leisure. But Friedman says that, for Americans, reality is much darker. Americans now have a labor market in which mil lions of people — those with fewer skills and less education — are seeking whatever poorly paid work they can get. This is confirmed by a recent poll that found that, for half of hourly workers, their top concern is not that they work too much but that they work too little. This is most likely not because they like their jobs so much. Rather, we can assume it is because they need the money.",
+        "J) This explanation leaves an important question. If the very rich — the workers who have reaped above-average gains from the increased productivity since Keynes's time — can afford to work less , why do the y continue to work so much? (Indeed, research has shown that the highest earners in America tend to work the most.) Friedman believes that for many top earners, work is a labor of love. They are doing work they care about and are interested in, and doing m ore of it is not necessarily a burden. For them, it may even be a pleasure. These top earners derive meaning from their jobs and work is an important part of how they think of themselves. And, of course, they are compensated for it at a level that makes it worth their while.",
+        "K) Friedman concludes that the prosperity (繁荣) Keynes predicted is here. After all, the economy as a whole has grown even more brilliantly than he expected. But for most Americans, that prosperity is nowhere to be seen. And, as a result, neither are those shorter working weeks."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Some people view socializing at the workplace as a chance to develop personal relationships.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "有些人把在工作场所的社交视为发展人际关系的机会。 E。由古寺关键信息view...as a chance 、socializing at the workplace和develop personal relationships定位到E段。E段前两句提到，弗里德曼考虑的另一个理论是，在这个时代，社会环境能够提供的有效的人际关系机会越来越少，人们可能更加珍视在工作中的社交时间。这个理论是有一定依据的，因为很多人现在把同事当作朋友。题干是对这两名的概括，其中socializing at the workplace与原文中的socializing that happens at work同义，view...as a chance对应原文中的place more value on，develop personal relationships对应原文中的consider colleagues as friends，故答案为E。"
+        },
+        {
+          "number": 37,
+          "stem": "As ordinary American workers’ average hourly pay had decreased despite increasing productivity, they had to work just as many hours as before to keep their living standards.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "尽管生产力不断提高，但美国普通工人的平均时薪却在下降，他们不得不像以前一样工作很长时间来维持生活水平. 于。由惠干关键信息ordinary American workers” 、average hourly pay 、decreased和work just as many hours as before定位到卫段。耳段提到，从1947年到1973年，美国普通工人的平均时薪的购买力几乎翻了一香。但到了2013年，普通工人的平均时薪的实际购买力与1973年相比下降了5%。提高生产力的魔力在 1973年左右就不再起作用了。为了维持生活水平，他们不得不继续努力工作。题干是对这几句的概括， 其中ordinary American workers” average hourly pay与原文中的the average hourly wage for normal workers 同义，had decreased与原文中的had fallen同义，had to work just as many hours as before与原文中的had to keep working just as much同义，to keep their living standards与原文中的in order to maintain their standard of living 同义，故答案为H。"
+        },
+        {
+          "number": 38,
+          "stem": "American workers’ average weekly working time has not changed for nearly half a century.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "美国工人的每周平均工作时间近半个世纪都没有变化。 B。由题干关键信息average weekly working time 、has not changed和nearly half a century定位到B 段。B段前两句提到， (美国工人的 ) 每周工作时长不但没有继续下降 ，反而保持稳定。在近五十年的时间里，它一直保持在路低于40个小时。 题干是对这两名的概括，其中American workers” average weekly working time与原文中的the duration of the working week同义，has not changed与原文中的remained stable同义，fornearly halfa century与原文中的fornearly five decades同义 (decade意为“十年”) ，故答案为B。"
+        },
+        {
+          "number": 39,
+          "stem": "Friedman believes inequality in the U.S. largely explains why increasing productivity has not resulted in reduced working hours.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "弗里德最认为，美国的不平等在很大程度上解释了为什么生产力的提高并没有导致工作时间的减少. F。由题干关键信息inequality in the U.S.、increasing productivity和has not resulted in定位到F段。 E段前三句提到，对弗里德曼来说，第三种可能性更具有说服力。那就是，美国社会的不平等意味着生产力提高所带来的利益并未被所有人广泛共享。换言之，大多数美国人太贫穷，无法减少工作时间。题干是对这三名的概括，其中inequality in the U.S. 与原文中的American inequality同义，increasing productivity has not resulted in reduced working hours对应原文中的the gains of increasing productivity are not widely shared by everyone和most Americans are too poor to work less，故答案为F。"
+        },
+        {
+          "number": 40,
+          "stem": "Many economists assume people's thirst for material things has prevented them from enjoying more leisure time.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "许多经济学家认为，人们对物质的渴望阻碍了他们享受更多的闲暇时间: D。由题干关键信息Many economists 、people's thirst for material things和leisure time定位到D段。 D段前三句提到，在一篇新论文中，弗里德曼试图了解为什么产值的提升并未转化为更多的休闲时间。 可能是人们永远不会在物质上感到满足，总想要更多的钱去买下一样新东西。这种理论也吸引了很多经济学家。题于是对这三句的概括，其中people's thirst for material things对应原文中的people just never feel materially satisfied，assume对应原文中的figure out why，has prevented them from enjoying more leisure time 对应原文中的has not translated into increased leisure time，many economists是原词复现，故答案为D。"
+        },
+        {
+          "number": 41,
+          "stem": "An economist’s prediction about a shorter average working week seemed to be correct for a time in the 20th century.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "一位经济学家关于每周平均工作时间缩短的预测，在20世纪的一段时间内似乎是正确的。 A。由题干关键信息prediction 、a shorter average working week 、correct和for atime定位到A段。A 段提到，英国经济学家凯恩斯在1930年预测，在接下来的一个世纪里，经济会变得非常高效 ( 生产率更高) ，人们几乎不需要工作。有一段时间，看起来凯恩斯是对的。美国人平均每周的工作时间在1930年是 47个小时，但到了1970年，已经下降到不足39个小时。题干是对本段内容的概括，其中An economist对应原文中的the British economist John Maynard Keynes，prediction about a shorter average working week对应原文中的he predicted...people would barely need to work at all，correct与原文中的right同义，foratime对应原文中的fora while，in the 20th century对应原文中的in 1930和by 1970 ( 1930是指20世纪30年代，1970同理 ) ，故答案为A。"
+        },
+        {
+          "number": 42,
+          "stem": "In the U.S. labor market. the primary concern of people with less schooling and fewer skills is to secure any employment even if it is low-paid.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "在美国劳动力市场上，受教育程度较低、技能较少的人最关心的是找到一份工作，即使报酬很低， I。由题干关键信息labor market、people with less schooling and fewer skills和1low-paid定位到I段。I 段第五句提到，在美国目前的劳动力市场上，数以百万计的人一一那些技能较少、教育程度较低的人一一正在寻找他们所能找到的任何工作，不管收入有多低。题于是对这名的同义转述，其中labor market是原词复现，people with less schooling and 亿wer skilis对应原文中的those with fewer skills and less education，to secure any employment对应原文中的seeking.…work they can get，even if it is low-paid对应原文中的whatever poorly paid，故答案为I。"
+        },
+        {
+          "number": 43,
+          "stem": "Keynes was right in predicting that technology would make the economy much more productive.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "区于译文| 凯恩斯正确地参测了技术将使经济的生产力大大提高. C。由题干关键信息right、predicting 、technology和make the economy much more productive定位到 C段。C段第二句提到，但凯恩斯预测得很准: 科技确实让经济生产力大幅度提升了。题干是对这句的同义转述，其中Keynes was right与原文中的Keynes got that right同义，原文冒号后面的内容就是凯思斯预测对了的内容: Technology has made the economy massively more productive，杆于中的technology would make the economy much more productive与这名原文同义，故答案为C。"
+        },
+        {
+          "number": 44,
+          "stem": "Many of the highest earners have a keen interest in and love for what they are doing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "许多收入最高的人对白己所做的事情有着浓厚的兴趣和热爱， [营案解析| ]。 由题干关键信息the highest earners 、keen interest和love定位到J段。J段中间提到，弗里德量认为，对于许多高收入者来说，工作是一种热爱的劳动。他们正在做他们关心和感兴趣的工作，做更多的工作未必是一种负担。题干是对这两名的概括，其中many of the highest earners对应原文中的many top earmers，have a keen interest in...what they are doing对应原文中的they are doing work they care about and are interested in ，love for what they are doing对应原文中的for many top earners, work is a labor of love，故答案为J。"
+        },
+        {
+          "number": 45,
+          "stem": "According to Keynes, there would be a shorter working week with everyone’s standard of living continuing to rise.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "凯恩斯认为，随着每个人的生活水平不断提高，每周工作时间将缩短。 G。由题干关键信息Keynes、a shorter working week 、the standard of living和continuing to rise定位到G段。G段开头提到，凯思斯预测每周工作时长将会减少，这种预测是基于每个人的生活水平会持续提高的想法。题干与这和句同义，其中According to Keynes对应原文的Keynes\"s prediction of，a shorter working Week为原词复现，with everyone's standard of living continuing to rise与原文中的the standard of living would continue rising for everyone同义，故答案为G。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Lao Zi once said, “Care about what other people think and you will always be their prisoner.” People-pleasing, or seeking self-worth through others' approval, is unproductive and an exhausting way to go through life. Why do we allow what others think of us to have so much power over how we feel about ourselves? If it’s true that you can't please all people all of the time, wouldn't it make sense to stop trying? Unfortunately, sense often isn't driving our behavior. For social beings who desire love and belonging, wanting to be liked, and caring about the effect we have on others , is healthy and allows us to make connections. However, where we get into trouble is when our self-worth is dependent upon whether we win someone's approval or not. This need to be liked can be traced back to when we were children and were completely dependent on others to take care of us. Small children are not just learning how to walk and communicate, they are also trying to learn how the world works. We learn about who we are and what is expected of us based on interactions with others so, to a four-year-old, if Mommy or Daddy doesn't like him or her, there is the danger that they will abandon them. We need to understand that when we desperately want someone to approve of us, it’s being driven by that little kid part of us that is still terrified of abandonment. As you become more capable of providing yours elf with the approval you seek, your need for external validation will start to vanish, leaving you stronger, more confident, and yes, happier in your life. Imagine how much time we lose each moment we restrain our authentic selves in an effort to be liked. If we base our worth on the opinions of others, we cheat ourselves of the power to shape our experiences and embrace life not only for others but also for ourselves, because ultimately, there is no difference. So embrace the cliché ( 老话) and love yourself as it's highly doubtful that you'll regret it."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What can we conclude from Lao Zi's quotation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "We should see through other peoples’ attempt to make a prisoner of us."
+            },
+            {
+              "key": "B",
+              "text": "We can never really please other people even if we try as hard as we can."
+            },
+            {
+              "key": "C",
+              "text": "We can never be truly free if taking to heart others’ opinion of us."
+            },
+            {
+              "key": "D",
+              "text": "We should care about other peoples’ view as much as they care about our own."
+            }
+          ],
+          "answer": "C",
+          "explanation": "从老子的引语中我们可以得出什么结论? A) 我们应该看穿别人要把我们当囚徒的企图。 B) 即使竭尽全力，我们也永远无法真正取悦别人。 C) 如果把别人对我们的看法放在心上，我们就永远不可能真正自由。 D)我们应该在乎别人的观点，就像他们在乎我们的观点一样。 辣机抽奖硬Lo0 squouton末以和和定位而-项 as 解+ 文章第一段指出，老子曾经说过:“在意别人怎么想，你将永远是他们的囚徒。 ”很明显，老子的意思生是，让我们不要在意别人的看法，在意他人的看法就禁钢了自己。选项C与原文意思一致，故本题选C。 选项A明显错误，原文中“囚徒”是一种比喻，意思是我们被别人的想法禁钢,不是别人真的企图把我们当内徒。选项B与原文意思不一致，老子的话是让我们不要在乎别人的看法，不是说我们怎么努力都无法真正取悦别人。选项D与老子的话意思相反。"
+        },
+        {
+          "number": 47,
+          "stem": "What will happen if we base our self-worth on other people’s approval?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Our desire to be loved will be fulfilled."
+            },
+            {
+              "key": "B",
+              "text": "Our life will be unfruitful and exhausting"
+            },
+            {
+              "key": "C",
+              "text": "Our identity as social beings will be affected."
+            },
+            {
+              "key": "D",
+              "text": "Our sense of self will be sharpened and enhanced."
+            }
+          ],
+          "answer": "B",
+          "explanation": "如果我们把自我价值建立在别人的认可之上，会发生什么? A) 我们对于被爱的渴望将得到满足。 C) 我们作为社会人的身份将受到影响。 四我们的生活将是和劳无共和令人六的。 D) 我们的和我章识将得到说本和习训， 窜y 根据题二关键词base ourselfwonh on other people's approval可以将答案定位到第二段第一句。 可第二段第一句指出，取悦他人,或者从他人的认可中寻求自我价值，是徒劳的，是一种令人疲惫的生活方式，换句话说，把自我价值建立在别人的认可之上， 我们的生活将是徒劳和疲惫的，故本题选B。其他三项均与原文不符，都排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What may account for our need to be liked or approved of?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Our desperate longing for interactions with others."
+            },
+            {
+              "key": "B",
+              "text": "Our understanding of the workings of the world."
+            },
+            {
+              "key": "C",
+              "text": "Our knowledge about the pain of abandonment."
+            },
+            {
+              "key": "D",
+              "text": "Our early childhood fear of being deserted."
+            }
+          ],
+          "answer": "D",
+          "explanation": "什么或许可以解释我们需要被喜欢或被认可的原因? A) 我们人迫切地渴望与他人互动。 C) 我们对被抛弃之痛的认识。 B) 我们对世界运作方式的理解。 D)我们童年时害怕被抛弃的感觉。 定 + 根据题干关键词account forour need to be liked orapproved of 可以将答案定位到第四段最后一句。题干中的 account for与原文中的driven by对应。 解> 第四段最后一名指出，我们需要明白，当我们迫切希望有人能够认可我们时，这是由我们内心那个仍然害上怕被抛弃的小孩所推动的，也就是说，小时候那种害怕被抛弃的感觉导致我们长大之后，和希望能够被别人认可，故本题选D。选项中的fear of being deserted与原文中的terrified of abandonment属于同义蔡换。 选项C比较容易误选，其中出现了定位句中的abandonment一词，但是文中说的是我们害怕被殷弃，并未提及我们对被抛弃之痛的认识，故排除。其他两个选项虽然含有原文词汇、但是表达的意思与原文不符,，均排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What can we do when we become better able to provide ourselves with the desired approval?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Enjoy a happier life."
+            },
+            {
+              "key": "B",
+              "text": "Exercise self-restraint."
+            },
+            {
+              "key": "C",
+              "text": "Receive more external validation."
+            },
+            {
+              "key": "D",
+              "text": "Strengthen our power of imagination."
+            }
+          ],
+          "answer": "A",
+          "explanation": "当我们能够更好地为自己提供自己想要的认可时，我们能做什么? A) 享受更快乐的生活。 C) 接受更多的外部认可。 B) 保持自我克制。 D) 增强我们的想象力。 宕* 根据题二关键词better able to Provide ourselves with the desired approval可以将答案定位到倒数第二段第一 ，句。题干中的better able to provide 与原文中的more capable of providing属于同义替换。 解> 倒数第二段第一句指出，当你变得越来越有能力为自己提供你所寻求的认可时，你对外部认可的需求将开吕 ，始消失，这会让你更加强大、自信，而且理所当然地，你的生活会更加快乐，故本题选A。本题如果找到了定位句，比较容易答对。其余三个选项原文未提及，均排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author advise us to do in the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Embrace life for ourselves and for others."
+            },
+            {
+              "key": "B",
+              "text": "Base our worth on others' opinions."
+            },
+            {
+              "key": "C",
+              "text": "See our experiences as assets."
+            },
+            {
+              "key": "D",
+              "text": "Love ourselves as we are."
+            }
+          ],
+          "answer": "D",
+          "explanation": "作者在最后一段建议我们做什么? A) 为自己和他人拥抱生活。 C) 将我们的经历视为财富。 B) 将我们的价值建立在他人的意见之上。 D) 爱我们自己本来的样子。 富* 根据古二关键词dvise us to do in the last paragraph可以将答案定位到最后一段，最后一名以so开头，是作者的建议。 解> 最后一句段最后一句指出，欣然接受这名老话并爱自己吧，这样做你不太可能会后悔。该句与全篇表达的时意思一致，作者建议大家不要在乎别人的意见，要爱自己，故本题选D。选项B明显与全文表达的意思相 ，反，比较容易排除。选项A和C在原文最后一段没有提及，也可以排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Some people have said aging is more a slide into forgetfulness than a journey towards wisdom. However, a growing body of research suggests that late-in-life learning is possible. In reality, education does an aging brain good.",
+        "Throughout life , people’s brains constantly renovate themselves. In the late 1960s, British brain scientist Geoffrey Raisman spied growth in damaged brain regions of rats through an electron microscope; their brains were forging new connections. This meant brains may change every time a person learns something new. Of course, that doesn't mean the brain isn't affected by the effects of time. Just as height usually declines over the years, so does brain volume: Humans lose about 4 percent every decade starting in their 40s. But that reduction doesn't necessarily make people think slower ; as long as we are alive and functioning, we can alter our brains with new information and experiences. In fact, scientists now suspect accumulating novel experiences, facts, and skills can keep people’s minds more flexible. New pathways can strengthen our ever-changing mental structure, even as the brain shrinks. Conventional fixes like word puzzles and brain -training apps can contribute to mental durability. Even something as simple as taking a different route to the grocery store or going somewhere new on vacation can keep the brain healthy. A desire for new life challenges can further boost brainpower. Research about aging adults who take on new enterprises shows improved function and memory as well as a reduced risk of mental disease. Openness — a characteristic defined by curiosity and a desire for knowledge — may also help folks pass brain tests. Some folks are born with this take-in-the-world attitude, but those who aren't as genetically gifted aren't necessarily out of luck. While genes can encourage an interest in doing new things, a 2012 study in the journal Psychology and Aging found completing reasoning tasks like puzzles and number games can enhance that desire for novel experiences, which can, in turn, refresh the brain. That’s why brain scientist Richard Kennedy says “It’s not that old dogs can't learn new tricks. It's that maybe old dogs don't realize why they should.”"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do some people think of aging adults?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their wisdom grows as time goes by."
+            },
+            {
+              "key": "B",
+              "text": "Their memory gradually deteriorates"
+            },
+            {
+              "key": "C",
+              "text": "They can benefit from late-in-life learning."
+            },
+            {
+              "key": "D",
+              "text": "They are likely to have mental health issues."
+            }
+          ],
+          "answer": "B",
+          "explanation": "有些人对老年人的看法是什么? A) 他们的智慧随着时间的流逝而增长。 C) 他们可以从晚年的学习中受益。 B) 他们的记忆力逐渐下降。 D) 他们可能会有心理健康问题。 富本二关避ne People和GE可以条闪案定人帅一而-人解+ 第一段第一名指出，有些人说，衰老更像走向健忘的衰退过程，而不是通往智慧的旅程。由此可知，有些和| 人认为老年人的记忆力是逐渐下降的，故选项B正确。答对本题，大家需要能看懂 more...than ( 与其说， 不如说 ) 这个句型，其中的forgetfulness如果不认识，可以根据构词法进行猜测，forget ( 忘记 ) +ful ( 容 ，易……的 ) + ness( 名词后缀 ) ，合在一起就是“健忘”。选项A与原文意思相反，可以排除。选项C虽然出现了原文中的late-in-life learning，但是原文是说在晚年学习是有可能的，选项C含义与此不符，且文章 i 并未提及它是一些人对老年人的看法，故排除。选项D文章中没有提及，故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What can we conclude from Geoffrey Raisman’s finding?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Brain damage seriously hinders one's learning."
+            },
+            {
+              "key": "B",
+              "text": "Brain power weakens slower than we imagine."
+            },
+            {
+              "key": "C",
+              "text": "Brains can refresh and improve with learning."
+            },
+            {
+              "key": "D",
+              "text": "Brains forge connections under new conditions"
+            }
+          ],
+          "answer": "C",
+          "explanation": "我们可以从杰弗里雷斯曼的发现中得出什么结论? A) 脑损伤严重阻碍了一个人的学习。 C) 大脑可以通过学习重新充满活力并有所改善。 B) 脑力减弱的速度比我们想象的要慢。 D) 大脑在新的条件下建立联系。 宣概据是二关键局Geofiey Raisman's finding可以将答案定位到第一段第一名和第=名。 各> 第二段第二句指出，在20世纪60年代后期，英国脑科学家杰弗里雷斯曼通过电子显微镜在老鼠大脑的受损区域发现了生长的迹象; 它们的大脑正在建立新的联系。这人句是实验的现象，下一句点出了实验的结论: 这意味着每当一个人学习新东西时，他的大脑都可能会发生变化。这里虽然没有明确说具体的变化是 ， 什么，但是根据实验发现大脑有生长的迹象可知，大脑的变化是正向的。这与选项C表达的意思一致，通过学习大脑可以重新充满活力并改善，故C正确。另外，根据本段首句“在一生当中，人们的大脑不断地进行自我修复”也可以得出此结论。选项A和B原文没有提及，可以排除。选项D中出现了原文词汇forge ，connections，原文是说实验中老鼠受伤的大脑区域产生了新的联系，并不是实验得出结论一大脑在新的条件下建立联系，故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What is one thing that helps maintain the health of our brain even as it shrinks2",
+          "options": [
+            {
+              "key": "A",
+              "text": "Doing daily routines by conventional means."
+            },
+            {
+              "key": "B",
+              "text": "Avoiding worrying about our mental durability."
+            },
+            {
+              "key": "C",
+              "text": "Imitating old dogs’ way of learning new tricks"
+            },
+            {
+              "key": "D",
+              "text": "Approaching everyday tasks in novel ways."
+            }
+          ],
+          "answer": "D",
+          "explanation": "即使在大脑萎缩的情况下，有助于维持我们大脑健康的一件事是什么? A) 通过常规的方式进行日常活动。 C) 模仿老狗学习新把戏的方式。 四担心我们大及的持久力。 1关的方式直理旧作条定y 根据题二关键词maintain the health ofour brain even as itshrinks可以将答案定位到第四段第二句。 名> 第四段第二名指出，新的路径能够强化我们不断变化的脑部精神结构，即使大脑在萎缩。这里的新路径具体指什么呢? 可以继续往下读。第五段第二名指出，换一条不同的路线去杂货店 ，或去一个新的地方度假，即便是像这样简单的事情也可以保持大脑健康。对比四个选项，可知选项D“以新颖的方式处理日常事务”符合原文，为正确答案。选项A明显与原文意思相反，排除。选项B和C的说法原文都没有提及，均可以排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the author say can contribute to the improvement of brain function?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Being curious and desiring knowledge."
+            },
+            {
+              "key": "B",
+              "text": "Being eager to pass brain tests at an old age."
+            },
+            {
+              "key": "C",
+              "text": "Rising to life's challenges and avoiding risks."
+            },
+            {
+              "key": "D",
+              "text": "Boosting immunity to serious mental diseases."
+            }
+          ],
+          "answer": "A",
+          "explanation": "作者说什么有助于改善大脑功能? A) 保持好奇心和求知欲。 C) 迎接生活中的挑战并规避风险。 B) 渴望在老年时通过大脑测试。 D) 提高对严重精神疾病的免疫力。 宕+ 根据甫十关键词contribute to the improvement of bmain funetion可以将答案定位到最后一自 TI 解+ 最后一段前两名指出，渴望接受新的挑战，比如老年人创办新企业，对大脑功能的改善有所帮助。接下来遇 | 继续指出，开放性一一保持好奇心和对知识的渴望，也可以帮助人们通过大脑测试， 最后指出，完成拼图 ”和数字游戏等推理任务可以增强人们对新体验的渴望，这反过来可以使大脑重新充满活力。总结来看，接受新挑战、保持好奇心和求知欲、渴望新体验，这些都能使大脑重新充满活力，故选项A正确。选项C错在原文没有提及“规避风险”，虽然前半句迎接生活中的挑战是符合原文的，也不能选。选项B和D原文 ，没有提及，排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What is the finding of the 2012 study in the journal Psychology and Aging?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Wishing to solve puzzles enhances one's reasoning power."
+            },
+            {
+              "key": "B",
+              "text": "Playing number games unexpectedly stimulates one's memory."
+            },
+            {
+              "key": "C",
+              "text": "Desiring new experiences can help to renovate the brain."
+            },
+            {
+              "key": "D",
+              "text": "Learning new tricks should not be confined to old dogs only."
+            }
+          ],
+          "answer": "C",
+          "explanation": "2012年发表在《心理学与衰老) 杂志上的研究的发现是什么? A) 希望解决难题可以增强一个人的推理能力。 C) 渴望新的体验可以帮助改善大脑。 B) 玩数字游戏会出乎意料地刺激一个人的记忆力。 ”D) 学习新把戏不应该仅限于老狗。 宣+ 根据古二关键词2012 sudy in the joumal Poeholog end 48in8可以将答案定位到最后二段售数第二向。 解> 最后一段倒数第二句指出，2012年发表在《心理学与衰老》杂志上的一项研究发现，完成拼图和数字游等戏等推理任务可以增强人们对新体验的渴望，这反过来可以使大脑重新充满活力 ( refresh the brain ) 。由此可知，研究发现，推理任务可以增强人们对新体验的渴望，这种对新体验的渴望又会帮助改善大脑，故选项C正确。选项C中的renovate与原文中的refresh是同义替换。其他三个选项都与原文不符，可以排除。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98PDF/cet4_2024_06_1.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2024_06_1_ans.pdf"
+}

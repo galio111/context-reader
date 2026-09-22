@@ -1,0 +1,1689 @@
+{
+  "id": "cet6-2024-06-3",
+  "level": 6,
+  "year": 2024,
+  "month": 6,
+  "set": 3,
+  "title": "2024 年 6 月六级 · 第 3 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2024-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "A rainbow is a multi-colored,arc-shaped phenomenon that can appear in the sky.The colors of a rainbow are produced by the reflection and [[26]] _of light through water droplets( 小 滴 )present in the atmosphere.An observer may [[27]] _a rainbow to be located either near or far away,but this phenomenon is not actually located at any specific spot.Instead,the appearance of a rainbow depends entirely upon the position of the observer in [[28]] to the direction of light.In essence,a rainbow is an [[29]] illusion. Rainbows present a [[30]] made up of seven colors in a specific order.In fact,school children in many English-speaking countries are taught to remember the name“Roy G.Biv”as an aid for remembering the colors of a rainbow and their order.“Roy G.Biv” [[31]] for:red,orange,yellow,green,blue,indigo,and violet.The outer edge of the rainbow arc is red,while the inner edge is violet. A rainbow is formed when light (generally sunlight)passes through water droplets [[32]] in the atmosphere. The light waves change direction as they pass through the water droplets,resulting in two processes:reflction and refraction ( 折 射 ) .When light reflects off a water droplet,it simply [[33]]_back in the opposite direction from where it [[34]] .When light refracts,it takes a different direction.Some individuals refer to refracted light as “bent light waves.”A rainbow is formed because white light enters the water droplet,where it bends in several different directions.When these bent light waves reach the other side of thewater droplet,they reflect back out of thedroplet instead of [[35]] passing through the water.Since the white light is separated inside of the water,the refracted light appears as separate colors to the human eye."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "bounces"
+        },
+        {
+          "key": "B",
+          "text": "completely"
+        },
+        {
+          "key": "C",
+          "text": "dispersion"
+        },
+        {
+          "key": "D",
+          "text": "eccentric"
+        },
+        {
+          "key": "E",
+          "text": "hanging"
+        },
+        {
+          "key": "F",
+          "text": "optical"
+        },
+        {
+          "key": "G",
+          "text": "originates"
+        },
+        {
+          "key": "H",
+          "text": "perceive"
+        },
+        {
+          "key": "I",
+          "text": "permeates"
+        },
+        {
+          "key": "J",
+          "text": "ponder"
+        },
+        {
+          "key": "K",
+          "text": "preceding"
+        },
+        {
+          "key": "L",
+          "text": "recklessly"
+        },
+        {
+          "key": "M",
+          "text": "relation"
+        },
+        {
+          "key": "N",
+          "text": "spectrum"
+        },
+        {
+          "key": "O",
+          "text": "stands"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bounces"
+            },
+            {
+              "key": "B",
+              "text": "completely"
+            },
+            {
+              "key": "C",
+              "text": "dispersion"
+            },
+            {
+              "key": "D",
+              "text": "eccentric"
+            },
+            {
+              "key": "E",
+              "text": "hanging"
+            },
+            {
+              "key": "F",
+              "text": "optical"
+            },
+            {
+              "key": "G",
+              "text": "originates"
+            },
+            {
+              "key": "H",
+              "text": "perceive"
+            },
+            {
+              "key": "I",
+              "text": "permeates"
+            },
+            {
+              "key": "J",
+              "text": "ponder"
+            },
+            {
+              "key": "K",
+              "text": "preceding"
+            },
+            {
+              "key": "L",
+              "text": "recklessly"
+            },
+            {
+              "key": "M",
+              "text": "relation"
+            },
+            {
+              "key": "N",
+              "text": "spectrum"
+            },
+            {
+              "key": "O",
+              "text": "stands"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) dispersion(n.分散，散开，散布) 语法判断空格前为are produced by the reflection and,空格后为介词短语of light,由此可知，空格处应填入一个名词，与and前面的reflection构成并列关系。 语义判断此处提到，彩虹的颜色是由大气中存在的水滴反射和光产生的，将备选名词代入原文可知，dispersion可与reflection构成并列关系。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bounces"
+            },
+            {
+              "key": "B",
+              "text": "completely"
+            },
+            {
+              "key": "C",
+              "text": "dispersion"
+            },
+            {
+              "key": "D",
+              "text": "eccentric"
+            },
+            {
+              "key": "E",
+              "text": "hanging"
+            },
+            {
+              "key": "F",
+              "text": "optical"
+            },
+            {
+              "key": "G",
+              "text": "originates"
+            },
+            {
+              "key": "H",
+              "text": "perceive"
+            },
+            {
+              "key": "I",
+              "text": "permeates"
+            },
+            {
+              "key": "J",
+              "text": "ponder"
+            },
+            {
+              "key": "K",
+              "text": "preceding"
+            },
+            {
+              "key": "L",
+              "text": "recklessly"
+            },
+            {
+              "key": "M",
+              "text": "relation"
+            },
+            {
+              "key": "N",
+              "text": "spectrum"
+            },
+            {
+              "key": "O",
+              "text": "stands"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)perceive(vt.认为；注意到) 语法判断空格前为情态动词may,空格后为a rainbowto be located,由此可知，空格处应填入一个动词原形，且能构成“动词+名词+ tobe”的结构。 语义判断由but连接的表示转折关系的分句but this phenomenon is not actually located at any specific spot(但这种现象实际上并不位于任何特定的位置)可知，but前的分句说的是人们误认为的一种情况，故perceive 符合语境，即“可能会认为彩虹位于近处或远处”。perceive sth. to be..为固定搭配，意为“认为某物是……”。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bounces"
+            },
+            {
+              "key": "B",
+              "text": "completely"
+            },
+            {
+              "key": "C",
+              "text": "dispersion"
+            },
+            {
+              "key": "D",
+              "text": "eccentric"
+            },
+            {
+              "key": "E",
+              "text": "hanging"
+            },
+            {
+              "key": "F",
+              "text": "optical"
+            },
+            {
+              "key": "G",
+              "text": "originates"
+            },
+            {
+              "key": "H",
+              "text": "perceive"
+            },
+            {
+              "key": "I",
+              "text": "permeates"
+            },
+            {
+              "key": "J",
+              "text": "ponder"
+            },
+            {
+              "key": "K",
+              "text": "preceding"
+            },
+            {
+              "key": "L",
+              "text": "recklessly"
+            },
+            {
+              "key": "M",
+              "text": "relation"
+            },
+            {
+              "key": "N",
+              "text": "spectrum"
+            },
+            {
+              "key": "O",
+              "text": "stands"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M) relation(n.关系，关联) 语法判断空格前是介词in,空格后是介词短语to the direction oflight,由此可知，空格处应填入一个名词， 且能构成“in+名词+to”的复合介词结构。 语义判断上文提到，彩虹这种现象实际上并不位于任何特定的位置，由此可知，此处是进一步补充说明，即“相反，彩虹的出现完全取决于观察者相对于光线方向的位置”。in relation to是固定搭配，意为 “与……有关”,符合此处语境。注意，根据上下文语境，in relation tothe direction oflight转译为“相对于光线方向的位置”。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bounces"
+            },
+            {
+              "key": "B",
+              "text": "completely"
+            },
+            {
+              "key": "C",
+              "text": "dispersion"
+            },
+            {
+              "key": "D",
+              "text": "eccentric"
+            },
+            {
+              "key": "E",
+              "text": "hanging"
+            },
+            {
+              "key": "F",
+              "text": "optical"
+            },
+            {
+              "key": "G",
+              "text": "originates"
+            },
+            {
+              "key": "H",
+              "text": "perceive"
+            },
+            {
+              "key": "I",
+              "text": "permeates"
+            },
+            {
+              "key": "J",
+              "text": "ponder"
+            },
+            {
+              "key": "K",
+              "text": "preceding"
+            },
+            {
+              "key": "L",
+              "text": "recklessly"
+            },
+            {
+              "key": "M",
+              "text": "relation"
+            },
+            {
+              "key": "N",
+              "text": "spectrum"
+            },
+            {
+              "key": "O",
+              "text": "stands"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) optical(adj.视力的，光学的) 语法判断空格前为不定冠词an,空格后为名词illusion,由此可知，空格处应填入一个形容词或分词，充当 illusion的定语。 语义判断 illusion意为“错觉，假象”,联系前面提到的人们以为彩虹在特定的位置，其实彩虹并没有处于特定位置，只是光线反射和散射形成的，是一种视错觉，故optical符合语境。optical illusion为固定搭配， 意为“视错觉，错视”。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bounces"
+            },
+            {
+              "key": "B",
+              "text": "completely"
+            },
+            {
+              "key": "C",
+              "text": "dispersion"
+            },
+            {
+              "key": "D",
+              "text": "eccentric"
+            },
+            {
+              "key": "E",
+              "text": "hanging"
+            },
+            {
+              "key": "F",
+              "text": "optical"
+            },
+            {
+              "key": "G",
+              "text": "originates"
+            },
+            {
+              "key": "H",
+              "text": "perceive"
+            },
+            {
+              "key": "I",
+              "text": "permeates"
+            },
+            {
+              "key": "J",
+              "text": "ponder"
+            },
+            {
+              "key": "K",
+              "text": "preceding"
+            },
+            {
+              "key": "L",
+              "text": "recklessly"
+            },
+            {
+              "key": "M",
+              "text": "relation"
+            },
+            {
+              "key": "N",
+              "text": "spectrum"
+            },
+            {
+              "key": "O",
+              "text": "stands"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) spectrum(n.光谱) 语法判断空格前为不定冠词a,空格后为过去分词短语madeup of seven colors,由此可知，空格处应填入一个被不定冠词a修饰的单数名词。 语义判断由后面的过去分词短语made up of seven colors in a specific order(由七种颜色按特定顺序组成的) 可知，此处是说彩虹会呈现一种光谱，故spectrum符合语境。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bounces"
+            },
+            {
+              "key": "B",
+              "text": "completely"
+            },
+            {
+              "key": "C",
+              "text": "dispersion"
+            },
+            {
+              "key": "D",
+              "text": "eccentric"
+            },
+            {
+              "key": "E",
+              "text": "hanging"
+            },
+            {
+              "key": "F",
+              "text": "optical"
+            },
+            {
+              "key": "G",
+              "text": "originates"
+            },
+            {
+              "key": "H",
+              "text": "perceive"
+            },
+            {
+              "key": "I",
+              "text": "permeates"
+            },
+            {
+              "key": "J",
+              "text": "ponder"
+            },
+            {
+              "key": "K",
+              "text": "preceding"
+            },
+            {
+              "key": "L",
+              "text": "recklessly"
+            },
+            {
+              "key": "M",
+              "text": "relation"
+            },
+            {
+              "key": "N",
+              "text": "spectrum"
+            },
+            {
+              "key": "O",
+              "text": "stands"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) stands(vi.站，矗立 n.货摊) 语法判断空格前为特定术语“Roy G.Biv”,空格后冒号后面列举的内容是red, orange, yellow, green, blue indigo, and violet(红、橙、黄、绿、蓝、靛、紫),由此可知，此处应填入一个动词，且与for构成固定搭配。 语义判断冒号后面列举了红、橙、黄、绿、蓝、靛、紫，这七种颜色单词的英文首字母正好组成Roy G. Biv,由此可知，“ for”表示“代表”之意。stand for为固定搭配，意为“代表”,符合语境。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bounces"
+            },
+            {
+              "key": "B",
+              "text": "completely"
+            },
+            {
+              "key": "C",
+              "text": "dispersion"
+            },
+            {
+              "key": "D",
+              "text": "eccentric"
+            },
+            {
+              "key": "E",
+              "text": "hanging"
+            },
+            {
+              "key": "F",
+              "text": "optical"
+            },
+            {
+              "key": "G",
+              "text": "originates"
+            },
+            {
+              "key": "H",
+              "text": "perceive"
+            },
+            {
+              "key": "I",
+              "text": "permeates"
+            },
+            {
+              "key": "J",
+              "text": "ponder"
+            },
+            {
+              "key": "K",
+              "text": "preceding"
+            },
+            {
+              "key": "L",
+              "text": "recklessly"
+            },
+            {
+              "key": "M",
+              "text": "relation"
+            },
+            {
+              "key": "N",
+              "text": "spectrum"
+            },
+            {
+              "key": "O",
+              "text": "stands"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) hanging(v.悬浮；悬挂) 语法判断空格前为passes throughwater droplets,空格后为in the atmosphere,故空格处应填入一个分词，修饰water droplets 语义判断根据彩虹形成的知识可知，彩虹是光穿过大气中的水滴时发生反射或折射产生的自然现象，水滴是悬浮在大气中的，故hanging符合语境。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bounces"
+            },
+            {
+              "key": "B",
+              "text": "completely"
+            },
+            {
+              "key": "C",
+              "text": "dispersion"
+            },
+            {
+              "key": "D",
+              "text": "eccentric"
+            },
+            {
+              "key": "E",
+              "text": "hanging"
+            },
+            {
+              "key": "F",
+              "text": "optical"
+            },
+            {
+              "key": "G",
+              "text": "originates"
+            },
+            {
+              "key": "H",
+              "text": "perceive"
+            },
+            {
+              "key": "I",
+              "text": "permeates"
+            },
+            {
+              "key": "J",
+              "text": "ponder"
+            },
+            {
+              "key": "K",
+              "text": "preceding"
+            },
+            {
+              "key": "L",
+              "text": "recklessly"
+            },
+            {
+              "key": "M",
+              "text": "relation"
+            },
+            {
+              "key": "N",
+              "text": "spectrum"
+            },
+            {
+              "key": "O",
+              "text": "stands"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)bounces(v.反弹，反射) 语法判断空格前为it simply,空格后为back in the opposite direction,由此可知，空格处应填入一个动词的第三人称单数形式，且能与back构成搭配。 语义判断此处进一步讲述彩虹的形成过程。作者指出，光波在穿过水滴时会改变方向，导致两个过程：反射和折射，备选动词中bounces可以与back连用，bounce back意为“反弹，反射”,符合语境。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bounces"
+            },
+            {
+              "key": "B",
+              "text": "completely"
+            },
+            {
+              "key": "C",
+              "text": "dispersion"
+            },
+            {
+              "key": "D",
+              "text": "eccentric"
+            },
+            {
+              "key": "E",
+              "text": "hanging"
+            },
+            {
+              "key": "F",
+              "text": "optical"
+            },
+            {
+              "key": "G",
+              "text": "originates"
+            },
+            {
+              "key": "H",
+              "text": "perceive"
+            },
+            {
+              "key": "I",
+              "text": "permeates"
+            },
+            {
+              "key": "J",
+              "text": "ponder"
+            },
+            {
+              "key": "K",
+              "text": "preceding"
+            },
+            {
+              "key": "L",
+              "text": "recklessly"
+            },
+            {
+              "key": "M",
+              "text": "relation"
+            },
+            {
+              "key": "N",
+              "text": "spectrum"
+            },
+            {
+              "key": "O",
+              "text": "stands"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) originates(v.起源，发端于) 语法判断空格前为from where it,空格后为句点，由此可知，空格处应填入一个动词的第三人称单数形式， 充当该从句的谓语。 语义判断联系上一题的分析可知，此处是说，当光线从水滴上反射时，它只是从水滴的起点向相反的方向反弹，originates符合语境。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bounces"
+            },
+            {
+              "key": "B",
+              "text": "completely"
+            },
+            {
+              "key": "C",
+              "text": "dispersion"
+            },
+            {
+              "key": "D",
+              "text": "eccentric"
+            },
+            {
+              "key": "E",
+              "text": "hanging"
+            },
+            {
+              "key": "F",
+              "text": "optical"
+            },
+            {
+              "key": "G",
+              "text": "originates"
+            },
+            {
+              "key": "H",
+              "text": "perceive"
+            },
+            {
+              "key": "I",
+              "text": "permeates"
+            },
+            {
+              "key": "J",
+              "text": "ponder"
+            },
+            {
+              "key": "K",
+              "text": "preceding"
+            },
+            {
+              "key": "L",
+              "text": "recklessly"
+            },
+            {
+              "key": "M",
+              "text": "relation"
+            },
+            {
+              "key": "N",
+              "text": "spectrum"
+            },
+            {
+              "key": "O",
+              "text": "stands"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) completely(adv.完全地，彻底地) 语法判断空格前为介词短语instead of,空格后为动名词短语passing through the water,由此可知，空格处应填入一个副词，修饰该动名词短语。 语义判断前半句提到，当这些弯曲的光波到达水滴的另一侧时，它们反射回水滴，由此可知，此处说的是 “而不是从水中完全穿过去”,故completely符合语境。 干扰项注释 D)eccentric(adj.古怪的)I) permeates(vt.渗透，弥漫)J) ponder(v.仔细思考)K)preceding(adj.在先的，前面的 vt.先于，在……之前)L) recklessly(adv.鲁莽地，不顾一切地)"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-3-b",
+      "type": "matching",
+      "title": "Blame your worthless workdays on meeting recovery syndrome",
+      "paragraphs": [
+        "A) Phyllis Hartman knows what it's like to make one's way through the depths of office meeting hell.Managers at one of her former human resources jobs arranged so many meetings that attendees would fall asleep at the table or intentionally arrive late.With hours of her day blocked up with unnecessary meetings,she was often forced to make up herwork during overtime.“I was actually working more hoursthan I probably would have needed to get the work done,”says Hartman,who is founder and president of PGHR Consulting in Pittsburgh, Pennsylvania",
+        "B) She isn't alone in her frustration.Between 11 million and 55 million meetings are held each day in the United States,costing most organisations between 7%and 15%of their personnel budgets.Every week,employees spend about six hours in meetings,while the average manager meets for a staggering 23 hours.",
+        "C) And though experts agree that traditional meetings are essential for making certain decisions and developing strategy,some employees view them as one of the most unnecessary parts of the workday.The result is not only hundreds of billions of wasted dollars,but an annoyance of what organisational psychologists call “meeting recovery syndrome (MRS)”:time spent cooling off and regaining focus after a useless meeting. If you run to the office kitchen to get some relief with colleagues after a frustrating meeting,you're likely experiencing meeting recovery syndrome.",
+        "D) Meeting recovery syndrome is a concept that should be familiar to almost anyone who has held a formal job.It isn't ground-breaking to say workers feel fatigued after a meeting,but only in recent decades have scientists deemed the condition worthy of further investigation.With its links to organisational efficiency and employee wellbeing,MRS has atracted the attention of psychologists aware of the need to understand its precise causes and cures",
+        "E) Today,in so far as researchers can hypothesise,MRS is most easily understood as a slow renewal of finite mental and physical resources.When an employee sits through an ineffective meeting their brain power is essentially being drained away.Meetings drain vitality if they last too long,fail to engage employees or turn into one-sided lectures.The conservation of resources theory,originally proposed in 1989 by Dr Stevan Hobfoll,states that psychological stress occurs when a person's resources are threatened or lost.When resources are low,a person will shift into defence to conserve their remaining supply.In the case of office meetings,where some of employees'most valuable resources are their focus,alertness and motivation,this can mean an abrupt halt in productivity as they take time to recover.",
+        "F) As humans,when we transition from one task to another on the job—say from sitting in a meeting to doing normal work—it takes an effortful cognitive switch.We must detach ourselves from the previous task and expend significant mental energy to move on.If we are already drained to dangerous levels, then making the mental switch to the next thing is extra tough.It's common to see people cyber-loafing after a frustrating meeting,going and getting coffee,interrupting a colleague and telling them about the meeting,and so on.",
+        "G) Each person's ability to recover from horrible meetings is different.Some can bounce back quickly,while others carry their fatigue until the end of the workday.Yet while no formal MRS studies are currently underway,one can loosely speculate on the length of an average employee's lag time.Switching tasks in a non-MRS condition takes about 10 to 15 minutes.With MRS,it may take as long as 45 minutes on average It's even worse when a worker has several meetings that are separated by 30 minutes.“Not enough time to transition in a non-MRS situation to get anything done,and in an MRS situation,not quite enough time to recover for the next meeting,”says researcher Joseph Allen.“Then,add the compounding of back-to-back bad meetings and we may have an epidemic on our hands.”",
+        "H) In an effort to combat the side effects of MRS,Allen,along with researcher Joseph Mroz and colleagues at the University of Nebraska-Omaha,published a study detailing the best ways to avoid common traps,including a concise checklist of do's and don'ts applicable to any workplace.Drawing from around 200 papers to compile their comprehensive list,Mroz and his team may now hold a remedy to the largely undefined problem of MRS.",
+        "I) Mroz says a good place to startis asking ourselves ifour meetings are even necessary in the first place.If all that's on the agenda is a quick catch-up,or some non-urgent information sharing,it may better suit the group to send around an email instead.“The second thing I would always recommend is keep the meeting as small as possible,”says Mroz.“If they don't actually have some kind ofimmediate input,then they can follow up later.They don't need to be sitting in this hour-long meeting.”Less time in meetingswould ultimately lead to more employee engagement in the meetings theydo attend,which experts agree is a proven remedy for MRS.",
+        "J) Employees also feel taxed when they are invited together to meetings that don't inspire participation,says Cliff Scott,professor of organisational science.It takes precious time for them to vent their emotions, complain and try to regain focus after a pointless meeting—one of the main traps of MRS.Over time as employees find themselves tied up in more and moreunnecessary meetings—and thus dealing with increasing lag times from MRS—the waste of workday hours can feel insulting.",
+        "K) Despite the relative scarcity of research behind the subject,Hartman has taught herself many of the same tricks suggested in Mroz's study,and has come a long way since her days ofbeing stuck with unnecessary meetings.The people she invites to meetings today include not just the essential employees,but also representatives from every department that might have a stake in the issue at hand.Managers like her,who seek input even from non-experts to shape their decisions,can find greater support and cooperation from their workforce,she says.",
+        "L) If an organisation were to apply all 22 suggestions from Mroz and Allen's findings,the most noticeable difference would be a stark decrease in the total number of meetings on the schedule,Mroz says.Less time in meetings would ultimately lead to increased productivity,which is the ultimate objective of convening a meeting.While none of the counter-MRS ideas have been tested empirically yet,Allen says one trick with promise is for employees to identify things that quickly change their mood from negative to positive.As simple as it sounds,finding a personal happy place,going there and then coming straight back to work might be key to facilitating recovery.",
+        "M) Leaders should see also themselves as “stewards of everyone else's valuable time”,adds Steven Rogelberg, author of The Surprising Science of Meetings.Having the skills to foresee potential trapsand treat employees' endurance with care allows leaders to provide effective short-term deterrents to MRS.",
+        "N) Most important,however,is for organisations to awaken to the concept of meetings being flexible,says Allen. By reshaping the way they prioritise employees'time,companies can eliminate the very sources of MRS in their tracks"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Although employees are said to be fatigued by meetings,the condition has not been considered worthy of further research until recently.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "题干译文尽管都说员工会因开会而感到疲惫，但直到最近这种情况才被认为值得进一步探究。 答案解析 D。由题干关键信息fatiguedby meetings和worthyof further research定位到D段。该段第二句指出， 员工在会议后感到疲惫，这并非什么突破性的看法，但直到最近几十年，科学家们才意识到这种情况值得进一步研究，题干是对该句的同义转述。题干中的employees are said tobe fatigued by meetings对应原文中的to say workers feel fatigued after a meeting，题干中的until recently对应原文的in recent decades，题干中的 ， further research是原文中further investigation的同义替换。"
+        },
+        {
+          "number": 37,
+          "stem": "Mroz and his team compiled a list of what to do and what not to do to remedy the problem of MRS",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "莫洛兹及其团队编制了一份清单，列出了该做与不该做的事项，用于解决会议恢复综合征的问题。 H。由题干关键信息compiled a list of what to do and what not to do定位到了段第一句。该句指出，莫洛效及其同事发表了一项研究，详细介绍了避免常见误区的最佳方法，还给出了一个简明清单，列出了适用于任何工作场所的该做和不该做的事项。题干中的compiled a list是原文中a concise checklist的同义表达题干中的what to do and what not to do对应原文中的do'\"s and don'ts; 题干中的remedy the problem of MRS则是对原文中the best ways to avoid common traps的同义转述。"
+        },
+        {
+          "number": 38,
+          "stem": "Companies can get rid of the root cause ofMRS if they give priority to workers'time.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "N",
+          "explanation": "如果公司优先考虑员工的时间，即可消除产生会议恢复综合征的根本原因。 N。由题干关键信息give priority to workers' time定位到N段第二句。该句提到，通过重塑优化员工时间安排的方式，公司可以消除导致会议恢复综合征的根源，题干是对此名的同义转述。题干中的give priority to workers” time对应原文中的prioritise employees” time，题干中的get rid of对应原文中的eliminate， 题干中的the root cause of MRS是对原文中the very sources of MRS的同义转述。"
+        },
+        {
+          "number": 39,
+          "stem": "If workers are exhausted to a dangerous degree,it is extremely hard for them totransition to the next task.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F 段第三句指出，精神被耗尽到危险的程度时，转换到下一件事情会格外困难。题干是这句话的同义转述。"
+        },
+        {
+          "number": 40,
+          "stem": "Employees in America spend a lot of time attending meetings while the number of hours managers meet is several times more.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "美国的员工要花大量时间参加会议，而经理的开会时长则要多出儿倍。 B。由题干关键信息Employees in America和managers定位到B段第三名。该名介绍了美国员工和经理参会的具体数据，员工每周开会时间大约6个小时，而经理平均的会议时长则达到令人震惊的23个小时，由此可知，员工开会的时间很长，而经理23个小时的开会时长确实是员工6小时的几倍，题干是对原名的概括性转述。题干中的spend a lot of time对应原文中的spend about six hours; 题干中的the number of hours managers meet is several times more则是根据原文中six hours和23 hours做出的对比。"
+        },
+        {
+          "number": 41,
+          "stem": "Phyllis Hartman has learned by herselfmany of the ways Mroz suggested in his study and made remarkable success in freeing herself from unnecessary meetings.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K 段第一句指出，哈特曼自学了莫洛兹研究中的许多技巧，已摆脱过去被非必要会议困扰的状态。题干对应这部分内容。"
+        },
+        {
+          "number": 42,
+          "stem": "When meetings continue too long or don't engage employees,they deplete vitality.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "当会议持续时间过长或无法吸引员工参与时，就会耗尽员工的活力。 E。由题二关键信息don\"t engage employees和deplete vitality定位到E段第三句。该名指出，如果会议持续时间过长、无法吸引员工或变成单方面的说教，就会耗尽精力，题干是对原名其中两个主要信息的转述。题干中的don\"t engage employees对应原文中的fail to engage employees; 题干中的they deplete vitality 对应原文中的Meetings drain vitality。"
+        },
+        {
+          "number": 43,
+          "stem": "When the time of meetings is reduced,employees will be more engaged in the meetings they do participate in.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "当会议时长缩减时，员工就会更多地投入他们所参加的会议中。 I。由题干关键信息the time of meetings is reduced和employees will be more engaged定位到I段最后一名。定位句前半部分说，减少会议时间最终会让员工更多地投入他们真正参加的会议中，题干是对该句的转述。题干中的the time of meetings is reduced对应原文中的Less time in meetings; 题干中的employees will be more engaged是对原文more employee engagement的同义转述; 题干中的participate in则与原文中的 attend同义。"
+        },
+        {
+          "number": 44,
+          "stem": "Some employees considermeetings one of the most dispensable parts of the workday.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "一些员工将会议视为工作日中最可有可无的部分之一。 C。由题干关键信息the most dispensable parts of the workday定位到C段第一句。该句指出，尽管专家们一致认为传统会议对于做出特定决策和制定战略至关重要，但是一些员工则认为这是日常工作中最不必要的部分之一，题干是对定位名后半部分的概括性转述。题干中的meetings即指原文中them，题干中的 dispensable 与原文中的unnecessary是近义词。"
+        },
+        {
+          "number": 45,
+          "stem": "According to Mroz,if all his suggestions were applied,a very obvious change would be a steep decrease in the number of meetings scheduled.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "莫洛兹称，如果他的所有建议都得到采纳，一个极为显著的变化就是日常会议次数急剧减少。 L。由题干关键信息suggestions were applied和decrease in the number of meetings定位到工段第一句。 该句提到，莫洛效称，如果一个机构能采用他和艾伦研究结果提出的全部22条建议，最突出的变化将是时间表上的会议总数明显减少。题干中的a very obvious change对应原文中的the most noticeable difference，题干中的a steep decrease则是对原文中的a stark decrease的同义转述。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Sarcasm andjazzhave something surprisingly in common:You know them when you hear them.Sarcasm is mostly understood through tone of voice,which is used to portray the opposite of the literal words.For example, when someone says,“Well,that's exactly what I need right now,”their tone can tell you it's not what they need at all. Most frequently,sarcasm highlights an irritation or is,quite simply,mean If you want to be happier and improve your relationships,cut out sarcasm.Why?Because sarcasm is actually hostility disguised as humor. Despite smiling outwardly,many people who receive sarcastic comments feel put down and often think the sarcastic person is rude,or contemptible.Indeed,it's not surprising that the origin of the word sarcasm derives from the Greek word“sarkazein”which literally means “to tear or strip the flesh off.”Hence,it's no wonder that sarcasm is often preceded by the word“cutting”and that it hurts. What's more,since actions strongly determine thoughts and feelings,when a person consistently acts sarcastically it may only serve to heighten their underlying hostility and insecurity.After all,when you come right down to it,sarcasm can be used as a subtle form of bullying—and most bullies are angry,insecure,or cowardly. Alternatively,when a person stops voicing negative comments,especially sarcastic ones,they may soon start to feel happier and more self-confident.Also,other people in their life benefit even more because they no longer have to hear the emotionally hurtful language of sarcasm. Now,I'm not saying all sarcasm is bad.Itmay just be betterused sparingly—like a potent spice in cooking. Too much of the spice,and the dish will be overwhelmed by it.Similarly,an occasional dash of sarcastic wit can spice up a chat and add an element ofhumor to it.But a big or steady serving of sarcasm will overwhelm the emotional flavor of any conversation and can taste very bitter to its recipient. So,tone down the sarcasm and work on clever wit instead,which is usually without any hostility and thus more appreciated by those you're communicating with.In essence,sarcasm is easy while true,harmless wit takes talent. Thus,the main difference between wit and sarcasm is that,as already stated,sarcasm is often hostility disguised as humor.It can be intended to hurt and is often bitter and biting.Witty statements are usually in response to someone's unhelpful remarks or behaviors,and the intent is to untangle and clarify the issue by emphasizing its absurdities.Sarcastic statements are expressed in a cutting manner;witty remarks are delivered with undisguised and harmless humor."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Why does the author say sarcasm and jazz have something surprisingly in common?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Both are recognized when heard."
+            },
+            {
+              "key": "B",
+              "text": "Both have exactly the same tone."
+            },
+            {
+              "key": "C",
+              "text": "Both mean the opposite of what they appear to."
+            },
+            {
+              "key": "D",
+              "text": "Both have hidden in them an evident irritation"
+            }
+          ],
+          "answer": "A",
+          "explanation": "为什么作者说讽刺和一士乐有惊人的共同点? A) 两者都是一听便知。 C) 两者实际表达的意思都与表面上不同。 定根据题干信息词sarcasm and jazz have something surprisingly in common可将答案线索定位至第一段第一句。 名第一段第一句直接表明，讽刺和顷士乐有一个惊人的共同点: 一听就懂。A项中的recognized同义蔡换原文的know，heard是文中原词，故本题选A。B项原文未提及，直接排除。C、D两项是讽刺的特点，不是珊 ，士乐的，故也排除。"
+        },
+        {
+          "number": 47,
+          "stem": "How do many people feel when they hear sarcastic comments?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They feel hostile towards the sarcastic person."
+            },
+            {
+              "key": "B",
+              "text": "They feel belittled and disrespected."
+            },
+            {
+              "key": "C",
+              "text": "They feel a strong urge to retaliate."
+            },
+            {
+              "key": "D",
+              "text": "They feel incapable of disguising their irritation."
+            }
+          ],
+          "answer": "B",
+          "explanation": "很多人在听到讽刺性的评论时会有什么感觉? A) 他们对出口讽刺的人充满敌意。 C) 他们有强烈的报复冲动。 B) 他们感到被轻视和不被尊重。 D) 他们感到无法掩饰自己的恼私。 ， 机着二信息河cl和earSCSEE SSEIG柯和答案六未定和至第而第-人名， 第四段第一句讲到，尽管表面上带着微笑，但很多人在收到讽刺性的评论时都会感到被轻视了，且会认为对方粗鲁、卑劣。B项中的belittled and disrespected同义替换原文的put down，故本题选B。其他三项定位段未提及，故均排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What happens when a person consistently acts sarcastically?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They feel their dignity greatly heightened."
+            },
+            {
+              "key": "B",
+              "text": "They feel increasingly insecure and hostile."
+            },
+            {
+              "key": "C",
+              "text": "They endure hostility under the disguise of humor"
+            },
+            {
+              "key": "D",
+              "text": "They taste bitterness even in pleasant interactions"
+            }
+          ],
+          "answer": "B",
+          "explanation": "如果一个人总是讽刺别人，会发生什么情况? A) 他们觉得自己的尊严大大提高了。 C) 他们忍受着伪装成幽默的敌意。 吓y 根据题干信息词a person consistently acts sarcastically可将答案线索定位至第五段第一句。 名第五段第一句提及，由于行为强烈地决定着思想和情感，如果一个人总是采取讽刺的行为，可能只会加剧其潜在的敌意和不安全感。选项B中的increasingly是原文heighten的同义转述，insecure和hostile是原词复 ，现，只改变了词性，故本题选B。其他三项与定位段表述不符，均排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author say about people quitting sarcastic comments?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It makes others happier and more self-confident"
+            },
+            {
+              "key": "B",
+              "text": "It restrains them from being irritating and bullying."
+            },
+            {
+              "key": "C",
+              "text": "It benefits not only themselves but also those around them."
+            },
+            {
+              "key": "D",
+              "text": "It shields them from negative comments and outright hostility."
+            }
+          ],
+          "answer": "C",
+          "explanation": "关于停止表达讽刺言论的人们，作者说了什么? A) 这使别人更快乐、更自信。 C) 这不仅对他们自己有益，对周围的人也有益。 定* 根据题干信息词quitting sarcastic comments可将答案线索定位至第六段第一句，quit与原文中的stop是同义词。 外第六段第一句讲到，相反，当一个人停止发表负面评论，尤其是讽刺性评论时，他们可能很快就会开始感到更快乐、更自信。第二句讲到，同时，他们生命中的其他人也会因此受益匪浅，因为他们再也不用听到这种伤感情的讽刺语言了。C项是对该段内容的总结概括，故本题选C。A项与原文表述不一致，B、D两 ，项原文未提及，均排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What is the chief difference between a speaker's wit and sarcasm?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their clarity."
+            },
+            {
+              "key": "B",
+              "text": "Their appreciation"
+            },
+            {
+              "key": "C",
+              "text": "Their emphasis."
+            },
+            {
+              "key": "D",
+              "text": "Their intention."
+            }
+          ],
+          "answer": "D",
+          "explanation": "说话者风趣与讽刺的主要区别是什么? A) 他们的明确性。 C) 他们的重点。 B) 他们的赞赏。 D) 他们的意图。 宕闻根据题干信息词difference between a speaker's wit and sarcasm可将答案线索定位至最后一段第一句。 解> 最后一段总结道，风趣与讽刺的主要区别在于，讽刺往往是伪装成幽默的敌意。它可能意在伤人，而且往析往尖酸刻薄。风趣的表达则通常是对某人的无益言论或行为的回应，目的是通过强调其荒雇来理清和阐明问题。也就是说，讽刺的目的在于出口伤人，而风趣的表达则是为了理清所谈论的问题，出发点有着根本的不同。由此可知，D项是对该段的总结概括，故本题选D。 了"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Variability is crucially important for learning new skills.Consider learning how to serve in tennis.Should you always practise serving from the exactly same location on the court,aiming at the same spot?Although practising in more variable conditions will be slower at first,it will likely make you a better tennis player in the end.This is because variability leads to better generalisation of what is learned. This principle is found in many domains,including speech perception and learning categories.For instance, infants will struggle to learn the category“dog”if they are only exposed to Chihuahuas,instead of many different kinds of dogs “There are over ten different names for this basic principle,”says Limor Raviv,the senior investigator of a recent study.“Learning from less variable input is often fast,but may fail to generalise to new stimuli.” To identify key patterns and understand the underlying principles of variability effects,Raviv and her colleagues reviewed over 150 studies on variability and generalisation across fields,including computer science, linguistics,categorisation,visual perception and formal education. The researchers discovered that,across studies,the term variability can refer to at least four different kinds of variability,such as set size and scheduling.“These four kinds of variability have never been directly compared—which means that we currently don't know which is most effective forlearning,”says Raviv. The impact of variability depends on whether it is relevant to the task or not.But according to the ‘Mr. Miyagiprinciple',practising seemingly unrelated skills may actuallybenefit learningof other skills. But why does variability impact learning and generalisation?One theory is that more variable input can highlight which aspects of atask are relevant and which are not. Another theory is that greater variability leads to broader generalisations.This is because variability will represent therealworld better,including atypical(非典型的)examples A third reason has to do with the way memory works:when training is variable,learners are forced to actively reconstruct their memories “Understanding the impact of variability is important for literally every aspect ofour daily life.Beyond affecting the way we learn language,motor skills,and categories,it even has an impact on our social lives,” explains Raviv.“For example,face recognition is affected by whether people grew up in a small community or in a larger community.Exposure to fewer faces during childhood is associated with diminished face memory.”",
+        "“We hope this work will spark people's curiosity and generate more work on the topic,”concludes Raviv. “Our paper raises a lot of open questions.Can we find similar effects ofvariability beyond the brain,for instance, in the immune system?”"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the passage say about infants learning the category “dog”if they are exposed to Chihuahuas only?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They will encounter some degree of difficulty."
+            },
+            {
+              "key": "B",
+              "text": "They will try to categorise other objects first"
+            },
+            {
+              "key": "C",
+              "text": "They will prefer Chihuahuas to other dog species."
+            },
+            {
+              "key": "D",
+              "text": "They will imagine Chihuahuas in various conditions"
+            }
+          ],
+          "answer": "A",
+          "explanation": "如果只让上婴儿接触吉娃娃，关于他们学习“狗”这一类别，这篇文章说了什么? A) 他们将遇到一定程度的困难。 C) 比起其他品种的狗，他们将会更喜欢吉娃娃。 从根据题干信息词infants learming the category“dog”可将答案线索定位于第二段。 名? 文章第二段第二句提到，如果只让婴儿接触吉娃娃，而不是许多不同种类的狗，他们将很难学会“狗”这一类别。原文中的struggle to和A选项中的encounter some degree of difficulty表达相同含义， 故选项A为正确答案。选项B、C、D在文中没有提到，故都排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What does Raviv say about the four different kinds ofvariability?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Which of them is most relevant to the task at hand is to be confirmed."
+            },
+            {
+              "key": "B",
+              "text": "Why they have an impact on learning is far from being understood."
+            },
+            {
+              "key": "C",
+              "text": "Why they have neverbeen directly compared remains a mystery"
+            },
+            {
+              "key": "D",
+              "text": "Which of them is most conducive to learning is yet to be identified."
+            }
+          ],
+          "answer": "D",
+          "explanation": "雷维夫对四种不同的可变性有何看法? A) 其中哪一个与手头的任务最相关有待确认。 C) 为什么它们从未被直接比较仍然是个谜。 B) 为什么它们会对学习产生影响还远未被理解。 _D) 它们中册一个最有利于学习还有待确定。 罕》 根据题二信息词four different kinds of variability可将答案线索定位于第五段。 从文章第五段首句提到了四种不同的可变性，接着引用雷维夫的话,“这四种可变性从未被直接比较过一一这意味着我们目前不知道哪一种对学习最有效。”选项D是对该句话的同义转述，故为正确答案。选项A 在原文中未提到，故排除。选项B、C是根据原文中的词语effective for learming、been directly compared设置的干扰项，故都排除。"
+        },
+        {
+          "number": 53,
+          "stem": "How does one of the theories explain the importance of variability for learning new skills?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Learners regard variable training as typical of what happens in the real world."
+            },
+            {
+              "key": "B",
+              "text": "Learners receiving variable training are compelled to reorganise their memories."
+            },
+            {
+              "key": "C",
+              "text": "Learners pay attention to the relevant aspects of a task and ignore those irrelevant."
+            },
+            {
+              "key": "D",
+              "text": "Learners focus on related skills instead of wasting time and effort on unrelated ones."
+            }
+          ],
+          "answer": "B",
+          "explanation": "其中一种理论如何解释可变性对学习新技能的重要性? A) 学习者将多变训练视为现实世界中发生的事情的典型表现。 B) 接受多变训练的学习者被迫重新组织他们的记忆。 C) 学习者关注任务的相关方面，而忽略那些无关的方面。 D) 学习者专注于相关技能，而不是将时间和努力浪费在无关的技能上。 本宕?根据题于信息词one ofthe theories和skills可将答案范围初步锁定在第七至段。 昌， 第七、八、九这三段都在解释可变性为什么会影响学习和泛化，并分别给出了三种理论。比对发现，文章第九段提到“第三个原因与记忆的工作方式有关: 当训练可变时，学习者被迫主动重建他们的记忆”。原文中的are forced to reconstruct their memories与选项B中的are compelled to reorganise their memories是同义替换，故为正确答案。原文提到，可变性将更好地代表现实世界，包括非典型的例子，故选项A错误。选项 C提到了“忽略那些无关的方面”，而原文只是说“更多的可变输入可以突出任务的哪些方面是相关的， 哪些方面不是”，只是对任务是否相关做了分类，并没说要忽略任务的无关方面，故也排除。选项D与第六段提到的“Mr Miyagi原则”不符，故也排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the passage say about face recognition?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People growing up in a small community may find it easy to remember familiar faces."
+            },
+            {
+              "key": "B",
+              "text": "Face recognition has a significant impact on literally every aspect of our social lives."
+            },
+            {
+              "key": "C",
+              "text": "People growing up in a large community can readily recognise any individual faces."
+            },
+            {
+              "key": "D",
+              "text": "The size of the community people grow up in impacts their face recognition ability."
+            }
+          ],
+          "answer": "D",
+          "explanation": "关于人脸识别，这篇文章说了什么? A) 在小社区长大的人可能会发现很容易记住熟悉的面孔。 B) 人脸识别对我们社会生活的每一个方面都有重要的影响。 C) 在大社区长大的人很容易认出任何一张脸。 宕?根据古下信息问ce recognition 可和将答案线索定位于第{和县。 名> 文章第十段提到“人脸识别受到人们是在小社区还是在较大社区长大的影响，童年时期接触到的面孔较少，和人脸记忆的减弱有关”。也就是说，社区的规模影响人们的人脸识别能力，人们成长的社区越大， 接触的面孔越多，人脸识别能力就越强，故选项D正确。选项A和C是对该部分内容的错误解读，故排除。 原文提到“理解可变性的影响对我们日常生活的每一个方面都很重要” ，而不是人脸识别对我们生活的每一个方面有重要影响，故排除选项B。"
+        },
+        {
+          "number": 55,
+          "stem": "What does Raviv hope to do with their research work?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Highlight which aspects of a task are relevant and which are not to learning a skill."
+            },
+            {
+              "key": "B",
+              "text": "Use the principle of variability in teaching seemingly unrelated skills in education."
+            },
+            {
+              "key": "C",
+              "text": "Arouse people's interest in variability and stimulate more research on the topic."
+            },
+            {
+              "key": "D",
+              "text": "Apply the principle of variability to such fields of study as the immune system."
+            }
+          ],
+          "answer": "C",
+          "explanation": "雷维夫希望他们的研究工作能做什么? A) 强调任务的哪些方面与学习技能相关，哪些方面与其无关。 B) 在教育中使用可变性原理教授看似无关的技能。 @) 激发人们对可变性的兴趣，并激发更多关于该主题的研究。 D) 将可变性原理应用于免疫系统等研究领域。 宇和通信息订Rawviviope和 nei sexdh wo可科大过十从于是让-靖| 解文章最后一段首句引用雷维夫的话: “我们希望这项工作能激发人们的好奇心，并在这个主题上产生更多入 | 的研究。”选项C是对该句话的同义转述，故为正确答案。选项A、B在原文中未提及，故排除。选项D是一个强干扰项，文章最后提出了开放性问题: 是否可以在大脑之外的系统，例如免疫系统中，发现可变性的类似影响?这个问题只是雷维夫等研究者在论文中提出的问题之一，并不能准确概括题意，故排除选项D。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98Word/2024%E5%B9%B46%E6%9C%88%E7%AC%AC3%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E3%80%90%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8PDF%E7%89%88%E3%80%91.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2024%E5%B9%B46%E6%9C%88%E7%AC%AC3%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90.pdf"
+}

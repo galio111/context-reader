@@ -1,0 +1,1708 @@
+{
+  "id": "cet6-2023-06-3",
+  "level": 6,
+  "year": 2023,
+  "month": 6,
+  "set": 3,
+  "title": "2023 年 6 月六级 · 第 3 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2023-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "You might not know yourself as well as you think. According to a new study, people are [[26]]accurate judges of only some of their behaviors. While most previous studies on how well people know themselves have been done on long-term personality traits, this new study [[27]]how well people understand how they are acting from one moment to the next. Researchers asked participants to wear audio recorders that automatically [[28]]every 9. 5 minutes between 7 a.m. and 2 a.m. to record 30 seconds of audio. These participants were then emailed surveys four times a day asking them to [[29]]how outgoing, agreeable, or conscientious they were during a particular hour of the day. The study used data from 248 participants, all of whom answered questions about their behavior for two [[30]]weeks and wore the audio device for one of those weeks.",
+        "Six laboratory assistants rated each participant’s audio clips to see how their observations compared with people’s [[31]]of themselves. The six assistants were generally in agreement with one another about how the people they were observing acted. Further, participants’ ratings of their own behaviors agreed with observers’ for how outgoing and how conscientious they were being. But the agreement between participants and outside observers was much smaller for agreeableness. Some of this [[32]]could be because the observers used only audio clips, and thus could not read [[33]] like body language, but there are [[34]]other explanations, as people should be able to hear when a participant is being kind versus being rude. The weak agreement between how participants thought they were acting and what observers heard could be because people would rather [[35]]rude behavior.",
+        "FAVE"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "activated"
+        },
+        {
+          "key": "B",
+          "text": "articulates"
+        },
+        {
+          "key": "C",
+          "text": "assessment"
+        },
+        {
+          "key": "D",
+          "text": "consecutive"
+        },
+        {
+          "key": "E",
+          "text": "cues"
+        },
+        {
+          "key": "F",
+          "text": "deny"
+        },
+        {
+          "key": "G",
+          "text": "discrepancy"
+        },
+        {
+          "key": "H",
+          "text": "probably"
+        },
+        {
+          "key": "I",
+          "text": "probes"
+        },
+        {
+          "key": "J",
+          "text": "random"
+        },
+        {
+          "key": "K",
+          "text": "recall"
+        },
+        {
+          "key": "L",
+          "text": "relatively"
+        },
+        {
+          "key": "M",
+          "text": "saturated"
+        },
+        {
+          "key": "N",
+          "text": "symptoms"
+        },
+        {
+          "key": "O",
+          "text": "terminate"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "articulates"
+            },
+            {
+              "key": "C",
+              "text": "assessment"
+            },
+            {
+              "key": "D",
+              "text": "consecutive"
+            },
+            {
+              "key": "E",
+              "text": "cues"
+            },
+            {
+              "key": "F",
+              "text": "deny"
+            },
+            {
+              "key": "G",
+              "text": "discrepancy"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "probes"
+            },
+            {
+              "key": "J",
+              "text": "random"
+            },
+            {
+              "key": "K",
+              "text": "recall"
+            },
+            {
+              "key": "L",
+              "text": "relatively"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "terminate"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【语法判断空格所在句中,people 作主语,are 为系动词, accurate judges of only some of their behaviors 作表语, 句子成分完整。而空格后面 accurate 为形容词,因此空格处应填入副词,修饰 accurate。 【语义判断空格前一句提到,你可能不像你认为的那么了解自己,说明人们对于自己行为的判断并不总是准确的,即对一些行为的判断可能并不准确。而空格处填入的词用于修饰后面的形容词 accurate“准确的,因此,空格所在句表示人们只对自己的部分行为有相对准确的判断。由此确定 L) relatively 为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "articulates"
+            },
+            {
+              "key": "C",
+              "text": "assessment"
+            },
+            {
+              "key": "D",
+              "text": "consecutive"
+            },
+            {
+              "key": "E",
+              "text": "cues"
+            },
+            {
+              "key": "F",
+              "text": "deny"
+            },
+            {
+              "key": "G",
+              "text": "discrepancy"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "probes"
+            },
+            {
+              "key": "J",
+              "text": "random"
+            },
+            {
+              "key": "K",
+              "text": "recall"
+            },
+            {
+              "key": "L",
+              "text": "relatively"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "terminate"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断】空格前面为名词短语 this new study， 分析句子成分可知,this new study 在句中作主语,而空格后为 how 引导的宾语从句,句中缺少谓语,因此空格处应填入动词。 【语义判断]】 空格所在句中前半句为 while 引导的让步状语从句,句意为“虽然之前大多数关于人们对自己了解程度的研究都是针对长期性格特征的……”。而空格处的主句在介绍这项新研究,此处是指这项新研究的具体内容,空格应填入表示 “探究”的词。由此确定D) probes为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "articulates"
+            },
+            {
+              "key": "C",
+              "text": "assessment"
+            },
+            {
+              "key": "D",
+              "text": "consecutive"
+            },
+            {
+              "key": "E",
+              "text": "cues"
+            },
+            {
+              "key": "F",
+              "text": "deny"
+            },
+            {
+              "key": "G",
+              "text": "discrepancy"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "probes"
+            },
+            {
+              "key": "J",
+              "text": "random"
+            },
+            {
+              "key": "K",
+              "text": "recall"
+            },
+            {
+              "key": "L",
+              "text": "relatively"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "terminate"
+            }
+          ],
+          "answer": "A",
+          "explanation": "空格在修饰 audio recorders 的定语从句中作谓语。录音机每隔 9.5 分钟自动启动，A) activated 表示“启动、激活”，符合句意。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "articulates"
+            },
+            {
+              "key": "C",
+              "text": "assessment"
+            },
+            {
+              "key": "D",
+              "text": "consecutive"
+            },
+            {
+              "key": "E",
+              "text": "cues"
+            },
+            {
+              "key": "F",
+              "text": "deny"
+            },
+            {
+              "key": "G",
+              "text": "discrepancy"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "probes"
+            },
+            {
+              "key": "J",
+              "text": "random"
+            },
+            {
+              "key": "K",
+              "text": "recall"
+            },
+            {
+              "key": "L",
+              "text": "relatively"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "terminate"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【语法判断】 空格前为 asking them to,说明此处为 ask sb. to do sth. 结构,因此空格处应当填动词原形。 【语义判断】根据前文可知,这项研究想要调查人们对自己每时每刻行为的了解程度,空格处前一句告诉我们,研究者收集了参与者早上 7 点到凌晨2点之间每 9.5 分钟的 30 秒录音数据,结合这两点信息可知研究者让参与者填写的调查内容应当是回忆自己的行为。由此确定民) recall 为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "articulates"
+            },
+            {
+              "key": "C",
+              "text": "assessment"
+            },
+            {
+              "key": "D",
+              "text": "consecutive"
+            },
+            {
+              "key": "E",
+              "text": "cues"
+            },
+            {
+              "key": "F",
+              "text": "deny"
+            },
+            {
+              "key": "G",
+              "text": "discrepancy"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "probes"
+            },
+            {
+              "key": "J",
+              "text": "random"
+            },
+            {
+              "key": "K",
+              "text": "recall"
+            },
+            {
+              "key": "L",
+              "text": "relatively"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "terminate"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【语法判断] 空格前为数词 two,其后一般接名词， 而空格后已有名词 weeks,由此可判断空格处应当填形容词修饰 weeks。 【语义判断】空格位于所在句的定语从句中, 主名表示这项研究使用的数据来自 248 名参与者, 而定语从句用于具体说明这 248 名参与者,对他们加以介绍和限定。根据上下文意思可以推测空格处指这些参与者连续两周回答有关自己行为的问题。由此确定 D) consecutive 为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "articulates"
+            },
+            {
+              "key": "C",
+              "text": "assessment"
+            },
+            {
+              "key": "D",
+              "text": "consecutive"
+            },
+            {
+              "key": "E",
+              "text": "cues"
+            },
+            {
+              "key": "F",
+              "text": "deny"
+            },
+            {
+              "key": "G",
+              "text": "discrepancy"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "probes"
+            },
+            {
+              "key": "J",
+              "text": "random"
+            },
+            {
+              "key": "K",
+              "text": "recall"
+            },
+            {
+              "key": "L",
+              "text": "relatively"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "terminate"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【语法判断]】空格前为名词所有格 people's,因此空格处应当填名词。 【语义判断】空格所在句指该研究将六名实验员听音频后的打分与参与者自己的什么进行对比,可以推测是将外人与本人对行为的评价进行对比;同样根据上一段针对研究方法的介绍可知,参与者每天 '共9页会被要求回忆自己在某一时刻有多外向`有多讨人喜欢以及有多负责,这些都是参与者对自己的评价和评估,可知空格处应填入与 rated“评价”意义相近的词。由此确定 C) assessment 为答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "articulates"
+            },
+            {
+              "key": "C",
+              "text": "assessment"
+            },
+            {
+              "key": "D",
+              "text": "consecutive"
+            },
+            {
+              "key": "E",
+              "text": "cues"
+            },
+            {
+              "key": "F",
+              "text": "deny"
+            },
+            {
+              "key": "G",
+              "text": "discrepancy"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "probes"
+            },
+            {
+              "key": "J",
+              "text": "random"
+            },
+            {
+              "key": "K",
+              "text": "recall"
+            },
+            {
+              "key": "L",
+              "text": "relatively"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "terminate"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【语法判断】空格前为 some of this,后面需要接名词,因此空格处应当填名词。 【语义判断】空格前 this 指代前文内容,空格前一句告诉我们参与者和外部观察者在有多讨人喜欢方面的一致性低很多;而空格后给出了原因,空格所填词应当是对前一句内容的概括和总结,即两者的结果不一致。由此确定 G) discrepancy 为答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "articulates"
+            },
+            {
+              "key": "C",
+              "text": "assessment"
+            },
+            {
+              "key": "D",
+              "text": "consecutive"
+            },
+            {
+              "key": "E",
+              "text": "cues"
+            },
+            {
+              "key": "F",
+              "text": "deny"
+            },
+            {
+              "key": "G",
+              "text": "discrepancy"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "probes"
+            },
+            {
+              "key": "J",
+              "text": "random"
+            },
+            {
+              "key": "K",
+              "text": "recall"
+            },
+            {
+              "key": "L",
+              "text": "relatively"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "terminate"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【语法判断】空格前为动词 read,作为及物动词其后可跟名词或宾语从句作宾语,作为不及物动词其后可跟副词或介词; 而空格后 like 表示举例,因此空格处应当与 body language 为同一词性,故空格处应当填名词 。 【语义判断】空格所在句说明了观察者只能通过音频片段来评判参与者的行为,说明他们无法通过其他渠道或提示来获知参与者的行为;且所举例子body language“身体语言是一种通过无声方式传达情感和意图的非言语表达,能够提示参与者的情感。结合句意及选项可确定 E) cues 为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "articulates"
+            },
+            {
+              "key": "C",
+              "text": "assessment"
+            },
+            {
+              "key": "D",
+              "text": "consecutive"
+            },
+            {
+              "key": "E",
+              "text": "cues"
+            },
+            {
+              "key": "F",
+              "text": "deny"
+            },
+            {
+              "key": "G",
+              "text": "discrepancy"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "probes"
+            },
+            {
+              "key": "J",
+              "text": "random"
+            },
+            {
+              "key": "K",
+              "text": "recall"
+            },
+            {
+              "key": "L",
+              "text": "relatively"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "terminate"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【语法判断空格所在句为 there be 句型 ,而空格后为名词,句子成分完整,可推测空格处应填入副词修饰句子。 【语义判断】空格所在句 but 之前提出了一种可能导致参与者和外部观察者在判断参与者有多讨人喜欢方面产生差异的原因, but 表转折,指出还有其他原因。但由于这些都是研究者的推测, 并不确定哪一个才是真正的原因。由此确定 H) probably 为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "articulates"
+            },
+            {
+              "key": "C",
+              "text": "assessment"
+            },
+            {
+              "key": "D",
+              "text": "consecutive"
+            },
+            {
+              "key": "E",
+              "text": "cues"
+            },
+            {
+              "key": "F",
+              "text": "deny"
+            },
+            {
+              "key": "G",
+              "text": "discrepancy"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "probes"
+            },
+            {
+              "key": "J",
+              "text": "random"
+            },
+            {
+              "key": "K",
+              "text": "recall"
+            },
+            {
+              "key": "L",
+              "text": "relatively"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "terminate"
+            }
+          ],
+          "answer": "F",
+          "explanation": "would rather 后应接动词原形。上下文是在解释人们对自己是否讨人喜欢的判断差异，人们往往倾向于否认自己的粗鲁行为，因此填 deny。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-3-b",
+      "type": "matching",
+      "title": "‘Why we need tiny colleges",
+      "paragraphs": [
+        "A) We're experiencing the rebirth of smallness. Farmers markets, tiny homes, and brew pubs all exemplify our love of smallness. So do charter schools, coffee shops, and local bookstores. Small is often (but not always) more affordable, healthier, and sustainable, but its finest characteristic, the one that turns charm into love, is that going small allows us to be more fully who we are.",
+        "B) In higher education the trend is mostly in the opposite direction: Universities with 20,000 or 30,000 students are considered “mid-sized”. The nation’s largest university, Arizona State University, has 80,000 students on campus and aims to enroll another 100,000 students online. At the other end of the spectrum is a handful of colleges that have fewer than a hundred students on campus and no online courses: colleges such as Sterling College, Thomas More College of Liberal Arts, and Deep Springs College. These colleges are so small that they can only be called “tiny.”",
+        "C) Tiny colleges focus not just on a young person’s intellect, but on the young person as a whole. Equally important, tiny colleges ask, “How can education contribute to human flourishing and the well-being of the world?” And they shape a college experience to address that question. They replace concerns about institutional growth with attention to the growth of students as fully developed participants in their communities.",
+        "D) I've had the privilege of teaching at three different institutions of higher learning during my career—a small liberal arts college and two mid-sized public universities. I've also been profoundly disappointed in each of these institutions, and in many of my colleagues, especially when it comes to helping students and preparing them for the many responsibilities of adulthood. Administrators focus on the business of running a university, and most faculty focus on their scholarship and teaching their discipline. Little deliberate attention is given to how students mature as individuals and social beings.",
+        "E) Having just retired from teaching at a public university, I'm now returning to my hometown of Flagstaff, Arizona, to establish a tiny college—Flagstaff College. I'm convinced there’s a need for another type of education, one devoted to helping students come into their own and into this beautiful and troubled world. Young people need an education that will provide them with meaning, hope, courage, and passion, as well as information and skills. Large institutions, I believe, are particularly ill-suited to this type of education.",
+        "F) There's no “best of” list when it comes to tiny colleges, at least not yet. But around the country people are creating new colleges that provide an alternative to small liberal arts colleges, large public universities, and online education.",
+        "G) With only 26 students, Deep Springs is the smallest college in the country and, quite likely, the most 200/367 atypical (ESL). Located on a working cattle ranch on the California-Nevada border, Deep Springs is a private, residential, two-year college for men, committed to educating students for “a life of service to humanity.” Founded by the electricity tycoon (x5) L.L. Nunn in 1917, Deep Springs’ “curriculum” revolves around academics, labor, and self-governance. In addition to their courses, students are charged with running the 155-acre ranch and overseeing the functioning of the college. Studerits chair both the admissions and the curriculum committees.",
+        "H) “Living in close community with one’s teachers and fellow students, and being forced to take on adult responsibilities, makes for one’s growth as a person,” says William Hunt, who graduated last year. “To exist for very long in a community like that, you have to get over the question of whether you're sufficiently talented or principled and get started worrying about how you can stretch yourself and your peers, how much you can manage to learn with them.”",
+        "I) Sterling College, in Craftsbury Common, Vermont, is also very small—fewer than 100 students. Unlike Deep Springs, Sterling focuses its curriculum on environmental and social justice issues, but like Deep Springs it places a high value on personal responsibility and manual labor. According to its catalog, a college education at Sterling combines “rigorous academics, roll-up-your-sleeves challenges, and good old hard work.”",
+        "J) The average tuition at a small liberal-arts college is $30,000 to $40,000 a year, not including the cost of living on campus, as compared to $8,000 to $10,000 a year for tuition alone at a public university. Of the tiny colleges, only Deep Springs doesn’t charge tuition or room and board; students pay only for books and the cost of traveling to and from college. If tiny schools are to become a player on the higher education scene, they will need to find a way to be truly affordable.",
+        "K) Doing so may not be that difficult so long as they do not pattern themselves too closely on existing norms. We've come to believe that a good college should have many academic programs and excellent facilities, posh (34%) dorms, an array of athletic programs, and a world-class student activity center. Imagine a good college without a climbing wall! We also have accepted the idea that college presidents, and their many vice-presidents, should be paid like their counterparts in the business world and that higher education requires an elaborate, up-to-date technology infrastructure. All of this drives up the cost of education.",
+        "L) The “trick” to making tiny colleges affordable, if that’s the right word, is simplicity. At its core, education is a human-to-human interaction. Reflecting on his own college education, President Garfield once commented that an ideal college would consist of nothing more than the legendary teacher Mark Hopkins on one end of a log and a student on the other. The economics of a tiny college, in other words, might be similar to that of a tiny house. Because it is small, a tiny house costs less to build and less to furnish, insure, and maintain. But the economic benefits of a small house don’t end there. Tiny homes discourage homeowners from buying stuff that they really don’t need, because there’s no place to put it.",
+        "M) I'm a late convert to the idea of tiny colleges, and I fully understand the need for many diverse types of educational institutions. Academic research and job training are important, but tiny colleges aren’t suited for either. The educational needs of a complex society are themselves complex, and no single model can meet all of these needs. But I'm now convinced there’s an educational need that’s now going almost completely unmet: namely, the need to help young people transition into adulthood. Tiny colleges can do this better than any other type of educational institution.",
+        "N) The ultimate justification for a tiny college is the conviction that each of us comes into our full humanity by close interaction with those who know and care for us, and that one of the basic purposes of higher education is social. Although we give lip service to the idea that a college education will make us better people, when all’s said and done, we think of higher education primarily in economic terms. S3TL/3L6TT We've come to think of higher education as a means to make a living rather than make a life. We've also come to see higher education as a private good rather than a public one. Tiny colleges are not the answer to all of our educational requirements, but they’re an answer to one of our most basic educational necessities: the need to produce thoughtful, engaged, and compassionate human beings."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "One tiny American college situated on a cattle farm is devoted to educating students to serve mankind throughout their lives.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】细节归纳题。G)段第二句提到深泉学院位于加利福尼亚州和内华达州边界的一个养牛牧场,是一所两年制私立寄宿制男子学院 ,致力于培养学生 “终生为人类服务”。题干中 one tiny American college situated on a cattle farm 对应原文中的 located on a working cattle ranch;题干中的 devoted to educating students to serve mankind throughout their lives 是对原文中 committed to educating students for“a life of Service to humanity”的同义转述,故答案为 G) 。"
+        },
+        {
+          "number": 37,
+          "stem": "Much to the author’s disappointment, the three institutions of higher learning where she taught largely ignore students’ growth as social beings.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】同义转述题。D)段提到作者曾在三所不同的高等学府任教,她对这些机构和许多同事深感失望, 因为很少有人有意识地关注学生如何成长为个体和社会人。题干中的 much to the authors disappointment 是原文中 Tve also been profoundly disappointed 的同义表达; 题干中的 jignore students” growth as social beings 是对原文中 little deliberate _ attention is given to how students mature as individuals and social beings 的同义转述,故答案为 D) 。"
+        },
+        {
+          "number": 38,
+          "stem": "Tiny colleges must be made affordable in order to play a role in higher education.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J 段第三句指出，微型学院要想在高等教育中发挥作用，就必须找到办法让学生真正负担得起，题干是该句的同义转述。"
+        },
+        {
+          "number": 39,
+          "stem": "According to a recent graduate from a tiny college, living together with faculty and fellow students is conducive to a student’s growth as a person.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】同义转述题。H) 段第一句提到去年毕业的威廉。享特说:与老师和同学生活在紧密的团体中,承担起成年人的责任, 有助于一个人的成长。\"题干中的 a recent graduate 对应原文中的 William Hunt，who graduated last year;题干中的 living together with faculty and fellow studentsis conducive to a student's growth as a person 是对原文中“living in close community with one's teachers and fellow students. .. makes for ones growth as a person”的同义转述,故答案为HE)。"
+        },
+        {
+          "number": 40,
+          "stem": "Rather than going small, most American universities are trying to go big.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 段指出，美国高等教育趋向扩大规模：两三万学生的大学仅算中等规模，亚利桑那州立大学还计划扩大线上招生。题干是对这些信息的归纳。"
+        },
+        {
+          "number": 41,
+          "stem": "In a certain tiny college, rigorous academic work and traditional manual labor are integrated.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【精析】细节归纳题。ITD)段第二、三句提到斯特林学校高度重视个人责任和体力劳动。根据其目录,斯特林学院的教育融“严谨的学术、的起袖子应对挑战以及努力工作的传统”于一体。题干中的traditional manual labor 对应原文中的 manual labor; 题干中的 rigorous academic work and traditional manual labor are integrated 是对原文中 combines“rigorous academics，roll-up-your- sleeves challenges，and good old hard work”的同义转述,故答案为 I 。"
+        },
+        {
+          "number": 42,
+          "stem": "Tiny colleges focus on educating students to become well-rounded citizens instead of seeking their own expansion.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】同义转述题。C)段最后一句指出微型学院不再关注机构的发展,而是关注学生作为充分发展的社会参与者的成长。题干中的 instead of seeking their own expansion 对应原文中的 institutional growth;题干中的 educating students to become well-rounded citizens 对应原文中的 the growth of students as fully developed participants in their communities;题干是对原文中这句话的同义转述,故答案为 C) 。"
+        },
+        {
+          "number": 43,
+          "stem": "The essence of education lies in the interaction between people.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【精析】〗同义转述题。L)段第二句提到教育的核心是人与人之间的互动。题干中的 the essence of education 对应原文中的 at its core;题二中的 the interaction between people 对应原文中的 a human-to-human interaction;题干是对这句话的同义转述,故答案为工) 。"
+        },
+        {
+          "number": 44,
+          "stem": "After her retirement, the author has decided to set up a tiny college in her hometown.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】同义转述题。E)段第一句指出作者刚从一所公立大学退休,现在回到家乡亚利桑那州的弗拉格斯塔夫,建立一所微型学院一弗拉格斯塔夫学院。题干中的 after her retirement 是原文中 having just retired from teaching at a public university 的同义表达;题干中的 set up a tiny college 是原文中 establish a tiny college 的同义表达,故答案为了) 。"
+        },
+        {
+          "number": 45,
+          "stem": "Tiny colleges are justified as it is believed that our growth into full humanity comes through interaction with people near and dear to us.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【精析】同义转述题。N)段第一句提到设立微型学院的最重要的理由是基于这样一种想法:我们每个人都是通过与那些了解和关心我们的人的密 '共9页切互动来充分发挥我们的潜力的。题干中的 tiny colleges are justified 是原文中 the ultimate justification for a tiny college 的同义表达;题干中的 it is believed 是原文中 conviction 的同义表达;题干中的 interaction with people near and dear to us 是原文中 close interaction with those who know and care for us 的同义表达。题干是对原文中这句话的同义转述,故答案为 N) 。 (共9页"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "If you're someone who has turned to snacking on junk food more in the pandemic (大流行病), you're not alone. Investigative reporter Michael Moss says processed food is engineered to hook you, not unlike alcohol, cigarettes, or other harmful substances. His 2013 book, Salt Sugar Fat , explored food companies’ aggressive marketing of those products and their impact on our health. In his new book, Hooked , Moss updates the food giants’ efforts to keep us eating what they serve, and how they’re responding to complaints from consumers and health advocates.",
+        "Processed food is inexpensive, it’s legal, and it’s everywhere. Companies’ advertising is cueing us to remember those products and we want those products constantly. So the food environment is one of those key things that makes food even more problematic for so many people. Memory, nostalgia (怀旧) in particular, plays a big role in the foods we crave. Soda companies discovered that if they put a soda in the hands of a child when they’re at a ball game with their parents, that soda will forever be associated with that joyous moment. Later in life, when that child wants to experience a joyous moment, theyre going to think of soda. Many people seek comfort in the snacks they remember from childhood.",
+        "Moss examines the way companies capitalize on our memories, cravings and brain chemistry to keep us snacking.",
+        "One of the reasons I came to think that some of these food products are even more powerful, more troublesome than drugs can be is memory. What we eat is all about memory. And we begin forming memories for food at a really early age. And we keep those memories for a lifetime. Knowing this, the food industry spends lots of time trying to shape the memories that we have for their products. One of the features of addiction that scientists studying drug addiction discovered back in the 1990s was that the faster a substance hits the brain, the more apt we are as a result to act impulsively. There’s nothing faster than food in its ability to hit the brain. For Moss, this puts the notion of “fast food” in an entirely new light as this isn’t limited to fast food",
+        "SATT/ E61",
+        "chains—almost 90% of food products in grocery stores are processed foods. Everything in the industry is about speed, from manufacturing to packaging. :",
+        "Overall, Moss outlines the industry’s dependence on making their products inexpensive, super delicious, and incredibly convenient for consumers. Now that more and more people care about what they put in their bodies and are wanting to eat healthier, these companies are finding it really difficult to meet that new demand because of their own addiction to making these convenience foods."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "In what way does Michael Moss think processed food is comparable to alcohol and cigarettes?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are all addictive."
+            },
+            {
+              "key": "B",
+              "text": "They are all necessary evils."
+            },
+            {
+              "key": "C",
+              "text": "They are all engineered to be enjoyed."
+            },
+            {
+              "key": "D",
+              "text": "They are all in increasingly great demand."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】了事实细节题。第一段第二句指出,加工食品的设计就是为了“吸引?你,就像酒精、香烟或其他有害物质一样。这里 hook 表示吸引,使别人上钩,not unlike 双重否定表示肯定,即这些有害物质都是让人上净的,故答案为 A) 。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author say plays a key role in the foods we crave?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The food environment."
+            },
+            {
+              "key": "B",
+              "text": "Aggressive marketing."
+            },
+            {
+              "key": "C",
+              "text": "Convenience."
+            },
+            {
+              "key": "D",
+              "text": "Memory."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】事实细节题。文章第二段第四句提到,记忆,尤其是怀旧,在我们对食物的渴望中扮演着重要角色。故答案为D) 。"
+        },
+        {
+          "number": 48,
+          "stem": "What do food companies do to capitalize on consumers’ association with their food products?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They strive to influence how consumers remember their products."
+            },
+            {
+              "key": "B",
+              "text": "They attempt to use consumers’ long-term memories to promote addiction."
+            },
+            {
+              "key": "C",
+              "text": "They try to exploit consumers’ memories for their products as early as possible."
+            },
+            {
+              "key": "D",
+              "text": "They endeavor to find what consumers remember about their products."
+            }
+          ],
+          "answer": "A",
+          "explanation": "原文用球赛中的苏打水为例，说明食品公司把产品与快乐时刻联系起来，并投入大量精力塑造消费者对产品的记忆。因此 A 项符合文章描述的营销方式。"
+        },
+        {
+          "number": 49,
+          "stem": "How does the food industry operate from manufacturing to packaging, according to Moss?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Placing the idea of fast food in an entirely new light."
+            },
+            {
+              "key": "B",
+              "text": "Setting no limit to the number of fast food chains."
+            },
+            {
+              "key": "C",
+              "text": "Focusing on how quickly the work is done."
+            },
+            {
+              "key": "D",
+              "text": "Prioritizing the quality of their products."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。第四段末句指出,这个行业 (即食品行业) 的一切都与速度有关,从制造到包装。选项 C)符合题意,为本题答案。"
+        },
+        {
+          "number": 50,
+          "stem": "Why are companies finding it difficult to satisfy consumers’ demand for healthier food products?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They think speed of production outweighs consumers’ health."
+            },
+            {
+              "key": "B",
+              "text": "They believe their industry would perish without fast foods."
+            },
+            {
+              "key": "C",
+              "text": "They have to strike a balance between taste and nutrition."
+            },
+            {
+              "key": "D",
+              "text": "They are hooked on manufacturing convenience foods."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】事实细节题。最后一句提到,食品公司发现很难满足消费者的新需求, 因为他们自己沉迷于制造这些方便食品。故答案为D) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Chimpanzees (黑猩猩) , human beings’ closest animal relatives, share up to 98% of our genes. Yet humans and chimpanzees lead very different lives. Fewer than 300,000 wild chimpanzees live in a few forested corners of Africa today, while humans have colonized every corner of the globe. At more than 7 billion, human population dwarfs that of nearly all other mammals—despite our physical weaknesses.",
+        "‘What could account for our species’ incredible evolutionary successes?",
+        "One obvious answer is our big brains. It could be that our raw intelligence gave us an unprecedented ability to think outside the box, innovating solutions to thorny problems as people migrated across the globe.",
+        "But a growing number of cognitive scientists and anthropologists (人类学家) are rejecting that explanation. They think that, rather than making our living as innovators, we survive and thrive precisely because we don’t think for ourselves. Instead, people cope with challenging climates and ecological contexts by carefully copying others.",
+        "In a famous study, psychologists Victoria Horner and Andrew Whiten showed two groups of test subjects— children and chimpanzees—a mechanical box with a treat inside. In one condition, the box was opaque, while in the other it was transparent. The experimenters demonstrated how to open the box to retrieve the treat, but they also included the irrelevant step of tapping on the box with a stick.",
+        "Oddly, the children carefully copied all the steps to open the box, even when they could see that the stick had no practical effect. That is, they copied irrationally: Instead of doing only what was necessary to get their reward, children slavishly imitated every action they'd witnessed.",
+        "Of course, that study only included three- and four-year-olds. But additional research has shown that older",
+        "S5TT/3L6TT",
+        "children and adults are even more likely to mindlessly copy others’ actions, and infants are less likely to over- imitate—that is, to precisely copy even impractical actions.",
+        "By contrast, chimpanzees in the study only over-imitated in the opaque condition. In the transparent condition—where they saw that the stick was mechanically useless—they ignored that step entirely. Other research has since supported these findings.",
+        "When it comes to copying, chimpanzees are more rational than human children or adults.",
+        "Where does the seemingly irrational human preference for over-imitation come from? Anthropologist Joseph Henrich points out that people around the world rely on technologies that are often so complex that no one can learn them rationally. Instead, people must learn them step by step, trusting in the wisdom of more experienced elders and peers.",
+        "So the next time you hear someone arguing passionately that everyone should embrace nonconformity and avoid imitating others, you might laugh a little bit. We're not chimpanzees, after all."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What might explain humans’ having the largest population of almost all mammals?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are equipped with raw strength for solving the most challenging problems."
+            },
+            {
+              "key": "B",
+              "text": "They cope with the outside world more effectively than their animal relatives."
+            },
+            {
+              "key": "C",
+              "text": "They possess the most outstanding ability to think."
+            },
+            {
+              "key": "D",
+              "text": "They know how to survive everywhere on earth."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。定位句提到,人口数量还是超过了 70 亿,令几乎所有其他哺乳动物相形见细,可知人类的数量是最多的,随后一段对这种进化成功的原因提出问题,而回答这一问题的则是第三段第二名,该句说,进化成功的原因是我们的原始智慧赋予了我们前所未有的创造性思维能力,由此可知,人类之所以数量最多,是因为具有超出其他哺乳动物的思考能力,故答案为 C) 。"
+        },
+        {
+          "number": 52,
+          "stem": "What accounts for humans’ evolutionary successes according to a growing number of cognitive scientists and anthropologists?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are better at innovating solutions."
+            },
+            {
+              "key": "B",
+              "text": "They thrive through creative strategies."
+            },
+            {
+              "key": "C",
+              "text": "They are naturally adaptive to ecological contexts."
+            },
+            {
+              "key": "D",
+              "text": "They meet challenges by imitating others carefully."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】事实细节题。定位句指出,越来越多的认知科学家和人类学家拒绝接受这种传统的解释， 而本段第三句则明确提出,人是通过仔细模仿其他人来应对具有挑战性的气候和生态环境的,故答案为D) 。 共9页"
+        },
+        {
+          "number": 53,
+          "stem": "What does the author think is odd about the findings of the study by Victoria Horner and Andrew Whiten?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Children irrationally imitated every action of the experimenters."
+            },
+            {
+              "key": "B",
+              "text": "Chimpanzees could tell the transparent box from the opaque one."
+            },
+            {
+              "key": "C",
+              "text": "Chimpanzees could retrieve the treat more quickly than children did."
+            },
+            {
+              "key": "D",
+              "text": "Children omitted the step of tapping on the box with a stick to open it."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】事实细节题。定位段提到相关的研究过程,指出在该研究中,孩子们即使能够看出某些步又没有实际的作用,但他们还是无理性地对实验人员演示的步骤进行模仿,故答案为 A) 。"
+        },
+        {
+          "number": 54,
+          "stem": "What is anthropologist Joseph Henrich’s explanation for the human preference for copying?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It originates in the rationality of people around the world."
+            },
+            {
+              "key": "B",
+              "text": "It stems from the way people learn complex technologies."
+            },
+            {
+              "key": "C",
+              "text": "It results from people distrusting their own wisdom."
+            },
+            {
+              "key": "D",
+              "text": "It derives from the desire to acquire knowledge step by step."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】事实细节题。该段第一句对人类为何会过度模仿提出探究 ,定位句引用人类学家约瑟夫。 享里克的观点予以解释,人们无法理性地掌握其所依赖的复杂技术,必须一步一步地向长辈和同龄人学习,即完全模仿他人,可知选项 B)是人类无法实现理性模仿的根本原因,故为答案。"
+        },
+        {
+          "number": 55,
+          "stem": "What point does the author want to emphasize when he says “We're not chimpanzees”?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is arguable whether everyone should avoid imitation."
+            },
+            {
+              "key": "B",
+              "text": "It is characteristic of human beings to copy others."
+            },
+            {
+              "key": "C",
+              "text": "It is desirable to trust in more knowledgeable peers."
+            },
+            {
+              "key": "D",
+              "text": "It is naive to laugh at someone embracing nonconformity."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】推理判断题。要推断作者这句话的言外之意,需结合本段前半部分以及全文。本段第一句说,当你听到有人提出每个人都应该接受非常规思维,避免模仿别人时, 你可以笑一笑,结合前文内容,模仿而非创新思维恰恰是人类成功的关键， 而且是区别于诸如黑猩猩这类动物近亲的特征， 由此可以推断,作者在此强调的是模仿才是人类的重要特征,故答案为 B) 。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97%E8%AF%A6%E8%A7%A3.pdf"
+}

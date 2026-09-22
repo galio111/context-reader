@@ -1,0 +1,1606 @@
+{
+  "id": "cet4-2024-12-1",
+  "level": 4,
+  "year": 2024,
+  "month": 12,
+  "set": 1,
+  "title": "2024 年 12 月四级 · 第 1 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2024-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "When Toni Morrison died in 2019, the world lost one of its most influential authors. But Morrison was not an early success. Her first novel was not published until she was 39, and her last appeared when she was 84. And Morrison was not [[26]] in this regard. Numerous writers produce masterpieces well into their 70s and beyond. Such [[27]] accomplishments highlight an important point. Our capacity to speak, write and learn new vocabulary does not seem to [[28]] with age. Our eyesight may dim and our recall may weaken, but by comparison, our ability to produce and to [[29]] language is well preserved into older adulthood. Indeed, the latest research that has emerged on language and aging shows that language mastery is a [[30]] that we begin as infants and continue on for the rest of our lives. Some aspects of our language abilities, such as our knowledge of word meanings, [[31]] improve during middle and late adulthood. One study, for example, found that adults over sixty had an average vocabulary size of over 21,000 words. The researchers also studied a [[32]] of college students and found that their average vocabulary contained [[33]] 16,000 words. In another study, older adults, with an average age of 75, [[34]] better than participants in their youth or middle years on tasks that required them to determine the meaning of words. Thus, language seems to be a skill that, contrary to what many might [[35]], does not weaken with age."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "actually"
+        },
+        {
+          "key": "B",
+          "text": "approximately"
+        },
+        {
+          "key": "C",
+          "text": "assume"
+        },
+        {
+          "key": "D",
+          "text": "component"
+        },
+        {
+          "key": "E",
+          "text": "comprehend"
+        },
+        {
+          "key": "F",
+          "text": "deteriorate"
+        },
+        {
+          "key": "G",
+          "text": "equivalent"
+        },
+        {
+          "key": "H",
+          "text": "journey"
+        },
+        {
+          "key": "I",
+          "text": "literary"
+        },
+        {
+          "key": "J",
+          "text": "performed"
+        },
+        {
+          "key": "K",
+          "text": "rarely"
+        },
+        {
+          "key": "L",
+          "text": "sample"
+        },
+        {
+          "key": "M",
+          "text": "undermined"
+        },
+        {
+          "key": "N",
+          "text": "unique"
+        },
+        {
+          "key": "O",
+          "text": "unit"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) unique (adj 独一无二的，独特的) 空格前是was not，空格后是介词短语in this regard，由此可知，空格处应填入一个形容词或分词， 充当句子的表语成分。 上文提到，莫里森并非早期就获得了成功，她的第一部小说直到39岁才出版，最后一部小说是在她84岁时间世的。空格后面一句提到，许多作家在70多岁甚至更年长的时候仍能创作出杰作。也就是说， 莫里森并不是孤例，许多人与她的情况一样。代入选项可知，unique符合语境。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "I",
+          "explanation": "D literary ( a纱.文学的; 书面的) 空格前是限定词such，空格后是名词accomplishments，由此可知，空格处应填入形容词或分词， 充当accomplishments的定语。 空格前面一句提到，许多作家在70多岁甚至更年长的时候仍能创作出杰作。空格所在句句意为 “这样的”成就突出了重要的一点”。此句承上启下，引出下面的观点。literary accomplishments意为 “文学成就”，符合此处语境，故答案为literary。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) deteriorate (v 恶化; 退化) 空格前是does not seem to，空格后是介词短语with age，故空格处应填入一个动词原形，构成seem to do的结构。 上文提到“许多作家在70多岁甚至更年长的时候仍能创作出杰作。这样的文学成就突出了重要的一点”，那么本句阑述这一点是什么，即“我们说话、写作和学习新词汇的能力似乎不会随着年龄的增长而 ”。70多岁仍能创作出杰作说明写作能力并不因年龄的增长而减弱，故deteriorate符合语境。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) comprehend (y 理解，领悟 ) 空格前是our ability to produce and to，空格后是名词language，由此可知，此处考查短语ability to do sth.( 做某事的能力 ) ，故空格处应填入动词原形，与前面的produce并列。 该句句意为“我们的视力可能会变差，记忆力可能会减弱，但相比之下,我们产生和_ ”语言的能力却能完好地保存到老年”。本句继续解释说明前一句“我们说话、写作和学习新词汇的能力似乎不会随着年龄的增长而下降” 的观点。ability to produce and to comprehend language 意为“产生和理解语言的能力”，与上文语境相符，故comprehend 为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HD journey (交. 旅行，旅程 ) 空格前是不定冠词a，空格后是that引导的定语从句，由此可知，空格处应填入一个名词，充当该定语从句的先行词。 空格后面that引导的定语从句作所填词的定语，故该句意为“事实上，关于语言和衰老的最新研究表明，掌握语言是一段我们从婴儿时期开始并持续一生的_“”,， 故jourmey符合此处语境。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) actually ( adv 事实上，实际上 ) 空格所在句子主谓宾结构完整，故空格处应填和一个副词，起修饰和限定作用。 该句句意为“我们语言能力的一些方面，例如我们对单词含义的理解， ”在中年和晚年期间会有所提高”。下文举例论证这一说法，60岁以上的成年人的平均词汇量比大学生群体的平均词汇量要高，而且与中青年人相比，老年人对单词含义的理解更好。代入选项可知，actually符合语境。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) sample (7 样本，被抽选的一组人员 ) 空格前是不定冠词a，空格后是介词短语of college students，由此可知，空格处应填入一个名词。 前面一句提到了一项研究的结果，此句阐述另一项研究及其结果。该句句意为“研究人员还研究了大学生___ ，发现他们的平均词汇量包含 “16 000个”，study a sample o人意为“研究……的样本”，符合此处语境，故答案为sample。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) approximately (adv 大约，大概 ) 空格所在句子主谓宾结构完整，故空格处应填入一个副词，起修饰和限定作用。 上文提到“我们语言能力的一些方面，例如我们对单词含义的理解，实际上在中年和晚年期间会有所提高”。此处针对该观点进行举例说明，即60岁以上的成年人的平均词汇量超过21 000个，而大学生群体的平均词汇量大约为16 000个，故approximately符合语境。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "J",
+          "explanation": "]) performed (v 表现 ) 空格所填词作句子的谓语，句子主语为older adults，句子在讲述一项研究结果，发生在过去，故时态为一般过去时，空格处应填入动词过去式。 此处阐述另一项研究结果，句意为“在另一项研究中,平均年龄为75岁的老年人在要求他们确定单词含义的任务中比青年或中年的参与者“得更好”，故performed符合语境。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) assume (V 认为; 假设; 承担; 呈现) 空格前是情态动词might，空格后是逗号，由此可知，空格处应填入动词原形。 前面举例之后，该句再次总结观点，句意为“因此，语言似乎是一种技能，与许多人可能的相反，它不会随着年龄的增长而减弱”。代入选项可知，assume符合语境。 D) component (7. 组成部分 a太. 组成的; 成分的 ) G) equivalent (a示. 相同的; 相当的妹等同物 ) K) rarely ( adv 很少 ) M) undermined (v 逐渐削弱 ) O) unit (zz. 单元; 单位 )"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-b",
+      "type": "matching",
+      "title": "Why it’s wrong to look at work-life balance as an achievement",
+      "paragraphs": [
+        "A) Few topics have been so endlessly analysed as work-life balance. The quest to attain this mysterious state has dominated discussion around careers for years—especially for working parents. The concept is often presented as something to achieve, or a goal to reach. And once you’ve reached it, congratulations: you've made it; you're a successful human being of the 21st century.",
+        "B) But the problem is that we often tell ourselves: “I'm going to put in eight hours’ worth of work, and then I'm going to put in eight hours’ worth of ‘me time’, which will include my family, my hobbies, my workout, my everything,” says Anat Lechner, clinical associate professor of management at New York University. “I don’t think it’s such a simple formula.”",
+        "C) And, according to new findings, it may not be. Some researchers are now encouraging us to stop thinking about work-life balance as an achievement that you either hit or don’t. Instead, they suggest it may be more of a lifelong process—a continuous, never-ending exercise that requires self-awareness and timely adjustments. Researchers Ioana Lupu and Mayra Ruiz-Castro argue that work -life balance is “a cycle, not an achievement ” In their 2020 study, the researchers interviewed nearly 80 employees at two London-based firms—an equal number of men and women between the ages of 30 and 50, all with at least one dependent child—who worked in middle or senior management roles.",
+        "D) Although it sounds like the respondents had a lot in common, here’s what separated them: about 30% of the men and 50% of the Women reported resisting working long hours. The other respondents, meanwhile, all worked long hours because they thought that’s what successful professionals should do.",
+        "E) Lupu and Ruiz-Castro looked at those who rejected the long hours and they found that those workers actually had strikingly similar strategies for maintaining their work-life balance. They had a tendency to reflect and question assumptions in the name of self-awareness and regularly took steps to adjust the things standing in their way to work-life balance.",
+        "F) Lupu and Ruiz-Castro identified five steps that the respondents in the study who had better work-life balance used in their jobs. First, they paused and reconsidered beliefs such as “I'm a professional, so I sho uld work, work, work ”, and asked themselves questions like, “What’s currently causing me stress?” Second, after identifying the cause, they zeroed in on their resultant emotions. Did they feel angry, sad, energised? Third, they reprioritised, asking “Is working long hours really worth cutting back on family time?”, for example. Fourth, they considered their alternatives: is there anything at work that could be changed to accommodate these new priorities? And finally, they implemented changes, like asking their supervisor for greater flexibility, or deciding not to take on every project that comes their way.",
+        "G) This five-step process is something anyone can adopt. Going through the steps, and constantly checking in with yourself can help you shift and adapt your professional life to something that will better harmonise with your personal one. “Awareness of your emotional state is essential in order to determine the changes you want to make in your work and in your life, ” says Lupu.",
+        "H) New York University’s Lechner agrees that finding that balance is an ongoing pursuit. It ’s not simply about dividing up the hours in your day between work, the gym, kids and chores. If the underlying emotional sources of stress are still there, then the time you actually spend at home may not be enjoyable. “We come home and even though physically we are there, mentally we still may be processing things that happened at work. We're not present, ” she says. What we call “work-life balance” is actually just a substitute to having a sense of fulfillment and contentment.",
+        "I) Of course, finding that balance probably shouldn ’t be something you have to do by yourself. Research by Erin Kelly, professor of work and organisation studies at MIT, shows companies and managers can play a key rol e in creating a better environment for workers. For her book Overload: How Good Jobs Went Bad and What to Do about It , she and co -author Phyllis Moen split more than 1,000 employees at a Fortune 500 company into two groups, one that worked under a management redesign and one that continued working within the existing management structure.",
+        "J) Under the management redesign, many steps were taken to ensure better work -life balance and prevent burnout ( 精疲力 竭). Managers were regularly reminded to explicitly supp ort their employees. Workers were allowed to make changes, like cancelling 9 am meetings. All of this was done in the name of increasing job satisfaction and giving workers greater flexibility, and to assure workers that it was something management was com mitted to. Unsurprisingly, Kelly and Moen found that employees in the redesign group reported less stress and less burnout. They were less likely to quit their jobs; indeed, over the next four years, they were 40% less likely to quit than those who kept working under the old policies.",
+        "K) “Work-life balance is understood to be an individual’s response, so people think ‘it’s up to me to manage the craziness of my work life’”, says Kelly. But organisations need to examine the demands they’re placing on employees. “The root problem is not how the two pieces of work and life come together. It’s that we have unrealistic expectations of what we’re asked to do on the work side. ” If your workplace isn’t an environment where work -life balance is possible in the first place, any effort you attempt to make toward it on a personal level will be in vain.",
+        "L) That’s a conversation that appears to be gathering pace. The new prevalence of remote and flexible working models will likely all play important roles in how we balance our professional and personal lives. And if it seems like finding that perfect balance remains difficult to achieve, the experts say that keeping some perspective can help. For millions of people, work is about being able to put food on the table. Talking about work-life balance “is a very privileged conversation”, says Lechner. “If we’re reflecting, maybe we should also reflect on that.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "According to a management expert, work -life balance is not as simple as giving equal amounts of time to work and personal life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "根据一位管理专家的说法，工作与生活的平衡并非给予工作和个人生活同等的时间那么简单。 B。由题干关键信息a management expert、simple 、equal amounts of time和work and personal life 定位到B段。该段提到，但问题是我们经常告诉自己:“我要投入8小时的时间去工作，然后投入8小时的“个人时间”，这包括我的家庭、我的爱好、我的锻炼、我的一切，”纽约大学管理学临床副教授阿纳特，莱希纳说, “我认为这不是一个简单的公式。”由此可见，题干是对该段的概括总结，其中a management expert对应原文中的Anat Lechner' clinical associate professor of management，而js not as simple as 对应原文中的don'tthink it's such a simple formula，而giving equal amounts oftime to work and personal life是对原文中引语“Tm going to put in eight hours” worth of work, and then Pm going to put in eight hours” worth of “me time\"..”的概括总结。"
+        },
+        {
+          "number": 37,
+          "stem": "Research found that those who are given greater flexibility at work are less stressed and more likely to stay in their jobs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "研究发现，那些在工作中获得更大灵活性的人压力更小，而且更有可能留在工作岗位上。 Jo。 由题干关键信息greater flexibility at work和less stressed and more likely to stay in their jobs定位到J 段。该段最后两句提到，不出所料，凯利和莫恩发现，在管理结构重新设计组的员工报告的压力和倦急程度更低。他们辞职的可能性更小。由此可知，题干是对这两句内容的同义转述。其中Research found 对应原文中的Kelly and Moen found，而those who are given greater flexibility at work对应原文中的employees in the redesign group，而are less stressed and more likely to stay in their jobs对应原文中的reported less stress and less burnout和 were less likely to quit their jobs。"
+        },
+        {
+          "number": 38,
+          "stem": "Workers who rejected working long hours tended to make regular adjustments in order to achieve work-life balance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "拒绝长时间工作的员工倾向于做定期调整，以实现工作与生活的平衡。 E。由题干关键信息rejected working long hours和make regular adjustments定位到E段。该段指出， 卢普和重伊斯-卡斯特罗对那些拒绝长时间工作的人进行了研究……他们倾向于以自我意识的名义反思和质疑假设，并定期采取措施调整阻碍他们实现工作与生活平衡的事情。由此可知，题干是对该段内容的概括。题干中的Workers who rejected working long hours对应原文中的those who rejected the long hours，而 tended to对应原文中的had a tendency to, 而make regular adjustments in order to achieve work-life balance对应原文中的regularly took steps to adjust the things standing in their way to work-life balance。"
+        },
+        {
+          "number": 39,
+          "stem": "Talking about work-life balance is said to be a privilege reserved for the better-off, not for those who barely make a living.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "据文章所说，谈论工作与生活的平衡是留给富人的特权，而不是那些勉强维持生计的人的特权。 L。由题干关键信息Talking about work-life balance 、a privilege reserved for the better-off和those who barely make a living定位到工段。该段倒数第二、三名提到，对于数百万人来说，工作就是为了能够养家糊口。莱希纳表示，谈论工作与生活的平衡“是一种富有特权性质的对话”。换言之，谈论工作与生活的平衡是留给富人的特权，而不是那些勉强维持生计的人的特权，由此可见，题干是对这两名的概括总结， 其中Talking about work-life balance属于原词重现，而is said to be a privilege reserved for the better-o人f对应原文中的“is a very privileged conversation\", says Lechner，而barely make a living对应原文中的being able to put food on the table。"
+        },
+        {
+          "number": 40,
+          "stem": "Knowing one’s emotional state is of utmost importance in deciding what changes to make for a better work-life balance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "了解自己的情绪状态对于决定做出什么改变来更好地平衡工作和生活至关重要。 G。由题干关键信息one's emotional state 、utmost importance和deciding what changes to make fora better work-life balance定位到G段。该段最后一句提到，卢普说:“意识到自己的情绪状态对于决定你想在工作和生活中做出的改变至关重要。”由此可知，题干是对原文内容的同义转述。其中题干中的Knowing one's emotional state is of utmost importance对应原文中的Awareness of your emotional state is essential，而 deciding what changes to make for a better work-life balance对应原文中的determine the changes you want to make in your work and in your life。"
+        },
+        {
+          "number": 41,
+          "stem": "More female professionals reported being reluctant to work overtime than their male counterparts.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "与男性专业人士相比，更多的女性专业人士表示不愿意加班。 D。由题干关键信息More female professionals 、being reluctant to work overtime和male counterparts 定位到D段。该段第一句提到，尺管听起来受访者有很多共同点，但他们之间的区别是: 大约30%的男性和50%的女性称抵制长时间工作。即与男性专业人士相比，更多的女性专业人士表示不愿意加班。由此可知，题干是对原文内容的概括总结。题干中的More female professionals reported...than their male counterparts 对应原文中的about 30% ofthe men and 50% of the women reported，而being reluctant to work overtime对应原文中的resisting working long hours。"
+        },
+        {
+          "number": 42,
+          "stem": "Without organisational support, any personal effort to maintain work-life balance will be unsuccessful.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "没有组织的支持，任何维持工作与生活平衡的个人努力都不会成功。 K。由题干关键信息Without organisational support 、any personal effort和unsuccessful定位到K段。 该段最后一句提到，如果你的工作场所从一开始就不是一个工作与生活可能达到平衡的环境，那么你在个人层面上为平衡工作与生活所做的任何努力都将是徒劳的。由此可知，题干是对该名内容的同义转述。其中Without organisational support对应原文中的Ifyour workplace isn't an environment where work-life balance is possible in the first place, 而any personal effort to maintain work-life balance will be unsuccessful对应原文中的 any effort you attempt to make toward it on a personal level will be in vain。"
+        },
+        {
+          "number": 43,
+          "stem": "The question of how to achieve work-life balance has long been the main subject of discussion among workers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "长期以来，如何实现工作与生活的平衡这一问题一直是员工们讨论的主要话题。 A。由题干关键信息The question of how to achieve work-life balance和the main subject of discussion among workers定位到A段。该段前两句提到，很少有话题像工作与生活的平衡这样被无休止地分析。多年来，对这种神秘状态的追求主导了围绕职业展开的讨论。由此可知，题干是对原文内容的概括总结。其中题寺中的work-life balance属于原词重现， The question of how to achieve work-life balance对应原文中的The quest to attain this mysterious state，而has long been the main subject of discussion among workers对应原文中的 has dominated discussion around careers for years。"
+        },
+        {
+          "number": 44,
+          "stem": "You may not actually experience emotional wellbeing at home if you remain occupied with what happened at work.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "如果你仍然想着工作中发生的事情，那么你在家里可能不会真正体验到情感上的幸福。 H。由题干关键信息not actually experience emotional wellbeing at home和remain occupied with what happened at work定位到H段。该段第三句提到，如果压力的潜在情绪来源仍然存在，那么你在家里度过的时间可能并不愉快。接着文章引用莱希纳的话提到:“我们回到家，尽管身体在家里，但精神上我们可能仍然在处理工作中发生的事情。我们并不是真的在家。”由此可知，题干是对原文内容的概括总结。其中 You may not actually experience emotional wellbeing at home对应原文中的the time you actually spend at home may not be enjoyable, 而过you remain occupied with what happened at work对应原文中的mentally we still may be processing things that happened at work。"
+        },
+        {
+          "number": 45,
+          "stem": "Some researchers suggest that work-life balance is not a goal to achieve, but a process for life to be adjusted promptly.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "一些研究人员认为，工作与生活的平衡不是一个要实现的目标，而是一个需要及时调整的终身过程。 C。由题干关键信息Some Researchers 、work-life balance is not a goal to achieve和a process forlife to be adjusted promptly定位到C段。该段第二、三句提到，一些研究人员现在鼓励我们不要再把工作与生活的平衡视为一项你要么达到，要么没有达到的成就。相反，他们认为它可能更像是一个终身的过程一一一个需要自我意识和及时调整的、持续且永无止境的练习。由此可知，题干是对原文内容的概括总结，其中 Some researchers 、work-life balance 和suggest属于原词重现，work-life balance is not a goal to achieve对应原文中的stop thinking about work-life balance as an achievement that you either hit or don\"t，而a process for life to be adjusted promptly对应原文中的a lifelong process...timely adjustments。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The weakening of the human connection to nature might be good for economic growth but is bad for people. A tipping point was reached in 2020 when human-made materials — such as steel, concrete and plastic — were found to weigh more than all life on Earth. Continuing to grow concrete forests rather than real ones is shortsighted. Simply being in the nearest wood has such health benefits that the Woodland Trust successfully lobbied for it to be prescribed by doctors. Yet slipping from popular culture is the wonder and beauty of the natural world. For every three nature-related words in hit songs of the 1950s, researchers found, there was only slightly more than one 50 years later . It is not a moment too soon that teenagers will be able to take a natural history test given that for decades children have been able to name more video game characters than wildlife species. Part of remedying this social disease would be for parliament to pass a “right to grow ” law, allowing anyone to turn underused public spaces into vegetable and fruit gardens. The idea is for people to get back in touch with the soil — while producing food sustainably. Vegetable planting has a respectable tradition. In April 1649, locals responded to high prices and food shortages by cultivating vegetables on common land in Southern England. The practice of throwing seed bombs to turn vacant plots of land green took off in 1970s New York, and has been revived (使复活) by green-thumbed (有园艺才能的) social media influencers who defy local US regulations in a war on ugly spots in cities. Apart from the urgent ta sk of providing more healthy nutrients to those who increasingly ca n’t afford them. Publicly accessible fruit and vegetable gardens connect what we eat to where it comes from —the means of production, if you will . They can make unlovely spaces lovely, and marry use and beauty as well as help promote a sense of community. Plants are also, of course, our first defense against species loss and climate change. Such planting is a small step for humanity — in the right direction."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author want to emphasize in the first paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The year 2020 was a big turning point in human history."
+            },
+            {
+              "key": "B",
+              "text": "Economic growth benefits people little in the long run."
+            },
+            {
+              "key": "C",
+              "text": "It is unwise to weaken the human connection to nature."
+            },
+            {
+              "key": "D",
+              "text": "It is harmful to mankind to use human-made materials."
+            }
+          ],
+          "answer": "C",
+          "explanation": "作者在第一段中想强调什么? A) 2020年是人类历史上的一个重大转折点。 ” C) 削弱人与自然的联系是不明智的。 B) 从长远来看，经济增长对人们几乎没有益处。 D) 使用人造材料对人类有害。 ef本二iiiIGREE9R和-1 解文章第一段指出，人类与自然联系的弱化可能有利于经济增长，但对人类不利。接着提到，2020年，人造的”材料的总重量超过了地球上所有生物的重量，这凸显了环境问题的严重性。第一段围绕着人类与自然的联 ，系弱化这一现象及其不良后果展开，强调了削弱人类与自然的联系是不明智的。选项C与原文意思一致， ，故为答案。其他三项与原文内容不符，可排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What did researchers find about popular culture?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is increasingly detached from the natural world."
+            },
+            {
+              "key": "B",
+              "text": "It is filled with all kinds of video game characters."
+            },
+            {
+              "key": "C",
+              "text": "It is especially appealing to the taste of teenagers."
+            },
+            {
+              "key": "D",
+              "text": "It is still impacted by the hit songs of the 1950s."
+            }
+          ],
+          "answer": "A",
+          "explanation": "研究人员对大众文化有何发现? A) 它越来越脱离自然界。 C) 它特别迎合青少年的口味。 B) 它充斥着各种电子游戏角色。 D) 它仍然受到20世纪50年代热门歌曲的影响。 ef而iron和RE 角* 第二自首名指出，自然界的神奇与美丽却在大众文化中逐渐消失，随后对比了20世纪50年代热门歌曲中与自然相关的词汇和50年后的情况，以及孩子们能说出更多电子游戏角色而非野生动物物种的名字，这些都 ，体现出流行文化与自然界的脱节。选项A与原文意思一致，故为答案。文章中只提到孩子们能说出更多游 ，戏角色的名字，并非说流行文化充满游戏角色，可排除B。选项C的内容文中未提及，可排除。选项D是利 ，用文中片面信息杜撰的错误选项，可排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author propose people do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Take measures to ensure sustainable food development"
+            },
+            {
+              "key": "B",
+              "text": "Reconnect with nature through the right to grow."
+            },
+            {
+              "key": "C",
+              "text": "Stand by the parliament in fighting social diseases."
+            },
+            {
+              "key": "D",
+              "text": "Cover public spaces with fruit trees and vegetable plants."
+            }
+          ],
+          "answer": "B",
+          "explanation": "作者建议人们做些什么? A) 采取措施确保粮食的可持续发展。 C) 站在议会一边，与社会弊病作斗争。 B) 通过种植权重新与大自然建立联系。 D) 在公共场所种植果树和蔬菜。 ef三FREUnipoAPeCUEE和SR 解? 第三段指出，议会应该通过一项“种植权”的法律，允许任何人将未充分利用的公共空间变成蔬果园， 斩而这一想法的目的是让人们重新与土地建立联系，同时可持续地生产食物。选项B是对该段内容的概括总结，符合题意，故为答案。选项A、C、D的说法在文中没有依据，可排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What do we learn from the passage about vegetable planting?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It all started in 1649 in Southern England."
+            },
+            {
+              "key": "B",
+              "text": "It is protected by US government regulations."
+            },
+            {
+              "key": "C",
+              "text": "It has long been used to increase food supply and improve urban landscape."
+            },
+            {
+              "key": "D",
+              "text": "It has been popularized worldwide with the increasing influence of social media."
+            }
+          ],
+          "answer": "C",
+          "explanation": "关于蔬菜种植，我们从文章中了解到什么? A) 它始于1649年的英格兰南部。 C) 它长期以来被用于增加食物供应和改善城市景观。 B) 它受到美国政府法规的保护。 D) 随着社交媒体影响的不断扩大，它已在全球范围内普及。 ef ForobpinigEEED 解第四段首先举出1649年英格兰南部居民通过种菜应对食物短缺的例子，然后提到20世纪70年代纽约用投掷 “种子炸弹的方式来绿化空地的做法，现在这种做法又被有园艺才能的社交媒体影响人士复兴，可见蔬菜种 ，植长期以来被用于增加食物供给以及改善城市景观。选项C是对原文内容的概括总结，故为答案。其他三项均与原文不符，可排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What can publicly accessible fruit and vegetable gardens do apart from their practical functions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Raise people’s environmental awareness."
+            },
+            {
+              "key": "B",
+              "text": "Add to the great variety of plant species."
+            },
+            {
+              "key": "C",
+              "text": "Act as the first defense against natural disasters."
+            },
+            {
+              "key": "D",
+              "text": "Enhance people’s community spirit."
+            }
+          ],
+          "answer": "D",
+          "explanation": "除了实用功能外，公众可使用的蔬果园还能做些什么? A) 提高人们的环保意识。 C) 作为抵御自然灾害的第一道防线。 B) 增加植物种类的多样性。 、_________D)缮强人们的社区精神计根据题干关键词publicly accessible fruit and vegetable gardens定位到最后一段第二、三句。 解最后一段第二句提到公众可使用的蔬果园可以让不可爱的空间变得可爱，将使用和美观结合起来，并有助站于增强社区意识。选项D中community spirit是原文a sense of community的同义转述，故选D。选项A和B文中未提及，可排除。本段第三句提到植物是应对物种损失和和气候变化的第一道防线，而非公众可使用的蔬果园可以作为抵御自然灾害的第一道防线，C项与原文不符，可排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Engineering in the U.S. has long been a male-dominated profession. Fifty years ago, it looked like that might change. In 1970, the percentage of women majoring in engineering was less than 1%. In 1979, that number was 9%. Many hoped women would continue to enter the field at the same rate. But that ’s not what happened. Today, only 21% of engineering majors are women, a number largely unchanged since 2000. I am a historian who, along with my colleague s, surveyed 251 women engineers who graduated from college in the 1970s. These pioneers reflected on the challenges they faced — and had advice for women entering the field today. One survey taker explained, “The greatest challenge for me was continuing to believe in myself, when all the messages I was getting were that I would never be taken seriously or promoted or given raises at the same rate as men, who were clearly less qualified and not as smart as I was.” A chemical engineer who worked in manufact uring agreed, “You have to prove yourself just because you are female. And you have to work twice as hard!” A civil engineer said, “We are ‘women engineers.’ People don’t refer to a man as a ‘man engineer’ — he’s an engineer. We are constantly reminded that we don’t truly belong.” Another civil engineer stated, “On many levels, you’re never quite one of the groups.” Women also talked about family caregiving responsibilities. A retired vice president from a major chemical company stated, “Young women engineers are on an equal footing until they have children, then they struggle to balance work and family—and compete with men who don’t have the same household responsibilities.” But over the years, things have changed a lot. Young women engineers are more accepted mostly because there are just more of them. Many women engineers hailed the benefits of their chosen career. A program manager in manufacturing stated that engineering is the best degree. A mechanical engineer said, “It will give you the flexibility to do almost anything. It is also satisfying to see the effects of what you have done.”"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the passage say about the engineering profession in the United States?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has seen a change in attitude towards women engineers since 1979."
+            },
+            {
+              "key": "B",
+              "text": "It witnessed a significant increase in women engineers in the 1970s."
+            },
+            {
+              "key": "C",
+              "text": "It has experienced the gradual weakening of male dominance."
+            },
+            {
+              "key": "D",
+              "text": "It boasted the largest number of engineering majors in 2000."
+            }
+          ],
+          "answer": "B",
+          "explanation": "关于美国的工程职业，文章说了些什么? A) 自1979年以来，人们对女工程师的态度发生了变化。 “C) 工程职业经历了男性主导地位的逐渐削弱。 B) 20世纪70年代，女工程师人数大幅增加。 D) 2000年，美国拥有的工程专业学生最多。 可天RCRssioninike ETSGe 下外+ 文章第一段指出，美国的工程职业长期以来由男性主导，接着第二段提到在1970年女性主修工程学的比例不到1%，到1979年这一数字达到了9%，这说明在20世纪70年代女性工程师数量有显著的增加。B项与原 ，文表述一致，故为答案。其他三项均与文章内容不符，故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What does one survey taker say was her greatest challenge?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Not to feel superior to less qualified male engineers."
+            },
+            {
+              "key": "B",
+              "text": "Not to take seriously all the messages she was getting."
+            },
+            {
+              "key": "C",
+              "text": "Not to think highly of her qualifications when promoted or given a pay raise."
+            },
+            {
+              "key": "D",
+              "text": "Not to lose self-confidence though constantly discouraged or unfairly treated."
+            }
+          ],
+          "answer": "D",
+          "explanation": "一位受访者说她最大的挑战是什么? AI) 不要觉得自己比资质较低的男性工程师优越。 C) 在晋升或加薪时，不要自视甚高。 B) 不认真对待她收到的所有信息。 D) 即使经常受到挫折或不公平对待，也不能失去自信。 ReSO GUCCICEREGRD 解? 第四段引述的一位受访者的原话中提到，在她收到的所有信息都是关于自己受重视、获得晋升或加薪的速析 ，度永远也赶不上显然不如自己有资格、也不如自己聪明的男性时，她最大的挑战是要继续相信自己。也就是说，她最大的挑战是即使经常受到所折或不公平对待，也不能失去自信。D项与原文一致，故为答案。选项A 和B文中未提及，可排除。原文中表达的是在收到不利消息时仍保持自信，C项与原文不符，故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "How do women engineers frequently feel according to the two civil engineers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Disqualified on many levels."
+            },
+            {
+              "key": "B",
+              "text": "Excluded from the group."
+            },
+            {
+              "key": "C",
+              "text": "Overworked by their organizations."
+            },
+            {
+              "key": "D",
+              "text": "Looked down upon by male colleagues."
+            }
+          ],
+          "answer": "B",
+          "explanation": "根据这两位土木工程师的说法，女工程师经常会有什么感觉? A) 在很多层面上都不合格。 C) 所在组织安排的工作过多。 B) 被团体排斥。 D) 被男同事瞧不起。 SEEHOSISGCRiEEE9WRE 解》 第六段中提到，一位土木工程师说人们称呼她们是“女工程师”，而男性不会被称为“男工程师”，感党本自己不属于这个群体，另一位土木工程师也提到在很多层面上自己从来都不是其中的一员。这都体现出她 ，们感觉自己被排除在群体之外。B项符合原文，故为答案。其他三项文中均未提及，故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What probably makes young women engineers more accepted nowadays?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their success in gaining an equal footing."
+            },
+            {
+              "key": "B",
+              "text": "Their ability to balance work and family."
+            },
+            {
+              "key": "C",
+              "text": "The change in their responsibilities."
+            },
+            {
+              "key": "D",
+              "text": "The increase in their number."
+            }
+          ],
+          "answer": "D",
+          "explanation": "如今，让年轻的女性工程师更容易被接受的原因可能是什么? A) 她们成功地获得了平等地位。 C) 她们责任的变化。 B) 她们平衡工作和家庭的能力。 D) 她们人数的增加。 ETXIETOEIGROEIIIIE 解* 倒数第二段明确指出，年轻的女工程师被更多人接受，主要是因为她们的人数增多了。选项D与原文一析 ，致，故为答案。其他三项均不是年轻女性工程师如今更易被接受的原因，均可排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What can we conclude about many female engineers from the statement of a mechanical engineer?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They take great pride in their chosen career."
+            },
+            {
+              "key": "B",
+              "text": "They have reaped the benefits of being flexible."
+            },
+            {
+              "key": "C",
+              "text": "They enjoy doing engineering to the best degree."
+            },
+            {
+              "key": "D",
+              "text": "They have proved capable of doing almost anything."
+            }
+          ],
+          "answer": "A",
+          "explanation": "从一位机械工程师的陈述中，我们可以得出关于许多女工程师的什么结论? A) 她们为自己选择的职业感到自豪。 C) 她们喜欢把工程做到最好。 B) 她们已经从灵活性中获益。 D) 她们已经证明自己几乎无所不能。 SETRERRTSNIGISGCENJRRRR 解》 最后一段第一句提到，许多女工程师为自己选择的职业所带来的好处欢呼雀跃。最后一段结尾句引述了一本 ， 位机械工程师的原话，即“它 (工程学 ) 能让你录活地做几乎任何事情。看到自己所做工作产生的成效也会让人感到满足”。从以上两点可以推断，女工程师们对自己所选的职业感到自豪。选项A符合原文，故为答案。选项B中的being flexible虽与原文中的flexibility同义，但这是该机械工程师的直接陈述，无需扒 ，断，故排除。C项和D项与原文不符，故排除。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%9C%9F%E9%A2%98PDF/cet4_2024_12_1.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2024_12_1_ans.pdf"
+}

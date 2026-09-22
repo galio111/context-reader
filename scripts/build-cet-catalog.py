@@ -28,5 +28,5 @@ for file in sorted(directory.glob('cet*-*.json')):
             'questions': [{'number': q['number']} for q in section['questions']],
         } for section in paper['sections']],
     })
-(directory / 'catalog.json').write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+(directory / 'catalog.json').write_bytes((json.dumps(catalogue, ensure_ascii=False, indent=2) + '\n').encode('utf-8'))
 print(f'Validated {len(catalogue)} papers; catalogue contains no passages, options or answers.')

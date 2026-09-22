@@ -1,0 +1,1569 @@
+{
+  "id": "cet6-2022-06-2",
+  "level": 6,
+  "year": 2022,
+  "month": 6,
+  "set": 2,
+  "title": "2022 年 6 月六级 · 第 2 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2022-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Thinking kind thoughts about yourself and your loved ones can prove beneficial for Your overall wellbeing, empirical evidence has shown. Researchers carried out an investigation to explore the [[26]] between having kind thoughts and a person's psychological state. For the study, five groups of participants were presented with a different set of audio instructions, some of which encouraged the participants to think [[27]] about themselves and others which persuaded them to think in a self^critical manner. After listening to the audio instructions, the participants were asked to answer a series of questions. These included whether they felt agitated, how likely they were to show kindness to themselves and how [[28]] they felt to other individuals. The participants who were instructed to think kindly about themselves were more likely to exhibit a bodily response associated with being relaxed and feeling safe. Their heart rates also dropped, which is a healthy sign of a heart that can respond flexibly to situations. Yet, [[29]] , those who listened to the critical audio clips were noted as having a higher heart rate and sweat response afterwards, both of which [[30]] feelings of threat and distress. Having the ability to switch offthe body's natural threat response can [[31]] a person's immune system. This, in turn, gives them a greater likelihood of recovering quickly from illness. These findings help us to further understand some of our clinical trials research findings, where we show that individuals with [[32]] depression benefit particularly from self-awareness-based [[33]] therapy. They essentially learn to become more sympathetic to themselves.",
+        "The sense is that for people [[34]] to depression, meeting their negative thoughts and feelings with [[35]] is a radically different way; that these thoughts are not facts. It introduces a different way of being and knowing that is quite transformative for many people."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "adversely"
+        },
+        {
+          "key": "B",
+          "text": "amiably"
+        },
+        {
+          "key": "C",
+          "text": "boost"
+        },
+        {
+          "key": "D",
+          "text": "cognitive"
+        },
+        {
+          "key": "E",
+          "text": "compassion"
+        },
+        {
+          "key": "F",
+          "text": "connected"
+        },
+        {
+          "key": "G",
+          "text": "correlation"
+        },
+        {
+          "key": "H",
+          "text": "fascinated"
+        },
+        {
+          "key": "I",
+          "text": "indignantly"
+        },
+        {
+          "key": "J",
+          "text": "insulation"
+        },
+        {
+          "key": "K",
+          "text": "lavish"
+        },
+        {
+          "key": "L",
+          "text": "prone"
+        },
+        {
+          "key": "M",
+          "text": "recurrent"
+        },
+        {
+          "key": "N",
+          "text": "signify"
+        },
+        {
+          "key": "O",
+          "text": "surpass"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【语法判断工空格前面是定冠词 the, 可知空格处应为名词。 【语义判断】空格后面是介词短语 between having kind thoughts and a person's psychological state， 由此可以推断空格处词义应为“相互关系”,故名词 G) correlation 为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【语法判断】空格前为动词 think,且句子主体结构完整,故空格处应为副词 ,修饰 think。 【语义判断】空格所在句意思是“研究人员向五组参与者提供了一套不同的音频指示,其中一些鼓励参与者友好地看待自己,另一些则说服他们以自我批评的方式进行思考>。根据语义,空格处所填词应该与 think in a self-critical manner“ 以自我批评的方式进行思考?语义相对,由此确定副词 B) amiably友好地,亲切地?为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "F",
+          "explanation": "空格在 how 之后，作 felt 的表语，并与 to 搭配。调查询问参与者与其他人的联系感，F) connected 表示“有联系的”，符合句意。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【语法判断】空格前面为转折连词 yet \"然而”,前面一句描述的是那些被要求善待自己的参与者的 【语义判断空格所在句描述的是收听批判性音频片段的参与者的情况,这两种参与者应该是有不同反应的。A) adversely“相反地”符合句意,故为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【语法判断】空格所在句是一个定语从名,先行词是 a higher heart rate and sweat response,关系词 which 后缺少谓语,因此空格处应为动词。 【语义判断】本名意思是“听了批判性音频片段的人被发现心率加快,并在随后出现出汗反应,这两种反应都意味着威胁和痛苦的感觉.”改 N) signify意味着?为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【语法判断】空格前是动名词短语 having the ability to switch off the body's natural threat response“有能力屏蔽身体对威胁的自然反应”作主语,a person's immune system 为宾语,句子缺少 6月 39 谓语动词,且谓语动词位于情态动词 can 之后,故空格处应为动词原形。 【语义判断】boost a person”s immune system 意思是“增强一个人的免疫系统”,C) boost“推动,促进”符合句意,故为答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【语法判断】空格后面为名词 depression, 因此空格处应为形容词。 【语义判断】本句意思是“这些发现帮助我们进一步理解一些临床试验研究结果, 我们发现， _ 抑郁症患者尤其受益于基于自我意识的疗法”MD recurrent“重复出现的;一再发生的”符合语境,故为答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【语法判断空格所在处是一个介词短语 from self-awareness-based 33 therapy, 其中 self- awareness-based 和空格处所填词都用来修饰名词 therapy 治疗,疗法”,故空格处最有可能是名词或形容词。 ， 【语义判断】cognitive therapy 是一个专业术语， 意思是“认知疗法”符合语境,故D) cognitive为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【语法判断】 空格所在处 for people _34 to depression 是介词短语作状语,空格处应为形容词或分词 ,与 to depression 一起作后置定语修饰 people。 【语义判断本前文提到患抑郁症的人,推测这里也是指容易抑郁的人,people prone to depression 意思是“容易抑郁的人”,L) prone 符合语境,故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【语法判断】空格前面是介词 with, 因此空格处应填入一个名词。 【语义判断】上一段提到复发性抑郁症患者受益于基于自我意识的认知疗法,他们本质上学会了对自己更加同情,空格所在名进一步解释了这种现象,可知空格处所填词与上文的 sympathetic 意思一致,E) compassion “同情?符合语境,故为答案。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-2-b",
+      "type": "matching",
+      "title": "Saving Our Planet",
+      "paragraphs": [
+        "A) In the long view, the human relationship with forests has been one of brutal destruction, but even it carries elements of slow hope. In the Middle Ages, there was no shortage of timber in most parts of the world, and few saw cutting down forests as a problem. Yet in 1548 the people of Venice estimated that an important timber supply would last only 30 years at their current rate of usage- but different forest management would make it possible to meet the demand for many centuries to come. The idea of preserving resources came out of a concern for the future: a fear of using up resources faster than they could be replenished (补充).",
+        "B) Economic interests were at the core of this understanding of trees and forests. It would take more than three centuries before scientists began to understand that timber production is not the only, and possibly not the most important, function of forests. The late 19th and early 20th century saw an increasing recognition that forests serve as habitats for countless animal and plant species that all rely on each other. They take over protective functions against soil erosion and landslides (塌 方 )；they make a significant contribution to the water balance as they prevent surface runoff; they filter dirt particles, greenhouse gases and radioactive substances from the air; they produce oxygen; they provide spaces for recreation and they preserve historic and prehistoric remains. As a result, forests around the world have been set aside as parks or wilderness areas.",
+        "C) Recent years have seen a big change in our view of forests. Peter Wohlleben's book The Hidden Life o f Trees (2015), an international bestseller, suggests that trees can warn each other of danger through a “wood wide web“ of roots and fungi (真 菌 ).They support each other through sharing of nutrients and information, and they even keep ancient stumps alive by feeding them solutions of sugars. Such insights have made us aware of deep ecological relationships between humans and the more-than-human world.",
+        "D) Awareness of ecologies is a recent phenomenon. It was not until the 1940s that the concept of the “environment“ embracing all living and nonliving things developed. In the 1970s, the term “environment\" gained currency, becoming widely adopted in the English and Romance languages, and as “UmwelC (\"'surrounding world^^) in German. The emergence of the idea led to the rise of environmental agencies, regulations and environmental studies, and to environmental science as new, integrated academic disciplines. It was in 1956 that the very first bachelor of science in environmental studies was awarded, at the State University of New York College of Forestry at Syracuse. Since the 1970s- with the rise of “environmentalism\"- environmental studies programmes have sprung up at hundreds of universities. There is (slow) hope in the fact that scholars from many different disciplines have adopted the term “environment\" over the past decades. They are exploring intricate connections within and between complex ecologies, as well as the impact that human environment-making (through techno-industrial, economic and other manipulative developments) has had on the biosphere.",
+        "E) The rise of the idea of the environment and a scholarly understanding of ecological processes has influenced new technologies and also politics. We have come to ask questions about vulnerability and risk, world ecologies, and the relationship between nature and power. The search for an adequate response to climate change occupies centre stage in international diplomacy.",
+        "F) Social and environmental activists, scientists and indigenous groups have called the Paris Agreement of the United Nations Climate Change Conference in December 2015 insufficient, weak, or compromised. To some extent, they are right: climate change has already destroyed tens of thousands of livelihoods, and the situation will worsen in the near future for millions of mostly poorer people, who will join the ranks of those who have already been displaced by climate change and extreme weather events. But the Paris Conference nevertheless marked a historic step toward the recognition of the need for action on climate change, the cutting of carbon emissions, and world cooperation. There were 195 nations that came to the table in Paris and agreed to limits on emissions. Historically, nothing comparable had happened prior to this. Before the 20th century, a handful of scientists had been interested in the theoretical relationship between greenhouse gases and climate change, but only the empirical evidence accumulated since the late 20th century established a clear connection between the burning of fossil fuels and a vastly accelerated rise in global temperatures.",
+        "G) The current crisis is not the first that humans have encountered, and a look at the struggles with pollution in recent history reveals transformations that once seemed unimaginable. The \"London fog”that came to define the capital through British novels and thrillers is in reality smog or smoke, a legacy of industrialisation. After a century of ignorance, London was hit by the Great Smog of December 1952- the worst air-pollution event in the history of the United Kingdom which caused the deaths of approximately 12,000 people. Shortly thereafter, public initiatives and political campaigns led to strict regulations and new laws, including the Clean Air Act (1956). Today, London has effectively reduced traffic emissions through the introduction of a Congestion Charge Zone in 2003, and an Ultra Low Emission Zone in 2019.",
+        "H) Scientific evidence that we are living in an era of climate change, resource exhaustion and potential ecological disaster is overwhelming. How do we motivate a public exhausted by never-ending scenarios of doom and disaster, when the challenges seem so huge and so impossible to solve? Statistics about extinction and the gloom of decline will not in themselves get us out of our often self^created ecological traps: instead, they are more likely to result in paralysis and inaction.",
+        "I) We need stories and histories of change and transformation: ecological stories that make us confront the fact that human power is potentially destructive, and that the survival of our species on this planet depends on the preservation of soil and water, and the habitats and ecological systems.",
+        "J) It is time that we showed successes and accelerations in ecological awareness, action and restoration: stories that include past successes and future visions about the rise of urban gardening and of renaturalised riverscapes, of successful protests against polluted air and water, of the rise of regional markets and slow food, and the planting of trees around the globe, of initiatives and enterprises that work towards ecological restoration. The reality of ecological curses seems far greater than the power of the hopes left at the bottom of Pandora's box. But if we believe that nothing can be changed, then we are giving up our opportunity to act.",
+        "K) Today’s saving powers will not come from a deus ex machina (解 围 之 神).In an ever-more complex and synthetic world, our saving powers won't come from a single source, and certainly not from a too-big-to-fail approach or from those who have been drawn into the whirlpool of our age of speed. Hope can work as a wakeup call. It acknowledges setbacks. The concept of slow hope suggests that we can't expect things to change overnight. If the ever-faster exhaustion of natural resources (in ecological terms) and the \"'shrinking of the present^^ (in social terms) are urgent problems of humans, then cutting down on exhaustive practices and working towards a \"stretching of the present\" will be ways to move forward."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Climate change has wrought havoc on the lives of tens of thousands of people.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【精析卫同义转述题。F)段定位句提到,气候变化已经摧毁了数以万计的人的生计,而且在不久的将来,这种状况将恶化,数百万人(其中大部分是穷人)将加入那些已经因气候变化和极端天气事件而流离失所的人的行列。题干中的 wrought havoc 对应原文中的 destroyed,题干中的 the lives of tens of thousands of people 是对原文中 tens of thousands of livelihoods 的同义转述,故答案为F) 。"
+        },
+        {
+          "number": 37,
+          "stem": "It took scientists a long time to realise that the function of forests goes far beyond providing humans with timber.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】同义转述题。B)段定位句指出,过了三个多世纪,科学家们才开始认识到提供木材不是森林的唯一功能,也可能不是它最重要的功能。题干中的“took... a long time”是对原文中 would take more than three centuries 的同义转述,题干中的 function of forests 直接对应原文内容,题干中的 goes far beyond 对应原文中的 not the only， and possibly not the most important, 题干中的 providing humans with timber 对应原文中的 timber production ,故答案为 B) 。"
+        },
+        {
+          "number": 38,
+          "stem": "There is abundant evidence that we are now facing a possible ecological disaster.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】同义转述题。H)段定位句提到,大量的科学证据表明,我们正生活在一个气候变化、资源枯竭并可能面临生态灾难的时代。题干中的 abundant evidence 是对原文中“Scientific evidence that. . .is overwhelming”的同义转述,题于中的 possible ecological disaster 对应原文中的 potential ecological disaster,故答案为 H) 。"
+        },
+        {
+          "number": 39,
+          "stem": "Environmental science became academic disciplines only some sixty years ago.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】细节归纳题。D)段定位句提到,环境”这一概念的出现导致了环保机构、法规和环境研究的兴起,并使环境科学成为新的、综合的学术学科。1956 年,位于锡拉丘效的纽约州立大学林业学院授予了第一个环境研究的理学学士学位。题于中的environmental science 和 academic disciplines 直接对应原文内容,由让 was in 1956 that the very first bachelor of science ip environmental studies was awarded 可知,环境科学成为学术学科至今差不多有六十几年,题干中 Some sixty years ago 与此对应 ,故答案为D) 。"
+        },
+        {
+          "number": 40,
+          "stem": "Things cannot change overnight, but reducing the consumption of natural resources will help solve the ecological crisis.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【精析】〗同义转述题。K)段定位句提到，缓慢的希望?这一概念表明 ,我们不能期望事情在一夜之间改变。如果自然资源枯竭的速度加快(生态方面)和“当下的鞭缩”(社会方面)是人类面临的紧人迫问题,那么减少竭尽资源的做法和努力实现“当下的延伸?将是向前发展的方法。题干中的 things cannot change overnight 是对原文中 we cant expect things to change overnight 的同义转述,题二中的 reducing the consumption of natural Tesources 是对原文中 cutting down on exhaustive practices 的同义转述,题干中的 will help solve the ecological crisis 是对原文中 will be ways to Imove forward 的同义转述,故答案为 K) 。"
+        },
+        {
+          "number": 41,
+          "stem": "Human perception of forests has undergone a tremendous change in the past years.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】同义转述题。C) 段定位句指出, 近年来， 人们对森林的看法发生了很大变化。题干中的了 the past years 是对原文中 recent years 的同义转述,题干中的 a tremendous change 是原文中的 a big change 的同义表达, 题干中的 human perception of forests 对应原文中的 our view of forests,故答案为 C) 。"
+        },
+        {
+          "number": 42,
+          "stem": "Recent history shows reduction of pollution, once seemingly impossible, can actually be accomplished.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】同义转述题。G)段定位句指出,当前的危机并不是人类第一次遇到的危机,纵观近年来与污染的斗争,我们会发现一些曾经看起来难以想象的变化。由此可知,题干是对 G)段定位句的归纳概括。题干中的 recent history 直接对应原文内容,题干中的 reduction of pollution 对应原文中的 struggles with pollution，题干中的 once seemingly impossible 是对原文中 once seemed unimaginable 的同义转述,故答案为 G) 。"
+        },
+        {
+          "number": 43,
+          "stem": "People began to consider preserving natural resources when they feared they would have nothing to use in the future.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】同义转述题。A)段定位句指出,保护资源的想法来自于人们对未来的担忧:人们担心消耗资源的速度超过它们的补充速度。题干中的 consider preserving natural resources 对应原文中的 the idea of preserving resources, 题干中的 when they feared they would have nothing to use in the future 是对原文中 a fear of using up Tesources faster than they could be replenished 的同义转述,故答案为 A) 。"
+        },
+        {
+          "number": 44,
+          "stem": "If we doubt our ability to reverse ecological deterioration, we are throwing away the chance to take action.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J 段最后一句指出，相信一切都无法改变，就是放弃行动的机会。题干中的 doubt our ability 与原文 believe that nothing can be changed 对应。"
+        },
+        {
+          "number": 45,
+          "stem": "How to respond effectively to climate change has become the focus of international diplomacy.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】同义转述题。E)段定位句指出,寻求对气候变化做出适当回应成了国际外交的中心。题干中的 how to respond effectively to _ climate change 对应原文中的 the search for an adequate Tesponse to climate change,题干中的 become the focus 是对原文 occupies centre stage 的同义转述,题干中的 international diplomacy 直接对应原文内容,故答案为 E) 。 年6月 42"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Since American idol star Taryn Southern started composing music with AI in 2017, musicians all over the world have begun wondering about the implications of AI and modem technology where music production is concerned. Using AI in the creation of music is perceived by some as a helpful tool and by others as almost”the beginning of the end”. In Taryn's case, AI software enabled her to communicate melodies and chords that she didn't know how to put together herself. The end product was therefore a collaborative effort, rather than a piece entirely produced by technology. Taryn's story has a distinctly positive feel that highlights the advantages of using AI in music production. It can serve as a source of inspiration, and as an ideal jumping-off point should a musician be hit with writer's b/oc左(文思枯竭). Contrary to seeing AI as a tool, some musicians consider it to be hugely detrimental to the music scene. At the moment, because such technology is still so young, the music it's producing is not necessarily what we want to hear. In short, it's not of great quality. Those who have produced their own music, or even fans of authentic, artistic music, will also argue that a computer could never emulate the work (and human touch) of a true musician. Music has been an integral part of the story of humans for ages; in fact, the first known piece of music is believed to be around 3,400 years old. Songs have long been used as a means of communicating messages and folk stories, covering everything from societal ethics to world history. Since many people see music as such an inherently human expression, it is often considered as too precious to impart to technology. The thought of a computer generating a “random“ piece of music that hasn't been painstakingly created by an artist is almost seen as sacrilegious (亵渎神圣的). Regardless of which side of the argument you fall on, it seems likely that the use ofAI in music production will only become more frequent. Our modem world is preoccupied with technological advancements. Instead of shying away from the idea of this bleak future, the best approach to take is one of optimism and curiosity. While there are always bound to be stubborn old-school musicians who refuse to use tech, music producers should consider AI as something to be embraced. AI music software is still very much in its infancy, but with more investors interested in the development and outcomes of such technology, and considering the rapid growth rate of other tech advances in recent years, it's only a matter of time before Ai-produced music is seen as the new norm."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "How do some musicians perceive using AI in creating music?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It would help to produce more music idols."
+            },
+            {
+              "key": "B",
+              "text": "It would be detrimental to music production."
+            },
+            {
+              "key": "C",
+              "text": "It would hinder the understanding of authentic music."
+            },
+            {
+              "key": "D",
+              "text": "It would be the beginning of a new era in music creation."
+            }
+          ],
+          "answer": "B",
+          "explanation": "首段指出，一些人把人工智能用于音乐创作视为“终结的开始”；第三段又说明部分音乐家认为它会对音乐领域造成很大危害。这体现了他们对人工智能音乐创作的消极态度，故选 B。"
+        },
+        {
+          "number": 47,
+          "stem": "What does Taryn Southern's story illustrate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "AI technology is conducive to music composition."
+            },
+            {
+              "key": "B",
+              "text": "Musicians will be unable to create music without high tech."
+            },
+            {
+              "key": "C",
+              "text": "Musicians are often at their wits, end in their creative effort."
+            },
+            {
+              "key": "D",
+              "text": "AI technology is indispensable to creating melodies and chords."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析了事实细节题。文章第二段第一句提到,人工智能软件的使用使塔琳能够传达出自己不知道该如何组合的旋律以及和弦,第三句进而指出,这突出了在音乐创作中使用人工智能的优势:它既可以作为灵感的来源,又可以充当音乐家文思村竭时的一个理想跳板,因此这个故事说明该技术有利于音乐创作。故答案为 A) 。"
+        },
+        {
+          "number": 48,
+          "stem": "Why are some musicians opposed to the use ofAI in creating music?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Music produced with AI technology lacks humanness."
+            },
+            {
+              "key": "B",
+              "text": "Music created with AI technology is easily emulated."
+            },
+            {
+              "key": "C",
+              "text": "It will depreciate humans’role in music composition."
+            },
+            {
+              "key": "D",
+              "text": "It will deplete young musicians, creative inspiration."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】事实细节题。文章第三段最后一句指出， 那些自己创作过音乐的人,甚至是那些原创艺术音乐的爱好者也会认为电脑永远无法模仿真正音乐家的作品(以及人情味), 说明他们认为使用人工智能技术创作的音乐缺乏人性的内涵,故答案为A)。"
+        },
+        {
+          "number": 49,
+          "stem": "Why do many people think music is too precious to impart to AI technology?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It cannot be created without pains."
+            },
+            {
+              "key": "B",
+              "text": "It cannot be produced at random."
+            },
+            {
+              "key": "C",
+              "text": "It is part of human life."
+            },
+            {
+              "key": "D",
+              "text": "It is human specific."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析了事实细节题。第四段第三句提到,许多人将音乐视为人类固有的表达方式,因此常常觉得它太过珍贵 ,无法由技术创作完成,说明原因在于音乐是人类特有的,故答案为D) 。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author think of the future ofAI music?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will continue to arouse the interest of music investors."
+            },
+            {
+              "key": "B",
+              "text": "It has the prospect of becoming the norm in the future."
+            },
+            {
+              "key": "C",
+              "text": "It will be gradually accepted by old-school musicians."
+            },
+            {
+              "key": "D",
+              "text": "It may eventually lose its freshness and appeal."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】事实细节题。最后一段最后一句指出,越来越多的投资者对这种技术的发展和成果产生兴趣,加之近年来其他技术飞速进步,利用人工智能创作音乐成为新常态只是时间问题,说明未来是有可能实现的,故答案为 B) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "A few weeks ago, a well-meaning professor tried to explain the physiological process behind viruses and the human body in a tweet and was immediately criticized for a mistake in his information. He then issued an apology and deleted his erroneous tweet. Communicating science beyond the academic bubble is necessary to augmenting public understanding of health and environmental issues and helping individuals make well-informed personal decisions. However, scientists who engage in science communication must acknowledge that even in their area, their expertise is deep but narrow. They need to recognize the constraints in their own knowledge. That is not to suggest that they only write or present on their own research, but rather, that they consult with an expert if the topic is outside of their discipline. Fact-checking with a scientist who works in the specialty will prevent the unintentional",
+        "spread of misinformation, and the process of doing so may yield tiny pieces of interesting new information that can be incorporated.",
+        "Some have argued that the public is not educated enough to understand scientific information, especially for any complex phenomena, but this is absurd. Science instruction can be found at all levels of public education with most secondary schools offering classes on biology, physics, and chemistry. If anything, social media has shown that the public craves knowledge based on a solid scientific foundation. Even the public discourse that follows most scientific articles shows that online readers can understand even the most baffling of scientific principles.",
+        "It is equally imperative to emphasize that being an expert on a topic does not automatically make a scholar qualified to communicate it to a nonscientific audience. A number of scientists recently have been offering public-aimed explanations of scientific phenomena. Even though they have appropriate credentials, they often do very little in the way of explaining. One biologist shared an intricate analogy involving a library, books, paper, a recipe, ingredients, and a cake to explain the process behind vaccines. Any explanation that requires a written key to keep track of what each item represents is not a clear example for public consumption. Science communication is a science in and of itself. It requires rigorous training and instruction. A scientist should take communication courses that can teach a person how to identify and eliminate jargon and how to develop effective analogies to explain complex concepts. One cannot assume communication expertise-imagine if someone just decided that they were a physicist and started trying to contribute to the field without the necessary background. Doing a poor job communicating science to the public will only create confusion and widen the gap between science and society, a gap that scientists are trying to close."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say about communicating science to the general public?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will help them to keep abreast of the latest scientific developments."
+            },
+            {
+              "key": "B",
+              "text": "It is a necessary means to improve their understanding of scientific issues."
+            },
+            {
+              "key": "C",
+              "text": "It will get them more involved in academic debates on environmental problems."
+            },
+            {
+              "key": "D",
+              "text": "It is an effective way to augment scientists’influence beyond the academic circle."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析卫事实细节题。文章第二段独句成段 ,强调了向学术圈之外,也就是普通大众传播科学信息的必要性,指出这样做能够增强公众对健康和环境问题的理解,帮助人们做出明智的个人决策,可知作者认为向公众传播科学信息可以提高大家对科学问题的理解,故答案为 B) 。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the author advise scientists do to deal with topics outside of their specialty?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Write or present on them from new angles."
+            },
+            {
+              "key": "B",
+              "text": "Utilize information from diverse sources."
+            },
+            {
+              "key": "C",
+              "text": "Turn to a specialist for professional help."
+            },
+            {
+              "key": "D",
+              "text": "Fact-check with colleagues in their field."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】细节理解题。第三段第三句对科学家们提出建议,即如果探讨的话题超出了他们的学科范围,他们应该咨询相关的专家,C)项是对定位句后半部分的同义转述,故答案为 C) 。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the author say we can learn from social media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A solid academic foundation is essential to understanding baffling scientific principles."
+            },
+            {
+              "key": "B",
+              "text": "Modem technology has facilitated communication between scientists and the public."
+            },
+            {
+              "key": "C",
+              "text": "Scientific articles have gained increasing popularity among the general public."
+            },
+            {
+              "key": "D",
+              "text": "The public's understanding of science is much better than some have claimed."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】 推理判断题。作者在定位部分提到从社交媒体得到的两点发现:一是公众渴望基于坚实科学基础的知识;二是一些在线读者甚至可以理解最令人困惑的科学原理;而本段开头提到,一些人认为公众无法理解科学信息,特别是关于任何复杂现象的信息,由此可以推知,社交媒体所体现的公众对于科学知识的理解力超出某些人的预估， 故答案为D)。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the example of the biologist who shared an intricate analogy show?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is helpful to use illustrations in explaining scientific phenomena."
+            },
+            {
+              "key": "B",
+              "text": "It is imperative to have appropriate titles to explain scientific issues."
+            },
+            {
+              "key": "C",
+              "text": "A learned scholar is not necessarily a qualified science communicator."
+            },
+            {
+              "key": "D",
+              "text": "A nonscientific audience cannot duly understand principles of science."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】 推理判断题。定位句提到,一位生物学家分享了一个复杂的类比,涉及图书馆、书籍、纸张、 食谱配料和蛋糕 ,来解释疫苗背后的过程。而作者在随后一句评论说,任何解释,如果需要书面图例来记录每个条目所代表的内容,那就不是适合公众了解的清晰范例,可见作者认为这位生物学家的方式是不恰当的,他并不是一位合格的科学传播者,这呼应了定位句所在段落开头提出的观点,故答案为 C) 。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author suggest scientists do to close the gap between science and society?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Explain complex concepts scientifically."
+            },
+            {
+              "key": "B",
+              "text": "Make appropriate use of scientific terms."
+            },
+            {
+              "key": "C",
+              "text": "Take courses in public speaking."
+            },
+            {
+              "key": "D",
+              "text": "Develop communication skills."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】 推理判断题。最后一段最后一句指出,科学家们一直试图弥合科学界与社会之间的差距， 而如果在向公众传播科学方面做得不好,只会造成混乱,扩大这一差距, 而该段第二、三句提到了做好科学传播的方法,建议科学家们接受严格的培训和指导,学习传播方面的课程,可见作者认为他们应该培养传播技巧 ,故答案为 D) 。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%9C%9F%E9%A2%98Word/2022%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%20%E7%AC%AC%E4%BA%8C%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97%20.pdf"
+}

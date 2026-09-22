@@ -1,0 +1,1647 @@
+{
+  "id": "cet4-2024-06-2",
+  "level": 4,
+  "year": 2024,
+  "month": 6,
+  "set": 2,
+  "title": "2024 年 6 月四级 · 第 2 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2024-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "A team of researchers led by Priyanka Joshi examined the degree to which men and women relied on “communicative abstraction” to verbally convey their ideas and emotions. Communicative abstraction, according to the researchers, reflects the tendency of people to use “abstract speech that focuses on the broader picture and [[26]] purpose of action rather than concrete speech focusing on details and the means of [[27]] action.” Interestingly, they found that men were far more likely to speak in the abstract than were women. To arrive at this [[28]], the researchers examined the linguistic (语言的) patterns of men and women in over 600,000 blog posts written on websites. To do this, the researchers computed abstractness ratings for [[29]] 40,000 commonly used words in the English language. Words considered to be concrete could be easily visualized such as “table” or “chair”. Words that were more [[30]] to visualize, for example, “justice” or “morality” were considered to be more abstract. They found that men used [[31]] more abstract language in their blog posts. What is the [[32]] of this effect? The researchers suggest that power differences between the genders — that is, men having more power in society — might be a key determinant (决定因素) .For instance, in a follow-up study conducted with a sample of 300 students, the researchers [[33]] power dynamics in an interpersonal setting to see if this would influence communicative abstraction. They found that participants in a high -power interviewer role were more likely to give abstract descriptions of behaviors than were participants in a low-power interviewee role. This suggests that communicating more abstractly does not reflect a [[34]] tendency of men or women but rather [[35]] within specific contexts."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "approximately"
+        },
+        {
+          "key": "B",
+          "text": "attaining"
+        },
+        {
+          "key": "C",
+          "text": "conclusion"
+        },
+        {
+          "key": "D",
+          "text": "difficult"
+        },
+        {
+          "key": "E",
+          "text": "emerges"
+        },
+        {
+          "key": "F",
+          "text": "fixed"
+        },
+        {
+          "key": "G",
+          "text": "ignored"
+        },
+        {
+          "key": "H",
+          "text": "legally"
+        },
+        {
+          "key": "I",
+          "text": "manipulated"
+        },
+        {
+          "key": "J",
+          "text": "recommended"
+        },
+        {
+          "key": "K",
+          "text": "refraining"
+        },
+        {
+          "key": "L",
+          "text": "signals"
+        },
+        {
+          "key": "M",
+          "text": "significantly"
+        },
+        {
+          "key": "N",
+          "text": "source"
+        },
+        {
+          "key": "O",
+          "text": "ultimate"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "attaining"
+            },
+            {
+              "key": "C",
+              "text": "conclusion"
+            },
+            {
+              "key": "D",
+              "text": "difficult"
+            },
+            {
+              "key": "E",
+              "text": "emerges"
+            },
+            {
+              "key": "F",
+              "text": "fixed"
+            },
+            {
+              "key": "G",
+              "text": "ignored"
+            },
+            {
+              "key": "H",
+              "text": "legally"
+            },
+            {
+              "key": "I",
+              "text": "manipulated"
+            },
+            {
+              "key": "J",
+              "text": "recommended"
+            },
+            {
+              "key": "K",
+              "text": "refraining"
+            },
+            {
+              "key": "L",
+              "text": "signals"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "source"
+            },
+            {
+              "key": "O",
+              "text": "ultimate"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) ultimate ( ad 最终的，最后的) 空格前是名词短语the broader picture和连词and，空格后是名词短语purpose of action，由此可知， 空格处应填入一个形容词或分司，充当purpose 的定语。 本段提出“交际抽象”这一术语，空格句具体介绍抽象语言的特点，即更关注大局和最终目标， 而非细节和手段。ultimate purpose意为“最终目标”，故ultimate符合语境。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "attaining"
+            },
+            {
+              "key": "C",
+              "text": "conclusion"
+            },
+            {
+              "key": "D",
+              "text": "difficult"
+            },
+            {
+              "key": "E",
+              "text": "emerges"
+            },
+            {
+              "key": "F",
+              "text": "fixed"
+            },
+            {
+              "key": "G",
+              "text": "ignored"
+            },
+            {
+              "key": "H",
+              "text": "legally"
+            },
+            {
+              "key": "I",
+              "text": "manipulated"
+            },
+            {
+              "key": "J",
+              "text": "recommended"
+            },
+            {
+              "key": "K",
+              "text": "refraining"
+            },
+            {
+              "key": "L",
+              "text": "signals"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "source"
+            },
+            {
+              "key": "O",
+              "text": "ultimate"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) attaining ( v 获得;实现; 达到 ) 空格前是介词of，空格后是名词action，由此可知，空格处应填入一个形容词或分司，充当action 的定语。 该句意为“研究人员认为，交际抽象反映了人们更愿意使用“专注于更大格局和行动最终目标的抽象语言，而非专注于细节和_ 行动的手段的具象语言”的倾向，代入选项可知，attaining符合语境。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "attaining"
+            },
+            {
+              "key": "C",
+              "text": "conclusion"
+            },
+            {
+              "key": "D",
+              "text": "difficult"
+            },
+            {
+              "key": "E",
+              "text": "emerges"
+            },
+            {
+              "key": "F",
+              "text": "fixed"
+            },
+            {
+              "key": "G",
+              "text": "ignored"
+            },
+            {
+              "key": "H",
+              "text": "legally"
+            },
+            {
+              "key": "I",
+              "text": "manipulated"
+            },
+            {
+              "key": "J",
+              "text": "recommended"
+            },
+            {
+              "key": "K",
+              "text": "refraining"
+            },
+            {
+              "key": "L",
+              "text": "signals"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "source"
+            },
+            {
+              "key": "O",
+              "text": "ultimate"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) conclusion (\" 结论，推论) 空格前是代词this，空格后是逗号，由此可知，空格处应填入一个名词。 上文前述了研究结论，即男性比女性更喜欢用抽象的语言表达。本段介绍如何通过研究调查得出这一结论，因此conclusion符合语境。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "attaining"
+            },
+            {
+              "key": "C",
+              "text": "conclusion"
+            },
+            {
+              "key": "D",
+              "text": "difficult"
+            },
+            {
+              "key": "E",
+              "text": "emerges"
+            },
+            {
+              "key": "F",
+              "text": "fixed"
+            },
+            {
+              "key": "G",
+              "text": "ignored"
+            },
+            {
+              "key": "H",
+              "text": "legally"
+            },
+            {
+              "key": "I",
+              "text": "manipulated"
+            },
+            {
+              "key": "J",
+              "text": "recommended"
+            },
+            {
+              "key": "K",
+              "text": "refraining"
+            },
+            {
+              "key": "L",
+              "text": "signals"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "source"
+            },
+            {
+              "key": "O",
+              "text": "ultimate"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) approximately ( adv 大约，大概 ) 空格所在句子主谓宾结构完整，故空格处应填和人一个副词，起修饰和限制作用。 该句意为“为此，研究人员计算了”4万个英语常用单词的抽象性等级”，故approximately 符合语境。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "attaining"
+            },
+            {
+              "key": "C",
+              "text": "conclusion"
+            },
+            {
+              "key": "D",
+              "text": "difficult"
+            },
+            {
+              "key": "E",
+              "text": "emerges"
+            },
+            {
+              "key": "F",
+              "text": "fixed"
+            },
+            {
+              "key": "G",
+              "text": "ignored"
+            },
+            {
+              "key": "H",
+              "text": "legally"
+            },
+            {
+              "key": "I",
+              "text": "manipulated"
+            },
+            {
+              "key": "J",
+              "text": "recommended"
+            },
+            {
+              "key": "K",
+              "text": "refraining"
+            },
+            {
+              "key": "L",
+              "text": "signals"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "source"
+            },
+            {
+              "key": "O",
+              "text": "ultimate"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) difficult ( cx 困难的，费力的 ) 空格前是副词more，空格后是不定式to visualize，由此可知，空格处应填和人一个形容词，构成 “(be ) +形容词+ to do sth.”结构。 上一句提到“桌子”“椅子”等具体的词比较容易想象，而本句则说“正义”“道德”等抽象的词则难以想象，故difficult符合语境。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "attaining"
+            },
+            {
+              "key": "C",
+              "text": "conclusion"
+            },
+            {
+              "key": "D",
+              "text": "difficult"
+            },
+            {
+              "key": "E",
+              "text": "emerges"
+            },
+            {
+              "key": "F",
+              "text": "fixed"
+            },
+            {
+              "key": "G",
+              "text": "ignored"
+            },
+            {
+              "key": "H",
+              "text": "legally"
+            },
+            {
+              "key": "I",
+              "text": "manipulated"
+            },
+            {
+              "key": "J",
+              "text": "recommended"
+            },
+            {
+              "key": "K",
+              "text": "refraining"
+            },
+            {
+              "key": "L",
+              "text": "signals"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "source"
+            },
+            {
+              "key": "O",
+              "text": "ultimate"
+            }
+          ],
+          "answer": "M",
+          "explanation": "MD significantly ( adv 显著地;明显地 ) 空格所在句子主谓宾结构完整，故空格处应填入一个副词，修饰形容词比较级more。 该句意为“他们发现，男性在博客文章中使用了更多的抽象语言”，代入选项可知， significantly符合语境。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "attaining"
+            },
+            {
+              "key": "C",
+              "text": "conclusion"
+            },
+            {
+              "key": "D",
+              "text": "difficult"
+            },
+            {
+              "key": "E",
+              "text": "emerges"
+            },
+            {
+              "key": "F",
+              "text": "fixed"
+            },
+            {
+              "key": "G",
+              "text": "ignored"
+            },
+            {
+              "key": "H",
+              "text": "legally"
+            },
+            {
+              "key": "I",
+              "text": "manipulated"
+            },
+            {
+              "key": "J",
+              "text": "recommended"
+            },
+            {
+              "key": "K",
+              "text": "refraining"
+            },
+            {
+              "key": "L",
+              "text": "signals"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "source"
+            },
+            {
+              "key": "O",
+              "text": "ultimate"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) source (效根源，原因) 空格前是定冠词the，空格后是介词短语ofthis effect，由此可知，空格处应填入一个名词。 前文提到与女性相比，男性明显使用更多抽象语言。空格句后面的内容表明，本段在追溯这种研究结果的原因。故source符合语境。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "attaining"
+            },
+            {
+              "key": "C",
+              "text": "conclusion"
+            },
+            {
+              "key": "D",
+              "text": "difficult"
+            },
+            {
+              "key": "E",
+              "text": "emerges"
+            },
+            {
+              "key": "F",
+              "text": "fixed"
+            },
+            {
+              "key": "G",
+              "text": "ignored"
+            },
+            {
+              "key": "H",
+              "text": "legally"
+            },
+            {
+              "key": "I",
+              "text": "manipulated"
+            },
+            {
+              "key": "J",
+              "text": "recommended"
+            },
+            {
+              "key": "K",
+              "text": "refraining"
+            },
+            {
+              "key": "L",
+              "text": "signals"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "source"
+            },
+            {
+              "key": "O",
+              "text": "ultimate"
+            }
+          ],
+          "answer": "I",
+          "explanation": "D manipulated ( v 操纵，控制 ) 空格前是句子的主语the researchers，空格后是宾语power dynamics，空格所在句子时态为过去时， 由此可知，空格处应填入动词的过去式，充当句子的谓语。 前一名指出，两性之间的权力差异可能是导致男性使用更多抽象语言的一个关键的决定因素。空格所在句子通过一个实验来验证这一结论: 在一项针对300名学生进行的后续研究中，研究人员在人际场景中操纵权力动态，来看这样做是否会影响交际抽象。故manipulated符合语境。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "attaining"
+            },
+            {
+              "key": "C",
+              "text": "conclusion"
+            },
+            {
+              "key": "D",
+              "text": "difficult"
+            },
+            {
+              "key": "E",
+              "text": "emerges"
+            },
+            {
+              "key": "F",
+              "text": "fixed"
+            },
+            {
+              "key": "G",
+              "text": "ignored"
+            },
+            {
+              "key": "H",
+              "text": "legally"
+            },
+            {
+              "key": "I",
+              "text": "manipulated"
+            },
+            {
+              "key": "J",
+              "text": "recommended"
+            },
+            {
+              "key": "K",
+              "text": "refraining"
+            },
+            {
+              "key": "L",
+              "text": "signals"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "source"
+            },
+            {
+              "key": "O",
+              "text": "ultimate"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) fixed ( cdr. 固定的v 修理 ) 空格前是不定冠词a，空格后是名词tendency，由此可知，空格处应填入一个形容词或分词，充当 tendency的定语。 前文提到权力的差异会对交际抽象产生影响，即交际抽象并不在性别上体现一个固定趋势，而是在特定的环境下产生。fixed tendency 意为“固定趋势”，故fixed符合语境。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "attaining"
+            },
+            {
+              "key": "C",
+              "text": "conclusion"
+            },
+            {
+              "key": "D",
+              "text": "difficult"
+            },
+            {
+              "key": "E",
+              "text": "emerges"
+            },
+            {
+              "key": "F",
+              "text": "fixed"
+            },
+            {
+              "key": "G",
+              "text": "ignored"
+            },
+            {
+              "key": "H",
+              "text": "legally"
+            },
+            {
+              "key": "I",
+              "text": "manipulated"
+            },
+            {
+              "key": "J",
+              "text": "recommended"
+            },
+            {
+              "key": "K",
+              "text": "refraining"
+            },
+            {
+              "key": "L",
+              "text": "signals"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "source"
+            },
+            {
+              "key": "O",
+              "text": "ultimate"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) emerges (Vv 出现，显现) 空格位于“not..but rather..”结构中，前后句子成分并列，前面是does not reflect，则but rather后面应使用动词的第三人称单数形式。 由前面的分析可知，交际抽象并不在性别上体现一个固定趋势，在一些特定场景下，如权力发生变化时，交际抽象也会出现，故emerges符合语境。 G)ignored (y 忽路; 不顾) H) legally (adw 法律上上; 合法地) ]) recommended ( ad 被推荐的习推荐， 介绍;建议 ) K) refraining (忌克制，节制) L) signals (m. 信号立发信号) :"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-06-2-b",
+      "type": "matching",
+      "title": "How to better work towards long-term goals",
+      "paragraphs": [
+        "A) Hal Hershfield, a psychologist at the UCLA Anderson School of Management, wanted to know why people weren't saving for retirement. Across the board, people are living longer. Logically, they'll need more money to live comfortably in their post-work years. And yet, savings rates in the U.S. have gone down in recent decades, not up.",
+        "B) To help explain this seemingly irrational behavior, Hershfield and his team scanned the brains of study participants while asking them to what degree various traits (特征) — like “honorable” or “funny” — applied to their current self, their future self, a current other, or a future other. As participants answered, Hershfield's team recorded which parts of their brains lit up. Unsurprisingly, people’s brains were most active when thinking about their current selves and least active when thinking about a current other. But the team found that participants' brain activity while considering their future selves more clos ely resembled their brain activity while thinking about a current other rather than the current self.",
+        "C) Put in practical terms, when thinking of yourself in a month or a year or a decade, your brain registers that person in ways similar to how it would register Taylor Swift or the mailman. Understood in that way , saving for retirement is the equivalent of giving money away to someone else entirely.",
+        "D) In light of Hershfield’s study, one simple question arises: Is it possible to make our present selves give a damn about our future selves? The answers are anything but simple.",
+        "E) Seen through the lens of the present self versus the future self. our self-defeating actions — like choosing to watch television rather than go to the gym — suddenly make perfect sense. We get to enjoy the very concrete, immediate benefits of our actions while someone else (namely: our future selves) suffers the hypothetical (假设的) far-off consequences. As a result, the decisions we make for our present selves often look very different from our decisions for our future selves. We believe that tomorrow will be different. We believe that we will be different tomorrow , but in doing so, we prioritize our current mood over the consequences of our inaction for the future self.",
+        "F) Understanding our procrastination ( 拖延) through the lens of the present and future selves, we're left with three possible solutions: The first is to force your future self to do whatever your present self doesn't want to do. The second is to convince your present self that your future self is, in fact, still you. If the central problem is that we think of our future selves as other people, it follows that trying to identify more closely with our future selves will encourage us to make better long - term decisions.",
+        "G) In a follow -up study, Hershfield wanted to explore ways to bridge the disconnect between the present and future selves and encourage people to save more for retirement. He and his team took photos of study participants, and then used image processing to visually age their faces. Participants were then placed in a virtual reality setting where they could look into a mirror and see their aged selves looking back at them. Participants who saw their aged selves said they would save 30% more of their salary for retirement than the control group.",
+        "H) Whatever your long-term goals may be —getting in better shape, launching your own business, writing a book — thinking about your deadline in terms of days rather than months or years can help you wrap your mind around how close the future really is.",
+        "I) The third solution is to forget about your future self and use your present self’s love of instant gratification (满足感) to your advantage. While the two tactics (手段) above can be effective in making better long-term choices, in the end, you're still struggling against human nature. Our brains are hardwired for instant gratification. Instead of fighting your present self’s need for immediate rewards, why not use it to your advantage? When most of us set goals, we focus on long-term results We want to see — e.g. losing weight, getting a promotion, retiring in comfort, etc. While those visions of our future selves can be inspiring, when it comes to actually doing the day-to-day work, it may be more effective to reframe activities in terms of their immediate, or at least very near-term rewards.",
+        "J) Take writing this article, for instance. It’s easy for me to imagine how amazing it will feel at the end of the workday to have this article done. This isn't just my opinion. Research partners Kaitlin Woolley of Cornell University and Ayelet Fishbach of the University of Chicago have made a career out of studying the differences between the goals that people achieve and the ones that fall to the wayside.",
+        "K) “In one study, we asked people online about the goals they set at the beginning of the year. Most people set goals to achieve delayed, long-term benefits, such as career advancement , debt repayment, or improved health. We asked these individuals how enjoyable it was to pursue their goal , as well as how important their goal was. We also asked whether they were still working on their goals two months after setting them. We found that enjoyment predicted people’s goal persistence two months after setting the goal far more than how important they rated their goal to be.” Woolley said.",
+        "L) This pattern held true across a wide variety of goals from exercising to studying to eating healthier foods. For example, people ate 50% more of a healthy food when directed to focus on the good taste rather than the long -term health benefits. Other studies have shown a greater uptake of exercise in people who were told to think of the enjoyment of doing the exercise now rather than future health gains.",
+        "M) These findings suggest that when it comes to achieving your goals, enjoying the process itself is more important than wanting the long-term benefits. In other words, present self trumps (战胜) future self. Who says instant gratification has to be a bad thing ? By all means, set ambitious long-term goals for your future self, but when it comes to actually following through day-to-day, make sure your present self knows what's in it for her too."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Our brains are genetically determined to satisfy immediate desires.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "基于泽文| 基因决定了我们的大脑要满足即时的欲望。 I。由题干关键信息Our brains和immediate desires定位到1I段。该段第三句提到: 我们的大脑天生就喜欢即时满足感，即基因决定了我们的大脑要满足即时的欲望。题干是对该名的同义转述，其中 Our brains属于原词重现，genetically 对应原文中的hard-wired，immediate desires对应原文中的instant gratification 。"
+        },
+        {
+          "number": 37,
+          "stem": "Taken in a practical way, saving for post-work years is like giving money away to others.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "区于译文| 从实际来看，为退休后的生活存钱就像把钱送给别人一样。 C。由题干关键信息in a practical way、saving for post-work years和giving money away to others定位到C段。该段首句提到，从实际来说，当你想到一个月、一年或十年后的自己时，你的大脑对那个人的印象就像对泰勒，斯威夫特或对邮递员的印象一样。紧接着第二句提到，按照这种方式理解，为退休储昔相当于把钱完全送给别人。题干是对该句内容的同义转述。其中Taken in a practical way对应原文中的Put in practical terms，而saving for post-work years对应原文中的saving forretirement，而giving money away to others对应原文中的giving money away to someone else entirely。"
+        },
+        {
+          "number": 38,
+          "stem": "Research found that, as regards achievement of one’s goals, it is important to focus more on enjoying the process than the long-term benefits.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "研究发现，就个人目标的实现而言，更重要的是享受过程本身，而非着眼于长期的利益。 M。由题干关键信息focus more on enjoying the process than the long-term benefits定位到M段。该段首句提到，这些发现表明，在实现目标这件事上，享受过程本身比追求长期利益更为重要。换名话说， 就个人目标的实现而言，更重要的是享受过程本身，而非着眼于长期的利益。题干是对该句内容的概括总结。题于中的Research found that对应原文中的These findings suggest that，而as regards achievement of one's goals对应原文中的when it comes to achieving your goals，而it is important to focus more on enjoying the process than the long-term benefits对点原文中的enjoying the process itself is more important than wanting the long-term benefits-"
+        },
+        {
+          "number": 39,
+          "stem": "Regarding our future selves as still being ourselves will help us make better long-term decisions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "把未来的自己视作仍然是自己，将帮助我们做出更好的长期决策。 [答案解析| F。 由题干关键信息Regarding our future selves as still being ourselves和make better long-term decisions定位到F段。该段提到拖延十的三种可能的解决方案，其中第二种解决方案是让现在的自己相信， 未来的自己实际上还是你，如果核心问题是我们把未来的自己当成了其他人，那么，试图更加认同未来的自己将鼓励我们做出更好的长期决策。换言之，把未来的自己视作仍然是自己，将帮助我们做出更好的长期决策。题干是对该段最后两句的概括总结，其中Regarding our future selves as still being ourselves对应原文中的convince your present self that your future self is, in fact, still you，而will help us make better long-term decisions对应原文中的will encourage us to make better long-term decisions。"
+        },
+        {
+          "number": 40,
+          "stem": "Savings rates in America have dropped in recent decades even though people’s life expectancy has increased.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "尽管人们的预期寿命有所延长，但近儿十年来美国的储蘑率却有所下降。 [营案解析| A。 由题干关键信息Savings rates in America 、dropped in recent decades和people's life expectancy定位到A段。该段第二句提到，整体来说，人们的寿命在延长，从逻辑上讲，他们将需要更多的钱才能在退体后的日子里舒适地生活。紧接着第三句提到，然而，近几十年来美国的储蔷率却不升反降。题干是对原文内容的同义转述，其中Savings rates in America对应原文中的savings rates in the U.S.，而have dropped in recent decades对应原文中的have gone down in recent decades，而people's life expectancy has increased对应原文中的people are living longer。"
+        },
+        {
+          "number": 41,
+          "stem": "Researchers found that enjoyment rather than importance enabled people to persist in their goals.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "研究人员发现，相比目标的重要性，享受过程更能促使人们坚持追求目标。 K。由题二关键信息Researchers found that、enjoyment rather than importance和persist in their goals定位到K段。该段主要介绍的是一项关于人们设定和坚持目标的研究。: 最后一句提到: 我们发现，与他们对目标重要性的评价相比，过程的享受更能预测目标设定两个月后人们的坚持情况，即相比目标的重要性， 享受过程更能促使人们坚持追求目标。题干是对原文内容的同义转述。题干中的Researchers found that对应原文中的We found that，而enjoyment属于原词重现，importance对应原文中的how important，而enabled people to persist in their goals对应原文中的predicted people's goal persistence。"
+        },
+        {
+          "number": 42,
+          "stem": "When making decisions, we give priority to our current frame of mind without thinking much of the consequences.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "在做决定时，我们优先考虑当前的心境，而不太考虑后果。 [管案解析| E。 由题干关键信息making decisions 、give priority to 、current frame of mind和the consequences定位到E段。该段第三句提到，我们为现在的自己所做的决定往往与我们为未来的自己所做的决定大相径庭。 最后一句转折提到，但在这样做 ( 即做决定 ) 的过程中，我们优先考虑的是我们当前的情绪，而不是我们的不作为会给未来的自己带来的后果。题干是对该句内容的同义转述。其中When making decisions对应原文中的in doing so, 而we give priority to our current frame of mind without thinking much of the consequences对应原文中的we prioritize our current mood over the consequences of our inaction for the future self。"
+        },
+        {
+          "number": 43,
+          "stem": "People ate more of a healthy food when they focused on its good taste instead of its long-term benefits.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "当人们专注于健康食品的美味而非其长期的益处时，他们吃得更多。 L。由题干关键信息People ate more of a healthy food 、focused on its good taste和its long-term benefits 定位到工段。该段第二句提到，当人们被引导专注于食物的美味而非长期的健康益处时，他们摄入的健康食品量会增加$0%，即当人们专注于健康食品的美味而非其长期的益处时，他们吃得更多。题于是对原文的同义转述。题干中的People ate more of a healthy food对应原文中的people ate 50% more of a healthy food， 而when they focused on its good taste instead of its long-term benefits对应原文中的when directed to focus on the good taste rather than the long-term health benefits。"
+        },
+        {
+          "number": 44,
+          "stem": "As was expected, when people thought of their present selves, their brains were observed to become more active.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "正如预期的那样，当人们想到当前的自己时，( 研究人员 ) 观察到他们的大脑变得更加活跃。 B。由题干关键信息when people thought of their present selves 、their brains和more active定位到B 段。该段第三句提到，不出所料，人们在思考当前的自己时大脑最活跃，而在思考当前的他人时大脑最不活跃。题干是对原文此处内容的同义转述。题干中的As was expected对应原文中的Unsurprisingly, 而when people thought of their present selves对应原文中的when thinking about their current selves，而their brains were observed to become maore active对应原文中的people's brains were most active。"
+        },
+        {
+          "number": 45,
+          "stem": "Researchers found that participants who saw the images of their aged selves would save more for their later years than those who didn't.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "研究人员发现，与没有看到自己年老时的形象的参与者相比，看到自己年老时的形象的参与者会为晚年存更多的钱- [营案解析| G 。 由题干关键信息participants who saw the images of their aged selves和save more for their later years定位到G段。该段最后一句提到，看到年老时的自己的参与者表示，他们会比对照组为退休多存30% 的工资。题干是对原文内容的概括总结。题寺中的participants who saw the images of their aged selves对应原文中的Participants who saw their aged selves，而would save more fortheir later years than those who didn't对应原文中的would save 30% more of their salary for retirement than the control group。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "People often wonder why some entrepreneurs have greater success than others. Is it habits, connections, luck, work ethic or any other behavior ? I believe the key to success is willpower. Willpower is the ability to control yourself . It is a strong determination that allows you to do something difficult. It is a behavior we are born with more than one we learn. However, it is possible to not only learn it, but also strengthen it with constant exercise. Willpower is just like a muscle , to keep it strong you need to constantly exercise i t. People with a great amount of willpower have the discipline to develop positive, successful habits. Even with an incredible amount of talent, without the discipline and motivation to create positive habits, it can be difficult to achieve success. Willpower and habits go hand in hand. It is critical to create good habits and take the actions necessary to stick to those habits day in and day out for greater success. Almost half of our daily actions are part of our habits and not decisions, so once the correct habits are in place, you will automatically perform those tasks on a day-to-day basis. The best way to create and stick to a habit is to have strong motivation. It's easier to change your habits to lose weight if you have a health issue and you want to be around longer for your kids, or if your business is something you're passionate about. Having a valuable outcome associated with a habit will help you stick to that habit permanently. The art of self-control is one that most successful individuals have mastered. Self-control enables you to avoid behaviors that don't contribute to your success and adopt those that do. Because there is a delayed satisfaction associated with self-control, it can be easy to get off track. However, if you work on sticking to those small positive habits one day at a time, it becomes easier to stay strong and achieve that delayed reward. Once a reward is achieved, it is much easier to continue sticking to your habits."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author say we need to do to strengthen our willpower?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Keep it under control."
+            },
+            {
+              "key": "B",
+              "text": "Apply it continuously."
+            },
+            {
+              "key": "C",
+              "text": "Learn from entrepreneurs."
+            },
+            {
+              "key": "D",
+              "text": "Aim at success determinedly."
+            }
+          ],
+          "answer": "B",
+          "explanation": "作者说我们需要做些什么来增强我们的意志力? A) 让它处于控制之下。 C) 向企业家学习。 B) 持续地运用它。 D) 坚定地以成功为目标， 二了本题的题干关键词是strengthen our willpower，不是很容易定位答案线索。因为这道题是第一题，根据出题顺序与原文顺序基本一致的原则，先从第一、二段寻找答案。 各在文章第一段中，作者指出成功的关键是意志力，并介绍了什么是意志力。但是关于如何增强意志力作者并没有提及。接着往下读，第二段第一句提到，意志力就像肌肉一样，要想保持强大的意志力，必须不断地加以锻炼。也就是说，人们要靠不断地运用意志力，来使其变得更强大，故本题选B。其他三项的内容都不符合原文，均排除。"
+        },
+        {
+          "number": 47,
+          "stem": "How are almost half of our daily actions performed according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Out of habit."
+            },
+            {
+              "key": "B",
+              "text": "With determination."
+            },
+            {
+              "key": "C",
+              "text": "Like muscle building."
+            },
+            {
+              "key": "D",
+              "text": "By self-discipline"
+            }
+          ],
+          "answer": "A",
+          "explanation": "根据文章，我们几乎一于的日常行为是怎样做出的? A) 出于习惯做出的。 C) 像肌肉锻炼一样做出的。 B) 下定决心做出的。 D) 通过自律做出的鹤* 根据题二关键订amost halfof our daily actions可以将答案定位到第三县第= 名+ 第三段第三句指出，我们的日常行为当中几乎有一半是源于我们的习惯，也就是说我们几乎一半的日常行为是出于习惯做出的，故本题选A。其他三项均与原文不符，都排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What will help people stick to doing something constructive automatically?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Practising it on a day-to-day basis."
+            },
+            {
+              "key": "B",
+              "text": "Associating it with improving health."
+            },
+            {
+              "key": "C",
+              "text": "Possessing a reasonable amount of talent"
+            },
+            {
+              "key": "D",
+              "text": "Foreseeing the desired outcome it will yield."
+            }
+          ],
+          "answer": "D",
+          "explanation": "什么将会帮助人们自然而然地坚持做一些有助益的事情? A) 每天进行练习。 C) 具备一定的天赋。 B) 将其与改善健康联系起来。 D) 预见它将产生的理想结果。 定 ? 根据题二关键词help people stick to doing something constmuctive automatically可以将答案定位到第四段最后一句。 名第四段最后一句指出，将一个习惯和有益的结果关联起来，会有助于你长久地坚持这个习惯。换句话说， 预想一个习惯能带来的理想结果，可以帮助我们坚持做有助益的事，故本题选D。选项中的the desired outcome与原文中的a valuable outcome属于同义替换。其他三个选项虽然都有原文词汇，但是答非所问， ， 均排除。尤其是B项，文章中的一个例子只是提到了改善健康，但不是所有的习民都与健康有关，这属于以偏概全。"
+        },
+        {
+          "number": 49,
+          "stem": "How does the art of self-control help us succeed?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By allowing us to remain clear-headed permanently."
+            },
+            {
+              "key": "B",
+              "text": "By enabling us to alter our behaviors constantly."
+            },
+            {
+              "key": "C",
+              "text": "By enabling us to take positive actions"
+            },
+            {
+              "key": "D",
+              "text": "By allowing us to avoid taking risks."
+            }
+          ],
+          "answer": "C",
+          "explanation": "自制力这门艺术是如何帮助我们成功的? A) 通过证我们永远保持头脑清醒。 C) 通过使我们能够采取积极的行动。 B) 通过使我们能够不断地改变我们的行为。 “”D) 通过让我们避免彤险定 * 根据题干关键词the art ofselfcontrol help us succeed可以将答案定位到倒数第二段第二名划+ 倒数第二段第二句指出，自制力能让你避免做出那些无助于你成功的行为，而让你采取那些助于你成功的行为。也就是说，自制力可以让我们采取积极的行动，从而帮助我们成功，故本题选C。原文中的adopt those that do属于省略，答对这道题需要正确理解这句话，这和句话还原之后应该是adopt those behaviors that contribute to your success《【采取有助于你成功的行为) ，这与选项中的take positive actions是同文茶换。其余三个选项原文未提及，均排除。"
+        },
+        {
+          "number": 50,
+          "stem": "Why can it be difficult for us to maintain self-control?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Most of us are not in the habit of exercising self-control."
+            },
+            {
+              "key": "B",
+              "text": "We may not get immediate rewards from self-control."
+            },
+            {
+              "key": "C",
+              "text": "Self-control tends to be associated with pains."
+            },
+            {
+              "key": "D",
+              "text": "Self-control only brings about small benefits."
+            }
+          ],
+          "answer": "B",
+          "explanation": "最后一段第一句指出，自制力带来的满足感常常是延迟的，因此人容易偏离轨道。也就是无法获得立竿见影的回报，选 B。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Today, most scientific research is funded by government grants, companies doing research and development and non- profit foundations. As a society, we reap the rewards from this science but we also hel p pay for it. You indirectly support science through taxes you pay, products and services you purchase, and donations you make. Funding for science has changed with the times. Historically, science has been largely supported through private patronage (资助), church sponsorship or simply paying for the research yourself. Today, researchers are likely to be funded by a mix of grants from various government agencies , institutions, and foundations. Other research is funded by private companies. Such corporate sponsorship is widespread in some fields. Almost 75% of U.S. clinical trials in medicine are paid for by private companies. And, of course, some researchers today still fund small-scale studies out of their own pockets. Most of us can’t afford to do nuclear research as a private hobby, but bird watchers, rock collectors, and others can do real research on a limited budget. In a perfect world, money wouldn’t matter — all scientific studies would be completely objective. But in the real world, funding may introduce biases. Drug research sponsored by the pharmaceutical (制药的) industry is more likely to end up favoring the drug under consideration than studies sponsored by government grants or charitable organizations . Similarly, nutrition research sponso red by the food industry is more likely to end up favoring the food under consideration than independently funded research. So what should we make of all this ? Should we ignore any research funded by companies or special interest groups? Certainly not. These groups provide invaluable funding for scientific research. Furthermore, science has many safeguards in place to catch instances of bias that affect research outcomes. Ultimately, misleading results will be corrected as science proceeds, however, this process takes time. Meanwhile, it pays to examine studies funded by industry or special interest groups with extra care. Are the results consistent with other independently funded stud ies? What do other scientists have to say about this research? A little examination can go a long way towards identifying bias associated with the funding source."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the passage mainly discuss regarding scientific research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its foundation."
+            },
+            {
+              "key": "B",
+              "text": "Its rewards."
+            },
+            {
+              "key": "C",
+              "text": "Its prospect."
+            },
+            {
+              "key": "D",
+              "text": "Its funding."
+            }
+          ],
+          "answer": "D",
+          "explanation": "关于科学研究，这篇文章主要讨论了什么? A) 它的基础。 C) 它的前景。 B) 它的回报。 D) 它的资金。 窒* 题干问文章主要讨论了科学研究的什么，属于主旨是，最保险的做法是通读文章后再解答此题。不过，本文开篇就指出了文章的主题。 亲9 第一段第一句指出，如今，大多数科学研究都是由政府拨款、研发公司以及非营利性基金会资助的。再通读下文可知，整篇文章围绕科学研究的资金以及由此可能产生的偏见问题展开论述，故选项D正确。其他三个选项都不是文章主要讨论的内容，故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What do we learn from the passage about researchers like birdwatchers and rock collectors?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have little access to government funding."
+            },
+            {
+              "key": "B",
+              "text": "They can do research with limited resources."
+            },
+            {
+              "key": "C",
+              "text": "They can do amateur work in their own fields"
+            },
+            {
+              "key": "D",
+              "text": "They have no means for large-scale research."
+            }
+          ],
+          "answer": "B",
+          "explanation": "关于鸟类观察者和岩石收集者等研究人员，从这篇文章中我们能了解到什么? A) 他们几乎无法获得政府资助。 C) 他们可以在自己的领域从事业余工作。 B) 他们可以利用有限的资源进行研究。 D) 他们没有办法进行大规模的研究。 机本二关汪吉idvatches and rock ojISGR可以香来十信和二入最后-人解* 第二段最后一句指出，鸟类观察者、岩石收藏者和其他人可以在有限的预算下进行真正的研究。这与选项可 ，B表达的意思一致，选项中的do research with limited resources与原文中的do real research on a limited budget ，属于同义替换，有限的资源指的就是有限的预算或资金，故选项B正确。选项A和C原文没有提及，可以排除。选项D属于混消概念，原文说，一些研究人员仍然自掏腰包来资助一些小规模的研究，乌类观察者和 ，兰石收藏者可以在有限的预算下进行真正的研究，并没有说，乌类观察者和岩石收藏者无法进行大规模的研究，故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What would scientific studies look like in a perfect world according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They would be totally unbiased."
+            },
+            {
+              "key": "B",
+              "text": "They would be independently funded."
+            },
+            {
+              "key": "C",
+              "text": "They would be responsibly conducted."
+            },
+            {
+              "key": "D",
+              "text": "They would be strictly supervised."
+            }
+          ],
+          "answer": "A",
+          "explanation": "根据作者的说法，在完美的世界里，科学研究会是什么样子的? A) 它们将是完全公正的。 C) 人们将负责任地进行科学研究。 B) 它们将获得独立资助。 D) 它们将受到严格监督。 窜? 委据题二关键词 scientifie shudies和a perfeet wonid 可以将答案定位到第三彼第由第三段第一句指出，在一个完美的世界里，金钱并不会成为问题一一所有的科学研究都是完全客观的。换句话说，在完美的世界里，科学研究是完全公正的，故选项A正确。其他三个选项原文都没有提及，均可以排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the author say about companies and special interest groups?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They try hard to pull down the safeguards for research."
+            },
+            {
+              "key": "B",
+              "text": "They make extra efforts to research their own products."
+            },
+            {
+              "key": "C",
+              "text": "They provide valuable resources for scientific research."
+            },
+            {
+              "key": "D",
+              "text": "They reap the most benefits from scientific research"
+            }
+          ],
+          "answer": "C",
+          "explanation": "关于公司和特殊利益团体，作者说了什么? A) 它们竭力破坏研究的保障措施。 C) 它们为科学研究提供了宝贵的资源。 B) 它们付出额外的努力来研究自己的产品。 ” D) 它们从科学研究中获益最多。 富? 根据题十关键词companies and special interest groups可以将答案定位到最后一段第三至四柯。 解* 最后一段第二名提问: 我们应该忽视任何由公司或特殊利益团体资助的研究吗? 第三、四句给出回答: 当然不是。这些团体为科学研究提供了极为宝贵的资金。由此可知，公司和特殊利益团体为科学研究提供了宝贵的资金，资金也就是资源，故选项C正确。其余三个选项原文都没有提及，均可以排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author think of research funded by industry or special interest groups?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its recommendations should be examined for feasibility."
+            },
+            {
+              "key": "B",
+              "text": "Its misleading results should be corrected in time."
+            },
+            {
+              "key": "C",
+              "text": "Its validity should be checked with additional care."
+            },
+            {
+              "key": "D",
+              "text": "Its hidden biases should be identified independently"
+            }
+          ],
+          "answer": "C",
+          "explanation": "作者如何看待由行业或特殊利益团体资助的研究? A) 应审查其建议的可行性。 G) 应格外谨慎地审查其有效性。 B) 应及时纠正其误导性的结果。 D) 应独立地识别其隐藏的偏见。 定* 根据感二关键词research fonded by industry or special interest groups可以将答案定位到最后-段。， 加在最后一段作者指出，我们不能忽视由公司或特殊利益团体资助的研究，因为它们为科学研究提供了极为宝贵的资金。倒数第四句指出可以采取的措施，要特别谨慎地审查由行业或特殊利益团体资助的研究，这是值得的。由此可知，选项C正确。选项A和D原文都没有提及，可以排除。选项B与原文不符，原文虽然提到了随着科学的进步，误导性的结果最终将会被纠正，但是这是行业的客观现实，而非作者对于由行业或特殊利益团体资助的研究的看法，故排除。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98PDF/cet4_2024_06_2.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2024_06_2_ans.pdf"
+}

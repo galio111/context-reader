@@ -1,0 +1,1661 @@
+{
+  "id": "cet4-2022-12-1",
+  "level": 4,
+  "year": 2022,
+  "month": 12,
+  "set": 1,
+  "title": "2022 年 12 月四级 · 第 1 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2022-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Researchers, writing in the journal Heart, pooled data from 23 studies and found that social isolation or feelings of loneliness were tied to an increased risk of coronary heart disease (7&5) and strokes. The studies included data from 181,006 men and women ages 18 and over. There were 4,628 coronary events and 3,002 strokes in follow-up periods [[26]] from three to 21 years. Three of the papers [[27]]loneliness, 18 looked at social isolation and two included both. Social isolation and loneliness were determined with questionnaires; the researchers depended on medical records and death [[28]]for",
+        "determining coronary events and strokes.",
+        "The scientists found that loneliness and social isolation increased the [[29]]risk of having a heart attack or a death from heart disease by 29 percent, and the risk of stroke by 32 percent. There were no [[30]]between men and women.",
+        "“People have tended to focus from a policy point of view on [[31]]lonely people to make them more [[32]],” said the lead author, Nicole K) Valtorta, a research fellow at the University of York in England. “Our study [[33]]that if this is a risk factor, then we should be trying to prevent the risk factor in the first place.”",
+        "The authors [[34]]that this was a review of observational studies and did not [[35]]cause and effect."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "acknowledge"
+        },
+        {
+          "key": "B",
+          "text": "certificates"
+        },
+        {
+          "key": "C",
+          "text": "connected"
+        },
+        {
+          "key": "D",
+          "text": "demonstrates"
+        },
+        {
+          "key": "E",
+          "text": "differences"
+        },
+        {
+          "key": "F",
+          "text": "establish"
+        },
+        {
+          "key": "G",
+          "text": "formats"
+        },
+        {
+          "key": "H",
+          "text": "measured"
+        },
+        {
+          "key": "I",
+          "text": "narrow"
+        },
+        {
+          "key": "J",
+          "text": "permanent"
+        },
+        {
+          "key": "K",
+          "text": "produces"
+        },
+        {
+          "key": "L",
+          "text": "ranging"
+        },
+        {
+          "key": "M",
+          "text": "relative"
+        },
+        {
+          "key": "N",
+          "text": "submitting"
+        },
+        {
+          "key": "O",
+          "text": "targeting"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【语法判断】〗空格前有 follow-up periods,后面是 from three to 21 years,说明随访期是3- 21 年,因此本空应填入动词-ing 形式作 periods 的后置定语。 【语义判断】空格所在句的意思是,在 3 年到 21 年的随访期间,有 4,628 例冠心病发作和 3,002 例中风。因此本空应填入表达某个范围意义的动词-ing 形式,由此确定答案为直) ranging “在某范围内变化\">。备选的其他动词均没有此含义,因此排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "H",
+          "explanation": "空格作 Three of the papers 的谓语，宾语是 loneliness，需要过去式动词。句子统计研究孤独感、社交隔离或两者的论文数量，H) measured 表示“测量、衡量”，符合句意。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【语法判断】分析句子结构可知,空格及前面的 medical records and death 构成名词短语作句子的宾语,因此空格应填入名词。 【语义判断】空格所在句的意思是,研究人员依靠医疗记录和死亡来确定冠心病发作和中风。 根据常识可知,人在死亡后会有相应的证明和记录,因此本空应填和人含有“证明、记录”意义的名词,由此确定答案为 B) certificates。备选的其他名词均没有此含义,因此排除，"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【语法判断】空格前有定冠词 the, 后面是名词 risk,因此本空应填入形容词。 【语义判断】空格所在句的意思是,科学家们发现， 孤独和社交隔离会使心脏病发作或死于心脏病的 __ 风险增加 29%, 中风的风险增加 32% 。 此题无法直接根据句意判断所填词的意思,适合用排除法。在备选形容词中,IT) narrow“狭罕的” 和J了J permanent“永久的?”均不符合句意,由此确定答案为 M) relative“相对的”。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【语法判断】空格前是限定词 no,而且 There were 是复数形式,因此本空应填入名词的复数。 【语义判断】空格所在句的意思是,男性和女性之间没有 。备选项中,只有 E) differences “差异,不同” 符合句意,因此答案为 E) differences。 备选的其他名词复数形式均没有此含义,因此排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【语法判断】空格前有动词短语 focus...on, 后面是名词短语 lonely people,因此本空应填入动词-ing 形式。 【语义判断】空格所在句的意思是,从政策的角度来看,人们倾向于关注孤独的人。由句意可知,孤独的人是人们关注的对象,因此本空应填入含有“关注.聚焦?意义的动词-ing 形式,由此确定答案为 DO) targeting。targeting 与 focus on 意义相近,因此翻译时做了简化处理,targeting 没有 - 单独翻译出来。备选的其他动词-ing 形式均没有此含义,因此排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【语法判断】空格前有比较级 more,因此本空应填入形容词。 【语义判断空格所在名的意思是,从政策的角度来看,人们倾向于关注孤独的人,让他们与他人更加 。由句意可知,本空应填入与 lonely “孤独的?意义相反的形容词, 由此确定答案为 C) connected “相关的,关联的>。备选的其他形容词均没有此含义,因此排除。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【语法判断】空格前的 Our study 是本名主语,后面 that 引导的从句作宾语,因此本空应填入动词作谓语。 【语义判断】空格所在句的意思是,我们的研究 _ ,如果这是一个风险因素,那么我们应该首先努力预防风险因素。由句意可知,that 从句是研究的结果,因此本空应填入含有“说明,表明”意义的动词以说明研究结果, 由此确定答案为 D) demonstrates。备选的其他动词中， A) acknowledge有类似含义,但是属于动词原形， 主谓不一致, 而其他备选动词均无此含义, 因此排除。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【语法判断】空格前的 The authors 是本句主语,后面 that 引导的从句作宾语, 因此本空应填入动词作谓语。 【语义判断】空格所在句的意思是,作者们这是对观察性研究的回顾。由句意可知,that 从句说明的是作者们的观点,因此本空应填入能够表达观点的动词,由此确定答案为 A) acknowledge“承认”。 备选的其他动词中,D) demonstrates 有类似含义， 但是属于第三人称单数形式, 主谓不一致,而其他备选动词均无此含义,因此排除。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【语法判断】空格前有 did not, 因此本空应填入动词原形。 【语义判断】空格所在句的意思是,作者们承认这是对观察性研究的回顾,并没有_ ”因果关系。由句意可知,本研究只是梳理了其他研究, 没有阐述孤独与增加冠心病或中风的风险之间的因果关系。备选项中,只有 F) establish“建立;证实” 符合句意。备选的其他动词原形均没有此含义， 因此排除。 Be SSZ ES"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-1-b",
+      "type": "matching",
+      "title": "The hidden costs colleges don’t want you to know about",
+      "paragraphs": [
+        "A) This fall, thousands of college students from across the country will begin their undergraduate studies at colleges around the nation. They will inevitably pack too much to fit in their tiny dorm rooms. They will also carry with them a huge student loan debt, in addition to countless “hidden” out-of-pocket costs paid for by their bank accounts and the bank accounts of their families.",
+        "B) At my well-respected, private, four-year university in Washington, D.C., which boasts a yearly tuition of $44,046 not including room and board, I receive over $ 57,000 yearly in financial aid. As a student from a family that is struggling to make ends meet, my financial aid package is a combination of federal grants and federal work study, university merit scholarships and financial aid awards, and about $8,000 yearly in federally subsidized (有补贴的) and unsubsidized loans. On paper, my expenses and my financial aid just about even out. Off paper, they don’t.",
+        "C) Universities today are in the business of making money, and mine is no exception. They hit me right out of gate with a $ 160 fee to attend my freshman orientation, a price which does not include the cost of travel to and from the District. Almost every class has an associated fee not included in the cost of tuition, most between $40 and $ 100. Fees for lab science classes are the highest, and all students at my university are required to take at least one lab before they graduate. Buying a laptop proved a necessity and, thankfully, a relative bought me one as a gift. Renting a mini-fridge for my dorm room costs my roommates and me about $ 140 a vear.",
+        "D) Schools will charge you whatever they can. The costs of any damage to the dorm, including elevators, bathrooms, and common areas, are billed to every person on a dorm floor, or even the entire building if they do not know who caused the damage. After I fell out of my bed twice during my freshman year, the university installed a railing—for $20, billed to my student account. My financial aid did not anticipate any of these costs, and so it did not cover them.",
+        "E) An Internet search of “hidden costs” of college turns up a host of articles on parent-centered websites on the college application process. These articles are almost always geared towards upper- and middle- class families. For students already struggling to pay tuition, these costs may be the least of their worries.",
+        "F) So what hidden costs should low-income students really be paying attention to? My college experience offers a few examples.",
+        "G) If you are a low-income student who will be attending school out-of-state, make sure you know if you can use your state benefits, such as the Supplemental Nutrition Assistance Program, or SNAP. It wasn’t until after I had accepted admission to an out-of-state school that I learned that I could not use my Ohio Medicaid on campus for anything other than emergency care. My benefits became invalid the second I moved out of Ohio. After my freshman year, I had to opt for the school’s insurance plan, which costs around $2,000 a year. Even if your school offers a flat-rate fee for a doctor’s appointment at the student health center (mine is $ 20 a visit), these fees often do not include extra fees for lab tests or prescription medications (药物).",
+        "H) If you plan on paying off bills in your student account with a credit card, be aware of any additional costs. My school charges an additional fee for the use of a credit card to settle outstanding charges, which can add upwards of 3% of the balance to your bill.",
+        "I) There is another depressing reality hidden within even the largest financial aid packages: Colleges often offer the most generous packages during freshman year as a way to attract new students. My family was careful to ask about the chances of financial aid being taken away after my freshman year. We were assured that, except for low grades or a raise in family income, no money would be taken away. We did not know to ask-—and the school did not readily point out—that even if tuition rises, my financial aid package will stay the same. So when my university voted to raise tuition costs 3% at the end of my freshman year, my financial aid package remained the same and I was suddenly responsible for an additional $ 1,200 for the next year. The university administration will likely vote to raise costs at least once more before my graduation.",
+        "J) Yes, I chose to attend an expensive university far from my hometown. Yes, there were cheaper options. But there are promising students from struggling families across the nation who should not rule out their dream schools entirely. All things considered, I am paying significantly less than the ticket price of my university, and having an educational experience in Washington, D.C., that I would not have had anywhere else. As a low-income student from a down-and-out Rust Belt community, these educational experiences have enormous potential to brighten my future—and my family’s future.",
+        "K) The key is to make sure that students and their families understand that hidden costs exist, and that they may prove problematic. Fill out a more comprehensive checklist, and be wary of listed prices that seem too low. Understand just how complicated the financial aid process is.",
+        "L) Students and families must also understand their ability to self-advocate. They should not pay student bills or excess fees blindly. If something does not look right, ask about it. If it still doesn’t look right, negotiate it. In cases where parents are working multiple jobs, are less knowledgeable about college bureaucracies, have limited English language skills, or are not contributing financially to their child’s education, the burden of self-advocacy will fall on the student. I understand the difficulty, and the embarrassment. But it is necessary.",
+        "M) In the grand scheme of things, however, colleges also must come to understand that the hidden fees they ask for may prove unmanageable for the very kinds of low-income or first-generation students they are trying desperately to attract."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Students’ financial aid remains unchanged even when tuition rises.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【精析】同义转述题。定位句提到,我们并不知道要去询问一一学校也没有打算指出一一即使学费上涨,我的补助计划依旧保持原样。第五句接着用事实证明,来年学费增长了 3% ,但经济补助还是和原来的一样。题干中的 financial aid 和 tuition rises 在定位句中直接出现,题干中的 remains unchanged 对应定位句中的 stay the same 和第五句中的 remained the same,故答案为I 。"
+        },
+        {
+          "number": 37,
+          "stem": "Students may not be able to enjoy their state benefits when they go to college out of the state.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】细节归纳题。定位句指出,直到我被一所州外的学校录取以后,我才知道除了急救护理,我不能在校园里使用我在俄亥俄州的医疗补助。我的福利在我离开俄亥俄州的那一刻就失效了。题于是对定位句的概括总结,故答案为 G) 。"
+        },
+        {
+          "number": 38,
+          "stem": "The financial aid the author receives is supposed to cover all her college expenses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】同义转述题。定位句指出,从理论上来看， 我的支出和财政补助基本持平。实际而言,并非如此。题干中的 cover 是对定位句中 even onut 的同义转述。题干中的 is supposed to 意为“应该是”,用于表示某事本应发生而没有发生, 这与定位句中的 On paper 和 Off paper 表达含义一致， 故答案为 B) 。"
+        },
+        {
+          "number": 39,
+          "stem": "When the person who damages dorm facilities is not identified, students are required to share the cost.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】同义转述题。定位句指出,宿舍的任何损坏,包括电梯、浴室和公共区域,都会向该楼层的所有学生征收费用,如果他们不知道是谁导致的损坏,甚至会向整栋楼收费。题干中的 damages dorm facilities 对应定位句中的 any damage to the dorm,题干中的 not identified 对应定位句中的 do not know,题干中的 students are required to share the cost 对应定位句中的 billed to every person,故答案为D)。"
+        },
+        {
+          "number": 40,
+          "stem": "Though it is difficult and embarrassing, students should make inquiries about what fees they have to pay and why.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【精析】细节归纳题。定位段第三、四句指出,如果有些事情看起来不对劲,那就要询问。如果还是不妥,那就协商一下。接着表示,如果父母身兼数职,不太了解大学里的官僚制度,英语水平有限， 或是没有为孩子的教育提供经济支持,那么自我辩护的重担就落在了学生身上。但这是必要的。 定位段中提及的“自我辩护\"即对所收费用是否合理进行询问或协商,题干是对定位段的总结概括， 故答案为工) 。"
+        },
+        {
+          "number": 41,
+          "stem": "Today, many Americans have to go to college on student loans.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】细节推断题。定位句指出,除了由他们自己的银行账户和他们家人的银行账户支付的无数 “隐人性”自付费用外, 他们还将背负巨额的学生贷款债务。题干中的 student loans 对应定位句中的 student loan debt,故答案为 A) 。"
+        },
+        {
+          "number": 42,
+          "stem": "Receiving education in a private university in the nation’s capital may change the author’s future life and that of her family’s.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【精析】同义转述题。定位句指出,作为一名来自穷困濠倒的铁锈地带社区的低收入学生, 这些教育经历有巨大的潜力照亮我的未来一一以及我家庭的未来。题干中的 change the author's future life and that of her family's 是对定位句中 brighten my future一and my family's future 的同义转述,故答案为了) 。"
+        },
+        {
+          "number": 43,
+          "stem": "Students may no longer be qualified for financial aid if they perform poorly in school or if their family income has increased.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【精析】同义转述题。定位句指出,除非成绩很差或家庭收入增加, 否则不会取消补助。题干中的 perform poorly in school 对应定位句中的 low grades,题干中的 family income has increased 对应定位句中的 a raise in family income, 故答案为I 。"
+        },
+        {
+          "number": 44,
+          "stem": "In addition to tuition, college students have to pay extra fees for the courses they take.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】细节推断题。定位句指出,几乎每门课都有一笔不包含在学费里的相关费用,大多数在 40 美元到 100 美元之间。题干中的 In addition to tuition 对应定位句中的 not included in the cost of tuition,题干中的 pay extra fees for the courses they take 对应定位句中的 Almost every class has an associated fee,故答案为 C) 。"
+        },
+        {
+          "number": 45,
+          "stem": "Some schools charge students a fee to their student accounts for using credit cards to pay bills.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【〖精析】同义转述题。定位句指出,我的学校对使用信用卡结算未支付费用额外收费,这可能会在你的账单上增加 3% 以上的费用。题干中的 charge students a fee 对应定位句中的 charges an additional fee,题干中的 using credit cards to pay bills 对应定位句中的 the use of a credit card to settle outstanding charges,故答案为 H) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "To write his 2010 book, The 5-Factor World Diet, nutritionist Harley Pasternak traveled to the healthiest countries around the world to learn more about what made their meals extra nourishing.",
+        "He noted that Japanese people ate a wonderful variety of seaweeds, and that Chinese people tried to include at least five different colors in every meal. Pasternak also came away with some valuable observations about how different the North American way of life was, compared with many other countries.",
+        "For starters, Americans eat much bigger portions than people in other countries. “We don’t prioritize eating seasonally or locally, and we also add lots of salt, sugar and thickening agents to our foods,” explained Pasternak. Contrast that to the healthy Mediterranean, Nordic and Okinawan diets listed in Pasternak’s book. They all seem to stick to the ethos (4% /fi) of regional, seasonal produce.",
+        "For example, a traditional Mediterranean diet includes fruits, vegetables, whole grains, nuts and olive oil as the main components of nutritional intake. Fish, chicken and red wine make moderate appearances, while red meat, salt and sugar are used much less often. The benefits of a traditional Mediterranean diet have been studied since the 1970s, and researchers have found that living that olive oil life can help people lose weight, lower their heart disease risk and reverse diabetes.",
+        "Most other healthy eating cultures also make meals an event—say, multiple courses around the family table, or a glass or two of red wine at a long lunch—as opposed to hastily wolfing down handfuls of cereal",
+        "above the kitchen sink and calling it dinner.",
+        "Each of the healthy eating cultures has its own unique feature. But Pasternak did take note of one unifying factor in all of the healthy societies he observed. “The only overlapping feature in most of these healthy countries is that they all walk way more than the average American,” said Pasternak. “So really, regardless of what you're eating, if someone’s walking four miles more than you each day, they’re going to be a lot thinner and live a lot longer than you.”"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What characterizes Japanese and Chinese foods?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Variety."
+            },
+            {
+              "key": "B",
+              "text": "Flavor."
+            },
+            {
+              "key": "C",
+              "text": "Color."
+            },
+            {
+              "key": "D",
+              "text": "Naturalness."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】细节辨认题。定位句指出,他注意到日本人吃很多种类的海藻,而中国人则会在每餐中纳入至少 5 种颜色的食物。由此可见,不管是日本人还是中国人,在饮食上的特点都是种类丰富,故答案为A)。"
+        },
+        {
+          "number": 47,
+          "stem": "What is typical of Americans in the way of eating?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They emphasize nutrition."
+            },
+            {
+              "key": "B",
+              "text": "They tend to eat quite a lot."
+            },
+            {
+              "key": "C",
+              "text": "They prioritize convenience."
+            },
+            {
+              "key": "D",
+              "text": "They care about flavors."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】 细节辨认题。定位句提到,美国人比其他国家的人饭量更大,也就是说,他们吃的更多一些， 故答案为 B) 。"
+        },
+        {
+          "number": 48,
+          "stem": "What features in Mediterranean, Nordic and Okinawan diets?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Fruits and vegetables."
+            },
+            {
+              "key": "B",
+              "text": "Olive oil and red wine."
+            },
+            {
+              "key": "C",
+              "text": "Seasonal local produce."
+            },
+            {
+              "key": "D",
+              "text": "Unprocessed ingredients."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】细节辨认题。定位句指出,他将此和健康的地中海饮食.北欧饮食和冲绳饮食进行了对比。 这些地方的饮食看似都坚持了地方性和季节性农产品的特质,故答案为 C) 。"
+        },
+        {
+          "number": 49,
+          "stem": "What do people in most healthy eating cultures have in common?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They get the whole family to eat at a table."
+            },
+            {
+              "key": "B",
+              "text": "They eat their meals regularly and punctually."
+            },
+            {
+              "key": "C",
+              "text": "They consume plenty of cereal for breakfast."
+            },
+            {
+              "key": "D",
+              "text": "They attach great importance to their meals."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】细节辨认题。第五段提到,很多其他的健康饮食文化也会把吃饭视为一件大事。比如,在家庭餐桌上吃上几道菜,或者在一顿漫长的午餐中喝一两杯红酒 ,而不是匆忙地在厨房水槽旁狼吞虎咽地吃下几把麦片,然后称之为晚餐。也就是很重视每一餐的质量,故答案为 D)。"
+        },
+        {
+          "number": 50,
+          "stem": "Compared with the average American, people in healthy societies “",
+          "options": [
+            {
+              "key": "A",
+              "text": "walk at least 4 miles a day"
+            },
+            {
+              "key": "B",
+              "text": "do considerably more walking"
+            },
+            {
+              "key": "C",
+              "text": "pay more attention to body shape"
+            },
+            {
+              "key": "D",
+              "text": "consume a lot more organic food"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】细节辨认题。定位句指出,帕斯捷尔纳克确实注意到,在他观察的所有健康社会中,有一个统一的因素.“在这些健康国家中,唯一的共同点是他们走路的时间都比一般美国人走路时间多。 故答案为 B)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Recognizing when a friend or colleague feels sad, angry or surprised is key to getting along with others. But a new study suggests that being sensitive to people’s feelings may sometimes come with an extra dose of stress. This and other research challenge the prevailing view that emotional intelligence is uniformly beneficial to its bearer.",
+        "In a study, psychologist Myriam Bechtoldt of the Frankfurt School of Finance and Management in Germany asked 166 male university students a series of questions to measure their emotional intelligence. For example, they showed the students photographs of people’s faces and asked them to what extent feelings such as happiness or disgust were being expressed. The students then had to give job talks in front of judges who displayed serious facial expressions. The scientists measured concentrations of stress hormones in the students’ saliva (唾液) before and after the talk.",
+        "In students who were rated more emotionally intelligent, the stress measures increased more during the experiment and took longer to go back to baseline. The findings suggest that some people may be too emotionally clever for their own good, says Bechtoldt. “Sometimes you can be so good at something that it causes trouble,” she notes.",
+        "Indeed, the study adds to previous research hinting at a dark side of emotional intelligence. A study published in 2002 in Personality and Individual Differences suggested that emotionally perceptive people might be particularly influenced by feelings of depression and hopelessness. Furthermore, several studies have implied that emotional intelligence can be used to maninulate others for personal gains.",
+        "More research is needed to see how exactly the relation between emotional intelligence and stress would play out in women and in people of different ages and education levels. Nevertheless, emotional intelligence is a useful skill to have, as long as you learn to also properly cope with emotions—both others’ and your own, says Bechtoldt. For example, some sensitive individuals may assume responsibility for other people’s sadness or anger, which ultimately stresses them out. Remember, as Bechtoldt says, “you are not responsible for how other people feel.”"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is the finding of the new study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Emotional intelligence helps people get along with others."
+            },
+            {
+              "key": "B",
+              "text": "Emotional intelligence is generally beneficial to its bearer."
+            },
+            {
+              "key": "C",
+              "text": "People who are aware of others’ feelings may experience more stress."
+            },
+            {
+              "key": "D",
+              "text": "People who are emotionally stressed may have trouble making friends."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】细节辨认题。定位句指出,一项新研究表明,对他人的感受过于敏感有时候也会让人平添一些额外的压力。故答案为 C) 。"
+        },
+        {
+          "number": 52,
+          "stem": "What was the purpose of psychologist Myriam Bechtoldt’s experiment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To define different types of human feelings."
+            },
+            {
+              "key": "B",
+              "text": "To assess the impacts of being emotionally clever."
+            },
+            {
+              "key": "C",
+              "text": "To demonstrate how to distinguish different feelings."
+            },
+            {
+              "key": "D",
+              "text": "To identify gender differences in emotional intelligence."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】 推理判断题。定位句提到,心理学家米利亚姆。贝赫托尔特在一项研究中询问了 166 名男学生一系列问题,来衡量他们的情商。第二段也提到,科学家们在演讲前后分别测量了这些学生唾液中压力激素的浓度。综合以上信息可以推断,实验的目的是评估情商的影响,故答案为 B) 。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the finding of Myriam Bechtoldt’s study indicate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Greater emotional cleverness means less trouble in one’s life."
+            },
+            {
+              "key": "B",
+              "text": "Emotional intelligence helps people succeed in job interviews."
+            },
+            {
+              "key": "C",
+              "text": "People’s psychological wellbeing is related to various factors."
+            },
+            {
+              "key": "D",
+              "text": "People may suffer from having a high emotional intelligence."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】细节辩认题。定位句指出,贝赫托尔特认为,这些发现表明有些人可能在情感上过于聪明， 而这对自己没有什么好处; 有时候你可能在某些方面太擅长以至于也会带来麻烦。故答案为D) 。"
+        },
+        {
+          "number": 54,
+          "stem": "What do we learn about emotional intelligence from a number of studies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People suffering from depression are emotionally immature."
+            },
+            {
+              "key": "B",
+              "text": "People who look at the dark side of life often feel depressed."
+            },
+            {
+              "key": "C",
+              "text": "Some people may take advantage of it and benefit themselves."
+            },
+            {
+              "key": "D",
+              "text": "Some people may lack it and are easily manipulated by others."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】细节辨认题。定位句指出,一些研究也指出,情商可以用来操纵他人以获得个人利益,故答案为 C) 。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author suggest sensitive individuals do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Avoid burdening themselves with others’ feelings."
+            },
+            {
+              "key": "B",
+              "text": "Rid themselves of worries over worldly affairs."
+            },
+            {
+              "key": "C",
+              "text": "Learn to cope with people’s negative feelings."
+            },
+            {
+              "key": "D",
+              "text": "Help people to deal with their troubles in life."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】细节辨认题。由定位名可知,一些敏感的人也许会为他人的悲伤或气愤承担责任,最终让自己压力重重。作者用贝赫托尔特的话对敏感的人提出了建议,即不必对他人的感受负责,故答案为A)。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/cet4_2022_12_1.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2022_12_1_ans.pdf"
+}

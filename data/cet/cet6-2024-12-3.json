@@ -1,0 +1,1650 @@
+{
+  "id": "cet6-2024-12-3",
+  "level": 6,
+  "year": 2024,
+  "month": 12,
+  "set": 3,
+  "title": "2024 年 12 月六级 · 第 3 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2024-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "About 23% of the global population lives in absolute poverty. In developing countries there is a low life expectancy, a high infant [[26]] rate, high levels of unemployment and illiteracy, nutritional levels below acceptable standards and widespread disease with very little or poor quality medical assistance. Others live [[27]] wealthy and luxurious lives and so the wealth is distributed in a very [[28]] manner. These are the central problems to questions of charity though charity also includes many other areas such as assisting the elderly. We all [[29]] when very rich people pledge to give away most of their billions, but they are usually left with millions to pass on, still much more than most people would expect to earn in their lifetime. Even comparatively [[30]] salaries in the west are very high when compared globally. Someone on £20,000 could easily afford to give away £ 2,000 per year and still have plenty to live on plus some luxuries. Most people agree that giving to charity is morally [[31]] but charitable behaviour tends to be regarded as above and beyond the call of duty. Some argue, however, that charitable behaviour is morally required. This means that to fail to behave charitably would be wrong. The majority of arguments in this vein refer to giving aid to poorer nations but they may also refer to giving time within one's [[32]] community. Arguments tend to place different requirements on people in different income brackets and [[33]] entirely people who are merely making ends meet. Some argue that people should all contribute a certain percentage of their earnings. I",
+        "will [[34]] together all those arguments that place a moral requirement on people to give to charity, despite the fact that there is wide disagreement as to the [[35]] of that moral requirement."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "applaud"
+        },
+        {
+          "key": "B",
+          "text": "casualty"
+        },
+        {
+          "key": "C",
+          "text": "exclude"
+        },
+        {
+          "key": "D",
+          "text": "extent"
+        },
+        {
+          "key": "E",
+          "text": "group"
+        },
+        {
+          "key": "F",
+          "text": "hierarchical"
+        },
+        {
+          "key": "G",
+          "text": "immediate"
+        },
+        {
+          "key": "H",
+          "text": "incredibly"
+        },
+        {
+          "key": "I",
+          "text": "moderate"
+        },
+        {
+          "key": "J",
+          "text": "mortality"
+        },
+        {
+          "key": "K",
+          "text": "overt"
+        },
+        {
+          "key": "L",
+          "text": "praiseworthy"
+        },
+        {
+          "key": "M",
+          "text": "probe"
+        },
+        {
+          "key": "N",
+          "text": "sceptically"
+        },
+        {
+          "key": "O",
+          "text": "unequal"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "J",
+          "explanation": "空格位于 a high infant … rate 中。原段列举发展中国家恶劣的生存条件，mortality rate 表示“死亡率”，与高婴儿死亡率的语境相符。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【语法判断】空格位于\"live. . .lives”结构中 ,lives 被形容词 wealthy 和 luxurious 所修饰,空格在这两个形容词之前,据此推测空格处很可能是一个副词。 【语义判断】前一句提到发展中国家生存环境恶劣,空格所在句指的是其他人的生活,用 wealthy 和1luxurious 来形容,可见两种生活反差巨大,因此填和人 H) incrediblY极端地,极其”进一步表达出这种天坏之别,为后面提到的财富分配不均作铺垫,符合文章意思,故为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【语法判断】空格前是副词 very, 后面是名词 manner,据此推测空格处是一个形容词,修饰 manner。 【语义判断】前一句提到发展中国家生存环境恶劣,空格所在句说另外一些人却过着富裕而奢华的生活,so 用来引出作者对比了两种情况之后得出的结论:财富的分配是极为不均衡的,因此填入 O) unequal“不平等的;不均衡的”符合文章意思。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "A",
+          "explanation": "空格作 we 的谓语，需要动词。下文说非常富有的人承诺捐出大部分财产，结合前文对财富分配不均的讨论，这种行为值得称赞。因此选 A) applaud。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断】空格前是副词 comparatively ,后面是名词 salaries,可推断空格处是一个形容词,修饰 Salaries。 【语义判断】空格所在句提到西方国家的薪水与全球范围相比是非常高的,这是从普通人的角度揭示西方国家和其他国家收入的差距, 如果用收入很高的人来做对比就没有说服力了,所以要用收入一般的人来对比，D) moderate*适度的; 中等的”符合文章意思, 填入句中意为“即便是西方国家相对中等的收入,与全球范围相比也是非常高的薪水”,故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【语法判断】空格处是系动词 is 的表语,空格前有副词 morally,由此推测空格处是一个形容词。 【语义判断】 空格所在句提到大多数人对慈善的看法,morally 意思是“道义上”,可知空格处表达的是人们从道义角度对慈善的评价,慈善是帮助他人的行为,是慷慨无私.积极正面的行为,因此填入I) praiseworthy值得称赞的”。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【语法判断空格前有名词所有格 one's,后面有名词 community, 可推知空格处是一个形容词或名词 ,修饰 community。 【语义判断]】 空格所在句的前半句提到这方面的大多数论点都主张向贫穷国家提供援助,这是慈善事业大的方面,然后用 but 进行转折 ,两相对比,提出了小的方面:在社区做义工,这种着眼于身边的慈善大多是在自己附近的、能够接触到的小区,G) immediate\"附近的”符合文章意思,故为答案。此次考查immediate\"附近的”这个比较生个的词义， 这提醒考生除了要记住单词的常用释义,还应对它的不常见释义有所了解。 六级真题(三) 32"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【语法判断】空格所在句的主干结构是“Arguments tend to place. . .and entirely people. . .”， 空格处与前面的 to place 并列作 tend 的不定式宾语,可知空格处是一个动词。 【语义判断】 空格所在句的前半句提到这些观点往往对不同收入阶层的人提出不同的慈善要求,后半句提到仅能维持生计的人,既然是根据收入来决定做慈善的程度,那么仅能维持生计的人自然是没有余力做慈善的,只能排除在外,不要求他们做慈善,因此填和人 C) exclude“不包括;不放在考虑之列”。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "E",
+          "explanation": "空格在 will 之后，需要动词原形。下文把从援助贫穷国家到参加社区义工等有关慈善的主张归为一类，E) group 表示“把……归类”，符合语境。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【语法判断】空格前是介词结构 as to, 相当于 about,后面是 of 引导的介词短语作后置定语修饰空格处的词 ,综合可知空格处是一个名词 。 【语义判断】空格所在句的前半句提到作者将把慈善看作是道义上的要求的主张都整合到一起,后半句用 despite the fact 进行转折,指出关于道义上的要求还有广泛的分歧,从本段前面提到的各种主张可知人们对于慈善该做到何种程度的看法差别很大,因此填和人 D) extent程度,限度”。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-12-3-b",
+      "type": "matching",
+      "title": "The Free-Trade Paradox",
+      "paragraphs": [
+        "A) Trade is one of the policy areas where the hostility that exists between populists (民粹主义者) and classical liberals is most visible. Free-traders point to the undeniable good that tariff-free trade has done for consumers across the world and to the observable alleviation of poverty in corners of the world where previously closed markets have been opened up. Protectionists point to the domestic producers who've paid the price for this globalized economy in the form of lost livelihoods and hollowed-out communities.",
+        "B) The ongoing conservative civil war often degenerates into content-free tribal warfare, but trade is a rare exception. There are substantial, thought-out policy proposals on both sides of the argument.",
+        "C) Consequently, trade as a topic of discussion provides an opportunity for liberals and populists to have a real meeting of minds. Fruitful debates might actually take place in this area, as opposed to the familiar ritual we've become accustomed to of condemnation met with counter-condemnation.",
+        "D) Strange as it might sound, the problem with trade in the modern world isn't a matter of dollars and cents. It's a matter of false consciousness. This observation is bound to set Marxist alarm bells ringing in the minds of some readers, but it was first made by Alexis de Tocqueville in 1840.",
+        "E) Tracking the economic development of mankind from primitive to modern societies, Tocqueville observed a paradox unfolding over the centuries as economic realities and human experience of those realities strayed further and further from each other. In primitive societies, he notes, the division of labor was as yet undeveloped for the most part, requiring each person, family, or tribe to be relatively independent when it came to meeting their own basic material needs. Men built their own dwellings, farmed their own land, tended to their own livestock. This is not to deny that basic forms of trade took place, but, for the most part, our primitive ancestors lived fairly self-reliant, if crushingly poor, lives.",
+        "F) However, the exclusively local and face-to-face nature of economic and political organization in the ancient and prehistoric worlds constantly impressed upon these primitive peoples the uncontrollable reality of others and their needs. As Tocqueville notes, \"as soon as a man begins to deal with common affairs in public, he begins to perceive that he is not so independent of his fellow men as he had first imagined, and that in order to obtain their support he must often lend them his cooperation.\"",
+        "G) At the advent of the modern world, the division of labor spread further and further throughout society. Each person became more and more dependent on others for their basic needs. And yet, robbed of the engagement with our neighbors and with our local communities that our ancestors were forced into by circumstance, we feel ourselves to be more and more independent of one another. As we become more and more dependent on others, we become less and less conscious of our dependence on others. This is the paradox of trade in the modern world.",
+        "H) The false consciousness that this paradox generates causes havoc on the debates we have about free trade. There is scarcely a single commodity in any American household that isn't dependent for its manufacture and sale, through one supply chain or another, on scores of different people spread out across the entire globe. But as Tocqueville already foresaw in 1840, we do not feel dependent on these strangers for our way of life. No sense of the dependence of our own material welfare on their work ever strikes our national consciousness. We rarely contemplate the globalized avenues of free trade with gratitude.",
+        "I) There are two reasons for this. The first, to put it bluntly, is money. Money allows us to purchase the work of others without giving any thought to them as human beings. Unlike our ancestors in their primitive townships, we rarely have to meet face-to-face the people who've invented, built, shipped, or supplied our goods. No relationship has to be built before an exchange can take place. Simply agree on a price, and you can have any goods you wish without taking a second thought for the human being involved on the other side of the transaction. In this way, money makes us feel more independent than we actually are. Each of us senses the hold that it has over our fellows. We know that if we bid highly enough we can buy ourselves out of the time-consuming labor of building relationships. Money is kind of like magic in that way. It gives us a set of rituals to perform and promises that if we do so we'll be able to wield power over others. The illusion is created that having enough money to buy something is the equivalent of knowing how to make it yourself. Gratitude for the anonymous men and women who make up the supply chain rarely makes its way into our consciousness.",
+        "J) Anonymity, in fact, is the second root cause of the free-trade paradox. Modernity has emancipated everyone from the limits of location and community. By and large, when we trade, we trade with strangers; when we vote, we vote for strangers; when we watch, read, or listen to stories, the tellers of the tales are strangers. As opposed to the ancestors Tocqueville compares us to, we do not know the people with whom we have to do, in either the economic or the political sphere. This is simply the shadow side of the miracle of markets, which, for the first time in history, have allowed strangers to look after each other. They've also allowed each of us to live more and more of our lives exclusively as strangers to other people. This is how Tocqueville—rather pessimistically—describes us: Each, standing apart, is like a stranger to the destiny of others; his children and personal friends forming for him the entire human race. As for the remainder of his fellow citizens, he is beside them, but he does not see them. He touches them, but he does not feel them. He exists only in and for himself.",
+        "K) The last sentence but one is as apt a summary as one could hope to come by of how each of us functions in the modern economy: \"He touches them, but he does not feel them.\"",
+        "L) This is the greatest challenge facing defenders of free trade. It's exceedingly difficult for human beings to feel gratitude toward strangers, and the global marketplace that has made us so rich has also made us strangers to one another. Our brains are hardwired for tribal life, and tribes do not take kindly to strangers. Impressing a sense of dependence upon and gratitude toward foreign strangers is therefore an uphill task.",
+        "M) If free-traders are going to win policy arguments in the future, they'll have to find a way of forging bonds of affection between American consumers and foreign producers. Only by de-anonymizing the men and women who supply us with the goods and services we enjoy from overseas and by creating a sense of solidarity and relationship across borders that transcends economic interest can free trade win the day. Otherwise, the inborn biological upper hand that protectionists have in the form of nationalist solidarity is bound to win the day at the ballot box."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "People became more and more reliant on others for basic needs as they entered the modern world even though they might feel less so.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】同义转述题。G)段第一至三句提到,进入现代社会后,劳动分工在整个社会中越来越广泛。 每个人的基本需求都越来越依赖别人。然而,由于被剥夺了我们的祖先因环境所人迫而与邻居和当地社区形成的联系,因此我们感觉到自己越来越独立于他人。题干中的 more and more reliant on 对应原文中的 more and more dependent on ,题干中的 as they entered the modern world 是对原文中 at the advent of the modern world 的同义转述,题干中的 might feel less so 是对原文中 feel ourselves to be more and more independent of one another 的同义转述,故答案为 G) 。"
+        },
+        {
+          "number": 37,
+          "stem": "On the topic of trade, productive debates might be possible, in contrast to the familiar mutual condemnation in discussing other issues.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】同义转述题。C)段提到,在贸易作为一个讨论话题的领域可能会发生富有成效的辩论,而不是我们已经习惯了的谴责与反遗责的熟悉惯例。题干中的 productive 是原文中 fruitful 的同义词, 题干中的 in contrast to 是原文中 as opposed to 的同义词组，题干中的 the familiar mutual condemnation in discussing other issues 是对原文中 the familiar ritual we've become accustomed to of condemnation met with counter- condemnation 的同义转述 ,故答案为 C) 。"
+        },
+        {
+          "number": 38,
+          "stem": "We feel greater independence than we actually possess because money allows us to buy things without building any relationships.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【精析】细节归纳题。I)段第三句提到,金钱使我们能够购买他人的劳动,而完全不考虑他们是人。 第五句指出在交换发生之前,人们不需要建立任何关系。第七句进一步指出,通过这种方式,金钱让我们感觉比实际情况更独立。题干中的 feel greater independence 对应第七句中的 feel more independent,题干中的 alows us to buy things 是对 I)段第三句 allows us to purchase the work of others 的同义转述,题干中的 without building any Ielationships 对应 D段第五句中的 no relationship has to be built ,综合归纳可知,答案为 I) 。"
+        },
+        {
+          "number": 39,
+          "stem": "The trouble with today's trade stems from misconceptions rather than money.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】同义转述题。D)段定位句提到,现代世界的贸易问题并不是美元和美分的问题,这是一个错误意识的问题。即贸易问题源于错误的意识,而不是金钱。题干中的 stems from 是对原文中it's a matter of 的同义转述,题干中的 misconceptions 是原文中 false consciousness 的同义词 ,故答案为 D)。"
+        },
+        {
+          "number": 40,
+          "stem": "For their arguments to prevail, advocates of free trade must try to forge bonds of affection between consumers at home and producers overseas.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M 段指出，自由贸易支持者若想赢得未来的政策辩论，就必须在美国消费者与外国生产者之间建立情感纽带。题干是对这一观点的同义转述。"
+        },
+        {
+          "number": 41,
+          "stem": "According to Tocqueville, unlike our ancestors, we and the people we do trade with are strangers to each other.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【精析】同义转述题。J)段定位句提到 ,与托克维尔将我们与之比较的祖先相反,我们不知道那个我们必须在经济或政治领域与之打交道的人是谁。题干中的 unlike our ancestors 是对原文中 as opposed to the ancestors 的同义转述,题干中的 we do trade with 是对原文中 with whom we have to do 的同义转述,我们不知道与之打交道的人是谁就意味着与之打交道的是陌生人,故答案为了) 。"
+        },
+        {
+          "number": 42,
+          "stem": "In primitive societies, people had to rely mostly on themselves to meet their personal needs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】同义转述题。E)段定位句指出,在原始社会中,劳动分工在很大程度上还不发达,要求每个人、家庭或部落在满足自己的基本物质需求时相对独立,也即人们需要依靠自己来满足个人需求。 题干中的 rely mostly on themselves 对应原文中的 be relatively independent,题干中的 meet their personal needs 是对原文中 when it came to meeting their own basic material needs 的同义转述,故答案为 E) 。"
+        },
+        {
+          "number": 43,
+          "stem": "Few commodities in American homes are not reliant on people abroad in the process of manufacture",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】同义转述题。H)段定位句指出,在美国家庭中,几乎没有任何一件商品,在其制造和销售过程中,不是通过各种各样的供应链,依赖于分布在全球各地的众多人员 ,题干意思与此一致。题干中的 few commodities in American homes 对应原文中的 scarcely a single commodity in any American household,题干中的 not reliant on 是原文中\"isn't dependent. . .on的同义词组,故答案为 HD) 。"
+        },
+        {
+          "number": 44,
+          "stem": "Protectionists argue against free trade by referring to the losses suffered by domestic producers and communities.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】细节归纳题。A)段第一句指出民粹主义者和传统自由主义者之间关于贸易政策存在敌意,第二句指出自由贸易者的观点,第三句接着提到,保护主义者指出,国内生产者为全球化经济付出了代价,失去了生计,社区被掏空。综合可知， 保护主义者用国内生产者和社区遭受的损失来据理反对自由贸易。题干中的 referring to 和原文中的 point to 是同义词组,题二中的 the losses suffered by domestic producers and communities 对应原文中的 the domestic producers who've paid the price for this globalized economy in the form of lost livelihoods and hollowed-out communities ,故答案为 A) 。"
+        },
+        {
+          "number": 45,
+          "stem": "It is extremely hard to make people feel dependent on and grateful to strangers overseas.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L 段指出，全球市场使人们更加富裕，却也让相互依赖的人变得陌生；人们很难对遥远的外国陌生人产生依赖感和感激之情。题干对应这一论述。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "There are hundreds of personality quizzes online that assert they can ascertain whether the right or left half of your brain is dominant. Left-brained people are supposedly logical and excel at language and math while right-brained people are more imaginative, emotionally intelligent and skilled with spatial reasoning. There's just one problem: That's not how brains work. Popular science enthusiasts sort of took this idea and ran with it, and it's become woven in popular culture now, and it's not going away.",
+        "Despite this enduring belief, there's no such thing as being \"right-brained\" or \"left-brained\". Whether you're someone who tends more towards creativity or logic has nothing to do with one hemisphere of your brain being dominant over the other. But the actual science of how the two halves of our brains work together is sometimes stranger than fiction. The human brain is divided into two hemispheres, the left and right. In all vertebrate (脊椎的) animals, the right hemisphere controls the left side of the body and vice versa. And scientists have long known, thanks to the behaviors of patients who suffered brain injuries, that different areas of the brain do different things. But many scientists struggled with this idea, because the very suggestion that the left and right halves of the brain operate differently disrupted the idea that nature tends toward perfect symmetry. Work by neuroscientists (神经科学家 ) has revealed the importance of different hemispheres of the brain for different activities. However, their research quickly saw some misinterpretations in the general public: Some presumed creative people must be right-brained and logical people left-brained. It is proven that not only is personality unrelated to the different halves of the brain, but people aren't really right- or left-brained to begin with. The idea that we have left-dominant people and right-dominant people, and that this is related to personality, is categorically false. That's never been supported in the neuroscience community. Neuroscientists don't believe that and never have. What scientists learned is that there are really important differences between the left hemisphere and the right hemisphere. It's just that they have nothing to do with personality or whether cognitive strategy is more logical or free spirited or creative. While researchers have shown the limitations of how the hemispheres of our brains influence our lives, it's not difficult to understand the appeal of such ideas. People are endlessly fascinated by themselves and their friends, and the subtle differences in how people think about the world are really meaningful to them. When you come up with an online quiz that tells us something about ourselves, we're drawn to that. It's irresistible. But you have to take it with an enormous grain of salt."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do numerous personality quizzes online claim they are able to do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Distinguish between the two hemispheres of one's brain."
+            },
+            {
+              "key": "B",
+              "text": "Determine whether one is left-brained or right-brained."
+            },
+            {
+              "key": "C",
+              "text": "Tell if one is more of a linguist or of a mathematician."
+            },
+            {
+              "key": "D",
+              "text": "Ascertain how one's brain performs different tasks."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】事实细节题。第一段第一句指出,网上有数百种性格测试,声称能够确定你的大脑是左脑还是右脑占主导地位,即确定人们是左脑型人还是右脑型人,故答案为 B) 。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author say is sometimes stranger than fiction?",
+          "options": [
+            {
+              "key": "A",
+              "text": "How one hemisphere of the brain impacts creativity."
+            },
+            {
+              "key": "B",
+              "text": "How the two halves of our brains work alternately."
+            },
+            {
+              "key": "C",
+              "text": "How the two hemispheres of our brains cooperate."
+            },
+            {
+              "key": "D",
+              "text": "How one half of the brain dominates the other."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。第三段最后一句指出,关于我们大脑的两个半球如何协同工作的实际科学有时比小说还要奇特,选项 C)的意思与此一致,故为本题答案 。"
+        },
+        {
+          "number": 48,
+          "stem": "Why did many scientists have difficulty endorsing the idea that different areas of the brain do different things?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It contradicts the assumption that the two hemispheres of the brain are symmetrical."
+            },
+            {
+              "key": "B",
+              "text": "It dismisses the view that the universe has been evolving in a consistent manner."
+            },
+            {
+              "key": "C",
+              "text": "It is in conflict with the suggestion that the left and right halves of the brain work together."
+            },
+            {
+              "key": "D",
+              "text": "It disrupts the idea that the right hemisphere of the brain controls the left side of the body."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】推理判断题。文章第五段提到,许多科学家对此想法感到困惑,因为大脑左右半球运作方式不同的这一说法颠覆了自然界倾向于完美对称的观点。由上一段最后一句可知,令许多科学家感到困惑的想法是,大脑的不同区域有不同的功能。由此可推断出,科学家们难以认同大脑不同区域有不同功能的想法是因为该想法颠覆了自然界倾向于完美对称的观点 ,故答案为 A) 。"
+        },
+        {
+          "number": 49,
+          "stem": "What belief have neuroscientists long rejected according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "There are left-dominant people and right-dominant people with different personalities."
+            },
+            {
+              "key": "B",
+              "text": "There are noticeable differences between the left and right hemispheres of the brain."
+            },
+            {
+              "key": "C",
+              "text": "One's personality is hardly related to the different halves of the brain."
+            },
+            {
+              "key": "D",
+              "text": "Different areas of the brain are responsible for different activities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】事实细节题。第六段第四名指出,那种认为我们有左脑或右脑主导者且这与性格相关的想法是绝对错误的。紧接着该段最后一句提到 ,神经科学家不相信,也从未相信过。由此可知,神经科学家长期以来拒绝相信的是存在左脑或右脑主导者,且他们的性格不同,故答案为 A) 。"
+        },
+        {
+          "number": 50,
+          "stem": "What are we advised to do with an online quiz that tells us something about ourselves?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Challenge its authority."
+            },
+            {
+              "key": "B",
+              "text": "Scrutinize its originality."
+            },
+            {
+              "key": "C",
+              "text": "Evaluate its popularity."
+            },
+            {
+              "key": "D",
+              "text": "Question its reliability."
+            }
+          ],
+          "answer": "D",
+          "explanation": "末段虽然说明人们容易被关于自己的网络测试吸引，却明确建议 take it with an enormous grain of salt，即对其持怀疑态度。因此应质疑这类测试的可靠性，选 D。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "One hundred thirty-five students, four teachers, one giant classroom: This is what 9th grade looks like at Westwood High School, in Mesa, Arizona's largest school system. There, an innovative teaching model has taken hold, and is spreading to other schools in the district and beyond. Five years ago, faced with high teacher turnover and declining student enrollment, Westwood's leaders decided to try something different. Working with professors at Arizona State University's teachers college, they piloted a classroom model known as team teaching, which allows teachers to dissolve the walls that separate their classes across physical or grade divides. The teachers share large groups of students-sometimes 100 or more-and rotate between group instruction, one-on-one interventions, small study groups, or whatever the teachers as a team agree is a priority that day. What looks at times like chaos is in fact a carefully orchestrated plan: Each morning, the Westwood teams meet to hammer out a personalized program for every student the team will focus on that day. By giving teachers more opportunity to collaborate, Mesa's administrators hoped to fill staffing gaps and boost teacher morale and retention. Initial research suggests the gamble could pay off. \"Teachers are doing fantastic things, but it's very rare a teacher walks into another room to see what's happening,\" said Andi Fourlis, superintendent of Mesa Public Schools. \"Our profession is so slow to advance because we are working in isolation.\" Of course, overhauling teaching approaches can't fix all the frustrations teachers have, such as low pay, but early results from Mesa show team teaching may be helping to reverse low morale. In a survey of hundreds of the district's teachers, researchers found those who worked on teams reported greater job satisfaction, more frequent collaborations with colleagues, and more positive interactions with students. Another benefit of teams, teachers say, is that they can help each other improve their instruction. During one planning session, English teacher Jeff Hall shared a performance appraisal with a science teacher: Her recent lecture on something she called \"the central dogma of biology\" had bewildered him and their other teammates. \"If the science is too confusing for me, can you imagine the frustration you feel as kids?\" Hall said. But the science teacher, he said, wouldn't have known about the confusion on her own. The model is not for everyone. Some teachers approached about volunteering for a team have said they prefer to work alone. Team teaching can also be a scheduling nightmare, especially at schools like Westwood where only some staff work in teams. There are also thorny questions like how to evaluate four teachers on the",
+        "performance of 135 students. But for the time being, it seems to be working."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn about team teaching from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is generally conducted in classrooms without walls."
+            },
+            {
+              "key": "B",
+              "text": "It allows students to choose teachers they favor most."
+            },
+            {
+              "key": "C",
+              "text": "It prioritizes peer work over classroom instruction."
+            },
+            {
+              "key": "D",
+              "text": "It is closely coordinated despite seeming confusion."
+            }
+          ],
+          "answer": "D",
+          "explanation": "第三段末句指出，团队教学看起来有时很混乱，实际上却经过精心安排；教师每天共同制定重点学生的个性化学习计划。因此 D 项“看似混乱但协调紧密”符合原文。"
+        },
+        {
+          "number": 52,
+          "stem": "What does initial research suggest regarding Westwood's innovative teaching model?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It could help raise teachers' pay."
+            },
+            {
+              "key": "B",
+              "text": "It could turn out to be a success."
+            },
+            {
+              "key": "C",
+              "text": "It could cut down overall costs."
+            },
+            {
+              "key": "D",
+              "text": "It could end up like a gamble."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】推理判断题。定位句提到,初步研究表明 ， 这场赌博可能会得到回报,结合前文所述,可知这句话所说的意思是,韦斯特伍德有可能像其希望的那样 ,通过创新教学模式,给教师更多的合作机会,来填补人员缺口,提高教师士气和留任率,即创新教学初见成效,故答案为 B) 。"
+        },
+        {
+          "number": 53,
+          "stem": "What did superintendent Andi Fourlis say about the teaching profession?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Morale cannot be boosted until teaching models are overhauled."
+            },
+            {
+              "key": "B",
+              "text": "Teachers are simply too busy to visit classes of their colleagues."
+            },
+            {
+              "key": "C",
+              "text": "Progress is slow due to lack of collaboration among teachers."
+            },
+            {
+              "key": "D",
+              "text": "Teachers often do fantastic things without being noticed."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。在定位段中,安迪。 福利斯评价了教师行业,她认为这个行业之所以发展如此缓慢,是因为教师们都在单打独斗地工作,可见她认为缺乏合作是行业发展缓慢的原因,故答案为C)。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the author want to show by citing English teacher Jeff Hall's experience?",
+          "options": [
+            {
+              "key": "A",
+              "text": "English teachers and science teachers are complementary in performing their tasks."
+            },
+            {
+              "key": "B",
+              "text": "A teacher of arts and letters is completely puzzled by what a science teacher teaches."
+            },
+            {
+              "key": "C",
+              "text": "The new teaching model helps inform the teacher how their instruction is received."
+            },
+            {
+              "key": "D",
+              "text": "Science teachers will hardly know the confusion they create without a performance appraisal."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】推理判断题。定位句提到英语老师对科学老师的教学内容感到困惑,并在随后一段进一步解释了甚意义,即如果其他科目的老师不能理解教学内容,孩子更无法理解,并指出如果不是通过新的教学模式,科学老师是无法发现这个问题的。 换言之,新的教学模式帮助教师了解学生是否能接受教学内容,故答案为 C)。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author think is one of the difficult problems in implementing the new teaching model?",
+          "options": [
+            {
+              "key": "A",
+              "text": "What to do with teachers working alone."
+            },
+            {
+              "key": "B",
+              "text": "What to include in teaching schedules."
+            },
+            {
+              "key": "C",
+              "text": "How to recruit volunteers for a team."
+            },
+            {
+              "key": "D",
+              "text": "How to assess each teacher's performance."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】观点态度题。由定位句可知,团队教学的创新模式还有一些环手的问题,比如如何以 135 名学生的表现来评估 4 名教师,可见作者认为这个新教学模式的难点之一在于教师表现的评估问题,故答案为 D)。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%9C%9F%E9%A2%98PDF/2024.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2024.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC3%E5%A5%97.pdf"
+}

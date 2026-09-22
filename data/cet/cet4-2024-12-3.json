@@ -1,0 +1,1565 @@
+{
+  "id": "cet4-2024-12-3",
+  "level": 4,
+  "year": 2024,
+  "month": 12,
+  "set": 3,
+  "title": "2024 年 12 月四级 · 第 3 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2024-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Super realistic masks are made from flexible materials such as silicone and are designed to imitate real human face — down to every last detail. In a study by the Universities of York and Kyoto, researchers asked participants to look at pairs of photographs and decide which showed a [[26]] face and which showed a person wearing a mask. Surprisingly, participants made the wrong call in one-in-five cases. The 20% error rate [[27]] in the study likely underestimates the extent to which people would struggle to tell an [[28]] face from the real thing outside of the lab. The researchers collected data from participants from both the UK and Japan to [[29]] any differences according to race. When trial participants were asked to choose between photographs of faces of a different race from theirs, response times were slower and selections were 5% less [[30]]. There are now dozens of criminal cases in which offenders have [[31]] themselves off as people of a different age, race or gender, sending police investigations down the wrong path. In one recent case, an international gang used an [[32]] realistic mask to pose as a French minister, [[33]] business executives out of millions of pounds. Dr. Jet Sanders, who worked on the study while a PhD student at the University of York, said: “Failure to detect synthetic faces may have imp ortant implications for security and crime prevention as super realistic masks may [[34]] the key characteristics of a person’s appearance to be [[35]] identified.”"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "accurate"
+        },
+        {
+          "key": "B",
+          "text": "allow"
+        },
+        {
+          "key": "C",
+          "text": "artificial"
+        },
+        {
+          "key": "D",
+          "text": "cheating"
+        },
+        {
+          "key": "E",
+          "text": "deserted"
+        },
+        {
+          "key": "F",
+          "text": "establish"
+        },
+        {
+          "key": "G",
+          "text": "extremely"
+        },
+        {
+          "key": "H",
+          "text": "immediately"
+        },
+        {
+          "key": "I",
+          "text": "incorrectly"
+        },
+        {
+          "key": "J",
+          "text": "normal"
+        },
+        {
+          "key": "K",
+          "text": "observed"
+        },
+        {
+          "key": "L",
+          "text": "passed"
+        },
+        {
+          "key": "M",
+          "text": "reminding"
+        },
+        {
+          "key": "N",
+          "text": "reparable"
+        },
+        {
+          "key": "O",
+          "text": "resolve"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "allow"
+            },
+            {
+              "key": "C",
+              "text": "artificial"
+            },
+            {
+              "key": "D",
+              "text": "cheating"
+            },
+            {
+              "key": "E",
+              "text": "deserted"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "extremely"
+            },
+            {
+              "key": "H",
+              "text": "immediately"
+            },
+            {
+              "key": "I",
+              "text": "incorrectly"
+            },
+            {
+              "key": "J",
+              "text": "normal"
+            },
+            {
+              "key": "K",
+              "text": "observed"
+            },
+            {
+              "key": "L",
+              "text": "passed"
+            },
+            {
+              "key": "M",
+              "text": "reminding"
+            },
+            {
+              "key": "N",
+              "text": "reparable"
+            },
+            {
+              "key": "O",
+              "text": "resolve"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J]) normal ( adj. 正常的; 平常的 ) 空格前面为不定冠词as，后面为名词ftce，故空格处应填一个形容词或分词，修饰后面的名词。 此处阐述研究方法，即参与者观看成对的照片，然后判断哪些是a _ face ( ……的面孔 ) ， 哪些是person wearing a mask ( 戴着面具的人 ) ，二者是对比关系。normal face意为“正常的面孔”，符合此处语义，故答案为normal。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "allow"
+            },
+            {
+              "key": "C",
+              "text": "artificial"
+            },
+            {
+              "key": "D",
+              "text": "cheating"
+            },
+            {
+              "key": "E",
+              "text": "deserted"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "extremely"
+            },
+            {
+              "key": "H",
+              "text": "immediately"
+            },
+            {
+              "key": "I",
+              "text": "incorrectly"
+            },
+            {
+              "key": "J",
+              "text": "normal"
+            },
+            {
+              "key": "K",
+              "text": "observed"
+            },
+            {
+              "key": "L",
+              "text": "passed"
+            },
+            {
+              "key": "M",
+              "text": "reminding"
+            },
+            {
+              "key": "N",
+              "text": "reparable"
+            },
+            {
+              "key": "O",
+              "text": "resolve"
+            }
+          ],
+          "answer": "K",
+          "explanation": "KR observed (v 观察到，注意到 ) inthe study作The 20% errorrate的后置定语，故空格处应填入一个分词。 前面提到了研究方法和研究结果，可知此处提到的数据不是主观判断，也不是猜测或假设，而是通过系统的观察和研究得出的。observed符合此处语境，故为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "allow"
+            },
+            {
+              "key": "C",
+              "text": "artificial"
+            },
+            {
+              "key": "D",
+              "text": "cheating"
+            },
+            {
+              "key": "E",
+              "text": "deserted"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "extremely"
+            },
+            {
+              "key": "H",
+              "text": "immediately"
+            },
+            {
+              "key": "I",
+              "text": "incorrectly"
+            },
+            {
+              "key": "J",
+              "text": "normal"
+            },
+            {
+              "key": "K",
+              "text": "observed"
+            },
+            {
+              "key": "L",
+              "text": "passed"
+            },
+            {
+              "key": "M",
+              "text": "reminding"
+            },
+            {
+              "key": "N",
+              "text": "reparable"
+            },
+            {
+              "key": "O",
+              "text": "resolve"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) artificial ( cd. 人造的; 假的) 空格前面为不定冠词an，后面为名词fce，故空格处应填一个形容词或分刘，修饰后面的名词。 上文提到，研究人员要求参与者判断哪些是正常的面孔，哪些是戴着面具的人。此处承接上文， artificial face 意为“人造面孔”，符合语境，即“研究中观察到的20%的错误率可能低估了人们在实验室外区分人造面孔和真实面孔的困难程度”。故答案为artificial。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "allow"
+            },
+            {
+              "key": "C",
+              "text": "artificial"
+            },
+            {
+              "key": "D",
+              "text": "cheating"
+            },
+            {
+              "key": "E",
+              "text": "deserted"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "extremely"
+            },
+            {
+              "key": "H",
+              "text": "immediately"
+            },
+            {
+              "key": "I",
+              "text": "incorrectly"
+            },
+            {
+              "key": "J",
+              "text": "normal"
+            },
+            {
+              "key": "K",
+              "text": "observed"
+            },
+            {
+              "key": "L",
+              "text": "passed"
+            },
+            {
+              "key": "M",
+              "text": "reminding"
+            },
+            {
+              "key": "N",
+              "text": "reparable"
+            },
+            {
+              "key": "O",
+              "text": "resolve"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) establish (v 确定; 证实) 此处考查不定式，空格前面为tb ，后面为宾语any differences，故空格处应填动词原形。 此处的不定式表示目的，研究方法是收集来自英国和日本的参与者的数据，目的是to any differences according torace (种族差异 ) 。代入备选项可知，establish符合此处语境，故为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "allow"
+            },
+            {
+              "key": "C",
+              "text": "artificial"
+            },
+            {
+              "key": "D",
+              "text": "cheating"
+            },
+            {
+              "key": "E",
+              "text": "deserted"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "extremely"
+            },
+            {
+              "key": "H",
+              "text": "immediately"
+            },
+            {
+              "key": "I",
+              "text": "incorrectly"
+            },
+            {
+              "key": "J",
+              "text": "normal"
+            },
+            {
+              "key": "K",
+              "text": "observed"
+            },
+            {
+              "key": "L",
+              "text": "passed"
+            },
+            {
+              "key": "M",
+              "text": "reminding"
+            },
+            {
+              "key": "N",
+              "text": "reparable"
+            },
+            {
+              "key": "O",
+              "text": "resolve"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) accurate (adj 准确的，精确的) 空格位于句末，前面为并列的比较结构response times were slower and selections were 5% less.……，故空格处应填入形容词或分词。 上一段提到20%的错误率可能低估了人们区分真伪面孔的困难程度，此处也在说明参与者面对不同种族面孔时表现出的困难，即response times were slower ( 反应时间变慢 ) 和selections were 5% less _ (选择少g%…… ) 。选择有困难时反应时间会变慢，准确率会下降，代入选项可知，accurate符合此处语境，故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "allow"
+            },
+            {
+              "key": "C",
+              "text": "artificial"
+            },
+            {
+              "key": "D",
+              "text": "cheating"
+            },
+            {
+              "key": "E",
+              "text": "deserted"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "extremely"
+            },
+            {
+              "key": "H",
+              "text": "immediately"
+            },
+            {
+              "key": "I",
+              "text": "incorrectly"
+            },
+            {
+              "key": "J",
+              "text": "normal"
+            },
+            {
+              "key": "K",
+              "text": "observed"
+            },
+            {
+              "key": "L",
+              "text": "passed"
+            },
+            {
+              "key": "M",
+              "text": "reminding"
+            },
+            {
+              "key": "N",
+              "text": "reparable"
+            },
+            {
+              "key": "O",
+              "text": "resolve"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) passed (v 经过，越过; 穿过) 空格前面为助动词have，后面为themselves offas people，该从句的主语为offenders，故空格处应填入过去分词，与have一起构成现在完成时，充当谓语，且该词能与off构成合理搭配。 该句句意为“现在有几十起刑事案件，罪犯 ”不同年龄、种族或性别的人，使警方的调查工作误入歧途”。警方的调查之所以误入歧途，是因为罪犯隐藏了其真实面目。pass oneself off as为固定表达，意为“冒充,假冒”，符合此处语境，故答案为passed。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "allow"
+            },
+            {
+              "key": "C",
+              "text": "artificial"
+            },
+            {
+              "key": "D",
+              "text": "cheating"
+            },
+            {
+              "key": "E",
+              "text": "deserted"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "extremely"
+            },
+            {
+              "key": "H",
+              "text": "immediately"
+            },
+            {
+              "key": "I",
+              "text": "incorrectly"
+            },
+            {
+              "key": "J",
+              "text": "normal"
+            },
+            {
+              "key": "K",
+              "text": "observed"
+            },
+            {
+              "key": "L",
+              "text": "passed"
+            },
+            {
+              "key": "M",
+              "text": "reminding"
+            },
+            {
+              "key": "N",
+              "text": "reparable"
+            },
+            {
+              "key": "O",
+              "text": "resolve"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) extremely ( adv 极度，极其 ) 空格前面为不定冠词an，后面为realistic mask，故空格处应填副词，修饰后面的形容词。 此处列举一个利用面具实施犯罪的案件。该句句意为“在最近的一个案例中，一个国际犯罪团伙用台真的面具冒充法国部长， 企业高管数百万英镑”。被冒充人的身份 ( 法国部长 ) 以及涉案金额 ( 数百万英镑 ) 体现了这起案件的特殊性和复杂性，也反映了罪犯所用面具的高度逼真性， extremely realistic意为“极其逼真”，符合此处语境，故答案为extremely。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "allow"
+            },
+            {
+              "key": "C",
+              "text": "artificial"
+            },
+            {
+              "key": "D",
+              "text": "cheating"
+            },
+            {
+              "key": "E",
+              "text": "deserted"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "extremely"
+            },
+            {
+              "key": "H",
+              "text": "immediately"
+            },
+            {
+              "key": "I",
+              "text": "incorrectly"
+            },
+            {
+              "key": "J",
+              "text": "normal"
+            },
+            {
+              "key": "K",
+              "text": "observed"
+            },
+            {
+              "key": "L",
+              "text": "passed"
+            },
+            {
+              "key": "M",
+              "text": "reminding"
+            },
+            {
+              "key": "N",
+              "text": "reparable"
+            },
+            {
+              "key": "O",
+              "text": "resolve"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) cheating (v 欺骗，协诈 ) 分析句子结构可知，句子主语为an international gang，谓语为used，宾语为mask，由此可知，空格处应填入一个非谓语动词，且能与out of构成搭配。 上文提到犯罪分子冒充不同年龄、种族或性别的人实施犯罪活动，误导警方，结合前面讲述的超逼真面具的内容可知，此处是说犯罪团伙使用超逼真面具冒充法国部长 ，导致企业高管损失数百万英镑。 cheat sb. out of sth.为固定搭配，意为“骗取某人某物”，符合语境，故cheating为答案。cheating在此处为现在分词，引导结果状语。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "allow"
+            },
+            {
+              "key": "C",
+              "text": "artificial"
+            },
+            {
+              "key": "D",
+              "text": "cheating"
+            },
+            {
+              "key": "E",
+              "text": "deserted"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "extremely"
+            },
+            {
+              "key": "H",
+              "text": "immediately"
+            },
+            {
+              "key": "I",
+              "text": "incorrectly"
+            },
+            {
+              "key": "J",
+              "text": "normal"
+            },
+            {
+              "key": "K",
+              "text": "observed"
+            },
+            {
+              "key": "L",
+              "text": "passed"
+            },
+            {
+              "key": "M",
+              "text": "reminding"
+            },
+            {
+              "key": "N",
+              "text": "reparable"
+            },
+            {
+              "key": "O",
+              "text": "resolve"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) allow (v 使能够; 允许 ) 空格前面为助动词may，后面为名词短语the key characteristics of，故空格处应填动词原形，进一步分析，此处考查allow sth. to be done的结构。 上文提到犯罪团伙使用超台真面具冒充法国部长骗取企业高管数百万英镑，本段承接上文，引述该项研究的研究者的话进一步强调这种超积真面具可能引发的问题。由此可推断此处是说，无法识别合成人脸可能会对安全和预防犯罪产生重要影响，因为超盘真的面具可能会让人错误地识别一个人外表的关键特征。allow the key characteristics of a person's appearanceto be identified符合语境，故答案为 allow。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "allow"
+            },
+            {
+              "key": "C",
+              "text": "artificial"
+            },
+            {
+              "key": "D",
+              "text": "cheating"
+            },
+            {
+              "key": "E",
+              "text": "deserted"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "extremely"
+            },
+            {
+              "key": "H",
+              "text": "immediately"
+            },
+            {
+              "key": "I",
+              "text": "incorrectly"
+            },
+            {
+              "key": "J",
+              "text": "normal"
+            },
+            {
+              "key": "K",
+              "text": "observed"
+            },
+            {
+              "key": "L",
+              "text": "passed"
+            },
+            {
+              "key": "M",
+              "text": "reminding"
+            },
+            {
+              "key": "N",
+              "text": "reparable"
+            },
+            {
+              "key": "O",
+              "text": "resolve"
+            }
+          ],
+          "answer": "I",
+          "explanation": "D ineorreetly ( adv 错误地，不准确地) 空格前面为be动词，后面为过去分词，故空格处应填副词，修饰后面的分词。 此处说明无法识别合成人脸会带来负面影响的原因，即超吉真的面具会影响人的判断，即让人错误地识别一个人外表的关键特征。incorrectly符合此处语境，故为答案。 E) deserted (交沙漠，荒漠 w 抛弃，遗弃 ) H) immediately (adv 立即，马上 ) M) reminding (v 提醒;使想起 ) N) reparable ( ady. 可修复的; 能补救的 ) O) resolve (v 解决见决心， 决意 )"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-3-b",
+      "type": "matching",
+      "title": "Stop thinking and start doing",
+      "paragraphs": [
+        "A) Most people have a dream in life, a vision of who or what they ’d like to be in the future. At a minimum, everyone has interests and values that determine what they want out of their lives. Even so, trying to set achievable goals that you’ll work for over the course of many years can be extremely challenging. It can be hard to know where to even begin, and the things you hope to achieve may seem impossible. But if you're well prepared you may be able to set goals for your life that are just as fulfilling to work toward as to achieve.",
+        "B) We all have goals that we want to achieve in our lives. These goals may include learning a new language, eating healthier and losing weight becoming a better parent, saving more money, and so on. It can be easy to assume that the gap between where you are now and where you want to be in the future is caused by a lack of knowledge. This is why we buy courses on how to start a business or how to lose weight fast or how to learn a new language in three months. We assume that if we knew about a better strategy, then we would get better results. We believe that a new result requires new knowledge.",
+        "C) What I’m starting to realize, however, is that new knowledge does not necessarily drive new results. In fact, learning something new can actually be a waste of time if your goal is to make progress and not simply gain additional knowledge.",
+        "D) It all comes down to the difference between learning and practicing. Thomas Sterner, in his book The Practicing Mind, explains the key difference between practicing and learning. He says: “When we practice something, we are involved in the deliberate repetition of a process with the intention of reaching a specific goal.” Here the words “deliberate” and “intention” are key, because they define the difference between actively practicing something and passively learning it.",
+        "E) Learning something new and practicing something new may seem very similar but these two methods can have profoundly different results. Here are some additional ways to think about the difference. Let’s say your goal is to get stronger and more fit. You can research the best instructions on weight lifting technique, but the only way to build strength is to practice lifting weights. Let’s say your goal is to grow your startup. You can learn about the best way to make a sales pitch, but the only way to actually land customers is to practice making sales calls. Let’s say your goal is to write a book. You can talk to a best - selling author about writing, but the only way to become a better writer is to practice publishing consistently.",
+        "F) Passive learning creates knowledge. Active practice creates skill. Let’s consider a couple more reasons to prioritize active practice over passive learning. First, passive learning can be a stick that supports inaction. In many cases, learning is actually a way to avoid taking action on the goals and interests that we say are important to us. For example, let ’s say you want to learn a foreign language. Reading a book on how to learn a foreign language quickly allows you to feel like you are making progress (“Hey, I'm figuring out the best way to do this! ”). Of course, you’re not actually practicing the action that would deliver your desired outcome (speaking the foreign language).",
+        "G) In situations like this one, we often claim that we are preparing or researching the best method, but these rationalizations allow us to feel like we are moving forward when we are merely spinning our wheels. We make the mistake of being in motion rather than taking action. Learning is valuable until it becomes a form of procrastination (拖延).",
+        "H) Another point to consider is that practice is learning, but learning is not practice. Passive learning is not a form of practice because although you gain new knowledge, you are not discovering how to apply that knowledge. Active practice, meanwhile, is one of the greatest forms of learning because the mistakes you make while practicing reveal important insights.",
+        "I) Even more importantly, practice is the only way to make a meaningful contribution with your knowledge. You can watch an online course about how to build a business or read an article about a terrible disaster in a developing nation, but that knowledge is unproductive unless you actually launch your business or donate to those in need. Learning by itself can be valuable for you but if you want to be valuable to others, then you have to express your knowledge in some way.",
+        "J) The last important point to consider is that practice focuses your energy on the process. Thomas Sterner once said, “Progress is a natural result of staying focused on the process of doing anything.” The state of your life right now is a result of the habits and beliefs that you have been practicing each day, When you realize this a nd begin to direct your focus toward practicing better habits day-in and day-out, continual progress will be the logical outcome. It is not the things we learn nor the dreams we visualize that determine our results, but rather the habits that we practice e ach day. Fall in love with boredom and focus your energy on the process, not the product.",
+        "K) What does this all mean? Is passive learning useless? Of course not. In many cases, learning for the sake of learning can be a beautiful thing. Not to mention that soaking up new information can help you make more informed decisions when you do decide to take action. That said, the main point of this article is that learning by itself does not lead to progress. We often hide behind information and use learning as an excuse to delay the more difficult and more important choice of actually doing something. Spend less time passively learning and more time actively practicing. Stop thinking and start doing."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Acquisition of new knowledge may not guarantee the progress that you aim to make.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "获得新知识可能并不能保证你想要取得的进步。 C。由题干关键信息new knowledge和guarantee the progress that you aim to make定位到C段。该段首句提到，我开始意识到，新的知识并不一定会带来新的结果。下文进一步解释，事实上，如果你的目标是取得进步，而不仅仅是获得额外的知识，那么学习新东西实际上是在浪费时间。由此可知，题干是对上述信息的概括提炼，其中new knowledge是原词复现，而may not guarantee the progress that you aim to make对应原文中的 does not necessarily drive new results和证your goal is to make progress。"
+        },
+        {
+          "number": 37,
+          "stem": "Your current situation in life is built on the beliefs and habits you have been practicing daily.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "你现在的生活状况是建立在你每天都在实践的信念和习惯之上的。 J。由题干关键信息current situation in life和the beliefs and habits you have been practicing daily定位到 J段。该段第三句提到，你现在的生活状态是你每天一直实践的习惯和信念的结果。由此可知，题干是对该名内容的同义转述。其中Your current situation in life对应原文中的The state ofyour life right now，而is built on the beliefs and habits you have been practicing daily对应原文中的is a result of the habits and beliefs that you have been practicing each day。"
+        },
+        {
+          "number": 38,
+          "stem": "Knowing the best way to learn a foreign language will not enable you to speak it without actual practice.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "知道学习一门外语的最佳方法并不能使你在没有实际练习的情况下会说这门外语。 F。由题干关键信息the best way to learn a foreign language和speak it without actual practice定位到F 段。该段最后三句提到，例如，假如说你想学习一门外语。读一本关于如何快速学习一门外语的书会让你觉得自己在进步 (“嘿，我正在和弄清楚学习外语的最佳方法! ” ) 。当然，你实际上并没有在练习能让你达到预期效果的行动(说这门外语 ) 。由此可知，题干是对原文内容的概括总结。题干中的Knowing the best way对应原文中的figuring out the best way，而to learn a foreign language属于原词重现，will not enable you to speak it without actual practice对应原文中的you\"re not actually practicing the action that would deliver your desired outcome (Speaking the foreign language)。"
+        },
+        {
+          "number": 39,
+          "stem": "People may find it demanding to create a goal which will take a long time to achieve.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "人们可能会发现制定一个需要很长时间才能实现的目标是很困难的 A。由题干关键信息demanding 、create a goal和take a long time to achieve定位到A段。该段第三名提到，即便如此，试图设定可实现的目标，并为之努力多年，也可能极具挑战性。由此可见，题干是对该句的同义转述，其中create a goal which will take a long time to achieve对应原文中的set achievable goals that you'll work for over the course of many years，而may find it demanding对应原文中的can be extremely challenging。"
+        },
+        {
+          "number": 40,
+          "stem": "Learning and practicing seem to be very much alike, but the two processes can lead to quite different outcomes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "学习和实践似乎非常相似，但这两个过程可能导致完全不同的结果。 E。由题干关键信息Learning and practicing 、very much alike和quite different outcomes定位到E段。 该段第一句提到，学习新事物和实践新事物可能看起来非常相似，但这两种方法可能产生截然不同的结果。由此可知，题干是对原文内容的同义转述。题干中的Learning and practicing对应原文中的Learning something new and practicing something new，而seem to be very much alike对应原文中的may seem very similar，而but the two processes can lead to quite different outcomes对点原文中的but these two methods can have profoundly different results。"
+        },
+        {
+          "number": 41,
+          "stem": "Absorbing new information is helpful in making better decisions prior to action.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "吸收新信息有助于在行动之前做出更好的决定。 氏。由题二关键信息Absorbing new information和helpful in making better decisions prior to action 定位到K段。该段第五句提到，更不用说吸收新信息可以帮助你在决定采取行动时做出更明智的决定。 由此可知，题干是对原文内容的同义转述。题干中的Absorbing new information对应原文中的soaking up new information ，而is helpful in making better decisions prior to action对应原文中的can help you make more informed decisions when you do decide to take action。"
+        },
+        {
+          "number": 42,
+          "stem": "Sometimes we may feel like we are making progress by doing some research or making preparations, but actually we are staying at the starting point.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "有时我们可能会觉得通过做一些研究或准备我们就在进步，但实际上我们还停留在起点上。 G。由题干关键信息making progress 、doing some research or making preparations和we are staying at the starting point定位到G段。该段第一句提到，在这类情况下，我们往往声称我们正在准备或研究最好的方法，但是这些合理化的说法让我们觉得自己在前进，而实际上我们只是在白费力气。由此可知， 题于是对该句内容的同义转述。其中Sometimes对应原文中的In situations like this one，而we may feel like we are making progress by doing some research or making preparations对应原文中的we often claim that we are preparing or researching the best method, but these rationalizations allow us to feel like we are moving forward， 而actually we are staying at the starting point 对应原文中的we are merely spinning our wheels。"
+        },
+        {
+          "number": 43,
+          "stem": "We are inclined to think that a lack of knowledge prevents us from advancing to a better future.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "我们倾向于认为知识的苞乏会阻碍我们走向更美好的未来。 B。由题于关键信息a lack of knowledge和prevents us from advancing to a better future定位到B段。 该段第三句提到，我们很容易认为，你现在所处的位置和你未来想要达到的位置之间的差距是由知识的芽乏所造成的。换句话说，我们倾向于认为知识的匮乏会阻碍我们走向更美好的未来。由此可知，题干是对原文内容的同义转述。题干中的We are inclined to think that对应原文中的It can be easy to assume that，而a lack of knowledge prevents us from advancing to a better future是对原文the gap between where you are now and where you want to be in the future is caused by a lack of knowledge的概括总结。"
+        },
+        {
+          "number": 44,
+          "stem": "Learning can benefit you by itself but only practice can turn what you learn into meaningful contributions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "学习本身可以使你受益，但只有实践才能将你学到的东西转化为有意义的贡献。 I。由题干关键信息Learning can benefit you by itself、practice和meaningful contributions定位到I段。 该段首句提到，更重要的是，实践是用你的知识做出有意义贡献的唯一途径。接下来举例进行论证，最后一名总结到，学习本身对你来说可能是有价值的，但是如果你想对别人有价值，那么你必须用某种方式表达你的知识。由此可知，题干是对原文内容的概括总结。其中Learning can benefit you by itself对应原文中的Learning by itself can be valuable for you，practice是原词复现; 而but only practice can turn what you leam into meaningful contributions对应原文中的practice is the only way to make a meaningful contribution with your knowledge。"
+        },
+        {
+          "number": 45,
+          "stem": "Practice involves repeating a process intentionally to attain a particular objective.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "练习就是有意地重复一个过程以达到一个特定的目标。 D。由题干关键信息Practice 、repeating a process intentionally和attain a particular objective定位到 D段。该段第三句引用托马斯，斯特纳的话提到，他说:“当我们练习某件事时，我们是在有意识地重复一个过程，目的是达到一个特定的目标。”由此可知，题干是对托马斯\"斯特纳原话的同义转述，其中 Practice对应原文中的When we practice something， involves对应原文中的are involved in，repeating a process intentionally对应原文中的the deliberate repetition of a process，而to attain a particular objective对应原文中的 with the intention of reaching a specific goal。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Research in human-vehicle interaction has shown even systems designed to automate driving are far from being error - proof. Recent evidence points to drivers ’ limited understanding of what these systems can and cannot do as a co ntributing factor to system misuse. A recent study tackles the issue of over-trusting drivers and the resulting system misuse from a legal viewpoint. It looks at what the manufacturers of self-driving cars should legally do to ensure that drivers understand how to use the vehicles appropriately. One solution suggested in the study involves requiring buyers to sign end-user license agreements (EULAs), similar to the terms and conditions that require agreement when using new software products. But this is far from ideal. The agreement may not provide enough information to the driver, leading to confusion about the nature of the requests for agreement and their implications. Further, most end users don’t read EULAs. A 2017 study shows 91 percent of people agree to them without reading. Among young people, 97 percent agree without reviewing the terms. The issue is that, unlike using a smartphone app, operating a car has serious safety risks, whether the driver is human or software. And human drivers need to consent to take responsibility for the outcomes of the software and hardware. “Warning fatigue” and distracted driving are also causes for concern. For example, a driver, annoyed after receiving continuous warnings, could decide to just ignore the message. Or, if the message is presented while the vehicle is in motion, it could represent a distraction. Given these limitations and concerns, even if this mode of obtaining consent is to move forward, it likely won’t fully protect automakers from their legal liab ility should the system malfunction ( 发生故障) or an accident occur. Driver training for self-driving vehicles can help ensure that drivers fully understand system capabilities and limitations. This needs to occur beyond the vehicle purchase. Recent evidence shows even relying on the information provided by the seller is not going to answer many questions. All of this considered, the road forward for self-driving cars is not going to be a smooth ride after all."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from research in human-vehicle interaction?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Automatic driving systems are by no means immune to errors."
+            },
+            {
+              "key": "B",
+              "text": "Driverless vehicles are likely to be misused by some people."
+            },
+            {
+              "key": "C",
+              "text": "Self-driving car manufacturers are not aware of the legal matters involved."
+            },
+            {
+              "key": "D",
+              "text": "There is a long way to go before humans can interact with driverless vehicles."
+            }
+          ],
+          "answer": "A",
+          "explanation": "我们从人车交互的研究中了解到了什么? A) 自动驾驶系统绝非不会出错。 C) 自动驾驶汽车制造商没有意识到其中涉及的法律问题。 B) 无人驾驶汽车很可能被一些人误用。 D) 人类能与无人驾驶汽车互动之前还有很长的路要走。 守 *# 根据题干关键词research in human-vehicle interaction可以将答案定位到第-段。 解第一段第一句指出，人车交互领域的研究表明，即使是设计用于自动驾驶的系统也远不能避免出错。由此可知，自动驾驶系统不能保证不会出错，故选项A正确。原文中并没有无人驾驶车辆被误用的表述，故排 ，除B项。第一段提到了该研究着眼于自动驾驶汽车制造商在法律上应采取何种措施，但并未提及自动驾驶汽车制造商是否意识到其中涉及的法律问题，选项C与原文不符，故排除。文章的讨论是建立在人车可以 ， 交互的基础上，D项与此不符，故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What is the problem with requiring buyers to sign end-user license agreements?",
+          "options": [
+            {
+              "key": "A",
+              "text": "End users, young and old alike, find the terms complex to interpret."
+            },
+            {
+              "key": "B",
+              "text": "Most end users sign them without bothering to read the terms."
+            },
+            {
+              "key": "C",
+              "text": "Many people are often confused by the wording of the terms."
+            },
+            {
+              "key": "D",
+              "text": "Most end users do not understand the terms after reading them through."
+            }
+          ],
+          "answer": "B",
+          "explanation": "要求买家签署终端用户许可协议存在什么问题? A) 终端用户，无论老少，都觉得条款难以解释。 B) 大多数终端用户都壤得阅读条款就签署了协议。 C) 许多人常常被条款的措辞所迷惑。 D) 大多数终端用户在阅读完条款后并不理解。 + 害生天下交大示癌GIUSSTCES TESTGIG柯避税案是而第二解第二段最后三句指出，此外，大多数终端用户并不会去阅读终端用户许可协议。2017年的一项研究表明， 新 91%的人在没有阅读的情况下就同意了这些协议。在年轻人中，97%的人在未审阅条款的情况下就表示同意。由此可知，大多数终端用户都懒得阅读条款就签署了协议，故选项B正确。其他三项在原文中并未提 ，及，故均排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What would drivers do when they suffer from “warning fatigue”?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Waste no time keeping the car moving."
+            },
+            {
+              "key": "B",
+              "text": "Rest a while to avoid fatigue driving."
+            },
+            {
+              "key": "C",
+              "text": "Take no action despite repeated warnings."
+            },
+            {
+              "key": "D",
+              "text": "Take note of the message though fatigued."
+            }
+          ],
+          "answer": "C",
+          "explanation": "当驾驶员章受“和警告疲劳”时，他们会怎么做? A) 不浪费时间继续行驶。 C) 尽管反复收到警告，但不采取任何行动。 B) 休息一会儿，避免疫劳驾驶。 D) 尽管感到疲劳，但仍然留意警告信息。 本 + 机天下关池河 Waning euar 可以检定人到贡站帮 ii Ra 解 > 第四段第二句提到，例如，驾驶员在连续收到警告后会感到恼火，可能会选择直接忽视该信息，即尽管他昌们反复收到警告，但不会采取任何行动，故选项C正确。其他三项在原文中并未提及，故均排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author think of continuing to ask buyers to sign end-user license agreements?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will probably not guarantee the safety of drivers in case of accidents."
+            },
+            {
+              "key": "B",
+              "text": "It likely won’t ensure that the automatic driving system functions properly."
+            },
+            {
+              "key": "C",
+              "text": "It likely won’t fully protect automakers against accusations of deliberate cheating."
+            },
+            {
+              "key": "D",
+              "text": "It will probably not provide manufacturers adequate protection from legal responsibilities."
+            }
+          ],
+          "answer": "D",
+          "explanation": "作者对继续要求购买者签署终端用户许可协议有何看法? A) 这很可能无法保证发生事故时驾驶员的安全。 B) 这可能无法保证自动驾驶系统的正常运行。 C) 这可能无法充分保护汽车制造商免受故意欺诈的指控。 D) 这很可能无法为制造商提供足够多免除法律责任的保p。 二 * 根据题二关键词continuing to ask buyers to sign end-user license agreements可以将答案定位到第四段最后一句。 题干中的continuing to ask buyers to sign end-user license agreements和原文中的this mode of obtaining consent is to move forward属于同义蔡换。 第四段最后一句指出，鉴于这些局限性和顾虑，即使这种获取同意的模式得以推进，也可能无法充分保护汽车制造商在系统出现故障或发生事故时免于承担法律责任。由此可知，继续要求购买者签署终端用户许可协 ，议可能无法为制造商提供足够多免除法律责任的保护，故选项D正确。其他三项在原文中并未提及，故均排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What should be done to help drivers fully understand system capabilities and limitations?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Training them to be experts in vehicle automation."
+            },
+            {
+              "key": "B",
+              "text": "Familiarizing them with the systems through training,"
+            },
+            {
+              "key": "C",
+              "text": "Broadening their knowledge of accident-prevention mechanisms."
+            },
+            {
+              "key": "D",
+              "text": "Facilitating their access to the information provided by the seller."
+            }
+          ],
+          "answer": "B",
+          "explanation": "应如何帮助驾驶员充分了解系统的功能和局限性? A) 培训他们成为汽车自动化方面的专家。 C) 拓宽他们关于事故预防机制的知识。 四通过培训让他们娄秋系统中) 为他们获取垃提供的信息提供便和。 二 Y 根据题干关键词fally understand system capabilities and limitations可以将答案定位到最后一段第一句。 解Y 该句指出，自动驾驶车辆的驾驶员培训有助于确保驾驶员充分了解系统的功能和局限性，即通过培训，可以帮助他们更加了解系统，故选项B正确。选项A和选项C在原文中并未提及，故排除。最后一段第三句提到，最近有证据表明，即使依靠卖方提供的信息也无法回答许多问题，因此为驾驶员获取卖方提供的信息 ，提供便利可以帮助他们充分了解系统的功能和局限性的说法是不准确的，故D项可排除。 了"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Do you ever blend up a protein drink for breakfast or grab a protein bar following an afternoon workout? If so, you are likely among the millions of people in search of more protein-rich diets. Protein-enriched products are found everywhere. But contrary to all the publicity that everyone needs more protein, most Americans get twice as much as they need. Many of us living in the most developed countries are buying into a myth of protein deficiency created by food companies and self-identified health experts. Global retail sales of protein supplement products reached an astonishing US$18.9 billion in 2020. But are we really in need of more protein? Physicians in the U.S. have never actually examined a patient with prote in deficiency because simply by eating an adequate number of daily calories we are also most likely getting enough protein. In fact, Americans currently consume almost twice the National Academy of Medicine’s recommended daily intake of protein although the most desirable protein intake may vary depending on age and activity level. For example, if you’re a dedicated athlete you might need to consume higher quantities of protein. Generally, though, a 140-pound person should not exceed 120 grams of protein per day, particularly because a high protein diet can strain kidney and liver function and increase risks of developing heart disease and cancer. While fats and sugar have taken the beating in turns since over a century ago, protein has managed to remain our red-hot favorite. In the 1970s through the 1990s, protein products remained visible but moved back somewhat with the dietary spotlight firmly fixed on low-calorie, low-fat, sugar-free snack foods and beverages following the publication of studies linking sugar and saturated (饱和的) fat consumption to heart disease. Later research in 2003, however, suggested high-protein diets could aid in weight loss, and protein quickly regained its former nutrient-superstar status. Now most people living in high-income nations are consuming enough protein. When we replace meals with a protein bar or drink, we also risk missing out on the rich sources of antioxidants ( 抗氧化剂), vitamins and many other benefits of real food."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn about publicity over protein in America?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has helped to create the myth of protein deficiency."
+            },
+            {
+              "key": "B",
+              "text": "It has helped Americans in search of protein-rich diets."
+            },
+            {
+              "key": "C",
+              "text": "It has raised a lot of health concerns among the public."
+            },
+            {
+              "key": "D",
+              "text": "It has been funded by food companies and health experts."
+            }
+          ],
+          "answer": "A",
+          "explanation": "我们从美国对蛋白质的宣传中了解到什么? A) 它帮助制造了和蛋白质缺乏这一错误观念。 ”C) 它引起了公众对健康的诸多担忧。 B) 它帮助美国人寻找富含蛋白质的饮食。 D) 它得到了食品公司和健康专家的资助。 3 + 而天下关天训NDISI OVER TAGS可定从天放第二人解。 该段提到，与每个人都需要更多蛋白质的宣传相反，大多数美国人摄人的蛋白质是他们所需量的两倍。随折 ，后第三段进一步指出，我们许多生活在最发达国家的人们都相信了一个由食品公司和自诗为健康专家的人创造的蛋白质缺乏的错误观念，这表明美国对蛋白质的宣传助长了蛋白质缺乏的错误观念，故本题选A。 原文并没有提到对蛋白质的宣传为美国人寻找富含蛋白质的饮食提供了帮助，也没有提到宣传引起了健康 ，担忧或得到了资助,故B、C、D三项可排除。"
+        },
+        {
+          "number": 52,
+          "stem": "Why have physicians in the U.S. never actually examined a patient with protein deficiency?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Americans can purchase many kinds of protein-rich foods everywhere."
+            },
+            {
+              "key": "B",
+              "text": "Americans can absorb the number of calories recommended by food experts."
+            },
+            {
+              "key": "C",
+              "text": "Americans can get sufficient protein just by eating adequate foods daily."
+            },
+            {
+              "key": "D",
+              "text": "Americans can rely on food supplements to prevent protein deficiency."
+            }
+          ],
+          "answer": "C",
+          "explanation": "为什么美国医生从未真正检查过蛋白质缺乏症患者? A) 美国人可以随处买到多种富含蛋白质的食品。 B) 美国人能够摄和食品专家建议的热量。 C) 美国人只需每天吃足够的食物就能获得足够的蛋白质。 .D)美国人可以依靠食物补充剂来预防蛋白质缺乏症。 定*， 根据题干关键词physicians in the U.S. never actually examined a patient with protein deficiency可以定位到第四段第二句。 各+ 该句指出，美国的医生从未真正检查过蛋白质缺乏症患者，因为只要每天摄人足够的热量，我们就很可能也摄人了足够的蛋白质。原文明确指出美国人通过正常饮食就能获得足够的蛋白质，而不是通过购买富含蛋白质的食品 、摄人专家建议的热量或依赖食品补充剂来获取充足的蛋白质，故选项C正确，选项A、B、 ，D均可排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What should people take into consideration in deciding on the most preferable protein intake?",
+          "options": [
+            {
+              "key": "A",
+              "text": "How healthy they are and what food they eat."
+            },
+            {
+              "key": "B",
+              "text": "How old they are and what activities they do."
+            },
+            {
+              "key": "C",
+              "text": "How much protein they consume and what their body weight is."
+            },
+            {
+              "key": "D",
+              "text": "How serious their protein deficiency is and what remedies they use."
+            }
+          ],
+          "answer": "B",
+          "explanation": "在决定最理想的蛋白质摄入量时，人们应该考虑什么? A) 他们的健康状况和吃的食物。 C) 他们的蛋白质摄人量和体重。 B) 他们的年龄和从事的活动。 D) 他们蛋白质缺乏的严重程度以及他们采用的补救措施。 定y 根据题干关键词the most preferable protein intake可以定位到原文第五段。题干中的preferable和该段中的 desirable是同义替换。 解? 该段指出，事实上，美国人目前的蛋白质摄入量几乎是美国国家医学科学院建议的每日蛋白质摄入量的两本| 倍，尽管最理想的蛋白质摄人量可能因年瞧和活动水平而有所不同。这表明年龄和活动水平是决定最理想蛋白质摄入量的重要因素，故选项B正确。文章没有提到健康状况、吃的食物、蛋白质摄入量、体重或蛋白质缺乏的严重程度及补救措施是决定蛋白质摄入量的因素，故选项A、C、D可排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What foods have been largely out of favor for more than a century?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sugar-free snacks."
+            },
+            {
+              "key": "B",
+              "text": "Protein-rich foods."
+            },
+            {
+              "key": "C",
+              "text": "Both red and white meats."
+            },
+            {
+              "key": "D",
+              "text": "Sugary and fatty foods."
+            }
+          ],
+          "answer": "D",
+          "explanation": "一个多世纪以来，哪些食物基本上不受人们欢迎? A) 无糖零食。 C) 红肉和白肉。 B) 富含蛋白质的食物。 D) 含糖和高脂肪的食物。 加定y 根据题干关键词a century可以定位到腺文第七肪。题干中的been largely out of favor表示“基本不再受欢迎或重视”，和原文中的have taken the beating是同义替换，题干中的more than是原文中over的同义替换。 解? 该段指出，一个多世纪以来，脂肪和糖一直轮流受到攻击，而蛋白质却一直是我们的最爱。由此可知，含扩| 糖和高脂肪的食物是不受人们欢迎的，选项D正确。据此选项A、B 、C均可排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author imply people in developed countries should do to keep healthy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Enjoy natural food."
+            },
+            {
+              "key": "B",
+              "text": "Eat vegetarian diets."
+            },
+            {
+              "key": "C",
+              "text": "Consume enough protein daily."
+            },
+            {
+              "key": "D",
+              "text": "Replace meals with protein bars."
+            }
+          ],
+          "answer": "A",
+          "explanation": "作者上暗示发达国家的人们应该如何保持健康? A) 享用天然食物。 C) 每天摄人足够的蛋白质。 B) 吃素食。 D) 用蛋白质棒代蔡正餐。 本定y 根据题干关键词people in developed countries可以定位到原文最后一段第一铝。题王中的developed countries 池 | 是原文中 high-income nations的同义蔡换。 解? 最后一段第一句指出，现在，大多数生活在高收入国家的人都摄人了足够的蛋白质，并没有提到每天摄人足够的蛋白质是保持健康的方法，故排除选项C。随后第二句指出，当我们用蛋白质棒或蛋白饮料代替正 『餐时，我们也有可能错过真正食物中丰富的抗氧化剂、维生素和许多其他有益物质。这暗示了作者认为人们应该更多地享用天然食品，而不是过度依赖蛋白质补充品 ，故本题应选A，选项D可排除。原文并未提到吃素食，故选项B可排除。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%9C%9F%E9%A2%98PDF/cet4_2024_12_3.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2024_12_3_ans.pdf"
+}

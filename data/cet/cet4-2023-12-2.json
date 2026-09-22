@@ -1,0 +1,1783 @@
+{
+  "id": "cet4-2023-12-2",
+  "level": 4,
+  "year": 2023,
+  "month": 12,
+  "set": 2,
+  "title": "2023 年 12 月四级 · 第 2 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2023-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "A number of studies have looked at how family life can affect productivity and satisfaction in the workplace. However, there has been [[26]] little research on the influence of leisure activities. So Ciara Kelly and colleagues recruited 129 hobbyists to look at how the time spent on their hobbies [[27]] their work life.",
+        "The researchers found that when participants spent longer than [[28]]on their leisure activity, their belief in their ability to perform their job was strengthened. But this was only the [[29]]when they had a serious hobby that was dissimilar to their job, or when their hobby was similar to their work but they only did it [[30]]. When their hobby was both serious and similar to their job, then spending more time on it actually decreased their work [[31]].",
+        "Why might that be? To maintain a serious hobby, people need to invest significant psychological resources, say the authors—so if the activity has the same kinds of demands as their work, they may be left [[32]]and unable to perform well at their job. But if their hobby is quite different from their career, it may not [[33]]in the same way but instead help them develop other knowledge and skills that can [[34]]their confidence at work. “Consider a scientist who is a keen rock climber,” says Kelly. “Since climbing is",
+        "+2023 47 12 A UR IOB (3) 12",
+        "so far [[35]]from their day-to-day work activities, they can still recover from the demands of their job with plenty of resources.”"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "boost"
+        },
+        {
+          "key": "B",
+          "text": "case"
+        },
+        {
+          "key": "C",
+          "text": "casually"
+        },
+        {
+          "key": "D",
+          "text": "efficiency"
+        },
+        {
+          "key": "E",
+          "text": "estate"
+        },
+        {
+          "key": "F",
+          "text": "exhausted"
+        },
+        {
+          "key": "G",
+          "text": "faculty"
+        },
+        {
+          "key": "H",
+          "text": "interfere"
+        },
+        {
+          "key": "I",
+          "text": "normal"
+        },
+        {
+          "key": "J",
+          "text": "prevalent"
+        },
+        {
+          "key": "K",
+          "text": "relative"
+        },
+        {
+          "key": "L",
+          "text": "removed"
+        },
+        {
+          "key": "M",
+          "text": "scratch"
+        },
+        {
+          "key": "N",
+          "text": "shaped"
+        },
+        {
+          "key": "O",
+          "text": "surprisingly"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) surprisingly ( adv 令人惊讶地;惊人地; 出乎意料地 ) 空格所在句子结构完整，故空格处应填副词。 首句提到“许多研究着眼于家庭生活如何影响工作场所的生产力和满意度”，空格所在句意为 “然而， 关于休闲活动影响的研究却很少”。前后句语义转折，代入选项可知，surprisingly符合此处句意。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) shaped (v 影响; 塑造 ) 空格所在句为宾语从句，从句中缺少谓语，其主语为the time，句子时态为一般过去时，故空格处应填动词过去式。 该句句意为“因此，西姬拉. 凯利及其同事招募了129名有某项业余爱好的人，研究他们花在业余爱好上的时间如何他们的工作生活”。代入选项可知，shaped符合此处句意。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "I",
+          "explanation": "D normal (史. 常态; 一般水平 oa好平常的; 正常的) 空格位于spend sth. on sth. 结构中，前面为介词than，后面为on their leisure activity，故空格处应填名词。 该句句意为“研究人员发现，当参与者在休闲活动上花的时间比多时，他们便更加相信自己有能力完成工作”。代和选项可知，normal符合此处句意。可以将longer than normal视为固定搭配，意为“比正常时间更长”。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) case (7 情况; 状况 ) 空格前面为定冠词the，后面为when引导的状语从句，故空格处应填名词。 该句句意为“但只有当他们有一个与工作不同的认真对待的爱好，或者当他们的爱好与工作相似，但只是做做时，才会出现这种 ”。代入选项可知，case符合此处句意。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) casually ( adv 随便地; 随意地) 空格所在句子结构完整，故空格处应填副词。 该句句意为“但只有当他们有一个与工作不同的认真对待的爱好，或者当他们的爱好与工作相似，但只是做做时，才会出现这种情况”。前面说是认真对待的爱好，后面应该说的是不太认真对待的、随便做做的，故casually符合此处句意。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) efficiency (). 效率; 效能 ) 空格位于句末，前面为their work，故空格处应填名词。 该句句意为“如果他们既认真对待自己的爱好，这个爱好又与工作相似，那么花更多的时间在爱好上面实际上会降低他们的工作 ”。work efficiency意为“工作效率”，符合此处句意，故答案为 e他ciency。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) exhausted ( adfy. 筋疲力尽的，疲惫不堪的) 空格前面为they may be left，后面为and unable to, “leave sb.+形容词”表示“使某人处于什么状态”，故空格处应填形容词或分词。 此段解释上一段提出的研究结果。该句句意为“作者说，为了保持一个认真对待的爱好，人们需要投入大量的心理资源，所以如果这项活动与他们的工作有同样的要求，那么他们可能会 ，无法很好地完成工作”。代入选项可知，exhausted符合此处句意。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "H",
+          "explanation": "HD interfere (v 干涉; 干扰) 空格前面是it may not，后面为in the same way，故空格处应填动词原形。 该句句意为“但是，如果他们的爱好与职业完全不同，那么这可能不会以同样的方式而帮助他们拓展其他知识和技能……” 。代入选项可知，interfere符合此处句意。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) boost (v 增强; 促进; 使增长 ) 空格前面为that can，后面为their confidence，故空格处应填动词原形。 该句句意为“但是，如果他们的爱好与职业完全不同，那么这一爱好可能不会以同样的方式干扰他们，反而会帮助他们拓展其他知识和技能，从而__ ”他们在工作中的信心”。代入选项可知，boost符合此处句意。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) removed (v 去除; 移走; 使消失 ) 空格前面为is so far，后面为fom their day-to-day work activities，故空格处应填形容词或分词。 该句句意为“由于攀岩远远他们的日常工作活动，所以他们仍然可以用大量的(心理 ) 资源从工作需求中恢复过来”。be far removed from sth.意为“与某事物角然不同”，符合此处句意，故答案为removed。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-b",
+      "type": "matching",
+      "title": "More fathers are taking paternity leave, but mothers are still doing all the work",
+      "paragraphs": [
+        "A) Attitudes towards paternity leave (陪产假) have drastically changed in America in the last five years as more fathers feel comfortable taking extended time off, but gender bias persists when it comes to career prospects and the home, according to a new study of working parents.",
+        "B) Research by the Boston College Center for Work & Family, which surveyed new parents at four large US companies who were qualified for taking at least six weeks paid parental leave, found that 81% of the 1,240 employees surveyed said the notion of fathers taking leave has become more acceptable.",
+        "C) Of those surveyed, 62% of fathers took the maximum amount of time off compared to 93% of mothers, and around three-quarters of workers said their employer was equally supportive of mothers and fathers taking parental leave and over half said leave policies had made workplace culture better.",
+        "D) The US is one of only three countries in the world not to offer statutory (法定的) paid leave, but increasingly states and companies are starting to take up the issue. So far, eight states and the District of Columbia have their own paid family leave laws.",
+        "E) Brad Harrington, executive director of the center and lead author of the study, estimates only 20% to 30% of companies in the US offer paid parental leave. He feels the research findings reflect an obvious change in corporate attitudes to new fathers taking time off.",
+        "F) “We did a study on paternity leave five years ago. Compared with those findings, these numbers were shocking to me. I did not expect 80% of people to say the organisation finds dads taking this leave acceptable and three-quarters to say it’s equally supportive of women and men taking leave,” Harrington said.",
+        "G) The previous study found that nearly three-quarters of fathers saw two to four weeks as an appropriate duration for paternity leave and 76% said they would prefer not to take all their time off at once.",
+        "H) Since then, there have been a number of legal cases against companies involving paternity leave—including cases against JPMorgan Chase and Estée Lauder—which have helped put pressure on companies to make their parental leave policies gender neutral.",
+        "I) However, the study also shows how traditional gender roles endure both at work, where more women than men reported changes in their perceived career potential, and at home—even among workers who claim to have a strong desire for equality.",
+        "J) The vast majority of men, 97%, said one of the top reasons to take leave was to share caregiving with their partner. But when they were asked about how caregiving and household tasks were divided, their answers painted a different picture. While about 75% of employees said both genders should give the same amount of care, the majority of men and nearly half of women admitted that in reality the female actually did most of it. A tiny fraction, 2%, of men said they did more of the childcare.",
+        "K) Men and women’s experiences of the return to work following parental leave were also considerably different. Of the women surveyed, 32% reported a downturn in their job satisfaction, while 14% said it increased. In comparison, 17% of men said their job satisfaction went down and 20% said it went up. Meanwhile, more women reported an increase in their responsibilities and manager expectations after childbirth. Half of the women said they used flexible work arrangements after becoming a parent, while just 27% of men did. Similar percentages of men and women said they enjoyed their careers and that it gave them a sense of achievement, while around half of women and 44% of men said it was a key part of their identity.",
+        "L) On the subject of career advancement, 59% of women and 49% of men said leave could be limiting and both genders said they feared it would have an impact on their progress long-term. But on opportunity for promotion, more than double the number of women, 30% compared with 15% of men, believed their chances to be lower after becoming a parent. Despite progress, the struggle for women to reach the highest positions of power is demonstrated in this year’s Fortune 500 list, which featured a record 33 female CEOs, but this still represents a tiny fraction of the total.",
+        "M) Harrington said culture change depends on companies putting more focus on men and their responsibilities. “By that I mean companies need to give men paternity leave and encourage men to take time off to be with their kids early on in the kids’ life. They also need to recognise that men have to make significant adjustments when they become parents. Companies cannot do all these things to enhance women’s advancement and then turn around and say, ‘Oh, but we don’t expect the men to take over for the women at home.”",
+        "N) In May, the American Civil Liberties Union (ACLU) and Outten & Golden LLP announced a historic class- action $5m settlement with JPMorgan Chase on behalf of male employees who claim they were illegally denied access to paid parental leave. Derek Rotondo, 35, filed the discrimination charge against his company after he was allegedly told by his HR department that mothers were considered primary caregivers. Thus, they were allowed to take 16 weeks of paid parental leave. Fathers, however, could take just two weeks.",
+        "O) The father of two from Columbus, Ohio, who still works at the company as an associate and investigator, said he has witnessed a “domino effect (多米诺效应)” across companies since the settlement, but that there is still substantial progress to be made towards changing attitudes towards paternity leave.",
+        "P) “I do think there's still some way to go...there’s still going to be sort of the unstated expectation for new dads to essentially come right back to work, but I think the research is showing that’s starting to change.” He said equal parental leave is an essential component to creating gender equality in the workplace. “The old standard of women staying home, having babies and cooking doesn’t apply and hasn't applied for a long time.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "In the absence of Federal legislation, some states in the US have passed laws concerning paid family leave.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "在没有联邦立法的情况下，美国的一些州已经通过了有关带薪家庭休假的法律。 D。由题干关键信息the absence of Federal legislation 、some states in the US和laws concerning paid 人amily leave定位到D段。该段提到，美国是世界上仅有的三个不提供法定带薪休假的国家之一，但越来越多的州和公司正在开始关注这一问题，到目前为止，八个州和哥伦比亚特区都有自己的带薪家庭休假法。即在没有联邦立法的情况下，美国的一些州已经通过了有关带薪家庭休假的法律。由此可见，题干是对该段的同义转述，其中In the absence of Federal legislation对应原文中的The US is one of only three countries in the world notto offer statutory paid leave，some states in the US对应原文中的eight states and the District of Columbia，而have passed laws concerning paid family leave对应原文中的have their own paid family leave laws。"
+        },
+        {
+          "number": 37,
+          "stem": "Most fathers admitted that even during their paternity leave they actually did much less childcare than the mother.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "大多数父亲承认，即使在陪产假期间，他们实际上照顾孩子的时间也比母亲少得多。 Jo。由题干关键信息Most fathers 、during their paternity leave和did much less childcare than the mother 定位到J段。该段倒数第二句提到，尽管75%的员工表示，男性和女性都应该给予 ( 孩子) 同样的看护， 但大多数男性和近一半的女性承认，在现实生活中，女性实际上做了大部分的看护工作。由此可知，题干是对该句内容的同义转述。其中Most fathers对应原文中的the majority of men ，而admitted that even during their paternity leave they actually did much less childcare than the mother对应原文中的admitted that in reality the female actually did most of it。"
+        },
+        {
+          "number": 38,
+          "stem": "According to one father, equal parental leave is indispensable to achieving gender equality in the workplace.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "P",
+          "explanation": "根据一位父亲的说法，平等的育儿假对于实现职场中的性别平等是必不可少的。 P。由题干关键信息one father、parental leave、an essential component和achieving gender equality in the workplace定位到P段。该段进一步论述了D段中那位父亲的观点，第二句提到: 他说，平等的育儿假是创造职场性别平等的必要组成部分。由此可知，题干是对该句内容的同义转述。题干中的one father对应原文中的He ( 即前文中提到的Derek Rotondo ) ，而equal parental leave is indispensable to achieving gender equality in the workplace对应原文中的equal parental leave is an essential component to creating gender equality in the workplace。"
+        },
+        {
+          "number": 39,
+          "stem": "One survey indicated there is now less objection to paternity leave.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "一项调查显示，现在反对陪产假的人变少了。 B。由题干关键信息One survey和less objection to paternity leave定位到B段。该段提到，波士顿学院工作与家庭中心对美国四家大公司中有资格休至少六周带薪育儿假的新手父母进行了调查，结果发现， 在接受调查的1.240名员工中，有81%的人表示，父亲休陪产假的观念已经变得更容易接受了。换言之，现在反对陪产假的人变少了。由此可见，题干是对该名的同义转述，其中One survey indicated对应原文中的 Research..found，而there is now less objection to paternity leave对应原文中的the notion of fathers taking leave has become more acceptable。"
+        },
+        {
+          "number": 40,
+          "stem": "Compared to five years ago, according to one researcher, many more people said their organisation gave the same support to men and women taking parental leave.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "一位研究人员表示，和五年前相比，更多的人称他们公司对休育儿假的男性和女性给予了同样的支持。 F。由题干关键信息five years ago 、one researcher和their organisation gave the same Support to men and women taking parental leave定位到F段。该段引用哈林顿的话: “我们五年前做了一项关于陪产假的研究。与那些研究结果相比，这些数字令我感到震惊。我没想到80%的人会说公司认为父亲休陪产假是可以接受的，四分之三的人认为公司对男女休假持同样的支持态度。”由此可知，题干是对原文内容的概括总结。题干中的Compared to对应原文中的Compared with，five years ago属于原词重现，one researcher对应原文中的Harrington, many more people对应原文中的80% of people，而their organisation gave the same Support to men and women taking parental leave是对原文the organisation finds dads taking this leave acceptable and three- quarters to say it's equally supportive of women and men taking leave的概括总结。"
+        },
+        {
+          "number": 41,
+          "stem": "One study finds that even workers who claim to desire gender equality stick to traditional gender roles both at work and at home.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "一项研究发现，即使是那些声称渴望性别平等的员工，也还是坚持传统的性别角色， 不管是在工作中还是家庭中。 I。由题干关键信息One study、workers who claim to desire gender equality和traditional gender roles both at work and at home定位到I段。该段承接上文提到，然而，这项研究也显示了传统的性别角色在工作和家庭中是如何持续存在的，这一点甚至在那些声称强烈渴望平等的员工中也是如此。由此可知，题干是对原文内容的同义转述。题干中的One study finds对应原文中的the study also shows，workers who claim to desire gender equality对应原文中的workers who claim to have a strong desire for equality ，stick to对应原文中的endure，而traditional gender roles both at work and at home属于原词重现。"
+        },
+        {
+          "number": 42,
+          "stem": "The majority of workers surveyed said parental leave policies had improved workplace culture.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "大多数接受调查的员工表示，育儿假政策改善了职场文化。 C。由题干关键信息The majority of workers 、parental leave policies和workplace culture定位到C段。 该段提到，在接受调查的人当中……超过一半的人表示，休育儿假的政策使得职场文化得到了改善。由此可知，题干是对该段内容的同义转述。其中The majority of workers surveyed said对应原文中的Of those surveyed..over half said，而parental leave policies had improved workplace culture对应原文中的leave policies had made workplace culture better。"
+        },
+        {
+          "number": 43,
+          "stem": "In spite of progress, the number of women in top positions of big companies remains extremely small.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "尽管到得了进步，但是在大公司担任高层职位的女性数量仍然非常少。 L。由题干关键信息In spite of progress、women in top positions of big companies和remains extremely small定位到工段。该段最后一句提到，尽管取得了进步，但在今年的《财富》500强榜单上，女性争取获得最高权力职位的努力才得以彰显，该榜单创下了33位女性首席执行官的纪录，但这仍然只占名单总人数的一小部分。由此可知，题干是对原文内容的概括总结。题干中的In spite of progress对应原文中的Despite progress，women对应原文中的female，top positions of big companies对应原文中的the highest positions of power，而remains extremely small对应原文中的still represents a tiny fraction of the total。"
+        },
+        {
+          "number": 44,
+          "stem": "According to one estimate, less than one third of companies in the US provide paid parental leave.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "据估计，美国只有不到三分之一的公司提供带薪育儿假。 E。由题干关键信息one estimate 、less than one third of companies in the US和paid parental leave定位到E段。该段首句提到，该中心的执行主任、该研究的主要作者布拉德，哈林顿估计，在美国只有20%到 30%的公司提供带薪育儿假。换言之，美国只有不到三分之一的公司提供带薪育儿假。由此可知，题干是对原文内容的同义转述。其中estimate对应原文中的estimates，而less than one third of companies in the US provide paid parental leave对应原文中的only 20% to 30% of companies in the US offer paid parental leave。"
+        },
+        {
+          "number": 45,
+          "stem": "A number of lawsuits have pressured companies to formulate gender neutral policies on parental leave.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "一些诉讼已经人迫使公司制定性别中立的育儿假政策。 H。由题干关键信息A number of lawsuits 、pressured companies 、gender neutral policies和parental leave定位到H段。该段提到，从那以后，出现了多起针对涉及陪产假的公司的法律案件一“包括针对库根大通和雅诗兰集的案件一一这有助于对公司施加压力，要求它们制定性别中立的陪产假政策。由此可知，题干是对原文内容的同义转述，其中Anumber oflawsuits对应原文中的anumber of legal cases，而have pressured companies to formulate gender neutral policies on parental leave对应原文中的have helped put Pressure on companies to make their parental leave policies gender neutral。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Having a rival can keep you committed to achieving your goals and enhance your overall performance. But before you go out and find an entrepreneur to outcompete, it’s important to understand and avoid the traps that often come with rivalry. After all, competitive rivalry can also hinder effective decision-making and increase your willingness to take risks, behaviors that can ultimately hurt your venture’s success.",
+        "Finding someone you're committed to outcompeting can be a great way to stay focused on your goals and push your venture to the next level. But when you're intently focused on outperforming your rivals, you may begin to develop a “win-at-all-costs” mentality that causes you to ignore how you achieve success. One group of researchers, for example, examined the link between rivalry and unethical behavior. They found that when people compete against their rivals, they are more willing to behave unethically to win. But such behavior may stain your reputation and strain relationships important to your success. One way to avoid this trap is to stop and reflect on what’s important. While outperforming your rivals may provide short-term benefits, the loss of your integrity will have long-term consequences.",
+        "One reason having a rival can enhance your venture’s performance is that it creates a level of excitement that drives you to work harder. But this eagerness to win may also hurt your venture’s success, particularly when it causes you to make impulsive, insensible decisions. But it’s possible to avoid such costly mistakes by making",
+        "a habit of engaging in critical thinking, such as considering opposing viewpoints and conducting cost-benefit analyses, especially for those decisions that are complex and can determine the future of your venture.",
+        "The sense of eagerness that comes with having a rival can not only cause you to make poorer decisions, but it can also lead you to take greater risks that put your venture in peril. One way you can overcome the risk- inducing effects of rivalry that stand to endanger your venture’s success is to remain attentive to your emotional state and actively monitor how such feelings are affecting your decision-making."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "How can competitive rivalry benefit entrepreneurs according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By enabling them to outcompete other entrepreneurs."
+            },
+            {
+              "key": "B",
+              "text": "By enabling them to make their venture a success."
+            },
+            {
+              "key": "C",
+              "text": "By helping them to reach long-term goals."
+            },
+            {
+              "key": "D",
+              "text": "By helping them to stay goal-oriented."
+            }
+          ],
+          "answer": "D",
+          "explanation": "根据这篇文章，竞争性的较量如何使企业家受益? A) 通过让他们能够超越其他企业家。 C) 通过帮助他们实现长期目标。 B) 通过让他们的企业取得成功。 了通过各助他们保持以目标为导向5 窟y 根据题二关键河competitive rivaly benefit entrepreneurs可以将答案定位到第一段第一句。 明* 第一段第一句指出，拥有一个竞争对手可以让你致力于实现自己的目标并提升你的整体表现。由此可知， 通过帮助企业家保持以目标为导向并提升表现，竞争性的较量可以让企业家受益，故本题选D。其他三项的内容都与原文不符，均排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What is one of the traps entrepreneurs may often fall into when competing with rivals?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may adopt strategies that are bound to ruin their venture."
+            },
+            {
+              "key": "B",
+              "text": "They may resort to unethical means to outperform their rivals."
+            },
+            {
+              "key": "C",
+              "text": "They may be too eager to succeed while ignoring the huge labor cost."
+            },
+            {
+              "key": "D",
+              "text": "They may be intently focused on winning at the current market level."
+            }
+          ],
+          "answer": "B",
+          "explanation": "企业家在与竞争对手竞争时可能经常掉进什么陷阱当中? A) 他们可能会采取必然会毁掉他们企业的策略。 B) 他们可能会诉诸不道德的手段来超越他们的竞争对手。 C) 他们可能过于渴望成功，而忽略了巨大的人力成本。 _D) 他们可能非常专注于在当前的市场水平获胜。 站根据题干关键词traps entrepreneurs may often fall into可以将答案定位到第二段。第六句说到避免掉进这个陷阱的方法，而题目问的是陷阱是什么，需要从上文去寻找。 解# 第二段第四句指出，当与竞争对手竞争时，人们更愿意为了赢得胜利而做出不道德的行为。第五句指出这析种做法的弊端，然后第六句给出了吉免挤进这个陷阱的方法。由此可知，陷阱就是第四句提到的，人们为了超越竞争对手而做出一些不道德的行为，故本题选B。选项A过于绝对，原文只是说他们可能会做出不道德的行为，下污企业的声誉，并没有说这必然会毁掉整个企业，故排除。选项C和D的内容原文均没有提及，可以排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What are entrepreneurs advised to do to avoid traps that often accompany rivalry?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Deliberate on what really matters."
+            },
+            {
+              "key": "B",
+              "text": "Prioritize reaping immediate benefits."
+            },
+            {
+              "key": "C",
+              "text": "Estimate the long-term consequences."
+            },
+            {
+              "key": "D",
+              "text": "Reflect on what successes are achievable."
+            }
+          ],
+          "answer": "A",
+          "explanation": "作者建议企业家做什么来避免那些往往伴随竞争而来的陷阱? A) 慎重考虑什么才是真正重要的事。 C) 估计长期的后果。 _B) 优先获取眼前的利益。 了Z)反思哪些成功是可以实现的。 寄Y 根据题干关键订avoid raps以及上一题的定位分析可以将答案定位到第二段倒数第一句。 名。 第二段个数第二名指出，避免掉进这个陷寻的一个方法是停下来，反思一下什么才是重要的。由此可知， ，作者建议企业家慎重考虑什么才是真正重要的，故本题选A。选项中的deliberate意为“慎重考虑，仔细思考\" ，与原文中的reflect on属于同义替换。其余三个选项虽然使用了原文词汇，但是表达的意思与原文均不一致，可以排除。"
+        },
+        {
+          "number": 49,
+          "stem": "How can entrepreneurs avoid making impulsive and insensible decisions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By engaging themselves in critical reasoning."
+            },
+            {
+              "key": "B",
+              "text": "By developing a habit of keeping their integrity."
+            },
+            {
+              "key": "C",
+              "text": "By criticizing themselves for previous poor performances."
+            },
+            {
+              "key": "D",
+              "text": "By refraining from being too excited about their successes."
+            }
+          ],
+          "answer": "A",
+          "explanation": "企业家如何才能避免做出冲动和不明智的决定? A) 通过进行批判性论证。 C)批评自己以前的粳糕表现。 关y 概据题二关键词avoid making impuisive and insensible decisions林以将答案定位到第三段第一句、第三句。 解# 第三段第二句指出，这种对胜利的渴望也可能有损于你的企业的成功，特别是当它导致你做出了冲动、不析明智的决策时。接着第三句给出了避免这种错误的方法一养成进行批判性思考的习惯，并举例说明。由此可知，企业家通过进行批判性论证，可以避免做出冲动和不明智的决定，故本题选A。选项中的critical reasoning与原文中的critical thinking属于同义替换。其余三个选项原文均没有提及，可以排除。"
+        },
+        {
+          "number": 50,
+          "stem": "How can entrepreneurs overcome the risk-inducing effects of rivalry?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By paying close attention to their current performance."
+            },
+            {
+              "key": "B",
+              "text": "By taking steps that stand to endanger their rivals’ success."
+            },
+            {
+              "key": "C",
+              "text": "By monitoring how their decision-making impacts their mentality."
+            },
+            {
+              "key": "D",
+              "text": "By keeping their emotions in check to avoid making poor decisions."
+            }
+          ],
+          "answer": "D",
+          "explanation": "企业家如何克服竞争的风险诱发效应? A) 通过密切关注他们目前的表现。 C) 通过监控他们的决策是如何影响他们的心态的。 B) 通过采取措施来危及对手的成功。 ，，，_，功通过约束直己的情绪司以避免做出错误的决策下窟Y 概据题二关链词Hsk-inducing efieets ofrivaly可以将答案定位到最后一段最后名。 名+ 最后一段最后一名指出，竞争有风险诱发效应，这会危及企业的成功，能克服这种效应的一种方法是密切关注你的情绪状态，并积极地监控这样的情绪是如何影响你的决策的。换句话说，想要克服竞争带来的风险，就要约束自己的情绪，不要让情绪影响你做出错误的决策，故本题选D。选项中的keep..in check意为“约束;控制”与原文中的remain attentive to and actively monitor (密切关注并积极族榨) 属于出文其换。选项A错在密切关注的对象不正确，原文说的是密切关注自己的情绪，而不是表现，可以排除。选项 ，B原文未提及，而且明显属于不道德的行为，比较容易排除。原文是说监控情绪如何影响决策，而不是监 ，控决策如何影响心态，故也排除选项C。 了"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "A multitasker is one who can perform two or more tasks effectively at the same time, which—apart from the obvious differences—is similar to what a computer does. The concept does indeed come from the realms of technology, where it is used to refer to an operating system that can execute multiple tasks at the same time. However, the question is: can a person really be a multitasker?",
+        "For most scientists, the answer is no. So much so that, according to experts in neuroscience (神经系统科学), our brains do not handle multitasking situations well. As soon as two tasks require our attention, productivity",
+        "suffers. What we call multitasking, therefore, is in reality the ability to move more or less quickly from one task to another. This requires two essential conditions: that one of the tasks needs to be automatic, like walking or eating, and that they both need different mental processes. Answering the phone and writing at the same time, for example.",
+        "However, on the other side of the coin there are people who maintain that it is possible to be, or at least seem to be, multitasking. A recent study concluded that regardless of whether people are actually handling several tasks or not, the mere fact that they perceive this activity as multitasking has a positive effect on their performance.",
+        "The business perspective offers a different view: multitasking is understood as the ability to adapt to all types of environment within a company and effectively undertake different activities within a set time frame. Indeed, many companies look for people who are skilled in multitasking to improve their productivity. From this different perspective, you can not only be multitasking but this ability can also be taught: something that is easier in fluid organisations, which favour flexibility in their working practices.",
+        "The benefits of multitasking are clear. Being quicker and more efficient increases our performance and the number of tasks completed. But having to pay attention to several things at once means that the powers of concentration are reduced and that can lead to more mistakes."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does a “multitasker” originally refer to?",
+          "options": [
+            {
+              "key": "A",
+              "text": "An operating system capable of doing several tasks at once."
+            },
+            {
+              "key": "B",
+              "text": "A skilled worker executing more than one task at the same time."
+            },
+            {
+              "key": "C",
+              "text": "A sophisticated technology doing several tasks effectively at once."
+            },
+            {
+              "key": "D",
+              "text": "An efficient person able to perform multiple tasks at the same time."
+            }
+          ],
+          "answer": "A",
+          "explanation": "“多重任务处理者”最初指的是什么? 名一个能够同时进行多项任务的操作系统吕 。 C) 一项可以同时有效完成多项任务的复杂技术。 B) 一个同时执行多项任务的技术工人。 了) 一个能够同时进行多项任务的高效人士。 定字根据题干关键词“multitasker\" originally refer to可以将答案定位到第一段前两句。题干中的originally referto 位，与原文中的come from属于同义替换。 旬 f 第一段第二条指出，多重任务处理者是可以同时有效地处理两项或多项任务的人。但是这并没有说这个概念最初指什么，我们继续往下看，可以发现，第二句给出了答案: 这个概念确实源自技术领域，它用来指代可以同时执行多项任务的操作系统。由此可知，选项A正确。其他三项的内容都与原文不符，均可以排除。"
+        },
+        {
+          "number": 52,
+          "stem": "Why can’t people really be multitaskers according to neuroscientists?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are not sufficiently exposed to multitasking situations."
+            },
+            {
+              "key": "B",
+              "text": "They are not comparable to mechanical operating systems."
+            },
+            {
+              "key": "C",
+              "text": "Their brains do not allow them to multitask."
+            },
+            {
+              "key": "D",
+              "text": "Their attention span cannot be expanded."
+            }
+          ],
+          "answer": "C",
+          "explanation": "根据神经科学家的说法，人们为什么不能成为真正的多重任务处理者? A) 他们没有充分接触多重任务处理的情况。 ”全苑簿的天脑肌完许他何同时处理多项任务8 B) 他们无法与机械的操作系统相比。 D) 他们的注意力范围无法扩大。 + 而二年闫谓二SOSSICNUAN可以笠窒案定全第二且第=人下 > 第二段第二句指出，根据神经系统科学专家的说法，我们的大脑无法很好地处理多重任务的情况。由此可知，人们不能真正地进行多重任务处理是因为大脑不允许，故选项C正确。其他三项的内容原文均没有提及，可以排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What do we learn from the conclusion of a recent study on multitasking?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People make greater achievements by maintaining whatever they are doing is multitasking."
+            },
+            {
+              "key": "B",
+              "text": "People’s performance benefits from the perception of what they are doing as multitasking."
+            },
+            {
+              "key": "C",
+              "text": "People’s active mental processes exert a positive effect on their multitasking."
+            },
+            {
+              "key": "D",
+              "text": "People can improve their capabilities by handling multitasking situations."
+            }
+          ],
+          "answer": "B",
+          "explanation": "从最近一项关于多重任务处理的研究结论中，我们能了解到什么? A) 通过坚称他们所做的任何事情都是多重任务处理，人们取得更大的成就。 C) 人们活跃的心理过程对他们的多重任务处理产生了积极的影响。 D) 人们可以通过处理多重任务的情况来提升自己的能力。 本 Den 解# 第三段第二句指出，最近的一项研究得出结论，无论人们是否真的在同时处理几项任务，只要他们认为这而项活动是多重任务处理，就会对他们的表现起到积极的作用。由此可知，只要人们认为自己在处理多重任务，他们就能从这种想法中受益，故选项B正确。选项中的perception与原文中的perceive属于同义替换。 其他三项的内容均与原文不符，可以排除。"
+        },
+        {
+          "number": 54,
+          "stem": "How does the business world view multitasking?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a rare skill often found in fluid organisations."
+            },
+            {
+              "key": "B",
+              "text": "It is an adaptable capability required of all workers."
+            },
+            {
+              "key": "C",
+              "text": "It is an essential quality many employees lack."
+            },
+            {
+              "key": "D",
+              "text": "It is a desirable ability that can be developed."
+            }
+          ],
+          "answer": "D",
+          "explanation": "商界如何看待多重任务处理? A) 它是一种罕见的技能，常出现在流动性强的组织中。 “C) 它是许多员工都缺乏的一项必备特质。 B) 它是一种所有员工都需要拥有的适应能力。 D) 它是一种可以培养的理想能力。 机务天而吉DSS WUYIEW UNNGIG可以科共十亿到向是-于名倒数第二段开头指出，从商业角度来看，多重任务处理被认为是适应公司的所有环境类型，并在设定的时间范围内有效地开展不同活动的能力。 事实上，许多公司都在寻找擅长多重任务处理的人来提高其生产力。由此可知，多重任务处理是一种值得拥有的理想能力。本段第三句话指出，你不仅可以同时处理多项任务，而且这种能力也可以被教授。既然它是能被教授的，那么就说明，这种能力是能通过学习而培养的，故选项D正确。选项A错在原文并没有说这是一种罕见的技能。选项B错在原文没有说所有员工都需要拥有这种能力。选项C原文并未提及，可排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author imply we should do if we have to focus on some task and do it well?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Work in a flexible way."
+            },
+            {
+              "key": "B",
+              "text": "Learn from mistakes."
+            },
+            {
+              "key": "C",
+              "text": "Avoid multitasking."
+            },
+            {
+              "key": "D",
+              "text": "Increase efficiency."
+            }
+          ],
+          "answer": "C",
+          "explanation": "如果我们必须专注于某项任务并把它做好，作者暗示我们应该怎么做? A) 以灵活的方式工作。 C) 避免进行多重任务处理。 B) 从错误中吸取教训。 D) 提高效率。 A 而亢下X硬二ET RE GETNI风和区案下本汉最后-贡生后- 解 > 最后一段开头先指出多重任务处理的好处，最后一句以but转折指出多重任务处理的弊端，即不得不同时本 | 关注几件事就意味着注意力会减弱，从而可能会导致更多的错误。从这和句话可以分析得知，作者在暗示我们，如果我们想专注于一项任务，并且把它做好，我们最好不要采用多重任务处理的方式，故选项C正确。其他三项的内容均与原文不符，可以排除。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/cet4_2023_12_2.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_12_2_ans.pdf"
+}

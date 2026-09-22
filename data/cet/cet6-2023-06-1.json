@@ -1,0 +1,1666 @@
+{
+  "id": "cet6-2023-06-1",
+  "level": 6,
+  "year": 2023,
+  "month": 6,
+  "set": 1,
+  "title": "2023 年 6 月六级 · 第 1 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2023-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Scientists recently examined studies on dog intelligence and compared them with research into the minds of other intelligent animals. The researchers found that dogs are among the more intelligent carnivores (食肉动物), social hunters and domestic animals, but that their intelligence does not [[26]] other intelligent animals in any of those categories. Though a significant body of research has examined dog cognition [[27]], the authors of this new study found little to warrant the [[28]]of work that has been devoted to the topic.",
+        "Stephen Lea, lead author of the new study, argues that many researchers seem to have designed their studies to [[29]] how clever dogs are, rather than simply to study dogs’ brains. Lea and a colleague examined more than 300 studies of dog cognition, comparing the studies’ results with those from research into other animals. The researchers made specific comparisons between the different species in different categories of intelligence. These comparisons [[30]]that dogs are intelligent, but their intelligence is not",
+        "as [[31]]as some researchers might have believed.",
+        "In many areas, though, comparisons were not possible. For example, the researchers noted that both dogs and cats are known to be able to recognize and [[32]]human voices. But the investigators could not find any data to indicate which species can remember a greater number of [[33]]human voices, so it was impossible to compare the two on that front. However, not all researchers agree [[34]] with the findings of this study. Zachary Silver, an American researcher, believes the authors of the new study [[35]]the idea that an excessive amount of research has been devoted to dogs, as the field of dog cognition is young, and there is much to be learned about how dogs think."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "affirmed"
+        },
+        {
+          "key": "B",
+          "text": "approximately"
+        },
+        {
+          "key": "C",
+          "text": "completely"
+        },
+        {
+          "key": "D",
+          "text": "differentiate"
+        },
+        {
+          "key": "E",
+          "text": "distinct"
+        },
+        {
+          "key": "F",
+          "text": "domain"
+        },
+        {
+          "key": "G",
+          "text": "formidable"
+        },
+        {
+          "key": "H",
+          "text": "outperformed"
+        },
+        {
+          "key": "I",
+          "text": "overstated"
+        },
+        {
+          "key": "J",
+          "text": "pledge"
+        },
+        {
+          "key": "K",
+          "text": "previously"
+        },
+        {
+          "key": "L",
+          "text": "prospective"
+        },
+        {
+          "key": "M",
+          "text": "prove"
+        },
+        {
+          "key": "N",
+          "text": "surpass"
+        },
+        {
+          "key": "O",
+          "text": "volume"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【语法判断】空格前是助动词的否定结构 does not,空格后是一个名词结构 other intelligent animals,是宾语,说明空格处缺少的是本句的谓语动词,该谓语动词为动词原形,且为及物动词。 【语义判断】空格前一句提到研究者们发现,在智商较高的食肉动物.群居捕猎兽以及家畜当中 ,狗都位列其中,说明狗的智商较高,空格所在句却用 but 将话锋一转, 表示与前文相反的意思,their 指代前文提到的 dogs, 可见这里是说狗的智力没有高于同类的其他动物, 选项中的动词里只有 N) surpass“超过,胜过”符合句意,故为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "K",
+          "explanation": "though 引导的从句成分完整，空格需要副词。前文讲过去已有的狗认知研究，主句则引出新的研究，K) previously 表示“先前”，使前后形成时间上的对比。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【语法判断】空格前是及物动词 warrant 及定冠词 the,其后缺少名词性的宾语成分,空格后是表所属的介词 of ,因此推断空格处是一个名词 ,与 the 和of 一起修饰后面的名词 work, 作 warrant 的宾语。 【语义判断】空格所在句的 topic 指的是前一句提到的狗的认知,空格后的 work 是对前一句提到的 Iesearch 的回指, 前一句用 a significant body 表明这种研究很多, 因此空格处也应是表示大量的一个词 ,浏览各名词选项,只有 O) volume“量,额” 符合句意,the volume of 是固定短语,表示“……… (巨大的或正在增加的)量”,故为答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【语法判断】空格所在处是一个动词不定式结构作 designed 的目的状语,因此空格处应为一个动词原形。 共15页 【语义判断】 空格所在句提到很多研究者设计研究的目的,与狗多聪明有关,空格后面半句更是进一步指出研究的目的不是单纯地研究狗的头脑,可以推测空格所填词意义与 study 相近, 且有“研究证实?之意,浏览各动词原形,M) prove“证明,证实?符合句意,故为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【语法判断】空格前是句子主语 these comparisons， 空格后是 that 引导的宾语从句,可知空格处应是句子的谓语动词。 【语义判断】空格前两句提到 Lea 和同事对研究做了很多具体的比较,空格所在句是关于这些比较与狗很聪明这一结论之间的关系,根据前文可知研究者在设计研究的时候就想证明狗很聪明， 因此, 这些研究的比较也是能证明狗很聪明这一结论的,A) affirmed\"证实?符合句意,故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【语法判断】空格所在句是由 but 引导的转折分句,其中主语是 their intelligence, 谓语部分只有系动词的否定结构 is not, 因此空格所在处为表语,应为名词或形容词,又根据“as...as...”这一比较结构可进一步确定空格处应为形容词。 【语义判断】空格所在处填入的形容词表示的是一些研究者们对狗的智商的看法,根据前文可知这些研究者设计研究方案的目的都是为了证明狗有多聪明,可见这些研究者认为狗非常聪明,浏览各形容词,只有 G) formidable“令人惊叹的”符合句意,表达了研究者们对狗的智商的过度高估。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【语法判断】空格所在处为 to 引导的动词不定式结构,由 and 可知空格处单词与 recognize 并列， 也是一个动词原形。 【语义判断了空格所在句提到狗和猫能够识别人的声音,空格所在处是比“识别?更进一步的意思,因此D) differentiate“区分”符合句意,故为答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【语法判断】空格前是介词 of ,其宾语是空格后的 human voices, 可知空格处应为形容词, 修饰 human voices。 【语义判断】 空格所在句提到没有数据表明哪种动物能够记住更多的……声音,根据常识可知人跟人的声音是各不相同的,因此 E) distinct“截然不同的”符合句意,故为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【语法判断】空格所填词位于动词短语 agree with 的中间 ,可以推断空格处应该是一个副词,用来修饰 agree。 【语义判断】空格所在处表明的是其他研究者对这项新研究发现的认同程度,空格后一句中扎卡里。西尔福的例子证明其他研究者认为新研究的有些观点言过其实,因此可以推测他们对新研究并不完全认同,因此 C) completely“完全地”符合句意,故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断】空格位于 believes 引出的宾语从句中,该从句的主语为 the authors of the new study,宾语为 idea, 因此空格处应为从句的谓语动词。 【语义判断】空格所在句中 as 引导的原因状语从句中提到,扎卡里。西尔福认为狗的认知这一领域是一个新兴领域,还有很多可以研究的地方,由此可知,扎卡里。西尔福并不认同“对狗的研究有些太多了?这个观点,认为新研究的作者们过分夸大了这一观点,D overstated“夸大”符合句意,故为答案。 共15页"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-1-b",
+      "type": "matching",
+      "title": "The lifesaving power of gratitude",
+      "paragraphs": [
+        "A) Gratitude may be more beneficial than we commonly suppose. One recent study asked participants to write a note of thanks to someone and then estimate how surprised and happy the recipient would feel—an impact that they consistently underestimated. Another study assessed the health benefits of writing thank-you notes. The researchers found that writing as few as three weekly thank-you notes over the course of three weeks improved life satisfaction, increased happy feelings and reduced symptoms of depression.",
+        "B) While this research into gratitude is relatively new, the principles involved are anything but. Students of mine in a political philosophy course at Indiana University are reading Daniel Defoe’s 300-year-old Robinson Crusoe, often regarded as the first novel published in English. Left alone on an unknown island with no apparent prospect of rescue or escape, Crusoe has much to lament (悲叹). But instead of giving in to despair, he makes a list of things for which he is grateful, including the fact that he is the sole survivor from the shipwreck (海难) and has been able to salvage many useful items from the wreckage.",
+        "C) Defoe’s masterpiece, which is often ranked as one of the world’s greatest novels, provides a portrait of gratitude in action that is as timely and relevant today as it has ever been. It is also one with which contemporary psychology and medicine are just beginning to catch up. Simply put, for most of us, it is far more helpful to focus on the things in life for which we can express gratitude than those that incline us toward resentment and lamentation.",
+        "D) When we focus on the things we regret, such as failed relationships, family disputes, and setbacks in career and finance, we tend to become more regretful. Conversely, when we focus on the things we are grateful for, a greater sense of happiness tends to spread through our lives. And while no one would argue for cultivating a false sense of blessedness, there is mounting evidence that counting our blessings is one of the best habits we can develop to promote mental and physical health. FATL/HST",
+        "E) Gratitude has long enjoyed a privileged position in many of the world’s cultural traditions. For example, some ancient Western philosophers counsel gratitude that is both enduring and complete, and some Eastern thinkers portray it as not merely an attitude but a virtue to be put into practice.",
+        "F) Recent scientific studies support these ancient teachings. Individuals who regularly engage in gratitude exercises, such as counting their blessings or expressing gratitude to others, exhibit increased satisfaction with relationships and fewer symptoms of physical illness. And the benefits are not only psychological and physical. They may also be moral—those who practice gratitude also view their lives less materialistically and suffer from less envy.",
+        "G) There are multiple explanations for such benefits of gratefulness. One is the fact that expressing gratitude encourages others to continue being generous, thus promoting a virtuous cycle of goodness in relationships. Similarly, grateful people may be more likely to reciprocate (回报) with acts of kindness of their own. Broadly speaking, a community in which people feel grateful to one another is likely to be a more pleasant place to live than one characterized by mutual suspicion and resentment. The beneficial effects of gratitude may extend even further. For example, when many people feel good about what someone else has done for them, they experience a sense of being lifted up, with a corresponding enhancement of their regard for humanity. Some are inspired to attempt to become better people themselves, doing more to help bring out the best in others and bringing more goodness into the world around them.",
+        "H) Gratitude also tends to strengthen a sense of connection with others. When people want to do good things that inspire gratitude, the level of dedication in relationships tends to grow and relationships seem to last longer. And when people feel more connected, they are more likely to choose to spend their time with one another and demonstrate their feelings of affection in daily acts.",
+        "I) Of course, acts of kindness can also foster discomfort. For example, if people feel they are not worthy of kindness or suspect that some ulterior (别有用心的) motive lies behind it, the benefits of gratitude will not be realized. Likewise, receiving a kindness can give rise to a sense of indebtedness, leaving beneficiaries feeling that they must now pay back whatever good they have received. Gratitude can flourish only if people are secure enough in themselves and sufficiently trusting to allow it to do so. Another obstacle to gratitude is often called a sense of entitlement. Instead of experiencing a benefaction (善行) as a good turn, people sometimes regard it as a mere payment of what they are owed, for which no one deserves any moral credit.",
+        "J) There are a number of practical steps anyone can take to promote a sense of gratitude. One is simply spending time on a regular basis thinking about someone who has made a difference, or perhaps writing a thank-you note or expressing such gratitude in person. Others are found in ancient religious disciplines, such as reflecting on benefactions received from another person or actually praying for the health and happiness of a benefactor. In addition to benefactions received, it is also possible to focus on opportunities to do good oneself, whether those acted on in the past or hoped for in the future. Some people are most grateful not for what others have done for them but for chances they enjoyed to help others. In regularly reflecting on the things in his life he is grateful for, Defoe’s Crusoe believes that he becomes a far better person than he would have been had he remained in the society from which he originally set out on his voyage.",
+        "K) Reflecting on generosity and gratitude, the great basketball coach John Wooden once offered two counsels to his players and students. First, he said, “It is impossible to have a perfect day unless you have done something for someone who will never be able to repay you.” In saying this, Wooden sought to promote purely generous acts, as opposed to those performed with an expectation of reward. Second, he said, “Give thanks for your blessings every day.”",
+        "L) Some faith traditions incorporate such practices into the rhythm of daily life. For example, adherents of some religions offer prayers of thanksgiving every morning before rising and every night before lying down to sleep. Others offer thanks throughout the day, such as before meals. Other less frequent special events, such as births, deaths and marriages, may also be heralded by such prayers.",
+        "M) When Defoe depicted Robinson Crusoe making thanksgiving a daily part of his island life, he was anticipating findings in social science and medicine that would not appear for hundreds of years. Yet he was also reflecting the wisdom of religious and philosophical traditions that extend back thousands of years. Gratitude is one of the healthiest and most nourishing of all states of mind, and those who adopt it as a habit are enriching not only their own lives but also the lives of those around them."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "It does us far more good to focus on things we can be grateful for than what makes us sad and resentful.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】同义转述题。C)段最后一句指出,专注于生活中我们可以表达感激之情的事情比专注于让我们产生怨恨和悲伤的事情更为有益,由此可知， 题干是对定位句的同义转述。题干中的 good 对应原文中的 helpful,题干中的 be grateful 对应原文中的 express gratitude,题干中的 what makes us sad and resentful 是对原文中 those that incline us toward resentment and lamentation 的同义转述， 故答案为 C) 。"
+        },
+        {
+          "number": 37,
+          "stem": "The beneficial impacts of gratitude can extend from individuals to their community and to the wider society.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】细节归纳题。定位句提到,人们互存感激之心的社区更加宜居, 而感恩的有益影响甚至可能会进一步扩大。随后两句则指出,心怀感恩的人会给周围的世界带来更多的善意,可知这是说感恩的益处可辐射至整个社会,结合上一段提到的感恩给个人带来的益处,可知感恩的益处可从个人延伸到他们的社区乃至更广泛的社会,题干是对 G)段相关信息的归纳概括,故答案为 G) 。"
+        },
+        {
+          "number": 38,
+          "stem": "The participants in a recent study repeatedly underestimated the positive effect on those who received thank-you notes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 段介绍的研究要求写感谢信的人预估收信人的惊喜程度，结果参与者一再低估这种积极影响。repeatedly underestimated 对应 consistently underestimated。"
+        },
+        {
+          "number": 39,
+          "stem": "Good deeds can sometimes make people feel uncomfortable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【精析】同义转述题。D段定位句指出,善意的行为也可能导致不适。题干中的 good deeds 是对原文中 acts of kindness 的同义转述,题干中的 make people feel uncomfortable 是对原文中 foster discomfort 的同义转述,故答案为 I 。"
+        },
+        {
+          "number": 40,
+          "stem": "People who regularly express gratitude can benefit in moral terms.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【精析本细节归纳题。F)段定位句提到,向他人表达感激之情能够提高人际关系满意度,身体疾病的症状也会减少,进而指出,其益处还不仅仅是心理上和身体上的,也可能是道德方面的。题干中的 express gratitude 对应原文中的 expressing gratitude,而题干中的 benefit in moral terms 是对本段第三\\四句信息的归纳概括,故答案为 F) 。"
+        },
+        {
+          "number": 41,
+          "stem": "A basketball coach advocated performing generous acts without expecting anything in return.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【精析】细节归纳题。K)段第一句提到一位篮球教练向学员提出两条建议,而其后的第三句提到， 他的第一条建议旨在促进纯粹的慷慨行为, 而不是那些以期获得回报为动机的善举。题干中的 advocated performing generous acts 对应原文中共15页的 promote purely generous acts, 题干中的 without expecting anything in return 是原文中 as opposed to those performed with an expectation of reward 的同义转述,故答案为玉) 。"
+        },
+        {
+          "number": 42,
+          "stem": "More and more evidence shows it makes us mentally and physically healthier to routinely count our blessings.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】同义转述题。D)段定位句指出,越来越多的证据表明,历数幸事是我们可以养成的促进身心健康的最佳习惯之一。题干中的 more and more 是原文中 mounting 的同义表达,题干中的 makes us mentally and physically healthier 是原文中 promote mental and physical health 的同义表达,故答案为 D) 。"
+        },
+        {
+          "number": 43,
+          "stem": "Of all states of mind, feeling grateful is considered one of the most healthy and beneficial.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【精析】同义转述题。MD)段定位句指出,在所有的心态中, 感恩是最健康.最滋养的。题干中的 feeling grateful 对应原文中的 gratitude, 题干中的 the most healthy and beneficial 则是对原文中 the healthiest and most nourishing 的同义转述， 故答案为 M) 。"
+        },
+        {
+          "number": 44,
+          "stem": "The principles underlying the research into gratitude are nothing new at all.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】同义转述题。B)段第一句提到,虽然这项关于感恩的研究相对较新,但其所涉及的原理绝非如此。而“绝非如此?”指的就是感恩研究的原理并不像研究本身那么新,题干中的 nothing new at all 是对原文中 relatively new 和 are anything but 两处信息的同义转述,故答案为 B) 。"
+        },
+        {
+          "number": 45,
+          "stem": "Gratitude is likely to enhance one’s sense of being connected with other people.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】同义转述题。HD)段定位句指出,感恩也有助于加强与他人的联系。题干中的 is likely to enhance 对应原文中的 tends to strengthen,题干中的 one's sense of being connected with other people 是原文中 a sense of connection with others 的同义表达,故答案为 H) 。 '共15页"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Technology is never a neutral tool for achieving human ends. Technological innovations reshape people as they use these innovations to control their environment. Artificial intelligence, for example, is altering humanity.",
+        "While the term Al conjures up anxieties about killer robots or catastrophic levels of unemployment, there are other, deeper implications. As Al increasingly shapes the human experience, how does this change what it means to be human? Central to the problem is a person’s capacity to make choices, particularly judgments that have moral implications.",
+        "Aristotle argued that the capacity for making practical judgments depends on regularly making them—on habit and practice. We see the emergence of machines as substitute judges in a variety of everyday contexts as a potential threat to people learning how to effectively exercise judgment themselves.",
+        "In the workplace, managers routinely make decisions about who to hire or fire and which loan to approve, to name a few. These are areas where algorithmic ($53) prescription is replacing human judgment, and so people who might have had the chance to develop practical judgment in these areas no longer will.",
+        "Recommendation engines, which are increasingly prevalent intermediaries in people’s consumption of culture, may serve to constrain choice and minimize luck. By presenting consumers with algorithmically selected choices of what to watch, read, stream and visit next, combanies are replacing human taste with machine taste. In one sense, this is helpful. After all, machines can survey a wider range of choices than any individual is likely to have the time or energy to do on their own.",
+        "At the same time, though, this selection is optimizing for what people are likely to prefer based on what they've preferred in the past. We think there is some risk that people’s options will be constrained by their past in a new and unanticipated way.",
+        "S6TL/E8 TT",
+        "As machine learning algorithms improve and as they train on more extensive data sets, larger parts of everyday life are likely to become utterly predictable. The predictions are going to get better and better, and they will ultimately make common experiences more efficient and pleasant.",
+        "Algorithms could soon—if they don’t already—have a better idea about which show you'd like to watch next and which job candidate you should hire than you do. One day, humans may even find a way for machines to make these decisions without some of the biases that humans typically display.",
+        "But to the extent that unpredictability is part of how people understand themselves and part of what people like about themselves, humanity is in the process of losing something significant. As they become more and more predictable, the creatures inhabiting the increasingly Al-mediated world will become less and less like us."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn about the deeper implications of AI?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is causing catastrophic levels of unemployment."
+            },
+            {
+              "key": "B",
+              "text": "It is doing physical harm to human operators."
+            },
+            {
+              "key": "C",
+              "text": "It is altering moral judgments."
+            },
+            {
+              "key": "D",
+              "text": "It is reshaping humanity."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析]】 推理判断题。文章第二段第一句指出虽然人工智能这个词唤起人们对机器人杀手或大规模失业的焦虑,但它还有其他更深层次的含义,由此可知深层含义的内容在后面有所提及。接下来一句提到人工智能越来越多地影响人类体验,并提出问题:这会如何改变人类的意义呢? 这与 D) “它正在重塑人类”语义相同,故答案为 D)项。"
+        },
+        {
+          "number": 47,
+          "stem": "What is the consequence of algorithmic prescription replacing human judgment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People lose the chance to cultivate the ability to make practical judgments."
+            },
+            {
+              "key": "B",
+              "text": "People are prevented from participating in making major decisions in the workplace."
+            },
+            {
+              "key": "C",
+              "text": "Managers no longer have the chance to decide which loan to approve."
+            },
+            {
+              "key": "D",
+              "text": "Managers do not need to take the trouble to determine who to hire or fire."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】事实细节题。第四段第二句中提到在有些领域,算法正在取代入类的判断,因此,原本有机会在这些领域培养实际判断力的人将不再有机会,选项 A)正是文中内容的同义转换,文中的 develop practical judgment 与选项 A) 中的 cultivate the ability to make practical judgments 意思一致,故答案为 A)项。该题的难点是读懂定位句,首先,定位句中 people 后面的 who 引导的是定语从句,修饰 people,no longer will 后省略了 have the chance to develop practical judgment。 读懂了这句话,答案自然就选出来了。"
+        },
+        {
+          "number": 48,
+          "stem": "What may result from increasing application of recommendation engines in our consumption of culture?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Consumers will have much limited choice. ~~"
+            },
+            {
+              "key": "B",
+              "text": "Consumers will actually enjoy better luck."
+            },
+            {
+              "key": "C",
+              "text": "It will be easier to decide on what to enjoy."
+            },
+            {
+              "key": "D",
+              "text": "Humans will develop tastes similar to machines’."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】事实细节题。文章第五段第一句指出,在人们的文化消费中, 推荐引擎成为越来越普遍的中介, 可能会限制选择并最大限度地减少运气成分。推荐引擎成为越来越普遍的中介,与题干中的 increasing application of recommendation engines 语义相同,而推荐引苟具体做的事情就是 Imay serve to constrain choice and minimize luck (可能会限制选择并最大限度地减少运气成分)， 推荐引擎限制了选择,也就是消费者会有很有限的选择,定位句中的 constrain 对应选项 A)中的 limited,因此答案为 A)项。"
+        },
+        {
+          "number": 49,
+          "stem": "What is likely to happen to larger parts of our daily life as machine learning algorithms improve?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They will turn out to be more pleasant."
+            },
+            {
+              "key": "B",
+              "text": "They will repeat our past experience."
+            },
+            {
+              "key": "C",
+              "text": "They can be completely anticipated."
+            },
+            {
+              "key": "D",
+              "text": "They may become better and better."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。第七段第一句提到机器学习算法在改进,它们的计算也在基于更广泛的数据集,在这种情况下,日常生活的大部分可能变得完全可预测, 这与 C) 项语义相同，定位句中的 utterly predictable 正好对应选项中的 completely anticipated,因此答案为 C)项。"
+        },
+        {
+          "number": 50,
+          "stem": "Why does the author say the creatures living in the more and more Al-mediated world will become increasingly unlike us?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They will have lost the most significant human element of being intelligent."
+            },
+            {
+              "key": "B",
+              "text": "They will no longer possess the human characteristic of being unpredictable."
+            },
+            {
+              "key": "C",
+              "text": "They will not be able to understand themselves as we can do today."
+            },
+            {
+              "key": "D",
+              "text": "They will be deprived of what their predecessors were proud of about themselves."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析了】推理判断题。最后一段第二句提到随着事情变得越来越可预测,居住在日益以人工智能为媒介的世界中 ,我们会越来越不像自己了,也就是说人类需要不可预测性,所以人类不再拥有不可预测性就会让我们越来越不像自己,因此答案为 B)项。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Phonics, which involves sounding out words syllable (F747) by syllable, is the best way to teach children to read. But in many classrooms, this can be a dirty word. So much so that some teachers have had to sneak phonics teaching materials into the classroom. Most American children are taught to read in a way that study after study has found to be wrong.",
+        "The consequences of this are striking. Less than half of all American adults were proficient readers in 2017. American fourth graders rank 15th on the Progress in International Literacy Study, an international exam.",
+        "America is stuck in a debate about teaching children to read that has been going on for decades. Some advocate teaching symbol-sound relationships (the sound k can be spelled as c, k, ck, or ch), known as phonics. Others support an immersive approach (using pictures of a cat to learn the word cat), known as “whole language”. Most teachers today, almost three out of four according to a survey by the EdWeek Research Centre in 2019, use a mix called “balanced literacy”. This combination of methods is ineffective. “You can’t sprinkle in a little phonics,” says Tenette Smith, executive director of elementary education and reading at Mississippi’s education department. “It has to be systematic and explicitly taught.”",
+        "Mississippi, often behind in social policy, has set an example here. In a state once notorious for its low reading scores, the Mississippi state legislature passed new literacy standards in 2013. Since then Mississippi has",
+        "SRTH/E8TT",
+        "seen remarkable gains. Its fourth graders have moved from 49th (out of 50 states) to 29th on the National Assessment of Educational Progress, a nationwide exam. In 2019 it was the only state to improve its scores. For the first time since measurement began, Mississippi's pupils are now average readers, a remarkable achievement in such a poor state.",
+        "Mississippi's success is attributed to implementing reading methods supported by a body of research known as the science of reading. In 1997 Congress requested the National Institute of Child Health and Human Development and the Department of Education to convene a National Reading Panel to end the “reading wars” and synthesize the evidence. The panel found that phonics, along with explicit instruction in phonemic (音素的) awareness, fluency and comprehension, worked best.",
+        "Yet over two decades on, “balanced literacy” is still being taught in classrooms. But advances in statistics and brain imaging have disproved the whole-language method. To the teacher who is a proficient reader, literacy seems like a natural process that requires educated guessing, rather than the deliberate process emphasized by phonics. Teachers can imagine that they learned to read through osmosis (潜移默化) when they were children. Without proper training, they bring this to classrooms."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn about phonics in many American classrooms?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is ill reputed."
+            },
+            {
+              "key": "B",
+              "text": "It is mostly misapplied."
+            },
+            {
+              "key": "C",
+              "text": "It is arbitrarily excluded."
+            },
+            {
+              "key": "D",
+              "text": "It is misrepresented."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】 推理判断题。第一段第二句指出,在许多教室里,语音教学法(this 指代 phonics)可能是一个及脏的词。此处 dirty 对应的就是选项中的记 reputed。第三句指出一些老师不得不把语音教学法的教材偷偷带进教室。由此可推测出语音教学法在美国声誉不好,要不然老师就大大方方地采用语音教学法了,故答案为 A) 。"
+        },
+        {
+          "number": 52,
+          "stem": "What has America been witnessing for decades?",
+          "options": [
+            {
+              "key": "A",
+              "text": "An obsession with innovating teaching methodologies of reading."
+            },
+            {
+              "key": "B",
+              "text": "An enduring debate over the approach to teaching children to read."
+            },
+            {
+              "key": "C",
+              "text": "An increasing concern with many children’s inadequacy in literacy."
+            },
+            {
+              "key": "D",
+              "text": "An ever-forceful advocacy of a combined method for teaching reading."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】事实细节题。文章第三段第一句提到,近几十年来,美国对如何教孩子阅读一直争论不休。 故答案为 B) 。"
+        },
+        {
+          "number": 53,
+          "stem": "Why does Tenette Smith think a combination of teaching methods is ineffective?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Elementary school children will be frustrated when taught with several methods combined."
+            },
+            {
+              "key": "B",
+              "text": "Phonics has to be systematically applied and clearly taught to achieve the desired effect."
+            },
+            {
+              "key": "C",
+              "text": "Sprinkling in a little phonics deters the progress of even adequately motivated children."
+            },
+            {
+              "key": "D",
+              "text": "Balanced literacy fails to sustain children’s interest in developing a good reading habit."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】 推理判断题。第三段第五句指出,这种组合的方法是无效的。第六句和第七句接着阐述了原因 :你不能在课堂上穿插一些语音教学法。它必须是系统的明确的教学。综合可知, 答案为B)。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the author say Mississippi's success is attributed to?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Convening a National Reading Panel to synthesize research evidence."
+            },
+            {
+              "key": "B",
+              "text": "Placing sufficient emphasis upon both fluency and comprehension."
+            },
+            {
+              "key": "C",
+              "text": "Adopting scientifically grounded approaches to teaching reading."
+            },
+            {
+              "key": "D",
+              "text": "Obtaining support from Congress to upgrade teaching methods."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。第五段第一句指出,密西西比州的成功要归功于它实施的阅读方法,该方法得到了一系列被称为“阅读的科学研究的支持， 即该方法有科学依据。选项 C)与文章意思相符， 故为本题答案。"
+        },
+        {
+          "number": 55,
+          "stem": "What have advances in statistics and brain imaging proved ineffective?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The teaching of symbol-sound relationships."
+            },
+            {
+              "key": "B",
+              "text": "Explicit instruction in phonemic awareness."
+            },
+            {
+              "key": "C",
+              "text": "Efforts to end the reading wars."
+            },
+            {
+              "key": "D",
+              "text": "The immersive approach."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析了】事实细节题。最后一段第二句提到,统计学和脑成像的进步已经否定了全语言教学法。关于全语言教学法 ,在第三段第三句有提及:全语言教学(whole language)是一种沉浸式教学方法(an immersive approach) 。综合可知答案为D) 。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%E8%AF%A6%E8%A7%A3.pdf"
+}

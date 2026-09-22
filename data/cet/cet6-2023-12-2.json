@@ -1,0 +1,1648 @@
+{
+  "id": "cet6-2023-12-2",
+  "level": 6,
+  "year": 2023,
+  "month": 12,
+  "set": 2,
+  "title": "2023 年 12 月六级 · 第 2 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2023-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Our brains respond to language expressing facts diferently than they do to words conveying possibility, scientists at New York University have recently found. Their work offers new insights into the impact word choice has on how we. [[26]] between statements expressing what is real versus what is merely possible. The",
+        "researchers assert their findings are important because we are presented with false information all the time. Some of this is. [[27]] ,as is the case with deceptive advertisements, but the problem is [[28]] by individuals who believe they are sharing correct information. Thus, it is more important than ever to separate the factual from the possible or merely. [[29]]in how we communicate. This is especially true as the study makes clear that information presented as fact. [[30]] special responses in our brains, which are distinct from when we process the same content with clear indicators of. [[31]] In their new study, the scientists intended to. [[32]] how the brain computes possibilities as expressed by words such as“may,”“might,” and \"if.\" The researchers compared brain responses to statements expressing factual [[33]] and those expressing possibility.\"There is a monster under my bed\" exemplifies a factual statement.“I will stay home,\" is also factual. This is opposed to statements that express possibility, like \"There might be a monster under my bed,\" or \"If it rains, I will stay home.\" The results of the study showed that factual language [[34]] a rapid increase in brain activity, with the brain responding more powerfully and showing more engagement with factual phrases compared to those communicating possibility. Thus, facts rule when it comes to the brain. Brain regions involved in processing. [[35]] rapidly distinguish facts from possibilities. Further, these regions respond in a much more robust fashion to factual statements."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "activated"
+        },
+        {
+          "key": "B",
+          "text": "aggravated"
+        },
+        {
+          "key": "C",
+          "text": "ascertain"
+        },
+        {
+          "key": "D",
+          "text": "deliberate"
+        },
+        {
+          "key": "E",
+          "text": "differentiate"
+        },
+        {
+          "key": "F",
+          "text": "discourse"
+        },
+        {
+          "key": "G",
+          "text": "evokes"
+        },
+        {
+          "key": "H",
+          "text": "inhibit"
+        },
+        {
+          "key": "I",
+          "text": "manuscript"
+        },
+        {
+          "key": "J",
+          "text": "marvels"
+        },
+        {
+          "key": "K",
+          "text": "remnants"
+        },
+        {
+          "key": "L",
+          "text": "scenarios"
+        },
+        {
+          "key": "M",
+          "text": "speculative"
+        },
+        {
+          "key": "N",
+          "text": "unanimous"
+        },
+        {
+          "key": "O",
+          "text": "uncertainty"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "E",
+          "explanation": "了E) differentiate (v 区分 ) 空格前是on how we，空格后是介词短语between statements，由此可知，空格处应填入一个动词， 充当how引导的宾语从句的谓语。 文章开头提及纽约大学的科学家发现大脑对表达事实的语言和表达可能性的语言有不同反应，此处承接上文，继续探讨科学家发现的意义。由between statements expressing what is real versus what is merely possible可知，文章将两种情况列出来，是为了加以“区分”，故备选动词中differentiate符合语境。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) deliberate ( a术故意的仔细考虑 ) 空格前是be动词is ，空格后是逗号，由此可知，空格处应填和人一个形容词或分词，构成系表结构。 由下文所举例子as is the case with deceptive advertisements ( 像欺骗性广告一样 ) 可知，欺骗性广告的目的就是骗人们购买相应产品，是广告商蓄意而为之，故deliberate符合语境。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) aggravated (vt 使严重，使恶化) 空格前是be动词8，空格后是介词短语by individuals，由此可知，该句是被动语态，空格处应填入一个过去分词。 上文提及人们总是收到虚假信息，其中有些就像欺骗性广告一样是故意的，这属于不良状况，而由空格后的内容by individuals who believe they are sharing correct information (被那些认为自己分享的是正确信息的人 ) 可知，有人认为自己散播的虚假信息是正确信息，这是雪上加霜的情况，因此aggravated符合语境。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "M",
+          "explanation": "MD speculative ( adj. 猜测的，推测的) 空格前是表示选择关系的连词or和副词merely，后面是介词短语in how we communicate ( 介词in的宾语由how引导的宾语从句充当 ) ，由此可知，空格处应填入一个形容词，与or前面的possible一起构成选择关系。 本句中使用了separate A from B的结构，意为“将A与B分离; 区分A与B”，这里的A是the factual (“the+形容词”结构，表示一类人或事物 ) ，意为“事实情况”，B是the possible ormerely _ _ ， the possible意为“可能的事”，or后面的内容应与“可能的事”语义相近，将备选形容词代入原文，可知 speculative符合语境，the speculative即“猜测的事”，能与the possible构成选择关系。因为由or连接，所以 the speculative中的the可以省略。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) evokes (以引起，唤起) 分析句子结构可知，此处是make sth. clear的结构，意为“澄清某事”，其中sth.是由that引导的宾语从句充当; 在该宾语从句中，句子主语是information ，其后的presented as fact是过去分词短语，充当 information的后置定语，空格后的special responses是该宾语从句的宾语，可知该宾语从名缺少谓语动词， 空格处应填入第三人称单数形式的谓语动词。 文章开头部分就指出纽约大学研究人员发现了大脑对表达事实的语言的反应与对表达可能性的语言的反应不同，由空格后的special responses in our brains可推断，此处是说，作为事实呈现的信息会在我们的大脑中“引起”特殊的反应，故evokes符合语境。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) uncertainty (7 不确定性 ) 空格前是介词of，空格后是句点，由此可知，空格处应填入名词，充当of的宾语。 此处还是在解释纽约大学的研究结果，前面提到作为事实呈现的信息会在我们的大脑中引起特殊的反应，而这与大脑处理表达可能性的语言的反应不同 ( distinct ) 。fact意为“事实”，是“确定的事”，可能的事是“不确定的事”，将备选名词代和原文，可知uncertainty符合语境，即“这与我们处理具有明确的不确定性标志的相同内容时有所不同”。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) ascertain ( 久和弄清，查明 ) 空格前是intended te，空格后是how引导的宾语从句，由此可知，空格处应填入一个动词原形，构成intend to do sth. ( 打算做某事 ) 的结构。 众所周知，研究是科学家用来揭示真相和解决问题的，由此可知此处是说，在新研究中，科学家们打算“卉清楚”大脑是如何计算“可能”“或许”和“如果”等词表达的可能性的，将备选动词原形代入原文，可知ascertain符合语境。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) scenarios (.. 场景 ) 空格前是现在分词expressing和形容词factual，空格后是连词and，由此可知，空格处应填入一个名词，充当现在分词expressing的宾语。 由下文作者所举之例可知,“我床下有个怪物”是事实陈述，是一种“情景”或“场景”,“我床下可能有个怪物”是一种可能性，可知本名要表达的是，研究人员比较了大脑对表达事实场景的陈述和表达可能性的陈述的反应，故scenarios符合语境。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) activated (久激活 ) 分析句子结构可知，此处是that引导的宾语从句，充当showed的宾语，在该宾语从句中，主语是 factual language，a rapid increase是宾语，由此可知，空格处应填入一个谓语动词。 此处在讲述该研究的结果，将备选动词代入原文可知，activated符合语境，即“研究结果表明， 事实语言激活了大脑活动的快速增加，与表达可能性的语言相比，大脑对事实性短语的反应更强烈，表现出更多的参与。”"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "F",
+          "explanation": "FE) discourse (7. 话语 ) 空格前是Brain regions involved in processing，空格后是rapidly distinguish facts from possibilities ，可知Brain regions是句子主语，distinguish是谓语，那么空格处应填入一个名词，和processing一起组成动名词短语，充当involved in的宾语，而involved in.…作后置定语修饰Brain regions。 根据常识可知，大脑的不同区域具有不同的功能，本文探讨大脑对事实性语言和可能性或猜测性语言的不同反应，由此可知，此处是说“参与处理话语的大脑区域可以快速区分事实和可能性”，故 discourse符合语境。 H) inhibit (L 阻碍，抑制 ) D manuscript (7 手稿 ) ]) marvels (史奇迹让大为装叹 ) K) remnants (宛残余部分; 残迹 ) N) unanimous (adj. 一致的; 一致同意的)"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-2-b",
+      "type": "matching",
+      "title": "Treasure Fever",
+      "paragraphs": [
+        "A) Most visitors come to Cape Canaveral, on the northeast coast of Florida, for the tourist attractions. It's home to the second-busiest cruise ship port in the world and is a gateway to the cosmos. Nearly 1.5 million visitors flock here every year to watch rockets, spacecraft, and satellites blast off into the solar system from Kennedy Space Center Visitor Complex. Nearly 64 kilometers of undeveloped beach and 648 square kilometers of protected refuge fan out from the cape's sandy shores.",
+        "B) Yet some of Cape Canaveral's most legendary attractions lie unseen, wedged under the sea's surface in mud and sand, for this part of the world has a reputation as a deadly ship trap. Over the centuries, dozens of majestic Old World sailing ships smashed and sank on this irregular stretch of windy Florida coast. They were vessels built for war and commerce, crossing the globe carrying everything from coins to cannons, boxes of silver and gold, chests of jewels and porcelain, and pearls from the Caribbean.",
+        "C) Cape Canaveral contains one of the greatest concentrations of colonial shipwrecks in the world. In recent years, advances in radar, diving, detection equipment, computers, and GPS have transformed the hunt. The naked eye might see a pile of rocks, but technology can reveal the precious arifacts (人工制品) that lie hidden on the ocean floor.",
+        "D) As technology renders the seabed more accessible, the hunt for treasure-filled ships has drawn a fresh tide of salvors (打捞人员)and their investors-as well as marine archaeologists (考古学家)wanting to bring to light the lost relics. But of late, when salvors have found vessels, their rights have been challenged in court. The big question: who should have control of these treasures?",
+        "E) High-stakes fights over shipwrecks pit archacologists against treasure hunters in a vicious cycle of accusations. Archaeologists regard themselves as protectors of history,and they see salvors as careless destroyers. Salvors feel they do the hard work of searching for ships, only to have them stolen from under them when discovered. This kind of clash inevitably takes place on a grand scale.Aside from the salvors, their investors, and the maritime archacologists who serve as expert witnesses, the battles sweep in local and international governments and organizations like UNESCO that work to protect under-water heritage. The court cases that ensue stretch on for years. Are finders keepers, or do the ships belong to the countries that made them and sent them sailing centuries ago? Where once salvors and archacologists worked side by side, now they belong to opposing, and equally contemptuous, tribes.",
+        "F) Nearly three million vessels lie wrecked on the Earth's ocean floor-from old canoes to the Titanic-and likely less than one percent have been explored. Some—like an ancient Roman ship found off Antikythera, Greece, dated between 70 and 60 BC and carrying astonishingly sophisticated gears and dials for navigating by the sun—are critical to a new understanding of our past. No wonder there is an eternal stirring among everybody from salvors to scholars to find them.",
+        "G) In May 2016,a salvor named Bobby Pritchett, president of Global Marine Exploration(GME) in Tampa, Florida, announced that he had discovered scattered remains of a ship buried a kilometer off Cape Canaveral. Over the prior three years, he and his crew had obtained 14 state permits to survey a nearly 260-square- kilometer area off the cape; they worked 250 days a year, backed by investor funds of, he claims, US S4 million. It was hard work. Crew members were up at dawn, dragging sensors from their expedition vessels back and forth, day in and day out, year after year, to detect metal of any kind. Using computer technology, Pritchett and his crew created intricate, color-coded maps marked with the GPS coordinates of thousands of finds, all invisible under a meter of sand.",
+        "H) One day in 2015, the magnetometer(磁力计)picked up metal that turned out to be an iron cannon; when the divers blew the sand away, they also discovered a more precious bronze cannon with markings indicating French royalty and, not far off, a famous marble column carved with the coat of arms of France, known from historical paintings. The discovery was cause for celebration. The artifacts indicated the divers had likely found the wreck of La Trinite, a 16th-century French vessel that had been at the center of a bloody battle between France and Spain that changed the fate of the United States of America.",
+        "I) And then the legal storm began, with GME and Pritchett pitted against Florida and France. The Sunken Military Craft Act of 2004, a US federal act, protects any vessel that was on a military mission, allowing the originating country to claim their ship even centuries later. In 2018, two long years after Pritchett's discovery, the federal district court ruled in favor of France. For Pritchett, the decision was devastating. Millions of dollars of investor funding and years of labor were lost.",
+        "J) But this is far from the first time a salvor has lost all rights to a discovery. In 2012, for instance, Spain won a five-year legal battle against Odyssey Marine Exploration, which had hauled 594,000 gold and silver coins from a Spanish wreck off the coast of Portugal across the Atlantic to the United States.“Treasure hunters can be naive,\" says attorney David Concannon, who has had several maritime archacologists as clients and represented two sides in the battles over the Titanic for 20 years.“Many treasure hunters don't understand they are going to have to fight for their rights against a government that has an endless supply of money for legal battles that treasure hunters are likely to lose.\"",
+        "K) Putting an inflated price on artifacts rather than viewing them as cultural and historical treasures that transcend any price is what irritates many archacologists. For the archaeologist, everything in a wreck matters—hair, fabric, a fragment of a newspaper, rat bones-all things speak volumes. Archacologists don't want artifacts ending up in a private collection instead of taking humanity on a journey of understanding.",
+        "L) George Bass is one of the pioneers of under-water archacology, and a researcher at Texas A&M University. He has testified in court against treasure hunters, but says archacology is not without its own serious problems. He believes archaeologists need to do a better job themselves instead of routinely criticizing treasure hunters.“Archacology has a terrible reputation for not publishing enough on its excavations (发掘) and finds,\" he says. Gathering data, unearthing and meticulously preserving and examining finds, verifying identity and origin, piecing together the larger story, and writing and publishing a comprehensive paper or book can take decades. A bit cynically, Bass describes colleagues who never published because they waited so long they became ill or died.Who is more at fault, Bass asks, the professional archacologist who carefully excavates a site and never publishes on it or the treasure hunter who locates a submerged wreck, salvages part, conserves part, and publishes a book on the operation?",
+        "M) Pritchett concedes that his find deserves careful excavation and preservation.\"I think what I found should go in a museum,\" he says.“But I also think I should get paid for what I found.” Indeed, it's a bit of a mystery why governments, archaeologists, and treasure hunters can't work together—and why salvors aren't at least given a substantial finder's fee before the original owner takes possession of the vessel and its artifacts."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Exploration of shipwrecks on the sea floor is crucial in updating our understanding of humanity's past.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "对海底沉船的探索对于更新我们对人类过去的了解至关重要。 F。由题干关键信息is crucial in updating our understanding of humanity”s past定位到F段。该段第二句提到，其中有些船只对于重新理解我们的过去至关重要。以上题干关键信息是对are critical to a new 太级 2023.12 [第=套， 33 understanding of our past的同义转述。"
+        },
+        {
+          "number": 37,
+          "stem": "Quite a number of majestic ships sailing from Europe to America were wrecked off the Florida coast over the centuries.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "几个世纪以来，有许多从欧洲驶往美国的雄伟船只在佛罗里达海岸附近失事。 B。由题干关键信息sailing from Europe to America以及over the centuries定位到B段。该段第二名指出，几个世纪以来，来自昌世界的数十艘雄伟的帆船在佛罗里达沿岸这片变幻莫测、狂风肆虐的海域被摧毁而沉没。题干中的Quite a number of majestic ships sailing from Europe对应原文中的dozens of majestic Old World sailing ships; were wrecked off the Florida coast对应原文中的smashed and sank on this irregular stretch of windy Florida coast; over the centuries属于原词重现。"
+        },
+        {
+          "number": 38,
+          "stem": "Pritchett suffered a heavy loss when a US district court ruled against him.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "当美国地区法院做出不利于普里切特的裁决时，他蒙受了巨大的损失。 I。由题干关键信息Pritchett和a US district court定位到I段。该段最后三名话指出，2018年，也就是普里切特发现沉船两年后，联邦地区法院做出了有利于法国的裁决。对普里切特来说，这一决定是毁灭性的。投资者数百万美元的资助和多年的辛苦劳动都白费了。题干是对原文的总结概括。题干中的suffered a heavy loss对应原文中的Millions of dollars of investor founding and years of labor were lost。"
+        },
+        {
+          "number": 39,
+          "stem": "Recently, people who found treasures in shipwrecks have been sued over their rights to own them.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "最近，在沉船中发现宝藏的人因拥有这些宝藏的权利而被起诉。 D。由题干关键信息have been sued over their rights定位到D段。该段倒数第二句指出，但最近， 当打捞人员找到这些船只时，他们的权利在法庭上受到了质疑。题寺中的people who found treasures in shipwrecks对应原文中的salvors; have been sued over their rights是对their rights have been challenged in court 的同义转述。"
+        },
+        {
+          "number": 40,
+          "stem": "Pritchett claims he got support of millions of dollars from investors for his shipwreck exploration.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "普里切特声称，他从投资者那里获得了数百万美元的支持，用于他的沉船勘探。 G。由题干关键信息Pritchett claims he got support of millions of dollars from investors定位到G段。 该段第二名后半句指出，他声称，他们一年工作250天，得到了投资者400万美元的资助。题干中的got Support of millions of dollars from investors对应原文中的backed by investor funds of he claims, US $4 million。"
+        },
+        {
+          "number": 41,
+          "stem": "Ome pioneer marine scientist thinks archacologists should make greater efforts to publish their findings.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "一位先驱海洋科学家认为考古学家应该做出更大的努力来公布他们的研究结论。 L。由题干关键信息One pioneer marine scientist和publish their findings定位到工段。该段首句提到了乔治，巴斯是水下考古学的先驱之一;第三名指出，他认为考古学家需要自己做得更好，而不是一贯地批评寻宝者; 第四句提到乔治，巴斯的话:“考古学有一个糟糕的名声，就是没有发表足够多的关于其发气和发现物的资料。”此处的意思是说乔治，巴斯认为考古学家发表的关于发现物的资料不够，需要多发表相关资料。题干中的make greater efforts和 publish their findings分别对应原文中的do a better job和publishing enough on its excavations and finds。"
+        },
+        {
+          "number": 42,
+          "stem": "With technological advancement in recent years, salvors now can detect the invaluable man-made objeets lying buried under the sea.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "随着近年来科技的进步，打捞人员现在可以检测到埋在海底的那些宝贵的人造物品。 C。由关键信息technological advancement定位到C段。该段后两句指出，近年来……但科技可以让隐藏在海底的珍贵人工制品显露无遗。题干正是对这两句话的同义转述。"
+        },
+        {
+          "number": 43,
+          "stem": "According to a lawyer, many treasure hunters are susceptible to loss because they are unaware they face a financially stronger opponent in court.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "根据一位律师的说法，许多寻宝者很容易蒙受损失，因为他们没有意识到自己在法庭上面对的是经济上更强大的对手。 J。由题干关键信息many treasure hunters are susceptible to loss定位到J段。该段首句提到打捞人员失去了与发现有关的所有权利，最后一名指出，许多寻宝者不明白他们将不得不为自己的权利与政府搞争，而政府有无穷无尽的资金用于法律诉讼，寻宝者很可能会输掉官司。题干中的many treasure hunters are Susceptible to loss对应原文中的 treasure hunters are likely to lose; face a financially stronger opponent in court 对应原文中的against a government that has an endless Supply of money。"
+        },
+        {
+          "number": 44,
+          "stem": "Salvors of treasures in sunken ships and marine archaeologists are now hostile to each other.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "沉船珍宝的打捞人员和海洋考古学家现在相互敌对。 下。由题干关键信息are now hostile to each other定位到E段。该段最后一句指出，打捞人员和考古学家曾经并肩工作，而现在他们这两个群体相互对立、互相呐之以鼻。题干中的are now hostile to each other是对原文now they belong to opposing, and equally contemptuous, tribes的概括。"
+        },
+        {
+          "number": 45,
+          "stem": "Archacologists want to see artifacts help humans understand their past instead of being sold to private collectors at an outrageous price.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "考古学家希望看到人工制品帮助人类了解它们的过去，而不是被以惊人的价格出售给私人收藏家。 K。由题干关键信息artifacts和being sold to private collectors at an outrageous price定位到K段。该段最后一句提到，考古学家不希望文物最终成为私人收藏品，而不是带着人类路上理解之旅。题干中的being sold to private collectors是对原文ending up in a private collection的同义转述。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Could you get by without using the internet for four and a half years? That's exactly what singer and actress Selena Gomez has done in a bid to improve her mental health. She has spoken extensively about the relationship between her social media usage and her mental wellbeing, recalling feeling like “an addict” when she became Instagram's most followed user in 2016.“Taking a break from social media was the best decision that I've ever made for my mental health”, says she.“The unnecessary hate and comparisons went away once I put my phone down.\" Ditching the web at large, however, is a far more subtle and complicated prospect. The increasing digitisation of our society means that everything from paying a gas bill to plotting a route to a friend's house and even making a phone call is at the mercy of your internet connection. Actively opting out of using the internet becomes a matter of privilege. Ms Gomez's multi-millionaire status has allowed her to take the “social\" out of social media, so she can continue to leverage her enormous fame while keeping the trolls(恶意挑衅的帖子)at bay. The fact that she's still the second most-followed woman on Instagram suggests it's entirely possible to maintain a significant web profile to promote various projects-by way of a dedicated team—without being exposed to the cruel comments, hate mail and rape or death threats. It goes without saying that this is fundamentally different from how the rest of us without beauty deals and films to publicise use the likes of Instagram, TikTok and Twitter, but even the concept of a digital detox(戒瘾) requires having a device and connectivity to choose to disconnect from. The UK's digital divide has worsened over the past two years, leaving poorer families without broadband connections in their homes. Digital exclusion is a major threat to wider societal equality in the UK, so witnessing companies like Facebook championing the metaverse(元宇宙)as the next great frontier when school children are struggling to complete their homework feels particularly irritating. Consequently, it's worth bearing in mind that while deleting all social media accounts will undoubtedly make some feel infinitely better, many other people benefit from the strong sense of community that sharing platforms can breed Internet access will continue to grow in importance as we edge further towards web 3.0, and greater resources and initiatives are needed to provide the underprivileged with the connectivity they desperately need to learn, work and live. It's crucial that people who feel that social media is having a detrimental effect on their mental health are allowed to switch off and for those living in digital exclusion to be able to switch on in the first place."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn about singer and actress Selena Gomez in the past four and a half years?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She has had worsening mental problems."
+            },
+            {
+              "key": "B",
+              "text": "She has won Instagram's most followers."
+            },
+            {
+              "key": "C",
+              "text": "She has refrained from using social media."
+            },
+            {
+              "key": "D",
+              "text": "She has succeeded in a bid on the internet."
+            }
+          ],
+          "answer": "C",
+          "explanation": "关于歌手兼演员赛琳娜，戈麦斯的过去四年半，我们了解到了什么? A) 她的精神问题加重了。 C) 她不再使用社交媒体。 B) 她赢得了照片墙的最多关注人数。 ， D) 她在互联网上竞标成功。 富 * 根据题干信息词past four and a half years可将答案线索定位至第一段第一句。 解。 第一段提及，你能在四年半的时间里不使用互联网吗? 随后说这正是歌手兼演员赛琳娜，戈麦斯为改善心析 ，理健康状况所做的努力。由此可知，C项符合题意。"
+        },
+        {
+          "number": 47,
+          "stem": "Why does actively opting out of using the internet become a matter of privilege?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Most people find it subtle and complicated to give up using the internet."
+            },
+            {
+              "key": "B",
+              "text": "Most people can hardly ditch the web while avoiding hate and comparisons."
+            },
+            {
+              "key": "C",
+              "text": "Most people can hardly get by without the internet due to growing digitisation."
+            },
+            {
+              "key": "D",
+              "text": "Most people have been seriously addicted to the web without being aware of it."
+            }
+          ],
+          "answer": "C",
+          "explanation": "为什么主动选择不使用互联网会成为一种特权? A) 大多数人认为放弃使用互联网是一件微妙而复杂的事情。 B) 大多数人很难在避免仇恨和比较的同时放弃网络。 C) 由于数字化程度越来越高，大多数人几乎离不开网络。 D) 大多数人已经严重沉迷于网络而不自知。 定# 根据题干信息词actively opting out ofusing the intermet become a matter of privilege可将答案线索定位至第三位段最后一句。 解# 题干复现了第三段末名的结论，需回溯上文寻找答案。第三段第二句提及，我们的社会日益数字化，这析意味着从支付燃气费到规划去朋友家的路线，甚至是打电话，都受制于网络连接。由此可知，C项符合题意，growing digitisation替换了原文中的increasing digitisation。subtle and complicated是作者形容不使用网 ，络这种可能，不是大多数人的观点，故排除A项。B 、D两项在原文中均未提及，故均排除。"
+        },
+        {
+          "number": 48,
+          "stem": "Why does the author say\"witnessing companies…feels particularly irritating\"(Lines 2-4, Para.6)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The UK digital divide would further worsen due to the metaverse."
+            },
+            {
+              "key": "B",
+              "text": "The concept of the metaverse is believed to be still quite illusory."
+            },
+            {
+              "key": "C",
+              "text": "School children would be drawn farther away from the real world."
+            },
+            {
+              "key": "D",
+              "text": "Most families in the UK do not have stable broadband connections."
+            }
+          ],
+          "answer": "D",
+          "explanation": "作者为什么说“目睹企业……感觉格外恼火” (第 6 段第2-4行) ? A) 由于元宇宙的存在，英国的数字鸿沟将进一步加深。 B) 人们认为元宇宙的概念还很虚幻。 C) 学龄儿童将更远离现实世界。 D) 英国大多数家庭没有稳定的宽带连接。 + 帘通让可将罕案世示十入于各大本0 解> 题干定位部分意为: 脸书等公司却将元宇宙作为下一个伟大的前沿领域而大肆宣扬，这让人感到格外恼析 ;火。作者感到恼火的原因在上文: 在过去两年中，英国的数字鸿沟加深了，导致诸多贫困家庭家中没有宽带连接。故答案为D项。“数字鸿沟”加深不是因为元宇宙的出现，A项曲解文章，故排除。B 、C两项原文未提及，均排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What is worth bearing in mind concerning social media platforms?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are conducive to promoting societal equality."
+            },
+            {
+              "key": "B",
+              "text": "They help many people feel connected with others."
+            },
+            {
+              "key": "C",
+              "text": "They provide a necessary device for a digital detox."
+            },
+            {
+              "key": "D",
+              "text": "They create a virtual community on the internet."
+            }
+          ],
+          "answer": "B",
+          "explanation": "关于社交媒体平台，什么值得被记住? A) 它们有利于促进社会平等。 C) 它们为“数字戒瘾”提供了必要的工具。 B) 它们帮助许多人感受到与他人相连。 D) 它们在互联网上创建了一个虚拟社区。 入天下疝von beang in于香二全同和=珊、 本和解> 倒数第二段提及，因此，值得记住的是，虽然删除所有社交媒体账户无疑会让某些人感觉好很多，但还有析 | 很多人受益于共享平台所孕育的强烈的社区感。因此B项符合题意，feel connected with others对应的是原文中的sense of community。D项虽然出现了关键词community，但文章重点是虚拟社区带给人们与他人的连接感，不是社区本身，故排除。A、C两项均与定位段落内容无关，故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author think is really important for those living in digital exclusion?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Having access to the internet."
+            },
+            {
+              "key": "B",
+              "text": "Edging further towards web 3.0."
+            },
+            {
+              "key": "C",
+              "text": "Getting more educational resources."
+            },
+            {
+              "key": "D",
+              "text": "Opening more social media accounts."
+            }
+          ],
+          "answer": "A",
+          "explanation": "作者认为对于那些生活在数字隔绝中的人来说，什么才是真正重要的? A) 能上网。 C) 获得更多的教育资源。 一进一步向网络3区拢。 。。。。。。。。 吕开设更多的社交负体三 1 祝芝下入站霹EE 让了ETECTI疝将葵案组未定簿于最语一放量让和解> 最后一段最后一句总结道，要让那些认为社交媒体对其心理健康产生有害影响的人关闭社交媒体，让那些本生活在数字隔绝中的人能够首先打开社交媒体，这才是至关重要的。因此A项符合题意。Having access to the internet对应原文中的switch on。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Psychologists have long been in disagreement as to whether competition is a learned or a genetic component of human behavior. Whatever it is, you cannot but recognize the effect competition is exerting in academics and many other areas of contemporary life. Psychologically speaking, competition has been seen as an inevitable consequence of human drives. According to Sigmund Freud, humans are born screaming for attention and full of organic drives for fulfillment in various areas. Initially, we compete for the attention of our parents. Thereafter, we are at the mercy of a battle between our base impulses for self-fulfillment and social and cultural norms which prohibit pure indulgence. Current work in anthropology(人类学)has suggested, however, that this view of the role of competition in human behavior may be incorrect. Thomas Hobbes, one of the great philosophers of the seventeenth century, is perhaps best remembered for his characterization of the \"natural world,\" that is, the world before the imposition of the will of humanity, as being \"nasty, brutish, and short.\" This image of the pre-rational world is still widely held, reinforced by Charles Darwin's highly influential work, The Origin of Species, which established the doctrine of natural selection. This doctrine, which takes for granted that those species best able to adapt to and master the natural environment in which they live will survive, has suggested that the struggle for survival is an inherent human trait which determines a person's success. Darwin's theory has even been summarized as “survival of the fittest\"—a phrase Darwin himself never used—further highlighting competition's role in success. As it has often been pointed out, however, there is nothing in the concept of natural selection that suggests that competition is the most successful strategy for \"survival of the fittest.\" Darwin asserted in The Origin of Species that the struggles he was describing should be viewed as metaphors and could easily include dependence and cooperation Many studies have been conducted to test the importance placed on competition as opposed to other values, such as cooperation—by various cultures, and generally conclude that Americans uniquely praise competition as natural, inevitable, and desirable. In 1937, the world-renowned anthropologist Margaret Mead published Cooperation and Competition among Primitive Peoples, based on her studies of several societies that did not prize competition, and, in fact, seemed at times to place a negative value on it. One such society was the Zuni Indians of Arizona, and they, Mead found, valued cooperation far more than competition. After studying dozens of such cultures, Mead's final conclusion was that competitiveness is a culturally created aspect of human behavior, and that its prevalence in a particular society is relative to how that society values it."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author think is easy to see in many areas of contemporary life?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The disagreement on the inevitability of competition."
+            },
+            {
+              "key": "B",
+              "text": "The consequence of psychological investigation."
+            },
+            {
+              "key": "C",
+              "text": "The effect of human drives."
+            },
+            {
+              "key": "D",
+              "text": "The impact of competition."
+            }
+          ],
+          "answer": "D",
+          "explanation": "作者认为在当代生活的许多领域容易看到什么? 和A) 关于竞争的必然性的分歧。 C) 人类驱动力的影响。 站+ 松拓着信息启casy to see in many areas of contemporany it可尾答案线索定位了第“段。 位 ; 解文章第一段第二句提到，无论是什么，你都不能不承认竞争在学术界和当代生活的许多其他领域中所产析生的影响。题干中的many areas of contemporary life属于原词复现， D项中的impact对应原文中的effect，故选项D为正确答案。"
+        },
+        {
+          "number": 52,
+          "stem": "According to psychology, what do people strive to do following the initial stage of their life?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Fulfill individual needs without incurring adverse effects of human drives."
+            },
+            {
+              "key": "B",
+              "text": "Indulge in cultural pursuits while keeping their base impulses at bay."
+            },
+            {
+              "key": "C",
+              "text": "Gain extensive recognition without exposing pure indulgence."
+            },
+            {
+              "key": "D",
+              "text": "Satisfy their own desires while observing social conventions."
+            }
+          ],
+          "answer": "D",
+          "explanation": "根据心理学，人们在人生的最初阶段之后会努力做什么? A) 满足个人需求，而不会受到人为因素的不利影响。C) 在不显露纯粹放纵的情况下获得广泛认可。 B) 沉迷于文化追求，同时抑制自己的基本冲动。 功在遵守社会习俗的同时满足自己的欲望。 相 * 根据题于信息词people stive to do following the initial stage of their li可将答案线索定位于第二且解> 文章第二段倒数第二句提到，一开始，我们争抢父母的注意力。接着又说，此后，我们受制于自我实现的基本本冲动与禁止纯粹放纵的社会文化规范之间的斗争。也就是说，人们在最初阶段之后，一边会努力满足自我的欲 ，望,一边要遵守社会文化规范，不能完全放纵自我。选项D是对这句话的同义转述，故为正确答案。"
+        },
+        {
+          "number": 53,
+          "stem": "What do we learn about the“natural world” characterized by Thomas Hobbes?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It gets misrepresented by philosophers and anthropologists."
+            },
+            {
+              "key": "B",
+              "text": "It gets distorted in Darwin's The Origin of Species."
+            },
+            {
+              "key": "C",
+              "text": "It is free from the rational intervention of humans."
+            },
+            {
+              "key": "D",
+              "text": "It is the pre-rational world rarely appreciated nowadays."
+            }
+          ],
+          "answer": "C",
+          "explanation": "对于托马斯，霍布斯描述的“自然世界”，我们得知什么? A) 它被哲学家和人类学家在曲了。 C) 它不受人类的理性干预。 罕? 根据题二信息词he \"natural worid” characterized by Thomas Hobbes可将答案线索定位于第三段。 名* 文章第三段第二句提到，托马斯，霍布斯笔下的“自然世界”是“脐胜、野变和短暂的”，这个自然世界是在强加人类意志之前的世界，也就是不受人类理性干预的世界，故选项C正确。选项A在文中未提及，故排除。原文提到达尔文的《物种起源》加强了而不是扭曲了前理性世界的形象，故选项B排除。选项D是强干扰项，前半名正确，但后半句与原文“这种前理性世界的形象仍然被广泛认同”相反，故也排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What can we conclude from Darwin's assertion in The Origin of Species?",
+          "options": [
+            {
+              "key": "A",
+              "text": "All species inherently depend on others for survival."
+            },
+            {
+              "key": "B",
+              "text": "Struggles for survival do not exclude mutual support."
+            },
+            {
+              "key": "C",
+              "text": "Competition weighs as much as cooperation as a survival strategy."
+            },
+            {
+              "key": "D",
+              "text": "The strongest species proves to be the fittest in natural selection."
+            }
+          ],
+          "answer": "B",
+          "explanation": "从达尔文在《物种起源》一书中的论断，我们能得出什么结论? A) 所有物种天生都要依赖其他物种生存。 C) 竞争和合作一样重要，都是一种生存策略。 B) 为生存而斗争并不排除相互支持。 D) 事实证明，在自然选择中，最强壮的物种是最适者。 宇宙本个Darwinsawerion in 7 TS月宁有示定人于第克一如> 文章第三段最后一句提到，达尔文在《物种起源》中断言，他所描述的斗争应该被视为隐喻，很可能包括依赖和合作。根据前文可知，这句话中的“他所描述的斗争”就是指为生存而斗争。这种斗争不仅包含竞争，也包含依赖和合作，即相互支持。所以选项B正确。选项A在原文中没有提及，故排除。选项C是强干扰项，根据达尔文的断言，竞争和合作都是生存策略，但是原文没有说明两者是否一样重要，故排除。选项D是人们根据达尔文理论总结出的生存法则一适者生存，与题干无关，也排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What conclusion did Margaret Mead reach after studying dozens of different cultures?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is characteristic of humans to be competitive."
+            },
+            {
+              "key": "B",
+              "text": "Americans are uniquely opposed to cooperation."
+            },
+            {
+              "key": "C",
+              "text": "Competition is relatively more prevalent in Western societies."
+            },
+            {
+              "key": "D",
+              "text": "People's attitude towards competition is actually culture-bound."
+            }
+          ],
+          "answer": "D",
+          "explanation": "玛格丽特，米德在研究了几十种不同的文化后得出了什么结论? A) 竞争是人类的特点。 C) 竞争在西方社会相对更为普遍。 B) 独有美国人反对合作。 D) 人们对待竞争的态度实际上与文化有关。 害 * 根据题干信息词Margaret Mead和studying dozens ofdifferent cultures可将仪案线索定信于最后一医解? 文章最后一段主要介绍了人类学家玛格丽特' 米德的研究，最后一句提到，在研究了几十种这类文化后， 丰米德的最终结论是，竞争力是人类行为中文化创造的一个方面，它在特定社会中的流行程度与该社会对它的重视程度有关。由此可知，一个社会对竞争的重视程度与这个社会的文化有关，故选项D正确。选项 A、C在文中没有提及，故排除。原文提到独有美国人称壮竞争是自然的、不可避免的和可取的，但没有 ，说美国人反对合作，选项B属于主观推断，故也排除。 念 .难淹译注， 人口结构 population structure 应对……'挑战 address/meet..challenges 扩大……覆盖范转发生……变化 undergo...changes 采取措施 take/adopt measures expand the coverage of 步人老龄化社会 enter an aging society 改革 reform 使……受益 benefit 趋势 rend 制度 system 共同努力 joint efforts 明显 apparent 经费 funds ."
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/2023.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97%281%29.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97%281%29.pdf"
+}

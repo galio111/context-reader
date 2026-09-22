@@ -1,0 +1,1660 @@
+{
+  "id": "cet4-2022-09-1",
+  "level": 4,
+  "year": 2022,
+  "month": 9,
+  "set": 1,
+  "title": "2022 年 9 月四级 · 第 1 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2022-09-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Public perception of success in the U.S. might be totally misguided.",
+        "While 92% of people believe others care most about fame and [[26]], fewer than 10% factor those qualities into their own success. This is according to the newly [[27]]study by Harvard Graduate School of Education professor Todd Smith. Smith says he was",
+        "[[28]] by how past studies on success “assumed what people will care about.” In this study, his team “went the [[29]]direction” by spending years carrying out individual interviews and group surveys to see what people really talk about when they talk about success.",
+        "As a scientist, Smith [[30]] studied individuality for a living, and even he was surprised to find younger respondents cared more about having a [[31]]in life. Those between the ages of 18 and 34 prioritized it most, and that prioritization dropped off as respondents’ ages went up. Perhaps this is because older people had fewer options when they were starting their careers, at a time when values focused more on stable incomes than",
+        "[[32]] personal missions.",
+        "Other trends included an emphasis on the importance of parenting. Being a parent",
+        "[[33]] very high across the priorities of all study participants. Ultimately, Smith hopes institutions will take note of these insights [[34]]Higher education institutions tend to focus on preparing students for high-paying jobs. For such institutions, from universities to workplaces, to better [[35]]people in the U.S., they’ll need to understand “what the American public highly prioritizes,” Smith says."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "accommodate"
+        },
+        {
+          "key": "B",
+          "text": "accordingly"
+        },
+        {
+          "key": "C",
+          "text": "acquiring"
+        },
+        {
+          "key": "D",
+          "text": "bothered"
+        },
+        {
+          "key": "E",
+          "text": "fortune"
+        },
+        {
+          "key": "F",
+          "text": "fulfilling"
+        },
+        {
+          "key": "G",
+          "text": "identify"
+        },
+        {
+          "key": "H",
+          "text": "literally"
+        },
+        {
+          "key": "I",
+          "text": "opposite"
+        },
+        {
+          "key": "J",
+          "text": "profession"
+        },
+        {
+          "key": "K",
+          "text": "purpose"
+        },
+        {
+          "key": "L",
+          "text": "ranked"
+        },
+        {
+          "key": "M",
+          "text": "released"
+        },
+        {
+          "key": "N",
+          "text": "similarly"
+        },
+        {
+          "key": "O",
+          "text": "wrong"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accommodate"
+            },
+            {
+              "key": "B",
+              "text": "accordingly"
+            },
+            {
+              "key": "C",
+              "text": "acquiring"
+            },
+            {
+              "key": "D",
+              "text": "bothered"
+            },
+            {
+              "key": "E",
+              "text": "fortune"
+            },
+            {
+              "key": "F",
+              "text": "fulfilling"
+            },
+            {
+              "key": "G",
+              "text": "identify"
+            },
+            {
+              "key": "H",
+              "text": "literally"
+            },
+            {
+              "key": "I",
+              "text": "opposite"
+            },
+            {
+              "key": "J",
+              "text": "profession"
+            },
+            {
+              "key": "K",
+              "text": "purpose"
+            },
+            {
+              "key": "L",
+              "text": "ranked"
+            },
+            {
+              "key": "M",
+              "text": "released"
+            },
+            {
+              "key": "N",
+              "text": "similarly"
+            },
+            {
+              "key": "O",
+              "text": "wrong"
+            }
+          ],
+          "answer": "E",
+          "explanation": "空格与 fame 并列，作介词 about 的宾语，需要名词。fame and fortune 表示“名利”，因此选 E) fortune。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accommodate"
+            },
+            {
+              "key": "B",
+              "text": "accordingly"
+            },
+            {
+              "key": "C",
+              "text": "acquiring"
+            },
+            {
+              "key": "D",
+              "text": "bothered"
+            },
+            {
+              "key": "E",
+              "text": "fortune"
+            },
+            {
+              "key": "F",
+              "text": "fulfilling"
+            },
+            {
+              "key": "G",
+              "text": "identify"
+            },
+            {
+              "key": "H",
+              "text": "literally"
+            },
+            {
+              "key": "I",
+              "text": "opposite"
+            },
+            {
+              "key": "J",
+              "text": "profession"
+            },
+            {
+              "key": "K",
+              "text": "purpose"
+            },
+            {
+              "key": "L",
+              "text": "ranked"
+            },
+            {
+              "key": "M",
+              "text": "released"
+            },
+            {
+              "key": "N",
+              "text": "similarly"
+            },
+            {
+              "key": "O",
+              "text": "wrong"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【语法判断】空格前是副词 newly,空格后是名词 study, 因此本空应填入形容词或动词的过去分词形式。 【语义判断】空格所在句意为:这是根据哈佛大学教育研究生院的教授托德. 史密斯最新研究得出的结论。由句意可知,本空应填入含有 “公布, 发表”意义的词, 由此确定答案为 M) released。在这里 released 是动词的过去分词作定语,修饰 sudy。备选的其他形容词和动词均没有此含义,因此排除。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accommodate"
+            },
+            {
+              "key": "B",
+              "text": "accordingly"
+            },
+            {
+              "key": "C",
+              "text": "acquiring"
+            },
+            {
+              "key": "D",
+              "text": "bothered"
+            },
+            {
+              "key": "E",
+              "text": "fortune"
+            },
+            {
+              "key": "F",
+              "text": "fulfilling"
+            },
+            {
+              "key": "G",
+              "text": "identify"
+            },
+            {
+              "key": "H",
+              "text": "literally"
+            },
+            {
+              "key": "I",
+              "text": "opposite"
+            },
+            {
+              "key": "J",
+              "text": "profession"
+            },
+            {
+              "key": "K",
+              "text": "purpose"
+            },
+            {
+              "key": "L",
+              "text": "ranked"
+            },
+            {
+              "key": "M",
+              "text": "released"
+            },
+            {
+              "key": "N",
+              "text": "similarly"
+            },
+            {
+              "key": "O",
+              "text": "wrong"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【语法判断空格前有 be 动词 was,空格后有介词 by,因此本空应填入形容词或动词的-ed 形式。 【语义判断】空格所在句意为:史密斯说,过去关于成功的研究“假设人们会关心什么”% 这让他 。由句意可知,本空应填入表达某种情绪的词,由此确定答案为 D) bothered。备选的其他形容词和动词-ed 形式均不能表达情绪, 因此排除。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accommodate"
+            },
+            {
+              "key": "B",
+              "text": "accordingly"
+            },
+            {
+              "key": "C",
+              "text": "acquiring"
+            },
+            {
+              "key": "D",
+              "text": "bothered"
+            },
+            {
+              "key": "E",
+              "text": "fortune"
+            },
+            {
+              "key": "F",
+              "text": "fulfilling"
+            },
+            {
+              "key": "G",
+              "text": "identify"
+            },
+            {
+              "key": "H",
+              "text": "literally"
+            },
+            {
+              "key": "I",
+              "text": "opposite"
+            },
+            {
+              "key": "J",
+              "text": "profession"
+            },
+            {
+              "key": "K",
+              "text": "purpose"
+            },
+            {
+              "key": "L",
+              "text": "ranked"
+            },
+            {
+              "key": "M",
+              "text": "released"
+            },
+            {
+              "key": "N",
+              "text": "similarly"
+            },
+            {
+              "key": "O",
+              "text": "wrong"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断】空格前有定冠词 the, 后面有名词 direction,因此本空应填入形容词。 【语义判断空格所在句意为:在这项研究中, 他的团队“走向“方向”,花了数年时间进行个人访谈和群体调查,就为了和弄明白人们在谈论成功时真正谈论的是什么。由此可知,史密斯的团队与以前研究成功的团队采取了截然不同的方式,他们没有对成功的定义做出假设,因此本空应填入含有“不同的,相反的”意义的形容词,由此确定答案为 I opposite。备选的其他形容词均没有此含义,因此排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accommodate"
+            },
+            {
+              "key": "B",
+              "text": "accordingly"
+            },
+            {
+              "key": "C",
+              "text": "acquiring"
+            },
+            {
+              "key": "D",
+              "text": "bothered"
+            },
+            {
+              "key": "E",
+              "text": "fortune"
+            },
+            {
+              "key": "F",
+              "text": "fulfilling"
+            },
+            {
+              "key": "G",
+              "text": "identify"
+            },
+            {
+              "key": "H",
+              "text": "literally"
+            },
+            {
+              "key": "I",
+              "text": "opposite"
+            },
+            {
+              "key": "J",
+              "text": "profession"
+            },
+            {
+              "key": "K",
+              "text": "purpose"
+            },
+            {
+              "key": "L",
+              "text": "ranked"
+            },
+            {
+              "key": "M",
+              "text": "released"
+            },
+            {
+              "key": "N",
+              "text": "similarly"
+            },
+            {
+              "key": "O",
+              "text": "wrong"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【语法判断】分析句子结构可知,本句成分完整， 因此空格处应填入副词作状语。 【语义判断】空格所在句意为:作为一名科学家， 史密斯”以研究个性为生。将备选副词分别代入句中,只有 literally“确实?符合句意,因此答案为也) 。B) accordingly、N) similarly 和 O) wrong 代入句中均不符合句意,故排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accommodate"
+            },
+            {
+              "key": "B",
+              "text": "accordingly"
+            },
+            {
+              "key": "C",
+              "text": "acquiring"
+            },
+            {
+              "key": "D",
+              "text": "bothered"
+            },
+            {
+              "key": "E",
+              "text": "fortune"
+            },
+            {
+              "key": "F",
+              "text": "fulfilling"
+            },
+            {
+              "key": "G",
+              "text": "identify"
+            },
+            {
+              "key": "H",
+              "text": "literally"
+            },
+            {
+              "key": "I",
+              "text": "opposite"
+            },
+            {
+              "key": "J",
+              "text": "profession"
+            },
+            {
+              "key": "K",
+              "text": "purpose"
+            },
+            {
+              "key": "L",
+              "text": "ranked"
+            },
+            {
+              "key": "M",
+              "text": "released"
+            },
+            {
+              "key": "N",
+              "text": "similarly"
+            },
+            {
+              "key": "O",
+              "text": "wrong"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【语法判断空格前有不定冠词 a,空格后有介词 2022 in,因此本空应填入名词。 【语义判断】空格所在句意为:甚至他惊讶地发现,年轻的受访者更关心生活要有 。将备选名词代入句中,只有 purpose“目的”使句意通顺,故答案为 K) purpose。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accommodate"
+            },
+            {
+              "key": "B",
+              "text": "accordingly"
+            },
+            {
+              "key": "C",
+              "text": "acquiring"
+            },
+            {
+              "key": "D",
+              "text": "bothered"
+            },
+            {
+              "key": "E",
+              "text": "fortune"
+            },
+            {
+              "key": "F",
+              "text": "fulfilling"
+            },
+            {
+              "key": "G",
+              "text": "identify"
+            },
+            {
+              "key": "H",
+              "text": "literally"
+            },
+            {
+              "key": "I",
+              "text": "opposite"
+            },
+            {
+              "key": "J",
+              "text": "profession"
+            },
+            {
+              "key": "K",
+              "text": "purpose"
+            },
+            {
+              "key": "L",
+              "text": "ranked"
+            },
+            {
+              "key": "M",
+              "text": "released"
+            },
+            {
+              "key": "N",
+              "text": "similarly"
+            },
+            {
+              "key": "O",
+              "text": "wrong"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【语法判断】空格所在句的句子主干是 values focused more on...than...。than 在这里用于引出比较的第二部分, 前面是名词词组 stable incomes,故后面的应该是名词词组或动名词词组。 若 than 后面出现动词,通常用动词-ing形式。 【语义判断]】 空格所在句意为:这可能是因为年长的人在刚开始职业生涯时选择较少, 当时的价值观更关注稳定的收入,而不是”个人使命。 将备选词分别代和人句中,只有 fulfilling personal missions 实现个人使命”符合句意,由此确定答案为FE)。C) acquiring“获得;得到”不符合句意， 故排除。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accommodate"
+            },
+            {
+              "key": "B",
+              "text": "accordingly"
+            },
+            {
+              "key": "C",
+              "text": "acquiring"
+            },
+            {
+              "key": "D",
+              "text": "bothered"
+            },
+            {
+              "key": "E",
+              "text": "fortune"
+            },
+            {
+              "key": "F",
+              "text": "fulfilling"
+            },
+            {
+              "key": "G",
+              "text": "identify"
+            },
+            {
+              "key": "H",
+              "text": "literally"
+            },
+            {
+              "key": "I",
+              "text": "opposite"
+            },
+            {
+              "key": "J",
+              "text": "profession"
+            },
+            {
+              "key": "K",
+              "text": "purpose"
+            },
+            {
+              "key": "L",
+              "text": "ranked"
+            },
+            {
+              "key": "M",
+              "text": "released"
+            },
+            {
+              "key": "N",
+              "text": "similarly"
+            },
+            {
+              "key": "O",
+              "text": "wrong"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【语法判断】空格前的 Being a parent 是本名的主语,本名缺少谓语,因此本空应填和人动词。 【语义判断空格所在句意为:在所有研究参与者的优先级中,为人父母非常重要。备选词中只有工) ranked“具有……等级(地位)?可与 high 搭配,构成 ranked high, 意为“非常重要”。 备选的其他动词均没有此含义,因此排除。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accommodate"
+            },
+            {
+              "key": "B",
+              "text": "accordingly"
+            },
+            {
+              "key": "C",
+              "text": "acquiring"
+            },
+            {
+              "key": "D",
+              "text": "bothered"
+            },
+            {
+              "key": "E",
+              "text": "fortune"
+            },
+            {
+              "key": "F",
+              "text": "fulfilling"
+            },
+            {
+              "key": "G",
+              "text": "identify"
+            },
+            {
+              "key": "H",
+              "text": "literally"
+            },
+            {
+              "key": "I",
+              "text": "opposite"
+            },
+            {
+              "key": "J",
+              "text": "profession"
+            },
+            {
+              "key": "K",
+              "text": "purpose"
+            },
+            {
+              "key": "L",
+              "text": "ranked"
+            },
+            {
+              "key": "M",
+              "text": "released"
+            },
+            {
+              "key": "N",
+              "text": "similarly"
+            },
+            {
+              "key": "O",
+              "text": "wrong"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【语法判断】分析句子结构可知,本句成分完整， 空格前的 will take note of these insights 是“谓语 +宾语”的结构,因此空格处应填入副词。 【语义判断】空格所在句意为:最终,史密斯希望各类机构能注意到这些见解。上文提到了不同年龄阶段有各自的优先事项,也有共通的。 由此可知,史密斯希望各机构能注意到对应不同人和群的优先事项,因此本空应填入含有“对应地， 相应地”意义的副词, 由此确定答案为 B) accordingly。备选的其他副词均没有此含义,因此排除。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accommodate"
+            },
+            {
+              "key": "B",
+              "text": "accordingly"
+            },
+            {
+              "key": "C",
+              "text": "acquiring"
+            },
+            {
+              "key": "D",
+              "text": "bothered"
+            },
+            {
+              "key": "E",
+              "text": "fortune"
+            },
+            {
+              "key": "F",
+              "text": "fulfilling"
+            },
+            {
+              "key": "G",
+              "text": "identify"
+            },
+            {
+              "key": "H",
+              "text": "literally"
+            },
+            {
+              "key": "I",
+              "text": "opposite"
+            },
+            {
+              "key": "J",
+              "text": "profession"
+            },
+            {
+              "key": "K",
+              "text": "purpose"
+            },
+            {
+              "key": "L",
+              "text": "ranked"
+            },
+            {
+              "key": "M",
+              "text": "released"
+            },
+            {
+              "key": "N",
+              "text": "similarly"
+            },
+            {
+              "key": "O",
+              "text": "wrong"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【语法判断】分析句子结构可知,空格所在部分作目的状语,空格前的 to 为动词不定式的标志， better 更好地”是 well 的比较级,因此本空应填入动词原形。 【语义判断空格所在句意为:对于这些机构来说,无论是大学还是职场,为了更好地美 .9/ 16 国人,他们需要了解“美国公众高度重视的是什么”。本段第一句提到,高校贷向于把重点放在让学生为高薪工作做准备上, 而高薪并非年轻人的优先考虑事项,所以各类机构要了解美国公众究竟优先考虑什么,从而更好地适应这些人的需求。 因此本空应填入含有“适应,满足意义的动词,由此确定答案为 A) accommodate。备选的其他动词原形没有此含义,因此排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-09-1-b",
+      "type": "matching",
+      "title": "How a rabbit study and an ex-student boost my hopes for a future of ‘love and dignity’",
+      "paragraphs": [
+        "A) At whatever grade level teachers find themselves, from kindergarten to the final class at medical or law school, few moments stir the emotions as deeply as when former students reappear years and often decades later with an update on where their journey has taken them and what resiliencies (韧性) have been the pavement on which they’ve traveled.",
+        "B) So it was when a recent letter came from Kelli Harding, a student 21 years ago in my Peace Studies summer course in Washington. The weekly tuition-free class, in a roomy space that Ralph Nader and his Public Citizen nonprofit group provided, was discussion-based and required no useless homework or exams. Just come in and figure out how to increase peace and decrease violence. And do it today, tomorrow is too late. The course attracted mostly congressional interns (实习生), with a few exceptions like Kelli who was in Washington as an AmeriCorps volunteer.",
+        "C) Her year-long service included comforting AIDs patients at a free health clinic and delivering meals to the homebound. It was a world apart from her undergraduate days at the University of California- Berkeley majoring in political science. The Washington experience, which Kelli would later call u transformative, was the fuel that carried her into medicine to earn a master’s degree in public health from Columbia University and a medical degree from the University of Rochester, and almost two decades of practice as an emergency-room psychiatrist (精神科医生) at New York-Presbyterian Hospital and a clinical professor of psychiatry at Columbia University Irving Medical Center.",
+        "D) Kelli’s letter, a literate update on both her personal and professional life, touched my heart, and especially so when saying that two decades later she still has the course text, “Solutions to Violence,” and that “it remains one of my favorite possessions.” She lives in Lower Manhattan with her husband, Padraic, whom she met on a flight to London, and their three boys.",
+        "E) If Kelli stands out, it’s because she is also a gifted writer. Last month, Atria Books published her book The Rabbit Effect: Live Longer, Happier, and Healthier with the Groundbreaking Science of Kindness.",
+        "F) With a blending of free-flowing confessional prose and scholarly research found in 461 notes, Kelli met my expectations that her ideas and ideals would be sound and singular. “Despite our scientific progress,” she writes, “Americans are remarkably unhealthy. In 2016, the United States ranked forty-third in the world for life expectancy... It is also by far the world’s most expensive place to get sick.”",
+        "G) Enter the rabbits-not those running around in our woodlands but ones serving in two month-long medical experiments to test the effects of eating a high-fat diet and the connections between cholesterol and heart disease. With similar diets, the expectations were that all the rabbits would have similar cloggings of their arteries (动脉堵塞).Yet one group had 60% fewer of them.",
+        "H) The reason? Instead of receiving the standard care given to lab animals, the 60% group was watched over by a newcomer to the lab who, Kelli writes, “handled the animals differently. When she fed her rabbits she talked to them and petted them. She didn’t just pass out food, she gave them love.... The studies indicate something is missing in the traditional biomedical model. It wasn’t diet or genetics that made a difference in which rabbits got sick and which stayed healthy. It was kindness.”",
+        "I) Amid the political noise about Obamacare, Medicare, Medicaid, health insurance and thieving pharmaceutical (医药的) companies, Kelli Harding stands apart from the crowd calling for quick fixes, the simpler the better. She has walked too many miles in the halls of hospitals visiting too many far-gone patients and seeing too many medical mistakes to go along with conventional thinking.",
+        "J) “The rabbit effect,” she explains, means that “when it comes to our health, we’ve been missing some crucial pieces: hidden factors behind what really makes us healthy. Factors like love, friendship, and dignity. The designs of our neighborhoods, schools, and workplaces. There's a social dimension to health that we’ve completely overlooked in our efforts to find the best and most cutting-edge medical care.... Ultimately, what affects our health in the most meaningful ways has more to do with how we treat one another, how we live, and how we think about what it means to be human than with anything that happens in the doctor’s office.”",
+        "K) In more than a few passages, she relates the stories of men and women who came up against assembly- line medicine where patients were treated mostly as pieces of flesh. “Clinically,” she writes, “it’s common to see two patients with the same condition, such as recovering from a heart attack, have two very different courses based on seemingly irrelevant factors, such as their family relationships or their educational levels. In my practice, the sickest people I see often share similar backgrounds: loneliness, abuse, poverty, or discrimination. For them, the medical model isn’t enough. It’s like fixing up an airplane engine and ignoring that the pilot is on his third drink at the bar and a massive storm is overhead.... To properly care for patients, we also need to care about the lives of the people getting the care.”",
+        "L) Kelli wastes no time taking potshots at (随意批评) the medical establishment and its body-centered biomedicine methods. Instead, she remains positive, holding up for praise one of her medical school professors, George Engel, “who always noticed not just a patient’s physical condition but little details about her life, such as if she had family pictures up in her hospital room or flowers delivered. He was the kind of trusted doctor you'd feel relieved to see and welcome into the room with a sick family member. Hed sit down to talk with the patient not just about medical problems, but about her life and priorities. He built a large consultation service to address the holistic (整体的) needs of hospitalized patients, including psychological and social factors.”",
+        "M) It’s a guess how many George Engels in their white jackets are at work these days and another speculation on the number of Kelli Hardings the nation is blessed with. May the totals be large and getting larger."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Kelli Harding also distinguishes herself by her literary talent.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】同义转述题。定位句提到,如果凯莉脱颖而出,那是因为她也是一位天才作家。题干中的 Kelli Harding 对应定位句中的 Kelli,题干中的 distinguishes herself 是对定位句中 stands out 的同义转述,题干中的literary talent 对应定位句中的 a gifted writer,故答案为卫) 。"
+        },
+        {
+          "number": 37,
+          "stem": "Kelli Harding doesn’t think America’s medical model is sufficient for patients who need help most.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【精析】细节归纳题。定位句提到,在“我”的行医实践中,“我看到的病情最严重的人往往有着相似的背景:孤独,虐待贫困或歧视。对他们来说,医疗模式是不够的。题干中的 Kelli Harding 对应定位句中的了题干中的 doesn't think America's medical model is sufficient 对应定位句中的 the medical model isn\"t enough ,故答案为开) 。"
+        },
+        {
+          "number": 38,
+          "stem": "Kelli Harding differs from those seeking quick and simple solutions to America’s medical problems.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】细节归纳题。定位句提到,在关于奥巴马医改、医疗保险、医疗补助、健康保险和强取豪夺的医药公司的政治喧器中,凯莉。哈丁与呼吁快速解决问题.越简单越好的群体不同。题干中的 differs from those seeking quick and simple solutions 是对定位句中 stands apart from the crowd calling for quick fixes，the simpler the better 的同义转述,题干中的 America's medical problems 是对定位句中 the political noise about Obamacare，Medicare，Medicaid，health insurance and thieving pharmaceutical companies 的归纳总结,故答案为 D 。"
+        },
+        {
+          "number": 39,
+          "stem": "Kelli Harding was a participant in a summer course the author taught.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】〗同义转述题。定位句提到,作者最近收到了一封来自凯莉。哈丁的信,她是 21 年前作者在华盛顿上和平研究暑期课的学生。题干中的 a participant in a summer course the author taught 是对定位句中 a student 21 years ago in my Peace Studies summer course 的同义转述 ,故答案为 B) 。"
+        },
+        {
+          "number": 40,
+          "stem": "According to Kelli Harding, scientific advances have not made Americans healthier, nor prolonged their life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【精析】细节归纳题。定位句提到,她(凯莉。哈丁)写道:\"尽管我们取得了科学进步,但美国人的健康状况非常粳糕。2016 年,美国的预期寿命在世界上排名第 43 位.,”题干中的 scientific advances 对应定位句中的 scientific progress, 题干中的 have not made Americans healthier 是对定位句中 Americans are remarkably unhealthy 的同义转述,题干中的 nor prolonged their life 是对定位句中 In 2016，the United States ranked forty-third in the world for life expectancy 的归纳总结,故答案为 F) 。"
+        },
+        {
+          "number": 41,
+          "stem": "The author was deeply moved by what Kelli Harding wrote about her current life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】细节归纳题。定位句提到,凯莉的这封信是她个人生活和职业生涯的最新写照,触动了 “我的内心。题干中的 The author was deeply moved 对应定位句中的 touched my heart, 题干中的 what Kelli Harding wrote about her current life 是对定位句中 a literate update on both her personal and professional life 的概括归纳,故答案为D)。"
+        },
+        {
+          "number": 42,
+          "stem": "George Engel, in treating his patients, not only looks into their symptoms but also into things like the emotional support they receive.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【精析】细节归纳题。定位句提到,凯莉举例赞扬了她的医学院教授乔治，恩格尔,他不仅总是关注患者的身体状况,也会关注患者的生活小细节， 比如她是否在病房里挂着家庭照片,是否收到别人送的鲜花。题干中的 not only looks into their symptoms but also into things like the emotional Support they receive 是对定位句中 noticed not just a patient's physical condition but little details about her life，such as if she had family pictures up in her hospital room or flowers delivered 的归纳总结,故答案为工) 。"
+        },
+        {
+          "number": 43,
+          "stem": "According to Kelli Harding, rabbits’ health had more to do with humans’ kindness to them than their diet or genetics.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "〖精析卫同义转述题。定位句提到,决定兔子生病还是健康的不是饮食或基因,而是善良。题干中的 rabbits” health had more to do with humans” kindness to them than their diet or genetics 是对定位句 It wasn't diet or genetics that made a difference in which rabbits got sick and which stayed healthy. It was kindness.的同义转述,故答案为 HD) 。"
+        },
+        {
+          "number": 44,
+          "stem": "What Kelli Harding went through in Washington changed her life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】同义转述题。定位句提到,在华盛顿的经历,凯莉后来称之为“颠覆性的\",是她进入医学领域的动力,促使她获得了哥伦比亚大学公共卫生硕士学位和罗切斯特大学医学学位,并在纽约长老会医院担任了近 20 年的急诊室精神科医生和哥伦比亚大学欧文医学中心的精神病学临床教授。题干中的 What Kelli Harding went through in Washington 对应定位句中的 The Washington experience,题干中的 changed her life 是对定位句中 transformative 的同义转述,故答案为 C) 。"
+        },
+        {
+          "number": 45,
+          "stem": "A social aspect to health has not been taken into account in trying to provide the best medical care.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【精析】细节辨认题。定位句提到,在寻找最佳和最前沿医疗保健的努力中,“我们”彻底忽视了影响健康的社会层面。题干中的 A_ social aspect to health 对应定位句中的 a social dimension to health ,题干中的 has not been taken into account 是对定位句中 we've completely overlooked 的同义转述, 题干中的 trying to provide the best medical care 对应定位句中的 our efforts to find the best and most cutting-edge medical care,故答案为了])。 2022 .9/ 18 9/ 19"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-09-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Academic dishonesty is nothing new. As long as there have been homework assignments and tests, there have been cheaters. The way that cheating looks has changed over time, though, particularly now that technology has made it easier than ever. A study by the Josephson Institute of Ethics interviewed 23,000 high school students and asked them a variety of questions about academic ethics. Of the teens surveyed, 51 percent said that they had knowingly cheated at some point on an exam but that they did not feel uneasy about the behaviour. A Common Sense Media survey found that 35 -percent of students had cheated via smartphone, though the parents surveyed in that particular study did not believe their kids had ever cheated. In many cases, students did not realize that strategies like looking up answers on a smartphone were actually cheating at all.",
+        "In today’s classrooms, students who cheat are rarely caught. There are no formulas written on the insides of hands or students looking across the aisle, or whispering answers to their classmates. Today’s students use smartphones, tablets or even in-class computers to aid their cheating attempts and leave no trace of their crimes. Since cheating through technology is not listed specifically as being against the rules in many school policies, students do not view the actions unethical.",
+        "The technology is being adopted so quickly that school districts cannot adequately keep up with cheating policies, or even awareness campaigns that alert students to the problem with using technology to find answers in a certain way. From a young age, students learn that answers exist conveniently at their fingertips through search engines and expert websites.",
+        "Schools must develop anti-cheating policies that include technology and these policies must be updated consistently. Teachers must stay on guard when it comes to what their students are doing in classrooms and how technology could be playing a negative role in the learning process. Parents must also talk to their kids about the appropriate ways to find academic answers and alert them to unethical behaviours that may seem innocent in their own eyes."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from the study by the Josephson Institute of Ethics?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Over half of the students interviewed were unaware they were cheating."
+            },
+            {
+              "key": "B",
+              "text": "Cheating was becoming a way of life for a majority of high school teens."
+            },
+            {
+              "key": "C",
+              "text": "More than half of the interviewees felt no sense of guilt over cheating."
+            },
+            {
+              "key": "D",
+              "text": "Cheating was getting more and more difficult for high school students."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】细节辨认题。定位段第五句指出,在接受调查的青少年中,有 51% 的人表示自己在某次考试中有意作整,但他们并没有对这种行为感到不安。由此可见,一半以上的受访者对作弊没有负罪感,故答案为 C) 。"
+        },
+        {
+          "number": 47,
+          "stem": "What did the Common Sense Media survey reveal?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Most parents tended to overprotect their children."
+            },
+            {
+              "key": "B",
+              "text": "Many students committed cheating unknowingly."
+            },
+            {
+              "key": "C",
+              "text": "Students were in urgent need of ethical education."
+            },
+            {
+              "key": "D",
+              "text": "Parents and kids had conflicting ideas over cheating."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】推理判断题。文章第一段倒数第一句提到,在许多情况下 ,学生丝毫没有意识到用智能手机查找答案这样的策略实际上是作浆。由此可知,通识传媒的调查揭示了许多学生在不知不觉中作弊,故答案为 B) 。"
+        },
+        {
+          "number": 48,
+          "stem": "Why do students rarely get caught cheating nowadays?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They copy formulas on their palms."
+            },
+            {
+              "key": "B",
+              "text": "They help each other to cover up their acts."
+            },
+            {
+              "key": "C",
+              "text": "They keep changing their ways of cheating."
+            },
+            {
+              "key": "D",
+              "text": "They make use of modern technology."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】 推理判断题。定位段第三名指出,如今的学生使用智能手机,平板电脑甚至课堂电脑作弊,而且不会留下任何犯罪痕迹。由此可知,学生们利用现代科技作弊,这样不会留下痕迹,故答案为 D) 。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author think schools should do to tackle cheating?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Bring policies against cheating up to date."
+            },
+            {
+              "key": "B",
+              "text": "Reform their exam methods constantly."
+            },
+            {
+              "key": "C",
+              "text": "Take advantage of the latest technologies."
+            },
+            {
+              "key": "D",
+              "text": "Alert parents to their children’s behaviour."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】推理判断题。定位句提到,学校必须制定包含技术在内的反作弊政策,而且这些政策必须持续更新。由此可见,作者认为学校应该更新反作弊政策,故答案为 A) 。 【吉错】文章第四段有关学校政策的内容中,并未提及改革考试方法.利用最新的科技以及通知家长。针对家长的建议是在本段最后一句指出,并不属于学校的政策,故排除 B)`\\C)和了) 。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author suggest teachers do in the classroom?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Prevent students from overusing electronic devices."
+            },
+            {
+              "key": "B",
+              "text": "Develop more effective anti-cheating strategies."
+            },
+            {
+              "key": "C",
+              "text": "Find more ways to curb students’ unethical acts."
+            },
+            {
+              "key": "D",
+              "text": "Guard against students’ misuse of technology."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】 推理判断题。定位句指出,教师必须保持和警惕,了解学生在课堂上的一举一动以及科技如何在学生学习过程中起负面作用。由此可见,作者建议教师防止学生错误使用科技,D) 中的 misuse of technology 对应定位句中的 playing a negative role,故答案为D) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-09-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Remote work is about more than just working from home—it means working differently. Organizations should reconsider the appropriateness of their performance evaluation procedures in light of the shift to remote work. This requires a fundamental rethinking of what organizations expect from employees and what companies would look for in a model employee in a remote work context.",
+        "It is likely that the “first to arrive and last to leave mentality is no longer relevant, but should be replaced by a regard for the quality of an employees contribution to the organization. This means that work should be measured in terms of the quality of the work, not just the quality of the process. As remote work is largely unobservable to supervisors, employers need to think about how they can objectively measure the quality of work in a way that is consistent for employees of similar rank.",
+        "Focusing on output alone can have unintended consequences. Employers should think instead about the values and soft skills they want to emphasize in a remote work environment. Qualities like flexibility and the ability to work under minimal supervision might become critical. Much has been written about the importance of timely feedback. In the context of a global pandemic (大流行病), firms may want to provide additional support to employees by providing more frequent communication. This allows managers to both keep an eye on struggling employees and provide ongoing feedback on how employees are adapting to their new work environment.",
+        "Compensation also needs to be revisited. The purpose of performance evaluation is ultimately to determine how to reward employees for their work. This means that pay structures need to adapt to the reality of working from home. However, organizations also need to be honest with employees about the financial impact of COVID-19.",
+        "For organizations that have struggled to keep the lights on due to the pandemic, this might mean thinking of non-financial ways to reward employees, like unpaid time off or flexible work schedules. Employers can also consider how to bundle different types of compensation to help employees cope with their unique situations."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say companies should do in the context of remote work?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Reform performance evaluation."
+            },
+            {
+              "key": "B",
+              "text": "Rethink the organizational fundamentals."
+            },
+            {
+              "key": "C",
+              "text": "Reexamine its effects on employees’ behaviors."
+            },
+            {
+              "key": "D",
+              "text": "Reflect on its differences from working in the office."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】细节辨认题。定位句指出,鉴于向远程工作方式转变的趋势,各公司应重新思考其绩效评估程序是否合适。由此可见,作者认为在远程工作中公司应改革绩效评估 ,故答案为 A) 。"
+        },
+        {
+          "number": 52,
+          "stem": "What should be prioritized in assessing employees’ remote work?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The quantity of their output."
+            },
+            {
+              "key": "B",
+              "text": "The length of their work time."
+            },
+            {
+              "key": "C",
+              "text": "The quality of their contribution."
+            },
+            {
+              "key": "D",
+              "text": "The flexibility of their work schedules."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】细节辨认题。定位句提到,“早到晚走”的心态很可能不再适用了,取而代之的是关注员工对公司贡献的质量。由此可知,在评估员工远程工作时应优先考虑员工贡献的质量,故答案为 C) 。"
+        },
+        {
+          "number": 53,
+          "stem": "What quality in the employees would be of great importance in a remote work context?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The ability to produce quality work."
+            },
+            {
+              "key": "B",
+              "text": "The ability to maximize work efficiency."
+            },
+            {
+              "key": "C",
+              "text": "The ability to finish tasks in a timely manner."
+            },
+            {
+              "key": "D",
+              "text": "The ability to work with the least supervision."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】细节辨认题。定位句指出,雇主应该转而思考自己在远程工作环境中想强调的价值观和软技能。灵活处理问题以及在最少的监督下工作的能力等品质可能变得至关重要。由此可见,在远程工作环境中,雇员在最少的监督下工作的能力至关重要, 故答案为 D)。D) 中的 the least supervision 与定位句中的 minimal supervision 为同义转换。"
+        },
+        {
+          "number": 54,
+          "stem": "Why is it important for firms to provide timely feedback during the pandemic?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To evaluate their employees of similar rank in a consistent way."
+            },
+            {
+              "key": "B",
+              "text": "To keep a watchful eye on those employees who perform poorly."
+            },
+            {
+              "key": "C",
+              "text": "To help employees in need adapt to the new work environment."
+            },
+            {
+              "key": "D",
+              "text": "To maintain connections with their employees away from office."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】 推理判断题。第四段第一句提到,很多文章都论述了及时反馈的重要性,第四段第三句提到这样主管既能关注到遇到问题的员工,又能对员工适应新工作环境的情况提供持续的反馈。由此可知,及时提供反馈可以帮助有需要的员工适应新的工作环境,故答案为 C) 。"
+        },
+        {
+          "number": 55,
+          "stem": "What is the author’s suggestion to employers who experience the financial impact of the pandemic?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Urging their employees to adapt to the new situation."
+            },
+            {
+              "key": "B",
+              "text": "Rewarding their employees in unconventional ways."
+            },
+            {
+              "key": "C",
+              "text": "Identifying employees who make little contribution."
+            },
+            {
+              "key": "D",
+              "text": "Allowing their employees to look for part-time jobs."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】细节辨认题。第六段指出,对于那些因新冠疫情而难以维系的公司来说,这可能意味着要考虑用非财务的福利来奖励员工,如无薪休假或 as 一把“ 灵活的工作时间。雇主还可以考虑如何组合不同类型的补偿,帮助员工应对自己的特殊情况。由 2 此可见,作者建议财务受到大流行病影响的雇主以非传统的方式奖励员工 。 B) 中的 unconventional ways 对应定位段中的 non- financial ways,故答案为 B) 。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.09/%E7%9C%9F%E9%A2%98PDF/cet4_2022_09_1.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.09/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2022_09_1_ans.pdf"
+}

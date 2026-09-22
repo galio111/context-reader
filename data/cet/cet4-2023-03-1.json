@@ -1,0 +1,1619 @@
+{
+  "id": "cet4-2023-03-1",
+  "level": 4,
+  "year": 2023,
+  "month": 3,
+  "set": 1,
+  "title": "2023 年 3 月四级 · 第 1 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2023-03-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "It’s a fantasy that goes back centuries: a message in a bottle, carried ashore from far-off lands. Authors, artists and children [[26]] have dreamed of such a gift from the sea. This time, though, it’s not a bottle that washes ashore. It’s eggs—thousands of little toy eggs. That’s what happened on the German island of Langeoog this week. Lying just off the North Sea coast, it found itself [[27]]by an invasion of colored plastic eggs-- much tothe [[28]]of local children, because the eggs contained toys. Police [[29]]the eggs came from a freighter that lost part of its cargo during an unusually [[30]]storm, the worst to hit Germany’s northeastern coast since 2006. At any rate, what was lost now has been found, by many of the community’s littlest residents.",
+        "“The surprise eggs have found their way to freedom,” said Mayor Uwe Garrel. However, the joy of the moment [[31]]off soon.",
+        "“At first, I thought this was a wonder, because everything was so [[32]], but then we realized that this is a huge [[33]]in the end,” said the mayor. He also noted the plastic bags and other materials that have washed ashore on the island can cause serious problems for [[34]].",
+        "Still, all these little eggs contained an extra treat with their toys. They [[35]]notes from afar.",
+        "There was just one problem for the German children who received them: They were written in Russian."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "wore"
+        },
+        {
+          "key": "B",
+          "text": "wildlife"
+        },
+        {
+          "key": "C",
+          "text": "suspect"
+        },
+        {
+          "key": "D",
+          "text": "struck"
+        },
+        {
+          "key": "E",
+          "text": "similar"
+        },
+        {
+          "key": "F",
+          "text": "quantity"
+        },
+        {
+          "key": "G",
+          "text": "overthrown"
+        },
+        {
+          "key": "H",
+          "text": "mess"
+        },
+        {
+          "key": "I",
+          "text": "intense"
+        },
+        {
+          "key": "J",
+          "text": "human"
+        },
+        {
+          "key": "K",
+          "text": "effective"
+        },
+        {
+          "key": "L",
+          "text": "delight"
+        },
+        {
+          "key": "M",
+          "text": "colorful"
+        },
+        {
+          "key": "N",
+          "text": "bore"
+        },
+        {
+          "key": "O",
+          "text": "alike"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【 答案解析】O ”副词辨析题。空格所在句主干结构完整，且空格位于主语 Authors, artists and children 和谓语 have dreamed of 之间，故可判断空格处应填入一副词作状语。备选项中，只有 0 选项alike ( 同样地 ) 入选，将其代入文中,，意为“不管是作家、艺术家还是儿童，都梦想着收到这样一份来自大海的礼物”，符合语义及语境，故正确。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【 答案解析 】 D 分词辨析题。空格所在句中, 芋作主语，found 作谓语，itself 作宾语，空格后为介词短语 by...plastic eggs， 可判断空格处应填入一分词、形容词、名词或副词作宾语补足语，或十人一副词作状语。空格所在部分意为“该岛位于北海海涯附近，它发现自己被大量涌人的彩色塑料和蛋 ”或“该岛位于北海海岸附近，它发现自己在大量涌人的彩色塑料蛋旁边”。结合上文提到的本周发生在该岛的事情一一成千上万个玩具蛋被冲上上岸可推断，空格所填词应表达“受到某种遭遇”之意。备选项中，只有 D 选项 struck (侵约) 代入文中，意为“它受到了大量消人的彩色塑料蛋侵袭”，符合语义及语境，故正确。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【 答案解析 】世”名词辨析题。空格位于定冠词 he 和介词短请 of local children 之间，故空格处应填入一名词或动名词。空格所在部分意为“当地的孩子们非常 ，因为这些蛋里有玩具”。结合常识可知，孩子们通常都喜欢玩具。由此可推断，空格所在部分应表达孩子们的喜悦之情，故空格所十词应含有“开心; 愉快”之意。备选项中，只有工选项 delight ( 高兴; 愉快 ) 符合句意及语境，且to the delight of sb. 是固定搭配，意为“令某人感到高兴”，故正确:"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【 答案解析】C 动词辨析题。空格位于名词 Police 和 the eggs 之间，名词 Police 作主语，省略引导词 that 的宾语从句作宾语，句中缺少谓语， 故空格处应填入一动词。空格所在部分意为“警方这些玩具和蛋来自一般货船，这艘货船在一场异常……风暴中丢失了部分货物”。 结合上文提到的成千上万个小玩具蛋被冲上岸可知，此处应是警方对这些玩具蛋的来源做了推测或发表了观点- 备选项中,只有 C 选项 suspect ( 怀疑，猜想 ) 代入文中，意为“警方怀疑这些玩具蛋来自一稻货船”，符合语义及语境，故正确。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【 答案解析 ] I_ 形容词辨析题。空格位于名词短语 an unusually storm 中，故空格处应填和人一形容词或分闻作和定语，修饰 storm。 空格所在部分意为“货船在一场异常风暴中丢失了部分货物，这场风暴是 2006 年以来德国东北海岸遭遇的最严重的一场”- 由此可推测这场风暴的强度很大，故空格所填词应含有“强烈，猛烈”之意。 备选项中,将工选项 intense ( 强烈的，剧烈的) 代入文中,，意为“这艘货船在一场异常强烈的风暴中丢失了部分货物”，符合语义及语境，故正确。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【 答案解析】A 动词辨析题。空格位于主语 the joy of the moment 和副词 of 之间，句中缺少谓语， 故空格处应填入一动词，且该动词能够与 off 构成合理搭配。空格所在句意为“然而，这一刻的喜悦很快 ”，结合该句中表转折的 However 及上文提到的这些令人惊喜的蛋已经成为孩子的战利品这一暗含喜悦之情的内容可推断，空格所在部分应表达“喜悦之情很快消失或转变为消极情绪”之意。备选项中，A 选项 wore 这一动词可与副词 off 搭配构成短语动词 wore of ( wear off 的过去式，意为“消逝; 逐渐停止”) ，代入文中，意为“这一刻的喜悦很快就消逝了\"” ,符合语义及语境,故正确。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【 答案解析 】 M 形容词辨析题。空格位于 because 引导的原因状语从句中, 其中,everything 作主语， was 为系动词或助动词，但因 so 在此处为副词， 且空格后没有其他成分，故判断 was 在此处为系动词， 空格处应填入一形容词作表语。空格所在部分意为“起初我认为这是一件奇事，因为一切都如此 ……”，由此可推测空格所填词应能体 1 ，现*奇\"这一特征。备选项中, 将M选项colorful( 有趣的;丰富多彩的 ) 代和文中，意为“起初我认为这是一件奇事，因为一切都如此有趣”，符合语义及语境，故正确。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【答案解析 】H 名词辩析题。空格位于that 引导的守语从名中，其中，this 作主请，is 为系动词， a huge 作表语，介词短语 in the end 作状语,，故空格处应十和一单数可数名词。空格所在部分意为“但后来我们意识到，这终究是一个巨大的 ”，上文提到，起初市长认为成千上万个小玩具蛋被冲上岸是一件奇事，因为一切都如此有趣, 再结合空格所在部分中表转折的 but 可推断， 讼格所填名词应表达消极含义。备选项中,理选项 mess( 麻烦，困境 ) 和N 选项 bore ( 令人厌烦的事 ) 人选，二者的区别在于，mess 表示客观的困境， bore 表示主观上令人厌烦的事情，由后文提到的被冲到岛上的塑料袋和其他材料带来了严重的问题可知, mess更符合语境。 将卫选项代入文中, 意为“但后来我们意识到，这终究是一个巨大的麻烦”，符合语义及语境，故正确。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【 答案解析】B 名词辨析题。空格位于省略引导词 that 的窒语从句中，其中，the plastic bags and other materials 作主语，that 引导的定语从名修饰主语，can cause 作谓语，serious problems 作宾语，介词短语 for 作状语，故空格处应填入一不可数名词、可数名词的复数形式或动名词作介词 for 的宣语。空格所在句意为“他还指出，被冲到岛上的塑料袋和其他材料会对造成严重的问 ，题”。结合常识可知，海岸上的塑料以及其他垃圾会对一些生物和生态环境带来不良影响，由此可推测空格所填词应与某些生物或生态环境有关。备选项中, 将B选项 wildlife ( 野生动植物 ) 代入文中， 意为“被冲到岛上的塑料袋和其他材料会给野生动植物带来严重的问题”, 符合语义及语境, 故正确。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【答案解析 】N 动词辨析题。空格所在句中，代词They 作主语，名词 notes 作宾语，介词短语 from afar 作状语，或作后置定语修饰 notes，句中缺少谓请， 故空格处应填入一动词。空格所在句意为“它人们从远方“便条”或“它们来自远方的便条”。空格所在句上句提到，“不过，除了玩具外，所有这些小蛋内都还有额外的乐趣”。由此可推知，“额外的乐趣”指的是玩具蛋内的便条， 。 即玩具蛋内有便条，空格处应填入能体现便条与玩有具蛋之间的包含关系的词。备选项中,将 N 选项 bore (bear 的过去式，意为“携带” ) 代入文中， 意为“它们带着来自远方的便条”，符合语义及语境，故正确。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-03-1-b",
+      "type": "matching",
+      "title": "Hyphenating your last name after marriage?",
+      "paragraphs": [
+        "A) Congratulations on deciding to get married! While being married is great and wonderful, the act of getting married can be quite stressful. There is the planning of the ceremony itself, the merging (合并) of two households and all of the details involved in that. You also have to take the time to apply for your marriage license and then decide whether or not you are going to keep your last name or change it.",
+        "B) This is where a lot of people have trouble. Once upon a time, it was just customary for a bride to take her groom’s last name as hen own and abandon her maiden name completely. The act of keeping her own last name was considered taboo (禁忌) and people’s eyebrows would raise right off their faces when they found out that the bride was even considering something so radical. Over time, though, more and more women are deciding to keep their last names.",
+        "C) There are a lot of reasons to want to keep your own last name. Hopefully you have a supportive groom who understands why this idea is the most appealing to you. A lot of times, though, the act of keeping your name is still something that causes concern. Even if your groom is fine with it, his family (or your own) might not be so understanding.",
+        "D) There are a couple of ways to compromise on the issue. You could choose an entirely new last name for the two of you to share. This way neither of you gets “your” way and you both have to deal with the legalities of going through a name change. Most of the time, though, the most popular compromise is to hyphenate your last name and the last name of your groom. For example, if your groom’s name is John Smith and your name is Kate Jones. You would name yourself Kate Jones-Smith or Kate Smith-Jones. This allows you to keep going by your own last name while legally adopting your husband’s last name at the same time.",
+        "E) The compromise is the biggest reason that so many women choose to hyphenate their last names. It is a way of you keeping your own identity while also making your future husband happy. It allows you to stay connected to accomplishments that you achieved before you got married. For example, many women who choose to hyphenate do so partially because they have earned higher educational degrees and certifications under their maiden names. They might have also had things published or publicized and want to stay connected to that identity. Hyphenating your last name can help you bridge the gap between your personal and professional lives. Many women who opt to simply keep their own names do so because they don’t want to give up all that they have accomplished professionally. Adopting their husband’s last name makes it hard for them to claim ownership of these accomplishments personally because they happened under their “other” name.",
+        "F) While tradition is one thing, there isn’t any logical reason to completely change your name. Keeping your name and joining it to your husband's through hyphenation is as legal as simply adopting his name or as simply keeping your own and leaving his out of the picture entirely.",
+        "G) Probably the most important reason to consider hyphenation is your identity. You've spent your whole life building your identity under a certain name. Obviously you will still be you even if you've taken on your husband’s last name and omitted yours entirely. At the same time, your name is associated with the identity you've built up and hyphenation allows you to respect that while also respecting tradition and your husband’s family’s identity.",
+        "H) If you care about outside opinions on your name, you should know that a large portion of today’s society is annoyed by the hyphenated name. Some people find it “snobby” (势利的) and others simply find it irritating because they have a hard time remembering which last name they are supposed to say first. Some people even believe that not simply adopting your husband’s last name is a huge sign of disrespect and a lack of commitment.",
+        "I) tis possible that your future husband will find this choice offensive. Some men, regardless of how you might feel about some things, are traditionalists and feel that it is simply “right” for the woman to take the man’s last name as her own. Whether your future husband insisting on your adopting his last name is a red flag to you or not, it is still something that you should take into consideration.",
+        "J) There are all sorts of reasons to hyphenate your name or not to hyphenate your name. The basis for each of these things, however, is whether or not you are willing to make a compromise when it comes to changing your name. The hyphenation is the epitome (体现) of a compromise. One spouse wants a complete name change. The other spouse wants no name change. Hyphenating the two names is a way for each person to, at least a little bit, “win” the argument.",
+        "K) And don’t forget the legal stuff! Making the decision is just part of the process. From there you are going to have to legally change your name all over the place. Youll need to change your name at the bank, with social security, with your credit cards, on your driver’s license, at the gym ... everywhere. It’s easy to get overwhelmed just thinking about it.",
+        "L) What matters, of course, is that the two of you are going to be happily married—hopefully for the of your lives. At the end of the day, whether you each keep your names, whether you come up with an entirely new name for the two of you to share or whether you hyphenate your current last names, what matters is that you love each other and are going to be joining your lives together. Try to remember that as you are staring at the application for your marriage license and filling out the portion that reads “name after you get married” (or whatever the legalese for that might be)."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Many people today still find name hyphenation upon marriage unacceptable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H 段第一句指出，当今社会有很大一部分人对带连字符的名字感到恼火；题干是对该句的同义转述。"
+        },
+        {
+          "number": 37,
+          "stem": "Asa compromise, a bride will in most cases adopt a name that combines the couple’s last names.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【 答案解析 】 D ”根据题干信息 compromise 、in most cases 和 combines the couple's last names 可定位至原文D段4句。该句提和到, 大多数时候，最普遍的妥协方式是把你的姓氏和新郎的姓氏用连字符连接。 题干是对该句的同义转述，其中 compromise 为原词再现，in most cases 和 combines the couple's last names 分别与该句中的 Most of the time 和 hyphenate your last name and the last name of your groom 相对应， 故 D 为答案选项。"
+        },
+        {
+          "number": 38,
+          "stem": "The bride should consider adopting her groom’s last name whether he feels strongly about it or not.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【 答案解析】I 根据题干信息 should consider、 adopting her groom's last name 和 feels strongly 可定位至原文I段 3 句。该句提到，无论你未来的丈夫坚持让你随他姓对你来说是不是一个危险信号，这都是你应该考虑的事情。题干是对该名的同义转述，其中 should consider、adopting her groom's last name 和 feels strongly 分别与该句中的 should take into consideration 、adopting his last name 和 insisting on 相对应，故 I为答案选项。"
+        },
+        {
+          "number": 39,
+          "stem": "Making preparations for marriage causes a lot of stress.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【 答案解析 】A 根据题干信息 Making preparations for marriage 和 a lot of stress 可定位至原文A段2 名。该句后半部分提到，结婚的过程可能很劳心。 题于是对该句后半部分的同义转述，其中 Making preparations for marriage 和 a lot of stress 分别与该句中的the act of getting married 和 quite stressful 相对应，故A 为答案选项-"
+        },
+        {
+          "number": 40,
+          "stem": "Hyphenating the last names could be a win-win solution should arguments arise about what name to adopt upon marriage.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【 答案解析 】 J_ 根据题干信息 Hyphenating the last names、a win-win solution 和 arguments 可定位至原文本段末句。该句提到，使用连字符连接两者的姓氏至少在一定程度上是一种双“语”的方式。题干是对该句的同义转述，其中 arguments 为原词再现， Hyphenating the last names 和 a win-win solution 分别与该名中的 Hyphenating the two names 和a way for each person to…\"win” 相对应，故本为答案选项。"
+        },
+        {
+          "number": 41,
+          "stem": "It used to be considered socially unacceptable for a bride to retain her maiden name.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【 答案解析 ] B ”根据题干信息 used to 、be considered socially unacceptable 、a bride 和 retain her maiden name 可定位至原文B段2、3 句。这两句提和到，在以前，新娘保留自己姓氏的行为被认为是禁忌。 题干是对这两句的合理概括，其中 a bride 为原文再现，usedto 与2句中的 Once upon atime 相对应， be considered socially unacceptable 和 retain her maiden name 分别与 3 句中的 was considered taboo 和 keeping her own last name 相对应，故 B 为答案选项。"
+        },
+        {
+          "number": 42,
+          "stem": "The bride who adopts a hyphenated last name after marriage can maintain connections with their past achievements.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【 答案解析 】 E 根据题干信息 maintain connections with their past achievements 可定位至原文下段 3 句。 该句提到，这使你能够与你婚前取得的成就保持关联。结合上文可知，该句中的芋指代使用连字符连接姓氏。题干是对该句的同义转述，其中 maintain connections with their past achievements 与该句中的 stay connected to accomplishments that you achieved before you got married 相对应，故眉为答案选项。"
+        },
+        {
+          "number": 43,
+          "stem": "Hyphenating names allows the bride to preserve her own identity while respecting tradition.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【 答案解析 】G。 根据题干信息 Hyphenating names、 her own identity 和 while respecting tradition 可定位至原文 G 段末句。该句提到，你的名字与你已经建立起的身份相关，使用连字符使你在尊重自己身份的同时，也尊重了传统- 题干是对该句后半部分的同义转述，其中 while respecting tradition 为原文再现，Hyphenating names 和 her own identity 分别与该句中的 hyphenation 和 the identity youve built up 相对应，故 G 为答案选项。"
+        },
+        {
+          "number": 44,
+          "stem": "No matter what name the bride adopts, it is most important that the newly-weds truly love each other.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L 段第二句指出，无论保留各自的姓氏、采用新姓氏还是用连字符连接，重要的是双方彼此相爱并共度余生。"
+        },
+        {
+          "number": 45,
+          "stem": "Legally speaking, the bride is free to choose whatever name she prefers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【答案解析 】F ”根据题干信息 [egally 和 feelo choose whatever name she prefers 可定位至原文了段2句- 该句提到，保留你的姓氏并通过连字符把它与你丈夫的姓氏联合在一起，和仅采用他的姓氏，或仅保留你自己的姓氏而把他的姓氏完全排除在外一样合法。题干是对该句的合理概括，其中 Legally 与该句中的 legal 相对应，free to choose whatever name she prefers 与该句中的 Keepbing your name and joining it to your husband\"s through hyphenation...simply adopting bis name or...simply keeping your own and leaving his out of the picture entirely 相对应，故了为 。敌案选项。 1"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-03-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "It’s good to be smart. After all, intelligent people earn more money, accumulate more wealth, and even live longer. But there’s another side to the story. The brightest people and strongest leaders sometimes make errors others don’t, especially in situations that require common sense.",
+        "Travis Bradberry, president at TalentSmart, explained Bradberry in his post Why Smart People Act so Stupid that “rational thinking and intelligence don’t tend to go hand in hand”. Intelligent people are more prone to silly mistakes because of blind spots in how they use logic. These blind spots exist because smart people tend to be overconfident in their reasoning abilities. “They’re so used to being right and having quick answers that they don’t even realise when they’re making a mess by answering without thinking things through.”",
+        "A lifetime of praise leads smart people to develop too much faith in their intelligence and abilities. They often fail to recognise when they need help, and when they do recognise it, they tend to believe that no one else is capable of providing it.",
+        "“It’s hard for anyone to graciously accept the fact that they’re wrong. It’s even harder for smart people because they grow so used to being right all the time that it becomes a part of their identity,” Bradberry wrote. “For smart people, being wrong can feel like a personal attack, and being right, a necessity.”",
+        "Smart people also have a hard time accepting feedback. They tend to undervalue the opinions of others, which means they have trouble believing that anyone is qualified to give them useful feedback. Not only does this tendency hinder their growth and performance, it can lead to harmful relationships, both personally and professionally.",
+        "Smart people develop overachieving personalities because things come so easily to them. They simply don’t understand how hard some people have to work to accomplish the same things, and because of that, they push people too hard. They set the bar too high, and when people take too long or don’t get things quite right, they assume it’s due toa lack of effort. So they push even harder."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from the passage about the brightest people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can make silly mistakes in straightforward situations."
+            },
+            {
+              "key": "B",
+              "text": "They usually turn a blind eye to their own weaknesses."
+            },
+            {
+              "key": "C",
+              "text": "They are admired by people around them."
+            },
+            {
+              "key": "D",
+              "text": "They can differ in their personalities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【 答案解析 】A ”由题干中的 the brightest people 并 | 结合出题顺序可定位至原文一段4句。该句提到， 最聪明的人有时会犯别人不会犯的错误，尤其是在 ， 需要常识的情况下，而需要常识的情况也就是简单 ; 的情况，即最隐明的人会在面对简单的情况时犯思 ; 春的错误。A 选项内容是对一段 4 句的同义转述， 其中，make...mistakes 和 in straightforward situations | 分别与该句中的 make errors 和 in situations that require | common sense 相对应，故正确。三段 1 句提到，一 | 生都处于赞美中会让聪明人对自己的智力和能力过 ; 度自信,并未明确说明这些赞美来自他们周围的人，; 故排除 C 选项。六段 1 句提到，聪明人会养成争 ; 强好胜的性格，并未提及最聪明的人可能在性格上各不相同，故排除 D 选项。 |"
+        },
+        {
+          "number": 47,
+          "stem": "What accounts for the existence of intelligent people’s logical blind spots?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their irrational way of thinking."
+            },
+            {
+              "key": "B",
+              "text": "Too much faith in their ability to think."
+            },
+            {
+              "key": "C",
+              "text": "Their ignorance of behavioural science."
+            },
+            {
+              "key": "D",
+              "text": "Too much concern about their work."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【 答案解析 】 B ”由题干中的 accounts for、existence | 和 intelligent people's logical blind spots 可定位至原 | 文二段2、3 句，其中，acceounts for 与该段2 名中 | 的 because of 和 3 句中的 because 相对应，existence | 和 intelligent people's logical blind spots 分别与该段 ; 3句中的exist 和2句中的Intelligent people..blind | spots in how they use logic 相对应。这两句提到，聪 | 明人在运用逻辑的方式上存在盲点，而这些盲点的 ; 存在是因为他们往往对自己的推理能力过于自信。 ! 由此可知，聪明人会有池辑盲点是因为他们对自 ; 己的思考能力过于自信。B 选项内容是对二段3句 ; 的同义转述，其中，Too much faith in 和 their ability | to think 分别与该句中的 be overconfident in 和 their | reasoning abilities 相对应, 故正确。 二段 1 句提到 ， | 理性思维和智力往往不是密切相关的，并未提及陪 ; 明人会有逻辑盲点是因为他们非理性的思维方式， 故排除 A 选项- |"
+        },
+        {
+          "number": 48,
+          "stem": "How do smart people react when they are found to be wrong?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They shit the blame to others."
+            },
+            {
+              "key": "B",
+              "text": "They graciously accept the facts."
+            },
+            {
+              "key": "C",
+              "text": "They may feel shocked."
+            },
+            {
+              "key": "D",
+              "text": "They may get offended."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【 答案解析】D 由题干中的smart people 和be | wrong 可定位至原文四段 3 句。该句提到，对于聪 | 明人来说，犯错就像是受到了一种人身攻击。由此 ; 可知，当被别人发现自己犯错的时候，聪明人可能会感觉受到了人身攻击，觉得被冒犯了。D 选项内容是对四段 3 句前半部分的同义转述，其中，may get offended 与该句中的 can feel like a personal attack 相对应，故正确- 四段1、2 句提到，任何人都很难大方地接受自己错了这一事实，对于聪明人来说，这甚至更难，B 选项内容与此相悼，故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What may happen to smart people who find it difficult to accept suggestions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may suffer in their professional and private life."
+            },
+            {
+              "key": "B",
+              "text": "They may lose faith in their administrative abilities."
+            },
+            {
+              "key": "C",
+              "text": "They may commit more errors than ever before."
+            },
+            {
+              "key": "D",
+              "text": "They may experience a lot of emotional stress."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【 答案解析 】A 由题干中的 smart people 和 difficult to accept suggestions 可定位至原文五段1句，后者与该句中的 have a hard time accepting feedback 相对应- 该句提到，聪明人很难接受反馈意见; 接着 2、3 句提到，他们倾向于轻视别人的意见，且这种倾向可能对他们的人际关系造成危害，包括私人关系和职业关系。由此可知，对于那些很难接受他人建议的聪明人来说，他们可能在职业和私人生活中吃苦头。A 选项内容是对五段 3 句后半部分的同义转述，其中， may suffer 和 professional and private 分别与该句中的 can lead to harmful relationships 和 personally and professionally 相对应，故正确。三段 1 句提到，一生都处于赞美中会让聪明人对自己的智力和能力过度自信，并未提及对于那些很难接受他人建议的聪明人来说，他们可能对自己的管理能力失去信心，故排除 B 选项。"
+        },
+        {
+          "number": 50,
+          "stem": "What is said about those working with or under overachieving people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They put a lot of effort into their work."
+            },
+            {
+              "key": "B",
+              "text": "They set higher goals for themselves."
+            },
+            {
+              "key": "C",
+              "text": "They are under increasing pressure."
+            },
+            {
+              "key": "D",
+              "text": "They take less time to get things done."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【 答案解析 】 C ”由题干中的 working 和 overachieving people 可定位至原文六段 1、2 句，后者与该段 1 人名中的 people develop overachieving personalities 相对应。 这两句提到，聪明人会养成争强好胜的性格， 他们根本不明白对他们来说很容易的事情，有些人要完成的话需要付出多大努力，所以他们会把人逼得太紧; 接着3.4句提到, 聪明人把标准定得过高， 并且当别人做事花了太长时间或做得不太好时，他们就认为这是由于别人不够努力，继而会把人通得更紧。由此可知，和和争强好胜的人共事或者在其领导下工作的人会面临越来越大的压力。 C 选项内容是对六段的合理概括，故正确。同时可知，文中并未提及和和争强好胜的人共事或者在其领导下工作的这些人在工作中投入了大量的精力,故排除A选项。 六段3 句提到，他们 ( 聪明人 ) 把标准定得过高， 并且当别人做事花了太长时间或做得不太好时，他们 ( 聪明人 ) 就认为这是由于别人不够努力,并非和争强好胜的人共事或在其领导下工作的这些人给自己设定更高的目标; 也并非和争强好胜的人共事或在其领导下工作的这些人花更少时间完成事情， 故排除 B、D 两个选项。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-03-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Of the endless troubles that come with being driven from one’s home country, losing educational certificates may seem small. But it isn’t. Refugees who settle in other countries often find themselves unable to continue on their previous career path due to a new set of employer standards or skills requirements. To solve this problem, the U.S. State Department is posing a solution: online learning.",
+        "The State Department will announce a partnership with an online education platform called Coursera. The platform will allow refugees worldwide to take thousands of online courses for free. “Coursera for Refugees” will be available for any non-profit group that supports refugees in any country, as well as individual refugees. They can apply for fully funded access to Coursera’s course catalog, which means they can take all of the platforms classes and obtain professional certificates for free. The platform currently offers professor-led lectures on a broad range of topics, from data science to fashion design.",
+        "As the world migrant crisis intensifies, employment is becoming a global concern. The new program aims to aid refugees by offering “important skills that will help them in the global economy,” Evan Ryan, U.S. assistant secretary of state for educational and cultural affairs, said on a press call last week. “What we don’t want to do is not act,” added Coursera chief operations officer Lila Ibrahim.",
+        "The idea isn’t without its kinks. For one, starting on a new career path is not as simple as watching a few videos and obtaining an online certificate; even those looking to continue previous careers can’t simply rely on an online lecture to get them up-to-date on standards, policies, and practices. For another, most of the classes on Coursera are in English, and though there are plans to add translations, language barriers can be a big obstacle. Then there are the questions over the value of massive open online courses (MOOCs) themselves—both for refugees and for average learners.",
+        "But it’s still early days and there are signs of hope. In 2015, a joint study found 72% of people taking MOOCs saw career benefits afterward."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "Why is the U.S. State Department launching an online learning program for refugees?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To enable them to settle down in host countries."
+            },
+            {
+              "key": "B",
+              "text": "To allow them to learn as many job skills as possible."
+            },
+            {
+              "key": "C",
+              "text": "To offer them a platform to pursue advanced degrees."
+            },
+            {
+              "key": "D",
+              "text": "To help them to meet new employment standards."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[ 答案解析 ] D ”由题十中的 the U.S. State Department、 online learning 和 refugees 可定位至原文一段3、4 句。这两句提到，由于有一套新的雇主标准或技能要求，在其他国家定居的难民无法继续之前的职业道路; 为了解决这个问题，美国国务院提出一个解决方案: 在线学习。由此可知，美国国务院为难民发起在线学习项目是为了帮助难民达到新的就业标准以实现继续就业。D 选项内容是对一段3、4 句的合理概括，其中，new employment standards 与该段3 句中的 anew set of employer standards 相对应， 故正确。同时可知，文中提到在线学习项目所针对的人群是已在其他国家定居的难民，并不是未定居的难民，故排除A选项。三段2句提到，新项目旨在通过为难民提供重要技能来帮助他们，并非让难民学习尽可能多的工作技能，故排除 B 选项。"
+        },
+        {
+          "number": 52,
+          "stem": "What do we know about “Coursera for Refugees”?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It provides refugees with a wide range of courses free of charge."
+            },
+            {
+              "key": "B",
+              "text": "It offers free online data services for refugees around the world."
+            },
+            {
+              "key": "C",
+              "text": "It allows refugees to obtain degrees in various academic fields."
+            },
+            {
+              "key": "D",
+              "text": "It supplies refugees with a great variety of job opportunities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【 答案解析 】A 由题干中的“Coursera for Refugees” 可定位至原文二段 3 句。该句提到,“Coursera for Refugees” 面向各国所有支持难民的非营利组织以及难民个人; 接着4句提到，他们可以申请全上额资助进入 Coursera 课程目录，即可以免费学习该平人台的所有课程;另外，5 句提到该平台目前提供的讲座涉及了广泛的主题。由此可知,“Coursera for Refugees\" 免费为难民提供各种课程。A 选项内容是对二段3至5 句的合理概括，其中，a wide range of 与该段 5 句中的 a broad range of 相对应，courses 和 free of charge 分别与该段 4 名中的 classes 和 for free 相对应，故正确。根据上述对二段 4、5 句的描述可知，原文并未提到“Coursera for Refugees” 使难民能够获得不同学术领域的学位，故排除 C 选项。该段 5 句提到，该平台 ( Coursera ) 提供数据科学等方面的讲座，并非在线数据服务，故排除 B 选项-"
+        },
+        {
+          "number": 53,
+          "stem": "What does the passage say is a consequence of the global migrant crisis?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Instability increases in host countries."
+            },
+            {
+              "key": "B",
+              "text": "The global economic crisis intensifies."
+            },
+            {
+              "key": "C",
+              "text": "Alot more refugees die during migration."
+            },
+            {
+              "key": "D",
+              "text": "Refugees find it more difficult to get a job."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【 答案解析 ] D ”由题干中的 the global migrant crisis 可定位至原文三段 1 句，其与该句中的 the world migrant crisis 相对应。该句提到，随着世界移民危机的加剧, 就业正成为全球关注的问题。 由此可知， 世界移民危机带来的后果之一便是就业问题，即移 。民更难找到工作。D 选项内容是对三段 1 句的同义转述，其中，find it.diffieult 和 geta job 分别与该句中的 concern 和 employment 相对应， 故正确。同时可知，文中并未提及全球经济危机加剧的相关信息, 故排除 B 选项。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the author say causes refugees’ difficulty in taking online courses?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cultural environment."
+            },
+            {
+              "key": "B",
+              "text": "Changed academic requirements."
+            },
+            {
+              "key": "C",
+              "text": "Lack of language skills."
+            },
+            {
+              "key": "D",
+              "text": "Difference in teaching platforms."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【 答案解析】C 由题干中的 causes...difficulty 和 online courses 可定位至原文四段 3 句，二者分别与该句中的 can be a...obstacle 和 classes on Coursera 相对应。该句提到，Coursera 上的大部分课程都是英文版，尽管有添加"
+        },
+        {
+          "number": 55,
+          "stem": "What did the joint study find about the MOOCs several years ago?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They helped solve learners’ financial problems."
+            },
+            {
+              "key": "B",
+              "text": "They benefited most of the learners."
+            },
+            {
+              "key": "C",
+              "text": "They changed some learners’ career path."
+            },
+            {
+              "key": "D",
+              "text": "They provided the most needed vocational skills."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【 答案解析 】 B ”由题干中的 joint study和 the MOOCs 可定位至原文五段2 句。该句提到，2015 年，一项联合研究发现，72% 参加了药课的人在后来体验到了其对职业发展的好处。由此可知，几年前一项联合研究发现，莫课让大多数学习者受益。B 选项内容是对五段2 名的同义转述，其中，benefited 和 most of the leameas 分别与该句中的 benefits 和 72% of people taking the MOOCs 相对应，故正确。 同时可知， 该联合研究并未说明慕课改变了一些学习者的职业道路，故排除 C 选项。三段 2 句提到，这个新项目旨在通过为难民提供重要技能来帮助他们，但这并非联合研究所发现的内容, 而是助理国务卿埃文瑞安的观点，故排除 D 选项。 旨 Translation 1.【 原名"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.03/%E7%9C%9F%E9%A2%98PDF/cet4_2023_03_1.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.03/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_03_1_ans.pdf"
+}

@@ -1,0 +1,1662 @@
+{
+  "id": "cet4-2023-12-3",
+  "level": 4,
+  "year": 2023,
+  "month": 12,
+  "set": 3,
+  "title": "2023 年 12 月四级 · 第 3 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2023-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "When people set out to improve their health, they usually take a familiar path: starting a healthy diet, getting better sleep, and doing regular exercise. Each of these behaviors is important, of course, but they all [[26]]on physical health—and a growing body of research suggests that social health is just as, if not more, important to [[27]]well-being.",
+        "One recent study published in the journal PLOS ONE, for example, found that the strength of a person’s social circle was a better [[28]]of self-reported stress, happiness and well-being levels than fitness tracker data on physical activity, heart rate and sleep. That finding suggests that the “[[29]]self” represented by endless amounts of health data doesn’t tell the whole [[30]].",
+        "There's also a qualified self, which is who I am, what are my activities, my social network, and all of these aspects are not [[31]]in any of these measurements.",
+        "This idea is supported by plenty of [[32]]research. Studies have shown that social support—whether it comes from friends, family members or a spouse—is [[33]]associated with better mental and physical health. A rich social life, these studies suggest, can lower stress levels, improve mood, encourage positive health behaviors and discourage damaging ones, boost heart health and improve illness [[34]] rates.",
+        "Social isolation, meanwhile, is linked to higher rates of physical diseases and mental health conditions. It’s a significant problem, [[35]]since loneliness is emerging as a widespread public health problem in many countries."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "base"
+        },
+        {
+          "key": "B",
+          "text": "eagerly"
+        },
+        {
+          "key": "C",
+          "text": "especially"
+        },
+        {
+          "key": "D",
+          "text": "focus"
+        },
+        {
+          "key": "E",
+          "text": "indicator"
+        },
+        {
+          "key": "F",
+          "text": "overall"
+        },
+        {
+          "key": "G",
+          "text": "preached"
+        },
+        {
+          "key": "H",
+          "text": "prior"
+        },
+        {
+          "key": "I",
+          "text": "prompt"
+        },
+        {
+          "key": "J",
+          "text": "puzzle"
+        },
+        {
+          "key": "K",
+          "text": "quantified"
+        },
+        {
+          "key": "L",
+          "text": "recovery"
+        },
+        {
+          "key": "M",
+          "text": "reflected"
+        },
+        {
+          "key": "N",
+          "text": "story"
+        },
+        {
+          "key": "O",
+          "text": "strongly"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) focus (v 把……集中于浆焦点; 重点 ) 空格所在句缺少谓语，句子主语为they，句子时态为一般现在时，故空格处应填动词原形，且该词能与后面的on构成合理搭配。 首句提到“当人们着手改善自己的健康状况时，他们通常会采取一种熟悉的路径，即开始健康的饮食、改善睡眠，并定期锻炼”。空格所在句意为“当然，这些行为都很重要，但它们都于身体健康”。focus on意为“专注于，集中于”， 符合句意，故答案为focus。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) overall ( ady. 总体的; 全面的 adv 全部; 总体上) 空格前面为介词tb，后面为名词well-being，故空格处应填形容词或分词，修饰后面的名词。 该句意为“当然，这些行为都很重要，但它们都侧重于身体健康一一越来越多的研究表明 ，社交健康对“健康同样重要，甚至更为重要”。代和选项可知，overall符合句意。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) indicator (7). 标志; 迹象 ) 空格前面为abetter，后面为介词of，故空格处应填名词。 该句意为“例如，最近发表在PLOS ONE杂志上的一项研究发现，与健身追踪器上的体力活动、心率和睡眠数据相比，一个人社交圈的强度是其自述的压力、幸福感以及健康水平更好的 ”。代入选项可知，indicator符合句意。注意，根据中文表达习惯，此处需要名词动译，即将“是……更好的标志” 转译为“更能反映……”。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) quantified ( cx吵. 量化的量化 ) 空格前面为定冠词hte，后面为名词self，故空格处应填形容词或分词，修饰后面的名词。 该句意为“这一发现表明，无穷无尽的健康数据所代表的“自我”并不能说明全部 _ ”。quantified self意为“量化的自我”，符合句意，故答案为quantified。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) story (郊故事; 小说; 情节 ) 空格位于句末，前面为the whole，故空格处应填名词。 该句意为“这一发现表明，无穷无尽的健康数据所代表的“量化的自我”并不能说明全部 __ ”。the whole story意为“一切; 全部情况”，符合句意，故答案为story。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "M",
+          "explanation": "MD reflected (v 反映; 显示; 反射) 空格前面为主语和be动词，后面为介词短语，故空格处应填形容词，充当句子的表语，或填动词的过去分词，和be动词一起构成被动语态，充当句子的谓语。 该句意为“还有一个合格的自我，也就是“我”是谁,，'我”有哪些活动, “我”有哪些社交网络，所有这些方面都没有”在这些评估中”。代入选项可知，reflected符合句意。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) prior ( ad. 先前的，较早的 ) 空格前面为介词of，后面为名词research，故空格处应填形容词或分词，修饰后面的名词。 该句意为“这一观点得到了大量， ”研究的支持”。代和选项可知，prior符合句意。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) strongly ( adv 强烈地; 坚决地) 空格所在句结构完整，故空格处应填副词。 该句意为“研究表明，无论是来自朋友、家人还是配偶的社交支持，都与更好的身心健康相关” 。be strongly associated with...意为“与……密切相关”， 符合此处句意，故答案为strongly。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) recovery (史\" 恢复; 闪愈; 改善 ) 空格前面为improve illness，后面为rates，故空格处应填名词或分词，与ilness一起修饰名词rates。 这里列举了丰富的社交生活给身心带来的积极影响。该句意为“这些研究表明，丰富的社交生活可以缓解压力，改善情绪，鼓励积极的健康行为，阻止有害行为，促进心脏健康，以及提高疾病率”。代入入备选名词或分词选项可知，illness recovery rates意为“疾病康复率”，符合此处句意，故答案为recovery。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) especially ( adv 尤其; 特别 ) 空格所在句结构完整，故空格处应填副词。 该句意为“这是一个严重的问题， 在许多国家，和孤独正成为一个普遍的公共健康问题”。 代入选项可知，especially符合此处句意。 A) base (m. 基础; 根据以……为据点 ) B) eagerly (adv 热切地，渴望地) G) preached (v 宣传，宣 ” 扬) D prompt (y 促使;激励只迅速的; 准时的 ) ]) puzzle (于难题; 谜立使困襄，使迷 )"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-3-b",
+      "type": "matching",
+      "title": "Teenagers and social networking",
+      "paragraphs": [
+        "A) As a parent of two boys at primary school, I worry about the issues associated with teenagers and social media. Newspapers are constantly filled with frightening accounts of drug addiction and aggressive behaviour supposedly caused by violent videogames. But even when these accounts touch on real concerns, they do not really reflect the great mass of everyday teenage social behaviour: the online chat, the texting, the surfing, and the emergence of a new teenage sphere that is conducted digitally.",
+        "B) New technologies always provoke generational panic, which usually has more to do with adult fears than with the lives of teenagers. In the 1930s, parents worried that radio was gaining “an irresistible hold of their children”. In the 80s, the great danger was the Sony Walkman (随身听). When you look at today’s digital activity, the facts are much more positive than you might expect.",
+        "C) Indeed, social scientists who study young people have found that their digital use can be inventive and even beneficial. This is true not just in terms of their social lives, but their education too. So if you use a ton of social media, do you become unable, or unwilling, to engage in face-to-face contact? The evidence suggests not. Research by Amanda Lenhart of the Pew Research Centre, a US think tank, found that the most passionate texters are also the kids most likely to spend time with friends in person. One form of socialising doesn’t replace the other. It expands it.",
+        "D) “Kids still spend time face to face,” Lenhart says. Indeed, as they get older and are given more freedom, they often ease up on social networking. Early on, the web is their “third space”, but by the late teens, it’s replaced in reaction to greater independence. They have to be on Facebook, to know what’s going on among friends and family, but they are ambivalent (有矛盾心理的) about it, says Rebecca Eynon, a research fellow at the Oxford Internet Institute, who has interviewed about 200 British teenagers over three years. As they gain experience with living online, they begin to adjust their behaviour, struggling with new communication skills, as they do in the real world.",
+        "E) Parents are wrong to worry that kids don’t care about privacy. In fact, they spend hours changing Facebook settings or using quick-delete sharing tools, such as Snapchat, to minimise their traces. Or they post a photograph on Instagram, have a pleasant conversation with friends and then delete it so that no traces remain.",
+        "F) This is not to say that kids always use good judgment. Like everyone else, they make mistakes—sometimes serious ones. But working out how to behave online is a new social skill. While there's plenty of drama and messiness online, it is not, for most teens, a cycle of non-stop abuse: a Pew study found only 15% of teens said someone had bullied them online in the last 12 months.",
+        "G) But surely all this short-form writing is affecting literacy? Certainly, teachers worry. They say that kids use overly casual language and text-speak in writing, and don’t have as much patience for long reading and complex arguments. Yet studies of first-year college papers suggest these anxieties may be partly based on misguided nostalgia (怀旧). When Stanford University scholar Andrea Lunsford gathered data on the rates of errors in “freshman composition” papers going back to 1917, she found that they were virtually identical to today.",
+        "H) But even as error rates stayed stable, student essays have blossomed in size and complexity. They are now six times longer and, unlike older “what I did this summer” essays, they offer arguments supported by evidence. Why? Computers have vastly increased the ability of students to gather information, sample different points of view and write more fluidly.",
+        "I) When linguist Naomi Baron studied students’ instant messaging even there she found surprisingly rare usage of short forms such as “u” for “you”, and as students got older, they began to write in more grammatical sentences. That is because they want to appear more adult, and they know how adults are expected to write. Clearly, teaching teens formal writing is still crucial, but texting probably isn’t destroying their ability to learn it.",
+        "J) It is probably true that fewer kids are heavy readers compared with two generations ago, when cheap paperbacks boosted rates of reading. But even back then, a minority of people—perhaps 20%—were lifelong heavy readers, and it was cable TV, not the internet, that struck a blow at that culture in the 1980s. Still, 15% or more of kids are found to be deeply bookish. In fact, the online world offers kids remarkable opportunities to become literate and creative because young people can now publish ideas not just to their friends, but to the world. And it turns out that when they write for strangers, their sense of “authentic audience” makes them work harder, push themselves further, and create powerful new communicative forms.",
+        "K) Few would deny that too much time online can be harmful. Some of the dangers are emotional: hurting someone from a distance is not the same as hurting them face to face. If we're lucky, the legal environment will change to make teenagers’ online lives less likely to haunt them later on. Just last week, California passed a law allowing minors to demand that internet firms erase their digital past and the EU has considered similar legislation.",
+        "L) Distraction is also a serious issue. When kids switch from chat to music to homework, they are indeed likely to have trouble doing each task well. And studies show that pupils don’t fact-check information online— “smart searching” is a skill schools need to teach urgently. It’s also true that too much social networking and game playing can cut into schoolwork and sleep. This is precisely why parents still need to set firm boundaries around it, as with any other distraction.",
+        "M) So what’s the best way to cope? The same boring old advice that applies to everything in parenting: moderation. Rebecca Eynon argues that it’s key to model good behaviour. Parents who stare non-stop at their phones and don’t read books are likely to breed kids who will do the same. As ever, we ought to be careful about our own behaviour."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Research has found the use of digital technology benefits not only teenagers social lives but also their studies.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "芋本玖研究发现，使用数字技术不仅有利于青少年的社交生活，也有利于他们的学习。 C。由题干关键信息the use of digital technology、not only...but also 、tcenagers” social lives 、studics 定位到C段。C段前两句提到，的确，研究年轻人的社会科学家发现，他们对数码的使用可以是创造性的， 甚至是有益的，的确如此，不仅从他们的社交生活来说是这样，而且从他们的教育方面来说也是如此。题干是对这两句的概括，其中the use of digital technology对应原文中的their digital use，not only..but also对应原文中的not just in terms of ..but..，social lives是原词复现，studies对应原文中的education，故答案为C。"
+        },
+        {
+          "number": 37,
+          "stem": "It is urgent that schools teach kids how to verify online information.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "学校迫切需要教孩子们如何核实网上的信息。 L。由题干关键信息urgent、schools 、teach 、verify online information定位到L段。工段第三句提到，研究表明 ，学生们不会在网上核实信息的真实性一一“智能搜索”是学校迫切需要教授的一项技能。即，学校迫切需要教孩子们如何核实网上的信息。题干是该句的同义转述。其中urgent对应原文中的urgently，schools 、teach是原词复现，verify online information与原文中的fact-check information online同义，故答案为L。"
+        },
+        {
+          "number": 38,
+          "stem": "Students now write longer and more complex essays than their counterparts in previous decades while the error rates remain unchanged.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "与过去儿十年的学生相比，现在的学生写的作文更长、更复杂，而错误率却保持不变。 H。由题干关键信息longer and more complex essays和the error rates remain unchanged定位到了段。 G段未尾提到，大学学者安德里亚，伦斯福德收集了1917年以来关于“新生作文”错误率的数据，她发现这些数据与今天的数据几乎相同。阳段首名接着说，但即使错误率保持稳定，学生的作文在长度和复杂性方面都有了很大的发展。题干与此同义，其中longer and more complex essays是对原文essays have blossomed in size and complexity的同义转述，the error rates remain unchanged是对原文error rates stayed stable的同义转述，故答案为H。"
+        },
+        {
+          "number": 39,
+          "stem": "Newspaper reports of teenagers give a false picture of their behaviour.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "报纸上对青少年的报道起曲了他们的行为。 A。由题干关键信息Newspaper reports 、teenagers 、give a false picture 、behaviour定位到A段。A 段提到，报纸上不断充斥着关于吸毒成交和一般相信由暴力电子游戏引起的攻击性行为的可怕报道。但是，即使这些报道触及了真正的问题，它们也没有真正反映出青少年日常社交行为的多数情况。也就是说，报纸上对青少年的报道焉曲了他们的行为。题干是对这两句内容的概括，其中newspaper、teenagers和 behaviour是原词复现，reports与原文中的accounts同义，give a false picture是对原文they do not really reflect 的同义转述，故答案为A。"
+        },
+        {
+          "number": 40,
+          "stem": "Parents are advised to mind their own digital behaviour and set a good example for their kids.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "家长们应注意自己的网络行为，为孩子们树立好榜样。 M。由题干关键信息Parents 、are advised to 、mind their own digital behaviour和set a good example 定位到M段。M段提到，最好的应对方法还是老生常谈，适用于育儿的方方面面: 适度。树立良好的行为榜样是关键。不停地盯着手机并且不读书的家长可能会培养出同样的孩子。我们应该一如既往地注意自己的行为。题干是对这段内容的概括，其中parents是原词复现，advised对应原文中的advice，mind their own digital behaviour是对原文be careful about our own behaviour的同义转述，故答案为M。"
+        },
+        {
+          "number": 41,
+          "stem": "Contrary to parents’ belief, kids try hard to leave as few traces as possible on the web.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "与父母的想法相反，孩子们努力尽可能少在网上留下痕迹。 E。由题干关键信息Contrary to parents” belief、leave as few traces as possible on the web定位到E 段。E段提到，家长们担心孩子不在意隐私，这是错误的。事实上，他们会花几个小时去更改脸书的设置或使用Snapchat等阅后即焚分享工具，来减少自己的分享痕迹。题于是对这两句的概括，其中Contrary to parents” belief对应原文中的Parents are wrong to..….，leave as few traces as possible对应原文中的minimise their traces和so that no traces remain，故答案为E。"
+        },
+        {
+          "number": 42,
+          "stem": "Students’ ability to learn formal writing is unlikely to be affected by texting.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "学生学习正式写作的能力不太可能受到发短信的影响。 I。由题干关键信息Students\" ability 、formal writing 、unlikely to be affected 、texting定位到I段。I段最后一句提到，显然，教青少年如何正式写作仍然至关重要，但发短信可能不会破坏他们学习正式写作的能力。题于是对该名的同义转述，其中Students” ability to learn formal writing对应原文中的their ability to learn it，unlikely to be affected by texting对应原文中的texting probably isn'\"t destroying，故答案为IT。"
+        },
+        {
+          "number": 43,
+          "stem": "Historically, new technologies have always caused great fears among parents.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "从历史上看，新技术总是会引起家长的极大恐惧。 B。由题干关键信息new technologies、always、caused、great fears、parents定位到B段。B段第一名提到，新技术总是会引起一代入的恐慌，这通常更多地与成年人的恐惧有关，接下来举了两个例子: 20世纪30年代，家长们担心广播; 20世纪80年代，家长们担心索尼随身听。也就是说，从历史上看，新技术总是会引起家长的极大恐惧。题干是对这段内容的概括，其中new technologies和always是原词复现，caused 与原文中的provoke同义，great fears among parents是对原文中generational panic、adult fears 、an irresistible hold和great danger的概括，故答案为B。"
+        },
+        {
+          "number": 44,
+          "stem": "The reading culture was seriously affected by cable television some four decades ago.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "大约40年前，有线电视严重影响了阅读文化。 J。由题干关键信息reading culture 、seriously affected 、cable television 、some four decades ago定位到J段。J段提到，但即使在那时，也只有少数人一一大约20%一一终生都喜欢阅读，而且在20世纪80年代是有线电视，而不是互联网，对阅读文化造成了打击。也就是说，在20世纪80年代，即大约40年前，有线电视严重影响了阅读文化。题干是对该句的同义转述，其中reading culture对应原文中的that culture，cable television对应原文中的cable TV，seriously affected是原文中struck ablow at的同义复现，some four decades ago对应原文中的in the 1980s，故答案为J。"
+        },
+        {
+          "number": 45,
+          "stem": "Teachers say that kids’ writing is too casual, using language characteristic of text messages.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "老师们说孩子们的写作太随意，使用了短信的语言特征。 G。由题干关键信息Teachers say、kids” writing 、too casual、text messages定位到G段。G段第3句提到，他们说，和孩子们在写作中使用过于随意的语言和短信语言，他们没有足够的耐心进行长时间的阅读和复杂的论证。题干是对该句的同义转述，其中Teachers say对应原文中的They say，too casual对应原文中的overly casual，using language characteristic of text messages对应原文中的use...text-speak in writing，故答案为G。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "In the history of horse racing, few horses have captured the affection of the British public like Red Rum. Today, three decades after his retirement, he is still one of the best-known and most beloved racehorses of all time.",
+        "Red Rum was passed around to several owners before being purchased for Noel Le Mar. The agent who made the purchase was the now-legendary horse trainer Donald “Ginger” McCain.",
+        "It wasn’t apparent at the time, but Red Rum had a serious bone disease in his foot. For many horses (and many trainers) this would mean the end of a racing career before it even began. For Ginger and Red Rum, though, it was just an obstacle to greatness that had to be overcome.",
+        "Red Rum’s true talent came out in steeplechases (障碍赛马). His power, speed and jumping ability carried him to his first Grand National title in 1973. The very next year, Red Rum returned to take his second title. He was the first horse to take successive firsts since Reynoldstown in 1935-1936. Red Rum’s spirit and grace had already begun to charm the leagues of Grand National fans.",
+        "In the following two years, Red Rum lost out on the title, coming in second both times. When he returned in 1977 to try again, he was largely regarded as past his prime. He was 12 years old and not expected to place highly. He surprised sporting fans around the world when he came in a remarkable 25 lengths ahead of the nearest horse, taking his third Grand National win. To this day, Red Rum’s third win is known as one of the greatest moments in horse racing history.",
+        "Red Rum was headed for the Grand National once again in 1978 but suffered an injury in one of his heels shortly before the race. He was retired soon after, but his public life and fame by no means decreased with the end of his career. Red Rum traveled all over the country for various engagements. He often led pre-race parades at Aintree Racecourse and was a popular guest at charity benefits and public events."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from the passage about Red Rum the racehorse?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He captured public affection long before he won national titles."
+            },
+            {
+              "key": "B",
+              "text": "He won enormous fame and love from British people."
+            },
+            {
+              "key": "C",
+              "text": "He became a myth three decades after his retirement."
+            },
+            {
+              "key": "D",
+              "text": "He owed his great success to several well-known horse trainers."
+            }
+          ],
+          "answer": "B",
+          "explanation": "关于赛马红朗姆，我们从文章中了解到什么? A) 早在赢得全国冠军之前，它就俘获了公众的喜爱。 “C) 它在退役三十年后成为一个神话。 到它在英国民次下享有盛誉缠烦受宫爱。 。。 _D) 它的巨大成功归功于几位著名的驯马师。 着题干关键词Red Rum通篇都有出现，可以根据出题顺序与答题顺序基本二致的原则将答案定位到第一段。 第一段指出，在赛马历史上 ，很少有马匹能像红朗姆那样俘获英国民众的喜爱。如今，在它退役三十年后， 它仍是有史以来最著名和最受欢迎的赛马之一。由此可知，选项B与原文表述相符，故选B。由原文第四段可知红朗姆是在蝉联冠军之后开始受到公众喜爱的，因此选项A表述有误，可排除; C、D两项在原文中没有提及，故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What did the serious bone disease in Red Rum’s foot mean to himself and his trainer?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was simply a hindrance they had to get over to excel."
+            },
+            {
+              "key": "B",
+              "text": "It was surely a disadvantage though not considered fatal."
+            },
+            {
+              "key": "C",
+              "text": "It was actually the end of a racing career that had just begun."
+            },
+            {
+              "key": "D",
+              "text": "It was really a major obstacle hard to overcome on their own."
+            }
+          ],
+          "answer": "A",
+          "explanation": "红朗姆马蹄上严重的骨病对它自己和它的驯马师来说意味着什么? A) 这只是他们成就非凡必须克服的障碍。 C) 这实际上使得刚刚开始的赛马生涯走向终结。 B) 虽然不致命，但这确实是一个劣势。 D) 这对他们来说确实是一个很难独自克服的巨大障碍。 二名第三段指出，当时并不明显，但是红朗姆的马蹄上有严重的骨病。对很多马匹 ( 和很多驯马师 ) 来说， 这意味着其赛马生涯还没开始就结束了。然而，对于金加和红朗姆来说，这只是成就非凡必须克服的一个障碍。由此可知，选项A正确，其中hindrance、 get over、excel分别对应原文中的obstacle 、overcome、 grcatncss，属于同义替换。选项B和D的内容原文没有提到，可以排除。出原文第二段开头的内容可知，这 ，种情况是对很多其他的马匹和驯马师而言的， 对于金加和红朗姆来说并非如此，故排除C项。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author say Red Rum did with his power, speed and jumping ability?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He won his first Grand National title at 12."
+            },
+            {
+              "key": "B",
+              "text": "He took two firsts successively in 1935-1936."
+            },
+            {
+              "key": "C",
+              "text": "He surprised sporting fans worldwide in 1973."
+            },
+            {
+              "key": "D",
+              "text": "He took three Grand National wins in the 1970s."
+            }
+          ],
+          "answer": "D",
+          "explanation": "作者说红朗姆凭借它的力量、速度和跳跃能力做了什么? A) 它在 12 岁时赢得了它的第一个英国国家障碍赛马大赛冠军。 B) 它在 1935~1936 年连续两次获得冠军。 C) 它在 1973 年震惊了全世界的体育迷。 D) 它在 20世纪70 年代获得了三次英国国家障碍赛马大赛冠军。 只根据是二天语 Powes qpccd and jumpine abiity可以特基过和而大亲第四段第二句和第三句指出，它的力量、速度和跳跃能力使它在 1973 年获得了它的第一个英国国家障碍赛马大赛冠军。就在第二年，红朗众再次夺冠。第五段提到它在1977年再次参赛时，以领先亚军25个马身的非凡成绩第三次赢得英国国家障碍赛马大赛的冠军时，它震惊了全世界的体育迷们。由此可知，红朗姆的三次夺冠均在20世纪70 年代，选项D正确。其他三项均与原文不符，可排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What did people generally think of Red Rum when he returned to the racecourse in 1977?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He had already passed the peak of his racing life."
+            },
+            {
+              "key": "B",
+              "text": "He would have no rival in Grand National steeplechases."
+            },
+            {
+              "key": "C",
+              "text": "He had lost his charm with the leagues of Grand National fans."
+            },
+            {
+              "key": "D",
+              "text": "He could be expected to repeat his glory in the prime of his career."
+            }
+          ],
+          "answer": "A",
+          "explanation": "1977 年红朗姆重返赛马场时，人们普遍认为它如何? A) 它已经过了赛马生涯的顽峰。 B) 它在英国国家障碍赛马大赛中没有对手。 C) 它在英国国家障碍赛马大赛粉丝联盟中已经没有吸引力了。 D) 它有望在职业生涯的黄金时期重现辉煌。 宕Y 根据题二关键词i 1977可以将答案定位到第五有第二何。 亲第五段第二句指出，当它在1977年重返赛场再次尝试时，人们普遍认为他已经过了黄金赛龄，故选项A正 ，确，其中passed the peak of his racing li全与原文中的past his prime为同义替换。选项D与原文意思相反，可以排除。选项B的内容原文没有提及。选项C的内容属于过度推测，原文只是说人们预计它的排名不会太 ，靠前，并没有说它在粉丝联盟中已经没有吸引力了。"
+        },
+        {
+          "number": 50,
+          "stem": "What became of Red Rum after his career ended?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He suffered from severe pain in a heel."
+            },
+            {
+              "key": "B",
+              "text": "He spent almost all his time traveling."
+            },
+            {
+              "key": "C",
+              "text": "He lived on various charity benefits."
+            },
+            {
+              "key": "D",
+              "text": "He remained famous and popular."
+            }
+          ],
+          "answer": "D",
+          "explanation": "红朗姆的职业生涯结束后，它怎么样了? A) 它的脚后跟剧烈疼痛。 C) 它靠各种慈善活动为生。 B) 它几乎把所有的时间都化在了旅行上。 了j它仍然很有名可很受欢迎夫+ 根据题二关键词aher his career ended可以将答案定位到最后一段最后三句。 角? 最后一段最后三句指出, 不久之后，它就退役了,但它的公众生活和名声并没有随着它职业生涯的结束而减少，红朗姆到全国各地参加各种各样的活动，它经常在安特里赛马场的赛前游行中打头阵，而且还是慈善活动和公共活动的热门嘉宾。由此可知，退役之后，红朗姆还是非常有名，也仍然很受欢迎，故选项D 正确。选项A错在，原文虽然提到它脚后跟受伤，但并未提及退役后它的脚后跟仍然剧烈疼痛。选项B错在，原文是说它到全国各地参加活动，但不是说它把所有时间都用在了旅行上。选项C错在，它是作为慈善活动的嘉宾出席活动的，不是靠着慈善活动为生。 了"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "People in business often make decisions based on their own personal feelings or instincts. It is quite horrifying to see people being guided by some unknown force. But how wise is it, really, to let your instincts drive your decisions?",
+        "In the decision-making process, relying on instincts only makes sense when you have a vast experience to support you. Simply “feeling” that something is right or should be done is highly subjective and can drown you.",
+        "On the other hand, there is a more rational approach to making decisions. Data and analysis have long been associated with informed decisions. These reduce the likelihood of errors and increase the chances of success. Big, systematic data is mostly the foundation of most of our decisions, personal and business alike. But with its extreme usability comes a complication: what do you do if you strongly feel something should not be done, even if the data insists that it should?",
+        "This seemingly easy question is what drives the need to understand the relationship between instincts and data in the decision-making process. Without making things complicated, the solution to this dilemma is using data and instincts in conjunction to arrive at the best possible decisions.",
+        "Instinctive decisions are always backed by previous experiences or information, which acknowledges that instinctive decisions have worked in the past. Decisions are not about making the choice and braving the consequences because you want to blindly trust your instincts. They are about combining your inner wisdom with the knowledge of systematic data to make the best decisions.",
+        "Sometimes, rational analysis and data are impractical to be employed in certain situations. Absence of definitive criteria, and time and resource constraints, and novel situations are instances which limit the practicality of data. The only feasible option is to rely on what your instincts tell you. In these situations, instincts can help you make effective and quick decisions.",
+        "Combining instinctive and rational analysis produces well-rounded decisions. It reduces the chances of making mistakes, and has increasingly become a favorite approach to decision-making among leaders of today."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say businesspeople often do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Strive to make sense of some unknown forces."
+            },
+            {
+              "key": "B",
+              "text": "Avoid being driven by their own feelings."
+            },
+            {
+              "key": "C",
+              "text": "Draw on a vast wealth of past experience."
+            },
+            {
+              "key": "D",
+              "text": "Rely on instincts in decision-making."
+            }
+          ],
+          "answer": "D",
+          "explanation": "作者说商人经常做什么? A) 努力理解一些未知的力量。 C) 借鉴大量过去的经验。 B) 避免被自己的感觉所驱使。 D) 依靠直觉进行决策。 大天WeCRE 5 TO可和和宁定G征-遇名第一段第一句指出，商界人士经常根据自己的个人感受或直觉做决定。这与选项D的意思一致，故选D， 选项中的rely on与原文中的based on是同义替换。其他三项的内容都与原文不符，均排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What should we take into account in order to make informed decisions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The likelihood of errors."
+            },
+            {
+              "key": "B",
+              "text": "Systematic data and analysis."
+            },
+            {
+              "key": "C",
+              "text": "The complexity of circumstances."
+            },
+            {
+              "key": "D",
+              "text": "Personal feelings and business strategies."
+            }
+          ],
+          "answer": "B",
+          "explanation": "为了做出明智的决策，我们应该考虑什么? A) 犯错的可能性。 C) 情况的复杂性。 B) 系统的数据和分析。 D) 个人感受和经营策略。 + 而和天让辣 Ti 第三段第二、三句指出，长期以来，数据和分析一直都与明智的决策联系在一起，它们减少了出错的可能 ， 性，并且增加了成功的机会。由此可知，为了做出明智的决策，我们需要考虑系统的数据和分析，故选 B。其他三项的内容都与原文不符，均排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What should people do in a decision-making process if instincts disagree with data?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Resolve the dilemma with previous experience."
+            },
+            {
+              "key": "B",
+              "text": "Figure out which of the two is more reliable."
+            },
+            {
+              "key": "C",
+              "text": "Combine the two together."
+            },
+            {
+              "key": "D",
+              "text": "Prioritize instincts over data."
+            }
+          ],
+          "answer": "C",
+          "explanation": "如果直觉与数据不一致，人们在决策过程中应该怎么做? A) 用以前的经验解决困境。 C) 将两者结合在一起。 B) 弄清楚两者中哪一个更可靠。 D) 将直觉置于数据之上。 罕y 根据古干关键词instincts disagree with data可以将答案定位到第三段最后二何和第古芒”第三笑最后二何提出了问题，如果直觉觉得不能做，数据觉得能做，该怎么办? 第四段给出了答案。 名? 第四段第二名指出，在不让事情变得复杂的情况下，解决这一两难困境的办法就是结合使用数据和直觉以达成可能做出的最佳决策。由此可知，如果直觉与数据不一致，人们应该将两者结合起来，故选C。其他三项的内容都与原文不符，故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What should we do when facing various factors that limit the practicality of data?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Make a rational and systematic analysis."
+            },
+            {
+              "key": "B",
+              "text": "Explore the most feasible options."
+            },
+            {
+              "key": "C",
+              "text": "Resort to our inner wisdom."
+            },
+            {
+              "key": "D",
+              "text": "Apply definitive criteria."
+            }
+          ],
+          "answer": "C",
+          "explanation": "倒数第二段指出，数据分析不可行时，可以依靠直觉做出有效而快速的决定。第五段将直觉解释为内在智慧，因此选 C。"
+        },
+        {
+          "number": 55,
+          "stem": "What does it take for decisions to become the best according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Applying instincts and data in conjunction."
+            },
+            {
+              "key": "B",
+              "text": "Assessing all factors when making a choice."
+            },
+            {
+              "key": "C",
+              "text": "Recalling what has actually worked in the past."
+            },
+            {
+              "key": "D",
+              "text": "Refraining from trusting instincts arbitrarily."
+            }
+          ],
+          "answer": "A",
+          "explanation": "根据作者的说法，怎样才能做出最好的决定? A) 结合使用直觉和数据。 C) 回顾过去行之有效的方法。 蕊在做出选择时评估所有因素。 。。。。。。 D) 不要武断地相信直觉。 着， 根据题干关键词decisions to become the best以及出题顺序与原文顺序基本二致的原则可以将答案定位到最后一段。 各9 最后一段第一名指出，将直觉和理性分析相结合，可以做出全面的决策。“全面的决策”也就是“最好的决定”，由此可知，选项A正确。其他三项的内容根据事实逻辑来说好像都合理，但是都不是原文所表达的意思，故排除。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/cet4_2023_12_3.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_12_3_ans.pdf"
+}

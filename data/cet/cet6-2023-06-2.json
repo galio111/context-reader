@@ -1,0 +1,1584 @@
+{
+  "id": "cet6-2023-06-2",
+  "level": 6,
+  "year": 2023,
+  "month": 6,
+  "set": 2,
+  "title": "2023 年 6 月六级 · 第 2 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2023-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Imagine sitting down to a big dinner: a massive steak, a large portion of fried potatoes, and cake for dessert. After eating so much, you should be too full to eat another bite. But some people experience a powerful urge to keep eating, even after [[26]]in a huge meal, a behavior that makes little sense, as most adults are well-versed in the dangers of obesity, which researchers have shown correlates with [[27]]health issues and is even linked to increased [[28]]risk. But some people still keep eating long after they should stop, a phenomenon Dr. Susan Thompson calls “insatiable (永不满足的) hunger.” It is characterized by two main [[29]]: not being satisfied by eating, and having a desire to stay sedentary (久坐不动的).",
+        "Thisisat [[30]]with how humans are biologically programmed. When there was a great deal of food available, ancient people would gorge on calories; this massive calorie intake was accompanied by an urge to get active. Humans were also programmed for something called “compensation,” which is the brain’s",
+        "[[31]] mechanism for preventing the accumulation of excess weight. With compensation, if you eat one large meal in the morning, you are naturally [[32]]to eat less for the rest of the day.",
+        "But recent studies show that 70% of American adults have lost the ability to naturally compensate for the calories they consume; worse [[33]], a significant number of them report [[34]]hunger halfway through an eating session, but, by the end of the meal, they feel the same or higher levels of hunger than when they sat down. Dr. Thompson argues that the main cause of this phenomenon is the modern diet, which is [[35]]of food high in sugar, carbohydrates and calories."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "attributes"
+        },
+        {
+          "key": "B",
+          "text": "comprised"
+        },
+        {
+          "key": "C",
+          "text": "conceded"
+        },
+        {
+          "key": "D",
+          "text": "conservation"
+        },
+        {
+          "key": "E",
+          "text": "diminishing"
+        },
+        {
+          "key": "F",
+          "text": "far"
+        },
+        {
+          "key": "G",
+          "text": "inclined"
+        },
+        {
+          "key": "H",
+          "text": "indulging"
+        },
+        {
+          "key": "I",
+          "text": "innumerable"
+        },
+        {
+          "key": "J",
+          "text": "mortality"
+        },
+        {
+          "key": "K",
+          "text": "odds"
+        },
+        {
+          "key": "L",
+          "text": "plights"
+        },
+        {
+          "key": "M",
+          "text": "regulatory"
+        },
+        {
+          "key": "N",
+          "text": "still"
+        },
+        {
+          "key": "O",
+          "text": "unmatchable"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attributes"
+            },
+            {
+              "key": "B",
+              "text": "comprised"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "conservation"
+            },
+            {
+              "key": "E",
+              "text": "diminishing"
+            },
+            {
+              "key": "F",
+              "text": "far"
+            },
+            {
+              "key": "G",
+              "text": "inclined"
+            },
+            {
+              "key": "H",
+              "text": "indulging"
+            },
+            {
+              "key": "I",
+              "text": "innumerable"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "odds"
+            },
+            {
+              "key": "L",
+              "text": "plights"
+            },
+            {
+              "key": "M",
+              "text": "regulatory"
+            },
+            {
+              "key": "N",
+              "text": "still"
+            },
+            {
+              "key": "O",
+              "text": "unmatchable"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【语法判断】空格前是介词 after, 空格后是介词 in,由此可判断空格处应填入一个名词或动名词， 作 after 的宾语,同时与 in 搭配。 【语义判断空格前面的半句提到有一些人还有继续吃的强烈欲望,even after“甚至在……之后”， 表示出乎意料的情况,空格后提到一顿大餐,可见这里是说在享用了一顿大餐之后还想吃,与前半名形成对比,浏览选项中的名词和动名词, H) indulging 能够与 in 搭配,indulge in 意为“沉酒于”,这里引申为纵情享受了很多美食,符合原文意思,故为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attributes"
+            },
+            {
+              "key": "B",
+              "text": "comprised"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "conservation"
+            },
+            {
+              "key": "E",
+              "text": "diminishing"
+            },
+            {
+              "key": "F",
+              "text": "far"
+            },
+            {
+              "key": "G",
+              "text": "inclined"
+            },
+            {
+              "key": "H",
+              "text": "indulging"
+            },
+            {
+              "key": "I",
+              "text": "innumerable"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "odds"
+            },
+            {
+              "key": "L",
+              "text": "plights"
+            },
+            {
+              "key": "M",
+              "text": "regulatory"
+            },
+            {
+              "key": "N",
+              "text": "still"
+            },
+            {
+              "key": "O",
+              "text": "unmatchable"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断】空格前是介词 with,空格后的名词性结构 health issues 是 with 的宾语,可知空格处应填入一个形容词或名词类的修饰成分,来说明 health issues 某方面的特征。 【语义判断空格所在句提到研究人员已经证明肥胖与健康问题有关系,再结合常识也可以知道,肥胖会带来各种各样的问题, 因此这里填入 innumerable“无数的,数不清的?最合适,故 D为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attributes"
+            },
+            {
+              "key": "B",
+              "text": "comprised"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "conservation"
+            },
+            {
+              "key": "E",
+              "text": "diminishing"
+            },
+            {
+              "key": "F",
+              "text": "far"
+            },
+            {
+              "key": "G",
+              "text": "inclined"
+            },
+            {
+              "key": "H",
+              "text": "indulging"
+            },
+            {
+              "key": "I",
+              "text": "innumerable"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "odds"
+            },
+            {
+              "key": "L",
+              "text": "plights"
+            },
+            {
+              "key": "M",
+              "text": "regulatory"
+            },
+            {
+              "key": "N",
+              "text": "still"
+            },
+            {
+              "key": "O",
+              "text": "unmatchable"
+            }
+          ],
+          "answer": "J",
+          "explanation": "空格与 increased 一起修饰 risk。前文谈到肥胖与健康问题相关，even 引出更严重的风险；mortality 表示“死亡率”，符合此处语义。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attributes"
+            },
+            {
+              "key": "B",
+              "text": "comprised"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "conservation"
+            },
+            {
+              "key": "E",
+              "text": "diminishing"
+            },
+            {
+              "key": "F",
+              "text": "far"
+            },
+            {
+              "key": "G",
+              "text": "inclined"
+            },
+            {
+              "key": "H",
+              "text": "indulging"
+            },
+            {
+              "key": "I",
+              "text": "innumerable"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "odds"
+            },
+            {
+              "key": "L",
+              "text": "plights"
+            },
+            {
+              "key": "M",
+              "text": "regulatory"
+            },
+            {
+              "key": "N",
+              "text": "still"
+            },
+            {
+              "key": "O",
+              "text": "unmatchable"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【语法判断】空格前有介词 by,其后需要名词或动名词作宾语,而空格前的两个词 two main 显然是修饰这个词的,可见空格处就是 by 的宾语, 又根据two 可知这个宾语只能是可数名词的复数形式。 【语义判断空格前的 characterized 表示“以…… 为特点的”,根据语义,能够被称为特点的,一般是特性或者特征,浏览各名词选项,A) attributes“属性,特性,特征”符合原文意思,故为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attributes"
+            },
+            {
+              "key": "B",
+              "text": "comprised"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "conservation"
+            },
+            {
+              "key": "E",
+              "text": "diminishing"
+            },
+            {
+              "key": "F",
+              "text": "far"
+            },
+            {
+              "key": "G",
+              "text": "inclined"
+            },
+            {
+              "key": "H",
+              "text": "indulging"
+            },
+            {
+              "key": "I",
+              "text": "innumerable"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "odds"
+            },
+            {
+              "key": "L",
+              "text": "plights"
+            },
+            {
+              "key": "M",
+              "text": "regulatory"
+            },
+            {
+              "key": "N",
+              "text": "still"
+            },
+            {
+              "key": "O",
+              "text": "unmatchable"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【语法判断】空格所在句是主系表结构,空格与其前后的两个介词at 和 with 一起作 is 的表语,可知空格处很可能是个名词 。 【语义判断了空格所在句的 this 指代的是上一段提到的“永不满足的饥饿感”空格后的 with 所接的从句表示人类生理上的本能设定,人的生理本能应该是吃饱了就不再饿了,永不满足的饥钱感与这种本能是相反的,因此选择玉) odds, at odds with 是固定搭配,表示“与……相违背的,不一致共15页的”,符合原文意思,故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attributes"
+            },
+            {
+              "key": "B",
+              "text": "comprised"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "conservation"
+            },
+            {
+              "key": "E",
+              "text": "diminishing"
+            },
+            {
+              "key": "F",
+              "text": "far"
+            },
+            {
+              "key": "G",
+              "text": "inclined"
+            },
+            {
+              "key": "H",
+              "text": "indulging"
+            },
+            {
+              "key": "I",
+              "text": "innumerable"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "odds"
+            },
+            {
+              "key": "L",
+              "text": "plights"
+            },
+            {
+              "key": "M",
+              "text": "regulatory"
+            },
+            {
+              "key": "N",
+              "text": "still"
+            },
+            {
+              "key": "O",
+              "text": "unmatchable"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【语法判断】空格前面的 brain's 是名词所有格的一部分,后面的 mechanism 是这个所有格的另一部分,因此推断空格处应为一个修饰成分,用来说明 mechanism 的属性或特征。 【语义判断】 空格所在处修饰说明前文提到的 compensation 抵消行为是一种怎样的机制,空格后一句给出了抵消行为的具体解释:当你吃多了,你会自然而然地少吃。可见这种行为就是大脑在监管人的饮食均衡,因此 M) regulatory“监督的,管理的”符合原文意思。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attributes"
+            },
+            {
+              "key": "B",
+              "text": "comprised"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "conservation"
+            },
+            {
+              "key": "E",
+              "text": "diminishing"
+            },
+            {
+              "key": "F",
+              "text": "far"
+            },
+            {
+              "key": "G",
+              "text": "inclined"
+            },
+            {
+              "key": "H",
+              "text": "indulging"
+            },
+            {
+              "key": "I",
+              "text": "innumerable"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "odds"
+            },
+            {
+              "key": "L",
+              "text": "plights"
+            },
+            {
+              "key": "M",
+              "text": "regulatory"
+            },
+            {
+              "key": "N",
+              "text": "still"
+            },
+            {
+              "key": "O",
+              "text": "unmatchable"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【语法判断】空格前是系动词 are,因此空格与后面的 to 引导的不定式搭配在一起就是 are 的表语,据此推断空格处应该是一个形容词或名词。 【语义判断空格前一句提到这种抵消行为是大脑的管理机制,以防人类堆积过多的体重,因此本名应该是说,如果你上午吃了一顿大餐,一天当中秋余的时间里你就会少吃。be inclined to do sth. “倾向于做某事”符合原文意思,故 G)为答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attributes"
+            },
+            {
+              "key": "B",
+              "text": "comprised"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "conservation"
+            },
+            {
+              "key": "E",
+              "text": "diminishing"
+            },
+            {
+              "key": "F",
+              "text": "far"
+            },
+            {
+              "key": "G",
+              "text": "inclined"
+            },
+            {
+              "key": "H",
+              "text": "indulging"
+            },
+            {
+              "key": "I",
+              "text": "innumerable"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "odds"
+            },
+            {
+              "key": "L",
+              "text": "plights"
+            },
+            {
+              "key": "M",
+              "text": "regulatory"
+            },
+            {
+              "key": "N",
+              "text": "still"
+            },
+            {
+              "key": "O",
+              "text": "unmatchable"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【语法判断】从形式上可以判断 worse 与空格基本独立于后半句,可以推断空格处应该是一个能够与 worse 构成固定搭配的词 ,应为副词。 【语义判断】空格前半句提到 70% 的美国成年人已经失去了自然而然地抵消摄和人的热量的能力， 空格所在的后半句提到他们会在一餐结束时又回到最初用餐时的饥钱程度,甚至更饿,这比前半句提到的情况更粳,因此选择 N) still, worse still 是固定搭配,表示“更糟糕的是,符合原文意思,故为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attributes"
+            },
+            {
+              "key": "B",
+              "text": "comprised"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "conservation"
+            },
+            {
+              "key": "E",
+              "text": "diminishing"
+            },
+            {
+              "key": "F",
+              "text": "far"
+            },
+            {
+              "key": "G",
+              "text": "inclined"
+            },
+            {
+              "key": "H",
+              "text": "indulging"
+            },
+            {
+              "key": "I",
+              "text": "innumerable"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "odds"
+            },
+            {
+              "key": "L",
+              "text": "plights"
+            },
+            {
+              "key": "M",
+              "text": "regulatory"
+            },
+            {
+              "key": "N",
+              "text": "still"
+            },
+            {
+              "key": "O",
+              "text": "unmatchable"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【语法判断】空格前是谓语动词 report, 后面是名词 hunger,可以推测空格处很可能是一个现在分词或形容词。 【语义判断〗report doing sth. 表示“报告做过某事”,根据句意可知这里是指很多人在用餐过程中曾经报告过饥饿感减弱或者降低,但后面又感到俄了,浏览各选项,只有 E) diminishing\"降低;减少”符合原文意思,故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attributes"
+            },
+            {
+              "key": "B",
+              "text": "comprised"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "conservation"
+            },
+            {
+              "key": "E",
+              "text": "diminishing"
+            },
+            {
+              "key": "F",
+              "text": "far"
+            },
+            {
+              "key": "G",
+              "text": "inclined"
+            },
+            {
+              "key": "H",
+              "text": "indulging"
+            },
+            {
+              "key": "I",
+              "text": "innumerable"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "odds"
+            },
+            {
+              "key": "L",
+              "text": "plights"
+            },
+            {
+              "key": "M",
+              "text": "regulatory"
+            },
+            {
+              "key": "N",
+              "text": "still"
+            },
+            {
+              "key": "O",
+              "text": "unmatchable"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【语法判断】空格前是系动词is,后面是介词 of ,可知空格处是表语,且能够与 of 搭配,应该是形容词或动词过去分词形式。 【语义判断】空格所在句是 which 引导的定语从句,which 指代前面提到的 modern diet,空格后是组成现代饮食的成分,因此选择 B) comprised, be comprised of 表示“由……构成”符合原文意思， 故为答案。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-2-b",
+      "type": "matching",
+      "title": "The problem with being perfect",
+      "paragraphs": [
+        "A) When psychologist Jessica Pryor lived near an internationally renowned university, she once saw a student walking into a library holding a sleeping bag and a coffee maker. She has heard of graduate students spending 12 to 18 hours at a time in the lab. Their schedules are meant to be literally punishing: If they are scientists-in-training, they won’t allow themselves to watch Netflix until their experiments start generating results. “Relationships become estranged (疏远的)—people stop inviting them to social gatherings or dinner parties, which leads them to spend even more time in the lab,” Pryor told me.",
+        "B) Along with other therapists, Pryor, who is now with the Family Institute at Northwestern University, is trying to sound the alarm about a tendency among young adults and college students to strive for perfection in their work—sometimes at any cost. Though it is often portrayed as a positive trait, Pryor and others say extreme perfectionism can lead to depression, anxiety, and even suicide.",
+        "C) What's more, perfectionism seems to be on the rise. In a study of thousands of American, Canadian, and British college students published earlier this year, Thomas Curran of the University of Bath and Andrew Hill of York St. John University found that today’s college students report higher levels of perfectionism than college students did during the 1990s or early 2000s. They measured three types of perfectionism: self-oriented, or a desire to be perfect; socially prescribed, or a desire to live up to others’ expectations; and other-oriented, or holding others to unrealistic standards. From 1989 to 2016, they found, self-oriented perfectionism scores increased by 10 percent, socially prescribed scores rose by 33 percent, and other-oriented perfectionism increased by 16 percent.",
+        "D) A person living with an other-oriented perfectionist might feel criticized by the perfectionist spouse for not doing household chores exactly the “right” way. “One of the most common things couples argue about is the proper way of loading the dishwasher,” says Amy Bach, a psychologist in Providence, Rhode Island.",
+        "E) Curran describes socially prescribed perfectionism as “My self-esteem is contingent on what other SATT/E8 TT people think.” His study didn’t examine the causal reasons for its rise, but he assumes that the rise of both standardized testing and social media might play a role. These days, LinkedIn alerts us when our rival gets a new job, and Instagram can let us know how well “liked” our lives are compared with a friend's. In an opinion piece earlier this year, Curran and Hill argue that society has also become more dog-eat-dog. “Over the last 50 years, public interest and civic responsibility have been progressively eroded,” they write, “replaced by a focus on self-interest and competition in a supposedly free and open marketplace. ” We strive for perfection, it seems, because we feel we must in order to get ahead. Michael Brustein, a clinical psychologist in Manhattan, says when he first began practicing in 2007, he was surprised by how prevalent perfectionism was among his clients, despite how little his graduate training had focused on the phenomenon. He sees perfectionism in, among others, clients who are entrepreneurs, artists, and tech employees. “You're in New York because you're ambitious, you have this need to strive,” he says. “But then your whole identity gets wrapped into a goal.”",
+        "F) Perfectionism can, of course, be a positive force. Think of professional athletes, who train aggressively for ever-higher levels of competition. In well-adjusted perfectionism, someone who doesn’t get the gold is able to forget the setback and move on. In maladaptive (784) perfectionism, meanwhile, people make an archive of all their failures. They revisit these archives constantly, thinking, as Pryor puts it, “I need to make myself feel terrible so I don’t do this again.” Then they double down, “raising the expectation bar even higher, which increases the likelihood of defeat, which makes you self-critical, so you raise the bar higher, work even harder,” she says. Next comes failure, shame, and pushing yourself even harder toward even higher and more impossible goals. Meeting them becomes an “all or nothing” premise. Pryor offered this example: “Even if I'm an incredible attorney, if I don’t make partner in the same pacing as one of my colleagues, clearly that means I'm a failure.”",
+        "G) Brustein says his perfectionist clients tend to devalue their accomplishments, so that every time a goal is achieved, the high lasts only a short time, like “a gas tank with a hole in it.” If the boss says you did a great job, it’s because he doesn’t know anything. If the audience likes your work, that’s because it’s too stupid to know what good art actually is. But, therapists say, there are also different ways perfectionism manifests. Some perfectionists are always pushing themselves forward. But others actually fall behind on work, unable to complete assignments unless they are, well, perfect. Or they might handicap their performance ahead of time. They're the ones partying until 2 a. m. the night before the final, so that when the grade C rolls in, there's a ready excuse.",
+        "H) While educators and parents have successfully convinced students of the need to be high performing and diligent, the experts told me, they haven’t adequately prepared them for the inevitability of failure. Instead of praises like “You're so smart,” parents and educators should say things like “You really stuck with it,” Pryor says, to emphasize the value of perseverance over intrinsic talent. Pryor notes that many of her clients are wary she’ll “turn them into some degenerate couch potato and teach them to be okay with it.” Instead, she tries to help them think through the parts of their perfectionism they’d like to keep, and to lose the parts that are ruining their lives.",
+        "I) Bach, who sees many students from Brown University, says some of them don’t even go out on weekends, let alone weekdays. She tells them, “Aim high, but get comfortable with good enough.” ‘When they don’t get some award, she encourages them to remember that “one outcome is not a basis for a broad conclusion about the person’s intelligence, qualifications, or potential for the future.”",
+        "J) The treatment for perfectionism might be as simple as having patients keep logs of things they can be proud of, or having them behave imperfectly in small ways, just to see how it feels. “We might have them hang the towels crooked (NIE ff) or wear some clothing inside out,” says Martin Antony, a professor in the department of psychology at Ryerson University in Toronto.",
+        "K) Brustein likes to get his perfectionist clients to create values that are important to them, then try to shift their focus to living according to those values rather than achieving specific goals. It’s a play on the “You really stuck with it” message for kids. In other words, it isn’t about doing a headstand in yoga class; it’s about going to yoga class in the first place, because you like to be the kind of person who takes care of herself. But he warns that some people go into therapy expecting too much—an instant transformation of themselves from a pathological (病态的) perfectionist to a (still high- achieving) non-perfectionist. They try to be perfect, in other words, at no longer being perfect."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Socially prescribed perfectionism is described as one’s self-esteem depending on other people’s opinion.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】同义转述题。E)段定位句提到,库兰将社会规定型的完美主义描述为“我的自尊心取决于其他人的想法>”。题干中的 socially prescribed perfectionism 和 self-esteem 直接对应原文内容; 题干中的 depending on other people's opinion 是对原文中 is contingent on what other people think 的同义转述,故答案为 E) 。"
+        },
+        {
+          "number": 37,
+          "stem": "Jessica Pryor has learned that some graduate students work such long hours in the lab that they have little time for entertainment or socializing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析了细节归纳题。A)段指出,杰西卡。普莱尔发现学生们带着睡袋和咖啡机去图书馆,还听说研究生在实验室里一次要待 12 到 18 个小时,而且在实验开始有结果之前绝不放纵自己观看网飞视频。他们每天都很忙碌,久而久之也很少有人邀请他们参加社交聚会或晚宴,由此可知,题干是对A)段的归纳概括:这些研究生在实验室工作太久,以至于没有时间娱乐或社交。题干中的 some graduate students work such long hours in the lab 对应原文中的 graduate students spending 12 to 18 hours at a time in the lab; 题干中的 they have little time for entertainment or socializing 对应原文中的 stop inviting them to social gatherings or dinner parties,故答案为 A) 。"
+        },
+        {
+          "number": 38,
+          "stem": "The author believes perfectionism may sometimes be constructive.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【精析】同义转述题。F)段定位句提到,完美主义可以是一种积极的力量。题干中的 constructive 对应原文中的 positive force,后一句又以专业运动员积极训练去获得更高竞技水平为例, 进一步说明完美主义的积极作用,故答案为 F) 。"
+        },
+        {
+          "number": 39,
+          "stem": "It is found that perfectionism is getting more and more prevalent among college students.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 段的研究比较了美国、加拿大和英国大学生，发现如今大学生的完美主义水平高于二十世纪九十年代或本世纪初。题干概括了完美主义越来越普遍的趋势。"
+        },
+        {
+          "number": 40,
+          "stem": "Some experts suggest parents and educators should prepare students for failures.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】细节推断题。H)段第一句指出,专家表示,虽然教育工作者和家长已经成功说服学生要表现出色和勤奋,但他们并未使学生为失败的必然性做好充分的准备。由此可推断,家长和教育工作者应该让学生学会接受失败。题干中的 parents and educators 对应原文中的 educators and parents; 题干中的 prepare students for failures 对应原文中的 prepared them for the inevitability of failure,故答案为 H) 。"
+        },
+        {
+          "number": 41,
+          "stem": "Some therapists warn that young adults tend to pursue perfection in their work.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】同义转述题。B)段定位句指出,目前在西北大学家庭研究所工作的普莱尔正与其他治疗专家一起,试图对年轻人和大学生在工作中追求完美的趋势融响警钟,因为他们在追求完美的过程中有时不惜一切代价。题干中 warn 是对原文中 sound the alarm 的同义转述;题干中的 young adults tend to pursue perfection in their work 对应原文中的 a tendency among young adults and college students to strive for perfection in their work一sometimes at any cost,故答案为 B) 。"
+        },
+        {
+          "number": 42,
+          "stem": "Psychologist Amy Bach encourages her students to aim high but be content with something less than perfect.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【精析】同义转述题。D 段定位句指出,艾米。巴赫告诉她的学生, 目标要高,但也要接受足够好的共15页状态。后面也提到,如果学生错失一些奖项,她也会鼓励他们,让他们明白一次结果并不能作为评判一个人智力,资格或未来潜力的依据。题干中的 aim high 直接对应原文内容;题干中的 be content with 是对原文中 get comfortable with 的同义转述;题干中的 something less than perfect 是对原文中 good enough 的同义转述,故答案为I 。"
+        },
+        {
+          "number": 43,
+          "stem": "A clinical psychologist finds perfectionism is widespread among his clients.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】同义转述题。E)段定位句指出,曼哈顿的临床心理学家迈克尔。 布鲁斯汀在刚开始执业时发现他的客户中普遍存在着完美主义,他在企业家、艺术家和技术人员等客户身上都发现了完美主义。题干中的 perfectionism is widespread among his clients 对应原文中的 how prevalent perfectionism was among his clients,故答案为了) 。"
+        },
+        {
+          "number": 44,
+          "stem": "In trying to overcome perfectionism, some people are still pursuing perfection.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【精析】细节归纳题。K)段定位句指出,有些完美主义者在接受治疗时期望过高,希望将自己从一个病态的完美主义者一下子转变为一个(仍然是高成就的)非完美主义者。他们试图“完美?地实现这一转变。由此可知,题干是对 K)段定位句的归纳概括:有些人在试图克服完美主义的过程中还是避免不了追求完美的心态和习惯。题干中的 overcome perfectionism 对应原文中的 trans- formation; 题干中的 some people are stil pursuing perfection 对应原文中的“They try to be perfect，in other words，at no longer being perfect.”,故答案为玫) 。"
+        },
+        {
+          "number": 45,
+          "stem": "In pursuing perfection, some perfectionists fail to complete their tasks on time.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】同义转述题。G)段定位句指出,有些完美主义者实际上在工作中处于落后状态,无法完成任务 ,除非他们本身是完美的。题干中的 fail to complete their tasks on time 对应原文中的 fall behind on work，unable to complete assignments， 故答案为 G) 。 '共15页"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "How on earth did we come to this? We protect our children obsessively from every harm; we scrutinize every carer, teacher or doctor with whom they come into contact. Yet despite all this, one group, which in no way has their best interests at heart, has almost unconstrained access.",
+        "We seem to take it for granted that advertisers and marketers are allowed to condition even the youngest children. Before children have even developed a proper sense of their own identity, or learned to handle money, they’re encouraged to associate status and self-worth with stuff, and to look to external things such as fame and wealth for validation. We're turning out little consumers rather than young citizens who will value themselves for what they contribute to the society in which they live.",
+        "‘We've reached this point so gradually that many of us have never questioned it. It’s crept up on us in the 60 years since advertisers started to target the young and found that they could recruit them to a commercial assault on their parents. We've come to know it as “pester power” or the ability of children to pressure parents to make certain purchases.",
+        "Many psychologists, child development experts and educators point to research suggesting that this emerging cradle-to-grave consumerism is contributing to growing rates of low self-esteem, depression and other forms of mental illness.",
+        "Not all psychologists agree. There’re plenty working hand in glove with a £12bn-a-year industry that has turned the manipulation of adult emotions and desires into an art form—often literally. It’s also one that’s forever developing new ways to persuade our children to desire material possessions, and because of advertisements’ viral effect they only need to infect a few to reach the many. Advertising and marketing can serve a useful: purpose for children. Marketing may help socialize children as consumers, inform them about products, and help them carve out unique identities as they reach adulthood.",
+        "Then, should we ban all advertising aimed at young children? I say yes.",
+        "Of course there'll be plenty of objections to an outright ban on advertising to the under-11s. There’ll be",
+        "S6TL/E8 TT",
+        "those who argue that would be a breach of freedom of speech and infringe the rights of corporations to brainwash little children into demanding their products.",
+        "Most parents hate what advertising does to their children, but we do have the power to end it and let our children grow up free from many of the pressures of consumerism until they're old enough to make their own decisions. And though advertising is only part of an all-pervasive (JeAbR7EH)) marketing culture we need to make a start somewhere. Let’s ban all advertising targeting children of primary school age and younger now."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Which group of people does the author say has almost unrestricted access to children?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Advertisers."
+            },
+            {
+              "key": "B",
+              "text": "Carers."
+            },
+            {
+              "key": "C",
+              "text": "Teachers."
+            },
+            {
+              "key": "D",
+              "text": "Doctors."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】事实细节题。定位句指出,有一个在任何情况下都不以孩子们的最大利益为中心的群体， '共15页几乎可以不受限制地接近他们,本句并没有点明这是哪一个群体,而随后一段开头就提到了广告商和营销人员,且此后文章都是围绕广告对孩子的影响展开论述的,可知作者所说的可以不受限制地接近孩子的群体就是广告商,故答案为 A) 。"
+        },
+        {
+          "number": 47,
+          "stem": "What kind of people should we enable children to become according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Those who look to fame and wealth for external and ultimate validation."
+            },
+            {
+              "key": "B",
+              "text": "Those who value themselves because of their contribution to society."
+            },
+            {
+              "key": "C",
+              "text": "Those who associate self-worth with the ability to handle money."
+            },
+            {
+              "key": "D",
+              "text": "Those who have developed a proper sense of their own identity."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】推理判断题。定位句提到,我们培养的是小消费者, 而不是以对其所在的社会的贡献来评估自我价值的年轻公民。根据上下文可推知,作者对“小消费者”持和否定态度,那么我们应该培养出的就是本名后半部分所说的, 以对社会的贡献来评估自我价值的年轻公民,故答案为 B) 。"
+        },
+        {
+          "number": 48,
+          "stem": "Many child development experts and educators call attention to research that suggests 3",
+          "options": [
+            {
+              "key": "A",
+              "text": "life-long consumerism is causing more and more cases of psychological problems"
+            },
+            {
+              "key": "B",
+              "text": "increasing commercialization of education is eroding many children’s self-esteem"
+            },
+            {
+              "key": "C",
+              "text": "the growing desire for wealth is contributing to a rising rate of depression"
+            },
+            {
+              "key": "D",
+              "text": "the craving for purchasing material things is nurtured throughout one’s life"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】事实细节题。定位段指出,许多心理学家、 儿童发展专家和教育工作者提到的研究表明,这种从摇篮延续至坟莫的消费主义正在导致自卑、 抑郁和其他形式的精神疾病的发病率不断上升。 由此可知,终生消费主义会导致越来越多的心理问题案例,故答案为 A) 。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author imply about the impact of advertising?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is actually infectious to many rather than a few."
+            },
+            {
+              "key": "B",
+              "text": "It is rooted in our desire for material possessions."
+            },
+            {
+              "key": "C",
+              "text": "It is comparable to that of virus. ."
+            },
+            {
+              "key": "D",
+              "text": "It is literally limited to children."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】 推理判断题。定位句后半部分提到,由于广告的病毒般的效应,它们只需要感染少数人就可以触动大多数人,可见作者暗示,广告的影响可以由少数而推及大众,A)项是对定位句的转述,故为答案。"
+        },
+        {
+          "number": 50,
+          "stem": "What is the opponents’ argument against a complete ban on advertising to young children?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It would deprive them of the chance to learn about products."
+            },
+            {
+              "key": "B",
+              "text": "It would render them unable to carve out unique identities."
+            },
+            {
+              "key": "C",
+              "text": "It would breach their freedom as would-be consumers."
+            },
+            {
+              "key": "D",
+              "text": "It would violate the rights endowed upon advertisers."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】事实细节题。定位段指出,会有很多人反对彻底禁止针对 11 岁以下的儿童做广告。随后引用了他们的观点,认为这侵犯了言论自由,或是侵犯了企业对儿童进行洗脑的权利,D)项所述可与该段第二句的后半部分相对应,故答案为 D) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Many oppose workplace surveillance, because of the inherent dehumanizing effect it has and the relentless pressure it brings. But it’s on the rise around the world as firms look to become more efficient by squeezing more productivity from their workers. More than half of companies with over $750m in annual revenue used “non-traditional” monitoring techniques on staff last year.",
+        "Monitoring employee performance gives firms the ability to assess how their staff are performing and interacting, which can be good for both the firm and employees themselves. A growing number of analytics companies offer this service. They gather “data exhaust” left by employees’ email and instant messaging apps, and use name badges equipped with radio-frequency identification devices and microphones. These can check how much time you spend talking, your volume and tone of voice, even if you do not dominate conversations. While this may sound intrusive, exponents argue that it can also protect employees against bullying and sexual harassment.",
+        "Some of this data analysis can produce unexpected results. For example, it was found that people who sat at 12-person lunch tables tended to interact, share ideas more and outperform those who regularly sat at four- person tables, a fact that would probably have gone undetected without such data analysis.",
+        "Over the last few years a Stockholm co-working space called Epicenter has gone much further and holds popular “chipping parties”, where people can have microchips implanted in their hands. They can use the implants to access electronically-controlled doors, or monitor how typing speed correlates with heart rate. Implanted chips may seem extreme, but it is a relatively small step from ID cards and biometrics to such devices.",
+        "SRTH/E8TT",
+        "As long as such schemes are voluntary, there will probably be a growing number of convenience-oriented uses so that a substantial number of workers would opt to have a chip inserted. But if implanted chips are used to reduce slack time or rest breaks, that could prove to be detrimental. And if surveillance tools take away autonomy, that’s when they prove most unpopular. A lot depends on how such monitoring initiatives are communicated and this could prevent possible revolts being staged.",
+        "If bosses don’t communicate effectively, employees assume the worst. But if they're open about the information they're collecting and what they’re doing with it, research suggests 46% of employees are generally okay with it. Although many such monitoring schemes use anonymised data and participation is voluntary, many staffers remain sceptical and fear an erosion of their civil liberties.",
+        "So workplace surveillance could be empowering for staff and useful for companies looking to become more efficient and profitable. But implemented in the wrong way, it could also become an unpopular tool of oppression that proves counterproductive."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "Why are many people opposed to monitoring employee performance?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It puts workers under constant pressure."
+            },
+            {
+              "key": "B",
+              "text": "It is universally deemed anti-human by nature."
+            },
+            {
+              "key": "C",
+              "text": "It does both mental and physical harm to employees monitored."
+            },
+            {
+              "key": "D",
+              "text": "It enables firms to squeeze maximal productivity from employees."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析了事实细节题。文章第一段第一句提到许多 ， 人反对工作场所监控,因为这种做法本身就带有使人丧失人性的效果, 同时, 还会带来无尽的压力。文中的 relentless pressure 对应 A) 项中的 constant pressure,因此答案为 A)项。"
+        },
+        {
+          "number": 52,
+          "stem": "What is the supporters’ argument for workplace surveillance?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It enables employees to refrain from dominating conversations."
+            },
+            {
+              "key": "B",
+              "text": "It enhances employees’ identification with firms they work in."
+            },
+            {
+              "key": "C",
+              "text": "It can alert employees to intrusion into their privacy."
+            },
+            {
+              "key": "D",
+              "text": "It can protect employees against aggressive behavior."
+            }
+          ],
+          "answer": "D",
+          "explanation": "第二段末句提到，支持者认为工作场所监控可以保护员工免受欺凌和性骚扰。这些都是侵犯性行为，因此 D 项符合原文。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the author want to show by the example of different numbers of people interacting at lunch tables?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Data analysis is key to the successful implementation of workplace surveillance."
+            },
+            {
+              "key": "B",
+              "text": "Analyzing data gathered from workers can yield something unexpected."
+            },
+            {
+              "key": "C",
+              "text": "More workmates sitting at a lunch table tend to facilitate interaction and idea sharing."
+            },
+            {
+              "key": "D",
+              "text": "It is hard to decide on how many people to sit at a lunch table without data analysis."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析]】 推理判断题。文章第三段第二句举了一个例子:人们发现,与经常坐在四人桌旁的人相比， 坐在 12 人用餐桌旁的人更愿意互动,分享更多的想法,并且表现得更好。文中的例子都是为了支持某个论点服务的,也就是为本段第一句服务的。 第一句提到某些数据分析可能会产生意想不到的结果,因此,不同数量的人在午餐桌上互动的例子是为了证明分析从员工那儿收集到的数据可以得 '共15页到让人意想不到的结果,因此答案为 B)项。"
+        },
+        {
+          "number": 54,
+          "stem": "What does much of the positive effect of monitoring initiatives depend on?",
+          "options": [
+            {
+              "key": "A",
+              "text": "How frequently employees are to be monitored."
+            },
+            {
+              "key": "B",
+              "text": "What specific personal information is being excluded."
+            },
+            {
+              "key": "C",
+              "text": "What steps are taken to minimize their detrimental impact."
+            },
+            {
+              "key": "D",
+              "text": "How well bosses make known their purpose of monitoring."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析了事实细节题。文中第五段最后一句指出， 监控举措要想有积极效果,很大程度上取决于如何传达此类监控措施。第六段第一、二句提到, 如果老板不能与员工进行有效沟通,员工会把事情想得很糟糕。但是,如果他们对正在收集的信息以及对这些信息的处理持开放态度, 研究表明， 46%的员工通常都是能接受的。因此老板们表明他们的监控目的很重要 ,故答案为 D)项。"
+        },
+        {
+          "number": 55,
+          "stem": "What concern do monitoring initiatives cause among many staffers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may empower employers excessively."
+            },
+            {
+              "key": "B",
+              "text": "They may erode the workplace environment."
+            },
+            {
+              "key": "C",
+              "text": "They may infringe upon staffers’ entitled freedom."
+            },
+            {
+              "key": "D",
+              "text": "They may become counterproductive in the long run."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】推理判断题。第六段最后一句提到尽管许多此类监控计划使用匿名数据,而且是自愿参与的,许多员工仍然持怀疑态度,担心他们的公民自由会受到侵害,由此可见员工担忧监控举措会侵犯他们应有的自由,文中的 liberties 对应 C)项中的 freedom,故答案为 C)项。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97%E8%AF%A6%E8%A7%A3.pdf"
+}

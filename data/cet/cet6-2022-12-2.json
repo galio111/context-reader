@@ -1,0 +1,1789 @@
+{
+  "id": "cet6-2022-12-2",
+  "level": 6,
+  "year": 2022,
+  "month": 12,
+  "set": 2,
+  "title": "2022 年 12 月六级 · 第 2 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2022-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The task of the global strategist of a business is to build a platform of capabilities derived from the resources, experiences and innovations of units operating in multiple locations, to transplant those capabilities wherever [[26]], and then to systematically upgrade and renew them—ahead of the competition.",
+        "Apple is an outstanding case of a company whose unique capabilities give it a worldwide [[27]]advantage, particularly with respect to its ability to build platforms from a product base that integrates functional and [[28]]design. Apple has been able to leverage and exploit its California-based design and marketing advantages successfully throughout the world. IKEA is another such case. The do-it-yourself furniture and houseware company first developed a compelling set of capabilities to design, manufacture and [[29]] furniture at low cost and sell it in a novel way in Sweden. Later, IKEA successfully [[30]]this formula in many other countries.",
+        "By contrast, Telefonica, a Spanish telecommunications company that is now the world’s fifth largest telecom by [[31]], first developed its special advantage abroad. In 1989 and 1990, Telefonica had the opportunity to enter Chile and Argentina, countries that shared many institutional and cultural characteristics with its home country but that were [[32]]more rapid market reform. Throughout the 1990s, Telefonica took what it learned in Chile and Argentina about reconstructing former state-owned telecoms to other Latin American countries that were privatizing their state telecoms and deregulating their telecom markets.",
+        "These examples might lead the reader to believe that creating a global advantage is an easy task. But many other [[33]]of expensive failed experiments suggest that creating a lasting global advantage actually requires a great deal of [[34]]and operational finesse (技巧). Our research suggests that global winners typically create and sustain their international presence through a systematic process of [[35]], renewing and enhancing their core capabilities."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "aesthetic"
+        },
+        {
+          "key": "B",
+          "text": "appropriate"
+        },
+        {
+          "key": "C",
+          "text": "clusters"
+        },
+        {
+          "key": "D",
+          "text": "competitive"
+        },
+        {
+          "key": "E",
+          "text": "exploiting"
+        },
+        {
+          "key": "F",
+          "text": "fiscal"
+        },
+        {
+          "key": "G",
+          "text": "instances"
+        },
+        {
+          "key": "H",
+          "text": "rehabilitated"
+        },
+        {
+          "key": "I",
+          "text": "reproduced"
+        },
+        {
+          "key": "J",
+          "text": "revenues"
+        },
+        {
+          "key": "K",
+          "text": "safeguarding"
+        },
+        {
+          "key": "L",
+          "text": "ship"
+        },
+        {
+          "key": "M",
+          "text": "strategic"
+        },
+        {
+          "key": "N",
+          "text": "transcend"
+        },
+        {
+          "key": "O",
+          "text": "undergoing"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【语法判断空格前面是地点副词 wherever,引导让步状语从名,后面一般接句子的主谓部分。由于空格处只能填入一个单词,可以考虑这里省略了某些成分,由此可推断出此处原本应是“主语+ be动词+形容词”的结构,这里省略了主语和 be 动词 ,那么空格处应该就是一个形容词。 【语义判断空格所在句提到,企业全球战略家的任务是建立一个能力平台,从多地运营单位的资源、经验和创新中获取能力,然后把这些能力迁移到某些地方,系统地升级和更新它们,从而领先于竞争对手。备选项中的形容词 appropriate\"“合适的,恰当的?用在此处表示“把这些能力迁移到任何合适的地方”符合语境,故 B)为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "D",
+          "explanation": "空格修饰名词 advantage，需要形容词。句子说明苹果公司凭借独特的能力在全球获得竞争优势，competitive advantage 表示“竞争优势”，因此选 D) competitive。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【语法判断空格后面是名词 design, 前面是并列连词 and,and 前面是形容词 functional,由此可推断,空格处应该也是一个形容词, 和 functional 呈并列关系。 【语义判断空格所在句指出,苹果公司的产品融合了两方面的设计,functional “实用的?是其中的一个设计特征,那么空格处的形容词也应该用来描述某种特征,形容词中,aesthetic“美学的,审美的”符合文意,故答案为 A) aesthetic。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【语法判断】空格前面是并列连词 and,根据 and 前面的两个动词 desiga设计?和 manufacture“制造\"*可知,空格处也应该是一个动词,并且为动词原形。 【语义判断】 空格所在句描述的是宜家建设企业能力的具体做法, 他们以低成本设计、 制造和 _ 家具,并以新颖的方式在瑞典销售。根据一般逻辑可知,设计和制造结束后应该就是“运输演售卖等环节, ship“(用船`飞机、卡车等)运送”符合语义逻辑,故 L) ship 为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断】空格前面是副词 successfully,后面是名词短语 this formula, 空格所在句包含主语 IKEA,但缺少谓语动词,由此可推断出空格处应该填入一个动词作为空格所在句的谓语,再结合文章时态可知 ,此处应填入动词的过去式。 【语义判断】上文指出,宜家已经在国内实践了成功的商业做法 ,接着空格所在句指出,宜家在许多其他国家这一方法,说明它是把国内的成功经验再运用到其他国家中去。D) reproduced “复制?符合语境,故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "J",
+          "explanation": "空格位于介词 by 后，应填名词。原句按收入规模衡量西班牙电信公司的排名，revenues 表示“收益、收入”，符合语义。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【语法判断于空格位于 that 引导的从句中,该从名中引导词 that 充当主语, 宾语为 more rapid market reform,可推断 be 动词 were 应和空格所在词一起构成谓语部分,因此可以推断此处最有可能填入一个动词的现在分词。 【语义判断】空格所在句提到,智利和阿根廷这两个国家与西班牙有许多相同的制度和文化特征， 但正在更迅速的市场改革。动词的现在分词中, 只有 undergoing“经历”能与 market reform 搭配,且符合上下文语义,故答案为 O) 。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【语法判断】空格后面是介词 of ,前面的 other 用作形容词时后面一般接复数名词,由此可推断出空格处应填入一个名词的复数形式。 【语义判断】上一句指出,前文提到的这些成功案例可能会让读者觉得创造全球优势是一件容易的事。空格所在句以 but 为转折,表示也有许多失败的实验表明创造持久的全球优势实际上需要技巧,也就是说, 同样存在很多失败案例, G) instances“例子,实例”与前一句中的 example 相对应,且符合文意,故为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【语法判断】空格前面是介词短语 a great deal of , 可知后面应该是一个名词或名词短语, 而本文中空格后面是并列连词 and,且 and 后面已经存在名词短语 operational finesse, 由此可推断出空格处应该填入一个形容词,和 and 后面的 operational 形成并列关系。 【语义判断】空格所在句的意思是,创造持久的全球优势实际上需要大量的技巧,其中一个技巧是运营层面的,由此可知,空格处所填的形容词应该是和公司运行发展相关的,strategic“ 战略性的”符合文意,故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【语法判断】空格前面是介词短语 Process of ,后面两个动词的现在分词 renewing“更新”和 enhancing*增强?由并列连词 and 连接起来,说明空格处也应该填入一个动词的现在分词,保持并列关系。 【语义判断】此处意思是:全球赢家通常是通过 _ ,更新和增强其核心能力的系统化过程来建立和维持其国际影响力。备选项中的 exploiting“开发;利用”用在这里符合语义逻辑,故答案为忆) 。 共15 页"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-2-b",
+      "type": "matching",
+      "title": "2022 4 12 ASEHEARIUES 245 5 4 TIE 10 | Fear of Nature: An Emerging Threat to Conservation",
+      "paragraphs": [
+        "A) What do we lose when natural spaces and species disappear? Increasingly, research has shown that as species and ecosystems vanish, it also chips away at our ability to preserve what remains—because we no longer understand what we're losing.",
+        "B) You probably see it all the time. The neighbor who puts pesticides on his lawn rather than deal with annoying bees. The politician who votes against wildlife protection because she's never seen a wolf in the wild. The corporation that wants to bulldoze (用推土机推平) the habitat of a rare frog.",
+        "C) At best this can be termed “the extinction of experience,” where our cultural and natural histories fade from our memories and therefore our reality. At its worst it becomes something even more concerning: “biophobia,” the fear of living things and a complete aversion to nature.",
+        "D) This isn’t the fiction of living in a cold, empty dystopia (绝望的世界). Sadly, it’s becoming a way of life for too many people—especially children. A recent study in Japan paints a striking portrait of this problem. A survey of more than 5,300 school children in the Tochigi Prefecture examined their perception of 14 local insect species and one spider. The results? A collective “ew!” Most of the students saw the species as things to dislike or fear, or even as sources of danger. The less experience the students had with nature, the more negative their feelings.",
+        "E) The results were published earlier this year in the journal Biological Conservation. Lead researcher Masashi Soga with the University of Tokyo says the study stemmed from observations about today’s nature-deficient children. “Humans inherently avoid dangerous organisms such as bees, but children these days avoid even harmless insects such as butterflies and dragonflies( 3% %£),” he says. “I have long wondered why so many of today’s children react like this.”",
+        "F) Although the children’s reactions were somewhat expected, the new study did contain an unexpected finding: Many of the surveyed children revealed that their parents also expressed fear or disgust of the same animals. In fact these parental emotions were strong enough to overwhelm any positive experiences the children might have gained from direct experiences in nature. As Soga and his coauthors wrote in their paper, “Our results suggest that there is likely a feedback loop in which an increase in people who have negative attitudes towards nature in one generation will lead to a further increase in people with similar attitudes in the next generation.”",
+        "G) And that’s possibly the greater threat posed by extinction of experience. Soga suggests the generational loss—condition previously dubbed environmental generational amnesia (i % )—could chip away at our societal ability to preserve what we’re losing. “I believe that increased biophobia is a major, but invisible, threat to global biodiversity,” Soga says. “As the number of children who have biophobia increases, public interest and support for biodiversity conservation will gradually decline. Although many conservation biologists still consider that preventing the loss of wildlife habitat is the most important way to conserve biodiversity, I think preventing increased biophobia is also important for conservation.”",
+        "H) What's to be done about this? The paper makes several recommendations, the most obvious of which is that children should experience nature more often. The authors also suggest establishing policies to guide these natural experiences and increasing educational programs about the natural world.",
+        "I) Helping parents to see species around them in a new light would make a difference, too. And, of course, maintaining support for preserving the wild spaces where these “scary” creatures live is the most important thing of all. That’s a point reinforced by another recent study, which found that wild spaces located within urban areas—and the plants and animals that thrive in them-are particularly important for human health and well-being.",
+        "J) Published in the journal Frontiers in Sustainable Cities, the study examined attitudes toward Discovery Park, the heavily forested S534-acre public park in Seattle, Washington. It found that the public had the most appreciation for-and gained the most value from-the wildest parts of the park. “I have seen whales, seals, fish, eagles, shorebirds and many other sea creatures in their natural habitat,” one survey participant wrote. “Coming here with people has allowed me to connect and talk with them about conversation that simply does not happen in everyday life,” wrote another.",
+        "K) The participants reported that their most valuable experiences in the park included encountering wildlife, walking through open spaces, exploring the beach and finding beautiful views. “We saw that a large majority of participants’ interactions, especially their most meaningful interactions, depended on Discovery Park’s relative wildness,” says lead author Elizabeth Lev, a master’s student in the University of Washington's Human Interaction with Nature Lab. This is only possible because the park is relatively wild. After all, you can’t enjoy watching birds if there are no birds to follow; gaze at the sunset if it’s obscured by skyscrapers; or stop and smell the flowers if they don’t have room to grow.",
+        "L) And yet even this long-protected space could someday become less hospitable to nature. Over the past few years a lot of people and organizations have suggested developing parts of Discovery Park or the neighboring area. Most recently a plan proposed building 34 acres of much-needed affordable housing and parking spaces adjacent to the park, bringing with them noise, traffic and pollution.",
+        "M) If anything like that happened, both the park and the people of Seattle could lose something vital. And that would continue the trend of chipping away at Seattle’s—and the world’s—natural spaces, leaving just tiny pocket parks and green-but-empty spaces that offer little real value to wildlife, plants or people.",
+        "N) “It is true that any interaction with nature is better than none, but I don’t want people to be satisfied with any small bit of grass and trees,” Lev says. “We have been in this cycle of environmental generational amnesia for a long time, where the baseline keeps shifting and we don't even realize what we're losing until it’s gone. If we can get people to understand how much meaning and value can come from having more experiences with more wild forms of nature, then maybe we can stop this cycle and move toward conserving and restoring what we have left.”",
+        "O) Building this understanding in an ever-more fearful and disconnected world may be the biggest challenge. Peter Kahn, the senior author of Lev’s paper and the director of the Human Interaction with Nature lab, made several suggestions for bridging this gap in this 2011 book, Technological Nature. They echo the recommendation about getting children into nature, but also include telling stories of how things used to be, imagining what things might be like in the future, and developing a common language about nature, “a way of speaking about wild and domestic interaction patterns, and the meaningful, deep and often joyful feelings that they generate.”",
+        "P) No matter what techniques we use, this growing field of research illustrates that saving nature requires encouraging people to experience it more often and more deeply. That calls for additional research-Lev and her coauthors have published a toolkit that other municipalities can follow to study the value of their own wild spaces—and clear communication of the results. “If we can continue to show people the benefits of these wild spaces,” Lev says, “maybe people will begin to see more value in keeping these areas undeveloped—for the sake of our mutual benefit.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "A new study found parents’ aversion to certain animals would pass on to their children.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【〖精析】细节推断题。F)段第一句提到,这项新研究确实含有一个意想不到的发现:许多接受调查的孩子透露,他们的父母也对同样的动物表现出柜惧或厌恶。由该句中 also 和 the same animals 可知,这些孩子和他们的父母一样如惧或厌恶这些动物。该段最后一句强调该研究结果表明上一代对自然持负面态度的人数增加会导致下一代持类侯态度的人数进一步增加。由此可以推知,家长对某些动物的厌恶会导致其孩子同样厌恶这些动物, 题干中的 parents”aversion to certain animals 对应原文中的 their parents also eXpressed fear or disgust of the same animals,题干中的 pass on to their children 是根据原文中 lead to a further increase in people with similar attitudes in the next generation 推断而出的结论， 故答案为 F) 。"
+        },
+        {
+          "number": 37,
+          "stem": "The disappearance of species and ecological systems erodes our ability to keep what is left.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 段末句指出，物种和生态系统消亡的同时，也在削弱我们保护剩余自然资源的能力。题干的 erodes our ability 与 chips away at our ability 对应。"
+        },
+        {
+          "number": 38,
+          "stem": "A study showed that the wildest areas of Discovery Park appealed most to the public.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【精析】同义转述题。J)段第二句提到,研究发现， 公众对公园最荒野的地方最为欣赏,并从中获得了最大价值。题干中的 the wildest areas of Discovery Park 对应原文中的 the wildest parts of the park,题干中的 appealed most to the public 是对原文中 the public had the most appreciation for 的同义转述,故答案为了) 。"
+        },
+        {
+          "number": 39,
+          "stem": "The fear of living organisms is becoming more worrisome.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】〗同义转述题。C)段最后一句指出,最糟糕的情况是变成更加令人担忧的问题,生物丽惧证>,即对生物的恐惧和对自然的完全厌恶。题干中的 the fear of living organisms 对应原文中的 biophobia 和 the fear of living things, 题干中的 worrisome 是原文中 concerning 的近义词,故答案为 C)。"
+        },
+        {
+          "number": 40,
+          "stem": "Preventing the increase in children’s fear of living creatures is also important for conserving biodiversity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】同义转述题。G)段最后一句提到,尽管许多保护生物学家仍然认为防止野生动物栖息地的丧失是保护生物多样性最重要的方法,但曾我昌史党得防止生物恺惧症的增加对保护也很重要。 题干中的 the increase in children's fear of living creatures 是对原文中 increased biophobia 的同义转述,题干中的 conserving biodiversity 对应原文中的 conserve biodiversity 和 conservation, 故答案为 G) 。"
+        },
+        {
+          "number": 41,
+          "stem": "Research shows that more and deeper experience people have with nature will help save it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "P",
+          "explanation": "【精析】细节推断题。P)段第一句提到,这一不断发展的研究领域表明,揉救自然需要鼓励人们更频繁.更深入地体验自然。由 requires encouraging 可以推知,人们更频繁.更深入地体验自然对于拯救自然有所助益,所以才会需要鼓励人们这人么去做, 题干中的“more and deeper experience... with nature”对应原文中的 exXperience it more often and more deeply, 题干中的 will help save it 是根据原文中“saving nature requires encouraging...”推断而出的结论,故答案为P) 。"
+        },
+        {
+          "number": 42,
+          "stem": "Though humans naturally tend to avoid dangerous animals, today’s children try to stay away from even harmless ones.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】同义转述题。E)段第三句指出,人类生来就会避开像蜜蜂这样的危险生物,但如今的儿童甚至还会躲避诸如蝴蝶和晴虹之类的无害昆虫。 题干中的 naturally tend to avoid dangerous animals 和 stay away from even harmless ones 分别对应原文中的 inherently avoid dangerous organisms 和 avoid even harmless insects,故答案为了)。"
+        },
+        {
+          "number": 43,
+          "stem": "Development in and around Discovery Park could cause heavy losses to the park and the local residents.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【精析】细节推断题。MD段第一句提出 ,如果发生类似的事情, 探索公园和西雅图人都可能失去一些至关重要的东西。由上一段可知,anything like that 是指开发探索公园的部分地区或周边地区。 而刀段第一句表明探索公园位于西雅图,由此可以推知,题干中的当地人就是指西雅图人。也就是说,开发探索公园的部分地区或周边地区会令公园自身以及西雅图当地人损失重大。题干中的 cause heavy losses 对应原文中的 lose something vital ,故答案为 M) 。"
+        },
+        {
+          "number": 44,
+          "stem": "A large survey of school children found that their negative feelings grew as their experience with nature diminished.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】同义转述题。D)段第四句提到一项对桥木县 5 300 多名学龄儿童的调查,研究了他们对 14 种当地昆虫和工种蜘蛛的看法。由 5 300 多名学龄儿童可知,这是一项大型调查。然后该段最后一句指出调查结果发现学生对自然的体验越少,他们的感受就越负面。题干中的 a large SuUrVey of school children 对应原文中的 a survey of more than 5, 300 school children, 题干中的 their negative feelings grew as their experience with nature diminished 是对原文中 the less experience the students had with nature，the more negative their feelings 的同义转述,故答案为D)。"
+        },
+        {
+          "number": 45,
+          "stem": "Elizabeth Lev believes increased contact with more wildlife helps conserve biodiversity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            },
+            {
+              "key": "P",
+              "text": "P 段"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【精析】细节推断题。N)段最后一句指出,伊丽落白，列夫表示如果我们能让人们了解到与大自然更多类型的野生动植物进行更多接触所带来的意义和价值,那么也许我们可以停止这一循环,并朝着保护和恢复我们剩余资源的方向迈进。由此可以推知,与更多类型的野生动植物进行更多接触有助于保护和恢复我们的剩余资源,即保护生物多样性。题干中的 increased contact with more wildlife 对应原文中的 having more experiences with more wild forms of nature, 题干中的 helps conserve biodiversity 是根据原文中 move toward conserving and restoring what we have left 推断而出的结论,故答案为 N) 。 共15页共15页"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Some people in the US have asserted that forgiving student loan debt is one way to stimulate the economy and give assistance to those in need. One government proposition is to eliminate $10,000 of debt for ‘economically distressed” students. Some in US Congress have gone so far as to suggest forgiving up to $50,000 in debt per student borrower, but does forgiving student debt necessarily correlate to helping the economically disadvantaged?",
+        "The answer is no. This policy is just giving money away to universities and the most affluent students in attendance. Federal Reserve data reveals that the highest-income 40 percent of households owe approximately 60 percent of outstanding student debt, while the lowest 40 percent owe just under 20 percent. This could be due to a combination of factors: students from high-income households are more likely to go to expensive colleges, less likely to receive financial aid, and more likely to have high incomes post-graduation. Plus, the majority of student debt is held by graduate degree earners, who earn approximately 25",
+        "percent more than their undergraduate counterparts. Clearly, giving free reign to banks to forgive student debt is a step in the wrong direction.",
+        "Other proposals for broader, long-term student loan plans have some fundamental problems. One idea is to cancel student debt only for undergraduate degrees and for students making less than $125,000.",
+        "This attempts to address the fact that Congress’ previously mentioned student loan forgiveness plan largely helps out the wealthy, but is an adverse incentive for universities to keep raising tuition and for students to choose to major in low-earning degree programs. Colleges have no reason to make their programs more affordable if they believe students will just take out more debt. And, students will feel more comfortable making the irresponsible decision to go tens of thousands of dollars in debt to major in impractical or idealistic subjects if they know their loans will be forgiven.",
+        "This is especially concerning given the pandemic (大流行病) has rendered a college education practically worthless. Students are paying tens of thousands of dollars per year to live at home and be lectured on the Internet. Do we really want to tell colleges that they can get away with providing below-average service for an outrageous cost?",
+        "In the case of any of these student debt plans, working-class Americans who chose not to or could not afford to go to college will be subsidizing the education of the professional class. Plumbers and retail workers will be paying for the degrees of doctors and lawyers.",
+        "The US government's effort to help those in debt is commendable but is this really the solution that will help the poor financially recover?"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Why do some people advocate forgiving student loan debt?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They assert it will narrow the gap between the wealthy and the poor."
+            },
+            {
+              "key": "B",
+              "text": "They believe it will benefit both the economy and the underprivileged."
+            },
+            {
+              "key": "C",
+              "text": "They claim it will eliminate economic distress among college students."
+            },
+            {
+              "key": "D",
+              "text": "They think the cost of education is the responsibility of the government."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析了事实细节题。定位句指出,一些美国人断言,免除学生贷款债务是刺激经济、帮助有需要者的一种方式,而作者在定位段末句质疑这样做是否真的是在帮助弱势群体,可知主张免除学生贷款的人认为这样做有利于经济和弱势群体,故答案为B)。 ，"
+        },
+        {
+          "number": 47,
+          "stem": "What do we learn from the Federal Reserve data?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Approximately 60% of student debt remains unpaid."
+            },
+            {
+              "key": "B",
+              "text": "Cancelling student debt benefits wealthy families most."
+            },
+            {
+              "key": "C",
+              "text": "Forgiving student debt provides little benefit to universities."
+            },
+            {
+              "key": "D",
+              "text": "Low-income families owe the biggest amount of student debt."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析] 推理判断题。定位句指出,根据美联储的数据,在未偿还的学生债务中,约 60%是收入排在前40%的家庭欠下的,而收入排在后 40%的家庭的欠款只占不到 20% ,而之前一句则说,免除学生债务只是给大学和最富裕的在校学生送钱,综合这两句可知,作者引用美联储的这一数据就是为了说明取消学生债务对富裕家庭最有利,故答案为B)。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author say students are likely to do if they know they needn’t repay their loans?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They will choose to study subjects without considering their job prospects."
+            },
+            {
+              "key": "B",
+              "text": "They will be free to pursue their goals without being burdened financially."
+            },
+            {
+              "key": "C",
+              "text": "They will over-borrow and live beyond their means."
+            },
+            {
+              "key": "D",
+              "text": "They will be able to enroll in expensive universities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】推理判断题。定位句指出,如果学生们知道自己的贷款会被免除,那么他们更容易做出不绍观点并提出疑问。 | 绅到的观点进行驱斥以立论，指出免除学生债务的做 ; 方面支持论点: 一是免除学生债务令富人得到实惠; ; 生贷款计划存在一些根本性问题; 三是大流行病会使 ; 值; 四是让工薪阶层资助专业阶层的教育不公正。 调政府这一举措动机虽好，但效果令人存疑。 | 羊解负责任的决定, 主修不切实际或理想主义的科目， 而不惜签下数万美元的债务。由此可知,作者认为学生提前知道学费债务免除的后果, 主要是导致他们选择的专业不实际。再结合该段首句中所说的,学生因此会选择主修低收入学位课程,概括而言,如果学生知道债务可以免除,那么他们就会不太考虑就业后的收入前景,主修不切实际的课程,故 A)为答案。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author imply about colleges offering online education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They cannot get away with the serious consequences."
+            },
+            {
+              "key": "B",
+              "text": "They have suffered greatly from the current pandemic."
+            },
+            {
+              "key": "C",
+              "text": "The tuition they charge is not justified by the quality of their service."
+            },
+            {
+              "key": "D",
+              "text": "The tuition they charge has surged outrageously during the pandemic."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析了推理判断题。定位句提到,大流行病期间， 学生们每年支付数万美元却只是待在家里,接受网上授课。在随后一句,作者批评这些大学收取高昂的费用而只提供低于平均水平的服务,可知其学费与服务质量不相匹配,故答案为 C) 。"
+        },
+        {
+          "number": 50,
+          "stem": "What will happen if any of the proposed student debt plans is implemented?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Plumbers and retail workers will have a chance of becoming professionals."
+            },
+            {
+              "key": "B",
+              "text": "Working-class students will have increasing access to subsidized education."
+            },
+            {
+              "key": "C",
+              "text": "Blue-collar workers will have to bear the cost of educating would-be high-earners."
+            },
+            {
+              "key": "D",
+              "text": "A growing number of students will be able to earn degrees in medicine and law."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。定位段首句指出,无论施行何种学生债务计划,都是让美国工薪阶层资助专业阶层的教育,随后采用举例的方式,说管道工和零售工人将为医生和律师的学位支付学费,也就是蓝领阶层将为高收入的专业人士承担教育费用,故答案为 C) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "If there’s one rule that most parents cling to in the confusing, fast-changing world of kids and media, it’s “No screens before age 2.”",
+        "As of today, that rule has been thrown out the window.",
+        "The American Academy of Pediatrics (AAP), which first issued that recommendation back in 1999, has extensively updated and revised its guidelines for children and adolescents to reflect new research and new habits.",
+        "The new guidelines, especially for very young children, shift the focus from WHAT is on the screen to WHO else is in the room. And in doing so, they raise some intriguing points about the future of learning from media.",
+        "For babies younger than 18 months, AAP still says no screens at all are the best idea—with one notable exception: Live video chat. Surveys indicate that families already popularly believe that “Face time doesn’t count”, or at least that the benefit of virtual visits with grandparents or other relatives outweighs the potential cost of exposing babies to the laptop or smartphone.",
+        "The AAP doesn’t cite positive evidence that infants actually get something out of this kind of “conversation”, the way that they clearly do from live social interaction. But there’s some observational research that infants as young as six months old are emotionally engaged by playing live peekaboo (4%) with Grandma online.",
+        "For infants and toddlers (4 % JL), ages 15 months to 2 years old, there’s limited evidence from a couple of very small studies that they can learn new words from educational media, if and only if parents are watching alongside them, repeating what the video says and/or drawing attention to what is on the screen. In other words, treating a video or an app like a picture book is the best bet.",
+        "The flip side of this is that many studies have actually shown poorer language skills correlated with earlier solo viewing of “educational” videos. There’s also research that shows language delays in children who watch more TV and start watching earlier. In both cases, the problem seems to be media replacing interaction with people. For this reason, the new AAP guideline has changed from “avoid all screens under age 2” to “avoid solo media use in this age group.”",
+        "For preschoolers ages 2 to 5, there’s more evidence that they have the ability to transfer knowledge from screens to the real world, including early literacy and math. For",
+        "this age group, AAP recommends no more than an hour a day of screen use. And, just as with younger children, they want care-givers to take part in screen time: “Co-view with your children, help children understand what they are seeing, and help them apply what they learn to the world around them.”"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn about the \"No screens under 2\" rule?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has met more and more resistance from parents."
+            },
+            {
+              "key": "B",
+              "text": "It has proved helpful to children's healthy growth."
+            },
+            {
+              "key": "C",
+              "text": "It confuses parents with regard to kids' education."
+            },
+            {
+              "key": "D",
+              "text": "It has been discarded in line with recent research."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】事实细节题。文章首段第一句指出,大多数父母认为在孩子未满 2 周岁之前,应该限制孩子看屏幕。第二段第一句指出,但从今天起,这条规则就不适用了。由此可知,未满 2 周岁之前， 限制孩子看屏幕”这条规则现在已经不提倡了,故答案为 D) 。"
+        },
+        {
+          "number": 52,
+          "stem": "What do the new AAP guidelines advocate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Young children should be accompanied by parents during screen time."
+            },
+            {
+              "key": "B",
+              "text": "Parents should be emotionally involved in their children's upbringing"
+            },
+            {
+              "key": "C",
+              "text": "Young children should watch videos carefully selected by parents."
+            },
+            {
+              "key": "D",
+              "text": "Parents should protect their children from too much media exposure."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】推理判断题。文章第四段第一句指出,这项新的指导方针,特别是针对非常年幼的儿童的部分,将重点从屏幕上的内容转向房间里的其他人。 文章第七段第一句指出,只有当父母和孩子一起观看视频,并且对孩子重复视频中的内容,或者提示孩子注意屏幕上的内容时, 孩子才能从教育媒体中学到新单词。由此可知,新指南提倡在看屏幕期间,年幼的孩子应该有父母陪伴,故答案为A)。"
+        },
+        {
+          "number": 53,
+          "stem": "What do families think of live video chat according to surveys?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It should not be regarded as screen time."
+            },
+            {
+              "key": "B",
+              "text": "It helps babies to develop their verbal skills."
+            },
+            {
+              "key": "C",
+              "text": "It is not as harmful as playing games on laptops."
+            },
+            {
+              "key": "D",
+              "text": "It is a good substitute for video viewing."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析】推理判断题。文章第五段第二句指出,调查显示 ,美国家庭已经普遍认为“实时视频聊天没事”,或者至少他们认为云端看望祖父母或其他亲不的好处要大于让要儿接触笔记本电脑或智能手机的潜在危害。由此可知,调查表明,家庭认为实时视频聊天不应被视为屏幕时间 ,故答案为 A) 。"
+        },
+        {
+          "number": 54,
+          "stem": "What do researches find about kids solo viewing educational videos?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It arouses their interest in language learning."
+            },
+            {
+              "key": "B",
+              "text": "It works no better than reading picture books."
+            },
+            {
+              "key": "C",
+              "text": "It hampers their development of language skills."
+            },
+            {
+              "key": "D",
+              "text": "It helps them acquire independent learning skills."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。文章第八段第一句指出,另一方面,许多研究实际表明, 孩子语言技能较差与其早期单独观看“教育 “视频相关。由此可知,孩子自己看视频,会阻碍他们语言技能的发展,故答案为 C) 。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author say about preschoolers ages 2 to 5?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can understand pretty well what they see on the screen."
+            },
+            {
+              "key": "B",
+              "text": "They can learn on their own without much parental guidance."
+            },
+            {
+              "key": "C",
+              "text": "They can make use of educational videos to develop digital literacy."
+            },
+            {
+              "key": "D",
+              "text": "They can relate what they learn on the screen to real life situations."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析]】 推理判断题。文章最后一段第一句指出， 对于2至5 岁的学龄前儿童,有更多证据表明他们有能力将知识从屏幕转移到现实世界,包括早期识字和数学。由此可知,2至 5 岁的学龄前儿童可以将屏幕上学到的内容与现实生活情境联系起来,故答案为D) 。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%9C%9F%E9%A2%98PDF/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97%E7%AD%94%E6%A1%88%E5%8F%8A%E8%AF%A6%E8%A7%A3.pdf"
+}

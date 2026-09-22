@@ -1,0 +1,1623 @@
+{
+  "id": "cet4-2023-12-1",
+  "level": 4,
+  "year": 2023,
+  "month": 12,
+  "set": 1,
+  "title": "2023 年 12 月四级 · 第 1 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2023-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Exercising for just 10 minutes a week is linked to a longer life, according to a new study published in The British Journal of Sports Medicine.",
+        "Several recent studies have found that even low-intensity exercise, done for a short amount of time, can have a meaningful [[26]] on health. Still, the idea that exercising for just 10 minutes a week may be enough to increase your lifespan is novel. It’s also somewhat [[27]], since the federal physical activity guidelines recommend getting at least 75 minutes of vigorous exercise or 150 minutes of [[28]]exercise each week.",
+        "The study was based on data from more than 88,000 U.S. adults who [[29]] in the National Health Interview Survey between 1997 and 2008.",
+        "Contrary to some research that has found an [[30]] limit to the amount of exercise that is healthy, the researchers found that there was [[31]]no limit to the longevity (长寿) benefits of exercise. Even the small group of people who got 10 times the amount of exercise recommended by the federal government had a 46% lower [[32]]of death than the least active group.",
+        "Still, observational studies like this one cannot prove cause and effect; they can only find [[33]]. The researchers also were not able to [[34]] for certain lifestyle factors that could affect lifespan, including",
+        "dietary habits and changes in physical activity over time. Despite these [[35]], the study’s results are yet another indication of the power of physical activity, even in small amounts."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "adjust"
+        },
+        {
+          "key": "B",
+          "text": "alter"
+        },
+        {
+          "key": "C",
+          "text": "approximately"
+        },
+        {
+          "key": "D",
+          "text": "controversial"
+        },
+        {
+          "key": "E",
+          "text": "coordinates"
+        },
+        {
+          "key": "F",
+          "text": "impact"
+        },
+        {
+          "key": "G",
+          "text": "limitations"
+        },
+        {
+          "key": "H",
+          "text": "moderate"
+        },
+        {
+          "key": "I",
+          "text": "participated"
+        },
+        {
+          "key": "J",
+          "text": "patterns"
+        },
+        {
+          "key": "K",
+          "text": "populated"
+        },
+        {
+          "key": "L",
+          "text": "risk"
+        },
+        {
+          "key": "M",
+          "text": "seemingly"
+        },
+        {
+          "key": "N",
+          "text": "type"
+        },
+        {
+          "key": "O",
+          "text": "upper"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adjust"
+            },
+            {
+              "key": "B",
+              "text": "alter"
+            },
+            {
+              "key": "C",
+              "text": "approximately"
+            },
+            {
+              "key": "D",
+              "text": "controversial"
+            },
+            {
+              "key": "E",
+              "text": "coordinates"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "limitations"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "participated"
+            },
+            {
+              "key": "J",
+              "text": "patterns"
+            },
+            {
+              "key": "K",
+              "text": "populated"
+            },
+            {
+              "key": "L",
+              "text": "risk"
+            },
+            {
+              "key": "M",
+              "text": "seemingly"
+            },
+            {
+              "key": "N",
+              "text": "type"
+            },
+            {
+              "key": "O",
+              "text": "upper"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) impact (mm. 影响，作用 v <对某事物>有影响，有作用 ) 空格前面为have a meaningful，后面为on health，故空格处应填名词。 该句意为“最近的一些研究发现，即使是短时间的低强度运动，也能对健康产生重要 ”。 由此可知，impact符合此处句意。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adjust"
+            },
+            {
+              "key": "B",
+              "text": "alter"
+            },
+            {
+              "key": "C",
+              "text": "approximately"
+            },
+            {
+              "key": "D",
+              "text": "controversial"
+            },
+            {
+              "key": "E",
+              "text": "coordinates"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "limitations"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "participated"
+            },
+            {
+              "key": "J",
+              "text": "patterns"
+            },
+            {
+              "key": "K",
+              "text": "populated"
+            },
+            {
+              "key": "L",
+              "text": "risk"
+            },
+            {
+              "key": "M",
+              "text": "seemingly"
+            },
+            {
+              "key": "N",
+              "text": "type"
+            },
+            {
+              "key": "O",
+              "text": "upper"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) controversial ( adj. 有争议的; 引起争论的 ) 空格前面为Its also somewhat，后面为逗号，故空格处应填形容词或分词，作表语。 该空需结合上文进行分析，上和句意为“尽管如此，每周只锻炼10分钟可能就足以延长寿命的想法还是很新颖的”。而该句句意为“这也有一定的__， 因为联邦体育活动指南建议每周至少进行75分钟的剧烈运动或150分钟的运动”。前后句子之间存在转折对比关系，代入选项可知，controversial符合此处句意。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adjust"
+            },
+            {
+              "key": "B",
+              "text": "alter"
+            },
+            {
+              "key": "C",
+              "text": "approximately"
+            },
+            {
+              "key": "D",
+              "text": "controversial"
+            },
+            {
+              "key": "E",
+              "text": "coordinates"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "limitations"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "participated"
+            },
+            {
+              "key": "J",
+              "text": "patterns"
+            },
+            {
+              "key": "K",
+              "text": "populated"
+            },
+            {
+              "key": "L",
+              "text": "risk"
+            },
+            {
+              "key": "M",
+              "text": "seemingly"
+            },
+            {
+              "key": "N",
+              "text": "type"
+            },
+            {
+              "key": "O",
+              "text": "upper"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) moderate (adj. 适度的; 适中的使适中 ) 空格前面为介词of，后面为名词exercise，故空格处应填形容词或分词，修饰后面的名词。 该句意为“这也有一定的争议性，因为联邦体育活动指南建议每周至少进行75分钟的剧烈运动或 150分钟的”运动”。moderate exercise意为“适度运动”， 符合此处句意，故答案为moderate。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adjust"
+            },
+            {
+              "key": "B",
+              "text": "alter"
+            },
+            {
+              "key": "C",
+              "text": "approximately"
+            },
+            {
+              "key": "D",
+              "text": "controversial"
+            },
+            {
+              "key": "E",
+              "text": "coordinates"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "limitations"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "participated"
+            },
+            {
+              "key": "J",
+              "text": "patterns"
+            },
+            {
+              "key": "K",
+              "text": "populated"
+            },
+            {
+              "key": "L",
+              "text": "risk"
+            },
+            {
+              "key": "M",
+              "text": "seemingly"
+            },
+            {
+              "key": "N",
+              "text": "type"
+            },
+            {
+              "key": "O",
+              "text": "upper"
+            }
+          ],
+          "answer": "I",
+          "explanation": "D participated (v 参与，参加 ) 空格所在句为定语从句，从名缺少谓语，其主语为关系代词who，指代前面的more than 88,000 U.S.adults，主句时态为过去时，故空格处应填动词过去式，且该词能与in构成合理搭配。 该句意为“该研究基于1997年至2008年间全国健康访谈调查的88,000多名美国成年人的数据”。participated in意为“参与，参加”，符合此处句意，故答案为participated。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adjust"
+            },
+            {
+              "key": "B",
+              "text": "alter"
+            },
+            {
+              "key": "C",
+              "text": "approximately"
+            },
+            {
+              "key": "D",
+              "text": "controversial"
+            },
+            {
+              "key": "E",
+              "text": "coordinates"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "limitations"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "participated"
+            },
+            {
+              "key": "J",
+              "text": "patterns"
+            },
+            {
+              "key": "K",
+              "text": "populated"
+            },
+            {
+              "key": "L",
+              "text": "risk"
+            },
+            {
+              "key": "M",
+              "text": "seemingly"
+            },
+            {
+              "key": "N",
+              "text": "type"
+            },
+            {
+              "key": "O",
+              "text": "upper"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) upper (ad 上面的; 上层的) 空格前面为不定冠词am，后面为名词limit，故空格处应填形容词或分词，修饰后面的名词。 该句意为“一些研究发现，健康的运动量是有限制的，与此相反，该研究的研究人员发现，运动对长寿的好处”没有上限”。前后句表达相反语义，由后面提到的there was..no limit ( 没有上限 ) 可知，此空格处表述“有上限”之意， upper limit意为“上限”，符合此处句意， 故答案为upper。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adjust"
+            },
+            {
+              "key": "B",
+              "text": "alter"
+            },
+            {
+              "key": "C",
+              "text": "approximately"
+            },
+            {
+              "key": "D",
+              "text": "controversial"
+            },
+            {
+              "key": "E",
+              "text": "coordinates"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "limitations"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "participated"
+            },
+            {
+              "key": "J",
+              "text": "patterns"
+            },
+            {
+              "key": "K",
+              "text": "populated"
+            },
+            {
+              "key": "L",
+              "text": "risk"
+            },
+            {
+              "key": "M",
+              "text": "seemingly"
+            },
+            {
+              "key": "N",
+              "text": "type"
+            },
+            {
+              "key": "O",
+              "text": "upper"
+            }
+          ],
+          "answer": "M",
+          "explanation": "MD seemingly ( adv 似乎; 看似) 空格所在句结构完整，故空格处应填副词。 该句意为“一些研究发现，健康的运动量是有上限的，与此相反， 该研究的研究人员发现，运动对长寿的好处”没有上限”。代入选项可知，seemingly 符合此处句意。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adjust"
+            },
+            {
+              "key": "B",
+              "text": "alter"
+            },
+            {
+              "key": "C",
+              "text": "approximately"
+            },
+            {
+              "key": "D",
+              "text": "controversial"
+            },
+            {
+              "key": "E",
+              "text": "coordinates"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "limitations"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "participated"
+            },
+            {
+              "key": "J",
+              "text": "patterns"
+            },
+            {
+              "key": "K",
+              "text": "populated"
+            },
+            {
+              "key": "L",
+              "text": "risk"
+            },
+            {
+              "key": "M",
+              "text": "seemingly"
+            },
+            {
+              "key": "N",
+              "text": "type"
+            },
+            {
+              "key": "O",
+              "text": "upper"
+            }
+          ],
+          "answer": "L",
+          "explanation": ") risk (7 风险; 危险置……的风险) 空格前面为had a 46% lower，后面为of death，故空格处应填名词。 该句意为“即使运动量是联邦政府建议的10倍的那一小群人，其死亡”也比运动量最小的人群低46%”。代和选项可知，risk 符合此处句意。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adjust"
+            },
+            {
+              "key": "B",
+              "text": "alter"
+            },
+            {
+              "key": "C",
+              "text": "approximately"
+            },
+            {
+              "key": "D",
+              "text": "controversial"
+            },
+            {
+              "key": "E",
+              "text": "coordinates"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "limitations"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "participated"
+            },
+            {
+              "key": "J",
+              "text": "patterns"
+            },
+            {
+              "key": "K",
+              "text": "populated"
+            },
+            {
+              "key": "L",
+              "text": "risk"
+            },
+            {
+              "key": "M",
+              "text": "seemingly"
+            },
+            {
+              "key": "N",
+              "text": "type"
+            },
+            {
+              "key": "O",
+              "text": "upper"
+            }
+          ],
+          "answer": "J",
+          "explanation": "了 patterns (刀模式; 方式形成图柴 ) 空格位于句末，前面为fnd，故空格处应填名词，作宾语。 该句意为“不过，像这样的观察性研究并不能证明因果关系; 它们只能发现“ _ ”。代入选项可知，patterns意为“模式;方式”，符合此处句意， 但此处应根据上下文将其转译为“规律”。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adjust"
+            },
+            {
+              "key": "B",
+              "text": "alter"
+            },
+            {
+              "key": "C",
+              "text": "approximately"
+            },
+            {
+              "key": "D",
+              "text": "controversial"
+            },
+            {
+              "key": "E",
+              "text": "coordinates"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "limitations"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "participated"
+            },
+            {
+              "key": "J",
+              "text": "patterns"
+            },
+            {
+              "key": "K",
+              "text": "populated"
+            },
+            {
+              "key": "L",
+              "text": "risk"
+            },
+            {
+              "key": "M",
+              "text": "seemingly"
+            },
+            {
+              "key": "N",
+              "text": "type"
+            },
+            {
+              "key": "O",
+              "text": "upper"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) adjust (v 调整; 适应 ) 空格前面为were not able to，后面为for certain lifestyle factors，故空格处应填动词原形。 该句意为“研究人员也无法某些可能影响寿命的生活方式因素， 包括饮食习惯和体育锻炼随时间的变化”。代入选项可知，adjust符合此处句意。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adjust"
+            },
+            {
+              "key": "B",
+              "text": "alter"
+            },
+            {
+              "key": "C",
+              "text": "approximately"
+            },
+            {
+              "key": "D",
+              "text": "controversial"
+            },
+            {
+              "key": "E",
+              "text": "coordinates"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "limitations"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "participated"
+            },
+            {
+              "key": "J",
+              "text": "patterns"
+            },
+            {
+              "key": "K",
+              "text": "populated"
+            },
+            {
+              "key": "L",
+              "text": "risk"
+            },
+            {
+              "key": "M",
+              "text": "seemingly"
+            },
+            {
+              "key": "N",
+              "text": "type"
+            },
+            {
+              "key": "O",
+              "text": "upper"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) limitations (). 局限性; 限制 ) 空格前面为Despite these，后面为逗号，故空格处应填名词复数。 该句意为“尽管存在这些____ ，但这项研究的结果再次表明了体育锻炼的影响， 即使是少量的体育锻炼”。代和选项可知，limitations符合此处句意。 SR二条SEY: 本 B) alter (Y 改变; 更改 ) C) approximately ( adw 大概; 大约) E) coordinates (Y 使协调; 使相配合) K) populated (Y 生活于;居住于 ua太有人口居住的) N)type (允类型; 种类和打字)"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-1-b",
+      "type": "matching",
+      "title": "How Climate Change Will Affect What You Eat",
+      "paragraphs": [
+        "A) Earlier this year, scientists warned that one in six animal species could go extinct (灭绝的) due to climate change. Could the same thing happen to our crops and other foodstuffs too?",
+        "B) It’s clear that farmers in many parts of the world are going to find things harder in the coming decades. Last week, BBC Future explored one scientist's efforts to help crops cope with the increased probability of droughts. By using the genes from resurrection (复活) plants, Jill Farrant of the University of Cape Town is exploring whether she can design crops to survive for much longer periods without water.",
+        "C) But if we can’t find ways to protect other foods, will they survive climate change? Fortunately, there is some good news on this front. Despite alarmist headlines about “foods that are going extinct,” there is no evidence that major food types like beans, chocolate, wine, corn or wheat will cease to exist.",
+        "D) But that doesn’t mean it’s all good news for future food. We will probably have to change where we grow certain crops, as some regions get too hot. The disadvantage, obviously, is that local farmers will suffer under this situation. And some people may struggle to get the same access to certain foods. “Even if overall food production may be unaffected, food security can still be impacted,” says Margaret Walsh, a scientist at the US Department of Agriculture’s Climate Change Program Office. In other words, even if a certain food is still grown on some comer of the Earth, it doesn’t mean that everyone will continue to have the same degree of _ access as today.",
+        "E) Overall, the yields of many foods, from staples to life-enhancing extras such as coffee and chocolate, will likely be impacted by climate change too. How those decreases will be felt will depend on the degree of . warming and the crop in question, but in general, “anything over about 30°C is very bad for crops,” says Wolfram Schlenker, an associate professor of international and public affairs at Columbia University. For example, statistical studies that he and a colleague built of corn and soybean (大豆) production in the US show a steep decline after crossing the 30°C temperature threshold (临界点).",
+        "F) In the US—the world’s largest producer of corn and soybeans—farms can move north to some degree, Schlenker says. But eventually, yields will likely suffer because the soil north of Iowa declines in quality— a legacy of glacial (冰川的) expansion. Other studies, including studies of wheat in India and corn in Africa, also found that there is a threshold above which yields sharply decline: crops can adapt and move, but only to a point. “What’s common to all studies is the finding that extreme heat is damaging to crop growth, although exact cutoffs vary by crop,” Schlenker says. “If predictions for the end of the century are true, though, I think a lot of agricultural areas in the US will see significant hits.”",
+        "G) Under current conditions, about 4% of the world’s croplands experience drought in any given year, but by the end of the century those conditions are forecasted to jump to about 18% per year. Some studies indicate that horticulture crops—generally, everything besides staples—may be impacted most severely, largely because they tend to be confined to a smaller geographic area. Researcher Andrew Jarvis and his colleagues found that 80% of coffee-growing zones in Central America and Brazil could become unsuitable by 2050, for example, while climate change will likely have “great impacts” on cocoa (可可粉) production in West Africa. “High quality chocolate will be less available in the future, and if you want it, you'll have to pay a lot more for it,” Jarvis says.",
+        "H) This means that, for those who can afford it, some foods will simply cost them more in the future. But for poorer people, those same price jumps will likely cause certain foods to go extinct from their diets. “The more you reduce, the shorter the supply, and the higher the price will jump,” Schlenker says.",
+        "I) Another potential climate change-induced problem is our dependence on commodity crops—wheat, soybeans, corn and rice—which currently provide humanity with 75% of its calories, either directly or indirectly through the animals we raise on those crops. Jarvis and his colleagues also found that, over the past five decades, the world has seen an increasing standardisation of diets; the foods we eat globally today arc 36% more similar than they were in 1961. While this can be good news for the world’s poorest people who now consume more calories, protein and fat than in the past, homogeneity (同一性) and over-dependence on a handful of staples leaves us vulnerable to threats such as drought, disease and pests—all of which are predicted to worsen in many parts of the world as a result of climate change.",
+        "J) There are ways we could soften the coming blow to the global food supply, however. Like Farrant’s work with resurrection crops, a number of companies, organisations and researchers are aiming to create drought- and temperature-resistant crops through genetic engineering and conventional breeding. For now, the jury is still out as to how successful those endeavours will be. “The people at Monsanto who I've talked to are much more optimistic that they'll be able to engineer heat-tolerant crops,” Schlenker says. “On the other hand, scientists at the USDA who I've spoken with are much more cautious.”",
+        "K) Until genetic engineering comes to fruition, other strategies might also help in some places, including applying more fertiliser, implementing better irrigation, using machinery that gets crops out of the field faster or installing storage facilities to delay spoilage. “Many places could benefit a great deal just by using technologies that already exist,” Walsh says. “General farm management can go a long way toward easing changes.”",
+        "L) Finally, diversifying our diet away from heat-sensitive wheat, corn, rice and other crops could also help. “Weve seen profound changes in the last decades in what we eat largely as a result of international trade, and I think that trend toward more diversification will continue,” Jarvis says. “Depending on a greater number of plant species creates a more vigorous and less risky food system—and one that provides a broader range of nutritional requirements.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "One consequence of climate change is that some people may not have adequate access to certain foods.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "气候变化的一个后果是，有些人可能无法充分获得某些食物。 D。由题干关键信息One consequence of climate change 、adequate access和 certain foods定位到D 段。该段第二句提到气候变暖可能会导致人们改变农作物的种植地点，接着第三句和第四名讲述由此带来的不利影响: 当地农民将遭受损失，有些人可能很难像以前一样获得某些食物。换言之，气候变化的一个后果是，有些人可能无法充分获得某些食物。由此可见，题干是对原文内容的同义转述，其中One consequence of climate change 对应原文中的The disadvantage，而some people may not have adequate access to certain foods对应原文中的some people may struggle to get the same access to certain foods。"
+        },
+        {
+          "number": 37,
+          "stem": "People around the world are eating foods more similar than what they used to eat.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "与过去相比，世界各地的人们现在吃的食物更加相似。 I。由题干关键信息People around the world、meore similar和what they used to eat定位到I段。该自第二句提到，贾维斯和他的同事们还发现，在过去的50年里，世界上的饮食越来越标准化; 与1961年相比，今天我们在全球范围内吃的食物相似度提高了36%。由此可知，题干是对该名内容的同义转述。其中 People around the world对应原文中的the world，而are eating foods more similar than what they used to eat是对原文中the foods we eat globally today are 36% more similar than they were in 1961的概括总结。"
+        },
+        {
+          "number": 38,
+          "stem": "A recent news report talked about scientific efforts to help crops survive droughts through genetic engineering.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "最近的一篇新闻报道谈到了通过基因工程帮助农作物在干旱中存活的科学努力。 B。由题干关键信息A recent news report 、scientific efforts 、survive droughts和genetic engineering 定位到B段。该段第二句提到，上周，英国广播公司“未来”栏目探究了一位科学家为帮助农作物应对日益增加的干旱概率所做的努力。接着下一句具体介绍: 通过使用复活植物的基因，开普敦大学的吉尔， 法兰特正在探索她是否能设计出在没有水的情况下可以存活更长时间的农作物。由此可知，题干是对原文内容的概括总结。题干中的A recent news report对应原文中的Last week, BBC Future，而talked about Scientific efforts to help crops survive droughts对应原文中的explored one scientist\"s efforts to help crops cope with the increased probability of droughts，而through genetic engineering 对应原文中的By using the genes from TeSurrection plants。"
+        },
+        {
+          "number": 39,
+          "stem": "It is predicted that climate change will affect the availability and price of quality chocolate.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "据预测，气候变化将影响优质巧克力的供应和价格。 G。由题干关键信息affect the availability and price of quality chocolate定位到G段。该段倒数第二名提到，研究人员安德鲁贾维斯和他的同事们发现气候变化将很可能会对西非可可粉的生产产生“巨大影响”，接着最后一句通过引用贾维斯的话指出，未来优质巧克力的供应将减少，如果你想要它，你就得花更多的钱。换言之，气候变化将影响优质巧克力的供应和价格。由此可见，题干是对原文内容的同义转述，其中climate change和quality chocolate属于原词重现，affect对应原文中的have“great impacts” on，而the availability and price of quality chocolate是对原文中will be less available in the future, and if you want it, you'll have to pay a lot more for it的概括总结。"
+        },
+        {
+          "number": 40,
+          "stem": "People wonder if certain crops and foodstuffs could disappear like some animal species due to climate change.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "人们想知道，某些农作物和食物是否会像某些动物物种一样因气候变化而消失。 A。由题干关键信息certain crops and foodstuffs 、some animal species和climate change定位到A段。 该段提到，今年早些时候，科学家们警告称，六分之一的动物物种可能会因气候变化而灭绝。同样的事情也会发生在我们的农作物和其他食物上吗? 由此可知，题干是对原文内容的同义转述。题干中的certain crops and foodstuffs对应原文中的our crops and other foodstuffs ，而disappear对应原文中的go extinct，而 animal species和due to climate change属于原词重现。People wonder if对应原文中的设问名Could the same thing...too?"
+        },
+        {
+          "number": 41,
+          "stem": "Although farms in the US can move a bit northward, crop yields may decrease.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "尽管美国的农场可以稍微向北迁移，但农作物的产量可能会下降。 F。由题干关键信息farms in the US 、move a bit northward和crop yields定位到F段。该段前两句引用施伦克尔的话提到，在美国，农场可以在一定程度上向北迁移，但最终，产量可能会受到影响。由此可知，题干是对原文内容的同义转述。题干中的farms和in the US属于原词重现，而can move a bit northward对应原文中的can move north to some degree，而crop yields对应原文中的yields，而may decrease对应原文中的 will likely suffer。"
+        },
+        {
+          "number": 42,
+          "stem": "One possible solution to the food security problem is diversification of diet.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "应对粮食安全问题的一个可能的解决办法是饮食多样化。 工。由题干关键信息One possible solution 、the food security problem和diversification of diet定位到L 段。该段首句提到，最后，让我们的饮食多样化，远离对热敏感的小麦、玉米、大米和其他作物也会有所帮助。由此可知，题干是对该句内容的同义转述。其中One possible solution对应原文中的could also help， 而diversification of diet对应原文中的diversifying our diet away...other crops。"
+        },
+        {
+          "number": 43,
+          "stem": "It remains unsettled whether the global food supply problem can be solved by creating heat-tolerant crops through genetic engineering.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "全球粮食供应问题能否通过基因工程培育出耐热农作物来解决，目前尚无定论。 J。由题干关键信息remains unsettled 、the global food supply problem和和creating heat-tolerant crops through genetic engineering定位到J段。该段前几句提到，我们有办法减轻全球粮食供应即将受到的打击。 像法兰特在复活作物方面所做的工作一样，很多公司、组织和研究人员们正在致力于通过基因工程和传统培育创造耐旱和耐高温的农作物。目前，这些努力能否取得成功尚无定论。由此可知，题干是对原文内容的同义转述。题干中的It remains unsettled对应原文中的the jury is still out，the global food supply属于原词重现，whether..can be solved对应原文中的how successful those endeavours will be，而by creating heat-tolerant crops through genetic engineering对应原文中的create drought- and temperature-resistant crops through genetic engineering and conventional breeding。"
+        },
+        {
+          "number": 44,
+          "stem": "Poor people may have to give up eating certain foods because of their high prices.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "穷人可能因为其高定价而不得不放弃吃某些食物。 H。由题干关键信息Poor people、give up eating certain foods和 high prices定位到H段。该段第二名提到，但对于穷人来说，同样的价格上涨很可能会导致某些食物从他们的饮食中消失。由此可知，题干是对该句内容的同义转述。其中Poor people对应原文中的poorer people，而may have to give up eating certain foods because oftheir high prices对应原文中的those same price jumps will likely cause certain foods to go extinct from their diets。"
+        },
+        {
+          "number": 45,
+          "stem": "A number of existing farming technologies could be used to reduce the negative effect of climate change on food production.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "一些现有的农业技术可以被用来减少气候变化对粮食生产的负面影响。 开。由题干关键信息existing farming technologies 、reduce the negative effect、climate change和food production定位到K段。该段提到，在基因工程取得成果之前， 其他策略也可能在一些地方有所帮助，包括施用更多的肥料，施行更好的灌溉，使用更快地将农作物从田地中收割的机器或者安装鞍缓腐烂的储存设施。沃尔什说:“很多地方只要使用现有的技术就可以受益更多……”由此可知，题干是对原文内容的概括总结，其中A number of existing farming technologies could be used对应原文中的by using technologies that already exist，而reduce the negative effect of climate change on food production对应原文中的might also help和 could benefit a great deal。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "One of my bad habits is saying “busy” when people ask me how I'm doing. Sometimes it’s because I actually am busy, but other times it’s because that’s what I think I'm supposed to say. That’s what important people say. That's what people who get promoted say. But working long hours doesn’t drive better results. Never taking a vacation won't lead to a promotion. So why are we so proud to talk about how busy we are all the time?",
+        "In 2016, researchers from Columbia, Harvard, and Georgetown conducted a study to figure it out. They found busy people are perceived to be of high status, and interestingly, these status attributions are heavily influenced by our own beliefs about social mobility. In other words, the more we believe that one has the opportunity for success based on hard work, the more we tend to think that people who skip leisure and work all the time are of higher standing.",
+        "That's why we feel like we have to appear busy, and there’s a real perception that if someone is knee-deep in meetings, emails, and stress, then they’re probably a big deal. This culture of busyness is making it hard for",
+        "employees to find work-life balance. According to a recent study, one in five highly engaged employees is at risk of burnout (精疲力竭).",
+        "Personally, I'm going to stop saying “busy” when people ask me how I am. It sounds self-righteous (自以为是的) and sets the wrong tone. Phrases like “I have limited access to email” and “I'll respond as soon as I get back” sound like you're being held against your will from working as opposed to making the most of your time off.",
+        "That's why we recently launched the Out of Office Email Generator, a free tool you can use before your next long weekend or trip. You can share loud and proud that you won’t be checking email until you're back. Managers need to think twice about emailing their teams on the weekend and talking about how busy they are. Leaders should take time off themselves and encourage employees to do the same."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What is a reason for the author to be in the habit of saying “busy” when asked how he is doing?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He just follows successful people’s example."
+            },
+            {
+              "key": "B",
+              "text": "He is actually proud to be fully occupied."
+            },
+            {
+              "key": "C",
+              "text": "He thinks everyone should be devoted to work."
+            },
+            {
+              "key": "D",
+              "text": "He believes busyness ensures accomplishments."
+            }
+          ],
+          "answer": "A",
+          "explanation": "当被问到过得怎么样时，作者习惯于说“忙”的原因是什么? A) 他只是效仿成功人士的例子。 C) 他认为每个人都应该全身心地投入到工作中。 B) 他确实为自己很忙而感到自豪。 ，_，，___D) 他认为忙碌可以确保一个人取得成就。 寄? 根据题下关键词saying \"busy ”when asked how he is doing可以将答案定位到第一段。 二第一段第一句指出，当被问到最近怎么样时，作者都会回答说“忙”。接下来的几句话给出了原因，有时是因为作者真的很忙，但有时是因为作者觉得应该这么回答。重要人物都是这么回答的。那些升职的人也是这么回答的。由此可知，作者习惯于回答“忙”是因为成功人士都是这样回答的，他是在效仿他们，故 ， 本题选A。其他三项的内容都不是作者给出的原因，均排除。"
+        },
+        {
+          "number": 47,
+          "stem": "Why do we tend to think that busy people are of high status?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Our status can be attributed to our social mobility."
+            },
+            {
+              "key": "B",
+              "text": "We hold the belief that hard work leads to success."
+            },
+            {
+              "key": "C",
+              "text": "Our own opportunity for success never comes easily."
+            },
+            {
+              "key": "D",
+              "text": "We find few people of high status have time for leisure."
+            }
+          ],
+          "answer": "B",
+          "explanation": "为什么我们倾向于认为忙碌的人地位高? A) 我们的地位可以归因于我们的社会流动性。 C) 我们成功的机会来之不易。 B) 我们相信努力工作会带来成功。 D) 我们发现地位高的人很少有休闲时间。 寄*? 根据题二关键词busy people are ofhigh status可以将答案定位到第二有。 站站解> 第二段第二、三句指出，人们认为忙碌的人地位高，我们越是相信一个人有机会通过努力工作获得成功， 我们就越倾向于认为那些不休息、一直工作的人地位更高。由此可知，因为我们相信努力工作能让我们获得成功，所以我们认为工作忙碌的人地位更高，故本题选B。选项A比较容易误选，虽然原文也出现了 social mobility，但是文章中的意思是，我们地位的高低受到我们自己对社会流动的看法的影响，并不是说地位归因于社会流动性。在原文中attribution是“归属”的意思，status attributions是“地位归属，地位高 ，低”的意思。选项C和D与原文不符，均排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What do we learn about the culture of busyness from a recent study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It places employees in endless meetings, emails and stress."
+            },
+            {
+              "key": "B",
+              "text": "It compels some 20% of employees to appear always busy."
+            },
+            {
+              "key": "C",
+              "text": "It distorts many employees’ belief of what a satisfying life is."
+            },
+            {
+              "key": "D",
+              "text": "It does much harm to many busy employees’ well-being."
+            }
+          ],
+          "answer": "D",
+          "explanation": "关于忙碌的文化，我们从最近的一项研究中得知了什么? A) 它让员工陷人无休止的会议、电子邮件和压力之中。 B) 它迫使大约20%的员工看上去总是很忙。 C) 它扭曲了许多员工对什么是令人满意的生活的信念。 所 ? 根据题干关键词the culture ofbusyness和a recent study可以将答案定位到第三段第二、三句。 名第三段第二句和第三句指出，这种忙碌的文化使得员工很难找到工作与生活之间的平衡。根据最近的一项研究，每五名高度投入工作的员工，就有一人处在精疲力竭的风险当中。由此可见， 高强度的工作会让员工过于疲备，有精疲力竭的风险，即对他们的健康伤害很大，故本题选D。其他三个选项虽然有部分原文词汇，但是表达的意思与原文不符，均排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What do such utterances as “I have limited access to email” sound like according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "One is too busy to check all emails in time."
+            },
+            {
+              "key": "B",
+              "text": "One is opposed to the prevailing work culture."
+            },
+            {
+              "key": "C",
+              "text": "One is forced by circumstances to stop working."
+            },
+            {
+              "key": "D",
+              "text": "One is simply enjoying their time off work."
+            }
+          ],
+          "answer": "C",
+          "explanation": "根据作者的说法，诸如“我不方便查阅电子邮件”这样的表达听起来像什么? A) 一个人太忙了，无法及时查看所有的电子邮件。 国守汪大因祖况所因而下得不停下工作可 B) 一个人反对主流的工作文化。 D) 一个人只是在享受他们不工作的时间。 窟Y 概据古二关键词Thave lmited access to emaii可以将答案定位到个数第二自最后一句。 解倒数第二段最后一句指出，像“我不方便查阅电子邮件”和“我一回来就回复”这样的表达，听起来就像是你不得不停止工作了，而不是你想充分利用自己的休息时间。也就是说， 这样的说法听起来就像是一个人希望继续工作，但是因为某种原因而不得不暂停工作，故本题选C。选项D与原文的意思相反，原文是说这样的表达听起来就像是你不得不停止工作了 ，而不是享受自己不工作的时间。选项A和B原文未提及，均排除。"
+        },
+        {
+          "number": 50,
+          "stem": "Why did the author and his colleagues launch the Out of Office Email Generator?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To enable busy employees to spend less time checking emails."
+            },
+            {
+              "key": "B",
+              "text": "To ensure employees as well as employers truly have time off."
+            },
+            {
+              "key": "C",
+              "text": "To stop managers from talking about how busy their teams usually are."
+            },
+            {
+              "key": "D",
+              "text": "To encourage both employers and employees to answer emails promptly."
+            }
+          ],
+          "answer": "B",
+          "explanation": "为什么作者和他的同事们要推出“外出电子邮件生成器”? A) 为了让忙碌的员工减少查看电子邮件的时间。 C) 为了让经理们不再谈论他们的团队通常有多忙。 B) 为了确保员工和雇主都真正有休假的时间。 D) 为了鼓励雇主和员工及时回复电子邮件。 内f 根据是二关键襄auneh the Out of Ofee Email Genermator可以将答案定位到最后县。 外+ 最后一段前两名指出，这就是为什么我们最近推出了“外出电子邮件生成器”。你可以大声而又自豪地分享，在你回来之前，你不会查看电子邮件。 接着继续建议经理们尽量不要在周末给团队发电子邮件，或者谈论他们有多忙。建议领导们抽出时间休假，并鼓励员工也这样做。由此可见，作者和他的同事们推出这个“外出电子邮件生成器”是为了确保大家真正有休假时间， 而不是休假的时候还要想着处理邮件等事情，故本题选B。选项A和D原文均未提及，属于按常识或者逻辑杜撰的选项，均排除。选项C与原文不符，虽然原文提到经理们在周末谈论他们有多忙之前需要再三考虑，但是推出这一工具并不是为了阻止经理们谈论其团队有多忙，故排除。 了"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Female employees consistently pay lower airfares than men do for the same flights because they tend to book earlier.",
+        "We compared the airfare paid by employees in the same position within a company for the same class of travel and used a common statistical technique to account for other factors that might affect differences in airfares. We found that women paid on average $18 less per ticket than their male colleagues. Further",
+        "investigation allowed us to conclude that this gap is largely explained by the fact that women tended to book earlier than men, 1.8 days on average.",
+        "We wanted to determine what was causing these gender differences in booking business trips so we tested a variety of possible explanations, such as women choosing to plan ahead or male frequent travelers being inclined to book late. None of these explained away the gender gap, so we applied data collected from surveys that express consumer preferences that play a central role in economic decisions, such as patience and risk avoidance.",
+        "We found that only the concept of “negative reciprocity” —in which an employee who feels unfairly treated engages in negative behaviors, such as spending their company’s money less carefully—explains these differences. The surveys showed men tend to exhibit more of these negative behaviors than women. This isn’t to say that all men engage in these behaviors—or that booking relatively late is a sign of abnormal behavior. It only means that the gender gap disappears when we plug in the negative reciprocity variable.",
+        "Prior research on negative reciprocity among workers found that it can result in lower employee motivation, business performance and workplace morale (4%) and culture.",
+        "Our results show another way these negative behaviors can manifest themselves, like in airline bookings, and add to evidence that women are less likely to engage in them.",
+        "Companies spend significant sums of money on business travel. While that $18 difference per ticket may seem small, it adds up. Our analysis suggests early booking by women can translate into savings of $1 million a year for a large multinational company with 20,000 regular travelers."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What did the author’s team conclude about the gender difference in airfares from their further investigation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is largely attributed to women booking earlier than men."
+            },
+            {
+              "key": "B",
+              "text": "It is largely explained by women’s choosing cheaper flights."
+            },
+            {
+              "key": "C",
+              "text": "It is mainly accounted for by male employees’ readiness to pay more."
+            },
+            {
+              "key": "D",
+              "text": "It is due to the fact that women care more about their company’s money."
+            }
+          ],
+          "answer": "A",
+          "explanation": "通过进一步调查，作者的团队对机票价格的性别差异得出了什么结论? A) 这主要归因于女性比男性更早预订。 C) 这主要是由于男性员工愿意付更多钱。 宣? 根据题二关键词author s team conclude和from their further investigation可以将答案定位到第二段最后一句。 解* 第二段最后一句指出，通过进一步调查，我们得出结论: 造成这种差距的主要原因是女性往往比男性更早预订机票，平均早1.8天。由此可知，选项A正确。选项B和C的内容文章没有提及，可以排除。下文虽然 ，提到男员工更不在乎公司的钱，但并不是作者团队通过调查得出的结论，故排除D。"
+        },
+        {
+          "number": 52,
+          "stem": "What did the researchers want to determine by testing a variety of possible explanations?",
+          "options": [
+            {
+              "key": "A",
+              "text": "What made male frequent travelers book air tickets late."
+            },
+            {
+              "key": "B",
+              "text": "What caused women to plan ahead in booking business trips."
+            },
+            {
+              "key": "C",
+              "text": "What motivated women to book cheaper flights."
+            },
+            {
+              "key": "D",
+              "text": "What accounted for the gender gap in airfares."
+            }
+          ],
+          "answer": "D",
+          "explanation": "研究人员想通过测试各种可能的解释来确定什么? A) 是什么让经常出差的男性旅客较晚预订机票。 C) 是什么促使女性预订更便宜的航班。 B) 是什么让女性提前计划预订商务行程。 D) 是什么造成了机票价格的性别差距。 寄y 根据题二关键词testing a variety of possible explanations可以将答案定位到第三段第一句。 解? 第三段第一句指出，我们想确定是什么造成了在预订商务行程方面的这些性别差异，所以我们测试了各种和可能的解释，例如女性选择提前计划或者经常出差的男性倾向于较晚预订机票。由此可知，研究人员想确定是什么造成了机票价格的性别差异，故选项D正确。选项中的gender gap与原文中的gender differences是 ，同义赫换，而airfares与booking business trips对应。其余三个选项都与原文内容不符，均可以排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What happened when the negative reciprocity variable was taken into account?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Both men and women were found to engage in negative behaviors."
+            },
+            {
+              "key": "B",
+              "text": "Neither men nor women viewed booking late as a bad behavior."
+            },
+            {
+              "key": "C",
+              "text": "The gender diffcrence in airfare expenses no longer existed."
+            },
+            {
+              "key": "D",
+              "text": "The gender gap tended to narrow to a significant degree."
+            }
+          ],
+          "answer": "C",
+          "explanation": "如果考虑消极互惠变量，结果会怎样? A) 人们发现，男性和女性都有负面行为。 B) 男性和女性都不认为较晚预订机票是一种不良行为。 C) 机票费用的性别差异不复存在。 D)性别差距有显基缩小的直扫。 定y 根据题干关键词the negative reciprocity variable was taken into account可以将答案定位到第西段最后二衙- 下 ，题干中的was taken into account与原文中的plug in是同义替换。 外第四段最后一名指出，这只意味着当我们插入消极互惠的变量时，性别差距就消失了。由此可知，当考虑 『消世豆总变量旦，机票价格的往别基看就不复存在了，故选项C正确。选项中的no longer existed与原文中的disappears是同义蔡换。其余三个选项原文都没有提及，均可以排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What did prior research on negative reciprocity among workers find?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It can do more harm to the workplace than to employees."
+            },
+            {
+              "key": "B",
+              "text": "It contributes to the male-female divide in the workplace."
+            },
+            {
+              "key": "C",
+              "text": "It proves to be counterproductive in a number of ways."
+            },
+            {
+              "key": "D",
+              "text": "It can result in increasing labor-management conflicts."
+            }
+          ],
+          "answer": "C",
+          "explanation": "之前关于员工之间消极互惠的研究发现了什么? A) 它对职场的危害比对员工的危害更大。 C)事实证明，它在许多方面会适得其反。 B) 它助长了职场的男女分化。 D) 它可能导致劳资冲突加剧。 吓人机表天大Piorrexeah GREY anong woen可以和和雪人， 坚> 第五段指出，之前针对员工之间消极互惠的研究发现，它可能会导致员工的积极性下降，业务绩效降低， 工作场所士气和文化低落。由此可知，消极互惠在很多方面都会产生不良影响， 让事情适得其反，故选项C正确。counterproduetive概括了原文中提到的几种不利影响。其余三个选项原文都没有提及， 均可以排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author emphasize about their analysis in the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It can help companies increase their savings significantly."
+            },
+            {
+              "key": "B",
+              "text": "It can duly contribute to companies’ business performance."
+            },
+            {
+              "key": "C",
+              "text": "It can translate women’s booking practice into men’s behavior."
+            },
+            {
+              "key": "D",
+              "text": "It can enhance large multinational companies’ competitiveness."
+            }
+          ],
+          "answer": "A",
+          "explanation": "在最后一段中，关于他们的分析作者强调了什么? 及它可以帮助公司大幅提升节约额。 C) 它可以将女性的预订行为转化为男性的行为。 B) 它可以对公司业务绩效做出应有的贡献。 D) 它可以增强大型跨国公司的竞争力。 总机机关辣onalsiin tcIRLPUGBNPN和有定居店庆， 解最后一段末名指出，我们的分析表明，对于一家拥有2万名需要经常出差的员工的大型跨国公司来说，女折性提前预订机票每年可以为公司节省100万美元。由此可知，作者强调，他们的分析可以帮公司节省一大笔钱，故选项A正确。选项B和C原文都没有提及，可以排除。选项D属于过度推断， 原文只是说可以帮大型跨国公司省钱，没有说可以增强其竞争力，故排除。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/cet4_2023_12_1.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2023_12_1_ans.pdf"
+}

@@ -182,4 +182,4 @@ Then use the cumulative versioned workflow under `ops/mainland/`. Package only a
 
 ## 四六级阅读真题
 
-首页与精选外刊并列的真实阅读题库，复用 ReaderView；支持考试、边读边做、按卷/题型、手动计时、进度同步与重做。当前仅收录有答案解析的 15 套试卷，材料清单、性能与扩库流程见 [docs/cet-reading.md](docs/cet-reading.md)。本轮生产状态以 release-governance 和产品历程为准。
+首页与精选外刊并列的真实阅读题库，复用 ReaderView；支持考试、边读边做、按卷/题型、手动计时、进度同步与重做。题库扩展至 2022–2026 年来源中有完整阅读题序及答案解析的 53 套试卷（四级 25 套、六级 28 套；本轮待生产验收），材料清单、性能与扩库流程见 [docs/cet-reading.md](docs/cet-reading.md)。本轮生产状态以 release-governance 和产品历程为准。

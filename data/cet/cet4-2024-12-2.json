@@ -1,0 +1,1606 @@
+{
+  "id": "cet4-2024-12-2",
+  "level": 4,
+  "year": 2024,
+  "month": 12,
+  "set": 2,
+  "title": "2024 年 12 月四级 · 第 2 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2024-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Scientists have known that depriving adult mice of vision can increase the sensitivity of individual neurons ( 神经元) in the part of the brain devoted to hearing. New research from biologists at the University of Maryland [[26]] that sight deprivation also changes the way brain cells [[27]] with one another, shifting the mice’s sensitivity to different frequencies. “This study [[28]] what we are learning about how manipulating vision can have a [[29]] effect on the ability of an animal to hear long after the window for auditory (听觉的) learning was thought to have _ [[30]] said Patrick Kanold, senior author of the study. It was once thought that the sensory regions of the brain were not [[31]] after a critical period in childhood. This is why children learn languages much more [[32]] than adults. Kanold’s earlier research disproved this idea by showing that depriving adult mice of vision for a short period increased the sensitivity of individual neurons in the auditory cortex (皮质), which is devoted to hearing. Young brains wire themselves according to the sounds they hear frequently, assigning areas of the auditory cortex to [[33]] frequencies based on what they are used to hearing. The researchers found that in adult mice, a week in the dark also changed the [[34]] of space to different frequencies. “We don’t know why we are seeing these patterns,” Kanold said. “We [[35]] that it may have to do with what the mice are paying attention to while they are in the dark.”"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "adaptable"
+        },
+        {
+          "key": "B",
+          "text": "closed"
+        },
+        {
+          "key": "C",
+          "text": "distribution"
+        },
+        {
+          "key": "D",
+          "text": "interact"
+        },
+        {
+          "key": "E",
+          "text": "narration"
+        },
+        {
+          "key": "F",
+          "text": "neutral"
+        },
+        {
+          "key": "G",
+          "text": "permanently"
+        },
+        {
+          "key": "H",
+          "text": "prescribes"
+        },
+        {
+          "key": "I",
+          "text": "readily"
+        },
+        {
+          "key": "J",
+          "text": "registered"
+        },
+        {
+          "key": "K",
+          "text": "reinforces"
+        },
+        {
+          "key": "L",
+          "text": "revealed"
+        },
+        {
+          "key": "M",
+          "text": "significant"
+        },
+        {
+          "key": "N",
+          "text": "specific"
+        },
+        {
+          "key": "O",
+          "text": "speculate"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) revealed (v 揭示; 显示; 透露 ) 空格前面为句子主语，后面为that引导的宾语从句，空格处应填动词，作谓语。本句阑述研究发现的结果，时态用一般过去时，故空格处应填动词过去式。 此句在表述一项研究成果，句意为“马里兰大学生物学家的新研究 ___ ，视力剥夺也会改变脑细胞……”。代入选项可知，revealed符合语境。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) interact (v 相互作用，相互影响 ) 空格位于the way后的定语从句中，空格前面为从句的主语brain cells，后面为介词短语with one another，空格处应填动词，作谓语，且能与with构成合理的搭配。定语从句所修饰的句子在阑述一项研究结果，这一结果是一种普遍存在的现象，时态用一般现在时，故空格处应填动词原形。 该句句意为“马里兰大学生物学家的新研究表明 ，视力剥夺也会改变脑细胞之间 ”的方式， 改变老鼠对不同频率的敏感度”。interact with表示“与……相互作用”，符合此处语境，故答案为interact。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) reinforces (v 加强，强化) 空格前面为句子主语This study，后面为what引导的宾语从句，空格处应填动词，作谓语。句子在阐述这项研究的意义，时态用一般现在时，故空格处应填动词的第三人称单数形式。 首段提及马里兰州大学生物学家的新研究，此处引述该研究的资深作者的话进一步阐述该研究的意义，将第三人称单数形式的动词备选项代和人原文可知reinforces符合谈及研究结果意义的语境，即“这项研究强化了我们正在了解的内容”。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "M",
+          "explanation": "MD significant ( adj/. 显著的; 重大的 ) 此处考查短语have an effect on ( 对……产生影响 ) ，空格前面为不定冠词a，后面为名词effect，故空格处应填一个形容词或分词，作effect的定语。 首段提到和剥夺成年老鼠的视力可以增加其大脑中专门用于听觉部分的单个神经元的灵敏度，并介绍了马里兰大学生物学家关于这一点的新研究，由此推断，此处是说研究人员操纵视觉如何对动物的听觉能力产生显著的影响。have a significant effect表示“产生显著影响”，符合语境，故答案为significant。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) closed (v 关闭 ) 空格前面为不定式标志to和have，后面为逗号，故空格处可填名词，充当have的宾语，也可填入过去分己，构成不定式的完成式 (to have done ) 。 前面提到了和剥夺视力会对听觉产生影响，此句在阐述听觉学习窗口被认为已经“关闭”后，操纵视觉又会对听觉产生什么影响。在此语境中，close与前文的deprivation ( 缺少; 剥夺 ) 属于一个意群，符合语境，故答案为closed。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) adaptable ( ady. 能适应的，有适应能力的 ) 空格前面为were not，后面为时间状语after a critical period in childhood，故空格处应填一个形容词或分间，作表语。 由It was once thought可知，此处说的是过去人们对于大脑感觉区域在童年关键期之后特性的认知。下文提到卡诺德的早期研究推翻了这一观点，他的研究表明，在短时间内剥夺成年老鼠的视力会增加听党皮质中单个神经元的敏感度。换名话说，成年老鼠大脑的听觉区域在视觉丧失的情况下仍然可以改善，也就是具有适应性。由此可判断空格所在句是说，过去人们认为大脑的感觉区域在童年的关键期之后就不再具有“适应性”，故adaptable符合语境。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "I",
+          "explanation": "D readily ( adv 快速地; 轻而易举地 ) 空格前面为learn languages much more，后面为than adults，故空格处应填副词，修饰谓语动词 learn。 该句句意为“这就是为什么儿童比成人学习语言更 ”。此处阐述一种普遍认知。代入选项可知，readily符合语境。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) specific ( ud. 特定的，特有的 ) 此处考查assign.… to.… (给……分配…… ) 的用法。空格前面为介词to ，后面为名词复数 frequencies，故空格处应填形容词或分词，修饰后面的名词。 该句句意为“年轻的大脑会根据它们经常听到的声音来进行自我连接，根据它们习惯听到的声音将听觉皮层的区域分配给频率”。代入选项neutral ( 中立的; 中性的 ) 和specific ( 特定的 ) 可知， specific符合语境。大脑会将不同的听觉皮层区域分配给不同的声音频率。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) distribution (7 分布; 分配) 空格前面为定冠词the，后面为介词短语of space to different frequencies，故空格处应填入名词。 该句句意为“研究人员发现，成年老鼠在黑暗中待一周也会改变不同频率的空间 __ ”。代入选项可知，distribution符合语境。distribution of space和上文的assigning areas语义一致。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) speculate (v 推测，猜测 ) 空格前面为句子主语We，后面为that引导的宾语从句，空格处应填动词，作谓语。此处引用卡诺德的话，时态与前面一句保持一致，为一般现在时，故空格处应填动词原形。 前面一句提到我们不知道为什么会看到这些模式，后面一句推测原因，故speculate符合语境。 E) narration (六令述，讲述 ) F) neutral ( ad. 和 . 中立者 ) G) permanently ( adv 永久地) H) prescribes (v 规定; 给…开药) ]) registered (世注册; 登记 )"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) For all the innovation and choice that define the food and drink industries, if you want to make money, you could do a lot worse than fill a bottle with water and sell it. A litre of tap water, the stuff we have cleverly piped into our homes, costs less than half a penny. A litre of bottled water can cost well over a pound, especially for something fancy that has been sucked through a mountain.",
+        "B) Yet the bottled water market is livelier than ever. It defies our increasing awareness of the harm plastics do to the environment and a broader, growing sense that something has to change. Sales in the UK were worth a record £558.4 million this past year, an increase of 7%, according to the latest figures f rom the market analyst Kantar. Separate data f rom other analysts show that last year the British consumed more than 2.2 billion litres of bottled water, including “take-home” and “on- the-go” products. That’s an annual rise in volume of 8.5%.",
+        "C) Environmental campaigners are struggling to understand why nations blessed with clean tap water grow only fonder of the bottle. “It’s very surprising to me,” says Sam Chetan-Walsh, a political adviser at Greenpeace and campaigner against ocean plastic. “Public awareness has never been higher, but the message is not quite reaching all the people it needs to.” Where it is heard, the message is causing concern. Plastic water bottles require oceans of fossil fuels to make and ship. Additionally, single-use plastics of all types are polluting our cities and seas. Numerous documentaries have shown how plastic is ultimately killing wildlife.",
+        "D) Moves against various plastics have gathered pace, from shopping bags to straws and plastic -lined coffee cups. Chetan- Walsh argues that bottled water is different because the alternatives are so obvious. “If a product that is so nakedly unnecessary can exist then the whole system is failing,” he says.",
+        "E) Hope is not entirely out of reach. The rate of growth has begun to ease (sales were up 7% in the year, compared with 8% in the previous year).",
+        "F) But even if large numbers of people are quitting bottled water because of care for the environment, others are taking it up. The introduction of the “sugar tax” on juices and soda drinks has pushed more people to bottled water, while health awareness has boosted its desirability. Tap water consumption is growing at roughly the same pace (UK consumers still drink almost three times as much tap water as bottled water).",
+        "G) So the plastic tide only creeps higher. The industry is quick to point out that all its bottles are recyclable. “But collection rates are, at the most generous estimates, 56%, so the actual recycling rate will be lower than that,” Chetan-Walsh says. And while bottles may be r ecyclable, very few are made of recycled plastic. One water bottle company launched recycled half - litre “eco” bottles alongside its standard bottles. Another has pledged to use only recycled plastic across its range by 2025. Chetan-Walsh believes in a ban on single-use bottles. Bans do exist in some places. Organisers of a famous music festival announced that water bottles will not be sold this summer. San Francisco has banned them from city property and events. Last year, the UK government set out plans to ban single-use plastic from its estate.",
+        "H) Water bottlers, unsurprisingly, don’t support bans. But they raise concerns about health rather than profit margins. Last month one chief executive of a water bottling company said that bans would “result in greater consumption of sugary drinks, adding to all the health dangers of obesity, diabetes and tooth decay ”. Kinvara Carey, general manager of an association of the biggest bottled water manufacturers, cites a survey in which people were asked what they would do if bottled water were not available. “Forty-four per cent would buy another drink which is not great , 14% would go without, and 4.5% said they would find a fountain.” she says. “The choice is important.”",
+        "I) What if fountains were more numerous, and tap water more clearly available in cafes, restaurants and elsewhere? Dozens of fountains are being installed in London. There are similar initiatives elsewhere. Before plastic and the marketing that made people think they needed bottled water in the first place, fountains were an urban fixture. Greenpeace, among others, is also pushing for a “deposit return” scheme. This would mean tax on bottled water would be refunded to customers who returned the plastic for recycling.",
+        "J) Even if bottled water sales are growing slightly more slowly, the industry is racing to adapt to changing concerns and tastes. Flavoured water is booming: sales of the sparkling variety shot up by 20%, according to the latest analyst data, Meanwhile , international water brands, as well as a range of new companies, are selling high -end reusable bottles. And if you must fill them with tap water, why not add flavouring?",
+        "K) As the owner of multiple sugary drink brands and bottled water, PepsiCo is facing challenges on health and environmental fronts. Last year, the company bought SodaStream (a drinks company that sells machines for making tap water bubbly and then consumers add flavours) for $3.2 billion. It also launched a range of fancy bottles that work with tap water and f lavour packets. The bottle is reusable. The packets? Not so much, and, yes, they are made of plastic, although the company invites users to post them back for recycling.",
+        "L) As is so often the case, clever marketing can beat reason; awareness is rarely enough. “There is always this kind of slip between concern, intent and changed behaviour,” says Giles Quick an analyst of bottled water. “The best example is five a day, the recommendation to have at least five portions of fruit and vegetables every day. Almost everyone is aware of this, but something like 15% of us achieve it.” Unless a far-reaching bottle ban does come into force, it will be up to consumers to not only demand change, but to act themselves."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Judging from the slowing rate of sales growth, there is still hope to combat bottled water.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "从销售增长速度放缓的情况来看，对抗瓶装水仍有希望。 E。由题干关键信息slowing rate of sales growth和hope定位到E段。E段提到，和希望并非怕不可及。 因为瓶装水销售的增长速度已经开始放缓。今年销售额增长了7%，而去年是8%。题干是对这段内容的概括，其中the slowing rate of sales growth对应原文中的The rate of growth has begun to ease (sales Were up 7% in the year, compared with 8%6 the previous year)，there is still hope对应原文中的Hope is not entirely out of reach，全文都在说combat bottled water，这里不需要对应，故答案为E。"
+        },
+        {
+          "number": 37,
+          "stem": "Bottled water manufacturers base their arguments against bans of plastic bottles on health concerns rather than on profits. 、",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "瓶装水制造商反对塑料瓶禁令的论点基于健康担忧，而非利润。 H。由题干关键信息Bottled water manufacturers 、against bans of plastic bottles 、health concerns、 rather than on profits定位到H段。H段前两句提到，瓶装水生产商反对 ( 塑料瓶 ) 禁令，这不足为奇。但是，他们表示担忧的出发点是健康问题，而非自身的利润空间。题二是对这两句的概括，其中Bottled water manufacturers与原文中的Water bottlers同义，against bans of plastic bottles对应原文中的don'\"t support bans，base their arguments... on health concerns rather than on profits对应原文中的raise concerns about health rather than profit margins，故答案为H。"
+        },
+        {
+          "number": 38,
+          "stem": "Sales of bottled water in Britain hit a record high last year even though people are increasingly aware that plastics are environmentally unfriendly.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "尽管人们越来越意识到塑料对环境不友好，但是去年英国瓶装水的销量仍创下历史新高。 B。由题干关键信息Sales 、bottled water、Britain 、a record high和1last year定位到B段。B段前三名提到，然而，瓶装水市场却比以往任何时候都更加活跃。我们越来越意识到塑料对环境造成的危害，也越来越广泛地意识到必须有所改变，但这一现象却违背了我们的认知。根据市场分析师坎塔尔提供的最新数据，去年英国瓶装水的销售额创下了5.584亿英镑的纪录，同比增长了7%。题干是对这三名的概括，也就是说，尽管人们越来越意识到塑料对环境不友好，但是去年英国瓶装水的销量仍创下历史新高。其中 Sales ofbottled water in Britain与原文中的Sales in the UK同义，hit a record high last year对应原文中的worth a record ft558.4 million this past year，其中record意为“纪录”，故答案为B。"
+        },
+        {
+          "number": 39,
+          "stem": "It often happens that people can lack reason when faced with skillful marketing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "人们面对巧妙的营销时，往往会失去理智。 L。由题干关键信息It often happens 、lack reason和skillful marketing定位到工段。工段第一句提到，通常情况下，巧妙的营销策略总能战胜理性，仅仅提高消费者的意识往往是不够的。题干与该句同义，其中It often happens对应原文中的As is so often the case，people can lack reason when faced with skillful marketing与原文中的clever marketing can beat reason同义，故答案为L。"
+        },
+        {
+          "number": 40,
+          "stem": "One city on the west coast of America has banned single-use bottles from its property and events.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "美国西海岸的一座城市已经禁止在其所属场所及举办的活动中使用一次性水瓶。 G。由题干关键信息One city on the west coast of America、banned和property and events定位到G段。 G段倒数第二名提到，旧金山已禁止在城市公有财产处所和活动中使用一次性塑料瓶。题干与该句同义， 由常识可知，旧金山是美国西海岸的一个城市，其中One city on the west coast of America对应原文中的San Francisco; banned single-use bottles from its property and events与原文中的has banned them from city property and events同义，该句中的them即指代上文aban on single-use bottles中的single-use bottles，故答案为G。"
+        },
+        {
+          "number": 41,
+          "stem": "Manufacturing and shipping of plastic water bottles consume a tremendous amount of fossil fuels.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "塑料水瓶的生产和运输消耗了大量的化石燃料。 C。由题干关键信息Manufacturing and shipping 、plastic water bottles 、a tremendous amount of和 fossil fuels定位到C段。C段倒数第三句提到，制造和运输塑料水瓶需要耗费大量的化石燃料。题干与该旬同义，其中plastic water bottles和fossil fuels是原词复现，Manufacturing and shipping与原文中的make and ship同义，consume对应原文中的require，a tremendous amount of对应原文中的oceans of，故答案为C。"
+        },
+        {
+          "number": 42,
+          "stem": "One large beverage company has adapted its operations when confronted with challenges from health and environmental advocates.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "当面临来自健康和环境倡导者的挑战时，一家大型饮料公司已调整其运营策略。 K。由题干关键信息One large beverage company 、confronted with challenges和health and environmental advocates定位到K段。K段介绍了拥有多个含糖饮料品牌和瓶装水的百事公司在面临健康和环境方面的挑战时做出的运营策略调整: 1. 百事公司去年斥资32亿美元收购了一家饮料公司，这家公司销售能将自来水制成气泡水的机器，消费者可以随后添加各种口味。2. 百事公司还推出了一系列与自来水和风味包配套使用的精美水瓶。水瓶是可重复使用的。风味包也是可以回收的，公司鼓励顾客寄回。题干是对这段内容的概括，其中One large beverage company对应原文中的the owner of multiple sugary drink brands and bottled water, PepsiCo; confronted with challenges from health and environmental advocates对应原文中的 is facing challenges on health and environmental fronts; adapted its operations对应原文中提到的举措: bought SodaStream (a drinks company that sells machines for making tap water bubbly and then consumers add flavours) 和launched a range of fancy bottles that work with tap water and flavour packets，故答案为K。"
+        },
+        {
+          "number": 43,
+          "stem": "Bottled water is considerably more expensive than tap water.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "A",
+          "explanation": "瓶装水的价格远高于自来水。 A。由题干关键信息Bottled water、tap water和more expensive定位到A段。A段最后两句提到了自来水和瓶装水的价格: 我们巧妙地通过管道输送到家里的那种自来水，一升的成本也不到半便士。而一升瓶装水的价格远远超过1英镑，尤其是那些取自山间的“于华”瓶装水。由常识可知，1英镑=100便士，1便士=2个半便士，文中这样表述是为了说明自来水价格很低。也就是说，瓶装水的价格远高于自来水。题干是对这两名的概括，其中Bottled water和tap water是原词复现，considerably more expensive是我们通过对比得出的结论，considerably是副词，意为“非常、相当地”，故答案为A。"
+        },
+        {
+          "number": 44,
+          "stem": "Fountains could be seen in cities before bottled water became popular",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "I",
+          "explanation": "在瓶装水流行之前，城市中就可以看到饮水器。 I。由题干关键信息Fountains 、cities和bottled water定位到I段。I段第四名提到，在塑料和市场营销使人们认为他们首先需要瓶装水之前，饮水器就是城市中的固定设施。题干与该句同义，其中Fountains 和bottled water是原词复现，could be seen in cities与原文中的were an urban fixture同义，urban意为“城市的”、fixture意为“固定装置、必要设施”，bottled water became popular对应原文中的people think they needed bottled water in the first place，故答案为I。"
+        },
+        {
+          "number": 45,
+          "stem": "More people have taken to bottled water because of their health awareness.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            }
+          ],
+          "answer": "F",
+          "explanation": "更多的人因为健康意识而选择了瓶装水。 F。由题干关键信息More people、have taken to bottled water和health awareness定位到F段。F段前两句提到，即使有很多人因为环保而放弃购买瓶装水，也有一些人刚开始饮用瓶装水。对果汁和碳酸饮料征收“糖税”的举措促使更多人选择瓶装水，同时健康意识也增加了瓶装水的受欢迎程度。也就是说，有更多人因为健康意识而选择了瓶装水。题干是对这两名的概括，其中have taken to bottled water对应原文中的 aretakingitup，原文中的it即指喜号前面提到的bottled water; because of their health awareness对应原文中的 health awareness has boosted its desirability，故答案为F。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "As a university student I've come to realise just how little I know about money. I’ve come to the brutal realisation that Australia’s youth are being done a great disservice by not receiving any consistent financial education. Diving headfirst into the crash course of starting university, I’ve quickly tried to get myself up to speed with the financial terms of the modern era to help manage my personal finances. I’ve read some financ ial education books, done some online lea rning, and have spoken to my nearest and dearest for their pearls of financial wisdom. There are undoubtedly hundreds of great resources out there for those wishing to improve their financial literacy, but while I was researching, I still kept wishing that I didn’t have to play catch-up with the money world. I felt that L was sailing the financial seas with no skills and no life jacket! However, after talking to my friends who felt the same, I quickly realised that it wasn’t my ignorance but the lack of financial education in our schooling system that is leaving high schoolers seriously behind in the modern world of money. Let’s compare a theoretical financial education subject to the standard compulsory English cl ass. On average, English may not be the most popular subject, but it’s consistently on the schedule throughout high school, with all students graduating fluent in English. A financial education subject should do just the same. It shouldn ’t be just a one -day event but a course integrated throughout the whole of high school that would allow students to gradually expand their financial literacy, and would prevent the need for a ‘catch up’ phase once we’re out on our own after graduation. In the same way that learning a language or new skills takes time, building financial skills requires practice and years to gradually accumulate bits and pieces of knowledge. Giving young people the opportunity to become familiar with the world of money would provide them wi th a great advantage to enter adulthood with confidence and security so that they are able to manage their own money and look after themselves."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What has the author come to realise since entering university?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He needs a crash course on financial terms."
+            },
+            {
+              "key": "B",
+              "text": "He is very much lacking in financial literacy."
+            },
+            {
+              "key": "C",
+              "text": "It requires consistent education to be financially independent."
+            },
+            {
+              "key": "D",
+              "text": "It is unrealistic to give all Australian youth a financial education."
+            }
+          ],
+          "answer": "B",
+          "explanation": "进入大学后，作者意识到了什么? A) 他需要一个金融术语速成班。 C) 要实现财务独立，需要坚持不懈的教育。 B) 他非常缺乏金融知识。 D) 对所有澳大利亚青年进行金融教育是不现实的着* 根据题二关键词come to realise since entering university 可以将答案定位到第一段第名。 解> 文章第一段第一句指出，作为一名大学生，作者逐渐意识到自己对金钱的了解有多么匮乏。选项B与原文币意思一致，故为答案。第二段第一句提到大学伊始就一头扎进了速成班，并迅速努力让自己掌握现代金 ，融术语，但这是进入大学后的实际行动而不是作者意识到的内容，故排除选项A。第一段第二句虽提及 consistent financial education，但这是说作者残酷地意识到，澳大利亚的年轻人由于没有接受任何持续性的金融教育，正在遭受极大的伤害，并未提及作者逐渐意识到要实现财务独立，需要坚持不懈的教育，故排 ，除选项C。选项D文章中未提及，故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "How did the author feel in today’s money world?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Badly equipped to survive."
+            },
+            {
+              "key": "B",
+              "text": "Ignorant of financial literature."
+            },
+            {
+              "key": "C",
+              "text": "Barely capable of moving ahead."
+            },
+            {
+              "key": "D",
+              "text": "Overwhelmed by the resources online."
+            }
+          ],
+          "answer": "A",
+          "explanation": "在当今的金钱世界中作者有何感受? A) 生存能力很差。 C) 勉强能够前进。 B) 对金融文献一无所知。 D) 被网上的资源淹没了。 + 而天天襄RLNUGSTGNS NG和符案定全第而最后人解文章第四段中提到，在研究过程中，作者仍然希望自己不必在金钱的世界里追赶进度，作者觉得自己是业 | 在没有技能和救生衣的情况下在金融海洋中航行。言外之意，作者感觉自己在当今的金钱世界里缺乏应对能力，生存能力不足。选项A与原文意思一致，故为答案。选项B、C和D的内容文章中未提及，故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What did the author realise after talking to his friends?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They were as keen as he was on financial matters."
+            },
+            {
+              "key": "B",
+              "text": "The schooling system was to blame for his trouble."
+            },
+            {
+              "key": "C",
+              "text": "High schoolers knew nothing about the modern financial world."
+            },
+            {
+              "key": "D",
+              "text": "Financial courses were as unpopular as compulsory English classes."
+            }
+          ],
+          "answer": "B",
+          "explanation": "在与朋友交谈后，作者意识到了什么? A) 他们和他一样热衷于金融事务。 C) 高中生对现代金融世界一无所知。 B) 他的困境是学校的教育制度造成的。 D) 金融课程和英语必修课一样不受欢迎。 f 机所二关键训sher line o his fiendi柯以条共案定信和名文章第五段中提到，在与有同样感受的朋友交谈后，他很快意识到，并不是他无知，而是学校教育体系中缺乏金融教育，才让高中生在现代金钱世界中严重落伍，也就是说，是学校的教育体系导致了作者的困境，故选B。文章中未体现朋友们和作者一样热衷于金融事务 ，故排除A。文章中提到高中生在现代金钱世界中严重落伍，并没有说高中生对现代金融世界一无所知 ，C项错误，故排除。文章中没有将金融课程和必修英语课程的受欢迎程度作比较，故排除D。"
+        },
+        {
+          "number": 49,
+          "stem": "What is the author’s idea of a financial education course?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It should foresee students’ needs after graduation."
+            },
+            {
+              "key": "B",
+              "text": "It should provide students with some basic knowledge."
+            },
+            {
+              "key": "C",
+              "text": "It should be taught the same way as English is taught."
+            },
+            {
+              "key": "D",
+              "text": "It should be integrated into high school education."
+            }
+          ],
+          "answer": "D",
+          "explanation": "作者对金融教育课程的想法是什么? A) 它应该预见学生毕业后的需求。 C) 它的教学方式应与英语教学相同。 B) 它应该为学生提供一些基础知识。 D) 它应该被纳入高中教育。 汪f 机机天生训 NSISINSNION SS可入共定位到贡世，， 解* 在文章的第六段中，作者先是将金融教育课程和标准必修英语课作比较，接着指出金融教育课程不应只是一次性活动，而应是贯穿整个高中的课程，让学生逐步提升金融知识，避免毕业后还要补知识。第七段提到，人金融教育课程也应如此，它不应该只是为期一天的活动，而应该是贯穿整个高中的一门课程。由此可 ，知，作者认为金融教育课程应贯穿整个高中教育，D项与原文意思一致，故为答案。选项A和选项B的内容文中未提及，可排除。文中将英语课程与金融课程作对比，强调的是课程贯穿整个高中这一设置形式，而不是指两者教学方式应该一致，故排除C。"
+        },
+        {
+          "number": 50,
+          "stem": "What would financial literacy do to young people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Allow them to enter adulthood with financial security."
+            },
+            {
+              "key": "B",
+              "text": "Enable them to look after themselves without worrying about money."
+            },
+            {
+              "key": "C",
+              "text": "Render them confident and secure in terms of money management."
+            },
+            {
+              "key": "D",
+              "text": "Help them become familiar with the world of money."
+            }
+          ],
+          "answer": "C",
+          "explanation": "金融知识对年轻人有什么作用? ， A) 让他们在进入成年后有经济保障。 B) 使他们能够照顾好自己 ，而不用为金钱担心。 C) 使他们在理财方面充满信心和安全感。 中机所届二关风现[DA 证全疝交证二让一区- 本 wiiiaacaiaaiastiiiaisaaaaiaisasaanaaiias 各4 文章最后一段中提到，让年轻人有机会熟悉金钱世界，将为他们在步和成年期时提供极大的优势，使他们充满自信和安全感，从而能够管理好自己的钱财，照顾好自己。C选项与原文意思一致，故为答案。文中提到的是使他们充满自信和安全感，而不是金融保障，A项错误，可排除。B项的内容文章未提及，可排除。D项帮助他们熟悉金钱世界是目的，不是作用，故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Chocolates save us from many things, especially emotional distress. They comfort us in times of trouble, calming down a racing heart by channeling happy calories inside us. We all have faith in chocolates to delight us in an instant! Recently, chocolate lovers were heartbroken as scientists claimed that they can become extinct by 2050! But hey, we have some happy news for you. Scientists can still help save chocolates from dying out! If you are not aware as to why scientists made the statement about the death of this wonderful thing, let us tell you the facts. Chocolate trees, whose seeds are used to make chocolate, grow in the tropical plant world and require very specific weather conditions to prosper. Now, fifty percent of the world’s cocoa (可可) beans come from two countries in West Africa: Cote d’Ivoire and Ghana. Scientists believe that both of these countries will experience a 3.8F temperature increase by 2050 due to global warming, endangering the cacao (可可树) farms in the rainforests. These farms will then have to be shifted to cooler mountainous areas, which are the natural habitat of wildlife. This will lead to some tough decisions: whether to grow chocolate or save wildlife. Unfortunately, the crisis of global warming has already had a serious negative impact on cacao farms’ yields, leading to the prices of chocolates skyrocketing. Scientists, however, are trying to find a long-term and eco-friendly solution to this problem! They are trying to modify the species with a gene-editing technology, which will transform the seedlings into a species that survives even in a drier and warmer climate. According to a report by The Business Insider, in the University of California ’s new bio-sciences building, tiny green cacao seedlings are lined up in refrigerated greenhouses for a new experiment by using a technology called CRISPR. By manipulating the DNA of plants, this technology is already being used across the world to make plants tougher and cheaper. Similarly, in this unconventional experiment, scientists will make tiny, precise changes to the DNA of the seedlings to make the cocoa crops survive in warmer and drier climates."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do people believe chocolates can do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cheer them up instantly."
+            },
+            {
+              "key": "B",
+              "text": "Create happy calories."
+            },
+            {
+              "key": "C",
+              "text": "Conceal emotional distress."
+            },
+            {
+              "key": "D",
+              "text": "Relieve them of heart trouble."
+            }
+          ],
+          "answer": "A",
+          "explanation": "人们认为巧克力能做什么? A) 让他们立刻开心起来。 C) 掩饰情绪上的痛苦。 B) 制造快乐卡路里。 D) 缓解心脏问题。 入大束5 本和向解# 文章第一段指出，巧克力能让我们摆脱很多东西，尤其是情绪上的痛苦。在我们遇到困难时，巧克力会安卸。灰我们，让我们心跳平复，并且我们都相信巧克力能让我们瞬间快乐，也就是能立刻使我们开心起来。A 选项的内容是原文的同义转述，故为答案。文章中提到巧克力向我们体内输送快乐的卡路里，而不是制造快乐卡路里，B项与原文不符，可排除。文章中提到巧克力是缓解情绪困扰，而非隐藏情绪困扰，C项与原文不符，可排除。D项内容原文未提及。"
+        },
+        {
+          "number": 52,
+          "stem": "What was scientists’ recent assertion about chocolates?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They could become a rare treat in the near future."
+            },
+            {
+              "key": "B",
+              "text": "They could calm people down a bit in times of crisis."
+            },
+            {
+              "key": "C",
+              "text": "They could prevent people from getting heartbroken."
+            },
+            {
+              "key": "D",
+              "text": "They could become unavailable in less than 30 years."
+            }
+          ],
+          "answer": "D",
+          "explanation": "科学家们最近对巧克力的断言是什么? A) 在不久的将来，巧克力可能会成为一种稀有食品。 B) 在危机时刻，巧克力可以让人们稍微平静下来。 C) 它们可以防止人们伤心。 D) 它们可能在不到30年的时间里就会消失。 号了窒庆大让关大REGEEETREIESEGIIREEGEOGEIS生末世第-有解> 文章第二段第一句提到，科学家们声称巧克力可能在2050年之前不复存在，也就是说巧克力在不到30年时千，间里可能就无法获取了。D项概括了科学家们宣称的内容，与原文含义一致，故选D。A项本身虽有一定道理，但并非科学家们声称的内容，可排除。B项和C项是利用原文个别词汇杜撰的信息，可排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What would happen if the cacao farms were shifted to cooler mountainous areas?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The natural habitat of wildlife there would be ruined."
+            },
+            {
+              "key": "B",
+              "text": "The cacao farmers would have a tough time to adapt."
+            },
+            {
+              "key": "C",
+              "text": "The rainforests would be shrinking dramatically."
+            },
+            {
+              "key": "D",
+              "text": "The quality of cocoa beans would suffer greatly."
+            }
+          ],
+          "answer": "A",
+          "explanation": "如果可可种植园转移到凉爽的山区，会发生什么情况? A) 那里野生动物的自然栖息地会被破坏。 C) 热带雨林将急剧缩小。 B) 可可种植者将很难适应。 D) 可可豆的质量会大打折扣。 窗* 根据题二关键词were shifted to cooler mountainous areas定位到第三段第三句。 得文章第三段第三句指出，可可树农场将不得不转移到凉爽的山区，而那里是野生动物的自然栖息地，而第四句紧接着指出，这将导致一些艰难的决定: 是种植巧克力还是瓜救野生动物。也就是说，此举可能会破坏野生动物自然栖息地，选项A的内容是对原文的同义转述，故为答案。选项B、C和D的内容文章中未提及，可排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What do we learn about the cacao farms in the crisis of global warming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They try to seek help from gene-editing scientists."
+            },
+            {
+              "key": "B",
+              "text": "They decide to move to cooler mountainous areas."
+            },
+            {
+              "key": "C",
+              "text": "They have suffered a lot due to a decrease in produce."
+            },
+            {
+              "key": "D",
+              "text": "They have benefited by raising prices of cocoa beans."
+            }
+          ],
+          "answer": "C",
+          "explanation": "关于全球变暖危机中的可可种植园，我们了解到什么? A) 它们试图寻求基因编辑科学家们的帮助。 ”C) 由于产量减少，它们遭受了巨大损失。 窒y 根据题二关键词be crisis of global warming定位到第四段。 得* 文章第四段提到，全球变暖的危机已经对可可农场的产量产生了严重的负面影响，导致巧克力价格飞涨。 也就是说，全球变暖使可可农场遭受了巨大损失，选项C与原文一致，故为答案。A、B和D项内容均与原 ，文不符，可排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What are scientists trying to do in the University of California’s new bio-sciences building?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Build rows of refrigerated greenhouses for research on cacao seedlings."
+            },
+            {
+              "key": "B",
+              "text": "Gene-edit cacao seedlings for them to withstand a drier, warmer climate."
+            },
+            {
+              "key": "C",
+              "text": "Produce chocolates with the latest gene-editing technology."
+            },
+            {
+              "key": "D",
+              "text": "Transplant the genes of tougher plants to cacao seedlings."
+            }
+          ],
+          "answer": "B",
+          "explanation": "在加利福尼亚大学的新生物科学大楼里，科学家们正试图做什么? A) 建造成排的冷藏温室，用于可可树幼苗的研究。 B) 对可可树幼苗进行基因编辑，使其能够承受更干燥、更温暖的气候。 C) 利用最新的基因编辑技术生产巧克力。 宣* 根据题二关键词University of Califomia's定位到最后一段。 条文章最后一段指出，在加州大学的新生物科学大楼里，科学家们正利用CRISPR技术对可可树幼苗进行新实验，通过操纵植物的DNA，让可可作物能在更温暖、更干燥的气候中存活下来。B项准确概括了原文内容，故为答案。建造一排排冷藏温室只是实验的设施，不是科学家们重点要做的事，可排除A项; 文章中提到的是对幼苗做基因编辑让其能在更温暖、更干燥的气候生长 ，而不是直接用技术生产巧克力，可排除C; 文章中提到通过编辑可可树幼苗自身基因来改变其适应性，而不是移植更强韧植物的基因到可可 ，树幼苗，可排除D。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%9C%9F%E9%A2%98PDF/cet4_2024_12_2.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2024_12_2_ans.pdf"
+}

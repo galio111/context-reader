@@ -1,0 +1,1731 @@
+{
+  "id": "cet6-2022-09-2",
+  "level": 6,
+  "year": 2022,
+  "month": 9,
+  "set": 2,
+  "title": "2022 年 9 月六级 · 第 2 套",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2022-09-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The now extinct passenger pigeon has the dubious honor of being the last species anyone ever expected to disappear. At one point, there were more passenger pigeons than any other species of bird. Rough [[26]] of their population went as high as five billion and they accounted for around 40 percent of the total indigenous bird population of North America in the early 19th century. Despite their huge population, passenger pigeons were [[27]] to human intrusion into their nesting territory. Their nests were shabby things and two weeks after the eggs [[28]] , the parent pigeons would abandon their offspring, leaving them to take care of themselves. People discovered that these baby pigeons were really tasty, and the adult birds were also quite [[29]] . First the Native Americans and then the transplanted E uropeans came to consider the birds a great [[30]] . By the 1850s, commercial trapping of passenger pigeons was proceeding at an [[31]] pace. H undreds of thousands of the birds were being harvested every day to be made into popular pigeon pies. In addition, large [[32]] of the pigeons9 nesting territory were being cleared away for planting crops and creating pasture land. As numerous as the passenger pigeons were, they were not an [[33]] resource. By the 1880s, it was noticed that the bird population had become seriously [[34]] . The last passenger pigeons killed in the wild were shot in 1899. E ventually those billions and billions of birds shrank to a single remaining [[35]] , a passenger pigeon named M artha? who died on September 1, 1914, in captivity at the Cincinnati Zoo. In addition to being the end of an era, it was also the first time humans were able to exactly time the extinction of a species."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "vulnerable"
+        },
+        {
+          "key": "B",
+          "text": "unprecedented"
+        },
+        {
+          "key": "C",
+          "text": "tracts"
+        },
+        {
+          "key": "D",
+          "text": "specimen"
+        },
+        {
+          "key": "E",
+          "text": "robust"
+        },
+        {
+          "key": "F",
+          "text": "refuge"
+        },
+        {
+          "key": "G",
+          "text": "plazas"
+        },
+        {
+          "key": "H",
+          "text": "infinite"
+        },
+        {
+          "key": "I",
+          "text": "hatched"
+        },
+        {
+          "key": "J",
+          "text": "expired"
+        },
+        {
+          "key": "K",
+          "text": "excerpts"
+        },
+        {
+          "key": "L",
+          "text": "estimates"
+        },
+        {
+          "key": "M",
+          "text": "edible"
+        },
+        {
+          "key": "N",
+          "text": "depleted"
+        },
+        {
+          "key": "O",
+          "text": "delicacy"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "vulnerable"
+            },
+            {
+              "key": "B",
+              "text": "unprecedented"
+            },
+            {
+              "key": "C",
+              "text": "tracts"
+            },
+            {
+              "key": "D",
+              "text": "specimen"
+            },
+            {
+              "key": "E",
+              "text": "robust"
+            },
+            {
+              "key": "F",
+              "text": "refuge"
+            },
+            {
+              "key": "G",
+              "text": "plazas"
+            },
+            {
+              "key": "H",
+              "text": "infinite"
+            },
+            {
+              "key": "I",
+              "text": "hatched"
+            },
+            {
+              "key": "J",
+              "text": "expired"
+            },
+            {
+              "key": "K",
+              "text": "excerpts"
+            },
+            {
+              "key": "L",
+              "text": "estimates"
+            },
+            {
+              "key": "M",
+              "text": "edible"
+            },
+            {
+              "key": "N",
+              "text": "depleted"
+            },
+            {
+              "key": "O",
+              "text": "delicacy"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【语法判断】空格前面是形容词 rough,因此空格处应填入一个名词。 【语义判断】空格所在句意思是“据粗略估计,在 19 世纪早期 ,北美旅铝的数量高达 50 亿只,约占北美本土鸟类总数的 40%”,工) estimates“估计?” 符合语境,故为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "vulnerable"
+            },
+            {
+              "key": "B",
+              "text": "unprecedented"
+            },
+            {
+              "key": "C",
+              "text": "tracts"
+            },
+            {
+              "key": "D",
+              "text": "specimen"
+            },
+            {
+              "key": "E",
+              "text": "robust"
+            },
+            {
+              "key": "F",
+              "text": "refuge"
+            },
+            {
+              "key": "G",
+              "text": "plazas"
+            },
+            {
+              "key": "H",
+              "text": "infinite"
+            },
+            {
+              "key": "I",
+              "text": "hatched"
+            },
+            {
+              "key": "J",
+              "text": "expired"
+            },
+            {
+              "key": "K",
+              "text": "excerpts"
+            },
+            {
+              "key": "L",
+              "text": "estimates"
+            },
+            {
+              "key": "M",
+              "text": "edible"
+            },
+            {
+              "key": "N",
+              "text": "depleted"
+            },
+            {
+              "key": "O",
+              "text": "delicacy"
+            }
+          ],
+          "answer": "A",
+          "explanation": "空格位于 were 之后，需要形容词作表语。句子说明，旅鸽虽然数量庞大，却容易受到人类侵入筑巢领地的影响。be vulnerable to 表示“易受到……的伤害”，因此选 A) vulnerable。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "vulnerable"
+            },
+            {
+              "key": "B",
+              "text": "unprecedented"
+            },
+            {
+              "key": "C",
+              "text": "tracts"
+            },
+            {
+              "key": "D",
+              "text": "specimen"
+            },
+            {
+              "key": "E",
+              "text": "robust"
+            },
+            {
+              "key": "F",
+              "text": "refuge"
+            },
+            {
+              "key": "G",
+              "text": "plazas"
+            },
+            {
+              "key": "H",
+              "text": "infinite"
+            },
+            {
+              "key": "I",
+              "text": "hatched"
+            },
+            {
+              "key": "J",
+              "text": "expired"
+            },
+            {
+              "key": "K",
+              "text": "excerpts"
+            },
+            {
+              "key": "L",
+              "text": "estimates"
+            },
+            {
+              "key": "M",
+              "text": "edible"
+            },
+            {
+              "key": "N",
+              "text": "depleted"
+            },
+            {
+              "key": "O",
+              "text": "delicacy"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【语法判断空格所在句是一个由 and 连接的并列名,the parent pigeons 是第二个并列分句的主语， 和9月 14 two weeks after the eggs 这一部分为该分句的时间状语从名,该状语从句的主语为名词 eggs,因此空格处需填和人一个动词作谓语。 【语义判断】此句意思是“蛋孵化两周后,合子的父母就会抛弃它们的孩子, 让它们自生自灭”。 D hatched“铸化”符合语法及语境,故为答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "vulnerable"
+            },
+            {
+              "key": "B",
+              "text": "unprecedented"
+            },
+            {
+              "key": "C",
+              "text": "tracts"
+            },
+            {
+              "key": "D",
+              "text": "specimen"
+            },
+            {
+              "key": "E",
+              "text": "robust"
+            },
+            {
+              "key": "F",
+              "text": "refuge"
+            },
+            {
+              "key": "G",
+              "text": "plazas"
+            },
+            {
+              "key": "H",
+              "text": "infinite"
+            },
+            {
+              "key": "I",
+              "text": "hatched"
+            },
+            {
+              "key": "J",
+              "text": "expired"
+            },
+            {
+              "key": "K",
+              "text": "excerpts"
+            },
+            {
+              "key": "L",
+              "text": "estimates"
+            },
+            {
+              "key": "M",
+              "text": "edible"
+            },
+            {
+              "key": "N",
+              "text": "depleted"
+            },
+            {
+              "key": "O",
+              "text": "delicacy"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【语法判断】空格前有系动词 were 和副词 quite， 可知空格处应填一个形容词作表语。 【语义判断】 空格所在名逗号前面的部分提到 these baby pigeons were really tasty(这些乳铝非常美味) ,可知空格所在处是指“成年鸽子也很好吃”。备选项中的形容词 edible 表示“可食用的”， 符合语境,故答案为 M) 。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "vulnerable"
+            },
+            {
+              "key": "B",
+              "text": "unprecedented"
+            },
+            {
+              "key": "C",
+              "text": "tracts"
+            },
+            {
+              "key": "D",
+              "text": "specimen"
+            },
+            {
+              "key": "E",
+              "text": "robust"
+            },
+            {
+              "key": "F",
+              "text": "refuge"
+            },
+            {
+              "key": "G",
+              "text": "plazas"
+            },
+            {
+              "key": "H",
+              "text": "infinite"
+            },
+            {
+              "key": "I",
+              "text": "hatched"
+            },
+            {
+              "key": "J",
+              "text": "expired"
+            },
+            {
+              "key": "K",
+              "text": "excerpts"
+            },
+            {
+              "key": "L",
+              "text": "estimates"
+            },
+            {
+              "key": "M",
+              "text": "edible"
+            },
+            {
+              "key": "N",
+              "text": "depleted"
+            },
+            {
+              "key": "O",
+              "text": "delicacy"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【语法判断了空格前面是不定冠词 a 和形容词 great, 因此空格处应填入一个名词。 【语义判断本空格所在句的上一句提到乳铝和成年合子好吃,可推断空格所在句是说美洲原住民和移居的欧洲人认为这种鸟是一种美味。 O) delicacy“珍链,佳肴”符合语境,故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "vulnerable"
+            },
+            {
+              "key": "B",
+              "text": "unprecedented"
+            },
+            {
+              "key": "C",
+              "text": "tracts"
+            },
+            {
+              "key": "D",
+              "text": "specimen"
+            },
+            {
+              "key": "E",
+              "text": "robust"
+            },
+            {
+              "key": "F",
+              "text": "refuge"
+            },
+            {
+              "key": "G",
+              "text": "plazas"
+            },
+            {
+              "key": "H",
+              "text": "infinite"
+            },
+            {
+              "key": "I",
+              "text": "hatched"
+            },
+            {
+              "key": "J",
+              "text": "expired"
+            },
+            {
+              "key": "K",
+              "text": "excerpts"
+            },
+            {
+              "key": "L",
+              "text": "estimates"
+            },
+            {
+              "key": "M",
+              "text": "edible"
+            },
+            {
+              "key": "N",
+              "text": "depleted"
+            },
+            {
+              "key": "O",
+              "text": "delicacy"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【语法判断空格前是不定冠词 an,空格后面是名词 pace, 可知空格处应填一个形容词或名词作定语。 【语义判断】空格所在句提到 commercial trapping of passenger pigeons(商业捕获旅铝) ,接下来的一名又提到 hundreds of thousands of the birds were being harvested every day(每天都有数十万只旅铅被捕获) ,可判断此处是指商业捕获旅铝的速度非常快。备选项中的形容词 unprecedented 表示 “前所未有的”,用在此处符合语境,故答案为 B) 。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "vulnerable"
+            },
+            {
+              "key": "B",
+              "text": "unprecedented"
+            },
+            {
+              "key": "C",
+              "text": "tracts"
+            },
+            {
+              "key": "D",
+              "text": "specimen"
+            },
+            {
+              "key": "E",
+              "text": "robust"
+            },
+            {
+              "key": "F",
+              "text": "refuge"
+            },
+            {
+              "key": "G",
+              "text": "plazas"
+            },
+            {
+              "key": "H",
+              "text": "infinite"
+            },
+            {
+              "key": "I",
+              "text": "hatched"
+            },
+            {
+              "key": "J",
+              "text": "expired"
+            },
+            {
+              "key": "K",
+              "text": "excerpts"
+            },
+            {
+              "key": "L",
+              "text": "estimates"
+            },
+            {
+              "key": "M",
+              "text": "edible"
+            },
+            {
+              "key": "N",
+              "text": "depleted"
+            },
+            {
+              "key": "O",
+              "text": "delicacy"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【语法判断】空格前面是形容词 large,空格后面是介词 of ,因此空格处应填入一个名词。 【语义判断〗由 of 后面的 the pigeons”nesting territory(铝子筑梨的领地)可知,空格处的词意思应与土地面积相关。C) tracts“(士地的)一大片” 符合语境,故为答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "vulnerable"
+            },
+            {
+              "key": "B",
+              "text": "unprecedented"
+            },
+            {
+              "key": "C",
+              "text": "tracts"
+            },
+            {
+              "key": "D",
+              "text": "specimen"
+            },
+            {
+              "key": "E",
+              "text": "robust"
+            },
+            {
+              "key": "F",
+              "text": "refuge"
+            },
+            {
+              "key": "G",
+              "text": "plazas"
+            },
+            {
+              "key": "H",
+              "text": "infinite"
+            },
+            {
+              "key": "I",
+              "text": "hatched"
+            },
+            {
+              "key": "J",
+              "text": "expired"
+            },
+            {
+              "key": "K",
+              "text": "excerpts"
+            },
+            {
+              "key": "L",
+              "text": "estimates"
+            },
+            {
+              "key": "M",
+              "text": "edible"
+            },
+            {
+              "key": "N",
+              "text": "depleted"
+            },
+            {
+              "key": "O",
+              "text": "delicacy"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【语法判断】空格前是不定冠词an,空格后面是名词 resource,可知空格处应填一个形容词。 【语义判断】 空格所在名前半部分是一个让步状语从句,意为“尽管旅钥数量众多”空格所在句语义进行转折,结合句中出现的 not 一词可知,空格处所在词意思应与前面的 numerous“很多的”一词语义一致。备选项中的形容词 infinite 表示“无限的,无穷尽的”符合语境,故答案为 HD 。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "vulnerable"
+            },
+            {
+              "key": "B",
+              "text": "unprecedented"
+            },
+            {
+              "key": "C",
+              "text": "tracts"
+            },
+            {
+              "key": "D",
+              "text": "specimen"
+            },
+            {
+              "key": "E",
+              "text": "robust"
+            },
+            {
+              "key": "F",
+              "text": "refuge"
+            },
+            {
+              "key": "G",
+              "text": "plazas"
+            },
+            {
+              "key": "H",
+              "text": "infinite"
+            },
+            {
+              "key": "I",
+              "text": "hatched"
+            },
+            {
+              "key": "J",
+              "text": "expired"
+            },
+            {
+              "key": "K",
+              "text": "excerpts"
+            },
+            {
+              "key": "L",
+              "text": "estimates"
+            },
+            {
+              "key": "M",
+              "text": "edible"
+            },
+            {
+              "key": "N",
+              "text": "depleted"
+            },
+            {
+              "key": "O",
+              "text": "delicacy"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【语法判断】空格所在句中 it 为形式主语,真正的主语为 that 引导的主语从句,该主语从句是个主系表结构, 表语部分不完整。空格前是副词 seriously,可知空格处应填一个形容词作表语。 【语义判断】根据上下文可知,此处意思是“到 19 世纪 80 年代,人们注意到这一鸟类的数量已经严重减少”。备选项中的 depleted 用作动词意为“消减,损耗”其过去分词也可用作形容词,意为“减少的”符合语境,故答案为 N) 。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "vulnerable"
+            },
+            {
+              "key": "B",
+              "text": "unprecedented"
+            },
+            {
+              "key": "C",
+              "text": "tracts"
+            },
+            {
+              "key": "D",
+              "text": "specimen"
+            },
+            {
+              "key": "E",
+              "text": "robust"
+            },
+            {
+              "key": "F",
+              "text": "refuge"
+            },
+            {
+              "key": "G",
+              "text": "plazas"
+            },
+            {
+              "key": "H",
+              "text": "infinite"
+            },
+            {
+              "key": "I",
+              "text": "hatched"
+            },
+            {
+              "key": "J",
+              "text": "expired"
+            },
+            {
+              "key": "K",
+              "text": "excerpts"
+            },
+            {
+              "key": "L",
+              "text": "estimates"
+            },
+            {
+              "key": "M",
+              "text": "edible"
+            },
+            {
+              "key": "N",
+              "text": "depleted"
+            },
+            {
+              "key": "O",
+              "text": "delicacy"
+            }
+          ],
+          "answer": "D",
+          "explanation": "〖语法判断了空格前面是形容词 remaining, 因此空格处应填入一个名词。 【语义判断】根据上下文意思可知,空格所在部分意思是“这数十亿只旅伍缩减为唯一的标本”。 D) specimen “标本,样品?符合语境,故为答案。 9月 15"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-09-2-b",
+      "type": "matching",
+      "title": "Is computer coding a foreign language?",
+      "paragraphs": [
+        "A) As computer coding has become an increasingly sought-after skill, more K -12 schools are working it into their curriculums. Some states have considered allowing students to forgo (放弃)foreign language for coding classes, despite opposition from educators.",
+        "B) There9s a debate over whether it's appropriate to teach coding in elementary schools, with fierce opinions on each side. When it comes to allowing coding to fill foreign language requirements, though, most educators agree: Coding should be added to curriculums, but not at the expense of foreign language classes.",
+        "C) The idea is that computer programming is a language, allowing people to communicate with machines and programs. It's the language of the 21st century and more valuable than a natural language, some advocates argue. The computer science field is growing faster than schools can keep up because of budget constraints and a lack of skills training for teachers.",
+        "D) A ccording to the 2016 U.S. News/Raytheon STE M Index, computer science jobs have helped boost wages in the U.S., and computer-related jobs hold the top seven positions in STE M fields for highest number of workers. Foreign language interest, on the other hand, is declining for the first time since 1995. The number of higher education language enrollments declined between 2009 and 2013 by more than 111,000 spots, according to the M odem Language A ssociation of America.",
+        "E) “I think the opportunity to give people a choice is important,says Florida state Senator Jeremy Ring, who introduced a bill last year that would allow Florida students to choose between foreign language and coding classes for the purpose of university admissions requirements, CCI think if you're going to give two years of language in high school, you might as well do computer coding.",
+        "F) The Florida bill died this year after passing 35-5 in the state Senate when the full Legislature failed to take action. It would have been the first state to try this initiative. Ring says that although he will be out of office, an identical bill will be reintroduced within the next year by others on his behalf. \"In the speech I gave on the Senate floor, I said, 'We can be the first state to do this, or we can be the 50th state to do it. It's our choice. It's going to happen,'\" Ring says.",
+        "G) A K entucky bill similar to the one in Florida was met with complaints from educators, and was then amended to promote computer science education initiatives with no mention of foreign language requirements. Instead, the state will provide support for higher quality certified teachers for programming classes. Under the Washington bill, public universities would accept two years of computer science classes in place of two years of foreign language for admission purposes. A report detailing the opinions of state university officials is due to the Legislature by November 2017.",
+        "H) Texas passed a bill in 2013 that allows students to substitute computer coding only after they have attempted and performed poorly in a foreign language class. Srini M andyam, CTO and co-founder of kid-friendly instructional coding company Tynker, believes allowing students to forgo foreign language because they struggle with it is unproductive because every subject, whether art, math or language, is a significant contribution to a well-rounded existence. \"M any students don't fare well with algebra but we never discuss eliminating it or... say chemistry is now counted as an algebra class,\" he said via email.\" We teach algebra because it's important and we should teach foreign language and coding for the same reason. E xposure to a wide breadth of subjects and material results in well-rounded students who are able to make informed decisions... about what they want to pursue.^^",
+        "I) Computer science courses already fulfill a math or science high school graduation requirement in 28 states and the District of Columbia, up from only 12 states in 2013. A nd while advocates of the bills say they should count as foreign language instead, opponents stress the importance of balancing computer and foreign language skills.",
+        "J) Studies show that bilingualism (双语)correlates with cognitive development, intelligence, memory and problem solving abilities, according to the A merican Council on the Teaching of Foreign Languages. A 2007 study showed that foreign language students outperformed their non-foreign language peers on standardized tests after only two to three years of study. A nd while a 2014 report from G erman and American universities suggests that programmers are using language ( but not mathematical) regions of the brain when understanding code, critics remain wary. They say that regardless of cognitive functions, being monolingual is a disadvantage in the increasingly international economy, even if E nglish has become the de facto (事实上的)language of business.",
+        "K) “Our world is shrinking but its problems are really growing,says A CTFL National Language Teacher of the Year Ted Zarrow, who teaches high school Latin in Westwood, M assachusetts, and has also studied Spanish, French, G erman, Italian and G reek. nWe need to find a way to put ourselves at the global table and to treat each other with mutual respect. A nd learning languages allows us to do that because language is not part of culture, language is culture.",
+        "L) E ven with the benefits and skill sets languages provide, recruiters and employers value computer skills more. A ccording to the National Association of Colleges and E mployers9 2016 report, study abroad and foreign language fluency were not very influential in the employee hiring processes, but 55 percent of employers looked for computer skills on applicants9 resumes. H owever, although 2016 computer science graduates can expect to make the second highest starting salary compared with other jobs this year, the Bureau of Labor predicts the demand for computer programmers will decrease 8 percent or by 26,500 jobs by 2024.",
+        "M) Ring says foreign language skills are important, but expresses doubt that school districts could work both coding and language into their curriculum in a significant way because they lack the time in the school day. \"Nothing against language/9 he says. \"I just think it's something you have to start early and not just have something that you do for a couple of years in high school,“ he says.",
+        "N) Zarrow agrees that foreign language education should begin earlier, but says it is possible to work both computer programming and foreign language learning into schools evenly. H e suggests an immersive, dual language program where students spend half the day in E nglish and half the day in another language, as several schools around the country have successfully implemented. \"The study of language fosters a respect for diversity, a respect for ethnicity and really a respect for language,Zarrow says.",
+        "O) Though the benefits of computer programming skills are vast, foreign language and coding experts agree that computer science should be negotiated into curriculums rather than replacing foreign language outright. M andyam says the two skill sets are essential but unrelated. \"'Coding is an incredibly important 21st century skill for our kids to learn, and that's why we spend so much time trying to teach it,“ M andyam says via email. “But I believe it is the same as or even really comparable to learning a foreign language. It would be a shame to lose something so important for the sake of adding something else, even something as important as coding. Clearly, education leaders must figure out a way to teach both.^^"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "E mployers attach more importance to applicants9 computer skills than their language competence.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【精析】同义转述题。L)段第一句指出,尽管语言带来了益处和一系列技能,但招聘人员和雇主更看重计算机技能。由此可知,相比语言能力,雇主更重视计算机技能,题干是对定位句的同义转述。 题干中的 attach more importance to applicants” computer skills 对应原文中的 value computer skills more,故答案为工) 。"
+        },
+        {
+          "number": 37,
+          "stem": "One U. S. state senator proposed that high school students be allowed to study either foreign language or computer coding.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【精析】同义转述题。E)段第一句提到了佛罗里达州参议员杰里米。林,随后指出他去年提出的一项法案人允许佛罗里达州的学生在外语和编码课程之间做出选择, 以满足大学人学要求。题干中的 study either foreign language or computer coding 是对原文中的 choose between foreign language and coding classes 的同义转述,故答案为也) 。"
+        },
+        {
+          "number": 38,
+          "stem": "Learning languages broadens students9 international perspective and nurtures mutual respect among peoples, according to a high school language teacher.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K 段的高中语言教师指出，语言学习帮助人们立足全球舞台并相互尊重。题干概括了拓宽国际视野和增进相互尊重这两方面信息。"
+        },
+        {
+          "number": 39,
+          "stem": "One U. S. state will see to it that programming classes are taught by quality teachers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【精析】同义转述题。G)段开头提到肯塔基州有关计算机编程教育的法案,其中第二名说,该州将为编程课程的高质量认证教师提供支持。题干中 see to it 对应原文中的 provide support for,题干中的 quality teachers 对应原文中的 higher quality certified teachers,故答案为 G) 。"
+        },
+        {
+          "number": 40,
+          "stem": "Statistics show while computer-related jobs have been on the rise, foreign languages have become less appealing to American students since mid-1990s.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析卫细节归纳题。D)段定位句提到,根据 2016 年美国新闻/雷神公司 STEM 指数,计算机相关工作在 STEM 领域内占据前七位,从业人员数量最多。另一方面,对于外语的兴趣自 1995 年以来首次下降。由此可知,题干是对该处信息的归纳。 题干中的 have been on the rise 对应原文中的 hold the top seven positions in STEM fields for highest number of workers, 题干中的 foreign languages have become less appealing 是原文中 “Foreign language interest. . .is declining”的同义表达,故答案为D) 。"
+        },
+        {
+          "number": 41,
+          "stem": "All school subjects are said to be essential to students9 well-rounded development.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【精析】同义转述题。H)段定位部分提到,每门学科,无论是艺术数学还是语言,都对全面发展有着重要贡献。题干是对该部分的同义转述。题干中的 essential 是原文中 a significant contribution 的同义表达,题干中的 well-rounded development 则对应原文中的 a well-rounded existence,故答案为 H) 。"
+        },
+        {
+          "number": 42,
+          "stem": "There is consensus among most educators that coding should be taught in schools but should not replace foreign language.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析了同义转述题。B)段定位句指出,大多数教育者的意见都是一致的:编码应该被添加到课程中,但不能以牺牲外语课程为代价。题干是对该句的同义转述。题干中的 consensus 对应原文中的 agree, 题寺中的 coding should be taught in schools 是对原文中 coding should be added to curriculums 的转述, 而 replace foreign language 则是原文中 at the expense of foreign language classes 的同义表达,故答案为 B) 。"
+        },
+        {
+          "number": 43,
+          "stem": "One study showed that foreign language learning improved students' academic performance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【精析卫细节推断题。J)段定位句指出,2007 年的一项研究表明,仅需经过两年到三年的外语学习， 学生在标准化测试中就有优于非外语同龄人的表现。也就是说,外语学习改善了他们的学习能力， 提高了其成绩。题干中的 improved students” academic ” performance 对应原文中的 outperformed their non-foreign language peers on standardized tests,故答案为了]) 。"
+        },
+        {
+          "number": 44,
+          "stem": "Being short of funding and qualified teachers, schools lag behind the fast developing computer science field.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】同义转述题。C)段第三句提到,由于预算限制和缺乏对教师的技能培训,计算机科学领域的发展速度远不是学校所能跟上的。题干中的 Short of funding and qualified teachers 是对原文中 budget constraints and a lack of skills training for teachers 的同义转述,题干中的 schools lag behind 则对应原文中的 is growing faster than schools can keep up ,故答案为 C) 。"
+        },
+        {
+          "number": 45,
+          "stem": "A distinguished high school language teacher also believes it is advisable to start learning a foreign language at an earlier age.",
+          "options": [
+            {
+              "key": "A",
+              "text": "A 段"
+            },
+            {
+              "key": "B",
+              "text": "B 段"
+            },
+            {
+              "key": "C",
+              "text": "C 段"
+            },
+            {
+              "key": "D",
+              "text": "D 段"
+            },
+            {
+              "key": "E",
+              "text": "E 段"
+            },
+            {
+              "key": "F",
+              "text": "F 段"
+            },
+            {
+              "key": "G",
+              "text": "G 段"
+            },
+            {
+              "key": "H",
+              "text": "H 段"
+            },
+            {
+              "key": "I",
+              "text": "I 段"
+            },
+            {
+              "key": "J",
+              "text": "J 段"
+            },
+            {
+              "key": "K",
+              "text": "K 段"
+            },
+            {
+              "key": "L",
+              "text": "L 段"
+            },
+            {
+              "key": "M",
+              "text": "M 段"
+            },
+            {
+              "key": "N",
+              "text": "N 段"
+            },
+            {
+              "key": "O",
+              "text": "O 段"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【精析】细节归纳题。N)段定位句指出 ,扎罗赞成外语教育应该更早开始, 而根据之前民)段中的 ACTFL National Language Teacher of the Year 和 who teaches high school Latin 可知 ,扎罗正是一位杰出的高中语言教师。另外,题干中出现了 also 一词 ,说明前文中也有类似的信息出现,MD段提到林认为教授语言是必须尽早开始的事情,但由下)段第一句中的信息可知,林是佛罗里达州的参议员 ,而非高中教师。综合可知,题干信息对应的出处在 N)段。题干是对文中信息的归纳,其中的 a distinguished high school language teacher 是指 Zarrow,题干中的 believes 对应原文中的 agrees,题干中的 it is advisable to start learning a foreign language at an earlier age 转述原文中的 foreign language education should begin earlier， 故答案为 N) 。 29月 17"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-09-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The U. S. and China don't agree on much these days. Germany and France share a border and a currency but are frequently at odds. The U. K . and India like to march to their own drum. But there9s one issue on which all these countries see eye to eye: Technology companies are too big, too powerful, and too profitable. And that power is only likely to intensify, leaving governments with no choice but to confront it head-on by taking the companies to court, passing new competition laws, and perhaps even breaking up the tech giants. China is the latest to implement an anti-trust crackdown, unveiling anti-monopoly rules last month. The draft rules followed the surprise suspension of a $ 37 billion stock offering by billionaire Jack M a's Ant Group Co., making clear that no company can evade the government's regulation. The moves in China coincide with accelerating efforts in the U. S. and E urope to rein in Amazon, com, Apple, Facebook, and Google. “The big get bigger and bigger but without being better,says Andreas Schwab, a German member of the E uropean Parliament who championed a 2014 resolution to break up Google, “Growing economic power, growing influence on local markets all over the world, and a growing concern of competitors and consumers altogether have made it happen now.^^ In this new anti-trust era, the old focus on pricing power no longer applies, because several of the biggest tech companies have established trillion-dollar monopolies by charging consumers next to nothing. Tech giants are increasingly assuming powerful positions in banking, finance, advertising, retail, and other markets that force smaller businesses to rely on their platforms to reach customers. For years, E urope alone confronted the power of digital giants. Governments were alarmed that E uropean companies were failing to match Silicon Valley's innovations or to stop Google and Facebook from vacuuming up personal data and, with that, advertising revenue. Led by M argrethe Vestager, the E uropean Union's competition chief, countries have sought to police the market and encourage fair play. In China the crackdown has been driven at least partly by fear that the homegrown tech industry is becoming too powerful. The country has long championed Alibaba and Tencent, but their massive accumulation of data on the Chinese citizenry is a growing concern for Beijing. In the U.S., a new breed of anti-trust experts argues that consideration should be given",
+        "to privacy, control over data, workers'rights and the overall impact on smaller companies And the public in general have grown increasingly skeptical of social media companies More than 60% say the sector has a negative effect on the country, and almost half want more regulation for social media, according to a 2020 Pew Research Center study"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author say is the issue all major economic powers have to address?",
+          "options": [
+            {
+              "key": "A",
+              "text": "How to ensure the sustainable growth of their tech giants"
+            },
+            {
+              "key": "B",
+              "text": "How to keep the competitiveness of their tech companies"
+            },
+            {
+              "key": "C",
+              "text": "How to break up the powerful giant tech companies"
+            },
+            {
+              "key": "D",
+              "text": "How to stop tech companies from gaining monopoly"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析本细节推断题。文章首段第四、五句指出,在一个问题上,所有这些国家的看法都是一致的:科技公司规模太大,实力太强大,太有利可图。而且这种力量只可能增强,使得政府别无选择,而只能通过将公司告上法庭.通过新的竞争法,甚或拆分这些科技巨头来进行积极对抗。由此可知,各经济大国必须做的事情是阻止科技公司获得攻断地位,故答案为 D) 。 【吉错】本段及整篇文章均主要指出,各国认为科技公司发展过于迅速实力过于强大,要采取相应措施阻止科技公司获得芍断地位,A)、B)项与文章意思不符,故排除天拆分强大的巨型科技公司” 是政府试图阻止科技公司获得垄断地位的其中一种手段 ,并非需解决的问题本身,故排除 C)项。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the suspension of Ant Group Co.'s stock offering suggest?",
+          "options": [
+            {
+              "key": "A",
+              "text": "All attempts to evade regulation are doomed to failure."
+            },
+            {
+              "key": "B",
+              "text": "All attempts to monopolize sales must be cracked down."
+            },
+            {
+              "key": "C",
+              "text": "All companies must be regulated by the government"
+            },
+            {
+              "key": "D",
+              "text": "All companies? domestic or foreign are created equal"
+            }
+          ],
+          "answer": "C",
+          "explanation": "〖精析】 事实细节题。文章第二段第二句提到,在亿万富翁马云的蚂蚁科技集团股份有限公司出人意料地暂停了 370 亿美元的股票发行之后,国家发布了这些规则草案,明确表示没有一家公司可以逃避政府的监管。由此可知,该事件说明所有公司都必须受政府监管,故答案为 C) 。"
+        },
+        {
+          "number": 48,
+          "stem": "How are smaller companies impacted by tech giants'business expansion?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can no longer do business independent of tech giants"
+            },
+            {
+              "key": "B",
+              "text": "They are frequently denied access to tech giants'platforms"
+            },
+            {
+              "key": "C",
+              "text": "They have to change marketing strateg比s to keep customers"
+            },
+            {
+              "key": "D",
+              "text": "They no longer have the power to price their own products"
+            }
+          ],
+          "answer": "A",
+          "explanation": "第四段末句指出，科技巨头在多个市场中占据强势地位，小企业不得不依赖它们的平台接触顾客。因此小企业难以独立于科技巨头开展业务，选 A。"
+        },
+        {
+          "number": 49,
+          "stem": "What have EU countries done to confront the power of digital giants?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have imposed strict regulation over digital giants'advertising"
+            },
+            {
+              "key": "B",
+              "text": "They have considered regulatory action to promote fair competition"
+            },
+            {
+              "key": "C",
+              "text": "They have limited sales of d屯ital giants'products"
+            },
+            {
+              "key": "D",
+              "text": "They have sought to protect consumers'privacy"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】事实细节题。第五段最后一句提到,在欧盟委员会竞争主管玛格丽特，维斯塔格的领导下,各国都在寻求监管市场,并鼓励公平竞争,故答案为 B) 。"
+        },
+        {
+          "number": 50,
+          "stem": "What do Americans generally think of social media companies according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are invading people's privacy"
+            },
+            {
+              "key": "B",
+              "text": "They are increasingly influential."
+            },
+            {
+              "key": "C",
+              "text": "They are becoming untrustworthy"
+            },
+            {
+              "key": "D",
+              "text": "They are growing out of control."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析】事实细节题。最后一段最后两句指出,公众普遍对社交媒体公司越来越怀疑。根据皮尤研究中心 2020 年的一项研究,超过 60%的人认为这个行业对国家有负面影响,几乎一半的人希望对社交媒体进行更多的监管。由此可知,社交媒体公司正逐渐失去人们的信任,故答案为 C) 。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-09-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Born from the accessibility of mass air travel, modem international tourism has been popularized as \"holiday-making\" in regions that offer comparative advantages of sand, sun",
+        "and sea. Travel is often portrayed as a tool for personal growth and tourism as an economic motor for destination countries and cities. There is a tendency to assume that tourism is good fbr everyone involved. Today the big bang of tourism drives over 1.2 billion tourists across international borders annually. M any popular places are literally being loved to death. Recent protests in ports of call like Venice and Barcelona against disturbances created by cruise ships show the unfortunate consequences of emphasizing quantity over quality in tourism. Uncontrolled tourism development has become a primary driver of social and environmental disruption. Tourism studies provide much documentation of the many negative social impacts of tourism and resulting resentment that local populations direct toward visitors. Antagonism toward tourists typically develops in mature, heavily visited destinations. Protests in heavily visited destinations suggest that traditional tourism has overstayed its welcome. Residents often become frustrated when the benefits of tourism are not felt locally. Although it can generate foreign exchange, income and employment, there's no guarantee that multinational hotel chains will allocate these benefits equitably among local communities. On the contrary, when people stay at large resorts or on cruise ships, they make most of their purchases there, leaving local communities little opportunity to benefit from tourist spending. These forms of tourism widen economic and political gaps between haves and have-nots at local destinations. In recent decades, local residents in destination communities also have found themselves negotiating new cultural boundaries, class dynamics, service industry roles and lifestyle transformations. For example, data show that tourism activity corresponds to increased social problems as local residents adopt the behaviors of tourists. What does all this mean for the everyday traveler? First, all tourists should make every effort to honor their hosts and respect local conditions. This means being prepared to adapt to local customs and norms, rather than expecting local conditions to adapt to travelers. Second, tourism is a market-based activity and works best when consumers reward better performers. In the information age, there9s little excuse fbr travelers being uninformed about where their vacation money goes and who it enriches. Informed travelers also are better able to distinguish between multinational companies and local entrepreneurs whose businesses provide direct social, environmental, and economic benefits for local residents. Such businesses are in love with the destination and are therefore deserving of market reward. In the long run, being a responsible traveler means ensuring net positive impacts for local people and environments. With the information available at our fingertips, there has never been more opportunity to do so."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is the popular assumption about international tourism?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its benefits may compensate for the adverse environmental consequences."
+            },
+            {
+              "key": "B",
+              "text": "Its rapid development is attributed to people's improved living standard."
+            },
+            {
+              "key": "C",
+              "text": "It appeals to people in places with favorable geographical conditions."
+            },
+            {
+              "key": "D",
+              "text": "It contributes to the economy of destination countries and regions."
+            }
+          ],
+          "answer": "D",
+          "explanation": "首段将旅游业称为目的地国家和城市的经济发动机，意在说明人们普遍认为国际旅游能够促进当地经济发展，故选 D。"
+        },
+        {
+          "number": 52,
+          "stem": "What do we learn from some studies about uncontrolled tourism development?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It gives rise to an increase in mass confrontations."
+            },
+            {
+              "key": "B",
+              "text": "It incurs local residents9 antagonism to tourists."
+            },
+            {
+              "key": "C",
+              "text": "It inhibits the steady growth of local economy."
+            },
+            {
+              "key": "D",
+              "text": "It brings in a large chunk of mobile population."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【精析】事实细节题。第三段第一句提到未加控制的旅游业开发已成为社会和环境破坏的主要驱动因素。紧接着第二句指出,旅游业研究提供了大量文献资料证明该行业的众多负面社会影响以及由此导致当地居民对游客的怨恨。第四段第一名则进一步强调这种对游客的敌意通常出现在人满为患的成熟目的地。由此可知,对未加控制的旅游业开发进行的一些研究表明它引起当地居民对游客的她恨和敌意。故答案为 B) 。"
+        },
+        {
+          "number": 53,
+          "stem": "Why does the author say local residents of popular destinations often feel frustrated?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They fall victim to social conflicts and environmental disturbances."
+            },
+            {
+              "key": "B",
+              "text": "They have little opportunity to enjoy themselves on cruise ships."
+            },
+            {
+              "key": "C",
+              "text": "They cannot find employment in multinational hotel chains."
+            },
+            {
+              "key": "D",
+              "text": "They do not think they benefit as much as they deserve."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【精析】 推理判断题。第五段第一句提到当地方感受不到旅游业带来的好处时, 当地居民往往就会变得泪形。紧接着第二句进一步解释原因是旅游业无法保证跨国连锁酒店会在当地社区公平分配这些好处。由此可知,当地居民经常感到泪丧是因为他们无法公平获得旅游业带来的好处,即未获得应得的好处。故答案为 D) 。"
+        },
+        {
+          "number": 54,
+          "stem": "H ow does the author say local residents in destination communities respond to tourism activity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They endeavor to adapt to it."
+            },
+            {
+              "key": "B",
+              "text": "They readily adopt new lifestyles."
+            },
+            {
+              "key": "C",
+              "text": "They immerse tourists in their culture."
+            },
+            {
+              "key": "D",
+              "text": "They try to upgrade their business models."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【精析了事实细节题。第七段第一句提到目的地社区的当地居民发现自己一直在适应新的文化边界、 阶级动态.服务行业角色和生活方式转变。紧接着第二句具体举例进行说明,因为当地居民出现了同游客一样的种种不良行为,即当地居民在适应旅游活动的负面影响,所以旅游活动相应地带来了社会问题的增加。综合可知,目的地社区的当地居民对旅游活动的回应是尽力去适应它。故答案为 A) 。"
+        },
+        {
+          "number": 55,
+          "stem": "What can tourists do to exert more positive impacts on the tourist destinations?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Show interest in local customs and lifestyles."
+            },
+            {
+              "key": "B",
+              "text": "Seek possibilities to invest in local companies."
+            },
+            {
+              "key": "C",
+              "text": "Use the services provided by local businesses."
+            },
+            {
+              "key": "D",
+              "text": "Give favorable comments about their services."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【精析了推理判断题。最后一段第三句提到从长远来看,做一个负责任的旅行者意味着确保对当地人和当地环境只有积极影响。而前两句指出,本土企业为当地居民提供直接的社会.环境和经济效益,应该得到市场回报。由此可知,负责任的旅行者应使用本土企业提供的服务,让本土企业从中获利,从而对当地产生积极影响。故答案为 C) 。"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.09/%E7%9C%9F%E9%A2%98PDF/2022%E5%B9%B409%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E5%85%A83%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.09/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.09%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E5%85%A83%E5%A5%97.pdf"
+}
