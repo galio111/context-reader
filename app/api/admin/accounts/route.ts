@@ -1,3 +1,4 @@
+import { usageCost, type ReportExecution } from "@/lib/adminUsageReport";
 import { summarizeZhipuUsage } from "@/lib/zhipuUsage";
 import { NextResponse } from "next/server";
 import { accountFetch } from "@/lib/accountStore";
@@ -90,6 +91,10 @@ export async function GET() {
     actionExecutions.push(execution);
     executionsByAction.set(actionId, actionExecutions);
   }
+  const actionCosts = (rows: UsageExecutionRow[]) => {
+    const costs = rows.map(row => usageCost(row as unknown as ReportExecution));
+    return { estimatedCostCny: microcnyToCny(costs.reduce<number>((sum, cost) => sum + (cost ?? 0), 0)), unknownCost: costs.filter(cost => cost === null).length };
+  };
   const summarizeActions = (metricKey: "article_summary" | "full_article_translation") => {
     const metricActions = actions.filter((action) => action.metric_key === metricKey);
     const providerExecutions = metricActions.flatMap((action) => executionsByAction.get(action.id) ?? []);
@@ -108,7 +113,7 @@ export async function GET() {
       providerExecutions: providerExecutions.length,
       promptTokens,
       completionTokens,
-      estimatedCostCny: microcnyToCny(estimatedCostMicrocny),
+      ...actionCosts(providerExecutions),
     };
   };
   const summaryUsage = summarizeActions("article_summary");
@@ -141,7 +146,7 @@ export async function GET() {
         providerExecutions: providerExecutions.length,
         promptTokens: providerExecutions.reduce((sum, execution) => sum + Number(execution.prompt_tokens || 0), 0),
         completionTokens: providerExecutions.reduce((sum, execution) => sum + Number(execution.completion_tokens || 0), 0),
-        estimatedCostCny: microcnyToCny(estimatedCostMicrocny),
+        ...actionCosts(providerExecutions),
         createdAt: action.created_at || "",
       };
     });
