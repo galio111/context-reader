@@ -48,7 +48,14 @@ export async function fetchWithProviderFailover(url: string, init: RequestInit, 
       outputHeaders.set("x-context-model", model);
       if (!body.stream) {
         const text = await response.text();
-        const completion = JSON.parse(text);
+        let completion;
+        try { completion = JSON.parse(text); } catch (error) {
+          await recordModelHealth(model,502,Date.now()-started);
+          if (!backup && enabled) throw error;
+          cleanup();
+          // Preserve the final response for caller-specific parsing diagnostics.
+          return new Response(text, { status: response.status, headers: outputHeaders });
+        }
         if (!completion.choices?.[0]?.message?.content?.trim() || completion.error) throw new Error("Empty provider completion");
         await recordModelHealth(model,200,Date.now()-started);
         cleanup();
