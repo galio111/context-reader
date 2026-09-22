@@ -36,7 +36,7 @@ function Recording({ src, label, playing }: { src: string; label: string; playin
   }, [playing, src, loadedSrc]);
   return <div className={styles.recording} data-has-video={Boolean(src)}>
     {src && !failed ? <>
-      <video ref={video} src={loadedSrc} poster={poster} muted loop playsInline preload={playing ? "auto" : "metadata"} onError={() => { if (loadedSrc) setFailed(true); }} aria-label={label} />
+      <video ref={video} src={loadedSrc} poster={loadedSrc ? poster : undefined} muted loop playsInline preload={playing ? "auto" : "metadata"} onError={() => { if (loadedSrc) setFailed(true); }} aria-label={label} />
       {blocked && <button className={styles.play} onClick={() => { void video.current?.play().then(() => setBlocked(false)).catch(() => {}); }}>播放演示</button>}
     </> : <div className={styles.placeholder}><span className={styles.placeholderIcon} aria-hidden="true">▷</span><strong>{label}</strong><span>{failed ? "演示暂时无法播放" : "录屏预留画面"}</span></div>}
   </div>;
@@ -87,7 +87,7 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen 
           {feature.paragraphs.map(text => <p key={text}>{text}</p>)}
           <button type="button" className={styles.next} onClick={() => select(active + 1)}>下一个 <span aria-hidden="true">↗</span></button>
         </div>}
-        <div className={styles.media} style={feature.id === "publications" ? { "--poster": "url(/showcase/publications-v1.webp)" } as CSSProperties : undefined}>
+        <div className={styles.media} style={visible && feature.id === "publications" ? { "--poster": "url(/showcase/publications-v1.webp)" } as CSSProperties : undefined}>
           {feature.id === "explore" ? <div className={styles.finale}>
             <div className={styles.finaleCanvas} key={`finale-${replay}`}>
               <h2><i>更多</i><i>可能，</i><i>等你发现。</i></h2>

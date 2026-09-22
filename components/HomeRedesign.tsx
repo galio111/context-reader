@@ -25,7 +25,8 @@ import type { ImportedArticle, SavedArticle } from "@/types/article";
 import type { PublicArticle } from "@/types/publicArticle";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import type { TemporaryReading } from "@/lib/temporaryReading";
-import Ballpit, { type BallpitHandle } from "@/components/Ballpit";
+import type { BallpitHandle } from "@/components/Ballpit";
+const Ballpit = dynamic(() => import("@/components/Ballpit"), { ssr: false });
 import { FallingWordOpening } from "@/components/FallingWordOpening";
 import {
   emptyRecommendationPreferences,
@@ -197,6 +198,17 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
   const pointerTargetRef = useRef({ x: 0.5, y: 0.5 });
   const pointerCurrentRef = useRef({ x: 0.5, y: 0.5 });
   const [coverFailed, setCoverFailed] = useState(false);
+  const [nearViewport, setNearViewport] = useState(false);
+
+  useEffect(() => {
+    const surface = surfaceRef.current;
+    if (!surface) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setNearViewport(true); observer.disconnect(); }
+    }, { rootMargin: "350px" });
+    observer.observe(surface);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => () => {
     if (pointerFrameRef.current) window.cancelAnimationFrame(pointerFrameRef.current);
@@ -262,9 +274,10 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
       onPointerMove={updatePointer}
       onPointerLeave={resetPointer}
     >
-      {coverUrl && !coverFailed ? (
+      {coverUrl && !coverFailed ? (nearViewport ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <Image src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} width={1920} height={1440} sizes={featured ? "(max-width: 700px) 100vw, 90vw" : "(max-width: 700px) 94vw, 32vw"} quality={75} priority={featured} loading={featured ? undefined : "eager"} draggable={false} onError={() => setCoverFailed(true)} />
+        <Image src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} width={1920} height={1440} sizes={featured ? "(max-width: 700px) 100vw, 90vw" : "(max-width: 700px) 94vw, 32vw"} quality={75} loading="eager" draggable={false} onError={() => setCoverFailed(true)} />
+      ) : null
       ) : (
         <span className={styles.coverFallback} aria-label="纯文本外刊封面">
           <i>TEXT EDITION</i>
@@ -1418,7 +1431,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                 <div>
                   {/* Keep the original QR image byte-for-byte so scanning remains reliable. */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={PUBLIC_CONTACT.wechatQrPath} alt="微信号 LA060321o 的添加好友二维码" />
+                  {wechatQrOpen && <img src={PUBLIC_CONTACT.wechatQrPath} alt="微信号 LA060321o 的添加好友二维码" />}
                 </div>
               </div>
             </div>

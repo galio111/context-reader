@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ArticleInput } from "@/components/ArticleInput";
 import { HomeRedesign } from "@/components/HomeRedesign";
 import dynamic from "next/dynamic";
+const ArticleInput = dynamic(() => import("@/components/ArticleInput").then(module => module.ArticleInput));
 const ReaderView = dynamic(() => import("@/components/ReaderView").then(module => module.ReaderView), {
   loading: () => <div role="status" className="min-h-screen bg-white p-8 text-center text-slate-600">正在打开文章…</div>,
 });

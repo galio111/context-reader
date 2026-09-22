@@ -8,7 +8,7 @@
     "test:discovery": "tsx --test tests/discovery-policy.test.ts",
     "test:overseas-fetch": "tsx --test tests/overseas-fetch-contract.test.ts",
     "verify:release-contracts": "tsx scripts/verify-release-contracts.ts",
-    "build": "next build",
+    "build": "next build && node scripts/precompress-static.mjs",
     "start": "next start",
     "lint": "eslint .",
     "audit:egress": "node scripts/audit-public-article-egress.mjs"
