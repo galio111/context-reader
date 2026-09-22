@@ -1,3 +1,4 @@
+import {setModelPlan} from './modelSettings';
 import { quotaExhaustedMessage, type QuotaDetails } from "@/lib/usagePresentation";
 import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
@@ -53,6 +54,7 @@ export async function gateUsage(request: Request, options: {
   let identity: UsageIdentity;
   try {
     identity = await resolveUsageIdentity(request);
+    setModelPlan(identity.planId);
   } catch (error) {
     console.error(
       "[usage-gate] Failed to resolve account identity:",

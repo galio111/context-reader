@@ -1,9 +1,10 @@
+import {withModelContext} from '@/lib/modelSettings';
 import { NextResponse } from "next/server";
 import { isAdminRequest } from "@/lib/adminAuth";
 import { classifyArticle } from "@/lib/articleClassification";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 
-export async function POST(request: Request) {
+async function handlePOST(request: Request) {
   if (!(await isAdminRequest())) {
     return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
   }
@@ -29,3 +30,5 @@ export async function POST(request: Request) {
   const classification = await classifyArticle(title, text, { sourceUrl, sourceName });
   return NextResponse.json({ classification });
 }
+
+export function POST(request:Request){return withModelContext("classification",()=>handlePOST(request));}

@@ -1,4 +1,5 @@
 import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
+import {withModelContext} from '@/lib/modelSettings';
 import { NextResponse } from "next/server";
 import { DeepSeekParseError, MissingDeepSeekEnvError, sanitizeSentenceQuestionRequest } from "@/lib/deepseek";
 import { answerSentenceQuestionWithDeepSeek } from "@/lib/sentenceQuestion";
@@ -27,7 +28,7 @@ function isValidRequestBody(body: unknown): body is SentenceQuestionRequest {
   );
 }
 
-export async function POST(request: Request) {
+async function handlePOST(request: Request) {
   let body: unknown;
   let actionId = "";
 
@@ -94,3 +95,5 @@ export async function POST(request: Request) {
     releaseSlot();
   }
 }
+
+export function POST(request:Request){return withModelContext("question",()=>handlePOST(request));}

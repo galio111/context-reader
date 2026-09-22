@@ -103,7 +103,7 @@ test("stream EOF with missing fields cannot finalize a quota reservation", async
     let finished = 0;
     const statuses: string[] = [];
     const post = runInNewContext(js + "\nPOST", {
-      LATIN_PHRASE_PATTERN, providerName: () => "test", NextResponse, Response, ReadableStream, TextEncoder, TextDecoder, AbortController, setTimeout, clearTimeout,
+      withModelContext: (_feature: string, fn: () => unknown) => fn(), anyTextKey: () => "test", LATIN_PHRASE_PATTERN, providerName: () => "test", NextResponse, Response, ReadableStream, TextEncoder, TextDecoder, AbortController, setTimeout, clearTimeout,
       process: { env: { DEEPSEEK_API_KEY: "test" } },
       readJsonBody: (request: Request) => request.json(), RequestBodyTooLargeError: class extends Error {},
       acquireAiSlot: async () => () => {}, gateUsage: async () => ({ actionId: "test-action" }), usageErrorResponse: () => null,

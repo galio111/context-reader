@@ -1,3 +1,6 @@
+import {modelCredentials,modelBody,getModelConfig} from './modelSettings';
+import {recordModelHealth} from './modelHealth';
+import type {ModelId} from './modelCatalog';
 import sharp from "sharp";
 import { parseEditorialBudgetTrial, type EditorialBudgetTrial } from "@/lib/editorialBudgetPolicy";
 import { adoptedJevChecks, jevDecision, JEV_CHECKS, type JevAdoption } from "@/lib/jevCalibration";
@@ -42,8 +45,8 @@ async function reserveJevBudget(inputBytes: number, budgetUsd: number): Promise<
   return true;
 }
 
-export async function completeReview(prompt: string, model: string, images: string[] = [], maxTokens = 800, costStage?: string) {
-  if (!process.env.DEEPSEEK_API_KEY) throw new Error("editorial_deepseek_unconfigured");
+export async function completeReview(prompt: string, model: string, images: string[] = [], maxTokens = 800, costStage?: string):Promise<{model?:string;parsed:Record<string,unknown>;usage:ProviderTokenUsage;cost:number}> {
+
   const content: Array<{ type: "text"; text: string } | { type: "image_url"; image_url: { url: string } }> = [{ type: "text", text: prompt }];
   let totalImageBytes = 0;
   for (let offset=0;offset<images.length;offset+=3) {
@@ -58,17 +61,31 @@ export async function completeReview(prompt: string, model: string, images: stri
     }));
     content.push(...batch);
   }
-  const response = await editorialPaidRequest(costStage || (images.length ? "图片核验" : maxTokens === 2400 ? "正文修复" : "全文审核"), model, prompt, maxTokens, images.length, () => fetch(`${(process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com").replace(/\/$/, "")}/chat/completions`, {
-    method: "POST", headers: { Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ model, messages: [{ role: "user", content: images.length ? content : prompt }], response_format: { type: "json_object" }, thinking: { type: "disabled" }, temperature: 0, max_tokens: maxTokens }),
-    signal: AbortSignal.timeout(45_000),
-  }));
+  const config=await getModelConfig();
+  const route=costStage==='图片核验'?config.routes.editorialVision:config.routes.editorial;
+  const requested=model as ModelId;
+  const selected=(requested===route.primary||requested===route.fallback)?requested:route.primary;
+  const choices=[selected,...(route.fallback&&route.fallback!==selected?[route.fallback]:[])];
+  let response:Response|undefined;
+  for(const candidate of choices){
+    model=candidate;const credentials=modelCredentials(candidate);const started=Date.now();
+    if(!credentials.key){if(candidate!==choices.at(-1))continue;throw Error('editorial_model_unconfigured');}
+    try{
+      response=await editorialPaidRequest(costStage || '综合审核',model,prompt,maxTokens,images.length,()=>fetch(credentials.url,{
+        method:'POST',headers:{Authorization:`Bearer ${credentials.key}`,'Content-Type':'application/json'},
+        body:JSON.stringify(modelBody(candidate,{messages:[{role:'user',content:images.length?content:prompt}],response_format:{type:'json_object'},temperature:0,max_tokens:maxTokens})),signal:AbortSignal.timeout(45000)
+      }));
+      await recordModelHealth(model,response.status,Date.now()-started);
+      if(response.ok||!([401,402,408,429].includes(response.status)||response.status>=500)||candidate===choices.at(-1))break;
+    }catch(e){if(String(e).includes('cost_limit')||candidate===choices.at(-1))throw e;await recordModelHealth(model,0,Date.now()-started);}
+  }
+  if(!response)throw Error('editorial_model_unavailable');
   const payload = await response.json() as { choices?: Array<{ message?: { content?: string } }>; usage?: ProviderTokenUsage };
   const usage = payload.usage || {};
   const cost = estimateDeepSeekCostMicrousd(model, usage);
-  await recordSystemUsageExecution({ feature: "editorial_review", route: "/api/cron/recommendations", provider: "deepseek", model, promptTokens: usage.prompt_tokens, promptCacheHitTokens: usage.prompt_cache_hit_tokens, promptCacheMissTokens: usage.prompt_cache_miss_tokens, completionTokens: usage.completion_tokens, estimatedCostMicrousd: cost, status: response.ok ? "succeeded" : "failed" }).catch(() => undefined);
+  await recordSystemUsageExecution({ feature: "editorial_review", route: "/api/cron/recommendations", provider: modelCredentials(model as ModelId).provider, model, promptTokens: usage.prompt_tokens, promptCacheHitTokens: usage.prompt_cache_hit_tokens, promptCacheMissTokens: usage.prompt_cache_miss_tokens, completionTokens: usage.completion_tokens, estimatedCostMicrousd: cost, status: response.ok ? "succeeded" : "failed" }).catch(() => undefined);
   if (!response.ok) throw new Error(`editorial_provider_${response.status}`);
-  return { parsed: JSON.parse(payload.choices?.[0]?.message?.content || "null") as Record<string, unknown>, usage, cost };
+  return { model, parsed: JSON.parse(payload.choices?.[0]?.message?.content || "null") as Record<string, unknown>, usage, cost };
 }
 
 export async function reviewEditorialArticle(article: ImportedArticle, config: EditorialConfig, dependencies: { forceCaptionPairing?: boolean; complete?: typeof completeReview; jev?: typeof evaluate; reserve?: typeof reserveJevBudget } = {}): Promise<EditorialReview> {

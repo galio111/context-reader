@@ -1,3 +1,5 @@
+import {anyTextKey} from '@/lib/modelSettings';
+import {withModelContext} from '@/lib/modelSettings';
 import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
 import { NextResponse } from "next/server";
 import { createHash } from "crypto";
@@ -117,7 +119,7 @@ function providerError(message: string, status: number): { error: string; code: 
   return { error: "全文翻译生成失败，请稍后重试。", code: "provider_error", status: Math.max(400, status || 502) };
 }
 
-export async function POST(request: Request) {
+async function handlePOST(request: Request) {
   let actionId = "";
   let usageSucceeded = false;
   let providerUserId = "";
@@ -197,7 +199,7 @@ export async function POST(request: Request) {
     }
   }
 
-  const apiKey = process.env.DEEPSEEK_API_KEY;
+  const apiKey = anyTextKey();
   if (!apiKey) {
     if (!managedTranslationAction) await refundUsage(actionId, "failed", "missing_api_key").catch(() => undefined);
     const report = await recordServerError(request, {
@@ -592,3 +594,5 @@ export async function POST(request: Request) {
     releaseSlot();
   }
 }
+
+export function POST(request:Request){return withModelContext("translation",()=>handlePOST(request));}

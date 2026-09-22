@@ -1,3 +1,4 @@
+import {anyTextKey} from '@/lib/modelSettings';
 import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
 import { contextualLemma } from "@/lib/displayLabels";
 import { normalizeAnkiInfo } from "@/lib/ankiData";
@@ -272,7 +273,7 @@ function parseJsonObject(content: string): unknown {
 }
 
 function getProviderProfiles(): ProviderProfile[] {
-  const primaryApiKey = process.env.DEEPSEEK_API_KEY;
+  const primaryApiKey = anyTextKey();
   const primaryBaseURL = process.env.DEEPSEEK_BASE_URL ?? DEFAULT_BASE_URL;
   const primaryModel = process.env.DEEPSEEK_LOOKUP_MODEL?.trim() || DEFAULT_MODEL;
 

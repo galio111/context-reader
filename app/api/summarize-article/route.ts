@@ -1,3 +1,5 @@
+import {anyTextKey} from '@/lib/modelSettings';
+import {withModelContext} from '@/lib/modelSettings';
 import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
 import { NextResponse } from "next/server";
 import { createHash } from "crypto";
@@ -59,7 +61,7 @@ function userFriendlyDeepSeekError(message = ""): string {
   return message || "DeepSeek 生成文章摘要失败。";
 }
 
-export async function POST(request: Request) {
+async function handlePOST(request: Request) {
   let actionId = "";
   let usageSucceeded = false;
   let body: { article?: unknown; publicArticleId?: unknown } | null;
@@ -118,7 +120,7 @@ export async function POST(request: Request) {
     }
   }
 
-  const apiKey = process.env.DEEPSEEK_API_KEY;
+  const apiKey = anyTextKey();
   const baseURL = process.env.DEEPSEEK_BASE_URL ?? "https://api.deepseek.com";
   let model = process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL;
 
@@ -263,3 +265,5 @@ export async function POST(request: Request) {
     releaseSlot();
   }
 }
+
+export function POST(request:Request){return withModelContext("summary",()=>handlePOST(request));}

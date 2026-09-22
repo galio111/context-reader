@@ -1,3 +1,5 @@
+import {anyTextKey} from '@/lib/modelSettings';
+import {withModelContext} from '@/lib/modelSettings';
 import { fetchWithProviderFailover, providerName } from "@/lib/providerFailover";
 import { NextResponse } from "next/server";
 import { finishUsage, recordUsageExecution, refundUsage } from "@/lib/accountStore";
@@ -35,7 +37,7 @@ function parseSseContent(line: string, onUsage: (usage: ProviderTokenUsage) => v
   }
 }
 
-export async function POST(request: Request) {
+async function handlePOST(request: Request) {
   let body: unknown;
   let actionId = "";
   try {
@@ -68,7 +70,7 @@ export async function POST(request: Request) {
     return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
   }
 
-  const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
+  const apiKey = anyTextKey().trim();
   if (!apiKey) {
     await refundUsage(actionId, "failed", "missing_api_key").catch(() => undefined);
     const report = await recordServerError(request, {
@@ -340,3 +342,5 @@ export async function POST(request: Request) {
     );
   }
 }
+
+export function POST(request:Request){return withModelContext("dictionary",()=>handlePOST(request));}
