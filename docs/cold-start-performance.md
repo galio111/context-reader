@@ -1,6 +1,27 @@
 # Three simultaneous cold starts without additional services
 
-Production release `20260922T101400`, parent `20260922T100400`, source `3087c48977151544423763dea1a3e810dd8f8c74`, on the mainland-internal backend. Public connectivity and the stable deploy log confirm this identity. No paid service, infrastructure plan, model choice or quota is changed. Measured acceptance and its limits are recorded below.
+Production release `20260922T102600`, parent `20260922T101400`, source `bb50d2ba144737e23ef436eb61726012c0cb6c1b`, on the mainland-internal backend. Public connectivity, resolved current symlink and the stable deploy log confirm this identity. No paid service, infrastructure plan, model choice or quota is changed.
+
+## Current measured result
+
+Three-user core-flow checks pass. This is not a promise of zero waiting in every operation: one final cold video start took 5.37 seconds, although all six final playback samples ran continuously without buffering. The original broader 1,000-DAU workload remains a separate, incompletely certified target in [capacity-plan.md](capacity-plan.md).
+
+| Final release check | Observed result |
+| --- | --- |
+| Three simultaneous desktop cold visits | Homepage hydration plus account resolution: 1.84 / 1.46 / 3.31 s |
+| Three simultaneous mobile-size cold visits | 3.32 / 2.95 / 2.15 s |
+| Three simultaneous desktop video starts | 3.42 / 5.37 / 2.61 s; each subsequently advanced 10.00 s with zero `waiting` or `stalled` events |
+| Three simultaneous mobile video starts | 4.32 / 1.01 / 4.10 s; each subsequently advanced 10.01 s with zero buffering events |
+| Public data parity | All 426 ids/order and visible fields preserved; 40 initial SSR records; full detail/editorial evidence preserved; legacy root redirect 308 |
+| Delivery integrity | All 113 live JS/CSS Brotli responses decode byte-identically; non-Brotli fallback and missing-file 404 pass |
+| Safety and operation | Anonymous sync/Admin 401; recovery Admin reads 200; seven services healthy; isolated backup restore verifies 16 tables; accepted current/parent rollback images present |
+| Browser accessibility smoke | Keyboard Menu Enter/Escape and reduced-motion mode pass; no page errors or document overflow in that check |
+
+Cold contexts start together in Chrome with separate empty browser contexts, cache disabled and service workers blocked, at 1365×900 and 390×844. The readiness metric ends when controls are hydrated and the account-resolution indicator disappears; the existing intentional word-fall opening is separate. Video runs use fresh contexts with normal service workers and measure actual playback, not HTTP status alone. These are one workstation/network and emulated viewports, not multiple physical phones or a long soak. Screenshots were inspected; user visual/physical-device acceptance is not implied.
+
+The code series also passed aligned three-user desktop/mobile Menu → dictionary → Reader flows. The detailed mobile sample on `20260922T093500` showed first dictionary content at 0.88 s, completion at 4.22–6.26 s, and click-to-Reader at 1.86–1.88 s. Later code changes only refine homepage media loading. Three isolated account workflows concurrently passed registration, login, article/vocabulary save/read, protocol-2 sync and stale-write rejection; all three exact synthetic accounts were then deleted. Those account checks ran from the server and are functional/concurrency evidence, not client-network latency measurements.
+
+105 focused regressions, production builds, release contracts and the egress audit passed. Local real-Next root rendering, delayed-account/media checks, desktop scene prewarming and synthetic WebM failure → working MP4 fallback passed. Final evidence: `accepted-desktop.json`, `accepted-mobile.json`, `video-three-desktop.json`, `video-three-mobile.json`, `keyboard-smoke.json`, `public-shipped-acceptance.json` and `server-shipped-acceptance.log` under `artifacts/cold-start-three/`. Earlier functional evidence is retained as `final-interactions-desktop.json`, `verified-mobile-2.json`, `account-three-results.json` and `account-cleanup.log`.
 
 ## Loading behavior
 
