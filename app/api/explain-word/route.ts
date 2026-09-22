@@ -1,3 +1,4 @@
+import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
 import { NextResponse } from "next/server";
 import {
   DeepSeekEmptyContentError,
@@ -21,7 +22,7 @@ import { registerActiveLookupRequest, waitForLookupPeersOrCancellation } from "@
 
 export const maxDuration = 60;
 
-const WORD_OR_PHRASE_PATTERN = /^[A-Za-z]+(?:['-][A-Za-z]+)*(?:\s+[A-Za-z]+(?:['-][A-Za-z]+)*){0,7}$/;
+const WORD_OR_PHRASE_PATTERN = LATIN_PHRASE_PATTERN;
 
 function isValidRequestBody(body: unknown): body is ExplanationRequest {
   const input = body as Partial<ExplanationRequest>;

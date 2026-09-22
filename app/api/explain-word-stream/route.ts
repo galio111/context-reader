@@ -1,3 +1,4 @@
+import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
 import { fetchWithProviderFailover, providerName } from "@/lib/providerFailover";
 import { explanationFromCompletedStream } from "@/lib/explanationDisplay";
 import { NextResponse } from "next/server";
@@ -15,7 +16,7 @@ import { coreDeepSeekModelCandidates, fetchWithDeepSeekModelFailover } from "@/l
 const DEFAULT_MODEL = "deepseek-flash";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const REQUEST_TIMEOUT_MS = 30000;
-const WORD_OR_PHRASE_PATTERN = /^[A-Za-z]+(?:['-][A-Za-z]+)*(?:\s+[A-Za-z]+(?:['-][A-Za-z]+)*){0,7}$/;
+const WORD_OR_PHRASE_PATTERN = LATIN_PHRASE_PATTERN;
 
 export const maxDuration = 60;
 

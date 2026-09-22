@@ -1,6 +1,7 @@
+import { LATIN_WORD_SOURCE } from "./latinWords";
 import type { ParsedParagraph, ReaderToken, WordContext } from "@/types/reader";
 
-const WORD_PATTERN_SOURCE = String.raw`[A-Za-z]+(?:['-][A-Za-z]+)*`;
+const WORD_PATTERN_SOURCE = LATIN_WORD_SOURCE;
 const NON_TERMINAL_ABBREVIATIONS = new Set([
   "dr", "hon", "jr", "mr", "mrs", "ms", "no", "prof", "rev", "sen", "sr", "st",
 ]);
@@ -10,7 +11,7 @@ const CONTEXTUAL_ABBREVIATIONS = new Set([
 ]);
 
 function wordPattern(): RegExp {
-  return new RegExp(WORD_PATTERN_SOURCE, "g");
+  return new RegExp(WORD_PATTERN_SOURCE, "gu");
 }
 
 interface SentenceSpan {
@@ -169,7 +170,7 @@ export function tokenizeArticle(article: string): ParsedParagraph[] {
 }
 
 export function hasClickableWords(article: string): boolean {
-  return new RegExp(WORD_PATTERN_SOURCE).test(article);
+  return new RegExp(WORD_PATTERN_SOURCE, "u").test(article);
 }
 
 export function tokenToWordContext(token: ReaderToken): WordContext {

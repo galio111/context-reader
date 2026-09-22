@@ -20,7 +20,7 @@ function Recording({ src, label, playing }: { src: string; label: string; playin
   const [loadedSrc, setLoadedSrc] = useState<string>();
   const poster = src ? src.replace(/\.mp4$/, ".webp") : undefined;
   useEffect(() => {
-    if (playing && src && !loadedSrc) setLoadedSrc(window.matchMedia("(max-width: 700px)").matches ? src.replace(/\.mp4$/, "-mobile.mp4") : src);
+    if (src && !loadedSrc) setLoadedSrc(window.matchMedia("(max-width: 700px)").matches ? src.replace(/\.mp4$/, "-mobile.mp4") : src);
   }, [playing, src, loadedSrc]);
   useEffect(() => {
     const element = video.current;
@@ -36,7 +36,7 @@ function Recording({ src, label, playing }: { src: string; label: string; playin
   }, [playing, src, loadedSrc]);
   return <div className={styles.recording} data-has-video={Boolean(src)}>
     {src && !failed ? <>
-      <video ref={video} src={loadedSrc} poster={poster} muted loop playsInline preload="none" onError={() => { if (loadedSrc) setFailed(true); }} aria-label={label} />
+      <video ref={video} src={loadedSrc} poster={poster} muted loop playsInline preload="auto" onError={() => { if (loadedSrc) setFailed(true); }} aria-label={label} />
       {blocked && <button className={styles.play} onClick={() => { void video.current?.play().then(() => setBlocked(false)).catch(() => {}); }}>播放演示</button>}
     </> : <div className={styles.placeholder}><span className={styles.placeholderIcon} aria-hidden="true">▷</span><strong>{label}</strong><span>{failed ? "演示暂时无法播放" : "录屏预留画面"}</span></div>}
   </div>;

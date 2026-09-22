@@ -1,3 +1,4 @@
+import { LATIN_PHRASE_PATTERN } from "../lib/latinWords";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { DeepSeekParseError, explainWordWithDeepSeek } from "../lib/deepseek";
@@ -102,7 +103,7 @@ test("stream EOF with missing fields cannot finalize a quota reservation", async
     let finished = 0;
     const statuses: string[] = [];
     const post = runInNewContext(js + "\nPOST", {
-      NextResponse, Response, ReadableStream, TextEncoder, TextDecoder, AbortController, setTimeout, clearTimeout,
+      LATIN_PHRASE_PATTERN, providerName: () => "test", NextResponse, Response, ReadableStream, TextEncoder, TextDecoder, AbortController, setTimeout, clearTimeout,
       process: { env: { DEEPSEEK_API_KEY: "test" } },
       readJsonBody: (request: Request) => request.json(), RequestBodyTooLargeError: class extends Error {},
       acquireCostSlot: () => () => {}, gateUsage: async () => ({ actionId: "test-action" }), usageErrorResponse: () => null,

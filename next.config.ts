@@ -35,6 +35,12 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  images: {
+    remotePatterns: [{ protocol: "https", hostname: "context-reader.com", pathname: "/storage/v1/object/public/public-article-covers/**" }],
+    minimumCacheTTL: 31536000,
+    formats: ["image/webp"],
+    deviceSizes: [480, 768, 1080, 1440, 1920],
+  },
   outputFileTracingRoot: process.cwd(),
   // Keep development assets isolated so `next build` cannot blank a running
   // localhost session by replacing the dev server's CSS and chunk manifests.
@@ -45,6 +51,7 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      { source: "/showcase/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=2592000" }] },
       {
         source: "/:path*",
         headers: securityHeaders,

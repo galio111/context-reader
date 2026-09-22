@@ -1,5 +1,7 @@
 "use client";
 
+import { LATIN_PHRASE_PATTERN } from "./latinWords";
+
 import type {
   ErrorReportCategory,
   ErrorReportInput,
@@ -170,7 +172,7 @@ export function validateStandaloneDictionaryInput(value: string): string {
   const normalized = value.trim().replace(/\s+/g, " ");
   if (!normalized) return "请输入要查询的中文或英文单词、短语。";
   const hasChinese = /[\u3400-\u9fff\uf900-\ufaff]/u.test(normalized);
-  const hasEnglish = /[A-Za-z]/u.test(normalized);
+  const hasEnglish = /\p{Script=Latin}/u.test(normalized);
   if (hasChinese && hasEnglish) {
     return "请只输入中文或英文，不要在一次查询中混合两种语言。";
   }
@@ -183,7 +185,7 @@ export function validateStandaloneDictionaryInput(value: string): string {
     }
     return "";
   }
-  if (!/^[A-Za-z][A-Za-z'’ -]*$/u.test(normalized)) {
+  if (!LATIN_PHRASE_PATTERN.test(normalized)) {
     return "请输入中文词语，或不超过 8 个词的英文短语，暂不支持数字和其他符号。";
   }
   return "";

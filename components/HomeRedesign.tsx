@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
+import Image from "next/image";
 import { createPortal } from "react-dom";
 import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { flushLearningStorage } from "@/lib/learningStorage";
@@ -259,7 +260,7 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
     >
       {coverUrl && !coverFailed ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} draggable={false} onError={() => setCoverFailed(true)} />
+        <Image src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} width={1920} height={1440} sizes={featured ? "(max-width: 700px) 100vw, 90vw" : "(max-width: 700px) 94vw, 32vw"} quality={75} priority={featured} loading={featured ? undefined : "eager"} draggable={false} onError={() => setCoverFailed(true)} />
       ) : (
         <span className={styles.coverFallback} aria-label="纯文本外刊封面">
           <i>TEXT EDITION</i>
@@ -329,6 +330,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [homeTheme, setHomeTheme] = useState<HomeTheme>("day");
   const [memberBallpitReady, setMemberBallpitReady] = useState(false);
   const [openingArticle, setOpeningArticle] = useState<OpeningArticle | null>(null);
+  const [dailyUpdateNotice, setDailyUpdateNotice] = useState<number | null>(null);
   const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [contactCopied, setContactCopied] = useState(false);
   const [wechatQrOpen, setWechatQrOpen] = useState(false);
@@ -361,7 +363,34 @@ export function HomeRedesign(props: HomeRedesignProps) {
   useDocumentScrollLock(dictionaryMounted && compactViewport);
 
   const category = CATEGORY_FILTERS.find((item) => item.label === activeCategory) ?? CATEGORY_FILTERS[0];
+  useEffect(() => {
+    if (dailyUpdateNotice === null) return;
+    const timer = window.setTimeout(() => setDailyUpdateNotice(null), 2000);
+    return () => window.clearTimeout(timer);
+  }, [dailyUpdateNotice]);
   const recommendationDayKey = useMemo(() => SHANGHAI_DAY_FORMATTER.format(new Date()), []);
+  useEffect(() => {
+    if (accountLoading || !account.authenticated || !account.profile || isOffline || !props.homepageCuration) return;
+    const key = `context-reader:daily-update:${account.profile.userId}`;
+    let displayTimer: number | undefined;
+    try {
+      if (localStorage.getItem(key) === recommendationDayKey) return;
+      displayTimer = window.setTimeout(() => {
+        // Recheck at display time so remounts and other tabs do not repeat it.
+        try {
+          if (localStorage.getItem(key) === recommendationDayKey) return;
+          localStorage.setItem(key, recommendationDayKey);
+        } catch { return; }
+        const count = props.publicArticles.filter(article => {
+          const selectedAt = props.homepageCuration?.selectedAtById[article.id];
+          return selectedAt && SHANGHAI_DAY_FORMATTER.format(new Date(selectedAt)) === recommendationDayKey;
+        }).length;
+        setDailyUpdateNotice(count);
+      }, 1500);
+    } catch { /* Storage-disabled browsers keep the reading flow silent. */ }
+    return () => { window.clearTimeout(displayTimer); };
+  }, [accountLoading, account.authenticated, account.profile?.userId, isOffline, props.homepageCuration, props.publicArticles, recommendationDayKey]);
+
   const allCategoryArticles = useMemo(
     () => props.publicArticles.filter(category.test),
     [category, props.publicArticles],
@@ -1049,6 +1078,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
   return (
     <main className={styles.root} data-theme={homeTheme} data-home-mode={memberHome ? "member" : "guest"} data-nav-motion={navMotion} data-guest-preview={guestPreviewAllowed || undefined} data-member-preview={memberPreviewAllowed || undefined} data-standalone-tool-open={menuOpen && menuStandalonePreview || undefined}>
+      {dailyUpdateNotice !== null && <div className={styles.dailyUpdateNotice} role="status">今天更新了 {dailyUpdateNotice} 篇文章</div>}
       {journeyPending && <div className={styles.accountResolving} role="status" aria-label="正在打开阅读空间"><span /><span /><span /></div>}
       <BookLetterField paused={memberOpeningVisible || !letterMotionEnabled} />
       <header className={styles.topbar}>

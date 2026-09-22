@@ -13,6 +13,7 @@ type UserPlanId = "free" | "basic" | "plus" | "max" | "admin";
 type ManagedMetric = "guest_article_lookup" | "guest_dictionary_lookup" | "guest_text_import" | "guest_url_import" | "lookup_generation" | "article_summary" | "full_article_translation";
 
 interface DashboardData {
+  todayFeatures: Array<{ key: string; label: string; executions: number; failed: number; promptTokens: number; completionTokens: number; estimatedCostCny: number }>;
   profiles: Array<Record<string, unknown>>;
   entitlements: Array<Record<string, unknown>>;
   limits: Array<Record<string, unknown>>;
@@ -388,6 +389,25 @@ export default function AdminAccountsPanel() {
                 </article>
               ))}
             </div>
+          </section>
+
+          <section className="mt-6 overflow-hidden rounded-2xl bg-white" aria-labelledby="today-lookups-title">
+            <div className="border-b border-[#e1e5e9] px-5 py-4">
+              <h3 id="today-lookups-title" className="text-lg font-semibold">今日查词用量与成本</h3>
+              <p className="mt-1 text-xs leading-5 text-[#68717a]">北京时间当天，包含游客和登录用户；按已记录的真实模型请求及返回 Token 估算，含失败消耗。缓存命中不产生模型调用，供应商账单为准。</p>
+            </div>
+            {[{ key: "article_lookup", label: "划词翻译" }, { key: "dictionary", label: "单独查词" }].map(item => {
+              const usage = data.todayFeatures?.find(row => row.key === item.key);
+              return <article key={item.key} className="grid gap-3 border-b border-[#e1e5e9] px-5 py-4 lg:grid-cols-[150px_minmax(0,1fr)]">
+                <strong className="text-sm">{item.label}</strong>
+                <dl className="grid grid-cols-2 gap-y-4 sm:grid-cols-4">
+                  <MetricCell label="模型请求" value={`${usage?.executions ?? 0} 次`} />
+                  <MetricCell label="失败请求" value={`${usage?.failed ?? 0} 次`} />
+                  <MetricCell label="Tokens" value={((usage?.promptTokens ?? 0) + (usage?.completionTokens ?? 0)).toLocaleString("zh-CN")} />
+                  <MetricCell label="成本估计" value={`￥${(usage?.estimatedCostCny ?? 0).toFixed(4)}`} />
+                </dl>
+              </article>;
+            })}
           </section>
 
           <section className="mt-6 overflow-hidden rounded-2xl bg-white" aria-labelledby="quota-split-title">

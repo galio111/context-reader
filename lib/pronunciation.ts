@@ -1,9 +1,10 @@
+import { LATIN_PHRASE_PATTERN } from "./latinWords";
 export type PronunciationAccent = "en-US" | "en-GB";
 
 export const PRONUNCIATION_ACCENTS: PronunciationAccent[] = ["en-US", "en-GB"];
 export const MAX_PRONUNCIATION_TEXT_LENGTH = 80;
 
-const WORD_OR_PHRASE_PATTERN = /^[A-Za-z]+(?:['’-][A-Za-z]+)*(?:\s+[A-Za-z]+(?:['’-][A-Za-z]+)*){0,7}$/;
+const WORD_OR_PHRASE_PATTERN = LATIN_PHRASE_PATTERN;
 
 export function normalizePronunciationText(value: string): string {
   return value

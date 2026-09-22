@@ -1032,3 +1032,19 @@
 @media (max-width: 900px) { .dictionaryWindow { left: 0 !important; top: auto !important; width: 100% !important; height: var(--mobile-dictionary-height, 48dvh) !important; } }
 
 @media (max-width: 900px) { .dictionaryWindow { grid-template-rows: 24px 44px minmax(0, 1fr); } .dictionarySheetHandle { min-height: 24px; } .dictionaryWindow > header { display: flex; padding-inline: 16px 8px; } .dictionaryWindow > header button { width: auto; min-width: 44px; min-height: 44px; padding-inline: 10px; border-radius: 10px; font-size: 12px; } }
+
+.dailyUpdateNotice {
+  position: fixed;
+  z-index: 80;
+  bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  white-space: nowrap;
+  padding: .65rem 1rem;
+  border-radius: .75rem;
+  background: #203f4a;
+  color: #fff;
+  box-shadow: 0 4px 20px #203f4a20;
+  font-size: .875rem;
+}

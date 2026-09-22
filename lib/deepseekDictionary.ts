@@ -1,3 +1,4 @@
+import { LATIN_PHRASE_PATTERN } from "./latinWords";
 import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
 import { DeepSeekParseError, MissingDeepSeekEnvError } from "@/lib/deepseek";
 import { normalizeDictionarySpelling } from "@/lib/dictionarySpelling";
@@ -164,7 +165,7 @@ export function sanitizeDictionaryQuery(value: string): string {
   return value.trim().replace(/\s+/g, " ").slice(0, 80);
 }
 
-const ENGLISH_QUERY_PATTERN = /^[A-Za-z]+(?:['’-][A-Za-z]+)*(?:\s+[A-Za-z]+(?:['’-][A-Za-z]+)*){0,7}$/;
+const ENGLISH_QUERY_PATTERN = LATIN_PHRASE_PATTERN;
 const CHINESE_QUERY_PATTERN = /^[\u3400-\u9fff\uf900-\ufaff·\s]{1,24}$/u;
 
 export function isValidStandaloneDictionaryQuery(query: string): boolean {

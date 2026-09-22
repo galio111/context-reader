@@ -80,6 +80,8 @@ export async function GET() {
   const usdToCnyRate = deepSeekUsdToCnyRate();
   const daily = summarizeUsageExecutionsByShanghaiDay(executions, usageWindow.dayKeys);
   const features = summarizeUsageExecutionsByFeature(executions);
+  const todayStart = Date.parse(`${usageWindow.dayKeys[0]}T00:00:00+08:00`);
+  const todayFeatures = summarizeUsageExecutionsByFeature(executions.filter(row => Date.parse(String(row.created_at)) >= todayStart));
   const executionsByAction = new Map<string, UsageExecutionRow[]>();
   for (const execution of executions) {
     const actionId = String(execution.action_id || "");
@@ -204,6 +206,7 @@ export async function GET() {
     executions: executions.slice(0, 200),
     zhipuUsage: summarizeZhipuUsage(executions),
     activitySummary,
+    todayFeatures,
     quotaUsage: { summary: summaryUsage, translation: translationUsage, publicCache: publicCacheUsage, details: actionDetails },
     usageSummary,
   }, { headers: { "Cache-Control": "no-store" } });
