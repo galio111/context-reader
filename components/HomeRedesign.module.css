@@ -512,7 +512,6 @@
   object-fit: cover;
   transform: perspective(900px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) skewY(calc(var(--scroll-skew) * 1deg)) scaleY(var(--scroll-stretch)) scale(var(--entry-image-scale)) translate3d(calc((.5 - var(--pointer-x)) * 2.4%), calc((.5 - var(--pointer-y)) * 2.4% + var(--scroll-drift) * 1px), 0);
   transition: filter 220ms ease, transform 500ms cubic-bezier(.22, .76, .25, 1);
-  will-change: transform;
 }
 
 .articleCard:hover .coverSurface > img,

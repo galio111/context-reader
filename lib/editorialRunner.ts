@@ -1,4 +1,7 @@
 import {DAILY_TOTAL_MAX,DAILY_CATEGORY_MAX,DAILY_CATEGORIES,distributionSatisfied} from './editorialDistribution';
+import {rankEditorialSources} from './editorialSourcePriority';
+import {isFirstPartyArticleImageUrl} from './articleImageUrls';
+import {countArticleEnglishWords} from './articleWordCount';
 import { getEditorialSpend, withEditorialBudget } from "@/lib/editorialBudget";
 
 import { sendSiteNotificationEmail } from "@/lib/siteNotificationEmail";
@@ -57,7 +60,11 @@ async function curate(article: PublicArticle, today: string): Promise<void> {
 
 export function eligibleEditorialCandidate(article: PublicArticle): boolean {
   const meta = article.recommendation;
+  const images = article.importedArticle?.blocks.filter(b => b.type === "image") || [];
   return !!(article.importedArticle && meta && !meta.rejectedAt && meta.sourceKind === "crawler" && EDITORIAL_DIFFICULTIES.includes(meta.difficulty)
+    && countArticleEnglishWords(article.importedArticle.text) >= 401
+    && images.length > 0 && images.every(b => !!b.src && isFirstPartyArticleImageUrl(b.src))
+    && isFirstPartyArticleImageUrl(meta.coverImageUrl || '')
     && meta.editorialReview?.version === EDITORIAL_POLICY_VERSION && meta.editorialReview.status === "passed" && meta.editorialReview.completed === true
     && meta.editorialReview.sourceCompletenessVerified === true
     && meta.editorialReview.contentHash === editorialContentHash(article.importedArticle)
@@ -133,17 +140,16 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   const spend=await getEditorialSpend(today);
   const maySpend=!spend.blocked && spend.actualMicrocny+spend.reservedMicrocny<(config.dailyBudgetCny??1.5)*1e6;
   const softBudgetReached=distributionSatisfied(counts()) && spend.actualMicrocny+spend.reservedMicrocny>=1e6;
-  const expired=Date.now()-Date.parse(ledger.startedAt)>90*60_000;
-  const sites=(await getDiscoverySites()).filter(s=>s.enabled && s.verification?.ok && s.levelHint!=="lower" && (counts()[s.topics[0]==="商业经济"?"商业":s.topics[0]==="社会生活"?"时事":s.topics[0]==="科技科学"||s.topics[0]==="自然环境"?"科技":"文化"]||0)<DAILY_CATEGORY_MAX);
-  const categoryCount=(category:string)=>todays().filter(a=>editorialCategoryForArticle(a)===category).length;
-  const advanced=todays().filter(a=>a.recommendation?.difficulty==="雅思 / 托福进阶").length;
-  sites.sort((a,b)=> {
-    const priority=(s:typeof a)=> -(ledger.sites[s.id]?.visits||0)*12
-      - categoryCount(s.topics[0]==="商业经济"?"商业":s.topics[0]==="社会生活"?"时事":s.topics[0]==="科技科学"||s.topics[0]==="自然环境"?"科技":"文化")*8
-      + (s.levelHint==="advanced" && advanced*2<todays().length ? (todays().length-advanced*2>5?28:8):0);
-    return priority(b)-priority(a);
-  });
-  const site=sites.find(s=>(ledger.sites[s.id]?.visits||0)<6 && (ledger.sites[s.id]?.empty||0)<2);
+  const expired=Date.now()-Date.parse(ledger.startedAt)>120*60_000;
+  const observed:Record<string,{matched:number;total:number}>={};
+  for(const article of [...published,...candidates]){
+    const source=article.recommendation?.discoverySourceId;
+    if(!source || !article.recommendation?.editorialReview?.checkedAt || shanghaiDay(article.recommendation.editorialReview.checkedAt)!==today)continue;
+    const row=observed[source] ||= {matched:0,total:0};row.total++;
+    if(article.recommendation.topics[0]==="商业经济" || editorialCategoryForArticle(article)==="商业")row.matched++;
+  }
+  const sites=rankEditorialSources(await getDiscoverySites(),counts(),ledger.sites,observed);
+  const site=sites[0];
   let result:RecommendationAutomationRunResponse["result"];
   const before=todays().length;
   if (!targetSatisfied() && before<DAILY_TOTAL_MAX && maySpend && !softBudgetReached && !expired && site && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3) {
@@ -162,10 +168,11 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   }
   ledger.noProgress=todays().length>before?0:(ledger.noProgress||0)+1;
   const afterSpend=await getEditorialSpend(today);
-  const stopped=targetSatisfied() || todays().length>=DAILY_TOTAL_MAX || !maySpend || afterSpend.blocked || softBudgetReached || expired || !site || ledger.attempts>=config.dailyReviewLimit || (ledger.failureStreak||0)>=3 || (ledger.noProgress||0)>=18;
+  const stopped=targetSatisfied() || todays().length>=DAILY_TOTAL_MAX || !maySpend || afterSpend.blocked || softBudgetReached || expired || !site || ledger.attempts>=config.dailyReviewLimit || (ledger.failureStreak||0)>=3;
   const complete=stopped && distributionSatisfied(counts());
   ledger.finished=stopped; await writeDiscoverySetting(dayKey,ledger);
   const email=stopped?await notifyDailyResult(today,todays(),ledger.attempts,complete,config):null;
-  await writeDiscoverySetting("recommendation_automation_state",{...initial.state,...(email?{lastEmailStatus:email.status,lastEmailError:email.error}:{}),status:complete?"succeeded":stopped?"failed":"running",lastTrigger:trigger,lastStartedAt:ledger.startedAt,lastFinishedAt:new Date().toISOString(),lastCreatedCount:todays().length,lastAttemptedCount:ledger.attempts,lastSkippedCount:result?.skipped.length||0,lastSourceErrorCount:result?.sourceErrors.length||0,lastScheduledDate:stopped?today:"",lastError:complete?"":stopped?`已停止：${todays().length} 篇；预算、90 分钟时限、来源耗尽或连续失败达到边界，请查看明细。`:`已精选 ${todays().length} 篇，连续处理下一批。`});
+  const stopReason=afterSpend.blocked||!maySpend?"预算达到边界":expired?"120 分钟时限":!site?"缺口板块来源耗尽":ledger.attempts>=config.dailyReviewLimit?`尝试次数达到 ${config.dailyReviewLimit}`:(ledger.failureStreak||0)>=3?"连续模型失败":"数量或分类边界";
+  await writeDiscoverySetting("recommendation_automation_state",{...initial.state,...(email?{lastEmailStatus:email.status,lastEmailError:email.error}:{}),status:complete?"succeeded":stopped?"failed":"running",lastTrigger:trigger,lastStartedAt:ledger.startedAt,lastFinishedAt:new Date().toISOString(),lastCreatedCount:todays().length,lastAttemptedCount:ledger.attempts,lastSkippedCount:result?.skipped.length||0,lastSourceErrorCount:result?.sourceErrors.length||0,lastScheduledDate:stopped?today:"",lastError:complete?"":stopped?`已停止：${todays().length} 篇；${stopReason}，请查看明细。`:`已精选 ${todays().length} 篇，连续处理下一批。`});
   return {result,status:await getRecommendationAutomationStatus()};
 }

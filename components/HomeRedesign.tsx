@@ -214,7 +214,7 @@ function ArticleCover({ article, featured = false, preload = false, motion3dEnab
     if (preload || !("IntersectionObserver" in window)) { setNearViewport(true); return; }
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { setNearViewport(true); observer.disconnect(); }
-    }, { rootMargin: "1200px 0px" });
+    }, { rootMargin: "3600px 0px" });
     observer.observe(surface);
     return () => observer.disconnect();
   }, [preload]);
@@ -286,7 +286,7 @@ function ArticleCover({ article, featured = false, preload = false, motion3dEnab
     >
       {coverUrl && !coverFailed ? (nearViewport ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <Image src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} width={1920} height={1440} sizes={featured ? "(max-width: 900px) 94vw, (max-width: 1440px) 58vw, 800px" : "(max-width: 900px) 46vw, (max-width: 1440px) 30vw, 420px"} quality={75} loading="eager" fetchPriority={featured ? "auto" : "low"} draggable={false} onLoad={() => setLoadedCoverUrl(coverUrl)} onError={() => setCoverFailed(true)} />
+        <Image src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} width={1920} height={1440} sizes={featured ? "(max-width: 900px) 94vw, (max-width: 1440px) 58vw, 800px" : "(max-width: 900px) 46vw, (max-width: 1440px) 30vw, 420px"} quality={75} unoptimized loading="eager" fetchPriority={featured ? "high" : "auto"} draggable={false} onLoad={() => setLoadedCoverUrl(coverUrl)} onError={() => setCoverFailed(true)} />
       ) : null
       ) : (
         <span className={styles.coverFallback} aria-label="纯文本外刊封面">
@@ -1375,7 +1375,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                     onClick={(event) => beginArticleTransition(item, event)}
                     disabled={Boolean(props.openingPublicArticleId || openingArticle)}
                   >
-                  <ArticleCover article={item} featured={featured} preload={index < 4 && !journeyPending && (guestOpeningComplete || Boolean(props.skipMemberOpening) || (memberHome && !memberOpeningVisible))} motion3dEnabled={recommendationMotionEnabled} />
+                  <ArticleCover article={item} featured={featured} preload={index < 12 && !journeyPending && (guestOpeningComplete || Boolean(props.skipMemberOpening) || (memberHome && !memberOpeningVisible))} motion3dEnabled={recommendationMotionEnabled} />
                     <span className={styles.cardCopy}>
                       <small>{item.sourceName || "Context Reader"}</small>
                       <strong>{item.title}</strong>

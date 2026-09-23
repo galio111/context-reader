@@ -9,6 +9,8 @@ Production builds generate immutable Brotli sidecars for JS/CSS. Middleware nego
 
 自动精选目标约 60，合格范围 55–68、四板块各 13–17，预算不足报告缺口。默认 Flash 综合审核，Jev 关闭；新后台允许按功能和套餐切换主备模型。质量门槛、手动候选和高中标签保留。完整规则见 automated-editorial.md。
 
+2026-09-23 自动精选的实际缺口来自 150 次尝试上限和商业来源命中率低；修正后的调度在某板块不足 13 篇时只轮询有机会补该板块的已验证来源，优先单主题来源，再用兼含主题来源。最终发布要求至少 401 英文词、至少一张已存储正文图片、审核哈希与分类门槛。Reader 图片快速下滑时的灰色占位及短暂停顿仍待修复，见 [Reader 图片滚动问题](featured-image-scroll-open-issue.md)。
+
 ## System map
 
 The live release identity is recorded in [release-governance.md](release-governance.md). This document describes the accepted source; historical rollout counts and timings belong in [product-journey.md](product-journey.md).
@@ -327,7 +329,7 @@ Zhipu is included in the unified per-model report alongside DeepSeek and MiMo. T
 
 ## Accented lookup and homepage media
 
-Reader tokenization, standalone validation, pronunciation and contextual lookup/continuation share `lib/latinWords.ts`: Latin script letters retain combining accents and internal apostrophes/hyphens. Original Reader offsets remain unchanged. Homepage covers use eager responsive Next.js WebP variants restricted to the production public-cover bucket, with the featured cover prioritized and year-long optimization cache. Showcase recordings begin preloading on mount; versioned assets cache for seven days. Daily update notice uses the same Shanghai-day curation selection dates as the today badge, counts each available public article once, and records one shown day per account in this browser. It lasts two seconds and never receives pointer events. Admin `todayFeatures` aggregates recorded model executions since Shanghai midnight, including guests and failures, separately for article lookup and dictionary; no quota policy changes. Costs remain token-based estimates, not supplier billing.
+Reader tokenization, standalone validation, pronunciation and contextual lookup/continuation share `lib/latinWords.ts`: Latin script letters retain combining accents and internal apostrophes/hyphens. Original Reader offsets remain unchanged. Homepage feature cards load already-stored first-party WebP covers directly: the first 12 are prepared after opening, other cards enter a 3600 px preload band, and the featured cover gets high fetch priority. The storage object is year-cacheable; this bypasses cold on-demand `/_next/image` transformations. Showcase recordings begin preloading on mount; versioned assets cache for seven days. Daily update notice uses the same Shanghai-day curation selection dates as the today badge, counts each available public article once, and records one shown day per account in this browser. It lasts two seconds and never receives pointer events. Admin `todayFeatures` aggregates recorded model executions since Shanghai midnight, including guests and failures, separately for article lookup and dictionary; no quota policy changes. Costs remain token-based estimates, not supplier billing.
 
 ## 四六级阅读域
 

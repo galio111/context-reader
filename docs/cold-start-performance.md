@@ -1,5 +1,7 @@
 # Three simultaneous cold starts without additional services
 
+精选外刊首页卡片与 Reader 的图片滚动问题仍未验收：用户报告快速下滑时灰色占位更频繁，且出现短暂停顿。见 [精选图片滚动问题](featured-image-scroll-open-issue.md)。此前图片请求变快、构建成功和存储地址可访问均不能证明该交互已修好。
+
 Production release `20260922T102600`, parent `20260922T101400`, source `bb50d2ba144737e23ef436eb61726012c0cb6c1b`, on the mainland-internal backend. Public connectivity, resolved current symlink and the stable deploy log confirm this identity. No paid service, infrastructure plan, model choice or quota is changed.
 
 ## Current measured result
@@ -60,3 +62,5 @@ Intermediate release `20260922T084600` (parent `20260922T083448`, source `6da715
 - Early interaction scripts had selector/timing errors (hidden desktop quick navigation, selecting the preference button as an article, and scrolling before a mobile sheet finished closing). Stream response-body retrieval was also unreliable in Chrome DevTools although the UI had completed. Corrected tests use real visible controls, sheet detachment, rendered dictionary results and separate click-to-reader timing. These harness failures are not treated as website success or website faults.
 
 Evidence is held outside release archives in `artifacts/cold-start-three/`. Local synthetic delayed-session/media and failed-WebM checks are explicitly labelled local; public concurrency runs use the real site. Temporary account tests are separate from guest browser activity, which remains part of the private operational audit.
+
+The 2026-09-23 homepage cover change supersedes the 350px/Next-optimized cover sentence above: first 12 cards prepare after opening, remaining stored WebP covers start in a 3600px observer band and load directly. See [featured-image-scroll-open-issue.md](featured-image-scroll-open-issue.md) for pending visual acceptance.

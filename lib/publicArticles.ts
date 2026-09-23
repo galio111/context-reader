@@ -8,6 +8,7 @@ import {
   trimTrailingWebsiteText,
 } from "@/lib/articleContentSanitizer";
 import { countArticleEnglishWords } from "@/lib/articleWordCount";
+import { isFirstPartyArticleImageUrl } from "@/lib/articleImageUrls";
 import { isPresentationCoverBlock, recommendationWithBodyImageFallback, withLeadCoverForImageFreeArticle } from "@/lib/articleMedia";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import { createArticleTranslationBatches } from "@/lib/articleTranslationBatching";
@@ -538,6 +539,15 @@ export async function publishArticleCandidate(id: string, options: { expectedEdi
   };
   const storedCandidateInput = await localizePublicArticleInputCover(candidateInput, { strictImages: guarded });
   const storedCandidateImportedArticle = importedArticleForInput(storedCandidateInput);
+  if (options.autoPublishedAt) {
+    const images = storedCandidateImportedArticle.blocks.filter(block => block.type === "image" && !isPresentationCoverBlock(block));
+    const coverUrl = storedCandidateImportedArticle.recommendation?.coverImageUrl?.trim() || "";
+    if (countArticleEnglishWords(storedCandidateImportedArticle.text) < 401 || !images.length
+      || images.some(block => !block.src || !isFirstPartyArticleImageUrl(block.src))
+      || !isFirstPartyArticleImageUrl(coverUrl)) {
+      throw new Error("自动精选要求至少 401 英文词、已保存的正文图片和封面，发布前检查未通过。");
+    }
+  }
   if (options.expectedEditorialHash) {
     const { editorialContentHash } = await import("@/lib/editorialReview");
     if (editorialContentHash(storedCandidateImportedArticle) !== options.expectedEditorialHash || storedCandidateImportedArticle.recommendation?.editorialReview?.status !== "passed") throw new Error("候选内容在审核后变化，需重新审核。");
