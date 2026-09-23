@@ -202,7 +202,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     if (current.complete) return Promise.resolve(current.articles);
     if (current.pending) return current.pending;
     setCatalogueStatus("loading");
-    current.pending = fetchJson<{ articles?: PublicArticle[] }>("/api/public-articles", {}, "完整外刊目录暂时无法加载，请重试。").then(({ response, data }) => {
+    current.pending = fetchJson<{ articles?: PublicArticle[] }>("/api/public-articles?cover=256", {}, "完整外刊目录暂时无法加载，请重试。").then(({ response, data }) => {
       if (!response.ok || !Array.isArray(data?.articles)) throw new Error("完整外刊目录暂时无法加载，请重试。");
       current.articles = data.articles; current.complete = true;
       setPublicArticles(data.articles); setCatalogueStatus("ready");

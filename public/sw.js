@@ -52,6 +52,44 @@ async function networkFirst(request) {
   }
 }
 
+async function cachedPublicCatalogue(request) {
+  const cache = await caches.open(CACHE_VERSION);
+  const cached = await cache.match(request);
+  const cachedAt = Number(cached?.headers.get("X-SW-Cached-At") ?? 0);
+  if (cached && cachedAt > 0 && Date.now() - cachedAt < 60_000) return cached;
+
+  const headers = new Headers(request.headers);
+  const etag = cached?.headers.get("ETag");
+  if (etag) headers.set("If-None-Match", etag);
+  try {
+    const response = await fetch(new Request(request, { headers }));
+    if (response.status === 304 && cached) {
+      const refreshedHeaders = new Headers(cached.headers);
+      refreshedHeaders.set("X-SW-Cached-At", String(Date.now()));
+      try {
+        await cache.put(request, new Response(cached.clone().body, {
+          status: cached.status, statusText: cached.statusText, headers: refreshedHeaders,
+        }));
+      } catch {}
+      return cached;
+    }
+    if (response.ok) {
+      const storedHeaders = new Headers(response.headers);
+      storedHeaders.set("X-SW-Cached-At", String(Date.now()));
+      try {
+        await cache.put(request, new Response(response.clone().body, {
+          status: response.status, statusText: response.statusText, headers: storedHeaders,
+        }));
+      } catch {}
+    }
+    if (!response.ok && cached && cachedAt > 0 && Date.now() - cachedAt <= PUBLIC_ARTICLE_TTL_MS) return cached;
+    return response;
+  } catch {
+    if (cached && cachedAt > 0 && Date.now() - cachedAt <= PUBLIC_ARTICLE_TTL_MS) return cached;
+    throw new Error("network unavailable");
+  }
+}
+
 async function cacheFirst(request) {
   const cached = await caches.match(request);
   if (cached) {
@@ -77,7 +115,12 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.pathname.startsWith("/api/public-articles")) {
+  if (url.pathname === "/api/public-articles") {
+    event.respondWith(cachedPublicCatalogue(request));
+    return;
+  }
+
+  if (url.pathname.startsWith("/api/public-articles/")) {
     event.respondWith(networkFirst(request));
     return;
   }
