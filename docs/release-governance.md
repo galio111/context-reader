@@ -74,7 +74,7 @@ Local integration validation on 2026-09-18 passed the production build, 89 criti
 
 ## Latest verified acceptance
 
-已上线 `20260922T153000`（parent `20260922T133000`，source `4ae326b46bb21ec85b2bdebcf1889bb9af9583b5`）。119 项关键/CET/切换回归、7 项用量报告测试、正式构建和发布契约通过。公共身份与大陆后台一致；签入查词及句译、词典、两段全文翻译均成功且执行模型为 deepseek-flash。账号同步、恢复 Admin、七服务、16 表隔离备份恢复和当前/父回滚镜像通过。图片卷挂载正确，四张既有 768px 图片在应用重建后的八次请求均 HIT，约 0.185–0.362s（仅网络样本，不等于页面可见时间）。仅重建 app/caddy。 Synthetic QA account cleanup is recorded with the acceptance evidence; browser visual inspection remains unavailable.
+已上线 `20260923T031100`（parent `20260923T023100`，source `41433e1ce5c15bb89775cdc344bd0326b78f81e7`）。公共 `/api/connectivity`、发布状态与当前软链接一致，模式为 `mainland_internal`。479 个既有封面预览经备份、隔离恢复和回滚事务检查后补齐；公开 API 的 479 个封面均有预览。正式构建、目录回归、发布契约、出口审计、七服务健康、匿名账号/Admin 边界与当前/父镜像通过；仅重建 app/caddy。会员布局浏览器预览 431/431 卡片有内嵌预览，用户实际登录、冷缓存和手机快滑观感仍待确认，详见 [精选图片滚动问题](featured-image-scroll-open-issue.md)。
 
 ### Previous performance acceptance
 
