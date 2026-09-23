@@ -74,7 +74,7 @@ Local integration validation on 2026-09-18 passed the production build, 89 criti
 
 ## Latest verified acceptance
 
-已上线 `20260922T153000`（parent `20260922T133000`，source `4ae326b46bb21ec85b2bdebcf1889bb9af9583b5`）。119 项关键/CET/切换回归、7 项用量报告测试、正式构建和发布契约通过。公共身份与大陆后台一致；签入查词及句译、词典、两段全文翻译均成功且执行模型为 deepseek-flash。账号同步、恢复 Admin、七服务、16 表隔离备份恢复和当前/父回滚镜像通过。图片卷挂载正确，四张既有 768px 图片在应用重建后的八次请求均 HIT，约 0.185–0.362s（仅网络样本，不等于页面可见时间）。仅重建 app/caddy。 Synthetic QA account cleanup is recorded with the acceptance evidence; browser visual inspection remains unavailable.
+Accepted production `20260923T023100`, parent `20260923T003000`, source `daf835122be717ee03cbe1459d6db8529c2a19dd`. The 13-file archive delta, protected contracts, 116 affected regressions and production build passed. Public connectivity reports the exact identity and `mainland_internal`; homepage and public articles return successfully. The seven services are healthy, anonymous Admin/sync boundaries are enforced, the latest backup restore verifies 16 tables, and current/parent accepted app images exist. Runtime editorial settings retain enabled, 240 attempts and CNY 1.50; verified Guardian Business and CNBC feeds are enabled. The browser displayed populated featured covers after navigation, but cold-cache rapid-scroll visual acceptance and the next day's 13-business supply are still open. Only app/caddy were recreated.
 
 ### Previous performance acceptance
 

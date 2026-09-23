@@ -1,6 +1,6 @@
 # Automatic editorial publication — current contract
 
-Accepted production `20260922T072500`, parent `20260922T070500`, source `022128281711473bf6c6af575885ae938b2b08ba`. MiMo is configured and passed live connection acceptance; defaults remain Flash and Jev is disabled. The existing configured schedule is 01:00 Shanghai, with next run 2026-09-23 01:00; this deployment did not change that schedule. Email configuration and active timer verified. See [model-control.md](model-control.md).
+Accepted mainland production `20260923T023100`, parent `20260923T003000`, source `daf835122be717ee03cbe1459d6db8529c2a19dd`. Runtime editorial config is enabled with 240 daily attempts and a CNY 1.50 hard ceiling; Jev automatic adoption remains disabled. Guardian Business and CNBC Business are enabled and verified; The Conversation business is disabled while mainland-safe image reads fail. The recommendation timer remains active. See [model-control.md](model-control.md).
 
 ## Quantity, balance and budget
 
