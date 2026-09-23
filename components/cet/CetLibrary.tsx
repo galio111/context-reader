@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import { readCetLibraryView, writeCetLibraryView, type CetLibraryView } from "@/lib/cetLibraryView";
 import { useAccount } from "@/components/AccountProvider";
 import { readCetAttempts } from "@/lib/cetProgress";
+import { readCetActivities } from "@/lib/cetActivityStorage";
+import { cetHistoryLabel } from "@/lib/cetActivity";
 import { initializeLearningStorage } from "@/lib/learningStorage";
 import {
   ACCOUNT_DATA_MERGED_EVENT,
   ACCOUNT_DATA_CHANGED_EVENT,
 } from "@/lib/accountEvents";
-import type { CetAttempt, CetPaper } from "@/types/cet";
+import type { CetActivity, CetAttempt, CetPaper } from "@/types/cet";
 import "./cet.css";
 export interface CetEntry {
   paperId: string;
@@ -34,9 +36,11 @@ export function CetLibrary({
     [papers, setPapers] = useState<CetPaper[]>([]),
     [error, setError] = useState(""),
     [loading, setLoading] = useState(true),
-    [history, setHistory] = useState<CetAttempt[]>([]),
+    [history, setHistory] = useState<CetActivity[]>([]),
+    [legacyHistory, setLegacyHistory] = useState<CetAttempt[]>([]),
     [historyLimit, setHistoryLimit] = useState(30),
     [retry, setRetry] = useState(0);
+  const [historyPurpose, setHistoryPurpose] = useState<"" | "practice" | "self_test">("");
   useEffect(() => { writeCetLibraryView({ level, view, type, year, page }); }, [level, view, type, year, page]);
   useEffect(() => {
     let cancelled = false;
@@ -67,12 +71,12 @@ export function CetLibrary({
   useEffect(() => {
     let live = true;
     const refresh = () => {
-      if (live)
-        setHistory(
-          readCetAttempts().sort((a, b) =>
-            b.updatedAt.localeCompare(a.updatedAt),
-          ),
-        );
+      if (live) {
+        const records = readCetActivities();
+        setHistory(records.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)));
+        const migrated = new Set(records.map((a) => a.sourceAttemptId).filter(Boolean));
+        setLegacyHistory(readCetAttempts().filter((a) => !migrated.has(a.id)).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)));
+      }
     };
     void initializeLearningStorage().then(refresh);
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refresh);
@@ -95,6 +99,8 @@ export function CetLibrary({
               .map((section) => ({ paper: p, section })),
           ),
     visible = account.authenticated ? rows : rows.slice(0, 6);
+  const filteredHistory = history.filter((h) => h.paperId.startsWith(`cet${level}-`) && (!historyPurpose || h.purpose === historyPurpose));
+  const filteredLegacy = legacyHistory.filter((h) => h.paperId.startsWith(`cet${level}-`) && (!historyPurpose || (h.mode === "exam" ? "self_test" : "practice") === historyPurpose));
   return (
     <div className={`cet-library ${compact ? "cet-library-compact" : ""}`}>
       <div className="cet-library-controls">
@@ -105,6 +111,7 @@ export function CetLibrary({
               aria-pressed={level === n}
               onClick={() => {
                 setLevel(n);
+                setYear("recent");
                 setPage(0);
               }}
             >
@@ -234,13 +241,14 @@ export function CetLibrary({
         {account.authenticated && !compact && (
           <aside className="cet-recent">
             <h3>最近练习</h3>
+            <select aria-label="练习历史目标" value={historyPurpose} onChange={(event) => { setHistoryPurpose(event.target.value as typeof historyPurpose); setHistoryLimit(30); }}><option value="">练习与自测</option><option value="practice">阅读练习</option><option value="self_test">限时自测</option></select>
             <div
               className="cet-recent-list"
               tabIndex={0}
               aria-label="最近练习，可滚动"
             >
-              {history.length ? (
-                history.slice(0, historyLimit).map((h) => (
+              {filteredHistory.length || filteredLegacy.length ? (
+                filteredHistory.slice(0, historyLimit).map((h) => (
                   <button
                     key={h.id}
                     onClick={() =>
@@ -252,20 +260,19 @@ export function CetLibrary({
                     }
                   >
                     <small>
-                      {h.sectionId ? "单篇" : "整卷"} ·{" "}
-                      {h.finishedAt ? "已交卷" : "继续练习"}
+                      {h.sectionId ? "单篇" : "整卷"} · {h.purpose === "practice" ? "阅读练习" : "限时自测"}
                     </small>
                     <strong>{h.title}</strong>
                     <span>
-                      {Object.values(h.answers).filter(Boolean).length} 题 ·{" "}
-                      {Math.floor(h.elapsedMs / 60000)} 分钟
+                      {cetHistoryLabel(h)} · {Object.values(h.answers).filter((answer) => answer.value).length} 题 · {new Date(h.createdAt).toLocaleDateString("zh-CN")}
                     </span>
                   </button>
                 ))
               ) : (
                 <p>开始练习后，进度会保存在这里。</p>
               )}
-              {history.length > historyLimit && (
+              {filteredLegacy.slice(0, Math.max(0, historyLimit - filteredHistory.length)).map((h) => <button key={`legacy-${h.id}`} onClick={() => onOpen({ paperId: h.paperId, sectionId: h.sectionId, attemptId: h.id })}><small>{h.sectionId ? "单篇" : "整卷"} · 旧版{Object.values(h.answers).some(Boolean) || h.finishedAt ? "记录" : "空白记录"}</small><strong>{h.title}</strong><span>{h.finishedAt ? "回看旧答卷" : "继续旧进度"} · {Object.values(h.answers).filter(Boolean).length} 题</span></button>)}
+              {filteredHistory.length + filteredLegacy.length > historyLimit && (
                 <button onClick={() => setHistoryLimit((n) => n + 30)}>
                   加载更多记录
                 </button>

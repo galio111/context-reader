@@ -5,6 +5,14 @@ PDFs, audio and answerless papers do not belong in the shipped data directory.
 """
 from pathlib import Path
 import json
+import hashlib
+
+def identity(value):
+    raw = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')
+    return hashlib.sha256(raw).hexdigest()[:20]
+
+def normalized_paragraphs(section):
+    return [' '.join(text.split()) for text in section['paragraphs']]
 
 directory = Path(__file__).resolve().parent.parent / 'data' / 'cet'
 catalogue = []
@@ -25,6 +33,8 @@ for file in sorted(directory.glob('cet*-*.json')):
         **{key: value for key, value in paper.items() if key != 'sections'},
         'sections': [{
             'id': section['id'], 'type': section['type'], 'title': section['title'],
+            'materialId': identity({'type': section['type'], 'paragraphs': normalized_paragraphs(section)}),
+            'questionSetId': identity([{'stem': q['stem'], 'options': q['options'], 'answer': q['answer']} for q in section['questions']]),
             'questions': [{'number': q['number']} for q in section['questions']],
         } for section in paper['sections']],
     })

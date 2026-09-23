@@ -333,4 +333,4 @@ Reader tokenization, standalone validation, pronunciation and contextual lookup/
 
 ## 四六级阅读域
 
-HomeClient 管理真实 CET 阅读入口；CetReader 通过 ReaderView 的可选 examSurface 插槽复用账户、查词、保存和翻译。服务端 `/api/cet` 按账号过滤目录、按需读取单卷私有 JSON；客户端不导入题库全集。CET 尝试作为独立 preferences 对象进入现有 protocol-2 同步，独立时段合并和 timerEpoch 防止重放加时与旧归零覆盖。完整边界见 [cet-reading.md](cet-reading.md)。
+HomeClient 管理真实 CET 阅读入口；CetReader 通过 ReaderView 的可选 examSurface 插槽复用账户、查词、保存和翻译。服务端 `/api/cet` 按账号过滤目录、按需读取单卷私有 JSON；客户端不导入题库全集。CET v2 将可变活动、不可变提交包和材料接触分成独立 preferences 对象，纳入原 protocol-2 CAS/manifest/游标及三种管理存储键。旧 v1 原始记录保留并显式适配。练习按篇冻结与可见分段计时，自测按固定预算和持久化运行时间恢复；结果从快照读取，双端提交分别保留。完整边界见 [cet-reading.md](cet-reading.md)。

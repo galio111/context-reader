@@ -6,6 +6,9 @@ export const LEARNING_STORAGE_EVENT = "context-reader:learning-storage";
 const DATABASE = "context-reader-learning-v1";
 const LEGACY_KEYS = new Set([
   "context-reader:cet-progress:v1",
+  "context-reader:cet-activities:v2",
+  "context-reader:cet-finalizations:v2",
+  "context-reader:cet-exposures:v2",
   "context-reader:articles:v1", "context-reader:vocabulary:v1", "context-reader:explanations:v5",
   "context-reader:article-translations:v1", "context-reader:article-translation-blocks:v1",
   "context-reader:reading-states:v1", "context-reader:standalone-dictionary-history:v1",
