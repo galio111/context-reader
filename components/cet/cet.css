@@ -890,3 +890,6 @@ html[data-context-theme="night"] .cet-sheet-body { color: #dcebed; }
 html[data-context-theme="night"] .cet-conflicts { color: #dcebed; border-color: #48646d; }
 html[data-context-theme="night"] .cet-conflicts button[aria-pressed="true"] { background: #9bd8e3; color: #10272e; }
 @media (pointer: coarse) { .cet-choice-list button { min-height: 44px; } }
+
+.cr-reader-root .cet-rail > button { grid-template-columns: 1fr; padding-inline: 12px; }
+.cr-reader-root .cet-rail > button > span { white-space: nowrap; }
