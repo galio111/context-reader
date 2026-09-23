@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { JSDOM } from "jsdom";
 import { act, createElement, useRef } from "react";
 import { createRoot } from "react-dom/client";
@@ -26,10 +27,12 @@ test("same articles regain reveal after repeated CET tab remounts and old observ
   const host = dom.window.document.getElementById("root")!;
   const root = createRoot(host);
   t.after(async () => { await act(async () => root.unmount()); dom.window.close(); for (const [key, descriptor] of saved) { if (descriptor) Object.defineProperty(globalThis, key, descriptor); else Reflect.deleteProperty(globalThis, key); } });
-  function Harness({ tab }: { tab: "articles" | "cet" }) {
+  function Harness({ tab, expanded = false }: { tab: "articles" | "cet"; expanded?: boolean }) {
     const ref = useRef<HTMLDivElement>(null);
-    useArticleReveal(ref, "article-card", tab, "unchanged-article-ids");
-    return tab === "articles" ? createElement("div", { ref }, createElement("button", { className: "article-card" }, "Article")) : createElement("p", null, "CET");
+    useArticleReveal(ref, "article-card", tab, expanded ? "expanded-article-ids" : "unchanged-article-ids");
+    return tab === "articles"
+      ? createElement("div", { ref }, ...Array.from({ length: expanded ? 420 : 1 }, (_, index) => createElement("button", { key: index, className: "article-card" }, `Article ${index}`)))
+      : createElement("p", null, "CET");
   }
   for (let round = 0; round < 4; round++) {
     await act(async () => root.render(createElement(Harness, { tab: "articles" })));
@@ -46,6 +49,28 @@ test("same articles regain reveal after repeated CET tab remounts and old observ
     assert.equal(observers.filter(o => o.targets.size).length, 0);
     assert.equal(frames.size, 0);
   }
+  await act(async () => root.render(createElement(Harness, { tab: "articles", expanded: true })));
+  const deepCard = host.querySelectorAll<HTMLElement>("button")[419];
+  assert.equal(deepCard.dataset.motionReady, "true", "deep library cards must start at the reset keyframe");
+  tick(); tick();
+  const expandedObserver = observers.at(-1)!;
+  assert.equal(expandedObserver.targets.size, 420, "one observer should cover the complete expanded library");
+  expandedObserver.emit(deepCard, true);
+  assert.equal(deepCard.dataset.visible, "true");
+  expandedObserver.emit(deepCard, false);
+  assert.equal(deepCard.dataset.visible, undefined, "leaving the viewport must reset the motion");
+  expandedObserver.emit(deepCard, true);
+  assert.equal(deepCard.dataset.visible, "true", "re-entering must replay the motion");
+});
+
+test("featured and expanded recommendations retain their entry, exit and pointer-motion contracts", () => {
+  const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
+  const styles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
+  assert.match(component, /useArticleReveal\(articleGridRef, styles\.articleCard, resourceTab, `\$\{activeCategory\}.*\$\{displayArticleMotionKey\}`\)/);
+  assert.match(component, /motion3dEnabled=\{recommendationMotionEnabled\}/);
+  assert.match(styles, /\.articleCard\[data-motion-ready\]:not\(\[data-visible\]\) \.coverSurface \{ transform: translateZ\(0\) scale\(\.9\); \}/);
+  assert.match(styles, /\.articleCard\[data-visible="true"\] \.coverSurface \{ transform: translateZ\(0\) scale\(1\); \}/);
+  assert.doesNotMatch(styles, /\.articleGrid\[data-library-expanded\] \.coverSurface/);
 });
 
 test("CET library filters survive remounts without storing answers and tolerate blocked storage", () => {

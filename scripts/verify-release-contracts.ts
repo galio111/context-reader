@@ -196,5 +196,18 @@ requireSource("components/ReaderView.tsx", [
   "配图正在保存，正文可先阅读",
   "!isExternalArticleImageUrl(src)",
 ]);
+requireSource("components/HomeRedesign.tsx", [
+  'useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\\0${displayArticleMotionKey}`);',
+  "motion3dEnabled={recommendationMotionEnabled}",
+]);
+requireSource("components/HomeRedesign.module.css", [
+  ".articleCard[data-motion-ready]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); }",
+  '.articleCard[data-visible="true"] .coverSurface { transform: translateZ(0) scale(1); }',
+]);
+assert.doesNotMatch(
+  source("components/HomeRedesign.module.css"),
+  /\.articleGrid\[data-library-expanded\] \.coverSurface/,
+  "expanded recommendation cards must retain their enter/exit animation",
+);
 
-console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, anki-idempotency-v1, invitation-entitlement-v1, adaptive-article-image-localization-v3, reader-token-identity-v1, admin-curation-transition-v1, rolling-session-v1");
+console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, anki-idempotency-v1, invitation-entitlement-v1, adaptive-article-image-localization-v3, reader-token-identity-v1, admin-curation-transition-v1, rolling-session-v1, featured-motion-preservation-v1");

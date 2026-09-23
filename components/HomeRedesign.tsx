@@ -632,7 +632,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     return () => query.removeEventListener("change", update);
   }, []);
 
-  useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\0${displayArticleMotionKey}`, !expandedLibraryVisible);
+  useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\0${displayArticleMotionKey}`);
 
   useEffect(() => {
     const sections = [publicationBridgeRef.current, importRef.current, closingRef.current]
@@ -1397,7 +1397,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           {props.catalogueStatus === "loading" && <p role="status">正在加载完整外刊目录…</p>}
           {props.catalogueStatus === "error" && <p role="status">完整外刊目录暂时无法加载，已显示的文章仍可打开。<button type="button" onClick={props.onRequestCatalogue}>重试</button></p>}
           {displayArticles.length ? (
-            <div ref={articleGridRef} className={styles.articleGrid} data-switching={categorySwitching || undefined} data-library-expanded={expandedLibraryVisible || undefined}>
+            <div ref={articleGridRef} className={styles.articleGrid} data-switching={categorySwitching || undefined}>
               {displayArticles.map((item, index) => {
                 const featured = index === 0;
                 const recommendation = item.recommendation;
@@ -1417,7 +1417,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                     onClick={(event) => beginArticleTransition(item, event)}
                     disabled={Boolean(props.openingPublicArticleId || openingArticle)}
                   >
-                  <ArticleCover article={item} featured={featured} motion3dEnabled={recommendationMotionEnabled && !expandedLibraryVisible} />
+                  <ArticleCover article={item} featured={featured} motion3dEnabled={recommendationMotionEnabled} />
                     <span className={styles.cardCopy}>
                       <small>{item.sourceName || "Context Reader"}</small>
                       <strong>{item.title}</strong>

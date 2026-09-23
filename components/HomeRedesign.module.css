@@ -504,7 +504,6 @@
 .articleCard[data-motion-ready]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); }
 .articleCard[data-motion-ready][data-enter-direction="up"]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); transform-origin: 50% 50%; }
 .articleCard[data-visible="true"] .coverSurface { transform: translateZ(0) scale(1); }
-.articleGrid[data-library-expanded] .coverSurface { transform: none; transition: none; }
 .coverSurface > img {
   width: 106%;
   height: 106%;

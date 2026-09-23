@@ -1,19 +1,11 @@
 "use client";
 import { useEffect, type RefObject } from "react";
 
-export function useArticleReveal(gridRef: RefObject<HTMLDivElement | null>, cardClass: string, resourceTab: "articles" | "cet", motionKey: string, enabled = true) {
+export function useArticleReveal(gridRef: RefObject<HTMLDivElement | null>, cardClass: string, resourceTab: "articles" | "cet", motionKey: string) {
   useEffect(() => {
     const grid = gridRef.current;
     if (!grid) return;
     const cards = Array.from(grid.querySelectorAll<HTMLElement>(`.${cardClass}`));
-    if (!enabled) {
-      cards.forEach((card) => {
-        delete card.dataset.motionReady;
-        delete card.dataset.enterDirection;
-        card.dataset.visible = "true";
-      });
-      return;
-    }
     if (!("IntersectionObserver" in window)) {
       cards.forEach((card) => { card.dataset.visible = "true"; });
       return;
@@ -57,5 +49,5 @@ export function useArticleReveal(gridRef: RefObject<HTMLDivElement | null>, card
       window.removeEventListener("scroll", trackDirection);
     };
   // Resource tabs unmount the grid even when its article IDs stay unchanged.
-  }, [gridRef, cardClass, resourceTab, motionKey, enabled]);
+  }, [gridRef, cardClass, resourceTab, motionKey]);
 }
