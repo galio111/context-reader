@@ -74,6 +74,12 @@ Local integration validation on 2026-09-18 passed the production build, 89 criti
 
 ## Latest verified acceptance
 
+已上线 `20260923T150500`（parent `20260923T133000`，source `5c2b8dc6925d3ef13a98ffd938c67a474e417199`）。公共 `/api/connectivity` 与 `/opt/context-reader-current` 核对一致且为 `mainland_internal`。累计 132 项回归（89 核心、22 CET、21 同步/目录/用量）、本机和服务器正式构建、发布契约及出口审计通过。公网游客每级六套、签入目录四级 25/六级 28 套、单卷材料身份/答案解析、匿名同步/Admin 边界通过；合成账号注册、会话、登录、三个 CET v2 命名空间往返及旧版本写入 409 拒绝通过，三次验收账号已按精确 id/昵称/创建日期清理。恢复 Admin、七服务健康、最新备份隔离恢复 16 表和当前/父回滚镜像通过；仅重建 app/caddy。
+
+本机最终生产构建实际检查了 1440×900 启动页/侧栏、390×844 无横向溢出与选词列表、夜间正文、刷新后继续保留草稿、按篇提交和下一篇独立作答、历史 Escape 关闭；修复新增侧栏标签被原图标网格挤成竖排的问题。正式站浏览器在复查时连接中断，公网视觉复查及用户最终观感验收仍开放，不能把 API 验证等同于视觉确认。既有精选图片动效文件与直接父版本保持一致；完整目录首次冷加载问题继续见 featured-image-scroll-open-issue.md。
+
+### Previous featured-motion acceptance
+
 已上线 `20260923T133000`（parent `20260923T130100`，source `00e106ecf4bd57a6f2c525f5080780d5e160e195`）。此版恢复上一轮误关的展开库存图片出现/离开/再次进入动效和按用户偏好启用的指针反馈；`AGENTS.md`、首页契约及受保护发布检查已明确禁止把关闭既有动效当成性能优化。公共 `/api/connectivity` 报告准确版本/父版本及 `mainland_internal`，`/opt/context-reader-current` 指向准确发布目录；线上 CSS 有 0.90 入场状态且无展开库存动效禁用规则。479 个既有封面预览均为 256×192，另两篇旧文纯文本；目录缓存重复请求此前在线验证 304、零正文，双路首次冷目录仍需 17.68/20.44 秒。正式构建、420 卡动效回归、发布契约、出口审计、七服务健康、匿名账号/Admin 边界与当前/父镜像通过；仅重建 app/caddy。独立 critical 套件因既有 `server-only` 缺失而未执行；浏览器工具不可用，登录快滑、动效和返回卡片的视觉验收仍开放，详见 [精选图片滚动问题](featured-image-scroll-open-issue.md)。
 
 ### Previous performance acceptance
