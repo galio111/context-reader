@@ -74,7 +74,7 @@ Local integration validation on 2026-09-18 passed the production build, 89 criti
 
 ## Latest verified acceptance
 
-已上线 `20260923T130100`（parent `20260923T125000`，source `0500e8908dd664301498ef129aa1274a5949eef1`）；前两次累积接受版本为 `20260923T090800`（source `cb1164249a878926f52c7b1546c2ad1c4c709b80`）与 `20260923T125000`（source `edfed9e3f301980653affd486b7d719d06c4895e`）。公共 `/api/connectivity` 报告准确版本/父版本及 `mainland_internal`，`/opt/context-reader-current` 指向准确发布目录。479 个既有封面预览经备份、隔离恢复和回滚事务检查后升级为 256×192；公开 API 的 479 个封面均有预览，另两篇旧文为纯文本。目录缓存压缩 ETag 条件请求在线返回 304、零正文传输；两路同时重复请求各约 0.45 秒，但两路首次冷目录仍需 17.68/20.44 秒。正式构建、目录缓存测试、发布契约、出口审计、七服务健康、匿名账号/Admin 边界与当前/父镜像通过；每次仅重建 app/caddy。浏览器工具不可用，登录快滑及返回卡片位置的视觉验收仍开放，详见 [精选图片滚动问题](featured-image-scroll-open-issue.md)。
+已上线 `20260923T133000`（parent `20260923T130100`，source `00e106ecf4bd57a6f2c525f5080780d5e160e195`）。此版恢复上一轮误关的展开库存图片出现/离开/再次进入动效和按用户偏好启用的指针反馈；`AGENTS.md`、首页契约及受保护发布检查已明确禁止把关闭既有动效当成性能优化。公共 `/api/connectivity` 报告准确版本/父版本及 `mainland_internal`，`/opt/context-reader-current` 指向准确发布目录；线上 CSS 有 0.90 入场状态且无展开库存动效禁用规则。479 个既有封面预览均为 256×192，另两篇旧文纯文本；目录缓存重复请求此前在线验证 304、零正文，双路首次冷目录仍需 17.68/20.44 秒。正式构建、420 卡动效回归、发布契约、出口审计、七服务健康、匿名账号/Admin 边界与当前/父镜像通过；仅重建 app/caddy。独立 critical 套件因既有 `server-only` 缺失而未执行；浏览器工具不可用，登录快滑、动效和返回卡片的视觉验收仍开放，详见 [精选图片滚动问题](featured-image-scroll-open-issue.md)。
 
 ### Previous performance acceptance
 
