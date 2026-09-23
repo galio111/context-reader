@@ -33,7 +33,7 @@ function Sheet({ title, onClose, children, left = false }: { title: string; onCl
     element?.showModal();
     return () => element?.close();
   }, []);
-  return <dialog ref={ref} className={`cet-sheet ${left ? "cet-sheet-left" : ""}`} onCancel={(e) => { e.preventDefault(); onClose(); }} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+  return <dialog ref={ref} aria-label={title} className={`cet-sheet ${left ? "cet-sheet-left" : ""}`} onCancel={(e) => { e.preventDefault(); onClose(); }} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
     <section><header><h2>{title}</h2><button type="button" onClick={onClose} aria-label={`关闭${title}`}>×</button></header><div className="cet-sheet-body">{children}</div></section>
   </dialog>;
 }
@@ -366,13 +366,14 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     const key = cetQuestionKey(section.id, question.number);
     const snapshot = result?.questions.find((q) => q.key === key);
     const original = result?.answers[key] ?? answerFor(question);
-    const correct = (snapshot?.answer || question.answer) && original === (snapshot?.answer || question.answer);
+    const referenceAnswer = snapshot ? snapshot.answer : question.answer;
+    const correct = referenceAnswer && original === referenceAnswer;
     const open = !correct || expanded.includes(key) || view === "direct";
     return <div className="cet-explanation" data-correct={Boolean(correct)}>
       <button type="button" onClick={() => setExpanded((prior) => prior.includes(key) ? prior.filter((item) => item !== key) : [...prior, key])}>
-        {view === "direct" ? `参考答案 ${question.answer || "待核对"}` : snapshot?.answer || question.answer ? `${!original ? "未作答" : correct ? "回答正确" : "回答错误"} · 原答案 ${original || "空"} · 参考答案 ${snapshot?.answer || question.answer}` : "此题暂无可靠参考答案"} {correct && (open ? "收起解析" : "展开解析")}
+        {view === "direct" ? `参考答案 ${question.answer || "待核对"}` : referenceAnswer ? `${!original ? "未作答" : correct ? "回答正确" : "回答错误"} · 原答案 ${original || "空"} · 参考答案 ${referenceAnswer}` : "此题暂无可靠参考答案"} {correct && (open ? "收起解析" : "展开解析")}
       </button>
-      {open && <p>{snapshot?.explanation || question.explanation || "来源暂未提供可靠解析，此题暂不计分。"}</p>}
+      {open && <p>{(snapshot ? snapshot.explanation : question.explanation) || "来源暂未提供可靠解析，此题暂不计分。"}</p>}
     </div>;
   };
   const openChoice = (event: React.MouseEvent<HTMLButtonElement>, question: CetQuestion) => setChoice({ question, section, anchor: event.currentTarget.getBoundingClientRect() });
@@ -402,7 +403,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
 
   const renderReading = (lookup: (context: WordContext) => void) => {
     if (view === "start") return startSurface;
-    if (paused && activity) return <div className="cet-paused"><h1>自测已暂停</h1><p>剩余 {formatTime(cetRemainingMs(activity))}。保存并离开已记录一次中断；继续后仍使用这份答卷。</p><button type="button" className="cet-primary" disabled={busy} onClick={() => { const resumed = cetResume(activity); persistDraft(resumed); }}>继续自测</button><button type="button" onClick={() => void leaveTo(onBack)}>返回首页</button></div>;
+    if (paused && activity) return <div className="cet-paused"><h1>自测已暂停</h1><p>{activity.legacy ? "旧版手动计时记录保留" : `剩余 ${formatTime(cetRemainingMs(activity))}`}。保存并离开已记录一次中断；继续后仍使用这份答卷。</p><button type="button" className="cet-primary" disabled={busy} onClick={() => { const resumed = cetResume(activity); persistDraft(resumed); }}>继续自测</button><button type="button" onClick={() => void leaveTo(onBack)}>返回首页</button></div>;
     return <div className="cet-reading">
       <div className="cet-reading-meta"><span>{paper.title} · {activity?.purpose === "self_test" ? entry.sectionId ? "单篇自测" : "阅读套卷自测" : view === "direct" ? "直接精读" : "阅读练习"}</span><span>{activity?.purpose === "practice" ? `已完成 ${submittedCount}/${scope.length} 篇` : activity?.purpose === "self_test" && activity.status === "in_progress" ? `已答 ${answered}/${activity.questionKeys.length} 题` : activity?.status === "ended" ? "未完成结束" : activity?.status === "submitted" ? "已提交" : ""}</span></div>
       <div className="cet-mobile-actions"><button onClick={() => setSheet("选择真题")}>选择真题</button><button onClick={() => setSheet("练习历史")}>练习历史</button><button onClick={() => setSheet("答题卡")}>答题卡</button></div>
@@ -413,7 +414,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       {result?.reason === "time_expired" && <p className="cet-notice" role="status">时间已结束，已固定本次答卷。</p>}
       {result?.unreliable ? <p className="cet-notice">另有 {result.unreliable} 题缺少可靠参考答案，不计入结果分母。</p> : null}
       {applicableFinalizations.length > 1 && <div className="cet-conflicts"><p>这次活动在不同设备产生了 {applicableFinalizations.length} 份提交快照。原答案分别保留，暂不纳入默认自测统计。</p><div>{applicableFinalizations.map((item, index) => <button type="button" key={item.id} aria-pressed={result?.id === item.id} onClick={() => setSelectedFinalId(item.id)}>答卷 {index + 1} · {new Date(item.at).toLocaleString("zh-CN")}</button>)}</div></div>}
-      {result && <div className="cet-result" role="status"><strong>{activity?.status === "ended" ? "未完成结束" : "本篇结果"}</strong><span>{activity?.status === "ended" ? `已答 ${result.questions.length - result.unanswered} 题 · 不计入完成成绩` : result.scoreable ? `答对 ${result.correct}/${result.scoreable} 题 · 未答 ${result.unanswered} 题` : "暂无可计分结果"}</span><span>{activity?.legacy ? "旧版计时" : activity?.purpose === "self_test" ? "自测用时" : "学习用时"} {formatTime(result.elapsedMs)}{result.everPaused ? " · 曾中断" : ""}</span>{contentChanged && <small>当前题库与作答时版本不同，此处按当时快照展示。</small>}{activity?.purpose === "self_test" && <small>{observedConditions.length ? "作答期间另有学习接触记录 · 条件记录不完整" : cetEligibility(activity, observedConditions) === "repeat_test" ? "重复材料自测" : cetEligibility(activity, observedConditions) === "conditions_incomplete" ? "条件记录不完整" : "首次在本站自测"}</small>}</div>}
+      {result && <div className="cet-result" role="status"><strong>{activity?.status === "ended" ? "未完成结束" : activity?.purpose === "self_test" ? "自测结果" : "本篇结果"}</strong><span>{activity?.status === "ended" ? `已答 ${result.questions.length - result.unanswered} 题 · 不计入完成成绩` : result.scoreable ? `答对 ${result.correct}/${result.scoreable} 题 · 未答 ${result.unanswered} 题` : "暂无可计分结果"}</span><span>{activity?.legacy ? "旧版计时" : activity?.purpose === "self_test" ? "自测用时" : "学习用时"} {formatTime(result.elapsedMs)}{result.everPaused ? " · 曾中断" : ""}</span>{contentChanged && <small>当前题库与作答时版本不同，此处按当时快照展示。</small>}{activity?.purpose === "self_test" && <small>{observedConditions.length ? "作答期间另有学习接触记录 · 条件记录不完整" : cetEligibility(activity, observedConditions) === "repeat_test" ? "重复材料自测" : cetEligibility(activity, observedConditions) === "conditions_incomplete" ? "条件记录不完整" : "首次在本站自测"}</small>}</div>}
       <div className="cet-mobile-timer">{timer}</div>
       <p className="cet-directions">{section.type === "cloze" ? "从词库中选择合适单词填入空格，每词限用一次。" : section.type === "matching" ? "为每个陈述选择对应段落；段落可以被重复选择。" : "阅读文章，并为每道题选择一个最佳答案。"}</p>
       <h1>{section.title}</h1>
