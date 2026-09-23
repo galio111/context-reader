@@ -74,7 +74,7 @@ Local integration validation on 2026-09-18 passed the production build, 89 criti
 
 ## Latest verified acceptance
 
-已上线 `20260922T153000`（parent `20260922T133000`，source `4ae326b46bb21ec85b2bdebcf1889bb9af9583b5`）。119 项关键/CET/切换回归、7 项用量报告测试、正式构建和发布契约通过。公共身份与大陆后台一致；签入查词及句译、词典、两段全文翻译均成功且执行模型为 deepseek-flash。账号同步、恢复 Admin、七服务、16 表隔离备份恢复和当前/父回滚镜像通过。图片卷挂载正确，四张既有 768px 图片在应用重建后的八次请求均 HIT，约 0.185–0.362s（仅网络样本，不等于页面可见时间）。仅重建 app/caddy。 Synthetic QA account cleanup is recorded with the acceptance evidence; browser visual inspection remains unavailable.
+已发布 `20260923T003000`（parent `20260922T153000`，source `c56e9783e8bcd482ccd670b44099d03b1a9d6d16`）。104 项核心/CET/切换/用量测试与 15 项路由/回退测试通过，正式构建和发布契约通过。公共身份确认为 mainland_internal；登录后分页完整返回四级 25 套、六级 28 套，53 套正文逐一通过四部分、30 题及答案解析校验；游客每级六条且旧卷匿名访问 401。protocol-2 同步写入回读一致。真实查词含原句译文、独立词典、两段全文翻译成功，三项均为 deepseek-flash 且各一次 quota_units。七项服务、恢复 Admin、16 表隔离备份恢复、当前及父版本镜像检查通过，仅重建 app/caddy。图片缓存卷保留，四张 768px 图片均 HIT（0.262–0.464s 网络样本，不等于页面可见时间）。临时 QA 账号按 id/昵称/创建时间删除，用户和云端对象均归零。浏览器连接超时，正式站动效视觉复验仍未完成。
 
 ### Previous performance acceptance
 
