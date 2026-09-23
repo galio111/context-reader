@@ -99,16 +99,18 @@ export function isStoredPublicCoverUrl(value: string): boolean {
   return isFirstPartyArticleImageUrl(value);
 }
 
-const COVER_PREVIEW_WIDTH = 96;
-const COVER_PREVIEW_HEIGHT = 72;
+// The catalogue image is the actual grid cover. It must remain recognizable at
+// card size even when the reader scrolls faster than any remote request can finish.
+const COVER_PREVIEW_WIDTH = 256;
+const COVER_PREVIEW_HEIGHT = 192;
 
 export async function coverPreviewDataUrl(bytes: Uint8Array): Promise<string> {
   const preview = await sharp(bytes, { failOn: "error", limitInputPixels: 50_000_000 })
     .rotate()
     .resize(COVER_PREVIEW_WIDTH, COVER_PREVIEW_HEIGHT, { fit: "cover", position: "entropy" })
-    .webp({ quality: 48, effort: 4 })
+    .webp({ quality: 60, effort: 4 })
     .toBuffer();
-  if (!preview.length || preview.length > 8192) throw new Error("封面预览生成失败。");
+  if (!preview.length || preview.length > 24_000) throw new Error("封面预览生成失败。");
   return `data:image/webp;base64,${preview.toString("base64")}`;
 }
 

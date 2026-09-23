@@ -72,6 +72,8 @@ interface ReaderOriginSnapshot {
   kind: ReaderOriginKind;
   scrollY: number;
   capturedAt: number;
+  publicArticleId?: string;
+  cardTop?: number;
 }
 
 interface ReadingProgressSession {
@@ -242,6 +244,9 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
   const imageStatusTimerRef = useRef<number | null>(null);
   const readingRef = useRef(false);
   const readerOriginRef = useRef<ReaderOriginSnapshot | null>(null);
+  const publicArticleOriginRef = useRef<{ id: string; cardTop: number } | null>(null);
+  const [pendingPublicReturn, setPendingPublicReturn] = useState<{ articleId: string; cardTop: number } | null>(null);
+  const homeReturnPositionedRef = useRef(false);
   const approvedReaderBackRef = useRef(false);
   const readerHomeExitPendingRef = useRef(false);
   const readerSessionStackRef = useRef<ReaderSessionSnapshot[]>([]);
@@ -293,11 +298,13 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     if (reading && sourceSentenceToHighlight) {
       return;
     }
+    if (!reading && (pendingPublicReturn || homeReturnPositionedRef.current)) return;
     if (!reading && pendingHomeScrollRef.current !== null) {
       const scrollY = pendingHomeScrollRef.current;
       pendingHomeScrollRef.current = null;
       const frameId = window.requestAnimationFrame(() => {
         window.scrollTo({ top: scrollY, left: 0, behavior: "auto" });
+        homeReturnPositionedRef.current = true;
       });
       return () => window.cancelAnimationFrame(frameId);
     }
@@ -315,7 +322,13 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
       };
     }
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [cetEntry, reading, sourceSentenceToHighlight]);
+  }, [cetEntry, pendingPublicReturn, reading, sourceSentenceToHighlight]);
+
+  useEffect(() => {
+    const previous = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    return () => { window.history.scrollRestoration = previous; };
+  }, []);
 
   useEffect(() => {
     readingRef.current = reading;
@@ -395,11 +408,15 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
         : "other");
     beginReadingProgressSession(readerViewportAnchorRef.current);
     if (!readingRef.current) {
+      homeReturnPositionedRef.current = false;
+      const publicOrigin = originKind === "public-article" ? publicArticleOriginRef.current : null;
       readerOriginRef.current = {
         kind: originKind,
         scrollY: window.scrollY,
         capturedAt: Date.now(),
+        ...(publicOrigin ? { publicArticleId: publicOrigin.id, cardTop: publicOrigin.cardTop } : {}),
       };
+      publicArticleOriginRef.current = null;
       readerSessionStackRef.current = [];
       readerHistoryDepthRef.current = 1;
       window.history.pushState(
@@ -472,7 +489,14 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
 
   const leaveReaderToHome = useCallback(() => {
     flushReadingProgress();
-    pendingHomeScrollRef.current = readerOriginRef.current?.scrollY ?? 0;
+    const origin = readerOriginRef.current;
+    if (homeVariant === "book" && origin?.publicArticleId && origin.cardTop !== undefined) {
+      setPendingPublicReturn({ articleId: origin.publicArticleId, cardTop: origin.cardTop });
+      pendingHomeScrollRef.current = null;
+    } else {
+      pendingHomeScrollRef.current = origin?.scrollY ?? 0;
+      setPendingPublicReturn(null);
+    }
     readerOriginRef.current = null;
     readerSessionStackRef.current = [];
     readerHistoryDepthRef.current = 0;
@@ -492,7 +516,16 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     setSourceWordToHighlight("");
     setError("");
     setReading(false);
-  }, [flushReadingProgress]);
+  }, [flushReadingProgress, homeVariant]);
+
+  const capturePublicArticleOrigin = useCallback((id: string, cardTop: number) => {
+    publicArticleOriginRef.current = { id, cardTop };
+  }, []);
+
+  const finishPublicArticleReturn = useCallback(() => {
+    homeReturnPositionedRef.current = true;
+    setPendingPublicReturn(null);
+  }, []);
 
   const leaveOrRestoreReader = useCallback(() => {
     flushReadingProgress();
@@ -1175,6 +1208,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
         enterReader("public-article");
       }
     } catch (publicArticleError) {
+      publicArticleOriginRef.current = null;
       setError(isOffline
         ? "当前离线，而且这篇公开文章尚未缓存在此设备上。请选择本机保存文章，或联网后再打开。"
         : publicArticleError instanceof Error
@@ -1432,7 +1466,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
   if (homeVariant === "book") {
     return (
       <HomeRedesign
-        onOpenCet={entry => { cetHomeScrollRef.current = window.scrollY; setCetEntry(entry); }}
+        onOpenCet={entry => { homeReturnPositionedRef.current = false; cetHomeScrollRef.current = window.scrollY; setCetEntry(entry); }}
         forceGuestPreview={forceGuestPreview}
         forceMemberPreview={forceMemberPreview}
         skipMemberOpening={homeDemoCompleted}
@@ -1466,6 +1500,9 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
         onOpenSavedArticle={handleOpenSavedArticle}
         onOpenTemporaryReading={handleOpenTemporaryReading}
         onOpenPublicArticle={handleOpenPublicArticle}
+        onCapturePublicArticleOrigin={capturePublicArticleOrigin}
+        restorePublicArticleOrigin={pendingPublicReturn}
+        onPublicArticleOriginRestored={finishPublicArticleReturn}
         onPrefetchPublicArticle={handlePrefetchPublicArticle}
         onDeleteSavedArticle={handleDeleteSavedArticle}
         onRenameSavedArticle={handleRenameSavedArticle}

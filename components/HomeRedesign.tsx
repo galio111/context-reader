@@ -157,6 +157,9 @@ interface HomeRedesignProps {
   onOpenSavedArticle: (article: SavedArticle) => void;
   onOpenTemporaryReading: (article: TemporaryReading) => void;
   onOpenPublicArticle: (id: string) => Promise<void>;
+  onCapturePublicArticleOrigin?: (id: string, cardTop: number) => void;
+  restorePublicArticleOrigin?: { articleId: string; cardTop: number } | null;
+  onPublicArticleOriginRestored?: () => void;
   onPrefetchPublicArticle: (id: string) => void;
   onDeleteSavedArticle: (id: string) => void;
   onRenameSavedArticle: (id: string, title: string) => void;
@@ -199,25 +202,13 @@ function orderRecommendationArticles(
   return orderHomepageRecommendations(articles, curation, preferences, dayKey);
 }
 
-function ArticleCover({ article, featured = false, preload = false, motion3dEnabled = true }: { article: PublicArticle; featured?: boolean; preload?: boolean; motion3dEnabled?: boolean }) {
+function ArticleCover({ article, featured = false, motion3dEnabled = true }: { article: PublicArticle; featured?: boolean; motion3dEnabled?: boolean }) {
   const surfaceRef = useRef<HTMLSpanElement | null>(null);
   const pointerFrameRef = useRef(0);
   const pointerTargetRef = useRef({ x: 0.5, y: 0.5 });
   const pointerCurrentRef = useRef({ x: 0.5, y: 0.5 });
   const [coverFailed, setCoverFailed] = useState(false);
-  const [nearViewport, setNearViewport] = useState(preload);
   const [loadedCoverUrl, setLoadedCoverUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    const surface = surfaceRef.current;
-    if (!surface) return;
-    if (preload || !("IntersectionObserver" in window)) { setNearViewport(true); return; }
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) { setNearViewport(true); observer.disconnect(); }
-    }, { rootMargin: "3600px 0px" });
-    observer.observe(surface);
-    return () => observer.disconnect();
-  }, [preload]);
 
   useEffect(() => () => {
     if (pointerFrameRef.current) window.cancelAnimationFrame(pointerFrameRef.current);
@@ -282,10 +273,10 @@ function ArticleCover({ article, featured = false, preload = false, motion3dEnab
     <span
       ref={surfaceRef}
       className={`${styles.coverSurface} ${featured ? styles.coverFeatured : ""}`}
-      data-image-pending={Boolean(coverUrl && !coverFailed && !coverReady) || undefined}
+      data-image-pending={Boolean(coverUrl && !coverPreview && !coverFailed && !coverReady) || undefined}
       data-image-ready={coverReady || undefined}
       data-tilt-disabled={!motion3dEnabled || undefined}
-      style={coverPreview && !coverFailed ? { backgroundImage: `url("${coverPreview}")` } : undefined}
+      style={coverPreview ? { backgroundImage: `url("${coverPreview}")` } : undefined}
       onPointerMove={updatePointer}
       onPointerLeave={resetPointer}
     >
@@ -294,17 +285,15 @@ function ArticleCover({ article, featured = false, preload = false, motion3dEnab
           <i>READING</i><strong>{(article.sourceName || "Context Reader").slice(0, 28)}</strong>
         </span>
       )}
-      {coverUrl && !coverFailed ? (nearViewport ? (
-        // eslint-disable-next-line @next/next/no-img-element
+      {coverUrl && !coverFailed && (featured || !coverPreview) ? (
         <Image src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} width={1920} height={1440} sizes={featured ? "(max-width: 900px) 94vw, (max-width: 1440px) 58vw, 800px" : "(max-width: 900px) 46vw, (max-width: 1440px) 30vw, 420px"} quality={75} unoptimized loading="eager" fetchPriority={featured ? "high" : "auto"} draggable={false} onLoad={() => setLoadedCoverUrl(coverUrl)} onError={() => setCoverFailed(true)} />
-      ) : null
-      ) : (
+      ) : (!coverUrl || (coverFailed && !coverPreview)) ? (
         <span className={styles.coverFallback} aria-label="纯文本外刊封面">
           <i>TEXT EDITION</i>
           <strong>{(article.sourceName || "Context Reader").slice(0, 28)}</strong>
           <small>{article.summary || "一篇值得慢慢读完的英文文章"}</small>
         </span>
-      )}
+      ) : null}
     </span>
   );
 }
@@ -358,6 +347,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [preferenceDraft, setPreferenceDraft] = useState<RecommendationPreferences>(emptyRecommendationPreferences);
   const [preferenceOpen, setPreferenceOpen] = useState(false);
   const [memberLibraryOpen, setMemberLibraryOpen] = useState(false);
+  const [libraryOpenRequested, setLibraryOpenRequested] = useState(false);
+  const [viewStateReady, setViewStateReady] = useState(false);
   const [librarySearch, setLibrarySearch] = useState("");
   const [continueVariant, setContinueVariant] = useState<"editorial" | "cover">("cover");
   const [navMotion, setNavMotion] = useState<"slide" | "fill" | "icon">("icon");
@@ -492,10 +483,47 @@ export function HomeRedesign(props: HomeRedesignProps) {
       return !term || `${article.title} ${article.sourceName} ${article.summary}`.toLocaleLowerCase("zh-CN").includes(term);
     });
   }, [librarySearch, personalizedAllCategoryArticles]);
-  const displayArticles = memberHome && memberLibraryOpen
+  const fullLibraryReady = props.catalogueStatus === "ready";
+  const expandedLibraryVisible = memberHome && memberLibraryOpen && fullLibraryReady;
+  const displayArticles = expandedLibraryVisible
     ? libraryArticles
     : homepageShowcaseArticles(personalizedCategoryArticles, showcaseArticleCount);
   const displayArticleMotionKey = displayArticles.map((article) => article.id).join("\u0000");
+  const restoreOrigin = props.restorePublicArticleOrigin;
+  const returnArticleVisible = Boolean(restoreOrigin && displayArticles.some((article) => article.id === restoreOrigin.articleId));
+  const onReturnRestored = props.onPublicArticleOriginRestored;
+  const catalogueStatus = props.catalogueStatus;
+  const requestCatalogue = props.onRequestCatalogue;
+  useEffect(() => {
+    if (!restoreOrigin || !viewStateReady || journeyPending || (memberHome && memberLibraryOpen && catalogueStatus !== "ready" && catalogueStatus !== "error") || (!returnArticleVisible && catalogueStatus !== "ready" && catalogueStatus !== "error")) return;
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        const card = articleGridRef.current?.querySelector<HTMLElement>(`[data-public-article-id="${restoreOrigin.articleId}"]`);
+        const target = card || articleGridRef.current;
+        if (!target) return;
+        window.scrollTo({
+          top: window.scrollY + target.getBoundingClientRect().top - (card ? restoreOrigin.cardTop : 80),
+          left: 0,
+          behavior: "auto",
+        });
+        onReturnRestored?.();
+      });
+    });
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      if (secondFrame) window.cancelAnimationFrame(secondFrame);
+    };
+  }, [catalogueStatus, displayArticleMotionKey, journeyPending, memberHome, memberLibraryOpen, onReturnRestored, restoreOrigin, returnArticleVisible, viewStateReady]);
+  useEffect(() => {
+    if (restoreOrigin && catalogueStatus === "idle") requestCatalogue?.();
+  }, [catalogueStatus, requestCatalogue, restoreOrigin]);
+  useEffect(() => {
+    if (!libraryOpenRequested || catalogueStatus !== "ready") return;
+    setLibraryOpenRequested(false);
+    setMemberLibraryOpen(true);
+    persistHomeViewState({ memberLibraryOpen: true });
+  }, [catalogueStatus, libraryOpenRequested]);
   const orderedSavedArticles = useMemo(
     () => [...props.savedArticles].sort((a, b) => Date.parse(b.lastOpenedAt || b.updatedAt) - Date.parse(a.lastOpenedAt || a.updatedAt)),
     [props.savedArticles],
@@ -544,6 +572,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
       if (typeof view?.librarySearch === "string") setLibrarySearch(view.librarySearch.slice(0, 120));
     } catch {
       // A stale view snapshot falls back to the recommendation category.
+    } finally {
+      setViewStateReady(true);
     }
   }, []);
 
@@ -602,7 +632,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     return () => query.removeEventListener("change", update);
   }, []);
 
-  useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\0${displayArticleMotionKey}`);
+  useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\0${displayArticleMotionKey}`, !expandedLibraryVisible);
 
   useEffect(() => {
     const sections = [publicationBridgeRef.current, importRef.current, closingRef.current]
@@ -858,6 +888,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
   function beginArticleTransition(article: PublicArticle, event: ReactMouseEvent<HTMLButtonElement>) {
     if (openingArticle || props.openingPublicArticleId) return;
+    props.onCapturePublicArticleOrigin?.(article.id, event.currentTarget.getBoundingClientRect().top);
     const cover = event.currentTarget.querySelector<HTMLElement>(`.${styles.coverSurface}`);
     if (!cover) {
       void props.onOpenPublicArticle(article.id);
@@ -1351,7 +1382,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                 >{item.displayLabel}</button>
               ))}
             </nav>
-            {memberHome && memberLibraryOpen && (
+            {expandedLibraryVisible && (
               <div className={styles.libraryFilters} aria-label="搜索外刊">
                 <label>
                   <span>搜索</span>
@@ -1366,7 +1397,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           {props.catalogueStatus === "loading" && <p role="status">正在加载完整外刊目录…</p>}
           {props.catalogueStatus === "error" && <p role="status">完整外刊目录暂时无法加载，已显示的文章仍可打开。<button type="button" onClick={props.onRequestCatalogue}>重试</button></p>}
           {displayArticles.length ? (
-            <div ref={articleGridRef} className={styles.articleGrid} data-switching={categorySwitching || undefined}>
+            <div ref={articleGridRef} className={styles.articleGrid} data-switching={categorySwitching || undefined} data-library-expanded={expandedLibraryVisible || undefined}>
               {displayArticles.map((item, index) => {
                 const featured = index === 0;
                 const recommendation = item.recommendation;
@@ -1378,6 +1409,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                   <button
                     type="button"
                     key={item.id}
+                    data-public-article-id={item.id}
                     className={`${styles.articleCard} ${featured ? styles.featuredCard : ""}`}
                     style={{ "--article-reveal-index": revealDelayIndex } as CSSProperties}
                     onPointerEnter={() => props.onPrefetchPublicArticle(item.id)}
@@ -1385,7 +1417,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                     onClick={(event) => beginArticleTransition(item, event)}
                     disabled={Boolean(props.openingPublicArticleId || openingArticle)}
                   >
-                  <ArticleCover article={item} featured={featured} preload={index < 12 && !journeyPending && (guestOpeningComplete || Boolean(props.skipMemberOpening) || (memberHome && !memberOpeningVisible))} motion3dEnabled={recommendationMotionEnabled} />
+                  <ArticleCover article={item} featured={featured} motion3dEnabled={recommendationMotionEnabled && !expandedLibraryVisible} />
                     <span className={styles.cardCopy}>
                       <small>{item.sourceName || "Context Reader"}</small>
                       <strong>{item.title}</strong>
@@ -1405,10 +1437,13 @@ export function HomeRedesign(props: HomeRedesignProps) {
           )}
           {memberHome && totalCategoryCount > showcaseArticleCount && (
             <div className={styles.libraryAction}>
-              <button type="button" onClick={() => { props.onRequestCatalogue?.(); setMemberLibraryOpen((current) => { const next = !current; persistHomeViewState({ memberLibraryOpen: next }); return next; }); }} aria-expanded={memberLibraryOpen}>
-                {memberLibraryOpen ? "收起更多外刊" : "显示更多"}
+              <button type="button" onClick={() => {
+                if (!fullLibraryReady) { setLibraryOpenRequested(true); props.onRequestCatalogue?.(); return; }
+                setMemberLibraryOpen((current) => { const next = !current; persistHomeViewState({ memberLibraryOpen: next }); return next; });
+              }} aria-expanded={expandedLibraryVisible} disabled={props.catalogueStatus === "loading"}>
+                {props.catalogueStatus === "loading" ? "正在准备完整目录…" : expandedLibraryVisible ? "收起更多外刊" : "显示更多"}
               </button>
-              <span>{memberLibraryOpen ? `当前显示 ${displayArticles.length} 篇` : `还有 ${totalCategoryCount - showcaseArticleCount} 篇`}</span>
+              <span>{expandedLibraryVisible ? `当前显示 ${displayArticles.length} 篇` : `还有 ${totalCategoryCount - showcaseArticleCount} 篇`}</span>
             </div>
           )}
           {!memberHome && (
