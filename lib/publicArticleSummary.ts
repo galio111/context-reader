@@ -8,7 +8,7 @@ export function publicArticleSummary(article: PublicArticle): PublicArticle {
     sourceUrl: article.sourceUrl, sourceName: article.sourceName,
     createdAt: article.createdAt, updatedAt: article.updatedAt,
     ...(r ? { recommendation: {
-      coverImageUrl: r.coverImageUrl, coverImageAlt: r.coverImageAlt,
+      coverImageUrl: r.coverImageUrl, coverPreviewDataUrl: r.coverPreviewDataUrl, coverImageAlt: r.coverImageAlt,
       coverImageCredit: r.coverImageCredit, coverImageSourceUrl: r.coverImageSourceUrl,
       difficulty: r.difficulty, cefr: r.cefr, audienceStages: r.audienceStages,
       topics: r.topics, homepageCategory: r.homepageCategory, wordCount: r.wordCount,

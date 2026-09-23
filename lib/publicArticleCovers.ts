@@ -99,6 +99,44 @@ export function isStoredPublicCoverUrl(value: string): boolean {
   return isFirstPartyArticleImageUrl(value);
 }
 
+const COVER_PREVIEW_WIDTH = 96;
+const COVER_PREVIEW_HEIGHT = 72;
+
+export async function coverPreviewDataUrl(bytes: Uint8Array): Promise<string> {
+  const preview = await sharp(bytes, { failOn: "error", limitInputPixels: 50_000_000 })
+    .rotate()
+    .resize(COVER_PREVIEW_WIDTH, COVER_PREVIEW_HEIGHT, { fit: "cover", position: "entropy" })
+    .webp({ quality: 48, effort: 4 })
+    .toBuffer();
+  if (!preview.length || preview.length > 8192) throw new Error("封面预览生成失败。");
+  return `data:image/webp;base64,${preview.toString("base64")}`;
+}
+
+/** Regenerate from the final first-party cover so edited covers cannot keep a stale preview. */
+export async function withPublicCoverPreview<T extends PublicArticleInput>(input: T, strict = false): Promise<T> {
+  const recommendation = input.recommendation ?? input.importedArticle?.recommendation;
+  if (!recommendation) return input;
+  const coverUrl = recommendation.coverImageUrl?.trim() || "";
+  let preview = "";
+  if (coverUrl && isStoredPublicCoverUrl(coverUrl)) {
+    try {
+      const objectPath = decodeURIComponent(new URL(coverUrl).pathname.split(`/storage/v1/object/public/${PUBLIC_COVER_BUCKET}/`)[1] || "");
+      if (!objectPath) throw new Error("封面存储路径无效。");
+      const { data, error } = await supabaseAdmin().storage.from(PUBLIC_COVER_BUCKET).download(objectPath);
+      if (error || !data || data.size > PUBLIC_COVER_MAX_UPLOAD_BYTES) throw new Error("封面读取失败。");
+      preview = await coverPreviewDataUrl(new Uint8Array(await data.arrayBuffer()));
+    } catch (error) {
+      if (strict) throw error;
+    }
+  }
+  const updated = { ...recommendation, coverPreviewDataUrl: preview || undefined };
+  return {
+    ...input,
+    recommendation: updated,
+    ...(input.importedArticle ? { importedArticle: { ...input.importedArticle, recommendation: updated } } : {}),
+  };
+}
+
 function sourceImageUrl(value: string): string {
   const url = new URL(value);
   if (url.hostname.toLowerCase().endsWith(".brightspotcdn.com")) {

@@ -73,7 +73,7 @@ test("compact catalogue preserves article identity, preference/category order an
   const articles: PublicArticle[] = ["科技科学", "文化历史", "商业经济"].map((topic, i) => ({
     id: `${i}`, title: `Article ${i}`, summary: "Reader visible summary", body: "private detail payload",
     sourceUrl: `https://example.org/${i}`, sourceName: "Source", createdAt: "2026-09-22", updatedAt: "2026-09-22",
-    recommendation: { coverImageUrl: `https://example.org/${i}.webp`, difficulty: "CET-6 / 考研", cefr: "B2", audienceStages: ["CET-6"], topics: [topic], wordCount: 800, timeliness: "evergreen", sourceKind: "crawler", classificationSource: "manual", reviewNotes: "Admin evidence ".repeat(500) },
+    recommendation: { coverImageUrl: `https://example.org/${i}.webp`, coverPreviewDataUrl: "data:image/webp;base64,UklGRg==", difficulty: "CET-6 / 考研", cefr: "B2", audienceStages: ["CET-6"], topics: [topic], wordCount: 800, timeliness: "evergreen", sourceKind: "crawler", classificationSource: "manual", reviewNotes: "Admin evidence ".repeat(500) },
   } as PublicArticle));
   const compact = articles.map(publicArticleSummary);
   const preferences = emptyRecommendationPreferences();
@@ -82,6 +82,7 @@ test("compact catalogue preserves article identity, preference/category order an
   for (let i = 0; i < articles.length; i++) {
     assert.equal(compact[i].summary, articles[i].summary);
     assert.deepEqual(compact[i].recommendation?.topics, articles[i].recommendation?.topics);
+    assert.equal(compact[i].recommendation?.coverPreviewDataUrl, articles[i].recommendation?.coverPreviewDataUrl);
     assert.equal(compact[i].recommendation?.reviewNotes, undefined);
     assert.ok(articles[i].recommendation?.reviewNotes);
     assert.equal(compact[i].body, "");

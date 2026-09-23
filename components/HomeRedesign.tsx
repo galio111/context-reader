@@ -274,16 +274,26 @@ function ArticleCover({ article, featured = false, preload = false, motion3dEnab
   }
 
   const coverUrl = article.recommendation?.coverImageUrl?.trim();
+  const coverPreview = article.recommendation?.coverPreviewDataUrl?.startsWith("data:image/webp;base64,")
+    ? article.recommendation.coverPreviewDataUrl : undefined;
+  const coverReady = Boolean(coverUrl && loadedCoverUrl === coverUrl && !coverFailed);
   useEffect(() => setCoverFailed(false), [coverUrl]);
   return (
     <span
       ref={surfaceRef}
       className={`${styles.coverSurface} ${featured ? styles.coverFeatured : ""}`}
-      data-image-pending={Boolean(coverUrl && !coverFailed && loadedCoverUrl !== coverUrl) || undefined}
+      data-image-pending={Boolean(coverUrl && !coverFailed && !coverReady) || undefined}
+      data-image-ready={coverReady || undefined}
       data-tilt-disabled={!motion3dEnabled || undefined}
+      style={coverPreview && !coverFailed ? { backgroundImage: `url("${coverPreview}")` } : undefined}
       onPointerMove={updatePointer}
       onPointerLeave={resetPointer}
     >
+      {coverUrl && !coverPreview && !coverReady && !coverFailed && (
+        <span className={styles.coverFallback} aria-hidden="true">
+          <i>READING</i><strong>{(article.sourceName || "Context Reader").slice(0, 28)}</strong>
+        </span>
+      )}
       {coverUrl && !coverFailed ? (nearViewport ? (
         // eslint-disable-next-line @next/next/no-img-element
         <Image src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} width={1920} height={1440} sizes={featured ? "(max-width: 900px) 94vw, (max-width: 1440px) 58vw, 800px" : "(max-width: 900px) 46vw, (max-width: 1440px) 30vw, 420px"} quality={75} unoptimized loading="eager" fetchPriority={featured ? "high" : "auto"} draggable={false} onLoad={() => setLoadedCoverUrl(coverUrl)} onError={() => setCoverFailed(true)} />

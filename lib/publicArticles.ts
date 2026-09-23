@@ -13,7 +13,7 @@ import { isPresentationCoverBlock, recommendationWithBodyImageFallback, withLead
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import { createArticleTranslationBatches } from "@/lib/articleTranslationBatching";
 import { createArticleTranslationCacheKey } from "@/lib/articleTranslationIdentity";
-import { localizePublicArticleInputCover } from "@/lib/publicArticleCovers";
+import { localizePublicArticleInputCover, withPublicCoverPreview } from "@/lib/publicArticleCovers";
 import type {
   ArticleRecommendationMetadata,
   PublicArticle,
@@ -537,7 +537,10 @@ export async function publishArticleCandidate(id: string, options: { expectedEdi
     importedArticle,
     recommendation: importedArticle?.recommendation,
   };
-  const storedCandidateInput = await localizePublicArticleInputCover(candidateInput, { strictImages: guarded });
+  const storedCandidateInput = await withPublicCoverPreview(
+    await localizePublicArticleInputCover(candidateInput, { strictImages: guarded }),
+    Boolean(options.autoPublishedAt),
+  );
   const storedCandidateImportedArticle = importedArticleForInput(storedCandidateInput);
   if (options.autoPublishedAt) {
     const images = storedCandidateImportedArticle.blocks.filter(block => block.type === "image" && !isPresentationCoverBlock(block));
@@ -623,7 +626,7 @@ export async function setArticleCandidateRejected(id: string, rejected: boolean,
 }
 
 export async function updatePublicArticle(id: string, input: PublicArticleInput): Promise<PublicArticle> {
-  const storedInput = await localizePublicArticleInputCover(input);
+  const storedInput = await withPublicCoverPreview(await localizePublicArticleInputCover(input));
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
     `public_articles?id=eq.${encodeURIComponent(id)}&published=eq.true${revisionFilter(input.expectedUpdatedAt)}`,
     {
@@ -642,7 +645,7 @@ export async function updatePublicArticle(id: string, input: PublicArticleInput)
 }
 
 export async function createPublicArticle(input: PublicArticleInput): Promise<PublicArticle> {
-  const storedInput = await localizePublicArticleInputCover(input);
+  const storedInput = await withPublicCoverPreview(await localizePublicArticleInputCover(input));
   const duplicate = await findDuplicateArticleRow(storedInput, true);
   if (duplicate) {
     return updatePublicArticle(duplicate.id, storedInput);

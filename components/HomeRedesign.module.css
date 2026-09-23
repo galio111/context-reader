@@ -491,6 +491,8 @@
   overflow: hidden;
   border-radius: 14px;
   background: #dfe8eb;
+  background-position: center;
+  background-size: 112% 112%;
   perspective: 900px;
   --entry-image-scale: 1.035;
   opacity: 1;
@@ -502,17 +504,16 @@
 .articleCard[data-motion-ready]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); }
 .articleCard[data-motion-ready][data-enter-direction="up"]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); transform-origin: 50% 50%; }
 .articleCard[data-visible="true"] .coverSurface { transform: translateZ(0) scale(1); }
-/* A late network image must not miss the original reveal on its empty shell. */
-.articleCard[data-motion-ready] .coverSurface[data-image-pending] { transform: translateZ(0) scale(.9); }
-
 .coverSurface > img {
   width: 106%;
   height: 106%;
   margin: -3%;
   object-fit: cover;
+  opacity: 0;
   transform: perspective(900px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) skewY(calc(var(--scroll-skew) * 1deg)) scaleY(var(--scroll-stretch)) scale(var(--entry-image-scale)) translate3d(calc((.5 - var(--pointer-x)) * 2.4%), calc((.5 - var(--pointer-y)) * 2.4% + var(--scroll-drift) * 1px), 0);
   transition: filter 220ms ease, transform 500ms cubic-bezier(.22, .76, .25, 1);
 }
+.coverSurface[data-image-ready] > img { opacity: 1; }
 
 .articleCard:hover .coverSurface > img,
 .articleCard:focus-visible .coverSurface > img { filter: saturate(1.06) contrast(1.02); }
