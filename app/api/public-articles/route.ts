@@ -13,7 +13,11 @@ export async function GET(request: Request) {
     const body = JSON.stringify({ articles: articles.map(publicArticleSummary) });
     const etag = `"${createHash("sha256").update(body).digest("hex")}"`;
     const headers = { ...PUBLIC_CACHE_HEADERS, ETag: etag };
-    if (request.headers.get("if-none-match")?.split(",").some((value) => value.trim() === etag)) {
+    // Next's compressed response appends `-gzip` to the ETag seen by the browser.
+    // Accept that representation tag when the service worker revalidates its cache.
+    if (request.headers.get("if-none-match")?.split(",").some((value) =>
+      value.trim().replace(/^W\//, "").replace(/-gzip"$/, '"') === etag,
+    )) {
       return new Response(null, { status: 304, headers });
     }
     return new Response(body, { status: 200, headers: { ...headers, "Content-Type": "application/json; charset=utf-8" } });
