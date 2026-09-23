@@ -28,7 +28,11 @@ export async function GET(request: Request) {
         path.join(process.cwd(), "data", "cet", `${item.id}.json`),
         "utf8",
       ),
-    );
+    ) as CetPaper;
+    paper.sections = paper.sections.map((section) => {
+      const metadata = item.sections.find((candidate) => candidate.id === section.id);
+      return { ...section, materialId: metadata?.materialId, questionSetId: metadata?.questionSetId };
+    });
     return NextResponse.json(
       { paper },
       { headers: { "Cache-Control": "private, no-store" } },

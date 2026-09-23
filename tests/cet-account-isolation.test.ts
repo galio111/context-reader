@@ -1,0 +1,38 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { JSDOM } from "jsdom";
+import { IDBFactory } from "fake-indexeddb";
+import { prepareLocalAccountForUser, clearLocalAccountData } from "../lib/accountSyncClient";
+import { getLearningStorage, initializeLearningStorage, flushLearningStorage, isLearningStorage } from "../lib/learningStorage";
+import { createCetActivity, cetFinalize } from "../lib/cetActivity";
+import { saveCetActivity, readCetActivities, readCetCommitPackages } from "../lib/cetActivityStorage";
+import { exposureFor, saveCetExposure, readCetExposures } from "../lib/cetExposure";
+import type { CetPaper } from "../types/cet";
+
+test("IndexedDB account archive isolates CET drafts, commit packages and exposure facts", async () => {
+  const dom = new JSDOM("", { url: "https://context-reader.com" });
+  Object.defineProperty(globalThis, "window", { configurable: true, value: dom.window });
+  Object.defineProperty(globalThis, "CustomEvent", { configurable: true, value: dom.window.CustomEvent });
+  Object.defineProperty(dom.window, "indexedDB", { value: new IDBFactory() });
+  const paper = JSON.parse(readFileSync(new URL("../data/cet/cet4-2025-12-1.json", import.meta.url), "utf8")) as CetPaper;
+  await initializeLearningStorage();
+  await prepareLocalAccountForUser("A");
+  const run = createCetActivity({ paper, purpose: "self_test", owner: "A" });
+  saveCetActivity(cetFinalize(run, paper, "manual_submit"));
+  saveCetExposure(exposureFor(paper.sections[0], paper.id, "A", "answer_view", "a-view", run.id));
+  await flushLearningStorage();
+  await prepareLocalAccountForUser("B");
+  assert.equal(readCetActivities().length, 0);
+  assert.equal(readCetCommitPackages().length, 0);
+  assert.equal(readCetExposures().length, 0);
+  await prepareLocalAccountForUser("A");
+  assert.equal(readCetActivities()[0].id, run.id);
+  assert.equal(readCetCommitPackages().length, 1);
+  assert.equal(readCetExposures()[0].owner, "A");
+  await clearLocalAccountData();
+  assert.equal(readCetCommitPackages().length, 0);
+  const storage = getLearningStorage();
+  if (isLearningStorage(storage)) storage.close();
+  dom.window.close();
+});

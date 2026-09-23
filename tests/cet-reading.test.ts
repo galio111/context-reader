@@ -141,7 +141,8 @@ test("five-year coverage separates missing answers from incomplete reading order
   for (const p of catalogue)
     for (const s of p.sections) {
       assert.ok(!("paragraphs" in s));
-      for (const q of s.questions) assert.deepEqual(Object.keys(q), ["number"]);
+      for (const q of (s as unknown as { questions: Array<Record<string, unknown>> }).questions)
+        assert.deepEqual(Object.keys(q), ["number"]);
     }
   const read = (id: string) => JSON.parse(readFileSync(new URL(`${id}.json`, dir), "utf8")) as CetPaper;
   assert.equal(read("cet4-2024-12-3").sections[3].questions[4].answer, "A");

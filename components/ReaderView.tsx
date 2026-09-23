@@ -89,7 +89,8 @@ import type { DictionaryResult } from "@/types/dictionary";
 import { useAccount } from "@/components/AccountProvider";
 
 export interface ReaderExamSurface {
-  locked: boolean; toolbar: ReactNode; rail: ReactNode; timer: ReactNode; menu?: ReactNode;
+  locked: boolean; lockedMessage?: string; toolbar: ReactNode; rail: ReactNode; timer: ReactNode; menu?: ReactNode;
+  onAssistanceShown?: (kind: "lookup" | "translation") => void;
   render: (lookup: (context: WordContext) => void) => ReactNode;
 }
 
@@ -1950,6 +1951,13 @@ export function ReaderView({
   }, [translationSourceKey, translationBlocks]);
 
   useEffect(() => {
+    if (examSurface && !examSurface.locked && rightPanelMode === "translation" && translationRequested
+      && articleTranslations.some((item) => item.translation.trim())) {
+      examSurface.onAssistanceShown?.("translation");
+    }
+  }, [examSurface, rightPanelMode, translationRequested, articleTranslations]);
+
+  useEffect(() => {
     for (const item of preloadedExplanations) {
       if (!getCachedExplanation(item.cacheKey)) {
         setCachedExplanation(item.cacheKey, item.explanation);
@@ -2289,6 +2297,7 @@ export function ReaderView({
         void refreshAccount();
       }
       setExplanation(cached);
+      examSurface?.onAssistanceShown?.("lookup");
       setExplanationStreamText(explanationAsStreamText(cached));
       setExplanationStreaming(false);
       setLoading(false);
@@ -2325,6 +2334,7 @@ export function ReaderView({
       streamedExplanation = completedExplanation;
       setCachedExplanation(cacheKey, completedExplanation);
       setExplanation(completedExplanation);
+      if (!examSurface?.locked) examSurface?.onAssistanceShown?.("lookup");
       setExplanationStreamText(completedText);
       setExplanationStreaming(false);
       if (options.syncVocabulary && account.authenticated) {
@@ -2372,6 +2382,7 @@ export function ReaderView({
 
       setCachedExplanation(cacheKey, nextExplanation);
       setExplanation(nextExplanation);
+      if (!examSurface?.locked) examSurface?.onAssistanceShown?.("lookup");
       setExplanationStreamText(durableDisplayText);
       setExplanationStreaming(false);
       if (options.syncVocabulary) {
@@ -4189,7 +4200,7 @@ export function ReaderView({
           data-native-selection="blue"
         >
           <div className="flex h-full min-h-0 flex-col gap-3">
-            {examSurface?.locked ? <div className="flex-1 rounded-[18px] border border-[#e0e0e0] bg-white p-5 text-sm text-[#6e6e73]">考试进行中，交卷或关闭考试模式后可查词精读。</div> : <>
+            {examSurface?.locked ? <div className="flex-1 rounded-[18px] border border-[#e0e0e0] bg-white p-5 text-sm text-[#6e6e73]">{examSurface.lockedMessage || "自测中暂不可使用查词、翻译和保存工具。提交后可以精读。"}</div> : <>
             <div data-reader-panel-tabs className="grid h-10 shrink-0 grid-cols-2 rounded-full border border-[#d2d2d7] bg-white p-1">
               <button
                 type="button"
@@ -4571,7 +4582,7 @@ export function ReaderView({
         <button type="button" disabled={examSurface?.locked} aria-pressed={mobileExplanationOpen && rightPanelMode === "article"} onClick={() => openMobileTool("article")}>更多</button>
       </nav>
 
-      {examSurface?.locked ? (readerMenuOpen && <div className={toolbarStyles.workLayerBackdrop} onMouseDown={event => { if(event.target === event.currentTarget) setReaderMenuOpen(false); }}><section className={toolbarStyles.workLayer} role="dialog" aria-modal="true" aria-label="考试菜单"><header><h2>Menu</h2><button onClick={() => setReaderMenuOpen(false)} aria-label="关闭菜单">×</button></header>{examSurface.menu}</section></div>) : <HomeOptionMenu
+      {examSurface?.locked ? (readerMenuOpen && <div className={toolbarStyles.workLayerBackdrop} onMouseDown={event => { if(event.target === event.currentTarget) setReaderMenuOpen(false); }}><section className={toolbarStyles.workLayer} role="dialog" aria-modal="true" aria-label="自测菜单"><header><h2>Menu</h2><button onClick={() => setReaderMenuOpen(false)} aria-label="关闭菜单">×</button></header>{examSurface.menu}</section></div>) : <HomeOptionMenu
         open={readerMenuOpen}
         placement={readerMenuPlacement}
         initialPreview={readerMenuInitialPreview}

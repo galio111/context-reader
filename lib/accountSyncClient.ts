@@ -50,9 +50,15 @@ import type { VocabularyEntry } from "@/types/vocabulary";
 import { readStoredArticles, writeStoredArticles } from "@/lib/articleStorage";
 
 import { CET_PROGRESS_KEY, CET_OBJECT_PREFIX, readCetAttempts, writeCetAttempts, normalizeCetAttempt, mergeCetAttempt } from "@/lib/cetProgress";
+import { CET_ACTIVITIES_KEY, CET_FINALIZATIONS_KEY, CET_ACTIVITY_OBJECT_PREFIX, CET_FINALIZATION_OBJECT_PREFIX, readCetActivities, writeCetActivities, normalizeCetActivity, readCetCommitPackages, writeCetCommitPackages, type CetCommitPackage } from "@/lib/cetActivityStorage";
+import { mergeCetActivity } from "@/lib/cetActivity";
+import { CET_EXPOSURES_KEY, CET_EXPOSURE_OBJECT_PREFIX, readCetExposures, writeCetExposures, normalizeCetExposure } from "@/lib/cetExposure";
 
 const KEYS = {
   cetProgress: CET_PROGRESS_KEY,
+  cetActivities: CET_ACTIVITIES_KEY,
+  cetFinalizations: CET_FINALIZATIONS_KEY,
+  cetExposures: CET_EXPOSURES_KEY,
   articles: "context-reader:articles:v1",
   vocabulary: "context-reader:vocabulary:v1",
   explanations: "context-reader:explanations:v5",
@@ -181,7 +187,7 @@ export function accountSyncKindsForStorageKey(key: string | null): SyncObjectKin
   if (key === KEYS.translations) return ["article_translation"];
   if (key === KEYS.translationBlocks) return ["translation_block"];
   if (key === KEYS.readingStates) return ["reading_state"];
-  if (key === KEYS.cetProgress || key === KEYS.dictionaryHistory || key === KEYS.dictionaryCache || key === KEYS.recommendationPreferences) {
+  if (key === KEYS.cetProgress || key === KEYS.cetActivities || key === KEYS.cetExposures || key === KEYS.cetFinalizations || key === KEYS.dictionaryHistory || key === KEYS.dictionaryCache || key === KEYS.recommendationPreferences) {
     return ["preferences"];
   }
   return [];
@@ -201,8 +207,23 @@ export async function prepareLocalAccountForUser(userId: string, options?: { pre
     clearStandaloneDictionaryRuntimeCache();
     notifyAccountDataMerged();
   }
+  // A first login adopts only this browser's guest CET records. Existing
+  // account records retain their owner and remain isolated on account switch.
+  if (!previousOwner) claimGuestCetRecords(storage, userId);
   storage.setItem(ACCOUNT_LOCAL_OWNER_KEY, userId);
   return switchedAccount;
+}
+
+export function claimGuestCetRecords(storage: Storage, userId: string): void {
+  if (!userId) return;
+  const activities = readCetActivities(storage);
+  if (activities.some((item) => item.owner === "guest")) {
+    writeCetActivities(storage, activities.map((item) => item.owner === "guest" ? { ...item, owner: userId } : item));
+  }
+  const exposures = readCetExposures(storage);
+  if (exposures.some((item) => item.owner === "guest")) {
+    writeCetExposures(storage, exposures.map((item) => item.owner === "guest" ? { ...item, owner: userId } : item));
+  }
 }
 
 export async function clearLocalAccountData(): Promise<void> {
@@ -361,6 +382,11 @@ function mergeCloudIntoLocal(
   const incomingKinds = new Set(objects.map((object) => object.kind));
   const needsCet = objects.some(o => o.kind === "preferences" && o.objectKey.startsWith(CET_OBJECT_PREFIX));
   const cetAttempts = new Map((needsCet ? readCetAttempts(storage) : []).map(item => [item.id, item]));
+  const needsCetV2 = objects.some(o => o.kind === "preferences" && (o.objectKey.startsWith(CET_ACTIVITY_OBJECT_PREFIX) || o.objectKey.startsWith(CET_FINALIZATION_OBJECT_PREFIX)));
+  const cetActivities = new Map((needsCetV2 ? readCetActivities(storage) : []).map(item => [item.id, item]));
+  const cetCommits = new Map((needsCetV2 ? readCetCommitPackages(storage) : []).map(item => [`${item.attemptId}:${item.finalization.id}`, item]));
+  const needsCetExposure = objects.some(o => o.kind === "preferences" && o.objectKey.startsWith(CET_EXPOSURE_OBJECT_PREFIX));
+  const cetExposures = new Map((needsCetExposure ? readCetExposures(storage) : []).map(item => [item.id, item]));
   const needsArticles = incomingKinds.has("article");
   const needsVocabulary = incomingKinds.has("vocabulary");
   const needsReadingStates = incomingKinds.has("reading_state")
@@ -422,6 +448,8 @@ function mergeCloudIntoLocal(
       else if (object.kind === "vocabulary") localVocabularyById.delete(object.objectKey);
       else if (object.kind === "reading_state") delete localReadingStates[object.objectKey];
       else if (object.kind === "preferences" && object.objectKey.startsWith(CET_OBJECT_PREFIX)) cetAttempts.delete(object.objectKey.slice(CET_OBJECT_PREFIX.length));
+      // New CET results are append-only. A stale client cannot tombstone them.
+      else if (object.kind === "preferences" && (object.objectKey.startsWith(CET_ACTIVITY_OBJECT_PREFIX) || object.objectKey.startsWith(CET_FINALIZATION_OBJECT_PREFIX) || object.objectKey.startsWith(CET_EXPOSURE_OBJECT_PREFIX))) continue;
       else if (object.kind === "preferences" && isStandaloneDictionaryHistoryObjectKey(object.objectKey)) {
         const historyItem = normalizeStandaloneDictionaryHistoryItem(object.payload);
         let normalizedQuery = historyItem?.normalizedQuery ?? "";
@@ -512,6 +540,26 @@ function mergeCloudIntoLocal(
     } else if (object.kind === "preferences" && object.objectKey.startsWith(CET_OBJECT_PREFIX)) {
       const cloud = normalizeCetAttempt(object.payload);
       if(cloud && object.objectKey === CET_OBJECT_PREFIX + cloud.id) cetAttempts.set(cloud.id, mergeCetAttempt(cetAttempts.get(cloud.id), cloud));
+    } else if (object.kind === "preferences" && object.objectKey.startsWith(CET_ACTIVITY_OBJECT_PREFIX)) {
+      const cloud = normalizeCetActivity(object.payload);
+      if (cloud && object.objectKey === CET_ACTIVITY_OBJECT_PREFIX + cloud.id) {
+        try { cetActivities.set(cloud.id, mergeCetActivity(cetActivities.get(cloud.id), cloud)); }
+        catch { /* Preserve the existing local identity instead of overwriting it. */ }
+      }
+    } else if (object.kind === "preferences" && object.objectKey.startsWith(CET_FINALIZATION_OBJECT_PREFIX)) {
+      const cloud = object.payload as CetCommitPackage;
+      if (cloud?.attemptId && cloud.finalization?.id && Array.isArray(cloud.finalization.questions)
+        && object.objectKey === `${CET_FINALIZATION_OBJECT_PREFIX}${cloud.attemptId}:${cloud.finalization.id}`) {
+        const identity = `${cloud.attemptId}:${cloud.finalization.id}`;
+        const old = cetCommits.get(identity);
+        cetCommits.set(identity, old && JSON.stringify(old) > JSON.stringify(cloud) ? old : cloud);
+      }
+    } else if (object.kind === "preferences" && object.objectKey.startsWith(CET_EXPOSURE_OBJECT_PREFIX)) {
+      const cloud = normalizeCetExposure(object.payload);
+      if (cloud && object.objectKey === CET_EXPOSURE_OBJECT_PREFIX + cloud.id) {
+        const old = cetExposures.get(cloud.id);
+        cetExposures.set(cloud.id, old && JSON.stringify(old) > JSON.stringify(cloud) ? old : cloud);
+      }
     } else if (object.kind === "preferences" && isStandaloneDictionaryHistoryObjectKey(object.objectKey)) {
       const cloud = normalizeStandaloneDictionaryHistoryItem(object.payload);
       if (!cloud) continue;
@@ -553,6 +601,21 @@ function mergeCloudIntoLocal(
     writeVocabulary(storage, deduplicatedVocabulary.entries);
   }
   if (needsCet) writeCetAttempts(storage, Array.from(cetAttempts.values()));
+  if (needsCetV2) {
+    for (const commit of cetCommits.values()) {
+      const activity = cetActivities.get(commit.attemptId);
+      if (!activity || activity.finalizations[commit.finalization.id]) continue;
+      const incoming = {
+        ...activity,
+        finalizations: { ...activity.finalizations, [commit.finalization.id]: commit.finalization },
+        status: commit.finalization.reason === "ended_for_study" ? "ended" as const : "submitted" as const,
+      };
+      cetActivities.set(activity.id, mergeCetActivity(activity, incoming));
+    }
+    writeCetCommitPackages(storage, Array.from(cetCommits.values()));
+    writeCetActivities(storage, Array.from(cetActivities.values()));
+  }
+  if (needsCetExposure) writeCetExposures(storage, Array.from(cetExposures.values()));
   if (needsReadingStates) writeArticleReadingStates(storage, localReadingStates, { notify: false });
   if (maps.explanation) storage.setItem(KEYS.explanations, JSON.stringify(maps.explanation));
   if (maps.article_translation) storage.setItem(KEYS.translations, JSON.stringify(maps.article_translation));
@@ -618,6 +681,9 @@ async function collectLocalObjects(
   }
   if (wants("preferences")) {
     for (const item of readCetAttempts(storage)) add("preferences", CET_OBJECT_PREFIX + item.id, item, item.updatedAt);
+    for (const item of readCetActivities(storage)) add("preferences", CET_ACTIVITY_OBJECT_PREFIX + item.id, item, item.updatedAt);
+    for (const item of readCetCommitPackages(storage)) add("preferences", `${CET_FINALIZATION_OBJECT_PREFIX}${item.attemptId}:${item.finalization.id}`, item, item.finalization.at);
+    for (const item of readCetExposures(storage)) add("preferences", CET_EXPOSURE_OBJECT_PREFIX + item.id, item, item.occurredAt);
     for (const item of readStandaloneDictionaryHistory(storage)) {
       add("preferences", standaloneDictionaryHistoryObjectKey(item), item, item.lastLookedUpAt);
     }

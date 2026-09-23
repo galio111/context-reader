@@ -71,6 +71,15 @@ export function mergeCetAttempt(
   b: CetAttempt,
 ): CetAttempt {
   if (!a) return b;
+  // A v1 submitted record has no immutable snapshot. At least prevent a late
+  // unfinished device from changing the answer currently held as its result.
+  if (a.finishedAt && !b.finishedAt) return a;
+  if (b.finishedAt && !a.finishedAt) return b;
+  if (a.finishedAt && b.finishedAt) {
+    const aKey = `${a.finishedAt}\u0000${JSON.stringify(a.answers)}`;
+    const bKey = `${b.finishedAt}\u0000${JSON.stringify(b.answers)}`;
+    return aKey <= bKey ? a : b;
+  }
   const next = {
     ...(a.updatedAt > b.updatedAt ? a : b),
     answers: { ...a.answers },
