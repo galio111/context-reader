@@ -199,10 +199,12 @@ requireSource("components/ReaderView.tsx", [
 requireSource("components/HomeRedesign.tsx", [
   'useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\\0${displayArticleMotionKey}`);',
   "motion3dEnabled={recommendationMotionEnabled}",
+  'data-cover-preview="true"',
 ]);
 requireSource("components/HomeRedesign.module.css", [
   ".articleCard[data-motion-ready]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); }",
   '.articleCard[data-visible="true"] .coverSurface { transform: translateZ(0) scale(1); }',
+  '.coverSurface > img[data-cover-preview] { position: absolute; z-index: 0; inset: 0; opacity: 1; }',
 ]);
 assert.doesNotMatch(
   source("components/HomeRedesign.module.css"),

@@ -505,6 +505,8 @@
 .articleCard[data-motion-ready][data-enter-direction="up"]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); transform-origin: 50% 50%; }
 .articleCard[data-visible="true"] .coverSurface { transform: translateZ(0) scale(1); }
 .coverSurface > img {
+  position: relative;
+  z-index: 1;
   width: 106%;
   height: 106%;
   margin: -3%;
@@ -514,6 +516,7 @@
   transition: filter 220ms ease, transform 500ms cubic-bezier(.22, .76, .25, 1);
 }
 .coverSurface[data-image-ready] > img { opacity: 1; }
+.coverSurface > img[data-cover-preview] { position: absolute; z-index: 0; inset: 0; opacity: 1; }
 
 .articleCard:hover .coverSurface > img,
 .articleCard:focus-visible .coverSurface > img { filter: saturate(1.06) contrast(1.02); }

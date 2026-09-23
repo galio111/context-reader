@@ -209,6 +209,18 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
   const pointerCurrentRef = useRef({ x: 0.5, y: 0.5 });
   const [coverFailed, setCoverFailed] = useState(false);
   const [loadedCoverUrl, setLoadedCoverUrl] = useState<string | null>(null);
+  const [loadFullCover, setLoadFullCover] = useState(featured);
+
+  useEffect(() => {
+    const surface = surfaceRef.current;
+    if (!surface || featured) return;
+    if (!("IntersectionObserver" in window)) { setLoadFullCover(true); return; }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setLoadFullCover(true); observer.disconnect(); }
+    }, { rootMargin: "2400px 0px" });
+    observer.observe(surface);
+    return () => observer.disconnect();
+  }, [featured]);
 
   useEffect(() => () => {
     if (pointerFrameRef.current) window.cancelAnimationFrame(pointerFrameRef.current);
@@ -276,16 +288,19 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
       data-image-pending={Boolean(coverUrl && !coverPreview && !coverFailed && !coverReady) || undefined}
       data-image-ready={coverReady || undefined}
       data-tilt-disabled={!motion3dEnabled || undefined}
-      style={coverPreview ? { backgroundImage: `url("${coverPreview}")` } : undefined}
       onPointerMove={updatePointer}
+      onPointerEnter={() => setLoadFullCover(true)}
       onPointerLeave={resetPointer}
     >
+      {coverPreview && (
+        <Image src={coverPreview} alt={article.recommendation?.coverImageAlt || article.title} width={256} height={192} unoptimized loading="eager" draggable={false} data-cover-preview="true" />
+      )}
       {coverUrl && !coverPreview && !coverReady && !coverFailed && (
         <span className={styles.coverFallback} aria-hidden="true">
           <i>READING</i><strong>{(article.sourceName || "Context Reader").slice(0, 28)}</strong>
         </span>
       )}
-      {coverUrl && !coverFailed && (featured || !coverPreview) ? (
+      {coverUrl && !coverFailed && (loadFullCover || !coverPreview) ? (
         <Image src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} width={1920} height={1440} sizes={featured ? "(max-width: 900px) 94vw, (max-width: 1440px) 58vw, 800px" : "(max-width: 900px) 46vw, (max-width: 1440px) 30vw, 420px"} quality={75} unoptimized loading="eager" fetchPriority={featured ? "high" : "auto"} draggable={false} onLoad={() => setLoadedCoverUrl(coverUrl)} onError={() => setCoverFailed(true)} />
       ) : (!coverUrl || (coverFailed && !coverPreview)) ? (
         <span className={styles.coverFallback} aria-label="纯文本外刊封面">
