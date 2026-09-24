@@ -24,3 +24,7 @@
 CET回归38/38、目录及主页切换测试6/6、TypeScript及git diff --check通过。2026-09-24：进入阶段C后，创建独立线上诊断标签页超时，随后浏览器清单请求失败并返回空列表。已取得的问题前DOM仅静态样本（实际546×698、DPR1），没有动画A/B或性能帧采样，不能当作R09修复证明。未改阶段C动画，D/E/F尚未实施。未通过完整验收，不合入/推送main、不部署。
 
 最新核验remote main仍5115d4c62a79e9b530b7187f2c7278dbff62fadc；公网release20260924T041127、parent20260923T161000、backendMode mainland_internal；SSH current及manifest source9682ee7d2f33301edf0f9116ca556266a5740c83一致。本轮没有新生产版本。
+
+## 续跑连接检查
+
+用户再次要求继续后，已核对任务工作区干净，A/B提交仍保留。浏览器清单请求再次失败；按文档直接连接已打开的 https://context-reader.com/ 标签页仍超时并重置控制会话。页面已打开不等于控制桥可用。阶段C仍未取得要求的真实动画A/B证据，未跳到D/F、未推送main或部署。恢复步骤：重启Codex应用后从阶段C继续；不要重复实现A/B。
