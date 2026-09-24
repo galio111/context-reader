@@ -599,6 +599,10 @@
     box-shadow: 0 5px 8px oklch(30% 0.04 220 / 16%);
   }
 
+  .mobileToolDock:has(> button:nth-child(6)) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
   .mobileToolDock button {
     min-width: 0;
     min-height: 46px;

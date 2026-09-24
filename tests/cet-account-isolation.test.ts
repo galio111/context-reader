@@ -19,6 +19,8 @@ test("IndexedDB account archive isolates CET drafts, commit packages and exposur
   await initializeLearningStorage();
   await prepareLocalAccountForUser("A");
   const run = createCetActivity({ paper, purpose: "self_test", owner: "A" });
+  const countup = createCetActivity({paper,purpose:"self_test",owner:"A",timerMode:"countup"});
+  saveCetActivity(cetFinalize(countup,paper,"manual_submit"));
   saveCetActivity(cetFinalize(run, paper, "manual_submit"));
   saveCetExposure(exposureFor(paper.sections[0], paper.id, "A", "answer_view", "a-view", run.id));
   await flushLearningStorage();
@@ -28,7 +30,8 @@ test("IndexedDB account archive isolates CET drafts, commit packages and exposur
   assert.equal(readCetExposures().length, 0);
   await prepareLocalAccountForUser("A");
   assert.equal(readCetActivities()[0].id, run.id);
-  assert.equal(readCetCommitPackages().length, 1);
+  assert.equal(readCetCommitPackages().length, 2);
+  assert.equal(readCetActivities().find(a=>a.schemaVersion===3)?.id,countup.id);
   assert.equal(readCetExposures()[0].owner, "A");
   await clearLocalAccountData();
   assert.equal(readCetCommitPackages().length, 0);

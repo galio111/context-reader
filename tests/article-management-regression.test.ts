@@ -27,7 +27,7 @@ test("article rename and deletion persist without removing an unrelated article"
   await flushLearningStorage();
   assert.deepEqual(getSavedArticles().map(a=>a.id),["qa-two"]);
   const db = await new Promise<IDBDatabase>((resolve,reject)=>{const r=dom.window.indexedDB.open("context-reader-learning-v1");r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
-  const rows = await new Promise<any[]>((resolve,reject)=>{const r=db.transaction("records").objectStore("records").getAll();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
+  const rows = await new Promise<Array<{bucket:string;id:string}>>((resolve,reject)=>{const r=db.transaction("records").objectStore("records").getAll();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
   assert.equal(rows.some(r=>r.bucket==="context-reader:articles:v1"&&r.id==="qa-one"),false);
   assert.equal(rows.some(r=>r.bucket==="context-reader:articles:v1"&&r.id==="qa-two"),true);
   db.close();

@@ -12,6 +12,7 @@ import {
 } from "@/lib/accountEvents";
 import type { CetActivity, CetAttempt, CetPaper } from "@/types/cet";
 import "./cet.css";
+import { CetSelect } from "./CetSelect";
 export interface CetEntry {
   paperId: string;
   sectionId?: string;
@@ -52,6 +53,8 @@ export function CetLibrary({
         const d = await r.json();
         if (!r.ok) throw Error(d.error);
         if (!cancelled) {
+          if (year !== "recent" && !d.years.map(String).includes(year)) { setYear("recent");setPage(0);return; }
+          if (page && page * 12 >= d.total) {setPage(0);return;}
           setPapers(d.papers);
           setTotal(d.total);
           setYears(d.years);
@@ -136,36 +139,16 @@ export function CetLibrary({
       </div>
       <div className="cet-filter-line">
         {view === "type" && (
-          <select
-            aria-label="选择题型"
-            value={type}
-            onChange={(e) => setType(e.target.value as CetLibraryView["type"])}
-          >
-            <option value="cloze">选词填空</option>
-            <option value="matching">长篇匹配</option>
-            <option value="detail">仔细阅读</option>
-          </select>
+          <CetSelect label="选择题型" value={type} onChange={value=>setType(value as CetLibraryView["type"])} options={[{key:"cloze",text:"选词填空"},{key:"matching",text:"长篇匹配"},{key:"detail",text:"仔细阅读"}]} />
         )}
         {account.authenticated && (
-          <select
-            aria-label="选择年份"
-            value={year}
-            onChange={(e) => {
-              setYear(e.target.value);
-              setPage(0);
-            }}
-          >
-            <option value="recent">最近年份</option>
-            {years.map((y) => (
-              <option key={y}>{y}</option>
-            ))}
-          </select>
+          <CetSelect label="选择年份" value={year} onChange={value=>{setYear(value);setPage(0);}} options={[{key:"recent",text:"最近年份"}, ...years.map(y=>({key:String(y),text:String(y)}))]} />
         )}
       </div>
       <div
         className={`cet-library-layout ${!account.authenticated || compact ? "cet-library-wide" : ""}`}
       >
-        <div>
+        <div className="cet-resource-grid">
           {loading ? (
             <p role="status">正在读取试卷…</p>
           ) : error ? (
@@ -173,14 +156,14 @@ export function CetLibrary({
               {error}
               <button onClick={() => setRetry((n) => n + 1)}>重试</button>
             </p>
-          ) : (
+          ) : !visible.length ? <p className="cet-empty">当前筛选没有阅读材料。<button onClick={()=>{setYear("recent");setPage(0);}}>重置筛选</button></p> : (
             visible.map(({ paper: p, section: s }) => (
               <button
                 className="cet-resource-row"
                 key={s?.id || p.id}
                 onClick={() => onOpen({ paperId: p.id, sectionId: s?.id })}
               >
-                <span className="cet-cover" aria-hidden="true">
+                <span className="cet-cover" data-tone={Array.from(p.id).reduce((n,c)=>n+c.charCodeAt(0),0)%5} aria-hidden="true">
                   <small>CET {p.level}</small>
                   <strong>{p.year}</strong>
                   <span>
@@ -241,7 +224,7 @@ export function CetLibrary({
         {account.authenticated && !compact && (
           <aside className="cet-recent">
             <h3>最近练习</h3>
-            <select aria-label="练习历史目标" value={historyPurpose} onChange={(event) => { setHistoryPurpose(event.target.value as typeof historyPurpose); setHistoryLimit(30); }}><option value="">练习与自测</option><option value="practice">阅读练习</option><option value="self_test">限时自测</option></select>
+            <CetSelect label="练习历史目标" value={historyPurpose} onChange={value=>{setHistoryPurpose(value as typeof historyPurpose);setHistoryLimit(30);}} options={[{key:"",text:"练习与自测"},{key:"practice",text:"阅读练习"},{key:"self_test",text:"自测"}]} />
             <div
               className="cet-recent-list"
               tabIndex={0}
@@ -260,7 +243,7 @@ export function CetLibrary({
                     }
                   >
                     <small>
-                      {h.sectionId ? "单篇" : "整卷"} · {h.purpose === "practice" ? "阅读练习" : "限时自测"}
+                      {h.sectionId ? "单篇" : "整卷"} · {h.purpose === "practice" ? "阅读练习" : `自测 · ${h.timerMode === "countup" ? "正计时" : "倒计时"}`}
                     </small>
                     <strong>{h.title}</strong>
                     <span>

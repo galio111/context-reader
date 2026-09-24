@@ -31,7 +31,7 @@ test("bounded storage replay, missing local records, and incomplete upload ackno
   const at = "2026-09-13T00:00:00.000Z";
   const snapshot: Record<string, string> = fixture ? JSON.parse(readFileSync(join(fixture, "chrome-origin-snapshot.json"), "utf8")) : {};
   let objects: AccountSyncObject[];
-  let authority: { articles: unknown[]; vocabulary: unknown[] };
+  let authority: { articles: Array<{id:string}>; vocabulary: Array<{id:string}> };
   if (fixture) {
     authority = JSON.parse(readFileSync(join(fixture, "chrome-authority.json"), "utf8"));
     objects = readFileSync(join(fixture, "cloud-before.jsonl"), "utf8").trim().split(/\r?\n/).map(line => {
@@ -76,7 +76,7 @@ test("bounded storage replay, missing local records, and incomplete upload ackno
     Object.entries(seed).forEach(([key, value]) => window.localStorage.setItem(key, value));
   };
   const assertAuthority = () => {
-    const sorted = (items: any[]) => [...items].sort((a, b) => a.id.localeCompare(b.id));
+    const sorted = <T extends {id:string}>(items: T[]) => [...items].sort((a, b) => a.id.localeCompare(b.id));
     assert.deepEqual(sorted(readStoredArticles(getLearningStorage())), sorted(authority.articles));
     assert.deepEqual(sorted(decode(getLearningStorage().getItem(VOCAB) || "[]")), sorted(authority.vocabulary));
   };

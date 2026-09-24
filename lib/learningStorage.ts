@@ -7,6 +7,8 @@ const DATABASE = "context-reader-learning-v1";
 const LEGACY_KEYS = new Set([
   "context-reader:cet-progress:v1",
   "context-reader:cet-activities:v2",
+  "context-reader:cet-activities:v3",
+  "context-reader:cet-finalizations:v3",
   "context-reader:cet-finalizations:v2",
   "context-reader:cet-exposures:v2",
   "context-reader:articles:v1", "context-reader:vocabulary:v1", "context-reader:explanations:v5",

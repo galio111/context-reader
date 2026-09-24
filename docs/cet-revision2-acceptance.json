@@ -1,0 +1,862 @@
+[
+  {
+    "id": "T01",
+    "requirements": [
+      "R01"
+    ],
+    "action": "普通文章与CET各点同一个词",
+    "expected": "两者手形光标、hover、高亮和解释联动一致；发送完整单词。",
+    "evidence": "浏览器+请求断言",
+    "status": "通过",
+    "actualEvidence": "Windows IAB: same People token in ordinary Reader and CET uses shared WordToken; real explanation and sentence translation returned."
+  },
+  {
+    "id": "T02",
+    "requirements": [
+      "R01"
+    ],
+    "action": "从单词中间向右拖到另一词中间，再反向拖选",
+    "expected": "按完整token边界组成词组，不发送半词；反向结果与顺向一致。",
+    "evidence": "浏览器+请求断言",
+    "status": "通过",
+    "actualEvidence": "Real CDP mouse drag from token midpoints in both directions returned complete People tend to want / believe this will maximize their."
+  },
+  {
+    "id": "T03",
+    "requirements": [
+      "R01"
+    ],
+    "action": "多词换行拖选",
+    "expected": "选择范围覆盖正确token；只触发一次查询，无原生半词蓝色选区。",
+    "evidence": "浏览器",
+    "status": "通过",
+    "actualEvidence": "multiline-selection-requests.json: one explain-word-stream request for believe this will maximize their with complete sentence and adjacent context."
+  },
+  {
+    "id": "T04",
+    "requirements": [
+      "R01"
+    ],
+    "action": "选择同段第二次出现的相同单词",
+    "expected": "查词上下文与当前位置相符，不定位到第一次出现。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "cet-revision2 exact repeated-word offsets passed; browser pending"
+  },
+  {
+    "id": "T05",
+    "requirements": [
+      "R01"
+    ],
+    "action": "选词填空在第二个/后续空格后查词",
+    "expected": "仍带原段落上下文与正确offset；不把题号和已选单词控件拼入词组。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "cet-revision2 explicit cloze-fragment offsets passed; browser pending"
+  },
+  {
+    "id": "T06",
+    "requirements": [
+      "R01"
+    ],
+    "action": "题干、选项文字、词库文字分别查词",
+    "expected": "同样式同手势；题号、ABCD作答按钮优先执行答案操作。",
+    "evidence": "浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Real bank approximately, bodyPeople and optionconsiderable lookups verified; A button selects answer. Stem path shared; dedicated stem request not yet captured."
+  },
+  {
+    "id": "T07",
+    "requirements": [
+      "R01"
+    ],
+    "action": "手机纵向滚动；另行长按或横向选择",
+    "expected": "滚动不触发查询，明确选择能查询；拖选结束不多发单词查询。",
+    "evidence": "移动浏览器",
+    "status": "未验证",
+    "actualEvidence": "390x844 layout tested; IAB does not support Input.dispatchTouchEvent. No physical touch hardware, do not claim actual long-press/vertical touch acceptance."
+  },
+  {
+    "id": "T08",
+    "requirements": [
+      "R01"
+    ],
+    "action": "自测进行中/暂停时选择文字，异步解释返回",
+    "expected": "不触发辅助，不显示旧/新解析；回到练习/结果后可用。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Running/paused DOM contains plain text and disabled tools; pending lookup abort guarded in code. Artificial late network completion not injected in browser."
+  },
+  {
+    "id": "T09",
+    "requirements": [
+      "R01",
+      "R18"
+    ],
+    "action": "夜间普通文章/CET用同一段文字对照",
+    "expected": "hover/选择高亮与文字对比一致可读；性能边界不退化。",
+    "evidence": "浏览器截图",
+    "status": "部分通过",
+    "actualEvidence": "Day/night actual Reader and CET screenshots; shared tokens/style. Full identical-paragraph night screenshot pair not captured."
+  },
+  {
+    "id": "T10",
+    "requirements": [
+      "R02"
+    ],
+    "action": "答题卡连续打开关闭20次",
+    "expected": "每一次正常有效点击都响应一次，无第二击才打开，无重复弹层。",
+    "evidence": "真实Reader浏览器",
+    "status": "通过",
+    "actualEvidence": "Actual Reader after word lookup: twenty consecutive single-click open/close cycles, each dialog present exactly once."
+  },
+  {
+    "id": "T11",
+    "requirements": [
+      "R02"
+    ],
+    "action": "查词后仍有高亮，点一次答题卡/提交按钮",
+    "expected": "直接执行目标动作，不先吞掉点击只取消词语选择。",
+    "evidence": "真实Reader浏览器",
+    "status": "通过",
+    "actualEvidence": "People/considerable lookup highlight retained; answer card and passage submit each opened with one click."
+  },
+  {
+    "id": "T12",
+    "requirements": [
+      "R02",
+      "R10"
+    ],
+    "action": "年份列表打开后点题型，或题内列表打开后点别的可用按钮",
+    "expected": "非模态浮层关闭与目标动作一次完成。",
+    "evidence": "浏览器",
+    "status": "通过",
+    "actualEvidence": "Open year list -> one click CET6 closes list and switches level; no focus-stealing cleanup."
+  },
+  {
+    "id": "T13",
+    "requirements": [
+      "R02"
+    ],
+    "action": "点击模态背景及右上角关闭",
+    "expected": "仅关闭模态，不透传点击到底层提交/开始按钮；恢复位置正常。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Top-right close and Escape verified in real dialogs; exhaustive backdrop edge points not tested."
+  },
+  {
+    "id": "T14",
+    "requirements": [
+      "R02",
+      "R11"
+    ],
+    "action": "列表关闭/选项选择触发焦点恢复",
+    "expected": "不滚动跳跃、不因rerender反复聚焦、不出现鼠标后持续粗框。",
+    "evidence": "浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Actual option choose restores focus and outside level click acts once; full mouse/keyboard focus matrix not exhaustive."
+  },
+  {
+    "id": "T15",
+    "requirements": [
+      "R03"
+    ],
+    "action": "打开整套30题活动，逐篇切换",
+    "expected": "顶部和答题卡总数都30，首篇不是10；分子对应全范围。",
+    "evidence": "自动+浏览器",
+    "status": "通过（自动）",
+    "actualEvidence": "cet-revision2: paper and each section scope"
+  },
+  {
+    "id": "T16",
+    "requirements": [
+      "R03"
+    ],
+    "action": "按题型分别打开5题和10题的单篇",
+    "expected": "分母分别5和10；测试另一个非30/非10的fixture以防硬编码。",
+    "evidence": "自动",
+    "status": "通过（自动）",
+    "actualEvidence": "cet-revision2: scope mismatch is diagnosed without deletion"
+  },
+  {
+    "id": "T17",
+    "requirements": [
+      "R03"
+    ],
+    "action": "某题选择答案后清空；部分篇已提交",
+    "expected": "清空题不计已答；已交篇用快照、未交篇用草稿，同一scope。",
+    "evidence": "自动",
+    "status": "通过（自动）",
+    "actualEvidence": "cet-revision2: clear answers and per-section snapshots"
+  },
+  {
+    "id": "T18",
+    "requirements": [
+      "R03",
+      "R09"
+    ],
+    "action": "只浏览开始页和历史，不点击开始",
+    "expected": "显示共N题且不创建作答记录；历史范围不被当前入口覆盖。",
+    "evidence": "自动",
+    "status": "部分通过",
+    "actualEvidence": "Start/history read-only behavior inspected and model tested; exact activity timestamp comparison not captured in real browser."
+  },
+  {
+    "id": "T19",
+    "requirements": [
+      "R04"
+    ],
+    "action": "练习第一篇提交，第二篇有草稿未提交",
+    "expected": "第一篇显示正确/错误/未答，第二篇无对错及aria泄题。",
+    "evidence": "自动+浏览器",
+    "status": "通过",
+    "actualEvidence": "Draft cloze26=C remained neutral after detail46=A submitted; card showed 46 correct and47-50 unanswered."
+  },
+  {
+    "id": "T20",
+    "requirements": [
+      "R04"
+    ],
+    "action": "自测全部尚未提交，然后手动/到时提交",
+    "expected": "提交前所有题中性，成功提交后按快照显示结果；缺答案题待核对。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Manual countup and real one-minute countdown expiry submitted; answer card shows error/unanswered. Duplicate timer callback covered automatically."
+  },
+  {
+    "id": "T21",
+    "requirements": [
+      "R03",
+      "R04"
+    ],
+    "action": "查看双提交冲突记录并切换答卷",
+    "expected": "题卡、计数、原答案和结果全部来自所选快照，不拼混合答卷。",
+    "evidence": "自动",
+    "status": "部分通过",
+    "actualEvidence": "cet-revision2 selected conflict snapshot count/answers passed; browser pending"
+  },
+  {
+    "id": "T22",
+    "requirements": [
+      "R04"
+    ],
+    "action": "答题卡点击另一篇靠后题号",
+    "expected": "正确切篇并在DOM就绪后定位，题干不被固定栏挡住；仔细阅读1/2可区分。",
+    "evidence": "浏览器",
+    "status": "通过",
+    "actualEvidence": "Card46 from cloze switched to detail1, released body position:fixed, scrolled to y1233 and actual question."
+  },
+  {
+    "id": "T23",
+    "requirements": [
+      "R05"
+    ],
+    "action": "套卷自测遍历各篇",
+    "expected": "只有scope最后一篇正文底部显示提交；每篇顶部仍有提交。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Whole paper first/middle lacked bottom submit and single/last condition verified in code; complete four-section browser loop pending."
+  },
+  {
+    "id": "T24",
+    "requirements": [
+      "R05"
+    ],
+    "action": "单篇自测",
+    "expected": "该篇是唯一末篇，底部提交存在，不依赖仔细阅读2字样。",
+    "evidence": "自动",
+    "status": "通过",
+    "actualEvidence": "Single detail test scope0/5; top and bottom submit present, navigation1/1."
+  },
+  {
+    "id": "T25",
+    "requirements": [
+      "R05"
+    ],
+    "action": "阅读练习遍历各个未提交篇",
+    "expected": "每篇保留提交本篇；只有最后一篇显示结束练习并精读。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Cloze/detail unsubmitted have submit and submitted detail removes it; all section types use same condition."
+  },
+  {
+    "id": "T26",
+    "requirements": [
+      "R05"
+    ],
+    "action": "末篇已提交但前篇尚有草稿，点击结束练习",
+    "expected": "结束入口仍可用；全部旧结果/草稿保留，不只保存末篇，不虚增完成篇数。",
+    "evidence": "自动",
+    "status": "通过（自动）",
+    "actualEvidence": "cet-revision2: ending from submitted last passage keeps all drafts"
+  },
+  {
+    "id": "T27",
+    "requirements": [
+      "R05"
+    ],
+    "action": "只读已提交或未完成结束记录",
+    "expected": "不出现重新提交/再次结束；新一轮才创建新ID，旧结果不变。",
+    "evidence": "自动",
+    "status": "部分通过",
+    "actualEvidence": "Completed results read-only and fixed elapsed; no browser timestamp audit yet."
+  },
+  {
+    "id": "T28",
+    "requirements": [
+      "R09"
+    ],
+    "action": "新材料开始页，桌面与手机",
+    "expected": "两块目标各有描述/按钮/历史；桌面左右、手机上下；无常驻时长、直接精读、重复材料提示句。",
+    "evidence": "浏览器截图",
+    "status": "通过",
+    "actualEvidence": "Real desktop two goal columns and mobile stacked start; screenshots desktop-day-start, desktop-night-start, mobile-night-start."
+  },
+  {
+    "id": "T29",
+    "requirements": [
+      "R09"
+    ],
+    "action": "同范围同时存在未完成练习、自测及已完成记录",
+    "expected": "两块各自继续对应ID；历史分类正确，打开旧结果不改最近排序时间。",
+    "evidence": "自动+浏览器",
+    "status": "通过",
+    "actualEvidence": "Start page separately listed unfinished practice, paused countdown and completed countup; correct continue actions."
+  },
+  {
+    "id": "T30",
+    "requirements": [
+      "R07"
+    ],
+    "action": "点击开始自测后取消设置",
+    "expected": "不创建活动、不启动计时、不产生作答曝光。",
+    "evidence": "自动",
+    "status": "通过",
+    "actualEvidence": "Cancelled countdown settings returns to start without starting activity; automated storage assertion confirms no extra record."
+  },
+  {
+    "id": "T31",
+    "requirements": [
+      "R07"
+    ],
+    "action": "选择正计时并双击确认开始",
+    "expected": "仅一条空白自测，从0正常累计，无隐藏预算和自动到时结束。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Real countup starts; automated double click creates one ID. Failed start retry uses same ID."
+  },
+  {
+    "id": "T32",
+    "requirements": [
+      "R07"
+    ],
+    "action": "选择倒计时，输入空/0/负数/小数/181/非数字，再输入有效值",
+    "expected": "非法不能开始且错误清楚；清空后可重新输入；有效整数开始。",
+    "evidence": "自动+浏览器",
+    "status": "通过",
+    "actualEvidence": "Real keyboard empty plus0,-1,1.5,181,abc rejected;1 accepted. Empty fill tool did not edit, so verified with Ctrl+A Backspace."
+  },
+  {
+    "id": "T33",
+    "requirements": [
+      "R06",
+      "R07"
+    ],
+    "action": "正计时累计后点击胶囊暂停，等一段时间，再点继续",
+    "expected": "暂停期间不累计；同一ID继续，无确认弹窗；正文恢复锚点，不丢答案。",
+    "evidence": "假时钟+浏览器",
+    "status": "通过",
+    "actualEvidence": "Countup paused at42seconds, reload/history restored42, resumed then submitted65seconds."
+  },
+  {
+    "id": "T34",
+    "requirements": [
+      "R06",
+      "R07"
+    ],
+    "action": "倒计时同样暂停/恢复",
+    "expected": "剩余值正确，无重复扣时；曾中断事实保留。",
+    "evidence": "假时钟+浏览器",
+    "status": "通过",
+    "actualEvidence": "Countdown pause hides body, timer freezes; resume restored original test. Screenshots desktop-day-countdown-paused/mobile-night-paused."
+  },
+  {
+    "id": "T35",
+    "requirements": [
+      "R06"
+    ],
+    "action": "练习手动暂停，然后切篇、隐藏并恢复标签页",
+    "expected": "手动暂停不被自动撤销；正文仍可练习；已交篇的复盘不增加原作答时间。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Manual practice pause model persisted; visibility listener preserves flag. Full multi-tab browser cycle pending."
+  },
+  {
+    "id": "T36",
+    "requirements": [
+      "R07"
+    ],
+    "action": "自测刷新/标签页隐藏/浏览器后退后再进入",
+    "expected": "正倒计时按持久化运行起点恢复；不会因无前台JS停止计时或新建ID。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Explicitly paused countup restored after refresh/history; running background progression tested in pure clock model."
+  },
+  {
+    "id": "T37",
+    "requirements": [
+      "R07"
+    ],
+    "action": "保存并离开，再从对应历史继续",
+    "expected": "明确暂停，同一ID；继续不重新弹时长配置、不归零。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Save/leave code awaits durable pause; actual reload/history pause exercised."
+  },
+  {
+    "id": "T38",
+    "requirements": [
+      "R07"
+    ],
+    "action": "倒计时到0；重复到时回调；后台到期后重入",
+    "expected": "只产生一次提交；先锁定超时状态再允许交互；原答案可靠保存。",
+    "evidence": "假时钟+自动",
+    "status": "部分通过",
+    "actualEvidence": "Real1minute countdown expires and fixes01:00; repeated expiry/late answers tested automatically. Background-expiry browser case pending."
+  },
+  {
+    "id": "T39",
+    "requirements": [
+      "R07"
+    ],
+    "action": "正计时无预算，调用作答、离开、恢复、手动提交、结束",
+    "expected": "不触发错误time_expired；各入口不丢记录；提交用时正确。",
+    "evidence": "自动",
+    "status": "通过（自动）",
+    "actualEvidence": "cet-revision2: countup has no budget; pause/resume/finalize"
+  },
+  {
+    "id": "T40",
+    "requirements": [
+      "R06",
+      "R07"
+    ],
+    "action": "提交自测后展开解析并停留、切篇",
+    "expected": "胶囊显示冻结用时而非剩余值；没有恢复旧计时按钮，快照不变。",
+    "evidence": "自动+浏览器",
+    "status": "通过",
+    "actualEvidence": "Submitted countup65seconds remained fixed through answer card and passage switches; countdown expiry fixed60seconds."
+  },
+  {
+    "id": "T41",
+    "requirements": [
+      "R06"
+    ],
+    "action": "1440×900右侧面板、390×844工具区",
+    "expected": "单个紧凑胶囊；右侧翻译用剩余高度，旧底部大块/预留空白消失，无遮挡和横向溢出。",
+    "evidence": "浏览器截图",
+    "status": "部分通过",
+    "actualEvidence": "Actual1440x900 and390x844; timer aligned right and mobile inline pill; final production-build screenshots pending. Final production build screenshots verified; nightcancel/mobilelinks fixed and mobileMenu handle no longer intercepts close."
+  },
+  {
+    "id": "T42",
+    "requirements": [
+      "R08"
+    ],
+    "action": "自测运行和暂停，查看左右工具与Menu",
+    "expected": "灰色小禁止标存在；hover/键盘有指定提示；手机可知原因且不执行辅助。",
+    "evidence": "浏览器截图",
+    "status": "部分通过",
+    "actualEvidence": "Real running/paused tool labels disabled; Menu cannot open, reason/prohibit icon visible. Night tooltip pointer screenshot pending."
+  },
+  {
+    "id": "T43",
+    "requirements": [
+      "R08"
+    ],
+    "action": "从桌面、手机、快捷键尝试受限功能",
+    "expected": "都不泄露辅助；Menu不出现巨大自测菜单；不是只样式变灰。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Actual disabled Menu blocks click; aria-disabled rail capture guard and keyboard handlers inspected. Full touch shortcut matrix pending."
+  },
+  {
+    "id": "T44",
+    "requirements": [
+      "R08"
+    ],
+    "action": "尚未开始活动的入口页",
+    "expected": "不能被标为正在自测；锁定原因准确，允许的导航可用。",
+    "evidence": "浏览器",
+    "status": "通过",
+    "actualEvidence": "Start page retains distinct choose-goal disabled reason, no active lookup tools."
+  },
+  {
+    "id": "T45",
+    "requirements": [
+      "R08"
+    ],
+    "action": "Menu禁用时保存离开、暂停、提交及结束并精读",
+    "expected": "全部有真实出口；结束有明确后果确认，不修改活动purpose。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Pause/resume/submit work with disabled Menu; lower-priority end-and-study confirmation implemented/tested in model."
+  },
+  {
+    "id": "T46",
+    "requirements": [
+      "R08"
+    ],
+    "action": "自测提交后或回到练习",
+    "expected": "禁止图标正确撤销；原账号/离线限制仍生效；普通Menu恢复。",
+    "evidence": "自动+浏览器",
+    "status": "通过",
+    "actualEvidence": "After submit Menu, selection, translation and save became available; actual option/body lookups succeeded."
+  },
+  {
+    "id": "T47",
+    "requirements": [
+      "R10"
+    ],
+    "action": "年份、题型、历史筛选、填空、匹配逐项展开",
+    "expected": "每一个都是相同自定义体系，不遗留原生select popup，不误给筛选加清空答案。",
+    "evidence": "浏览器截图",
+    "status": "部分通过",
+    "actualEvidence": "Year,type,cloze selectors expanded in actual modal/day/night. History/matching selectors share same component but not yet captured."
+  },
+  {
+    "id": "T48",
+    "requirements": [
+      "R10"
+    ],
+    "action": "键盘打开选择器，方向/Home/End/Enter/Escape/Tab",
+    "expected": "导航、选择、取消、关闭和焦点返回符合预期；当前选中项可见。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Actual End/Enter selectedO in cloze; outsideclick works. Home/Escape/Tab behavior unit/code checked, full keyboard matrix pending."
+  },
+  {
+    "id": "T49",
+    "requirements": [
+      "R10"
+    ],
+    "action": "窄屏、底部触发器、长列表、resize、滚动、modal内打开",
+    "expected": "浮层不越界、不被top layer盖住；首末项可选，内部滚动不拖正文。",
+    "evidence": "浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Actual390px long cloze list and modal year list fit viewport and scroll. Resize/scroll close implemented."
+  },
+  {
+    "id": "T50",
+    "requirements": [
+      "R11"
+    ],
+    "action": "鼠标依次点击所有新增按钮、数字输入、关闭、筛选，再移走指针",
+    "expected": "没有持久粗蓝框或双描边；输入错误与选中答案等必要状态仍存在。",
+    "evidence": "浏览器截图",
+    "status": "部分通过",
+    "actualEvidence": "Mouse controls have no persistent square outline in screenshots; full every-control matrix pending."
+  },
+  {
+    "id": "T51",
+    "requirements": [
+      "R11"
+    ],
+    "action": "只用键盘Tab同一批控件",
+    "expected": "有清晰但不粗重的焦点；不是全站outline:none导致不可见。",
+    "evidence": "浏览器截图",
+    "status": "部分通过",
+    "actualEvidence": "Listbox keyboard focus visible; all new controls not exhaustively tabbed."
+  },
+  {
+    "id": "T52",
+    "requirements": [
+      "R12"
+    ],
+    "action": "空白填空→点击题号→选择→清空",
+    "expected": "空白仅题号；选择后显示词；清空回题号；触摸命中不遮挡旁边查词。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Actual blank26 shows number, chooser selectsC/O; auto model covers clear. Browser clear pending."
+  },
+  {
+    "id": "T53",
+    "requirements": [
+      "R12"
+    ],
+    "action": "显示词库，点击单词与已使用标记",
+    "expected": "完整字母+单词在同一个胶囊；单词可查词，不自动填答案，不泄题。",
+    "evidence": "浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Actual word bank lookup does not answer; used marker based draft only."
+  },
+  {
+    "id": "T54",
+    "requirements": [
+      "R10",
+      "R12"
+    ],
+    "action": "尝试填空重复词、匹配重复段落",
+    "expected": "填空沿用每词一次规则，匹配允许重复；清空/移动答案正确。",
+    "evidence": "自动",
+    "status": "部分通过",
+    "actualEvidence": "Duplicate cloze excluded and matching repeats allowed in code; full browser pair pending."
+  },
+  {
+    "id": "T55",
+    "requirements": [
+      "R13"
+    ],
+    "action": "桌面打开首页四六级资源区",
+    "expected": "真题卡本身两列，不是一列卡+一列历史；浅色封面多样且信息可读。",
+    "evidence": "浏览器截图",
+    "status": "部分通过",
+    "actualEvidence": "Actual desktop library computed columns538.594px 538.594px, history below. Screenshot desktop-day-library."
+  },
+  {
+    "id": "T56",
+    "requirements": [
+      "R13"
+    ],
+    "action": "刷新、分页、切题型、缩到手机、打开紧凑选择弹层",
+    "expected": "同题封面色稳定；手机/窄容器一列，游客范围和按需加载不变。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Real level/type refresh and compact modal/mobile inspected; stable tone IDs code tested. Full paging visual matrix pending."
+  },
+  {
+    "id": "T57",
+    "requirements": [
+      "R14"
+    ],
+    "action": "普通文章我的文章下点击选择真题再取消",
+    "expected": "只一个入口，真实目录；原滚动、文章与选词不丢失。",
+    "evidence": "浏览器",
+    "status": "通过",
+    "actualEvidence": "Ordinary Reader library opened/cancelled preserving same article text, scroll0 and People explanation."
+  },
+  {
+    "id": "T58",
+    "requirements": [
+      "R14"
+    ],
+    "action": "普通文章有未保存编辑，再选某套真题",
+    "expected": "沿用编辑保护并打开真实CetReader，不绕过或丢弃编辑。",
+    "evidence": "浏览器",
+    "status": "通过",
+    "actualEvidence": "Real edited text -> library -> stay keeps edit; save-and-open enters CET. Station dialog avoids blocking native confirm."
+  },
+  {
+    "id": "T59",
+    "requirements": [
+      "R15"
+    ],
+    "action": "文章A读到中间→CET做题→返回首页",
+    "expected": "普通上次阅读仍为A及原进度；CET记录只在对应真题历史。",
+    "evidence": "整合测试+浏览器",
+    "status": "通过",
+    "actualEvidence": "Found and fixed pre-existing unsaved-edit callback clearing temporary slot; repeat edit->CET->home->continue preserved edited sentence. CET never replaced recent article."
+  },
+  {
+    "id": "T60",
+    "requirements": [
+      "R16"
+    ],
+    "action": "六级2026→四级→六级，配慢请求交错返回",
+    "expected": "年份/分页正确回退，旧响应不覆盖新级别，不出现假空白。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Actual CET6 year2026 -> CET4 resetsrecent. Abort and stale response guard inspected; artificial network reorder pending."
+  },
+  {
+    "id": "T61",
+    "requirements": [
+      "R16"
+    ],
+    "action": "恢复含失效年份/页码的sessionStorage；实际无资源/请求失败",
+    "expected": "失效筛选安全回退；真实空态与错误态区分，可重试/重置。",
+    "evidence": "自动",
+    "status": "部分通过",
+    "actualEvidence": "Invalid filter fallback code and explicit error/empty branches present; browser injected corrupt session/network case pending."
+  },
+  {
+    "id": "T62",
+    "requirements": [
+      "R17"
+    ],
+    "action": "遍历练习、自测、已提交结果正文底部",
+    "expected": "指定整行来源文案消失；source数据仍在，自测不出现答案来源链接。",
+    "evidence": "自动+浏览器",
+    "status": "部分通过",
+    "actualEvidence": "Source footer absent in practice/selftest/result inspected; data source retained in start details."
+  },
+  {
+    "id": "T63",
+    "requirements": [
+      "R07"
+    ],
+    "action": "已有v1手动计时、v2练习、v2倒计时记录分别继续/回看",
+    "expected": "原ID/答案/用时口径不变；未批量升级或丢数据。",
+    "evidence": "自动",
+    "status": "通过（自动）",
+    "actualEvidence": "cet-legacy + cet-activity + cet-revision2: v1/v2 records retained"
+  },
+  {
+    "id": "T64",
+    "requirements": [
+      "R07"
+    ],
+    "action": "新正计时在同账号两端同步并切换账号A/B/游客认领",
+    "expected": "读写/隔离/归档/恢复正常；重复回放不重复计时或新建记录。",
+    "evidence": "真实存储+同步测试",
+    "status": "部分通过",
+    "actualEvidence": "Actual protocol2 client with2IndexedDB devices plus accountA/B andguest adoption tests pass; production account roundtrip pending."
+  },
+  {
+    "id": "T65",
+    "requirements": [
+      "R07"
+    ],
+    "action": "旧v2客户端逻辑遇到新增正计时命名空间，再返回新版",
+    "expected": "旧端不错误自动提交、不将未知对象视为删除，新版仍能完整恢复。",
+    "evidence": "兼容fixture测试",
+    "status": "通过",
+    "actualEvidence": "Frozen full accountSyncClient + storage from main0526 in test fixture: v2 sync sees v3 wire objects without overwrites/tombstones; new client reopens40second result and articleA."
+  },
+  {
+    "id": "T66",
+    "requirements": [
+      "R03",
+      "R04"
+    ],
+    "action": "一端已提交，另一端晚到更改；题库参考答案后续变化",
+    "expected": "已选历史快照与成绩不变；不逐题拼接不同提交；版本口径明确。",
+    "evidence": "自动",
+    "status": "通过（自动）",
+    "actualEvidence": "cet-activity + cet-revision2: immutable selected snapshots"
+  },
+  {
+    "id": "T67",
+    "requirements": [
+      "R07",
+      "R18"
+    ],
+    "action": "开始/暂停/提交遇到可靠本地保存失败与仅云端离线",
+    "expected": "本地失败有重试且不虚称保存/揭晓答案；仅云离线能保留可靠本地结果。",
+    "evidence": "故障注入",
+    "status": "通过",
+    "actualEvidence": "Real CetReader event tests inject IndexedDB flush failure for start,pause,submit; no premature body/result reveal and retry retains same activity/finalization ID. Offline transport separate from local persistence."
+  },
+  {
+    "id": "T68",
+    "requirements": [
+      "R18"
+    ],
+    "action": "所有改动表面白天/夜间，hover/disabled/error/展开态",
+    "expected": "文字、tooltip、取消按钮、关闭图标均可读；无黑字黑底/白字白底。",
+    "evidence": "浏览器截图",
+    "status": "部分通过",
+    "actualEvidence": "Real day/night desktop/mobile surfaced and fixed nightmobilelinks and dialogcancel contrast. Final build screenshots pending. Final production build screenshots verified; nightcancel/mobilelinks fixed and mobileMenu handle no longer intercepts close."
+  },
+  {
+    "id": "T69",
+    "requirements": [
+      "R01",
+      "R02",
+      "R18"
+    ],
+    "action": "真实Reader路径运行与打包后冒烟",
+    "expected": "不是只测试mock壳；普通文章查词/全文翻译/保存、移动滚动无退化。",
+    "evidence": "整合浏览器",
+    "status": "通过",
+    "actualEvidence": "Windows IAB actual Reader paths plus final production build reloaded: CET selection/card/picker/Menu; mobile Menu close now hits Close span and closes once; console no errors. screenshots in artifacts/cet-revision2-evidence."
+  },
+  {
+    "id": "P01",
+    "requirements": [
+      "RELEASE"
+    ],
+    "action": "确认授权、工作区和实时基线",
+    "expected": "独立任务/集成worktree；已读当前AGENTS与发布规则；记录最新origin/main与真实活动生产版本，不回退到审查SHA。",
+    "evidence": "git/worktree信息与脱敏版本读取证据",
+    "status": "通过",
+    "actualEvidence": "Independent codex/cet-revision2 worktree; live main and public/server release verified 2026-09-24T02:59:37Z"
+  },
+  {
+    "id": "P02",
+    "requirements": [
+      "RELEASE"
+    ],
+    "action": "运行发布前必需检查与真实浏览器验证",
+    "expected": "CET、关键阅读、相关同步、lint、build和发布契约满足现行门禁；真实Reader关键交互和日夜桌面/手机已验；缺失范围如实记录。",
+    "evidence": "测试命令/结果、浏览器截图、门禁状态",
+    "status": "通过",
+    "actualEvidence": "32 CET,89 critical,lint0 errors42 warnings,70-route production build,9 release contracts andegress passed; actual Reader desktop/mobile day/night paths and final build smoke passed. Extended editorial1failure reproduced unchanged baseline; no release gate weakened."
+  },
+  {
+    "id": "P03",
+    "requirements": [
+      "RELEASE"
+    ],
+    "action": "任务提交与main集成推送",
+    "expected": "仅提交审查文件，保留并行改动；普通非强制推送或按保护规则合并；git ls-remote核对远端main，不只推任务分支。",
+    "evidence": "任务SHA、集成SHA、最终远端读取结果",
+    "status": "受阻",
+    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+  },
+  {
+    "id": "P04",
+    "requirements": [
+      "RELEASE"
+    ],
+    "action": "验证发布包、父版本和回滚准备",
+    "expected": "从干净准确提交打包；sourceRevision正确，parentReleaseId等于当前生产，changedFiles匹配；备份及上一接受版本可用。",
+    "evidence": "脱敏manifest、差异清单、备份/回滚检查记录",
+    "status": "受阻",
+    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+  },
+  {
+    "id": "P05",
+    "requirements": [
+      "RELEASE"
+    ],
+    "action": "执行版本化生产发布",
+    "expected": "使用稳定入口及现行锁/父版本/内部后端检查；父版本变动则重新整合打包；只更新本轮必要应用服务，不连带重启数据服务。",
+    "evidence": "真实发布命令和脱敏输出、服务状态",
+    "status": "受阻",
+    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+  },
+  {
+    "id": "P06",
+    "requirements": [
+      "RELEASE"
+    ],
+    "action": "核对公网版本与生产主要路径",
+    "expected": "公网releaseId/parentReleaseId/backendMode与服务器和manifest一致；CET、普通阅读、账号/同步和受保护核心路径按规范实测。",
+    "evidence": "公网版本响应、生产截图、功能与健康验证结果",
+    "status": "受阻",
+    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+  },
+  {
+    "id": "P07",
+    "requirements": [
+      "RELEASE"
+    ],
+    "action": "确认回滚能力或处理实际回归",
+    "expected": "记录回滚入口与目标；未触发时说明未触发，不伪称做过回滚演练；出现关键回归则实际回滚并复验，不强推main或清库。",
+    "evidence": "回滚准备记录，或真实回滚输出与公网复验",
+    "status": "未执行",
+    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+  },
+  {
+    "id": "P08",
+    "requirements": [
+      "RELEASE"
+    ],
+    "action": "回写发布证据并报告main与生产对应",
+    "expected": "更新现有文档并正常推送；区分最终main SHA与部署sourceRevision；未部署代码差异、未验证项、失败/回滚均透明，测试账号仅精确清理本轮创建项。",
+    "evidence": "发布记录模板、最终远端SHA、部署/文档差异说明",
+    "status": "未执行",
+    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+  }
+]

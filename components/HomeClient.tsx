@@ -1398,6 +1398,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     return (
       <ReaderView
         key={readerSessionId}
+        onSelectCet={entry => { flushReadingProgress(); leaveReaderToHome(); cetHomeScrollRef.current=0; setCetEntry(entry); }}
         article={article}
         importedArticle={importedArticle}
         preloadedExplanations={preloadedExplanations}
@@ -1453,7 +1454,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
             if (report) nextArticles = saveArticleReadingProgress(savedArticle.id, report.anchor);
           }
           setSavedArticles(nextArticles);
-          if (activeTemporaryUserIdRef.current) {
+          if (savedArticle && activeTemporaryUserIdRef.current) {
             clearTemporaryReading(activeTemporaryUserIdRef.current);
             activeTemporaryUserIdRef.current = null;
             setTemporaryReading(null);

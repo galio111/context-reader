@@ -1,5 +1,9 @@
 # 四六级阅读题库
 
+## 第二轮修订状态（未发布）
+
+2026-09-24 生产授权版已替换上一轮规范。任务分支实现共享 Reader 划词、统一下拉、双区开始页、正/倒计时、快照题卡及双列目录；正计时使用 `schemaVersion: 3` 和独立 `cet-activity:v3:` / `cet-finalization:v3:`，本机注册 `context-reader:cet-activities:v3` / `context-reader:cet-finalizations:v3`。v1/v2 不批量迁移。当前生产仍为 `20260923T161000`，下方已发布流程描述不代表这轮已上线。Windows IAB 真实 Reader、日夜桌面/手机关键路径已实测，正在完成最终发布；不把自动测试当视觉验收。完整状态见 [第二轮验收](cet-revision2-acceptance.md)。
+
 ## 当前实现
 
 真实首页 `HomeRedesign` 的精选外刊旁切换至四六级真题，由 `HomeClient` 打开复用 `ReaderView` 的 `CetReader`。已在大陆生产发布 `20260922T133000`（parent `20260922T102600`，source `ab90241089ffdc9a55e1b8184f37aeb23038bdb8`）；用户视觉确认仍是独立环节。

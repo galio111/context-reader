@@ -171,14 +171,14 @@ test("saving metadata never persists a presentation cover or shifts body identit
   const { saveArticleCandidate } = await import("../lib/publicArticles");
   const savedFetch = globalThis.fetch; const oldUrl = process.env.SUPABASE_URL; const oldKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   process.env.SUPABASE_URL = "https://example.invalid"; process.env.SUPABASE_SERVICE_ROLE_KEY = "test-only";
-  let payload: any;
+  let payload: { imported_article?: { blocks?: unknown[] } } = {};
   globalThis.fetch = async (_url, init) => {
     if (init?.method === "POST") payload = JSON.parse(String(init.body));
     return new Response(JSON.stringify(init?.method === "POST" ? [{ id: "test", ...payload, created_at: new Date().toISOString(), updated_at: new Date().toISOString() }] : []));
   };
   try {
     await saveArticleCandidate({ title: article.title, body: article.text, summary: "Summary", importedArticle: { ...article, blocks: [{ id: "public-cover-test", type: "image", src: "" }, { id: "block-1", type: "paragraph", text: article.text }] } });
-    assert.deepEqual(payload.imported_article.blocks, [{ id: "block-1", type: "paragraph", text: article.text }]);
+    assert.deepEqual(payload.imported_article?.blocks, [{ id: "block-1", type: "paragraph", text: article.text }]);
   } finally { globalThis.fetch = savedFetch; if (oldUrl === undefined) delete process.env.SUPABASE_URL; else process.env.SUPABASE_URL = oldUrl; if (oldKey === undefined) delete process.env.SUPABASE_SERVICE_ROLE_KEY; else process.env.SUPABASE_SERVICE_ROLE_KEY = oldKey; }
 });
 

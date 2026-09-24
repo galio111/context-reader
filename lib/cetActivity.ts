@@ -66,6 +66,7 @@ export function createCetActivity(input: {
   purpose: CetPurpose;
   owner: string;
   minutes?: number;
+  timerMode?: "countdown" | "countup";
   knownPriorSectionIds?: string[];
   sourceAttemptId?: string;
   id?: string;
@@ -76,13 +77,14 @@ export function createCetActivity(input: {
   if (!sections.length || (sectionId && sections.length !== 1)) throw new Error("阅读材料不存在。 ");
   const now = input.now || new Date().toISOString();
   const minutes = input.minutes ?? CET_SELF_TEST_MINUTES[sectionId ? "section" : "paper"];
-  if (purpose === "self_test" && (!Number.isInteger(minutes) || minutes < CET_SELF_TEST_MIN_RANGE || minutes > CET_SELF_TEST_MAX_RANGE)) {
+  if (purpose === "self_test" && input.timerMode !== "countup" && (!Number.isInteger(minutes) || minutes < CET_SELF_TEST_MIN_RANGE || minutes > CET_SELF_TEST_MAX_RANGE)) {
     throw new Error("自测时长须为 1–180 分钟。");
   }
   const sectionIds = sections.map((s) => s.id);
-  const budgetMs = purpose === "self_test" ? minutes * 60_000 : undefined;
+  const budgetMs = purpose === "self_test" && input.timerMode !== "countup" ? minutes * 60_000 : undefined;
   return {
-    schemaVersion: 2,
+    schemaVersion: purpose === "self_test" && input.timerMode === "countup" ? 3 : 2,
+    timerMode: purpose === "self_test" ? input.timerMode || "countdown" : undefined,
     id: input.id || crypto.randomUUID(),
     owner,
     purpose,
@@ -115,10 +117,15 @@ export function createCetActivity(input: {
 
 export function cetRemainingMs(activity: CetActivity, now = Date.now()): number {
   if (activity.purpose !== "self_test") return 0;
-  if (activity.legacy) return Number.POSITIVE_INFINITY;
+  if (activity.legacy || activity.timerMode === "countup") return Number.POSITIVE_INFINITY;
   const remaining = activity.remainingMs ?? activity.budgetMs ?? 0;
   if (!activity.runningSince || activity.status !== "in_progress") return Math.max(0, remaining);
   return Math.max(0, remaining - Math.max(0, now - Date.parse(activity.runningSince)));
+}
+
+export function cetElapsedMs(activity: CetActivity, now = Date.now()): number {
+  if (activity.timerMode === "countup") return activity.elapsedMs + (activity.status === "in_progress" && activity.runningSince ? Math.max(0, now - Date.parse(activity.runningSince)) : 0);
+  return activity.legacy || activity.purpose === "practice" ? activity.elapsedMs : Math.max(0, (activity.budgetMs || 0) - cetRemainingMs(activity, now));
 }
 
 export function cetTimingAnomaly(activity: CetActivity, now = Date.now()): boolean {
@@ -146,7 +153,8 @@ export function cetPause(activity: CetActivity, now = new Date().toISOString(), 
   return {
     ...activity,
     status: "paused",
-    remainingMs: activity.legacy ? undefined : cetRemainingMs(activity, Date.parse(now)),
+    remainingMs: activity.legacy || activity.timerMode === "countup" ? undefined : cetRemainingMs(activity, Date.parse(now)),
+    elapsedMs: cetElapsedMs(activity, Date.parse(now)),
     runningSince: undefined,
     timerRevision: `${now}:${eventId}`,
     everPaused: true,
@@ -174,23 +182,24 @@ export function cetFinalizedSection(activity: CetActivity, sectionId: string): C
 
 export function cetFinalize(activity: CetActivity, paper: CetPaper, reason: CetFinalizationReason, sectionId?: string, now = new Date().toISOString(), id = crypto.randomUUID()): CetActivity {
   const isPractice = activity.purpose === "practice";
-  if (isPractice !== Boolean(sectionId)) throw new Error("提交范围与活动目标不一致。");
+  if (reason !== "ended_for_study" && isPractice !== Boolean(sectionId)) throw new Error("提交范围与活动目标不一致。");
   if (activity.status === "submitted" || activity.status === "ended") return activity;
-  if (isPractice && (!activity.sectionIds.includes(sectionId!) || cetFinalizedSection(activity, sectionId!))) return activity;
+  if (isPractice && reason !== "ended_for_study" && (!activity.sectionIds.includes(sectionId!) || cetFinalizedSection(activity, sectionId!))) return activity;
   if (!isPractice && activity.status !== "in_progress" && activity.status !== "paused") return activity;
-  const sectionIds = sectionId ? [sectionId] : activity.sectionIds;
+  const sectionIds = reason === "ended_for_study" && isPractice ? activity.sectionIds.filter((id) => !cetFinalizedSection(activity, id)) : sectionId ? [sectionId] : activity.sectionIds;
   const questions = cetQuestionSnapshots(paper, sectionIds);
   const answers = Object.fromEntries(questions.map((q) => [q.key, activity.answers[q.key]?.value || ""]));
   const scoreable = questions.filter((q) => q.answer && q.options.some((o) => o.key === q.answer)).length;
   const correct = questions.filter((q) => q.answer && q.options.some((o) => o.key === q.answer) && answers[q.key] === q.answer).length;
   const unanswered = questions.filter((q) => !answers[q.key]).length;
   const elapsedMs = activity.legacy ? activity.elapsedMs : activity.purpose === "self_test"
-    ? Math.max(0, (activity.budgetMs || 0) - cetRemainingMs(activity, Date.parse(now)))
-    : cetPracticeSectionElapsedMs(activity, sectionId!);
+    ? cetElapsedMs(activity, Date.parse(now))
+    : sectionIds.reduce((sum, id) => sum + cetPracticeSectionElapsedMs(activity, id), 0);
   const finalization: CetFinalization = {
     id,
     sectionId,
     reason,
+    timerMode: activity.timerMode || (activity.purpose === "self_test" && !activity.legacy ? "countdown" : undefined),
     at: now,
     answers,
     questions,
@@ -213,7 +222,7 @@ export function cetFinalize(activity: CetActivity, paper: CetPaper, reason: CetF
     status: ended ? "ended" : !isPractice || allPracticeDone ? "submitted" : "in_progress",
     submittedAt: ended ? activity.submittedAt : !isPractice || allPracticeDone ? now : activity.submittedAt,
     endedAt: ended ? now : activity.endedAt,
-    remainingMs: activity.purpose === "self_test" && !activity.legacy ? cetRemainingMs(activity, Date.parse(now)) : activity.remainingMs,
+    remainingMs: activity.purpose === "self_test" && !activity.legacy && activity.timerMode !== "countup" ? cetRemainingMs(activity, Date.parse(now)) : activity.remainingMs,
     runningSince: undefined,
     elapsedMs: activity.purpose === "practice" ? activity.elapsedMs : elapsedMs,
     conditions: finalization.conditions,
@@ -235,7 +244,7 @@ function stableWinner<T>(a: T, b: T): T {
 
 export function mergeCetActivity(a: CetActivity | undefined, b: CetActivity): CetActivity {
   if (!a) return b;
-  if (a.id !== b.id || a.owner !== b.owner || a.purpose !== b.purpose || a.scopeKey !== b.scopeKey || a.contentVersion !== b.contentVersion) {
+  if (a.id !== b.id || a.owner !== b.owner || a.purpose !== b.purpose || a.schemaVersion !== b.schemaVersion || (a.timerMode || "countdown") !== (b.timerMode || "countdown") || a.scopeKey !== b.scopeKey || a.contentVersion !== b.contentVersion) {
     throw new Error("四六级活动身份冲突，原记录已保留。");
   }
   const answers: CetActivity["answers"] = {};
@@ -267,6 +276,7 @@ export function mergeCetActivity(a: CetActivity | undefined, b: CetActivity): Ce
     activeSection: latest.activeSection,
     everPaused: a.everPaused || b.everPaused,
     timerRevision: timer.timerRevision,
+    practiceTimerPaused: timer.practiceTimerPaused,
     runningSince: status === "in_progress" ? timer.runningSince : undefined,
     remainingMs: timer.remainingMs,
     timerParts,
@@ -277,6 +287,7 @@ export function mergeCetActivity(a: CetActivity | undefined, b: CetActivity): Ce
     endedAt: endedTimes[0],
     updatedAt: a.updatedAt > b.updatedAt ? a.updatedAt : b.updatedAt,
   };
+  if (merged.practiceTimerPaused === undefined) delete merged.practiceTimerPaused;
   if (!merged.submittedAt) delete merged.submittedAt;
   if (!merged.endedAt) delete merged.endedAt;
   return merged;

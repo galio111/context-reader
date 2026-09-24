@@ -1,13 +1,14 @@
+// Frozen account sync client from main 0526d23132afbc02f5812aea338cce4a8c85e74f; only import paths adapted.
 "use client";
 
-import { getLearningStorage, isLearningStorage, initializeLearningStorage, flushLearningStorage } from "@/lib/learningStorage";
+import { getLearningStorage, isLearningStorage, initializeLearningStorage, flushLearningStorage } from "../../lib/learningStorage";
 
-import { pruneAcknowledgedExplanations } from "@/lib/learningCachePolicy";
+import { pruneAcknowledgedExplanations } from "../../lib/learningCachePolicy";
 import LZString from "lz-string";
-import { explanationFromSync, explanationSyncIdentity } from "@/lib/explanationSyncIdentity";
-import { hasForegroundLookup } from "@/lib/explanationStreamStore";
-import { ACCOUNT_SYNC_TOMBSTONES_KEY, notifyAccountDataMerged } from "@/lib/accountEvents";
-import { mergeDuplicateSavedArticles } from "@/lib/savedArticleMerge";
+import { explanationFromSync, explanationSyncIdentity } from "../../lib/explanationSyncIdentity";
+import { hasForegroundLookup } from "../../lib/explanationStreamStore";
+import { ACCOUNT_SYNC_TOMBSTONES_KEY, notifyAccountDataMerged } from "../../lib/accountEvents";
+import { mergeDuplicateSavedArticles } from "../../lib/savedArticleMerge";
 import {
   clearStandaloneDictionaryRuntimeCache,
   isStandaloneDictionaryCacheObjectKey,
@@ -16,7 +17,7 @@ import {
   standaloneDictionaryCacheObjectKey,
   STANDALONE_DICTIONARY_CACHE_KEY,
   writeStandaloneDictionaryCache,
-} from "@/lib/standaloneDictionaryCache";
+} from "../../lib/standaloneDictionaryCache";
 import {
   isStandaloneDictionaryHistoryObjectKey,
   normalizeStandaloneDictionaryHistoryItem,
@@ -25,40 +26,38 @@ import {
   STANDALONE_DICTIONARY_HISTORY_KEY,
   STANDALONE_DICTIONARY_HISTORY_OBJECT_PREFIX,
   writeStandaloneDictionaryHistory,
-} from "@/lib/standaloneDictionaryHistory";
-import { normalizeVocabularyEntries } from "@/lib/vocabulary";
+} from "../../lib/standaloneDictionaryHistory";
+import { normalizeVocabularyEntries } from "../../lib/vocabulary";
 import {
   normalizeArticleReadingState,
   readArticleReadingStates,
   READING_STATES_KEY,
   writeArticleReadingStates,
-} from "@/lib/readingState";
+} from "../../lib/readingState";
 import {
   readRecommendationPreferences,
   RECOMMENDATION_PREFERENCES_OBJECT_KEY,
   RECOMMENDATION_PREFERENCES_STORAGE_KEY,
   writeRecommendationPreferencesFromSync,
-} from "@/lib/recommendationPreferences";
+} from "../../lib/recommendationPreferences";
 import {
   deduplicateVocabularyEntries,
   mergeVocabularyEntryVersions,
   vocabularyIdentity,
-} from "@/lib/vocabularyMerge";
-import type { SavedArticle } from "@/types/article";
-import type { AccountSyncObject, AccountSyncWriteResult, SyncObjectKind } from "@/types/account";
-import type { VocabularyEntry } from "@/types/vocabulary";
-import { readStoredArticles, writeStoredArticles } from "@/lib/articleStorage";
+} from "../../lib/vocabularyMerge";
+import type { SavedArticle } from "../../types/article";
+import type { AccountSyncObject, AccountSyncWriteResult, SyncObjectKind } from "../../types/account";
+import type { VocabularyEntry } from "../../types/vocabulary";
+import { readStoredArticles, writeStoredArticles } from "../../lib/articleStorage";
 
-import { CET_PROGRESS_KEY, CET_OBJECT_PREFIX, readCetAttempts, writeCetAttempts, normalizeCetAttempt, mergeCetAttempt } from "@/lib/cetProgress";
-import { CET_ACTIVITIES_V3_KEY, CET_FINALIZATIONS_V3_KEY, cetActivityPrefix, cetCommitPrefix, isCetActivityObject, isCetCommitObject, CET_ACTIVITIES_KEY, CET_FINALIZATIONS_KEY, readCetActivities, writeCetActivities, normalizeCetActivity, readCetCommitPackages, writeCetCommitPackages, type CetCommitPackage } from "@/lib/cetActivityStorage";
-import { mergeCetActivity } from "@/lib/cetActivity";
-import { CET_EXPOSURES_KEY, CET_EXPOSURE_OBJECT_PREFIX, readCetExposures, writeCetExposures, normalizeCetExposure } from "@/lib/cetExposure";
+import { CET_PROGRESS_KEY, CET_OBJECT_PREFIX, readCetAttempts, writeCetAttempts, normalizeCetAttempt, mergeCetAttempt } from "../../lib/cetProgress";
+import { CET_ACTIVITIES_KEY, CET_FINALIZATIONS_KEY, CET_ACTIVITY_OBJECT_PREFIX, CET_FINALIZATION_OBJECT_PREFIX, readCetActivities, writeCetActivities, normalizeCetActivity, readCetCommitPackages, writeCetCommitPackages, type CetCommitPackage } from "./cet-v2-storage";
+import { mergeCetActivity } from "../../lib/cetActivity";
+import { CET_EXPOSURES_KEY, CET_EXPOSURE_OBJECT_PREFIX, readCetExposures, writeCetExposures, normalizeCetExposure } from "../../lib/cetExposure";
 
 const KEYS = {
   cetProgress: CET_PROGRESS_KEY,
   cetActivities: CET_ACTIVITIES_KEY,
-  cetActivitiesV3: CET_ACTIVITIES_V3_KEY,
-  cetFinalizationsV3: CET_FINALIZATIONS_V3_KEY,
   cetFinalizations: CET_FINALIZATIONS_KEY,
   cetExposures: CET_EXPOSURES_KEY,
   articles: "context-reader:articles:v1",
@@ -189,7 +188,7 @@ export function accountSyncKindsForStorageKey(key: string | null): SyncObjectKin
   if (key === KEYS.translations) return ["article_translation"];
   if (key === KEYS.translationBlocks) return ["translation_block"];
   if (key === KEYS.readingStates) return ["reading_state"];
-  if (key === KEYS.cetProgress || key === KEYS.cetActivities || key === KEYS.cetActivitiesV3 || key === KEYS.cetFinalizationsV3 || key === KEYS.cetExposures || key === KEYS.cetFinalizations || key === KEYS.dictionaryHistory || key === KEYS.dictionaryCache || key === KEYS.recommendationPreferences) {
+  if (key === KEYS.cetProgress || key === KEYS.cetActivities || key === KEYS.cetExposures || key === KEYS.cetFinalizations || key === KEYS.dictionaryHistory || key === KEYS.dictionaryCache || key === KEYS.recommendationPreferences) {
     return ["preferences"];
   }
   return [];
@@ -384,7 +383,7 @@ function mergeCloudIntoLocal(
   const incomingKinds = new Set(objects.map((object) => object.kind));
   const needsCet = objects.some(o => o.kind === "preferences" && o.objectKey.startsWith(CET_OBJECT_PREFIX));
   const cetAttempts = new Map((needsCet ? readCetAttempts(storage) : []).map(item => [item.id, item]));
-  const needsCetV2 = objects.some(o => o.kind === "preferences" && (isCetActivityObject(o.objectKey) || isCetCommitObject(o.objectKey)));
+  const needsCetV2 = objects.some(o => o.kind === "preferences" && (o.objectKey.startsWith(CET_ACTIVITY_OBJECT_PREFIX) || o.objectKey.startsWith(CET_FINALIZATION_OBJECT_PREFIX)));
   const cetActivities = new Map((needsCetV2 ? readCetActivities(storage) : []).map(item => [item.id, item]));
   const cetCommits = new Map((needsCetV2 ? readCetCommitPackages(storage) : []).map(item => [`${item.attemptId}:${item.finalization.id}`, item]));
   const needsCetExposure = objects.some(o => o.kind === "preferences" && o.objectKey.startsWith(CET_EXPOSURE_OBJECT_PREFIX));
@@ -451,7 +450,7 @@ function mergeCloudIntoLocal(
       else if (object.kind === "reading_state") delete localReadingStates[object.objectKey];
       else if (object.kind === "preferences" && object.objectKey.startsWith(CET_OBJECT_PREFIX)) cetAttempts.delete(object.objectKey.slice(CET_OBJECT_PREFIX.length));
       // New CET results are append-only. A stale client cannot tombstone them.
-      else if (object.kind === "preferences" && (isCetActivityObject(object.objectKey) || isCetCommitObject(object.objectKey) || object.objectKey.startsWith(CET_EXPOSURE_OBJECT_PREFIX))) continue;
+      else if (object.kind === "preferences" && (object.objectKey.startsWith(CET_ACTIVITY_OBJECT_PREFIX) || object.objectKey.startsWith(CET_FINALIZATION_OBJECT_PREFIX) || object.objectKey.startsWith(CET_EXPOSURE_OBJECT_PREFIX))) continue;
       else if (object.kind === "preferences" && isStandaloneDictionaryHistoryObjectKey(object.objectKey)) {
         const historyItem = normalizeStandaloneDictionaryHistoryItem(object.payload);
         let normalizedQuery = historyItem?.normalizedQuery ?? "";
@@ -542,16 +541,16 @@ function mergeCloudIntoLocal(
     } else if (object.kind === "preferences" && object.objectKey.startsWith(CET_OBJECT_PREFIX)) {
       const cloud = normalizeCetAttempt(object.payload);
       if(cloud && object.objectKey === CET_OBJECT_PREFIX + cloud.id) cetAttempts.set(cloud.id, mergeCetAttempt(cetAttempts.get(cloud.id), cloud));
-    } else if (object.kind === "preferences" && isCetActivityObject(object.objectKey)) {
+    } else if (object.kind === "preferences" && object.objectKey.startsWith(CET_ACTIVITY_OBJECT_PREFIX)) {
       const cloud = normalizeCetActivity(object.payload);
-      if (cloud && object.objectKey === cetActivityPrefix(cloud) + cloud.id) {
+      if (cloud && object.objectKey === CET_ACTIVITY_OBJECT_PREFIX + cloud.id) {
         try { cetActivities.set(cloud.id, mergeCetActivity(cetActivities.get(cloud.id), cloud)); }
         catch { /* Preserve the existing local identity instead of overwriting it. */ }
       }
-    } else if (object.kind === "preferences" && isCetCommitObject(object.objectKey)) {
+    } else if (object.kind === "preferences" && object.objectKey.startsWith(CET_FINALIZATION_OBJECT_PREFIX)) {
       const cloud = object.payload as CetCommitPackage;
       if (cloud?.attemptId && cloud.finalization?.id && Array.isArray(cloud.finalization.questions)
-        && object.objectKey === `${cetCommitPrefix(cloud)}${cloud.attemptId}:${cloud.finalization.id}`) {
+        && object.objectKey === `${CET_FINALIZATION_OBJECT_PREFIX}${cloud.attemptId}:${cloud.finalization.id}`) {
         const identity = `${cloud.attemptId}:${cloud.finalization.id}`;
         const old = cetCommits.get(identity);
         cetCommits.set(identity, old && JSON.stringify(old) > JSON.stringify(cloud) ? old : cloud);
@@ -683,8 +682,8 @@ async function collectLocalObjects(
   }
   if (wants("preferences")) {
     for (const item of readCetAttempts(storage)) add("preferences", CET_OBJECT_PREFIX + item.id, item, item.updatedAt);
-    for (const item of readCetActivities(storage)) add("preferences", cetActivityPrefix(item) + item.id, item, item.updatedAt);
-    for (const item of readCetCommitPackages(storage)) add("preferences", `${cetCommitPrefix(item)}${item.attemptId}:${item.finalization.id}`, item, item.finalization.at);
+    for (const item of readCetActivities(storage)) add("preferences", CET_ACTIVITY_OBJECT_PREFIX + item.id, item, item.updatedAt);
+    for (const item of readCetCommitPackages(storage)) add("preferences", `${CET_FINALIZATION_OBJECT_PREFIX}${item.attemptId}:${item.finalization.id}`, item, item.finalization.at);
     for (const item of readCetExposures(storage)) add("preferences", CET_EXPOSURE_OBJECT_PREFIX + item.id, item, item.occurredAt);
     for (const item of readStandaloneDictionaryHistory(storage)) {
       add("preferences", standaloneDictionaryHistoryObjectKey(item), item, item.lastLookedUpAt);

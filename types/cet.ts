@@ -67,6 +67,7 @@ export interface CetQuestionSnapshot {
   explanation?: string;
 }
 export interface CetFinalization {
+  timerMode?: "countdown" | "countup";
   id: string;
   sectionId?: string;
   reason: CetFinalizationReason;
@@ -84,7 +85,9 @@ export interface CetFinalization {
   conditions: string[];
 }
 export interface CetActivity {
-  schemaVersion: 2;
+  schemaVersion: 2 | 3;
+  timerMode?: "countdown" | "countup";
+  practiceTimerPaused?: boolean;
   id: string;
   owner: string;
   purpose: CetPurpose;
