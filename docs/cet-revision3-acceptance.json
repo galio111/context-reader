@@ -1,7 +1,7 @@
 {
   "version": "revision3-production",
   "baseline": "5115d4c62a79e9b530b7187f2c7278dbff62fadc",
-  "status": "implementation_verified_locally_release_pending",
+  "status": "production_deployed_partial_visual_matrix",
   "productTestCount": 79,
   "releaseTestCount": 8,
   "tests": [
@@ -26,32 +26,32 @@
       "requirement": "R01",
       "action": "实际开始自测、暂停、恢复分别尝试鼠标/键盘/已有工具入口",
       "expected": "三状态均不能读取自测辅助或答案，暂停不成为绕过限制的入口。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实自测开始、暂停/恢复、提交后状态走查，20次禁用点击；全部键盘/既有工具组合未全测。"
     },
     {
       "id": "T004",
       "requirement": "R01",
       "action": "自测提交后与正常外刊阅读分别打开工具",
       "expected": "恢复本来可用的工具；正常外刊行为没有因本轮能力拆分退化。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "自测提交后恢复工具已观察，普通外刊AI三功能生产实际请求通过；全部UI组合未测。"
     },
     {
       "id": "T005",
       "requirement": "R02",
       "action": "自测中悬停/聚焦禁用入口，再点击/Enter/Space",
       "expected": "只在附近有短说明与禁止标识，不执行动作；没有额外常驻通知和关闭叉。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实暂停自测hover与点击无消息叠加，tooltip配色测量；Enter/Space组合未完整。"
     },
     {
       "id": "T006",
       "requirement": "R02",
       "action": "重复触发禁用项20次并移走指针/按Escape",
       "expected": "不叠加消息、不盖住计时、不改滚动；原生与自定义tooltip不重复。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "pass",
+      "evidence": "实际暂停自测20次点击未叠加，Escape隐藏；本轮工具记录与进度文档。"
     },
     {
       "id": "T007",
@@ -98,8 +98,8 @@
       "requirement": "R04",
       "action": "准备四/六级、单篇/套卷、练习/自测多份记录，从左栏打开历史",
       "expected": "默认全部级别与目标，不仅当前paper或scope；筛选标题含义准确。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "本地整卷练习/自测和不同级别题型记录，全历史保留；生产新增整卷一条。"
     },
     {
       "id": "T013",
@@ -178,8 +178,8 @@
       "requirement": "R06",
       "action": "按年份及三个题型过滤，含一个paper两篇仔细阅读",
       "expected": "全部匹配篇章可通过下滑访问，排序固定且无重复。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "六级仔细阅读56篇实际最末2022-06第2套第二篇进入和提交；其他全部筛选组合未全测。"
     },
     {
       "id": "T023",
@@ -634,16 +634,16 @@
       "requirement": "R16",
       "action": "检查源码diff、依赖、测试与证据清单",
       "expected": "没有无关框架/DB/题库改写，没有拿旧版测试结果或mock证明本轮视觉。",
-      "status": "partial",
-      "evidence": "本轮真实局部证据及适用限制见docs/cet-revision3-progress.md；未完成该条全部组合，不标全通过。"
+      "status": "pass",
+      "evidence": "最终39文件delta审查、干净集成构建；无DB/题库/锁文件改写，无mock Reader视觉证明。"
     },
     {
       "id": "P01",
       "requirement": "RELEASE",
       "action": "权限与基线",
       "expected": "读取最新AGENTS/发布治理，核对独立任务worktree、main和当前生产parent；不覆盖共享脏目录。",
-      "status": "partial",
-      "evidence": "本轮真实局部证据及适用限制见docs/cet-revision3-progress.md；未完成该条全部组合，不标全通过。"
+      "status": "pass",
+      "evidence": "独立任务/集成树，live parent及main已核实，未打包共享根。"
     },
     {
       "id": "P02",
@@ -651,67 +651,81 @@
       "action": "发布前门槛",
       "expected": "相关单元/状态/存储/真实浏览器/critical/build/lint/发布契约通过；基线异常独立复现记录，不能降低本轮断言。",
       "status": "partial",
-      "evidence": "本轮真实局部证据及适用限制见docs/cet-revision3-progress.md；未完成该条全部组合，不标全通过。"
+      "evidence": "必需自动测试/build/lint/保护契约通过，真实浏览器关键路径通过；完整人工矩阵未全测。"
     },
     {
       "id": "P03",
       "requirement": "RELEASE",
       "action": "GitHub集成",
       "expected": "审查改动并提交，正常集成push main；git ls-remote核实remote SHA，不force。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "pass",
+      "evidence": "源码f873139正常推送main并ls-remote核实；随后仅文档提交，最终SHA见交付。"
     },
     {
       "id": "P04",
       "requirement": "RELEASE",
       "action": "可恢复的累计包",
       "expected": "干净集成源码准确sourceRevision，manifest parent等于实际当前生产，changedFiles精确；备份与回滚镜像可用。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "pass",
+      "evidence": "39文件精确累计包/干净source，实际parent匹配；最新备份16表恢复及双镜像。"
     },
     {
       "id": "P05",
       "requirement": "RELEASE",
       "action": "稳定发布入口",
       "expected": "使用仓库规定稳定入口及锁/parent复核，常规只重建app/caddy；数据服务与海外配置不擅改。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "pass",
+      "evidence": "稳定deploy-release接受20260924T184912，锁/parent/保护检查未改，仅app/caddy重建。"
     },
     {
       "id": "P06",
       "requirement": "RELEASE",
       "action": "公网版本与核心",
       "expected": "公网/api/connectivity核实releaseId/parent/backendMode；source用服务器manifest/state核实，不假设API有source字段；真实账号/阅读核心烟测。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "pass",
+      "evidence": "公网release/parent/mainland_internal、SSHmanifest source一致；实际账号/AI/同步及真实Reader复验通过。"
     },
     {
       "id": "P07",
       "requirement": "RELEASE",
       "action": "公网视觉与交互",
       "expected": "复查开始页、四按钮、全历史、提交全部、目录末项、卡片入场和说明等关键路径；不可获得证据则标部分验证并报告，不声称完整视觉通过。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "公网960×900 Reader 4/4/固定用时、全局历史、游客6+6、资源切回/图片/分类、嵌入说明已实测；登录末项目录等未公网UI重跑。"
     },
     {
       "id": "P08",
       "requirement": "RELEASE",
       "action": "证据回写与交付",
       "expected": "记录最终main SHA与生产source差异、发布ID/父版本、测试截图、C01默认、未验证项及回滚准备；不能只交任务分支或把上传当上线。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "发布身份、R01–R16、证据/未验项/C01已回写；截图仅工具记录无独立PNG。"
     }
   ],
   "checkpoint": {
     "phaseA": "685253e",
     "phaseB": "437b5f1",
+    "source": "f87313909b3d3d12820ec5f07af7d9d9e47a1c10",
     "tests": {
-      "cet": "38/38",
-      "catalogue_and_switch": "6/6",
-      "typescript": "pass"
+      "cet": "39/39",
+      "critical": "89/89",
+      "targeted": "17/17",
+      "provider_quota": "12/12",
+      "usage": "7/7",
+      "cover_preview": "1/1",
+      "typescript": "pass",
+      "lint": "0 errors, 41 warnings",
+      "releaseContracts": "9/9",
+      "productionBuild": "pass"
     },
-    "browser": "Real Reader submit all 4/4, reload/history reopen retains result; local isolated identity. 390 screenshot and1440 geometry only. Full matrix pending.",
-    "blocker": "Browser bridge lost after phaseC diagnostic tab navigation; no phaseC A/B yet."
+    "browser": "Real local Reader/HomeClient; 11 widths and breakpoint checks; public Reader 4/4 fixed 01:27, guest 6 each, global history, category switch, embedded guide. Full matrix partial.",
+    "blocker": null
   },
-  "evidenceDocument": "docs/cet-revision3-progress.md"
+  "evidenceDocument": "docs/cet-revision3-release.md",
+  "release": {
+    "releaseId": "20260924T184912",
+    "parentReleaseId": "20260924T041127",
+    "sourceRevision": "f87313909b3d3d12820ec5f07af7d9d9e47a1c10",
+    "backendMode": "mainland_internal"
+  }
 }

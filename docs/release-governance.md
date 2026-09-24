@@ -2,6 +2,10 @@
 
 This file is the final-state contract for parallel development and mainland production releases. It exists to prevent a later task from silently publishing an older source snapshot and removing work that another task already shipped.
 
+## Current accepted third-round release (2026-09-25)
+
+Accepted `20260924T184912`, parent `20260924T041127`, source `f87313909b3d3d12820ec5f07af7d9d9e47a1c10`. Public mainland identity, resolved current path and manifest agree. Clean cumulative 39-file package used the stable guarded entrypoint; only app/caddy recreated. Post-release account/sync/AI/Admin boundaries, real Reader submit-all, homepage switching and embedded guide were verified; full visual matrix remains partial. Latest backup SHA and isolated 16-table restore passed; current/parent images exist, no rollback performed. See [third-round evidence](cet-revision3-release.md) for R01–R16 and limits. Later main changes are documentation only.
+
 ## The three different copies of “the code”
 
 - The shared working directory is an editing surface. It may contain incomplete and unrelated changes from several tasks and is never a production source.
@@ -72,7 +76,7 @@ After each completed and validated update, push the reviewed task branch and int
 
 Local integration validation on 2026-09-18 passed the production build, 89 critical regressions, 22 targeted quota/pronunciation/storage/session regressions, release contracts and the static egress guard. The application code matches the accepted production source; only documentation, ignore rules and reviewed workstation worktree scripts differ. Remote publication evidence belongs in the dated product journey entry.
 
-## Latest verified acceptance
+## Previous second-round acceptance
 
 已发布 `20260924T041127`，父版本 `20260923T161000`，生产 sourceRevision `9682ee7d2f33301edf0f9116ca556266a5740c83`。公网为 `mainland_internal`，与服务器 current/state 一致。正式接受北京时间2026-09-24 12:18:08。32CET/89关键/22AI路由用量测试、9保护契约、出口审计、lint与本机/服务器build通过。真实生产新旧v2/v3客户端跨两IndexedDB环境同步、普通文章保持、AI三功能默认模型及各一次计费、Admin边界、7服务、16表备份恢复及当前/父镜像通过；精准清理本轮合成账号。仅重建app/caddy，未回滚。本机真实Reader日夜桌面/手机已验，公网视觉受浏览器连接超时影响未复验，P06部分通过；完整证据见 [第二轮发布记录](cet-revision2-release.md)。
 
