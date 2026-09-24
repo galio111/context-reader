@@ -5,6 +5,7 @@ import { cetFinalize, cetQuestionSnapshots } from "./cetActivity";
 export function prepareCetPracticeSubmitAll(activity: CetActivity, paper: CetPaper, operationId: string, now = new Date().toISOString()): CetActivity {
   if (activity.purpose !== "practice" || activity.legacy) throw new Error("只能提交当前新版阅读练习。");
   if (!operationId || activity.paperId !== paper.id) throw new Error("练习身份不一致，原记录已保留。");
+  if (!activity.sectionIds.length || new Set(activity.sectionIds).size !== activity.sectionIds.length || activity.sectionIds.some(id => !paper.sections.some(section => section.id === id))) throw new Error("阅读范围不一致，原记录已保留。");
   const keys = cetQuestionSnapshots(paper, activity.sectionIds).map(q => q.key);
   if (new Set(keys).size !== keys.length || keys.length !== activity.questionKeys.length || keys.some(key => !activity.questionKeys.includes(key))) throw new Error("题目范围不一致，原记录已保留。");
   const snapshots = Object.values(activity.finalizations);

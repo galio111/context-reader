@@ -43,3 +43,12 @@ test("all commit packages recover together after interrupted activity write; ret
   assert.deepEqual(restored.finalizations, JSON.parse(JSON.stringify(prepared.finalizations)));
   saveCetActivity(prepared, storage); assert.equal(readCetCommitPackages(storage).length, a.sectionIds.length);
 });
+
+test("malformed section scopes cannot silently become completed papers", () => {
+  for (const sectionIds of [[], [...start().sectionIds, "missing"], [...start().sectionIds, start().sectionIds[0]]]) {
+    const activity = { ...start(), sectionIds };
+    const before = structuredClone(activity);
+    assert.throws(() => prepareCetPracticeSubmitAll(activity, paper, "invalid", now), /范围不一致/);
+    assert.deepEqual(activity, before);
+  }
+});
