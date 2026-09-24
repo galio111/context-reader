@@ -647,7 +647,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     return () => query.removeEventListener("change", update);
   }, []);
 
-  useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\0${displayArticleMotionKey}`);
+  useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\0${displayArticleMotionKey}`, activeCategory);
 
   useEffect(() => {
     const sections = [publicationBridgeRef.current, importRef.current, closingRef.current]

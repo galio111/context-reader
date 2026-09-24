@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, type RefObject } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 
-export function useArticleReveal(gridRef: RefObject<HTMLDivElement | null>, cardClass: string, resourceTab: "articles" | "cet", motionKey: string) {
+export function useArticleReveal(gridRef: RefObject<HTMLDivElement | null>, cardClass: string, resourceTab: "articles" | "cet", motionKey: string, resetKey = motionKey) {
+  const previous = useRef<{ grid: HTMLDivElement; resetKey: string } | null>(null);
   useEffect(() => {
     const grid = gridRef.current;
     if (!grid) return;
@@ -10,7 +11,10 @@ export function useArticleReveal(gridRef: RefObject<HTMLDivElement | null>, card
       cards.forEach((card) => { card.dataset.visible = "true"; });
       return;
     }
+    const reset = previous.current?.grid !== grid || previous.current?.resetKey !== resetKey;
+    previous.current = { grid, resetKey };
     cards.forEach((card) => {
+      if (!reset && card.dataset.motionReady) return;
       card.dataset.motionReady = "true";
       delete card.dataset.visible;
       delete card.dataset.enterDirection;
@@ -49,5 +53,5 @@ export function useArticleReveal(gridRef: RefObject<HTMLDivElement | null>, card
       window.removeEventListener("scroll", trackDirection);
     };
   // Resource tabs unmount the grid even when its article IDs stay unchanged.
-  }, [gridRef, cardClass, resourceTab, motionKey]);
+  }, [gridRef, cardClass, resourceTab, motionKey, resetKey]);
 }

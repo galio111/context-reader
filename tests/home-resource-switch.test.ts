@@ -29,7 +29,7 @@ test("same articles regain reveal after repeated CET tab remounts and old observ
   t.after(async () => { await act(async () => root.unmount()); dom.window.close(); for (const [key, descriptor] of saved) { if (descriptor) Object.defineProperty(globalThis, key, descriptor); else Reflect.deleteProperty(globalThis, key); } });
   function Harness({ tab, expanded = false }: { tab: "articles" | "cet"; expanded?: boolean }) {
     const ref = useRef<HTMLDivElement>(null);
-    useArticleReveal(ref, "article-card", tab, expanded ? "expanded-article-ids" : "unchanged-article-ids");
+    useArticleReveal(ref, "article-card", tab, expanded ? "expanded-article-ids" : "unchanged-article-ids", "recommended");
     return tab === "articles"
       ? createElement("div", { ref }, ...Array.from({ length: expanded ? 420 : 1 }, (_, index) => createElement("button", { key: index, className: "article-card" }, `Article ${index}`)))
       : createElement("p", null, "CET");
@@ -49,7 +49,12 @@ test("same articles regain reveal after repeated CET tab remounts and old observ
     assert.equal(observers.filter(o => o.targets.size).length, 0);
     assert.equal(frames.size, 0);
   }
+  await act(async () => root.render(createElement(Harness, { tab: "articles" })));
+  tick(); tick();
+  const existing = host.querySelector<HTMLElement>("button")!;
+  observers.at(-1)!.emit(existing, true);
   await act(async () => root.render(createElement(Harness, { tab: "articles", expanded: true })));
+  assert.equal(existing.dataset.visible, "true", "appending must preserve visible existing cards");
   const deepCard = host.querySelectorAll<HTMLElement>("button")[419];
   assert.equal(deepCard.dataset.motionReady, "true", "deep library cards must start at the reset keyframe");
   tick(); tick();
@@ -66,10 +71,10 @@ test("same articles regain reveal after repeated CET tab remounts and old observ
 test("featured and expanded recommendations retain their entry, exit and pointer-motion contracts", () => {
   const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
   const styles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
-  assert.match(component, /useArticleReveal\(articleGridRef, styles\.articleCard, resourceTab, `\$\{activeCategory\}.*\$\{displayArticleMotionKey\}`\)/);
+  assert.match(component, /useArticleReveal\(articleGridRef, styles\.articleCard, resourceTab, `\$\{activeCategory\}.*\$\{displayArticleMotionKey\}`, activeCategory\)/);
   assert.match(component, /motion3dEnabled=\{recommendationMotionEnabled\}/);
-  assert.match(styles, /\.articleCard\[data-motion-ready\]:not\(\[data-visible\]\) \.coverSurface \{ transform: translateZ\(0\) scale\(\.9\); \}/);
-  assert.match(styles, /\.articleCard\[data-visible="true"\] \.coverSurface \{ transform: translateZ\(0\) scale\(1\); \}/);
+  assert.match(styles, /\.articleCard\[data-motion-ready\]:not\(\[data-visible\]\) \.coverSurface \{ opacity: \.28; \}/);
+  assert.match(styles, /\.articleCard\[data-visible="true"\] \.coverSurface \{ opacity: 1; \}/);
   assert.doesNotMatch(styles, /\.articleGrid\[data-library-expanded\] \.coverSurface/);
 });
 

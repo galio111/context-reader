@@ -55,7 +55,7 @@
   flex-direction: column;
   align-self: flex-start;
   padding-top: 17px;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 .brand {
@@ -104,7 +104,11 @@
 
 .brandCluster:hover .quickNav,
 .brandCluster:focus-within .quickNav,
-.brandClusterFixed .quickNav { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+.brandClusterFixed .quickNav { opacity: 1; transform: translateY(0) scale(1); pointer-events: none; }
+.quickNav .quickButton { pointer-events: none; }
+.brandCluster:hover .quickButton,
+.brandCluster:focus-within .quickButton,
+.brandClusterFixed .quickButton { pointer-events: auto; }
 
 .quickItem { position: relative; display: block; width: max-content; }
 .quickItem::after {
@@ -498,12 +502,12 @@
   opacity: 1;
   transform: translateZ(0) scale(1);
   transform-origin: 50% 50%;
-  transition: transform 520ms cubic-bezier(.22, .76, .25, 1);
+  transition: opacity 520ms cubic-bezier(.22, .76, .25, 1);
   transition-delay: calc(var(--article-reveal-index, 0) * 18ms);
 }
-.articleCard[data-motion-ready]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); }
-.articleCard[data-motion-ready][data-enter-direction="up"]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); transform-origin: 50% 50%; }
-.articleCard[data-visible="true"] .coverSurface { transform: translateZ(0) scale(1); }
+.articleCard[data-motion-ready]:not([data-visible]) .coverSurface { opacity: .28; }
+.articleCard[data-motion-ready][data-enter-direction="up"]:not([data-visible]) .coverSurface { opacity: .28; }
+.articleCard[data-visible="true"] .coverSurface { opacity: 1; }
 .coverSurface > img {
   position: relative;
   z-index: 1;
