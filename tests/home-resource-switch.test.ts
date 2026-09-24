@@ -79,7 +79,7 @@ test("CET library filters survive remounts without storing answers and tolerate 
   try {
     Object.defineProperty(globalThis, "sessionStorage", { configurable: true, value: dom.window.sessionStorage });
     const state = { level: 6, view: "type", type: "detail", year: "2023", page: 2 } as const;
-    writeCetLibraryView(state); assert.deepEqual(readCetLibraryView(), state);
+    writeCetLibraryView(state); assert.deepEqual(readCetLibraryView(), { ...state, page: 0 });
     assert.deepEqual(normalizeCetLibraryView({ level: 1, type: "script", year: "<script>", page: -1 }), { level: 4, view: "paper", type: "cloze", year: "recent", page: 0 });
     Object.defineProperty(globalThis, "sessionStorage", { configurable: true, get() { throw Error("blocked"); } });
     assert.doesNotThrow(() => writeCetLibraryView(state));

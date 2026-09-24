@@ -1,17 +1,18 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { readCetLibraryView, writeCetLibraryView, type CetLibraryView } from "@/lib/cetLibraryView";
 import { useAccount } from "@/components/AccountProvider";
 import { readCetAttempts } from "@/lib/cetProgress";
 import { readCetActivities } from "@/lib/cetActivityStorage";
 import { cetHistoryLabel } from "@/lib/cetActivity";
-import { initializeLearningStorage } from "@/lib/learningStorage";
+import { getLearningStorage, initializeLearningStorage } from "@/lib/learningStorage";
 import {
   ACCOUNT_DATA_MERGED_EVENT,
   ACCOUNT_DATA_CHANGED_EVENT,
 } from "@/lib/accountEvents";
 import type { CetActivity, CetAttempt, CetPaper } from "@/types/cet";
 import "./cet.css";
+import { loadCetCatalogue } from "@/lib/cetCatalogueLoader";
 import { CetSelect } from "./CetSelect";
 export interface CetEntry {
   paperId: string;
@@ -31,7 +32,6 @@ export function CetLibrary({
     [view, setView] = useState<"paper" | "type">(initialView.view),
     [type, setType] = useState<CetLibraryView["type"]>(initialView.type),
     [year, setYear] = useState(initialView.year),
-    [page, setPage] = useState(initialView.page),
     [total, setTotal] = useState(0),
     [years, setYears] = useState<number[]>([]),
     [papers, setPapers] = useState<CetPaper[]>([]),
@@ -42,40 +42,34 @@ export function CetLibrary({
     [historyLimit, setHistoryLimit] = useState(30),
     [retry, setRetry] = useState(0);
   const [historyPurpose, setHistoryPurpose] = useState<"" | "practice" | "self_test">("");
-  useEffect(() => { writeCetLibraryView({ level, view, type, year, page }); }, [level, view, type, year, page]);
+  const catalogue = useRef<{key:string;papers:CetPaper[]}>({key:"",papers:[]});
+  useEffect(() => { writeCetLibraryView({ level, view, type, year, page:0 }); }, [level, view, type, year]);
   useEffect(() => {
-    let cancelled = false;
     const controller = new AbortController();
-    setLoading(true);
-    setError("");
-    fetch(`/api/cet?level=${level}&page=${account.authenticated ? page : 0}&year=${account.authenticated ? year : "recent"}`, { signal: controller.signal })
-      .then(async (r) => {
-        const d = await r.json();
-        if (!r.ok) throw Error(d.error);
-        if (!cancelled) {
-          if (year !== "recent" && !d.years.map(String).includes(year)) { setYear("recent");setPage(0);return; }
-          if (page && page * 12 >= d.total) {setPage(0);return;}
-          setPapers(d.papers);
-          setTotal(d.total);
-          setYears(d.years);
-        }
-      })
-      .catch(() => {
-        if (!cancelled) setError("试卷暂时未能加载，请重试。");
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
-    return () => {
-      cancelled = true;
-      controller.abort();
-    };
-  }, [level, account.authenticated, page, year, retry]);
+    const key = `${level}:${account.authenticated}:${year}`;
+    if(catalogue.current.key !== key){catalogue.current={key,papers:[]};setPapers([]);setTotal(0);}
+    setLoading(true);setError("");
+    void loadCetCatalogue({ signal:controller.signal, initial:catalogue.current.papers,
+      fetchPage:async page=>{
+        const response=await fetch(`/api/cet?level=${level}&page=${page}&year=${account.authenticated ? year : "recent"}`,{signal:controller.signal});
+        const data=await response.json();if(!response.ok)throw Error(data.error || "目录加载失败");return data;
+      },
+      onBatch:batch=>{
+        if(controller.signal.aborted || catalogue.current.key!==key)return;
+        if(account.authenticated && year!=="recent" && !batch.years.map(String).includes(year)){controller.abort();setYear("recent");return;}
+        catalogue.current.papers=batch.papers;setPapers(batch.papers);setTotal(batch.total);setYears(batch.years);
+      }
+    }).catch(()=>{if(!controller.signal.aborted)setError(catalogue.current.papers.length ? "后续目录加载失败，重试" : "试卷暂时未能加载，请重试。");})
+      .finally(()=>{if(!controller.signal.aborted)setLoading(false);});
+    return ()=>controller.abort();
+  }, [level, account.authenticated, year, retry]);
   useEffect(() => {
     let live = true;
+    setHistory([]); setLegacyHistory([]);
     const refresh = () => {
       if (live) {
-        const records = readCetActivities();
+        const owner = getLearningStorage().getItem("context-reader:local-account-owner:v1") || "guest";
+        const records = readCetActivities().filter(record => record.owner === owner);
         setHistory(records.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)));
         const migrated = new Set(records.map((a) => a.sourceAttemptId).filter(Boolean));
         setLegacyHistory(readCetAttempts().filter((a) => !migrated.has(a.id)).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)));
@@ -102,8 +96,8 @@ export function CetLibrary({
               .map((section) => ({ paper: p, section })),
           ),
     visible = account.authenticated ? rows : rows.slice(0, 6);
-  const filteredHistory = history.filter((h) => h.paperId.startsWith(`cet${level}-`) && (!historyPurpose || h.purpose === historyPurpose));
-  const filteredLegacy = legacyHistory.filter((h) => h.paperId.startsWith(`cet${level}-`) && (!historyPurpose || (h.mode === "exam" ? "self_test" : "practice") === historyPurpose));
+  const filteredHistory = history.filter((h) => (!historyPurpose || h.purpose === historyPurpose));
+  const filteredLegacy = legacyHistory.filter((h) => (!historyPurpose || (h.mode === "exam" ? "self_test" : "practice") === historyPurpose));
   return (
     <div className={`cet-library ${compact ? "cet-library-compact" : ""}`}>
       <div className="cet-library-controls">
@@ -115,7 +109,6 @@ export function CetLibrary({
               onClick={() => {
                 setLevel(n);
                 setYear("recent");
-                setPage(0);
               }}
             >
               {n === 4 ? "四级" : "六级"}
@@ -142,21 +135,21 @@ export function CetLibrary({
           <CetSelect label="选择题型" value={type} onChange={value=>setType(value as CetLibraryView["type"])} options={[{key:"cloze",text:"选词填空"},{key:"matching",text:"长篇匹配"},{key:"detail",text:"仔细阅读"}]} />
         )}
         {account.authenticated && (
-          <CetSelect label="选择年份" value={year} onChange={value=>{setYear(value);setPage(0);}} options={[{key:"recent",text:"最近年份"}, ...years.map(y=>({key:String(y),text:String(y)}))]} />
+          <CetSelect label="选择年份" value={year} onChange={value=>{setYear(value);}} options={[{key:"recent",text:"最近年份"}, ...years.map(y=>({key:String(y),text:String(y)}))]} />
         )}
       </div>
       <div
-        className={`cet-library-layout ${!account.authenticated || compact ? "cet-library-wide" : ""}`}
+        className={`cet-library-layout ${!account.authenticated || compact || !history.length && !legacyHistory.length ? "cet-library-wide" : ""}`}
       >
         <div className="cet-resource-grid">
-          {loading ? (
+          {loading && !visible.length ? (
             <p role="status">正在读取试卷…</p>
-          ) : error ? (
+          ) : error && !visible.length ? (
             <p role="alert">
               {error}
               <button onClick={() => setRetry((n) => n + 1)}>重试</button>
             </p>
-          ) : !visible.length ? <p className="cet-empty">当前筛选没有阅读材料。<button onClick={()=>{setYear("recent");setPage(0);}}>重置筛选</button></p> : (
+          ) : !visible.length ? <p className="cet-empty">当前筛选没有阅读材料。<button onClick={()=>{setYear("recent");}}>重置筛选</button></p> : (
             visible.map(({ paper: p, section: s }) => (
               <button
                 className="cet-resource-row"
@@ -189,22 +182,7 @@ export function CetLibrary({
               </button>
             ))
           )}
-          {account.authenticated && total > 12 && (
-            <div className="cet-library-pagination">
-              <button disabled={!page} onClick={() => setPage((p) => p - 1)}>
-                上一页
-              </button>
-              <span>
-                {page + 1} / {Math.ceil(total / 12)}
-              </span>
-              <button
-                disabled={(page + 1) * 12 >= total}
-                onClick={() => setPage((p) => p + 1)}
-              >
-                下一页
-              </button>
-            </div>
-          )}
+          {visible.length > 0 && <div className="cet-catalogue-status" role={error ? "alert" : "status"}>{error ? <>{error}<button onClick={()=>setRetry(n=>n+1)}>重试</button></> : loading ? "正在读取后续目录…" : `已显示本筛选全部 ${visible.length} ${view === "paper" ? "套" : "篇"}`}<span className="sr-only">已取得 {papers.length}/{total} 套目录</span></div>}
           {!account.authenticated && (
             <div className="cet-login-note">
               <span>

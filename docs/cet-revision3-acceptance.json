@@ -1,0 +1,705 @@
+{
+  "version": "revision3-production",
+  "baseline": "5115d4c62a79e9b530b7187f2c7278dbff62fadc",
+  "status": "in_progress",
+  "productTestCount": 79,
+  "releaseTestCount": 8,
+  "tests": [
+    {
+      "id": "T001",
+      "requirement": "R01",
+      "action": "新账号/有历史账号打开任一套卷开始页",
+      "expected": "Menu与全局工具按真实账号权限可用，无自测禁止状态；没有新空活动。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T002",
+      "requirement": "R01",
+      "action": "开始页打开导入/独立词典/生词本/我的文章后取消",
+      "expected": "回到同一材料开始页，不自动开始或丢选择；重新练习隐藏。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T003",
+      "requirement": "R01",
+      "action": "实际开始自测、暂停、恢复分别尝试鼠标/键盘/已有工具入口",
+      "expected": "三状态均不能读取自测辅助或答案，暂停不成为绕过限制的入口。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T004",
+      "requirement": "R01",
+      "action": "自测提交后与正常外刊阅读分别打开工具",
+      "expected": "恢复本来可用的工具；正常外刊行为没有因本轮能力拆分退化。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T005",
+      "requirement": "R02",
+      "action": "自测中悬停/聚焦禁用入口，再点击/Enter/Space",
+      "expected": "只在附近有短说明与禁止标识，不执行动作；没有额外常驻通知和关闭叉。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T006",
+      "requirement": "R02",
+      "action": "重复触发禁用项20次并移走指针/按Escape",
+      "expected": "不叠加消息、不盖住计时、不改滚动；原生与自定义tooltip不重复。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T007",
+      "requirement": "R02",
+      "action": "模拟本机保存失败和真实网络错误",
+      "expected": "原有重要故障提示仍存在，不能被“删提示”误删。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T008",
+      "requirement": "R03",
+      "action": "宽桌面自测打开右侧阅读工具栏",
+      "expected": "计时、答题卡、提交自测、Menu顺序固定且同一行，均在右侧栏上方。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T009",
+      "requirement": "R03",
+      "action": "练习、开始页、结果页分别查看工具条",
+      "expected": "分别显示提交全部、开始页正常Menu、结果冻结状态；没有错模式按钮或占位大卡。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T010",
+      "requirement": "R03",
+      "action": "09:59跨10:00、99:59跨100:00、暂停/恢复",
+      "expected": "计时文字完整，相邻控件无明显挤动，翻译栏高度不被占用。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T011",
+      "requirement": "R03",
+      "action": "390宽、窄桌面临界宽度与125%缩放操作四个按钮",
+      "expected": "紧凑布局明确、无溢出重叠；实际可点，不把文字缩到不可读。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T012",
+      "requirement": "R04",
+      "action": "准备四/六级、单篇/套卷、练习/自测多份记录，从左栏打开历史",
+      "expected": "默认全部级别与目标，不仅当前paper或scope；筛选标题含义准确。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T013",
+      "requirement": "R04",
+      "action": "先从材料内更多自测打开局部历史，再由左栏打开",
+      "expected": "左栏重置all_cet/all/all；局部列表仍只展示对应材料记录。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T014",
+      "requirement": "R04",
+      "action": "准备v1与其明确迁移记录、以及同一paper的多次独立作答",
+      "expected": "仅迁移别名去重，不按paperId合并多次作答；旧记录仍可访问。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T015",
+      "requirement": "R04",
+      "action": "历史打开另一套卷进行中记录与已提交记录",
+      "expected": "真实重新加载对应paper并按attemptId恢复，不混用当前卷题目、不新建活动。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T016",
+      "requirement": "R04",
+      "action": "账号A切到B、收到迟到同步、打开加载更多",
+      "expected": "不闪现A数据；加载态不谎称空历史；稳定排序且每条唯一。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T017",
+      "requirement": "R05",
+      "action": "1920/2560宽窗口对比外刊标题、外刊主体和CET左边界",
+      "expected": "同一版心逻辑，CET不异常左伸；双列主区与右侧历史按C01工程默认呈现。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T018",
+      "requirement": "R05",
+      "action": "宽容器长标题与多条历史",
+      "expected": "两列确为题卡列，题卡间距收紧，历史不挤成第二题卡列或撑破容器。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T019",
+      "requirement": "R05",
+      "action": "在布局阈值前后1px及960/768/390宽度检查",
+      "expected": "双列加侧栏、双列加下方历史、单列按容器空间切换，不出现极窄正文。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T020",
+      "requirement": "R05",
+      "action": "游客、没有历史、深色模式、筛选切换后回到原位置",
+      "expected": "权限和多彩封面保留，不因空历史留巨大空栏，不跳动已正确位置。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T021",
+      "requirement": "R06",
+      "action": "登录后选每个级别，等待目录自动收齐并滚到最后",
+      "expected": "没有页码/翻页/人工加载更多，末项与服务端总数一致；不是只剩前12套。",
+      "status": "partial",
+      "evidence": "目录加载器及历史页码兼容测试通过；本机真实四级25/25目录。其余级别、游客、真实网络故障及导航矩阵未全验。"
+    },
+    {
+      "id": "T022",
+      "requirement": "R06",
+      "action": "按年份及三个题型过滤，含一个paper两篇仔细阅读",
+      "expected": "全部匹配篇章可通过下滑访问，排序固定且无重复。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T023",
+      "requirement": "R06",
+      "action": "快速四级→六级→年份→题型，延迟响应乱序",
+      "expected": "旧批次被取消/忽略，不把旧筛选材料追加到新列表。",
+      "status": "partial",
+      "evidence": "目录加载器及历史页码兼容测试通过；本机真实四级25/25目录。其余级别、游客、真实网络故障及导航矩阵未全验。"
+    },
+    {
+      "id": "T024",
+      "requirement": "R06",
+      "action": "第二批请求失败再重试",
+      "expected": "已有目录保留，明确提示后续未完整，重试不重复、不谎称全部加载。",
+      "status": "partial",
+      "evidence": "目录加载器及历史页码兼容测试通过；本机真实四级25/25目录。其余级别、游客、真实网络故障及导航矩阵未全验。"
+    },
+    {
+      "id": "T025",
+      "requirement": "R06",
+      "action": "游客访问及带旧page=2的本地筛选状态进入",
+      "expected": "游客限制不变；旧页码不让列表缺首批或空白。",
+      "status": "partial",
+      "evidence": "目录加载器及历史页码兼容测试通过；本机真实四级25/25目录。其余级别、游客、真实网络故障及导航矩阵未全验。"
+    },
+    {
+      "id": "T026",
+      "requirement": "R06",
+      "action": "观察Network和首页bundle，切到做题上一篇/下一篇",
+      "expected": "只加载有界元数据，正文仍按需；篇章导航没有被误删。",
+      "status": "partial",
+      "evidence": "目录加载器及历史页码兼容测试通过；本机真实四级25/25目录。其余级别、游客、真实网络故障及导航矩阵未全验。"
+    },
+    {
+      "id": "T027",
+      "requirement": "R07",
+      "action": "练习套卷所有题已答后点击顶部提交全部",
+      "expected": "一次动作提交固定范围内全部篇，目标仍practice，activityId不变，显示总结果。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T028",
+      "requirement": "R07",
+      "action": "有未答题时点击，再取消，然后确认",
+      "expected": "仅一次准确汇总确认；取消无快照副作用，确认保留未答并完成全部待提交篇。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T029",
+      "requirement": "R07",
+      "action": "已有两篇提交、其余未交，执行提交全部",
+      "expected": "已有快照/答案/时间/版本字节语义不变，只新增待提交篇结果。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T030",
+      "requirement": "R07",
+      "action": "单篇活动及非固定四部分测试材料提交全部",
+      "expected": "只处理scope实际范围，不带入同卷其他题，也不要求凑齐四篇。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T031",
+      "requirement": "R07",
+      "action": "模拟本机flush失败→重试，并连续双击提交",
+      "expected": "保存前不揭晓；重试保持operation/snapshot标识，无重复提交或只完成首篇。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T032",
+      "requirement": "R07",
+      "action": "在分阶段写入中断后刷新恢复",
+      "expected": "不删除已落盘数据，准确恢复整批剩余状态；无法恢复时显示可重试故障而非成功。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T033",
+      "requirement": "R07",
+      "action": "提交期间切账号，或另一设备上传迟到草稿",
+      "expected": "不串账号；已提交快照不能被晚到答案改变。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T034",
+      "requirement": "R07",
+      "action": "有两端不同提交的冲突篇，或一题没有可靠参考答案",
+      "expected": "不静默挑一份得总分；无可靠题排除计分分母并解释。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T035",
+      "requirement": "R07",
+      "action": "查看汇总、回看解析、打开正常外刊的保存",
+      "expected": "每题/用时只统计一次，不生成官方CET换算分，不调用AI；普通文章仍能保存。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T036",
+      "requirement": "R08",
+      "action": "夜间在PDF截图的侧栏和Menu位置悬停，再切白天",
+      "expected": "文本/背景配对，夜间可读且白天不退化，鼠标点击无持久粗框。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T037",
+      "requirement": "R08",
+      "action": "逐状态截图全部新增按钮、历史、下拉、确认框、摘要与提示",
+      "expected": "覆盖默认/hover/focus/选中/禁用/loading/error，非只静态默认图。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T038",
+      "requirement": "R08",
+      "action": "读取实际computed前景/背景并操作键盘",
+      "expected": "普通文字达到约定对比度、关键控件可辨认，键盘焦点清楚且有真实作用。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T039",
+      "requirement": "R09",
+      "action": "鼠标在卡片外，慢滑到录屏类似一排，采集外框/裁剪框/内图",
+      "expected": "入场时固定外框x与width在1 CSS px容差内；保存测量JSON与前后帧。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T040",
+      "requirement": "R09",
+      "action": "鼠标停图片内重复滚动，再移出",
+      "expected": "正常3D保留且不会被当作布局bug；移出无残留横移。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T041",
+      "requirement": "R09",
+      "action": "冷/热缓存、快滑下行与上行回看、连续几排",
+      "expected": "不再整排突然向左伸，图片持续可见，记录帧间隔/长任务而非凭感受断言。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T042",
+      "requirement": "R09",
+      "action": "追加文章、切类别、离开CET再返回外刊",
+      "expected": "新卡片有合理入场；已显示卡片不因无关列表更新被整体重置。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T043",
+      "requirement": "R09",
+      "action": "Windows Chrome/Edge与可用macOS实机，含DPR/缩放变化",
+      "expected": "按环境分别取证，缺实机明确未验证，不宣称全电脑保证。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T044",
+      "requirement": "R09",
+      "action": "对比修前修后外框scale及内部transform",
+      "expected": "最终根因说明只保留A/B支持结论，不能直接归咎网络/性能。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T045",
+      "requirement": "R10",
+      "action": "在截图相近窄窗口对时事中心和四周使用真实指针点击",
+      "expected": "首次即触发；保存elementsFromPoint命中栈，不以DOM.click替代。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T046",
+      "requirement": "R10",
+      "action": "相邻分类、搜索、四/六级、左栏品牌与快捷按钮逐一操作",
+      "expected": "修复穿透不会让本来该可点的控件失效。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T047",
+      "requirement": "R10",
+      "action": "打开关闭Menu/词典/生词层后，125%/150%缩放重测",
+      "expected": "无透明背板或宽父容器截获，关闭层不再参与命中。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T048",
+      "requirement": "R10",
+      "action": "手机上下滑动及键盘Tab/Enter",
+      "expected": "不误触、不锁滚动，焦点顺序和可访问动作保留。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T049",
+      "requirement": "R11",
+      "action": "仅hover文章标题，再分别hover图片、来源、标签和卡片空白",
+      "expected": "只有标题区域显示已有summary；整卡箭头及图片3D仍在。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T050",
+      "requirement": "R11",
+      "action": "有摘要、缺摘要、很长摘要、长标题四种卡片",
+      "expected": "不新增AI请求；缺摘要无空泡；长摘要有界且可读。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T051",
+      "requirement": "R11",
+      "action": "标题位于屏幕底部/右边缘并滚动或切换分类",
+      "expected": "提示自动限位/关闭，不挡主标题、不改卡片高度或下一排位置。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T052",
+      "requirement": "R11",
+      "action": "从标题点击进入文章、键盘聚焦原打开动作",
+      "expected": "仍一次打开，摘要辅助说明可达，不新增嵌套button或多余Tab陷阱。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T053",
+      "requirement": "R11",
+      "action": "触屏点按卡片及全列表快速扫过",
+      "expected": "一次进入文章不变；无大量闪烁摘要，多条最多显示一条。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T054",
+      "requirement": "R12",
+      "action": "账号A在浏览器实例1当天首次打开并等待开屏完成",
+      "expected": "可见底部仅“今天更新了N篇文章”，约两秒后消失，不抢焦点或挡点击。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T055",
+      "requirement": "R12",
+      "action": "同账号同实例刷新/再次导航，当天新增精选后重开",
+      "expected": "都不再提示；新文章数变化不会重复消费当天提示。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T056",
+      "requirement": "R12",
+      "action": "账号A在全新独立browser context打开；实例1换账号B",
+      "expected": "两者各有自己的当日一次提示；A已看不抑制其他实例或B。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T057",
+      "requirement": "R12",
+      "action": "首页默认CET页、外刊首屏未展开全库、当前搜索为空结果",
+      "expected": "数量仍按全站当前公开精选集合计算，不被部分目录或筛选影响。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T058",
+      "requirement": "R12",
+      "action": "多分类同一文章、零更新、无效日期测试",
+      "expected": "同文只计一次，零按工程默认显示0；不把错误/未加载当0。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T059",
+      "requirement": "R12",
+      "action": "提示等待期间切账号、导航、隐藏标签页或开屏延长",
+      "expected": "不先写已展示，实际看见后才计两秒；不向另一账号显示旧结果。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T060",
+      "requirement": "R12",
+      "action": "跨北京时间午夜保持页面或次日首次回来",
+      "expected": "日期重新计算，次日能显示一次，不沿用首次useMemo旧日期。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T061",
+      "requirement": "R12",
+      "action": "同实例多页签、存储拒绝、清理存储测试",
+      "expected": "正常存储抑制重复；拒绝时不崩溃，局部退化范围如实记录，不做设备指纹或云同步去重。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T062",
+      "requirement": "R13",
+      "action": "360/390/430/768/960/1440/1920宽开屏取成形与停留帧",
+      "expected": "两个英文词可辨、没有裁切/粘成条，不只校验canvas不溢出。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T063",
+      "requirement": "R13",
+      "action": "单行/双行切换阈值±1px及横竖屏切换",
+      "expected": "按测量可用宽布局，保持单词完整，resize不重播或随机散架。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T064",
+      "requirement": "R13",
+      "action": "字体延迟或失败、不同DPR、低CPU条件",
+      "expected": "fallback仍可读，粒径密度跟字号联动且不通过海量粒子硬撑。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T065",
+      "requirement": "R13",
+      "action": "开启reduced-motion或关闭动效",
+      "expected": "完整静态字标/正常进入，不白屏或无限等待。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T066",
+      "requirement": "R13",
+      "action": "录制全过程并检查布局读取/采样范围",
+      "expected": "初始到离场均正常，未每帧重测布局或全屏读像素，统计未引入新长任务。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T067",
+      "requirement": "R14",
+      "action": "宽浏览器打开实际窄使用说明嵌入面板",
+      "expected": "根据面板宽而非viewport切换，正文不成逐字竖列。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T068",
+      "requirement": "R14",
+      "action": "960/1024窗口Menu与说明并存，展开核心功能",
+      "expected": "标签降到正文下，必要时说明独占面板且有返回，不强行三列。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T069",
+      "requirement": "R14",
+      "action": "独立说明页、390手机、长英文/URL/FAQ/Anki",
+      "expected": "内容完整可读，无删字或整体缩小；横向异常溢出为0。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T070",
+      "requirement": "R14",
+      "action": "目录跳转、面板滚动、关闭/Escape/回到Menu",
+      "expected": "滚动容器正确，锚点可见，焦点恢复，触屏边缘不劫持正文。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T071",
+      "requirement": "R14",
+      "action": "同尺寸检查计时设置/历史/结果/题库弹层",
+      "expected": "所有受影响弹层维持可读最小宽度与关闭按钮，不扩张重做Admin。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T072",
+      "requirement": "R15",
+      "action": "冷/热缓存各三次记录三点等待与字标动画",
+      "expected": "分开网络、账号、存储、本地准备、首帧和动画自身时长，报告中位/最大值。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T073",
+      "requirement": "R15",
+      "action": "正常/受限网络与CPU降速分别采集",
+      "expected": "结论能区分耗时来源，不把网络等待和固定1650ms动画合并。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T074",
+      "requirement": "R15",
+      "action": "账号请求失败/离线、字体失败、canvas不可用",
+      "expected": "可用功能与真实错误出口保留，不无限加载、不凭缓存越权。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T075",
+      "requirement": "R15",
+      "action": "对比独立准备并行或采样优化前后",
+      "expected": "有真实trace支持改善；三点不是直接被隐藏成白屏，也没有新增硬编码延迟。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T076",
+      "requirement": "R16",
+      "action": "执行紧凑响应矩阵及实际新增断点±1px几何巡检",
+      "expected": "每项记录CSS尺寸/DPR/引擎/主题，重叠或不可点击没有被截图裁掉。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T077",
+      "requirement": "R16",
+      "action": "运行真实Reader练习→提交全部→结果→再开自测完整路径",
+      "expected": "共享工具、不可变结果、账号隔离、正/倒计时和跨设备数据不退化。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T078",
+      "requirement": "R16",
+      "action": "运行普通外刊查词含句译、词典、全文翻译、保存和返回",
+      "expected": "既有阅读核心与最近阅读不被CET修复破坏。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "T079",
+      "requirement": "R16",
+      "action": "检查源码diff、依赖、测试与证据清单",
+      "expected": "没有无关框架/DB/题库改写，没有拿旧版测试结果或mock证明本轮视觉。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "P01",
+      "requirement": "RELEASE",
+      "action": "权限与基线",
+      "expected": "读取最新AGENTS/发布治理，核对独立任务worktree、main和当前生产parent；不覆盖共享脏目录。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "P02",
+      "requirement": "RELEASE",
+      "action": "发布前门槛",
+      "expected": "相关单元/状态/存储/真实浏览器/critical/build/lint/发布契约通过；基线异常独立复现记录，不能降低本轮断言。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "P03",
+      "requirement": "RELEASE",
+      "action": "GitHub集成",
+      "expected": "审查改动并提交，正常集成push main；git ls-remote核实remote SHA，不force。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "P04",
+      "requirement": "RELEASE",
+      "action": "可恢复的累计包",
+      "expected": "干净集成源码准确sourceRevision，manifest parent等于实际当前生产，changedFiles精确；备份与回滚镜像可用。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "P05",
+      "requirement": "RELEASE",
+      "action": "稳定发布入口",
+      "expected": "使用仓库规定稳定入口及锁/parent复核，常规只重建app/caddy；数据服务与海外配置不擅改。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "P06",
+      "requirement": "RELEASE",
+      "action": "公网版本与核心",
+      "expected": "公网/api/connectivity核实releaseId/parent/backendMode；source用服务器manifest/state核实，不假设API有source字段；真实账号/阅读核心烟测。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "P07",
+      "requirement": "RELEASE",
+      "action": "公网视觉与交互",
+      "expected": "复查开始页、四按钮、全历史、提交全部、目录末项、卡片入场和说明等关键路径；不可获得证据则标部分验证并报告，不声称完整视觉通过。",
+      "status": "not_run",
+      "evidence": ""
+    },
+    {
+      "id": "P08",
+      "requirement": "RELEASE",
+      "action": "证据回写与交付",
+      "expected": "记录最终main SHA与生产source差异、发布ID/父版本、测试截图、C01默认、未验证项及回滚准备；不能只交任务分支或把上传当上线。",
+      "status": "not_run",
+      "evidence": ""
+    }
+  ]
+}

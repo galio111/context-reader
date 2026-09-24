@@ -1010,3 +1010,19 @@ html[data-context-theme="night"] .cet-practice-total { color: #dcebed; border-co
 
 [data-cet-tooltip-dismissed="true"][data-cet-testing="true"] :is(.cet-disabled-tooltip,aside button[aria-disabled="true"] small) { visibility: hidden; }
 @media(max-width:1279px) { .cet-shared-toolbar button.cet-timer > span:first-child { display:none; } }
+
+/* C01 engineering default: the history area is on the right, configured here. */
+.cet-library { width: min(1320px,100%); margin-inline: auto; }
+.cet-library-layout { grid-template-areas: "papers" "history"; grid-template-columns:minmax(0,1fr); }
+.cet-resource-grid { grid-area:papers; align-content:start; }
+.cet-recent { grid-area:history; min-width:0; }
+.cet-catalogue-status { padding-block:16px; color:#526771; }
+.cet-catalogue-status button { margin-left:12px; min-height:44px; text-decoration:underline; }
+@container (min-width:680px) { .cet-resource-grid { grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px; } }
+@container (min-width:1056px) {
+  .cet-library-layout:not(.cet-library-wide) { grid-template-areas:"papers history";grid-template-columns:minmax(0,1fr) 250px;gap:28px; }
+  .cet-library-layout:not(.cet-library-wide) .cet-recent { border-top:0;padding-top:0; }
+  .cet-recent-list { max-height:620px;overflow-y:auto; }
+}
+.cet-library-compact .cet-resource-grid { grid-template-columns:minmax(0,1fr); }
+html[data-context-theme="night"] .cet-catalogue-status { color:#b6cbd1; }

@@ -953,9 +953,9 @@
 :global(.cr-reader-root[data-cet-reader="true"]) .actions[data-start="true"] { display: flex; width: auto; margin-left: auto; }
 :global(.cr-reader-root[data-cet-reader="true"]) .action { padding-inline: 12px; font-size: 13px; height: 44px; }
 @media (min-width:1280px) {
-  :global(.cr-reader-root[data-cet-reader="true"]) .actions { position: fixed; right: max(1.25rem,calc((100vw - var(--reader-desktop-inset-left) - 80rem)/2 + 1.25rem)); top: 14px; }
-  :global(.cr-reader-root[data-cet-reader="true"]) .readerSidePanel { width: 460px; }
-  :global(.cr-reader-root[data-cet-reader="true"]) .readerLayout:not(:global(.cet-start-layout)) { grid-template-columns: minmax(0,1fr) 460px; }
+  :global(.cr-reader-root[data-cet-reader="true"]) .actions { position: fixed; right: max(20px,calc(20px + (100vw - 168px - 1380px)/2)); top: 14px; }
+  :global(.cr-reader-root[data-cet-reader="true"]) .readerSidePanel { width: 460px !important; }
+  :global(.cr-reader-root[data-cet-reader="true"]) .readerLayout:not(:global(.cet-start-layout)) { grid-template-columns: minmax(0,1fr) 460px !important; }
 }
 @media (max-width:1279px) {
   :global(.cr-reader-root[data-cet-reader="true"]) .actions { grid-template-columns: minmax(0,1fr) minmax(0,1fr); width: min(360px,calc(100vw - 126px)); margin-left:auto; flex: 0 1 auto; }

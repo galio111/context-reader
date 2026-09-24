@@ -13,7 +13,7 @@ export function normalizeCetLibraryView(value: unknown): CetLibraryView {
     view: x?.view === "type" ? "type" : "paper",
     type: x?.type === "matching" || x?.type === "detail" ? x.type : "cloze",
     year: typeof x?.year === "string" && /^20\d{2}$/.test(x.year) ? x.year : "recent",
-    page: Number.isInteger(x?.page) && Number(x?.page) >= 0 && Number(x?.page) < 1000 ? Number(x?.page) : 0,
+    page: 0, // Legacy page values never skip the beginning of the continuous directory.
   };
 }
 export function readCetLibraryView(): CetLibraryView {
