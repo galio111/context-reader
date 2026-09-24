@@ -1,7 +1,7 @@
 {
   "version": "revision3-production",
   "baseline": "5115d4c62a79e9b530b7187f2c7278dbff62fadc",
-  "status": "in_progress",
+  "status": "in_progress_browser_evidence_blocked",
   "productTestCount": 79,
   "releaseTestCount": 8,
   "tests": [
@@ -66,32 +66,32 @@
       "requirement": "R03",
       "action": "宽桌面自测打开右侧阅读工具栏",
       "expected": "计时、答题卡、提交自测、Menu顺序固定且同一行，均在右侧栏上方。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T009",
       "requirement": "R03",
       "action": "练习、开始页、结果页分别查看工具条",
       "expected": "分别显示提交全部、开始页正常Menu、结果冻结状态；没有错模式按钮或占位大卡。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T010",
       "requirement": "R03",
       "action": "09:59跨10:00、99:59跨100:00、暂停/恢复",
       "expected": "计时文字完整，相邻控件无明显挤动，翻译栏高度不被占用。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T011",
       "requirement": "R03",
       "action": "390宽、窄桌面临界宽度与125%缩放操作四个按钮",
       "expected": "紧凑布局明确、无溢出重叠；实际可点，不把文字缩到不可读。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T012",
@@ -218,72 +218,72 @@
       "requirement": "R07",
       "action": "练习套卷所有题已答后点击顶部提交全部",
       "expected": "一次动作提交固定范围内全部篇，目标仍practice，activityId不变，显示总结果。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T028",
       "requirement": "R07",
       "action": "有未答题时点击，再取消，然后确认",
       "expected": "仅一次准确汇总确认；取消无快照副作用，确认保留未答并完成全部待提交篇。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T029",
       "requirement": "R07",
       "action": "已有两篇提交、其余未交，执行提交全部",
       "expected": "已有快照/答案/时间/版本字节语义不变，只新增待提交篇结果。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T030",
       "requirement": "R07",
       "action": "单篇活动及非固定四部分测试材料提交全部",
       "expected": "只处理scope实际范围，不带入同卷其他题，也不要求凑齐四篇。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T031",
       "requirement": "R07",
       "action": "模拟本机flush失败→重试，并连续双击提交",
       "expected": "保存前不揭晓；重试保持operation/snapshot标识，无重复提交或只完成首篇。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T032",
       "requirement": "R07",
       "action": "在分阶段写入中断后刷新恢复",
       "expected": "不删除已落盘数据，准确恢复整批剩余状态；无法恢复时显示可重试故障而非成功。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T033",
       "requirement": "R07",
       "action": "提交期间切账号，或另一设备上传迟到草稿",
       "expected": "不串账号；已提交快照不能被晚到答案改变。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T034",
       "requirement": "R07",
       "action": "有两端不同提交的冲突篇，或一题没有可靠参考答案",
       "expected": "不静默挑一份得总分；无可靠题排除计分分母并解释。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T035",
       "requirement": "R07",
       "action": "查看汇总、回看解析、打开正常外刊的保存",
       "expected": "每题/用时只统计一次，不生成官方CET换算分，不调用AI；普通文章仍能保存。",
-      "status": "not_run",
-      "evidence": ""
+      "status": "partial",
+      "evidence": "真实Reader整卷30道空答提交、刷新后单一整卷历史、重新打开结果一致；390工具栏截图及1440右栏460px。保存失败重试有事件/存储测试；其余对应场景及完整矩阵未全验。"
     },
     {
       "id": "T036",
@@ -701,5 +701,16 @@
       "status": "not_run",
       "evidence": ""
     }
-  ]
+  ],
+  "checkpoint": {
+    "phaseA": "685253e",
+    "phaseB": "437b5f1",
+    "tests": {
+      "cet": "38/38",
+      "catalogue_and_switch": "6/6",
+      "typescript": "pass"
+    },
+    "browser": "Real Reader submit all 4/4, reload/history reopen retains result; local isolated identity. 390 screenshot and1440 geometry only. Full matrix pending.",
+    "blocker": "Browser bridge lost after phaseC diagnostic tab navigation; no phaseC A/B yet."
+  }
 }
