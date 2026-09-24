@@ -66,11 +66,11 @@
 }
 
 .action:disabled {
-  color: oklch(57% 0.02 220);
-  background: oklch(94% 0.008 220);
+  color: #586b73;
+  background: #e7edef;
   box-shadow: none;
   cursor: not-allowed;
-  opacity: 0.58;
+  opacity: 1;
   transform: none;
 }
 
@@ -963,4 +963,17 @@
   :global(.cr-reader-root[data-cet-reader="true"]) .readerLayout { padding-top: 128px; }
   :global(.cr-reader-root[data-cet-reader="true"]) .readerSidePanel { top: 128px; }
   :global(.cr-reader-root[data-cet-reader="true"]) .actions .action { width: 100%; font-size: 12px; padding-inline: 6px; }
+}
+
+:global(html[data-context-theme="night"]) .railActions small {
+  color: #dcebed;
+  background: #203740;
+  border-color: #516b75;
+}
+
+:global(html[data-context-theme="night"]) .action:disabled {
+  color: #b3c6cc;
+  background: #243b44;
+  box-shadow: none;
+  opacity: 1;
 }

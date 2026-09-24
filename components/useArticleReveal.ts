@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, type RefObject } from "react";
 
-export function useArticleReveal(gridRef: RefObject<HTMLDivElement | null>, cardClass: string, resourceTab: "articles" | "cet", motionKey: string, resetKey = motionKey) {
+export function useArticleReveal(gridRef: RefObject<HTMLDivElement | null>, cardClass: string, resourceTab: "articles" | "cet", motionKey: string, resetKey = motionKey.split("\0", 1)[0]) {
   const previous = useRef<{ grid: HTMLDivElement; resetKey: string } | null>(null);
   useEffect(() => {
     const grid = gridRef.current;

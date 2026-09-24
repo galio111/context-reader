@@ -4,6 +4,9 @@ import dynamicCet from "next/dynamic";
 const CetLibrary = dynamicCet(() => import("@/components/cet/CetLibrary").then(m => m.CetLibrary), { loading: () => <p role="status">正在读取真题目录…</p> });
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
 import Image from "next/image";
+import { useDailyPublicationNotice } from "@/components/useDailyPublicationNotice";
+import { useArticleSummary } from "@/components/useArticleSummary";
+import { startupMark } from "@/lib/startupPerformance";
 import { useArticleReveal } from "@/components/useArticleReveal";
 import { createPortal } from "react-dom";
 import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
@@ -282,6 +285,7 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
   const coverReady = Boolean(coverUrl && loadedCoverUrl === coverUrl && !coverFailed);
   useEffect(() => setCoverFailed(false), [coverUrl]);
   return (
+    <span className={styles.coverClip}>
     <span
       ref={surfaceRef}
       className={`${styles.coverSurface} ${featured ? styles.coverFeatured : ""}`}
@@ -310,6 +314,7 @@ function ArticleCover({ article, featured = false, motion3dEnabled = true }: { a
         </span>
       ) : null}
     </span>
+    </span>
   );
 }
 
@@ -325,6 +330,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
   ));
   const journeyPending = !guestPreviewAllowed && !memberPreviewAllowed && journeyHomeMode === null;
   const memberHome = memberPreviewAllowed || (!guestPreviewAllowed && journeyHomeMode === "member");
+  useEffect(() => { startupMark("script-ready"); void document.fonts.ready.then(() => startupMark("fonts-ready")); }, []);
+  useEffect(() => { if (!journeyPending) requestAnimationFrame(() => startupMark("identity-dots-removed")); }, [journeyPending]);
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuMounted, setMenuMounted] = useState(false);
   useEffect(() => { if (menuOpen) setMenuMounted(true); }, [menuOpen]);
@@ -377,7 +384,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [homeTheme, setHomeTheme] = useState<HomeTheme>("day");
   const [memberBallpitReady, setMemberBallpitReady] = useState(false);
   const [openingArticle, setOpeningArticle] = useState<OpeningArticle | null>(null);
-  const [dailyUpdateNotice, setDailyUpdateNotice] = useState<number | null>(null);
+
   const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [contactCopied, setContactCopied] = useState(false);
   const [wechatQrOpen, setWechatQrOpen] = useState(false);
@@ -432,33 +439,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
   useDocumentScrollLock(dictionaryMounted && compactViewport);
 
   const category = CATEGORY_FILTERS.find((item) => item.label === activeCategory) ?? CATEGORY_FILTERS[0];
-  useEffect(() => {
-    if (dailyUpdateNotice === null) return;
-    const timer = window.setTimeout(() => setDailyUpdateNotice(null), 2000);
-    return () => window.clearTimeout(timer);
-  }, [dailyUpdateNotice]);
-  const recommendationDayKey = useMemo(() => SHANGHAI_DAY_FORMATTER.format(new Date()), []);
-  useEffect(() => {
-    if (accountLoading || !account.authenticated || !account.profile || isOffline || !props.homepageCuration || (props.catalogueStatus && props.catalogueStatus !== "ready")) return;
-    const key = `context-reader:daily-update:${account.profile.userId}`;
-    let displayTimer: number | undefined;
-    try {
-      if (localStorage.getItem(key) === recommendationDayKey) return;
-      displayTimer = window.setTimeout(() => {
-        // Recheck at display time so remounts and other tabs do not repeat it.
-        try {
-          if (localStorage.getItem(key) === recommendationDayKey) return;
-          localStorage.setItem(key, recommendationDayKey);
-        } catch { return; }
-        const count = props.publicArticles.filter(article => {
-          const selectedAt = props.homepageCuration?.selectedAtById[article.id];
-          return selectedAt && SHANGHAI_DAY_FORMATTER.format(new Date(selectedAt)) === recommendationDayKey;
-        }).length;
-        setDailyUpdateNotice(count);
-      }, 1500);
-    } catch { /* Storage-disabled browsers keep the reading flow silent. */ }
-    return () => { window.clearTimeout(displayTimer); };
-  }, [accountLoading, account.authenticated, account.profile?.userId, isOffline, props.homepageCuration, props.publicArticles, props.catalogueStatus, recommendationDayKey]);
+  const dailyNotice = useDailyPublicationNotice(account.profile?.userId, !accountLoading && account.authenticated && !isOffline, !journeyPending && !memberOpeningVisible && !menuOpen && !openingArticle && !props.openingPublicArticleId && !feedbackOpen && !dictionaryMounted);
+  const recommendationDayKey = dailyNotice.day;
+  const articleSummary = useArticleSummary(`${resourceTab}:${activeCategory}:${menuOpen}:${Boolean(openingArticle || props.openingPublicArticleId)}`);
 
   const allCategoryArticles = useMemo(
     () => props.publicArticles.filter(category.test),
@@ -647,7 +630,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     return () => query.removeEventListener("change", update);
   }, []);
 
-  useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\0${displayArticleMotionKey}`, activeCategory);
+  useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\0${displayArticleMotionKey}`);
 
   useEffect(() => {
     const sections = [publicationBridgeRef.current, importRef.current, closingRef.current]
@@ -1158,7 +1141,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
   return (
     <main className={styles.root} data-catalogue-status={props.catalogueStatus ?? "ready"} data-catalogue-count={props.publicArticles.length} data-theme={homeTheme} data-home-mode={memberHome ? "member" : "guest"} data-nav-motion={navMotion} data-guest-preview={guestPreviewAllowed || undefined} data-member-preview={memberPreviewAllowed || undefined} data-standalone-tool-open={menuOpen && menuStandalonePreview || undefined}>
-      {dailyUpdateNotice !== null && <div className={styles.dailyUpdateNotice} role="status">今天更新了 {dailyUpdateNotice} 篇文章</div>}
+      {dailyNotice.count !== null && <div ref={dailyNotice.ref} className={styles.dailyUpdateNotice} role="status">今天更新了 {dailyNotice.count} 篇文章</div>}
+      {articleSummary.summary && <div id="article-summary-tooltip" role="tooltip" className={styles.articleSummaryTooltip} style={{ left: articleSummary.summary.left, top: articleSummary.summary.top, width: articleSummary.summary.width, transform: articleSummary.summary.above ? "translateY(-100%)" : undefined }}>{articleSummary.summary.text}</div>}
       {journeyPending && <div className={styles.accountResolving} role="status" aria-label="正在打开阅读空间"><span /><span /><span /></div>}
       <BookLetterField paused={memberOpeningVisible || !letterMotionEnabled} />
       <header className={styles.topbar}>
@@ -1195,6 +1179,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           <div className={styles.memberOpeningBalls}>
             {!memberHome || memberOpeningVariant === "wordfall" ? (
               <FallingWordOpening
+                motionEnabled={letterMotionEnabled}
                 className={styles.wordFallCanvas}
                 onComplete={() => { setMemberOpeningVisible(false); setGuestOpeningComplete(true); }}
               />
@@ -1428,14 +1413,16 @@ export function HomeRedesign(props: HomeRedesignProps) {
                     className={`${styles.articleCard} ${featured ? styles.featuredCard : ""}`}
                     style={{ "--article-reveal-index": revealDelayIndex } as CSSProperties}
                     onPointerEnter={() => props.onPrefetchPublicArticle(item.id)}
-                    onFocus={() => props.onPrefetchPublicArticle(item.id)}
+                    aria-describedby={articleSummary.summary?.id === item.id ? "article-summary-tooltip" : undefined}
+                    onFocus={(event) => { props.onPrefetchPublicArticle(item.id); if (event.currentTarget.matches(":focus-visible")) { const title = event.currentTarget.querySelector<HTMLElement>("[data-summary-title]"); if(title) articleSummary.show(item.id, item.summary || "", title, true); } }}
+                    onBlur={articleSummary.close}
                     onClick={(event) => beginArticleTransition(item, event)}
                     disabled={Boolean(props.openingPublicArticleId || openingArticle)}
                   >
                   <ArticleCover article={item} featured={featured} motion3dEnabled={recommendationMotionEnabled} />
                     <span className={styles.cardCopy}>
                       <small>{item.sourceName || "Context Reader"}</small>
-                      <strong>{item.title}</strong>
+                      <strong data-summary-title onPointerEnter={event => articleSummary.show(item.id, item.summary || "", event.currentTarget)} onPointerLeave={articleSummary.hide}>{item.title}</strong>
                       <span className={styles.cardMeta}>
                         {selectedToday && <i className={styles.todayBadge}>今日更新</i>}
                         <i>{recommendation?.difficulty || "难度待定"}</i>

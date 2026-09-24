@@ -207,8 +207,8 @@ html[data-context-theme="night"] .cr-reader-panel {
   color: #e5eef0 !important;
 }
 
-html[data-context-theme="night"] .cr-reader-article :is(h1, h2, h3, h4, p, span, strong, small, em, li, td, th),
-html[data-context-theme="night"] .cr-reader-panel :is(h1, h2, h3, h4, p, span, strong, small, em, li, dt, dd) {
+html[data-context-theme="night"] .cr-reader-article :is(h1, h2, h3, h4, p, span, strong, small, em, li, td, th):not([data-pill-action] *),
+html[data-context-theme="night"] .cr-reader-panel :is(h1, h2, h3, h4, p, span, strong, small, em, li, dt, dd):not([data-pill-action] *) {
   color: #dfeaec !important;
 }
 
@@ -233,7 +233,7 @@ html[data-context-theme="night"] :is(.cr-reader-root, .cr-account-usage, [data-h
 }
 
 html[data-context-theme="night"] :is(.cr-reader-root, .cr-reader-article, .cr-reader-panel, .cr-account-usage, [data-home-menu-preview])
-  :is(h1, h2, h3, h4, p, span, strong, small, em, li, dt, dd, label, summary, figcaption, caption, td, th) {
+  :is(h1, h2, h3, h4, p, span, strong, small, em, li, dt, dd, label, summary, figcaption, caption, td, th):not([data-pill-action] *) {
   color: var(--cr-night-ink, #e8f1f3) !important;
 }
 

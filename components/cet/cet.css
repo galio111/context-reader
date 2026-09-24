@@ -940,7 +940,7 @@ button.cet-timer[data-state="paused"] { background: #e8f3f6; }
 .cet-budget button { width: 44px; height: 44px; border-radius: 50%; background: #e8f3f6; }
 .cet-disabled-menu { position: relative; cursor: not-allowed; }
 .cet-disabled-menu::after { content: "⊘"; position: absolute; right: 7px; top: 4px; font-size: 12px; color: #66767b; pointer-events: none; }
-.cet-disabled-menu button { opacity: .5; }
+.cet-disabled-menu button { opacity: 1; color: #586b73; background: #e7edef; }
 .cet-word-bank > span { display: inline-flex; align-items: baseline; gap: 5px; padding: 4px 10px; border-radius: 999px; background: #e8f3f6; }
 .cet-word-bank b { background: transparent; padding: 0; }
 .cet-gap button { min-width: 30px; }
@@ -1026,3 +1026,7 @@ html[data-context-theme="night"] .cet-practice-total { color: #dcebed; border-co
 }
 .cet-library-compact .cet-resource-grid { grid-template-columns:minmax(0,1fr); }
 html[data-context-theme="night"] .cet-catalogue-status { color:#b6cbd1; }
+
+html[data-context-theme="night"] .cet-bottom-nav button { background: #294753; color: #e4f3f5; }
+html[data-context-theme="night"] .cet-bottom-nav button:disabled,
+html[data-context-theme="night"] .cet-disabled-menu button { background: #243b44; color: #b3c6cc; opacity: 1; }

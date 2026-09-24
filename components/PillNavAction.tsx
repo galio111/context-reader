@@ -213,6 +213,7 @@ export function PillNavAction({
     return (
       <Link
         ref={(element) => { actionRef.current = element; }}
+        data-pill-action="true"
         className={sharedClassName}
         href={href}
         aria-label={ariaLabel}
@@ -230,7 +231,8 @@ export function PillNavAction({
   return (
     <button
       ref={(element) => { actionRef.current = element; }}
-      className={sharedClassName}
+      data-pill-action="true"
+        className={sharedClassName}
       type={type}
       aria-label={ariaLabel}
       aria-expanded={ariaExpanded}

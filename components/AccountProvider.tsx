@@ -2,6 +2,7 @@
 
 import { lowUsageNotice } from "@/lib/usagePresentation";
 
+import { startupMark } from "@/lib/startupPerformance";
 import { getLearningStorage, downloadLearningBackup, initializeLearningStorage, flushLearningStorage, isLearningStorage, LEARNING_STORAGE_EVENT, type LearningStorageStatus } from "@/lib/learningStorage";
 import Link from "next/link";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
@@ -99,7 +100,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const changed = (event: Event) => setStorageStatus((event as CustomEvent<LearningStorageStatus>).detail);
     window.addEventListener(LEARNING_STORAGE_EVENT, changed);
-    void initializeLearningStorage().then(() => { const storage = getLearningStorage(); if (isLearningStorage(storage)) void storage.estimate(); }).catch(() => {});
+    startupMark("storage-start");
+    void initializeLearningStorage().then(() => { startupMark("storage-ready"); const storage = getLearningStorage(); if (isLearningStorage(storage)) void storage.estimate(); }).catch(() => {});
     return () => { window.removeEventListener(LEARNING_STORAGE_EVENT, changed); loginController.current?.abort(); };
   }, []);
   useEffect(() => {
@@ -145,14 +147,17 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const refreshAccount = useCallback(async (): Promise<ConnectionResult> => {
+    const storageReady = initializeLearningStorage().catch(() => {});
     const controller = new AbortController();
     const timeoutId = window.setTimeout(() => controller.abort(), ACCOUNT_SESSION_TIMEOUT_MS);
     try {
+      startupMark("account-request");
       const response = await fetch("/api/auth/session", { cache: "no-store", priority: "high", signal: controller.signal });
       const data = await response.json().catch(() => null) as { account?: AccountSessionState; unavailable?: boolean } | null;
       if (!response.ok || data?.unavailable) {
         throw new Error("account service unavailable");
       }
+      await storageReady;
       const nextAccount = data?.account ?? emptyAccount;
       if (nextAccount.authenticated && nextAccount.profile?.userId) {
         await prepareLocalAccountForUser(nextAccount.profile.userId, { preserveExistingData: nextAccount.localDirect });
@@ -176,6 +181,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       }
       return "online";
     } catch {
+      await storageReady;
       const reason = await canReachContextReader() ? "service" : "network";
       setIsOffline(true);
       setOfflineReason(reason);
@@ -185,6 +191,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       return reason;
     } finally {
       window.clearTimeout(timeoutId);
+      startupMark("account-resolved");
       setLoading(false);
     }
   }, []);
@@ -251,7 +258,6 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         setMessage(decodeURIComponent(authError.replace(/\+/g, " ")));
       }
 
-      await initializeLearningStorage().catch(() => {});
       await refreshAccount();
     }
 
@@ -266,6 +272,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       setLocalAccount(readLocalAccountSession());
       setUsageNotice("");
       setOfflineActionNotice("检测到网络已断开，本机内容仍可继续使用。");
+      startupMark("account-resolved");
       setLoading(false);
     };
     const retryOnline = () => {
