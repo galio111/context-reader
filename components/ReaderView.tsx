@@ -1447,7 +1447,6 @@ export function ReaderView({
   const [explanationStreaming, setExplanationStreaming] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [lockedToolNotice,setLockedToolNotice]=useState("");
   const [cetLibraryOpen, setCetLibraryOpen] = useState(false);
   const [readerMenuOpen, setReaderMenuOpen] = useState(false);
   const [readerMenuInitialPreview, setReaderMenuInitialPreview] = useState<PreviewKind | null>(null);
@@ -1489,10 +1488,10 @@ export function ReaderView({
   const [failedImageBlockIds, setFailedImageBlockIds] = useState<Set<string>>(() => new Set());
   const [dictionaryMounted, setDictionaryMounted] = useState(false);
   const [dictionaryClosing, setDictionaryClosing] = useState(false);
+  const [dismissTooltips, setDismissTooltips] = useState(false);
   const assistanceLockedRef = useRef(Boolean(examSurface?.locked));
   assistanceLockedRef.current = Boolean(examSurface?.locked);
   useEffect(() => {
-    setLockedToolNotice("");
     if (!examSurface?.locked) return;
     abortActiveExplanationTransport();
     setSelectedTokenIds([]);setSelectedContext(null);setExplanation(null);setExplanationStreamText("");setExplanationStreaming(false);setLoading(false);
@@ -3781,7 +3780,10 @@ export function ReaderView({
       data-editorial-workbench={editorialWorkbench || undefined}
       data-cet-reader={Boolean(examSurface) || undefined}
       data-cet-testing={examSurface?.testing || undefined}
-      onClickCapture={event=>{if(!examSurface?.locked)return;const target=event.target instanceof Element ? event.target.closest('[aria-disabled="true"],.cet-disabled-menu') : null;if(target){event.preventDefault();event.stopPropagation();setLockedToolNotice(examSurface.testing ? "自测时禁用该按钮" : "选择学习目标后可用");}}}
+      data-cet-tooltip-dismissed={dismissTooltips || undefined}
+      onPointerMoveCapture={() => {if(dismissTooltips)setDismissTooltips(false);}}
+      onKeyDownCapture={event => {if(event.key === "Escape")setDismissTooltips(true);}}
+      onClickCapture={event=>{if(!examSurface?.locked)return;const target=event.target instanceof Element ? event.target.closest('[aria-disabled="true"],.cet-disabled-menu') : null;if(target){event.preventDefault();event.stopPropagation();}}}
       style={{ "--reader-desktop-inset-left": `${desktopViewportInsetLeft}px` } as CSSProperties}
     >
       <aside className={toolbarStyles.desktopRail} aria-label="阅读快捷入口">
@@ -3792,17 +3794,17 @@ export function ReaderView({
           disabled={savingArticleEdit}
         />}
         <div className={toolbarStyles.railActions}>
-          {!editorialWorkbench && <button type="button" aria-disabled={examSurface?.locked || undefined} title={examSurface?.testing ? "自测时禁用该按钮" : examSurface?.startScreen ? "选择学习目标后可用" : undefined} onClick={() => setReaderWorkLayer("import")}>
-            <ReaderRailIcon kind="import" /><span>导入</span><small>{examSurface?.testing ? "自测时禁用该按钮" : examSurface?.startScreen ? "选择学习目标后可用" : "导入新的文章或网址"}</small>
+          {!editorialWorkbench && <button type="button" aria-disabled={examSurface?.locked || undefined}  onClick={() => setReaderWorkLayer("import")}>
+            <ReaderRailIcon kind="import" /><span>导入</span><small>{examSurface?.testing ? "自测时禁用该按钮" : "导入新的文章或网址"}</small>
           </button>}
-          <button type="button" aria-disabled={examSurface?.locked || undefined} title={examSurface?.testing ? "自测时禁用该按钮" : examSurface?.startScreen ? "选择学习目标后可用" : undefined} onClick={openDictionaryWindow}>
-            <ReaderRailIcon kind="dictionary" /><span>查词</span><small>{examSurface?.testing ? "自测时禁用该按钮" : examSurface?.startScreen ? "选择学习目标后可用" : "打开可移动查词窗口"}</small>
+          <button type="button" aria-disabled={examSurface?.locked || undefined}  onClick={openDictionaryWindow}>
+            <ReaderRailIcon kind="dictionary" /><span>查词</span><small>{examSurface?.testing ? "自测时禁用该按钮" : "打开可移动查词窗口"}</small>
           </button>
-          <button type="button" aria-disabled={examSurface?.locked || undefined} title={examSurface?.testing ? "自测时禁用该按钮" : examSurface?.startScreen ? "选择学习目标后可用" : undefined} onClick={handleOpenVocabulary}>
-            <ReaderRailIcon kind="vocabulary" /><span>生词本</span><small>{examSurface?.testing ? "自测时禁用该按钮" : examSurface?.startScreen ? "选择学习目标后可用" : "查看保存的词与原句"}</small>
+          <button type="button" aria-disabled={examSurface?.locked || undefined}  onClick={handleOpenVocabulary}>
+            <ReaderRailIcon kind="vocabulary" /><span>生词本</span><small>{examSurface?.testing ? "自测时禁用该按钮" : "查看保存的词与原句"}</small>
           </button>
-          <button type="button" aria-disabled={examSurface?.locked || undefined} title={examSurface?.testing ? "自测时禁用该按钮" : examSurface?.startScreen ? "选择学习目标后可用" : undefined} onClick={handleOpenSavedArticlesMenu}>
-            <ReaderRailIcon kind="articles" /><span>我的文章</span><small>{examSurface?.testing ? "自测时禁用该按钮" : examSurface?.startScreen ? "选择学习目标后可用" : "打开保存文章"}</small>
+          <button type="button" aria-disabled={examSurface?.locked || undefined}  onClick={handleOpenSavedArticlesMenu}>
+            <ReaderRailIcon kind="articles" /><span>我的文章</span><small>{examSurface?.testing ? "自测时禁用该按钮" : "打开保存文章"}</small>
           </button>
         </div>
         {!examSurface && onSelectCet && <div className={toolbarStyles.railActions}><button type="button" onClick={() => setCetLibraryOpen(true)}><ReaderRailIcon kind="articles" /><span>选择真题</span><small>按试卷或题型选择</small></button></div>}
@@ -3824,8 +3826,8 @@ export function ReaderView({
             onRedo={redoSavedArticleEdit}
           />
         )}
-        <div className={toolbarStyles.actions}>
-          {examSurface ? <>{examSurface.toolbar}{!examSurface.locked && <span title="把当前阅读文章保存到我的文章"><PillNavAction className={toolbarStyles.action} label={saveButtonText} onClick={handleSaveArticle} disabled={articleSaved || savingArticle} /></span>}</> : <>
+        <div className={`${toolbarStyles.actions} ${examSurface ? "cet-shared-toolbar" : ""}`} data-start={examSurface?.startScreen || undefined}>
+          {examSurface ? <>{!examSurface.startScreen && examSurface.timer}{examSurface.toolbar}</> : <>
           {editingArticle ? (
             <PillNavAction
               className={toolbarStyles.action}
@@ -3863,7 +3865,7 @@ export function ReaderView({
             />
           )}
           </>}
-          <span title={examSurface?.testing ? "自测时禁用该按钮" : examSurface?.startScreen ? "选择学习目标后可用" : undefined} tabIndex={examSurface?.locked ? 0 : undefined} aria-label={examSurface?.testing ? "Menu，自测时禁用该按钮" : undefined} className={examSurface?.locked ? "cet-disabled-menu" : undefined}><PillNavAction
+          <span  tabIndex={examSurface?.locked ? 0 : undefined} aria-label={examSurface?.testing ? "Menu，自测时禁用该按钮" : undefined} className={examSurface?.locked ? "cet-disabled-menu" : undefined}><PillNavAction
             disabled={examSurface?.locked}
             className={`${toolbarStyles.action} ${toolbarStyles.primaryAction}`}
             tone="dark"
@@ -3878,7 +3880,6 @@ export function ReaderView({
           <button type="button" data-menu="true" onClick={handleOpenReaderMenu} aria-expanded={readerMenuOpen} aria-controls="home-option-menu">Menu</button>
         </div>}
       </header>
-      {lockedToolNotice && <div className="cet-disabled-notice" role="status">{lockedToolNotice}<button onClick={()=>setLockedToolNotice("")} aria-label="关闭提示">×</button></div>}
       {toolbarStatus && (
         <div className={toolbarStyles.status} role="status" aria-live="polite">
           {toolbarStatus}
@@ -4237,7 +4238,6 @@ export function ReaderView({
           data-native-selection="blue"
         >
           <div className="flex h-full min-h-0 flex-col gap-3">
-            {examSurface?.timer}
             {examSurface?.locked ? <div className="cet-locked-panel flex-1 rounded-[18px] border border-[#e0e0e0] bg-white p-5 text-sm text-[#6e6e73]">{examSurface.lockedMessage || "自测中暂不可使用查词、翻译和保存工具。提交后可以精读。"}</div> : <>
             <div data-reader-panel-tabs className="grid h-10 shrink-0 grid-cols-2 rounded-full border border-[#d2d2d7] bg-white p-1">
               <button
@@ -4616,7 +4616,7 @@ export function ReaderView({
         <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={mobileExplanationOpen && rightPanelMode === "explanation"} onClick={() => openMobileTool("explanation")}>解释</button>
         <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={mobileExplanationOpen && rightPanelMode === "translation"} onClick={() => openMobileTool("translation")}>翻译</button>
         <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={mobileExplanationOpen && rightPanelMode === "dictionary"} onClick={() => openMobileTool("dictionary")}>查词</button>
-        <button type="button" aria-disabled={examSurface?.locked || undefined} title={examSurface?.testing ? "自测时禁用该按钮" : examSurface?.startScreen ? "选择学习目标后可用" : undefined} onClick={handleOpenVocabulary}>生词本</button>
+        <button type="button" aria-disabled={examSurface?.locked || undefined}  onClick={handleOpenVocabulary}>生词本</button>
         <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={mobileExplanationOpen && rightPanelMode === "article"} onClick={() => openMobileTool("article")}>更多</button>
       </nav>
 

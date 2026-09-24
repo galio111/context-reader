@@ -944,3 +944,23 @@
 }
 
 @media (min-width: 1024px) { .actions { overflow: visible; } }
+
+/* CET owns one toolbar; the timer must never occupy a separate sidebar row. */
+:global(.cr-reader-root[data-cet-reader="true"]) .actions {
+  display: grid; grid-template-columns: 150px auto auto auto; gap: 8px;
+  align-items: center; overflow: visible; width: 460px; max-width: none;
+}
+:global(.cr-reader-root[data-cet-reader="true"]) .actions[data-start="true"] { display: flex; width: auto; margin-left: auto; }
+:global(.cr-reader-root[data-cet-reader="true"]) .action { padding-inline: 12px; font-size: 13px; height: 44px; }
+@media (min-width:1280px) {
+  :global(.cr-reader-root[data-cet-reader="true"]) .actions { position: fixed; right: max(1.25rem,calc((100vw - var(--reader-desktop-inset-left) - 80rem)/2 + 1.25rem)); top: 14px; }
+  :global(.cr-reader-root[data-cet-reader="true"]) .readerSidePanel { width: 460px; }
+  :global(.cr-reader-root[data-cet-reader="true"]) .readerLayout:not(:global(.cet-start-layout)) { grid-template-columns: minmax(0,1fr) 460px; }
+}
+@media (max-width:1279px) {
+  :global(.cr-reader-root[data-cet-reader="true"]) .actions { grid-template-columns: minmax(0,1fr) minmax(0,1fr); width: min(360px,calc(100vw - 126px)); margin-left:auto; flex: 0 1 auto; }
+  :global(.cr-reader-root[data-cet-reader="true"]) .toolbar { height: 116px; align-items: flex-start; padding-top: 10px; }
+  :global(.cr-reader-root[data-cet-reader="true"]) .readerLayout { padding-top: 128px; }
+  :global(.cr-reader-root[data-cet-reader="true"]) .readerSidePanel { top: 128px; }
+  :global(.cr-reader-root[data-cet-reader="true"]) .actions .action { width: 100%; font-size: 12px; padding-inline: 6px; }
+}

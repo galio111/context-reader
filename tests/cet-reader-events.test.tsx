@@ -26,7 +26,7 @@ test("real CET events preserve drafts, freeze one passage and start an independe
   // Only the pre-existing account/Reader shell is replaced; CetReader events,
   // its dialogs, pure model and IndexedDB persistence are the real modules.
   mockModule("../components/AccountProvider", { useAccount: () => ({ account: { authenticated: false, profile: null }, openLogin() {} }) });
-  mockModule("../components/ReaderView", { ReaderView: ({ examSurface }: { examSurface: { render: (lookup: (word: WordContext) => void) => React.ReactNode; rail: React.ReactNode; toolbar: React.ReactNode; menu: React.ReactNode } }) => <>{examSurface.rail}{examSurface.toolbar}{examSurface.menu}{examSurface.render(() => {})}</> });
+  mockModule("../components/ReaderView", { ReaderView: ({ examSurface }: { examSurface: { render: (lookup: (word: WordContext) => void) => React.ReactNode; rail: React.ReactNode; toolbar: React.ReactNode; timer: React.ReactNode; menu: React.ReactNode } }) => <>{examSurface.rail}{examSurface.timer}{examSurface.toolbar}{examSurface.menu}{examSurface.render(() => {})}</> });
   const { CetReader } = await import("../components/cet/CetReader");
   const { readCetActivities } = await import("../lib/cetActivityStorage");
   const { getLearningStorage, isLearningStorage } = await import("../lib/learningStorage");
@@ -64,6 +64,26 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     await user.click(ui.getByRole("button", { name: "下一篇 →" }));
     assert.ok(ui.getByRole("button", { name: "提交本篇" }));
     assert.equal(ui.queryByRole("link", { name: /参考答案/ }), null);
+    // Data/action wiring only: this shell test is not layout or pointer evidence.
+    const batchStore = getLearningStorage(); assert.ok(isLearningStorage(batchStore));
+    const batchFlush = batchStore.flush.bind(batchStore);
+    const existingSnapshot = JSON.stringify(Object.values(readCetActivities()[0].finalizations)[0]);
+    await user.click(ui.getByRole("button", {name:"提交全部"}));
+    assert.ok(ui.getByText(/还有 20 题未答/));
+    await user.click(ui.getByRole("button", {name:"返回继续"}));
+    assert.equal(Object.keys(readCetActivities()[0].finalizations).length,1);
+    batchStore.flush = async () => {throw Error("batch flush failed");};
+    await user.click(ui.getByRole("button", {name:"提交全部"}));
+    await user.click(ui.getByRole("button", {name:"提交全部并查看结果"}));
+    await waitFor(() => assert.ok(ui.getByRole("dialog", {name:"保存失败"})));
+    assert.equal(ui.queryByRole("button",{name:"全部已提交"}),null);
+    const batchIds = Object.keys(readCetActivities()[0].finalizations);
+    assert.equal(batchIds.length,4);
+    batchStore.flush = batchFlush;
+    await user.dblClick(ui.getByRole("button", {name:"重试保存"}));
+    await waitFor(() => assert.ok(ui.getByRole("button",{name:"全部已提交"})));
+    assert.deepEqual(Object.keys(readCetActivities()[0].finalizations),batchIds);
+    assert.equal(JSON.stringify(Object.values(readCetActivities()[0].finalizations)[0]),existingSnapshot);
     await user.click(ui.getByRole("button", { name: /重新练习保留本轮记录/ }));
     await user.click(ui.getByRole("button", { name: "开始新一轮" }));
     await waitFor(() => assert.ok(ui.getByRole("button", { name: "开始套卷自测" })));

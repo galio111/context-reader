@@ -1,0 +1,45 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { createCetActivity, cetAnswer, cetFinalize, mergeCetActivity } from "../lib/cetActivity";
+import { prepareCetPracticeSubmitAll, cetPracticeTotals } from "../lib/cetPracticeSubmitAll";
+import { saveCetActivity, readCetActivities, readCetCommitPackages, CET_ACTIVITIES_KEY } from "../lib/cetActivityStorage";
+import type { CetPaper } from "../types/cet";
+const paper = JSON.parse(readFileSync(new URL("../data/cet/cet4-2025-12-1.json", import.meta.url), "utf8")) as CetPaper;
+const now = "2026-09-24T14:00:00Z";
+const start = () => createCetActivity({ paper, purpose: "practice", owner: "guest", now, id: "practice" });
+test("submit all preserves existing snapshots, activity identity and late-draft scores", () => {
+  let a = start();
+  a = cetAnswer(a, a.questionKeys[0], "C", now, "answer");
+  a = cetFinalize(a, paper, "passage_submit", a.sectionIds[0], now, "existing");
+  const original = JSON.stringify(a.finalizations.existing);
+  const final = prepareCetPracticeSubmitAll(a, paper, "batch", now);
+  assert.equal(final.id, a.id); assert.equal(final.purpose, "practice"); assert.equal(final.status, "submitted");
+  assert.equal(JSON.stringify(final.finalizations.existing), original);
+  assert.equal(Object.keys(final.finalizations).length, a.sectionIds.length);
+  assert.deepEqual(prepareCetPracticeSubmitAll(final, paper, "retry", now), final);
+  const late = cetAnswer(start(), a.questionKeys[0], "A", "2026-09-24T15:00:00Z", "late");
+  assert.equal(JSON.stringify(mergeCetActivity(final, late).finalizations.existing), original);
+  assert.equal(cetPracticeTotals(final).scoreable, 30);
+});
+test("single and non-four scopes, unavailable answers and conflicting submissions", () => {
+  const single = createCetActivity({ paper, sectionId: paper.sections[2].id, purpose: "practice", owner: "guest", now });
+  assert.equal(cetPracticeTotals(prepareCetPracticeSubmitAll(single, paper, "one", now)).scoreable, 5);
+  const small = structuredClone(paper); small.sections = small.sections.slice(0, 2); delete small.sections[0].questions[0].answer;
+  const a = createCetActivity({ paper: small, purpose: "practice", owner: "guest", now });
+  const result = prepareCetPracticeSubmitAll(a, small, "two", now);
+  assert.equal(cetPracticeTotals(result).completed, 2); assert.equal(cetPracticeTotals(result).unreliable, 1);
+  const conflict = mergeCetActivity(result, cetFinalize(a, small, "passage_submit", a.sectionIds[0], now, "other"));
+  assert.equal(cetPracticeTotals(conflict).conflict, true);
+  assert.throws(() => prepareCetPracticeSubmitAll(conflict, small, "bad", now), /冲突/);
+});
+test("all commit packages recover together after interrupted activity write; retries add no duplicates", () => {
+  const values = new Map<string, string>(); let fail = false;
+  const storage: Storage = { get length() { return values.size; }, clear: () => values.clear(), key: i => [...values.keys()][i] ?? null, getItem: key => values.get(key) ?? null, removeItem: key => { values.delete(key); }, setItem: (key, value) => { if (fail && key === CET_ACTIVITIES_KEY) { fail = false; throw Error("interrupted"); } values.set(key, value); } };
+  const a = start(); saveCetActivity(a, storage);
+  const prepared = prepareCetPracticeSubmitAll(a, paper, "operation", now);
+  fail = true; assert.throws(() => saveCetActivity(prepared, storage), /interrupted/);
+  const restored = readCetActivities(storage)[0]; assert.equal(restored.status, "submitted");
+  assert.deepEqual(restored.finalizations, JSON.parse(JSON.stringify(prepared.finalizations)));
+  saveCetActivity(prepared, storage); assert.equal(readCetCommitPackages(storage).length, a.sectionIds.length);
+});

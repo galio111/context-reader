@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "test:critical": "node --import ./scripts/test-server-context.mjs --import tsx --test tests/critical-regressions.test.ts",
-    "test:cet": "tsx --test tests/cet-revision2.test.ts tests/cet-sync-v3.test.ts tests/cet-reading.test.ts tests/cet-activity.test.ts tests/cet-exposure.test.ts tests/cet-storage.test.ts tests/cet-legacy.test.ts tests/cet-account-isolation.test.ts tests/cet-reader-events.test.tsx",
+    "test:cet": "tsx --test tests/cet-submit-all.test.ts tests/cet-revision2.test.ts tests/cet-sync-v3.test.ts tests/cet-reading.test.ts tests/cet-activity.test.ts tests/cet-exposure.test.ts tests/cet-storage.test.ts tests/cet-legacy.test.ts tests/cet-account-isolation.test.ts tests/cet-reader-events.test.tsx",
     "test:discovery": "tsx --test tests/discovery-policy.test.ts",
     "test:overseas-fetch": "tsx --test tests/overseas-fetch-contract.test.ts",
     "verify:release-contracts": "tsx scripts/verify-release-contracts.ts",

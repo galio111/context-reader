@@ -1000,3 +1000,13 @@ html[data-context-theme="night"] .cet-mobile-actions button { color: #b9d0d6; }
 html[data-context-theme="night"] .cet-dialog-actions button { background: #294753; color: #e4f3f5; }
 html[data-context-theme="night"] .cet-dialog-actions button:last-child { background: #9bd8e3; color: #10272e; }
 html[data-context-theme="night"] .cet-sheet header button { color: #b9d0d6; }
+
+.cet-shared-toolbar button.cet-timer { width: 100%; min-width: 0; height: 44px; padding: 0 8px; flex-wrap: nowrap; gap: 5px; align-self: center; }
+.cet-shared-toolbar button.cet-timer strong { min-width: 6ch; font-size: 16px; }
+.cet-shared-toolbar button.cet-timer > span { font-size: 11px; }
+.cet-shared-toolbar button.cet-timer small { display: none; }
+.cet-practice-total { padding: 14px 0; color: #245d70; border-bottom: 1px solid #c8d8dd; }
+html[data-context-theme="night"] .cet-practice-total { color: #dcebed; border-color: #48646d; }
+
+[data-cet-tooltip-dismissed="true"][data-cet-testing="true"] :is(.cet-disabled-tooltip,aside button[aria-disabled="true"] small) { visibility: hidden; }
+@media(max-width:1279px) { .cet-shared-toolbar button.cet-timer > span:first-child { display:none; } }
