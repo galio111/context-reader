@@ -1,21 +1,21 @@
 # CET 第二轮实施与发布验收
 
-状态：**发布前强制检查与真实浏览器关键路径通过，准备合入与部署，尚未上线**。授权来自用户 2026-09-24 明确请求；新版生产授权包替代旧规范，不再询问合入/部署授权。
+状态：**已合入 main 并部署生产；接口、数据及服务核验通过，公网视觉复验未完成**。本机真实 Reader 的桌面/手机、白天/夜间关键路径已通过。浏览器在正式站复验阶段连续连接超时，不能宣称全部77项通过。
 
-## 版本与阻塞
+## 版本与验收边界
 
-- 任务分支：`codex/cet-revision2`，独立 worktree `artifacts/task-worktrees/cet-revision2`；基于当前生产 source 合入当前 main 后开发。
-- main：`0526d23132afbc02f5812aea338cce4a8c85e74f`。
-- 活动生产：`20260923T161000`，父版本 `20260923T150500`，sourceRevision `aeba5ab75060feb7b0bb122072e60ee4eeb67547`。
-- 2026-09-24 10:59:37（Asia/Shanghai）公网 `/api/connectivity` 返回上述 release/parent 与 `mainland_internal`；SSH current 指向 `/opt/context-reader-releases/20260923T161000`，状态文件一致。
-- 浏览器初期连接受阻，随后恢复。Windows IAB 已验证实际 Reader、1440×900桌面、390×844手机和日夜关键路径；macOS实机未验证。最终正式构建冒烟通过，进入发布准备。
-- 没有生产变更，没有创建验收账号，没有回滚；本轮未执行备份恢复或新发布服务验收，不能沿用历史证据声称本轮通过。
+- 任务分支 `codex/cet-revision2`；集成分支 `codex/cet-revision2-release`，均为独立 worktree。
+- 源码 main 集成及生产 sourceRevision：`9682ee7d2f33301edf0f9116ca556266a5740c83`。后续 main 仅增加本轮发布证据文档，最终远端 SHA 见最终交付及 `git ls-remote` 记录。
+- 已发布 `20260924T041127`，父版本 `20260923T161000`，生产 sourceRevision `9682ee7d2f33301edf0f9116ca556266a5740c83`。公网为 `mainland_internal`，与服务器 current/state 一致。正式接受时间：2026-09-24 12:18:08（Asia/Shanghai）。
+- 本机 Windows IAB 的1440×900、390×844和日夜关键路径已验；macOS与物理触屏设备未验。正式站浏览器连接在切换前后持续超时，公网视觉复验仍开放。
+- 专用验收账号已按精确ID/昵称/创建日期清理；七服务健康，备份校验和隔离恢复16表通过，当前及父版本镜像保留。未执行回滚。
 
 ## 自动检查
 
-- `npm run test:cet`：32/32。含新增计时/快照/作用域/片段偏移、protocol-2 实际客户端 + 两个 jsdom/IndexedDB 设备、A/B 归档与游客认领。云端传输在测试中为内存服务，不冒称真实生产同步。
+- `npm run test:cet`：32/32。含新增计时/快照/作用域/片段偏移、protocol-2 实际客户端 + 两个 jsdom/IndexedDB 设备、A/B 归档与游客认领。该自动用例的传输为内存服务；发布后另用真实生产 protocol-2 接口与两个独立 IndexedDB 环境验证新旧客户端往返，见 T64。
 - `npm run test:critical`：89/89。保留外刊图片与高清动效保护。
 - `npm run verify:release-contracts` 与 `npm run audit:egress`：通过。
+- 模型路由、跨供应商回退、用量报告与计费相关测试：22/22；生产三类 AI 请求的执行记录均为 deepseek-flash，每项 quota_units=1。未人为故障注入生产供应商。
 - `npm run lint`：0 errors / 42 warnings。修复原有三个测试中的 any 类型，CommonJS 检查脚本改为等价 ESM 并同步引用，未降低 lint 配置或测试断言。
 - `npm.cmd run build`：最后代码修订后正式构建通过，70条路由；正式构建重载后手机Menu关闭、日夜选择器与桌面阅读冒烟通过。
 - 相关文章/同步/外刊扩展测试：24/25。唯一失败 `post-review edits and rejected candidates cannot auto-publish` 在取自 HEAD 的未修改测试中同样复现；本轮未改外刊审核业务或放宽此断言。
@@ -28,7 +28,7 @@
 | 要求 | 文件/模块 | 实现与验证边界 |
 |---|---|---|
 | R01 | ReaderView / ReaderTextAdapter / CetText / cetTextTokens | 共享 WordToken 与指针处理，完整词边界、局部高亮和源偏移；锁定取消旧查询 |
-| R02 | CetSelect / CetReader | 监听清理不抢焦点；20 次对话框开关自动通过，但真实 Reader 未验 |
+| R02 | CetSelect / CetReader | 监听清理不抢焦点；20 次对话框开关自动通过，真实 Reader 查词后20次开关通过 |
 | R03 | cetViewModel | 题数、题卡、原答案使用固定 scope 与选定快照；范围不一致保留记录并阻止提交 |
 | R04 | cetViewModel / CetReader | 六种题卡状态；分篇结果不泄露草稿对错；跨篇跳转等待弹窗解锁 |
 | R05 | cetActivity / CetReader | 按范围末篇显示自测提交/练习结束，保留每篇提交及全部草稿 |
@@ -36,15 +36,15 @@
 | R07 | types/cet / cetActivityStorage / accountSyncClient / learningStorage | 正计时 schema3 与独立 v3 活动/提交前缀；v1/v2 保持，计时设置确认后创建 |
 | R08 | ReaderView / cet.css | 自测 Menu 禁用；aria-disabled 实际事件阻断、禁止图标和提示；保留退出/提交/暂停 |
 | R09 | CetReader / cet.css | 练习/自测双区、各自历史；取消开始页直接精读和常驻时长 |
-| R10 | CetSelect / CetLibrary | 统一 listbox、键盘/外点关闭、模态层内 portal、限高翻转；需浏览器验证展开态 |
+| R10 | CetSelect / CetLibrary | 统一 listbox、键盘/外点关闭、模态层内 portal、限高翻转；日夜/桌面/手机实际展开态已验 |
 | R11 | cet.css | 仅新 CET 控件取消鼠标焦点粗框，保留 focus-visible |
 | R12 | CetReader / cet.css | 空格只显示题号；词库字母与词同胶囊，已用标记不自动作答 |
 | R13 | CetLibrary / cet.css | 实际资源双列，历史移到下方，稳定低饱和封面，窄容器/紧凑目录单列 |
 | R14 | HomeClient / ReaderView / CetLibraryDialog | 普通文章真实目录入口，取消保留原页，选择时保存编辑并持久化阅读进度 |
-| R15 | HomeClient | 保留 CET 独立历史，不写入外刊上次阅读；实际返回链路待验 |
+| R15 | HomeClient | 保留 CET 独立历史，不写入外刊上次阅读；普通编辑文章→CET→返回继续阅读实测保留 |
 | R16 | CetLibrary | 保留切级重置/取消旧请求，增加失效年份/页码回退与空态 |
 | R17 | CetReader | 移除正文整行来源，来源保留数据与开始页低优先级资料信息 |
-| R18 | cet.css | 新状态日夜样式已实现；真实日夜/手机/Windows/macOS均未验收 |
+| R18 | cet.css | 新状态日夜样式已实现；Windows日夜/桌面/手机已验，macOS与物理触屏未验 |
 
 ## T01–T69 / P01–P08
 
@@ -92,7 +92,7 @@
 | T38 | 部分通过 | Real1minute countdown expires and fixes01:00; repeated expiry/late answers tested automatically. Background-expiry browser case pending. |
 | T39 | 通过（自动） | cet-revision2: countup has no budget; pause/resume/finalize |
 | T40 | 通过 | Submitted countup65seconds remained fixed through answer card and passage switches; countdown expiry fixed60seconds. |
-| T41 | 部分通过 | Actual1440x900 and390x844; timer aligned right and mobile inline pill; final production-build screenshots pending. Final production build screenshots verified; nightcancel/mobilelinks fixed and mobileMenu handle no longer intercepts close. |
+| T41 | 部分通过 | Actual1440x900 and390x844; timer aligned right and mobile inline pill; Final production build screenshots verified; nightcancel/mobilelinks fixed and mobileMenu handle no longer intercepts close. |
 | T42 | 部分通过 | Real running/paused tool labels disabled; Menu cannot open, reason/prohibit icon visible. Night tooltip pointer screenshot pending. |
 | T43 | 部分通过 | Actual disabled Menu blocks click; aria-disabled rail capture guard and keyboard handlers inspected. Full touch shortcut matrix pending. |
 | T44 | 通过 | Start page retains distinct choose-goal disabled reason, no active lookup tools. |
@@ -115,17 +115,17 @@
 | T61 | 部分通过 | Invalid filter fallback code and explicit error/empty branches present; browser injected corrupt session/network case pending. |
 | T62 | 部分通过 | Source footer absent in practice/selftest/result inspected; data source retained in start details. |
 | T63 | 通过（自动） | cet-legacy + cet-activity + cet-revision2: v1/v2 records retained |
-| T64 | 部分通过 | Actual protocol2 client with2IndexedDB devices plus accountA/B andguest adoption tests pass; production account roundtrip pending. |
+| T64 | 通过 | Production protocol-2 real clients with two independent IndexedDB devices: v3 40-second countup finalization, v2 activity and original article preserved; frozen full v2 client roundtrip produced no tombstones. Synthetic QA account precisely deleted; cloud objects zero. |
 | T65 | 通过 | Frozen full accountSyncClient + storage from main0526 in test fixture: v2 sync sees v3 wire objects without overwrites/tombstones; new client reopens40second result and articleA. |
 | T66 | 通过（自动） | cet-activity + cet-revision2: immutable selected snapshots |
 | T67 | 通过 | Real CetReader event tests inject IndexedDB flush failure for start,pause,submit; no premature body/result reveal and retry retains same activity/finalization ID. Offline transport separate from local persistence. |
-| T68 | 部分通过 | Real day/night desktop/mobile surfaced and fixed nightmobilelinks and dialogcancel contrast. Final build screenshots pending. Final production build screenshots verified; nightcancel/mobilelinks fixed and mobileMenu handle no longer intercepts close. |
+| T68 | 部分通过 | Real day/night desktop/mobile surfaced and fixed nightmobilelinks and dialogcancel contrast. Final production build screenshots verified; nightcancel/mobilelinks fixed and mobileMenu handle no longer intercepts close. |
 | T69 | 通过 | Windows IAB actual Reader paths plus final production build reloaded: CET selection/card/picker/Menu; mobile Menu close now hits Close span and closes once; console no errors. screenshots in artifacts/cet-revision2-evidence. |
 | P01 | 通过 | Independent codex/cet-revision2 worktree; live main and public/server release verified 2026-09-24T02:59:37Z |
 | P02 | 通过 | 32 CET,89 critical,lint0 errors42 warnings,70-route production build,9 release contracts andegress passed; actual Reader desktop/mobile day/night paths and final build smoke passed. Extended editorial1failure reproduced unchanged baseline; no release gate weakened. |
-| P03 | 受阻 | Required real Reader browser gate is incomplete; no main integration or production deployment. |
-| P04 | 受阻 | Required real Reader browser gate is incomplete; no main integration or production deployment. |
-| P05 | 受阻 | Required real Reader browser gate is incomplete; no main integration or production deployment. |
-| P06 | 受阻 | Required real Reader browser gate is incomplete; no main integration or production deployment. |
-| P07 | 未执行 | Required real Reader browser gate is incomplete; no main integration or production deployment. |
-| P08 | 未执行 | Required real Reader browser gate is incomplete; no main integration or production deployment. |
+| P03 | 通过 | Task codex/cet-revision2 pushed; dedicated integration fast-forwarded current main and task. Normal push main to 9682ee7d2f33301edf0f9116ca556266a5740c83, git ls-remote matched. Final documentation commit is reported separately. |
+| P04 | 通过 | Clean source 9682ee7d2f33301edf0f9116ca556266a5740c83; exact reviewed delta44; package-release.py and stable server verifier accepted parent 20260923T161000. Latest backup checksum + isolated16-table restore and accepted parent image verified. |
+| P05 | 通过 | Stable /opt/context-reader/bin/deploy-release accepted 20260924T041127 at2026-09-24T04:18:08.603377Z. Lock,parent recheck,protected contracts remained enabled; only app/caddy recreated. |
+| P06 | 部分通过 | Public release/parent/backend and server source match. Guest6/6,member25/28,answers,auth/sync/Admin boundaries,real v3/v2 sync,lookup+sentence translation,dictionary,full translation,deepseek-flash and one quota unit each,7-service health passed. Public browser repeatedly timed out after local critical paths passed; production visual replay/screenshots remain unverified. |
+| P07 | 通过 | No critical regression found and no rollback triggered. Accepted current image cfeb46b05f33 and parent6bcf32b59565 retained; backup context-reader-20260923T191827Z.dump restored16tables. Rollback readiness verified, not an executed rollback drill. |
+| P08 | 通过 | Final-state CET/release/decision/brief/contract documents and77-item matrix updated; exact synthetic ID/nickname/date cleanup confirmed user404 and zero cloud objects. Final main is documentation-only after deployed source; normal push/ls-remote recorded in final report. |

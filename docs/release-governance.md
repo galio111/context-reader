@@ -74,6 +74,10 @@ Local integration validation on 2026-09-18 passed the production build, 89 criti
 
 ## Latest verified acceptance
 
+已发布 `20260924T041127`，父版本 `20260923T161000`，生产 sourceRevision `9682ee7d2f33301edf0f9116ca556266a5740c83`。公网为 `mainland_internal`，与服务器 current/state 一致。正式接受北京时间2026-09-24 12:18:08。32CET/89关键/22AI路由用量测试、9保护契约、出口审计、lint与本机/服务器build通过。真实生产新旧v2/v3客户端跨两IndexedDB环境同步、普通文章保持、AI三功能默认模型及各一次计费、Admin边界、7服务、16表备份恢复及当前/父镜像通过；精准清理本轮合成账号。仅重建app/caddy，未回滚。本机真实Reader日夜桌面/手机已验，公网视觉受浏览器连接超时影响未复验，P06部分通过；完整证据见 [第二轮发布记录](cet-revision2-release.md)。
+
+### Previous image acceptance
+
 最新图片层修复已发布 `20260923T161000`（parent `20260923T150500`，source `aeba5ab75060feb7b0bb122072e60ee4eeb67547`）。原高清封面恢复为所有近视口/指针进入卡片的最终图片，预览与高清共用原 3D 图片层。组件实际挂载测试覆盖倾斜/复位、关闭动效、近视口高清请求和加载成功覆盖预览；核心回归、展开动效回归、本机/服务器正式构建、发布契约及出口审计通过。公网版本/父版本/大陆内部模式与软链接一致，首页有真实预览 img 元素，匿名同步/Admin 为 401，七服务及当前/父镜像正常；仅重建 app/caddy。浏览器连接失败，视觉验收保持开放。
 
 ### Previous accepted CET release

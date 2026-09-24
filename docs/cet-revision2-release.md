@@ -1,26 +1,47 @@
-# CET revision2 生产发布记录（发布准备）
+# CET revision2 生产发布记录
 
-## 1. 执行环境与授权
-用户2026-09-24明确授权验证后合入main及部署生产。生产授权ZIP SHA256为 `2b0e5278a66fe38acd5f68118b6ecf6224463b1a93c4cd31d6d8fce3e850f0f3`，替代旧规范。Windows独立任务worktree/分支 `codex/cet-revision2`，保留已发布高清封面及动效。
+## 1. 授权与执行环境
 
-## 2. 功能与测试
-R01–R18实现及77项逐项实际状态见 [验收记录](cet-revision2-acceptance.md) 和 [结构化验收](cet-revision2-acceptance.json)。32 CET、89关键回归、发布契约、出口审计通过；lint0错误42警告；正式构建通过。相关文章/同步扩展24/25，外刊自动发布测试在原基线也失败，未修改审核逻辑或放宽断言。
+用户2026-09-24以生产授权包替换旧规范，明确授权验证后合入main及部署。ZIP SHA256为 `2b0e5278a66fe38acd5f68118b6ecf6224463b1a93c4cd31d6d8fce3e850f0f3`。独立任务分支 `codex/cet-revision2` 和集成分支 `codex/cet-revision2-release`；没有从共享脏目录打包。
 
-Windows IAB实际验证共享Reader查词/完整原句译文、跨行与反向拖词、20次题卡、按篇及整卷提交、正计时暂停刷新恢复、一分钟倒计时真实到期、日夜桌面1440×900与手机390×844、自定义列表展开、普通文章编辑跳转保护和近期阅读保留、独立词典、全文翻译、保存。截图在根工作区 `artifacts/cet-revision2-evidence/`；macOS实机与完整触屏设备矩阵未验证。初始浏览器连接失败已恢复，不再作为发布阻塞。
+## 2. 功能与验收
 
-正计时使用schema3及独立v3活动/提交包命名空间；不批量改写v1/v2。协议2实际客户端+两IndexedDB设备往返、账号A/B/游客认领、冻结的完整旧v2客户端和新客户端切回回读通过。开始/暂停/提交本地flush失败时不提前揭示正文/结果，重试保持ID。云端生产往返待发布后单独验证。
+R01–R18实现及T01–T69/P01–P08的77项实际状态见 [验收记录](cet-revision2-acceptance.md) / [JSON](cet-revision2-acceptance.json)。32 CET、89关键回归、22模型路由/跨供应商回退/用量检查通过；9发布契约及出口审计通过，lint0错误42警告，本机干净npm ci后的正式构建和服务器正式构建通过。相关扩展测试24/25，唯一外刊自动发布失败在未修改基线同样复现，未改审核逻辑或降低断言。
+
+本机真实Windows IAB检查了共享Reader单词/跨行/反向拖选及完整原句译文、查词后20次单击题卡、按篇/整卷提交、正计时暂停刷新恢复、一分钟倒计时到期、1440×900/390×844及日夜弹窗、普通文章编辑跳转保护、近期阅读保留、词典、全文翻译及保存。实测追加修复未收藏文章编辑后临时记录被清除、手机Menu拖动层挡住关闭按钮和夜间对比度。
+
+**公网视觉复验未完成**：正式站浏览器连续超时，未拿到本次生产截图；不把本机截图或HTTP200冒称公网视觉通过。macOS实机、物理触屏及清单里标注的补充矩阵未验证；P06部分通过，用户最终视觉确认仍开放。
 
 ## 3. GitHub集成
-任务提交及main集成待本轮提交。2026-09-24T03:45:36Z远端main为 `0526d23132afbc02f5812aea338cce4a8c85e74f`。不包含共享根目录未提交文件，不使用force push。
 
-## 4. 发布包与正式部署
-当前准备发布，尚未生成新的releaseId或切换生产。当前accepted为 `20260923T161000`，parent `20260923T150500`，source `aeba5ab75060feb7b0bb122072e60ee4eeb67547`。后续从干净集成worktree审查实际delta并调用稳定 `/opt/context-reader/bin/deploy-release`；父版本变更则重新整合打包。
+任务提交 `94f91cd` 与换行规范化提交 `9682ee7d2f33301edf0f9116ca556266a5740c83` 已推送任务分支。集成从接受生产源码 `aeba5ab75060feb7b0bb122072e60ee4eeb67547` 开始，保留远端main `0526d23132afbc02f5812aea338cce4a8c85e74f`，再快进合入任务。普通推送 main 到 `9682ee7d2f33301edf0f9116ca556266a5740c83` 后 `git ls-remote origin refs/heads/main` 匹配；无force push。
 
-## 5. 公网核验
-2026-09-24T03:45:36Z公网与SSH current/state一致，backend为mainland_internal。现网7服务健康；最新 `context-reader-20260923T191827Z.dump` SHA通过并在隔离数据库恢复16表。`accepted-20260923T161000`镜像6bcf32b59565及父镜像546a1d511775保留。新版本功能和账号同步公网核验待发布后记录。
+源码集成SHA = 生产sourceRevision。发布后另提交本文件及相关纯文档证据；最终main SHA在最终交付和本机 `artifacts/cet-revision2-release/final-main.json` 记录。该最终main与部署source之间只能有文档差异，不能把文档提交声称为新生产源码。
 
-## 6. 失败与回滚
-没有切换生产、没有回滚。浏览器实测发现并修复夜间对比度、未收藏编辑临时阅读丢失和手机菜单关闭按钮被拖动层遮挡。原生编辑确认改为站内确认，取消保留草稿。当前不存在已确认未修复的本轮关键回归；仍未执行的补充矩阵逐项标记，不冒称全部通过。
+## 4. 正式发布
 
-## 7. 最终版本关系
-本轮源码仍在任务分支，main/生产待更新。发布后分别补充任务SHA、main集成SHA、最终main SHA、releaseId、parentReleaseId、sourceRevision及发布时间；纯文档回写与源码发布的SHA可不同，必须明确。
+- 生产：https://context-reader.com/
+- releaseId：`20260924T041127`
+- parentReleaseId：`20260923T161000`
+- sourceRevision：`9682ee7d2f33301edf0f9116ca556266a5740c83`
+- acceptedAt：`2026-09-24T04:18:08.603377+00:00`（北京时间12:18:08）
+- 精确审查差异44文件；`package-release.py`从干净源码打包，稳定 `/opt/context-reader/bin/deploy-release` 验证锁、父版本、delta、保护契约和候选站点后接受。
+- 仅重建app/caddy；PostgreSQL/Auth/REST/Storage/内部网关继续原运行时间。高清外刊封面、预览和3D动效文件保留。
+
+## 5. 公网、账号与服务核验
+
+公网 `/api/connectivity` 返回 `20260924T041127` / `20260923T161000` / `mainland_internal`；此API没有source字段，source通过服务器state/manifest核对。`/opt/context-reader-current`指向准确发布目录。游客四级/六级各六套、单卷四篇材料身份和答案解析、登录后25/28套目录通过；匿名同步/Admin/超范围旧卷401、普通账号非Admin通过。真实查词含句译、独立词典、两段完整上下文翻译成功；服务器usage_executions确认为deepseek-flash，三个独立action各quota_units=1。恢复Admin会话与受权读取通过；未修改路由/配额。
+
+真实生产protocol-2客户端+两个独立IndexedDB环境验证v3正计时提交40秒、v2记录和原普通文章往返保留；冻结完整v2客户端回读后，新客户端再次打开结果不丢失且无tombstone。旧CAS写入409拒绝通过。专用账号按精确id/昵称/创建日期删除，确认用户404、云端对象0；不清理他人数据。
+
+七服务健康；`context-reader-20260923T191827Z.dump` SHA校验及隔离恢复16表通过。当前accepted镜像`cfeb46b05f33`和父镜像`6bcf32b59565`存在。未购买基础设施、未迁移数据库、未重启数据服务。
+
+## 6. 回滚与未验证范围
+
+没有发现需回滚的本轮核心回归，**未触发回滚，也未声称执行回滚演练**。回滚目标为已接受父版本 `20260923T161000`，遵循release-governance稳定恢复流程；镜像和备份已检查。正计时独立v3命名空间不批量改写v1/v2，旧客户端兼容通过自动测试及真实生产往返验证。
+
+公网视觉连接失败和macOS/触屏缺失属于明确未验证范围；相关文章扩展基线失败独立记录。所有“部分通过/未验证”保留在逐项清单，没有将全部项目勾为通过。
+
+## 7. 证据位置
+
+根工作区 `artifacts/cet-revision2-evidence/`：本轮本机截图、选择请求证据、集成build/CET/critical/lint/AI契约日志；`artifacts/cet-revision2-release/`：release-identity、changed-files、deploy.log、public-evidence、server-evidence、production-real-client-sync、production-ai-evidence、production-usage-admin、backup-restore、cleanup-evidence与final-main。私有验收凭据不进入Git、生产包或报告。

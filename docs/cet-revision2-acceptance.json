@@ -456,7 +456,7 @@
     "expected": "单个紧凑胶囊；右侧翻译用剩余高度，旧底部大块/预留空白消失，无遮挡和横向溢出。",
     "evidence": "浏览器截图",
     "status": "部分通过",
-    "actualEvidence": "Actual1440x900 and390x844; timer aligned right and mobile inline pill; final production-build screenshots pending. Final production build screenshots verified; nightcancel/mobilelinks fixed and mobileMenu handle no longer intercepts close."
+    "actualEvidence": "Actual1440x900 and390x844; timer aligned right and mobile inline pill; Final production build screenshots verified; nightcancel/mobilelinks fixed and mobileMenu handle no longer intercepts close."
   },
   {
     "id": "T42",
@@ -709,8 +709,8 @@
     "action": "新正计时在同账号两端同步并切换账号A/B/游客认领",
     "expected": "读写/隔离/归档/恢复正常；重复回放不重复计时或新建记录。",
     "evidence": "真实存储+同步测试",
-    "status": "部分通过",
-    "actualEvidence": "Actual protocol2 client with2IndexedDB devices plus accountA/B andguest adoption tests pass; production account roundtrip pending."
+    "status": "通过",
+    "actualEvidence": "Production protocol-2 real clients with two independent IndexedDB devices: v3 40-second countup finalization, v2 activity and original article preserved; frozen full v2 client roundtrip produced no tombstones. Synthetic QA account precisely deleted; cloud objects zero."
   },
   {
     "id": "T65",
@@ -756,7 +756,7 @@
     "expected": "文字、tooltip、取消按钮、关闭图标均可读；无黑字黑底/白字白底。",
     "evidence": "浏览器截图",
     "status": "部分通过",
-    "actualEvidence": "Real day/night desktop/mobile surfaced and fixed nightmobilelinks and dialogcancel contrast. Final build screenshots pending. Final production build screenshots verified; nightcancel/mobilelinks fixed and mobileMenu handle no longer intercepts close."
+    "actualEvidence": "Real day/night desktop/mobile surfaced and fixed nightmobilelinks and dialogcancel contrast. Final production build screenshots verified; nightcancel/mobilelinks fixed and mobileMenu handle no longer intercepts close."
   },
   {
     "id": "T69",
@@ -801,8 +801,8 @@
     "action": "任务提交与main集成推送",
     "expected": "仅提交审查文件，保留并行改动；普通非强制推送或按保护规则合并；git ls-remote核对远端main，不只推任务分支。",
     "evidence": "任务SHA、集成SHA、最终远端读取结果",
-    "status": "受阻",
-    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+    "status": "通过",
+    "actualEvidence": "Task codex/cet-revision2 pushed; dedicated integration fast-forwarded current main and task. Normal push main to 9682ee7d2f33301edf0f9116ca556266a5740c83, git ls-remote matched. Final documentation commit is reported separately."
   },
   {
     "id": "P04",
@@ -812,8 +812,8 @@
     "action": "验证发布包、父版本和回滚准备",
     "expected": "从干净准确提交打包；sourceRevision正确，parentReleaseId等于当前生产，changedFiles匹配；备份及上一接受版本可用。",
     "evidence": "脱敏manifest、差异清单、备份/回滚检查记录",
-    "status": "受阻",
-    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+    "status": "通过",
+    "actualEvidence": "Clean source 9682ee7d2f33301edf0f9116ca556266a5740c83; exact reviewed delta44; package-release.py and stable server verifier accepted parent 20260923T161000. Latest backup checksum + isolated16-table restore and accepted parent image verified."
   },
   {
     "id": "P05",
@@ -823,8 +823,8 @@
     "action": "执行版本化生产发布",
     "expected": "使用稳定入口及现行锁/父版本/内部后端检查；父版本变动则重新整合打包；只更新本轮必要应用服务，不连带重启数据服务。",
     "evidence": "真实发布命令和脱敏输出、服务状态",
-    "status": "受阻",
-    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+    "status": "通过",
+    "actualEvidence": "Stable /opt/context-reader/bin/deploy-release accepted 20260924T041127 at2026-09-24T04:18:08.603377Z. Lock,parent recheck,protected contracts remained enabled; only app/caddy recreated."
   },
   {
     "id": "P06",
@@ -834,8 +834,8 @@
     "action": "核对公网版本与生产主要路径",
     "expected": "公网releaseId/parentReleaseId/backendMode与服务器和manifest一致；CET、普通阅读、账号/同步和受保护核心路径按规范实测。",
     "evidence": "公网版本响应、生产截图、功能与健康验证结果",
-    "status": "受阻",
-    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+    "status": "部分通过",
+    "actualEvidence": "Public release/parent/backend and server source match. Guest6/6,member25/28,answers,auth/sync/Admin boundaries,real v3/v2 sync,lookup+sentence translation,dictionary,full translation,deepseek-flash and one quota unit each,7-service health passed. Public browser repeatedly timed out after local critical paths passed; production visual replay/screenshots remain unverified."
   },
   {
     "id": "P07",
@@ -845,8 +845,8 @@
     "action": "确认回滚能力或处理实际回归",
     "expected": "记录回滚入口与目标；未触发时说明未触发，不伪称做过回滚演练；出现关键回归则实际回滚并复验，不强推main或清库。",
     "evidence": "回滚准备记录，或真实回滚输出与公网复验",
-    "status": "未执行",
-    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+    "status": "通过",
+    "actualEvidence": "No critical regression found and no rollback triggered. Accepted current image cfeb46b05f33 and parent6bcf32b59565 retained; backup context-reader-20260923T191827Z.dump restored16tables. Rollback readiness verified, not an executed rollback drill."
   },
   {
     "id": "P08",
@@ -856,7 +856,7 @@
     "action": "回写发布证据并报告main与生产对应",
     "expected": "更新现有文档并正常推送；区分最终main SHA与部署sourceRevision；未部署代码差异、未验证项、失败/回滚均透明，测试账号仅精确清理本轮创建项。",
     "evidence": "发布记录模板、最终远端SHA、部署/文档差异说明",
-    "status": "未执行",
-    "actualEvidence": "Required real Reader browser gate is incomplete; no main integration or production deployment."
+    "status": "通过",
+    "actualEvidence": "Final-state CET/release/decision/brief/contract documents and77-item matrix updated; exact synthetic ID/nickname/date cleanup confirmed user404 and zero cloud objects. Final main is documentation-only after deployed source; normal push/ls-remote recorded in final report."
   }
 ]
