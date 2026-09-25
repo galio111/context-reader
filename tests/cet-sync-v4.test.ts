@@ -5,6 +5,7 @@ import { JSDOM } from "jsdom";
 import { IDBFactory } from "fake-indexeddb";
 import { initializeLearningStorage, getLearningStorage, flushLearningStorage, isLearningStorage } from "../lib/learningStorage";
 import { prepareLocalAccountForUser, syncAccountData } from "../lib/accountSyncClient";
+import {saveCetTrail,readCetTrail} from "../lib/cetTypeTrailStorage";
 import {adjustCetTimer,projectCetTimer} from "../lib/cetAdjustableTimer";
 import { createCetActivity, cetAnswer, cetPause, cetResume, cetFinalize } from "../lib/cetActivity";
 import { saveCetActivity, readCetActivities, readCetCommitPackages } from "../lib/cetActivityStorage";
@@ -32,6 +33,7 @@ test('v4 adjusted timer roundtrip preserves v2/v3 sources through old client and
   up=cetAnswer(up,up.questionKeys[0],'A','2026-09-24T00:00:01Z','answer');up=cetPause(up,'2026-09-24T00:00:30Z','pause');saveCetActivity(up);
   const down=createCetActivity({paper,purpose:'self_test',owner:'A'});saveCetActivity(down);await flushLearningStorage();await syncAccountData();
   assert.ok(cloud.has(`preferences:cet-activity:v3:${up.id}`));assert.ok(cloud.has(`preferences:cet-activity:v2:${down.id}`));
+  saveCetTrail({id:'route-A',owner:'A',level:4,type:'detail',purpose:'practice',paperId:paper.id,sectionId:'detail1',activityId:up.id,at:'2026-09-24T00:00:30Z',reason:'assistance_shown',round:'initial'});await flushLearningStorage();await syncAccountData();
   const second=await select();await syncAccountData();assert.equal(readStoredArticles(getLearningStorage())[0].id,"article-A");assert.equal(readCetActivities().length,2);const received=readCetActivities().find(a=>a.id===up.id)!;assert.equal(received.status,'paused');assert.equal(received.elapsedMs,30000);
   const adjusted=adjustCetTimer(received,{owner:'A',activityId:received.id,sectionId:received.activeSection,revision:received.timerRevision},'countdown',10,'2026-09-24T00:00:40Z','adjust');
   saveCetActivity(adjusted);await syncAccountData();assert.equal(readCetActivities().filter(a=>a.id===up.id).length,1);
@@ -41,6 +43,9 @@ test('v4 adjusted timer roundtrip preserves v2/v3 sources through old client and
   const replay=readCetActivities().find(a=>a.id===up.id)!;assert.equal(replay.finalizations.final.elapsedMs,40000);assert.equal(replay.answers[up.questionKeys[0]].value,'A');assert.equal(readCetCommitPackages().filter(p=>p.schemaVersion===4).length,1);
   assert.ok(!writes.some(o=>o.deletedAt));assert.ok(writes.filter(o=>o.objectKey.startsWith('cet-activity:v2:')).every(o=>(o.payload as {schemaVersion:number}).schemaVersion===2));
   await select(second);assert.equal(readCetActivities().find(a=>a.id===up.id)?.finalizations.final.elapsedMs,40000);
+  await syncAccountData();assert.equal(readCetTrail().filter(e=>e.id==='route-A').length,1);
+  saveCetTrail({id:'route-B',owner:'A',level:4,type:'detail',purpose:'practice',paperId:paper.id,sectionId:'detail2',activityId:down.id,at:'2026-09-24T00:00:31Z',reason:'answer',round:'initial'});await flushLearningStorage();await syncAccountData();
+  await select(first);await syncAccountData();await syncAccountData();assert.deepEqual(readCetTrail().map(e=>e.id),['route-A','route-B']);await select(second);
   // An actual pre-v3 sync client sees the newer namespace on the wire. It must
   // neither overwrite it with a v2 payload nor tombstone unknown objects.
   await syncOldAccountData();

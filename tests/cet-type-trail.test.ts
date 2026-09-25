@@ -1,8 +1,24 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {mergeTrailEvents,projectTrail,resolveNext,resolvePrevious,trailPosition,type CetTrailKey,type CetTrailEvent} from '../lib/cetTypeTrail';
+import {historicalTrailEvents,mergeTrailEvents,projectTrail,resolveNext,resolvePrevious,trailPosition,type CetTrailKey,type CetTrailEvent} from '../lib/cetTypeTrail';
+import {readFileSync} from 'node:fs';
+import {createCetActivity,cetAnswer} from '../lib/cetActivity';
+import type {CetPaper,CetExposure} from '../types/cet';
 const key:CetTrailKey={owner:'A',level:6,type:'detail',purpose:'practice'};
 const units=['A','B','C'].map(paperId=>({paperId,sectionId:'detail2'}));
 const event=(i:number):CetTrailEvent=>({...key,...units[i],id:`e${i}`,activityId:`activity${i}`,at:`2026-09-25T00:00:0${i}Z`,reason:'answer',round:'initial'});
+test('historical adaptation uses attributable answer/assist evidence, never read or updatedAt',()=>{
+ const paper=JSON.parse(readFileSync(new URL('../data/cet/cet4-2025-12-1.json',import.meta.url),'utf8')) as CetPaper;
+ const section=paper.sections[0];const a=createCetActivity({paper,sectionId:section.id,purpose:'practice',owner:'A',now:'2026-09-25T00:00:00Z'});
+ const read:CetExposure={schemaVersion:2,id:'read',owner:'A',paperId:paper.id,sectionId:section.id,materialId:section.id,kind:'read',attemptId:a.id,occurredAt:'2026-09-25T00:00:01Z'};
+ assert.deepEqual(historicalTrailEvents([a],[read],[paper],'A'),[]);
+ assert.deepEqual(historicalTrailEvents([a],[{...read,kind:'assist',attemptId:undefined}],[paper],'A'),[]);
+ const assist={...read,id:'assist',kind:'assist' as const};
+ const answered=cetAnswer(a,a.questionKeys[0],'C','2026-09-25T00:00:02Z','answer');
+ const adapted=historicalTrailEvents([answered],[assist],[paper],'A');
+ assert.equal(adapted.length,1);assert.equal(adapted[0].at,assist.occurredAt);assert.equal(adapted[0].activityId,a.id);
+ assert.equal(adapted[0].reason,'assistance_shown');assert.equal(mergeTrailEvents(adapted,adapted).length,1);
+ assert.deepEqual(historicalTrailEvents([answered],[assist],[paper],'B'),[]);
+});
 test('A/B/C effective trace, previews do not occupy slots and back/forward restores original activity',()=>{
  let events:CetTrailEvent[]=[];let trail=projectTrail(events,key,units).trail;
  assert.equal(trailPosition(trail,units,units[0]),1);assert.equal(resolvePrevious(trail,units[0]),undefined);

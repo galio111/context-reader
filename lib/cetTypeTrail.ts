@@ -1,4 +1,4 @@
-import type { CetPaper, CetPurpose, CetType } from '../types/cet';
+import type { CetActivity, CetExposure, CetPaper, CetPurpose, CetType } from '../types/cet';
 export interface CetTypeUnit { paperId: string; sectionId: string }
 export interface CetTrailKey { owner: string; level: 4|6; type: CetType; purpose: CetPurpose }
 export interface CetTrailEvent extends CetTrailKey, CetTypeUnit {
@@ -6,6 +6,22 @@ export interface CetTrailEvent extends CetTrailKey, CetTypeUnit {
 }
 export const cetUnitKey = (unit: CetTypeUnit) => JSON.stringify([unit.paperId,unit.sectionId]);
 export const cetTrailKey = (key: CetTrailKey) => JSON.stringify([key.owner,key.level,key.type,key.purpose]);
+// Adapt only evidence with an original event time and an unambiguous single-activity owner.
+// Opening a page, an updatedAt timestamp, or an unattributed legacy cache is not evidence.
+export function historicalTrailEvents(activities:CetActivity[], exposures:CetExposure[], papers:CetPaper[], owner:string):CetTrailEvent[]{
+ const result:CetTrailEvent[]=[];
+ for(const activity of activities){
+  if(activity.owner!==owner||!activity.sectionId||activity.legacy)continue;
+  const paper=papers.find(p=>p.id===activity.paperId),section=paper?.sections.find(s=>s.id===activity.sectionId);
+  if(!paper||!section)continue;
+  const evidence=[
+   ...Object.entries(activity.answers).filter(([key,value])=>key.startsWith(`${section.id}:`)&&Boolean(value.value)&&Boolean(value.eventId)).map(([,value])=>({id:value.eventId,at:value.at,reason:'answer' as const})),
+   ...exposures.filter(e=>e.owner===owner&&e.attemptId===activity.id&&e.paperId===paper.id&&e.sectionId===section.id&&(e.kind==='assist'||e.kind==='answer')).map(e=>({id:e.id,at:e.occurredAt,reason:e.kind==='assist'?'assistance_shown' as const:'answer' as const})),
+  ].filter(e=>Number.isFinite(Date.parse(e.at))).sort((a,b)=>a.at.localeCompare(b.at)||a.id.localeCompare(b.id));
+  if(evidence[0])result.push({owner,level:paper.level,type:section.type,purpose:activity.purpose,paperId:paper.id,sectionId:section.id,activityId:activity.id,round:'initial',...evidence[0],id:`historical:${activity.id}:${evidence[0].id}`});
+ }
+ return mergeTrailEvents(result);
+}
 export function listAccessibleUnits(papers: CetPaper[], level:4|6,type:CetType):CetTypeUnit[]{
  const units=new Map<string,CetTypeUnit>();
  for(const paper of papers)if(paper.level===level)for(const section of paper.sections)if(section.type===type){const u={paperId:paper.id,sectionId:section.id};units.set(cetUnitKey(u),u);}

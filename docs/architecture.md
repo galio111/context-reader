@@ -334,3 +334,7 @@ Reader tokenization, standalone validation, pronunciation and contextual lookup/
 ## 四六级阅读域
 
 HomeClient 管理真实 CET 阅读入口；CetReader 通过 ReaderView 的可选 examSurface 插槽复用账户、查词、保存和翻译。服务端 `/api/cet` 按账号过滤目录、按需读取单卷私有 JSON；客户端不导入题库全集。CET v2 将可变活动、不可变提交包和材料接触分成独立 preferences 对象，纳入原 protocol-2 CAS/manifest/游标及三种管理存储键。旧 v1 原始记录保留并显式适配。练习按篇冻结与可见分段计时，自测按固定预算和持久化运行时间恢复；结果从快照读取，双端提交分别保留。完整边界见 [cet-reading.md](cet-reading.md)。
+
+
+### 第四轮数据与题目窗实现（待生产验收）
+同题型路线使用owner/级别/题型/目标隔离的cet-type-trail:v1事件；仅有效作答、成功辅助或提交留痕，不扩大活动范围。旧记录只按有归属、有原事件时间的答案/辅助证据适配。设备滚动位置仅存本机会话。可调整计时按需进入v4独立活动/提交包命名空间，epoch显示值与累计有效用时分离；旧v2/v3源及冲突草稿保留。词典历史采用查询/删除因果事件，旧回包及旧session不能自动恢复删除，明确新查询可恢复；结果缓存保持。CetQuestionSurface与CetQuestionActions被正文和右窗复用，答案与提交命令仍归CetReader；ReaderView仅管理展开、工具互斥、暂停安全与移动底部展示。当前篇双面DOM/token隔离，正文数据不重复加载。

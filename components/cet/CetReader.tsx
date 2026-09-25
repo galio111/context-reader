@@ -18,7 +18,7 @@ import { prepareCetPracticeSubmitAll, cetPracticeTotals } from "@/lib/cetPractic
 import { cetViewModel } from "@/lib/cetViewModel";
 import {adjustCetTimer,projectCetTimer,currentCetEpoch,type CetTimerTarget} from "@/lib/cetAdjustableTimer";
 import { loadCetCatalogue } from "@/lib/cetCatalogueLoader";
-import { listAccessibleUnits, projectTrail, resolvePrevious, resolveNext, trailPosition, currentTrailRound, type CetTrailKey, type CetTypeUnit } from "@/lib/cetTypeTrail";
+import { historicalTrailEvents, listAccessibleUnits, projectTrail, resolvePrevious, resolveNext, trailPosition, currentTrailRound, type CetTrailKey, type CetTypeUnit } from "@/lib/cetTypeTrail";
 import {readCetTrail,saveCetTrail} from "@/lib/cetTypeTrailStorage";
 import { CetQuestionSurface, CetQuestionActions, type QuestionSurface, type QuestionAction } from "./CetQuestionSurface";
 import {readCetViewport,saveCetViewport} from "@/lib/cetLocalViewport";
@@ -188,7 +188,15 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     void loadCetCatalogue({signal:controller.signal,fetchPage:async(page)=>{
       const response=await fetch(`/api/cet?level=${routeLevel}&page=${page}&year=recent`,{signal:controller.signal});
       const data=await response.json();if(!response.ok)throw Error('目录暂不可用');return data;
-    },onBatch:batch=>{if(!controller.signal.aborted&&storageOwner()===expectedOwner)setRoutePapers(batch.papers);}})
+    },onBatch:batch=>{
+      if(controller.signal.aborted||storageOwner()!==expectedOwner)return;
+      setRoutePapers(batch.papers);
+      const events=readCetTrail();
+      for(const event of historicalTrailEvents(readCetActivities(),readCetExposures(),batch.papers,expectedOwner)){
+        if(!events.some(e=>e.owner===event.owner&&e.paperId===event.paperId&&e.sectionId===event.sectionId&&e.purpose===event.purpose))saveCetTrail(event);
+      }
+      setTrailEvents(readCetTrail());
+    }})
       .catch(()=>{if(!controller.signal.aborted)setRouteError('同题型目录未加载完整，请重试。');})
       .finally(()=>{if(!controller.signal.aborted)setRouteLoading(false);});
     return ()=>controller.abort();
@@ -413,7 +421,13 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       if(expectedOwner!==storageOwner())return;
       setChoice(null);setSheet('');setActiveToken('');routePending.current=null;
       onOpen({paperId:target.paperId,sectionId:target.sectionId,attemptId:savedNext.id,preparedPaper:nextPaper,preparedOwner:expectedOwner});
-    } catch {setNotice('切换未完成，当前答案已保留。再次点击将重试同一篇。');}
+    } catch {
+      if(expectedOwner===storageOwner()&&current.current?.id===a.id){
+        const retained=current.current;
+        if(retained.purpose==='practice'&&retained.status==='in_progress'&&!retained.practiceTimerPaused&&!document.hidden&&!cetFinalizedSection(retained,retained.activeSection))practiceSegment.current={id:`${retained.activeSection}#${crypto.randomUUID()}`,sectionId:retained.activeSection,start:Date.now()};
+        setNotice('切换未完成，当前答案已保留。再次点击将重试同一篇。');
+      }
+    }
     finally{routeNavigating.current=false;setBusy(false);}
   };
 
@@ -560,7 +574,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       const ongoing = records.find(r=>r.status==='in_progress'||r.status==='paused');
       return <section key={purpose}><h2>{purpose==='practice' ? '阅读练习' : entry.sectionId ? '单篇自测' : '套卷自测'}</h2>
         <p>{purpose==='practice' ? '可以查词和翻译；每篇提交后查看答案与解析。' : '提交前不提供查词和翻译；提交后统一查看答案与解析。开始前可选择正计时或倒计时。'}</p>
-        <div className="cet-start-actions"><button className="cet-primary" disabled={busy} onClick={()=>purpose==='practice' ? void start('practice') : (setTimerMode("countdown"),setNotice(""),setSheet('开始新自测'))}>{purpose==='practice' ? records.length ? '开始新练习' : '开始练习' : `开始${entry.sectionId ? '单篇' : '套卷'}自测`}</button>
+        <div className="cet-start-actions"><button className="cet-primary" disabled={busy} onClick={()=>{forceNew.current=records.length>0;if(purpose==='practice')void start('practice');else{setTimerMode("countdown");setNotice("");setSheet('开始新自测');}}}>{purpose==='practice' ? records.length ? '开始新练习' : '开始练习' : `开始${entry.sectionId ? '单篇' : '套卷'}自测`}</button>
         {ongoing && <button onClick={()=>openRecord(ongoing)}>继续上次{purpose==='practice'?'练习':'自测'}</button>}</div>
         <h3>最近{purpose==='practice'?'练习':'自测'}</h3>{records.slice(0,3).map(record=><button type="button" className="cet-start-record" key={record.id} onClick={()=>openRecord(record)}><span>{record.purpose==='self_test' ? `${record.timerMode==='countup'?'正计时':'倒计时'} · ` : ''}{cetHistoryLabel(record)}</span><small>{new Date(record.createdAt).toLocaleDateString('zh-CN')}</small></button>)}
         {!records.length && <p className="cet-muted">尚无记录</p>}{records.length>3 && <button onClick={()=>{setHistoryScope("current_material");setHistoryLevel("all");setHistoryPurpose(purpose);setHistoryLimit(30);setSheet('练习历史');}}>更多{purpose==='practice'?'练习':'自测'}记录</button>}
