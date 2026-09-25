@@ -20,6 +20,7 @@ import {adjustCetTimer,projectCetTimer,currentCetEpoch,type CetTimerTarget} from
 import { loadCetCatalogue } from "@/lib/cetCatalogueLoader";
 import { cetUnitKey, listAccessibleUnits, projectTrail, resolvePrevious, resolveNext, trailPosition, currentTrailRound, type CetTrailKey, type CetTypeUnit } from "@/lib/cetTypeTrail";
 import {readCetTrail,saveCetTrail} from "@/lib/cetTypeTrailStorage";
+import { CetQuestionSurface, CetQuestionActions, type QuestionSurface, type QuestionAction } from "./CetQuestionSurface";
 import { CetText } from "./CetText";
 import type { CetActivity, CetPaper, CetQuestion, CetSection } from "@/types/cet";
 import type { WordContext } from "@/types/reader";
@@ -78,7 +79,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const [selectedFinalId, setSelectedFinalId] = useState("");
   const [directSectionId, setDirectSectionId] = useState("");
   const [exposures, setExposures] = useState(readCetExposures);
-  const [choice, setChoice] = useState<{ question: CetQuestion; section: CetSection; anchor: HTMLElement } | null>(null);
+  const [choice, setChoice] = useState<{ question: CetQuestion; section: CetSection; activityId: string; surface: QuestionSurface; anchor: HTMLElement } | null>(null);
   const [historyLimit, setHistoryLimit] = useState(30);
   const [busy, setBusy] = useState(false);
   const [timerAnchor,setTimerAnchor]=useState<HTMLElement|null>(null);
@@ -232,7 +233,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     // after that lock is released and the destination question is mounted.
     let frame = 0, attempts = 0;
     const align = () => {
-      const node = document.getElementById(`cet-q-${jumpQuestion.current}`);
+      const node = document.getElementById(`cet-inline-q-${jumpQuestion.current}`);
       if (node && document.body.style.position !== "fixed") {
         node.scrollIntoView({block:"center"});jumpQuestion.current=null;pendingScroll.current=null;
       } else if (++attempts < 12) frame=window.requestAnimationFrame(align);
@@ -477,9 +478,9 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     <span aria-hidden="true">{timerStopped ? "✓" : timerPaused ? "▶" : "Ⅱ"}</span>{timerPaused && <small>已暂停</small>}
   </button>{!timerStopped&&!activity.legacy&&<button type="button" className="cet-timer-more" aria-label="更多计时设置" disabled={busy} onClick={e=>openTimerMenu(e.currentTarget)}>⋯</button>}</div>;
 
-  const updateDraft = (question: CetQuestion, value: string) => {
+  const updateDraft = (question: CetQuestion, value: string, expected = {activityId:activity?.id,sectionId:section.id}) => {
     const a = current.current;
-    if (!a || a.status !== "in_progress") return;
+    if (!a || a.status !== "in_progress" || a.id!==expected.activityId || a.activeSection!==expected.sectionId || owner.current!==storageOwner() || !a.questionKeys.includes(cetQuestionKey(expected.sectionId,question.number))) return;
     if (a.legacy?.mode === "study" && a.legacy.raw.answers[cetQuestionKey(section.id, question.number)]) return;
     if (a.legacy?.raw.revealed[section.id]) return;
     if (model.mismatch) {setNotice("题目范围发生变化，原记录已保留，暂不能作答。");return;}
@@ -508,21 +509,22 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const lookupText = (text: string, lookup: (context: WordContext) => void, contextText?: string, contextOffset = 0) => <CetText text={text} locked={locked} lookup={lookup} active={activeToken} onActive={setActiveToken} contextText={contextText} contextOffset={contextOffset} />;
   const answerFor = (question: CetQuestion) => displayAnswer(section.id, cetQuestionKey(section.id, question.number));
   const isRevealed = (question: CetQuestion) => !testing && (showAnswers || Boolean(activity?.legacy?.raw.revealed[section.id]) || Boolean(activity?.legacy?.mode === "study" && activity.legacy.raw.answers[cetQuestionKey(section.id, question.number)]));
-  const explain = (question: CetQuestion) => {
+  const explain = (question: CetQuestion, surface: QuestionSurface = "inline") => {
     const key = cetQuestionKey(section.id, question.number);
     const snapshot = result?.questions.find((q) => q.key === key);
     const original = result?.answers[key] ?? answerFor(question);
     const referenceAnswer = snapshot ? snapshot.answer : question.answer;
     const correct = referenceAnswer && original === referenceAnswer;
-    const open = !correct || expanded.includes(key);
+    const expansionKey = `${surface}:${key}`;
+    const open = !correct || expanded.includes(expansionKey);
     return <div className="cet-explanation" data-correct={Boolean(correct)}>
-      <button type="button" onClick={() => setExpanded((prior) => prior.includes(key) ? prior.filter((item) => item !== key) : [...prior, key])}>
+      <button type="button" onClick={() => setExpanded((prior) => prior.includes(expansionKey) ? prior.filter((item) => item !== expansionKey) : [...prior, expansionKey])}>
         {referenceAnswer ? `${!original ? "未作答" : correct ? "回答正确" : "回答错误"} · 原答案 ${original || "空"} · 参考答案 ${referenceAnswer}` : "此题暂无可靠参考答案"} {correct && (open ? "收起解析" : "展开解析")}
       </button>
       {open && <p>{(snapshot ? snapshot.explanation : question.explanation) || "来源暂未提供可靠解析，此题暂不计分。"}</p>}
     </div>;
   };
-  const openChoice = (event: React.MouseEvent<HTMLButtonElement>, question: CetQuestion) => setChoice({ question, section, anchor: event.currentTarget });
+  const openChoice = (event: React.MouseEvent<HTMLButtonElement>, question: CetQuestion, surface:QuestionSurface="inline") => {if(activity)setChoice({ question, section, activityId:activity.id,surface, anchor: event.currentTarget });};
   const startNew = (purpose: "practice" | "self_test") => { forceNew.current=true; void leaveTo(() => { setSheet(""); setView("start"); setActivity(null); current.current = null; if (purpose === "self_test") setSheet("开始新自测"); }); };
   const currentScopeKey = activity?.scopeKey || cetScopeKey(paper.id, entry.sectionId);
   const scopedHistory = history.filter((record) => record.scopeKey === currentScopeKey);
@@ -556,6 +558,21 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     <details className="cet-source-info"><summary>资料信息</summary><p>真题来源：{paper.source}</p></details>
   </div>;
 
+  const questionActions: QuestionAction[] = [];
+  if(activity?.purpose==='practice'&&activity.status==='in_progress') {
+    if(!sectionResult)questionActions.push({id:'submit-section',label:'提交本篇',disabled:busy||model.mismatch,invoke:()=>setSheet('提交本篇'),className:'cet-submit-passage'});
+    questionActions.push({id:'submit-all',label:'提交全部',disabled:busy||model.mismatch,invoke:submitAll,className:'cet-submit-passage'});
+    if(activeSectionIndex===scope.length-1)questionActions.push({id:'end-study',label:'结束练习并精读',disabled:busy,invoke:()=>setSheet('直接精读'),className:'cet-direct-link'});
+  }
+  if(activity?.purpose==='self_test'&&activity.status==='in_progress')questionActions.push({id:'submit-test',label:'提交自测',disabled:busy||model.mismatch,invoke:()=>setSheet('提交自测'),className:'cet-submit-passage'});
+  const renderNavigation = () => (activity?.sectionId ? <nav className="cet-bottom-nav" aria-label="同题型路线">
+        {previousUnit && <button disabled={busy||routeLoading||Boolean(routeError)} onClick={()=>void navigateTypeUnit(previousUnit)}>← 上一题</button>}
+        <span title="同级别、同题型、同目标的全部可访问年份">{routeLoading?'正在读取同题型目录…':`${routePosition} / ${routeUnits.length} 篇`}</span>
+        {routeError ? <button onClick={()=>setRouteRetry(n=>n+1)}>重试目录</button> : hasNextUnit ? <button disabled={busy||routeLoading} onClick={()=>{const target=resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,Math.random);if(target)void navigateTypeUnit(target);}}>下一题 →</button> : !routeLoading && routeUnits.length>0 && routeProjection.trail.length===routeUnits.length && <span>本轮该题型已全部接触 <button onClick={()=>{saveCetTrail({...routeKey,...unit,id:crypto.randomUUID(),activityId:activity.id,at:new Date().toISOString(),reason:'round',round:routeProjection.round});setTrailEvents(readCetTrail());startNew(activity.purpose);}}>开始新一轮</button></span>}
+      </nav> : <nav className="cet-bottom-nav"><button disabled={activeSectionIndex === 0} onClick={() => changeSection(scope[activeSectionIndex - 1].id, true)}>← 上一篇</button><span>{activeSectionIndex + 1} / {scope.length}</span><button disabled={activeSectionIndex === scope.length - 1} onClick={() => changeSection(scope[activeSectionIndex + 1].id, true)}>下一篇 →</button></nav>);
+  const renderQuestions = (surface:QuestionSurface,lookup:(context:WordContext)=>void) => <CetQuestionSurface surface={surface} section={section} disabled={!activity||activity.status!=='in_progress'} answerFor={answerFor} revealed={isRevealed} renderText={text=>lookupText(text,lookup)} explain={explain} onAnswer={(q,value)=>updateDraft(q,value)} onOpenChoice={openChoice} openNumber={choice?.surface===surface?choice.question.number:undefined}/>;
+  const renderActions = (surface:QuestionSurface) => <CetQuestionActions surface={surface} actions={questionActions}>{renderNavigation()}</CetQuestionActions>;
+
   const renderReading = (lookup: (context: WordContext) => void) => {
     if (view === "start") return startSurface;
     if (paused && activity) return <div className="cet-paused">{notice && <p className="cet-notice" role="alert">{notice}</p>}<h1>自测已暂停</h1><p>题目暂时隐藏，本次中断已记录。点击计时胶囊继续原答卷。</p><button type="button" className="cet-primary" disabled={busy} onClick={() => void toggleTimer()}>继续自测</button><button type="button" onClick={() => void leaveTo(onBack)}>返回首页</button></div>;
@@ -578,21 +595,12 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       <div className="cet-passages">{section.paragraphs.map((text, index) => <p key={index}>{section.type === "cloze" ? text.split(/(\[\[\d+\]\])/g).map((part, partIndex, parts) => {
         const number = Number(part.match(/\[\[(\d+)\]\]/)?.[1]);
         const question = section.questions.find((item) => item.number === number);
-        return question ? <span className="cet-gap" id={`cet-q-${number}`} key={partIndex}><button type="button" disabled={isRevealed(question) || !activity || activity.status !== "in_progress"} onClick={(event) => openChoice(event, question)} aria-haspopup="listbox" aria-expanded={choice?.question.number === number} aria-label={`第 ${number} 空，${answerFor(question) || "未作答"}`}><b>{number}</b>{answerFor(question) ? <span>{question.options.find((option) => option.key === answerFor(question))?.text || answerFor(question)}</span> : null}</button></span> : <span key={partIndex}>{lookupText(part, lookup, text, parts.slice(0, partIndex).join("").length)}</span>;
+        return question ? <span className="cet-gap" id={`cet-inline-q-${number}`} key={partIndex}><button type="button" disabled={isRevealed(question) || !activity || activity.status !== "in_progress"} onClick={(event) => openChoice(event, question)} aria-haspopup="listbox" aria-expanded={choice?.surface === "inline" && choice?.question.number === number} aria-label={`第 ${number} 空，${answerFor(question) || "未作答"}`}><b>{number}</b>{answerFor(question) ? <span>{question.options.find((option) => option.key === answerFor(question))?.text || answerFor(question)}</span> : null}</button></span> : <span key={partIndex}>{lookupText(part, lookup, text, parts.slice(0, partIndex).join("").length)}</span>;
       }) : lookupText(text, lookup)}</p>)}</div>
       {activity?.conditions.includes("legacy_draft_conflict") && <p role="status">旧设备有不同草稿，已保留在本机备份中，当前答卷和已提交结果未被替换。</p>}
       {activity?.conditions.includes("timer_adjusted") && <p className="cet-muted">计时已调整 · 结果保留累计有效用时</p>}
-      {section.type !== "cloze" && <div className="cet-questions">{section.questions.map((question) => <section id={`cet-q-${question.number}`} key={question.number}><h2><b>{question.number}.</b> {lookupText(question.stem, lookup)}</h2>{section.type === "detail" ? <div role="radiogroup" aria-label={`第 ${question.number} 题选项`}>{question.options.map((option) => <div className="cet-option" data-chosen={answerFor(question) === option.key} key={option.key}><button type="button" role="radio" aria-label={`第 ${question.number} 题选择 ${option.key}`} aria-checked={answerFor(question) === option.key} disabled={isRevealed(question) || !activity || activity.status !== "in_progress"} onClick={() => updateDraft(question, answerFor(question) === option.key ? "" : option.key)}>{option.key}</button><span>{lookupText(option.text, lookup)}</span></div>)}</div> : <button type="button" className="cet-match-choice" aria-haspopup="listbox" aria-expanded={choice?.question.number === question.number} disabled={isRevealed(question) || !activity || activity.status !== "in_progress"} onClick={(event) => openChoice(event, question)}>{answerFor(question) ? `${answerFor(question)} 段` : "选择段落"} <span aria-hidden="true">⌄</span></button>}{isRevealed(question) && explain(question)}</section>)}</div>}
-      {section.type === "cloze" && section.questions.some(isRevealed) && <section className="cet-cloze-explanations"><h2>选词填空解析</h2>{section.questions.filter(isRevealed).map((question) => <div key={question.number}><h3>第 {question.number} 空</h3>{explain(question)}</div>)}</section>}
-      {activity?.purpose === "practice" && activity.status === "in_progress" && !sectionResult && <button type="button" className="cet-submit-passage" disabled={busy || model.mismatch} onClick={() => setSheet("提交本篇")}>提交本篇</button>}
-      {activity?.purpose === "practice" && activity.status === "in_progress" && activeSectionIndex === scope.length - 1 && <button type="button" className="cet-direct-link" disabled={busy} onClick={() => setSheet("直接精读")}>结束练习并精读</button>}
-      {activity?.purpose === "self_test" && activity.status === "in_progress" && activeSectionIndex === scope.length - 1 && <button type="button" className="cet-submit-passage" disabled={busy || model.mismatch} onClick={() => setSheet("提交自测")}>提交自测</button>}
-
-      {activity?.sectionId ? <nav className="cet-bottom-nav" aria-label="同题型路线">
-        {previousUnit && <button disabled={busy||routeLoading||Boolean(routeError)} onClick={()=>void navigateTypeUnit(previousUnit)}>← 上一题</button>}
-        <span title="同级别、同题型、同目标的全部可访问年份">{routeLoading?'正在读取同题型目录…':`${routePosition} / ${routeUnits.length} 篇`}</span>
-        {routeError ? <button onClick={()=>setRouteRetry(n=>n+1)}>重试目录</button> : hasNextUnit ? <button disabled={busy||routeLoading} onClick={()=>{const target=resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,Math.random);if(target)void navigateTypeUnit(target);}}>下一题 →</button> : !routeLoading && <span>本轮该题型已全部接触 <button onClick={()=>{saveCetTrail({...routeKey,...unit,id:crypto.randomUUID(),activityId:activity.id,at:new Date().toISOString(),reason:'round',round:routeProjection.round});setTrailEvents(readCetTrail());startNew(activity.purpose);}}>开始新一轮</button></span>}
-      </nav> : <nav className="cet-bottom-nav"><button disabled={activeSectionIndex === 0} onClick={() => changeSection(scope[activeSectionIndex - 1].id, true)}>← 上一篇</button><span>{activeSectionIndex + 1} / {scope.length}</span><button disabled={activeSectionIndex === scope.length - 1} onClick={() => changeSection(scope[activeSectionIndex + 1].id, true)}>下一篇 →</button></nav>}
+      {renderQuestions("inline",lookup)}
+      {renderActions("inline")}
       {activity?.sectionId && testing && <p className="cet-muted">切换将保存当前自测并暂停。</p>}
     </div>;
   };
@@ -612,10 +620,13 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       rail: <div className={`${toolbarStyles.railActions} cet-rail`}><button onClick={() => setSheet("选择真题")}><span>选择真题</span><small>按试卷或题型选择</small></button><button onClick={openGlobalHistory}><span>练习历史</span><small>继续或回看</small></button>{shown && <button onClick={() => setSheet("重新练习")}><span>重新练习</span><small>保留本轮记录</small></button>}</div>,
       timer,
 
+      questions: shown ? {key:`${activity?.id||directSessionId.current}:${section.id}`, available:!paused, title:section.title, answered:sectionAnswered,total:section.questions.length,
+        onDismiss:()=>setChoice(prior=>prior?.surface==='dock'?null:prior),
+        render:lookup=><div className="cet-dock-reading">{renderQuestions('dock',lookup)}{renderActions('dock')}</div>} : undefined,
       render: renderReading,
     }} />
     {timerAnchor && <CetOptionList anchor={timerAnchor} label="计时设置" value="" options={[{key:'reset',text:'归零'},{key:'countdown',text:activity&&projectCetTimer(activity,section.id).mode==='countdown'?'调整倒计时':'改为倒计时'}]} onClose={()=>setTimerAnchor(null)} onChoose={key=>{setTimerAnchor(null);setNotice('');setMinutes(String((activity&&projectCetTimer(activity,section.id).budget||600000)/60000));setSheet(key==='reset'?'计时归零':'设置倒计时');}} />}
-    {choice && <CetOptionList anchor={choice.anchor} options={[{key:"",text:"清空答案"}, ...choice.question.options.map(o=>({key:o.key,text:`${o.key} ${o.text}`}))]} value={activity?.answers[cetQuestionKey(choice.section.id, choice.question.number)]?.value || ""} label={`第 ${choice.question.number} 题选择${choice.section.type === "matching" ? "段落" : "单词"}`} onChoose={(key) => { updateDraft(choice.question, key); setChoice(null); }} onClose={() => setChoice(null)} />}
+    {choice && <CetOptionList anchor={choice.anchor} options={[{key:"",text:"清空答案"}, ...choice.question.options.map(o=>({key:o.key,text:`${o.key} ${o.text}`}))]} value={activity?.answers[cetQuestionKey(choice.section.id, choice.question.number)]?.value || ""} label={`第 ${choice.question.number} 题选择${choice.section.type === "matching" ? "段落" : "单词"}`} onChoose={(key) => { updateDraft(choice.question, key, {activityId:choice.activityId,sectionId:choice.section.id}); setChoice(null); }} onClose={() => setChoice(null)} />}
     {sheet && <Sheet title={sheet} left={sheet === "选择真题"} onClose={() => setSheet("")}>
       {sheet === "计时归零" || sheet === "设置倒计时" ? <div className="cet-test-settings">
         <p>{sheet==='计时归零' ? activity&&projectCetTimer(activity,section.id).mode==='countdown'?'将重新从本轮设置时长倒计时，答案保留。':'仅重置当前计时，已选答案和原始累计用时保留。':'从新时长开始倒计时，已选答案和原始累计用时保留。'}</p>

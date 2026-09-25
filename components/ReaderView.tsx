@@ -19,6 +19,7 @@ import { PillNavAction } from "@/components/PillNavAction";
 import { MOBILE_READER_SHEET_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useMobileSheetScrollBoundary } from "@/components/useMobileSheetScrollBoundary";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
+import { useCetQuestionDock } from "@/components/cet/useCetQuestionDock";
 import { ReaderTextContext } from "@/components/ReaderTextAdapter";
 import { WordToken } from "@/components/WordToken";
 import toolbarStyles from "@/components/ReaderToolbar.module.css";
@@ -96,6 +97,7 @@ import { useAccount } from "@/components/AccountProvider";
 export interface ReaderExamSurface {
   testing?: boolean; startScreen?: boolean;
   locked: boolean; lockedMessage?: string; toolbar: ReactNode; rail: ReactNode; timer: ReactNode; menu?: ReactNode;
+  questions?: {key:string;available:boolean;title:string;answered:number;total:number;onDismiss:()=>void;render:(lookup:(context:WordContext)=>void)=>ReactNode};
   onAssistanceShown?: (kind: "lookup" | "translation") => void;
   render: (lookup: (context: WordContext) => void) => ReactNode;
 }
@@ -1463,9 +1465,10 @@ export function ReaderView({
   const [savingArticle, setSavingArticle] = useState(false);
   const [mobileExplanationOpen, setMobileExplanationOpen] = useState(false);
   const [rightPanelMode, setRightPanelMode] = useState<RightPanelMode>("explanation");
+  const questionDock=useCetQuestionDock(examSurface?.questions?.key,Boolean(examSurface?.questions?.available));
   const mobileToolSheet = useMobileBottomSheet(
-    mobileExplanationOpen,
-    rightPanelMode,
+    mobileExplanationOpen || questionDock.open,
+    questionDock.open ? "questions" : rightPanelMode,
     MOBILE_READER_SHEET_HEIGHT,
     closeMobileToolSheet,
   );
@@ -2272,6 +2275,7 @@ export function ReaderView({
     options: { force?: boolean; syncVocabulary?: boolean } = {},
   ) {
     if (examSurface?.locked) return;
+    closeQuestions();
     if (!account.authenticated && guestLookupLocked) {
       openLogin("今天的游客查词次数已用完，登录后可继续查词并同步学习数据。");
       return;
@@ -2488,6 +2492,7 @@ export function ReaderView({
 
   function handleRegenerateExplanation() {
     if (examSurface?.locked) return;
+    closeQuestions();
     if (!account.authenticated && guestLookupLocked) {
       openLogin("今天的游客查词次数已用完，登录后可继续查词并同步学习数据。");
       return;
@@ -2578,6 +2583,19 @@ export function ReaderView({
     }
 
     void explainContext(tokenToWordContext(token), [token.id]);
+  }
+
+  function closeQuestions(restoreFocus=false) { questionDock.close();examSurface?.questions?.onDismiss();
+    if(restoreFocus)requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>(mobileViewport?'[data-cet-mobile-question-trigger]':'.cet-question-dock-trigger')?.focus());
+  }
+  function renderQuestionDock() {
+    if(!examSurface?.questions?.available)return null;
+    return <ReaderTextContext.Provider value={{register:registerExternalText,selected:selectedTokenIdSet}}>
+      <div className="cet-question-dock-content" data-question-dock-content onPointerDown={handleArticlePointerDown} onPointerMove={handleArticlePointerMove} onPointerUp={handleArticlePointerUp} onPointerCancel={handleArticlePointerCancel} onClick={handleArticleClick} onKeyDown={event=>{if(event.key==="Escape"){event.preventDefault();closeQuestions(true);return;}if(event.key!=="Enter"&&event.key!==" ")return;const token=tokenFromEventTarget(event.target);if(token){event.preventDefault();handleTokenClick(token);}}}>
+        <header><div><strong>题目</strong><small>{examSurface.questions.answered}/{examSurface.questions.total} 已答</small></div><button type="button" aria-label="收起题目" onClick={()=>closeQuestions(true)}>×</button></header>
+        <div className="cet-question-dock-scroll" data-local-scroll-surface>{examSurface.questions.render(context=>{void explainContext(context,[]);})}</div>
+      </div>
+    </ReaderTextContext.Provider>;
   }
 
   function handleArticlePointerDown(event: React.PointerEvent<HTMLElement>) {
@@ -2839,6 +2857,7 @@ export function ReaderView({
 
   function openDictionaryWindow() {
     if (examSurface?.locked) return;
+    closeQuestions();
     if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
     setDictionaryClosing(false);
     setDictionaryMounted(true);
@@ -2952,6 +2971,7 @@ export function ReaderView({
 
   function openMobileTool(mode: RightPanelMode) {
     if (examSurface?.locked) return;
+    closeQuestions();
     setReaderMenuOpen(false);
     if (rightPanelMode === "translation" && mobileTranslationScrollRef.current) {
       mobileTranslationScrollTopRef.current = mobileTranslationScrollRef.current.scrollTop;
@@ -2984,6 +3004,7 @@ export function ReaderView({
   }
 
   function closeMobileToolSheet() {
+    closeQuestions();
     if (rightPanelMode === "translation" && mobileTranslationScrollRef.current) {
       mobileTranslationScrollTopRef.current = mobileTranslationScrollRef.current.scrollTop;
     }
@@ -4246,7 +4267,7 @@ export function ReaderView({
                 className={`rounded-full text-sm leading-none tracking-[-0.224px] transition ${
                   rightPanelMode === "explanation" ? "bg-[#1d1d1f] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
                 }`}
-                onClick={() => setRightPanelMode("explanation")}
+                onClick={() => {closeQuestions();setRightPanelMode("explanation");}}
               >
                 词句解释
               </button>
@@ -4256,7 +4277,7 @@ export function ReaderView({
                 className={`rounded-full text-sm leading-none tracking-[-0.224px] transition ${
                   rightPanelMode === "translation" ? "bg-[#1d1d1f] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
                 }`}
-                onClick={() => setRightPanelMode("translation")}
+                onClick={() => {closeQuestions();setRightPanelMode("translation");}}
               >
                 全文翻译
               </button>
@@ -4299,6 +4320,10 @@ export function ReaderView({
             </div>
             </>}
           </div>
+          {!mobileViewport && examSurface?.questions?.available && <>
+            <button type="button" className="cet-question-dock-trigger" aria-label="展开题目" aria-expanded={questionDock.open} onClick={()=>questionDock.open?closeQuestions():questionDock.show()}><span aria-hidden="true">☷</span></button>
+            <aside className="cet-question-dock" data-open={questionDock.open} data-testing={examSurface.testing||undefined} aria-label="右侧题目" aria-hidden={!questionDock.open} inert={!questionDock.open}>{renderQuestionDock()}</aside>
+          </>}
         </div>
       </div>
 
@@ -4508,12 +4533,12 @@ export function ReaderView({
         </div>
       )}
 
-      {mobileExplanationOpen && (
+      {(mobileExplanationOpen || (mobileViewport && questionDock.open)) && (
         <div
           ref={mobileToolScrollBoundaryRef}
           className={toolbarStyles.mobileToolSheet}
           style={{
-            height: `${mobileToolSheet.height}dvh`,
+            height: `${questionDock.open ? Math.min(48,mobileToolSheet.height) : mobileToolSheet.height}dvh`,
             "--mobile-sheet-drag-offset": `${mobileToolSheet.dragOffset}px`,
           } as CSSProperties}
           data-sheet-dragging={mobileToolSheet.dragging || undefined}
@@ -4528,7 +4553,8 @@ export function ReaderView({
           >
             <span className="h-1.5 w-8 rounded-full bg-[#d2d2d7]" />
           </div>
-          <div className={toolbarStyles.mobileSheetBody} data-local-scroll-surface>
+          {mobileViewport && questionDock.open && renderQuestionDock()}
+          <div className={toolbarStyles.mobileSheetBody} data-local-scroll-surface hidden={questionDock.open} inert={questionDock.open}>
             {rightPanelMode === "explanation" && (
               hasExplanationPanelContent ? (
                 <ExplanationPanel
@@ -4612,12 +4638,13 @@ export function ReaderView({
       )}
 
       <nav className={toolbarStyles.mobileToolDock} aria-label="阅读工具">
+        {examSurface?.questions?.available && <button type="button" data-cet-mobile-question-trigger aria-pressed={questionDock.open} onClick={()=>questionDock.open?closeQuestions():questionDock.show()}>题目</button>}
         {!examSurface && onSelectCet && <button type="button" onClick={() => setCetLibraryOpen(true)}>真题</button>}
-        <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={mobileExplanationOpen && rightPanelMode === "explanation"} onClick={() => openMobileTool("explanation")}>解释</button>
-        <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={mobileExplanationOpen && rightPanelMode === "translation"} onClick={() => openMobileTool("translation")}>翻译</button>
-        <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={mobileExplanationOpen && rightPanelMode === "dictionary"} onClick={() => openMobileTool("dictionary")}>查词</button>
+        <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={!questionDock.open && mobileExplanationOpen && rightPanelMode === "explanation"} onClick={() => openMobileTool("explanation")}>解释</button>
+        <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={!questionDock.open && mobileExplanationOpen && rightPanelMode === "translation"} onClick={() => openMobileTool("translation")}>翻译</button>
+        <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={!questionDock.open && mobileExplanationOpen && rightPanelMode === "dictionary"} onClick={() => openMobileTool("dictionary")}>查词</button>
         <button type="button" aria-disabled={examSurface?.locked || undefined}  onClick={handleOpenVocabulary}>生词本</button>
-        <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={mobileExplanationOpen && rightPanelMode === "article"} onClick={() => openMobileTool("article")}>更多</button>
+        <button type="button" aria-disabled={examSurface?.locked || undefined} aria-pressed={!questionDock.open && mobileExplanationOpen && rightPanelMode === "article"} onClick={() => openMobileTool("article")}>更多</button>
       </nav>
 
       {cetLibraryOpen && onSelectCet && <CetLibraryDialog confirmBeforeOpen={editingArticle && hasPendingArticleEditingChanges()} onClose={()=>setCetLibraryOpen(false)} onOpen={async entry=>{

@@ -68,12 +68,12 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     const batchStore = getLearningStorage(); assert.ok(isLearningStorage(batchStore));
     const batchFlush = batchStore.flush.bind(batchStore);
     const existingSnapshot = JSON.stringify(Object.values(readCetActivities()[0].finalizations)[0]);
-    await user.click(ui.getByRole("button", {name:"提交全部"}));
+    await user.click(ui.getAllByRole("button", {name:"提交全部"})[0]);
     assert.ok(ui.getByText(/还有 20 题未答/));
     await user.click(ui.getByRole("button", {name:"返回继续"}));
     assert.equal(Object.keys(readCetActivities()[0].finalizations).length,1);
     batchStore.flush = async () => {throw Error("batch flush failed");};
-    await user.click(ui.getByRole("button", {name:"提交全部"}));
+    await user.click(ui.getAllByRole("button", {name:"提交全部"})[0]);
     await user.click(ui.getByRole("button", {name:"提交全部并查看结果"}));
     await waitFor(() => assert.ok(ui.getByRole("dialog", {name:"保存失败"})));
     assert.equal(ui.queryByRole("button",{name:"全部已提交"}),null);
@@ -122,7 +122,7 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     assert.equal(readCetActivities().filter(a=>a.purpose==='self_test').length,1);
 
     reliableStore.flush=async()=>{throw new Error("injected submit persistence failure");};
-    await user.click(ui.getByRole("button",{name:"提交自测"}));
+    await user.click(ui.getAllByRole("button",{name:"提交自测"})[0]);
     const {within}=await import("@testing-library/react");
     await user.click(within(ui.getByRole("dialog",{name:"提交自测"})).getByRole("button",{name:"提交自测"}));
     await waitFor(()=>assert.ok(ui.getByRole("dialog",{name:"保存失败"})));
