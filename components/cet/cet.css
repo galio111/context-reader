@@ -1030,3 +1030,8 @@ html[data-context-theme="night"] .cet-catalogue-status { color:#b6cbd1; }
 html[data-context-theme="night"] .cet-bottom-nav button { background: #294753; color: #e4f3f5; }
 html[data-context-theme="night"] .cet-bottom-nav button:disabled,
 html[data-context-theme="night"] .cet-disabled-menu button { background: #243b44; color: #b3c6cc; opacity: 1; }
+
+.cet-timer-wrapper { position: relative; min-width: 0; }
+.cet-timer-wrapper .cet-timer { width: 100%; padding-right: 2rem; }
+.cet-timer-more { position:absolute;right:4px;top:50%;transform:translateY(-50%);min-width:28px;min-height:32px;border:0;background:transparent;color:inherit;border-radius:50%; }
+.cet-timer-more:focus-visible { outline:2px solid var(--reader-accent,#176c7b);outline-offset:2px; }

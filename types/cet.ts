@@ -85,7 +85,10 @@ export interface CetFinalization {
   conditions: string[];
 }
 export interface CetActivity {
-  schemaVersion: 2 | 3;
+  schemaVersion: 2 | 3 | 4;
+  upgradedFromVersion?: 2 | 3;
+  timerEpochs?: Record<string, import("../lib/cetAdjustableTimer").CetTimerEpoch>;
+  legacyDraftRecovery?: Record<string, unknown>;
   timerMode?: "countdown" | "countup";
   practiceTimerPaused?: boolean;
   id: string;

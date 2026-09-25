@@ -1,3 +1,4 @@
+import {projectCetTimer,currentCetEpoch,cetEpochDepth} from "./cetAdjustableTimer";
 import type {
   CetActivity,
   CetAnswerRevision,
@@ -117,6 +118,7 @@ export function createCetActivity(input: {
 
 export function cetRemainingMs(activity: CetActivity, now = Date.now()): number {
   if (activity.purpose !== "self_test") return 0;
+  if (activity.schemaVersion === 4) return projectCetTimer(activity,activity.activeSection,now).remaining;
   if (activity.legacy || activity.timerMode === "countup") return Number.POSITIVE_INFINITY;
   const remaining = activity.remainingMs ?? activity.budgetMs ?? 0;
   if (!activity.runningSince || activity.status !== "in_progress") return Math.max(0, remaining);
@@ -124,6 +126,7 @@ export function cetRemainingMs(activity: CetActivity, now = Date.now()): number 
 }
 
 export function cetElapsedMs(activity: CetActivity, now = Date.now()): number {
+  if(activity.schemaVersion === 4) return projectCetTimer(activity,activity.activeSection,now).total;
   if (activity.timerMode === "countup") return activity.elapsedMs + (activity.status === "in_progress" && activity.runningSince ? Math.max(0, now - Date.parse(activity.runningSince)) : 0);
   return activity.legacy || activity.purpose === "practice" ? activity.elapsedMs : Math.max(0, (activity.budgetMs || 0) - cetRemainingMs(activity, now));
 }
@@ -244,7 +247,7 @@ function stableWinner<T>(a: T, b: T): T {
 
 export function mergeCetActivity(a: CetActivity | undefined, b: CetActivity): CetActivity {
   if (!a) return b;
-  if (a.id !== b.id || a.owner !== b.owner || a.purpose !== b.purpose || a.schemaVersion !== b.schemaVersion || (a.timerMode || "countdown") !== (b.timerMode || "countdown") || a.scopeKey !== b.scopeKey || a.contentVersion !== b.contentVersion) {
+  if (a.id !== b.id || a.owner !== b.owner || a.purpose !== b.purpose || a.schemaVersion !== b.schemaVersion || (a.schemaVersion !== 4 && (a.timerMode || "countdown") !== (b.timerMode || "countdown")) || a.scopeKey !== b.scopeKey || a.contentVersion !== b.contentVersion) {
     throw new Error("四六级活动身份冲突，原记录已保留。");
   }
   const answers: CetActivity["answers"] = {};
@@ -256,7 +259,13 @@ export function mergeCetActivity(a: CetActivity | undefined, b: CetActivity): Ce
   for (const [id, snapshot] of Object.entries(b.finalizations)) {
     finalizations[id] = finalizations[id] ? stableWinner(finalizations[id], snapshot) : snapshot;
   }
-  const timer = a.timerRevision > b.timerRevision ? a : b.timerRevision > a.timerRevision ? b : stableWinner(a, b);
+  const timerEpochs = { ...a.timerEpochs };
+  for (const [id, epoch] of Object.entries(b.timerEpochs || {})) timerEpochs[id] = timerEpochs[id] ? stableWinner(timerEpochs[id], epoch) : epoch;
+  let timer = a.timerRevision > b.timerRevision ? a : b.timerRevision > a.timerRevision ? b : stableWinner(a, b);
+  if(a.schemaVersion===4){
+    const ae=currentCetEpoch(a,a.activeSection),be=currentCetEpoch(b,b.activeSection),all=timerEpochs;
+    if(ae&&be&&ae.epochId!==be.epochId){const ad=cetEpochDepth(ae,all),bd=cetEpochDepth(be,all);timer=ad!==bd?(ad>bd?a:b):ae.at!==be.at?(ae.at>be.at?a:b):ae.epochId>be.epochId?a:b;}
+  }
   const latest = a.updatedAt > b.updatedAt ? a : b.updatedAt > a.updatedAt ? b : stableWinner(a, b);
   const timerParts = { ...a.timerParts };
   for (const [key, ms] of Object.entries(b.timerParts)) timerParts[key] = Math.max(timerParts[key] || 0, ms);
@@ -276,6 +285,7 @@ export function mergeCetActivity(a: CetActivity | undefined, b: CetActivity): Ce
     activeSection: latest.activeSection,
     everPaused: a.everPaused || b.everPaused,
     timerRevision: timer.timerRevision,
+    ...(a.schemaVersion===4?{timerMode:timer.timerMode,budgetMs:timer.budgetMs,timerEpochs,legacyDraftRecovery:{...a.legacyDraftRecovery,...b.legacyDraftRecovery}}:{}),
     practiceTimerPaused: timer.practiceTimerPaused,
     runningSince: status === "in_progress" ? timer.runningSince : undefined,
     remainingMs: timer.remainingMs,
@@ -295,6 +305,6 @@ export function mergeCetActivity(a: CetActivity | undefined, b: CetActivity): Ce
 
 export function cetEligibility(activity: CetActivity, observedConditions: string[] = []): "first_site_test" | "repeat_test" | "conditions_incomplete" | "not_comparable" {
   if (activity.purpose !== "self_test" || activity.status !== "submitted") return "not_comparable";
-  if (activity.legacy || activity.conditions.includes("submission_conflict") || activity.conditions.includes("timing_anomaly") || activity.everPaused || activity.conditions.includes("assistance_during_test") || observedConditions.includes("assistance_during_test") || observedConditions.includes("answer_view_during_test")) return "conditions_incomplete";
+  if (activity.legacy || activity.conditions.includes("submission_conflict") || activity.conditions.includes("timing_anomaly") || activity.conditions.includes("timer_adjusted") || activity.everPaused || activity.conditions.includes("assistance_during_test") || observedConditions.includes("assistance_during_test") || observedConditions.includes("answer_view_during_test")) return "conditions_incomplete";
   return activity.knownPriorSectionIds.length ? "repeat_test" : "first_site_test";
 }

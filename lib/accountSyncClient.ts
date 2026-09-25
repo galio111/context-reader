@@ -1,4 +1,5 @@
 "use client";
+import {CET_ACTIVITIES_V4_KEY,CET_FINALIZATIONS_V4_KEY,preserveLegacyCetDraft} from "./cetActivityStorage";
 
 import { getLearningStorage, isLearningStorage, initializeLearningStorage, flushLearningStorage } from "@/lib/learningStorage";
 
@@ -71,6 +72,7 @@ const KEYS = {
   translations: "context-reader:article-translations:v1",
   translationBlocks: "context-reader:article-translation-blocks:v1",
   readingStates: READING_STATES_KEY,
+  cetActivitiesV4: CET_ACTIVITIES_V4_KEY, cetFinalizationsV4:CET_FINALIZATIONS_V4_KEY,
   cetTrail: CET_TRAIL_KEY,
   dictionaryHistoryEvents: DICTIONARY_HISTORY_EVENTS_KEY,
   dictionaryHistoryMigrations: DICTIONARY_HISTORY_MIGRATIONS_KEY,
@@ -196,7 +198,7 @@ export function accountSyncKindsForStorageKey(key: string | null): SyncObjectKin
   if (key === KEYS.translations) return ["article_translation"];
   if (key === KEYS.translationBlocks) return ["translation_block"];
   if (key === KEYS.readingStates) return ["reading_state"];
-  if (key === KEYS.cetProgress || key === KEYS.cetActivities || key === KEYS.cetActivitiesV3 || key === KEYS.cetFinalizationsV3 || key === KEYS.cetExposures || key === KEYS.cetFinalizations || key === KEYS.cetTrail || key === KEYS.dictionaryHistoryEvents || key === KEYS.dictionaryHistoryMigrations || key === KEYS.dictionaryHistory || key === KEYS.dictionaryCache || key === KEYS.recommendationPreferences) {
+  if (key === KEYS.cetProgress || key === KEYS.cetActivities || key === KEYS.cetActivitiesV3 || key === KEYS.cetFinalizationsV3 || key === KEYS.cetExposures || key === KEYS.cetFinalizations || key === KEYS.cetActivitiesV4 || key === KEYS.cetFinalizationsV4 || key === KEYS.cetTrail || key === KEYS.dictionaryHistoryEvents || key === KEYS.dictionaryHistoryMigrations || key === KEYS.dictionaryHistory || key === KEYS.dictionaryCache || key === KEYS.recommendationPreferences) {
     return ["preferences"];
   }
   return [];
@@ -560,7 +562,9 @@ function mergeCloudIntoLocal(
     } else if (object.kind === "preferences" && isCetActivityObject(object.objectKey)) {
       const cloud = normalizeCetActivity(object.payload);
       if (cloud && object.objectKey === cetActivityPrefix(cloud) + cloud.id) {
-        try { cetActivities.set(cloud.id, mergeCetActivity(cetActivities.get(cloud.id), cloud)); }
+        try { const local=cetActivities.get(cloud.id);cetActivities.set(cloud.id,
+          local?.schemaVersion===4&&cloud.schemaVersion!==4?preserveLegacyCetDraft(local,cloud):
+          cloud.schemaVersion===4&&local&&local.schemaVersion!==4?preserveLegacyCetDraft(cloud,local):mergeCetActivity(local,cloud)); }
         catch { /* Preserve the existing local identity instead of overwriting it. */ }
       }
     } else if (object.kind === "preferences" && isCetCommitObject(object.objectKey)) {
