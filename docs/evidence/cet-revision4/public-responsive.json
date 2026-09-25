@@ -1,0 +1,132 @@
+[
+  {
+    "article": {
+      "bottom": 5795,
+      "height": 7371,
+      "left": 0,
+      "right": 375,
+      "top": -1576,
+      "width": 375,
+      "x": 0,
+      "y": -1576
+    },
+    "documentWidth": 375,
+    "height": 844,
+    "width": 390
+  },
+  {
+    "article": {
+      "bottom": 3623.90625,
+      "height": 5199.90625,
+      "left": 20,
+      "right": 733,
+      "top": -1576,
+      "width": 713,
+      "x": 20,
+      "y": -1576
+    },
+    "documentWidth": 753,
+    "height": 1024,
+    "width": 768
+  },
+  {
+    "article": {
+      "bottom": 6170.265625,
+      "height": 7746.265625,
+      "left": 168,
+      "right": 605,
+      "top": -1576,
+      "width": 437,
+      "x": 168,
+      "y": -1576
+    },
+    "dock": {
+      "bottom": 744,
+      "height": 564,
+      "left": 629,
+      "right": 989,
+      "top": 180,
+      "width": 360,
+      "x": 629,
+      "y": 180
+    },
+    "documentWidth": 1009,
+    "height": 768,
+    "width": 1024
+  },
+  {
+    "article": {
+      "bottom": 4515.21875,
+      "height": 6139.21875,
+      "left": 168,
+      "right": 761,
+      "top": -1624,
+      "width": 593,
+      "x": 168,
+      "y": -1624
+    },
+    "dock": {
+      "bottom": 776,
+      "height": 644,
+      "left": 785,
+      "right": 1245,
+      "top": 132,
+      "width": 460,
+      "x": 785,
+      "y": 132
+    },
+    "documentWidth": 1265,
+    "height": 800,
+    "width": 1280
+  },
+  {
+    "article": {
+      "bottom": 3556.71875,
+      "height": 5180.71875,
+      "left": 168,
+      "right": 921,
+      "top": -1624,
+      "width": 753,
+      "x": 168,
+      "y": -1624
+    },
+    "dock": {
+      "bottom": 876,
+      "height": 744,
+      "left": 945,
+      "right": 1405,
+      "top": 132,
+      "width": 460,
+      "x": 945,
+      "y": 132
+    },
+    "documentWidth": 1425,
+    "height": 900,
+    "width": 1440
+  },
+  {
+    "article": {
+      "bottom": 3046.03125,
+      "height": 4670.03125,
+      "left": 354,
+      "right": 1230,
+      "top": -1624,
+      "width": 876,
+      "x": 354,
+      "y": -1624
+    },
+    "dock": {
+      "bottom": 1056,
+      "height": 924,
+      "left": 1239,
+      "right": 1699,
+      "top": 132,
+      "width": 460,
+      "x": 1239,
+      "y": 132
+    },
+    "documentWidth": 1905,
+    "height": 1080,
+    "width": 1920
+  }
+]

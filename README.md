@@ -1,5 +1,7 @@
 # Context Reader
 
+四六级阅读第四轮已发布：同题型连续路线、可调整计时、可靠词典历史删除与共享答案题目窗。实际版本、截图和未验证范围见 [第四轮发布报告](docs/cet-revision4-release.md)。
+
 Context Reader is a Next.js reading tool for importing real English articles and understanding them with Chinese context-aware explanations, full-article translation, vocabulary capture and Anki export.
 
 - Production: `https://context-reader.com`

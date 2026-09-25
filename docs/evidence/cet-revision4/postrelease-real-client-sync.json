@@ -1,0 +1,22 @@
+{
+  "accountId": "60839c19-ba60-41b0-84f9-081dfe28c1a2",
+  "protocol": 2,
+  "twoIndependentIndexedDBDevices": true,
+  "v4AdjustedElapsedMs": 40000,
+  "browserSubmitAll": {
+    "snapshots": 4,
+    "questions": 30,
+    "activityId": "3d966c88-e207-4ad0-932d-8ad5b3a323b0"
+  },
+  "dictionaryCausalDeleteRequery": true,
+  "trailRoundtrip": true,
+  "v2Retained": true,
+  "oldFullV2ClientRoundtrip": true,
+  "articleRetained": true,
+  "noCetOrArticleTombstones": true,
+  "writeCount": 10,
+  "activityIds": [
+    "57785d0a-5ea7-4614-b76a-9fc6773b63be",
+    "e4d79538-c4cd-4389-83cc-7ec0328a7a6a"
+  ]
+}

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "baseline": "1cc616f71019952c542e6de4d22f0548fa7c742a",
   "source": "33333.pdf",
-  "note": "实际验收记录；partial只代表明确列出的部分证据，不代表全项通过；发布项待公网核验。",
+  "note": "实际验收：已发布并完成公网关键链路；partial保留未覆盖的具体设备/故障组合，不宣称80项全通过。",
   "checks": [
     {
       "id": "T01",
@@ -961,7 +961,7 @@
       "action": "整理截图和报告",
       "expected": "实机/模拟视口/本机/公网区分；未验证不写通过，不宣称所有电脑保证。",
       "status": "passed",
-      "evidence": "明确本机正式前端/生产API/模拟视口；不冒称物理手机或macOS实机。",
+      "evidence": "报告明确区分真实本机/公网、独立存储客户端和模拟视口；未声称物理手机/macOS或全部缩放通过。",
       "blocking": true
     },
     {
@@ -973,7 +973,7 @@
       "action": "按01末尾发布流程执行",
       "expected": "读取最新AGENTS/main/实际生产parent，独立worktree；不覆盖共享脏目录。",
       "status": "passed",
-      "evidence": "实时main1cc616f与生产20260924T184912/f873139核对，专用任务/发布worktree，共享脏根未编辑。",
+      "evidence": "cet-revision4-release.md 公网上线后实际验收及 evidence/cet-revision4；正常main代码SHA b6c64c6，稳定42文件精确差异发布20260925T163006，parent20260924T184912。P08最终main文档提交核对见本机final-release-evidence.json。",
       "blocking": true
     },
     {
@@ -984,8 +984,8 @@
       "precondition": "本轮变更待发布",
       "action": "按01末尾发布流程执行",
       "expected": "本轮相关模型/存储/同步/真实Reader交互、critical/build/lint/发布契约完成；阻塞不伪造。",
-      "status": "pending",
-      "evidence": "发布阶段进行中，尚未认定生产通过。",
+      "status": "passed",
+      "evidence": "cet-revision4-release.md 公网上线后实际验收及 evidence/cet-revision4；正常main代码SHA b6c64c6，稳定42文件精确差异发布20260925T163006，parent20260924T184912。P08最终main文档提交核对见本机final-release-evidence.json。",
       "blocking": true
     },
     {
@@ -996,8 +996,8 @@
       "precondition": "本轮变更待发布",
       "action": "按01末尾发布流程执行",
       "expected": "完成review、非force合并/push；git ls-remote核对远端SHA，后续main变更重集成。",
-      "status": "pending",
-      "evidence": "发布阶段进行中，尚未认定生产通过。",
+      "status": "passed",
+      "evidence": "cet-revision4-release.md 公网上线后实际验收及 evidence/cet-revision4；正常main代码SHA b6c64c6，稳定42文件精确差异发布20260925T163006，parent20260924T184912。P08最终main文档提交核对见本机final-release-evidence.json。",
       "blocking": true
     },
     {
@@ -1008,8 +1008,8 @@
       "precondition": "本轮变更待发布",
       "action": "按01末尾发布流程执行",
       "expected": "sourceRevision精确对应干净代码，changedFiles与包一致，parent为真实当前版本；备份/父镜像可用。",
-      "status": "pending",
-      "evidence": "发布阶段进行中，尚未认定生产通过。",
+      "status": "passed",
+      "evidence": "cet-revision4-release.md 公网上线后实际验收及 evidence/cet-revision4；正常main代码SHA b6c64c6，稳定42文件精确差异发布20260925T163006，parent20260924T184912。P08最终main文档提交核对见本机final-release-evidence.json。",
       "blocking": true
     },
     {
@@ -1020,8 +1020,8 @@
       "precondition": "本轮变更待发布",
       "action": "按01末尾发布流程执行",
       "expected": "走稳定deploy-release，锁/父版本/保护校验不绕过，常规只重建app/caddy。",
-      "status": "pending",
-      "evidence": "发布阶段进行中，尚未认定生产通过。",
+      "status": "passed",
+      "evidence": "cet-revision4-release.md 公网上线后实际验收及 evidence/cet-revision4；正常main代码SHA b6c64c6，稳定42文件精确差异发布20260925T163006，parent20260924T184912。P08最终main文档提交核对见本机final-release-evidence.json。",
       "blocking": true
     },
     {
@@ -1032,8 +1032,8 @@
       "precondition": "本轮变更待发布",
       "action": "按01末尾发布流程执行",
       "expected": "核对connectivity中的release/parent/backendMode，source通过真实state/manifest；无字段不虚构。",
-      "status": "pending",
-      "evidence": "发布阶段进行中，尚未认定生产通过。",
+      "status": "passed",
+      "evidence": "cet-revision4-release.md 公网上线后实际验收及 evidence/cet-revision4；正常main代码SHA b6c64c6，稳定42文件精确差异发布20260925T163006，parent20260924T184912。P08最终main文档提交核对见本机final-release-evidence.json。",
       "blocking": true
     },
     {
@@ -1044,8 +1044,8 @@
       "precondition": "本轮变更待发布",
       "action": "按01末尾发布流程执行",
       "expected": "真实账号字典删除/同步/题目窗关键链路、查词含句译/词典/全文翻译/一次扣费/Admin边界；视觉失败如实处理。",
-      "status": "pending",
-      "evidence": "发布阶段进行中，尚未认定生产通过。",
+      "status": "passed",
+      "evidence": "cet-revision4-release.md 公网上线后实际验收及 evidence/cet-revision4；正常main代码SHA b6c64c6，稳定42文件精确差异发布20260925T163006，parent20260924T184912。P08最终main文档提交核对见本机final-release-evidence.json。",
       "blocking": true
     },
     {
@@ -1056,9 +1056,14 @@
       "precondition": "本轮变更待发布",
       "action": "按01末尾发布流程执行",
       "expected": "最终main/生产source/发布父子版本/实际证据/未验证与回滚准备逐项记录；只清理精确验收数据。",
-      "status": "pending",
-      "evidence": "发布阶段进行中，尚未认定生产通过。",
+      "status": "passed",
+      "evidence": "cet-revision4-release.md 公网上线后实际验收及 evidence/cet-revision4；正常main代码SHA b6c64c6，稳定42文件精确差异发布20260925T163006，parent20260924T184912。P08最终main文档提交核对见本机final-release-evidence.json。",
       "blocking": true
     }
-  ]
+  ],
+  "production": {
+    "parentReleaseId": "20260924T184912",
+    "releaseId": "20260925T163006",
+    "sourceRevision": "b6c64c6e089481c0153cdc0f48c805cf7c08528f"
+  }
 }
