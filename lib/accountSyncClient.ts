@@ -2,6 +2,8 @@
 
 import { getLearningStorage, isLearningStorage, initializeLearningStorage, flushLearningStorage } from "@/lib/learningStorage";
 
+import {readCetTrail,writeCetTrail,CET_TRAIL_KEY,CET_TRAIL_PREFIX} from "./cetTypeTrailStorage";
+import type {CetTrailEvent} from "./cetTypeTrail";
 import { pruneAcknowledgedExplanations } from "@/lib/learningCachePolicy";
 import LZString from "lz-string";
 import { explanationFromSync, explanationSyncIdentity } from "@/lib/explanationSyncIdentity";
@@ -69,6 +71,7 @@ const KEYS = {
   translations: "context-reader:article-translations:v1",
   translationBlocks: "context-reader:article-translation-blocks:v1",
   readingStates: READING_STATES_KEY,
+  cetTrail: CET_TRAIL_KEY,
   dictionaryHistoryEvents: DICTIONARY_HISTORY_EVENTS_KEY,
   dictionaryHistoryMigrations: DICTIONARY_HISTORY_MIGRATIONS_KEY,
   dictionaryHistory: STANDALONE_DICTIONARY_HISTORY_KEY,
@@ -193,7 +196,7 @@ export function accountSyncKindsForStorageKey(key: string | null): SyncObjectKin
   if (key === KEYS.translations) return ["article_translation"];
   if (key === KEYS.translationBlocks) return ["translation_block"];
   if (key === KEYS.readingStates) return ["reading_state"];
-  if (key === KEYS.cetProgress || key === KEYS.cetActivities || key === KEYS.cetActivitiesV3 || key === KEYS.cetFinalizationsV3 || key === KEYS.cetExposures || key === KEYS.cetFinalizations || key === KEYS.dictionaryHistoryEvents || key === KEYS.dictionaryHistoryMigrations || key === KEYS.dictionaryHistory || key === KEYS.dictionaryCache || key === KEYS.recommendationPreferences) {
+  if (key === KEYS.cetProgress || key === KEYS.cetActivities || key === KEYS.cetActivitiesV3 || key === KEYS.cetFinalizationsV3 || key === KEYS.cetExposures || key === KEYS.cetFinalizations || key === KEYS.cetTrail || key === KEYS.dictionaryHistoryEvents || key === KEYS.dictionaryHistoryMigrations || key === KEYS.dictionaryHistory || key === KEYS.dictionaryCache || key === KEYS.recommendationPreferences) {
     return ["preferences"];
   }
   return [];
@@ -222,6 +225,8 @@ export async function prepareLocalAccountForUser(userId: string, options?: { pre
 
 export function claimGuestCetRecords(storage: Storage, userId: string): void {
   if (!userId) return;
+  const trail = readCetTrail(storage);
+  if (trail.some(e=>e.owner === "guest")) storage.setItem(CET_TRAIL_KEY,JSON.stringify(trail.map(e=>e.owner === "guest"?{...e,owner:userId}:e)));
   const activities = readCetActivities(storage);
   if (activities.some((item) => item.owner === "guest")) {
     writeCetActivities(storage, activities.map((item) => item.owner === "guest" ? { ...item, owner: userId } : item));
@@ -389,6 +394,7 @@ function mergeCloudIntoLocal(
   mergeDictionaryHistoryEvents(storage, objects.filter(o=>o.kind === "preferences" && !o.deletedAt
     && o.objectKey === DICTIONARY_HISTORY_EVENT_PREFIX + (o.payload as DictionaryHistoryEvent)?.id)
     .map(o=>o.payload as DictionaryHistoryEvent));
+  writeCetTrail(storage, objects.filter(o=>o.kind === "preferences" && !o.deletedAt && o.objectKey === CET_TRAIL_PREFIX + (o.payload as CetTrailEvent)?.id).map(o=>o.payload as CetTrailEvent));
   const incomingKinds = new Set(objects.map((object) => object.kind));
   const needsCet = objects.some(o => o.kind === "preferences" && o.objectKey.startsWith(CET_OBJECT_PREFIX));
   const cetAttempts = new Map((needsCet ? readCetAttempts(storage) : []).map(item => [item.id, item]));
@@ -695,6 +701,7 @@ async function collectLocalObjects(
     for (const item of readCetActivities(storage)) add("preferences", cetActivityPrefix(item) + item.id, item, item.updatedAt);
     for (const item of readCetCommitPackages(storage)) add("preferences", `${cetCommitPrefix(item)}${item.attemptId}:${item.finalization.id}`, item, item.finalization.at);
     for (const item of readCetExposures(storage)) add("preferences", CET_EXPOSURE_OBJECT_PREFIX + item.id, item, item.occurredAt);
+    for (const event of readCetTrail(storage)) add("preferences", CET_TRAIL_PREFIX + event.id, event, event.at);
     for (const event of readDictionaryHistoryEvents(storage)) add("preferences", DICTIONARY_HISTORY_EVENT_PREFIX + event.id, event, event.at);
     for (const item of readStandaloneDictionaryHistory(storage)) {
       add("preferences", standaloneDictionaryHistoryObjectKey(item), item, item.lastLookedUpAt);

@@ -18,6 +18,8 @@ export interface CetEntry {
   paperId: string;
   sectionId?: string;
   attemptId?: string;
+  preparedPaper?: CetPaper;
+  preparedOwner?: string;
 }
 export function CetLibrary({
   onOpen,

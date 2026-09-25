@@ -5,6 +5,7 @@ import LZString from "lz-string";
 export const LEARNING_STORAGE_EVENT = "context-reader:learning-storage";
 const DATABASE = "context-reader-learning-v1";
 const LEGACY_KEYS = new Set([
+  "context-reader:cet-type-trail:v1",
   "context-reader:dictionary-history-events:v1", "context-reader:dictionary-history-migrations:v1",
   "context-reader:cet-progress:v1",
   "context-reader:cet-activities:v2",

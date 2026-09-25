@@ -16,6 +16,9 @@ import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
 import { CetLibrary, type CetEntry } from "./CetLibrary";
 import { prepareCetPracticeSubmitAll, cetPracticeTotals } from "@/lib/cetPracticeSubmitAll";
 import { cetViewModel } from "@/lib/cetViewModel";
+import { loadCetCatalogue } from "@/lib/cetCatalogueLoader";
+import { cetUnitKey, listAccessibleUnits, projectTrail, resolvePrevious, resolveNext, trailPosition, currentTrailRound, type CetTrailKey, type CetTypeUnit } from "@/lib/cetTypeTrail";
+import {readCetTrail,saveCetTrail} from "@/lib/cetTypeTrailStorage";
 import { CetText } from "./CetText";
 import type { CetActivity, CetPaper, CetQuestion, CetSection } from "@/types/cet";
 import type { WordContext } from "@/types/reader";
@@ -86,11 +89,20 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const pendingFinal = useRef<CetActivity | null>(null);
   const directSessionId = useRef(crypto.randomUUID());
   const recordedExposureIds = useRef(new Set<string>());
+  const [trailEvents,setTrailEvents] = useState(readCetTrail);
+  const [routePapers,setRoutePapers] = useState<CetPaper[]>([]);
+  const [routeLoading,setRouteLoading] = useState(false);
+  const [routeError,setRouteError] = useState("");
+  const [routeRetry,setRouteRetry] = useState(0);
+  const routePending = useRef<CetTypeUnit|null>(null);
+  const routeNavigating = useRef(false);
+  const forceNew = useRef(false);
+  const routeScroll = useRef(new Map<string,number>());
   const starting = useRef(false);
   const submitting = useRef(false);
   const storageOwner = useCallback(() => getLearningStorage().getItem("context-reader:local-account-owner:v1") || "guest", []);
 
-  const refreshHistory = useCallback(() => { setHistory(readCetActivities().filter(a => a.owner === storageOwner()).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))); setLegacyHistory(readCetAttempts()); setExposures(readCetExposures()); }, [storageOwner]);
+  const refreshHistory = useCallback(() => { setTrailEvents(readCetTrail()); setHistory(readCetActivities().filter(a => a.owner === storageOwner()).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))); setLegacyHistory(readCetAttempts()); setExposures(readCetExposures()); }, [storageOwner]);
   const persistDraft = useCallback((next: CetActivity): boolean => {
     if (owner.current !== storageOwner()) { setNotice("账号已切换，请重新打开这份阅读。"); return false; }
     current.current = next;
@@ -127,7 +139,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     setHistory([]);setLegacyHistory([]);setPaper(null); setActivity(null); setLegacyPreview(null); setView("start"); setError(""); setNotice(""); setChoice(null);
     void Promise.all([
       initializeLearningStorage(),
-      fetch(`/api/cet?id=${encodeURIComponent(entry.paperId)}`).then(async (response) => {
+      (entry.preparedPaper && entry.preparedOwner === storageOwner() ? Promise.resolve({ok:true,json:async()=>({paper:entry.preparedPaper})}) : fetch(`/api/cet?id=${encodeURIComponent(entry.paperId)}`)).then(async (response) => {
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || "试卷加载失败。");
         return data.paper as CetPaper;
@@ -144,6 +156,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
         current.current = selected;
         setActivity(selected);
         setView("reading");
+        pendingScroll.current = routeScroll.current.get(selected.id) || 0;
         if (selected.purpose === "practice" && selected.status === "in_progress" && !cetFinalizedSection(selected, selected.activeSection) && !selected.practiceTimerPaused && !document.hidden) practiceSegment.current = { id: `${selected.activeSection}#${crypto.randomUUID()}`, sectionId: selected.activeSection, start: Date.now() };
       } else if (old && old.paperId === loaded.id) {
         setLegacyPreview(adaptLegacyCetAttempt(old, loaded, owner.current));
@@ -153,6 +166,30 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     // The previous activity is checkpointed before each entry change.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entry.paperId, entry.sectionId, entry.attemptId, account.profile?.userId]);
+
+  useEffect(() => {
+    if (!paper || !(entry.sectionId || activity?.sectionId)) return;
+    const controller = new AbortController(), expectedOwner = storageOwner();
+    setRouteLoading(true);setRouteError("");setRoutePapers([]);routePending.current=null;
+    void loadCetCatalogue({signal:controller.signal,fetchPage:async(page)=>{
+      const response=await fetch(`/api/cet?level=${paper.level}&page=${page}&year=recent`,{signal:controller.signal});
+      const data=await response.json();if(!response.ok)throw Error('目录暂不可用');return data;
+    },onBatch:batch=>{if(!controller.signal.aborted&&storageOwner()===expectedOwner)setRoutePapers(batch.papers);}})
+      .catch(()=>{if(!controller.signal.aborted)setRouteError('同题型目录未加载完整，请重试。');})
+      .finally(()=>{if(!controller.signal.aborted)setRouteLoading(false);});
+    return ()=>controller.abort();
+  }, [paper?.level || entry.preparedPaper?.level, Boolean(entry.sectionId || activity?.sectionId), account.profile?.userId, account.authenticated, routeRetry, storageOwner]);
+
+  const touchTrail = useCallback((a:CetActivity,loaded:CetPaper,reason:'answer'|'assistance_shown'|'finalized'|'restart')=>{
+    if(!a.sectionId || a.owner!==storageOwner())return;
+    const part=loaded.sections.find(s=>s.id===a.sectionId);if(!part)return;
+    const key:CetTrailKey={owner:a.owner,level:loaded.level,type:part.type,purpose:a.purpose};
+    const events=readCetTrail(),round=currentTrailRound(events,key);
+    const already=events.some(e=>e.owner===key.owner&&e.level===key.level&&e.type===key.type&&e.purpose===key.purpose&&e.round===round&&e.paperId===loaded.id&&e.sectionId===part.id&&e.reason!=='round');
+    if(already&&reason!=='restart' || !already&&reason==='restart')return;
+    saveCetTrail({...key,round,id:crypto.randomUUID(),at:new Date().toISOString(),paperId:loaded.id,sectionId:part.id,activityId:a.id,reason});
+    setTrailEvents(readCetTrail());
+  },[storageOwner]);
 
   useEffect(() => {
     const interval = window.setInterval(() => checkpointPractice(), 10_000);
@@ -224,18 +261,22 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
         ...priorCetSections(paper.sections.filter((s) => scope.includes(s.id)), readCetExposures(), now, owner.current),
         ...readCetAttempts().filter((a) => a.paperId === paper.id).flatMap((a) => scope.filter((id) => a.revealed[id] || Object.entries(a.answers).some(([key, value]) => key.startsWith(`${id}:`) && value))),
       ])];
-      const next = pendingStart.current || createCetActivity({ paper, sectionId: entry.sectionId, purpose, owner: owner.current, minutes: Number(minutes), timerMode, knownPriorSectionIds: knownPrior, now });
+      const part = paper.sections.find(s=>s.id===entry.sectionId);
+      const trail = part ? projectTrail(readCetTrail(),{owner:expectedOwner,level:paper.level,type:part.type,purpose},[{paperId:paper.id,sectionId:part.id}]).trail : [];
+      const bound = !forceNew.current && trail[0] ? readCetActivities().find(a=>a.id===trail[0].activityId&&a.owner===expectedOwner) : undefined;
+      const next = pendingStart.current || bound || createCetActivity({ paper, sectionId: entry.sectionId, purpose, owner: owner.current, minutes: Number(minutes), timerMode, knownPriorSectionIds: knownPrior, now });
       pendingStart.current=next;
       const saved = saveCetActivity(next);
       await flushLearningStorage();
       if (expectedOwner !== storageOwner()) return;
       current.current = saved;
       pendingStart.current=null;
+      if(forceNew.current)touchTrail(saved,paper,"restart");forceNew.current=false;
       setActivity(saved); setView("reading"); setSheet(""); refreshHistory();
-      if (purpose === "practice") practiceSegment.current = { id: `${saved.activeSection}#${crypto.randomUUID()}`, sectionId: saved.activeSection, start: Date.now() };
+      if (purpose === "practice" && saved.status === "in_progress" && !saved.practiceTimerPaused && !cetFinalizedSection(saved,saved.activeSection)) practiceSegment.current = { id: `${saved.activeSection}#${crypto.randomUUID()}`, sectionId: saved.activeSection, start: Date.now() };
     } catch { setNotice("开始记录未能保存到本机，请重试。"); }
     finally { starting.current = false; setBusy(false); }
-  }, [paper, entry.sectionId, minutes, timerMode, refreshHistory, storageOwner]);
+  }, [paper, entry.sectionId, minutes, timerMode, refreshHistory, storageOwner, touchTrail]);
 
   const commit = useCallback(async (reason: "submit_all" | "passage_submit" | "manual_submit" | "time_expired" | "ended_for_study", sectionId?: string) => {
     const a = current.current;
@@ -254,12 +295,13 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       if (expectedOwner !== storageOwner()) return;
       pendingFinal.current = null;
       current.current = saved;
+      touchTrail(saved,paper,"finalized");await flushLearningStorage();
       setActivity(saved); setSheet(""); refreshHistory();
       if (reason === "ended_for_study") setView("reading");
       if (saved.purpose === "practice" && saved.status === "in_progress" && !saved.practiceTimerPaused && !cetFinalizedSection(saved, saved.activeSection) && !document.hidden) practiceSegment.current = { id: `${saved.activeSection}#${crypto.randomUUID()}`, sectionId: saved.activeSection, start: Date.now() };
     } catch { setNotice("结果尚未可靠保存，本篇答案不会揭晓。请点击重试。"); setSheet("保存失败"); }
     finally { submitting.current = false; setBusy(false); }
-  }, [paper, checkpointPractice, refreshHistory, storageOwner]);
+  }, [paper, checkpointPractice, refreshHistory, storageOwner, touchTrail]);
 
   useEffect(() => {
     if (!paper || !activity || activity.purpose !== "self_test" || activity.status !== "in_progress") return;
@@ -295,6 +337,36 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     catch { setNotice("本机保存失败，仍停留在当前阅读。请重试。"); }
   }, [checkpointPractice, storageOwner, commit]);
 
+  const navigateTypeUnit = async (target:CetTypeUnit) => {
+    const a=current.current,loaded=paper,expectedOwner=owner.current;
+    if(!a?.sectionId||!loaded||routeNavigating.current||submitting.current||expectedOwner!==storageOwner())return;
+    routeNavigating.current=true;routePending.current=target;setBusy(true);setNotice("");
+    try {
+      if(a.purpose==='self_test'&&a.status==='in_progress'&&cetRemainingMs(a)<=0){await commit('time_expired');if(pendingFinal.current)throw Error('save');}
+      checkpointPractice(true);
+      const source=current.current!;
+      routeScroll.current.set(source.id,window.scrollY);
+      const stopped=source.purpose==='self_test'&&source.status==='in_progress'?cetPause(source):source;
+      const saved=saveCetActivity(stopped);await flushLearningStorage();
+      if(expectedOwner!==storageOwner())return;
+      current.current=saved;setActivity(saved);
+      const response=await fetch(`/api/cet?id=${encodeURIComponent(target.paperId)}`);
+      const data=await response.json();if(!response.ok)throw Error('load');
+      const nextPaper=data.paper as CetPaper,part=nextPaper.sections.find(s=>s.id===target.sectionId),sourcePart=loaded.sections.find(s=>s.id===a.sectionId);
+      if(!part||!sourcePart||nextPaper.level!==loaded.level||part.type!==sourcePart.type||expectedOwner!==storageOwner())throw Error('scope');
+      const key:CetTrailKey={owner:expectedOwner,level:loaded.level,type:part.type,purpose:a.purpose};
+      const linked=projectTrail(readCetTrail(),key,[target]).trail[0];
+      const prior=linked&&readCetActivities().find(item=>item.id===linked.activityId&&item.owner===expectedOwner&&item.paperId===target.paperId&&item.sectionId===target.sectionId&&item.purpose===a.purpose);
+      const next=prior||createCetActivity({paper:nextPaper,sectionId:target.sectionId,owner:expectedOwner,purpose:a.purpose,timerMode:a.timerMode,minutes:(a.budgetMs||600000)/60000,
+        knownPriorSectionIds:priorCetSections([part],readCetExposures(),new Date().toISOString(),expectedOwner)});
+      const savedNext=saveCetActivity(next);await flushLearningStorage();
+      if(expectedOwner!==storageOwner())return;
+      setChoice(null);setSheet('');setActiveToken('');routePending.current=null;
+      onOpen({paperId:target.paperId,sectionId:target.sectionId,attemptId:savedNext.id,preparedPaper:nextPaper,preparedOwner:expectedOwner});
+    } catch {setNotice('切换未完成，当前答案已保留。再次点击将重试同一篇。');}
+    finally{routeNavigating.current=false;setBusy(false);}
+  };
+
   if (error) return <div className="cet-load"><p role="alert">{error}</p><button onClick={onBack}>返回首页</button></div>;
   if (!paper) return <div className="cet-load" role="status">正在打开试卷…</div>;
 
@@ -314,6 +386,13 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const displayAnswer = model.answer;
   const answered = model.answered;
   const activeSectionIndex = scope.indexOf(section);
+  const routeKey:CetTrailKey={owner:owner.current,level:paper.level,type:section.type,purpose:activity?.purpose||'practice'};
+  const routeUnits=listAccessibleUnits(routePapers,paper.level,section.type);
+  const routeProjection=projectTrail(trailEvents,routeKey,routeUnits);
+  const unit={paperId:paper.id,sectionId:section.id};
+  const previousUnit=resolvePrevious(routeProjection.trail,unit);
+  const hasNextUnit=Boolean(resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,()=>0));
+  const routePosition=trailPosition(routeProjection.trail,routeUnits,unit);
   const sectionAnswered = section.questions.filter((q) => model.answer(section.id,cetQuestionKey(section.id,q.number))).length;
   const remaining = activity?.purpose === "practice" ? section.questions.length - sectionAnswered : model.total - answered;
   const submittedCount = activity?.purpose === "practice" ? scope.filter((s) => cetFinalizedSection(activity, s.id)).length : 0;
@@ -364,7 +443,9 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     if (section.type === "cloze" && value && section.questions.some((other) => other.number !== question.number && a.answers[cetQuestionKey(section.id, other.number)]?.value === value)) {
       setNotice("这个单词已用于另一空，请先清空原空格。"); return;
     }
+    if((a.answers[key]?.value||"")===value)return;
     const persisted = persistDraft(cetAnswer(a, key, value));
+    if(persisted)try{touchTrail(current.current!,paper,"answer");}catch{setNotice("路线记录尚未保存，请保留页面重试。");}
     try { saveCetExposure(exposureFor(section, paper.id, owner.current, "answer", `answer:${a.id}:${section.id}`, a.id)); } catch { /* The draft remains visible and can be retried. */ }
     if(persisted) setNotice("");
   };
@@ -397,7 +478,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     </div>;
   };
   const openChoice = (event: React.MouseEvent<HTMLButtonElement>, question: CetQuestion) => setChoice({ question, section, anchor: event.currentTarget });
-  const startNew = (purpose: "practice" | "self_test") => { void leaveTo(() => { setSheet(""); setView("start"); setActivity(null); current.current = null; if (purpose === "self_test") setSheet("开始新自测"); }); };
+  const startNew = (purpose: "practice" | "self_test") => { forceNew.current=true; void leaveTo(() => { setSheet(""); setView("start"); setActivity(null); current.current = null; if (purpose === "self_test") setSheet("开始新自测"); }); };
   const currentScopeKey = activity?.scopeKey || cetScopeKey(paper.id, entry.sectionId);
   const scopedHistory = history.filter((record) => record.scopeKey === currentScopeKey);
   const historyRows = [...history.map(record => ({...record, answerCount: Object.values(record.answers).filter(a => a.value).length})), ...legacyHistory.filter(old => !history.some(record => record.sourceAttemptId === old.id)).map(old => ({ id: old.id, paperId: old.paperId, sectionId: old.sectionId, scopeKey: cetScopeKey(old.paperId, old.sectionId), title: old.title, purpose: old.mode === "exam" ? "self_test" as const : "practice" as const, timerMode: undefined, status: old.finishedAt ? "submitted" : "in_progress", updatedAt: old.updatedAt, answerCount: Object.values(old.answers).filter(Boolean).length }))];
@@ -460,7 +541,12 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       {activity?.purpose === "practice" && activity.status === "in_progress" && activeSectionIndex === scope.length - 1 && <button type="button" className="cet-direct-link" disabled={busy} onClick={() => setSheet("直接精读")}>结束练习并精读</button>}
       {activity?.purpose === "self_test" && activity.status === "in_progress" && activeSectionIndex === scope.length - 1 && <button type="button" className="cet-submit-passage" disabled={busy || model.mismatch} onClick={() => setSheet("提交自测")}>提交自测</button>}
 
-      <nav className="cet-bottom-nav"><button disabled={activeSectionIndex === 0} onClick={() => changeSection(scope[activeSectionIndex - 1].id, true)}>← 上一篇</button><span>{activeSectionIndex + 1} / {scope.length}</span><button disabled={activeSectionIndex === scope.length - 1} onClick={() => changeSection(scope[activeSectionIndex + 1].id, true)}>下一篇 →</button></nav>
+      {activity?.sectionId ? <nav className="cet-bottom-nav" aria-label="同题型路线">
+        {previousUnit && <button disabled={busy||routeLoading||Boolean(routeError)} onClick={()=>void navigateTypeUnit(previousUnit)}>← 上一题</button>}
+        <span title="同级别、同题型、同目标的全部可访问年份">{routeLoading?'正在读取同题型目录…':`${routePosition} / ${routeUnits.length} 篇`}</span>
+        {routeError ? <button onClick={()=>setRouteRetry(n=>n+1)}>重试目录</button> : hasNextUnit ? <button disabled={busy||routeLoading} onClick={()=>{const target=resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,Math.random);if(target)void navigateTypeUnit(target);}}>下一题 →</button> : !routeLoading && <span>本轮该题型已全部接触 <button onClick={()=>{saveCetTrail({...routeKey,...unit,id:crypto.randomUUID(),activityId:activity.id,at:new Date().toISOString(),reason:'round',round:routeProjection.round});setTrailEvents(readCetTrail());startNew(activity.purpose);}}>开始新一轮</button></span>}
+      </nav> : <nav className="cet-bottom-nav"><button disabled={activeSectionIndex === 0} onClick={() => changeSection(scope[activeSectionIndex - 1].id, true)}>← 上一篇</button><span>{activeSectionIndex + 1} / {scope.length}</span><button disabled={activeSectionIndex === scope.length - 1} onClick={() => changeSection(scope[activeSectionIndex + 1].id, true)}>下一篇 →</button></nav>}
+      {activity?.sectionId && testing && <p className="cet-muted">切换将保存当前自测并暂停。</p>}
     </div>;
   };
 
@@ -472,6 +558,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       lockedMessage: !shown ? "选择学习目标后开始阅读。" : paused ? "自测已暂停。点击继续自测后恢复题目与计时。" : undefined,
       onAssistanceShown: () => {
         if (view === "start" || testing || paused || owner.current !== storageOwner()) return;
+        if(current.current)try{touchTrail(current.current,paper,"assistance_shown");}catch{setNotice("路线记录尚未保存，请保留页面重试。");}
         try { saveCetExposure(exposureFor(section, paper.id, owner.current, "assist", `assist:${activity?.id || directSessionId.current}:${section.id}`, activity?.id)); } catch { /* Reading tools remain usable if exposure persistence is temporarily unavailable. */ }
       },
       toolbar: <>{shown && <PillNavAction className={toolbarStyles.action} label={`答题卡 ${answered}/${model.total}`} onClick={() => setSheet("答题卡")} />}{(testing || paused) && <PillNavAction className={toolbarStyles.action} label="提交自测" onClick={() => setSheet("提交自测")} />}{shown && activity?.purpose === "practice" && !activity.legacy && <PillNavAction className={toolbarStyles.action} label={activity.status === "submitted" ? "全部已提交" : activity.status === "ended" ? "练习已结束" : "提交全部"} disabled={busy || activity.status !== "in_progress" || model.mismatch} onClick={submitAll} />}</>,
