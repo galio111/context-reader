@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
+import { useAccount } from "@/components/AccountProvider";
+import { initializeLearningStorage, flushLearningStorage } from "@/lib/learningStorage";
 import ClearableField from "@/components/ClearableField";
 import { ACCOUNT_DATA_CHANGED_EVENT, ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import {
@@ -19,6 +21,7 @@ import {
   STANDALONE_DICTIONARY_CACHE_KEY,
 } from "@/lib/standaloneDictionaryCache";
 import {
+  beginDictionaryQuery, dictionaryHistoryOwner, type DictionaryQueryIntent,
   migrateStandaloneDictionarySessionHistory,
   normalizeStandaloneDictionaryQuery,
   readStandaloneDictionaryHistory,
@@ -34,6 +37,8 @@ const SESSION_KEY = "context-reader:standalone-dictionary:session:v3";
 const examples = ["take in", "微妙", "落实"];
 
 interface DictionarySession {
+  owner?: string;
+  historyVersion?: number;
   query: string;
   result: DictionaryResult | null;
   cache: Record<string, DictionaryResult>;
@@ -71,12 +76,14 @@ function groupSensesByPartOfSpeech(senses: DictionaryResult["senses"]) {
   return Array.from(groups, ([label, groupedSenses]) => ({ label, senses: groupedSenses }));
 }
 
-function readSession(): DictionarySession {
+function readSession(owner: string): DictionarySession {
   try {
-    const raw = window.sessionStorage.getItem(SESSION_KEY);
+    const raw = window.sessionStorage.getItem(`${SESSION_KEY}:${owner}`) ?? window.sessionStorage.getItem(SESSION_KEY);
     if (!raw) return { query: "", result: null, cache: {} };
     const value = JSON.parse(raw) as Partial<DictionarySession>;
+    if (value.owner !== owner) return { query: "", result: null, cache: {} };
     return {
+      owner: value.owner, historyVersion: value.historyVersion,
       query: typeof value.query === "string" ? value.query : "",
       result: value.result && typeof value.result === "object"
         ? normalizeDictionarySpelling(value.result as DictionaryResult)
@@ -97,7 +104,8 @@ function readSession(): DictionarySession {
 
 function writeSession(session: DictionarySession) {
   try {
-    window.sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+    const owner = dictionaryHistoryOwner();
+    window.sessionStorage.setItem(`${SESSION_KEY}:${owner}`, JSON.stringify({...session, owner, historyVersion: 1}));
   } catch {
     // Session persistence must never block lookup.
   }
@@ -316,6 +324,7 @@ export function BookDictionary({
   const [streamText, setStreamText] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [pendingHistorySave, setPendingHistorySave] = useState(false);
   const [history, setHistory] = useState<StandaloneDictionaryHistoryItem[]>([]);
   const [historyExpanded, setHistoryExpanded] = useState(false);
   const [historySearchOpen, setHistorySearchOpen] = useState(false);
@@ -338,6 +347,9 @@ export function BookDictionary({
       historyMatchesRef.current?.children[selectedHistoryIndex]?.scrollIntoView({ block: "nearest" });
     }
   }, [showHistoryMatches, selectedHistoryIndex]);
+  const accountState = useAccount();
+  const accountOwner = accountState.account.profile?.userId ?? accountState.localAccount?.userId ?? "guest";
+  const ownerRef = useRef("");
   const cacheRef = useRef<Record<string, DictionaryResult>>({});
   const abortRef = useRef<AbortController | null>(null);
   const activeActionIdRef = useRef("");
@@ -358,26 +370,27 @@ export function BookDictionary({
   }, []);
 
   useEffect(() => {
-    const session = readSession();
-    const legacySessionResults = Object.values(session.cache)
-      .map((cached) => normalizeDictionarySpelling(cached))
-      .filter((cached) => cached.inputStatus !== "misspelled");
-    const migratedCache = migrateStandaloneDictionarySessionCache(legacySessionResults);
-    const migratedHistory = migrateStandaloneDictionarySessionHistory(
-      legacySessionResults.map((cached) => cached.query),
-    );
-    const durableCache = Object.fromEntries(
-      migratedCache.map((item) => [item.normalizedQuery, item.result]),
-    );
-    cacheRef.current = { ...durableCache, ...session.cache };
-    setQuery(session.query);
-    setResult(session.result);
-    setHistory(
-      session.result?.inputStatus === "misspelled"
-        ? removeStandaloneDictionaryHistory(session.result.query)
-        : migratedHistory,
-    );
-  }, []);
+    if (accountState.loading) return;
+    let cancelled = false;
+    abortActiveDictionaryRequest();
+    setPendingHistorySave(false); setLoading(false); setQuery(""); setResult(null); setStreamText(""); setHistory([]); cacheRef.current = {};
+    void (async () => {
+      await initializeLearningStorage();
+      const owner = dictionaryHistoryOwner();
+      if (cancelled) return;
+      ownerRef.current = owner;
+      const session = readSession(owner);
+      const legacy = Object.values(session.cache).map(cached=>normalizeDictionarySpelling(cached))
+        .filter(cached=>cached.inputStatus !== "misspelled");
+      const migratedCache = migrateStandaloneDictionarySessionCache(legacy);
+      const history = session.historyVersion === 1 ? readStandaloneDictionaryHistory()
+        : await migrateStandaloneDictionarySessionHistory(legacy.map(c=>c.query), session.owner);
+      if (cancelled || owner !== dictionaryHistoryOwner()) return;
+      cacheRef.current = {...Object.fromEntries(migratedCache.map(item=>[item.normalizedQuery,item.result])),...session.cache};
+      setQuery(session.query); setResult(session.result); setHistory(history);
+    })().catch(()=>{if(!cancelled)setError("历史记录暂未可靠保存，请稍后重试；原数据已保留。");});
+    return ()=>{cancelled = true; abortActiveDictionaryRequest();};
+  }, [accountState.loading, accountOwner, abortActiveDictionaryRequest]);
 
   useEffect(() => () => abortActiveDictionaryRequest(), [abortActiveDictionaryRequest]);
 
@@ -425,6 +438,7 @@ export function BookDictionary({
         && event.key !== STANDALONE_DICTIONARY_HISTORY_KEY
         && event.key !== STANDALONE_DICTIONARY_CACHE_KEY
       ) return;
+      if (ownerRef.current !== dictionaryHistoryOwner()) return;
       setHistory(readStandaloneDictionaryHistory());
       cacheRef.current = {
         ...cacheRef.current,
@@ -443,13 +457,17 @@ export function BookDictionary({
     };
   }, []);
 
-  function rememberLookup(nextQuery: string) {
-    setHistory(recordStandaloneDictionaryHistory(nextQuery));
+  function rememberLookup(nextQuery: string, intent: DictionaryQueryIntent) {
+    if (intent.owner !== dictionaryHistoryOwner()) return;
+    try {
+      setHistory(recordStandaloneDictionaryHistory(nextQuery, intent));
+      void flushLearningStorage().catch(()=>setError("查询成功，但历史尚未可靠保存，请稍后重试。"));
+    } catch { setError("查询成功，但历史尚未可靠保存，请稍后重试。"); }
   }
 
   async function lookup(nextQuery = query, options: { force?: boolean } = {}) {
     const normalized = nextQuery.trim().replace(/\s+/g, " ");
-    if (!normalized || loading) return;
+    if (!normalized || loading || accountState.loading || ownerRef.current !== dictionaryHistoryOwner()) return;
     setHistorySearchOpen(false);
     setActiveHistoryIndex(-1);
     setQuery(normalized);
@@ -461,15 +479,16 @@ export function BookDictionary({
       setError(validationError);
       return;
     }
+    const intent = beginDictionaryQuery(normalized);
     const cached = options.force ? null : cacheRef.current[cacheKey(normalized)] ?? null;
     if (cached) {
       setResult(cached);
       writeSession({ query: normalized, result: cached, cache: cacheRef.current });
       if (cached.inputStatus === "misspelled") {
-        setHistory(removeStandaloneDictionaryHistory(normalized));
+        void deleteHistory(normalized);
       } else {
         recordStandaloneDictionaryCache(cached);
-        rememberLookup(normalized);
+        rememberLookup(normalized, intent);
       }
       return;
     }
@@ -509,19 +528,20 @@ export function BookDictionary({
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
+        if (controller.signal.aborted || intent.owner !== dictionaryHistoryOwner()) return;
         current += decoder.decode(value, { stream: true });
         setStreamText(current);
         if (!historyRecorded) {
           const partial = parseDictionaryStream(current, normalized);
           if (partial.result.inputStatus !== "misspelled" && partial.result.senses.length > 0) {
-            rememberLookup(normalized);
+            rememberLookup(normalized, intent);
             historyRecorded = true;
           }
         }
       }
       current += decoder.decode();
       setStreamText(current);
-      if (controller.signal.aborted) return;
+      if (controller.signal.aborted || intent.owner !== dictionaryHistoryOwner()) return;
       const parsed = parseDictionaryStream(current, normalized);
       if (!isCompleteDictionaryResult(parsed)) {
         setError("词典结果没有完整生成，请重新查询。");
@@ -535,13 +555,13 @@ export function BookDictionary({
       ].slice(-80));
       writeSession({ query: normalized, result: dictionary, cache: cacheRef.current });
       if (dictionary.inputStatus === "misspelled") {
-        setHistory(removeStandaloneDictionaryHistory(normalized));
+        void deleteHistory(normalized);
       } else {
         recordStandaloneDictionaryCache(dictionary);
-        if (!historyRecorded) rememberLookup(dictionary.query || normalized);
+        if (!historyRecorded) rememberLookup(normalized, intent);
       }
     } catch (lookupError) {
-      if (controller.signal.aborted) return;
+      if (controller.signal.aborted || intent.owner !== dictionaryHistoryOwner()) return;
       setError(await describeCaughtRequestError(lookupError, {
         operation: "standalone_dictionary_lookup",
         endpoint: "/api/dictionary-stream",
@@ -567,8 +587,17 @@ export function BookDictionary({
     void lookup(queryToLookup);
   }
 
-  function deleteHistory(queryToDelete: string) {
-    setHistory(removeStandaloneDictionaryHistory(queryToDelete));
+  async function deleteHistory(queryToDelete: string) {
+    const owner = dictionaryHistoryOwner();
+    try {
+      const pending = removeStandaloneDictionaryHistory(queryToDelete);
+      setHistory(readStandaloneDictionaryHistory());
+      const next = await pending;
+      if (owner === dictionaryHistoryOwner()) setPendingHistorySave(false);
+      if (owner === dictionaryHistoryOwner()) setHistory(next);
+    } catch {
+      if (owner === dictionaryHistoryOwner()) {setPendingHistorySave(true); setError("删除尚未可靠保存，记录已暂时隐藏；请重试保存，勿清理浏览器数据。");}
+    }
   }
 
   return (
@@ -720,6 +749,11 @@ export function BookDictionary({
           </div>
         )}
         {error && <p className={styles.error} role="alert">{error}</p>}
+        {pendingHistorySave && <button type="button" onClick={() => {
+          const owner = dictionaryHistoryOwner();
+          void flushLearningStorage().then(()=>{if(owner===dictionaryHistoryOwner()){setPendingHistorySave(false);setError("");}})
+            .catch(()=>setError("删除仍未可靠保存，请稍后再次重试。"));
+        }}>重试保存历史</button>}
       </div>
 
       <div className={styles.resultPage} data-pointer-quiet>
