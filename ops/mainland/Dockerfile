@@ -1,7 +1,9 @@
 FROM node:22-alpine AS dependencies
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
+# Mainland build downloads use the regional mirror; npm ci still verifies the
+# committed lockfile versions and integrity hashes for every package.
+RUN npm ci --registry=https://registry.npmmirror.com
 
 FROM node:22-alpine AS builder
 WORKDIR /app
