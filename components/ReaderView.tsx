@@ -19,6 +19,7 @@ import { PillNavAction } from "@/components/PillNavAction";
 import { MOBILE_READER_SHEET_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useMobileSheetScrollBoundary } from "@/components/useMobileSheetScrollBoundary";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
+import {readCetViewport,saveCetViewport} from "@/lib/cetLocalViewport";
 import { useCetQuestionDock } from "@/components/cet/useCetQuestionDock";
 import { ReaderTextContext } from "@/components/ReaderTextAdapter";
 import { WordToken } from "@/components/WordToken";
@@ -1465,6 +1466,7 @@ export function ReaderView({
   const [savingArticle, setSavingArticle] = useState(false);
   const [mobileExplanationOpen, setMobileExplanationOpen] = useState(false);
   const [rightPanelMode, setRightPanelMode] = useState<RightPanelMode>("explanation");
+  const questionScroll=useRef<HTMLDivElement>(null);
   const questionDock=useCetQuestionDock(examSurface?.questions?.key,Boolean(examSurface?.questions?.available));
   const mobileToolSheet = useMobileBottomSheet(
     mobileExplanationOpen || questionDock.open,
@@ -1481,6 +1483,10 @@ export function ReaderView({
     () => setReaderWorkLayer(null),
   );
   const [mobileViewport, setMobileViewport] = useState(false);
+  useLayoutEffect(()=>{
+    if(!questionDock.open||!examSurface?.questions)return;
+    if(questionScroll.current)questionScroll.current.scrollTop=readCetViewport(`dock:${examSurface.questions.key}`);
+  },[questionDock.open,examSurface?.questions?.key,mobileViewport]);
   const [readerImportMode, setReaderImportMode] = useState<"text" | "url">("text");
   const [readerImportText, setReaderImportText] = useState("");
   const [readerImportUrl, setReaderImportUrl] = useState("");
@@ -2593,7 +2599,7 @@ export function ReaderView({
     return <ReaderTextContext.Provider value={{register:registerExternalText,selected:selectedTokenIdSet}}>
       <div className="cet-question-dock-content" data-question-dock-content onPointerDown={handleArticlePointerDown} onPointerMove={handleArticlePointerMove} onPointerUp={handleArticlePointerUp} onPointerCancel={handleArticlePointerCancel} onClick={handleArticleClick} onKeyDown={event=>{if(event.key==="Escape"){event.preventDefault();closeQuestions(true);return;}if(event.key!=="Enter"&&event.key!==" ")return;const token=tokenFromEventTarget(event.target);if(token){event.preventDefault();handleTokenClick(token);}}}>
         <header><div><strong>题目</strong><small>{examSurface.questions.answered}/{examSurface.questions.total} 已答</small></div><button type="button" aria-label="收起题目" onClick={()=>closeQuestions(true)}>×</button></header>
-        <div className="cet-question-dock-scroll" data-local-scroll-surface>{examSurface.questions.render(context=>{void explainContext(context,[]);})}</div>
+        <div ref={questionScroll} className="cet-question-dock-scroll" data-local-scroll-surface onScroll={event=>saveCetViewport(`dock:${examSurface.questions!.key}`,event.currentTarget.scrollTop)}>{examSurface.questions.render(context=>{void explainContext(context,[]);})}</div>
       </div>
     </ReaderTextContext.Provider>;
   }

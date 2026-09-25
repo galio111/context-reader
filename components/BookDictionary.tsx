@@ -684,15 +684,14 @@ export function BookDictionary({
               <span className={styles.historyLabel}>历史查词</span>
               <div className={styles.historyRecent}>
                 {history.slice(0, visibleHistoryCount).map((item) => (
-                  <button
-                    key={item.normalizedQuery}
+                  <span className={styles.historyRecentItem} key={item.normalizedQuery}><button
                     type="button"
                     title={`查询 ${item.query}`}
                     aria-current={result && cacheKey(result.query) === item.normalizedQuery ? "true" : undefined}
                     onClick={() => selectHistory(item.query)}
                   >
                     {item.query}
-                  </button>
+                  </button><button type="button" className={styles.historyRecentDelete} aria-label={`删除“${item.query}”的历史记录`} onClick={()=>void deleteHistory(item.query)}>×</button></span>
                 ))}
               </div>
               {history.length > visibleHistoryCount && (

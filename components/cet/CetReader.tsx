@@ -18,9 +18,10 @@ import { prepareCetPracticeSubmitAll, cetPracticeTotals } from "@/lib/cetPractic
 import { cetViewModel } from "@/lib/cetViewModel";
 import {adjustCetTimer,projectCetTimer,currentCetEpoch,type CetTimerTarget} from "@/lib/cetAdjustableTimer";
 import { loadCetCatalogue } from "@/lib/cetCatalogueLoader";
-import { cetUnitKey, listAccessibleUnits, projectTrail, resolvePrevious, resolveNext, trailPosition, currentTrailRound, type CetTrailKey, type CetTypeUnit } from "@/lib/cetTypeTrail";
+import { listAccessibleUnits, projectTrail, resolvePrevious, resolveNext, trailPosition, currentTrailRound, type CetTrailKey, type CetTypeUnit } from "@/lib/cetTypeTrail";
 import {readCetTrail,saveCetTrail} from "@/lib/cetTypeTrailStorage";
 import { CetQuestionSurface, CetQuestionActions, type QuestionSurface, type QuestionAction } from "./CetQuestionSurface";
+import {readCetViewport,saveCetViewport} from "@/lib/cetLocalViewport";
 import { CetText } from "./CetText";
 import type { CetActivity, CetPaper, CetQuestion, CetSection } from "@/types/cet";
 import type { WordContext } from "@/types/reader";
@@ -127,6 +128,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const checkpointPractice = useCallback((stop = false) => {
     const a = current.current;
     const segment = practiceSegment.current;
+    if(stop&&a)saveCetViewport(`article:${a.owner}:${a.id}:${a.activeSection}`,window.scrollY);
     if (!a || (a.purpose !== "practice" && !a.legacy) || !segment || a.status === "submitted" || a.status === "ended") return;
     const epoch=currentCetEpoch(a,segment.sectionId);
     const oldSegment=a.timerParts[segment.id]||0;
@@ -166,7 +168,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
         current.current = selected;
         setActivity(selected);
         setView("reading");
-        pendingScroll.current = routeScroll.current.get(selected.id) || 0;
+        pendingScroll.current = routeScroll.current.get(selected.id) ?? readCetViewport(`article:${selected.owner}:${selected.id}:${selected.activeSection}`);
         if (selected.purpose === "practice" && selected.status === "in_progress" && !cetFinalizedSection(selected, selected.activeSection) && !selected.practiceTimerPaused && !document.hidden) practiceSegment.current = { id: `${selected.activeSection}#${crypto.randomUUID()}`, sectionId: selected.activeSection, start: Date.now() };
       } else if (old && old.paperId === loaded.id) {
         setLegacyPreview(adaptLegacyCetAttempt(old, loaded, owner.current));
@@ -177,18 +179,20 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entry.paperId, entry.sectionId, entry.attemptId, account.profile?.userId]);
 
+  const routeLevel=paper?.level || entry.preparedPaper?.level;
+  const routeEnabled=Boolean(entry.sectionId || activity?.sectionId);
   useEffect(() => {
-    if (!paper || !(entry.sectionId || activity?.sectionId)) return;
+    if (!routeLevel || !routeEnabled) return;
     const controller = new AbortController(), expectedOwner = storageOwner();
     setRouteLoading(true);setRouteError("");setRoutePapers([]);routePending.current=null;
     void loadCetCatalogue({signal:controller.signal,fetchPage:async(page)=>{
-      const response=await fetch(`/api/cet?level=${paper.level}&page=${page}&year=recent`,{signal:controller.signal});
+      const response=await fetch(`/api/cet?level=${routeLevel}&page=${page}&year=recent`,{signal:controller.signal});
       const data=await response.json();if(!response.ok)throw Error('目录暂不可用');return data;
     },onBatch:batch=>{if(!controller.signal.aborted&&storageOwner()===expectedOwner)setRoutePapers(batch.papers);}})
       .catch(()=>{if(!controller.signal.aborted)setRouteError('同题型目录未加载完整，请重试。');})
       .finally(()=>{if(!controller.signal.aborted)setRouteLoading(false);});
     return ()=>controller.abort();
-  }, [paper?.level || entry.preparedPaper?.level, Boolean(entry.sectionId || activity?.sectionId), account.profile?.userId, account.authenticated, routeRetry, storageOwner]);
+  }, [routeLevel, routeEnabled, account.profile?.userId, account.authenticated, routeRetry, storageOwner]);
 
   const touchTrail = useCallback((a:CetActivity,loaded:CetPaper,reason:'answer'|'assistance_shown'|'finalized'|'restart')=>{
     if(!a.sectionId || a.owner!==storageOwner())return;
@@ -349,7 +353,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
 
   const applyTimerAdjustment = async (kind:'reset'|'countdown') => {
     const a=current.current,target=timerTarget.current;
-    if(!a||!target||submitting.current||busy||owner.current!==storageOwner())return;
+    if(!a||!target||submitting.current||busy||owner.current!==storageOwner()||a.id!==target.activityId||a.activeSection!==target.sectionId||a.status==="submitted"||a.status==="ended"||a.purpose==="practice"&&cetFinalizedSection(a,a.activeSection))return;
     if(a.purpose==='self_test'&&a.status==='in_progress'&&cetRemainingMs(a)<=0){await commit('time_expired');return;}
     setBusy(true);
     try {
@@ -361,7 +365,13 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       if(target.owner!==storageOwner()||current.current?.id!==target.activityId)return;
       current.current=saved;setActivity(saved);pendingTimer.current=null;setSheet('');setNotice('计时已调整，答案和累计用时已保留。');
       if(saved.purpose==='practice'&&!saved.practiceTimerPaused&&!document.hidden)practiceSegment.current={id:`${saved.activeSection}#${crypto.randomUUID()}`,sectionId:saved.activeSection,start:Date.now()};
-    }catch{setNotice('计时调整尚未可靠保存，请重试；原记录保留。');}
+    }catch{
+      if(target.owner===storageOwner()&&current.current?.id===target.activityId){
+        setNotice('计时调整尚未可靠保存，请重试；原记录保留。');
+        const retained=current.current;
+        if(retained.purpose==='practice'&&retained.status==='in_progress'&&!retained.practiceTimerPaused&&!document.hidden&&!cetFinalizedSection(retained,retained.activeSection))practiceSegment.current={id:`${retained.activeSection}#${crypto.randomUUID()}`,sectionId:retained.activeSection,start:Date.now()};
+      }
+    }
     finally{setBusy(false);}
   };
   useEffect(()=>{
@@ -490,7 +500,8 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       setNotice("这个单词已用于另一空，请先清空原空格。"); return;
     }
     if((a.answers[key]?.value||"")===value)return;
-    const persisted = persistDraft(cetAnswer(a, key, value));
+    const answeredActivity=cetAnswer(a,key,value);if(answeredActivity===a)return;
+    const persisted = persistDraft(answeredActivity);
     if(persisted)try{touchTrail(current.current!,paper,"answer");}catch{setNotice("路线记录尚未保存，请保留页面重试。");}
     try { saveCetExposure(exposureFor(section, paper.id, owner.current, "answer", `answer:${a.id}:${section.id}`, a.id)); } catch { /* The draft remains visible and can be retried. */ }
     if(persisted) setNotice("");
@@ -620,13 +631,13 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       rail: <div className={`${toolbarStyles.railActions} cet-rail`}><button onClick={() => setSheet("选择真题")}><span>选择真题</span><small>按试卷或题型选择</small></button><button onClick={openGlobalHistory}><span>练习历史</span><small>继续或回看</small></button>{shown && <button onClick={() => setSheet("重新练习")}><span>重新练习</span><small>保留本轮记录</small></button>}</div>,
       timer,
 
-      questions: shown ? {key:`${activity?.id||directSessionId.current}:${section.id}`, available:!paused, title:section.title, answered:sectionAnswered,total:section.questions.length,
+      questions: shown ? {key:`${owner.current}:${activity?.id||directSessionId.current}:${section.id}`, available:!paused, title:section.title, answered:sectionAnswered,total:section.questions.length,
         onDismiss:()=>setChoice(prior=>prior?.surface==='dock'?null:prior),
         render:lookup=><div className="cet-dock-reading">{renderQuestions('dock',lookup)}{renderActions('dock')}</div>} : undefined,
       render: renderReading,
     }} />
     {timerAnchor && <CetOptionList anchor={timerAnchor} label="计时设置" value="" options={[{key:'reset',text:'归零'},{key:'countdown',text:activity&&projectCetTimer(activity,section.id).mode==='countdown'?'调整倒计时':'改为倒计时'}]} onClose={()=>setTimerAnchor(null)} onChoose={key=>{setTimerAnchor(null);setNotice('');setMinutes(String((activity&&projectCetTimer(activity,section.id).budget||600000)/60000));setSheet(key==='reset'?'计时归零':'设置倒计时');}} />}
-    {choice && <CetOptionList anchor={choice.anchor} options={[{key:"",text:"清空答案"}, ...choice.question.options.map(o=>({key:o.key,text:`${o.key} ${o.text}`}))]} value={activity?.answers[cetQuestionKey(choice.section.id, choice.question.number)]?.value || ""} label={`第 ${choice.question.number} 题选择${choice.section.type === "matching" ? "段落" : "单词"}`} onChoose={(key) => { updateDraft(choice.question, key, {activityId:choice.activityId,sectionId:choice.section.id}); setChoice(null); }} onClose={() => setChoice(null)} />}
+    {choice && activity?.status==="in_progress" && choice.activityId===activity.id && choice.section.id===activity.activeSection && <CetOptionList anchor={choice.anchor} options={[{key:"",text:"清空答案"}, ...choice.question.options.map(o=>({key:o.key,text:`${o.key} ${o.text}`}))]} value={activity?.answers[cetQuestionKey(choice.section.id, choice.question.number)]?.value || ""} label={`第 ${choice.question.number} 题选择${choice.section.type === "matching" ? "段落" : "单词"}`} onChoose={(key) => { updateDraft(choice.question, key, {activityId:choice.activityId,sectionId:choice.section.id}); setChoice(null); }} onClose={() => setChoice(null)} />}
     {sheet && <Sheet title={sheet} left={sheet === "选择真题"} onClose={() => setSheet("")}>
       {sheet === "计时归零" || sheet === "设置倒计时" ? <div className="cet-test-settings">
         <p>{sheet==='计时归零' ? activity&&projectCetTimer(activity,section.id).mode==='countdown'?'将重新从本轮设置时长倒计时，答案保留。':'仅重置当前计时，已选答案和原始累计用时保留。':'从新时长开始倒计时，已选答案和原始累计用时保留。'}</p>

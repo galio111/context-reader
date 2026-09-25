@@ -902,3 +902,8 @@
   .streamingResult .twoColumns section,
   .streamingResult footer { animation: none; }
 }
+
+.historyRecentItem { display:flex;align-items:center;min-width:0;flex:0 1 auto;gap:2px; }
+.historyRecent .historyRecentDelete { flex:0 0 28px;min-width:28px;padding:4px;min-height:32px;color:#63747b;background:transparent; }
+.historyRecent .historyRecentDelete:hover { background:#f4dfdc;color:#8f3028; }
+@media(pointer:coarse) { .historyRecent .historyRecentDelete { flex-basis:44px;min-width:44px;min-height:44px; } }
