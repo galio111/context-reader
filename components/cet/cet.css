@@ -1057,8 +1057,8 @@ html[data-context-theme="night"] .cet-disabled-menu button { background: #243b44
 .cet-dock-reading .cet-bottom-nav button { padding:8px;min-height:44px; }
 .cet-dock-reading .cet-question-actions > button { margin:12px 6px 0 0;min-height:44px; }
 .cet-question-dock-content .cet-text { user-select:none; }
-.cet-timer-more { min-width:36px;min-height:44px; }
-.cet-shared-toolbar .cet-timer-wrapper button.cet-timer { padding-right:36px; }
+.cet-timer-more { min-width:44px;min-height:44px; }
+.cet-shared-toolbar .cet-timer-wrapper button.cet-timer { padding-right:44px; }
 html[data-context-theme="night"] .cet-question-dock-content { background:#17272e;color:#dcebed;border-color:#48646d; }
 html[data-context-theme="night"] .cet-question-dock-content > header { border-color:#48646d; }
 html[data-context-theme="night"] .cet-question-dock-content small { color:#b9d0d6; }
