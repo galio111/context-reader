@@ -47,11 +47,11 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     // Action placement only; actual Reader geometry is verified separately in a browser.
     const bottomActions=()=>Array.from(ui.container.querySelectorAll('[data-question-actions="inline"] > button')).map(b=>b.getAttribute('data-action'));
     for(const [index,label] of ['选词填空','长篇匹配','仔细阅读 · 1','仔细阅读 · 2'].entries()) {
-      await user.click(ui.getByRole('button',{name:label,exact:true}));
+      await user.click(ui.getByRole('button',{name:label}));
       assert.deepEqual(bottomActions(),index===3?['submit-section','submit-all']:['submit-section']);
       assert.equal(ui.queryByRole('button',{name:'结束练习并精读'}),null);
     }
-    await user.click(ui.getByRole('button',{name:'选词填空',exact:true}));
+    await user.click(ui.getByRole('button',{name:'选词填空'}));
 
     await user.click(ui.getByRole("button", { name: "第 26 空，未作答" }));
     await user.click(ui.getByRole("option", { name: /^C\s*chance$/ }));
@@ -119,10 +119,10 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     const selfTest = readCetActivities().find((a) => a.purpose === "self_test")!;
     assert.equal(selfTest.id,pendingStartId);
     for(const [index,label] of ['选词填空','长篇匹配','仔细阅读 · 1','仔细阅读 · 2'].entries()) {
-      await user.click(ui.getByRole('button',{name:label,exact:true}));
+      await user.click(ui.getByRole('button',{name:label}));
       assert.deepEqual(bottomActions(),index===3?['submit-test']:[]);
     }
-    await user.click(ui.getByRole('button',{name:'选词填空',exact:true}));
+    await user.click(ui.getByRole('button',{name:'选词填空'}));
 
     reliableStore.flush=async()=>{throw new Error("injected local persistence failure");};
     await user.click(ui.getByRole("button",{name:"暂停自测计时"}));

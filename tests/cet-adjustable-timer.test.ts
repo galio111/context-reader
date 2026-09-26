@@ -45,7 +45,7 @@ test('fallback storage upgrade retains v3 source, one logical history and late o
  saveCetActivity(old,storage);const adjusted=adjustCetTimer(old,target(old),'reset',undefined,at(10),'upgrade');saveCetActivity(adjusted,storage);
  assert.ok(storage.getItem(CET_ACTIVITIES_V3_KEY)?.includes(old.id));assert.equal(readCetActivities(storage).length,1);
  const late=cetAnswer(old,old.questionKeys[0],'B',at(20),'late');saveCetActivity(late,storage);
- const restored=readCetActivities(storage)[0];assert.equal(restored.schemaVersion,4);assert.equal(restored.answers[old.questionKeys[0]],undefined);assert.ok(restored.conditions.includes('legacy_draft_conflict'));assert.ok(Object.values(restored.legacyDraftRecovery||{}).some(a=>a.answers[old.questionKeys[0]]?.value==='B'));
+ const restored=readCetActivities(storage)[0];assert.ok(restored.schemaVersion===4);assert.equal(restored.answers[old.questionKeys[0]],undefined);assert.ok(restored.conditions.includes('legacy_draft_conflict'));assert.ok(Object.values(restored.legacyDraftRecovery||{}).some(a=>a!==null && typeof a==='object' && (a as {answers?:Record<string,{value?:unknown}>}).answers?.[old.questionKeys[0]]?.value==='B'));
 });
 
 test('epoch ancestry outranks a stale future clock and merge is order independent',()=>{
